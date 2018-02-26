@@ -1,26 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import { addNote } from '../actions';
 import './CreateNote.css';
 
 class CreateNote extends React.Component {
   state = {
     title: '',
     entry: '',
+    redirect: false,
+  }
+
+  onChange = (event) => {
+    let { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.props.addNote(this.state);
+    this.setState({ redirect: true });
   }
 
   render() {
     return (
       <div className='create-note'>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <h2>Create New Note:</h2>
-          <input name='title' placeholder='Note Title' />
-          <textarea name="entry" placeholder='Note Content'></textarea>
-          <Link to='/'><button>Save</button></Link>
+          <input onChange={this.onChange} value={this.state.title} name='title' placeholder='Note Title' />
+          <textarea onChange={this.onChange} value={this.state.entry} name="entry" placeholder='Note Content'></textarea>
+          <button type='submit'>Save</button>
         </form>
+        {this.state.redirect ? <Redirect to='/' /> : null }
       </div>
     );
   }
 }
 
-export default connect()(CreateNote);
+export default connect(null, { addNote })(CreateNote);
