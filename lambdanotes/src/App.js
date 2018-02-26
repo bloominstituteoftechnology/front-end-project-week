@@ -10,7 +10,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App-container" style={{ display: "flex", flexFlow: "row no-wrap", border: "2px solid black", height: "700px" }}>
+      <div className="App-container" style={{ display: "flex", flexFlow: "row no-wrap", border: "2px solid black", height: "100%" }}>
         <Sidebar />
         <NotesList notes={this.state.notes} />
       </div>

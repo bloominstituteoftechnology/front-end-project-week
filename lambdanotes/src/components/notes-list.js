@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import dummyData from '../dummy-data';
+import Note from './note';
 
 class NotesList extends Component {
 
@@ -11,10 +11,12 @@ class NotesList extends Component {
     return (
       <div className="NotesList-container" style={{ border: "3px solid blue", width: "100%", padding: "10px" }}>
         <h1>Your Notes:</h1>
-        Notes will appear here
-        {this.props.notes.map((note) => {
-          return <div key={note.id}>{note.title}</div>
-        })}
+        <div style={{ display: "flex", flexFlow: "row wrap", border: "2px solid green" }}>
+          {this.props.notes.map((note) => {
+            return (
+              <Note key={note.id} note={note}/>
+              )})}
+        </div>
       </div>
     )
   }
