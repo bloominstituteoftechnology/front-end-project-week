@@ -6,12 +6,12 @@ You are to treat this week as if you are working at a company and the instructor
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repo you should use as a creative guide.  
 
 ## Trello Set Up:
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`.
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the Project Manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance.
+* [x] Create a Trello account
+* [x] Create a new board called "Lambda Notes - {Your Name}"
+* [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`.
+* [x] Fill in the `To Do` list with the MVP features listed below
+* [x] Fill in the `backlog` list with all the extra features listed below
+* [x] Share your board with the Project Manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance.
 
 ## MVP Features:
 * [ ] Display a list of notes
@@ -33,9 +33,6 @@ Once you have accomplished the MVP, you have been given a feature list that the 
 * Export all notes to a CSV
 * Create a login system around the MVP
 
-<<<<<<< HEAD
 You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School. 
 
-=======
-You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  
->>>>>>> 4e43bc9d7686b02509d71d8ad17129725e6ff192
+Trello link: https://trello.com/invite/b/gzvc1Su8/017d99a5e79e7b87d096230e6bd2cbac/lambda-notes 
