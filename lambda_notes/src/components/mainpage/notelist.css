@@ -1,0 +1,12 @@
+.noteList__box {
+  display:flex;
+  flex-direction: column;
+}
+
+-noteList__box-title {
+
+}
+
+-noteList__box-content {
+
+}

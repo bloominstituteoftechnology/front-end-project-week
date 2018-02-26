@@ -12,10 +12,14 @@ class MainPage extends React.Component {
 
   };
 
+  componentDidMount() {
+    this.setState({...this.state, switchTitle: 'Your Notes:'})
+  }
+
   renderSwitch = (param) => {
     switch(param) {
       case 'noteList':
-        return <NoteList />;
+        return <NoteList notesArr={this.state.notes}/>;
       case 'noteView':
         return <NoteView />;
       case 'editNote':
@@ -23,7 +27,7 @@ class MainPage extends React.Component {
       case 'createNote':
         return <CreateNote />;
       default:
-        return ;
+        return <NoteList notesArr={this.state.notes}/>;
     }
   }
 
@@ -31,7 +35,10 @@ class MainPage extends React.Component {
     return (
       <div>
         <div>hello</div>
-        {this.renderSwitch(this.state.switchValue)}
+        <div>{this.state.switchTitle}</div>
+        <div>
+          {this.renderSwitch(this.state.switchValue)}
+        </div>
       </div>
 
     );
