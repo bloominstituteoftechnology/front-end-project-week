@@ -1,0 +1,37 @@
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  background: rgb(215, 215, 215);
+  padding: 15px;
+}
+
+.sidebar__title {
+  font-size: 50px;
+  width: 100%;
+  color: rgb(74, 73, 74);
+  font-weight: bold;
+}
+
+.sidebar__buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.sidebar__button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background: rgb(42, 192, 196);
+  border: 0px;
+  color: white;
+  font-size: 16px;
+}
+
+.sidebar__button:active {
+  background: rgb(32, 159, 163);
+}

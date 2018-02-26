@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import './styles/reset.css';
 
 // Reducer
 import reducer from './reducer';
