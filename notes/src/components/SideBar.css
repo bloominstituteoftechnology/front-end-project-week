@@ -1,0 +1,29 @@
+.sidebar {
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: #D6D6D6;
+  border-right: 2px solid #BDBDBD;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  left: 0;
+  top: 0;
+}
+.sidebar h1 {
+  padding-left: 12px;
+  text-align: left;
+  user-select: none;
+  color: #4B4A4B;
+}
+.sidebar button {
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 90%;
+  height: 45px;
+  background: #1DC0C3;
+  color: white;
+  border: 1px solid #76A1A1;
+  user-select: none;
+  margin: 5px;
+}
