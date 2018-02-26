@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import Sidebar from './comps/Sidebar';
+import NoteList from './comps/NoteList';
 
 export default class App extends React.Component {
   render() {
@@ -11,7 +12,7 @@ export default class App extends React.Component {
           <Sidebar />
         </div>
         <div className="notesList__container">
-          This will be the list of notes
+          <NoteList notes={['note1', 'note2', 'note3', 'note4']} />
         </div>
       </div>
     );
