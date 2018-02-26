@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './css/App.css';
+import dummyData from './dummy-data';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      notes: dummyData
+    };
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          {this.state.notes.map((note, i) => {
+            return (
+              <p key={i}>{note.noteTitle} & {note.noteContent}</p>
+            );
+          })}
       </div>
     );
   }
