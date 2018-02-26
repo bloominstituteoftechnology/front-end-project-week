@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from './button';
+import NoteCard from './notecard';
 
 const HomeContainer = styled.div`
   display: flex;
@@ -18,8 +19,12 @@ const HomeContainer = styled.div`
     border-right: 1px solid #bfbfc0;
   }
   .right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     width: 620px;
     min-height: 700px;
+    padding: 20px;
     background-color: #f3f3f3;
   }
 `;
@@ -34,7 +39,9 @@ class Home extends Component {
           <Button backgroundColor='#5dbdc2' title='+ Create New Note' />
         </div>
         <div className='right'>
-
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
         </div>
 
       </HomeContainer>

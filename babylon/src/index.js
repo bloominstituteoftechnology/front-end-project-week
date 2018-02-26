@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 import App from './components/App';
 import './index.css';
 import rootReducer from './reducers';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers =
   typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
