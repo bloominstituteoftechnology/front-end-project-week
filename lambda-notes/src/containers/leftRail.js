@@ -1,6 +1,6 @@
 import React from 'react';
-import ViewNotesBtn from '../components/viewNotesBtn';
-import CreateNewNote from '../components/createNoteBtn';
+// import ViewNotesBtn from '../components/viewNotesBtn';
+// import CreateNewNote from '../components/createNoteBtn';
 
 const LeftRail = (props) => {
     return (

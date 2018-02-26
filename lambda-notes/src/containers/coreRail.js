@@ -5,7 +5,7 @@ const CoreRail = () => {
     return (
         <div className="core-rail">
             <div className="note-list__title">Your Notes:</div>
-            {/* <NoteList /> */}
+            <NoteList />
         </div>
     )
 }
