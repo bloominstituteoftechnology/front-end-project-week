@@ -1,8 +1,22 @@
-export const ADD_NOTE = 'ADD_NOTE';
+import { ADD_NOTE, } from '../actions';
 
-let nextNoteId = 0;
-export const addNote = data => ({
-  type: 'ADD_TODO',
-  id: nextNoteId++,
-  data
-});
+const intitialState = {
+  notes: [],
+};
+
+export default (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_NOTE':
+      return {
+        ...state,
+        notes: [...state.notes, {
+          id: action.id,
+          title: action.title,
+          body: action.body,
+        }
+        ],
+      };
+    default:
+      return state;
+  }
+};
