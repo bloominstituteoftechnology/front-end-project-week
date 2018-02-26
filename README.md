@@ -1,4 +1,4 @@
-Trello board is at:
+Aaron Burk's Trello board for this project is at:
 https://trello.com/b/K0A1Eg5h/lambda-notes
 
 # Front End Project Week
