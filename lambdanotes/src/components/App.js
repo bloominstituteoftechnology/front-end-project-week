@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
 
-class App extends Component {
+class App extends React.Component {
   state = {
     notes: [
       {
@@ -15,12 +15,12 @@ class App extends Component {
       {
         id: 1,
         title: 'Note 2',
-        body: 'Words and stuff.',
+        body: 'More words and stuff.',
       },
       {
         id: 2,
         title: 'Note 3',
-        body: 'Words and stuff.',
+        body: 'Even more words and stuff.',
       },
     ],
   };
@@ -28,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="App">
             <Sidebar />
             <Route path={"/"} render={()=><NoteList notes={this.state.notes} />} />
         </div>

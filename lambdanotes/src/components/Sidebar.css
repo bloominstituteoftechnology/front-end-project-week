@@ -1,0 +1,7 @@
+.Sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 6px;
+  background: lightgrey;
+  border-right: solid black 1px;
+}

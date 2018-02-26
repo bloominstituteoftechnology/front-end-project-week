@@ -1,0 +1,15 @@
+.Note {
+  display: flex;
+  flex-flow: column nowrap;
+  background: white;
+  border: solid black 1px;
+  margin: 10px;
+  width: 250px;
+  padding: 0px 20px 20px 20px;
+}
+
+.Note-NoteTitle {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}
