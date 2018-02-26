@@ -6,7 +6,7 @@ class MainPage extends React.Component {
   };
 
   render() {
-    return null;
+    return <div>hello</div>;
   }
 }
 
