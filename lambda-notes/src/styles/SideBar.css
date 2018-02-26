@@ -9,6 +9,7 @@
   background-color: #D7D7D7;
   overflow-x: hidden;
   padding-top: 20px;
+  border-right: 1px solid black;
 }
 
 /* The menu links */
