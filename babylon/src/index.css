@@ -136,10 +136,11 @@ table {
   box-sizing: border-box;
 }
 
-* {
+html {
   font-family: Roboto, sans-serif;
+  font-size: 10px;
 }
 
 body {
-  background-color: #2a2a2a;
+  background-color: #eeeeee;
 }
