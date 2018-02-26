@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { add_button_click } from '../actions/index';
+import { add_button_click, view_button_click } from '../actions/index';
 
 import './css/SideBar.css';
 
@@ -11,18 +11,21 @@ class SideBar extends React.Component {
     return (
       <div className="sidebar">
         <h1 className="sidebar-header"> Lambda Notes </h1>
-        <button className="side-buttons" >
+        <button className="side-buttons" onClick={this.handleView}>
           View Your Notes
         </button>
-        <button className="side-buttons" onClick={this.handleAdd}> + Create New Note </button>
+        <button className="side-buttons" onClick={this.handleCreate}> + Create New Note </button>
       </div>
     );
   }
 
-  handleAdd = () => {
-    console.log('handleAdd clicked')
+  handleCreate = () => {
     this.props.add_button_click();
   };
+
+  handleView = () => {
+    this.props.view_button_click();
+  }
 }
 
 const mapStateToProps = state => {
@@ -31,4 +34,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { add_button_click })(SideBar);
+export default connect(mapStateToProps, { add_button_click, view_button_click })(SideBar);

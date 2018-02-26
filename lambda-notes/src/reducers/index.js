@@ -1,3 +1,5 @@
+import * as actions from '../actions/index';
+
 const initialState = {
   notes: [
     {
@@ -60,8 +62,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    //Tried importing actions, wouldn't work that way...
-    case "ADD_BUTTON_CLICK":
+    case actions.ADD_BUTTON_CLICK:
+      return { ...state, current:action.payload};
+    case actions.VIEW_BUTTON_CLICK:
       return { ...state, current:action.payload};
     default:
       return state;
