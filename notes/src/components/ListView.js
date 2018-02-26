@@ -5,7 +5,6 @@ import './ListView.css';
 class ListView extends React.Component {
 
   render() {
-    console.log('list view', this.props);
     return (
       <div className='list-view'>
         {this.props.notes ?
@@ -31,7 +30,6 @@ class ListView extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     notes: state.notes,
   };

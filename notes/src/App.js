@@ -3,24 +3,27 @@ import { connect } from 'react-redux';
 import './App.css';
 import SideBar from './components/SideBar';
 import ListView from './components/ListView';
+import CreateNote from './components/CreateNote';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <SideBar />
-        <ListView />
-      </div>
+      <Router>
+        <div className="App">
+          <Route path='/' component={SideBar} />
+          <Route path='/' component={ListView} exact />
+          <Route path='/new' component={CreateNote} exact />
+        </div>
+      </Router>
     );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    creating: state.creating,
-    editing: state.editing,
     deleting: state.deleting,
-    expanded: state.expanded,
   };
 };
 

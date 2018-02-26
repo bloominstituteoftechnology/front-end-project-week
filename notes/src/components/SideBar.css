@@ -13,11 +13,14 @@
   top: 0;
 }
 .sidebar h1 {
-  padding-left: 10px;
+  padding-left: 20px;
   text-align: left;
   user-select: none;
   color: #4B4A4B;
   margin: 20px 0 20px 0;
+}
+.sidebar .button {
+  width: 90%;
 }
 .sidebar button {
   font-weight: 700;
