@@ -1,6 +1,6 @@
 import React from 'react';
 import './SideBar.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class SideBar extends React.Component {
 
@@ -8,9 +8,9 @@ class SideBar extends React.Component {
     return (
       <div className='sidebar'>
         <h1>Lambda Notes</h1>
-        <Link to='/' className='button'><button>View Your Notes</button></Link>
-        <Link to='/new' className='button'><button>+ Create New Node</button></Link>
-        <Link to='/export' className='button'><button>Export Notes</button></Link>
+        <NavLink to='/' className='button'><button>View Your Notes</button></NavLink>
+        <NavLink to='/new' className='button'><button>+ Create New Node</button></NavLink>
+        <NavLink to='/export' className='button'><button>Export Notes</button></NavLink>
       </div>
     );
   }
