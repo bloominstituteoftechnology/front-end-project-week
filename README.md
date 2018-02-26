@@ -25,4 +25,6 @@ Once you have accomplished the MVP, you have been given a feature list that the 
 * Export all notes to a CSV
 * Create a login system around the MVP
 
-You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  
+You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School. 
+
+Trello link: https://trello.com/invite/b/gzvc1Su8/017d99a5e79e7b87d096230e6bd2cbac/lambda-notes 
