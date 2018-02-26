@@ -8,6 +8,14 @@ You are to treat this week as if you are working at a company and the instructor
 
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repo you should use as a creative guide.  
 
+## Trello Set Up:
+* [ ] Create a Trello account
+* [ ] Create a new board called "Lambda Notes"
+* [ ] Create lists titled ```backlog```,```To Do```, ```In Progress```, and ```Done```.
+* [ ] Fill in the ```To Do``` list with the MVP features listed below
+* [ ] Fill in the ```backlog``` list with all the extra features listed below
+* [ ] Share your board with the Project Manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance.
+
 ## MVP Features:
 * [ ] Display a list of notes
 * [ ] Create a note with a title and content
