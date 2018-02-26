@@ -1,11 +1,26 @@
 import React from 'react';
+import Note from './Note';
 
-export default class NoteList extends React.Component {
-  state = {};
+class NoteList extends React.Component {
+  state = {
+    notes: this.props.notes,
+  }
 
   render() {
     return (
-      <h1>NoteList</h1>
+      <ul>
+        {this.state.notes.map((note, index) => {
+          return (
+            <Note
+              key={index}
+              title={note.title}
+              body={note.body}
+            />
+          );
+        })}
+      </ul>
     );
   }
 }
+
+export default NoteList;
