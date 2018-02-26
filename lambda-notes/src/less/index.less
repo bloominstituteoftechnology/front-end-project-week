@@ -1,3 +1,33 @@
-.App {
-  background-color: aqua;
+.NoteList {
+  display: flex;
+
+  .NoteList-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background-color: rgb(139, 139, 139);
+    border: 1px solid rgb(97, 97, 97);
+
+  }
+
+  .NoteList-content {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: lightgray;
+    padding: 5px;
+
+    .NoteList-content__card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 3px;
+
+      .NoteList-content__card {
+        border: 1px black solid;
+        margin: 3px;
+        max-width: 25%
+      }
+    }
+  }
 }

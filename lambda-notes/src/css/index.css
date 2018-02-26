@@ -1,3 +1,28 @@
-.App {
-  background-color: aqua;
+.NoteList {
+  display: flex;
+}
+.NoteList .NoteList-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: #8b8b8b;
+  border: 1px solid #616161;
+}
+.NoteList .NoteList-content {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  background-color: lightgray;
+  padding: 5px;
+}
+.NoteList .NoteList-content .NoteList-content__card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3px;
+}
+.NoteList .NoteList-content .NoteList-content__card-container .NoteList-content__card {
+  border: 1px black solid;
+  margin: 3px;
+  max-width: 25%;
 }
