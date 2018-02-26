@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
+import Sidebar from './Sidebar';
+import NoteList from './NoteList';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>LambdaNotes</h1>
-      </div>
+      <Router>
+        <div>
+          <Sidebar />
+          <Route path="/" component={NoteList} />
+        </div>
+      </Router>
     );
   }
 }
