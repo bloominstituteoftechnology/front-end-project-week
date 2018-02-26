@@ -4,12 +4,18 @@
   flex-flow: row nowrap;
   width: 100%;
   height: 100%;
-}
-
-.sidebar__container {
-  width: 30%;
+  background: rgb(243, 243, 243);
 }
 
 .notesList__container {
-  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  padding: 50px 40px;
+  width: 60%;
+}
+
+.notesList__header {
+  font-size: 24px;
+  margin-bottom: 30px;
 }

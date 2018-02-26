@@ -9,9 +9,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App__container">
-        <div className="sidebar__container">
-          <Sidebar />
-        </div>
+        <Sidebar />
         <div className="notesList__container">
           <h1 className="notesList__header">Your Notes:</h1>
           <NoteList />
