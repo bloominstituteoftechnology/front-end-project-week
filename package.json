@@ -1,0 +1,18 @@
+{
+  "name": "Lambda-Notes",
+  "version": "1.0.0",
+  "description": "* The goal of this code is to provide Notes data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2"
+  }
+}
