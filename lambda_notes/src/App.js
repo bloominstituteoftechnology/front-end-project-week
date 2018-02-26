@@ -4,6 +4,11 @@ import MainPage from './components/MainPage';
 import './App.css';
 
 class App extends Component {
+  state = {
+    mainPageTitle: '',
+    mainPageSwitch: '',
+  };
+
   render() {
     return (
       <div className="App">
@@ -11,7 +16,7 @@ class App extends Component {
           <NavBar />
         </div>
         <div className="App__rightbox">
-          <MainPage />
+          <MainPage title={this.state.mainPageTitle} value={this.state.mainPageSwitch} />
         </div>
       </div>
     );

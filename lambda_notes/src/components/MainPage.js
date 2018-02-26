@@ -16,6 +16,19 @@ class MainPage extends React.Component {
     this.setState({...this.state, switchTitle: 'Your Notes:'})
   }
 
+  render() {
+    return (
+      <div>
+        <div>hello</div>
+        <div>{this.state.switchTitle}</div>
+        <div>
+          {this.renderSwitch(this.state.switchValue)}
+        </div>
+      </div>
+
+    );
+  }
+
   renderSwitch = (param) => {
     switch(param) {
       case 'noteList':
@@ -31,18 +44,10 @@ class MainPage extends React.Component {
     }
   }
 
-  render() {
-    return (
-      <div>
-        <div>hello</div>
-        <div>{this.state.switchTitle}</div>
-        <div>
-          {this.renderSwitch(this.state.switchValue)}
-        </div>
-      </div>
+  askAppForTitle = () => {
+    this.setState({...this.state, switchTitle: this.props.title})
+  };
 
-    );
-  }
 }
 
 export default MainPage;
