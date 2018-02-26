@@ -1,0 +1,23 @@
+/*Main App*/
+.App {
+  text-align: center;
+  border: 1px solid red;
+  display: flex;
+}
+
+/*Side Bar*/
+.sidebar {
+	border: 1px solid green;
+}
+
+/*List View*/
+
+/*Note View*/
+
+.note {
+	border: 1px solid gray;
+}
+
+/*Add Noted*/
+
+/*Edit Note*/
