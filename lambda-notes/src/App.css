@@ -1,10 +1,13 @@
 .main {
     display:flex;
     justify-content: center;
+    height: 100%;
 }
 
 .main .container {
     width: 70%;
+    max-width: 800px;
     display: flex;
     flex-basis: row;
+    height: 100%;
 }

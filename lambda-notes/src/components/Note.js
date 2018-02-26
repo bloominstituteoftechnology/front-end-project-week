@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './Note.css'
+import './css/Note.css'
 
 function Note (props) {
-    const body = props.note.body.substr(0,105).concat('...')
+    const body = props.note.body.substr(0,160).concat('...')
 
     return (
         <div className="note">

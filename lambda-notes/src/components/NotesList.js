@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Note from './Note';
 
-import './NotesList.css'
+import './css/NotesList.css'
 
 class NotesList extends React.Component {
   render() {
