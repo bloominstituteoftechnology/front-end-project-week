@@ -5,19 +5,24 @@ import './ListView.css';
 class ListView extends React.Component {
 
   render() {
+    console.log('list view', this.props);
     return (
       <div className='list-view'>
         {this.props.notes ?
         <ul className='list-notes'>
-          {this.props.notes.map(note => {
+          <h2>Your Notes:</h2>
+          {this.props.notes.map((note, i) => {
             return (
-              <li>{note.entry}</li>
+              <li key={i} className='list-note'>
+              <div>{note.title}</div>
+              <div>{note.entry}</div>
+              </li>
             );
           })}
         </ul>
         :
         <div className='nothing-to-view'>
-          Please Add a note
+          <h2>Please Add a note</h2>
         </div>
         }
       </div>
@@ -26,9 +31,10 @@ class ListView extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     notes: state.notes,
   };
 };
 
-export default connect()(ListView);
+export default connect(mapStateToProps)(ListView);
