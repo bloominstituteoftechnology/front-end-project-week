@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <NoteList notes={this.state.notes}/>
-        <NewNote handleInput={this.handleInput} submitNote={this.submitNote}/>
+        <NewNote handleInput={this.handleInput} submitNote={this.submitNote} noteValue={this.state.note} detailsValue={this.state.details} />
       </div>
     );
   }
@@ -29,11 +29,12 @@ class App extends Component {
 
 submitNote = (e) => {
     e.preventDefault();
-    let newNote = this.state.note;
-    let newDetails = this.state.details;
-    let newObj = {newNote, newDetails};
+    let newObj = {
+      note: this.state.note, 
+      details: this.state.details,
+    };
     this.setState({
-      notes: this.state.notes + newObj,
+      notes: [...this.state.notes, newObj],
     })
     this.setState({
         note: '',

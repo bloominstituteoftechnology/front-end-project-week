@@ -7,7 +7,7 @@ const NoteList = (props) => {
                 <ul>
                     {props.notes.map((note) => {
                         return (
-                            <li key={note}>{note.note}
+                            <li key={props.notes.indexOf(note)}>{note.note}
                             <p>{note.details}</p>
                             </li>
                         )
