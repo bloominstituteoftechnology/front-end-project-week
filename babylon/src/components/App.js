@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Home from './home';
 
 const StyledApp = styled.div`
-  width: 820px;
+  width: 830px;
   margin: 20px auto 0;
   border: 1px solid #bfbfc0;
 `;
