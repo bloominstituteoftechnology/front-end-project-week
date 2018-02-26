@@ -9,9 +9,9 @@ class NotesList extends Component {
 
   render() {
     return (
-      <div className="NotesList-container" style={{ border: "3px solid blue", width: "100%", padding: "10px" }}>
+      <div className="NotesList-container" style={{ width: "100%", padding: "10px", backgroundColor: "rgb(243, 243, 243)" }}>
         <h1>Your Notes:</h1>
-        <div style={{ display: "flex", flexFlow: "row wrap", border: "2px solid green" }}>
+        <div style={{ display: "flex", flexFlow: "row wrap" }}>
           {this.props.notes.map((note) => {
             return (
               <Note key={note.id} note={note}/>
