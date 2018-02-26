@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/App.css';
 
 // Components
 import Sidebar from './comps/Sidebar';
@@ -12,6 +13,7 @@ class App extends React.Component {
           <Sidebar />
         </div>
         <div className="notesList__container">
+          <h1 className="notesList__header">Your Notes:</h1>
           <NoteList />
         </div>
       </div>

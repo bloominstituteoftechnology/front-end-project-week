@@ -1,0 +1,15 @@
+.App__container {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar__container {
+  width: 30%;
+}
+
+.notesList__container {
+  width: 50%;
+}
