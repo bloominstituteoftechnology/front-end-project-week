@@ -1,14 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ViewNote from './ViewNote';
+import { Link } from 'react-router-dom';
 
 class List extends React.Component {
 
   render() {
     return (
-      <div>
-      	{this.props.notes.map((note, i) => {
-      		return <ViewNote key={i} note={note} />
+      <div className='list'>
+      	{this.props.notes.map((note) => {
+      		return (
+            <Link to={{ pathname: `/notes/${note.id}`, note: note}}>
+              <div key={note.id}>
+                <div>{note.title}</div>
+                <div>{note.content}</div>
+              </div>
+            </Link>
+          );
       	})}
       </div>
     );

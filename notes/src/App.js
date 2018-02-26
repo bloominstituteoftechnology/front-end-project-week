@@ -26,7 +26,7 @@ class App extends Component {
     		<Route exact path="/" component={List} />
         <Route path="/addnote" component={AddNote} />
     		<Route path="/editnote" component={EditNote} />
-    		<Route path="/note/:id" component={ViewNote} />
+    		<Route path="/notes/:id" component={ViewNote} />
     		</div>
    		</div>
 		  </Router>

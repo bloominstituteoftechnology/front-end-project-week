@@ -2,7 +2,7 @@
 import { ADD_NOTE } from '../actions';
 
 const initialState = {
-  notes: [{title: 'test note title', content: 'test for initial note content'}]
+  notes: [{title: 'test note title', content: 'test for initial note content', id: 0}]
 };
 
 export const notesReducer = (state = initialState, action) => {
