@@ -12,17 +12,13 @@ class MainPage extends React.Component {
 
   };
 
-  componentDidMount() {
-    this.setState({...this.state, switchTitle: 'Your Notes:'})
-  }
-
   render() {
     return (
       <div>
         <div>hello</div>
-        <div>{this.state.switchTitle}</div>
+        <div>{this.props.title}</div>
         <div>
-          {this.renderSwitch(this.state.switchValue)}
+          {this.renderSwitch(this.props.caseValue)}
         </div>
       </div>
 
@@ -40,13 +36,9 @@ class MainPage extends React.Component {
       case 'createNote':
         return <CreateNote />;
       default:
-        return <NoteList notesArr={this.state.notes}/>;
+        return <div>Welcome to Lambda Notes</div>;
     }
   }
-
-  askAppForTitle = () => {
-    this.setState({...this.state, switchTitle: this.props.title})
-  };
 
 }
 

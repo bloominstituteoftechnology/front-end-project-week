@@ -1,7 +1,7 @@
 import React from 'react';
 import './navbar.css';
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div className="navbar__container">
       <div className="title">
@@ -9,10 +9,10 @@ const NavBar = () => {
         <div>Notes</div>
       </div>
       <div>
-        <button>View Your Notes</button>
+        <button onClick={() => props.changeSwitch('Your Notes:','noteList')} >View Your Notes</button>
       </div>
       <div>
-        <button>+ Create New Note</button>
+        <button onClick={() => props.changeSwitch('Create New Note:', 'createNote')} >+ Create New Note</button>
       </div>
     </div>
   );
