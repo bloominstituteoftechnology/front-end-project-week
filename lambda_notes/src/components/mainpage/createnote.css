@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.note__title {
+  width: 30%;
+}
+
+.note__content {
+  width: 80%;
+  height: 500px;
+}
+
+.note__button {
+  width: 100px;
+}
