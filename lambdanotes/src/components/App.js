@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
+import CreateNote from './CreateNote';
 
 class App extends React.Component {
   state = {
@@ -30,7 +31,8 @@ class App extends React.Component {
       <Router>
         <div className="App">
             <Sidebar />
-            <Route path={"/"} render={()=><NoteList notes={this.state.notes} />} />
+            <Route exact path={"/"} render={()=><NoteList notes={this.state.notes} />} />
+            <Route exact path={"/create"} render={()=><CreateNote />} />
         </div>
       </Router>
     );
