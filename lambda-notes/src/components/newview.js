@@ -20,3 +20,5 @@ class NewView extends Component {
         );
     }
 }
+
+export default NewView;
