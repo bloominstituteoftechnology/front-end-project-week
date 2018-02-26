@@ -3,13 +3,18 @@ import { connect } from 'react-redux';
 
 import Note from './Note';
 
+import './NotesList.css'
+
 class NotesList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="notes-list">
+        <h1 className="notes-header"> Your Notes: </h1>
+        <ul className="notes">
         {this.props.notes.map((note, index) => {
           return <Note key={note.id} index={index} note={note} />;
         })}
+        </ul>
       </div>
     );
   }

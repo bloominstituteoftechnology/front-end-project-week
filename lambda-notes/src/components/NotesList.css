@@ -1,0 +1,16 @@
+.notes-list {
+    background-color: #f0f0f0;
+    border: 1px solid grey;
+    border-left: 0px;
+}
+
+.notes-header {
+    font-size: 1.5rem;
+    padding:20px;
+    padding-top: 40px;
+}
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+}

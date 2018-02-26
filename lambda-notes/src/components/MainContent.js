@@ -2,10 +2,12 @@ import React from 'react';
 
 import NotesList from './NotesList';
 
+import './MainContent.css';
+
 class MainContent extends React.Component {
     render() {
         return (
-            <div>
+            <div className="main-content">
                 <NotesList />
             </div>
         )

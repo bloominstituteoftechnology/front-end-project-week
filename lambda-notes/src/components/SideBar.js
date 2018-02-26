@@ -1,12 +1,14 @@
 import React from 'react';
 
+import './SideBar.css';
+
 class SideBar extends React.Component {
     render() {
         return (
-            <div>
-                <h1> Lambda Notes </h1>
-                <button> View Your Notes </button>
-                <button> + Create New Note </button>
+            <div className="sidebar">
+                <h1 className="sidebar-header"> Lambda Notes </h1>
+                <button className="side-buttons" > View Your Notes </button>
+                <button className="side-buttons" > + Create New Note </button>
             </div>
         )
     }
