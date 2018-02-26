@@ -34,11 +34,15 @@ class MainPage extends React.Component {
       case 'editNote':
         return <EditNote />;
       case 'createNote':
-        return <CreateNote />;
+        return <CreateNote addNote={this.addNote}/>;
       default:
         return <div>Welcome to Lambda Notes</div>;
     }
-  }
+  };
+
+  addNote = (noteObj) => {
+    this.setState({ ...this.state, notes: this.state.notes.concat([noteObj]) });
+  };
 
 }
 
