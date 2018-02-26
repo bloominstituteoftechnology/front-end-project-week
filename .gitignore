@@ -1,7 +1,10 @@
 .DS_Store
+<<<<<<< HEAD
 
 /node_modules
+=======
+>>>>>>> fa6bf58d262b0cc5575e5911ebe1606c1468877e
 
-.DS_Store
+/node_modules
 
 .vscode/*
