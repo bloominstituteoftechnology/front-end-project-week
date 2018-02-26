@@ -1,3 +1,5 @@
+/* eslint no-underscore-dangle: [0] */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -24,4 +26,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-

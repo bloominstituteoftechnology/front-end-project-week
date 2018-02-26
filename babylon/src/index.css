@@ -139,3 +139,7 @@ table {
 * {
   font-family: Roboto, sans-serif;
 }
+
+body {
+  background-color: #2a2a2a;
+}
