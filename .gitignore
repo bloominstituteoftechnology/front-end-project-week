@@ -1,1 +1,9 @@
+<<<<<<< HEAD
 .DS_Store
+=======
+/node_modules
+
+.DS_Store
+
+.vscode/*
+>>>>>>> master-holder
