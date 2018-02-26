@@ -19,3 +19,7 @@
   font-size: 24px;
   margin-bottom: 30px;
 }
+
+.noteList {
+  overflow-y: auto;
+}

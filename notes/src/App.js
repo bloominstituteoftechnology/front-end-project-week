@@ -12,7 +12,9 @@ class App extends React.Component {
         <Sidebar />
         <div className="notesList__container">
           <h1 className="notesList__header">Your Notes:</h1>
-          <NoteList />
+          <div className="noteList">
+            <NoteList />
+          </div>
         </div>
       </div>
     );
