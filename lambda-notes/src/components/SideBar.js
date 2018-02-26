@@ -11,14 +11,24 @@ const SideBar = () => {
         
         <ul>
           <li>
-            <NavLink to="/NotesIndex" exact className="NotesIndex">
+            <NavLink to="/NotesIndex" className="NotesIndex">
               <button>View Your Notes</button>
             </NavLink>
           </li>
-          <li><button disabled="disabled">+ Create New Note</button></li>
-          <li><button disabled="disabled">Click Me Too</button></li>
+          <li>
+            <NavLink to="/" className="">
+              <button disabled="disabled">+ Create New Note</button>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/" className="">
+              <button disabled="disabled">Click Me Too</button>
+            </NavLink>
+          </li>
         </ul>
         <Route path="/NotesIndex" component={NotesIndex}/>
+        {/* <Route path="#" component={}/>
+        <Route path="#" component={}/> */}
       </div>
     </Router>
   )
