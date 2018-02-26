@@ -1,28 +1,27 @@
 import React from 'react';
 import NoteThumb from './NoteThumb';
 import { connect } from 'react-redux';
+import '../styles/NoteList.css';
 
 // props include the list of notes from App.js
 const NoteList = props => {
   return (
-    <div className="notelist__container">
-      <ul className="notelist">
-        {props.notes.map(note => {
-          return (
-            <li className="notelist__item">
-              <NoteThumb note={note} />
-            </li>
-          );
-        })}
-      </ul>
+    <div className="notelist">
+      {props.notes.map(note => {
+        return (
+          <div className="notelist__item">
+            <NoteThumb key={note.id} note={note} />
+          </div>
+        );
+      })}
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    notes: state.notes
-  }
-}
+    notes: state.notes,
+  };
+};
 
 export default connect(mapStateToProps)(NoteList);
