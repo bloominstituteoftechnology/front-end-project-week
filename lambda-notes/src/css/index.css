@@ -1,29 +1,7 @@
 .App {
-  text-align: center;
-}
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-.App-title {
-  font-size: 1.5em;
-}
-.App-intro {
-  font-size: large;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  display: flex;
+  flex-flow: row nowrap;
+  min-height: 100%;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -116,6 +94,7 @@ video {
   font-size: 62.5%;
   font: inherit;
   vertical-align: baseline;
+  height: 100%;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -152,4 +131,38 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+.left-rail {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 315px;
+  width: 32.8%;
+  background: #ddd;
+  min-height: 100%;
+  padding-left: 20px;
+}
+.left-rail .left-rail__title {
+  text-align: left;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bolder;
+  font-size: 3.2rem;
+  padding-top: 26px;
+}
+.core-rail {
+  display: flex;
+  background: ghostwhite;
+  color: black;
+  width: 100%;
+  padding-top: 83px;
+  padding-left: 40px;
+  min-height: 100%;
+}
+.core-rail .note-list__title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bolder;
+  font-size: 1.9rem;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
