@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class NoteList extends Component {
-    state = {
-        notes: [
-            {
-                note: 'Create App',
-                details: 'Get app up and working',
-            }
-        ],
-    }
+const NoteList = (props) => {
 
-    render() {
         return (
             <div>
                 <ul>
-                    {this.state.notes.map(note => {
+                    {props.notes.map((note) => {
                         return (
-                            <li>{note.note}
+                            <li key={note}>{note.note}
                             <p>{note.details}</p>
                             </li>
                         )
@@ -25,6 +16,6 @@ class NoteList extends Component {
             </div>
         )
     }
-}
+
 
 export default NoteList;
