@@ -1,0 +1,12 @@
+.left-bar {
+  border: 1px solid red;
+}
+
+.left-bar_header {
+  border: 1px solid blue;
+}
+
+.left-bar_button {
+  border: 1px solid green;
+}
+

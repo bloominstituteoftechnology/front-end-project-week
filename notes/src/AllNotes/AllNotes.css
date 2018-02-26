@@ -1,0 +1,18 @@
+.main-body {
+  border: 1px solid red;
+}
+.main-body_header {
+  border: 1px solid blue;
+}
+.main-body_notes {
+  border: 1px solid green;
+}
+.note-box {
+  border: 1px solid rgb(88, 14, 88);
+}
+.note-title {
+  border: 1px solid orange;
+}
+.note-body {
+  border: 1px solid rgb(149, 0, 255);
+}

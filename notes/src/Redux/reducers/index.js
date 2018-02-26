@@ -3,10 +3,12 @@ import { ADD_NOTE } from '../actions';
 const initialState = {
   notes: [
     {
+      id: 0,
       title: 'Go to the Store',
       body: 'Get this, this, and that.',
     },
     {
+      id: 1,
       title: 'Have fun',
       body: 'Meditate and then relax.',
     },
