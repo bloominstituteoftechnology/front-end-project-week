@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './css/App.css';
 import dummyData from './dummy-data';
+import NoteContainer from "./components/NoteContainer/NoteContainer";
 
 class App extends Component {
 
@@ -16,7 +17,7 @@ class App extends Component {
       <div className="App">
           {this.state.notes.map((note, i) => {
             return (
-              <p key={i}>{note.noteTitle} & {note.noteContent}</p>
+              <NoteContainer key={i} noteTitle={note.noteTitle} noteContent={note.noteContent} />
             );
           })}
       </div>
