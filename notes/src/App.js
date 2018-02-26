@@ -2,12 +2,8 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import Notes from './components/Notes'
 
-const Home = () => (
-    <div>
-        <h2>Home</h2>
-    </div>
-);
 
 const About = () => (
     <div>
@@ -50,7 +46,7 @@ const Topic = ({ match }) => (
                 <div>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <Link to="/">Notes</Link>
                         </li>
                         <li>
                             <Link to="/about">About</Link>
@@ -62,7 +58,7 @@ const Topic = ({ match }) => (
 
                     <hr />
 
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Notes} />
                     <Route path="/about" component={About} />
                     <Route path="/topics" component={Topics} />
 
