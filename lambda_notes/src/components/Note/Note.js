@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
-import Sidebar from '../Sidebar/Sidebar';
-import NotesList from '../NotesList/NotesList';
-import Note from '../Note/Note';
-import './App.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class App extends Component {
+class Note extends React.Component {
   state = {
     notes: [
       {title: 'Note1 title', content: 'aksdlfjalsdjflkasjfl kslkdfjlks'},
@@ -15,19 +12,23 @@ class App extends Component {
       {title: 'Note6 title', content: 'aksdlfjalsdjflkasjfl kslkdfjlks'},
       {title: 'Note7 title', content: 'aksdlfjalsdjflkasjfl kslkdfjlks'},
       {title: 'Note8 title', content: 'aksdlfjalsdjflkasjfl kslkdfjlks'},
-    ],
+    ],  
   }
-  render() {
+  render () {
+    const props = this.props;
+    console.log(this.props)
+
     return (
-      <div className="App">
-        <Sidebar />
-        <div className="Notes-Container">
-          <h2>Your Notes: </h2>
-          {this.state.notes.map((note, index) => <NotesList id={index} note={note}/>)}
+      <div className="Note-Container">
+        <div className="Note-Title">
+          {this.state.notes[props.match.params.id].title}
+        </div>
+        <div className="Note-Content">
+          {this.state.notes[props.match.params.id].content}
         </div>
       </div>
-    );
-  }
+      )
+    }
 }
 
-export default App;
+export default Note;
