@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/NoteThumb.css';
 
 // props.note is a note object with title and content
 const NoteThumb = props => {
