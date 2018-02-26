@@ -29,6 +29,7 @@ class App extends Component {
 
 submitNote = (e) => {
     e.preventDefault();
+    if(this.state.note.length > 0 && this.state.details.length > 0) {
     let newObj = {
       note: this.state.note, 
       details: this.state.details,
@@ -41,6 +42,7 @@ submitNote = (e) => {
         details: '',
     });
   }
+}
 }
 
 export default App;
