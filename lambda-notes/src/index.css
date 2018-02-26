@@ -31,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 html, body {
 	line-height: 1;
 	background: darkgray;
-	height: 100%;
+	height: 100vh;
 }
 ol, ul {
 	list-style: none;
@@ -53,5 +53,5 @@ table {
 }
 
 #root {
-	height: 100%;
+	height: 100vh;
 }

@@ -66,6 +66,8 @@ export default (state = initialState, action) => {
       return { ...state, current:action.payload};
     case actions.VIEW_BUTTON_CLICK:
       return { ...state, current:action.payload};
+    case actions.ADD_NOTE:
+      return { ...state, notes: [...state.notes, action.payload]}
     default:
       return state;
   }
