@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-// const styles = {
-//   display: "flex",
-//   flex-direction: "column",
-// }
-
 const Sidebar = (props) => {
   return(
     <div className="Sidebar-container" style={{ display: "flex", flexDirection: "column", width: "200px", border: "3px solid red", padding: "10px" }} >

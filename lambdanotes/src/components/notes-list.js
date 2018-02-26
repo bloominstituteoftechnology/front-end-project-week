@@ -2,13 +2,9 @@ import React, { Component } from 'react';
 import dummyData from '../dummy-data';
 
 class NotesList extends Component {
-  state = {
-    notes: [...dummyData],
-    test: true,
-  }
 
   componentDidMount() {
-    console.log(this.state);
+    console.log(this.props);
   }
 
   render() {
@@ -16,7 +12,7 @@ class NotesList extends Component {
       <div className="NotesList-container" style={{ border: "3px solid blue", width: "100%", padding: "10px" }}>
         <h1>Your Notes:</h1>
         Notes will appear here
-        {this.state.notes.map((note) => {
+        {this.props.notes.map((note) => {
           return <div key={note.id}>{note.title}</div>
         })}
       </div>
