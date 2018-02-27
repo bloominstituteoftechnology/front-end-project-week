@@ -17,6 +17,7 @@ const ButtonStyled = styled.button`
   width: 100%;
   background-color: rgb(94, 190, 195);
   color: #FFFFFF;
+  outline: none;
 `
 
 const Sidebar = (props) => {

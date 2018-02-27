@@ -14,16 +14,19 @@ const CreateNoteStyled = styled.div`
     height: 50px;
     background-color: rgb(94, 190, 195);
     color: #FFFFFF;
+    outline: none;
   }
 
   .NoteTitleInput {
     width: 50%;
+    outline: none;
   }
 
   .NoteContentInput {
     width: 80%;
     height: 300px;
     margin-top: 10px;
+    outline: none;
   }
 `
 
