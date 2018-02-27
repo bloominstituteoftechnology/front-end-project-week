@@ -47,6 +47,7 @@
   line-height: 29px;
   height: 150px;
   margin-top: 7px;
+  overflow: hidden;
 }
 
 a {

@@ -1,6 +1,6 @@
 .main-body {
   width: 825px;
-  border: 1px solid #9B9B9B;
+  border: 1px solid #9b9b9b;
   border-left: 0px;
   background: #f3f3f3;
   padding-top: 10px;
@@ -8,47 +8,55 @@
 .main-body_header {
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 24px;
-  color: #4A494A;
+  color: #4a494a;
   font-weight: bold;
   margin: 65px 0px 25px 25px;
 }
 .main-body_fields {
   display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-  justify-content: space-around;
-  padding-left: 15px;
+  padding-left: 25px;
   padding-right: 15px;
   padding-top: 12px;
 }
-.note-box {
-  background: #ffffff;
-  box-sizing: border-box;
-  border: 2px solid lightgrey;
-  width: 240px;
-  height: 230px;
-  margin-bottom: 20px;
-  padding: 20px;
-}
-.note-title {
-  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
-  font-size: 22px;
-  font-weight: bold;
-  color: black;
-  border-bottom: 2px solid lightgrey;
-  padding-bottom: 7px;
+
+.title-div {
+  margin-bottom: 17px;
 }
 
-.note-body {
+.title-input {
+  height: 52px;
+  width: 425px;
+  padding-left: 15px;
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #4A494A;
-  letter-spacing: 1px;
-  line-height: 29px;
-  height: 150px;
-  margin-top: 7px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px rgb(160, 160, 160) solid;
 }
 
-a {
-  text-decoration: none;
+.body-div {
+  margin-bottom: 15px;  
+}
+
+.body-input {
+  height: 425px;
+  width: 765px;
+  padding-left: 25px;
+  padding-top: 25px;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 235px;
+  height: 53px;
+  margin-bottom: 65px;
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  color: white;
+  background: #2AC0C4;
+  border: 1px solid #9B9B9B;
 }

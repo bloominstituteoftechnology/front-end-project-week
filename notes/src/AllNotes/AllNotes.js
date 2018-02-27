@@ -10,7 +10,8 @@ class AllNotes extends Component {
         <div className="main-body_header">Your Notes:</div>
         <div className="main-body_notes">
           {this.props.notes.map((eachNote, i) => {
-            return (
+            return ( // Here, return a class which takes in the two values and returns <Link> and everything within it.
+            
               //Maybe get the note title as the link instead,
               // javascript to shorten it and add dashes,
               // then dash note id at the end

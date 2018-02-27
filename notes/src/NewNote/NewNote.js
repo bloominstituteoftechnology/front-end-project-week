@@ -32,23 +32,27 @@ class NewNote extends Component {
         <div className="main-body_header">Create New Note:</div>
         <div className="main-body_fields">
           <form type="submit" onSubmit={this.addNote}>
-            <input
-              type="text"
-              className="body-input"
-              placeholder="Note Title"
-              onChange={this.updateNote}
-              name="title"
-              value={this.state.title}
-            />
-            <input
-              type="text"
-              className="title-input"
-              placeholder="Note Content"
-              onChange={this.updateNote}
-              name="body"
-              value={this.state.body}
-            />
-            <input type="submit" value="submit" className="submit-button" />
+            <div className="title-div">
+              <input
+                type="text"
+                className="title-input"
+                placeholder="Note Title"
+                onChange={this.updateNote}
+                name="title"
+                value={this.state.title}
+              />
+            </div>
+            <div className="body-div">
+              <textarea
+                type="text"
+                className="body-input"
+                placeholder="Note Content"
+                onChange={this.updateNote}
+                name="body"
+                value={this.state.body}
+              />
+            </div>
+            <input type="submit" value="Save" className="submit-button" />
           </form>
         </div>
       </div>
