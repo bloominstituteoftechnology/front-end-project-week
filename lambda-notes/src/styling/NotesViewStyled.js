@@ -29,6 +29,7 @@ height: 100%;
   padding: 20px;
   .header {
     height: 25px;
+    color: #4A494A;
   }
   h2 {
     font-weight: bold;

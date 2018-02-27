@@ -1,17 +1,13 @@
-import React, {Component} from 'react';
-import NoteStyled from '../styling/NoteStyled';
+import React from "react";
+import NoteStyled from "../styling/NoteStyled";
 
-class Notes extends Component {
-
-  render() {
-    return(
-      <NoteStyled>
-        <h4>{this.props.noteTitle}</h4>
-        <p>{this.props.text}</p>
-      </NoteStyled>
-    )
-  }
+function Notes(props) {
+  return (
+    <NoteStyled>
+      <h4>{props.note.title}</h4>
+      <p>{props.note.text}</p>
+    </NoteStyled>
+  );
 }
 
 export default Notes;
-

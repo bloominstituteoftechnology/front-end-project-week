@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import logo from "../styling/logo.svg";
+// import logo from "../styling/logo.svg";
 import "../styling/App.css";
 import { connect } from "react-redux";
 import Notes from './Notes';
 import NotesViewStyled from '../styling/NotesViewStyled';
+import { addNote } from '../actions';
 
 class App extends Component {
   state = {};
@@ -14,14 +15,15 @@ class App extends Component {
         <div className="LeftBar">
           <h1>Lambda Notes</h1>
           <button>View Your Notes</button>
-          <button>+Create New Note</button>
+          <button>+ Create New Note</button>
         </div>
-        {/* Left Bar */}
         <div className="MainView" > 
           <div className="header" />
           <h2>Your Notes:</h2>
           <div className="Notes">
-            <Notes />
+            {this.props.notes.map(note => {
+              return <Notes key={note.id} note={note}/>
+            })}
           </div>
         </div>
       </NotesViewStyled>
@@ -37,4 +39,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { addNote })(App);
