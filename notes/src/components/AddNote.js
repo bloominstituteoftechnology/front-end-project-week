@@ -11,8 +11,10 @@ class AddNote extends React.Component {
 
 	handleAddNote = (event) => {
 		event.preventDefault();
-		this.props.addNote(this.state);
-		this.props.history.push('/');
+		if(this.state.content !== '' && this.state.title !== ''){
+			this.props.addNote(this.state);
+			this.props.history.push('/');
+		}
 	}
 
 	handleOnChange = (event) => {

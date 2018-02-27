@@ -26,9 +26,10 @@ class ViewNote extends React.Component {
     }
     return (
       <div>
-      	<div className="note">
-          <div onClick={() => {this.handleEditNote(note)}}>Edit</div>
-          <div onClick={() => {this.handleDeleteNote(note.id)}}>Delete</div>
+      	<div className="view-note">
+          <div className="edit-delete">
+              <span onClick={() => {this.handleEditNote(note)}}> edit </span><span onClick={() => {this.handleDeleteNote(note.id)}}> delete </span>
+          </div>
        		<div className="note-title">{note.title}</div>
        		<div className="note-content">{note.content}</div>
        	</div>

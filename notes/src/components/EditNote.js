@@ -24,8 +24,10 @@ class EditNote extends React.Component {
 
 	handleEditNote = (event) => {
 		event.preventDefault();
-		this.props.editNote(this.state);
-		this.props.history.push('/');
+		if(this.state.content !== '' && this.state.title !== ''){
+			this.props.editNote(this.state);
+			this.props.history.push('/');
+		}
 	}
 
 	handleOnChange = (event) => {
@@ -40,23 +42,26 @@ class EditNote extends React.Component {
       return null;
     }
     return (
-      <div>
+      <div className="addnote">
+      	<div className="addnote-title">Edit Note:</div>
       	<form onSubmit={this.handleEditNote}>
-	      	<input 
+	      	<input
+	      	className="input-title" 
 	      	name="title" 
 	      	value={this.state.title}
-	      	placeholder="Title"
+	      	placeholder="Note Title"
 	      	onChange={this.handleOnChange}
 	      	/>
 
-	      	<input 
+	      	<textarea
+	      	className="input-content" 
 	      	name="content" 
 	      	value={this.state.content} 
-	      	placeholder="Content"
+	      	placeholder="Note Content"
 	      	onChange={this.handleOnChange} />
 
 	      	<br />
-	      	<button type="submit">Add Note</button>
+	      	<button type="submit">Update</button>
       	</form>
       </div>
     );

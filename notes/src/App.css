@@ -1,3 +1,4 @@
+
 /*Main App*/
 .App {
   text-align: center;
@@ -126,7 +127,7 @@
 	border-radius: 5px;
 	border: 1px solid #999999;
 	font-size: 17px;
-	padding: 23px 0px 0px 28px;
+	padding: 23px 10px 0px 26px;
 }
 
 .addnote button {
@@ -142,4 +143,25 @@
 }
 
 
-/*Edit Note*/
+/*View Note*/
+.view-note .edit-delete {
+	text-align: right;
+	margin: 21px 10px 0px 0px;
+}
+
+.view-note .edit-delete span {
+	padding: 0px 8px;
+	text-decoration: underline;
+}
+
+.view-note .note-title {
+	text-align: left;
+	margin: 20px 0px 0px 10px;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.view-note .note-content {
+	text-align: left;
+	margin: 35px 8px;
+}
