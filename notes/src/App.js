@@ -6,6 +6,7 @@ import './styles/App.css';
 import Sidebar from './comps/Sidebar';
 import NoteList from './comps/NoteList';
 import Note from './comps/Note';
+import NewNote from './comps/NewNote';
 
 class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class App extends React.Component {
         <div className="content__container">
           <Route exact path="/" component={NoteList} />
           <Route path="/view/:id" component={Note} />
+          <Route path="/new" component={NewNote} />
         </div>
       </div>
     );
