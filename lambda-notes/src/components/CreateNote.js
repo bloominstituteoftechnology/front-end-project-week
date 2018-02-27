@@ -47,9 +47,9 @@ class CreateNote extends React.Component {
   handleSumbit = event => {
     event.preventDefault();
     if (this.state.body === '' && this.state.title === '') alert('Add a title and note!');
-    else if (this.state.body === '') alert ('Add a note!');
+    else if (this.state.body === '') alert('Add a note!');
     else if (this.state.title === '') alert('Add a title!');
-    else { 
+    else {
       this.props.add_note(this.state);
       this.setState({
         title: '',

@@ -5,16 +5,18 @@ import Note from './Note';
 
 import './css/NotesList.css';
 
-class NotesList extends React.Component {
+class SearchResults extends React.Component {
   render() {
     return (
       <div className="notes-list">
-        <h1 className="notes-header"> Your Notes: </h1>
+        <h1 className="notes-header"> Results From Search: </h1>
+        {this.props.results.length === 0 ? <h1 className='notes-header'>No Results</h1> :
         <ul className="notes">
-          {this.props.notes.map((note, index) => {
+          {this.props.results.map((note, index) => {
             return <Note key={note.id} note={{ ...note, index: index }} />;
           })}
         </ul>
+        }
       </div>
     );
   }
@@ -22,8 +24,8 @@ class NotesList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    results: state.results,
   };
 };
 
-export default connect(mapStateToProps, null)(NotesList);
+export default connect(mapStateToProps, null)(SearchResults);

@@ -5,6 +5,8 @@ export const VIEW_NOTE = 'VIEW_NOTE';
 export const EDIT_NOTE_CLICKED = 'EDIT_NOTE_CLICKED';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
+export const SEARCH_CLICK = 'SEARCH_CLICK';
+export const SEARCH_RESULTS_CLICKED = 'SEARCH_RESULTS_CLICKED';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -31,34 +33,50 @@ export const add_note = note => {
   };
 };
 
-export const view_note = (note) => {
-  const payload = { note, current:'note' };
+export const view_note = note => {
+  const payload = { note, current: 'note' };
   return {
     type: 'VIEW_NOTE',
     payload,
   };
 };
 
-export const edit_note_clicked = (note) => {
-  const payload = {note, current: 'edit' };
+export const edit_note_clicked = note => {
+  const payload = { note, current: 'edit' };
   return {
     type: 'EDIT_NOTE_CLICKED',
     payload,
-  }
-}
+  };
+};
 
 export const edit_note = (updated, original) => {
-  const note = {title:updated.title, body:updated.body, id:original.id, index:original.index}
+  const note = { title: updated.title, body: updated.body, id: original.id, index: original.index };
   return {
     type: 'EDIT_NOTE',
     payload: note,
-  }
-}
+  };
+};
 
-export const delete_note = (note) => {
-  const payload = {note, current: 'list'}
+export const delete_note = note => {
+  const payload = { note, current: 'list' };
   return {
     type: 'DELETE_NOTE',
     payload,
-  }
-}
+  };
+};
+
+export const search_click = () => {
+  const payload = 'search';
+  return {
+    type: 'SEARCH_CLICK',
+    payload,
+  };
+};
+
+export const search_results_clicked = results => {
+  const payload = { results, current: 'results' };
+  return {
+    type: 'SEARCH_RESULTS_CLICKED',
+    payload,
+  };
+};

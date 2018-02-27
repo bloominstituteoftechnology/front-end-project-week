@@ -59,6 +59,7 @@ const initialState = {
   ],
   current: 'list',
   note: null,
+  results: [],
 };
 
 export default (state = initialState, action) => {
@@ -96,6 +97,11 @@ export default (state = initialState, action) => {
           ...state.notes.slice(action.payload.note.index + 1),
         ],
       };
+    case actions.SEARCH_CLICK:
+      return { ...state, current: action.payload };
+    case actions.SEARCH_RESULTS_CLICKED:
+      console.log(action.payload);
+      return { ...state, current: action.payload.current, results: action.payload.results };
     default:
       return state;
   }

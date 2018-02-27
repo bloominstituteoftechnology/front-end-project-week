@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { add_button_click, view_button_click } from '../actions/index';
+import { add_button_click, view_button_click, search_click } from '../actions/index';
 
 import './css/SideBar.css';
 
 class SideBar extends React.Component {
-  
   render() {
     return (
       <div className="sidebar">
@@ -14,7 +13,14 @@ class SideBar extends React.Component {
         <button className="side-buttons" onClick={this.handleView}>
           View Your Notes
         </button>
-        <button className="side-buttons" onClick={this.handleCreate}> + Create New Note </button>
+        <button className="side-buttons" onClick={this.handleCreate}>
+          {' '}
+          + Create New Note{' '}
+        </button>
+        <button className="side-buttons" onClick={this.handleSearch}>
+          {' '}
+          Search Here{' '}
+        </button>
       </div>
     );
   }
@@ -25,7 +31,11 @@ class SideBar extends React.Component {
 
   handleView = () => {
     this.props.view_button_click();
-  }
+  };
+
+  handleSearch = () => {
+    this.props.search_click();
+  };
 }
 
 const mapStateToProps = state => {
@@ -34,4 +44,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { add_button_click, view_button_click })(SideBar);
+export default connect(mapStateToProps, { add_button_click, view_button_click, search_click })(
+  SideBar
+);

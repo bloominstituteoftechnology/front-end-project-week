@@ -17,14 +17,22 @@ class ViewNote extends React.Component {
           edit
         </div>
         <div>
-        <div className='delete' onClick={this.openModal}>delete</div>
-        <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
-          <div> Are you sure you want to delete this? <br/>
-          <button className='modal-delete' onClick={this.handleDelete}>Delete</button>
-          <button className='modal-no' onClick={this.closeModal}>No</button>
+          <div className="delete" onClick={this.openModal}>
+            delete
           </div>
-        </Modal>
-      </div>
+          <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
+            <div>
+              {' '}
+              Are you sure you want to delete this? <br />
+              <button className="modal-delete" onClick={this.handleDelete}>
+                Delete
+              </button>
+              <button className="modal-no" onClick={this.closeModal}>
+                No
+              </button>
+            </div>
+          </Modal>
+        </div>
         <h1 className="view-header"> {this.props.note.title} </h1>
         <p className="view-body"> {this.props.note.body} </p>
       </div>
@@ -35,14 +43,13 @@ class ViewNote extends React.Component {
   };
   handleDelete = () => {
     this.props.delete_note(this.props.note);
-
-  }
+  };
   openModal = () => {
-    this.setState({modalIsOpen: true});
-  }
+    this.setState({ modalIsOpen: true });
+  };
   closeModal = () => {
     this.setState({ modalIsOpen: false });
-  }
+  };
 }
 
 //Tried doing this as css/className, but that didn't work.
@@ -55,7 +62,7 @@ const customStyles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
     padding: '50px',
-    textAlign: 'center'
+    textAlign: 'center',
   },
 };
 
