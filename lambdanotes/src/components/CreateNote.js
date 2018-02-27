@@ -30,7 +30,8 @@ export default class CreateNote extends React.Component {
             placeholder="Note Title"
             onChange={this.handleInputChange}
             required
-          /> <br />
+          />
+          <br />
           <input
             value={this.state.body}
             name="body"
@@ -38,7 +39,8 @@ export default class CreateNote extends React.Component {
             placeholder="Note Content"
             onChange={this.handleInputChange}
             required
-          /> <br />
+          />
+          <br />
           <Link to={"/"}><button onClick={() => this.handleSubmit()} type="submit">Save</button></Link>
         </form>
       </div>

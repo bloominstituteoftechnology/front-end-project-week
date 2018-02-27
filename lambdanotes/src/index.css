@@ -7,3 +7,15 @@ html, body {
 li {
   list-style: none;
 }
+
+button {
+  color: white;
+  background-color: teal;
+  border: solid black 1px;
+  margin: 6px;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
