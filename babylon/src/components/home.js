@@ -13,7 +13,7 @@ const HomeContainer = styled.div`
   }
   .left {
     width: 210px;
-    min-height: 700px;
+    min-height: 400px;
     padding: 15px;
     background-color: #d7d7d7;
     border-right: 1px solid #bfbfc0;
@@ -21,13 +21,22 @@ const HomeContainer = styled.div`
   .right {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
     align-content: flex-start;
     width: 620px;
     min-height: 700px;
     padding: 20px;
     background-color: #f3f3f3;
   }
+
+  h2 {
+    width: 100%;
+    margin: 30px 0 5px 10px;
+    font-size: 2rem;
+    letter-spacing: 1px; 
+    font-weight: bold;
+    color: #4a494a;
+  }
+  
 `;
 
 class Home extends Component {
@@ -40,6 +49,11 @@ class Home extends Component {
           <Button backgroundColor='#5dbdc2' title='+ Create New Note' />
         </div>
         <div className='right'>
+          <h2>Your Notes:</h2>
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
+          <NoteCard />
           <NoteCard />
           <NoteCard />
           <NoteCard />

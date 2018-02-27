@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.div`
+
   button {
     display: block;
     margin: 20px auto 0;
@@ -15,6 +16,7 @@ const StyledButton = styled.div`
       outline: none;
     }
   }
+
 `;
 
 const Button = props => (
