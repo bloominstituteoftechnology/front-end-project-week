@@ -43,13 +43,26 @@ button {
 .App-intro {
   font-size: large;
 }
-.single-note {
-display:flex;
-    width:30%;    
+.notes-title {
+  font-size: 2rem;
 }
- h4{
+.notes-container {
+ 
+display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around; 
+}
+.single-note {
+
+    width:25%; 
+    border: 2px solid #ddd;
+    margin: 1%;
+    height: 30%;   
+}
+ h4{ 
         text-align:left;
         font-size: 1.5rem;
+        border-bottom: 2px solid #ddd;
     }
     p{
     height:30%;
