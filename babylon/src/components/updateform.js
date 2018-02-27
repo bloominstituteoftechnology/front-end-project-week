@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { updateNote } from '../actions';
 import Button from './button';
 
-const StyledForm = styled.div`
+const StyledUpdateForm = styled.div`
   display: flex;
 
   form {
@@ -45,7 +45,7 @@ const StyledForm = styled.div`
 
 `;
 
-class Form extends React.Component {
+class UpdateForm extends React.Component {
   state = {
     title: '',
     body: '',
@@ -53,7 +53,7 @@ class Form extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    this.props.updateNote(this.state);
     this.setState({
       title: '',
       body: '',
@@ -68,7 +68,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <StyledForm>
+      <StyledUpdateForm>
         <form onSubmit={this.handleSubmit}>
           <input
             className='form__input'
@@ -90,11 +90,11 @@ class Form extends React.Component {
             onChange={this.handleChange}
             value={this.state.body}
           />
-          <Button type='submit' backgroundColor='#5dbdc2' title='Save' />
+          <Button type='submit' backgroundColor='#5dbdc2' title='Update' />
         </form>
-      </StyledForm>
+      </StyledUpdateForm>
     );
   }
 }
 
-export default connect(null, { addNote })(Form);
+export default connect(null, { updateNote })(UpdateForm);

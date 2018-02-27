@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LeftRail from './leftrail';
 import SectionTitle from './sectiontitle';
-import Form from './form';
+import PostForm from './postform';
 
 const StyledNewNote = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const NewNote = () => (
     <LeftRail />
     <div className='new-note__right'>
       <SectionTitle name='Create New Note:'/>
-      <Form />
+      <PostForm />
     </div>
   </StyledNewNote>
 );
