@@ -1,0 +1,74 @@
+.App {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Left-Column {
+  color: #4a4a4a;
+  background-color: #d8d8d8;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 2px 1px 2px 2px;
+}
+
+.Left-Header {
+  font-size: 35px;
+  margin: 20px 10px 20px;
+}
+
+.Right-Column {
+  color: #4a4a4a;
+  background-color: #f3f3f3;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 2px 2px 2px 1px;
+  padding: 40px 30px;
+}
+
+.Right-Header {
+  font-size: 22px;
+  margin: 0 0 15px 6px;
+}
+
+.List-View {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.Note {
+  width: 150px;
+  height: 150px;
+  padding: 10px 20px 20px 20px;
+  font-size: 14px;
+  margin: 10px 5px 15px 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #979797;
+  background-color: #fff;
+}
+
+.Note-Header {
+  color: #000;
+  font-size: 19px;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #000;
+  padding: 0px 0px 10px 0px;
+  margin: 0px;
+}
+
+button {
+  color: #fff;
+  background-color: #62bec2;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 2px;
+  width: 205px;
+  height: 45px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 15px;
+}
