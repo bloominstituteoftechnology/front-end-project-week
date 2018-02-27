@@ -54,6 +54,10 @@ body {
   height: 350px;
   margin-bottom: 40px;
 }
+.rightPanel .note:hover {
+  border: green 5px solid;
+  cursor: pointer;
+}
 .rightPanel .note .noteTitle {
   padding-bottom: 10px;
   font-weight: bold;
