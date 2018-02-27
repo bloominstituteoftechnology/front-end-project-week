@@ -1,10 +1,11 @@
 import { ADD_NOTE, } from '../actions';
+import dummyData from '../dummydata';
 
-const intitialState = {
-  notes: [],
+const initialState = {
+  notes: [...dummyData],
 };
 
-export default (state = [], action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_NOTE':
       return {
