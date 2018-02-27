@@ -1,7 +1,3 @@
-@import './sections';
-@import './inputs';
-@import './buttons';
-
 body {
   margin: 0;
   padding: 0;

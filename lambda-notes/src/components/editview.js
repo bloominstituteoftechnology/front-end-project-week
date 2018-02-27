@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class NewView extends Component {
+class EditView extends Component {
     render() {
         return (
             <div className="section">
@@ -15,12 +15,12 @@ class NewView extends Component {
 
                 <div className="section__content__right">
                 <div className="section__content__inputs">
-                     <h3>Create New Note</h3>
+                     <h3>Edit Note:</h3>
                     <input className="input__note__title" value="Note Title"></input>
                       <br />
                     <input className="input__note__content" value="Note Content"></input>
                       <br />
-                    <div className="button__main">Save</div>
+                    <div className="button__main">Update</div>
                 </div>
                 </div>
             </div>
@@ -28,4 +28,4 @@ class NewView extends Component {
     }
 }
 
-export default NewView;
+export default EditView;

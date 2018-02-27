@@ -1,7 +1,4 @@
-/* .App {
-  text-align: center;
-}
-
+/*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -26,3 +23,76 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 } */
+
+h1 {
+  color: rgb(60, 59, 59);
+}
+
+.section {
+  display: flex;
+  height: 1500px;
+  width: 100%;
+}
+
+.section__content__left {
+  display: flex;
+  justify-content: flex-start;
+  background: rgb(145, 145, 145);
+  flex-direction: column;
+  width: 20%;
+  align-items: center;
+  color: white;
+}
+
+.section__content__right {
+  display: flex;
+  justify-content: flex-start;
+  background: lightgray;
+  flex-direction: column;
+  width: 80%;
+}
+
+.section__content__inputs {
+  display: flex;
+  justify-content: flex-start;
+  background: lightgray;
+  flex-direction: column;
+  margin: 5%;
+}
+
+section__notes__icon {
+  border: solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.input__note__title { 
+  width: 50%;
+  height: 40px; 
+  border-radius: 2%;
+}
+
+.input__note__content { 
+  width: 99.3%;
+  height: 800px;
+  border-radius: 0.5%;
+}
+
+.button__main {
+  width:10rem;
+  background: rgb(18, 215, 215);
+  padding: 0.5rem;
+  text-align: center;
+  border: solid grey;
+  color: white;
+}
+
+.button__main delete {
+  background: red;
+}
+
+.section__delete {
+  border: solid black;
+}
+
+

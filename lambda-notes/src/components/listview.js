@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NotesIcon from './notesicon';
 
 class NewView extends Component {
     render() {
@@ -15,11 +16,8 @@ class NewView extends Component {
 
                 <div className="section__content__right">
                 <div className="section__content__inputs">
-                     <h3>Create New Note</h3>
-                    <input className="input__note__title" value="Note Title"></input>
-                      <br />
-                    <input className="input__note__content" value="Note Content"></input>
-                      <br />
+                     <h3>Your Notes:</h3>
+                    <NotesIcon/>
                     <div className="button__main">Save</div>
                 </div>
                 </div>
@@ -28,4 +26,4 @@ class NewView extends Component {
     }
 }
 
-export default NewView;
+export default ListView;
