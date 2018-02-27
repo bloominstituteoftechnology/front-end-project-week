@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../styles/Note.css';
 
 const Note = props => {
   // this is the note object with the id that matches the url

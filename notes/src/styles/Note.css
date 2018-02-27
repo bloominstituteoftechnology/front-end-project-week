@@ -1,0 +1,15 @@
+.note__container {
+  width: 100%;
+}
+
+.note__title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.note__content {
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: lighter;
+}
