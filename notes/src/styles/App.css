@@ -2,9 +2,9 @@
   box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  background: rgb(243, 243, 243);
 }
 
 .content__container {
@@ -12,5 +12,9 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   padding: 50px 40px;
+  max-width: 950px;
   width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: rgb(243, 243, 243);
 }
