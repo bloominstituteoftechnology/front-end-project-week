@@ -64,11 +64,12 @@
   margin: 5%;
 }
 
-section__notes__icon {
+icon {
   border: solid black;
+  background: white;
   display: flex;
-  width: 20%;
-  height: 20px;
+  width: 50%;
+  height: 150px;
   justify-content: center;
 }
 

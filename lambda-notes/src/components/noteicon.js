@@ -3,11 +3,11 @@ import React from 'react';
 const Note = (props) => {
     return (
         icons.map(icon =>
-            <div className="section__notes__icon">
+            <icon>
                     <h4 key ={icon.id} >{icon.title}</h4>
                     <hr />
                     <p>{icon.content}</p>
-            </div>));
+            </icon>));
 
 
 };
