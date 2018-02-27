@@ -17,11 +17,11 @@ class ViewNote extends React.Component {
           edit
         </div>
         <div>
-        <div className='delete' onClick={this.openModal}>Delete</div>
-        <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
+        <div className='delete' onClick={this.openModal}>delete</div>
+        <Modal isOpen={this.state.modalIsOpen} style={customStyles} >
           <div> Are you sure you want to delete this? <br/>
-          <button onClick={this.handleDelete}>Delete</button>
-          <button onClick={this.closeModal}>No</button>
+          <button className='modal-delete' onClick={this.handleDelete}>Delete</button>
+          <button className='modal-no' onClick={this.closeModal}>No</button>
           </div>
         </Modal>
       </div>
@@ -45,15 +45,17 @@ class ViewNote extends React.Component {
   }
 }
 
+//Tried doing this as css/className, but that didn't work.
 const customStyles = {
   content: {
-    top: '50%',
+    top: '29.5%',
     left: '50%',
-    right: 'auto',
+    right: '60%',
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '50px'
+    padding: '50px',
+    textAlign: 'center'
   },
 };
 

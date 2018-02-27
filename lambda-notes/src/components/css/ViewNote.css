@@ -4,6 +4,7 @@
   border-left: 0px;
   width: 75%;
   padding: 20px;
+  position:relative;
 }
 
 .view-header {
@@ -19,10 +20,10 @@
 }
 
 .edit {
-    position: absolute;
-    top: 15px;
-    right: 250px;
-    text-decoration: underline; 
+  position: absolute;
+  top: 15px;
+  right: 80px;
+  text-decoration: underline;
 }
 
 .edit:hover {
@@ -30,12 +31,32 @@
 }
 
 .delete {
-    position: absolute;
-    top: 15px;
-    right: 200px;
-    text-decoration: underline; 
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  text-decoration: underline;
 }
 
 .delete:hover {
   cursor: pointer;
+}
+
+.modal-delete {
+  background: red;
+  color: white;
+  font-weight: bold;
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.modal-no {
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
