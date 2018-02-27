@@ -1,6 +1,4 @@
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import PostsIndex from './PostsIndex';
-import CreateNew from './CreateNew';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 import React from 'react';
 import '../styles/SideBar.css';
 

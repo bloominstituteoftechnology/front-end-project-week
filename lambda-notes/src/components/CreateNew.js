@@ -3,11 +3,24 @@ import { Field, reduxForm } from 'redux-form';
 import '../styles/CreateNew.css';
 
 class CreateNew extends Component {
-  render() {
+  renderTitleField(field) {
     return (
       <div>
-      CreateNew
+        <input 
+          {...field.input}
+        />
       </div>
+    );
+}
+
+  render() {
+    return (
+      <form>
+        <Field
+          name="title"
+          component={this.renderTitleField}
+        />
+      </form>
     );
   }
 }
