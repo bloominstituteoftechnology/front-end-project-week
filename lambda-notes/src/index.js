@@ -21,9 +21,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <SideBar />
-          <Route path="/" component={PostsIndex} exact />
-          <Route path="/notes/new" component={CreateNew}/>
-
+        <Route path="/" component={PostsIndex} exact />
+        <Route path="/notes/new" component={CreateNew} />
       </div>
     </BrowserRouter>
 </Provider>
