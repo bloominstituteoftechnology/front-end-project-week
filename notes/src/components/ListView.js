@@ -5,12 +5,13 @@ import { viewNote, deleteNote, reorderNotes } from '../actions';
 import './ListView.css';
 import Shiitake from 'shiitake';
 import DeleteNoteModal from './DeleteNoteModal';
+import removeMd from 'remove-markdown';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
   <li className='list-note' onClick={() => { viewNote(note)} }>
     <div className='item-title'><span>{note.title}</span></div>
-    <Shiitake lines={6} throttleRate={200} className='item-entry'>{note.entry}</Shiitake>
+    <Shiitake lines={6} throttleRate={200} className='item-entry'>{removeMd(note.entry)}</Shiitake>
   </li>
 );
 

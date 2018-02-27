@@ -2,12 +2,17 @@ import React from 'react';
 import './SideBar.css';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Papa from 'papaparse';
+import FileSaver from 'file-saver';
 
 class SideBar extends React.Component {
 
   exportCSV = () => {
     const jnotes = JSON.stringify(this.props.notes);
-    console.log(jnotes);
+    const csvnotes = Papa.unparse(jnotes);
+    console.log(csvnotes);
+    const file = new File([csvnotes], "lambda_notes.csv", {type: 'text/plain;charset=utf8'});
+    FileSaver.saveAs(file);
   }
 
   render() {

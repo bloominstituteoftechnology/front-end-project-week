@@ -30,6 +30,9 @@ class NoteView extends React.Component {
   }
 
   render() {
+    const Converter = require('react-showdown').Converter;
+    const converter = new Converter();
+
     return (
       <div className='note-view'>
         <div className='separator'>
@@ -38,7 +41,7 @@ class NoteView extends React.Component {
             <Link to={`/delete/${this.state.id}`} className='delete-button'>delete</Link>
           </div>
           <div className='note-title'>{this.state.title}</div>
-          <div className='note-entry'>{this.state.entry}</div>
+          <div className='note-entry'>{converter.convert(this.state.entry)}</div>
         </div>
         <div>
           {this.state.redirect ? <Redirect to='/404' /> : null }
