@@ -5,6 +5,7 @@ import Notes from './components/Notes'
 import {Row, Grid, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 import CreateNewNoteForm from './components/CreateNewNoteForm'
+import Details from './components/Details';
 
 
 // const Topics = ({ match }) => (
@@ -65,6 +66,7 @@ class App extends Component {
 
                             <Route exact path="/" component={Notes} />
                             <Route path="/create_new_note" component={CreateNewNoteForm} />
+                            <Route path="/details/:id" component={Details} />
 
                         </Col>
                     </Row>

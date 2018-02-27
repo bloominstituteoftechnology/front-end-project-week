@@ -1,15 +1,20 @@
 import React, {Component} from 'react';
-import {Row, Grid, Col} from 'react-bootstrap';
-import {getNotes} from '../actions'
+import {Row, Grid} from 'react-bootstrap';
+import {getNotes, getSingleNote} from '../actions'
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Loading from './Loading'
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class Notes extends Component {
 
     componentDidMount() {
         this.props.getNotes();
     }
+
+    goNoteDetails = (note) => {
+        this.props.getSingleNote(note);
+    };
 
     render() {
         return (
@@ -26,7 +31,10 @@ class Notes extends Component {
                                 <Row className={'notes-box'}>
                                     {this.props.notes.map((note, index) => {
                                         return (
-                                            <div key={index} md={4} className={'note-container'}>
+                                            <Link to={`/details/${note.id}`}
+                                                  key={index} md={4} className={'note-container'}
+                                                  onClick={() => {this.goNoteDetails(note)}}
+                                            >
 
                                                 <div className={"note-title"}>
                                                     {note.title}
@@ -35,7 +43,7 @@ class Notes extends Component {
                                                     {note.description}
                                                 </div>
 
-                                            </div>
+                                            </Link>
                                         );
                                     })}
                                 </Row>
@@ -55,10 +63,11 @@ const mapStateToProps = state => {
     return {
         notes: notes_reducer.notes,
         fetching: notes_reducer.fetching,
+        singleNote: notes_reducer.singleNote,
     }
 };
 
-export default connect(mapStateToProps, {getNotes})(Notes);
+export default connect(mapStateToProps, {getNotes, getSingleNote})(Notes);
 
 
 const NotesContainer = styled.div`
@@ -81,15 +90,20 @@ const NotesContainer = styled.div`
                     padding:8px 18px 8px 18px;
                     background-color:#FFFFFF;
                     
+                
                         .note-title{
                             font-weight:bold;
                             border-bottom:1px solid #AEAEAE;
                             width:100% !important;
                             margin-bottom: 5px;
                         }
+                         
                         
                         .note-description{
+                            overflow: hidden;
                             min-height:90px;
+                            max-height:90px;
+                            margin-bottom:15px;
                         }
                 }
         }

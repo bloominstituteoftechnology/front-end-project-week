@@ -84,15 +84,7 @@ class CreateNewNoteForm extends Component {
 
 }
 
-// const mapStateToProps = state => {
-//     const {smurfs_reducer} = state;
-//     return {
-//         showCreateFormL: smurfs_reducer.showCreateForm,
-//     }
-// };
-
 export default connect(null, {addNote})(CreateNewNoteForm);
-// export default CreateNewNoteForm;
 
 
 const CreateNewNoteFormContainer = styled.div`

@@ -1,9 +1,10 @@
-import {GET_NOTES, ADD_NOTES, FETCHING, ERROR_GETTING_NOTES} from '../actions/';
+import {GET_NOTES, ADD_NOTES, FETCHING, ERROR_GETTING_NOTES, SET_SINGLE_NOTE} from '../actions/';
 
 const initialState = {
     notes: [],
     fetching:false,
     error: null,
+    singleNote: [],
 };
 
 export const notes_reducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ export const notes_reducer = (state = initialState, action) => {
             };
         case ADD_NOTES:
             return {...state, notes: action.payload};
+        case SET_SINGLE_NOTE:
+            return {...state, singleNote: action.payload};
         default:
             return state;
     }
