@@ -5,7 +5,8 @@ const StyledText = styled.div`
   display: flex;
   margin: 20px 10px 15px;
   font-family: Raleway, sans-serif;
-  font-size: 1.3rem;
+  font-weight: 500;
+  font-size: 1.35rem;
   line-height: 180%;
   padding: 0, 10px;
 `;

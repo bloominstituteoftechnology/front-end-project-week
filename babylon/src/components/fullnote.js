@@ -18,12 +18,29 @@ const StyledNote = styled.div`
     background-color: #f3f3f3;
   }
 
+  .full-note__links {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    a {
+      margin: 0 5px;
+      font-family: Raleway, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #4a494a;      
+    }
+  }
+
 `;
 
 const FullNote = props => (
   <StyledNote>
     <LeftRail />
     <div className='full-note__right'>
+      <div className='full-note__links'>
+        <a href='#'>edit</a>
+        <a href='#'>delete</a>
+      </div>
       <SectionTitle name={props.notes[0].title}/>
       <TextBlock body={props.notes[0].body}/>
     </div>
