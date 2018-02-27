@@ -11,8 +11,8 @@ const NoteList = props => {
       <div className="noteList">
         {props.notes.map(note => {
           return (
-            <div className="notelist__item">
-              <NoteThumb key={note.id} note={note} />
+            <div key={note.id} className="notelist__item">
+              <NoteThumb note={note} />
             </div>
           );
         })}
