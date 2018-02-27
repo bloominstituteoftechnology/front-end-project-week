@@ -6,14 +6,17 @@ import '../styles/NoteList.css';
 // props include the list of notes from App.js
 const NoteList = props => {
   return (
-    <div className="notelist">
-      {props.notes.map(note => {
-        return (
-          <div className="notelist__item">
-            <NoteThumb key={note.id} note={note} />
-          </div>
-        );
-      })}
+    <div className="noteList__container">
+      <h1 className="notesList__header">Your Notes:</h1>
+      <div className="noteList">
+        {props.notes.map(note => {
+          return (
+            <div className="notelist__item">
+              <NoteThumb key={note.id} note={note} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

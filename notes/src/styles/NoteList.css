@@ -1,5 +1,20 @@
-.notelist {
+.notesList__container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  padding: 50px 40px;
+  width: 100%;
+}
+
+.notesList__header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.noteList {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
+  overflow-y: auto;
 }

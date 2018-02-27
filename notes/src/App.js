@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import './styles/App.css';
 
 // Components
@@ -10,11 +11,8 @@ class App extends React.Component {
     return (
       <div className="App__container">
         <Sidebar />
-        <div className="notesList__container">
-          <h1 className="notesList__header">Your Notes:</h1>
-          <div className="noteList">
-            <NoteList />
-          </div>
+        <div className="content__container">
+          <Route path="/" component={NoteList} />
         </div>
       </div>
     );
