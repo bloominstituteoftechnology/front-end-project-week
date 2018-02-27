@@ -3,6 +3,7 @@ import dummyData from '../dummydata';
 
 const initialState = {
   notes: [...dummyData],
+  deleteActive: false,
 };
 
 export default (state = initialState, action) => {

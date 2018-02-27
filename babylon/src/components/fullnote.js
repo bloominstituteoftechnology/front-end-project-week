@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import LeftRail from './leftrail';
 import SectionTitle from './sectiontitle';
 import TextBlock from './textblock';
+import Delete from './delete';
 
 const StyledNote = styled.div`
   display: flex;
-
+  position: relative;
+  width: 830px;
   .full-note__right {
     display: flex;
     flex-wrap: wrap;
@@ -34,7 +36,8 @@ const StyledNote = styled.div`
 `;
 
 const FullNote = props => (
-  <StyledNote>
+  <StyledNote >
+    <Delete />
     <LeftRail />
     <div className='full-note__right'>
       <div className='full-note__links'>
@@ -50,6 +53,7 @@ const FullNote = props => (
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    deleteActive: state.deleteActive,
   };
 };
 
