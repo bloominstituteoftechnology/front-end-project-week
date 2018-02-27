@@ -10,6 +10,7 @@ const StyledCard = styled.div`
   background-color: #fffeff;
   border: 1px solid #bfbfc0;  
   border-radius: 1px;
+  word-wrap: break-word;
 
   h3 {
     padding-bottom: 4px;
@@ -35,7 +36,7 @@ const StyledCard = styled.div`
 const NoteCard = props => (
   <StyledCard>
     <h3>{props.note.title.length > 15 ? `${props.note.title.substring(0, 14)}...` : props.note.title}</h3>
-    <p>{props.note.body.length > 120 ? `${props.note.body.substring(0, 119)}...` : props.body.title}</p>
+    <p>{props.note.body.length > 120 ? `${props.note.body.substring(0, 119)}...` : props.note.body}</p>
   </StyledCard>
 );
 
