@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
+import {deleteNote} from '../actions';
 
 class DeleteNote extends Component {
 
     handleDelete = () => {
-
-        console.log('this si the note we have to delte:', this.props.noteId);
-
+        this.props.deleteNote(this.props.noteId);
     };
 
     render() {
@@ -18,14 +17,7 @@ class DeleteNote extends Component {
         )}
 }
 
-const mapStateToProps = state => {
-    const {notes_reducer} = state;
-    return {
-        note: notes_reducer.singleNote,
-    }
-};
-
-export default connect(mapStateToProps, {})(DeleteNote);
+export default connect(null, {deleteNote})(DeleteNote);
 
 const DeleteContainer = styled.span`
         text-align:center;

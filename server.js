@@ -22,9 +22,6 @@ server.get('/notes', (req, res) => {
 let noteId = 0;
 
 server.post('/notes', (req, res) => {
-
-    console.log('req.body:', req.body);
-
     const {title, description, tags} = req.body;
     const newNote = {title, description, tags, id: noteId};
     if (!title || !description || !tags) {
@@ -65,13 +62,12 @@ server.put('/notes/:id', (req, res) => {
     }
 });
 
-server.delete('/notes/:id', (req, res) => {
+server.delete('/notes/delete/:id', (req, res) => {
+    let {id} = req.params;
+    const noteId = parseInt(id);
 
-    console.log('req:', req.params);
-
-    const {id} = req.params;
     const foundNote = notes.find(note => {
-        note.id == id;
+        return note.id == noteId;
     });
 
     if (foundNote) {
@@ -81,7 +77,6 @@ server.delete('/notes/:id', (req, res) => {
     } else {
         sendUserError('No notes by that ID exists in the note DB', res);
     }
-
 });
 
 server.listen(port, err => {

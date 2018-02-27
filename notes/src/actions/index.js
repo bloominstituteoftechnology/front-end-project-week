@@ -50,9 +50,22 @@ export const getSingleNote = (note) => {
 };
 
 export const deleteNote = (noteId) => {
+    const id = parseInt(noteId);
+    const newNotes = axios.delete(`http://localhost:3333/notes/delete/${id}`, {
+        id:id,
+    });
+
     return dispatch => {
-        dispatch({type: DELETE_NOTE, payload: note});
+        newNotes
+            .then(({data}) => {
+                dispatch({type: DELETE_NOTE, payload: data});
+                window.location = "/";
+            })
+            .catch(err => {
+                dispatch({type: ERROR_GETTING_NOTES, payload: err});
+            });
     };
+
 };
 
 
