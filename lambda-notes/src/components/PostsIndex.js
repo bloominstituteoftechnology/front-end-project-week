@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
@@ -7,9 +8,25 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
 
+  renderPosts() {
+    //Utilizing the Lodash Map Function to map over the object and return an array.
+    return _.map(this.props.posts, post => {
+      return (
+        <li key={post.id}>
+          {post.title}
+        </li>
+      )
+    })
+  }
+
   render() {
     return (
-      <div>POSTS INDEX
+      <div className="notesContainer">
+        <h3>Your Notes</h3>
+        <hr/>
+        <ul>
+          {this.renderPosts()}
+        </ul>
       </div>
     );
   }
