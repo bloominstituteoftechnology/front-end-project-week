@@ -1,11 +1,11 @@
 import React from "react";
 
 const NoteGen = props => {
-  return props.dd.map((ele, i) => {
+  return props.notes.map((note, i) => {
     return (
-      <div className="note">
-        <h1 className="noteTitle">{ele.title}</h1>
-        <p className="noteContent">{ele.content}</p>
+      <div className="note" key={i}>
+        <h1 className="noteTitle">{note.title}</h1>
+        <p className="noteContent">{note.content}</p>
       </div>
     );
   });
