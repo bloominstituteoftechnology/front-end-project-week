@@ -3,6 +3,7 @@ import NoteList from './mainpage/NoteList';
 import NoteView from './mainpage/NoteView';
 import EditNote from './mainpage/EditNote';
 import CreateNote from './mainpage/CreateNote';
+import './mainpage.css';
 
 class MainPage extends React.Component {
   state = {
@@ -21,14 +22,15 @@ class MainPage extends React.Component {
           {this.renderSwitch(this.props.caseValue)}
         </div>
       </div>
-
     );
   }
 
   renderSwitch = (param) => {
     switch(param) {
       case 'noteList':
-        return <NoteList notesArr={this.state.notes}/>;
+        return <div className= "mainPage__noteView">
+          <NoteList notesArr={this.state.notes}/>
+        </div>;
       case 'noteView':
         return <NoteView />;
       case 'editNote':

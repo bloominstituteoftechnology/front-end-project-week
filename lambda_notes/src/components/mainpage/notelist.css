@@ -1,3 +1,9 @@
+.noteList__container {
+  width: 300px;
+  height: 250px;
+  border: 1px solid black;
+}
+
 .noteList__box {
   display:flex;
   flex-direction: column;

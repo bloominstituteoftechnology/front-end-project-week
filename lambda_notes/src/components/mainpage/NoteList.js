@@ -4,7 +4,7 @@ import './notelist.css';
 const NoteList = (props) => {
   return props.notesArr.map((elem, i) => {
     return (
-      <div key={i}>
+      <div key={i} className="noteList__container">
         <div className="noteList__box">
           <div className="noteList__box-title">{elem.title}</div>
           <div className="noteList__box-content">{elem.content}</div>

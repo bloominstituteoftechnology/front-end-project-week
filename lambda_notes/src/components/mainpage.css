@@ -1,0 +1,4 @@
+.mainPage__noteView {
+  display:flex;
+  flex-wrap: wrap;
+}
