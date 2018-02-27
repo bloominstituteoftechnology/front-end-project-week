@@ -12,7 +12,7 @@
   flex-flow: column nowrap;
   justify-content: flex-start;
   padding: 50px 40px;
-  width: 60%;
+  width: 100%;
 }
 
 .notesList__header {
