@@ -1,6 +1,8 @@
 
 import axios from 'axios';
 export const ADD_NOTE = 'ADD_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
 
 export const addNote = (note) => {
   return {
@@ -8,6 +10,15 @@ export const addNote = (note) => {
     payload: note
   }
 };
+
+export const deleteNote = (id) => {
+	console.log(id);
+  return {
+    type: DELETE_NOTE,
+    payload: id
+  }
+};
+
 
 // export const fetchLuke = () => {
 //   // * using axios * to make api request

@@ -10,8 +10,8 @@ class List extends React.Component {
       <div className='list'>
       	{this.props.notes.map((note) => {
       		return (
-            <Link to={{ pathname: `/notes/${note.id}`, note: note}}>
-              <div key={note.id}>
+            <Link key={note.id} to={{ pathname: `/notes/${note.id}`, note: note}}>
+              <div>
                 <div>{note.title}</div>
                 <div>{note.content}</div>
               </div>

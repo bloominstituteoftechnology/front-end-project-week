@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { deleteNote} from '../actions';
 
 class ViewNote extends React.Component {
+  
+  handleDeleteNote = (id) => {
+    this.props.deleteNote(id);
+    this.props.history.push('/');
+  }
 
   render() {
+    let note = this.props.location.note;
+
     if(!this.props.location.note){
       this.props.history.push('/');
       return null;
@@ -12,9 +20,9 @@ class ViewNote extends React.Component {
       <div>
       	<div className="note">
           <div>Edit</div>
-          <div>Delete</div>
-       		<div className="note-title">{this.props.location.note.title}</div>
-       		<div className="note-content">{this.props.location.note.content}</div>
+          <div onClick={() => {this.handleDeleteNote(note.id)}}>Delete</div>
+       		<div className="note-title">{note.title}</div>
+       		<div className="note-content">{note.content}</div>
        	</div>
       </div>
     );
@@ -26,4 +34,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps)(ViewNote);
+export default connect(mapStateToProps, {deleteNote})(ViewNote);
