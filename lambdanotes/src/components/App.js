@@ -6,7 +6,7 @@ import NoteList from './NoteList';
 import CreateNote from './CreateNote';
 import NoteView from './NoteView';
 
-class App extends React.Component {
+export default class App extends React.Component {
   nextId = 0;
   noteIndex = 0;
   state = {
@@ -15,7 +15,7 @@ class App extends React.Component {
 
   handleNoteViewIndex = index => {
     this.noteIndex = index;
-  }
+  };
 
   handleCreateNote = inputNote => {
     const newNote = {
@@ -44,11 +44,9 @@ class App extends React.Component {
             <Sidebar />
             <Route exact path={"/"} render={() => <NoteList notes={this.state.notes} handleNoteViewIndex={this.handleNoteViewIndex}/>} />
             <Route exact path={"/create"} render={() => <CreateNote createNote={this.handleCreateNote}/>} />
-            <Route exact path={`/view/:${this.state.notes.id}`} render={() => <NoteView note={this.state.notes[this.noteIndex]}/>} />
+            <Route exact path={"/view"} render={() => <NoteView note={this.state.notes[this.noteIndex]}/>} />
         </div>
       </Router>
     );
   };
 }
-
-export default App;

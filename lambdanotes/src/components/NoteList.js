@@ -11,7 +11,7 @@ class NoteList extends React.Component {
 
   handleNoteIndex = index => {
     this.props.handleNoteViewIndex(index);
-  }
+  };
 
   render() {
     return (
@@ -20,7 +20,7 @@ class NoteList extends React.Component {
         <ul className="NoteList">
           {this.state.notes.map(note => {
             return (
-              <Link to={`/view/:${note.id}`} key={note.id} onClick={() => {this.handleNoteIndex(note.id)}}>
+              <Link to={"/view"} key={note.id} onClick={() => {this.handleNoteIndex(note.id)}}>
                 <Note
                   title={note.title}
                   body={note.body}
@@ -31,7 +31,7 @@ class NoteList extends React.Component {
         </ul>
       </div>
     );
-  }
+  };
 }
 
 export default NoteList;
