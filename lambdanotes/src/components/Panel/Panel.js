@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Panel extends Component {
-  addNote = (event) => {
-      console.log('hi')
+const Panel = (props) => {  
+  const handleClickForCreate = () => {
+    alert(props.showAddWin)
   }
 
-  render() {
-    return (
-      <div className="Panel">
-        <p>Lambda Notes</p>
-        <button>View Your Notes</button>
-        <button onClick={this.addNote}>+ Create New Note</button>
-      </div>
-    );
-  }
+  return (
+    <div className="Panel">
+      <p>Lambda Notes</p>
+      <button>View Your Notes</button>
+      <button onClick={() => handleClickForCreate()}>+ Create New Note</button>
+    </div>
+  );
 };
 
 export default Panel;
