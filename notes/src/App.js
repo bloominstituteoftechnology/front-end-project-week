@@ -7,71 +7,39 @@ import styled from 'styled-components';
 import CreateNewNoteForm from './components/CreateNewNoteForm'
 import Details from './components/Details';
 
-
-// const Topics = ({ match }) => (
-//     <div>
-//         <h2>Topics</h2>
-//         <ul>
-//             <li>
-//                 <Link to={`${match.url}/rendering`}>Rendering with React</Link>
-//             </li>
-//             <li>
-//                 <Link to={`${match.url}/components`}>Components</Link>
-//             </li>
-//             <li>
-//                 <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-//             </li>
-//         </ul>
-//
-//         <Route path={`${match.url}/:topicId`} component={Topic} />
-//         <Route
-//             exact
-//             path={match.url}
-//             render={() => <h3>Please select a topic.</h3>}
-//         />
-//     </div>
-// );
-//
-// const Topic = ({ match }) => (
-//     <div>
-//         <h3>{match.params.topicId} topics</h3>
-//     </div>
-// );
-
-
 class App extends Component {
-
     render() {
         return (
             <AppContainer>
-            <Router>
-                <Grid>
-                    <Row className="show-grid">
-                        <Col xs={6} md={3} className={"sidebar"}>
+                <Router>
+                    <Grid>
+                        <Row className="show-grid">
+                            <Col xs={6} md={3} className={"sidebar"}>
 
-                            <div className={'title-side'}>
-                                Lambda Notes
-                            </div>
+                                <div className={'title-side'}>
+                                    Lambda Notes
+                                </div>
 
-                            <div className={'btn-side'}>
-                                <Link to="/" className={"btn-text"}> View Your Notes </Link>
-                            </div>
+                                <div className={'btn-side'}>
+                                    <Link to="/" className={"btn-text"}> View Your Notes </Link>
+                                </div>
 
-                            <div className={'btn-side'}>
-                                <Link to="/create_new_note" className={"btn-text"}> + Create New Note</Link>
-                            </div>
+                                <div className={'btn-side'}>
+                                    <Link to="/create_new_note" className={"btn-text"}> + Create New Note</Link>
+                                </div>
 
-                        </Col>
-                        <Col xs={12} md={9} className={"components-container"}>
+                            </Col>
+                            <Col xs={12} md={9} className={"components-container"}>
 
-                            <Route exact path="/" component={Notes} />
-                            <Route path="/create_new_note" component={CreateNewNoteForm} />
-                            <Route path="/details/:id" component={Details} />
+                                <Route exact path="/" component={Notes} />
+                                <Route path="/create_new_note" component={CreateNewNoteForm} />
+                                <Route path="/details/:id" component={Details} />
+                                <Route path="/update/:id" component={Details} />
 
-                        </Col>
-                    </Row>
-                </Grid>
-            </Router>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </Router>
             </AppContainer>
 
         );
@@ -96,7 +64,7 @@ const AppContainer = styled.div`
 
                 .title-side{
                     text-align:left;
-                    color:393939;
+                    color:#644A3A;
                     font-size:40px;
                     line-height: 0.9em;
                     margin-bottom:30px;

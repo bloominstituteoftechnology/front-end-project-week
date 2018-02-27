@@ -44,6 +44,17 @@
     text-decoration: none;
 }
 
+.sub-links{
+    font-weight: bold;
+    color:#644A3A;
+}
+.sub-links:hover{
+    font-weight: bold;
+    color:#644A3A;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

@@ -1,23 +1,30 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Row, Grid} from 'react-bootstrap';
+import {Row, Grid, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
+import DeleteNote from './DeleteNote';
 
 class Details extends Component {
-
-    componentDidMount() {
-        console.log('this is the details to show:', this.props.note);
-    }
-
     render() {
         return (
             <DetailsContainer>
                 <Grid>
                     <Row className="show-grid">
-                        <h3 className={'top-title'}>{this.props.note.title}</h3>
+                        <Col className="sub-lnks-container" md={12}>
+                            <span className={'sub-links'}> edit </span>
+                            &nbsp;&nbsp;
+                            <DeleteNote noteId={this.props.note.id}/>
+                        </Col>
                     </Row>
                     <Row className="show-grid">
-                        {this.props.note.description}
+                        <Col>
+                            <h3 className={'top-title'}>{this.props.note.title}</h3>
+                        </Col>
+                    </Row>
+                    <Row className="show-grid">
+                        <Col>
+                            {this.props.note.description}
+                        </Col>
                     </Row>
                 </Grid>
             </DetailsContainer>
@@ -34,7 +41,10 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {})(Details);
 
 const DetailsContainer = styled.div`
-
-    border:0px solid black;
+    
+    .sub-lnks-container{
+        text-align:right;
+        padding:0px 15px 0px auto;
+    }
     
 `;

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const GET_NOTES = 'GET_NOTES';
 export const ADD_NOTES = 'ADD_NOTES';
+export const DELETE_NOTE = 'DELETE_NOTE';
 export const FETCHING = 'FETCHING';
 export const ERROR_GETTING_NOTES = 'ERROR_GETTING_NOTES';
 export const SET_SINGLE_NOTE = 'SET_SINGLE_NOTE';
@@ -45,6 +46,12 @@ export const addNote = (note) => {
 export const getSingleNote = (note) => {
     return dispatch => {
         dispatch({type: SET_SINGLE_NOTE, payload: note});
+    };
+};
+
+export const deleteNote = (noteId) => {
+    return dispatch => {
+        dispatch({type: DELETE_NOTE, payload: note});
     };
 };
 
