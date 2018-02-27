@@ -66,18 +66,19 @@ const NotesContainer = styled.div`
         .notes-box{
             border:5px solid yellow:
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             padding-left:5px;
             padding-right:5px;
                 
                 
                 .note-container{
+                    flex-grow: 1;
+                    flex-basis: 250px;
+                    max-width: 250px;
                     border:1px solid #A7A7A7;
                     color:#71595A;
                     margin:10px 10px 10px 10px;
                     padding:8px 18px 8px 18px;
-                    flex-grow: 1;
-                    flex-basis: 250px;
                     background-color:#FFFFFF;
                     
                         .note-title{
