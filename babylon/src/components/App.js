@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import List from './list';
+import NewNote from './newnote';
 
 const StyledApp = styled.div`
   width: 830px;
@@ -13,6 +14,7 @@ class App extends Component {
     return (
       <StyledApp>
         <List />
+        <NewNote />
       </StyledApp>
     );
   }
