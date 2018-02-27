@@ -75,7 +75,7 @@ class Form extends React.Component {
             type='text'
             name='title'
             placeholder='Note Title'
-            maxlength='40'
+            maxLength='40'
             required
             onChange={this.handleChange}
             value={this.state.title}
@@ -85,7 +85,7 @@ class Form extends React.Component {
             type='text'
             name='body'
             placeholder='Note Content'
-            maxlength='1500'
+            maxLength='1500'
             required
             onChange={this.handleChange}
             value={this.state.body}

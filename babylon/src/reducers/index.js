@@ -7,7 +7,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_NOTE':
+    case ADD_NOTE:
       return {
         ...state,
         notes: [...state.notes, {
