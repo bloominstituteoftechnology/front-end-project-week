@@ -1,16 +1,8 @@
-//base imports
 import React, { Component } from 'react';
-import { BrowserRouter as Router } from "react-router";
+import { Route } from "react-router-dom";
 import './styles/App.css';
 
-//components
-/*
-import Home from "./components/home/home";
 import Menu from "./components/menu/menu";
-import NewNote from "./newNote/newNote";
-import EditNote from "./editNote/editNote";
-import DeleteNote from "./deleteNote/deleteNote";
-*/
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +16,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Testeroo</h1>
-
+        <div className="menu--align">
+          <Route path="/" component={Menu} />
+        </div>
       </div>
     );
   }

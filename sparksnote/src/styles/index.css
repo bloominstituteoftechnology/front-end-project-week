@@ -1,3 +1,26 @@
-.App h1 {
-  color: dodgerblue;
+.App {
+  max-width: 1390px;
+  height: 100vh;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+.App .menu--align {
+  width: 25%;
+  display: flex;
+  justify-content: flex-start;
+}
+.menu .menu__buttons {
+  border: 1px solid black;
+  background-color: teal;
+}
+.menu .menu__buttons .menu__buttons--align {
+  display: block;
+}
+body,
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%;
 }

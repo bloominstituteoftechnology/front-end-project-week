@@ -12,7 +12,20 @@ class Menu extends Component {
   render() {
     return (
       <div className="menu">
-        <h3>Howdy</h3>
+        <div className="menu__header">
+          <h1>SparksNote</h1>
+        </div>
+
+        <div className="menu__buttons">
+          <div className="menu__buttons--align">
+            <p>View Your Notes</p>
+          </div>
+
+          <div className="menu__buttons--align">
+            <p>+ Create New Note</p>
+          </div>
+
+        </div>
       </div>
       )
   }

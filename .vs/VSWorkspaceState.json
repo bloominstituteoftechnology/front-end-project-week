@@ -3,8 +3,10 @@
     "",
     "\\sparksnote",
     "\\sparksnote\\src",
-    "\\sparksnote\\src\\components"
+    "\\sparksnote\\src\\components",
+    "\\sparksnote\\src\\components\\menu",
+    "\\sparksnote\\src\\styles"
   ],
-  "SelectedNode": "\\sparksnote\\src\\components\\home",
+  "SelectedNode": "\\sparksnote\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }
