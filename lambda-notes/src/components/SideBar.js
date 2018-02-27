@@ -1,10 +1,9 @@
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter, NavLink } from 'react-router-dom';
 import React from 'react';
 import '../styles/SideBar.css';
 
 const SideBar = () => {
   return (
-    <Router>
       <div className="sidebar">
         <h1>Lambda <br/> Notes</h1>
        
@@ -21,7 +20,6 @@ const SideBar = () => {
           </li>
         </ul>
       </div>
-    </Router>
   )
 }
 

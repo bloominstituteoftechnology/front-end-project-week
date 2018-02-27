@@ -1,3 +1,24 @@
 body {
   margin-left: 25%;
 }
+
+.saveButton {
+  background-color: #2AC0C4;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  width: 200px;
+  height: 60px;
+  margin: 4px 15px;
+  opacity: 1;
+  transition: 0.3s;
+  border: 1px solid black;
+}
+
+/* mouse over */
+.saveButton:hover {
+  color: #2AC0C4;
+  background-color: #f1f1f1;
+}
