@@ -17,20 +17,19 @@ class App extends React.Component {
       title: inputNote.title,
       body: inputNote.body,
     };
-    console.log(newNote);
     const newNotes = [...this.state.notes, newNote];
     this.setState({
       notes: newNotes,
-    })
-  }
+    });
+  };
 
   handleEditNote = _ => {
     //TODO
-  }
+  };
 
   handleDeleteNote = _ => {
     //TODO
-  }
+  };
 
   render() {
     return (
@@ -42,7 +41,7 @@ class App extends React.Component {
         </div>
       </Router>
     );
-  }
+  };
 }
 
 export default App;
