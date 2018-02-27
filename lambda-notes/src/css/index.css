@@ -7,7 +7,7 @@
 }
 .App .navButton-top {
   text-decoration: none;
-  padding: 17px 51px;
+  padding: 17px 51;
   border: 1px solid #979797;
   background: #2bc1c4;
   color: white;
@@ -18,7 +18,7 @@
 }
 .App .navButton-bottom {
   text-decoration: none;
-  padding: 17px 40px;
+  padding: 17px 40;
   border: 1px solid #979797;
   background: #2bc1c4;
   color: white;
@@ -220,13 +220,24 @@ table {
   margin: 0px 20px 36px 3px;
 }
 .core-rail .note-list .note-list-note .note-list-note__title {
-  height: 38px;
+  height: 36px;
   text-align: left;
   font-family: 'Roboto Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 1.8rem;
   font-weight: bolder;
   padding: 0px 10px;
-  border-bottom: 1px solid #979797;
+}
+.core-rail .note-list .note-list-note .note-list-note__title:after {
+  content: "";
+  /* This is necessary for the pseudo element to work. */
+  display: block;
+  /* This will put the pseudo element on its own line. */
+  width: 99%;
+  /* Change this to whatever width you want. */
+  padding-top: 9px;
+  /* This creates some space between the element and the border. */
+  border-bottom: 1.5px solid #979797;
+  /* This creates the border. Replace black with whatever color you want. */
 }
 .core-rail .note-list .note-list-note .note-list-note__body {
   height: 192px;
@@ -235,4 +246,31 @@ table {
   font-size: 1.25rem;
   padding: 10px;
   line-height: 1.7;
+}
+.new-note-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.new-note-container .title-input {
+  padding-top: 21px;
+  margin-bottom: 21px;
+  padding-bottom: 21px;
+  padding-left: 16px;
+  width: 60%;
+  border-radius: 5px;
+}
+.new-note-container .save-btn-container {
+  width: 50%;
+}
+.new-note-container .save-btn-container .save-btn {
+  text-decoration: none;
+  padding: 17px 10;
+  border: 1px solid #979797;
+  background: #2bc1c4;
+  color: white;
+  font-family: 'Roboto Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+  font-size: 1.45rem;
+  font-weight: bolder;
 }

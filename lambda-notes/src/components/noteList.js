@@ -6,7 +6,7 @@ class NoteList extends Component {
     notes: [
         {
             id: 0,
-            title: "Note Title",
+            title: "TTTTTTTTTTTTT",
             body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
         },
         {

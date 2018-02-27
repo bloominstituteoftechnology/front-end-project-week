@@ -1,0 +1,21 @@
+@import "mixins";
+
+.new-note-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    .title-input {
+        padding-top: 21px;
+        margin-bottom: 21px;
+        padding-bottom: 21px; 
+        padding-left: 16px;
+        width: 60%;
+        border-radius: 5px;
+    }
+    .save-btn-container {
+        width: 50%;
+        .save-btn {
+            .button(10)
+        }
+    }
+}
