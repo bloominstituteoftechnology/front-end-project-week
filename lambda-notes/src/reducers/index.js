@@ -58,16 +58,19 @@ const initialState = {
     },
   ],
   current: 'list',
+  note: null,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case actions.ADD_BUTTON_CLICK:
-      return { ...state, current:action.payload};
+      return { ...state, current: action.payload };
     case actions.VIEW_BUTTON_CLICK:
-      return { ...state, current:action.payload};
+      return { ...state, current: action.payload };
     case actions.ADD_NOTE:
-      return { ...state, notes: [...state.notes, action.payload]}
+      return { ...state, notes: [...state.notes, action.payload] };
+    case actions.VIEW_NOTE:
+      return { ...state, current: action.payload.current, note: action.payload.note };
     default:
       return state;
   }
