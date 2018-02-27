@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  display: flex;
+	text-align: center;
 }
 
 .App-logo {
@@ -25,6 +26,15 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.LeftColumnPanel {
+  background: #d7d7d7;
+  height: 100vh;						
+  text-align: center;
+}
+.columnpanel-title {
+	text-align: left;
 }
 
 /*h2 {
