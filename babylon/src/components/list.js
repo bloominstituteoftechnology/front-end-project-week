@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import NoteCard from './notecard';
@@ -20,23 +20,19 @@ const StyledList = styled.div`
 
 `;
 
-class List extends Component {
-  render() {
-    return (
-      <StyledList>
-        <LeftRail />
-        <div className='list__right'>
-          <SectionTitle name='Your Notes:'/>
-          {this.props.notes.map((note, index) => {
-            return (
-              <NoteCard key={index} note={note} />
-            );
-          })}
-        </div>
-      </StyledList>
-    );
-  }
-}
+const List = props => (
+  <StyledList>
+    <LeftRail />
+    <div className='list__right'>
+      <SectionTitle name='Your Notes:'/>
+      {props.notes.map((note, index) => {
+        return (
+          <NoteCard key={index} note={note} />
+        );
+      })}
+    </div>
+  </StyledList>
+);
 
 const mapStateToProps = (state) => {
   return {
