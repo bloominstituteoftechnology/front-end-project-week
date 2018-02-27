@@ -5,6 +5,7 @@ import './styles/App.css';
 // Components
 import Sidebar from './comps/Sidebar';
 import NoteList from './comps/NoteList';
+import Note from './comps/Note';
 
 class App extends React.Component {
   render() {
@@ -12,7 +13,8 @@ class App extends React.Component {
       <div className="App__container">
         <Sidebar />
         <div className="content__container">
-          <Route path="/" component={NoteList} />
+          <Route exact path="/" component={NoteList} />
+          <Route path="/view/:id" component={Note} />
         </div>
       </div>
     );
