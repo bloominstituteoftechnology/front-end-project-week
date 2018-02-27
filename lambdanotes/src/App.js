@@ -34,8 +34,19 @@ class App extends Component {
   }
 
   // Display Create New Note entry form when Sidebar button is clicked
-  createNewNote = () => {
+  createNewNoteForm = () => {
     this.setState({ viewingNotes: false, creatingNote: true, editingNote: false })
+  }
+
+  saveNewNote = (note) => {
+    let prevNotes = this.state.notes;
+    this.setState({
+      notes: [...prevNotes, note],
+      viewingNotes: true,
+      creatingNote: false,
+      editingNote: false,
+    })
+    console.log(this.state.notes);
   }
 
   // Get's id of last note and returns new incremented id 
@@ -54,12 +65,12 @@ class App extends Component {
           creatingNote={this.state.creatingNote}
           editingNote={this.state.editingNote}
           viewNotes={this.viewNotes}
-          createNewNote={this.createNewNote}
+          createNewNoteForm={this.createNewNoteForm}
           style={{ width: "200px", height: "100vh" }}
         />
-        <div style={{ width: "100%", height: "100vh"}}>
+        <div style={{ width: "100%", height: "100vh" }}>
           {this.state.viewingNotes && <NotesList notes={this.state.notes} />}
-          {this.state.creatingNote && <CreateNote getNextId={this.getNextId} />}
+          {this.state.creatingNote && <CreateNote getNextId={this.getNextId} saveNewNote={this.saveNewNote} />}
         </div>
       </AppStyled>
     );

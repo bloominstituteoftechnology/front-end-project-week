@@ -32,7 +32,7 @@ const Sidebar = (props) => {
     <SideBarStyled>
       <h1>Lambda Notes</h1>
       <ButtonStyled onClick={props.viewNotes}>View Your Notes</ButtonStyled>
-      <ButtonStyled onClick={props.createNewNote}>+ Create New Note</ButtonStyled>
+      <ButtonStyled onClick={props.createNewNoteForm}>+ Create New Note</ButtonStyled>
     </SideBarStyled>
   )
 }
