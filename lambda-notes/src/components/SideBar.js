@@ -9,27 +9,19 @@ const SideBar = () => {
     <Router>
       <div className="sidebar">
         <h1>Lambda <br/> Notes</h1>
-        
+       
         <ul>
           <li>
-            <NavLink to="/" className="PostsIndex">
+            <NavLink to="/">
               <button>View Your Notes</button>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/CreateNew" className="CreateNew">
+            <NavLink to="/notes/new">
               <button>+ Create New Note</button>
             </NavLink>
           </li>
-          <li>
-            <NavLink to="" className="">
-              <button disabled="disabled">Click Me Too</button>
-            </NavLink>
-          </li>
         </ul>
-        {/* <Route exact path="/" component={PostsIndex}/> */}
-        {/* <Route path="/CreateNew" component={CreateNew}/> */}
-        {/*<Route path="#" component={}/> */}
       </div>
     </Router>
   )

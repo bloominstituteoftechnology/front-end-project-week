@@ -1,5 +1,22 @@
-.noteContainer {
+.notesContainer {
+  flex-flow: wrap;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.notesContainerHeader {
+  font-size: 24px;
+  color: #4A494A;
+  font-weight: bold;
+  text-align: flex-start;
+  background-color: blue;
+}
+
+.notesBody {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
+  justify-content: space-around;
+  background-color: orange;
+  height: 100%;
 }

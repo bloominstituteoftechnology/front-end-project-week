@@ -9,8 +9,8 @@ import reducers from './reducers';
 
 
 import './index.css';
-import PostsIndex from './components/PostsIndex';
 import SideBar from './components/SideBar';
+import PostsIndex from './components/PostsIndex';
 import CreateNew from './components/CreateNew';
 
 const store = createStore(rootReducer, applyMiddleware());
@@ -21,8 +21,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <SideBar />
-          <Route path="/" component={PostsIndex} />
-          <Route path="/CreateNew" component={CreateNew}/>
+          <Route path="/" component={PostsIndex} exact />
+          <Route path="/notes/new" component={CreateNew}/>
 
       </div>
     </BrowserRouter>

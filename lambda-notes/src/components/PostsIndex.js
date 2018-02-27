@@ -13,9 +13,9 @@ class PostsIndex extends Component {
     //Utilizing the Lodash Map Function to map over the object and return an array.
     return _.map(this.props.posts, post => {
       return (
-        <li key={post.id}>
+        <div key={post.id}>
           {post.title}
-        </li>
+        </div>
       );
     });
   }
@@ -23,11 +23,12 @@ class PostsIndex extends Component {
   render() {
     return (
       <div className="notesContainer">
-        <h3>Your Notes</h3>
-        <hr/>
-        <ul>
-          {this.renderPosts()}
-        </ul>
+        <div className="notesContainerHeader">Your Notes</div>
+          <div className="notesBody">
+            <ul>
+              {this.renderPosts()}
+            </ul>
+        </div>
       </div>
     );
   }

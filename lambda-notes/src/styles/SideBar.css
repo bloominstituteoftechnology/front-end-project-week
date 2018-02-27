@@ -1,7 +1,6 @@
 /* The sidebar menu */
 .sidebar {
   height: 100%;
-  width: 25%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -9,7 +8,11 @@
   background-color: #D7D7D7;
   overflow-x: hidden;
   padding-top: 20px;
-  border-right: 1px solid black;
+  border-right: 1px solid black;  
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-right: 0;
 }
 
 /* The menu links */
@@ -21,6 +24,7 @@
   font-weight: 600;
   font-size: 16px;
   width: 90%;
+  height: 52px;
   margin: 4px 2px;
   opacity: 1;
   transition: 0.3s;

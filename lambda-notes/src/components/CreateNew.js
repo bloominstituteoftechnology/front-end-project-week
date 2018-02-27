@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import '../styles/CreateNew.css';
 
 class CreateNew extends Component {
   render() {
@@ -10,4 +12,6 @@ class CreateNew extends Component {
   }
 }
 
-export default CreateNew;
+export default reduxForm({
+  form: 'CreateNewForm'
+})(CreateNew);
