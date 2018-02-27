@@ -30,6 +30,7 @@ const StyledForm = styled.div`
     height: 40px;
     margin-top: 20px;
     padding: 8px;
+    font-size: 1.2rem;
   }
 
   .form__textarea {
@@ -37,6 +38,8 @@ const StyledForm = styled.div`
     height: 330px;
     margin-top: 10px;
     padding: 12px;
+    line-height: 180%;
+    font-size: 1.2rem;
   }
 
   button {
