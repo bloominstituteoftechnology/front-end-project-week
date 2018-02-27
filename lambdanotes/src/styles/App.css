@@ -43,4 +43,16 @@ button {
 .App-intro {
   font-size: large;
 }
-
+.single-note {
+display:flex;
+    width:30%;    
+}
+ h4{
+        text-align:left;
+        font-size: 1.5rem;
+    }
+    p{
+    height:30%;
+    width:100%;
+    font-size: 1rem;
+    }
