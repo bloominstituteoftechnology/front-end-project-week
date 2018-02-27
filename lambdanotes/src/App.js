@@ -38,6 +38,8 @@ class App extends Component {
     this.setState({ viewingNotes: false, creatingNote: true, editingNote: false })
   }
 
+  // Create new note object with data from CreateNote;
+  // Add new note object to notes array and switch view back to notes list
   saveNewNote = (note) => {
     let prevNotes = this.state.notes;
     this.setState({
@@ -46,10 +48,9 @@ class App extends Component {
       creatingNote: false,
       editingNote: false,
     })
-    console.log(this.state.notes);
   }
 
-  // Get's id of last note and returns new incremented id 
+  // Get id of last note and return new incremented id 
   getNextId = () => {
     let lastNoteIndex = this.state.notes.length - 1;
     let lastNote = this.state.notes[lastNoteIndex];

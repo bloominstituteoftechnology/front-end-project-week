@@ -16,10 +16,6 @@ const NoteListStyled = styled.div`
 `
 
 class NotesList extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     return (
       <NoteListStyled>

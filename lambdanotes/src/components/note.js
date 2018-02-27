@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const NoteStyled = styled.div`
+const NoteStyled = styled.a`
   display: flex;
   flex-direction: column;
   width: 150px;
@@ -9,6 +9,11 @@ const NoteStyled = styled.div`
   padding: 10px;
   margin: 10px;
   background-color: rgb(255, 255, 255);
+
+  &:hover {
+    border: 1px solid black;
+    cursor: pointer;
+  }
 
   h4 {
     margin: 3px 3px 0 3px;
@@ -25,7 +30,7 @@ const NoteStyled = styled.div`
 class Note extends Component {
   render() {
     return (
-        <NoteStyled>
+        <NoteStyled onClick={ () => {console.log(this.props.note.id)} }>
           <h4>{this.props.note.title}</h4>
           <hr style={{ width: "100%"}}/>
           <p>{this.props.note.content}</p>
