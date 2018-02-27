@@ -43,7 +43,8 @@
   justify-content: flex-start;
   background: rgb(145, 145, 145);
   flex-direction: column;
-  width: 20%;
+  min-width: 20%;
+  width: 100%;
   align-items: center;
   color: white;
 }
@@ -53,7 +54,8 @@
   justify-content: flex-start;
   background: lightgray;
   flex-direction: column;
-  width: 80%;
+  min-width: 80%;
+  width: 100%
 }
 
 .section__content__inputs {
@@ -64,13 +66,22 @@
   margin: 5%;
 }
 
-icon {
-  border: solid black;
+.section__content__icons {
+  margin: 0 auto;
+   display: grid;
+   grid-template-columns: 33% 33% 33%;
+}
+
+section {
+  border: solid gray;
   background: white;
-  display: flex;
-  width: 50%;
+  padding: 1%;
   height: 150px;
-  justify-content: center;
+  margin: 5%;
+}
+
+p {
+  font-size: 10px;
 }
 
 .input__note__title { 

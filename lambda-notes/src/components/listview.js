@@ -16,11 +16,10 @@ class ListView extends Component {
                 </div>
 
                 <div className="section__content__right">
-                <div className="section__content__inputs">
+                
                      <h3>Your Notes:</h3>
-        
+                     <div className="section__content__icons">
                          <Note />
-                    <div className="button__main">Save</div>
                 </div>
                 </div>
             </div>

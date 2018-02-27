@@ -14,8 +14,8 @@ The main objective of this week is to develop the MVP feature set listed below u
 * [ ] Share your board with the Project Manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance.
 
 ## MVP Features:
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
+* [ x ] Display a list of notes
+* [ x ] Create a note with a title and content
 * [ ] View an existing note
 * [ ] Edit an existing note
 * [ ] Delete an existing note
