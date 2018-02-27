@@ -32,6 +32,7 @@ class NoteList extends Component {
   render() {
     return (
       <div className="note-list">
+      <div className="note-list__title">Your Notes:</div>
           { this.state.notes.map((note) => {
             return (
               <div key={note.id}>
