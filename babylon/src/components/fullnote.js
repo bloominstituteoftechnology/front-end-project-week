@@ -36,7 +36,7 @@ const StyledNote = styled.div`
 
 const FullNote = props => (
   <StyledNote >
-    <Delete />
+    {/* <Delete /> */}
     <LeftRail />
     <div className='full-note__right'>
       <div className='full-note__links'>

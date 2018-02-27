@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import List from './list';
 import NewNote from './newnote';
@@ -14,12 +15,15 @@ const StyledApp = styled.div`
 class App extends Component {
   render() {
     return (
-      <StyledApp>
-        <List />
-        {/* <NewNote /> */}
-        {/* <FullNote /> */}
-        {/* <UpdateNote /> */}
-      </StyledApp>
+      <Router>
+        <StyledApp>
+          <Route path='/' component={List} exact/>
+          <Route path='/fullnote/:id' component={FullNote} exact/>
+          {/* <NewNote /> */}
+          {/* <FullNote /> */}
+          {/* <UpdateNote /> */}
+        </StyledApp>
+      </Router>
     );
   }
 }
