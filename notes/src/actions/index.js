@@ -12,10 +12,16 @@ export const addNote = (note) => {
 };
 
 export const deleteNote = (id) => {
-	console.log(id);
   return {
     type: DELETE_NOTE,
     payload: id
+  }
+};
+
+export const editNote = (note) => {
+  return {
+    type: EDIT_NOTE,
+    payload: note
   }
 };
 
