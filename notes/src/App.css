@@ -1,3 +1,52 @@
+/*Modal*/
+.modal-bg {
+	position: absolute;
+  max-width: 1098px;
+  min-width: 1098px;
+	height: 100%;
+	background: rgba(204, 204, 204, 0.7);
+}
+
+.modal-bg .modal-box {
+	border: 1px #999999;
+	width: 615px;
+  height: 180px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -330px;
+  background: white;
+  border: 1px solid #999999;
+}
+
+.modal-box .modal-title {
+	font-size: 19px;
+	margin-top: 35px;
+}
+
+.modal-box .modal-buttons {
+	margin: 38px 0px 0px 12px;
+}
+
+.modal-buttons button {
+	display: inline-block;
+	width: 237px;
+	height: 52px;
+	margin: 0px 13px;
+	font-size: 19px;
+	font-weight: bold;
+	border: 1px solid #999999;
+	color: white;
+}
+
+.modal-buttons .modal-delete {
+	background: #D0011B;
+}
+
+.modal-buttons .modal-cancel {
+	background: #2AC0C4;
+}
 
 /*Main App*/
 .App {
@@ -10,6 +59,7 @@
   background: #F3F3F3;
   border: 1px solid #999999;
 }
+
 .content {
 	width: 775px;
 	margin: 0 auto;
@@ -53,7 +103,6 @@
 }
 
 /*List View*/
-
 .your-note {
 	font-size: 25px;
 	font-weight: bold;
@@ -72,7 +121,6 @@
 }
 
 /*Note View*/
-
 .list .notes {
 	border: 1px solid #999999;
 	width: 237px;
@@ -100,11 +148,11 @@
 	padding: 6px 20px;
 }
 
-
 /*Add Noted*/
 .addnote {
 	text-align: left;
 }
+
 .addnote .addnote-title {
 	font-size: 25px;
 	margin: 65px 0px 20px 5px;
@@ -141,7 +189,6 @@
 	background: #2AC0C4;
 	color: white;
 }
-
 
 /*View Note*/
 .view-note .edit-delete {

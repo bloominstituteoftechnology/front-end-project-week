@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteNote } from '../actions';
-import { Link } from 'react-router-dom';
+import { toggleModal } from '../actions';
 
 class ViewNote extends React.Component {
   
   handleDeleteNote = (id) => {
-    this.props.deleteNote(id);
-    this.props.history.push('/');
+    this.props.toggleModal();
+    this.props.history.push('/modal');
   }
 
   handleEditNote = (note) => {
@@ -28,7 +27,7 @@ class ViewNote extends React.Component {
       <div>
       	<div className="view-note">
           <div className="edit-delete">
-              <span onClick={() => {this.handleEditNote(note)}}> edit </span><span onClick={() => {this.handleDeleteNote(note.id)}}> delete </span>
+            <span onClick={() => {this.handleEditNote(note)}}> edit </span><span onClick={() => {this.props.toggleModal(note.id)}}> delete </span>
           </div>
        		<div className="note-title">{note.title}</div>
        		<div className="note-content">{note.content}</div>
@@ -43,4 +42,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, {deleteNote})(ViewNote);
+export default connect(mapStateToProps, {toggleModal})(ViewNote);

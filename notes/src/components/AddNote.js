@@ -43,7 +43,6 @@ class AddNote extends React.Component {
 	      	value={this.state.content} 
 	      	placeholder="Note Content"
 	      	onChange={this.handleOnChange} />
-
 	      	<br />
 	      	<button type="submit">Save</button>
       	</form>

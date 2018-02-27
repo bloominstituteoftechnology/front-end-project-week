@@ -1,7 +1,8 @@
 
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from '../actions';
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL } from '../actions';
 
 const initialState = {
+  modal: {showing: false, deleteId: null},
   notes: [
     {
       title: 'Larem Ipsum?', 
@@ -38,6 +39,8 @@ const initialState = {
 
 export const notesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_MODAL:
+      return { ...state, modal: { ...state.modal, showing: !state.modal.showing, deleteId: action.payload}}
 
     case ADD_NOTE:
       return { ...state, notes: [...state.notes, action.payload] };
@@ -46,7 +49,7 @@ export const notesReducer = (state = initialState, action) => {
       const deletedNotes = state.notes.filter((note) => {
       	return note.id !== action.payload;
       });
-      return { ...state, notes: deletedNotes };
+      return { ...state, notes: deletedNotes, modal: false };
 
       case EDIT_NOTE:
 	      let editedNotes = state.notes.map((note)=>{

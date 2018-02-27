@@ -8,30 +8,37 @@ import List from './components/List';
 import EditNote from './components/EditNote';
 import ViewNote from './components/ViewNote';
 import AddNote from './components/AddNote';
+import Modal from './components/Modal';
 
 class App extends Component {
-
 	componentDidMount() {
-	  // this.props.fetchLuke();
+	  // fetch notes from db
 	}
 
-	render() {
-   	return (
+  render() {
+    return (
       <Router>
-    	<div className="App">
-    		<div className="sidebar">
-    			<SideBar />
-    		</div> 
-    		<div className="content">  
-      		<Route exact path="/" component={List} />
-          <Route path="/addnote" component={AddNote} />
-      		<Route path="/editnote" component={EditNote} />
-      		<Route path="/notes/:id" component={ViewNote} />
-    		</div>
-   		</div>
-		  </Router>
+        <div className="App">
+          {this.props.modal.showing ? <Route component={Modal} /> : null}
+          <div className="sidebar">
+            <SideBar />
+          </div> 
+          <div className="content">  
+            <Route exact path="/" component={List} />
+            <Route path="/addnote" component={AddNote} />
+            <Route path="/editnote" component={EditNote} />
+            <Route path="/notes/:id" component={ViewNote} />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
 
-export default connect(null)(App);
+const mapStateToProps = (state) => {
+  return {
+    modal: state.notes.modal
+  } 
+}
+
+export default connect(mapStateToProps)(App);
