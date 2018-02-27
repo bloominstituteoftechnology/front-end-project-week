@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import List from './list';
 import NewNote from './newnote';
 import FullNote from './fullnote';
+import UpdateNote from './updatenote';
 
 const StyledApp = styled.div`
   width: 830px;
@@ -17,6 +18,7 @@ class App extends Component {
         <List />
         <NewNote />
         <FullNote />
+        <UpdateNote />
       </StyledApp>
     );
   }

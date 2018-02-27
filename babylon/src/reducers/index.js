@@ -1,4 +1,4 @@
-import { ADD_NOTE, } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
@@ -17,6 +17,9 @@ export default (state = initialState, action) => {
         }
         ],
       };
+    case UPDATE_NOTE:
+      console.log('UPDATING');
+      break;
     default:
       return state;
   }
