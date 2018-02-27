@@ -15,10 +15,10 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
-        <List />
-        <NewNote />
+        {/* <List /> */}
+        {/* <NewNote /> */}
         <FullNote />
-        <UpdateNote />
+        {/* <UpdateNote /> */}
       </StyledApp>
     );
   }
