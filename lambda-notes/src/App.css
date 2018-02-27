@@ -6,12 +6,13 @@
 }
 
 .sidebar {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background-color: #e6e6e6;
   padding: 0 15px 0 15px;
   height: 900px;
-  width: 150px;
+  width: 200px;
 }
 
 .title {
@@ -39,7 +40,8 @@
 }
 
 .note-container {
-  width: 750px;
+  width: 700px;
+  background-color: #f8f8f6;
 }
 .heading {
   text-align: justify;
@@ -47,18 +49,27 @@
   font-family: "Roboto Bold", sans-serif;
 }
 .notelist {
-  width: 150px;
+  box-sizing: border-box;
+  width: 175px;
   height: 175px;
   text-align: left;
   list-style-type: none;
   border: 2px solid #e6e6e6;
-  margin: 20px;
-  padding: 0 5px 5px 5px;
+  margin: 20px 10px;
+  padding: 0 10px 5px 10px;
+  background-color: white;
+}
+.note-container ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .notelist h4 {
   padding: 0;
   font-family: "Roboto Bold", sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .notelist p {
