@@ -10,7 +10,6 @@ class SideBar extends React.Component {
   exportCSV = () => {
     const jnotes = JSON.stringify(this.props.notes);
     const csvnotes = Papa.unparse(jnotes);
-    console.log(csvnotes);
     const file = new File([csvnotes], "lambda_notes.csv", {type: 'text/plain;charset=utf8'});
     FileSaver.saveAs(file);
   }

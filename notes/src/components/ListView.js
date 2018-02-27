@@ -19,12 +19,12 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
   console.log(notes);
   return (
     <ul className='list-notes'>
-    {notes.map((note, index) => {
-      return (
-        <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote}/>
-      );
-    })}
-</ul>
+      {notes.map((note, index) => {
+        return (
+          <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote}/>
+        );
+      })}
+    </ul>
   );
 });
 

@@ -27,6 +27,7 @@
   align-items: center;
 
   form {
+    width: 65%;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -44,18 +45,25 @@
       border-radius: 5px;
       border: 1px solid #B6B6B6;
       padding-left: 20px;
-      width: 400px;
+      width: 60%;
+      max-width: 400px;
       height: 50px;
       margin-bottom: 20px;
     }
-    textarea {
-      font-family: inherit;
-      border-radius: 5px;
-      border: 1px solid #B6B6B6;
-      padding: 20px;
-      width: 670px;
-      height: 380px;
-      resize: none;
+    .area-container {
+      width: 100%;
+
+      textarea {
+        font-family: inherit;
+        border-radius: 5px;
+        border: 1px solid #B6B6B6;
+        padding: 20px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 670px;
+        height: 380px;
+        resize: none;
+      }
     }
     button {
       .button-mix();
