@@ -26,3 +26,25 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Individual Note */
+.Note-Container {
+  font-size: 0.75rem;
+  border: 1px solid gray;
+  margin: 15px;
+  width: 300px;
+}
+
+.Note-Title {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.Note-Text {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Notes List */
+.Note-List {
+  display: flex;
+  justify-content: center;
+}

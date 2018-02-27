@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// import noteData from './noteData';
+import noteData from './noteData';
 import NoteList from './component/NoteList';
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
         </p> */}
 
         {/* <SideBar /> */}
-        <NoteList />
+        <NoteList notes={noteData}/>
 
       </div>
     );
