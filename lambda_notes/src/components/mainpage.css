@@ -1,3 +1,30 @@
+.mainPage__topRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.topRow__button-box {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topRow__button {
+  text-decoration: underline;
+}
+
+.topRow__button:hover {
+  cursor: pointer;
+}
+
+.mainPage__middleRow {
+
+}
+
+.mainPage__bottomRow {
+
+}
+
 .mainPage__noteList {
   display:flex;
   flex-wrap: wrap;
