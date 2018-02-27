@@ -8,6 +8,11 @@
   padding: 0px 20px 20px 20px;
 }
 
+.Note:hover {
+  background: lightgrey;
+  cursor: pointer;
+}
+
 .Note-NoteTitle {
   margin: 0;
   padding: 0;
