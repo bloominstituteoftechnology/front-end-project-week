@@ -23,8 +23,11 @@ class App extends React.Component {
     });
   }
 
-  handleClickForSave = () => {
-    alert('hi')
+  handleClickForSave = (newNote) => {
+    this.setState({
+      notes: [...this.state.notes, newNote],
+      showAddWin: !this.state.showAddWin
+    });
   }
 
   render() {
