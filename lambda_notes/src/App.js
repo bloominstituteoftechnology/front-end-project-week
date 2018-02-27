@@ -17,7 +17,7 @@ class App extends Component {
           <NavBar changeSwitch={this.changeSwitch} />
         </div>
         <div className="App__rightbox">
-          <MainPage title={currentState.mainPageTitle} caseValue={currentState.mainPageSwitchValue} />
+          <MainPage title={currentState.mainPageTitle} caseValue={currentState.mainPageSwitchValue} changeSwitch={this.changeSwitch}/>
         </div>
       </div>
     );

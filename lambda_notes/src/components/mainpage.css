@@ -1,4 +1,4 @@
-.mainPage__noteView {
+.mainPage__noteList {
   display:flex;
   flex-wrap: wrap;
   justify-content: space-between;

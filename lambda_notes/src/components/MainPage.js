@@ -7,8 +7,7 @@ import './mainpage.css';
 
 class MainPage extends React.Component {
   state = {
-    switchValue: '',
-    switchTitle: '',
+    currentNote: {},
     notes: [],
 
   };
@@ -28,11 +27,13 @@ class MainPage extends React.Component {
   renderSwitch = (param) => {
     switch(param) {
       case 'noteList':
-        return <div className= "mainPage__noteView">
-          <NoteList notesArr={this.state.notes}/>
+        return <div className="mainPage__noteList">
+          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote}/>
         </div>;
       case 'noteView':
-        return <NoteView />;
+        return <div className="mainPage__noteView">
+          <NoteView currentNote={this.state.currentNote} />
+        </div>;
       case 'editNote':
         return <EditNote />;
       case 'createNote':
@@ -44,6 +45,10 @@ class MainPage extends React.Component {
 
   addNote = (noteObj) => {
     this.setState({ ...this.state, notes: this.state.notes.concat([noteObj]) });
+  };
+
+  changeCurrentNote = (nextNote) => {
+    this.setState({...this.state, currentNote: nextNote});
   };
 
 }
