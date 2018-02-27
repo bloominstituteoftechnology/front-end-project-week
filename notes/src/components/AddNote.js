@@ -23,23 +23,27 @@ class AddNote extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="addnote">
+      	<div className="addnote-title">Create New Note:</div>
       	<form onSubmit={this.handleAddNote}>
-	      	<input 
+	      	<input
+	      	className="input-title"
 	      	name="title" 
 	      	value={this.state.title}
-	      	placeholder="Title"
+	      	placeholder="Note Title"
 	      	onChange={this.handleOnChange}
 	      	/>
-
-	      	<input 
+	      	<br />
+	      	<textarea
+	      	className="input-content"
+	      	type="textbox"
 	      	name="content" 
 	      	value={this.state.content} 
-	      	placeholder="Content"
+	      	placeholder="Note Content"
 	      	onChange={this.handleOnChange} />
 
 	      	<br />
-	      	<button type="submit">Add Note</button>
+	      	<button type="submit">Save</button>
       	</form>
       </div>
     );

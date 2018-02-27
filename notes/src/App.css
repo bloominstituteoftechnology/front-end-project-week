@@ -101,5 +101,45 @@
 
 
 /*Add Noted*/
+.addnote {
+	text-align: left;
+}
+.addnote .addnote-title {
+	font-size: 25px;
+	margin: 65px 0px 20px 5px;
+}
+
+.addnote .input-title {
+	width: 427px;
+	height: 49px;
+	margin: 14px 0px 9px 8px;
+	border: 1px solid #999999;
+	border-radius: 5px;
+	padding-left: 15px;
+	font-size: 16px; 
+}
+
+.addnote .input-content {
+	width: 722px;
+	margin:8px 0px 12px 8px;
+	height: 405px;
+	border-radius: 5px;
+	border: 1px solid #999999;
+	font-size: 17px;
+	padding: 23px 0px 0px 28px;
+}
+
+.addnote button {
+	border: 1px solid #999999;
+	margin-left: 10px; 
+	width: 235px;
+	padding: 13px;
+	text-decoration: none;
+	font-size: 21px;
+	font-weight: bold;
+	background: #2AC0C4;
+	color: white;
+}
+
 
 /*Edit Note*/
