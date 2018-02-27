@@ -5,6 +5,7 @@ import { deleteNote, toggleModal } from '../actions';
 class Modal extends React.Component {
 
   handleDeleteNote = () => {
+    console.log(this.props.modal.deleteId);
     this.props.deleteNote(this.props.modal.deleteId);
     this.props.history.push('/');
   }
@@ -26,7 +27,7 @@ class Modal extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-  	modal: state.notes.modal
+  	modal: state.modal
   } 
 }
 

@@ -10,7 +10,7 @@ class List extends React.Component {
         <div className="your-note">Your Notes:</div>
         <div className='list'>
         	{this.props.notes.map((note) => {
-        		return (
+            return (
               <Link key={note.id} to={{ pathname: `/notes/${note.id}`, note: note}}>
                 <div className='notes'>
                   <div className="notes-title">{note.title}</div>
@@ -27,8 +27,9 @@ class List extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.notes);
   return {
-  	notes: state.notes.notes
+  	notes: state.notes
   } 
 }
 

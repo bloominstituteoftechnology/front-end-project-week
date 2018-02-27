@@ -37,7 +37,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    modal: state.notes.modal
+    modal: state.modal
   } 
 }
 

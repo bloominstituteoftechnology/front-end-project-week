@@ -1,66 +1,42 @@
 
 import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL } from '../actions';
+import initialNotes from '../dummy-data';
 
-const initialState = {
-  modal: {showing: false, deleteId: null},
-  notes: [
-    {
-      title: 'Larem Ipsum?', 
-      content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", 
-      id: 0
-    },
-    {
-      title: 'Why do we use it?', 
-      content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.", 
-      id: 1
-    },
-    {
-      title: 'Get some Ipsum', 
-      content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour, or randomised words which don't look even slightly believable.", 
-      id: 2
-    },
-    {
-      title: 'Larem Ipsum?', 
-      content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", 
-      id: 3
-    },
-    {
-      title: 'Why do we use it?', 
-      content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.", 
-      id: 4
-    },
-    {
-      title: 'Get some Ipsum', 
-      content: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered in some form, by injected humour, or randomised words which don't look even slightly believable.", 
-      id: 5
-    }
-  ]
-};
-
-export const notesReducer = (state = initialState, action) => {
+export const notes = (state = initialNotes, action) => {
   switch (action.type) {
-    case TOGGLE_MODAL:
-      return { ...state, modal: { ...state.modal, showing: !state.modal.showing, deleteId: action.payload}}
-
+  
     case ADD_NOTE:
-      return { ...state, notes: [...state.notes, action.payload] };
+      return [ ...state, action.payload ];
 
       case DELETE_NOTE:
-      const deletedNotes = state.notes.filter((note) => {
+      return state.filter((note) => {
       	return note.id !== action.payload;
       });
-      return { ...state, notes: deletedNotes, modal: false };
 
       case EDIT_NOTE:
-	      let editedNotes = state.notes.map((note)=>{
+	      return state.map((note)=>{
         if(note.id === action.payload.id){
           return action.payload;
         }
         return note;
       });
-      return {...state, notes: editedNotes}
 
     default:
       return state;
   }
 };
+
+const initialModal = {showing: false, deleteId: null}
+
+export const modal = (state = initialModal, action) => {
+  switch(action.type){
+    case TOGGLE_MODAL:
+      return { ...state, showing: !state.showing, deleteId: action.payload }
+
+    case DELETE_NOTE:
+      return { ...state, showing: !state.showing, deleteId: null}
+
+    default:
+      return state;
+  } 
+}

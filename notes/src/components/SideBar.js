@@ -8,14 +8,14 @@ class SideBar extends React.Component {
       <div className="sidebar">
         <div className="sidebar-title">Lambda Notes</div>
         <Link to="/"><button className="viewnote">View Your Notes</button></Link><br/>
-        <Link to={{pathname: "/addnote", lastId: this.props.lastId}}><button>+ Creat New Note</button></Link>
+        <Link to={{pathname: "/addnote", lastId: this.props.lastId}}><button>+ Create New Note</button></Link>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  const notes = state.notes.notes
+  const notes = state.notes
   return {
     lastId: notes[notes.length-1].id
   } 
