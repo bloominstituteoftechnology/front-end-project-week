@@ -6,30 +6,63 @@ import CreateNote from "./components/CreateNote";
 
 class App extends Component {
   state = {
-    notes: []
+    notes: dummyData,
+    viewNote: {
+      view: false,
+      id: null
+    },
+    createNote: {
+      view: false
+    }
   };
 
-  componentDidMount() {
-    return this.setState({
-      notes: dummyData
-    });
-  }
   render() {
     return (
       <div className="App">
-        <div className="leftPanel">
+        <div
+          className={
+            this.state.viewNote.view ? "singleNoteLeftPanel" : "leftPanel"
+          }
+        >
           <h1 className="leftHeader">Lambda Notes</h1>
-          <button>View Your Notes</button>
+          <button
+            onClick={() =>
+              this.state.viewNote.view
+                ? this.setState({
+                    ...this.state,
+                    viewNote: { view: !this.state.viewNote.view }
+                  })
+                : null
+            }
+          >
+            View Your Notes
+          </button>
           <button>+ Create New Note</button>
         </div>
-        <div className="rightPanel">
-          <h2 className="rightHeader">Your Notes:</h2>
-          <NoteGen notes={this.state.notes} />
-          <CreateNote addNote={this.addNote} />
-        </div>
+        {this.state.viewNote.view ? (
+          <div className="singleNote">
+            <h1 className="singleNoteTitle">
+              {this.state.notes[this.state.viewNote.id].title}
+            </h1>
+            <p className="singleNoteContent">
+              {this.state.notes[this.state.viewNote.id].content}
+            </p>
+          </div>
+        ) : (
+          <div className="rightPanel">
+            <h2 className="rightHeader">Your Notes:</h2>
+            <NoteGen notes={this.state.notes} toggleNote={this.toggleNote} />
+          </div>
+        )}
       </div>
     );
   }
+  toggleNote = i => {
+    return this.setState({
+      ...this.state,
+      viewNote: { view: !this.state.viewNote.view, id: i }
+    });
+  };
 
   addNote = newNote => {
     return this.setState({
@@ -37,5 +70,7 @@ class App extends Component {
     });
   };
 }
-
+{
+  /* <CreateNote addNote={this.addNote} /> */
+} // <------------CREATE NOTE---------->
 export default App;

@@ -29,6 +29,38 @@ body {
   font-size: 1.25rem;
   font-weight: bolder;
 }
+.leftPanel button:hover {
+  border: green 5px solid;
+  cursor: pointer;
+}
+.singleNoteLeftPanel {
+  width: 230px;
+  margin-left: 209px;
+  background-color: #cecbcb;
+}
+.singleNoteLeftPanel .leftHeader {
+  color: #535353;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.singleNoteLeftPanel button {
+  width: 200px;
+  height: 50px;
+  margin: 15px 15px;
+  margin-bottom: 0;
+  background-color: #08cccc;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bolder;
+}
+.singleNoteLeftPanel button:hover {
+  border: green 5px solid;
+  cursor: pointer;
+}
 .rightPanel {
   background-color: #e2e2e2;
   display: flex;
@@ -67,11 +99,30 @@ body {
   font-size: 1.5rem;
 }
 .rightPanel .note .noteContent {
+  height: inherit;
   letter-spacing: 3px;
   line-height: 2;
   padding-top: 15px;
   font-size: 1rem;
+  text-overflow: clip;
 }
-.rightPanel .createNote {
+.singleNote {
+  padding-left: 30px;
+  margin: 0;
+  width: 690px;
+  height: 908px;
+}
+.singleNote .singleNoteTitle {
+  color: #535353;
+  padding-top: 60px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.singleNote .singleNoteContent {
+  padding-top: 30px;
+  font-size: .8rem;
+  line-height: 1.5;
+}
+.createNote {
   width: 100%;
 }
