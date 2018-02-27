@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteThumb from './NoteThumb';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/NoteList.css';
 
 // props include the list of notes from App.js
@@ -12,7 +13,9 @@ const NoteList = props => {
         {props.notes.map(note => {
           return (
             <div key={note.id} className="notelist__item">
-              <NoteThumb note={note} />
+              <Link to={`/view/${note.id}`}>
+                <NoteThumb note={note} />
+              </Link>
             </div>
           );
         })}
