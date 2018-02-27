@@ -37,3 +37,7 @@
 .sidebar__button:active {
   background: rgb(32, 159, 163);
 }
+
+.sidebar__button:focus {
+  outline: 0;
+}
