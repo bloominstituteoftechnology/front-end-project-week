@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Sidebar.css';
 
 const Sidebar = props => {
@@ -6,8 +7,12 @@ const Sidebar = props => {
     <div className="sidebar">
       <span className="sidebar__title">Lambda Notes</span>
       <div className="sidebar__buttons">
-        <button className="sidebar__button">View Your Notes</button>
-        <button className="sidebar__button">+ Create New Note</button>
+        <Link to="/">
+          <div className="sidebar__button">View Your Notes</div>
+        </Link>
+        <Link to="/new">
+          <div className="sidebar__button">+ Create New Note</div>
+        </Link>
       </div>
     </div>
   );
