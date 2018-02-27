@@ -129,20 +129,25 @@ table {
 html,
 body {
   height: 100%;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'Roboto', sans-serif;
   border: 1px solid grey;
 }
 .Container {
   display: flex;
   width: 100%;
 }
+.Sidebar-Container {
+  width: 100%;
+}
 .Sidebar {
   display: flex;
-  font-size: 25px;
+  font-size: 45px;
+  font-weight: 700;
   flex-direction: column;
+  flex-wrap: wrap;
   height: 100%;
-  width: 80%;
   margin: 10px;
+  border-right: 1px solid grey;
 }
 .New-Note {
   width: 100%;

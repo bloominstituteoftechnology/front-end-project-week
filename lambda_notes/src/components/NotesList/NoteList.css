@@ -1,0 +1,11 @@
+.Note {
+  display: flex;
+  border: 1px solid black;
+  width: 95%;
+  max-width: 350px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.Note-Content {
+  font-family: 'Raleway', sans-serif;
+}

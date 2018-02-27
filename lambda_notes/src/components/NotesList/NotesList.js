@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './NoteList.css'
 
 const NotesList = (props) => {
   console.log('NotesList props', props)

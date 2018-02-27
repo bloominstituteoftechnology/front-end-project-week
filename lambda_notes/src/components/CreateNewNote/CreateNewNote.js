@@ -6,7 +6,7 @@ import './CreateNewNote.css';
 const CreateNewNote = () => {
   return (
     <div class="Container">
-      <div className="Sidebar">
+      <div className="Sidebar-Container">
         <Sidebar />
       </div>
       <div className="New-Note">
