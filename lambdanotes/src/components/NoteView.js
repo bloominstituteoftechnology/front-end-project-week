@@ -2,25 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class NoteView extends React.Component {
-  state = {};
-
-  componentDidMount() {
-    this.handleEmptyNote();
+  state = {
+    id: 0,
+    title: '',
+    body: '',
   };
 
-  handleEmptyNote = _ => {
-    if (this.props.note === undefined) {
-      this.setState({
-          title: '',
-          body: '',
-      });
-    } else {
-      this.setState({
-          title: this.props.note.title,
-          body: this.props.note.body,
-      });
-    }
-  }
+  componentDidMount() {
+    this.setState({
+      id: this.props.note.id,
+      title: this.props.note.title,
+      body: this.props.note.body,
+    });
+  };
 
   render() {
     const { title, body } = this.state;
