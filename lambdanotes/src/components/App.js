@@ -10,6 +10,7 @@ import EditNote from './EditNote';
 export default class App extends React.Component {
   nextId = 0;
   noteIndex = 0;
+
   state = {
     notes: [],
   };
@@ -30,8 +31,17 @@ export default class App extends React.Component {
     });
   };
 
-  handleEditNote = _ => {
-    //TODO
+  handleEditNote = inputNote => {
+    const editedNote = {
+      id: this.noteIndex,
+      title: inputNote.title,
+      body: inputNote.body,
+    };
+    const editedNotes = [...this.state.notes];
+    editedNotes.splice(this.noteIndex, 1, editedNote);
+    this.setState({
+      notes: editedNotes,
+    });
   };
 
   handleDeleteNote = _ => {
@@ -46,7 +56,7 @@ export default class App extends React.Component {
             <Route exact path={"/"} render={() => <NoteList notes={this.state.notes} handleNoteViewIndex={this.handleNoteViewIndex} />} />
             <Route exact path={"/create"} render={() => <CreateNote createNote={this.handleCreateNote} />} />
             <Route exact path={"/view"} render={() => <NoteView note={this.state.notes[this.noteIndex]} />} />
-            <Route exact path={"/edit"} render={() => <EditNote note={this.state.notes[this.noteIndex]} />} />
+            <Route exact path={"/edit"} render={() => <EditNote note={this.state.notes[this.noteIndex]} handleNoteViewIndex={this.handleNoteViewIndex} handleEditNote={this.handleEditNote} />} />
         </div>
       </Router>
     );
