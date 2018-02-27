@@ -4,13 +4,39 @@ const initialState = {
   notes: [
     {
       id: 0,
-      title: 'Go to the Store',
-      body: 'Get this, this, and that.',
+      title: 'Have fun',
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
     },
     {
       id: 1,
       title: 'Have fun',
-      body: 'Meditate and then relax.',
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
+    },
+    {
+      id: 2,
+      title: 'Have fun',
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
+    },
+    {
+      id: 3,
+      title: 'Have fun',
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
+    },
+    {
+      id: 4,
+      title: 'Have fun',
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
+    },
+    {
+      id: 5,
+      title: 'Have fun',
+      body:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
     },
   ],
   somethingElse: null,

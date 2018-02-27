@@ -13,8 +13,8 @@ class App extends Component {
         <div className="container">
           <LeftBar />
           <Route path="/" component={AllNotes} exact />
-          <Route path="/notes/:id" component={SingleNote} />
           <Route path="/new-note" component={NewNote} />
+          <Route path="/notes/:id" component={SingleNote} />
         </div>
       </Router>
     );
