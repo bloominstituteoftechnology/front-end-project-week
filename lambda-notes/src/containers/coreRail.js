@@ -4,7 +4,7 @@ import NewNote from '../components/newNote';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
-const CoreRail = () => {
+const CoreRail = (props) => {
     return (
         <div className="core-rail">
         <Router>
@@ -15,8 +15,12 @@ const CoreRail = () => {
                         <div className="left-bottom-btn">
                             <NavLink className="navButton-bottom" to="/new">+ Create New Note </NavLink>
                         </div>
-                        <Route path="/" component={NoteList} exact/>
-                        <Route path="/new" component={NewNote} />
+                        <Route render={(routeProps) => (
+                             <NoteList {...routeProps} {...props} />
+                            )}path="/" exact/>
+                        <Route render={(routeProps) => (
+                             <NewNote {...routeProps} {...props} />
+                            )}path="/new"/>
                     </div>
                 </Router>
         </div>
