@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteList from '../components/noteList';
 import NewNote from '../components/newNote';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
 const CoreRail = () => {
@@ -9,14 +9,14 @@ const CoreRail = () => {
         <div className="core-rail">
         <Router>
                     <div>
-                        <div className="view-notes-btn">
-                            <Link to="/" exact>View Your Notes</Link>
+                        <div className="left-top-btn">
+                            <NavLink className="navButton-top" to="/">View Your Notes</NavLink>
                         </div>
-                        <div className="create-note-btn">
-                            <Link to="/new">+ Create New Note </Link>
+                        <div className="left-bottom-btn">
+                            <NavLink className="navButton-bottom" to="/new">+ Create New Note </NavLink>
                         </div>
                         <Route path="/" component={NoteList} exact/>
-                        <Route path="/new" component={NewNote}/>
+                        <Route path="/new" component={NewNote} />
                     </div>
                 </Router>
         </div>

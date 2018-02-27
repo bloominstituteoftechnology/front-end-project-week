@@ -14,6 +14,5 @@ class LeftRail extends Component {
     }
 }
 
-{/* <ViewNotesBtn />
-<CreateNewNote /> */}
+
 export default LeftRail;

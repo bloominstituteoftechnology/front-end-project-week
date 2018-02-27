@@ -1,0 +1,18 @@
+.left-rail {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+  max-width: 318px;
+  width: 33.8%;
+  background: #d8d8d8;
+  padding-left: 20px;
+  border-right: 1px solid #979797;
+}
+.left-rail .left-rail__title {
+  text-align: left;
+  font-family: 'Roboto Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bolder;
+  font-size: 3.2rem;
+  padding-top: 26px;
+}

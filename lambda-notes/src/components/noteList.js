@@ -29,6 +29,15 @@ class NoteList extends Component {
   componentDidMount() {
     this.setState({ notes: this.state.notes })
   }
+  clampNote = (body) => {
+    let textArr = body.split('')
+    let result = [];
+    if (body.length > 120) {
+       return result.concat(textArr
+         .slice(0, 120).join('') + '...')
+    }
+    return body;
+  }
   render() {
     return (
       <div className="note-list">
@@ -36,7 +45,7 @@ class NoteList extends Component {
           { this.state.notes.map((note) => {
             return (
               <div key={note.id}>
-                <NoteListNote title={note.title} body={note.body} />
+                <NoteListNote title={note.title} body={this.clampNote(note.body)} />
               </div>
             )
           })}
