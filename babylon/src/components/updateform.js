@@ -46,9 +46,12 @@ const StyledUpdateForm = styled.div`
 `;
 
 class UpdateForm extends React.Component {
-  state = {
-    title: '',
-    body: '',
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: this.props.notes[0].title,
+      body: this.props.notes[0].body,
+    };
   }
 
   handleSubmit = (event) => {
@@ -97,4 +100,10 @@ class UpdateForm extends React.Component {
   }
 }
 
-export default connect(null, { updateNote })(UpdateForm);
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+  };
+};
+
+export default connect(mapStateToProps, { updateNote })(UpdateForm);
