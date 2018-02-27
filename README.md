@@ -6,7 +6,7 @@ You are to treat this week as if you are working at a company and the instructor
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repo you should use as a creative guide.  
 
 ## MVP Features:
-* [ ] Display a list of notes
+* [x] Display a list of notes
 * [ ] Create a note with a title and content
 * [ ] View an existing note
 * [ ] Edit an existing note
