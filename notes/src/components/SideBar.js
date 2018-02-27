@@ -1,8 +1,14 @@
 import React from 'react';
 import './SideBar.css';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class SideBar extends React.Component {
+
+  exportCSV = () => {
+    const jnotes = JSON.stringify(this.props.notes);
+    console.log(jnotes);
+  }
 
   render() {
     return (
@@ -10,11 +16,17 @@ class SideBar extends React.Component {
         <h1>Lambda Notes</h1>
         <NavLink to='/' className='button'><button>View Your Notes</button></NavLink>
         <NavLink to='/new' className='button'><button>+ Create New Node</button></NavLink>
-        <NavLink to='/export' className='button'><button>Export Notes</button></NavLink>
+        <button className='export' onClick={this.exportCSV}>Export Notes</button>
       </div>
     );
   }
 
 }
 
-export default SideBar;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps)(SideBar);

@@ -39,6 +39,9 @@
 .sidebar button:active {
   background: #24abad;
 }
+.sidebar .export {
+  width: 81%;
+}
 .sidebar a {
   cursor: default;
 }

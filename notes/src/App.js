@@ -22,7 +22,7 @@ class App extends Component {
             <Route path='/view/:id' component={NoteView} exact />
             <Route path='/edit/:id' component={EditNoteView} exact />
             <Route path='/delete/:id' component={ListView} exact />
-            <Route path='/404' component={NotFound} />
+            <Route path='/404' component={NotFound} exact />
             <Redirect to="/404" />
           </Switch>
         </div>

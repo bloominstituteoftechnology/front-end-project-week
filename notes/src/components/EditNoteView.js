@@ -20,7 +20,7 @@ class CreateNote extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.editNote(this.state);
-    this.setState({ redirect: true });
+    this.props.history.push('/');
   }
 
   componentDidMount() {
