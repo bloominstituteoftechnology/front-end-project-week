@@ -16,10 +16,13 @@ class NewView extends Component {
                 <div className="section__content__right">
                 <div className="section__content__inputs">
                      <h3>Create New Note</h3>
-                    <input className="input__note__title" value="Note Title"></input>
+                 
+                    <input className="note-title" placeholder="Note Title"></input>
                       <br />
-                    <input className="input__note__content" value="Note Content"></input>
+                    <textarea className="note-content" rows="60" cols="200" placeholder="Note Content"></textarea>
+                   
                       <br />
+
                     <div className="button__main">Save</div>
                 </div>
                 </div>

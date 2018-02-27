@@ -84,16 +84,22 @@ p {
   font-size: 10px;
 }
 
-.input__note__title { 
-  width: 50%;
-  height: 40px; 
-  border-radius: 2%;
+.delete__p {
+  font-size: 1rem;
 }
 
-.input__note__content { 
-  width: 99.3%;
-  height: 800px;
-  border-radius: 0.5%;
+.note-content {
+  border-radius: 5px;
+  border: solid gray;
+  padding: 3%;
+}
+
+.note-title {
+  border-radius: 5px;
+  border: solid gray;
+  width: 50%;
+  height: 30px;
+  padding-left: 1%;
 }
 
 .button__main {
@@ -106,12 +112,33 @@ p {
   color: white;
 }
 
-.button__main delete {
+
+.button__delete {
+  width:40%;
+  color: white;
   background: red;
+  display: inline-block;
+  margin: 0 2% 0 2%;
+  text-align: center;
+  border: solid grey;
+  padding: 1%;
+}
+
+.button__save {
+  width:40%;
+  color: white;
+  background: rgb(18, 215, 215);
+  display: inline-block;
+  margin: 0 2% 0 2%;
+  text-align: center;
+  border: solid grey;
+  padding: 1%;
 }
 
 .section__delete {
+  padding: 5%;
   border: solid black;
+  text-align: center;
 }
 
 
