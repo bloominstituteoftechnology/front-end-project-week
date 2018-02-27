@@ -20,10 +20,10 @@ class NotesList extends Component {
     return (
       <NoteListStyled>
         <h1>Your Notes:</h1>
-        <div style={{ display: "flex", flexFlow: "row wrap" }}>
+        <div style={{ display: "flex", flexFlow: "row wrap" }} >
           {this.props.notes.map((note) => {
             return (
-              <Note key={note.id} note={note}/>
+              <Note key={note.id} note={note} showNoteDetails={this.props.showNoteDetails} />
               )})}
         </div>
       </NoteListStyled>

@@ -5,10 +5,11 @@ import styled from 'styled-components';
 // Components
 import Sidebar from './components/sidebar';
 import NotesList from './components/notes-list';
-import dummyData from './dummy-data';
 import CreateNote from './components/create-note';
+import NoteDetails from './components/note-details';
 
-// CSS
+import dummyData from './dummy-data';
+
 import './App.css';
 
 // Styles for App Component
@@ -22,20 +23,44 @@ const AppStyled = styled.div`
 // App Component
 class App extends Component {
   state = {
-    notes: dummyData,
     viewingNotes: true,
     creatingNote: false,
     editingNote: false,
+    showingNoteDetails: false,
+    notes: dummyData,
+    noteDetails: {
+      title: '',
+      content: '',
+      id: '',
+    }
   }
 
   // Display Notes List when Sidebar button is clicked
   viewNotes = () => {
-    this.setState({ viewingNotes: true, creatingNote: false, editingNote: false })
+    this.setState({ viewingNotes: true, creatingNote: false, showingNoteDetails: false, editingNote: false, });
   }
 
   // Display Create New Note entry form when Sidebar button is clicked
   createNewNoteForm = () => {
-    this.setState({ viewingNotes: false, creatingNote: true, editingNote: false })
+    this.setState({ viewingNotes: false, creatingNote: true, showingNoteDetails: false, editingNote: false });
+  }
+
+  // Display Note Details when note is clicked on in Note List
+  showNoteDetails = (id) => {
+    const noteToView = this.state.notes.find((note) => { return note.id === id })
+    this.setState({ 
+      viewingNotes: false, 
+      creatingNote: false, 
+      showingNoteDetails: true, 
+      editingNote: false, 
+      noteDetails: {...noteToView},
+    });
+    console.log(this.state);
+  }
+
+  // Display Note Edit Form when 'edit' is clicked in Note Details
+  showNoteEditForm = () => {
+    this.setState({ viewingNotes: false, creatingNote: false, showingNoteDetails: false, editingNote: true });
   }
 
   // Create new note object with data from CreateNote;
@@ -70,8 +95,9 @@ class App extends Component {
           style={{ width: "200px", height: "100vh" }}
         />
         <div style={{ width: "100%", height: "100vh" }}>
-          {this.state.viewingNotes && <NotesList notes={this.state.notes} />}
+          {this.state.viewingNotes && <NotesList notes={this.state.notes} showNoteDetails={this.showNoteDetails} />}
           {this.state.creatingNote && <CreateNote getNextId={this.getNextId} saveNewNote={this.saveNewNote} />}
+          {this.state.showingNoteDetails && <NoteDetails noteDetails={this.state.noteDetails} />}
         </div>
       </AppStyled>
     );

@@ -30,11 +30,11 @@ const NoteStyled = styled.a`
 class Note extends Component {
   render() {
     return (
-        <NoteStyled onClick={ () => {console.log(this.props.note.id)} }>
-          <h4>{this.props.note.title}</h4>
-          <hr style={{ width: "100%"}}/>
-          <p>{this.props.note.content}</p>
-        </NoteStyled>
+      <NoteStyled onClick={() => { this.props.showNoteDetails(this.props.note.id) }}>
+        <h4>{this.props.note.title}</h4>
+        <hr style={{ width: "100%" }} />
+        <p>{this.props.note.content}</p>
+      </NoteStyled>
     )
   }
 }
