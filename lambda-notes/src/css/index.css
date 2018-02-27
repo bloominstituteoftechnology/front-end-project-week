@@ -1,28 +1,54 @@
-.NoteList {
+.App {
   display: flex;
+  border: solid 1px #4e4e4e;
 }
-.NoteList .NoteList-sidebar {
+.App .Sidebar {
   display: flex;
+  align-content: center;
   flex-direction: column;
   width: 25%;
-  background-color: #8b8b8b;
-  border: 1px solid #616161;
+  background: #9b9b9b;
+  border-right: 1px #4e4e4e solid;
 }
-.NoteList .NoteList-content {
+.App .Sidebar .Sidebar__button {
+  background: cyan;
+  margin: 3px;
+}
+.App .View {
+  width: 75%;
+  background: silver;
+}
+.NoteList {
   display: flex;
   flex-direction: column;
-  width: 75%;
-  background-color: lightgray;
+  justify-content: center;
+}
+.NoteList .NoteList__header {
+  font-weight: bold;
   padding: 5px;
 }
-.NoteList .NoteList-content .NoteList-content__card-container {
-  display: flex;
-  flex-wrap: wrap;
+.NoteList .NoteList__card-container {
+  display: inline-flex;
+  flex-flow: row wrap;
   justify-content: space-around;
-  padding: 3px;
 }
-.NoteList .NoteList-content .NoteList-content__card-container .NoteList-content__card {
-  border: 1px black solid;
-  margin: 3px;
-  max-width: 25%;
+.NoteList .NoteList__card-container .NoteList__card {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: black 1px solid;
+  background: #e0e0e0;
+}
+.NoteList .NoteList__card-container .NoteList__card .NoteList__card-header {
+  font-weight: bold;
+  border-bottom: black 1px solid;
+}
+.NoteList .NoteList__card-container .NoteList__card .NoteList__card-content {
+  max-height: 150px;
+  font-style: italic;
+  text-overflow: ellipsis;
 }
