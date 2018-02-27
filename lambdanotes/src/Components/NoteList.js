@@ -1,13 +1,13 @@
 import React from 'react';
-
+import './notes.css';
 const NoteList = (props) => {
 
         return (
-            <div>
+            <div className="noteBox">
                 <ul>
                     {props.notes.map((note) => {
                         return (
-                            <li key={props.notes.indexOf(note)}>{note.note}
+                            <li className="listBox" key={props.notes.indexOf(note)} onClick={props.viewNote}>{note.note}
                             <p>{note.details}</p>
                             </li>
                         )
