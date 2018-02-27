@@ -29,8 +29,8 @@ class NewNote extends Component {
                 <textarea 
                   className="title-input" 
                   placeholder="Note Title" 
-                  rows="13" cols="1" 
-                  maxLength="13" 
+                  rows="50" cols="1" 
+                  maxLength="50" 
                   name="title" 
                   value={this.state.title}
                   onChange={this.noteChangeHandler}
