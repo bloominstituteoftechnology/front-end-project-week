@@ -3,12 +3,13 @@ import React, { Component } from "react";
 class NoteList extends Component {
   render() {
     return (
-      <div>
+      <div className="note-container">
+        <h3 className="note-container heading">Your Notes:</h3>
         <ul>
           {this.props.notes.map(note => {
             return (
-              <li key={note.id}>
-                <h3>{note.title}</h3> <hr /> <p>{note.text}</p>
+              <li className="note-container notelist" key={note.id}>
+                <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
               </li>
             );
           })}

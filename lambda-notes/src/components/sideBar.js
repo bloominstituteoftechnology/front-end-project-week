@@ -3,10 +3,10 @@ import React, { Component } from "react";
 class SideBar extends Component {
   render() {
     return (
-      <div>
-        <h1>Lambda Notes</h1>
-        <button className="button--teal">View Your Notes</button>
-        <button className="button--teal">+ Create New Note</button>
+      <div className="sidebar">
+        <h1 className="title">Lambda Notes</h1>
+        <button className="button button--teal">View Your Notes</button>
+        <button className="button button--teal">+ Create New Note</button>
       </div>
     );
   }
