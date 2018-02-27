@@ -1,0 +1,26 @@
+.Sidebar-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-weight: 700;
+  border: 1px solid grey;
+  font-size: 45px;
+  max-width: 275px;
+  min-height: 100%;
+  width: 80%;
+  margin: 0;
+  padding-right: 0;
+  background-color: #D3D3D3;
+}
+.Sidebar-container .Sidebar {
+  margin: 15px;
+}
+.Sidebar-container .Sidebar .Sidebar-buttons {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+.Sidebar-container .Sidebar .Sidebar-buttons .Sidebar-button {
+  margin: 0 0 0 15px;
+}

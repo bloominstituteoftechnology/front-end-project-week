@@ -1,4 +1,4 @@
-import {DISPLAY_NOTE} from '../actions';
+import {CREATE_NOTE} from '../actions';
 
 const initialState = {
   notes: [

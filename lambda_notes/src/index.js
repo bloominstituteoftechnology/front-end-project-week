@@ -17,9 +17,9 @@ ReactDOM.render(
   <Router>
     <Switch>
       <Route path="/" component={App} exact />
-      <Route path="/:id" component={Note} exact />
       <Route path="/create" component={CreateNewNote} exact />
       <Route path="/edit" component={EditNote} exact />
+      <Route path="/:id" component={Note} exact />
     </Switch>
   </Router>
 </Provider>

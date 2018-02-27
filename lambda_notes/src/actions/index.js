@@ -1,7 +1,8 @@
-export const DISPLAY_NOTE = 'DISPLAY_NOTE';
+export const CREATE_NOTE = 'CREATE_NOTE';
 
-export const displayNote = () => {
+export const createNote = (note) => {
   return {
-    type: DISPLAY_NOTE,
+    type: CREATE_NOTE,
+    payload: note,
   }
 }

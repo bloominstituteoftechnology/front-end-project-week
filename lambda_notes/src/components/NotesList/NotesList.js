@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NoteList.css'
+import './NotesList.css'
 
 const NotesList = (props) => {
   console.log('NotesList props', props)
   return (
     <Link to={`/${props.id}`}>
-    <div className="Note">
-      <div className="Note-Title">{props.note.title}</div>
-      <hr />
-      <div className="Note-Content">{props.note.content}</div>
-    </div>
+      <div className="Note">
+        <div className="Note-Title">{props.note.title}</div>
+        <hr />
+        <div className="Note-Content">{props.note.content}</div>
+      </div>
     </Link>
   )
 }

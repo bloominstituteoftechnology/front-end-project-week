@@ -11,12 +11,10 @@ class App extends Component {
     console.log('App props', this.props)
     return (
       <div className="App">
-        <div className="Sidebar">
-          <Sidebar />
-        </div>
+        <Sidebar />
+        <header>Your Notes: </header>
         <div className="Notes-Container">
-          <h2>Your Notes: </h2>
-          {props.notesState.notes.map((note, index) => <NotesList id={index} note={note}/>)}
+          {props.state.notes.map((note, index) => <NotesList id={index} note={note}/>)}
         </div>
       </div>
     );
@@ -25,7 +23,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    notesState: state,
+    state: state,
   }
 }
 

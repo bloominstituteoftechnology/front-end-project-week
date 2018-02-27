@@ -1,49 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Note = (props) => {
   console.log('Note.js props', props);
-    return (
+  return (
+    <div>
+      <div className="Sidebar">
+        <Sidebar />
+      </div>
       <div className="Note-Container">
         <div>
           <Link to="/edit">Edit</Link>
           <Link to="/">Delete</Link>
         </div>
         <div className="Note-Title">
-          {props.notesState.notes[props.match.params.id].title}
+          {props.state.notes[props.match.params.id].title}
         </div>
         <div className="Note-Content">
-          {props.notesState.notes[props.match.params.id].content}
+          {props.state.notes[props.match.params.id].content}
         </div>
       </div>
-      )
+    </div>
+  )
 }
-// class Note extends React.Component {
-//   render () {
-//     const props = this.props;
-//     console.log('Note.js props', this.props)
-
-//     return (
-//       <div className="Note-Container">
-//         <div>
-//           <Link to="/edit">Edit</Link>
-//           <Link to="/">Delete</Link>
-//         </div>
-//         <div className="Note-Title">
-//           {props.notesState.notes[props.match.params.id].title}
-//         </div>
-//         <div className="Note-Content">
-//           {props.notesState.notes[props.match.params.id].content}
-//         </div>
-//       </div>
-//       )
-//   }
-// }
 
 const mapStateToProps = (state) => {
   return {
-    notesState: state,
+    state: state,
   }
 }
 
