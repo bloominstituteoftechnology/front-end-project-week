@@ -22,7 +22,8 @@
 .each-link {
   margin: 14px 6px 0px 13px;
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
-
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .single-note_header {
