@@ -27,8 +27,8 @@ const SideBar = () => {
             </NavLink>
           </li>
         </ul>
-        <Route exact path="/" component={PostsIndex}/>
-        <Route path="/CreateNew" component={CreateNew}/>
+        {/* <Route exact path="/" component={PostsIndex}/> */}
+        {/* <Route path="/CreateNew" component={CreateNew}/> */}
         {/*<Route path="#" component={}/> */}
       </div>
     </Router>
