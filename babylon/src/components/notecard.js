@@ -34,8 +34,8 @@ const StyledCard = styled.div`
 
 const NoteCard = props => (
   <StyledCard>
-    <h3>Note Title</h3>
-    <p>This is example data...awkjfghaksd afdehfai eurkhvaeruk hv  krhvcxnl reuh cvzfhjksdgle rfh kjsdhfv asdkj bh</p>
+    <h3>{props.note.title}</h3>
+    <p>{`${props.note.body.substring(0, 120)}...`}</p>
   </StyledCard>
 );
 

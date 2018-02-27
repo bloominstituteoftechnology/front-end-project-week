@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Button from './button';
 import NoteCard from './notecard';
@@ -50,15 +51,11 @@ class Home extends Component {
         </div>
         <div className='right'>
           <h2>Your Notes:</h2>
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
-          <NoteCard />
+          {this.props.notes.map((note, index) => {
+            return (
+              <NoteCard key={index} note={note} />
+            );
+          })}
         </div>
 
       </HomeContainer>
@@ -66,4 +63,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+  };
+};
+
+export default connect(mapStateToProps, null)(Home);
