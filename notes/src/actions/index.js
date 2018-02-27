@@ -1,8 +1,4 @@
 import axios from 'axios';
-/*
-  Action Types Go Here!
-  Be sure to export each action type so you can pull it into your reducer
-*/
 
 export const GET_NOTES = 'GET_NOTES';
 export const ADD_NOTES = 'ADD_NOTES';
@@ -37,6 +33,7 @@ export const addNote = (note) => {
         newNote
             .then(({data}) => {
                 dispatch({type: ADD_NOTES, payload: data});
+                window.location = "/";
             })
             .catch(err => {
                 dispatch({type: ERROR_GETTING_NOTES, payload: err});

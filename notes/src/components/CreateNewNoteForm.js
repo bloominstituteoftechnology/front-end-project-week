@@ -13,16 +13,13 @@ class CreateNewNoteForm extends Component {
     };
 
     updateField = (e) => {
-        console.log(e.target.value);
         this.setState({
             [e.target.name]: e.target.value
         });
     };
 
     addNote = () => {
-
         this.props.addNote(this.state);
-        console.log('Add this  NOTE:', this.state);
     };
 
     render() {
