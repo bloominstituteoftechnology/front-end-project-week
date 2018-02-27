@@ -27,26 +27,31 @@ const notes = [
     title: 'Note 5',
     content:
       "Automatically, all of these beautiful, beautiful things will happen. Just go back and put one little more happy tree in there. Just make a decision and let it go. I was blessed with a very steady hand; and it comes in very handy when you're doing these little delicate things. The least little bit can do so much. Let's build an almighty mountain.",
+    id: 5,
   },
   {
     title: 'Note 6',
     content:
       "And just raise cain. Mix your color marbly don't mix it dead. Let's get crazy. Only think about one thing at a time. Don't get greedy.",
+    id: 6,
   },
   {
     title: 'Note 7',
     content:
       "You have to make these big decisions. Maybe there's a happy little Evergreen that lives here. Maybe he has a little friend that lives right over here. Get tough with it, get strong. If these lines aren't straight, your water's going to run right out of your painting and get your floor wet.",
+    id: 7,
   },
   {
     title: 'Note 8',
     content:
       "Trees grow however makes them happy. If you don't think every day is a good day - try missing a few. You'll see. See how easy it is to create a little tree right in your world. Everyone wants to enjoy the good parts - but you have to build the framework first.",
+    id: 8,
   },
   {
     title: 'Note 9',
     content:
       "Just make a decision and let it go. Don't fight it, use what happens. Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things",
+    id: 9,
   },
 ];
 
