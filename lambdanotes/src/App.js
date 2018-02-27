@@ -11,13 +11,15 @@ import CreateNote from './components/create-note';
 // CSS
 import './App.css';
 
+// Styles for App Component
 const AppStyled = styled.div`
   display: flex;
   flex-flow: row no-wrap;
-  border: 2px solid black;
-  height: 100%;
+  height: 100vh;
+  vertical-align: top;
 `
 
+// App Component
 class App extends Component {
   state = {
     notes: dummyData,
@@ -26,16 +28,23 @@ class App extends Component {
     editingNote: false,
   }
 
+  // Display Notes List when Sidebar button is clicked
   viewNotes = () => {
     this.setState({ viewingNotes: true, creatingNote: false, editingNote: false })
-    console.log(this.state)
   }
 
+  // Display Create New Note entry form when Sidebar button is clicked
   createNewNote = () => {
     this.setState({ viewingNotes: false, creatingNote: true, editingNote: false })
-    console.log(this.state)
   }
 
+  // Get's id of last note and returns new incremented id 
+  getNextId = () => {
+    let lastNoteIndex = this.state.notes.length - 1;
+    let lastNote = this.state.notes[lastNoteIndex];
+    let nextId = lastNote.id + 1;
+    return nextId;
+  }
 
   render() {
     return (
@@ -46,11 +55,11 @@ class App extends Component {
           editingNote={this.state.editingNote}
           viewNotes={this.viewNotes}
           createNewNote={this.createNewNote}
-          style={{ width: "200px", height: "100%" }}
+          style={{ width: "200px", height: "100vh" }}
         />
-        <div style={{ width: "100%" }}>
+        <div style={{ width: "100%", height: "100vh"}}>
           {this.state.viewingNotes && <NotesList notes={this.state.notes} />}
-          {this.state.creatingNote && <CreateNote />}
+          {this.state.creatingNote && <CreateNote getNextId={this.getNextId} />}
         </div>
       </AppStyled>
     );

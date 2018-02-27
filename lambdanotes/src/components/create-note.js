@@ -6,6 +6,7 @@ const CreateNoteStyled = styled.div`
   flex-direction: column;
   padding: 20px;
   width: 100%;
+  height: 100vh;
   background-color: rgb(243, 243, 243);
 
   button {
@@ -15,29 +16,39 @@ const CreateNoteStyled = styled.div`
     background-color: rgb(94, 190, 195);
     color: #FFFFFF;
     outline: none;
+    font-size: 0.9rem;
+    font-weight: bold;
   }
 
   .NoteTitleInput {
     width: 50%;
     outline: none;
+    font-size: 1rem;
   }
 
   .NoteContentInput {
     width: 80%;
     height: 300px;
-    margin-top: 10px;
+    margin-top: 20px;
     outline: none;
+    font-size: 1rem;
+    resize: none;
   }
 `
 
 class CreateNote extends Component {
+  state = {
+    title: '',
+    content: '',
+  }
+  
   render() {
     return (
       <CreateNoteStyled>
         <h1>Create New Note:</h1>
         <input className="NoteTitleInput" type="text" placeholder="Note Title"/>
-        <input className="NoteContentInput"type="text" placeholder="Note Content"/>
-        <button>Save</button>
+        <textarea className="NoteContentInput"type="text" placeholder="Note Content" rows="10" cols="50"/>
+        <button onClick={this.props.getNextId}>Save</button>
       </CreateNoteStyled>
     )
   }
