@@ -1,9 +1,9 @@
 export const ADD_NOTE = 'ADD_NOTE';
 
-let nextNoteId = 0;
+let nextNoteId = 10;
 export const addNote = data => ({
-  type: 'ADD_TODO',
+  type: 'ADD_NOTE',
   id: nextNoteId++,
-  title: data[0],
-  body: data[1],
+  title: data.title,
+  body: data.body,
 });
