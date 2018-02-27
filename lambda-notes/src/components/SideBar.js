@@ -11,22 +11,22 @@ const SideBar = () => {
         
         <ul>
           <li>
-            <NavLink to="/PostsIndex" className="PostsIndex">
+            <NavLink to="/" className="PostsIndex">
               <button>View Your Notes</button>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" className="">
+            <NavLink to="" className="">
               <button disabled="disabled">+ Create New Note</button>
             </NavLink>
           </li>
           <li>
-            <NavLink to="/" className="">
+            <NavLink to="" className="">
               <button disabled="disabled">Click Me Too</button>
             </NavLink>
           </li>
         </ul>
-        <Route path="/PostsIndex" component={PostsIndex}/>
+        <Route path="/" component={PostsIndex}/>
         {/* <Route path="#" component={}/>
         <Route path="#" component={}/> */}
       </div>

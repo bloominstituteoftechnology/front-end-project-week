@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
+import '../styles/PostsIndex.css';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -15,8 +16,8 @@ class PostsIndex extends Component {
         <li key={post.id}>
           {post.title}
         </li>
-      )
-    })
+      );
+    });
   }
 
   render() {
