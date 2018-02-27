@@ -9,10 +9,15 @@ class PostsIndex extends Component {
 
   render() {
     return (
-      <div>POSTS INDEX</div>
+      <div>POSTS INDEX
+      </div>
     );
   }
 }
 
+function mapStateToProps(state) {
+  return { posts: state.posts };
+}
+
 // export default PostsIndex;
-export default connect(null, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
