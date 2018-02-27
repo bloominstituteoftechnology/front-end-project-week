@@ -3,6 +3,10 @@ html, body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .App {
   height: 100%;
   display: flex;
@@ -11,6 +15,7 @@ html, body {
 }
 
 .Home__Left {
+  min-width: 200px;
   width: 250px;
   background-color: #d2d2d2;
   border-style: solid;
@@ -24,6 +29,8 @@ html, body {
 }
 
 .Home_Left_Text {
+  font-family: "Roboto Bold";
+  font-size: 40px;
 }
 
 .Home__Right {
@@ -34,6 +41,11 @@ html, body {
   border-width: 2px;
   border-left-width: 1px;
   border-color: #b7b7b7;
+}
+
+.Right_Containers {
+  margin-left: 35px;
+  margin-right: 35px;
 }
 
 .button {
@@ -47,13 +59,14 @@ html, body {
     font-weight: bold;
     padding-top: 17px;
     padding-bottom: 17px;
-    margin-top: 28px;
     cursor: pointer;
-    width: 100%;
 }
 
 .Home__NoteButton {
   background-color: #3cbbbd;
   color: white;
   border: 1px solid #859393;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 28px;
 }

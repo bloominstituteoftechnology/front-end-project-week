@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Nav from './NavBar';
+import ViewNotes from './ViewNotes';
+import CreateNote from './CreateNote'
+
 import './App.css';
 
 class App extends Component {
@@ -10,19 +13,13 @@ class App extends Component {
       <Router>
         <div className='App'>
           <Nav />
-          <Route path="/viewnotes" component={this.ViewNotes} exact />
+          <Route path="/" component={ViewNotes} exact />
+          <Route path="/viewnotes" component={ViewNotes} exact />
+          <Route path="/createnote" component={CreateNote} exact />
         </div>
       </Router>
     );
   }
-
-  ViewNotes = () => {
-    return (
-      <div className="Home__Right">
-        Right
-      </div>
-    )
-  };
 
 }
 
