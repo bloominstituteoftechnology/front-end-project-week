@@ -13,11 +13,12 @@
   top: 0;
 }
 .sidebar h1 {
+  font-size: 2.9rem;
   padding-left: 20px;
   text-align: left;
   user-select: none;
   color: #4B4A4B;
-  margin: 20px 0 20px 0;
+  margin: 25px 0 20px 0;
 }
 .sidebar .button {
   width: 90%;
@@ -32,5 +33,12 @@
   color: white;
   border: 1px solid #76A1A1;
   user-select: none;
+  cursor: pointer;
   margin: 10px;
+}
+.sidebar button:active {
+  background: #24abad;
+}
+.sidebar a {
+  cursor: default;
 }

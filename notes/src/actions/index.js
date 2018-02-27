@@ -13,3 +13,10 @@ export const editNote = (info) => {
     payload: info,
   }
 }
+
+export const viewNote = (info) => {
+  return {
+    type: 'VIEW_NOTE',
+    payload: info,
+  }
+}
