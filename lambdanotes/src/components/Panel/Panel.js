@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Panel = (props) => {  
-  const handleClickForCreate = () => {
-    alert(props.showAddWin)
+class Panel extends React.Component {
+  render() {
+    return (
+      <div className="Panel">
+        <p>Lambda Notes</p>
+        <button>View Your Notes</button>
+        <button onClick={this.props.handleClickForCreate}>+ Create New Note</button>
+      </div>
+    );
   }
-
-  return (
-    <div className="Panel">
-      <p>Lambda Notes</p>
-      <button>View Your Notes</button>
-      <button onClick={() => handleClickForCreate()}>+ Create New Note</button>
-    </div>
-  );
 };
 
 export default Panel;

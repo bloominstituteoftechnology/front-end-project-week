@@ -11,20 +11,23 @@ button {
   margin-bottom: 5px;
   height: 7%;
 }
+.save-button {
+  width: 15vw;
+  height: 7.5vh;
+}
 .App {
   display: flex;
 }
 .Panel {
   background: #d7d7d7;
   height: 100vh;
+  width: 20vw;
   text-align: center;
-}
-.panel-title {
-  text-align: left;
 }
 .Notes {
   background: #F3F3F3;
   height: 100vh;
+  width: 80vw;
   display: flex;
   flex-wrap: wrap;
   padding: 5vh 1vw 5vh 1vw;
@@ -35,4 +38,12 @@ button {
   width: 210px;
   border: solid 1px #96AEAF;
   margin: 1vh;
+}
+.noteTitleInputBox {
+  height: 10vh;
+  width: 40vw;
+}
+.noteInputInputBox {
+  height: 60vh;
+  width: 70vw;
 }
