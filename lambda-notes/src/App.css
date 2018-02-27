@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+  display: flex;
+  max-width: 800px;
+  height: 100%;
+}
+
+.sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6e6e6;
+  padding: 0 15px 0 15px;
+  height: 900px;
+  width: 200px;
+}
+
+.title {
+  text-align: justify;
+  color: #5f645e;
+  font-family: "Roboto", sans-serif;
+}
+
+.button {
+  width: 170px;
+  height: 40px;
+  color: white;
+  margin: 0 0 15px 0;
+  font-size: 0.8rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.button--teal {
+  background-color: #06e7f4;
+}
+
+.button--red {
+  background-color: red;
+}
+
+.note-container {
+  width: 600px;
+  background-color: #f8f8f6;
+}
+.heading {
+  text-align: justify;
+  box-sizing: border-box;
+  margin: 50px 20px 0 20px;
+  font-family: "Roboto", sans-serif;
+}
+.notelist {
+  box-sizing: border-box;
+  width: 175px;
+  height: 175px;
+  text-align: left;
+  list-style-type: none;
+  border: 2px solid #e6e6e6;
+  padding: 0 10px 5px 10px;
+  background-color: white;
+  margin: 0 0 15px 0;
+}
+.note-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.notelist h4 {
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.notelist p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.7rem;
+}
