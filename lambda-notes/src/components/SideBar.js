@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import PostsIndex from './PostsIndex';
+import CreateNew from './CreateNew';
 import React from 'react';
 import '../styles/SideBar.css';
 
@@ -16,8 +17,8 @@ const SideBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="" className="">
-              <button disabled="disabled">+ Create New Note</button>
+            <NavLink to="/CreateNew" className="CreateNew">
+              <button>+ Create New Note</button>
             </NavLink>
           </li>
           <li>
@@ -26,9 +27,9 @@ const SideBar = () => {
             </NavLink>
           </li>
         </ul>
-        <Route path="/" component={PostsIndex}/>
-        {/* <Route path="#" component={}/>
-        <Route path="#" component={}/> */}
+        <Route exact path="/" component={PostsIndex}/>
+        <Route path="/CreateNew" component={CreateNew}/>
+        {/*<Route path="#" component={}/> */}
       </div>
     </Router>
   )
