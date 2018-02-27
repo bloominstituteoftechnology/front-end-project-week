@@ -13,10 +13,11 @@ class NoteList extends React.Component {
       <div>
         <h2>Your Notes:</h2>
         <ul className="NoteList">
-          {this.state.notes.map((note, index) => {
+          {this.state.notes.map(note => {
             return (
               <Note
-                key={index}
+                key={note.id}
+                id={note.id}
                 title={note.title}
                 body={note.body}
               />
