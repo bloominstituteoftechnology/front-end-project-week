@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {edit_note, view_button_click, view_note} from '../actions/index';
+import {edit_note, view_button_click} from '../actions/index';
 
 import './css/EditNote.css';
 
@@ -55,7 +55,7 @@ class CreateNote extends React.Component {
         title: '',
         body: '',
       });
-      this.props.view_note(this.state);
+      this.props.view_button_click();
     }
   };
 }
@@ -67,4 +67,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {edit_note, view_button_click, view_note})(CreateNote);
+export default connect(mapStateToProps, {edit_note, view_button_click })(CreateNote);
