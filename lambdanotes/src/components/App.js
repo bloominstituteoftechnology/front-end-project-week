@@ -8,23 +8,7 @@ import CreateNote from './CreateNote';
 class App extends React.Component {
   nextId = 0;
   state = {
-    notes: [
-      {
-        id: 0,
-        title: 'Note 1',
-        body: 'Words and stuff.',
-      },
-      {
-        id: 1,
-        title: 'Note 2',
-        body: 'More words and stuff.',
-      },
-      {
-        id: 2,
-        title: 'Note 3',
-        body: 'Even more words and stuff.',
-      },
-    ],
+    notes: [],
   };
 
   handleCreateNote = inputNote => {
