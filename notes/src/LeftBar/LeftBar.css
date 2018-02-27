@@ -9,15 +9,17 @@
 }
 
 .left-bar_header {
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 40px;
-  font-weight: bold;
   color: #4A494A;
   width: 200px;
   padding-left: 15px;
-  margin: 25px 0px;
+  margin-top: 25px;
+  margin-bottom: 30px;
 }
 
 .left-bar_buttons {
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   display: flex;
   flex-direction: column;
 }
