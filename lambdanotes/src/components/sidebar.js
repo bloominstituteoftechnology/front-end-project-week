@@ -18,6 +18,8 @@ const ButtonStyled = styled.button`
   background-color: rgb(94, 190, 195);
   color: #FFFFFF;
   outline: none;
+  font-size: 0.9rem;
+  font-weight: bold;
 `
 
 const Sidebar = (props) => {
@@ -25,7 +27,7 @@ const Sidebar = (props) => {
     <SideBarStyled>
       <h1>Lambda Notes</h1>
       <ButtonStyled onClick={props.viewNotes}>View Your Notes</ButtonStyled>
-      <ButtonStyled onClick={props.createNewNote}>+ Create New Notes</ButtonStyled>
+      <ButtonStyled onClick={props.createNewNote}>+ Create New Note</ButtonStyled>
     </SideBarStyled>
   )
 }

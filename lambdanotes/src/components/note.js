@@ -9,6 +9,16 @@ const NoteStyled = styled.div`
   padding: 10px;
   margin: 10px;
   background-color: rgb(255, 255, 255);
+
+  h4 {
+    margin: 3px 0;
+    color: #000000;
+  }
+
+  p {
+    font-size: 0.8rem;
+    line-height: 25px;
+  }
 `;
 
 class Note extends Component {
