@@ -3,20 +3,23 @@
   border: 1px solid #9B9B9B;
   border-left: 0px;
   background: #f3f3f3;
+  padding-top: 10px;
 }
 .main-body_header {
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 24px;
   color: #4A494A;
   font-weight: bold;
   margin: 65px 0px 25px 25px;
 }
-.main-body_notes {
+.main-body_fields {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
   justify-content: space-around;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 12px;
 }
 .note-box {
   background: #ffffff;
@@ -28,6 +31,7 @@
   padding: 20px;
 }
 .note-title {
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 22px;
   font-weight: bold;
   color: black;
@@ -36,6 +40,7 @@
 }
 
 .note-body {
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #4A494A;
   letter-spacing: 1px;

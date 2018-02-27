@@ -39,15 +39,24 @@ const initialState = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia accumsan ligula, ac interdum elit ornare ac.',
     },
   ],
-  somethingElse: null,
+  counter: 6,
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
+      console.log('action.payload.title: ', action.payload.title);
       return {
         ...state,
-        notes: [...state.notes, action.payload],
+        notes: [
+          ...state.notes,
+          {
+            title: action.payload.title,
+            body: action.payload.body,
+            id: (action.payload.id = state.counter),
+          },
+        ],
+        counter: ++state.counter,
       };
     default:
       return state;
