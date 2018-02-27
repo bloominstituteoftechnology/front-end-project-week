@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Notes from './components/Notes'
 import {Row, Grid, Col} from 'react-bootstrap';
 import styled from 'styled-components';
-
+import CreateNewNoteForm from './components/CreateNewNoteForm'
 
 const About = () => (
     <div>
@@ -62,14 +62,14 @@ class App extends Component {
                             </div>
 
                             <div className={'btn-side'}>
-                                <Link to="/topics" className={"btn-text"}> + Create New Note</Link>
+                                <Link to="/createNew" className={"btn-text"}> + Create New Note</Link>
                             </div>
 
                         </Col>
                         <Col xs={12} md={9} className={"components-container"}>
 
                             <Route exact path="/" component={Notes} />
-                            <Route path="/about" component={About} />
+                            <Route path="/createNew" component={CreateNewNoteForm} />
                             <Route path="/topics" component={Topics} />
 
                         </Col>
@@ -97,23 +97,7 @@ const AppContainer = styled.div`
             text-align:center;
             font-weight: bold;
 
-                .btn-side{
-                    border:1px solid #7D9190;
-                    padding: 10px 0px 10px 0px;
-                    background-color: #28B6B8;
-                    margin-top: 15px;
-                    margin-bottom: 18px;
-                    color:white;
-                    
-                        .btn-text{
-                            color:white;
-                        }
-                        .btn-text:hover{
-                            color:white;
-                            text-decoration: none;
-                        }
-                }
-                
+
                 .title-side{
                     text-align:left;
                     color:393939;
