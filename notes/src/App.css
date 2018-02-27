@@ -22,6 +22,12 @@
   font-size: large;
 }
 
+.top-title {
+  font-family: Times New Roman;
+  font-stretch: condensed;
+  font-weight: bold;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

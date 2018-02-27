@@ -13,7 +13,18 @@ const sendUserError = (msg, res) => {
     return;
 };
 
-let notes = [{title:'this is the title', description:'description comes here', tags:'first, second , third'}];
+let notes = [
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+    {title:'this is the title', description:'description comes here', tags:'first, second , third'},
+
+];
 server.get('/notes', (req, res) => {
     setTimeout(function () {
         res.json(notes);

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Notes from './components/Notes'
+import {Row, Grid, Col} from 'react-bootstrap';
+import styled from 'styled-components';
 
 
 const About = () => (
@@ -37,51 +38,96 @@ const Topics = ({ match }) => (
 
 const Topic = ({ match }) => (
     <div>
-        <h3>{match.params.topicId}</h3>
+        <h3>{match.params.topicId} topics</h3>
     </div>
 );
 
-    const BasicExample = () => (
-            <Router>
-                <div>
-                    <ul>
-                        <li>
-                            <Link to="/">Notes</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/topics">Topics</Link>
-                        </li>
-                    </ul>
-
-                    <hr />
-
-                    <Route exact path="/" component={Notes} />
-                    <Route path="/about" component={About} />
-                    <Route path="/topics" component={Topics} />
-
-                </div>
-            </Router>
-    );
 
 class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-                <BasicExample/>
-            </div>
+            <AppContainer>
+            <Router>
+                <Grid>
+                    <Row className="show-grid">
+                        <Col xs={6} md={3} className={"sidebar"}>
+
+                            <div className={'title-side'}>
+                                Lambda Notes
+                            </div>
+
+                            <div className={'btn-side'}>
+                                <Link to="/" className={"btn-text"}> View Your Notes </Link>
+                            </div>
+
+                            <div className={'btn-side'}>
+                                <Link to="/topics" className={"btn-text"}> + Create New Note</Link>
+                            </div>
+
+                        </Col>
+                        <Col xs={12} md={9} className={"components-container"}>
+
+                            <Route exact path="/" component={Notes} />
+                            <Route path="/about" component={About} />
+                            <Route path="/topics" component={Topics} />
+
+                        </Col>
+                    </Row>
+                </Grid>
+            </Router>
+            </AppContainer>
+
         );
     }
 }
 
 export default App;
+
+
+const AppContainer = styled.div`
+
+    font-family: verdana;
+    font-stretch: condensed;
+    
+        .sidebar {
+            border:1px solid #A0A0A0;
+            background-color: #D0CFD0;
+            padding:18px;
+            text-align:center;
+            font-weight: bold;
+
+                .btn-side{
+                    border:1px solid #7D9190;
+                    padding: 10px 0px 10px 0px;
+                    background-color: #28B6B8;
+                    margin-top: 15px;
+                    margin-bottom: 18px;
+                    color:white;
+                    
+                        .btn-text{
+                            color:white;
+                        }
+                        .btn-text:hover{
+                            color:white;
+                            text-decoration: none;
+                        }
+                }
+                
+                .title-side{
+                    text-align:left;
+                    color:393939;
+                    font-size:40px;
+                    line-height: 0.9em;
+                    margin-bottom:30px;
+                    font-stretch: condensed;
+                }
+        }
+        
+        .components-container{
+            border:1px solid #C2C2C2;
+            background-color: #F0F0F0;
+            padding-top:40px;
+            min-height: 750px;
+        }
+`;
