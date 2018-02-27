@@ -7,16 +7,18 @@ class SideBar extends React.Component {
   render() {
     return (
       <div className="sidebar">
-       <div>Side Bar Component</div>
-       <div><Link to="/"><button>View Your Notes</button></Link></div>
-       <div><Link to="/addnote"><button>+ Creat New Note</button></Link></div>
+        <div className="sidebar-title">Lambda Notes</div>
+        <Link to="/"><button className="viewnote">View Your Notes</button></Link><br/>
+        <Link to={{pathname: "/addnote", lastId: this.props.lastId}}><button>+ Creat New Note</button></Link>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+  const notes = state.notes.notes
   return {
+    lastId: notes[notes.length-1].id
   } 
 }
 

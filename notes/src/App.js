@@ -23,10 +23,10 @@ class App extends Component {
     			<SideBar />
     		</div> 
     		<div className="content">  
-    		<Route exact path="/" component={List} />
-        <Route path="/addnote" component={AddNote} />
-    		<Route path="/editnote" component={EditNote} />
-    		<Route path="/notes/:id" component={ViewNote} />
+      		<Route exact path="/" component={List} />
+          <Route path="/addnote" component={AddNote} />
+      		<Route path="/editnote" component={EditNote} />
+      		<Route path="/notes/:id" component={ViewNote} />
     		</div>
    		</div>
 		  </Router>

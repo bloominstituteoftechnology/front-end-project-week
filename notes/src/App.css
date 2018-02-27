@@ -1,22 +1,104 @@
 /*Main App*/
 .App {
   text-align: center;
-  border: 1px solid red;
+  max-width: 1098px;
+  min-width: 1098px;
+  height: 100vh;
   display: flex;
+  margin: 0 auto;
+  background: #F3F3F3;
+  border: 1px solid #999999;
+}
+.content {
+	width: 775px;
+	margin: 0 auto;
+	font-family: 'Montserrat', sans-serif;
+  	font-family: 'Noto Sans', sans-serif;
 }
 
 /*Side Bar*/
 .sidebar {
-	border: 1px solid green;
+	width: 273px;
+	height: 99%;
+	background: #D7D7D7;
+	box-sizing: border-box;
+}
+
+.sidebar .sidebar-title {
+	font-size: 40px;
+	margin: 20px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.sidebar button {
+	border: 1px solid #999999;
+	width: 235px;
+	margin: 0 auto;
+	padding: 13px;
+	text-decoration: none;
+	font-size: 21px;
+	font-weight: bold;
+	background: #2AC0C4;
+	color: white;
+}
+
+.sidebar a {
+	text-decoration: none;
+}
+
+.sidebar .viewnote {
+	margin: 4px 0px 22px;
 }
 
 /*List View*/
 
+.your-note {
+	font-size: 25px;
+	font-weight: bold;
+	text-align: left;
+	margin: 65px 0px 18px 10px;
+}
+
+.list {
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.list a {
+	text-decoration: none;
+}
+
 /*Note View*/
 
-.note {
-	border: 1px solid gray;
+.list .notes {
+	border: 1px solid #999999;
+	width: 237px;
+	margin: 16px 9px;
+	height: 242px;
+	background: white;
+	color: black;
+	overflow: hidden;
 }
+
+.list .notes .notes-title {
+	text-align: left;
+	padding: 13px 20px 6px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.list .notes .note-line {
+	border-top: 1px solid gray;
+	margin: 0px 20px 5px;
+}
+
+.list .notes .notes-content {
+	text-align: left;
+	padding: 6px 20px;
+}
+
 
 /*Add Noted*/
 

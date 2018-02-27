@@ -5,7 +5,8 @@ import { addNote } from '../actions';
 class AddNote extends React.Component {
 	state = {
 		content: '',
-		title: ''
+		title: '',
+		id: this.lastId + 1
 	}
 
 	handleAddNote = (event) => {
