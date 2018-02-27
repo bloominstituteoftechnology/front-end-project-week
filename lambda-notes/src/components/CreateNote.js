@@ -30,7 +30,9 @@ class CreateNote extends React.Component {
             value={this.state.body}
             onChange={this.handleBodyChange}
           />
-          <button className='save' type="submit">Save</button>
+          <button className="save" type="submit">
+            Save
+          </button>
         </form>
       </div>
     );
@@ -41,15 +43,20 @@ class CreateNote extends React.Component {
   handleBodyChange = event => {
     this.setState({ body: event.target.value });
   };
-  
+
   handleSumbit = event => {
     event.preventDefault();
-    this.props.add_note(this.state);
-    this.setState({
-      title: '',
-      body: '',
-    });
-    this.props.view_button_click();
+    if (this.state.body === '' && this.state.title === '') alert('Add a title and note!');
+    else if (this.state.body === '') alert ('Add a note!');
+    else if (this.state.title === '') alert('Add a title!');
+    else { 
+      this.props.add_note(this.state);
+      this.setState({
+        title: '',
+        body: '',
+      });
+      this.props.view_button_click();
+    }
   };
 }
 
