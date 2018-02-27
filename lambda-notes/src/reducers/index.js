@@ -72,13 +72,30 @@ export default (state = initialState, action) => {
     case actions.VIEW_NOTE:
       return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE_CLICKED:
-      return { ...state, current: action.payload.current, note: action.payload.note};
+      return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE:
-      // not sure if this is okay
-      const note = {id:action.payload.id,title:action.payload.title,body:action.payload.body};
-      const removed = [...state.notes.slice(0, action.payload.index), ...state.notes.slice(action.payload.index + 1)];
-      removed.splice(action.payload.index, 0, note)
-      return { ...state, notes: removed }
+      // Not sure if this is okay.  I could get rid of note fairly easily I suppose...
+      // Not sure how to dot chain the two though.  Everything I tried failed.
+      const note = {
+        id: action.payload.id,
+        title: action.payload.title,
+        body: action.payload.body,
+      };
+      const removed = [
+        ...state.notes.slice(0, action.payload.index),
+        ...state.notes.slice(action.payload.index + 1),
+      ];
+      removed.splice(action.payload.index, 0, note);
+      return { ...state, notes: removed };
+    case actions.DELETE_NOTE:
+      return {
+        ...state,
+        current: action.payload.current,
+        notes: [
+          ...state.notes.slice(0, action.payload.note.index),
+          ...state.notes.slice(action.payload.note.index + 1),
+        ],
+      };
     default:
       return state;
   }

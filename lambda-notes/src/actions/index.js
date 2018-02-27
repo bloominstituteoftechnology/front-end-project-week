@@ -4,6 +4,7 @@ export const ADD_NOTE = 'ADD_NOTE';
 export const VIEW_NOTE = 'VIEW_NOTE';
 export const EDIT_NOTE_CLICKED = 'EDIT_NOTE_CLICKED';
 export const EDIT_NOTE = 'EDIT_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -51,5 +52,13 @@ export const edit_note = (updated, original) => {
   return {
     type: 'EDIT_NOTE',
     payload: note,
+  }
+}
+
+export const delete_note = (note) => {
+  const payload = {note, current: 'list'}
+  return {
+    type: 'DELETE_NOTE',
+    payload,
   }
 }
