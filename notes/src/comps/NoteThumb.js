@@ -7,9 +7,9 @@ const NoteThumb = props => {
     props.note.content.length > 140 ? 140 : props.note.content.length;
   return (
     <div className="noteThumb__container">
-      <h3>{props.note.title}</h3>
+      <h3 className="noteThumb__title">{props.note.title}</h3>
       <hr />
-      <p>{props.note.content.slice(0, charsVisible)}..</p>
+      <p className="noteThumb__content">{props.note.content.slice(0, charsVisible)}..</p>
     </div>
   );
 };
