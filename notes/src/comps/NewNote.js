@@ -1,25 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import { addNote } from '../actions';
 
 class NewNote extends React.Component {
   state = {
-    title: '',
-    content: '',
+    newNote: {
+      title: '',
+      content: '',
+    },
+    redirect: false,
   };
 
   submitNewNote = (event) => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    this.props.addNote(this.state.newNote);
     this.setState({
-      title: '',
-      content: ''
+      redirect: true,
     })
   }
 
   updateField = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ newNote: {
+      ...this.state.newNote,
+      [event.target.name]: event.target.value
+    }});
   };
 
   render() {
@@ -30,7 +36,7 @@ class NewNote extends React.Component {
           <form onSubmit={this.submitNewNote}>
             <input
               type="text"
-              value={this.state.title}
+              value={this.state.newNote.title}
               name="title"
               placeholder="Note Title"
               onChange={this.updateField}
@@ -38,13 +44,14 @@ class NewNote extends React.Component {
             />
             <textarea
               name="content"
-              value={this.state.content}
+              value={this.state.newNote.content}
               placeholder="Note Content"
               onChange={this.updateField}
               className="newNote__content-field"
             />
             <input type="submit" value="Save" />
           </form>
+          {this.state.redirect && <Redirect to="/" />}
         </div>
       </div>
     );
