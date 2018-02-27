@@ -1,16 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { viewNote, deleteNote } from '../actions';
+import { viewNote, deleteNote, reorderNotes } from '../actions';
 import './ListView.css';
 import Shiitake from 'shiitake';
 import DeleteNoteModal from './DeleteNoteModal';
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+
+const SortableItem = SortableElement(({note, viewNote}) =>
+  <li key={note.id} className='list-note' onClick={() => { viewNote(note)} }>
+    <div className='item-title'><span>{note.title}</span></div>
+    <Shiitake lines={6} throttleRate={200} className='item-entry'>{note.entry}</Shiitake>
+  </li>
+);
+
+const SortableList = SortableContainer(({notes, viewNote}) => {
+  return (
+    <ul className='list-notes'>
+    {notes.map((note, index) => {
+      return (
+        <SortableItem key={note.id} index={index} note={note} viewNote={viewNote}/>
+      );
+    })}
+</ul>
+  );
+});
 
 class ListView extends React.Component {
   state = {
     view: false,
     renotes: false,
     id: '',
+    notes: this.props.notes,
   }
 
   viewNote = (note) => {
@@ -20,29 +41,24 @@ class ListView extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.id) {
-      console.log('deleted');
       this.props.deleteNote(this.props.match.params.id);
     }
     this.setState({ renotes: true });
   }
 
+  onSortEnd = ({oldIndex, newIndex}) => {
+    this.setState({
+      notes: arrayMove(this.state.notes, oldIndex, newIndex),
+    });
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div className='list-view'>
         {this.props.notes ?
         <div>
           <h2 className='list-title'>Your Notes:</h2>
-          <ul className='list-notes'>
-            {this.props.notes.map((note) => {
-              return (
-                <li key={note.id} className='list-note' onClick={() => { this.viewNote(note)} }>
-                  <div className='item-title'><span>{note.title}</span></div>
-                  <Shiitake lines={6} throttleRate={200} className='item-entry'>{note.entry}</Shiitake>
-                </li>
-              );
-            })}
-        </ul>
+          <SortableList viewNote={this.viewNote} notes={this.state.notes} onSortEnd={this.onSortEnd} distance='20' axis='xy' helperClass='draggable'/>
         </div>
         :
         <div className='nothing-to-view'>
@@ -63,4 +79,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { viewNote, deleteNote })(ListView);
+export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes })(ListView);

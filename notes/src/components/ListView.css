@@ -18,7 +18,8 @@
   display: flex;
   flex-wrap: wrap;
 }
-.list-view .list-notes .list-note {
+.list-note,
+.draggable {
   line-height: 25px;
   letter-spacing: 0.8px;
   word-wrap: break-word;
@@ -38,7 +39,8 @@
   cursor: pointer;
   user-select: none;
 }
-.list-view .list-notes .list-note .item-title {
+.list-note .item-title,
+.draggable .item-title {
   width: 80%;
   font-size: 1.3rem;
   display: flex;
@@ -47,11 +49,13 @@
   margin-bottom: 10px;
   border-bottom: 2px solid #CACACA;
 }
-.list-view .list-notes .list-note .item-entry {
+.list-note .item-entry,
+.draggable .item-entry {
   height: 70%;
   width: 80%;
   font-family: Raleway;
 }
-.list-view .list-notes .list-note:hover {
+.list-note:hover,
+.draggable:hover {
   background: rgba(226, 226, 226, 0.1);
 }

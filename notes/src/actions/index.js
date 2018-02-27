@@ -27,3 +27,10 @@ export const deleteNote = (info) => {
     payload: info,
   }
 }
+
+export const reorderNotes = (newNotes) => {
+  return {
+    type: 'REORDER_NOTES',
+    payload: newNotes,
+  }
+}
