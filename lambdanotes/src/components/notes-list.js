@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import Note from './note';
 
-class NotesList extends Component {
+const NoteListStyled = styled.div`
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(243, 243, 243);
+`
 
+class NotesList extends Component {
   componentDidMount() {
     console.log(this.props);
   }
 
   render() {
     return (
-      <div className="NotesList-container" style={{ width: "100%", padding: "10px", backgroundColor: "rgb(243, 243, 243)" }}>
+      <NoteListStyled>
         <h1>Your Notes:</h1>
         <div style={{ display: "flex", flexFlow: "row wrap" }}>
           {this.props.notes.map((note) => {
@@ -17,7 +23,7 @@ class NotesList extends Component {
               <Note key={note.id} note={note}/>
               )})}
         </div>
-      </div>
+      </NoteListStyled>
     )
   }
 }

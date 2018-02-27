@@ -1,18 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// const buttonStyle
+const SideBarStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  border-right: 1px solid rgb(151, 151, 151);
+  padding: 10px;
+  background-color: rgb(216, 216, 216);
+`
+
+const ButtonStyled = styled.button`
+  margin-bottom: 20px;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(94, 190, 195);
+  color: #FFFFFF;
+`
 
 const Sidebar = (props) => {
   return(
-    <div
-      className="Sidebar-container"
-      style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "200px", borderRight: "1px solid rgb(151, 151, 151)", padding: "10px", backgroundColor: "rgb(216, 216, 216)" }}
-    >
+    <SideBarStyled>
       <h1>Lambda Notes</h1>
-      <button style={{ marginBottom: "20px", height: "50px", width: "100%", backgroundColor: "rgb(94, 190, 195)", color: "#FFFFFF" }}>View Your Notes</button>
-      <button style={{ marginBottom: "20px", height: "50px", width: "100%", backgroundColor: "rgb(94, 190, 195)", color: "#FFFFFF" }}>+ Create New Notes</button>
-    </div>
+      <ButtonStyled>View Your Notes</ButtonStyled>
+      <ButtonStyled>+ Create New Notes</ButtonStyled>
+    </SideBarStyled>
   )
 }
 
