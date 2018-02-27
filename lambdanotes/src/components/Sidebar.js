@@ -6,8 +6,8 @@ const Sidebar = props => {
   return (
     <div className="Sidebar">
       <h1>Lambda Notes</h1>
-      <Link to={"/"}>View Your Notes</Link>
-      <Link to={"/create"}>+ Create New Note</Link>
+      <Link to={"/"}><button type="button">View Your Notes</button></Link>
+      <Link to={"/create"}><button type="button">+ Create New Note</button></Link>
     </div>
   )
 }

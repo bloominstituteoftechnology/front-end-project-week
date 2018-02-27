@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./CreateNote.css";
 
 export default class CreateNote extends React.Component {
   state = {
@@ -19,7 +20,7 @@ export default class CreateNote extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="CreateNote">
         <h2>Create New Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
@@ -29,7 +30,7 @@ export default class CreateNote extends React.Component {
             placeholder="Note Title"
             onChange={this.handleInputChange}
             required
-          />
+          /> <br />
           <input
             value={this.state.body}
             name="body"
@@ -37,8 +38,8 @@ export default class CreateNote extends React.Component {
             placeholder="Note Content"
             onChange={this.handleInputChange}
             required
-          />
-          <Link to={"/"} onClick={() => this.handleSubmit()} type="submit">Save</Link>
+          /> <br />
+          <Link to={"/"}><button onClick={() => this.handleSubmit()} type="submit">Save</button></Link>
         </form>
       </div>
     );
