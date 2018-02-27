@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 import '../css/index.css';
 
 class NewNote extends Component {
@@ -13,13 +15,13 @@ class NewNote extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text" 
             placeholder="New note" 
-            value={this.state.inputValue} 
+            value={this.state.titleText} 
             onChange={this.handleTitleChange}/>
           <input type="text" 
             placeholder="Add text here . . ." 
             value={this.state.contentText} 
             onChange={this.handleContentChange}/>
-          <button type="submit">Add ToDo</button>
+          <button type="submit">Add Note</button>
         </form>
       </div>
     )
@@ -35,10 +37,17 @@ class NewNote extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.addNote(this.state.titleText, this.state.contentText);
     this.setState({titleText: ''});
     this.setState({contentText: ''});
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    state: state,
+  }
+}
 
-export default NewNote;
+
+export default connect(mapStateToProps, { addNote })(NewNote);

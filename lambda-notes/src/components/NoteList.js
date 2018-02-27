@@ -16,7 +16,7 @@ export const NoteList = (props) => {
                   {note.title}
                 </div>
                 <div className="NoteList__card-content">
-                  {note.content}
+                  {note.text}
                 </div>
               </div>
             );

@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import { NoteList } from './components/NoteList';
 import NewNote from './components/Note';
+import { connect } from 'react-redux';
+import { addNote } from './actions';
 
 let dummyNotes = [
   {
@@ -46,33 +48,36 @@ let dummyNotes = [
 ]
 
 class App extends Component {
-  state = {
-    notes: dummyNotes,
-  };
 
   render() {
     return (
-      <div className="App">
-        <div className="Sidebar">
-          <div className="Sidebar__header">
-            Lambda Notes
+      <Router>
+        <div className="App">
+          <div className="Sidebar">
+            <div className="Sidebar__header">
+              Lambda Notes
+            </div>
+            <Link className="Sidebar__button" to='/'>
+              View Your Notes
+            </Link>
+            <Link className="Sidebar__button" to='/note'>
+              + Create New Note
+            </Link>
           </div>
-          <Link className="Sidebar__button" to='/'>
-            View Your Notes
-          </Link>
-          <Link className="Sidebar__button" to='/note'>
-            + Create New Note
-          </Link>
-        </div>
-        <div className="View">
-          <div>
-            <Route path="/" render={() => <NoteList notes={this.state.notes}/>} exact/>
-            <Route path="/note" component={NewNote}/> 
+          <div className="View">
+            <Route path="/" render={() => <NoteList notes={this.props.notes}/>} exact/>
+            <Route path="/note" component={NewNote} />
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps, { addNote })(App);
