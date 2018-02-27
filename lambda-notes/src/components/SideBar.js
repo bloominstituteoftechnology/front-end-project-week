@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import NotesIndex from './NotesIndex';
+import PostsIndex from './PostsIndex';
 import React from 'react';
 import '../styles/SideBar.css';
 
@@ -11,7 +11,7 @@ const SideBar = () => {
         
         <ul>
           <li>
-            <NavLink to="/NotesIndex" className="NotesIndex">
+            <NavLink to="/PostsIndex" className="PostsIndex">
               <button>View Your Notes</button>
             </NavLink>
           </li>
@@ -26,7 +26,7 @@ const SideBar = () => {
             </NavLink>
           </li>
         </ul>
-        <Route path="/NotesIndex" component={NotesIndex}/>
+        <Route path="/PostsIndex" component={PostsIndex}/>
         {/* <Route path="#" component={}/>
         <Route path="#" component={}/> */}
       </div>
@@ -35,36 +35,3 @@ const SideBar = () => {
 }
 
 export default SideBar;
-
-
-{/* <Router>
-    <div className="nav">
-      <ul className="navUl">
-        <li className="navLi">
-          <NavLink to="/" exact className="link">
-            Home
-          </NavLink>
-        </li>
-        <li className="navLi">
-          <NavLink to="/about" className="link">
-            About
-          </NavLink>
-        </li>
-        <li className="navLi">
-          <NavLink to="/portfolio" className="link">
-            Portfolio
-          </NavLink>
-        </li>
-        <li className="navLi">
-          <NavLink to="/services" className="link">
-            Services
-          </NavLink>
-        </li>
-      </ul>
-
-      <Route path="/" component={Home} exact/>
-      <Route path="/about" component={About}/>
-      <Route path="/portfolio" component={Portfolio}/>
-      <Route path="/services" component={Services}/>
-    </div>
-</Router>*/}
