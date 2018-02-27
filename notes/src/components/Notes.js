@@ -1,47 +1,15 @@
 import React, {Component} from 'react';
-// import CreateSmurfForm from './CreateSmurfForm'
 import {Row, Grid, Col} from 'react-bootstrap';
-// import {showCreateForm} from '../actions'
+import {getNotes} from '../actions'
 import styled from 'styled-components';
-// import {connect} from 'react-redux';
-// import ActionButtons from '../components/ActionButtons';
-import axios from 'axios';
+import {connect} from 'react-redux';
+import Loading from './Loading'
 
 class Notes extends Component {
-    state = {
-        notes: [],
-    };
 
     componentDidMount() {
-
-        const notes = axios.get('http://localhost:3333/notes/')
-        .then(response => {
-
-            console.log('response.data',response.data)
-            this.setState({notes:response.data });
-
-        }).catch(err => {
-
-                console.log('err.err', err)
-
-        });
-
-        console.log('this are the notes', notes.data);
+        this.props.getNotes();
     }
-
-    // showCreateForm = (val) => {
-    //     // val is true when click
-    //     this.props.showCreateForm(val);
-    //     this.setState({showButtonHideForm: false});
-    // };
-    //
-    // showThisActionsBox = (e, index, value, smurf) => {
-    //     this.setState({actionBtns: 'showActionBtns'});
-    // };
-    //
-    // hideThisActionsBox = (e, value) => {
-    //     this.setState({actionBtns: 'hideActionBtns'});
-    // };
 
     render() {
         return (
@@ -51,40 +19,46 @@ class Notes extends Component {
                         <h3 className={'top-title'}>Your Notes:</h3>
                     </Row>
 
-                    <Row className={'notes-box'}>
+                    {(this.props.fetching)
+                        ? <Loading/>
+                        : (this.props.notes.length > 0)
+                            ?
+                                <Row className={'notes-box'}>
+                                    {this.props.notes.map((note, index) => {
+                                        return (
+                                            <div key={index} md={4} className={'note-container'}>
 
-                        {this.state.notes.map((note, index) => {
-                            return (
-                                <div key={index} md={4} className={'note-container'} >
+                                                <div className={"note-title"}>
+                                                    {note.title}
+                                                </div>
+                                                <div className={"note-description"}>
+                                                    {note.description}
+                                                </div>
 
-                                    <div className={"note-title"}>
-                                        {note.title}
-                                    </div>
-                                    <div className={"note-description"}>
-                                        {note.description}
-                                    </div>
-
+                                            </div>
+                                        );
+                                    })}
+                                </Row>
+                            :
+                                <div className={"no-notes"}>
+                                    You don't have  Notes yet. <br/>
+                                    <a href={"/create_new_note"}>Please add new note</a>
                                 </div>
-                            );
-                        })}
-
-                    </Row>
+                    }
                 </Grid>
             </NotesContainer>
-
         )}
-
 }
 
-// const mapStateToProps = state => {
-//     const {smurfs_reducer} = state;
-//     return {
-//         showCreateFormL: smurfs_reducer.showCreateForm,
-//     }
-// };
+const mapStateToProps = state => {
+    const {notes_reducer} = state;
+    return {
+        notes: notes_reducer.notes,
+        fetching: notes_reducer.fetching,
+    }
+};
 
-// export default connect(mapStateToProps, {showCreateForm})(Notes);
-export default Notes;
+export default connect(mapStateToProps, {getNotes})(Notes);
 
 
 const NotesContainer = styled.div`
@@ -99,10 +73,11 @@ const NotesContainer = styled.div`
                 
                 .note-container{
                     border:1px solid #A7A7A7;
+                    color:#71595A;
                     margin:10px 10px 10px 10px;
                     padding:8px 18px 8px 18px;
                     flex-grow: 1;
-                    color:#71595A;
+                    flex-basis: 250px;
                     background-color:#FFFFFF;
                     
                         .note-title{
@@ -110,13 +85,18 @@ const NotesContainer = styled.div`
                             border-bottom:1px solid #AEAEAE;
                             width:100% !important;
                             margin-bottom: 5px;
-                        
                         }
                         
                         .note-description{
                             min-height:90px;
                         }
                 }
+        }
+        
+        .no-notes {
+            text-align:center;
+            font-size: 20px;
+            margin-top:20px;
         }
         
 `;

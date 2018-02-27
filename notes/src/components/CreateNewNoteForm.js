@@ -1,43 +1,29 @@
 import React, {Component} from 'react';
 import {FormGroup, ControlLabel, FormControl, Row, Col, Grid} from 'react-bootstrap';
 import styled from 'styled-components';
-import axios from 'axios';
+import {addNote} from '../actions'
+import {connect} from 'react-redux';
 
 class CreateNewNoteForm extends Component {
     state = {
         notes: [],
+        title: '',
+        description: '',
+        tags: '',
     };
 
-    componentDidMount() {
-
-        const notes = axios.get('http://localhost:3333/notes/')
-        .then(response => {
-
-            console.log('response.data',response.data)
-            this.setState({notes:response.data });
-
-        }).catch(err => {
-
-                console.log('err.err', err)
-
+    updateField = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            [e.target.name]: e.target.value
         });
+    };
 
-        console.log('this are the notes', notes.data);
-    }
+    addNote = () => {
 
-    // showCreateForm = (val) => {
-    //     // val is true when click
-    //     this.props.showCreateForm(val);
-    //     this.setState({showButtonHideForm: false});
-    // };
-    //
-    // showThisActionsBox = (e, index, value, smurf) => {
-    //     this.setState({actionBtns: 'showActionBtns'});
-    // };
-    //
-    // hideThisActionsBox = (e, value) => {
-    //     this.setState({actionBtns: 'hideActionBtns'});
-    // };
+        this.props.addNote(this.state);
+        console.log('Add this  NOTE:', this.state);
+    };
 
     render() {
         return (
@@ -55,10 +41,10 @@ class CreateNewNoteForm extends Component {
                                         <FormGroup>
                                             <FormControl
                                                 type="text"
-                                                value={this.state.tile}
+                                                value={this.state.title}
                                                 placeholder="Title"
                                                 onChange={this.updateField}
-                                                name={"name"}
+                                                name={"title"}
                                             />
                                             <br/>
                                             <FormControl
@@ -75,11 +61,11 @@ class CreateNewNoteForm extends Component {
                                                 value={this.state.tags}
                                                 placeholder="Tags"
                                                 onChange={this.updateField}
-                                                name={"height"}
+                                                name={"tags"}
                                             />
                                             <div className={"btn-update"}>
 
-                                                <div className={'btn-side create-new'}>
+                                                <div onClick={() => {this.addNote()}} className={'btn-side create-new'}>
                                                     <div className={"btn-text"}> Save </div>
                                                 </div>
 
@@ -108,8 +94,8 @@ class CreateNewNoteForm extends Component {
 //     }
 // };
 
-// export default connect(mapStateToProps, {showCreateForm})(Notes);
-export default CreateNewNoteForm;
+export default connect(null, {addNote})(CreateNewNoteForm);
+// export default CreateNewNoteForm;
 
 
 const CreateNewNoteFormContainer = styled.div`
