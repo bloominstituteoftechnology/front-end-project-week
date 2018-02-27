@@ -9,7 +9,6 @@ import Delete from './delete';
 const StyledNote = styled.div`
   display: flex;
   position: relative;
-  width: 830px;
   .full-note__right {
     display: flex;
     flex-wrap: wrap;
