@@ -17,18 +17,20 @@ class CreateNote extends React.Component {
         <h1 className="create-header"> Create New Note: </h1>
         <form onSubmit={this.handleSumbit}>
           <input
+            className="title-input"
             type="text"
             placeholder="Note Title"
             value={this.state.title}
             onChange={this.handleTitleChange}
           />
-          <input
+          <textarea
+            className="body-input"
             type="text"
             placeholder="Note Content"
             value={this.state.body}
             onChange={this.handleBodyChange}
           />
-          <button type="submit">Save</button>
+          <button className='save' type="submit">Save</button>
         </form>
       </div>
     );

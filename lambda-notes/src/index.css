@@ -31,7 +31,7 @@ footer, header, hgroup, menu, nav, section {
 html, body {
 	line-height: 1;
 	background: darkgray;
-	min-height: 100%;
+	height: 100%;
 }
 ol, ul {
 	list-style: none;
@@ -52,6 +52,8 @@ table {
   box-sizing: border-box;
 }
 
+/* if set to 100%, shifts on screen between notes and createnote */
+/* having an inherit scroll bar seems less jarring */
 #root {
-	min-height: 100%;
+	height: 101%;
 }
