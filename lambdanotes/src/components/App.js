@@ -17,8 +17,8 @@ export default class App extends React.Component {
 
   handleNoteViewIndex = inputId => {
     for (let i = 0; i < this.state.notes.length; i++) {
-      if (this.state.notes[i].id === inputId) this.noteIndex = [i]
-    } return 0;
+      if (this.state.notes[i].id === inputId) this.noteIndex = i;
+    };
   };
 
   handleCreateNote = inputNote => {
@@ -46,8 +46,11 @@ export default class App extends React.Component {
     });
   };
 
-  handleDeleteNote = _ => {
-    //TODO
+  handleDeleteNote = inputId => {
+    const lessNotes = this.state.notes.filter(note => note.id !== inputId);
+    this.setState({
+      notes: lessNotes,
+    });
   };
 
   render() {
@@ -57,7 +60,7 @@ export default class App extends React.Component {
             <Sidebar />
             <Route exact path={"/"} render={() => <NoteList notes={this.state.notes} handleNoteViewIndex={this.handleNoteViewIndex} />} />
             <Route exact path={"/create"} render={() => <CreateNote createNote={this.handleCreateNote} />} />
-            <Route exact path={"/view"} render={() => <NoteView note={this.state.notes[this.noteIndex]} />} />
+            <Route exact path={"/view"} render={() => <NoteView note={this.state.notes[this.noteIndex]} handleDeleteNote={this.handleDeleteNote} />} />
             <Route exact path={"/edit"} render={() => <EditNote note={this.state.notes[this.noteIndex]} handleEditNote={this.handleEditNote} />} />
         </div>
       </Router>

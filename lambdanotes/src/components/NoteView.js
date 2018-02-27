@@ -17,11 +17,12 @@ export default class NoteView extends React.Component {
   };
 
   render() {
-    const { title, body } = this.state;
+    const { id, title, body } = this.state;
     return (
       <div>
         <div>
-          <Link to={"/edit"}>edit</Link>
+          <Link to={"/edit"}>edit </Link>
+          <Link to={"/"} onClick={() => this.props.handleDeleteNote(id)}>delete</Link>
         </div>
         <div>
           <h2>{title}</h2>
