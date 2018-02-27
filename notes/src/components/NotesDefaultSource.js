@@ -1,74 +1,9 @@
-export const NotesDefaultSource = [
+import React, { Component } from 'react';
+function NotesDefaultSource(props) {
 
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
+  return
+    <h2>{props.title}</h2>;
+    <p>{props.body}</p>;
+}
 
-    {
-        Title: 'lento lento lento',
-        NoteBody: 'A track by Pitbull',
-        ToggleEdit: false,
-        Delete: false
-    },
-
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-    
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-    
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-
-    {
-        Title: 'Addiction',
-        NoteBody: 'A track by Kanye West 10/10',
-        ToggleEdit: false,
-        Delete: false
-    },
-];
-
-export default NotesDefaultSource;
+export function NotesDefaultSource();

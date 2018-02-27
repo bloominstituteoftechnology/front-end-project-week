@@ -3,14 +3,16 @@ import React, { Component } from 'react';
 
 export default class App extends Component {
     state = {
+        title: '',
+        body: '',
     };
 
     render() {
         return (
             <div>
-                <NotesDefaultSource Notes={this.state} />
+                <NotesDefaultSource />
             </div>
         )
     }
-}
+};
 

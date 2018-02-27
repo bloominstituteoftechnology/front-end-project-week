@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Home from './containers/Home';
 import Group from './containers/Group';
 
-export const NotesDefaultSource = ({}) => {
+export const frontEnd = ({}) => {
   return (
     <Router history={browserHistory}>
         <Route path="./public/src/components/NotesDefaultSource" component={NotesDefaultSource} />
