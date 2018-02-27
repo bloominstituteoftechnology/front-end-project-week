@@ -4,9 +4,10 @@
 }
 
 .App__leftbox {
-  width: 30%;
+  width: 25%;
   height: 900px;
   background: #D7D7D7;
+  border-right: 1px solid #BEBEBE;
 }
 
 .App__rightbox {
