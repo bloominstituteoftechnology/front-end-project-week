@@ -17,6 +17,7 @@ time, mark, audio, video {
 	font-size: 65.2%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: Arial, Helvetica, sans-serif;
 }
 * {
   box-sizing: border-box;

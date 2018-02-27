@@ -18,10 +18,12 @@ class App extends Component {
     return (
       <div className="App">
         <div className="leftPanel">
-          <h1 className="App-title">Lambda Notes</h1>
+          <h1 className="leftHeader">Lambda Notes</h1>
+          <button>View Your Notes</button>
+          <button>+ Create New Note</button>
         </div>
         <div className="rightPanel">
-          <h2>Your Notes:</h2>
+          <h2 className="rightHeader">Your Notes:</h2>
           <NoteGen notes={this.state.notes} />
           <CreateNote addNote={this.addNote} />
         </div>
@@ -34,7 +36,6 @@ class App extends Component {
       notes: [...this.state.notes, newNote]
     });
   };
-
 }
 
 export default App;
