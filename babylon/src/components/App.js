@@ -16,9 +16,9 @@ class App extends Component {
     return (
       <StyledApp>
         <List />
-        <NewNote />
-        <FullNote />
-        <UpdateNote />
+        {/* <NewNote /> */}
+        {/* <FullNote /> */}
+        {/* <UpdateNote /> */}
       </StyledApp>
     );
   }
