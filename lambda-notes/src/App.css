@@ -24,8 +24,12 @@
   to { transform: rotate(360deg); }
 } */
 
-h1 {
+.title {
   color: rgb(60, 59, 59);
+  font-size: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .section {
@@ -63,6 +67,8 @@ h1 {
 section__notes__icon {
   border: solid black;
   display: flex;
+  width: 20%;
+  height: 20px;
   justify-content: center;
 }
 
@@ -79,8 +85,9 @@ section__notes__icon {
 }
 
 .button__main {
-  width:10rem;
+  width:80%;
   background: rgb(18, 215, 215);
+  font-size: 0.75rem;
   padding: 0.5rem;
   text-align: center;
   border: solid grey;

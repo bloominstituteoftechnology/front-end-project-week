@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import NotesIcon from './notesicon';
+import Note from './noteicon';
 
-class NewView extends Component {
+class ListView extends Component {
+    
     render() {
         return (
             <div className="section">
@@ -17,7 +18,8 @@ class NewView extends Component {
                 <div className="section__content__right">
                 <div className="section__content__inputs">
                      <h3>Your Notes:</h3>
-                    <NotesIcon/>
+        
+                         <Note />
                     <div className="button__main">Save</div>
                 </div>
                 </div>

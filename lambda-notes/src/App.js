@@ -21,14 +21,14 @@ class App extends Component {
 export default App; */
 
 import React, { Component } from 'react';
-import NewView from './components/newview.js';
+import ListView from './components/listview.js';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div>
-      <NewView/>
+      <ListView/>
       </div>
     );
   }
