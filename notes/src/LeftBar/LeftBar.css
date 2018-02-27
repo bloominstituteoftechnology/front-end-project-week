@@ -11,11 +11,12 @@
 .left-bar_header {
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 40px;
+  letter-spacing: 3px;
   color: #4A494A;
   width: 200px;
   padding-left: 15px;
   margin-top: 25px;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 
 .left-bar_buttons {
@@ -25,12 +26,13 @@
 }
 
 .left-bar_button {
-  width: 245px;
-  height: 52px;
-  margin-left: 15px;
+  width: 240px;
+  height: 55px;
+  margin-left: 18px;
   margin-bottom: 20px;
+  padding-top: 3px;
   font-size: 18px;
-  letter-spacing: .5px;
+  letter-spacing: .3px;
   font-weight: bold;
   color: white;
   background: #2AC0C4;

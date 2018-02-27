@@ -28,9 +28,9 @@ class NewNote extends Component {
 
   render() {
     return (
-      <div className="main-body">
-        <div className="main-body_header">Create New Note:</div>
-        <div className="main-body_fields">
+      <div className="new-note_body">
+        <div className="new-note_header">Create New Note:</div>
+        <div className="new-note_fields">
           <form type="submit" onSubmit={this.addNote}>
             <div className="title-div">
               <input

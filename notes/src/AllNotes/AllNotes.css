@@ -1,18 +1,20 @@
-.main-body {
+.all-notes_body {
   width: 825px;
-  border: 1px solid #9B9B9B;
+  border: 1px solid #9b9b9b;
   border-left: 0px;
   background: #f3f3f3;
   padding-top: 10px;
+  min-height: 900px;
 }
-.main-body_header {
+.all-notes_header {
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
-  font-size: 24px;
-  color: #4A494A;
+  font-size: 25px;
+  color: #4a494a;
   font-weight: bold;
-  margin: 65px 0px 25px 25px;
+  margin: 65px  0px 33px 31px;
 }
-.main-body_notes {
+
+.all-notes_notes {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
@@ -21,6 +23,7 @@
   padding-right: 15px;
   padding-top: 12px;
 }
+
 .note-box {
   background: #ffffff;
   box-sizing: border-box;
@@ -42,7 +45,7 @@
 .note-body {
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #4A494A;
+  color: #4a494a;
   letter-spacing: 1px;
   line-height: 29px;
   height: 150px;

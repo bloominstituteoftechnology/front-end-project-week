@@ -1,18 +1,20 @@
-.main-body {
+.new-note_body {
   width: 825px;
   border: 1px solid #9b9b9b;
   border-left: 0px;
   background: #f3f3f3;
   padding-top: 10px;
+  min-height: 900px;
 }
-.main-body_header {
+.new-note_header {
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
-  font-size: 24px;
+  font-size: 25px;
   color: #4a494a;
   font-weight: bold;
-  margin: 65px 0px 25px 25px;
+  margin: 65px 0px 25px 31px;
 }
-.main-body_fields {
+
+.new-note_fields {
   display: flex;
   padding-left: 25px;
   padding-right: 15px;

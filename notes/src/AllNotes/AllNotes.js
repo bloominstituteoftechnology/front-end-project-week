@@ -6,21 +6,17 @@ import './AllNotes.css';
 class AllNotes extends Component {
   render() {
     return (
-      <div className="main-body">
-        <div className="main-body_header">Your Notes:</div>
-        <div className="main-body_notes">
-          {this.props.notes.map((eachNote, i) => {
-            return ( // Here, return a class which takes in the two values and returns <Link> and everything within it.
-            
-              //Maybe get the note title as the link instead,
-              // javascript to shorten it and add dashes,
-              // then dash note id at the end
-              <Link to={`/notes/${eachNote.id}`} key={i}>
-                <div className="note-box">
+      <div className="all-notes_body">
+        <div className="all-notes_header">Your Notes:</div>
+        <div className="all-notes_notes">
+          {this.props.notes.map(eachNote => {
+            return (
+              <div className="note-box" key={eachNote.id}>
+                <Link to={`/notes/${eachNote.id}`}>
                   <div className="note-title">{eachNote.title}</div>
                   <div className="note-body">{eachNote.body}</div>
-                </div>
-              </Link>
+                </Link>
+              </div>
             );
           })}
         </div>
