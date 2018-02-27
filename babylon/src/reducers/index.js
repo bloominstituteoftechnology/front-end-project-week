@@ -18,7 +18,6 @@ export default (state = initialState, action) => {
         ],
       };
     case UPDATE_NOTE:
-      console.log('UPDATING');
       break;
     default:
       return state;
