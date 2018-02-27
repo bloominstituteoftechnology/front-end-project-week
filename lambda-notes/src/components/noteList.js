@@ -5,12 +5,12 @@ class NoteList extends Component {
   componentDidMount() {
     this.setState({ notes: this.props.notes })
   }
-  clampNote = (body) => {
+  clampNote = (body, limit) => {
     let textArr = body.split('')
     let result = [];
-    if (body.length > 120) {
+    if (body.length > limit) {
        return result.concat(textArr
-         .slice(0, 120).join('') + '...')
+         .slice(0, limit).join('') + '...')
     }
     return body;
   }
@@ -21,7 +21,7 @@ class NoteList extends Component {
           { this.props.notes.map((note) => {
             return (
               <div key={note.id}>
-                <NoteListNote title={note.title} body={this.clampNote(note.body)} />
+                <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 120)} />
               </div>
             )
           })}
