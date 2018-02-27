@@ -23,7 +23,7 @@ class MainPage extends React.Component {
             <div className="whiteBox__container">
               <div className="container__top"></div>
               <div className="container__bottom">
-                <button className="container__button-delete">Delete</button>
+                <button className="container__button-delete" onClick={() => this.deleteCurrentNote()}>Delete</button>
                 <button className="container__button-cancel" onClick={() => this.toggleDeleting()}>No</button>
               </div>
             </div>
@@ -73,6 +73,11 @@ class MainPage extends React.Component {
 
   toggleDeleting = () => {
     this.setState({...this.state, deleting: !this.state.deleting});
+  };
+
+  deleteCurrentNote = () => {
+    this.setState({ notes: this.state.notes.filter(note => note.id !== this.state.currentNote.id), currentNote: {}, deleting: false });
+    this.props.changeSwitch('Your Notes:','noteList');
   };
 
 }
