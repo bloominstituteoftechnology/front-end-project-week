@@ -5,10 +5,10 @@ import NoteCard from './notecard';
 import LeftRail from './leftrail';
 import SectionTitle from './sectiontitle';
 
-const HomeContainer = styled.div`
+const StyledList = styled.div`
   display: flex;
 
-  .right {
+  .list__right {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -20,12 +20,12 @@ const HomeContainer = styled.div`
 
 `;
 
-class Home extends Component {
+class List extends Component {
   render() {
     return (
-      <HomeContainer>
+      <StyledList>
         <LeftRail />
-        <div className='right'>
+        <div className='list__right'>
           <SectionTitle name='Your Notes:'/>
           {this.props.notes.map((note, index) => {
             return (
@@ -33,7 +33,7 @@ class Home extends Component {
             );
           })}
         </div>
-      </HomeContainer>
+      </StyledList>
     );
   }
 }
@@ -44,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, null)(List);
