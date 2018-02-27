@@ -4,7 +4,7 @@ class NoteList extends Component {
   render() {
     return (
       <div className="note-container">
-        <h3 className="note-container heading">Your Notes:</h3>
+        <h3 className="heading">Your Notes:</h3>
         <ul>
           {this.props.notes.map(note => {
             return (
