@@ -21,13 +21,14 @@ export default class CreateNote extends React.Component {
     return (
       <div>
         <h2>Create New Note:</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             value={this.state.title}
             name="title"
             type="text"
             placeholder="Note Title"
             onChange={this.handleInputChange}
+            required
           />
           <input
             value={this.state.body}
@@ -35,8 +36,9 @@ export default class CreateNote extends React.Component {
             type="text"
             placeholder="Note Content"
             onChange={this.handleInputChange}
+            required
           />
-          <Link to={"/"} onClick={() => this.handleSubmit()} type="button">Save</Link>
+          <Link to={"/"} onClick={() => this.handleSubmit()} type="submit">Save</Link>
         </form>
       </div>
     );
