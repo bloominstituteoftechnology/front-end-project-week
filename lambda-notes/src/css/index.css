@@ -272,7 +272,7 @@ table {
   width: 94%;
   height: 442px;
 }
-.new-note-container .save-btn-container {
+.new-note-container .save-btn {
   width: 29%;
   text-decoration: none;
   padding: 17px 10px;
@@ -284,4 +284,5 @@ table {
   font-size: 1.45rem;
   font-weight: bolder;
   margin: 18px auto auto 2px;
+  cursor: pointer;
 }
