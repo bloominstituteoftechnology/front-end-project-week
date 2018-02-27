@@ -1,5 +1,7 @@
 .noteBox {
   border: 1px solid black;
+  width: 200px;
+  height: 200px;
 }
 .noteBox .listBox {
   border: 1px solid black;

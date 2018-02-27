@@ -7,7 +7,7 @@ const NoteList = (props) => {
                <div>
                     {props.notes.map(noteObj => {
                         return (
-                           <ViewNote key={noteObj.id} noteObj={noteObj} />
+                           <ViewNote key={props.notes.indexOf(noteObj)} noteObj={noteObj} />
                         )
                     })}
                 </div>
@@ -17,6 +17,7 @@ const NoteList = (props) => {
 
     const ViewNote = ({ noteObj }) => {
         const {details, note} = noteObj;
+        console.log(noteObj);
         return (
             <Link to={`/${noteObj.id}`}>
                 <div className="noteBox">

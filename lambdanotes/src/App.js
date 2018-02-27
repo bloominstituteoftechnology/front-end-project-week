@@ -3,7 +3,7 @@ import NoteList from './Components/NoteList';
 import NewNote from './Components/NewNote';
 import ViewNote from './Components/ViewNote';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
  
@@ -28,20 +28,22 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <ul>
+            <li>
+              <NavLink to='/'>Notes</NavLink>
+            </li>
+            <li>
+              <NavLink to='/noteform'>Create new note</NavLink>
+            </li>
+          </ul>
           <Route path='/' component={this.notes} exact/>
           <Route path='/noteform' component={this.noteForm} />
-          <Route path={`/note/${this.state.notes.id}`} component={this.viewNote} />
         </div>
       </Router>
     );
   }
 
-  navToNote = (id) => {
-    console.log('id');
-    return (
-      <Link to={`/noteform/:id`} />
-    )
-  }
+ 
 
   viewNote = (id) => {
     return (
@@ -78,6 +80,11 @@ submitNote = (e) => {
         details: '',
     });
   }
+}
+
+idExtractor = (event) => {
+  event.preventDefault();
+  return event.target.id;
 }
 
 }

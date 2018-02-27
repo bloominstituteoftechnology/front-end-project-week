@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const ViewNote = (props) => {
-    return (
+class ViewNote extends Component {
+    state = {
+        note: '',
+        details: '',
+    }
+
+    render() {
+        return (
         <div>
-            <h1>{props.note}</h1>
-            <p>{props.details}</p>
+            <h1>{this.props.note}</h1>
+            <p>{this.props.details}</p>
         </div>
     )
+    }
 }
 
-export default ViewNote;
+export default ViewNote
