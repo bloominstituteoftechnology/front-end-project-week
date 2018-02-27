@@ -1,3 +1,5 @@
+/* eslint no-confusing-arrow: [0] */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -25,7 +27,12 @@ const StyledButton = styled.div`
 
 const Button = props => (
   <StyledButton>
-    <button style={{ backgroundColor: props.backgroundColor }} type={ props.type ? props.type : null }>{props.title}</button>
+    <button
+      style={{ backgroundColor: props.backgroundColor }}
+      type={ props.type ? props.type : null }
+      onClick={() => (props.method) ? props.method() : null}>
+      {props.title}
+    </button>
   </StyledButton>
 );
 

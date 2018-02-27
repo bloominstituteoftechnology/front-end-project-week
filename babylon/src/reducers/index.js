@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
@@ -19,6 +19,8 @@ export default (state = initialState, action) => {
         ],
       };
     case UPDATE_NOTE:
+      break;
+    case DELETE_NOTE:
       break;
     default:
       return state;

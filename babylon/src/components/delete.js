@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Button from './button';
+import { deleteNote } from '../actions';
 
 const StyledDelete = styled.div`
   position: absolute;
@@ -27,12 +29,12 @@ const StyledDelete = styled.div`
   }
 `;
 
-const Delete = () => (
+const Delete = props => (
   <StyledDelete style={{ opacity: '1' }}>
     <p>Are you sure you want to delete this?</p>
-      <Button backgroundColor='#bf2828' title='Delete' />
+      <Button method={props.deleteNote} backgroundColor='#bf2828' title='Delete' />
       <Button backgroundColor='#5dbdc2' title='No' />
   </StyledDelete>
 );
 
-export default Delete;
+export default connect(null, { deleteNote })(Delete);
