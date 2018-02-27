@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-class ViewNote extends React.Component {
+import './css/ViewNote.css';
 
+class ViewNote extends React.Component {
   render() {
     return (
-      <div>
-        <h1> {this.props.note.title} </h1>
+      <div className="view">
+        <div className="edit">edit</div>
+        <div className="delete">delete</div>
+        <h1 className="view-header"> {this.props.note.title} </h1>
+        <p className="view-body"> {this.props.note.body} </p>
       </div>
     );
   }
