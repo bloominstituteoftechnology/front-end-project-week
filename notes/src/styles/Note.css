@@ -1,5 +1,12 @@
 .note__container {
   width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.note {
+  margin-top: 40px;
 }
 
 .note__title {
@@ -12,4 +19,13 @@
   line-height: 40px;
   font-size: 18px;
   font-weight: lighter;
+}
+
+.note__options {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note__option-item {
+  margin-left: 15px;
 }

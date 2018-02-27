@@ -10,8 +10,14 @@ const Note = props => {
 
   return (
     <div className="note__container">
-      <div className="note__title">{note.title}</div>
-      <div className="note__content">{note.content}</div>
+      <div className="note__options">
+        <div className="note__option-item">edit</div>
+        <div className="note__option-item">delete</div>
+      </div>
+      <div className="note">
+        <div className="note__title">{note.title}</div>
+        <div className="note__content">{note.content}</div>
+      </div>
     </div>
   );
 };
