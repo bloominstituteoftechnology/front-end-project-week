@@ -4,7 +4,7 @@ import Home from './home';
 
 const StyledApp = styled.div`
   width: 830px;
-  margin: 20px auto 0;
+  margin: 20px auto 20px;
   border: 1px solid #bfbfc0;
 `;
 

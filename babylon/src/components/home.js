@@ -36,7 +36,7 @@ const HomeContainer = styled.div`
     font-weight: bold;
     color: #4a494a;
   }
-  
+
 `;
 
 class Home extends Component {
