@@ -1,0 +1,46 @@
+html,body {
+  font-size: 62.5%;
+  padding:4%;
+}
+
+
+.App {
+  text-align: left;
+  width: 100%;
+  min-width: 880px;
+  display: flex;
+  border: 3px solid #ddd;
+  min-height: 672px;
+  
+}
+.App-header {
+  background-color: #ddd;
+  color: white;
+  width: 25%;
+}
+
+.button-col {
+  
+}
+button {
+  display: block;
+  background-color: #41d8d3;
+  border: 1px solid #818787;
+  height: 50px;
+  margin: 7%;
+  width: 80%;
+  color: #fff;
+  font-size: 1.7rem;
+}
+.App-title {
+  font-size: 3.9rem;
+  color: #373d3c;
+  margin: 2%;
+  padding: 2.5%;
+  font-stretch: expanded;
+}
+
+.App-intro {
+  font-size: large;
+}
+
