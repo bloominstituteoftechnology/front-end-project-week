@@ -21,7 +21,8 @@ const HomeContainer = styled.div`
   .right {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    align-content: flex-start;
     width: 620px;
     min-height: 700px;
     padding: 20px;
@@ -39,6 +40,8 @@ class Home extends Component {
           <Button backgroundColor='#5dbdc2' title='+ Create New Note' />
         </div>
         <div className='right'>
+          <NoteCard />
+          <NoteCard />
           <NoteCard />
           <NoteCard />
           <NoteCard />
