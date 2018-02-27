@@ -32,9 +32,11 @@ class NoteView extends React.Component {
   render() {
     return (
       <div className='note-view'>
-        <div>
-          <Link to={`/edit/${this.state.id}`} className='edit-button'>edit</Link>
-          <Link to={`/delete/${this.state.id}`} className='delete-button'>delete</Link>
+        <div className='separator'>
+          <div className='button-container'>
+            <Link to={`/edit/${this.state.id}`} className='edit-button'>edit</Link>
+            <Link to={`/delete/${this.state.id}`} className='delete-button'>delete</Link>
+          </div>
           <div className='note-title'>{this.state.title}</div>
           <div className='note-entry'>{this.state.entry}</div>
         </div>

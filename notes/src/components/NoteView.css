@@ -2,11 +2,28 @@
   background: #F3F3F3;
   height: 100%;
   margin-left: 240px;
-  padding-top: 85px;
+  padding-top: 40px;
   padding-left: 35px;
   display: flex;
   flex-direction: column;
   align-items: left;
+}
+.note-view .separator {
+  width: 70%;
+}
+.note-view .button-container {
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.note-view .button-container .edit-button {
+  color: #4b4b4b;
+  margin: 10px;
+}
+.note-view .button-container .delete-button {
+  margin: 10px;
+  color: #4b4b4b;
 }
 .note-view .note-title {
   color: #565556;
