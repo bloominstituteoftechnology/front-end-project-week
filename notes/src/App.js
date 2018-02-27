@@ -15,15 +15,16 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        <Route path='/' component={SideBar} />
-        <Switch>
-          <Route path='/' component={ListView} exact />
-          <Route path='/new' component={CreateNote} exact />
-          <Route path='/view' component={NoteView} exact />
-          <Route path='/edit/:id' component={EditNoteView} exact />
-          <Route path='/delete/:id' component={ListView} exact />
-          <Redirect to="/404" />
-        </Switch>
+          <Route path='/' component={SideBar} />
+          <Switch>
+            <Route path='/' component={ListView} exact />
+            <Route path='/new' component={CreateNote} exact />
+            <Route path='/view/:id' component={NoteView} exact />
+            <Route path='/edit/:id' component={EditNoteView} exact />
+            <Route path='/delete/:id' component={ListView} exact />
+            <Route path='/404' component={NotFound} />
+            <Redirect to="/404" />
+          </Switch>
         </div>
       </Router>
     );

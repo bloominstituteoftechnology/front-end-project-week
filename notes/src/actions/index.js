@@ -20,3 +20,10 @@ export const viewNote = (info) => {
     payload: info,
   }
 }
+
+export const deleteNote = (info) => {
+  return {
+    type: 'DELETE_NOTE',
+    payload: info,
+  }
+}
