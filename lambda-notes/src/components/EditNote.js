@@ -1,0 +1,69 @@
+import React from 'react';
+import { connect } from 'react-redux';
+
+import { } from '../actions/index';
+
+import './css/CreateNote.css';
+
+class CreateNote extends React.Component {
+  state = {
+    title: '',
+    body: '',
+  };
+
+  render() {
+    return (
+      <div className="create">
+        <h1 className="create-header"> Edit Note: </h1>
+        <form onSubmit={this.handleSumbit}>
+          <input
+            className="title-input"
+            type="text"
+            placeholder="Note Title"
+            value={this.state.title}
+            onChange={this.handleTitleChange}
+          />
+          <textarea
+            className="body-input"
+            type="text"
+            placeholder="Note Content"
+            value={this.state.body}
+            onChange={this.handleBodyChange}
+          />
+          <button className="save" type="submit">
+            Update
+          </button>
+        </form>
+      </div>
+    );
+  }
+  handleTitleChange = event => {
+    this.setState({ title: event.target.value });
+  };
+  handleBodyChange = event => {
+    this.setState({ body: event.target.value });
+  };
+
+  handleSumbit = event => {
+    event.preventDefault();
+    if (this.state.body === '' && this.state.title === '') alert('Add a title and note!');
+    else if (this.state.body === '') alert ('Add a note!');
+    else if (this.state.title === '') alert('Add a title!');
+    else { 
+    //   this.props.add_note(this.state);
+      this.setState({
+        title: '',
+        body: '',
+      });
+    //   this.props.view_button_click();
+    }
+  };
+}
+
+const mapStateToProps = state => {
+  return {
+    current: state.current,
+  };
+};
+
+export default connect(mapStateToProps, { })(CreateNote);

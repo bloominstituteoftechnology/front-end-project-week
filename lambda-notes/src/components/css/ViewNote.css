@@ -21,13 +21,21 @@
 .edit {
     position: absolute;
     top: 15px;
-    right: 450px;
+    right: 250px;
     text-decoration: underline; 
+}
+
+.edit:hover {
+  cursor: pointer;
 }
 
 .delete {
     position: absolute;
     top: 15px;
-    right: 400px;
+    right: 200px;
     text-decoration: underline; 
+}
+
+.delete:hover {
+  cursor: pointer;
 }
