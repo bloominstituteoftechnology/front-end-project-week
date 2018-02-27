@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class NoteView extends React.Component {
   state = {};
@@ -25,9 +26,14 @@ export default class NoteView extends React.Component {
     const { title, body } = this.state;
     return (
       <div>
-        <h2>{title}</h2>
-        <br />
-        <p>{body}</p>
+        <div>
+          <Link to={"/edit"}>edit</Link>
+        </div>
+        <div>
+          <h2>{title}</h2>
+          <br />
+          <p>{body}</p>
+        </div>
       </div>
     );
   };
