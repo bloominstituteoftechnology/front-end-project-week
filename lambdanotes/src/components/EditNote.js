@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 
 export default class EditNote extends React.Component {
   state = {
+    id: 0,
     title: '',
     body: '',
   };
 
   componentDidMount() {
     this.setState({
+      id: this.props.note.id,
       title: this.props.note.title,
       body: this.props.note.body,
     });
@@ -19,9 +21,9 @@ export default class EditNote extends React.Component {
   };
 
   handleSubmit = _ => {
-    const { title, body } = this.state;
-    this.props.handleEditNote({ title, body });
-    this.setState({ title: '', body: '', });
+    const { id, title, body } = this.state;
+    this.props.handleEditNote({ id, title, body });
+    this.setState({ id: 0, title: '', body: '', });
   };
 
   render() {

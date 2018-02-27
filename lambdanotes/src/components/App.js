@@ -32,8 +32,9 @@ export default class App extends React.Component {
   };
 
   handleEditNote = inputNote => {
+    console.log(inputNote);
     const editedNote = {
-      id: this.noteIndex,
+      id: inputNote.id,
       title: inputNote.title,
       body: inputNote.body,
     };
