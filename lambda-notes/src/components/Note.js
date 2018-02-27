@@ -3,7 +3,7 @@ import React from 'react';
 import './css/Note.css'
 
 function Note (props) {
-    const body = props.note.body.substr(0,160).concat('...')
+    const body = props.note.body.substr(0,165).concat('...')
 
     return (
         <div className="note">

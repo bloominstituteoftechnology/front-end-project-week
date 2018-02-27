@@ -1,7 +1,7 @@
 .main {
     display:flex;
     justify-content: center;
-    height: 100vh;
+    min-height: 100%;
 }
 
 .container {
@@ -9,5 +9,6 @@
     max-width: 800px;
     display: flex;
     flex-basis: row;
-    height: 100vh;
+    min-height: 100%;
+    overflow: visible;
 }
