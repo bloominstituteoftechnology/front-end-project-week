@@ -3,6 +3,7 @@ export const VIEW_BUTTON_CLICK = 'VIEW_BUTTON_CLICK';
 export const ADD_NOTE = 'ADD_NOTE';
 export const VIEW_NOTE = 'VIEW_NOTE';
 export const EDIT_NOTE_CLICKED = 'EDIT_NOTE_CLICKED';
+export const EDIT_NOTE = 'EDIT_NOTE';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -42,5 +43,13 @@ export const edit_note_clicked = (note) => {
   return {
     type: 'EDIT_NOTE_CLICKED',
     payload,
+  }
+}
+
+export const edit_note = (updated, original) => {
+  const note = {title:updated.title, body:updated.body, id:original.id, index:original.index}
+  return {
+    type: 'EDIT_NOTE',
+    payload: note,
   }
 }

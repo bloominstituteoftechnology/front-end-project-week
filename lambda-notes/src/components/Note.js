@@ -7,7 +7,8 @@ import './css/Note.css';
 
 class Note extends React.Component {
   render() {
-    const body = this.props.note.body.substr(0, 165).concat('...');
+    let body = '';
+    (this.props.note.body.length > 155 ? body = this.props.note.body.substr(0, 155).concat('...') : body = this.props.note.body);
     return (
       <div className="note" onClick={this.handleNote}>
         <h1>{this.props.note.title}</h1>

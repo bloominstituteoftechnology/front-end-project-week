@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { } from '../actions/index';
+import {edit_note, view_button_click} from '../actions/index';
 
-import './css/CreateNote.css';
+import './css/EditNote.css';
 
 class CreateNote extends React.Component {
   state = {
@@ -13,8 +13,8 @@ class CreateNote extends React.Component {
 
   render() {
     return (
-      <div className="create">
-        <h1 className="create-header"> Edit Note: </h1>
+      <div className="edit-note">
+        <h1 className="edit-header"> Edit Note: </h1>
         <form onSubmit={this.handleSumbit}>
           <input
             className="title-input"
@@ -30,7 +30,7 @@ class CreateNote extends React.Component {
             value={this.state.body}
             onChange={this.handleBodyChange}
           />
-          <button className="save" type="submit">
+          <button className="update" type="submit">
             Update
           </button>
         </form>
@@ -47,23 +47,24 @@ class CreateNote extends React.Component {
   handleSumbit = event => {
     event.preventDefault();
     if (this.state.body === '' && this.state.title === '') alert('Add a title and note!');
-    else if (this.state.body === '') alert ('Add a note!');
+    else if (this.state.body === '') alert('Add a note!');
     else if (this.state.title === '') alert('Add a title!');
-    else { 
-    //   this.props.add_note(this.state);
+    else {
+      this.props.edit_note(this.state, this.props.note);
       this.setState({
         title: '',
         body: '',
       });
-    //   this.props.view_button_click();
+      this.props.view_button_click();
     }
   };
 }
 
 const mapStateToProps = state => {
   return {
+    note: state.note,
     current: state.current,
   };
 };
 
-export default connect(mapStateToProps, { })(CreateNote);
+export default connect(mapStateToProps, {edit_note, view_button_click})(CreateNote);
