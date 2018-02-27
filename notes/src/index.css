@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.NotesDefaultSource {
+  border: double white 2px;
+  background-color: black;
+  width: 100px;
+  height: 100px;
+}

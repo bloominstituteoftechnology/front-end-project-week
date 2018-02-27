@@ -1,22 +1,16 @@
 import { NotesDefaultSource } from './components/NotesDefaultSource';
 import React, { Component } from 'react';
 
-class App extends Component {
-
+export default class App extends Component {
     state = {
-        Title: 'Default Title',
-        NoteBody: 'What doesnt kill you makes you stronger',
-        ToggleEdit: false,
-        Delete: false
     };
-    
+
     render() {
         return (
             <div>
-           
+                <NotesDefaultSource Notes={this.state} />
             </div>
         )
     }
 }
 
-export default App;
