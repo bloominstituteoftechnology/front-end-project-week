@@ -1,21 +1,34 @@
 import React from 'react';
 import './notes.css';
+import { Link } from 'react-router-dom';
 const NoteList = (props) => {
-
+   
         return (
-            <div className="noteBox">
-                <ul>
-                    {props.notes.map((note) => {
+               <div>
+                    {props.notes.map(noteObj => {
                         return (
-                            <li className="listBox" key={props.notes.indexOf(note)} onClick={props.viewNote}>{note.note}
-                            <p>{note.details}</p>
-                            </li>
+                           <ViewNote key={noteObj.id} noteObj={noteObj} />
                         )
                     })}
-                </ul>
-            </div>
+                </div>
         )
+
     }
+
+    const ViewNote = ({ noteObj }) => {
+        const {details, note} = noteObj;
+        return (
+            <Link to={`/${noteObj.id}`}>
+                <div className="noteBox">
+                    <h1>{note}</h1>
+                    <p>{details}</p>
+                </div>
+            </Link>
+        )
+
+    }
+
+    
 
 
 export default NoteList;

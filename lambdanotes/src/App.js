@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import NoteList from './Components/NoteList';
 import NewNote from './Components/NewNote';
 import ViewNote from './Components/ViewNote';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
+ 
   state = {
     notes: [
         {
             note: 'Create App',
             details: 'Get app up and working',
-        }
+            id: 1,
+        },
+        {
+          note: 'placeholder',
+          details: 'placeholder',
+          id: 2,
+        },
     ],
     note: '',
     details: '',
 }
-
 
   render() {
     return (
@@ -25,9 +30,23 @@ class App extends Component {
         <div className="App">
           <Route path='/' component={this.notes} exact/>
           <Route path='/noteform' component={this.noteForm} />
+          <Route path={`/note/${this.state.notes.id}`} component={this.viewNote} />
         </div>
       </Router>
     );
+  }
+
+  navToNote = (id) => {
+    console.log('id');
+    return (
+      <Link to={`/noteform/:id`} />
+    )
+  }
+
+  viewNote = (id) => {
+    return (
+      <ViewNote note={this.state.notes[id].note} details={this.state.notes[id].details}  />
+    )
   }
   noteForm = () => {
     return (
@@ -36,7 +55,7 @@ class App extends Component {
   }
   notes = () => {
     return (
-      <NoteList notes={this.state.notes} viewNote={this.handleViewNote}/>
+      <NoteList notes={this.state.notes}  navNote={this.navToNote}/>
     )
   }
 
@@ -61,11 +80,6 @@ submitNote = (e) => {
   }
 }
 
-handleViewNote = (e) => {
-  return (
-    <ViewNote note={this.state.notes.note}/>
-  )
-}
 }
 
 export default App;
