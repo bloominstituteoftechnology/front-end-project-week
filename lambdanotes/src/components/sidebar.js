@@ -23,8 +23,8 @@ const Sidebar = (props) => {
   return(
     <SideBarStyled>
       <h1>Lambda Notes</h1>
-      <ButtonStyled>View Your Notes</ButtonStyled>
-      <ButtonStyled>+ Create New Notes</ButtonStyled>
+      <ButtonStyled onClick={props.viewNotes}>View Your Notes</ButtonStyled>
+      <ButtonStyled onClick={props.createNewNote}>+ Create New Notes</ButtonStyled>
     </SideBarStyled>
   )
 }
