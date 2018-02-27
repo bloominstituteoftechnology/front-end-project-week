@@ -46,9 +46,12 @@ class App extends Component {
           editingNote={this.state.editingNote}
           viewNotes={this.viewNotes}
           createNewNote={this.createNewNote}
+          style={{ width: "200px", height: "100%" }}
         />
-        {this.state.viewingNotes && <NotesList notes={this.state.notes} />}
-        {this.state.creatingNote && <CreateNote />}
+        <div style={{ width: "100%" }}>
+          {this.state.viewingNotes && <NotesList notes={this.state.notes} />}
+          {this.state.creatingNote && <CreateNote />}
+        </div>
       </AppStyled>
     );
   }

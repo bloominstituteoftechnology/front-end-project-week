@@ -6,6 +6,12 @@ const NoteListStyled = styled.div`
   width: 100%;
   padding: 10px;
   background-color: rgb(243, 243, 243);
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    padding: 10px;
+  }
 `
 
 class NotesList extends Component {
