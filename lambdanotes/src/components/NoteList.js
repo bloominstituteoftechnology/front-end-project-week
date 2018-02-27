@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Note from './Note';
 
 import './NoteList.css';
@@ -6,6 +7,10 @@ import './NoteList.css';
 class NoteList extends React.Component {
   state = {
     notes: this.props.notes,
+  };
+
+  handleNoteIndex = index => {
+    this.props.handleNoteViewIndex(index);
   }
 
   render() {
@@ -15,12 +20,12 @@ class NoteList extends React.Component {
         <ul className="NoteList">
           {this.state.notes.map(note => {
             return (
-              <Note
-                key={note.id}
-                id={note.id}
-                title={note.title}
-                body={note.body}
-              />
+              <Link to={`/view/:${note.id}`} key={note.id} onClick={() => {this.handleNoteIndex(note.id)}}>
+                <Note
+                  title={note.title}
+                  body={note.body}
+                />
+              </Link>
             );
           })}
         </ul>

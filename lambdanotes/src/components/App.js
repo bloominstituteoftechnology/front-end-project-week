@@ -4,12 +4,18 @@ import './App.css';
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
 import CreateNote from './CreateNote';
+import NoteView from './NoteView';
 
 class App extends React.Component {
   nextId = 0;
+  noteIndex = 0;
   state = {
     notes: [],
   };
+
+  handleNoteViewIndex = index => {
+    this.noteIndex = index;
+  }
 
   handleCreateNote = inputNote => {
     const newNote = {
@@ -36,8 +42,9 @@ class App extends React.Component {
       <Router>
         <div className="App">
             <Sidebar />
-            <Route exact path={"/"} render={()=><NoteList notes={this.state.notes} />} />
-            <Route exact path={"/create"} render={()=><CreateNote createNote={this.handleCreateNote}/>} />
+            <Route exact path={"/"} render={() => <NoteList notes={this.state.notes} handleNoteViewIndex={this.handleNoteViewIndex}/>} />
+            <Route exact path={"/create"} render={() => <CreateNote createNote={this.handleCreateNote}/>} />
+            <Route exact path={`/view/:${this.state.notes.id}`} render={() => <NoteView note={this.state.notes[this.noteIndex]}/>} />
         </div>
       </Router>
     );
