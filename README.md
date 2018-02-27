@@ -20,6 +20,17 @@ The main objective of this week is to develop the MVP feature set listed below u
 * [ ] Edit an existing note
 * [ ] Delete an existing note
 
+Upon your first commit, please submit a Pull Request and add the MVP Task list to your first Pull Request comment:
+
+```markdown
+## MVP Features:
+* [ ] Display a list of notes
+* [ ] Create a note with a title and content
+* [ ] View an existing note
+* [ ] Edit an existing note
+* [ ] Delete an existing note
+```
+
 Once you have accomplished the MVP, you have been given a feature list that the client would love to have completed.  Your goal would be to finish MVP as soon as you can and get working the list of features.
 
 ## Extra Features:
