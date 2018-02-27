@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import { viewNote } from '../actions';
 import './ListView.css';
 import Shiitake from 'shiitake';
+import DeleteNoteModal from './DeleteNoteModal';
 
 class ListView extends React.Component {
   state = {
@@ -38,6 +39,7 @@ class ListView extends React.Component {
         </div>
         }
         {this.state.redirect ? <Redirect to='/view' /> : null }
+        {this.props.delete ? <DeleteNoteModal /> : null}
       </div>
     );
   }
@@ -46,6 +48,7 @@ class ListView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    delete: state.delete,
   };
 };
 
