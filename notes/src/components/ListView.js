@@ -31,6 +31,7 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
 class ListView extends React.Component {
   state = {
     id: '',
+    deleting: false,
   }
 
   viewNote = (note) => {
@@ -40,9 +41,20 @@ class ListView extends React.Component {
 
   componentDidMount() {
     if (this.props.match.url !== '/' && this.props.match.params.id) {
-        this.props.deleteNote(this.props.match.params.id);
-        this.props.history.push('/');
+      this.setState({ deleting: true });
+
     }
+  }
+
+  deleteNote = () => {
+    this.props.deleteNote(this.props.match.params.id);
+    this.props.history.push('/');
+    this.setState({ deleting: false });
+  }
+
+  cancelDelete = () => {
+    this.props.history.push('/');
+    this.setState({ deleting: false });
   }
 
   onSortEnd = ({oldIndex, newIndex}) => {
@@ -65,7 +77,7 @@ class ListView extends React.Component {
         </div>
         }
         {this.state.view ? <Redirect to={`/view/${this.state.id}`} /> : null }
-        {this.props.delete ? <DeleteNoteModal /> : null}
+        {this.state.deleting ? <DeleteNoteModal deleteNote={this.deleteNote} cancelDelete={this.cancelDelete}/> : null}
       </div>
     );
   }

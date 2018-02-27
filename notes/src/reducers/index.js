@@ -9,7 +9,7 @@ const initialTestState = {
           title: 'Investor',
           entry: 'Sit totam a et omnis officia. Laboriosam sed quos dicta. Sunt deleniti occaecati blanditiis animi nihil reiciendis. Aut incidunt aut atque omnis nam quam occaecati corrupti saepe. Nostrum ex quis. Ut voluptatem at omnis et. Molestias a id eos porro voluptas qui ipsum perferendis. Sed provident consequatur facere. Sed quidem tenetur esse aut ut. Sunt quam hic. Magnam aut nobis. Suscipit nulla quos a in voluptas minus qui qui sit. Saepe fugiat quidem cupiditate ullam quidem sunt est.',
           id: 'JNEI45',
-        }
+        },
       ],
     };
 
