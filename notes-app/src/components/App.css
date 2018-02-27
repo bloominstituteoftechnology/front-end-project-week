@@ -18,6 +18,7 @@ html, body {
   border-color: #b7b7b7;
   font-family: "Roboto Bold";
   font-size: 40px;
+  font-weight: bold;
   padding: 15px;
   color: #434243;
 }
@@ -43,6 +44,7 @@ html, body {
     text-decoration: none;
     font-family: "Roboto Bold";
     font-size: 18px;
+    font-weight: bold;
     padding-top: 17px;
     padding-bottom: 17px;
     margin-top: 28px;
