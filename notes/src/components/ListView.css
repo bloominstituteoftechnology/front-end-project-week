@@ -1,6 +1,7 @@
 .list-view {
   background: #F3F3F3;
-  height: 100%;
+  background-size: cover;
+  min-height: 100%;
   margin-left: 240px;
   padding-left: 30px;
   display: flex;
@@ -15,6 +16,7 @@
   margin-bottom: 30px;
 }
 .list-view .list-notes {
+  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
 }
