@@ -18,7 +18,7 @@ class ViewNote extends React.Component {
         </div>
         <div>
         <div className='delete' onClick={this.openModal}>delete</div>
-        <Modal isOpen={this.state.modalIsOpen} style={customStyles} >
+        <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
           <div> Are you sure you want to delete this? <br/>
           <button className='modal-delete' onClick={this.handleDelete}>Delete</button>
           <button className='modal-no' onClick={this.closeModal}>No</button>
