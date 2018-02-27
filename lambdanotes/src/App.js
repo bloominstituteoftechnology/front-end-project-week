@@ -55,7 +55,6 @@ class App extends Component {
       editingNote: false, 
       noteDetails: {...noteToView},
     });
-    console.log(this.state);
   }
 
   // Display Note Edit Form when 'edit' is clicked in Note Details
