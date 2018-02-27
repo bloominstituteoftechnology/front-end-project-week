@@ -3,7 +3,6 @@ import './NoteGrid.css';
 
 function NoteGrid(props) {
   return (
-    <div className="col-9 main-content container align-items-center">
       <div className="row justify-content-between">
         {props.notes.map(note => {
           return (
@@ -16,7 +15,6 @@ function NoteGrid(props) {
             </div>
           );
         })}
-      </div>
     </div>
   );
 }

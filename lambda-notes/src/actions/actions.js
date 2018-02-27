@@ -6,3 +6,9 @@ export const addNote = (note) => {
         payload: note
     }
 };
+// export const addNote = (note) => {
+//     return {
+//         type: NEWNOTE,
+//         payload: note
+//     }
+// };
