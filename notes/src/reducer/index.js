@@ -5,15 +5,21 @@ import notes from '../data/notes';
 import { ADD_NOTE } from '../actions'; 
 
 const initialState = {
-  notes: notes,
+  notes: [],
+  id: 1,
 }
 
 const reducer = (state=initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
+      const newNote = {
+        ...action.payload,
+        id: state.id,
+      }
       return {
         ...state,
-        notes: [...notes, action.payload]
+        notes: [...state.notes, newNote],
+        id: state.id + 1,
       };
     default:
       return state;
