@@ -28,6 +28,22 @@
   font-weight: bold;
 }
 
+.btn-side{
+    border:1px solid #7D9190;
+    padding: 10px 0px 10px 0px;
+    background-color: #28B6B8;
+    margin-top: 15px;
+    margin-bottom: 18px;
+    color:white;
+}
+.btn-text{
+    color:white;
+}
+.btn-text:hover{
+    color:white;
+    text-decoration: none;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
