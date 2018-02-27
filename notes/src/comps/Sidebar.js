@@ -7,11 +7,11 @@ const Sidebar = props => {
     <div className="sidebar">
       <span className="sidebar__title">Lambda Notes</span>
       <div className="sidebar__buttons">
-        <Link to="/">
-          <div className="sidebar__button">View Your Notes</div>
+        <Link to="/" className="sidebar__button">
+          <div>View Your Notes</div>
         </Link>
-        <Link to="/new">
-          <div className="sidebar__button">+ Create New Note</div>
+        <Link to="/new" className="sidebar__button">
+          <div >+ Create New Note</div>
         </Link>
       </div>
     </div>

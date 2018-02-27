@@ -26,12 +26,16 @@
 }
 
 .sidebar__button {
-  margin-top: 40px;
-  padding: 10px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
   background: rgb(42, 192, 196);
   border: 0px;
   color: white;
   font-size: 16px;
+  cursor: default;
 }
 
 .sidebar__button:active {
