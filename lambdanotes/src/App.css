@@ -1,0 +1,65 @@
+.App {
+  text-align: left;
+}
+
+.title {
+  font-size: 2.5em;
+}
+
+.notes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 146px 40px 0px 240px;
+}
+
+.sidebar {
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #D7D7D7;
+    height: 100%;
+    width: 237px;
+    padding: 0px 0px 0px 15px;
+    color: #4A494A;
+    position: fixed;
+    border-right: 1px solid rgb(150, 150, 150);
+  }
+
+.button {
+  width: 200px;
+  border: 1px solid rgb(150, 150, 150);
+  padding: 15px 5px 15px 5px;
+  margin: 10px 0px 0px 5px;
+  background-color: #5BBDC2;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+.list-notes {
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+  width: 190px;
+  height: 200px;
+  border: 1px solid rgb(150, 150, 150);
+  padding: 15px 5px 15px 5px;
+  margin: 0px 10px 10px 10px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.note-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  font-family: 'Roboto';
+}
+
+.note-message {
+  font-size: 0.9rem;
+  padding-top: 8px;
+  text-align: left;
+  font-family: 'Raleway';
+  overflow: hidden;
+}
