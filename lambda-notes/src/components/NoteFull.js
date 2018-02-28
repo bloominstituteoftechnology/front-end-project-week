@@ -9,12 +9,15 @@ class NoteFull extends Component {
   render() {
     return (
       <div>
+        <p className="text-right">
+          <span>edit</span> <span>delete</span>
+        </p>
         {this.props.filteredNotes.map(note => {
           return (
-            <div key={note.id} className="row full-note">
+            <div key={note.id} className="full-note">
               <h3>{note.title}</h3>
-              <p>{note.body}</p>
-            </div>
+                <p className="note-body">{note.body}</p>
+              </div>
           );
         })}
       </div>
