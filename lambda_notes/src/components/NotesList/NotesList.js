@@ -5,7 +5,7 @@ import './NotesList.css'
 const NotesList = (props) => {
   console.log('NotesList props', props)
   return (
-    <Link to={`/${props.id}`} style={{textDecoration:"none", color:"black"}}>
+    <Link to={`/view/${props.id}`} style={{textDecoration:"none", color:"black"}}>
       <div className="Note">
         <div className="Note-Title">{props.note.title}</div>
         <hr />

@@ -1,4 +1,4 @@
-import {CREATE_NOTE, DELETE_NOTE} from '../actions';
+import { CREATE_NOTE, DELETE_NOTE, EDIT_NOTE } from '../actions';
 
 const initialState = {
   notes: [
@@ -24,6 +24,11 @@ export default (state=initialState, action) => {
       return Object.assign({}, {
         notes: [...state.notes]
       });
+      case EDIT_NOTE:
+      state.notes[action.id] = action.payload;
+      return Object.assign({}, {
+        notes: [...state.notes]
+      })
     default:
       return state;
   }

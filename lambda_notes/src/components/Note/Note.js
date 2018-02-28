@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Sidebar from '../Sidebar/Sidebar';
 import { deleteNote } from '../../actions';
+import Sidebar from '../Sidebar/Sidebar';
 import Modal from '../Modal/Modal';
 
 const Note = (props) => {
@@ -15,7 +15,7 @@ const Note = (props) => {
       </div>
       <div className="Note-Container">
         <div>
-          <Link to="/edit">Edit</Link>
+          <Link to={`/edit/${props.match.params.id}`}>Edit</Link>
           {/* <Modal text={'Delete'}/> */}
           {/* <Link to="/">Delete</Link> */}
           <button>Delete</button>

@@ -18,8 +18,8 @@ ReactDOM.render(
     <Switch>
       <Route path="/" component={App} exact />
       <Route path="/create" component={CreateNewNote} exact />
-      <Route path="/edit" component={EditNote} exact />
-      <Route path="/:id" component={Note} exact />
+      <Route path="/view/:id" component={Note} exact />
+      <Route path="/edit/:id" component={EditNote} exact />
     </Switch>
   </Router>
 </Provider>
