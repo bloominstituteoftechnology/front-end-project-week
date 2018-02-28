@@ -28,4 +28,7 @@
 
 .note__option-item {
   margin-left: 15px;
+  text-decoration: underline;
+  color: black;
+  cursor: pointer;
 }
