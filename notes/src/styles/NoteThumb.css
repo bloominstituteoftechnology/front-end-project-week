@@ -12,4 +12,5 @@
 .noteThumb__content {
   font-weight: lighter;
   line-height: 30px;
+  overflow: hidden;
 }
