@@ -39,8 +39,8 @@ const CreateNoteStyled = styled.div`
 // CreateNote Component
 class CreateNote extends Component {
   state = {
-    title: "",
-    content: ""
+    title: '',
+    content: ''
   };
 
   handleTitleInput = event => {

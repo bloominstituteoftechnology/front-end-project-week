@@ -25,6 +25,7 @@ const ButtonStyled = styled.button`
   outline: none;
   font-size: 0.9rem;
   font-weight: bold;
+  cursor: pointer;
 `
 
 const Sidebar = (props) => {

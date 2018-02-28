@@ -19,6 +19,13 @@ const NoteDetailsStyled = styled.div`
   h1 {
     margin-bottom: 20px;
   }
+
+  a {
+    padding-left: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
 `
 
 class NoteDetails extends Component {
@@ -35,18 +42,19 @@ class NoteDetails extends Component {
       id: this.props.noteDetails.id,
     })
   }
+
   render() {
     return (
       <NoteDetailsStyled>
         <header>
-          <button>Edit</button>
-          <button>Delete</button>
+          <a onClick={this.props.showNoteEditForm}>Edit</a>
+          <a>Delete</a>
         </header>
         <h1>{this.state.title}</h1>
         <p>{this.state.content}</p>
       </NoteDetailsStyled>
     )
   }
-}
+} // NoteDetails Component
 
 export default NoteDetails;

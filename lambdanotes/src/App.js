@@ -7,6 +7,7 @@ import Sidebar from './components/sidebar';
 import NotesList from './components/notes-list';
 import CreateNote from './components/create-note';
 import NoteDetails from './components/note-details';
+import EditNote from './components/edit-note';
 
 import dummyData from './dummy-data';
 
@@ -48,12 +49,12 @@ class App extends Component {
   // Display Note Details when note is clicked on in Note List
   showNoteDetails = (id) => {
     const noteToView = this.state.notes.find((note) => { return note.id === id })
-    this.setState({ 
-      viewingNotes: false, 
-      creatingNote: false, 
-      showingNoteDetails: true, 
-      editingNote: false, 
-      noteDetails: {...noteToView},
+    this.setState({
+      viewingNotes: false,
+      creatingNote: false,
+      showingNoteDetails: true,
+      editingNote: false,
+      noteDetails: { ...noteToView },
     });
   }
 
@@ -96,7 +97,8 @@ class App extends Component {
         <div style={{ width: "100%", height: "100vh" }}>
           {this.state.viewingNotes && <NotesList notes={this.state.notes} showNoteDetails={this.showNoteDetails} />}
           {this.state.creatingNote && <CreateNote getNextId={this.getNextId} saveNewNote={this.saveNewNote} />}
-          {this.state.showingNoteDetails && <NoteDetails noteDetails={this.state.noteDetails} />}
+          {this.state.showingNoteDetails && <NoteDetails noteDetails={this.state.noteDetails} showNoteEditForm={this.showNoteEditForm} />}
+          {this.state.editingNote && <EditNote noteDetails={this.state.noteDetails} />}
         </div>
       </AppStyled>
     );
