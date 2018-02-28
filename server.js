@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const faker = require('faker');
 const port = 3333;
 
 const server = express();
@@ -14,10 +15,20 @@ const sendUserError = (msg, res) => {
 };
 
 let notes = [];
+for(let i=0; i < 12; ++i){
+    notes.push({
+        title:faker.lorem.sentence(4),
+        description:faker.lorem.paragraphs(8),
+        tags:faker.lorem.words(7),
+        id:i,
+    });
+}
+
 server.get('/notes', (req, res) => {
+    // res.json(notes);
     setTimeout(function () {
         res.json(notes);
-    }, 1000);
+    }, 500);
 });
 let noteId = 0;
 

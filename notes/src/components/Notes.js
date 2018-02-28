@@ -92,12 +92,18 @@ const NotesContainer = styled.div`
                     flex-grow: 1;
                     flex-basis: 250px;
                     max-width: 250px;
+                    // min-height:214px;
+                    // max-height:214px;
+                    
                     border:1px solid #A7A7A7;
                     color:#71595A;
                     margin:10px 10px 10px 10px;
                     padding:8px 18px 8px 18px;
                     background-color:#FFFFFF;
                     
+                    display: flex;
+                    flex-direction:column;  
+                    justify-content:flex-end;                 
                 
                         .note-title{
                             color:#4a4a4a;
@@ -120,6 +126,7 @@ const NotesContainer = styled.div`
                             font-size:10px;
                             color:grey;
                             margin-bottom:5px;
+                            
                                 
                                 .tags-label{
                                     text-align:left;
