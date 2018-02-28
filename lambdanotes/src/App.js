@@ -8,6 +8,7 @@ import NotesList from './components/notes-list';
 import CreateNote from './components/create-note';
 import NoteDetails from './components/note-details';
 import EditNote from './components/edit-note';
+import DeleteModal from './components/delete-modal';
 
 import dummyData from './dummy-data';
 
@@ -43,6 +44,7 @@ class App extends Component {
       creatingNote: false,
       showingNoteDetails: false,
       editingNote: false,
+      deletingNote: false,
     });
   }
 
@@ -52,7 +54,8 @@ class App extends Component {
       viewingNotes: false,
       creatingNote: true,
       showingNoteDetails: false,
-      editingNote: false
+      editingNote: false,
+      deletingNote: false,
     });
   }
 
@@ -64,6 +67,7 @@ class App extends Component {
       creatingNote: false,
       showingNoteDetails: true,
       editingNote: false,
+      deletingNote: false,
       noteDetails: { ...noteToView },
     });
   }
@@ -74,8 +78,19 @@ class App extends Component {
       viewingNotes: false,
       creatingNote: false,
       showingNoteDetails: false,
-      editingNote: true
+      editingNote: true,
+      deletingNote: false,
     });
+  }
+
+  showDeleteModal = () => {
+    this.setState({
+      viewingNotes: false,
+      creatingNote: false,
+      showingNoteDetails: true,
+      editingNote: false,
+      deletingNote: true,
+    })
   }
 
   // Create new note object with data from CreateNote;
@@ -109,8 +124,8 @@ class App extends Component {
   }
 
   // Delete Note from notes array and return to Notes List view
-  deleteNote = (id) => {
-    let updatedNotes = this.state.notes.filter(note => note.id !== id);
+  deleteNote = () => {
+    let updatedNotes = this.state.notes.filter(note => note.id !== this.state.noteDetails.id);
     this.setState({ notes: updatedNotes });
     this.viewNotes();
   }
@@ -141,7 +156,7 @@ class App extends Component {
             <NoteDetails
               noteDetails={this.state.noteDetails}
               showNoteEditForm={this.showNoteEditForm}
-              deleteNote={this.deleteNote}
+              showDeleteModal={this.showDeleteModal}
             />}
 
           {this.state.editingNote &&
@@ -151,6 +166,11 @@ class App extends Component {
               showNoteEditForm={this.showNoteEditForm}
             />}
         </div>
+        {this.state.deletingNote &&
+          <DeleteModal
+            deleteNote={this.deleteNote}
+            showNoteDetails={this.showNoteDetails}
+          />}
       </AppStyled>
     );
   }

@@ -46,8 +46,7 @@ class NoteDetails extends Component {
   }
 
   handleDelete = () => {
-    this.props.deleteNote(this.state.id);
-    // console.log(this.state.id);
+    this.props.showDeleteModal();
   }
 
   render() {
@@ -55,7 +54,7 @@ class NoteDetails extends Component {
       <NoteDetailsStyled>
         <header>
           <a onClick={this.props.showNoteEditForm}>Edit</a>
-          <a onClick={this.handleDelete}>Delete</a>
+          <a onClick={this.props.showDeleteModal}>Delete</a>
         </header>
         <h1>{this.state.title}</h1>
         <p>{this.state.content}</p>
