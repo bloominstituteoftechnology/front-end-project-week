@@ -7,6 +7,7 @@ import Sidebar from './comps/Sidebar';
 import NoteList from './comps/NoteList';
 import Note from './comps/Note';
 import NewNote from './comps/NewNote';
+import EditNote from './comps/EditNote';
 
 class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
           <Route exact path="/" component={NoteList} />
           <Route path="/view/:id" component={Note} />
           <Route path="/new" component={NewNote} />
+          <Route path="/edit/:id" component={EditNote} />
         </div>
       </div>
     );
