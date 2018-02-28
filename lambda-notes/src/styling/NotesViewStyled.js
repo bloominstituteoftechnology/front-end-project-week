@@ -95,14 +95,15 @@ const NotesViewStyled = styled.div`
       font-weight: bold;
       color: #4a494a;
       font-size: 18px;
-      margin: 12px 0 6px 0;
+      margin: 6px 0 6px 0;
       padding: 10px;
     }
     p {
-      width: 500px;
-      padding: 10px;
+      max-width: 500px;
       width: 100%;
+      padding: 10px;
       font-size: 14px;
+      white-space: pre-wrap;
     }
   }
 `;
