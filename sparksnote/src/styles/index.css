@@ -5,11 +5,16 @@
   border: 1px solid black;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: row;
 }
-.App .menu--align {
+.App .App__menu {
   width: 25%;
   display: flex;
   justify-content: flex-start;
+}
+.App .App__main {
+  width: 75%;
 }
 .menu {
   background-color: #CFCFCF;
@@ -38,6 +43,11 @@
   font-weight: bold;
   margin-top: 13px;
   margin-bottom: 13px;
+}
+.newNote .newNote__input {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 body,
 html {

@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\front-end-project-designs",
     "\\sparksnote",
+    "\\sparksnote\\public",
     "\\sparksnote\\src",
     "\\sparksnote\\src\\components",
-    "\\sparksnote\\src\\components\\menu",
-    "\\sparksnote\\src\\styles"
+    "\\sparksnote\\src\\components\\deleteNote",
+    "\\sparksnote\\src\\components\\editNote",
+    "\\sparksnote\\src\\components\\home",
+    "\\sparksnote\\src\\components\\newNote"
   ],
-  "SelectedNode": "\\sparksnote\\src\\App.js",
+  "SelectedNode": "\\sparksnote\\src\\components\\newNote\\newNote.js",
   "PreviewInSolutionExplorer": false
 }
