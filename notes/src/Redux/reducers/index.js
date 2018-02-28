@@ -67,9 +67,8 @@ export const reducer = (state = initialState, action) => {
     case EDIT_NOTE:
       let newNotes = state.notes.map(each => {
         if (each.id === action.id) {
-          console.log('in the map, action.id: ', action.id);
-          console.log('in the map, each.id: ', each.id);
-          console.log('in the map, action.payload.title: ', action.payload.title);
+          if (action.payload.title === '') action.payload.title = each.title;
+          if (action.payload.body === '') action.payload.body = each.body;
           return {
             title: action.payload.title,
             body: action.payload.body,

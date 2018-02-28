@@ -27,15 +27,12 @@ class SingleNote extends Component {
   };
 
   editNote = event => {
-    event.preventDefault();
+    //event.preventDefault();
 
     const editedNote = {
       title: this.state.title,
       body: this.state.body,
     };
-
-    console.log('inside editNote(), editedNote: ', editedNote);
-    console.log('inside editNote(), this.state.note.id: ', this.state.note.id);
 
     this.props.editNote(editedNote, this.state.note.id);
 
@@ -86,7 +83,8 @@ class SingleNote extends Component {
         <div className="new-note_body">
           <div className="new-note_header">Edit Note:</div>
           <div className="new-note_fields">
-            <form type="submit" onSubmit={this.editNote}>
+            <form type="submit">
+              {/* <form type="submit" onSubmit={this.editNote}> */}
               <div className="title-div">
                 <input
                   type="text"
@@ -107,7 +105,9 @@ class SingleNote extends Component {
                   value={this.state.body}
                 />
               </div>
-              <input type="submit" value="Save" className="submit-button" />
+              <Link to="/" className="each-link" onClick={this.editNote}>
+                <input type="submit" value="Save" className="submit-button" />
+              </Link>
             </form>
           </div>
         </div>
