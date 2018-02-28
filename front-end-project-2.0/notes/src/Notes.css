@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  height: 1000px;
+}
+.container .leftPanel {
+  width: 300px;
+}
+.container .rightPanel {
+  width: 1000px;
+}

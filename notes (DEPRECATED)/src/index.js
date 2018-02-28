@@ -3,11 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import CreateNote from "./components/CreateNote";
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 ReactDOM.render(
   <Router>
