@@ -1,7 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
+span {
+  margin: 10px;
+  text-decoration: underline;
+}
 button {
   background-color: #2AC0C4;
   color: white;
@@ -11,6 +14,10 @@ button {
   width: 90%;
   margin-bottom: 5px;
   height: 7%;
+}
+
+.edit-delete {
+  text-align: right;
 }
 
  .save-button {
@@ -29,13 +36,16 @@ button {
   text-align: center;
 }
 
-.Notes {
+.Notes, .single-note, .create-note-container {
   background: #F3F3F3;
   height: 100vh;
   width: 80vw;
+  padding: 5vh 1vw 5vh 1vw;
+}
+
+.Notes {
   display: flex;
   flex-wrap: wrap;
-  padding: 5vh 1vw 5vh 1vw;
 }
 .note-container {
   background: white;
