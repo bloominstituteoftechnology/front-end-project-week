@@ -10,6 +10,7 @@ class NewNote extends Component {
   };
 
   render() {
+    console.log('The properties of NewNote are:', this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>

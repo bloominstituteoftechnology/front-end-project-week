@@ -45,6 +45,7 @@ import { DELETE_NOTE } from '../actions';
 const initialState = {notes: []};
 
 export default (state = initialState, action) => {
+  console.log('Reducder received:', action);
   switch (action.type) {
     case ADD_NOTE:
       return Object.assign({}, {
@@ -61,7 +62,7 @@ export default (state = initialState, action) => {
     case DELETE_NOTE:
       console.log("Deleting note ", action.id);
       return Object.assign({}, {
-        notes: state.notes.map(note => {
+        notes: state.notes.filter(note => {
           if (note.id !== action.id) return note;
         })
       });
