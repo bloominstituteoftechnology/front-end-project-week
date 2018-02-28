@@ -1,3 +1,10 @@
-form input, form textarea {
-    width:100%;
+/* form input, form textarea {
+    width:75%;
+}  */
+form textarea, form input {
+    margin-bottom:15px;
+    padding:10px 5px
+}
+.full-note p, .full-note h3 {
+    display:block;
 }
