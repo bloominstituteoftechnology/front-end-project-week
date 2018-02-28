@@ -4,7 +4,7 @@ import SideBar from "./components/sideBar";
 import NoteList from "./components/noteList";
 import { getNotes } from "./dummyNotes";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-//import SingleNote from "./components/singleNote";
+import SingleNote from "./components/singleNote";
 import NoteForm from "./components/noteForm";
 
 class App extends Component {
@@ -21,7 +21,10 @@ class App extends Component {
             path="/notelist"
             render={state => <NoteList notes={this.state.notes} exact />}
           />
-          {/*<Route path={`/note/${id}`} component={SingleNote} />*/}
+          <Route
+            path="/note/:id"
+            component={state => <SingleNote note={this.state.notes} />}
+          />
           <Route path="/noteform" component={NoteForm} exact />
         </div>
       </Router>

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { addNote } from "../actions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 
 class NoteForm extends Component {
   state = {
     title: "",
     text: "",
+    redirect: false,
   };
 
   render() {
@@ -33,6 +35,7 @@ class NoteForm extends Component {
             Save
           </button>
         </form>
+        {this.state.redirect ? <Redirect to="/notelist" /> : null}
       </div>
     );
   }
@@ -47,7 +50,7 @@ class NoteForm extends Component {
   createNote = event => {
     event.preventDefault();
     this.props.addNote(this.state);
-    this.setState({ title: "", text: "" });
+    this.setState({ redirect: true });
   };
 }
 

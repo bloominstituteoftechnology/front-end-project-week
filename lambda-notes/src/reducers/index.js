@@ -1,4 +1,4 @@
-import { ADD_NOTE } from "../actions";
+import { ADD_NOTE, VIEW_NOTE } from "../actions";
 import notes from "../dummyNotes";
 
 const initialState = {
@@ -10,15 +10,11 @@ export const rootReducer = (state = initialState, action) => {
     case ADD_NOTE:
       return {
         ...state,
-        notes: [
-          ...state.notes,
-          {
-            title: action.title,
-            text: action.text,
-            id: action.id,
-          },
-        ],
+        notes: state.notes.concat(action.payload),
       };
+    case VIEW_NOTE:
+      return { ...state, current: action.payload };
+
     default:
       return state;
   }
