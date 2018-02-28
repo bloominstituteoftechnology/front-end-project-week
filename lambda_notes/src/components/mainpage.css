@@ -41,3 +41,9 @@
 .mainPage__noteList div:nth-child(3n+1){
   margin-left: 0;
 }
+
+.mainPage__noteView {
+  font-size: 30px;
+  line-height: 2;
+  margin-top: -10px;
+}
