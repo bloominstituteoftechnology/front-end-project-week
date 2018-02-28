@@ -1,7 +1,24 @@
-body {
-  margin-left: 25%;
+.createNewContainer {
+  width: 825px;
+  height: 100%;
+  background: #f3f3f3;
+  padding-top: 10px;
+  padding-left: 30%;
 }
 
+/* .noteForm {
+  padding-left: 25px;
+  padding-right: 15px;
+} */
+
+.noteContent {
+  padding-left: 25px;
+  padding-top: 25px;
+  border-radius: 4px;
+  width: 400px;
+}
+
+/* Button */
 .saveButton {
   background-color: #2AC0C4;
   color: white;

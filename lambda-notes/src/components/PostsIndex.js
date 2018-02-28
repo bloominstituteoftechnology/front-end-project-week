@@ -11,11 +11,14 @@ class PostsIndex extends Component {
     console.log("componentDidMount > " + this.props.fetchPosts())
   }
 
+  
   renderPosts() {
     // Utilizing the Lodash Map Function to map over the object and return an array.
     return _.map(this.props.posts, post => {
       return (
-        <div key={post.id}>
+        <div 
+        className="noteCard"
+        key={post.id}>
         <NavLink to={`/note/${post.id}`}>
           {post.title}
         </NavLink>
@@ -34,7 +37,7 @@ class PostsIndex extends Component {
           <div className="notesBody">
             <div className="noteCard">
               
-                {this.renderPosts()}
+                {/* {this.renderPosts()} */}
 
                 {/* Code I'd Like To Use */}
                 {/* _.map(this.props.posts, post => {

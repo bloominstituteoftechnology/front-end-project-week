@@ -1,7 +1,11 @@
 .notesContainer {
+  flex-direction: row;
   flex-flow: wrap;
   justify-content: center;
   justify-content: space-around;
+  width: 100%;
+  background: #f3f3f3;
+  padding-top: 10px;
 }
 
 .notesContainerHeader {
@@ -9,24 +13,29 @@
   color: #4A494A;
   font-weight: bold;
   text-align: flex-start;
-  background-color: blue;
+  padding-left: 5px;
 }
 
 .notesBody {
   display: flex;
+  flex-direction: column;
+  background-color: orange;
+  height: 100%; 
   flex-flow: wrap;
   justify-content: center;
-  justify-content: space-around;
-  background-color: orange;
-  height: 100%;
+  padding-right: 15px;
+  padding-top: 12px;
 }
 
 .noteCard {
-  background: #ffffff;
-  box-sizing: border-box;
-  border: 2px solid lightgrey;
-  width: 240px;
-  height: 230px;
-  margin-bottom: 20px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 190px;
+  width: 190px;
+  height: 200px;
+  border: 1px solid black;
+  padding: 15px 5px 15px 5px;
+  margin: 0px 10px 10px 10px;
+  background-color: white;
+  color: black;
 }

@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import rootReducer from './reducers';
+import thunk from 'redux-thunk';
+
 // import promise from 'react-redux';
 // import reducers from './reducers';
 
@@ -14,7 +16,7 @@ import PostsIndex from './components/PostsIndex';
 import CreateNew from './components/CreateNew';
 import PostsShow from './components/PostsShow';
 
-const store = createStore(rootReducer, applyMiddleware());
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 
 ReactDOM.render(
