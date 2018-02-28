@@ -9,7 +9,7 @@ import NoteForm from "./components/noteForm";
 
 class App extends Component {
   state = {
-    notes: getNotes()
+    notes: getNotes(),
   };
 
   render() {

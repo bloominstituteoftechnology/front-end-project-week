@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { addNote } from "../dummyNotes";
+import { addNote } from "../actions";
+import { connect } from "react-redux";
 
 class NoteForm extends Component {
   state = {
     title: "",
-    text: ""
+    text: "",
   };
 
   render() {
@@ -45,14 +46,9 @@ class NoteForm extends Component {
 
   createNote = event => {
     event.preventDefault();
-    const newNote = {
-      title: this.state.title,
-      text: this.state.text
-    };
-
-    addNote(newNote);
+    this.props.addNote(this.state);
     this.setState({ title: "", text: "" });
   };
 }
 
-export default NoteForm;
+export default connect(null, { addNote })(NoteForm);
