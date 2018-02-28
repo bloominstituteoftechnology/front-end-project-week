@@ -100,7 +100,6 @@ export default (state = initialState, action) => {
     case actions.SEARCH_CLICK:
       return { ...state, current: action.payload };
     case actions.SEARCH_RESULTS_CLICKED:
-      console.log(action.payload);
       return { ...state, current: action.payload.current, results: action.payload.results };
     default:
       return state;

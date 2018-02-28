@@ -33,46 +33,44 @@ class Search extends React.Component {
   };
   handleSearch = () => {
     let results = [];
-    if (this.state.title === '') results = this.search({ term: this.state.body, type: 'body' });
-    else if (this.state.body === '')
+    if (this.state.title === '') {
+      results = this.search({ term: this.state.body, type: 'body' });
+      this.props.search_results_clicked(results);
+    } else if (this.state.body === '') {
       results = this.search({ term: this.state.title, type: 'title' });
-    else alert('Search either by title or body');
-    this.setState({
-      body: '',
-      title: '',
-    });
-    console.log(results);
-    this.props.search_results_clicked(results);
+      this.props.search_results_clicked(results);
+    } else alert('Search either by title or body');
   };
 
+  //This is sadly far less complicated than my previous attempt at search...
   search = term => {
     let lowerTerm = term.term.toLowerCase();
     let results = [];
     const { notes } = this.props;
-    if (term.type === 'title') {
-      notes.forEach(note => {
-        let lowerNote = note.title.toLowerCase();
-        if (lowerNote === lowerTerm) {
+    notes.forEach(note => {
+      if (term.type === 'title') {
+        let lowerTitle = note.title.toLowerCase();
+        let alphaNumeric = note.title.toLowerCase().replace(/[^a-zA-Z ]/g, '');
+        if (lowerTerm === lowerTitle || lowerTerm === alphaNumeric) {
           results.push(note);
         }
-      });
-    }
-    if (term.type === 'body') {
-      notes.forEach(note => {
+      }
+      if (term.type === 'body') {
         let flag = false;
         let body = note.body.split(' ');
         body.forEach(word => {
-          const lowerWord = word.toLowerCase();
-          if (lowerWord === lowerTerm) {
+          let lowerWord = word.toLowerCase();
+          let alphaNumeric = word.toLowerCase().replace(/[^a-zA-Z ]/g, '');
+          if (lowerTerm === lowerWord || lowerTerm === alphaNumeric || lowerWord.includes(lowerTerm)) {
             flag = true;
           }
-        });
+        })
         if (flag === true) {
           results.push(note);
           flag = false;
         }
-      });
-    }
+      }
+    });
     return results;
   };
 }
