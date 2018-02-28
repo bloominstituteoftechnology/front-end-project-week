@@ -1,3 +1,6 @@
+# My Trello Board
+[This is a link to my Trello Board, please take a look. Thanks!](http://www.notreallyalink.com)
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
