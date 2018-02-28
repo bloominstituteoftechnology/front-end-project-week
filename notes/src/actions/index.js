@@ -21,3 +21,10 @@ export const toggleModal = () => {
     type: TOGGLE_MODAL,
   }
 }
+
+export const deleteNote = (note) => {
+  return {
+    type: DELETE_NOTE,
+    payload: note.id,
+  }
+}
