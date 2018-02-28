@@ -12,3 +12,8 @@
   padding: 20px 20px 20px 0;
   padding-top: 40px;
 }
+
+.sorted-notes {
+  display: flex;
+  flex-wrap: wrap;
+}
