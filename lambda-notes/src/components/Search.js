@@ -51,7 +51,7 @@ class Search extends React.Component {
       if (term.type === 'title') {
         let lowerTitle = note.title.toLowerCase();
         let alphaNumeric = note.title.toLowerCase().replace(/[^a-zA-Z ]/g, '');
-        if (lowerTerm === lowerTitle || lowerTerm === alphaNumeric) {
+        if (lowerTerm === lowerTitle || lowerTerm === alphaNumeric || lowerTitle.includes(lowerTerm)) {
           results.push(note);
         }
       }

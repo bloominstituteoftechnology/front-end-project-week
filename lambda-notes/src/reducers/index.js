@@ -101,6 +101,8 @@ export default (state = initialState, action) => {
       return { ...state, current: action.payload };
     case actions.SEARCH_RESULTS_CLICKED:
       return { ...state, current: action.payload.current, results: action.payload.results };
+    case actions.SORT_BUTTON_CLICKED:
+      return { ...state, current: action.payload};
     default:
       return state;
   }

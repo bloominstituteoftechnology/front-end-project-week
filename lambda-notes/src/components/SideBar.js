@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { add_button_click, view_button_click, search_click } from '../actions/index';
+import {
+  add_button_click,
+  view_button_click,
+  search_button_click,
+  sort_button_click,
+} from '../actions/index';
 
 import './css/SideBar.css';
 
@@ -21,6 +26,10 @@ class SideBar extends React.Component {
           {' '}
           Search Here{' '}
         </button>
+        <button className="side-buttons" onClick={this.handleSort}>
+          {' '}
+          Sort Notes{' '}
+        </button>
       </div>
     );
   }
@@ -34,7 +43,11 @@ class SideBar extends React.Component {
   };
 
   handleSearch = () => {
-    this.props.search_click();
+    this.props.search_button_click();
+  };
+
+  handleSort = () => {
+    this.props.sort_button_click();
   };
 }
 
@@ -44,6 +57,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { add_button_click, view_button_click, search_click })(
-  SideBar
-);
+export default connect(mapStateToProps, {
+  add_button_click,
+  view_button_click,
+  search_button_click,
+  sort_button_click,
+})(SideBar);
