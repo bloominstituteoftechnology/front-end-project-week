@@ -60,13 +60,17 @@ display: flex;
     margin: 1%;
     height: 30%;   
 }
- h4{ 
+h4{ 
         text-align:left;
         font-size: 1.5rem;
         border-bottom: 2px solid #ddd;
-    }
-    p{
+}
+p{
     height:30%;
     width:100%;
     font-size: 1rem;
-    }
+}
+.new-content {
+  width: 100px;
+  height:100px;
+}
