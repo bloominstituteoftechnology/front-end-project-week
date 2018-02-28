@@ -1,0 +1,39 @@
+html,body {
+    height: 100%;
+  }
+#root {
+    height: 100%;
+}
+.container {
+    min-height:100%;
+}
+
+.main-content {
+    background-color:#F4F4F4;
+    padding: 40px 40px;
+}
+
+.sidebar {
+    background-color: #D8D8D8;
+    padding:20px;
+}
+button {
+    border: 1px #979797 solid;
+    color:white;
+    display:block;
+    max-width: 250px;
+}
+.btn.delete {
+    background: #bd2828!important;
+    margin-right:10px;
+}
+.btn.delete:hover {
+    background: #d22f2f!important;
+    margin-right:10px;
+}
+.btn {
+    background: #2bc1c4!important;
+}
+.btn:hover {
+    background: #33dde0!important;
+}
