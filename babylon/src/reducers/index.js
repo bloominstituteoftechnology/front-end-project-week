@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
@@ -32,7 +32,15 @@ export default (state = initialState, action) => {
         }),
       };
     case DELETE_NOTE:
-      break;
+      return {
+        ...state,
+        notes: state.notes.filter(val => val.id.toString() !== action.id),
+      };
+    case TOGGLE_DELETE:
+      return {
+        ...state,
+        deleteActive: !state.deleteActive,
+      };
     default:
       return state;
   }

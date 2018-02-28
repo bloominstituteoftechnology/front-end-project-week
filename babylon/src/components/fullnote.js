@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { toggleDelete } from '../actions';
 import LeftRail from './leftrail';
 import SectionTitle from './sectiontitle';
 import TextBlock from './textblock';
@@ -35,20 +36,29 @@ const StyledNote = styled.div`
 
 `;
 
-const FullNote = props => (
-  <StyledNote >
-    <LeftRail />
-    <div className='full-note__right'>
-      <div className='full-note__links'>
-        <Link to={`/updatenote/${props.match.params.id}`}>edit</Link>
-        {/* <Link to='/' style={{ textDecoration: 'none' }} >delete</Link> */}
-        <a href='#'>delete</a>
-      </div>
-      <SectionTitle name={props.notes.find(val => val.id.toString() === props.match.params.id).title} />
-      <TextBlock body={props.notes.find(val => val.id.toString() === props.match.params.id).body} />
-    </div>
-  </StyledNote>
-);
+class FullNote extends React.Component {
+  handleDeleteLink = (event) => {
+    event.preventDefault();
+    this.props.toggleDelete();
+  }
+
+  render() {
+    return (
+      <StyledNote >
+        {this.props.deleteActive ? <Delete id={this.props.match.params.id}/> : null}
+        <LeftRail />
+        <div className='full-note__right'>
+          <div className='full-note__links'>
+            <Link to={`/updatenote/${this.props.match.params.id}`}>edit</Link>
+            <a href='' onClick={this.handleDeleteLink}>delete</a>
+          </div>
+          <SectionTitle name={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).title} />
+          <TextBlock body={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).body} />
+        </div>
+      </StyledNote>
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -57,4 +67,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(FullNote);
+export default connect(mapStateToProps, { toggleDelete })(FullNote);

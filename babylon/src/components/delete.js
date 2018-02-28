@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 import Button from './button';
-import { deleteNote } from '../actions';
+import { toggleDelete, deleteNote } from '../actions';
 
 const StyledDelete = styled.div`
   position: absolute;
@@ -29,12 +30,30 @@ const StyledDelete = styled.div`
   }
 `;
 
-const Delete = props => (
-  <StyledDelete style={{ opacity: '1' }}>
-    <p>Are you sure you want to delete this?</p>
-      <Button method={props.deleteNote} backgroundColor='#bf2828' title='Delete' />
-      <Button backgroundColor='#5dbdc2' title='No' />
-  </StyledDelete>
-);
+class Delete extends React.Component {
+  state = {
+    redirect: false,
+  }
 
-export default connect(null, { deleteNote })(Delete);
+  handleDelete = () => {
+    this.props.deleteNote({
+      id: this.props.id,
+    });
+    this.setState({
+      redirect: true,
+    }, () => console.log(this.state));
+  }
+
+  render() {
+    return (
+  <StyledDelete>
+    <p>Are you sure you want to delete this?</p>
+      <Button method={this.handleDelete} backgroundColor='#bf2828' title='Delete' />
+      <Button method={this.props.toggleDelete} backgroundColor='#5dbdc2' title='No' />
+      {this.state.redirect ? <Redirect to='/' /> : null}
+  </StyledDelete>
+    );
+  }
+}
+
+export default connect(null, { toggleDelete, deleteNote })(Delete);
