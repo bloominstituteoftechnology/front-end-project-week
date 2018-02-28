@@ -1,0 +1,48 @@
+* {
+  text-decoration: none; }
+
+.view {
+  width: 825px;
+  border: 1px solid #9b9b9b;
+  border-left: 0px;
+  background: #f3f3f3;
+  padding-top: 10px; }
+  .view--header {
+    font-family: "Roboto", "Segoe UI", "Open Sans", "Arial";
+    font-size: 24px;
+    color: #4a494a;
+    font-weight: bold;
+    margin: 65px 0px 25px 25px; }
+  .view--notes {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    justify-content: space-around;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 12px; }
+
+.note-box {
+  background: #ffffff;
+  box-sizing: border-box;
+  border: 2px solid lightgrey;
+  width: 240px;
+  height: 230px;
+  margin-bottom: 20px;
+  padding: 20px; }
+  .note-box__title {
+    font-family: "Roboto", "Segoe UI", "Open Sans", "Arial";
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    border-bottom: 2px solid lightgrey;
+    padding-bottom: 7px; }
+  .note-box__body {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #4a494a;
+    letter-spacing: 1px;
+    line-height: 29px;
+    height: 150px;
+    margin-top: 7px;
+    overflow: hidden; }
