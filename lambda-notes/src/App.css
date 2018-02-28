@@ -4,7 +4,7 @@
 .app {
   margin: auto;
   width: 50%;
-  height: 800px;
+  min-height: 800px;
   border: 1px solid #b2b2b3;
   display: flex;
 }
@@ -83,4 +83,8 @@
 .right-column li p {
   background-color: white; 
   margin: 13px 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
