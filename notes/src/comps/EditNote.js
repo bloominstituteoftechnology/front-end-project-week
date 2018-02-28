@@ -6,9 +6,7 @@ import '../styles/EditNote.css';
 
 class EditNote extends React.Component {
   state = {
-    note: this.props.notes.filter(
-      note => String(note.id) === this.props.match.params.id
-    )[0],
+    note: {...this.props.selectedNote},
     redirect: false,
   };
 
@@ -59,7 +57,7 @@ class EditNote extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    selectedNote: state.selectedNote,
   };
 };
 
