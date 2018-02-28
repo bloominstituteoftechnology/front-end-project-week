@@ -1,9 +1,9 @@
 .noteList__container {
   width: 31.2%;
   height: 415px;
-  border: 1px solid black;
+  border: 1px solid #B2B2B2;
   margin-bottom: 53px;
-  margin-left: 20px;
+  margin-left: 34px;
   background: #FFFFFF;
 }
 
@@ -15,12 +15,20 @@
 .noteList__box {
   display:flex;
   flex-direction: column;
+  padding: 22px 36px;
 }
 
--noteList__box-title {
-
+.noteList__box-title {
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: 2px solid #B2B2B2;
+  padding-bottom: 9px;
+  margin-bottom: 20px;
 }
 
--noteList__box-content {
-
+.noteList__box-content {
+  font-size: 30px;
+  max-height: 305px;
+  overflow: hidden;
+  word-break: break-word;
 }

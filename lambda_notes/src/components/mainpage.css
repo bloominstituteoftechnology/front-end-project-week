@@ -7,10 +7,14 @@
   width: 100px;
   display: flex;
   justify-content: space-between;
+  padding-top: 36px;
+  padding-right: 180px;
 }
 
 .topRow__button {
   text-decoration: underline;
+  font-size: 30px;
+  margin-left: 35px
 }
 
 .topRow__button:hover {
@@ -18,10 +22,11 @@
 }
 
 .mainPage__middleRow {
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 45px;
   font-weight: bold;
   margin-bottom: 58px;
+  padding-left: 55px;
 }
 
 .mainPage__bottomRow {
@@ -31,10 +36,6 @@
 .mainPage__noteList {
   display:flex;
   flex-wrap: wrap;
-}
-
-.mainPage__noteList div:first-child {
-  margin-left: 0;
 }
 
 .mainPage__noteList div:nth-child(3n+1){
