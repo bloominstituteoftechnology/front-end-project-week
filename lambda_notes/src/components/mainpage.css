@@ -52,3 +52,11 @@
   margin-top: -10px;
   overflow-wrap: break-word;
 }
+
+.mainPage__welcome {
+  margin-top: 50px;
+  font-size: 60px;
+  font-weight: bold;
+  padding-left: 55px;
+  margin-left: 18%;
+}

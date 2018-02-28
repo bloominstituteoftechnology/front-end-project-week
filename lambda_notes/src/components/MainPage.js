@@ -61,7 +61,7 @@ class MainPage extends React.Component {
       case 'createNote':
         return <CreateNote addNote={this.addNote} />;
       default:
-        return <div>Welcome to Lambda Notes</div>;
+        return <div className="mainPage__welcome">Welcome to Lambda Notes</div>;
     }
   };
 
