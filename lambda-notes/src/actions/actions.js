@@ -1,5 +1,7 @@
 export const ADDNOTE = 'ADDNOTE';
 export const GETNOTE = 'GETNOTE';
+export const DELETENOTE = 'DELETENOTE';
+export const UPDATENOTE = 'UPDATENOTE';
 
 export const addNote = (note) => {
     return {
@@ -10,7 +12,19 @@ export const addNote = (note) => {
 export const getNote = (id) => {
     return {
         type: GETNOTE,
-        payload: id
+        payload: id,
+    }
+};
+export const updateNote = (note) => {
+    return {
+        type: UPDATENOTE,
+        payload: note,
+    }
+};
+export const deleteNote = (id) => {
+    return {
+        type: DELETENOTE,
+        payload: id,
     }
 };
 // export const addNote = (note) => {

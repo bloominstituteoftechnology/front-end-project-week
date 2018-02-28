@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addNote } from '../actions/actions';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
