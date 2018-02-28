@@ -5,13 +5,15 @@
 
 .App__leftbox {
   width: 25%;
-  height: 900px;
+  max-width: 475px;
+  height: auto;
+  min-height: 100vh;
   background: #D7D7D7;
   border-right: 1px solid #BEBEBE;
 }
 
 .App__rightbox {
-  flex: 1;
+  width: 75%;
   background: #F3F3F3;
   
 }

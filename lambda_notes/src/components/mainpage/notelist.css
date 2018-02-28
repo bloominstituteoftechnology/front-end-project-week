@@ -24,6 +24,9 @@
   border-bottom: 2px solid #B2B2B2;
   padding-bottom: 9px;
   margin-bottom: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .noteList__box-content {
