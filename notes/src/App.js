@@ -8,11 +8,14 @@ import List from './components/List';
 import EditNote from './components/EditNote';
 import ViewNote from './components/ViewNote';
 import AddNote from './components/AddNote';
+import Login from './components/Login';
 import Modal from './components/Modal';
+import { fetchNotes } from './actions';
+import './firebase';
 
 class App extends Component {
 	componentDidMount() {
-	  // fetch notes from db
+    this.props.fetchNotes();
 	}
 
   render() {
@@ -24,7 +27,8 @@ class App extends Component {
             <SideBar />
           </div> 
           <div className="content">  
-            <Route exact path="/" component={List} />
+            <Route exact path="/" component={Login} />
+            <Route path="/list" component={List} />
             <Route path="/addnote" component={AddNote} />
             <Route path="/editnote" component={EditNote} />
             <Route path="/notes/:id" component={ViewNote} />
@@ -41,4 +45,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { fetchNotes })(App);

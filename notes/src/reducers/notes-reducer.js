@@ -1,9 +1,12 @@
 
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL } from '../actions';
-import initialNotes from '../dummy-data';
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL, FETCHED_NOTES } from '../actions';
 
-export const notes = (state = initialNotes, action) => {
+export const notes = (state = [], action) => {
   switch (action.type) {
+
+    case FETCHED_NOTES:
+    console.log(action.payload);
+      return action.payload;
   
     case ADD_NOTE:
       return [ ...state, action.payload ];
