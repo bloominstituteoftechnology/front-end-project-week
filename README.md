@@ -34,8 +34,10 @@ Upon your first commit, please submit a Pull Request and add the MVP Task list t
 * [ ] Edit an existing note
 * [ ] Delete an existing note
 ```
+***
+## Once you have completed the Minimum Viable Product requirements, direct message your Project Manager for approval. If approved, you may continue working on the Extra Features.
 
-Once you have accomplished the MVP, you have been given a feature list that the client would love to have completed.  Your goal would be to finish MVP as soon as you can and get working the list of features.
+Once your MVP has been approved, you have been given a feature list that the client would love to have completed.  Your goal would be to finish MVP as soon as you can and get working the list of features.
 
 ## Extra Features:
 * Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
