@@ -19,7 +19,11 @@
   height: 90px;
   margin-bottom: 40px;
   background: #2AC0C4;
-  border: 1px solid #BEBEBE;
+  border: 2px solid #BEBEBE;
   font-size: 32px;
   color: white;    
+}
+
+.navBar__button:hover {
+  cursor: pointer;
 }

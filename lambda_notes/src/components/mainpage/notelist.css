@@ -1,8 +1,9 @@
 .noteList__container {
-  width: 300px;
-  height: 250px;
+  width: 31.2%;
+  height: 415px;
   border: 1px solid black;
-  margin-bottom: 30px;
+  margin-bottom: 53px;
+  margin-left: 20px;
   background: #FFFFFF;
 }
 
