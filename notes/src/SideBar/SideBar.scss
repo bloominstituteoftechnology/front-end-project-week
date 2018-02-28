@@ -1,0 +1,39 @@
+.Side-bar {
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  background: #D7D7D7;
+  box-sizing: border-box;
+  border: 1px solid #9B9B9B;
+  border-right: 2px solid rgb(170, 170, 170);
+
+  &--header {
+    font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
+    font-size: 40px;
+    color: #4A494A;
+    width: 200px;
+    padding-left: 15px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+  }
+
+  &__buttons {
+    font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    width: 245px;
+    height: 52px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: .5px;
+    font-weight: bold;
+    color: white;
+    background: #2AC0C4;
+    box-sizing: border-box;
+    border: 1px solid #9B9B9B;
+  }
+}
