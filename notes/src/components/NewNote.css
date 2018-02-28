@@ -1,3 +1,10 @@
+.newNoteDiv {
+  display:flex;
+  text-align: center;
+  max-width: 880px;
+  min-height: 900px;
+}
+
 .leftBar {
   display: inline-flex;
   height: 900px;
@@ -7,12 +14,14 @@
 }
 
 .rightBar {
-  height: 900px;
   display:inline-flex;
+  height: 900px;
   width: 75%;
   background: #f3f3f3;
   border: 1px solid #979797;
 }
+
+
 
 .btns {
   background:#62bec2;
@@ -50,55 +59,4 @@ h3 {
   font-weight: bold;
   text-align: left;
   margin: 10px 0 0 30px;
-}
-
-li {
-  display: inline-flex;
-  width: 28%;
-  border: 1px solid #d8d8d8;
-  background: white;
-  font-size: 1rem;
-  margin: 10px;
-}
-
-hr {
-  margin: 15px 15px;
-  color: #d8d8d8;
-}
-
-.yourNotes {
-  font-family: Raleway;
-  font-size: 125%;
-  color: #4a4a4a;
-  width: 200px;
-  margin: 75px, 0px, 40px, 0px;
-}
-
-.noteTitle {
-  text-align: left;
-  vertical-align: middle;
-}
-
-.list-item {
-  width: 580px;
-}
-
-.listText {
-  padding: 2px, 2px, 2px, 4px;
-}
-
-.noteDiv {
-  box-sizing: content-box;
-  padding: 2px, 2px, 2px, 4px;
-
-}
-
-.titleForm {
-height: 50px;
-width: 50%;
-}
-
-.contentForm {
-  height: 500px;
-  width: 75%;
 }

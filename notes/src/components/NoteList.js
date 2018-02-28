@@ -1,19 +1,23 @@
 import React from 'react';
-// import App from '../App';
 import './NoteList.css';
 
 function NoteList(props) {
-  console.log(props, 'this is props');
-  console.log(props.abc, 'this is props.abc');
-  console.log(props.abc.noteitem, 'this is props.abc.noteitem');
+  
+  function NewNote () {
+    return (
+      <NewNote />
+    )
+  }
+
   return (
+    
     <div className="App">
       <div className="leftBar">
         <div>
           <h1>Lambda</h1>
           <h2>Notes</h2>
           <button className="btns">View Your Notes</button>
-          <button className="btns">+ Create New Note</button>
+          <button className="btns" onClick={NewNote}>+ Create New Note</button>
         </div>
       </div>
       <div className="rightBar">
@@ -26,7 +30,7 @@ function NoteList(props) {
               return (
                 <li key={obj.id}>
                   <div>
-                    <p className="noteTitle">Note Title</p>
+                    <p className="noteTitle">{obj.title}</p>
                     <hr />
                     <div>{obj.text}</div>
                   </div>
