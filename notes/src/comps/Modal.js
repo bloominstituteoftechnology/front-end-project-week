@@ -8,20 +8,24 @@ const Modal = props => {
   return (
     <div className="modal">
       <div className="modal__box">
-        <div>Are you sure you want to delete this?</div>
+        <div className="modal__box-text">Are you sure you want to delete this?</div>
         <div className="modal__box-buttons">
-          <Link to="/" onClick={props.deleteNote} className="modal__box-button">Delete</Link>
-          <div onClick={props.toggleModal} className="modal__box-button">No</div>
+          <Link to="/" onClick={props.deleteNote} className="modal__box-button delete">
+            Delete
+          </Link>
+          <div onClick={props.toggleModal} className="modal__box-button no">
+            No
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     notes: state.notes,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, { toggleModal, deleteNote })(Modal);
