@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default class AddNote extends React.Component {
+const AddNote = (props) =>{
 
-    state = {
+ /*    state = {
         name: '',
         data: '',
     };
@@ -15,23 +15,18 @@ export default class AddNote extends React.Component {
         const name = target.name;
     };
 
-    handleSubmit = () => {
-        const nextId = this.getNextId();
-        const { name, data } = this.state;
-        this.props.addNote({ name, data });
-        this.setState({ name: '', data: '' });
-    };
-    render() {
-        const { notes } = this.state;
+    */
+     
+        //const { notes } = this.state;
 
 
         return (
-            <form onSubmit={props.submitNote}>
-                <input type="text" name="note" onChange={props.handleInput} placeholder="New Note" value={props.name} />
-                <input type="text" name="data" onChange={props.handleInput} placeholder="Note Text" value=
-                    {props.data} />
+            <form onSubmit={props.handleSubmit}>
+                <input type="text" name="note" onChange={props.handleInput} placeholder="New Note" value={props.namevalue} />
+                <input type="text" name="data" onChange={props.handleInput} placeholder="Note Text" value={props.datavalue} />
                 <button type="submit" onSubmit={props.handleSubmit}>New Note</button>
             </form>
         )
     }
-}
+
+export default AddNote;
