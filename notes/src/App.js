@@ -55,15 +55,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          {/* {this.state.map(obj => {
-            return <NotesList key={} obj={} />
-          })} */}
-          <NoteList abc={this.state} />
-        </ul>
-      </div>
-    );
+      <NoteList abc={this.state} />
+      );
   }
 }
 

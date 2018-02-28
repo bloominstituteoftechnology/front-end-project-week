@@ -1,6 +1,5 @@
 import React from 'react';
-import App from '../App';
-// import StyledList from './StyleList';
+// import App from '../App';
 import './NoteList.css';
 
 function NoteList(props) {
@@ -18,24 +17,20 @@ function NoteList(props) {
         </div>
       </div>
       <div className="rightBar">
-        <div className="list-item">
+        <div>
           <div className="yourNotes">
             <h3>Your Notes:</h3>
           </div>
           <ul>
             {props.abc.noteItem.map(obj => {
               return (
-                <ul>
+                <li key={obj.id}>
                   <div>
-                    <div>
-                      <li className="noteTitle" key={obj.id}><p>Note Title</p></li>
-                    </div>
+                    <p className="noteTitle">Note Title</p>
                     <hr />
-                    <div>
-                      <li key={obj.id}>{obj.text}</li>
-                    </div>
+                    <div>{obj.text}</div>
                   </div>
-                </ul>
+                </li>
               );
             })}
           </ul>
