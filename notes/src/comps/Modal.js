@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleModal } from '../actions';
+import { Link } from 'react-router-dom';
+import { toggleModal, deleteNote } from '../actions';
 import '../styles/Modal.css';
 
 const Modal = props => {
@@ -9,7 +10,7 @@ const Modal = props => {
       <div className="modal__box">
         <div>Are you sure you want to delete this?</div>
         <div className="modal__box-buttons">
-          <div className="modal__box-button">Delete</div>
+          <Link to="/" onClick={props.deleteNote} className="modal__box-button">Delete</Link>
           <div onClick={props.toggleModal} className="modal__box-button">No</div>
         </div>
       </div>
@@ -23,4 +24,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { toggleModal })(Modal);
+export default connect(mapStateToProps, { toggleModal, deleteNote })(Modal);
