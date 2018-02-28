@@ -24,7 +24,7 @@ class App extends Component {
         <div className="App container">
           <div className="sidenav">
             <h3>Lambda Notes</h3>
-            <NavLink to="/">View Your Notes</NavLink>
+            <NavLink to="/">Please View Your Notes</NavLink>
             <NavLink to="/add-note">Create New Note</NavLink>
           </div>
           <div className="main">
