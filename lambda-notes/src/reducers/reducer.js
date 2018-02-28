@@ -2,12 +2,12 @@ import * as actionTypes from '../actions/actions';
 
 const initialState = {
   notes: [{
-      title: 'No Notes Yet',
-      body: 'Click create new note to start.',
+      title: 'This is a tile',
+      body: 'This is a body',
       id: 0,
   }],
   addingNote: false,
-  currentNote: '',
+  currentNote: [],
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -18,10 +18,32 @@ export const rootReducer = (state = initialState, action) => {
         notes: [...state.notes, action.payload],
         addingNote: true,
       };
-      case actionTypes.GETNOTE:
+    case actionTypes.GETNOTE:
       return {
         ...state,
-        currentNote: action.payload,
+        currentNote: state.notes.filter(
+          note => note.id === Number(action.payload)
+        ),
+        addingNote: false,
+      };
+    case actionTypes.DELETENOTE:
+      return {
+        ...state,
+        notes: state.notes.filter(note => note.id !== Number(action.payload)),
+        currentNote: [],
+      };
+    case actionTypes.UPDATENOTE:
+      return {
+        ...state,
+        notes: state.notes.map(note => {
+          if (note.id !== action.payload.id) {
+            return note;
+          }
+          return {
+              ...action.payload,
+          };
+        }),
+        currentNote: [],
       };
     default:
       return state;
