@@ -14,7 +14,6 @@ class Notes extends Component {
       }
     return (
       <div className='Notes'>
-        <h2>Your Notes</h2>
         {oneNote}
       </div>
     );
