@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/Note.css';
 
 const Note = props => {
@@ -11,7 +12,9 @@ const Note = props => {
   return (
     <div className="note__container">
       <div className="note__options">
-        <div className="note__option-item">edit</div>
+        <Link to={`/edit/${note.id}`}>
+          <div className="note__option-item">edit</div>
+        </Link>
         <div className="note__option-item">delete</div>
       </div>
       <div className="note">
