@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:bold');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.list {
+    padding-left: 15px;
+}
+
+.list__notes-header {
+    position: relative;
+    top: 63px;
+    left: 16px;
+    padding: 0;
+    color: #4d4c4d;
+    font-size: 23px;
+    font-family: "Roboto";
+    font-weight: bold;
+    letter-spacing: 0;
+    word-spacing: 0;
+    line-height: 100%;
+}
+
+.list__notes-grid {
+    padding-top: 94px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}

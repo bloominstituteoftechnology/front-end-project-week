@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:bold');
+
+.App {
+    width: 978px;
+    height: 100%;
+    position: absolute;
+    left: calc(50% - 459px);
+    border: 1px solid #989898;
+}
+
+.left-panel {
+    width: 242px;
+    height: 100%;
+    float: left;
+    background: #d7d7d7;
+    border-right: 2px solid #c0c0c0;
+    z-index: 1;
+}
+
+.left-panel__heading {
+    color: #4a494a;
+    font-size: 38px;
+    font-family: "Roboto";
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 33px;
+    position: absolute;
+    left: 15px;
+    top: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+.left-panel__button {
+    width: 210px;
+    height: 47px;
+    position: absolute;
+    left: 17px;
+    padding-top: 14px;
+    border: 1px solid #94a3a4;
+    box-shadow: 1px 0 #c2c8c8;
+    color: white;
+    font-size: 17px;
+    font-family: "Roboto";
+    font-weight: bold;
+    letter-spacing: 0;
+    word-spacing: 1px;
+    line-height: 100%;
+    background: #2ac0c4;
+    text-align: center;
+}
+
+.left-panel__view-button {
+    top: 118px;
+}
+
+.left-panel__create-button {
+    top: 185px;
+}
+
+.container {
+    height: 100%;
+    position: absolute;
+    left: 242px;
+    background: #f3f3f3;
+    overflow-x: hidden;
+}

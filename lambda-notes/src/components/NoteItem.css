@@ -1,0 +1,47 @@
+.note {
+    position: relative;
+    width: 212px;
+    height: 216px;
+    border: 1px solid #c3c3c3;
+    border-radius: 1px;
+    box-shadow: 1px 1px #e0e0e0;
+    margin: 0 0px 27px 17px;
+    padding: 0 19px 0 19px;
+    background: white;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.note__title {
+    padding: 14px 0 8px 0;
+    border-bottom: 1px solid #a1a1a1;
+    color: black;
+    font-size: 18px;
+    line-height: 100%;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    word-spacing: 0;
+}
+
+.note__content { 
+    position: relative;
+    padding-top: 7px;
+    color: #4a4a4a;
+    font-size: 13px;
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 1px;
+    word-spacing: 0;
+    line-height: 24px;
+    text-shadow: 1px 0 #d7d7d7;
+    z-index: 0;
+}
+
+.note__hide-overflow {
+    position: absolute;
+    width: 100%;
+    top: 192px;
+    height: 19px;
+    background: white;
+    z-index: 1;
+}
