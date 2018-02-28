@@ -24,11 +24,11 @@ class NoteList extends Component {
             return (
               <Router key={note.id}>
                 <div>
-                  <NavLink to={`/${note.id}`}>
+                  <NavLink className="note-list-note-link" to={`/note/${note.id}`}>
                     <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 120)} />
                   </NavLink>
                   {/* <Route component={NoteList} path="/" exact/> */}
-                  <Route path={`/${note.id}`} component={NoteView} />
+                  <Route path="/note/:id" component={NoteView} />
                 </div>
               </Router>
             )

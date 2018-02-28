@@ -10,7 +10,7 @@
     color: black;
     width: 100%;
     padding-top: 83px;
-    padding-left: 40px;
+    padding-left: 40px;   
     .note-list__title {
         text-align: left;
         font-family: 'Roboto Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -24,6 +24,13 @@
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
+        .note-list-note-link {
+            text-decoration: none;
+            color: black;
+            &:hover{
+                font-weight: bolder;
+            }
+        }
         .note-list-note {
             display: flex;
             box-sizing: border-box;
@@ -33,7 +40,8 @@
             height: 282px;
             border: 1px solid @bordercolor;
             padding: 15px;
-            margin: 0px 20px 36px 3px;
+            margin: 0px 20px 36px 3px; 
+            cursor: pointer;
             .note-list-note__title {
                 height: 36px;
                 text-align: left;
