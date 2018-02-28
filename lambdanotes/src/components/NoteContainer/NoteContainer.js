@@ -2,8 +2,8 @@ import React from 'react';
 
 class NoteContainer extends React.Component {
 
-  handleSingleNoteClick = (theNote) => {
-    this.props.singleNoteView(theNote);
+  handleSingleNoteClick = (theNote, index) => {
+    this.props.singleNoteView(theNote, index);
   };
 
   render() {
@@ -11,7 +11,7 @@ class NoteContainer extends React.Component {
       <div className="Notes">
         {this.props.notes.map((note, index) => {
           return (
-            <div key={index} className="note-container" onClick={() => this.handleSingleNoteClick(note)}>
+            <div key={index} className="note-container" onClick={() => this.handleSingleNoteClick(note, index)}>
               <div className="title">{note.noteTitle}</div>
               <div className="content">{note.noteContent} </div>
             </div>

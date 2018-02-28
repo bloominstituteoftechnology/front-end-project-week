@@ -11,7 +11,8 @@ class App extends React.Component {
     notes: [],
     showAddWin: false,
     showSingleNote:false,
-    noteToShow: ''
+    noteToShow: '',
+    indexOfNote: '',
   };
 
   componentDidMount() {
@@ -40,12 +41,24 @@ class App extends React.Component {
     });
   }
 
-  singleNoteView = (singleNote) => {
-    console.log(singleNote)
+  singleNoteView = (singleNote, i) => {
     this.setState({
       showSingleNote: !this.state.showSingleNote,
-      noteToShow: singleNote
+      noteToShow: singleNote,
+      indexOfNote: i
     })
+  }
+
+  handleDeletePrompt = (i) => {
+    if(window.confirm("Are you sure you want to delete this?")) {
+      const tempArr = this.state.notes;
+      tempArr.splice(i, 1);
+      this.setState({
+        notes: tempArr,
+        showSingleNote: !this.state.showSingleNote
+      })
+
+    }
   }
 
   render() {
@@ -55,7 +68,7 @@ class App extends React.Component {
         {this.state.showAddWin
             ? <CreateNoteContainer handleClickForSave={this.handleClickForSave} />
             : this.state.showSingleNote
-              ? <SingleNote noteToShow={this.state.noteToShow}/>
+              ? <SingleNote indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleDeletePrompt={this.handleDeletePrompt}/>
               : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
         }
       </div>
