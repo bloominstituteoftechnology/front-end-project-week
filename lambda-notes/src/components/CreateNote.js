@@ -46,11 +46,13 @@ class CreateNote extends React.Component {
 
   handleSumbit = event => {
     event.preventDefault();
+    const dateString = new Date().toUTCString();
+    const date = new Date();
     if (this.state.body === '' && this.state.title === '') alert('Add a title and note!');
     else if (this.state.body === '') alert('Add a note!');
     else if (this.state.title === '') alert('Add a title!');
     else {
-      this.props.add_note(this.state);
+      this.props.add_note({...this.state, date, dateString});
       this.setState({
         title: '',
         body: '',
