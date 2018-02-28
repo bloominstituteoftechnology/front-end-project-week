@@ -115,3 +115,16 @@
   box-sizing: border-box;
   border: 1px solid rgb(197, 197, 197);
 }
+
+.update-button {
+  width: 235px;
+  height: 53px;
+  margin-bottom: 65px;
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: .5px;
+  color: white;
+  background: #2AC0C4;
+  border: 1px solid #9B9B9B;
+}

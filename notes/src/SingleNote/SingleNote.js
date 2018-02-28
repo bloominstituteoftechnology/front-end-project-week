@@ -105,8 +105,8 @@ class SingleNote extends Component {
                   value={this.state.body}
                 />
               </div>
-              <Link to="/" className="each-link" onClick={this.editNote}>
-                <input type="submit" value="Save" className="submit-button" />
+              <Link to="/" onClick={this.editNote}>
+                <input type="submit" value="Update" className="update-button" />
               </Link>
             </form>
           </div>
