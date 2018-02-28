@@ -2,39 +2,44 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  width: 30%;
-  max-width: 300px;
-  min-width: 220px;
+  width: 265px;
   height: 100%;
+  padding: 25px 15px;
   background: rgb(215, 215, 215);
-  padding: 15px;
-  border-right: 1px solid darkgray;
+  border-right: 1px solid rgb(151, 151, 151);
 }
 
 .sidebar__title {
-  font-size: 50px;
-  width: 100%;
-  color: rgb(74, 73, 74);
+  font-size: 41px;
+  color: rgb(74, 74, 74);
+  letter-spacing: 2px;
   font-weight: bold;
+  line-height: 36px;
 }
 
 .sidebar__buttons {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 11px;
+  margin-left: 3px;
 }
 
 .sidebar__button {
+  width: 230px;
+  height: 50px;
+  font-weight: 500;
   margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 10px;
+  margin-bottom: 3px;
+  padding-top: 17px;
+  padding-right: 12px;
+  padding-left: 1px;
   padding-bottom: 10px;
   text-align: center;
-  background: rgb(42, 192, 196);
-  border: 0px;
+  background: rgb(40, 193, 197);
+  border: 1px rgb(171, 171, 171) solid;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   cursor: default;
 }
 
