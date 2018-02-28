@@ -1,12 +1,20 @@
 import React from 'react';
+import DeleteNote from './DeleteNote';
 import { Link } from 'react-router-dom';
 
 export default class NoteView extends React.Component {
+  boolModal = false;
+
   state = {
     id: 0,
     title: '',
     body: '',
   };
+
+  toggleModal = _ => {
+    this.boolModal = !this.boolModal;
+    this.forceUpdate();
+  }
 
   componentDidMount() {
     this.setState({
@@ -20,9 +28,14 @@ export default class NoteView extends React.Component {
     const { id, title, body } = this.state;
     return (
       <div>
+        {this.boolModal ? (
+          <div>
+            <DeleteNote id={id}/>
+          </div>
+        ) : (null)}
         <div>
           <Link to={"/edit"}>edit </Link>
-          <Link to={"/"} onClick={() => this.props.handleDeleteNote(id)}>delete</Link>
+          <a onClick={() => this.toggleModal()}>delete</a>
         </div>
         <div>
           <h2>{title}</h2>

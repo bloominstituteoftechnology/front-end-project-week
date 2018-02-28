@@ -19,3 +19,8 @@ button {
   width: 250px;
   cursor: pointer;
 }
+
+.MainApp {
+  display: flex;
+  justify-content: center;
+}
