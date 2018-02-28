@@ -31,6 +31,7 @@ button {
   width: 80%;
   color: #fff;
   font-size: 1.7rem;
+  cursor: pointer;
 }
 .App-title {
   font-size: 3.9rem;

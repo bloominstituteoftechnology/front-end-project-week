@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notes from './Notes';
 import '../styles/App.css';
+import Createnotes from './Createnotes';
 
 class App extends Component {
   state = {
@@ -51,11 +52,16 @@ class App extends Component {
       paragraph: 'A ship is a large watercraft that travels the worlds oceans and other sufficiently deep waterways, carrying passengers or goods, or in support of specialized missions, such as defense, research and fishing.',
     },
     ],
+    showComponent: false,
   };
   
-  // componentDidMount() {
-  //    this.props.getfriends();
+  //this.onButtonClick = this.onButtonClick.bind(this);
+  // handleInputChange{
+
   // }
+  onButtonClick=(e) => {
+    this.setState({ showComponent: true });
+  };
   render() {
     return (
       <div className="App">
@@ -63,20 +69,26 @@ class App extends Component {
           <h1 className="App-title">Lambda Notes</h1>
           <div className="button-col">
             <button>View your notes</button>
-            <button>+ Create your notes</button>
+            <button 
+            onClick={this.onButtonClick}>+ Create your notes</button>
+             
           </div>
         </div>
         <div className="notes">
+
           <h2 className="notes-title" > Your Notes: </h2>
+
           <div className="notes-container">
-            {this.state.notes.map(note => {
-              console.log(note);
-              return <Notes key={this.state.notes.id} note={note}/>
-            })} 
+          { this.state.showComponent ? <Createnotes /> : null }
+           { this.state.notes.map(note => {
+              return <Notes key={this.state.notes.id} note={note}/> })}
+             
           </div>
+
         </div>
       </div>
     );
+        
   }
 }
 
