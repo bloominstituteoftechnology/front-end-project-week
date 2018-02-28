@@ -1,4 +1,4 @@
-.new-note_body {
+.new-note_content {
   width: 825px;
   border: 1px solid #9b9b9b;
   border-left: 0px;
@@ -35,11 +35,11 @@
   border: 1px rgb(160, 160, 160) solid;
 }
 
-.body-div {
+.content-div {
   margin-bottom: 15px;  
 }
 
-.body-input {
+.content-input {
   height: 425px;
   width: 765px;
   padding-left: 25px;

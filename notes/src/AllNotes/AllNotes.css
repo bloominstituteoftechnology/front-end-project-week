@@ -1,4 +1,4 @@
-.all-notes_body {
+.all-notes_content {
   width: 825px;
   border: 1px solid #9b9b9b;
   border-left: 0px;
@@ -46,7 +46,7 @@
   line-height: 30px;
 }
 
-.note-body {
+.note-content {
   font-family: 'Raleway', Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #4a494a;

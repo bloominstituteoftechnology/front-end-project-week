@@ -8,7 +8,7 @@ import './NewNote.css';
 class NewNote extends Component {
   state = {
     title: '',
-    body: '',
+    content: '',
   };
 
   updateNote = event => {
@@ -20,14 +20,14 @@ class NewNote extends Component {
   addNote = event => {
     const completedNote = {
       title: this.state.title,
-      body: this.state.body,
+      content: this.state.content,
     };
 
     this.props.addNote(completedNote);
 
     this.setState({
       title: '',
-      body: '',
+      content: '',
     });
   };
 
@@ -35,7 +35,7 @@ class NewNote extends Component {
     return (
       <div className="container">
         <LeftBar />
-        <div className="new-note_body">
+        <div className="new-note_content">
           <div className="new-note_header">Create New Note:</div>
           <div className="new-note_fields">
             <form type="submit">
@@ -49,17 +49,17 @@ class NewNote extends Component {
                   value={this.state.title}
                 />
               </div>
-              <div className="body-div">
+              <div className="content-div">
                 <textarea
                   type="text"
-                  className="body-input"
+                  className="content-input"
                   placeholder="Note Content"
                   onChange={this.updateNote}
-                  name="body"
-                  value={this.state.body}
+                  name="content"
+                  value={this.state.content}
                 />
               </div>
-              <Link to="/" className="each-link" onClick={this.addNote}>
+              <Link to="/" onClick={this.addNote}>
                 <input type="submit" value="Save" className="submit-button" />
               </Link>
             </form>

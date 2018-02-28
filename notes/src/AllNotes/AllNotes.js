@@ -2,24 +2,38 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LeftBar from '../LeftBar/LeftBar';
+import { getNotes } from '../Redux/actions';
 import './AllNotes.css';
 
 class AllNotes extends Component {
+  componentDidMount() {
+    this.props.getNotes();
+  }
+
   render() {
     return (
       <div className="container">
         <LeftBar />
-        <div className="all-notes_body">
+        <div className="all-notes_content">
           <div className="all-notes_header">Your Notes:</div>
           <div className="all-notes_notes">
             {this.props.notes.map((eachNote, i) => {
-              const charsVisible =
-              eachNote.body.length < 105 ? eachNote.body : (eachNote.body.slice(0, 105) + ' ...');
+              let charsVisible;
+              if (eachNote.content !== null) {
+                charsVisible =
+                  eachNote.content.length < 105
+                    ? eachNote.content
+                    : eachNote.content.slice(0, 105) + ' ...';
+              } else {
+                charsVisible = '';
+              }
               return (
                 <div className="note-box" key={eachNote.id}>
                   <Link to={`/notes/${eachNote.id}`}>
-                    <div className="note-title">{`${i + 1}. ${eachNote.title}`}</div>
-                    <div className="note-body">{charsVisible}</div>
+                    <div className="note-title">{`${i + 1}. ${
+                      eachNote.title
+                    }`}</div>
+                    <div className="note-content">{charsVisible}</div>
                   </Link>
                 </div>
               );
@@ -37,4 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(AllNotes);
+export default connect(mapStateToProps, { getNotes })(AllNotes);

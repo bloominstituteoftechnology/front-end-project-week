@@ -9,7 +9,7 @@ class SingleNote extends Component {
   state = {
     note: {},
     title: '',
-    body: '',
+    content: '',
     deleteButtonPressed: false,
     editButtonPressed: false,
   };
@@ -31,14 +31,14 @@ class SingleNote extends Component {
 
     const editedNote = {
       title: this.state.title,
-      body: this.state.body,
+      content: this.state.content,
     };
 
     this.props.editNote(editedNote, this.state.note.id);
 
     this.setState({
       title: '',
-      body: '',
+      content: '',
       editButtonPressed: !this.state.editButtonPressed,
     });
   };
@@ -80,7 +80,7 @@ class SingleNote extends Component {
     return (
       <div className="container">
         <LeftBar />
-        <div className="new-note_body">
+        <div className="new-note_content">
           <div className="new-note_header">Edit Note:</div>
           <div className="new-note_fields">
             <form type="submit">
@@ -95,14 +95,14 @@ class SingleNote extends Component {
                   value={this.state.title}
                 />
               </div>
-              <div className="body-div">
+              <div className="content-div">
                 <textarea
                   type="text"
-                  className="body-input"
+                  className="content-input"
                   placeholder="Note Content"
                   onChange={this.updateState}
-                  name="body"
-                  value={this.state.body}
+                  name="content"
+                  value={this.state.content}
                 />
               </div>
               <Link to="/" onClick={this.editNote}>
@@ -123,7 +123,7 @@ class SingleNote extends Component {
         ) : (
           <div className="container">
             <LeftBar />
-            <div className="single-note_body">
+            <div className="single-note_content">
               <div className="edit-delete_links">
                 <div className="links">
                   <div className="each-link" onClick={this.toggleEdit}>
@@ -135,7 +135,7 @@ class SingleNote extends Component {
                 </div>
               </div>
               <div className="single-note_header">{this.state.note.title}</div>
-              <div className="single-note_text">{this.state.note.body}</div>
+              <div className="single-note_text">{this.state.note.content}</div>
             </div>
             {this.state.deleteButtonPressed && this.modal()}
           </div>
