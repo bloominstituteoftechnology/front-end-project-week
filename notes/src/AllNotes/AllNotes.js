@@ -14,7 +14,7 @@ class AllNotes extends Component {
           <div className="all-notes_notes">
             {this.props.notes.map((eachNote, i) => {
               const charsVisible =
-              eachNote.body.length < 120 ? eachNote.body : (eachNote.body.slice(0, 105) + ' ...');
+              eachNote.body.length < 105 ? eachNote.body : (eachNote.body.slice(0, 105) + ' ...');
               return (
                 <div className="note-box" key={eachNote.id}>
                   <Link to={`/notes/${eachNote.id}`}>
