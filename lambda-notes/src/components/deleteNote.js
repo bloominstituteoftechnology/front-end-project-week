@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const DeleteNote = (props) => {
     return (
-        <div className="view-note-container">
+        <div className="delete-note-container">
           <div className="edit-button">
             <NavLink className="edit-link" to="#">
               edit
