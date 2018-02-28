@@ -22,7 +22,7 @@ const StyledRail = styled.div`
 const LeftRail = props => (
   <StyledRail>
     <h1>Operation Babylon</h1>
-    <Link to='/' style={{ textDecoration: 'none' }} exact>
+    <Link to='/' style={{ textDecoration: 'none' }}>
       <Button backgroundColor='#5dbdc2' title='View Your Notes' />
     </Link>
     <Link to='/newnote' style={{ textDecoration: 'none' }}>

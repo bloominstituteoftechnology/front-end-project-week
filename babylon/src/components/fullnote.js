@@ -42,7 +42,6 @@ const FullNote = props => (
       <div className='full-note__links'>
         <Link to='/updatenote' exact>edit</Link>
         {/* <Link to='/' style={{ textDecoration: 'none' }} exact>delete</Link> */}
-        {/* <a href='#'>edit</a> */}
         <a href='#'>delete</a>
       </div>
       <SectionTitle name={props.notes[0].title}/>
