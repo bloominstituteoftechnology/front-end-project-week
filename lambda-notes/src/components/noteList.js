@@ -25,7 +25,6 @@ class NoteList extends Component {
                 <NavLink className="note-list-note-link" to={`/note/${note.id}`}>
                   <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 120)} />
                 </NavLink>
-                  {/* <Route component={NoteList} path="/" exact/> */}
               </div>
             )
           })}
