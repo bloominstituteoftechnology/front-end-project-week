@@ -3,6 +3,7 @@ import '../styles/App.css';
 import NoteView from './NoteView';
 
 function Notes(props) {
+    
     console.log(props);
         return (
             props.notes.map(note => {

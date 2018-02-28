@@ -22,10 +22,10 @@ class Createnotes extends React.Component {
                 value={this.state.title} 
                 onChange={this.handleInputChange}/> 
 
-                <input className="new-content"  
+                <textarea placeholder="Create New Note"  
                 type="text" name="paragragh" 
                 value={this.state.paragragh} 
-                onChange={this.handleInputChange}/>
+                onChange={this.handleInputChange}> </textarea>
 
                 <button>Save</button>
                 
