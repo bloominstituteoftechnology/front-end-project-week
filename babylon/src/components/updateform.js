@@ -61,7 +61,11 @@ class UpdateForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.updateNote(this.state);
+    this.props.updateNote({
+      id: this.props.id,
+      title: this.state.title,
+      body: this.state.body,
+    });
     this.setState({
       title: '',
       body: '',
@@ -107,7 +111,7 @@ class UpdateForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     notes: state.notes,
   };

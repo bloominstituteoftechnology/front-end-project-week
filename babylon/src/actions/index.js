@@ -12,6 +12,7 @@ export const addNote = data => ({
 
 export const updateNote = data => ({
   type: UPDATE_NOTE,
+  id: data.id,
   title: data.title,
   body: data.body,
 });

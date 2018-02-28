@@ -19,7 +19,18 @@ export default (state = initialState, action) => {
         ],
       };
     case UPDATE_NOTE:
-      break;
+      return {
+        ...state,
+        notes: state.notes.map((val) => {
+          if (val.id.toString() === action.id) {
+            return {
+              id: Number(action.id),
+              title: action.title,
+              body: action.body,
+            };
+          } return val;
+        }),
+      };
     case DELETE_NOTE:
       break;
     default:
