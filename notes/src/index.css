@@ -1,3 +1,58 @@
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#searchIcon {
+  background: white url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fmaxcdn.icons8.com%2Fapp%2Fuploads%2F2016%2F10%2Fmagnifier.png&imgrefurl=https%3A%2F%2Ficons8.com%2Ficon%2F131%2Fsearch&docid=V_kUROMdVGn1yM&tbnid=m2juCiuQpE77vM%3A&vet=10ahUKEwiZnbHxlpfZAhUeHGMKHTnwBGYQMwi-ASgLMAs..i&w=600&h=400&bih=989&biw=1920&q=search%20icon%20png&ved=0ahUKEwiZnbHxlpfZAhUeHGMKHTnwBGYQMwi-ASgLMAs&iact=mrc&uact=8) left no-repeat;
+  padding-left: 17px;
+}
+
 body {
   margin: 0;
   padding: 0;

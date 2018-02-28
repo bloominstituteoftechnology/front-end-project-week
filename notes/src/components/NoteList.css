@@ -1,0 +1,66 @@
+.leftBar {
+  display: inline-flex;
+  height: 900px;
+  width: 34%;
+  background: #d8d8d8;
+  border: 1px solid #979797;
+}
+
+.rightBar {
+  height: 900px;
+  display:inline-flex;
+  width: 66%;
+  background: #f3f3f3;
+  border: 1px solid #979797;
+}
+
+.btns {
+  background:#62bec2;
+  color: white;
+  height: 50px;
+  width: 80%;
+  flex-direction: column;
+  margin: 0 0 20px 0;
+}
+
+h1 {
+  font-size: 300%;
+  font-family: Roboto;
+  font-weight: bold;
+  text-align: left;
+  margin: 10px 0 0 10px;
+  color: #4a4a4a;
+}
+
+h2 {
+  font-size: 300%;
+  font-family: Roboto;
+  font-weight: bold;
+  text-align: left;
+  margin: 10px 0 40px 10px;
+  color: #4a4a4a;
+}
+
+h3 {
+  font-size: 150%;
+  font-family: Roboto;
+  font-weight: bold;
+  text-align: left;
+  margin: 10px 0 0 30px;
+}
+
+hr {
+  margin: 15px 15px;
+  color: #979797;
+}
+
+.yourNotes {
+  margin: 75px 0 40px 0;
+  font-family: Roboto;
+  font-size: 125%;
+  color: #4a4a4a;
+}
+
+.noteTitle {
+  text-align: left;
+}
