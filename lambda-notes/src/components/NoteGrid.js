@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Note from './Note';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './NoteGrid.css';
 
-function NoteGrid(props) {
-  return (
-      <div className="row justify-content-between">
-        {props.notes.map(note => {
-          return (
-            <div key={note.id} className="col-md-4 ">
-              <div className="note">
-              <h3>{note.title}</h3>
-              <hr />
-              <p>{note.body}</p>
-            </div>
-            </div>
-          );
-        })}
-    </div>
-  );
+class NoteGrid extends Component {
+  render() {
+    return (
+      <div>
+        <h3>Your Notes</h3>
+        <div className="row">
+          {this.props.notes.map((note, i) => {
+            return <Note title={note.title} body={note.body} key={i} id={note.id} />;
+          })}
+        </div>
+      </div>
+    );
+  }
 }
-export default NoteGrid;
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps)(NoteGrid);
