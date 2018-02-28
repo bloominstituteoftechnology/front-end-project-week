@@ -53,8 +53,4 @@ Once your MVP has been approved, you have been given a feature list that the cli
 * Export all notes to a CSV
 * Create a login system around the MVP
 
-<<<<<<< HEAD
 You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.
-=======
-You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  
->>>>>>> 3b8b8c59fa50d65fa8d5301c938dbfd61330880e
