@@ -6,12 +6,12 @@ class List extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="content">
         <div className="your-note">Your Notes:</div>
         <div className='list'>
         	{this.props.notes.map((note) => {
             return (
-              <Link key={note.id} to={{ pathname: `/notes/${note.id}`, note: note}}>
+              <Link key={note.id} to={{ pathname: `/a/notes/${note.id}`, note: note}}>
                 <div className='notes'>
                   <div className="notes-title">{note.title}</div>
                   <div className="note-line"></div>

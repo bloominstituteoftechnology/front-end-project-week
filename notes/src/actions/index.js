@@ -5,6 +5,9 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
+export const LOGGED_OUT = 'LOGGED_OUT';
+export const LOGGED_IN = 'LOGGED_IN';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
 
 export const fetchNotes = () => {
   return (dispatch) => {
@@ -77,3 +80,57 @@ export const editNote = (note) => {
 export const toggleModal = (id) => {
   return {type: TOGGLE_MODAL, payload: id}
 }
+
+export const signUp = (newUser) => {
+  console.log('signup newuser', newUser);
+  // fetch all user
+  // compare username with new user
+  // if unique then push new user to firebase
+
+  return (dispatch) => {
+    // fetch all users
+    firebaseRef.child('users').once('value').then((snapshot)=>{
+      console.log('fetched users');
+      let users = snapshot.val() || {};
+      // loop through users to compare username
+      Object.keys(users).forEach((userKey)=>{
+        // if new username already exists in db then dispatch error
+        if(users[userKey].username === newUser.ursername){
+          dispatch({
+            type: 'LOGIN_ERROR',
+            payload: 'Username already exist, choose a different name.'
+          });
+        }
+      });
+        console.log('prepare to push new user');
+        // else set new user to firebase
+        let userRef = firebaseRef.child('users').push();
+
+          userRef.then(()=>{
+            console.log('add new user success!');
+            dispatch({
+              type: 'LOGGED_IN',
+              payload: newUser
+            });
+          }, ()=>{
+            console.log('add new user failed!');
+          });
+    });
+    let userRef = firebaseRef.child('users').push(newUser);
+
+  }
+}
+
+export const signIn = (user) => {
+  return {
+    type: 'SIGN_IN',
+    payload: user
+  };
+}
+
+// export const signOut = (user) => {
+//   return {
+//     type: 'SIGN_IN',
+//     payload: user
+//   };
+// }

@@ -6,12 +6,12 @@ class ViewNote extends React.Component {
   
   handleDeleteNote = (id) => {
     this.props.toggleModal();
-    this.props.history.push('/modal');
+    this.props.history.push('/a/modal');
   }
 
   handleEditNote = (note) => {
     this.props.history.push({
-    pathname: '/editnote',
+    pathname: '/a/editnote',
     note: note
     });
   }
@@ -20,11 +20,11 @@ class ViewNote extends React.Component {
     let note = this.props.location.note;
 
     if(!this.props.location.note){
-      this.props.history.push('/');
+      this.props.history.push('/a/list');
       return null;
     }
     return (
-      <div>
+      <div className="content">
       	<div className="view-note">
           <div className="edit-delete">
             <span onClick={() => {this.handleEditNote(note)}}> edit </span><span onClick={() => {this.props.toggleModal(note.id)}}> delete </span>

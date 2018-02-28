@@ -22,17 +22,13 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Route exact path="/" component={Login} />
           {this.props.modal.showing ? <Route component={Modal} /> : null}
-          <div className="sidebar">
-            <SideBar />
-          </div> 
-          <div className="content">  
-            <Route exact path="/" component={Login} />
-            <Route path="/list" component={List} />
-            <Route path="/addnote" component={AddNote} />
-            <Route path="/editnote" component={EditNote} />
-            <Route path="/notes/:id" component={ViewNote} />
-          </div>
+            <Route path="/a" component={SideBar} />
+            <Route path="/a/list" component={List} />
+            <Route path="/a/addnote" component={AddNote} />
+            <Route path="/a/editnote" component={EditNote} />
+            <Route path="/a/notes/:id" component={ViewNote} />
         </div>
       </Router>
     );
@@ -46,3 +42,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { fetchNotes })(App);
+
+

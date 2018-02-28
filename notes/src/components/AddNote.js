@@ -13,7 +13,7 @@ class AddNote extends React.Component {
 		event.preventDefault();
 		if(this.state.content !== '' && this.state.title !== ''){
 			this.props.addNote(this.state);
-			this.props.history.push('/');
+			this.props.history.push('/a/list');
 		}
 	}
 
