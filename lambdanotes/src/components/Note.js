@@ -16,7 +16,7 @@ export default class Note extends React.Component {
     return (
         <li className="Note">
           <div className="Note-NoteTitle">
-            <h3>{this.props.title}</h3> <br />
+            <h2>{this.props.title}</h2> <br />
           </div>
           <div className="Note-NoteBody">
             {this.truncateNote(this.props.body)} <br />

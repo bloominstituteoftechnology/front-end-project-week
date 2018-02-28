@@ -4,14 +4,18 @@ html, body {
   font-family: sans-serif;
 }
 
+ul {
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
 
 button {
   color: white;
-  background-color: teal;
-  border: solid black 1px;
+  background-color: #2bc1c4;
+  border: 1px solid rgba(0,0,0,0.5);
   margin: 6px;
   padding: 10px 20px 10px 20px;
   font-size: 20px;
@@ -20,7 +24,15 @@ button {
   cursor: pointer;
 }
 
+:-webkit-any-link {
+  text-decoration: none;
+}
+
 .MainApp {
   display: flex;
   justify-content: center;
+}
+
+.SectionTitle {
+  color: rgba(0,0,0,0.8);
 }

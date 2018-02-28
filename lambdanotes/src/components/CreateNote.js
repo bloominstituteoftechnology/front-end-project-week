@@ -22,9 +22,10 @@ export default class CreateNote extends React.Component {
     const { title, body } = this.state;
     return (
       <div className="CreateNote">
-        <h2>Create New Note:</h2>
+        <h2 className="SectionTitle">Create New Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="CreateNote-TitleBox"
             value={title}
             name="title"
             type="text"
@@ -33,7 +34,8 @@ export default class CreateNote extends React.Component {
             required
           />
           <br />
-          <input
+          <textarea
+            className="CreateNote-BodyBox"
             value={body}
             name="body"
             type="text"

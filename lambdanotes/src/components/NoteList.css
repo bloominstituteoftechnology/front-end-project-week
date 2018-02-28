@@ -1,4 +1,11 @@
-.NoteList {
+.YourNotes {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 20px;
+  padding: 0px;
+}
+
+.YourNotes-NoteList {
   display: flex;
   flex-flow: row wrap;
 }

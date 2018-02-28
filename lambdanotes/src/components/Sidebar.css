@@ -1,7 +1,21 @@
 .Sidebar {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
+  margin: 0px;
   padding: 6px;
   background: lightgrey;
-  border-right: solid black 1px;
+  border-right: 1px solid rgba(0,0,0,0.5);
+}
+
+.Sidebar-Column {
+  width: 10%;
+}
+
+.Sidebar-Title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: rgba(0,0,0,0.7);
+  width: 96%;
 }

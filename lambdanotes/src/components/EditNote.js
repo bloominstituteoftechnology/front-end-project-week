@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './CreateNote.css';
+
 export default class EditNote extends React.Component {
   state = {
     id: 0,
@@ -29,10 +31,11 @@ export default class EditNote extends React.Component {
   render() {
     const { title, body } = this.state;
     return (
-      <div>
-        <h2>Edit Note:</h2>
+      <div className="CreateNote">
+        <h2 className="SectionTitle">Edit Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
+            className="CreateNote-TitleBox"
             value={title}
             name="title"
             type="text"
@@ -40,7 +43,8 @@ export default class EditNote extends React.Component {
             required
           />
           <br />
-          <input
+          <textarea
+            className="CreateNote-BodyBox"
             value={body}
             name="body"
             type="text"

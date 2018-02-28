@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: row nowrap;
   height: 100%;
-  border: solid black 1px;
+  border: 1px solid rgba(0,0,0,0.5);
   background: whitesmoke;
   width: 1200px;
 }

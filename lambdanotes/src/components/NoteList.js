@@ -15,9 +15,9 @@ class NoteList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Your Notes:</h2>
-        <ul className="NoteList">
+      <div className="YourNotes">
+        <h2 className="SectionTitle">Your Notes:</h2>
+        <ul className="YourNotes-NoteList">
           {this.state.notes.map(note => {
             return (
               <Link to={"/view"} key={note.id} onClick={() => {this.handleNoteIndex(note.id)}}>

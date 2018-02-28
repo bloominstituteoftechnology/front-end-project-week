@@ -1,4 +1,20 @@
 .CreateNote {
   display: flex;
   flex-flow: column nowrap;
+  width: 100%;
+  margin: 20px;
+}
+
+.CreateNote-TitleBox {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 50%;
+}
+
+.CreateNote-BodyBox {
+  display: flex;
+  padding: 10px;
+  width: 90%;
+  height: 500px;
 }

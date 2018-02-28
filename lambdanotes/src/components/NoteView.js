@@ -2,6 +2,8 @@ import React from 'react';
 import DeleteNote from './DeleteNote';
 import { Link } from 'react-router-dom';
 
+import './NoteView.css';
+
 export default class NoteView extends React.Component {
   boolModal = false;
 
