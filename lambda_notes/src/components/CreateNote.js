@@ -1,47 +1,59 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 
-class CreateNote extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {title:'', data:''};
+class CreateNote extends Component {
+    
+    state = {
+        title:'', 
+        text:''
+    };
         
-        this.onClick = this.onClick.bind(this);
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onDataChange = this.onDataChange.bind(this);
-  }
-
-  onTitleChange(e) {
-    this.setState({title:e.target.value});
-  }
-
-  onDataChange(e) {
-    this.setState({data:e.target.value});
-  }
-
-  onClick(e) {
-    const title = this.state.title;
-    const data = this.state.data;
-    if (title !== '' && data !== '') {
-      this.props.addNote({
-        id: Math.floor(Math.random() * 1000),
-        title: title,
-        data: data
-      });
-    }
-  }
- render() {
+render() {
     return (
-      <div>
-        <div className="col-xs-4">
-          <input type="text" className="form-control" placeholder="Note Title" onChange={this.onTitleChange} value={this.state.title}/><br/>
-          <input type="text" className="form-control" placeholder="Note Content" onChange={this.onDataChange} value={this.state.data}/>
+        <div className="Notes">
+          <h1>Create New Note:</h1><br/>
+            <form onSubmit={this.CreateNote}>
+                <input
+                    className='form-control'
+                    type='text'
+                    placeholder='Note Title'
+                    onChange={this.updateNote}
+                    name='text'
+                    value={this.state.title}
+                />
+                <input
+                    className='form-control'
+                    type='text'
+                    placeholder='Note Content'
+                    onChange={this.updateNote}
+                    name='text'
+                    value={this.state.text}
+                />
+                <button type='submit'>Save</button>
+            </form>
         </div>
-        <button id="submit" className="btn btn-success" onClick={this.onClick}>Save</button>
-      </div>
+          
+      
     );
   }
-};
+
+  updateNote = event => {
+      const name = event.target.name;
+      const value = event.target.value;
+
+      this.setState({ [name]: value });
+  };
+
+  createNote = event => {
+      event.preventDefault();
+      const newNote = {
+          title: this.state.title,
+          text: this.state.text
+      };
+
+      const newNotes = [...this.state.notes, newNote];
+      this.setState({ notes: newNotes, title: '', text: ''});
+  };
+
+}
 
 export default CreateNote;

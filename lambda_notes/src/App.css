@@ -64,7 +64,7 @@ button:hover {
   width: 70%;
   background: rgb(240, 239, 239);
   padding: 2%;
-  padding-top: 9%;
+  padding-top: 7%;
   border:  1px solid gray;
   box-sizing: border-box;
   
@@ -80,6 +80,15 @@ button:hover {
   margin: 5%;
   padding: 5%;
   width: 90%;
+}
+
+.note-container-list {
+  display: block;
+  background: white;
+  padding: 5%;
+  text-decoration: none;
+  margin: 1%;
+  float: left;
 }
 
 @keyframes App-logo-spin {

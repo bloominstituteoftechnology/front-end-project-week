@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
-import CreateNote from './CreateNote';
-import List from './List';
-
+import Sidebar from './components/SideBar'
+import CreateNote from './components/CreateNote';
+import List from './components/List';
+import { getNotes } from './exampleNotes';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+ 
 class App extends Component {
+
+  state = {
+    notes: getNotes()
+  };
 
   render() {
     return (
-      <div className="App">
-        <div className="Menu">
-          <h1 id="title">Lambda<br/> Notes</h1>
-          <button onClick={this.viewClick}><b>View Your Notes</b></button><br/>
-          <button><b>+ Create New Note</b></button>
+      <Router>
+        <div className="App">
+          <Route path="/" component={Sidebar} />
+          <Route
+            path="/list"
+            render={state => <List notes={this.state.notes} exact />}
+          />
+          <Route
+            path="/createnote"
+            component={state => <CreateNote notes={this.state.notes} exact />}
+          />
+        
+        
         </div>
-        <div className="Notes">
-          
-          <h1>Create New Note:</h1><br/>
-          <CreateNote addNote={this.addNote} />
-            
-        </div>
-      
-      </div>
+      </Router> 
     );
   }
 }
