@@ -19,9 +19,13 @@ class NewNote extends Component {
 
         <div className="newNote__input">
           <form className="newNote__form">
-            <input className="newNote__form__title" />
-            <input className="newNote__form__content" />
-            <input value="Save" type="button" className="newNote__form__button" />
+            <input className="newNote__form__title" value="  Note Title" />
+            <textarea className="newNote__form__content" rows="15" columns="15">
+              Note Content
+            </textarea>
+            <div className="newNote__form__button">
+              <p className="newNote__form__button__text">Save</p>
+            </div>
           </form>
         </div>
       </div>

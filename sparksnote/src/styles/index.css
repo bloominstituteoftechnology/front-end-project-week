@@ -46,12 +46,44 @@
   margin-top: 13px;
   margin-bottom: 13px;
 }
+.newNote .newNote__header {
+  font-size: 3.0rem;
+  text-align: left;
+  font-weight: 900;
+  margin: 80px 0 0 30px;
+}
 .newNote .newNote__input .newNote__form {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 31px;
+}
+.newNote .newNote__input .newNote__form .newNote__form__title {
+  width: 54%;
+  height: 27px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.newNote .newNote__input .newNote__form .newNote__form__content {
+  width: 91%;
+  height: 300px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 .newNote .newNote__input .newNote__form .newNote__form__button {
   background-color: #62bec2;
+  border: 1px solid black;
+  width: 29%;
+  margin-top: 4px;
+}
+.newNote .newNote__input .newNote__form .newNote__form__button .newNote__form__button__text {
+  font-size: 2.0rem;
+  color: #FFF4F4;
+  font-weight: bold;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 body,
 html {
