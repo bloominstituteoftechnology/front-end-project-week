@@ -28,7 +28,7 @@ class NoteList extends React.Component {
       <div className="YourNotes">
         <h2 className="SectionTitle">Your Notes:</h2>
         {this.boolEmptyNotes ? (
-          <h3 className="YourNotes-Empty">Looks like you don't have any notes yet, click "Create New Note" to get started!</h3>
+          <h3 className="YourNotes-Empty">It looks like you don't have any notes yet, click "Create New Note" to get started!</h3>
         ) 
         : (null)}
         <ul className="YourNotes-NoteList">
