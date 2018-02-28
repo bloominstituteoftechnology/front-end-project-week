@@ -26,3 +26,6 @@ Once you have accomplished the MVP, you have been given a feature list that the 
 * Create a login system around the MVP
 
 You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  
+
+The Link to my Trello
+https://trello.com/invite/b/IVjvDSzN/73b9a781cb0d21cb9cd9461cea53a2e5/devin-baldwin-lambda-school-front-end-project

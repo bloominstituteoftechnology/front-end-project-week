@@ -37,6 +37,7 @@
 #title {
   font-size: 50px;
   color: rgb(51, 51, 51);
+  padding: 5%;
 }
 
 h1 {
@@ -63,10 +64,22 @@ button:hover {
   width: 70%;
   background: rgb(240, 239, 239);
   padding: 2%;
-  padding-top: 7%;
+  padding-top: 9%;
   border:  1px solid gray;
   box-sizing: border-box;
+  
+}
 
+.col-xs-4 {
+  display: flex;
+  float: left;
+  clear: both;
+}
+
+.form-control {
+  margin: 5%;
+  padding: 5%;
+  width: 90%;
 }
 
 @keyframes App-logo-spin {
