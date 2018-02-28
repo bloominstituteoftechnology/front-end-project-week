@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Button from './button';
 
 const StyledRail = styled.div`
@@ -21,8 +22,12 @@ const StyledRail = styled.div`
 const LeftRail = props => (
   <StyledRail>
     <h1>Operation Babylon</h1>
-    <Button backgroundColor='#5dbdc2' title='View Your Notes' />
-    <Button backgroundColor='#5dbdc2' title='+ Create New Note' />
+    <Link to='/' style={{ textDecoration: 'none' }}>
+      <Button backgroundColor='#5dbdc2' title='View Your Notes' />
+    </Link>
+    <Link to='/newnote' style={{ textDecoration: 'none' }}>
+      <Button backgroundColor='#5dbdc2' title='+ Create New Note' />
+    </Link>
   </StyledRail>
 );
 
