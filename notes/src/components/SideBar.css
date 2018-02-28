@@ -1,0 +1,48 @@
+.sidebar {
+  z-index: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: #D6D6D6;
+  border-right: 2px solid #BDBDBD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  left: 0;
+  top: 0;
+}
+.sidebar h1 {
+  font-size: 2.9rem;
+  padding-left: 20px;
+  text-align: left;
+  user-select: none;
+  color: #4B4A4B;
+  margin: 25px 0 20px 0;
+}
+.sidebar .button {
+  width: 90%;
+}
+.sidebar button {
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 90%;
+  height: 45px;
+  background: #1DC0C3;
+  color: white;
+  border: 1px solid #76A1A1;
+  user-select: none;
+  cursor: pointer;
+  margin: 10px;
+}
+.sidebar button:active {
+  background: #24abad;
+}
+.sidebar .export {
+  width: 81%;
+}
+.sidebar a {
+  cursor: default;
+}
