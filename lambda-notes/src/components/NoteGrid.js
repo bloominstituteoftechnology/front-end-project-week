@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Note from './Note';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './NoteGrid.css';
 
 class NoteGrid extends Component {
@@ -11,9 +10,16 @@ class NoteGrid extends Component {
         <h3>Your Notes</h3>
         <div className="row">
           {this.props.notes.map((note, i) => {
-            return <Note title={note.title} body={note.body} key={i} id={note.id} />;
+            return (
+              <Note title={note.title} body={note.body} key={i} id={note.id} />
+            );
           })}
         </div>
+        {this.props.notes.length === 0 && (
+          <div>
+            <p>No notes here...</p>
+          </div>
+        )}
       </div>
     );
   }
