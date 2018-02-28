@@ -28,6 +28,10 @@ const CreateNoteStyled = styled.div`
     font-size: 1rem;
   }
 
+  input:focus, textarea:focus {
+    outline: 1px solid rgb(94, 190, 195);
+  }
+
   .NoteContentInput {
     width: 80%;
     height: 300px;

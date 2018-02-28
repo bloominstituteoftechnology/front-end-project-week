@@ -20,21 +20,25 @@ const NoteListStyled = styled.div`
     
     .searchContainer {
       margin-top: 20px;
+
+      input {
+        outline: none;
+      }
+
+      input:focus {
+        outline: 1px solid rgb(94, 190, 195);
+      }
     }
   }
 `
 
 class NotesList extends Component {
   state = {
-    // searchInput: '',
     notesFiltered: [],
   }
 
 
   handleSearch = (event) => {
-    console.log(event.target.value)
-    // this.setState({ searchInput: event.target.value })
-    console.log(this.state.searchInput)
     if (event.target.value.length > 0) {
       let filteredNotes = this.props.notes.filter(note => note.title.toLowerCase().includes(event.target.value.toLowerCase()))
       this.setState({ notesFiltered: filteredNotes })
@@ -42,7 +46,6 @@ class NotesList extends Component {
     else {
       this.setState({ notesFiltered: this.props.notes })
     }
-    console.log(this.state.notesFiltered);
   }
 
   componentDidMount() {

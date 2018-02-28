@@ -36,6 +36,10 @@ const EditNoteStyled = styled.div`
     font-size: 1rem;
     resize: none;
   }
+
+  input:focus, textarea:focus {
+    outline: 1px solid rgb(94, 190, 195);
+  }
 `;
 
 // Edit Note Component
