@@ -6,8 +6,8 @@ import NoteDisplay from "./components/NoteDisplay";
 import LeftColumnPanel from "./components/LeftColumnPanel";
 import newNote from "./components/newNote";
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Router from './Router'; 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+//import Router from './Router'; 
 
 class App extends Component {
 	constructor() {
@@ -24,8 +24,9 @@ class App extends Component {
 } 
 	render() {
     return (
-	//		<div>	
-      <div className="App">
+			<div>	
+       <Router>
+				<div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React </h1>
@@ -42,10 +43,21 @@ class App extends Component {
 		 </div>
 //		 <newNote updateNoteTitle={this.updateNoteTitle} updateNoteContent={this.updateNoteContent}
 //		    onSave={this.saveRequest} />
-//		  </div> 
+//		  </div>
+ 	    <Route path="/viewnotes" component={this.ViewNotes} exact />
+		 </div>
+		 </Router>
     );
   }
-}
+
+ ViewNotes = () => {
+	 return (
+			<div className="Home__Right">
+			   Right
+			</div>
+		 )	
+		};
+ }
 /*componentDidMount() {
 	axios.get('http://localhost:5000/front-end-project/')
 		.then((response) => {

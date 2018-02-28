@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
-//import LambaNotes from './LambdaNotes'
+import LambaNotes from './LambdaNotes'
 import UpdateNotes from './UpdateNotes'
 
 // The Main component renders one of the three provided
@@ -13,6 +13,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
+			<Route path='/lambdanotes' component={LambdaNotes}/>
       <Route path='/updatenotes' component={UpdateNotes}/>
     </Switch>
   </main>
