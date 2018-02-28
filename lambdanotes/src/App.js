@@ -110,8 +110,8 @@ class App extends Component {
       }
       return note
     })
-    this.setState({ notes: updatedNotes });
-    this.viewNotes();
+    this.setState({ notes: updatedNotes, noteDetails: updatedNote });
+    this.showNoteDetails(id);
   }
 
   // Get id of last note and return new incremented id 
