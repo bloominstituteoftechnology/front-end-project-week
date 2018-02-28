@@ -5,8 +5,6 @@ import Note from './Note';
 
 import './css/SortOverview.css';
 
-//Instead of changing pages for each switch, instead, just display different shit based on a state (alphabetically: false) etc
-
 class SortOverview extends React.Component {
   state = {
     sort: 'sort',
@@ -29,7 +27,7 @@ class SortOverview extends React.Component {
             <h1 className="sort-header"> Alphabetically Sorted by Title</h1>
             <ul className="sorted-notes">
               {this.state.sorted.map(note => {
-                const noteObj = {body: note[1], title:note[3]};
+                const noteObj = { body: note[1], title: note[3] };
                 return <Note key={note[2]} note={noteObj} />;
               })}
             </ul>
@@ -41,26 +39,20 @@ class SortOverview extends React.Component {
       </div>
     );
   }
+
   clickAlphabetically = () => {
     this.setState({ sort: 'alphabetically' });
-    this.sortAlphabetically();
-  };
-
-  sortAlphabetically = () => {
     let sorted = [];
-    console.log('Notes prop:', this.props.notes);
     this.props.notes.map(note => {
       return sorted.push([note.title.toLowerCase(), note.body, note.id, note.title]);
-    }, [])
+    }, []);
     sorted = sorted.sort();
-    console.log('Notes after sort is called: ', sorted)
-    this.setState({sorted})
-  }
+    this.setState({ sorted });
+  };
 
   clickChronologically = () => {
     this.setState({ sort: 'chronologically' });
   };
-
 }
 
 const mapStateToProps = state => {
