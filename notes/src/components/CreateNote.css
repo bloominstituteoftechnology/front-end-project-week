@@ -1,10 +1,9 @@
 .create-note {
   background: #F3F3F3;
-  height: 100%;
+  min-height: 100%;
   margin-left: 250px;
-  padding-left: 30px;
+  padding-left: 5%;
   display: flex;
-  margin-top: -50px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
