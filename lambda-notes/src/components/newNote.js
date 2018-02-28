@@ -12,10 +12,18 @@ class NewNote extends Component {
   // }
   noteSubmitHandler = (event) => {
       event.preventDefault();
-      let nextId = this.props.notes.slice(-1)[0].id + 1
-      this.setState({ id: nextId, title: this.state.title, body: this.state.body })
-      this.props.notes.push(this.state);
-      this.props.notes.slice(-1)[0].id = nextId; // this is crazy and shouldn't work this way but it does
+      const notes = this.props.notes;
+      if (notes.length === 0) {
+        let nextId = 0;
+        this.setState({ id: nextId, title: this.state.title, body: this.state.body })
+        notes.push(this.state);
+        notes.slice(-1)[0].id = nextId;
+      } else { 
+        let nextId = notes.slice(-1)[0].id + 1
+        this.setState({ id: nextId, title: this.state.title, body: this.state.body })
+        notes.push(this.state);
+        notes.slice(-1)[0].id = nextId; // this is crazy and shouldn't work this way but it does
+      }
   }
   noteChangeHandler = (event) => {
       let { name, value } = event.target;
