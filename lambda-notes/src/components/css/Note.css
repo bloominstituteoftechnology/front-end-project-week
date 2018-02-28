@@ -5,7 +5,8 @@
   margin: 10px;
   padding: 10px;
   padding-bottom: 20px;
-  height: 200px;
+  height: 192px;
+  overflow: hidden;
 }
 
 .note:hover {
