@@ -40,6 +40,7 @@ export default class EditNote extends React.Component {
             name="title"
             type="text"
             onChange={this.handleInputChange}
+            maxLength="32"
             required
           />
           <br />

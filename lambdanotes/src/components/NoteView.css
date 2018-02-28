@@ -3,6 +3,9 @@
   flex-flow: column nowrap;
   width: 100%;
   margin: 20px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .NoteView-Links {

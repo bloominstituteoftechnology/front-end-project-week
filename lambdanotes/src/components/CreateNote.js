@@ -31,6 +31,7 @@ export default class CreateNote extends React.Component {
             type="text"
             placeholder="Note Title"
             onChange={this.handleInputChange}
+            maxLength="32"
             required
           />
           <br />
