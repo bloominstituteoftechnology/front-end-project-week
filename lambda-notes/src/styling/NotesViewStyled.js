@@ -3,7 +3,7 @@ import styled from "styled-components";
 const NotesViewStyled = styled.div`
   background-color: #f3f3f3;
   display: flex;
-  height: 100%;
+  min-height: 1000px;
   .LeftBar {
     background-color: #d7d7d7;
     padding: 15px;

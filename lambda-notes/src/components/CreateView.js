@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addNote } from "../actions";
-import { Link } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 
 class CreateView extends Component {
   state = {
     title: "",
-    text: ""
+    text: "",
+    fireRedirect: false,
   };
 
   render() {
@@ -32,22 +33,24 @@ class CreateView extends Component {
               value={this.state.text}
               onChange={this.handleChange}
             />
-            <button><Link to='/'>Save</Link></button>
+            <button>Save</button>
           </form>
+          {this.state.fireRedirect && <Redirect to='/'/>}
         </div>
       </div>
     );
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
     this.props.addNote(this.state);
+    this.setState({ title: "", text: "", fireRedirect: true });
   };
 }
 
