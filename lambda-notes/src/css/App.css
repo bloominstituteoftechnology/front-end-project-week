@@ -7,7 +7,7 @@
 }
 .App .navButton-top {
   text-decoration: none;
-  padding: 17px 51px;
+  padding: 17px 51;
   border: 1px solid #979797;
   background: #2bc1c4;
   color: white;
@@ -18,7 +18,7 @@
 }
 .App .navButton-bottom {
   text-decoration: none;
-  padding: 17px 40px;
+  padding: 17px 40;
   border: 1px solid #979797;
   background: #2bc1c4;
   color: white;
