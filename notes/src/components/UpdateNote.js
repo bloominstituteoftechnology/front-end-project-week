@@ -21,7 +21,6 @@ class UpdateNote extends Component {
     handleUpdate = (e) => {
         e.preventDefault();
         this.props.updateNote(this.state);
-        console.log('this is the hblde update to go to update', this.props.note);
     };
 
     render() {

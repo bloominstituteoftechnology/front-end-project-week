@@ -49,7 +49,7 @@ class Notes extends Component {
                                                 </div>
                                                 <div className={"note-tags"}>
                                                     <span className={'tags-label'}>TAGS:</span>
-                                                    &nbsp;{note.tags}
+                                                    &nbsp;{note.tags.split(/[ ,]+/).join(', ')}
                                                 </div>
 
                                             </Link>
