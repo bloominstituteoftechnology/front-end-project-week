@@ -78,7 +78,32 @@ const NotesViewStyled = styled.div`
   }
 
   .OneNote {
-    
+    padding: 10px 20px;
+    .header {
+      width: 500px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 12px;
+      Link {
+        margin: 5px;
+      }
+      a {
+        margin: 5px;
+      }
+    }
+    h2 {
+      font-weight: bold;
+      color: #4a494a;
+      font-size: 18px;
+      margin: 12px 0 6px 0;
+      padding: 10px;
+    }
+    p {
+      width: 500px;
+      padding: 10px;
+      width: 100%;
+      font-size: 14px;
+    }
   }
 `;
 

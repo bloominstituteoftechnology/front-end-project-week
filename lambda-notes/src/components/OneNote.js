@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateSelected } from '../actions';
+import { Link } from 'react-router-dom';
 
 class OneNote extends Component {
   state = {
@@ -10,7 +11,10 @@ class OneNote extends Component {
   render() {
     return(
       <div className="OneNote">
-        <div className="header" />
+        <div className="header">
+          <Link to=''>edit</Link>
+          <a href=''>delete</a>
+        </div>
         <h2>{this.props.notes[this.props.id].title}</h2>
         <p>{this.props.notes[this.props.id].text}</p>
       </div>

@@ -1,13 +1,5 @@
 import { ADD_NOTE, UPDATE_SELECTED } from '../actions';
 
-// const initialState = [
-//   {
-//     id: 0,
-//     title: 'Note Title',
-//     text: 'Lorem ipsum eh idk anymore',
-//   }
-// ]
-
 export const notesReducer = (state=[], action) => {
   switch(action.type) {
     case ADD_NOTE:

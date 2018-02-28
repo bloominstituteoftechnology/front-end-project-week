@@ -7,7 +7,7 @@ class CreateView extends Component {
   state = {
     title: "",
     text: "",
-    fireRedirect: false,
+    fireRedirect: false
   };
 
   render() {
@@ -35,7 +35,8 @@ class CreateView extends Component {
             />
             <button>Save</button>
           </form>
-          {this.state.fireRedirect && <Redirect to='/'/>}
+          {this.state.fireRedirect && <Redirect to="/" />}
+          {}
         </div>
       </div>
     );
@@ -48,7 +49,6 @@ class CreateView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
     this.props.addNote(this.state);
     this.setState({ title: "", text: "", fireRedirect: true });
   };
