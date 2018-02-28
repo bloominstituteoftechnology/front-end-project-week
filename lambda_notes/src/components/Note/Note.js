@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
+import Modal from '../Modal/Modal';
 
 const Note = (props) => {
   console.log('Note.js props', props);
@@ -13,6 +14,7 @@ const Note = (props) => {
       <div className="Note-Container">
         <div>
           <Link to="/edit">Edit</Link>
+          <Modal text={'Delete'}/>
           <Link to="/">Delete</Link>
         </div>
         <div className="Note-Title">

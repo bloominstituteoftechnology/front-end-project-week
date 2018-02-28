@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
+import { Button } from 'semantic-ui-react';
 
 const Sidebar = () => {
   return (
-    <div className="Sidebar-container">
+    <nav className="Sidebar-container">
       <div className="Sidebar">
         <h1>Lambda Notes</h1>
         <div className="Sidebar-buttons">
-          <button className="Sidebar-button">
-            <Link to="/">View Your Notes</Link>
-          </button>
-          <button className="Sidebar-button">
-            <Link to="/create">+ Create New Note</Link>
-          </button>
+        <Link to="/">
+          <Button color="teal" className="Sidebar-button" >
+            View Your Notes
+          </Button>
+        </Link>
+        <Link to="/create">
+          <Button color="teal" className="Sidebar-button">
+            + Create New Note
+          </Button>
+        </Link>
         </div>
       </div>
-    </div>
+    </nav>
   )
 }
 
