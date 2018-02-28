@@ -43,6 +43,15 @@ class EditNote extends Component {
     id: '',
   }
 
+  componentDidMount() {
+    let { title, content, id } = this.props.noteDetails;
+    this.setState({
+      title: title,
+      content: content,
+      id: id,
+    })
+  }
+
   render() {
     return (
       <EditNoteStyled>

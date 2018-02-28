@@ -98,7 +98,7 @@ class App extends Component {
           {this.state.viewingNotes && <NotesList notes={this.state.notes} showNoteDetails={this.showNoteDetails} />}
           {this.state.creatingNote && <CreateNote getNextId={this.getNextId} saveNewNote={this.saveNewNote} />}
           {this.state.showingNoteDetails && <NoteDetails noteDetails={this.state.noteDetails} showNoteEditForm={this.showNoteEditForm} />}
-          {this.state.editingNote && <EditNote noteDetails={this.state.noteDetails} />}
+          {this.state.editingNote && <EditNote noteDetails={this.state.noteDetails} noteDetails={this.state.noteDetails} />}
         </div>
       </AppStyled>
     );
