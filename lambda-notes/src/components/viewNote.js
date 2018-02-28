@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ViewNote = (props) => {
-    console.log("NoteView props: ", props);
+    // console.log("NoteView props: ", props);
     return (
       <div className="view-note-container">
         <div className="edit-button">
@@ -10,7 +10,11 @@ const ViewNote = (props) => {
             edit
           </NavLink>
         </div>
-        <div className="delete-button"> delete</div>
+        <div className="delete-button">
+          <NavLink className="delete-link" to={`/delete/${props.match.params.id}`}>
+            delete
+          </NavLink>
+        </div>
         <div className="view-note__title">
         {props.notes[props.match.params.id].title}
         </div>

@@ -59,6 +59,12 @@
   font-size: 1.35rem;
   font-weight: 500;
 }
+.App .delete-button .delete-link {
+  color: black;
+}
+.App .delete-button .delete-link:hover {
+  font-weight: 600;
+}
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -292,6 +298,9 @@ table {
   font-size: 1.42rem;
   padding: 0px;
   line-height: 1.55;
+}
+.core-rail .delete-note-container {
+  opacity: 50%;
 }
 .new-note-container {
   display: flex;
