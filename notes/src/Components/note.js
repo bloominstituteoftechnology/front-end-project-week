@@ -5,7 +5,7 @@ class Note extends Component {
         notes: [
             {
                 note: 'What`s the best computer science academy?',
-                text: 'Lambda School!',
+                data: 'Lambda School!',
             }
         ],
     }
@@ -17,7 +17,7 @@ class Note extends Component {
                     {this.state.notes.map(note => {
                         return (
                             <li>{note.note}
-                                <p>{note.text}</p>
+                                <p>{note.data}</p>
                             </li>
                         )
                     })}
