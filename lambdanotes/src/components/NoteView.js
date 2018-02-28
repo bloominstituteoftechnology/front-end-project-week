@@ -45,7 +45,6 @@ export default class NoteView extends React.Component {
         </div>
         <div>
           <h2 className="SectionTitle">{title}</h2>
-          <br />
           <p>{body}</p>
         </div>
       </div>

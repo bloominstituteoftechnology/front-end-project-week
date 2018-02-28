@@ -10,6 +10,7 @@
   flex-flow: row nowrap;
   align-self: flex-end;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .NoteView-Links-Link {

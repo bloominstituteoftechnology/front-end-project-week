@@ -29,6 +29,10 @@ button:hover {
   background-color: #219799;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 :-webkit-any-link {
   text-decoration: none;
   color: black;
