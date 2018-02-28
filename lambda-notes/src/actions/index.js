@@ -8,6 +8,7 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const SEARCH_CLICK = 'SEARCH_CLICK';
 export const SEARCH_RESULTS_CLICKED = 'SEARCH_RESULTS_CLICKED';
 export const SORT_BUTTON_CLICKED = 'SORT_BUTTON_CLICKED';
+export const DOWNLOAD_BUTTON_CLICKED = 'DOWNLOAD_BUTTON_CLICKED';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -86,6 +87,14 @@ export const sort_button_click = () => {
   const payload = 'sort';
   return {
     type: 'SORT_BUTTON_CLICKED',
+    payload,
+  }
+}
+
+export const download_button_click = () => {
+  const payload = 'download';
+  return {
+    type: 'DOWNLOAD_BUTTON_CLICKED',
     payload,
   }
 }

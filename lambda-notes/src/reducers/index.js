@@ -17,7 +17,7 @@ const initialState = {
       dateString: dateString,
       title: 'Roland',
       body:
-        "Roiland voices the eponymous characters, with Chris Parnell, Spencer Grammer, and Sarah Chalke voicing the rest of the family. The series originated from an animated short parody film of Back to the Future, The Real Animated Adventures of Doc and Mharti, created by Roiland for Channel 101, a short film festival co-founded by Harmon. When Adult Swim approached Harmon for television show ideas, he and Roiland decided to develop a program based on the short. The series has received universal acclaim for its originality, creativity, and humor.",
+        'Roiland voices the eponymous characters, with Chris Parnell, Spencer Grammer, and Sarah Chalke voicing the rest of the family. The series originated from an animated short parody film of Back to the Future, The Real Animated Adventures of Doc and Mharti, created by Roiland for Channel 101, a short film festival co-founded by Harmon. When Adult Swim approached Harmon for television show ideas, he and Roiland decided to develop a program based on the short. The series has received universal acclaim for its originality, creativity, and humor.',
     },
     {
       id: 2,
@@ -65,7 +65,7 @@ const initialState = {
       dateString: dateString,
       title: 'Future',
       body:
-        "Although there has not been an official renewal announcement by Adult Swim,[19] Dan Harmon talked about the possibility of creating more than ten episodes per season, in a September 2017 interview, where he stated I’m about to do season 4 of Rick and Morty and want to prove that I’ve grown.[20] On October 1, 2017, similarly to the second-season finale, the animated character Mr. Poopybutthole re-appeared in the post-credits scene of the third-season finale and said that it will be a long wait until the fourth season of the show.[21] Writer Ryan Ridley, in a December 2017 interview with The Detroit Cast,[22] said that he highly doubts there will not be a fourth season, but he does not expect it to air any sooner than late 2019.[23] In January 2018, Adult Swim told Variety that there is no timing to share on premiere or status of production.",
+        'Although there has not been an official renewal announcement by Adult Swim,[19] Dan Harmon talked about the possibility of creating more than ten episodes per season, in a September 2017 interview, where he stated I’m about to do season 4 of Rick and Morty and want to prove that I’ve grown.[20] On October 1, 2017, similarly to the second-season finale, the animated character Mr. Poopybutthole re-appeared in the post-credits scene of the third-season finale and said that it will be a long wait until the fourth season of the show.[21] Writer Ryan Ridley, in a December 2017 interview with The Detroit Cast,[22] said that he highly doubts there will not be a fourth season, but he does not expect it to air any sooner than late 2019.[23] In January 2018, Adult Swim told Variety that there is no timing to share on premiere or status of production.',
     },
     {
       id: 8,
@@ -90,15 +90,15 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case actions.ADD_BUTTON_CLICK:
-      return { ...state, current: action.payload, };
+      return { ...state, current: action.payload };
     case actions.VIEW_BUTTON_CLICK:
       return { ...state, current: action.payload };
     case actions.ADD_NOTE:
-      return { ...state, notes: [...state.notes, action.payload],  };
+      return { ...state, notes: [...state.notes, action.payload] };
     case actions.VIEW_NOTE:
       return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE_CLICKED:
-      return { ...state, current: action.payload.current, note: action.payload.note,  };
+      return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE:
       // Not sure if this is okay.  I could get rid of note fairly easily I suppose...
       // Not sure how to dot chain the two though.  Everything I tried failed.
@@ -112,7 +112,7 @@ export default (state = initialState, action) => {
         ...state.notes.slice(action.payload.index + 1),
       ];
       removed.splice(action.payload.index, 0, note);
-      return { ...state, notes: removed,  };
+      return { ...state, notes: removed };
     case actions.DELETE_NOTE:
       return {
         ...state,
@@ -121,14 +121,15 @@ export default (state = initialState, action) => {
           ...state.notes.slice(0, action.payload.note.index),
           ...state.notes.slice(action.payload.note.index + 1),
         ],
-        
       };
     case actions.SEARCH_CLICK:
-      return { ...state, current: action.payload,  };
+      return { ...state, current: action.payload };
     case actions.SEARCH_RESULTS_CLICKED:
-      return { ...state, current: action.payload.current, results: action.payload.results,  };
+      return { ...state, current: action.payload.current, results: action.payload.results };
     case actions.SORT_BUTTON_CLICKED:
-      return { ...state, current: action.payload, };
+      return { ...state, current: action.payload };
+    case actions.DOWNLOAD_BUTTON_CLICKED:
+      return { ...state, current: action.payload };
     default:
       return state;
   }

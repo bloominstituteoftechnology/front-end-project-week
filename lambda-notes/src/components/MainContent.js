@@ -8,6 +8,7 @@ import EditNote from './EditNote';
 import Search from './Search';
 import SearchResults from './SearchResults';
 import SortOverview from './SortOverview';
+import DownloadNotes from './DownloadNotes';
 
 import './css/MainContent.css';
 
@@ -20,7 +21,8 @@ class MainContent extends React.Component {
     if (this.props.current === 'edit') return (show = <EditNote />);
     if (this.props.current === 'search') return (show = <Search />);
     if (this.props.current === 'results') return (show = <SearchResults />);
-    if (this.props.current === 'sort') return (show = <SortOverview />)
+    if (this.props.current === 'sort') return (show = <SortOverview />);
+    if (this.props.current === 'download') return (show = <DownloadNotes />);
     return <div>{show}</div>;
   }
 }

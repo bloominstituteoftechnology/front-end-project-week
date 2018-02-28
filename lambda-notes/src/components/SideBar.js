@@ -6,6 +6,7 @@ import {
   view_button_click,
   search_button_click,
   sort_button_click,
+  download_button_click,
 } from '../actions/index';
 
 import './css/SideBar.css';
@@ -30,6 +31,10 @@ class SideBar extends React.Component {
           {' '}
           Sort Notes{' '}
         </button>
+        <button className="side-buttons" onClick={this.handleDownload}>
+          {' '}
+          Download Notes{' '}
+        </button>
       </div>
     );
   }
@@ -49,6 +54,9 @@ class SideBar extends React.Component {
   handleSort = () => {
     this.props.sort_button_click();
   };
+  handleDownload = () => {
+    this.props.download_button_click();
+  }
 }
 
 const mapStateToProps = state => {
@@ -62,4 +70,5 @@ export default connect(mapStateToProps, {
   view_button_click,
   search_button_click,
   sort_button_click,
+  download_button_click,
 })(SideBar);

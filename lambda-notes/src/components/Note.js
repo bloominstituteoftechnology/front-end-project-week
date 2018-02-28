@@ -7,13 +7,12 @@ import './css/Note.css';
 
 class Note extends React.Component {
   render() {
-    let body = this.props.note.body;
     return (
       <div className="note" onClick={this.handleNote}>
         <h1 className="note-date">{this.props.note.dateString}</h1><br />
         <h1>{this.props.note.title}</h1>
         <hr />
-        <p>{body}</p>
+        <p>{this.props.note.body}</p>
       </div>
     );
   }
