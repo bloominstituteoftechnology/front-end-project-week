@@ -6,6 +6,8 @@ import NoteDisplay from "./components/NoteDisplay";
 import LeftColumnPanel from "./components/LeftColumnPanel";
 import newNote from "./components/newNote";
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Router from './Router'; 
 
 class App extends Component {
 	constructor() {
@@ -13,16 +15,16 @@ class App extends Component {
 		this.state = {
     notes: [], 
     notes: dummyData, 
-		 newNote: {
+/*		 newNote: {
       NoteTitle: '',
 			NoteContent: '',					 
 	 },
-   updateIndex: null,			 
+   updateIndex: null, */			 
 };
-}	
-  render() {
+} 
+	render() {
     return (
-			<div>	
+	//		<div>	
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -38,13 +40,13 @@ class App extends Component {
 					})}	
       </div>
 		 </div>
-		 <newNote updateNoteTitle={this.updateNoteTitle} updateNoteContent={this.updateNoteContent}
-		    onSave={this.saveRequest} />
-		  </div> 
+//		 <newNote updateNoteTitle={this.updateNoteTitle} updateNoteContent={this.updateNoteContent}
+//		    onSave={this.saveRequest} />
+//		  </div> 
     );
   }
-
-componentDidMount() {
+}
+/*componentDidMount() {
 	axios.get('http://localhost:5000/front-end-project/')
 		.then((response) => {
 				this.setState({
@@ -81,4 +83,20 @@ updateNoteContent = (event) => {
 	});
 };
 }
+
+toogleUpdate = (event) = {
+	const index = Number(event.target.id.charAt(7));
+	if (this.state.updateIndex === null) {
+		this.setState({ 
+      notes: this.state.notes,
+			newNote: this.state.newNote,
+			updateIndex: index,
+		});
+		const note = document.getElementById(`note-${index}`);
+		note.classList.add('note update');
+		const formHeader = document.getElementById('form-header');
+    formHeader.classList.add('form-header-update');
+  }*/
+
+
 export default App;
