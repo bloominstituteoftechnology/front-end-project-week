@@ -5,6 +5,11 @@
   padding: 0px;
 }
 
+.YourNotes-Empty {
+  color: grey;
+  font-weight: 100;
+}
+
 .YourNotes-NoteList {
   display: flex;
   flex-flow: row wrap;
