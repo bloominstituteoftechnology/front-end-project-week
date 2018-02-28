@@ -1,15 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
 .mainContainer {
     display: flex;
     width: 1365px;
     align-content: center;
     background: green;
-    padding: 40px 0 0 0;
+    height: 100%;
 
     .navBar {
         display: flex;
-        width: 450px;
-        height: 4000px;
+        flex-direction: column;
+        width: 340px;
         background: grey;
+        font-family: Roboto;
+        ul {
+            list-style-type: none;
+        }
+    
+        .navButton {
+            margin-top: 100px;
+            margin-right: 50px;
+            width: 300px;
+            height: 60px;
+        }
+
+        .navButton2 {
+            margin-top: 20px;
+            margin-right: 50px;
+            width: 300px;
+            height: 60px;
+        }
     }
 
     .mainContent {
@@ -20,4 +40,5 @@
         background: red;
 
     }
+    
 }

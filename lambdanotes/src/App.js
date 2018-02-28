@@ -46,14 +46,15 @@ class App extends Component {
       <Router>
         <div className="mainContainer">
           <div className="navBar">
+            <h1> Lambda Notes </h1>
             <ul>
               <li>
-                <button>
+                <button className="navButton">
                 <NavLink to='/'>View Your Notes</NavLink>
                 </button>
               </li>
               <li>
-                <button>
+                <button className="navButton2">
                 <NavLink to='/createNote'>+Create New Note</NavLink>
                 </button>
               </li>
