@@ -16,6 +16,9 @@ button {
   height: 7vh;
   margin-top: 2.5vh;
 }
+hr {
+  color: #646364;
+}
 .edit-delete {
   text-align: right;
   font-weight: bolder;
@@ -49,12 +52,21 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
-.note-container {
+.wrapper {
   background: white;
-  height: 215px;
-  width: 210px;
   border: solid 1px #96AEAF;
-  margin: 1vh;
+  margin: 1.5vh 1.5vh 1.5vh 0vh;
+  padding: 3vh;
+}
+.note-container {
+  height: 195px;
+  width: 190px;
+  overflow: hidden;
+  padding: 0.1vh;
+}
+.title {
+  font-weight: bolder;
+  font-size: 3vh;
 }
 .noteTitleInputBox {
   height: 10vh;
@@ -84,4 +96,8 @@ button {
 .sn-title {
   font-size: 3.8vh;
   font-weight: bolder;
+}
+.yn-title {
+  width: 70vw;
+  margin-top: 7vh;
 }
