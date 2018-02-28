@@ -15,8 +15,8 @@ class SingleNote extends React.Component {
     return (
       <div className="single-note">
         <p className="edit-delete"><span onClick={() => this.editSpanClicked(note)}>edit</span><span onClick={() => this.deleteSpanClicked(index)}>delete</span></p>
-        <p>{this.props.noteToShow.noteTitle}</p>
-        <p>{this.props.noteToShow.noteContent}</p>
+        <p className="sn-title">{this.props.noteToShow.noteTitle}</p>
+        <p className="sn-content">{this.props.noteToShow.noteContent}</p>
       </div>
     );
   }

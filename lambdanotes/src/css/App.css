@@ -13,14 +13,17 @@ button {
   font-size: 1.2vw;
   width: 90%;
   margin-bottom: 5px;
-  height: 7%;
+  height: 7vh;
+  margin-top: 2.5vh;
 }
 .edit-delete {
   text-align: right;
+  font-weight: bolder;
 }
 .save-button {
   width: 15vw;
   height: 7.5vh;
+  margin-top: 0.8vh;
 }
 .App {
   display: flex;
@@ -28,7 +31,9 @@ button {
 .Panel {
   background: #d7d7d7;
   height: 100vh;
-  width: 20vw;
+  width: 18vw;
+}
+.panel-buttons {
   text-align: center;
 }
 .Notes,
@@ -37,7 +42,7 @@ button {
 .edit-note-container {
   background: #F3F3F3;
   height: 100vh;
-  width: 80vw;
+  width: 82vw;
   padding: 5vh 2vw 5vh 2vw;
 }
 .Notes {
@@ -58,4 +63,25 @@ button {
 .noteContentInputBox {
   height: 60vh;
   width: 70vw;
+}
+.ln-title,
+.ln-title2 {
+  width: 90%;
+  height: 8.3%;
+  margin: 0 auto;
+  font-size: 3.1vw;
+  font-weight: bold;
+  padding: -3vh 0vw 1vh 0vw;
+}
+.ln-title {
+  padding-top: 3vh;
+}
+.cn-line {
+  font-size: 4vh;
+  height: 6%;
+  font-weight: bolder;
+}
+.sn-title {
+  font-size: 3.8vh;
+  font-weight: bolder;
 }

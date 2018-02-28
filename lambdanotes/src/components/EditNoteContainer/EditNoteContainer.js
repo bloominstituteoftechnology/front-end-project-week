@@ -27,10 +27,10 @@ class EditNoteContainer extends React.Component {
     const index = this.props.indexOfNote;
     return (
       <div className="edit-note-container">
-        <p>Edit Note: </p>
+        <p className="sn-title">Edit Note: </p>
         <form>
-        <p><input className="noteTitleInputBox" type="text" value={this.state.noteTitle} onChange={this.updateTitle} /></p>
-        <p><input className="noteContentInputBox" type="text" value={this.state.noteContent} onChange={this.updateContent} /></p>
+        <p><textarea className="noteTitleInputBox" type="text" value={this.state.noteTitle} onChange={this.updateTitle} /></p>
+        <p><textarea className="noteContentInputBox" type="text" value={this.state.noteContent} onChange={this.updateContent} /></p>
         <p><button className="save-button" onClick={(e) => {this.updateNote(e, index)}}>Update</button></p>
         </form>
       </div>
