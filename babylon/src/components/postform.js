@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { addNote } from '../actions';
 import Button from './button';
 
@@ -52,6 +53,7 @@ class PostForm extends React.Component {
   state = {
     title: '',
     body: '',
+    redirect: false,
   }
 
   handleSubmit = (event) => {
@@ -60,6 +62,7 @@ class PostForm extends React.Component {
     this.setState({
       title: '',
       body: '',
+      redirect: true,
     });
   }
 
@@ -95,6 +98,7 @@ class PostForm extends React.Component {
           />
           <Button type='submit' backgroundColor='#5dbdc2' title='Save' />
         </form>
+        {this.state.redirect ? <Redirect to='/' /> : null}
       </StyledForm>
     );
   }
