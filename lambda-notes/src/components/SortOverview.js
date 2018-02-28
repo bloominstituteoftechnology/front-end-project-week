@@ -18,16 +18,16 @@ class SortOverview extends React.Component {
           <div>
             <h1 className="sort-header"> How Would You Like to Sort? </h1>
             <div>
-              <button onClick={this.clickAlphabetically}> 
+              <button className='sort-buttons' onClick={this.clickAlphabetically}> 
               Alphabetically by Title 
               </button>
-              <button onClick={this.clickRevAlphabetically}>
+              <button className='sort-buttons' onClick={this.clickRevAlphabetically}>
                 Reverse Alphabetically by Title
               </button>
-              <button onClick={this.clickChronologically}> 
+              <button className='sort-buttons' onClick={this.clickChronologically}> 
               Chronologically by Date 
               </button>
-              <button onClick={this.clickRevChronologically}>
+              <button className='sort-buttons' onClick={this.clickRevChronologically}>
                 Reverse Chronologically by Date
               </button>
             </div>
