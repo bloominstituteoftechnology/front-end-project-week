@@ -25,6 +25,8 @@ export const notes_reducer = (state = initialState, action) => {
             return {...state, notes: action.payload};
         case UPDATE_NOTE:
             return {...state, notes: action.payload};
+        case ERROR_GETTING_NOTES:
+            return {...state, notes: action.payload};
         default:
             return state;
     }

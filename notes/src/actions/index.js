@@ -49,7 +49,7 @@ export const getSingleNote = (note) => {
 };
 
 export const deleteNote = (noteId) => {
-    const id = parseInt(noteId);
+    const id = parseInt(noteId, 10);
     const newNotes = axios.delete(`http://localhost:3333/notes/delete/${id}`, {
         id:id,
     });
@@ -66,7 +66,7 @@ export const deleteNote = (noteId) => {
 };
 
 export const updateNote = (note) => {
-    const id = parseInt(note.id);
+    const id = parseInt(note.id, 10);
     const newNotes = axios.put(`http://localhost:3333/notes/update/${id}`, {
         id:id,
         note,

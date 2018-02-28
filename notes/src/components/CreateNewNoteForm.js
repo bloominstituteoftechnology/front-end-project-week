@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FormGroup, ControlLabel, FormControl, Row, Col, Grid} from 'react-bootstrap';
+import {FormGroup, FormControl, Row, Col, Grid} from 'react-bootstrap';
 import styled from 'styled-components';
 import {addNote} from '../actions'
 import {connect} from 'react-redux';

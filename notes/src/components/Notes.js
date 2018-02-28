@@ -4,7 +4,7 @@ import {getNotes, getSingleNote} from '../actions'
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Loading from './Loading'
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Link} from "react-router-dom";
 
 class Notes extends Component {
 
