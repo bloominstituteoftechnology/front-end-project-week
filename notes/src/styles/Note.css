@@ -19,6 +19,7 @@
   line-height: 40px;
   font-size: 18px;
   font-weight: lighter;
+  white-space: pre-wrap;
 }
 
 .note__options {

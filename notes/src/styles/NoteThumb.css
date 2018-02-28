@@ -9,8 +9,14 @@
   color: rgb(74, 74, 74);
 }
 
+.noteThumb__title {
+  border-bottom: 2px solid lightgray;
+  padding-bottom: 5px;
+}
+
 .noteThumb__content {
   font-weight: lighter;
   line-height: 30px;
   overflow: auto;
+  padding-top: 5px;
 }

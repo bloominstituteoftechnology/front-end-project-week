@@ -9,7 +9,6 @@ const NoteThumb = props => {
   return (
     <div className="noteThumb__container">
       <h3 className="noteThumb__title">{props.note.title}</h3>
-      <hr />
       <p className="noteThumb__content">
         {charsVisible}
       </p>
