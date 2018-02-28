@@ -65,5 +65,5 @@ export const addNote = note => {
 };
 
 const getNextId = () => {
-  return nextId++;
+  return ++nextId;
 };

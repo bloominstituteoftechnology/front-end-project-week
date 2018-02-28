@@ -80,3 +80,28 @@
   font-family: "Raleway", sans-serif;
   font-size: 0.7rem;
 }
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+form .formtitle {
+  box-sizing: border-box;
+  width: 400px;
+  margin: 45px 20px 10px 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+form .formtext {
+  box-sizing: border-box;
+  width: 550px;
+  height: 325px;
+  border: 2px solid #e6e6e6;
+  margin: 5px 20px 10px 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+form .button {
+  margin: 0 0 0 20px;
+}

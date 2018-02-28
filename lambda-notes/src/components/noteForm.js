@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addNote } from "../dummyNotes";
 
 class NoteForm extends Component {
   state = {
@@ -12,13 +13,15 @@ class NoteForm extends Component {
         <h3 className="heading">Create New Note:</h3>
         <form onSubmit={this.createNote}>
           <input
+            className="formtitle"
             type="text"
             placeholder="Note Title"
             onChange={this.updateNote}
             name="title"
             value={this.state.title}
           />
-          <input
+          <textarea
+            className="formtext"
             type="text"
             placeholder="Note Content"
             onChange={this.updateNote}
@@ -47,8 +50,8 @@ class NoteForm extends Component {
       text: this.state.text
     };
 
-    const newNotes = [...this.state.notes, newNote];
-    this.setState({ notes: newNotes, title: "", text: "" });
+    addNote(newNote);
+    this.setState({ title: "", text: "" });
   };
 }
 

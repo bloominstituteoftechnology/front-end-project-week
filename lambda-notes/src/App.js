@@ -11,6 +11,7 @@ class App extends Component {
   state = {
     notes: getNotes()
   };
+
   render() {
     return (
       <Router>
@@ -21,10 +22,7 @@ class App extends Component {
             render={state => <NoteList notes={this.state.notes} exact />}
           />
           {/*<Route path={`/note/${id}`} component={SingleNote} />*/}
-          <Route
-            path="/noteform"
-            component={state => <NoteForm notes={this.state.notes} exact />}
-          />
+          <Route path="/noteform" component={NoteForm} exact />
         </div>
       </Router>
     );
