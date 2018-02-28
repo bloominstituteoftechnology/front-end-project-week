@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "../styling/App.css";
 import MainView from "./MainView";
 import CreateView from "./CreateView";
+import OneNote from './OneNote';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NotesViewStyled from "../styling/NotesViewStyled";
 
@@ -38,6 +39,10 @@ class App extends Component {
           </div>
           <Route exact path="/" component={MainView} />
           <Route path="/create" component={CreateView} />
+          <Route path="/note/:id" render={(props) => {
+            console.log('route props is');
+            return <OneNote id={props.match.params.id}/>
+          }} />
           {/* <Route path='/edit' component={EditView} /> */}
         </NotesViewStyled>
       </Router>

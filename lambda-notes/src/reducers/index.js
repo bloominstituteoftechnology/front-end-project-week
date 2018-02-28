@@ -1,4 +1,4 @@
-import { ADD_NOTE } from '../actions';
+import { ADD_NOTE, UPDATE_SELECTED } from '../actions';
 
 // const initialState = [
 //   {
@@ -17,8 +17,14 @@ export const notesReducer = (state=[], action) => {
           id: action.id,
           title: action.payload.title,
           text: action.payload.text,
+          selected: false,
         }
       ]
+    case UPDATE_SELECTED:
+      return state.map(note => {
+        if (note.id === action.payload) return { ...note, selected: !note.selected };
+        else return note;
+      })
     default:
       return state;
   }

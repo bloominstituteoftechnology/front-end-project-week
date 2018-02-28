@@ -76,6 +76,10 @@ const NotesViewStyled = styled.div`
       }
     }
   }
+
+  .OneNote {
+    
+  }
 `;
 
 export default NotesViewStyled;

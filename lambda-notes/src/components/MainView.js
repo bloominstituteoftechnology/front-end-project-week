@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Notes from "./Notes";
+import { updateSelected } from '../actions';
+import { Redirect } from "react-router-dom";
 
 class MainView extends Component {
   render() {
@@ -10,7 +12,21 @@ class MainView extends Component {
         <h2>Your Notes:</h2>
         <div className="Notes">
           {this.props.notes.map(note => {
-            return <Notes key={note.id} note={note} />;
+            return (
+              <form>
+                <Notes key={note.id} note={note} onClick={() => {
+                  this.props.updateSelected(note.id);
+                }} />
+                {note.selected ? (
+                  <Redirect to={`/note/${note.id}`} />
+                ) : (
+                  console.log(
+                    "still not going through redirect",
+                    note.selected
+                  )
+                )}
+              </form>
+            );
           })}
         </div>
       </div>
@@ -18,12 +34,10 @@ class MainView extends Component {
   }
 }
 
-//  <img src={logo} className="App-logo" alt="logo" />
-
 const mapStateToProps = state => {
   return {
     notes: state
   };
 };
 
-export default connect(mapStateToProps, {})(MainView);
+export default connect(mapStateToProps, { updateSelected })(MainView);
