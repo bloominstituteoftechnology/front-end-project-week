@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class LambdaNotes extends Component {
   render() {
     return (
-      <div className="LambdaNotes">
+      <div className="lambda-notes">
         <p>Test</p>
       </div>
     );
