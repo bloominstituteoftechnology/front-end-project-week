@@ -52,6 +52,23 @@ class EditNote extends Component {
     })
   }
 
+  handleTitleInput = event => {
+    this.setState({ title: event.target.value });
+  };
+
+  handleContentInput = event => {
+    this.setState({ content: event.target.value });
+  }
+
+  handleUpdate = () => {
+    let updatedNote = {
+      title: this.state.title,
+      content: this.state.content,
+      id: this.state.id,
+    }
+    this.props.updateNote(updatedNote);
+  }
+
   render() {
     return (
       <EditNoteStyled>
@@ -60,6 +77,7 @@ class EditNote extends Component {
           className="NoteTitleInput"
           type="text"
           value={this.state.title}
+          onChange={this.handleTitleInput}
         />
         <textarea
           className="NoteContentInput"
@@ -67,8 +85,9 @@ class EditNote extends Component {
           cols="50"
           rows="10"
           value={this.state.content}
+          onChange={this.handleContentInput}
         />
-        <button>Update</button>
+        <button onClick={this.handleUpdate}>Update</button>
       </EditNoteStyled>
     )
   }

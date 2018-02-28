@@ -38,12 +38,22 @@ class App extends Component {
 
   // Display Notes List when Sidebar button is clicked
   viewNotes = () => {
-    this.setState({ viewingNotes: true, creatingNote: false, showingNoteDetails: false, editingNote: false, });
+    this.setState({
+      viewingNotes: true,
+      creatingNote: false,
+      showingNoteDetails: false,
+      editingNote: false,
+    });
   }
 
   // Display Create New Note entry form when Sidebar button is clicked
   createNewNoteForm = () => {
-    this.setState({ viewingNotes: false, creatingNote: true, showingNoteDetails: false, editingNote: false });
+    this.setState({
+      viewingNotes: false,
+      creatingNote: true,
+      showingNoteDetails: false,
+      editingNote: false
+    });
   }
 
   // Display Note Details when note is clicked on in Note List
@@ -60,7 +70,12 @@ class App extends Component {
 
   // Display Note Edit Form when 'edit' is clicked in Note Details
   showNoteEditForm = () => {
-    this.setState({ viewingNotes: false, creatingNote: false, showingNoteDetails: false, editingNote: true });
+    this.setState({
+      viewingNotes: false,
+      creatingNote: false,
+      showingNoteDetails: false,
+      editingNote: true
+    });
   }
 
   // Create new note object with data from CreateNote;
@@ -73,6 +88,24 @@ class App extends Component {
       creatingNote: false,
       editingNote: false,
     })
+  }
+
+  updateNote = (updatedNote) => {
+    let { title, content, id } = updatedNote;
+    let updatedNotes = this.state.notes.map((note) => {
+      if (note.id === id) {
+        note.title = title;
+        note.content = content;
+      }
+      return note
+    })
+    this.setState({
+      notes: updatedNotes,
+      viewingNotes: true,
+      creatingNote: false,
+      showingNoteDetails: false,
+      editingNote: false,
+    });
   }
 
   // Get id of last note and return new incremented id 
@@ -95,10 +128,31 @@ class App extends Component {
           style={{ width: "200px", height: "100vh" }}
         />
         <div style={{ width: "100%", height: "100vh" }}>
-          {this.state.viewingNotes && <NotesList notes={this.state.notes} showNoteDetails={this.showNoteDetails} />}
-          {this.state.creatingNote && <CreateNote getNextId={this.getNextId} saveNewNote={this.saveNewNote} />}
-          {this.state.showingNoteDetails && <NoteDetails noteDetails={this.state.noteDetails} showNoteEditForm={this.showNoteEditForm} />}
-          {this.state.editingNote && <EditNote noteDetails={this.state.noteDetails} noteDetails={this.state.noteDetails} />}
+          {this.state.viewingNotes &&
+            <NotesList
+              notes={this.state.notes}
+              showNoteDetails={this.showNoteDetails}
+            />}
+
+          {this.state.creatingNote &&
+            <CreateNote
+              getNextId={this.getNextId}
+              saveNewNote={this.saveNewNote}
+            />}
+
+          {this.state.showingNoteDetails &&
+            <NoteDetails
+              noteDetails={this.state.noteDetails}
+              showNoteEditForm={this.showNoteEditForm}
+            />}
+
+          {this.state.editingNote &&
+            <EditNote
+              noteDetails={this.state.noteDetails}
+              noteDetails={this.state.noteDetails}
+              updateNote={this.updateNote}
+              showNoteEditForm={this.showNoteEditForm}
+            />}
         </div>
       </AppStyled>
     );
