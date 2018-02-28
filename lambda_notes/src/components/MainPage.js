@@ -21,7 +21,7 @@ class MainPage extends React.Component {
           <div className="deleteBox__bigBox">
             <div className="bigBox__whiteBox">
               <div className="whiteBox__container">
-                <div className="container__top"></div>
+                <div className="container__top">Are you sure you want to delete this?</div>
                 <div className="container__bottom">
                   <button className="container__button-delete" onClick={() => this.deleteCurrentNote()}>Delete</button>
                   <button className="container__button-cancel" onClick={() => this.toggleDeleting()}>No</button>

@@ -50,4 +50,5 @@
   font-size: 30px;
   line-height: 2;
   margin-top: -10px;
+  overflow-wrap: break-word;
 }

@@ -2,7 +2,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background:rgba(215, 215, 215, .5);
+  background:rgba(215, 215, 215, .8);
   display: flex;
   justify-content: center;
   z-index: 1;
@@ -12,16 +12,18 @@
 }
 
 .bigBox__whiteBox {
+  margin-top: 358px;
   background: white;
-  width: 50%;
-  border: 1px solid black;
+  width: 59.3%;
+  border: 2px solid black;
   display:flex;
   justify-content: center;
-  height: 30%;
+  height: 39%;
 }
 
 .whiteBox__container {
-  margin: 20px 40px;
+  width: 100%;
+  height: 100%;
   display:flex;
   flex-direction: column;
 }
@@ -29,17 +31,44 @@
 .container__top {
   text-align:center;
   width: 100%;
+  margin-top: 91px;
+  font-size: 34px;
 }
 
 .container__bottom {
   display: flex;
   justify-content: space-between;
+  margin: 36px 130px;
 }
 
 .container__button-delete {
   background: rgb(208, 1, 27);
+  color: white;
+  width: 100%;
+  max-width: 409px;
+  height: 90px;
+  margin-top: 30px;
+  border: 2px solid #BEBEBE;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.container__button-delete:hover {
+  cursor: pointer;
 }
 
 .container__button-cancel {
+  color: white;
   background: rgb(42, 192, 196);
+  width: 100%;
+  max-width: 409px;
+  height: 90px;
+  margin-top: 30px;
+  border: 2px solid #BEBEBE;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.container__button-cancel:hover {
+  cursor: pointer;
 }
