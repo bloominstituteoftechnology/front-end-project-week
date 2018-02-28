@@ -1,7 +1,6 @@
 import * as actions from '../actions/index';
 
 const dateString = new Date().toUTCString();
-
 const initialState = {
   notes: [
     {
@@ -22,7 +21,7 @@ const initialState = {
     },
     {
       id: 2,
-      date: new Date(),
+      date: new Date() - 10000,
       dateString: dateString,
       title: 'Premise',
       body:
