@@ -5,7 +5,6 @@ class Menu extends Component {
     super(props);
 
     this.state = {
-
     }
   }
 
