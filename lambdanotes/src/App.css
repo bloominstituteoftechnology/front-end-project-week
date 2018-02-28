@@ -3,38 +3,52 @@
 }
 
 .title {
-  font-size: 2.5em;
+  font-size: 2.5rem;
+  color: #4a494a;
+  font-weight: bold;
+  font-family: Roboto;
+}
+
+.yournotes-header {
+  font-size: 1.7rem;
+  position: absolute;
+  top: 90px;
+  left: 290px;
+  color: #4a494a;
+  font-weight: bold;
+  font-family: Roboto;
 }
 
 .notes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 146px 40px 0px 240px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 148px 40px 0px 240px;
 }
 
 .sidebar {
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #D7D7D7;
-    height: 100%;
-    width: 237px;
-    padding: 0px 0px 0px 15px;
-    color: #4A494A;
-    position: fixed;
-    border-right: 1px solid rgb(150, 150, 150);
-  }
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #d7d7d7;
+  height: 100%;
+  width: 237px;
+  padding: 0px 0px 0px 15px;
+  color: #4a494a;
+  position: fixed;
+  border-right: 1px solid rgb(150, 150, 150);
+}
 
 .button {
   width: 200px;
   border: 1px solid rgb(150, 150, 150);
   padding: 15px 5px 15px 5px;
   margin: 10px 0px 0px 5px;
-  background-color: #5BBDC2;
+  background-color: #5bbdc2;
   text-align: center;
   font-weight: bold;
   color: white;
+  font-family: Roboto;
 }
 
 .list-notes {
