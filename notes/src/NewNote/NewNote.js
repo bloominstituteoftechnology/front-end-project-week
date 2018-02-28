@@ -19,7 +19,12 @@ class NewNote extends Component {
   addNote = event => {
     event.preventDefault();
 
-    this.props.addNote(this.state);
+    const completedNote = {
+      title: this.state.title,
+      body: this.state.body,
+    };
+
+    this.props.addNote(completedNote);
 
     this.setState({
       title: '',

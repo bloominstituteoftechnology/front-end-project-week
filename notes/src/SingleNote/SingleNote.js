@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteNote } from '../Redux/actions';
+import { deleteNote, editNote } from '../Redux/actions';
 import LeftBar from '../LeftBar/LeftBar';
 import './SingleNote.css';
 
 class SingleNote extends Component {
   state = {
     note: {},
-    buttonPressed: false,
+    title: '',
+    body: '',
+    deleteButtonPressed: false,
+    editButtonPressed: false,
   };
 
   componentDidMount() {
@@ -17,12 +20,42 @@ class SingleNote extends Component {
     this.setState({ note: thisNote });
   }
 
+  updateState = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
+  };
+
+  editNote = event => {
+    event.preventDefault();
+
+    const editedNote = {
+      title: this.state.title,
+      body: this.state.body,
+    };
+
+    console.log('inside editNote(), editedNote: ', editedNote);
+    console.log('inside editNote(), this.state.note.id: ', this.state.note.id);
+
+    this.props.editNote(editedNote, this.state.note.id);
+
+    this.setState({
+      title: '',
+      body: '',
+      editButtonPressed: !this.state.editButtonPressed,
+    });
+  };
+
   deleteNote = () => {
     this.props.deleteNote(this.state.note);
   };
 
-  toggleButton = () => {
-    this.setState({ buttonPressed: !this.state.buttonPressed });
+  toggleDelete = () => {
+    this.setState({ deleteButtonPressed: !this.state.deleteButtonPressed });
+  };
+
+  toggleEdit = () => {
+    this.setState({ editButtonPressed: !this.state.editButtonPressed });
   };
 
   modal = () => {
@@ -37,7 +70,7 @@ class SingleNote extends Component {
               <button className="modal-danger">Delete</button>
             </Link>
 
-            <button className="modal-safe" onClick={this.toggleButton}>
+            <button className="modal-safe" onClick={this.toggleDelete}>
               No
             </button>
           </div>
@@ -46,21 +79,67 @@ class SingleNote extends Component {
     );
   };
 
-  render() {
+  editNoteFields = () => {
     return (
       <div className="container">
         <LeftBar />
-        <div className="single-note_body">
-          <div className="edit-delete_links">
-            <div className="links">
-              <div className="each-link">edit</div>
-              <div className="each-link" onClick={this.toggleButton}>delete</div>
-            </div>
+        <div className="new-note_body">
+          <div className="new-note_header">Edit Note:</div>
+          <div className="new-note_fields">
+            <form type="submit" onSubmit={this.editNote}>
+              <div className="title-div">
+                <input
+                  type="text"
+                  className="title-input"
+                  placeholder="Note Title"
+                  onChange={this.updateState}
+                  name="title"
+                  value={this.state.title}
+                />
+              </div>
+              <div className="body-div">
+                <textarea
+                  type="text"
+                  className="body-input"
+                  placeholder="Note Content"
+                  onChange={this.updateState}
+                  name="body"
+                  value={this.state.body}
+                />
+              </div>
+              <input type="submit" value="Save" className="submit-button" />
+            </form>
           </div>
-          <div className="single-note_header">{this.state.note.title}</div>
-          <div className="single-note_text">{this.state.note.body}</div>
         </div>
-        {this.state.buttonPressed && this.modal()}
+      </div>
+    );
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.editButtonPressed ? (
+          this.editNoteFields()
+        ) : (
+          <div className="container">
+            <LeftBar />
+            <div className="single-note_body">
+              <div className="edit-delete_links">
+                <div className="links">
+                  <div className="each-link" onClick={this.toggleEdit}>
+                    edit
+                  </div>
+                  <div className="each-link" onClick={this.toggleDelete}>
+                    delete
+                  </div>
+                </div>
+              </div>
+              <div className="single-note_header">{this.state.note.title}</div>
+              <div className="single-note_text">{this.state.note.body}</div>
+            </div>
+            {this.state.deleteButtonPressed && this.modal()}
+          </div>
+        )}
       </div>
     );
   }
@@ -72,4 +151,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { deleteNote })(SingleNote);
+export default connect(mapStateToProps, { deleteNote, editNote })(SingleNote);

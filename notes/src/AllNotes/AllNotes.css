@@ -17,8 +17,7 @@
 .all-notes_notes {
   display: flex;
   flex-flow: wrap;
-  justify-content: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 12px;
@@ -29,9 +28,10 @@
   box-sizing: border-box;
   border: 2px solid lightgrey;
   width: 240px;
-  height: 230px;
+  height: 235px;
   margin-bottom: 20px;
-  padding: 20px;
+  margin-left: 18px;
+  padding: 13px 20px 20px 20px;
 }
 .note-title {
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
@@ -39,7 +39,10 @@
   font-weight: bold;
   color: black;
   border-bottom: 2px solid lightgrey;
-  padding-bottom: 7px;
+  padding-bottom: 0px;
+  overflow: hidden;
+  height: 31px;
+  line-height: 30px;
 }
 
 .note-body {

@@ -43,6 +43,7 @@
   line-height: 32px;
   margin: 0px 31px;
   padding-bottom: 25px;
+  white-space: pre-wrap;
 }
 
 .modal-layer-one {

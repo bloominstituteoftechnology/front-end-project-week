@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE } from '../actions';
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from '../actions';
 
 const initialState = {
   notes: [
@@ -52,7 +52,7 @@ export const reducer = (state = initialState, action) => {
           {
             title: action.payload.title,
             body: action.payload.body,
-            id: (action.payload.id = state.counter),
+            id: state.counter,
           },
         ],
         counter: ++state.counter,
@@ -63,6 +63,25 @@ export const reducer = (state = initialState, action) => {
         notes: state.notes.filter(each => {
           return each.id !== action.payload;
         }),
+      };
+    case EDIT_NOTE:
+      let newNotes = state.notes.map(each => {
+        if (each.id === action.id) {
+          console.log('in the map, action.id: ', action.id);
+          console.log('in the map, each.id: ', each.id);
+          console.log('in the map, action.payload.title: ', action.payload.title);
+          return {
+            title: action.payload.title,
+            body: action.payload.body,
+            id: action.id,
+          };
+        }
+        return each;
+      });
+
+      return {
+        ...state,
+        notes: newNotes,
       };
     default:
       return state;
