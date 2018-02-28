@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPost } from '../actions';
 
 class PostsShow extends Component {
+  componentDidMount() {
+    const { id } = this.props.match.params.id; //Provided by React-Router
+    this.props.fetchPost(id);
+  }
+
   render() {
+    const { post } = this.props;
+
+
     return (
       <div>
-        Your Note:
+        <h1>{post.title}</h1>
+        <h6>Categories: {post.categories}</h6>
+        <p>{post.content}</p>
       </div>
     );
-  };
+  }
 }
 
-export default PostsShow;
+function mapStateToProps({ posts }, ownProps) {
+  return { post: posts[ownProps.match.parans.id] };
+}
+
+export default connect(mapStateToProps, { fetchPost })(PostsShow);
