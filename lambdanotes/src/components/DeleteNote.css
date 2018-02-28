@@ -13,6 +13,11 @@
 .DeleteModal-Box {
   text-align: center;
   background: white;
-  border: 1px solid black;
+  border: 2px solid black;
   height: 150px;
+  padding: 10px;
+}
+
+.DeleteModal-Box-Delete {
+  background: red;
 }

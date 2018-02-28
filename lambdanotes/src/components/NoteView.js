@@ -30,7 +30,7 @@ export default class NoteView extends React.Component {
       <div>
         {this.boolModal ? (
           <div>
-            <DeleteNote id={id}/>
+            <DeleteNote id={id} toggleModal={this.toggleModal} handleDeleteNote={this.props.handleDeleteNote} />
           </div>
         ) : (null)}
         <div>
