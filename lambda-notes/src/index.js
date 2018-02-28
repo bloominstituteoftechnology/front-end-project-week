@@ -8,5 +8,11 @@ import { Provider } from 'react-redux';
 // Styles
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+let STORAGE_WAREHOUSE = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+ReactDOM.render(
+  <Provider store={STORAGE_WAREHOUSE}>
+     <App />
+   </Provider>,
+   document.getElementById('root')
+ );
