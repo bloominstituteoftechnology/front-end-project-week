@@ -80,20 +80,26 @@ const initialState = {
   current: 'list',
   note: null,
   results: [],
+  edit: false,
 };
 
 export default (state = initialState, action) => {
+  // I'm sure this is frowned upon, but edit broke everything unless
+  // it was on the original page.  For the time being, this is my remedy.
+  if (state.current === 'list') state.edit = true;
+  else state.edit = false;
+
   switch (action.type) {
     case actions.ADD_BUTTON_CLICK:
-      return { ...state, current: action.payload };
+      return { ...state, current: action.payload, };
     case actions.VIEW_BUTTON_CLICK:
       return { ...state, current: action.payload };
     case actions.ADD_NOTE:
-      return { ...state, notes: [...state.notes, action.payload] };
+      return { ...state, notes: [...state.notes, action.payload],  };
     case actions.VIEW_NOTE:
       return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE_CLICKED:
-      return { ...state, current: action.payload.current, note: action.payload.note };
+      return { ...state, current: action.payload.current, note: action.payload.note,  };
     case actions.EDIT_NOTE:
       // Not sure if this is okay.  I could get rid of note fairly easily I suppose...
       // Not sure how to dot chain the two though.  Everything I tried failed.
@@ -107,7 +113,7 @@ export default (state = initialState, action) => {
         ...state.notes.slice(action.payload.index + 1),
       ];
       removed.splice(action.payload.index, 0, note);
-      return { ...state, notes: removed };
+      return { ...state, notes: removed,  };
     case actions.DELETE_NOTE:
       return {
         ...state,
@@ -116,13 +122,14 @@ export default (state = initialState, action) => {
           ...state.notes.slice(0, action.payload.note.index),
           ...state.notes.slice(action.payload.note.index + 1),
         ],
+        
       };
     case actions.SEARCH_CLICK:
-      return { ...state, current: action.payload };
+      return { ...state, current: action.payload,  };
     case actions.SEARCH_RESULTS_CLICKED:
-      return { ...state, current: action.payload.current, results: action.payload.results };
+      return { ...state, current: action.payload.current, results: action.payload.results,  };
     case actions.SORT_BUTTON_CLICKED:
-      return { ...state, current: action.payload};
+      return { ...state, current: action.payload, };
     default:
       return state;
   }

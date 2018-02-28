@@ -21,7 +21,7 @@ class MainContent extends React.Component {
     if (this.props.current === 'search') return (show = <Search />);
     if (this.props.current === 'results') return (show = <SearchResults />);
     if (this.props.current === 'sort') return (show = <SortOverview />)
-    return <div>{show};</div>;
+    return <div>{show}</div>;
   }
 }
 
