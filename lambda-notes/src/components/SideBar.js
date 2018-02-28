@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import React from 'react';
 import '../styles/SideBar.css';
 

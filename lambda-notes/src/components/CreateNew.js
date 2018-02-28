@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createPost } from '../actions';
 import '../styles/CreateNew.css';
 
 class CreateNew extends Component {
@@ -16,7 +18,8 @@ class CreateNew extends Component {
     );
 }
 
-onSubmit(values) {
+onSubmit = (values) => {
+  createPost(values);
   console.log(values)
 }
 
@@ -26,7 +29,7 @@ onSubmit(values) {
     return (
       <div>
         <h1>Create New Note</h1>
-        <form onSubmit={handleSubmit(this.onSubmit).bind(this)}>
+        <form onSubmit={handleSubmit(this.onSubmit)}>
           <Field
             label="Title"
             name="title"
@@ -42,7 +45,9 @@ onSubmit(values) {
             name="content"
             component={this.renderField}
           />
-          <button type="submit" className="saveButton">Save</button>
+          <button 
+          type="submit" 
+          className="saveButton">Save</button>
         </form>
       </div>
     );
@@ -67,4 +72,6 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: 'CreateNewForm'
-})(CreateNew);
+})(
+  connect(null, { createPost })(CreateNew)
+);
