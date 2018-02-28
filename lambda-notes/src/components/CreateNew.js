@@ -19,8 +19,9 @@ class CreateNew extends Component {
 }
 
 onSubmit = (values) => {
-  createPost(values);
-  console.log(values)
+  this.props.history.push('/');
+  console.log(values);
+  this.props.createPost(values);
 }
 
   render() {
@@ -64,7 +65,6 @@ function validate(values) {
   if (!values.content) {
     errors.content = "No Content!";
   }
-
   //if errors is empty, the form is fine to submit.
   return errors;
 }
