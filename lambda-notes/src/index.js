@@ -12,6 +12,7 @@ import './index.css';
 import SideBar from './components/SideBar';
 import PostsIndex from './components/PostsIndex';
 import CreateNew from './components/CreateNew';
+import PostsShow from './components/PostsShow';
 
 const store = createStore(rootReducer, applyMiddleware());
 
@@ -23,6 +24,7 @@ ReactDOM.render(
         <SideBar />
         <Route path="/" component={PostsIndex} exact />
         <Route path="/notes/new" component={CreateNew} />
+        <Route path="/note/:id" component={PostsShow} />
       </div>
     </BrowserRouter>
 </Provider>
