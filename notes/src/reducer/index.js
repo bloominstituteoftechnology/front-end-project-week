@@ -2,7 +2,7 @@
 import notes from '../data/notes';
 
 // Action types
-import { ADD_NOTE, UPDATE_NOTE, TOGGLE_MODAL } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, TOGGLE_MODAL, DELETE_NOTE } from '../actions';
 
 const initialState = {
   notes: [],
@@ -33,6 +33,12 @@ const reducer = (state = initialState, action) => {
     case TOGGLE_MODAL:
       return {
         ...state,
+        modalVisible: !state.modalVisible,
+      };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter(note => note.id !== action.payload),
         modalVisible: !state.modalVisible,
       };
     default:
