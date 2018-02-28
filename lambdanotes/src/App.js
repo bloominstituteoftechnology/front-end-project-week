@@ -14,10 +14,8 @@ class App extends Component {
         { title: 'test3',
       content: 'test3'}
       ],
-      newNote: {
-        title: '',
-        content: ''
-      },
+      title: '',
+      content: '',
       visible: true
     }
     this.addNote = this.addNote.bind(this);
@@ -25,21 +23,23 @@ class App extends Component {
   }
 
   addNote = (event) => {
-    event.preventdefault();
-    const note = this.state.notes;
-    note.push(this.state.newNote);
-    console.log(note);
+    event.preventDefault();
+    let newObj = {
+      title: this.state.title,
+      content: this.state.content
+    };
     this.setState({
-      newNote: {
-        title: '',
-        content: ''
-      },
-      note: note,
+      notes: [...this.state.notes, newObj]
+    })
+    console.log(this.state.notes);
+    this.setState({
+      title: '',
+      content: ''
     })
   }
 
   handleNewNoteInput = (event) => {
-    this.setState({newNote: event.target.value})
+    this.setState({ [event.target.name]: event.target.value});
   }
 
 
@@ -52,9 +52,9 @@ class App extends Component {
           <div>View Notes</div>  
           <div>
             <h5>Create New Note+</h5>
-            <form onSubmit={this.addnote}>
-              <input onChange={this.handleNewNoteInput} type='text' placeholder='Title' value={this.state.newNote.title}></input>
-              <input onChange={this.handleNewNoteInput} type='text' placeholder='Content' value={this.state.newNote.content}></input>
+            <form onSubmit={this.addNote}>
+              <input onChange={this.handleNewNoteInput} name='title' type='text' placeholder='Title' value={this.state.title}></input>
+              <input onChange={this.handleNewNoteInput} name='content' type='text' placeholder='Content' value={this.state.content}></input>
               <button type='submit'>Save</button> 
             </form>  
           </div>  
