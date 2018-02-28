@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addNote } from '../Redux/actions';
 import LeftBar from '../LeftBar/LeftBar';
 import './NewNote.css';
@@ -17,8 +18,6 @@ class NewNote extends Component {
   };
 
   addNote = event => {
-    event.preventDefault();
-
     const completedNote = {
       title: this.state.title,
       body: this.state.body,
@@ -39,7 +38,7 @@ class NewNote extends Component {
         <div className="new-note_body">
           <div className="new-note_header">Create New Note:</div>
           <div className="new-note_fields">
-            <form type="submit" onSubmit={this.addNote}>
+            <form type="submit">
               <div className="title-div">
                 <input
                   type="text"
@@ -60,7 +59,9 @@ class NewNote extends Component {
                   value={this.state.body}
                 />
               </div>
-              <input type="submit" value="Save" className="submit-button" />
+              <Link to="/" className="each-link" onClick={this.addNote}>
+                <input type="submit" value="Save" className="submit-button" />
+              </Link>
             </form>
           </div>
         </div>
