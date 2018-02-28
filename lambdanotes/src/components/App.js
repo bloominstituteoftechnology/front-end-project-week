@@ -6,7 +6,6 @@ import NoteList from './NoteList';
 import CreateNote from './CreateNote';
 import NoteView from './NoteView';
 import EditNote from './EditNote';
-import DeleteNote from './DeleteNote';
 
 export default class App extends React.Component {
   nextId = 0;
