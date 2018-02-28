@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 const NoteList = (props) => {
    
         return (
-               <div>
-                    {props.notes.map(noteObj => {
-                        return (
-                           <Note key={props.notes.indexOf(noteObj)} noteObj={noteObj} id={props.notes.indexOf(noteObj)} />
-                        )
-                    })}
+               <div className="noteBox">
+                    <h1> Your Notes: </h1>
+                    <div className="singleNote">
+                        {props.notes.map(noteObj => {
+                            return (
+                            <Note key={props.notes.indexOf(noteObj)} noteObj={noteObj} id={props.notes.indexOf(noteObj)} />
+                            )
+                        })}
+                    </div>
                 </div>
         )
 
@@ -20,8 +23,9 @@ const NoteList = (props) => {
         console.log(noteObj);
         return (
             <Link to={`/${noteObj.id}`}>
-                <div className="noteBox" id={id}>
-                    <h1>{note}</h1>
+                <div className="listBox" id={id}>
+                    <h2>{note}</h2>
+                    <hr />
                     <p>{details}</p>
                 </div>
             </Link>
