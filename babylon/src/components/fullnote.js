@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import LeftRail from './leftrail';
 import SectionTitle from './sectiontitle';
 import TextBlock from './textblock';
@@ -36,11 +37,12 @@ const StyledNote = styled.div`
 
 const FullNote = props => (
   <StyledNote >
-    {/* <Delete /> */}
     <LeftRail />
     <div className='full-note__right'>
       <div className='full-note__links'>
-        <a href='#'>edit</a>
+        <Link to='/updatenote' exact>edit</Link>
+        {/* <Link to='/' style={{ textDecoration: 'none' }} exact>delete</Link> */}
+        {/* <a href='#'>edit</a> */}
         <a href='#'>delete</a>
       </div>
       <SectionTitle name={props.notes[0].title}/>
