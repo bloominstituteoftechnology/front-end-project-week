@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // Styles
 const NoteDetailsStyled = styled.div`
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -30,6 +30,7 @@ const NoteDetailsStyled = styled.div`
 
   p {
     width: 90%;
+    white-space: pre-line;
   }
 `
 

@@ -136,7 +136,7 @@ class App extends Component {
         <Sidebar
           viewNotes={this.viewNotes}
           createNewNoteForm={this.createNewNoteForm}
-          style={{ width: "200px", height: "100vh" }}
+          style={{ width: "200px", height: "100vh", padding: "0" }}
         />
 
         <div style={{ width: "100%", height: "100vh" }}>
@@ -157,6 +157,7 @@ class App extends Component {
               noteDetails={this.state.noteDetails}
               showNoteEditForm={this.showNoteEditForm}
               showDeleteModal={this.showDeleteModal}
+              style={{ padding: "0" }}
             />}
 
           {this.state.editingNote &&

@@ -5,7 +5,7 @@ import Note from './note';
 const NoteListStyled = styled.div`
   width: 100%;
   height: 100vh;
-  padding: 10px;
+  padding: 20px;
   background-color: rgb(243, 243, 243);
   display: flex;
   flex-direction: column;
