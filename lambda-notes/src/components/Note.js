@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Note = props => {
   return (
-    <Link className="col-md-4" key={props.id} id={props.id} to={`/view-note/${props.id}`}>
+    <Link className="col-md-4" key={props.id} to={`/view-note/${props.id}`}>
       <div className="note">
         <h3>{props.title}</h3>
         <hr />
@@ -12,4 +12,5 @@ const Note = props => {
     </Link>
   );
 };
+
 export default Note;
