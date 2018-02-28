@@ -36,6 +36,7 @@ const reducer = (state = initialState, action) => {
           if (note.id !== action.payload.id) return note;
           return action.payload;
         }),
+        selectedNote: action.payload
       };
     case TOGGLE_MODAL:
       return {
