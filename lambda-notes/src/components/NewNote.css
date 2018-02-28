@@ -11,3 +11,6 @@ form textarea, form input {
 .note-body {
     width:100%;
 }
+.full-note a:last-child {
+    margin-left:10px;
+}

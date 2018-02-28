@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { addNote } from '../actions/actions';
 import { connect } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './NewNote.css';
 
 class NewNote extends Component {
@@ -24,25 +18,29 @@ class NewNote extends Component {
   };
   handleDisable = () => {
     const { title, body } = this.state;
+    let val = title === '' || body === '';
     this.setState({
-      disabled: title === '' || body === '',
+      disabled: val,
     });
+    return val;
   };
   submitNote = e => {
     e.preventDefault();
-    this.props.addNote({
-      title: this.state.title,
-      body: this.state.body,
-      id: this.state.id.length + 1,
-    });
-    this.setState({
-      note: {
-        title: '',
-        body: '',
-        id: '',
-      },
-      redirect: true,
-    });
+    if (!this.handleDisable()) {
+      this.props.addNote({
+        title: this.state.title,
+        body: this.state.body,
+        id: this.state.id.length + 1,
+      });
+      this.setState({
+        note: {
+          title: '',
+          body: '',
+          id: '',
+        },
+        redirect: true,
+      });
+    }
   };
   render() {
     return (
