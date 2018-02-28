@@ -4,23 +4,24 @@ export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 
-const API = 'http://reduxblog.herokuapp.com/api/posts?key=teleson';
+const APIroot = 'http://reduxblog.herokuapp.com/api/posts/';
+const APIkey = '?key=teleson/';
 
 export const getNotes = () => {
-  const notes = axios.get(API);
+  const notes = axios.get(`${APIroot}${APIkey}`);
   return dispatch => {
     notes
       .then(payload => {
         dispatch({ type: GET_NOTES, payload: payload.data });
       })
       .catch(error => {
-        console.log('In actions: There was an error adding note: ', error);
+        console.log('In actions: There was an error getting notes: ', error);
       });
   };
 };
 
-export const addNote = newNote => {
-  const notes = axios.post(API, newNote);
+export const addNote = (newNote, cb) => {
+  const notes = axios.post(`${APIroot}${APIkey}`, newNote);
   return dispatch => {
     notes
       .then(newNote => {
@@ -29,6 +30,7 @@ export const addNote = newNote => {
           payload: newNote.data,
         });
       })
+      .then(cb())
       .catch(error => {
         console.log('In actions: There was an error adding note: ', error);
       });
@@ -36,9 +38,15 @@ export const addNote = newNote => {
 };
 
 export const deleteNote = oldNote => {
-  return {
-    type: DELETE_NOTE,
-    payload: oldNote.id,
+  const notes = axios.delete(`${APIroot}${oldNote.id}${APIkey}`);
+  return dispatch => {
+    notes
+      .then(payload => {
+        dispatch({ type: DELETE_NOTE, payload: payload.data });
+      })
+      .catch(error => {
+        console.log('In actions: There was an error deleting note: ', error);
+      });
   };
 };
 

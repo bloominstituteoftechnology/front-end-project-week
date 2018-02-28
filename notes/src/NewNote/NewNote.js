@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { addNote } from '../Redux/actions';
 import LeftBar from '../LeftBar/LeftBar';
 import './NewNote.css';
@@ -23,7 +22,7 @@ class NewNote extends Component {
       content: this.state.content,
     };
 
-    this.props.addNote(completedNote);
+    this.props.addNote(completedNote, () => {this.props.history.push('/')});
 
     this.setState({
       title: '',
@@ -59,9 +58,12 @@ class NewNote extends Component {
                   value={this.state.content}
                 />
               </div>
-              <Link to="/" onClick={this.addNote}>
-                <input type="submit" value="Save" className="submit-button" />
-              </Link>
+              <input
+                className="submit-button"
+                type="submit"
+                value="Save"
+                onClick={this.addNote}
+              />
             </form>
           </div>
         </div>

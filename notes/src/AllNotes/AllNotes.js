@@ -28,7 +28,8 @@ class AllNotes extends Component {
                 charsVisible = '';
               }
               return (
-                <div className="note-box" key={eachNote.id}>
+                <div className="note-box" key={i}>
+                  {console.log('to show chris: ', eachNote.id)}
                   <Link to={`/notes/${eachNote.id}`}>
                     <div className="note-title">{`${i + 1}. ${
                       eachNote.title
