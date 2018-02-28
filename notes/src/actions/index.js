@@ -1,5 +1,6 @@
 export const ADD_NOTE = 'ADD_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 
 export const addNote = note => {
   return {
@@ -14,3 +15,9 @@ export const updateNote = note => {
     payload: note,
   };
 };
+
+export const toggleModal = () => {
+  return {
+    type: TOGGLE_MODAL,
+  }
+}
