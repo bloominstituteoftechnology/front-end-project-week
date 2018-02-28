@@ -37,6 +37,10 @@ const StyledNote = styled.div`
 `;
 
 class FullNote extends React.Component {
+  state = {
+    redirect: false,
+  }
+
   handleDeleteLink = (event) => {
     event.preventDefault();
     this.props.toggleDelete();
@@ -45,7 +49,7 @@ class FullNote extends React.Component {
   render() {
     return (
       <StyledNote >
-        {this.props.deleteActive ? <Delete id={this.props.match.params.id}/> : null}
+        {this.props.deleteActive ? <Delete id={this.props.match.params.id} history={this.props.history}/> : null}
         <LeftRail />
         <div className='full-note__right'>
           <div className='full-note__links'>
