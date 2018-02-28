@@ -44,8 +44,8 @@ const FullNote = props => (
         {/* <Link to='/' style={{ textDecoration: 'none' }} >delete</Link> */}
         <a href='#'>delete</a>
       </div>
-      <SectionTitle name={props.notes[0].title}/>
-      <TextBlock body={props.notes[0].body}/>
+      <SectionTitle name={props.notes.find(val => val.id.toString() === props.match.params.id).title} />
+      <TextBlock body={props.notes.find(val => val.id.toString() === props.match.params.id).body} />
     </div>
   </StyledNote>
 );
