@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Note.css';
+import { Link } from 'react-router-dom';
 
-function Note(props) {
+function NoteCard({ note }) {
+    const { title, content } = note;
     return (
-        <div className='Box'>
-            <span>{props.note.title}</span>
-            <p>{props.note.content}</p>
-        </div>
+        <Link to={`/notes/${note.id}`}>
+            <div className='Box'>
+                <span>{title}</span>
+                <p>{content}</p>
+            </div>
+        </Link>
     );
 }
 
-export default Note;
+export default NoteCard;
