@@ -2,11 +2,12 @@
 import notes from '../data/notes';
 
 // Action types
-import { ADD_NOTE, UPDATE_NOTE } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, TOGGLE_MODAL } from '../actions';
 
 const initialState = {
   notes: [],
   id: 1,
+  modalVisible: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +29,11 @@ const reducer = (state = initialState, action) => {
           if (note.id !== action.payload.id) return note;
           return action.payload;
         }),
+      };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        modalVisible: !state.modalVisible,
       };
     default:
       return state;
