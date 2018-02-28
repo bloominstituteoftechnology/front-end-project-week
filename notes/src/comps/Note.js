@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toggleModal } from '../actions';
 import '../styles/Note.css';
 
 const Note = props => {
@@ -15,7 +16,7 @@ const Note = props => {
         <Link to={`/edit/${note.id}`}>
           <div className="note__option-item">edit</div>
         </Link>
-        <div className="note__option-item">delete</div>
+        <div className="note__option-item" onClick={props.toggleModal}>delete</div>
       </div>
       <div className="note">
         <div className="note__title">{note.title}</div>
@@ -31,4 +32,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Note);
+export default connect(mapStateToProps, { toggleModal })(Note);
