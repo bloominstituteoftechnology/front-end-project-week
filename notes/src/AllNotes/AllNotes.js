@@ -12,13 +12,13 @@ class AllNotes extends Component {
         <div className="all-notes_body">
           <div className="all-notes_header">Your Notes:</div>
           <div className="all-notes_notes">
-            {this.props.notes.map(eachNote => {
+            {this.props.notes.map((eachNote, i) => {
               const charsVisible =
-              eachNote.body.length < 120 ? eachNote.body : (eachNote.body.slice(0, 105) + '...');
+              eachNote.body.length < 120 ? eachNote.body : (eachNote.body.slice(0, 105) + ' ...');
               return (
                 <div className="note-box" key={eachNote.id}>
                   <Link to={`/notes/${eachNote.id}`}>
-                    <div className="note-title">{eachNote.title}</div>
+                    <div className="note-title">{`${i + 1}. ${eachNote.title}`}</div>
                     <div className="note-body">{charsVisible}</div>
                   </Link>
                 </div>
