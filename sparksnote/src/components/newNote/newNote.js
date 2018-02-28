@@ -21,6 +21,7 @@ class NewNote extends Component {
           <form className="newNote__form">
             <input className="newNote__form__title" />
             <input className="newNote__form__content" />
+            <input value="Save" type="button" className="newNote__form__button" />
           </form>
         </div>
       </div>
