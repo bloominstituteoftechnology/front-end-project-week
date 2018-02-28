@@ -6,23 +6,32 @@ import './App.css';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
- 
-  state = {
-    notes: [
-        {
-            note: 'Create App',
-            details: 'Get app up and working',
-            id: 0,
-        },
-        {
-          note: 'placeholder',
-          details: 'placeholder',
-          id: 1,
-        },
-    ],
-    note: '',
-    details: '',
-}
+  constructor() {
+    super();
+      this.state = {
+        notes: [
+            {
+                note: 'Create App',
+                details: 'Get app up and working',
+                id: 0,
+            },
+            {
+              note: 'placeholder',
+              details: 'placeholder',
+              id: 1,
+            },
+        ],
+        note: '',
+        details: '',
+        id: '',
+    }
+
+    this.viewNote = this.viewNote.bind(this);
+    this.noteForm = this.noteForm.bind(this);
+    this.notes = this.notes.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.submitNote = this.submitNote.bind(this);
+  }
 
   render() {
     return (
@@ -33,11 +42,11 @@ class App extends Component {
               <NavLink to='/'>Notes</NavLink>
             </li>
             <li>
-              <NavLink to='/noteform'>Create new note</NavLink>
+              <NavLink to='/createNote'>Create new note</NavLink>
             </li>
           </ul>
           <Route path='/' component={this.notes} exact/>
-          <Route path='/noteform' component={this.noteForm} />
+          <Route path='/createNote' component={this.noteForm} exact/>
           <Route path='/:id' component={this.viewNote} />
 
         </div>
@@ -45,14 +54,21 @@ class App extends Component {
     );
   }
 
- 
+ componentDidMount () {
+   
+}
 
   viewNote = (props) => {
-    console.log(props);
-    const id = props.match.params.id;
-    console.log(id);
+    
+    console.log(props.match.params);
+    let id = props.match.params.id;
+    if(id === 'createNote') {
+      return null;
+    }
+    let note = this.state.notes[id].note;
+    let details = this.state.notes[id].details;
     return (
-      <ViewNote note={this.state.notes[id].note} details={this.state.notes[id].details}  />
+      <ViewNote note={note} details={details}  />
     )
   }
   noteForm = () => {
@@ -70,27 +86,29 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value});
 }
 
-submitNote = (e) => {
-    e.preventDefault();
-    if(this.state.note.length > 0 && this.state.details.length > 0) {
-    let newObj = {
-      note: this.state.note, 
-      details: this.state.details,
-    };
-    this.setState({
-      notes: [...this.state.notes, newObj],
-    })
-    this.setState({
-        note: '',
-        details: '',
-    });
+  submitNote = (e) => {
+      e.preventDefault();
+      if(this.state.note.length > 0 && this.state.details.length > 0) {
+      let newObj = {
+        note: this.state.note, 
+        details: this.state.details,
+        id: this.state.notes.length,
+      };
+      this.setState({
+        notes: [...this.state.notes, newObj],
+      })
+      this.setState({
+          note: '',
+          details: '',
+          id: '',
+      });
+    }
   }
-}
 
-idExtractor = (event) => {
-  event.preventDefault();
-  return event.target.id;
-}
+  idExtractor = (event) => {
+    event.preventDefault();
+    return event.target.id;
+  }
 
 }
 
