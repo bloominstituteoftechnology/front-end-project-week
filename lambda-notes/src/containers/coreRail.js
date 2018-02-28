@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteList from '../components/noteList';
 import NewNote from '../components/newNote';
-import NoteView from '../components/noteView';
+import ViewNote from '../components/viewNote';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
@@ -23,7 +23,7 @@ const CoreRail = (props) => {
                     <NewNote {...routeProps} {...props} />
                 )} path="/new"/>
             <Route render={(routeProps) => (
-                    <NoteView {...routeProps} {...props} />
+                    <ViewNote {...routeProps} {...props} />
                 )} path="/note/:id" />
           </div>
         </Router>

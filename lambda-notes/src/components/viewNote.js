@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NoteView = (props) => {
+const ViewNote = (props) => {
     console.log("NoteView props: ", props);
     return (
       <div>
@@ -14,4 +14,4 @@ const NoteView = (props) => {
     )
 }
 
-export default NoteView;
+export default ViewNote;
