@@ -34,7 +34,7 @@ class UpdateNote extends Component {
                         </Col>
                     </Row>
                     <Row className="show-grid">
-                        <Col md={6} className={"col-up"}>
+                        <Col md={12} className={"col-up"}>
                             <form>
                                 <FormGroup>
                                     <FormControl
@@ -86,23 +86,27 @@ export default connect(mapStateToProps, {updateNote})(UpdateNote);
 
 const UpdateNoteContainer = styled.div`
     
-    border:0px solid black;
+    input{
+        border-radius: 0px;
+        width:55%
+    }
     
+    textarea{
+        border-radius: 0px;
+        height:300px;
+    }
+
         .title-form {
             text-align:center;
             padding:0px;
         }
-
-        .col-up {
-            // margin:0px auto;
-        }
-
+        
         .btn-update{
             text-align:center;
             margin-top:15px;
         }
         
         .create-new{
-            width:65%
+            width:35%
         }
 `;

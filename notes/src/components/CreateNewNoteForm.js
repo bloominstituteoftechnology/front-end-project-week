@@ -89,6 +89,16 @@ export default connect(null, {addNote})(CreateNewNoteForm);
 const CreateNewNoteFormContainer = styled.div`
     text-align:left;
     margin-top:10px;
+    
+    input{
+        border-radius: 0px;
+        width:55%
+    }
+    
+    textarea{
+        border-radius: 0px;
+        height:300px;
+    }
 
         .title-form {
             text-align:center;
@@ -101,7 +111,7 @@ const CreateNewNoteFormContainer = styled.div`
         }
         
         .create-new{
-            width:65%
+            width:35%
         }
 
 `;
