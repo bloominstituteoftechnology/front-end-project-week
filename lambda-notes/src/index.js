@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import LambdaNotes from './components/notes-list';
 // Redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -13,7 +13,7 @@ let STORAGE_WAREHOUSE = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION_
 
 ReactDOM.render(
   <Provider store={STORAGE_WAREHOUSE}>
-     <App />
+     <LambdaNotes />
    </Provider>,
    document.getElementById('root')
  );
