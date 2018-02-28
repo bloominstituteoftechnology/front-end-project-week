@@ -1,18 +1,25 @@
-import { NotesDefaultSource } from './components/NotesDefaultSource';
+import notesDefaultSource from './components/NotesDefaultSource';
 import React, { Component } from 'react';
 
 export default class App extends Component {
-    state = {
-        title: '',
-        body: '',
-    };
 
     render() {
         return (
             <div>
-                <NotesDefaultSource />
+                <notesDefaultSource>
+                    <div>{notesDefaultSource}
+                    </div>
+                </notesDefaultSource>
+                <notesDefaultSource {...this.state}>
+                </notesDefaultSource>
+                <notesDefaultSource {...this.state}>
+                </notesDefaultSource>
+                <notesDefaultSource {...this.state}>
+                </notesDefaultSource>
+
             </div>
-        )
-    }
+            
+            )
+        }
 };
 

@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-function NotesDefaultSource(props) {
 
-  return
-    <h2>{props.title}</h2>;
-    <p>{props.body}</p>;
-}
+const notesDefaultSource = [
 
-export function NotesDefaultSource();
+  {
+      Title: 'Addiction',
+      NoteBody: 'A track by Kanye West 10/10',
+      ToggleEdit: false,
+      Delete: false
+  }
+];
+
+export default notesDefaultSource;
