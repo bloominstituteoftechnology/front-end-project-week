@@ -11,7 +11,10 @@ class PostsShow extends Component {
   render() {
     const { post } = this.props;
 
-
+    if (!post) {
+      return <div>Loading...</div>;
+    }
+ 
     return (
       <div>
         <h1>{post.title}</h1>
@@ -23,7 +26,7 @@ class PostsShow extends Component {
 }
 
 function mapStateToProps({ posts }, ownProps) {
-  return { post: posts[ownProps.match.parans.id] };
+  return { post: posts[ownProps.match.params.id] };
 }
 
 export default connect(mapStateToProps, { fetchPost })(PostsShow);

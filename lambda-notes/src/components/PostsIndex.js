@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions';
 import '../styles/PostsIndex.css';
+import { NavLink } from 'react-router-dom';
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -15,7 +16,9 @@ class PostsIndex extends Component {
     return _.map(this.props.posts, post => {
       return (
         <div key={post.id}>
+        <NavLink to={`/note/${post.id}`}>
           {post.title}
+        </NavLink>
           {post.categories}
           {post.content}
         </div>
