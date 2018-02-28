@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { updateNote } from '../actions';
 import Button from './button';
 
@@ -52,8 +53,9 @@ class UpdateForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.notes[0].title,
-      body: this.props.notes[0].body,
+      title: this.props.notes.find(val => val.id.toString() === this.props.id).title,
+      body: this.props.notes.find(val => val.id.toString() === this.props.id).body,
+      redirect: false,
     };
   }
 
@@ -63,6 +65,7 @@ class UpdateForm extends React.Component {
     this.setState({
       title: '',
       body: '',
+      redirect: true,
     });
   }
 
@@ -98,12 +101,13 @@ class UpdateForm extends React.Component {
           />
           <Button type='submit' backgroundColor='#5dbdc2' title='Update' />
         </form>
+        {this.state.redirect ? <Redirect to={`/fullnote/${this.props.id}`} /> : null}
       </StyledUpdateForm>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     notes: state.notes,
   };

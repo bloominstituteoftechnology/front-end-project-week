@@ -19,12 +19,12 @@ const StyledUpdateNote = styled.div`
 
 `;
 
-const UpdateNote = () => (
+const UpdateNote = props => (
   <StyledUpdateNote>
     <LeftRail />
     <div className='update-note__right'>
       <SectionTitle name='Edit Note:'/>
-      <UpdateForm />
+      <UpdateForm id={props.match.params.id}/>
     </div>
   </StyledUpdateNote>
 );

@@ -40,7 +40,7 @@ const FullNote = props => (
     <LeftRail />
     <div className='full-note__right'>
       <div className='full-note__links'>
-        <Link to='/updatenote' >edit</Link>
+        <Link to={`/updatenote/${props.match.params.id}`}>edit</Link>
         {/* <Link to='/' style={{ textDecoration: 'none' }} >delete</Link> */}
         <a href='#'>delete</a>
       </div>
