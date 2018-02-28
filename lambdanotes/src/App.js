@@ -12,12 +12,12 @@ class App extends Component {
         {
             note: 'Create App',
             details: 'Get app up and working',
-            id: 1,
+            id: 0,
         },
         {
           note: 'placeholder',
           details: 'placeholder',
-          id: 2,
+          id: 1,
         },
     ],
     note: '',
@@ -38,6 +38,8 @@ class App extends Component {
           </ul>
           <Route path='/' component={this.notes} exact/>
           <Route path='/noteform' component={this.noteForm} />
+          <Route path='/:id' component={this.viewNote} />
+
         </div>
       </Router>
     );
@@ -45,7 +47,10 @@ class App extends Component {
 
  
 
-  viewNote = (id) => {
+  viewNote = (props) => {
+    console.log(props);
+    const id = props.match.params.id;
+    console.log(id);
     return (
       <ViewNote note={this.state.notes[id].note} details={this.state.notes[id].details}  />
     )
