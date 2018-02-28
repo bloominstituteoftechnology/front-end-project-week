@@ -1,4 +1,4 @@
-import {CREATE_NOTE} from '../actions';
+import {CREATE_NOTE, DELETE_NOTE} from '../actions';
 
 const initialState = {
   notes: [
@@ -18,6 +18,11 @@ export default (state=initialState, action) => {
     case CREATE_NOTE:
       return Object.assign({}, {
         notes: [...state.notes, action.payload]
+      });
+    case DELETE_NOTE:
+      state.notes.splice(action.payload, 1);
+      return Object.assign({}, {
+        notes: [...state.notes]
       });
     default:
       return state;

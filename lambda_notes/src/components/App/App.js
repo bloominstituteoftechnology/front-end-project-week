@@ -12,9 +12,11 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-        <header>Your Notes: </header>
-        <div className="Notes-Container">
-          {props.state.notes.map((note, index) => <NotesList id={index} note={note}/>)}
+        <div className="Notes-Section">
+          <header>Your Notes: </header>
+          <div className="Notes-Container">
+            {props.state.notes.map((note, index) => <NotesList id={index} note={note}/>)}
+          </div>
         </div>
       </div>
     );

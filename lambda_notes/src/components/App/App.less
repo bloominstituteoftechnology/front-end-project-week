@@ -50,27 +50,29 @@ table {
 html, body {
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid grey;
 }
 
 .App {
-  display: flex;
-  flex-direction: row;
   width: 100%;
+  display: flex;
+  // border: 1px solid grey;
   header {
-    font-size: 35px;
+    font-size: 30px;
+    padding-top: 40px;
     font-weight: 700;
     width: 100%;
     height: 80px;
     margin: 20px;
     max-width: 500px;
   }
-  // .Notes-Container {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   background-color: #DCDCDC;
-  //   margin-top: 100px;
-  // }
+  .Notes-Section {
+    flex-grow: 1;
+    background-color: #F4F4F4;
+    .Notes-Container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 }
 
 

@@ -13,12 +13,14 @@ class CreateNewNote extends React.Component {
   render() {
     return (
       <div class="Container">
-        <div className="Sidebar-Container">
+        {/* <div className="Sidebar-Container"> */}
           <Sidebar />
-        </div>
+        {/* </div> */}
         <div className="New-Note">
-          <h2>Create New Note: </h2>
-          <form onSubmit={this.handleSubmit}>
+          <header>
+            <h2>Create New Note: </h2>
+          </header>
+          <form className="New-Note-Form" onSubmit={this.handleSubmit}>
             <input type="text" 
               placeholder="Note Title"
               value={this.state.title}

@@ -130,18 +130,25 @@ html,
 body {
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  border: 1px solid grey;
 }
 .App {
-  display: flex;
-  flex-direction: row;
   width: 100%;
+  display: flex;
 }
 .App header {
-  font-size: 35px;
+  font-size: 30px;
+  padding-top: 40px;
   font-weight: 700;
   width: 100%;
   height: 80px;
   margin: 20px;
   max-width: 500px;
+}
+.App .Notes-Section {
+  flex-grow: 1;
+  background-color: #F4F4F4;
+}
+.App .Notes-Section .Notes-Container {
+  display: flex;
+  flex-wrap: wrap;
 }

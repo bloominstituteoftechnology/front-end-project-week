@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Sidebar from '../Sidebar/Sidebar';
+import { deleteNote } from '../../actions';
 import Modal from '../Modal/Modal';
 
 const Note = (props) => {
   console.log('Note.js props', props);
+    // props.deleteNote(props.match.params.id)
   return (
     <div>
       <div className="Sidebar">
@@ -14,8 +16,9 @@ const Note = (props) => {
       <div className="Note-Container">
         <div>
           <Link to="/edit">Edit</Link>
-          <Modal text={'Delete'}/>
-          <Link to="/">Delete</Link>
+          {/* <Modal text={'Delete'}/> */}
+          {/* <Link to="/">Delete</Link> */}
+          <button>Delete</button>
         </div>
         <div className="Note-Title">
           {props.state.notes[props.match.params.id].title}
@@ -28,10 +31,12 @@ const Note = (props) => {
   )
 }
 
+
+
 const mapStateToProps = (state) => {
   return {
     state: state,
   }
 }
 
-export default connect(mapStateToProps)(Note);
+export default connect(mapStateToProps, { deleteNote })(Note);
