@@ -27,13 +27,21 @@ const NoteStyled = styled.a`
   }
 `;
 
+const getNoteContentPreview = (content) => {
+  if (content.length > 120) {
+    let contentPreview = content.slice(0, 120);
+    return `${contentPreview}...`
+  }
+  return content;
+}
+
 class Note extends Component {
   render() {
     return (
       <NoteStyled onClick={() => { this.props.showNoteDetails(this.props.note.id) }}>
         <h4>{this.props.note.title}</h4>
         <hr style={{ width: "100%" }} />
-        <p>{this.props.note.content}</p>
+        <p>{getNoteContentPreview(this.props.note.content)}</p>
       </NoteStyled>
     )
   }
