@@ -3,6 +3,7 @@ import './css/App.css';
 import dummyData from './dummy-data';
 import NoteContainer from './components/NoteContainer/NoteContainer';
 import CreateNoteContainer from './components/CreateNoteContainer/CreateNoteContainer';
+import EditNoteContainer from './components/EditNoteContainer/EditNoteContainer';
 import SingleNote from './components/SingleNote/SingleNote';
 import Panel from './components/Panel/Panel';
 
@@ -13,6 +14,7 @@ class App extends React.Component {
     showSingleNote:false,
     noteToShow: '',
     indexOfNote: '',
+    showEditWin: false
   };
 
   componentDidMount() {
@@ -30,7 +32,8 @@ class App extends React.Component {
   handleClickForView = () => {
     this.setState({
       showAddWin: false,
-      showSingleNote: false
+      showSingleNote: false,
+      showEditWin: false
     });
   }
 
@@ -38,6 +41,15 @@ class App extends React.Component {
     this.setState({
       notes: [...this.state.notes, newNote],
       showAddWin: !this.state.showAddWin
+    });
+  }
+
+  handleClickForUpdate = (updatedNote, i) => {
+    const tempArr = this.state.notes;
+    tempArr[i] = updatedNote;
+    this.setState({
+      notes: tempArr,
+      showEditWin: !this.state.showEditWin
     });
   }
 
@@ -49,6 +61,13 @@ class App extends React.Component {
     })
   }
 
+  handleEditPrompt = (note) => {
+    this.setState({
+      showEditWin: !this.state.showEditWin,
+      showSingleNote: !this.state.showSingleNote
+    });
+  }
+
   handleDeletePrompt = (i) => {
     if(window.confirm("Are you sure you want to delete this?")) {
       const tempArr = this.state.notes;
@@ -57,7 +76,6 @@ class App extends React.Component {
         notes: tempArr,
         showSingleNote: !this.state.showSingleNote
       })
-
     }
   }
 
@@ -68,8 +86,10 @@ class App extends React.Component {
         {this.state.showAddWin
             ? <CreateNoteContainer handleClickForSave={this.handleClickForSave} />
             : this.state.showSingleNote
-              ? <SingleNote indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleDeletePrompt={this.handleDeletePrompt}/>
-              : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
+              ? <SingleNote indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleDeletePrompt={this.handleDeletePrompt} handleEditPrompt={this.handleEditPrompt} />
+              : this.state.showEditWin
+                ? <EditNoteContainer indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleClickForUpdate={this.handleClickForUpdate} />
+                : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
         }
       </div>
     );

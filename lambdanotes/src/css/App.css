@@ -33,7 +33,8 @@ button {
 }
 .Notes,
 .single-note,
-.create-note-container {
+.create-note-container,
+.edit-note-container {
   background: #F3F3F3;
   height: 100vh;
   width: 80vw;
