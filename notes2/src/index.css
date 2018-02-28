@@ -4,9 +4,8 @@ body {
   font-family: sans-serif;
 }
 
-.NotesDefaultSource {
-  border: double white 2px;
-  background-color: black;
-  width: 100px;
-  height: 100px;
+.beard {
+  display: flex;
+  background-color: grey;
+  width:100%;
 }
