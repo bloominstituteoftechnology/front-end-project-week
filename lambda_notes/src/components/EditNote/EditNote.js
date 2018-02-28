@@ -42,6 +42,7 @@ class EditNote extends React.Component {
     event.preventDefault();
     this.props.editNote(this.state, this.props.match.params.id);
     this.setState({title: '', content: ''})
+    this.props.history.push(`/view/${this.props.match.params.id}`)
   }
   componentDidMount() {
     const notes = this.props.state.notes;
