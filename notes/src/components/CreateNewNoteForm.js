@@ -35,7 +35,7 @@ class CreateNewNoteForm extends Component {
                     <Row>
                         <Grid>
                             <Row className="show-grid">
-                                <Col md={6} className={"col-up"}>
+                                <Col md={12} className={"col-up"}>
                                     <form>
                                         <FormGroup>
                                             <FormControl
@@ -68,9 +68,6 @@ class CreateNewNoteForm extends Component {
                                                     <div className={"btn-text"}> Save </div>
                                                 </div>
 
-                                                {/*<button onClick={(e) => {this.submitCreate(e)}} className={"btn btn-primary btn-md"}>  Save  </button>*/}
-                                                &nbsp;&nbsp;&nbsp;
-                                                {/*<button onClick={(e) => {this.cancelCreate(e)}} className={"btn btn-danger btn-md"}>  Cancel  </button>*/}
                                             </div>
                                         </FormGroup>
                                     </form>
@@ -97,11 +94,7 @@ const CreateNewNoteFormContainer = styled.div`
             text-align:center;
             padding:0px;
         }
-
-        .col-up {
-            // margin:0px auto;
-        }
-
+        
         .btn-update{
             text-align:center;
             margin-top:15px;

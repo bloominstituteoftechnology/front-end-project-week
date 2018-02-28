@@ -18,7 +18,6 @@ class DeleteNote extends Component {
         this.props.deleteNote(this.props.noteId);
     }
 
-
     render() {
         return (
             <DeleteContainer>

@@ -57,7 +57,7 @@ const AppContainer = styled.div`
     
         .sidebar {
             border:1px solid #A0A0A0;
-            background-color: #D0CFD0;
+            background-color: #d8d8d8;
             padding:18px;
             text-align:center;
             font-weight: bold;
@@ -65,7 +65,7 @@ const AppContainer = styled.div`
 
                 .title-side{
                     text-align:left;
-                    color:#644A3A;
+                    color:#4a4a4a;
                     font-size:40px;
                     line-height: 0.9em;
                     margin-bottom:30px;
@@ -75,7 +75,7 @@ const AppContainer = styled.div`
         
         .components-container{
             border:1px solid #C2C2C2;
-            background-color: #F0F0F0;
+            background-color: #f3f3f3;
             padding-top:40px;
             min-height: 750px;
         }

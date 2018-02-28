@@ -14,7 +14,6 @@ export const getNotes = () => {
         dispatch({type: FETCHING, fetching: true});
         notes
             .then(response => {
-                console.log('response.data',response.data)
                 dispatch({type: GET_NOTES, payload: response.data});
                 dispatch({type: FETCHING, fetching: false});
             })

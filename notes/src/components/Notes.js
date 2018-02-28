@@ -16,6 +16,11 @@ class Notes extends Component {
         this.props.getSingleNote(note);
     };
 
+    processTags = (tags) => {
+
+        // console.log('tags group', tags);
+    };
+
     render() {
         return (
             <NotesContainer>
@@ -41,6 +46,10 @@ class Notes extends Component {
                                                 </div>
                                                 <div className={"note-description"}>
                                                     {note.description}
+                                                </div>
+                                                <div className={"note-tags"}>
+                                                    <span className={'tags-label'}>TAGS:</span>
+                                                    &nbsp;{note.tags}
                                                 </div>
 
                                             </Link>
@@ -91,6 +100,7 @@ const NotesContainer = styled.div`
                     
                 
                         .note-title{
+                            color:#4a4a4a;
                             font-weight:bold;
                             border-bottom:1px solid #AEAEAE;
                             width:100% !important;
@@ -103,6 +113,19 @@ const NotesContainer = styled.div`
                             min-height:90px;
                             max-height:90px;
                             margin-bottom:15px;
+                        }
+                        
+                        .note-tags{
+                            border:0px solid black;
+                            font-size:10px;
+                            color:grey;
+                            margin-bottom:5px;
+                                
+                                .tags-label{
+                                    text-align:left;
+                                    font-weight:bold;
+                                }
+                                
                         }
                 }
         }

@@ -1,57 +1,61 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 .top-title {
-  font-family: Times New Roman;
-  font-stretch: condensed;
-  font-weight: bold;
+    font-size:21px;
+    font-stretch: condensed;
+    font-weight: bold;
+    color:#4a4a4a;
 }
 
-.btn-side{
-    border:1px solid #7D9190;
+.btn-side {
+    border: 1px solid #7D9190;
     padding: 10px 0px 10px 0px;
-    background-color: #28B6B8;
+    background-color: #62bec2;
     margin-top: 15px;
     margin-bottom: 18px;
-    color:white;
+    color: white;
 }
-.btn-text{
-    color:white;
+
+.btn-text {
+    color: white;
 }
-.btn-text:hover{
-    color:white;
+
+.btn-text:hover {
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
 
-.sub-links{
+.sub-links {
     font-weight: bold;
-    color:#644A3A;
+    color: #4a4a4a;
 }
-.sub-links:hover{
+
+.sub-links:hover {
     font-weight: bold;
-    color:#644A3A;
+    color: #4a4a4a;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -59,15 +63,20 @@
 .modal-container {
     position: relative;
 }
+
 .modal-container .modal, .modal-container .modal-backdrop {
     position: absolute;
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.note-container:hover{
+.note-container:hover {
     text-decoration: none;
 }
