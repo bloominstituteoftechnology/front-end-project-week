@@ -10,32 +10,36 @@ class EditNote extends Component {
     }
   getNoteIndex = () => {
     for (let i = 0; i < this.props.notes.length; i++) {
-        if (this.props.match.params.id === this.props.notes[i].id) {
+        if (+this.props.match.params.id === this.props.notes[i].id) {
+            // console.log('index in if statement: ', i)
             return i;
         }
+    
     }
+    // console.log('How is i defined here? ')
   }
   noteSubmitHandler = (event) => {
       event.preventDefault();
       this.setState({title: this.state.title, body: this.state.body});
+      this.props.notes.splice(this.getNoteIndex(), 1, this.state);
   }
   noteChangeHandler = (event) => {
       let { name, value } = event.target;
       this.setState({ [name]: value });
-      this.props.notes.splice(this.getNoteIndex(), 1, this.state)
+      
   }
   render() {
-      console.log('what is state here: ', this.state)
-      console.log('what is props here: ', this.props)
-      console.log('Does my function give me the right index?', this.getNoteIndex());
-      console.log(this);
-      console.log(this.props);
-      console.log(this.props.notes);
-      console.log('does this give me the right index?', this.getNoteIndex())
-      // console.log(this.props.notes.slice(-1));
-      // console.log(this.props.notes.slice(-1)[0]);
-      // console.log(this.props.notes.slice(-1)[0].id);
-      // console.log(this.props.notes.concat(this.state))
+    //   console.log('what is state here: ', this.state)
+    //   console.log('what is props here: ', this.props)
+    //   console.log('Does my function give me the right index?', this.getNoteIndex());
+    //   console.log(this);
+    //   console.log(this.props);
+    //   console.log(this.props.notes);
+    //   console.log('The id of the index 2 note object', this.props.notes[2].id)
+    //   console.log(this.props.notes.slice(-1));
+    //   console.log(this.props.notes.slice(-1)[0]);
+    //   console.log(this.props.notes.slice(-1)[0].id);
+    //   console.log(this.props.notes.concat(this.state))
       return (
           <div className="new-note-container">
             <div className="note-list__title">Edit Note:</div>                
