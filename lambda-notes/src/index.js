@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LambdaNotes from './components/notes-list';
+import LambdaNotes from './components/notes-list/notes-list';
 // Redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
