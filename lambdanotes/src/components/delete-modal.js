@@ -14,6 +14,8 @@ const DeleteModalContainerStyled = styled.div`
   bottom: auto;
   height: 100vh;
   width: 100%;
+  padding: 0;
+  margin: 0;
 
   .DeleteModalDialog {
     margin: auto;

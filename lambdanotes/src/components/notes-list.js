@@ -10,21 +10,35 @@ const NoteListStyled = styled.div`
   display: flex;
   flex-direction: column;
 
-  h1 {
+  header {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    
+    .searchContainer {
+      margin-top: 20px;
+    }
   }
+
 `
 
 class NotesList extends Component {
   render() {
     return (
       <NoteListStyled>
-        <h1>Your Notes:</h1>
+        <header>
+          <h1>Your Notes:</h1>
+          <div className="searchContainer">Search: <input /></div>
+        </header>
         <div style={{ display: "flex", flexFlow: "row wrap" }} >
           {this.props.notes.map((note) => {
             return (
               <Note key={note.id} note={note} showNoteDetails={this.props.showNoteDetails} />
-              )})}
+            )
+          })}
         </div>
       </NoteListStyled>
     )

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // Styles
 const SideBarStyled = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   width: 200px;
@@ -20,7 +21,7 @@ const SideBarStyled = styled.div`
 const ButtonStyled = styled.button`
   margin-bottom: 20px;
   height: 50px;
-  width: 100%;
+  width: 170px;
   background-color: rgb(94, 190, 195);
   color: #FFFFFF;
   outline: none;

@@ -18,8 +18,7 @@ import './App.css';
 const AppStyled = styled.div`
   display: flex;
   flex-flow: row no-wrap;
-  height: 100vh;
-  vertical-align: top;
+  height: 100%;
 `;
 
 // App Component
@@ -139,7 +138,7 @@ class App extends Component {
           style={{ width: "200px", height: "100vh", padding: "0" }}
         />
 
-        <div style={{ width: "100%", height: "100vh" }}>
+        <div style={{ width: "100%", height: "100%" }}>
           {this.state.viewingNotes &&
             <NotesList
               notes={this.state.notes}
