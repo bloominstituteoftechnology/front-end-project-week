@@ -27,6 +27,10 @@ const NoteDetailsStyled = styled.div`
     font-weight: bold;
     cursor: pointer;
   }
+
+  p {
+    width: 90%;
+  }
 `
 
 // Note Details Component
