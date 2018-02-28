@@ -35,6 +35,7 @@ class Delete extends React.Component {
       id: this.props.id,
     });
     this.props.history.push('/');
+    this.props.toggleDelete();
   }
 
   render() {
