@@ -48,12 +48,16 @@ class App extends Component {
             <h1 className="App-title">Note App</h1>
               <div>
                 <NavLink to="/" activeClassName="navlink--active" exact>
-                  View Notes
+                  <button>
+                    View Notes
+                    </button> 
                 </NavLink> 
               </div>
               <div>
                 <NavLink to="/create_note" activeClassName="navlink--active" exact>
+                <button>
                   Create New Note
+                </button>
                 </NavLink>
               </div>
           </div>
