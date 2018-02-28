@@ -29,18 +29,22 @@ export default class NoteView extends React.Component {
   render() {
     const { id, title, body } = this.state;
     return (
-      <div>
+      <div className="NoteView">
         {this.boolModal ? (
           <div>
             <DeleteNote id={id} toggleModal={this.toggleModal} handleDeleteNote={this.props.handleDeleteNote} />
           </div>
         ) : (null)}
-        <div>
-          <Link to={"/edit"}>edit </Link>
-          <a onClick={() => this.toggleModal()}>delete</a>
+        <div className="NoteView-Links">
+          <div>
+            <Link className="NoteView-Links-Link" to={"/edit"}>edit</Link>
+          </div>
+          <div>
+            <a className="NoteView-Links-Link" onClick={() => this.toggleModal()}>delete</a>
+          </div>
         </div>
         <div>
-          <h2>{title}</h2>
+          <h2 className="SectionTitle">{title}</h2>
           <br />
           <p>{body}</p>
         </div>

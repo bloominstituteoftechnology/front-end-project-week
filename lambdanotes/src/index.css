@@ -26,6 +26,7 @@ button {
 
 :-webkit-any-link {
   text-decoration: none;
+  color: black;
 }
 
 .MainApp {

@@ -1,0 +1,20 @@
+.NoteView {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 20px;
+}
+
+.NoteView-Links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+.NoteView-Links-Link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0,0,0,0.8);
+  margin-right: 15px;
+}

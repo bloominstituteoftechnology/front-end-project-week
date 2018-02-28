@@ -8,14 +8,13 @@
   border-right: 1px solid rgba(0,0,0,0.5);
 }
 
-.Sidebar-Column {
-  width: 10%;
-}
-
 .Sidebar-Title {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  align-self: flex-start;
+  margin-left: 7px;
   color: rgba(0,0,0,0.7);
-  width: 96%;
+  width: 56%;
+  font-weight: 800;
 }
