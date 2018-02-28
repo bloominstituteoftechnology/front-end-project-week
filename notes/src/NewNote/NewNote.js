@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addNote } from "../Redux/actions";
 import "./NewNote.css";
-
+import { Button } from 'react-bootstrap';
 class NewNote extends Component {
   state = {
     title: "",
@@ -49,6 +49,7 @@ class NewNote extends Component {
                 value={this.state.body}
               />
             </div>
+            <Button bsStyle="primary">Primary</Button>
             <input type="submit" value="Post" className="submit-button" />
           </form>
         </div>
