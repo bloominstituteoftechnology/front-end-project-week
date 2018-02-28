@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      
+      notes: [{ title: "Note One", note: "I like turtles" }, { title: "Note Two", note: "I like doges" }]
     }
   }
 
@@ -23,7 +23,9 @@ class App extends Component {
         </div>
         <div className="App__main">
           <Route path="/newnote" exact component={NewNote} />
-          <Route path="/home" exact component={Home} />
+          <Route path="/home" exact component={() => {
+            return <Home notes={this.state.notes} />
+          }} />
         </div>
       </div>
     );

@@ -18,7 +18,19 @@
   display: flex;
   flex-direction: column;
 }
-p {
+.home .home__list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.home .home__list .home__list__cards {
+  border: 1px solid black;
+}
+.home .home__list .home__list__cards .home__list__cards__title {
+  font-size: 1.6rem;
+}
+.home .home__list .home__list__cards .home__list__cards__note {
   font-size: 2.0rem;
 }
 .menu {

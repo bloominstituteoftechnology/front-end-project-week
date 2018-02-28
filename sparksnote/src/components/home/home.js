@@ -5,7 +5,7 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      notes: [{ title: "Note One", note: "I like turtles" }, { title: "Note Two", note: "I like doges" }]
+      
     }
   }
 
@@ -18,9 +18,14 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <ul>
-          {this.state.notes.map(note => {
-            return <li>{note.title}: {note.note}</li>
+        <ul className="home__list">
+          {this.props.notes.map(noteObj => {
+            return (
+              <div className="home__list__cards">
+                <li className="home__list__cards__title">{noteObj.title}</li>
+                <li className="home__list__cards__note">{noteObj.note}</li>
+              </div>
+              )
           })}
         </ul>
       </div>
