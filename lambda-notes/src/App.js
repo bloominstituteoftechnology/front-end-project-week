@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import { NoteList } from './components/NoteList';
-import NewNote from './components/Note';
+import { Note } from './components/Note';
+import NewNote from './components/NewNote';
 import { connect } from 'react-redux';
 import { addNote } from './actions';
 
@@ -50,6 +51,7 @@ let dummyNotes = [
 class App extends Component {
 
   render() {
+    console.log('!!!', this.props.notes);
     return (
       <Router>
         <div className="App">
@@ -66,7 +68,12 @@ class App extends Component {
           </div>
           <div className="View">
             <Route path="/" render={() => <NoteList notes={this.props.notes}/>} exact/>
-            <Route path="/note" component={NewNote} />
+            <Route path="/note" component={NewNote} exact />
+            {
+              this.props.notes.map(note => {
+                return <Route path={`/note/${note.id}`} render={() => <Note note={note}/>}/>;
+              })
+            }
           </div>
         </div>
       </Router>

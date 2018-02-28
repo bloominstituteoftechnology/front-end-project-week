@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import '../css/index.css';
-import NewNote from'./NewNote';
 
-const Note = (props) => {
+export const Note = (props) => {
+  console.log('The properties of Note are:', props);
   return (
     <div className="Note">
-      <NewNote />
+      <div className="Note__title">
+        {props.note.title}
+      </div>
+      <div className="Note__text">
+        {props.note.text}
+      </div>
     </div>
   )
 }
-
-export default Note;
