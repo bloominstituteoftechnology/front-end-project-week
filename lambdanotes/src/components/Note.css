@@ -1,7 +1,7 @@
 .Note {
   display: flex;
   flex-flow: column nowrap;
-  background: white;
+  background: #ffffff;
   border: 1px solid rgba(0,0,0,0.5);
   width: 200px;
   padding: 0px 20px 20px 20px;
@@ -11,7 +11,7 @@
 }
 
 .Note:hover {
-  background: lightgrey;
+  background: #d8d8d8;
   cursor: pointer;
 }
 
@@ -21,9 +21,14 @@
   padding: 0;
   width: 100%;
   height: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .Note-NoteBody {
   padding-top: 10px;
   width: 100%;
+  white-space: wrap;
+  overflow: hidden;
 }

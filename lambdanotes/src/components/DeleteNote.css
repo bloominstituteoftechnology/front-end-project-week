@@ -21,3 +21,7 @@
 .DeleteModal-Box-Delete {
   background: #d0021b;
 }
+
+.DeleteModal-Box-Delete:hover {
+  background: #83000f
+}

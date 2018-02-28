@@ -3,6 +3,6 @@
   flex-flow: row nowrap;
   height: 100%;
   border: 1px solid rgba(0,0,0,0.5);
-  background: whitesmoke;
+  background: #f3f3f3;
   width: 1200px;
 }

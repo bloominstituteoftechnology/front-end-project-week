@@ -5,10 +5,11 @@ import "./Note.css";
 export default class Note extends React.Component {
 
   truncateNote = text => {
-    if (text.length <= 110) {
+    const maxLength = 200;
+    if (text.length <= maxLength) {
       return text;
     } else {
-      return text.slice(0, 110).concat('...');
+      return text.slice(0, maxLength).concat('...');
     }
   };
 
