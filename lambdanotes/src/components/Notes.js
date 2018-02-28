@@ -1,13 +1,13 @@
 import React from 'react';
 import '../styles/App.css';
-// import Noteview from './NoteView';
+import NoteView from './NoteView';
 
 function Notes(props) {
+    console.log(props);
         return (
-            <div className="single-note">
-                <h4>{props.note.title}</h4>
-                 <p>{props.note.paragraph}</p>
-            </div>)
-    
+            props.notes.map(note => {
+              return <NoteView key={note.id} note={note}/> 
+            })
+        )
 }
 export default Notes;

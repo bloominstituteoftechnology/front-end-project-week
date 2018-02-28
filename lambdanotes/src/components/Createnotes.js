@@ -1,17 +1,39 @@
 import React from 'react';
 import '../styles/App.css';
 
-function Createnotes() {
-    return (
-        <div className="notes-container">
-            <form onSubmit="">
-            <input className="new-title"/> 
-            <input className="new-content"/>
-            <button>Save</button>
-            <li> It Works!</li>
-            </form>
-        </div>
-        
-    )
+class Createnotes extends React.Component {
+    state = {
+        notes: [],
+        title:'',
+        paragragh:'',
+    }
+    addNewNote = (e) =>{
+
+    }
+    handleInputChange =(e)=> {
+        this.setState({ [e.target.name]: e.target.value });
+    }
+    render() {
+        return (
+            <div className="notes-container">
+                <form onSubmit={this.addNewNote}>
+                <input className="new-title" 
+                type="text" name="title" 
+                value={this.state.title} 
+                onChange={this.handleInputChange}/> 
+
+                <input className="new-content"  
+                type="text" name="paragragh" 
+                value={this.state.paragragh} 
+                onChange={this.handleInputChange}/>
+
+                <button>Save</button>
+                
+                </form>
+            </div>
+            
+        )
+
+    }
 }
 export default Createnotes;
