@@ -1,4 +1,4 @@
-# Lambd aNotes Project
+# Lambda Notes Project
 
 **Trello Board:** https://trello.com/b/8PLbcAOF
 
