@@ -6,7 +6,7 @@ const ViewNote = (props) => {
     return (
       <div className="view-note-container">
         <div className="edit-button">
-          <NavLink className="edit-link" to="/edit/">
+          <NavLink className="edit-link" to={`/edit/${props.match.params.id}`}>
             edit
           </NavLink>
         </div>

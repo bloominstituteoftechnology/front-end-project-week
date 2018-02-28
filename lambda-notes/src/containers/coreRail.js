@@ -2,6 +2,7 @@ import React from 'react';
 import NoteList from '../components/noteList';
 import NewNote from '../components/newNote';
 import ViewNote from '../components/viewNote';
+import EditNote from '../components/editNote';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 
@@ -25,6 +26,9 @@ const CoreRail = (props) => {
             <Route render={(routeProps) => (
                     <ViewNote {...routeProps} {...props} />
                 )} path="/note/:id" />
+            <Route render={(routeProps) => (
+                    <EditNote {...routeProps} {...props} />
+                )} path="/edit/:id" />
           </div>
         </Router>
       </div>
