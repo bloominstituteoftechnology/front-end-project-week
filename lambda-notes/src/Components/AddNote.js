@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LeftColumn from './LeftColumn';
 
 class AddNote extends Component {
   handleCreate(){
@@ -8,7 +9,7 @@ class AddNote extends Component {
   render() {
     return (
       <div>
-        <button>+ Create New Note</button>
+        <LeftColumn />
       </div>
     );
   }
