@@ -8,7 +8,7 @@ import Panel from './components/Panel/Panel';
 class App extends React.Component {
   state = {
     notes: [],
-    showAddWin: false
+    showAddWin: false,
   };
 
   componentDidMount() {
@@ -30,20 +30,19 @@ class App extends React.Component {
     });
   }
 
+  singleNoteView = (x) => {
+    console.log(x)
+  }
+
   render() {
     return (
       <div className="App">
         <Panel showAddWin={this.state.showAddWin} handleClickForCreate={this.handleClickForCreate} />
-        <div className="Notes">
           {this.state.showAddWin
             ? <CreateNoteContainer handleClickForSave={this.handleClickForSave} />
-            : this.state.notes.map((note, i) => {
-              return (
-               <NoteContainer key={i} noteTitle={note.noteTitle} noteContent={note.noteContent} />
-              );
-            })
+            : <NoteContainer notes={this.state.notes} singleNoteView={this.singleNoteView} />
+
           }
-        </div>
       </div>
     );
   }
