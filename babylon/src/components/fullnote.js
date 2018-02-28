@@ -40,8 +40,8 @@ const FullNote = props => (
     <LeftRail />
     <div className='full-note__right'>
       <div className='full-note__links'>
-        <Link to='/updatenote' exact>edit</Link>
-        {/* <Link to='/' style={{ textDecoration: 'none' }} exact>delete</Link> */}
+        <Link to='/updatenote' >edit</Link>
+        {/* <Link to='/' style={{ textDecoration: 'none' }} >delete</Link> */}
         <a href='#'>delete</a>
       </div>
       <SectionTitle name={props.notes[0].title}/>

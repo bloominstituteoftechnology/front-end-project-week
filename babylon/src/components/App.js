@@ -18,9 +18,9 @@ class App extends Component {
       <Router>
         <StyledApp>
           <Route path='/' component={List} exact />
-          <Route path='/fullnote/:id' component={FullNote} exact />
-          <Route path='/newnote/' component={NewNote} exact />
-          <Route path='/updatenote/' component={UpdateNote} exact />
+          <Route path='/fullnote/:id' component={FullNote} />
+          <Route path='/newnote' component={NewNote} />
+          <Route path='/updatenote' component={UpdateNote} />
         </StyledApp>
       </Router>
     );
