@@ -45,9 +45,9 @@ server.post('/notes', (req, res) => {
     res.json(notes);
 });
 
-server.put('/notes/:id', (req, res) => {
+server.put('/notes/update/:id', (req, res) => {
     const {id} = req.params;
-    const {title, description, tags} = req.body;
+    const {title, description, tags} = req.body.note;
     const findNoteById = note => {
         return note.id == id;
     };

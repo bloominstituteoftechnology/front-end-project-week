@@ -6,6 +6,7 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const FETCHING = 'FETCHING';
 export const ERROR_GETTING_NOTES = 'ERROR_GETTING_NOTES';
 export const SET_SINGLE_NOTE = 'SET_SINGLE_NOTE';
+export const UPDATE_NOTE = 'UPDATE_NOTE';
 
 export const getNotes = () => {
     const notes = axios.get('http://localhost:3333/notes/');
@@ -24,13 +25,11 @@ export const getNotes = () => {
 };
 
 export const addNote = (note) => {
-
     const newNote = axios.post('http://localhost:3333/notes', {
         title:note.title,
         description:note.description,
         tags:note.tags,
     });
-
     return dispatch => {
         newNote
             .then(({data}) => {
@@ -54,7 +53,6 @@ export const deleteNote = (noteId) => {
     const newNotes = axios.delete(`http://localhost:3333/notes/delete/${id}`, {
         id:id,
     });
-
     return dispatch => {
         newNotes
             .then(({data}) => {
@@ -65,7 +63,24 @@ export const deleteNote = (noteId) => {
                 dispatch({type: ERROR_GETTING_NOTES, payload: err});
             });
     };
+};
 
+export const updateNote = (note) => {
+    const id = parseInt(note.id);
+    const newNotes = axios.put(`http://localhost:3333/notes/update/${id}`, {
+        id:id,
+        note,
+    });
+    return dispatch => {
+        newNotes
+            .then(({data}) => {
+                dispatch({type: UPDATE_NOTE, payload: data});
+                window.location = "/";
+            })
+            .catch(err => {
+                dispatch({type: ERROR_GETTING_NOTES, payload: err});
+            });
+    };
 };
 
 

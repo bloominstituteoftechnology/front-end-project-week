@@ -27,7 +27,9 @@ class CreateNewNoteForm extends Component {
             <CreateNewNoteFormContainer>
                 <Grid>
                     <Row className="show-grid">
-                        <h3 className={'top-title'}>Create New Note:</h3>
+                        <Col md={6} className={"col-up"}>
+                            <h3 className={'top-title'}>Create New Note:</h3>
+                        </Col>
                     </Row>
 
                     <Row>

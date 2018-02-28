@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {Row, Grid, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import DeleteNote from './DeleteNote';
+import {BrowserRouter as Route, Link} from "react-router-dom";
 
 class Details extends Component {
     render() {
@@ -11,7 +12,7 @@ class Details extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col className="sub-lnks-container" md={12}>
-                            <span className={'sub-links'}> edit </span>
+                            <Link to={`/update/${this.props.note.id}`} className={'sub-links'} > edit </Link>
                             &nbsp;&nbsp;
                             <DeleteNote noteId={this.props.note.id}/>
                         </Col>
@@ -41,7 +42,7 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {})(Details);
 
 const DetailsContainer = styled.div`
-    
+   
     .sub-lnks-container{
         text-align:right;
         padding:0px 15px 0px auto;

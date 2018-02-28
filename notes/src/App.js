@@ -6,8 +6,11 @@ import {Row, Grid, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 import CreateNewNoteForm from './components/CreateNewNoteForm'
 import Details from './components/Details';
+import UpdateNote from './components/UpdateNote';
+
 
 class App extends Component {
+
     render() {
         return (
             <AppContainer>
@@ -30,12 +33,10 @@ class App extends Component {
 
                             </Col>
                             <Col xs={12} md={9} className={"components-container"}>
-
                                 <Route exact path="/" component={Notes} />
                                 <Route path="/create_new_note" component={CreateNewNoteForm} />
                                 <Route path="/details/:id" component={Details} />
-                                <Route path="/update/:id" component={Details} />
-
+                                <Route path="/update/:id" component={UpdateNote} />
                             </Col>
                         </Row>
                     </Grid>

@@ -42,6 +42,7 @@
 .btn-text:hover{
     color:white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .sub-links{
@@ -53,6 +54,13 @@
     color:#644A3A;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.modal-container {
+    position: relative;
+}
+.modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
 }
 
 @keyframes App-logo-spin {

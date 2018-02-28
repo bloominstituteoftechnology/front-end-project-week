@@ -79,7 +79,6 @@ const NotesContainer = styled.div`
             padding-left:5px;
             padding-right:5px;
                 
-                
                 .note-container{
                     flex-grow: 1;
                     flex-basis: 250px;
