@@ -58,7 +58,7 @@ class App extends Component {
 
   // Display Note Details when note is clicked on in Note List
   showNoteDetails = (id) => {
-    const noteToView = this.state.notes.find((note) => { return note.id === id })
+    const noteToView = this.state.notes.find(note => note.id === id);
     this.setState({
       viewingNotes: false,
       creatingNote: false,
@@ -82,12 +82,8 @@ class App extends Component {
   // Add new note object to notes array and switch view back to notes list
   saveNewNote = (note) => {
     let prevNotes = this.state.notes;
-    this.setState({
-      notes: [...prevNotes, note],
-      viewingNotes: true,
-      creatingNote: false,
-      editingNote: false,
-    })
+    this.setState({ notes: [...prevNotes, note] })
+    this.viewNotes();
   }
 
   // Update note data and return to Notes List view
@@ -100,13 +96,8 @@ class App extends Component {
       }
       return note
     })
-    this.setState({
-      notes: updatedNotes,
-      viewingNotes: true,
-      creatingNote: false,
-      showingNoteDetails: false,
-      editingNote: false,
-    });
+    this.setState({ notes: updatedNotes });
+    this.viewNotes();
   }
 
   // Get id of last note and return new incremented id 
@@ -120,23 +111,14 @@ class App extends Component {
   // Delete Note from notes array and return to Notes List view
   deleteNote = (id) => {
     let updatedNotes = this.state.notes.filter(note => note.id !== id);
-    console.log(updatedNotes);
-    this.setState({ 
-      notes: updatedNotes,
-      viewingNotes: true,
-      creatingNote: false,
-      showingNoteDetails: false,
-      editingNote: false,
-    });
+    this.setState({ notes: updatedNotes });
+    this.viewNotes();
   }
 
   render() {
     return (
       <AppStyled>
         <Sidebar
-          viewingNotes={this.state.viewingNotes}
-          creatingNote={this.state.creatingNote}
-          editingNote={this.state.editingNote}
           viewNotes={this.viewNotes}
           createNewNoteForm={this.createNewNoteForm}
           style={{ width: "200px", height: "100vh" }}
