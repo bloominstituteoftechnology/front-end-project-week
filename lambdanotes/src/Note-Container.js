@@ -1,16 +1,15 @@
 import React from 'react';
+import Note from './Note';
+
 
 const NoteContainer = (props) => {
     return(
-    <div>
+    <div className='Note-container'>
         <h3>My notes</h3>
-        <ul>
+        <ul className='Note-list'>
         { props.notes.map((note) => {
             return (
-            <li className='Note'>
-            <h5>{note.title}</h5>
-            <div>{note.content}</div>
-            </li>
+            <Note key={note.title} title={note.title} content={note.content} />
             );
         })
         }

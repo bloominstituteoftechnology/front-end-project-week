@@ -8,11 +8,42 @@ class App extends Component {
     this.state = {
       notes: [
         { title: 'test',
-      content: 'test'}
+      content: 'test'},
+        { title: 'test2',
+      content: 'test2'},
+        { title: 'test3',
+      content: 'test3'}
       ],
+      newNote: {
+        title: '',
+        content: ''
+      },
       visible: true
     }
+    this.addNote = this.addNote.bind(this);
+    this.handleNewNoteInput = this.handleNewNoteInput.bind(this);
   }
+
+  addNote = (event) => {
+    event.preventdefault();
+    const note = this.state.notes;
+    note.push(this.state.newNote);
+    console.log(note);
+    this.setState({
+      newNote: {
+        title: '',
+        content: ''
+      },
+      note: note,
+    })
+  }
+
+  handleNewNoteInput = (event) => {
+    this.setState({newNote: event.target.value})
+  }
+
+
+
   render() {
     return (
       <div className="App">
@@ -21,14 +52,14 @@ class App extends Component {
           <div>View Notes</div>  
           <div>
             <h5>Create New Note+</h5>
-            <form>
-              <input type='text' placeholder='Title'></input>
-              <input type='text' placeholder='Content'></input>
+            <form onSubmit={this.addnote}>
+              <input onChange={this.handleNewNoteInput} type='text' placeholder='Title' value={this.state.newNote.title}></input>
+              <input onChange={this.handleNewNoteInput} type='text' placeholder='Content' value={this.state.newNote.content}></input>
               <button type='submit'>Save</button> 
             </form>  
           </div>  
         </div>
-        <NoteContainer notes={this.state.notes} className='Note-container' />    
+        <NoteContainer notes={this.state.notes} />    
       </div>
     );
   }

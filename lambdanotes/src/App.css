@@ -1,5 +1,6 @@
 .App {
   display: flex;
+  height: 100%;
 }
 
 .Left-bar {
@@ -8,10 +9,22 @@
   background: orange;
 }
 
+.Note {
+  width: 100px;
+  height: 100px;
+  list-style: none;
+  box-sizing: border-box;
+  border: solid black 1px;
+  background: blue;
+  margin: 5px;
+}
+
+
 .Note-container {
   width: 90%;
   height: 100%;
   background: green;
+  flex-direction: row;
 }
 
 .App-logo {
