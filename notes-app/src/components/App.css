@@ -16,7 +16,7 @@ a {
 
 .Home__Left {
   min-width: 200px;
-  width: 250px;
+  width: 200px;
   background-color: #d2d2d2;
   border-style: solid;
   border-width: 2px;
@@ -57,8 +57,8 @@ a {
     font-family: "Roboto Bold";
     font-size: 18px;
     font-weight: bold;
-    padding-top: 17px;
-    padding-bottom: 17px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     cursor: pointer;
 }
 

@@ -10,12 +10,12 @@ function CreateNote() {
           Create New Note:
         </div>
         <div className="CreateNote__Title">
-          <textarea rows="1" cols="60">
+          <textarea rows="1" cols="55">
             Note Title
           </textarea>
         </div>
         <div className="CreateNote__Content">
-          <textarea rows="18" cols="85">
+          <textarea rows="18" cols="75">
             Note Content
           </textarea>
         </div>
