@@ -3,9 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-.beard {
-  display: flex;
-  background-color: grey;
-  width:100%;
-}
