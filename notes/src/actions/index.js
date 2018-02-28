@@ -10,11 +10,17 @@ export const UPDATE_NOTE = 'UPDATE_NOTE';
 
 export const getNotes = () => {
     const notes = axios.get('http://localhost:3333/notes/');
+
     return dispatch => {
         dispatch({type: FETCHING, fetching: true});
         notes
             .then(response => {
-                dispatch({type: GET_NOTES, payload: response.data});
+                const respVals = Object.values(response.data);
+                const responseData = respVals.map((note) => {
+                    return note;
+                });
+
+                dispatch({type: GET_NOTES, payload: responseData});
                 dispatch({type: FETCHING, fetching: false});
             })
             .catch(err => {

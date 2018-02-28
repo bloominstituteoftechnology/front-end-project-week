@@ -20,13 +20,14 @@ const app = firebase.initializeApp({
 
 const database = app.database();
 let notes = database.ref('notes');
-
-for(let i=0; i < 12; ++i){
+let prodName = '';
+for(let i=0; i < 6; ++i){
+    prodName = faker.commerce.productName();
     notes.push({
-        title:faker.commerce.productName(),
-        description:faker.lorem.paragraphs(8),
+        title:prodName,
+        description:faker.lorem.paragraphs(8)+ ' ' + prodName,
         image:faker.image.animals(),
-        tags:faker.lorem.words(7),
+        tags:faker.lorem.words(7) + ' ' + prodName ,
         id:i,
     });
 }
@@ -38,10 +39,17 @@ const sendUserError = (msg, res) => {
 };
 
 server.get('/notes', (req, res) => {
-    // res.json(notes);
-    setTimeout(function () {
-        res.json(notes);
-    }, 500);
+
+    notes.on('value', (data) => {
+
+        setTimeout(() => res.json(data.val()) , 500);
+
+    }, (error) => {
+        res.json(error);
+        console.log(error);
+    });
+
+
 });
 let noteId = 0;
 

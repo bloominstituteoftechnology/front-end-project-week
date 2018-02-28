@@ -34,6 +34,7 @@ class Notes extends Component {
                         : (this.props.notes.length > 0)
                             ?
                                 <Row className={'notes-box'}>
+
                                     {this.props.notes.map((note, index) => {
                                         return (
                                             <Link to={`/details/${note.id}`}
