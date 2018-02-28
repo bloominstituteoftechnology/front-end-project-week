@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NoteListNote from './noteListNote';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import NoteView from './noteView';
+import { NavLink } from 'react-router-dom';
 
 class NoteList extends Component {
   componentDidMount() {
@@ -22,15 +21,12 @@ class NoteList extends Component {
       <div className="note-list__title">Your Notes:</div>
           { this.props.notes.map((note) => {
             return (
-              <Router key={note.id}>
-                <div>
-                  <NavLink className="note-list-note-link" to={`/note/${note.id}`}>
-                    <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 120)} />
-                  </NavLink>
+              <div key={note.id}>
+                <NavLink className="note-list-note-link" to={`/note/${note.id}`}>
+                  <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 120)} />
+                </NavLink>
                   {/* <Route component={NoteList} path="/" exact/> */}
-                  <Route path="/note/:id" component={NoteView} />
-                </div>
-              </Router>
+              </div>
             )
           })}
       </div>

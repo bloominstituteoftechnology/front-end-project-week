@@ -1,10 +1,16 @@
 import React from 'react';
 
-const NoteView = () => {
+const NoteView = (props) => {
+    console.log("NoteView props: ", props);
     return (
+      <div>
         <h1>
-            YOUR NOTE HERE
+        {props.notes[props.match.params.id].title}
         </h1>
+        <div>
+        {props.notes[props.match.params.id].body}
+        </div>
+      </div>
     )
 }
 
