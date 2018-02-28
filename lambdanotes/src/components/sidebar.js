@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Styles
 const SideBarStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,6 +29,7 @@ const ButtonStyled = styled.button`
   cursor: pointer;
 `
 
+// Sidebar Component
 const Sidebar = (props) => {
   return(
     <SideBarStyled>

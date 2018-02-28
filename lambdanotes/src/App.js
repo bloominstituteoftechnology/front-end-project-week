@@ -19,7 +19,7 @@ const AppStyled = styled.div`
   flex-flow: row no-wrap;
   height: 100vh;
   vertical-align: top;
-`
+`;
 
 // App Component
 class App extends Component {
@@ -90,6 +90,7 @@ class App extends Component {
     })
   }
 
+  // Update note data and return to Notes List view
   updateNote = (updatedNote) => {
     let { title, content, id } = updatedNote;
     let updatedNotes = this.state.notes.map((note) => {
@@ -116,6 +117,19 @@ class App extends Component {
     return nextId;
   }
 
+  // Delete Note from notes array and return to Notes List view
+  deleteNote = (id) => {
+    let updatedNotes = this.state.notes.filter(note => note.id !== id);
+    console.log(updatedNotes);
+    this.setState({ 
+      notes: updatedNotes,
+      viewingNotes: true,
+      creatingNote: false,
+      showingNoteDetails: false,
+      editingNote: false,
+    });
+  }
+
   render() {
     return (
       <AppStyled>
@@ -127,6 +141,7 @@ class App extends Component {
           createNewNoteForm={this.createNewNoteForm}
           style={{ width: "200px", height: "100vh" }}
         />
+
         <div style={{ width: "100%", height: "100vh" }}>
           {this.state.viewingNotes &&
             <NotesList
@@ -144,11 +159,11 @@ class App extends Component {
             <NoteDetails
               noteDetails={this.state.noteDetails}
               showNoteEditForm={this.showNoteEditForm}
+              deleteNote={this.deleteNote}
             />}
 
           {this.state.editingNote &&
             <EditNote
-              noteDetails={this.state.noteDetails}
               noteDetails={this.state.noteDetails}
               updateNote={this.updateNote}
               showNoteEditForm={this.showNoteEditForm}

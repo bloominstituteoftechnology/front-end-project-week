@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components"
 
+// Styles
 const EditNoteStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@ const EditNoteStyled = styled.div`
 
   .NoteTitleInput {
     width: 50%;
+    margin-top: 20px;
     outline: none;
     font-size: 1rem;
   }
@@ -36,6 +38,7 @@ const EditNoteStyled = styled.div`
   }
 `;
 
+// Edit Note Component
 class EditNote extends Component {
   state = {
     title: '',
@@ -91,6 +94,6 @@ class EditNote extends Component {
       </EditNoteStyled>
     )
   }
-}
+} // Edit Note Component
 
 export default EditNote;

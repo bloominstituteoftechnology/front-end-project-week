@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+// Styles
 const CreateNoteStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,6 +23,7 @@ const CreateNoteStyled = styled.div`
 
   .NoteTitleInput {
     width: 50%;
+    margin-top: 20px;
     outline: none;
     font-size: 1rem;
   }

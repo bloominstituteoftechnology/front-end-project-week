@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+// Styles
 const NoteDetailsStyled = styled.div`
   padding: 30px;
   display: flex;
@@ -28,6 +29,7 @@ const NoteDetailsStyled = styled.div`
   }
 `
 
+// Note Details Component
 class NoteDetails extends Component {
   state = {
     title: '',
@@ -43,12 +45,17 @@ class NoteDetails extends Component {
     })
   }
 
+  handleDelete = () => {
+    this.props.deleteNote(this.state.id);
+    // console.log(this.state.id);
+  }
+
   render() {
     return (
       <NoteDetailsStyled>
         <header>
           <a onClick={this.props.showNoteEditForm}>Edit</a>
-          <a>Delete</a>
+          <a onClick={this.handleDelete}>Delete</a>
         </header>
         <h1>{this.state.title}</h1>
         <p>{this.state.content}</p>
