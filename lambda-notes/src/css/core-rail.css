@@ -23,6 +23,13 @@
   flex-wrap: wrap;
   align-items: flex-start;
 }
+.core-rail .note-list .note-list-note-link {
+  text-decoration: none;
+  color: black;
+}
+.core-rail .note-list .note-list-note-link:hover {
+  font-weight: bolder;
+}
 .core-rail .note-list .note-list-note {
   display: flex;
   box-sizing: border-box;
@@ -33,6 +40,7 @@
   border: 1px solid #979797;
   padding: 15px;
   margin: 0px 20px 36px 3px;
+  cursor: pointer;
 }
 .core-rail .note-list .note-list-note .note-list-note__title {
   height: 36px;
