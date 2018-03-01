@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { titleSort } from '../actions';
 import Button from './button';
 
 const StyledHomeRail = styled.div`
@@ -32,10 +34,11 @@ const HomeLeftRail = props => (
       <Button backgroundColor='rgb(34, 170, 61)' title='+ Create New Note' />
     </Link>
     <div className='home-left-rail__sort-buttons'>
-      <Button backgroundColor='rgb(34, 170, 61)' title='Sort By Title' />
+      <Button method={props.titleSort} backgroundColor='rgb(34, 170, 61)' title='Sort By Title' />
       <Button backgroundColor='rgb(34, 170, 61)' title='Sort By Date/Time' />
     </div>
   </StyledHomeRail>
 );
 
-export default HomeLeftRail;
+export default connect(null, { titleSort })(HomeLeftRail);
+

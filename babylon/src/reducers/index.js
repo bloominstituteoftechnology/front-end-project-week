@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
@@ -40,6 +40,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         deleteActive: !state.deleteActive,
+      };
+    case TITLE_SORT:
+      return {
+        ...state,
+        notes: [...state.notes].sort((a, b) => {
+          return a.title > b.title;
+        }),
       };
     default:
       return state;

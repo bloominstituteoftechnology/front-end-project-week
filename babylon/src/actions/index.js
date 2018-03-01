@@ -2,6 +2,7 @@ export const ADD_NOTE = 'ADD_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const DELETE_NOTE = 'DELERE_NOTE';
 export const TOGGLE_DELETE = 'TOGGLE_DELETE';
+export const TITLE_SORT = 'TITLE_SORT';
 
 let nextNoteId = 4;
 export const addNote = data => ({
@@ -25,4 +26,8 @@ export const deleteNote = data => ({
 
 export const toggleDelete = data => ({
   type: TOGGLE_DELETE,
+});
+
+export const titleSort = data => ({
+  type: TITLE_SORT,
 });
