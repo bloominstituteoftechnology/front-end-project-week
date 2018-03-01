@@ -37,10 +37,18 @@ class NotesList extends Component {
     notesFiltered: [],
   }
 
-
   handleSearch = (event) => {
     if (event.target.value.length > 0) {
-      let filteredNotes = this.props.notes.filter(note => note.title.toLowerCase().includes(event.target.value.toLowerCase()))
+      let filteredNotes = this.props.notes.filter(note => {
+        let searchTerms = event.target.value.toLowerCase().split(' ')
+        let containsTerm = true;
+        searchTerms.forEach((term) => {
+          if (note.title.toLowerCase().includes(term) !== true) {
+            containsTerm = false;
+          }
+        })
+        return containsTerm;
+      })
       this.setState({ notesFiltered: filteredNotes })
     }
     else {
