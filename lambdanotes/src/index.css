@@ -10,10 +10,6 @@ ul {
   padding: 0;
 }
 
-li {
-  list-style: none;
-}
-
 p {
   font-family: 'Raleway', sans-serif;
 }
@@ -42,6 +38,39 @@ a:link {
 :-webkit-any-link {
   text-decoration: none;
   color: black;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 80%;
+}
+
+thead {
+  background-color: rgb(235, 235, 235);
+  border: 1px solid black;
+}
+
+tbody {
+  border: 1px solid black;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(179, 179, 179);
+}
+
+tbody tr:nth-child(even) {
+  background-color: lightgrey;
+}
+
+th, td {
+  text-align: left;
+}
+
+pre {
+  background: lightgrey;
+  border: solid grey 1px;
 }
 
 .MainApp {
