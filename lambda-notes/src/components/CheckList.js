@@ -8,10 +8,10 @@ import './css/CheckList.css';
 class CheckList extends React.Component {
   state = {
     note: '',
-    saved: false,
   };
 
   render() {
+    console.log(this.state)
     return (
       <div className="checklist">
         <h1 className="checklist-header"> Your Note's Check List </h1>
@@ -30,7 +30,16 @@ class CheckList extends React.Component {
           ? this.props.note.checklist.map((note, index) => {
               return (
                 <div className="items" key={index}>
-                  <input type="checkbox" />
+                  <input type="checkbox" defaultChecked={`this.state.click[${index}] ? true : false`} onClick={() => {
+                    const key = `click${index}`;
+                    const keys = Object.keys(this.state);
+                    let flag = false;
+                    keys.forEach(element => {
+                      if (element === key) flag = true;
+                    })
+                    if (flag === true) this.setState({...this.state, [key]: !this.state[key]})
+                    else this.setState({...this.state, [key]: true});
+                  }} />
                   <div>{note}</div>
                 </div>
               );
@@ -47,7 +56,7 @@ class CheckList extends React.Component {
     const updated = this.props.note;
     updated.checklist.push(this.state.note);
     this.props.update_check_list(updated);
-    this.setState({ note: '', saved: true });
+    this.setState({ note: ''});
   };
 }
 

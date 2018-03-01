@@ -102,7 +102,6 @@ const initialState = {
   remove: false,
   loggedIn: false,
   currentUserNotes: null,
-  uselesschangeforcommit: null,
 };
 
 export default (state = initialState, action) => {
