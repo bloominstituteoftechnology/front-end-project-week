@@ -29,3 +29,10 @@
   color: white;
   font-weight: bold;
 }
+
+.new-header {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+}

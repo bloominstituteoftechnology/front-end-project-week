@@ -148,6 +148,8 @@ export default (state = initialState, action) => {
       return { ...state, remove: action.payload };
     case actions.LOAD_USER_NOTES:
       return { ...state, currentUserNotes: action.payload}
+    case actions.NEW_USER_CREATION:
+      return { ...state, currentUserNotes: action.payload.notes, users: [...state.users, action.payload], current: 'list'}
     default:
       return state;
   }

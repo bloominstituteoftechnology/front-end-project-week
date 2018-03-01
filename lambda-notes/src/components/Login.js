@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import {view_button_click, load_user_notes} from '../actions/index';
+import {view_button_click, load_user_notes, new_user_creation} from '../actions/index';
 
 import './css/Login.css';
 
@@ -9,6 +9,8 @@ class Login extends React.Component {
     state = {
         user: '',
         pass: '',
+        newUser: '',
+        newPass: '',
     }
 
     render() {
@@ -19,6 +21,10 @@ class Login extends React.Component {
                 <input placeholder='username' value={this.state.user} onChange={this.handleUserChange}/>
                 <input type='password' placeholder='password' value={this.state.pass} onChange={this.handlePassChange}/>
                 <button className='login-button' onClick={this.loginClicked}> Login </button>
+                <h1 className='new-header'> No Account? Create One Below </h1>
+                <input placeholder='username' value={this.state.newUser} onChange={this.handleNewUserChange}/>
+                <input type='password' placeholder='password' value={this.state.newPass} onChange={this.handleNewPassChange}/>
+                <button className='login-button' onClick={this.createClicked}> Create New </button>
             </div>    
             </div>
         )
@@ -29,6 +35,12 @@ class Login extends React.Component {
       };
       handlePassChange = event => {
         this.setState({ pass: event.target.value });
+      };
+      handleNewUserChange = event => {
+        this.setState({ newUser: event.target.value });
+      };
+      handleNewPassChange = event => {
+        this.setState({ newPass: event.target.value });
       };
     loginClicked = () => {
         let flag = false;
@@ -48,6 +60,10 @@ class Login extends React.Component {
             this.setState({user:'',pass:''})
         }
     }
+    createClicked = () => {
+        const user = {...this.state, notes: []};
+        this.props.new_user_creation(user);
+    }
 }
 
 const mapStateToProps = state => {
@@ -57,4 +73,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {view_button_click, load_user_notes})(Login);
+export default connect(mapStateToProps, {view_button_click, load_user_notes, new_user_creation})(Login);

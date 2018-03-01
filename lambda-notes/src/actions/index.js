@@ -12,6 +12,7 @@ export const DOWNLOAD_BUTTON_CLICKED = 'DOWNLOAD_BUTTON_CLICKED';
 export const UPDATE_CHECK_LIST = 'UPDATE_CHECK_LIST';
 export const REMOVE_EDIT = 'REMOVE_EDIT';
 export const LOAD_USER_NOTES = 'LOAD_USER_NOTES';
+export const NEW_USER_CREATION = 'NEW_USER_CREATION';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -121,3 +122,10 @@ export const load_user_notes = notes => {
     payload: notes,
   };
 };
+
+export const new_user_creation = user => {
+  return {
+    type: 'NEW_USER_CREATION',
+    payload: user,
+  }
+}
