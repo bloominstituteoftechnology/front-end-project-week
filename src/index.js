@@ -8,11 +8,13 @@ import {Provider} from 'react-redux';
 import notesReducer from './reducers';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import {initialState} from "./initialState";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 
 const store = createStore(
   notesReducer,
+  initialState,
   composeEnhancers(applyMiddleware(thunk))
 );
 

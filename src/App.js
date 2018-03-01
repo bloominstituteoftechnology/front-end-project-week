@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 import {BrowserRouter, NavLink, Route, Switch} from "react-router-dom";
-
-import * as actions from './actions';
 
 import './App.css';
 import NoteListPage from "./components/NoteListPage";
@@ -13,10 +9,10 @@ import ViewNotePage from "./components/ViewNotePage";
 
 class App extends Component {
 
-  constructor(props) {
+  /*constructor(props) {
     super(props);
-    props.actions.getSmurfData();
-  }
+    // props.actions.getSmurfData();
+  }*/
 
   render() {
     return (
@@ -24,7 +20,7 @@ class App extends Component {
         <div className="App container">
           <div className="sidenav">
             <h3>Lambda Notes</h3>
-            <NavLink to="/">Please View Your Notes</NavLink>
+            <NavLink to="/">View Your Notes</NavLink>
             <NavLink to="/add-note">Create New Note</NavLink>
           </div>
           <div className="main">
@@ -42,17 +38,4 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    notes: state.notes
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
