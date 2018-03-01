@@ -11,7 +11,7 @@ class CheckList extends React.Component {
   };
 
   render() {
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div className="checklist">
         <h1 className="checklist-header"> Your Note's Check List </h1>
@@ -30,16 +30,23 @@ class CheckList extends React.Component {
           ? this.props.note.checklist.map((note, index) => {
               return (
                 <div className="items" key={index}>
-                  <input type="checkbox" defaultChecked={`this.state.click[${index}] ? true : false`} onClick={() => {
-                    const key = `click${index}`;
-                    const keys = Object.keys(this.state);
-                    let flag = false;
-                    keys.forEach(element => {
-                      if (element === key) flag = true;
-                    })
-                    if (flag === true) this.setState({...this.state, [key]: !this.state[key]})
-                    else this.setState({...this.state, [key]: true});
-                  }} />
+                  <div>
+                      <input
+                        type="checkbox"
+                        onClick={() => {
+                          const key = `${this.props.note.title}click${index}`;
+                          const keys = Object.keys(this.state);
+                          let flag = false;
+                          keys.forEach(element => {
+                            if (element === key) flag = true;
+                          });
+                          if (flag === true)
+                            this.setState({ ...this.state, [key]: !this.state[key] });
+                          else this.setState({ ...this.state, [key]: false });
+                        }}
+                      />
+                    </div>
+
                   <div>{note}</div>
                 </div>
               );
@@ -56,8 +63,13 @@ class CheckList extends React.Component {
     const updated = this.props.note;
     updated.checklist.push(this.state.note);
     this.props.update_check_list(updated);
-    this.setState({ note: ''});
+    this.setState({ note: '' });
   };
 }
+const mapStateToProps = state => {
+  return {
+    note: state.note,
+  };
+};
 
-export default connect(null, { update_check_list  })(CheckList);
+export default connect(mapStateToProps, { update_check_list })(CheckList);
