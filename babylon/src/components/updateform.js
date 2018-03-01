@@ -16,7 +16,8 @@ const StyledUpdateForm = styled.div`
   input, textarea {
     margin-left: 10px;
     border-radius: 3px;
-    border: 1px solid #bfbfc0;     
+    border: 1px solid #bfbfc0;
+    font-size: 1.4rem;
     &:focus {
       outline: none;
     }
@@ -31,7 +32,6 @@ const StyledUpdateForm = styled.div`
     height: 40px;
     margin-top: 20px;
     padding: 8px;
-    font-size: 1.2rem;
   }
 
   .form__textarea {
@@ -40,7 +40,6 @@ const StyledUpdateForm = styled.div`
     margin-top: 10px;
     padding: 12px;
     line-height: 180%;
-    font-size: 1.2rem;
   }
 
   button {
@@ -87,7 +86,7 @@ class UpdateForm extends React.Component {
             className='form__input'
             type='text'
             name='title'
-            placeholder='Note Title'
+            placeholder='Title (required, 40 chars max)...'
             maxLength='40'
             required
             onChange={this.handleChange}
@@ -97,7 +96,7 @@ class UpdateForm extends React.Component {
             className='form__textarea'
             type='text'
             name='body'
-            placeholder='Note Content'
+            placeholder='Content (required, 1500 chars max)...'
             maxLength='1500'
             required
             onChange={this.handleChange}
