@@ -32,47 +32,37 @@ for(let i=0; i < 6; ++i){
     });
 }
 
-const sendUserError = (msg, res) => {
-    res.status(422);
-    res.json({Error: msg});
-    return;
-};
-
 server.get('/notes', (req, res) => {
-
-    notes.on('value', (data) => {
-
-        setTimeout(() => res.json(data.val()) , 500);
-
-    }, (error) => {
-        res.json(error);
-        console.log(error);
+    notes.once('value').then(function(dataResponse) {
+        const data = dataResponse.val();
+        res.json(data);
+    }).catch(function(error) {
+        console.log('Failed to send notification to user:', error);
     });
-
-
 });
-let noteId = 0;
+
+let noteId = 6;
 
 server.post('/notes', (req, res) => {
     const {title, description, tags} = req.body;
-    const newNote = {title, description, tags, id: noteId};
+    const newNote = {title, description, tags, id: noteId, image:faker.image.animals()};
     if (!title || !description || !tags) {
         return sendUserError(
             'Ya gone did Noted! title/description/tags are all required to create a note in the note DB.',
             res
         );
     }
-    const findNoteByTitle = note => {
-        return note.title === title;
-    };
-    if (notes.find(findNoteByTitle)) {
-        return sendUserError(
-            `Ya gone did noted! ${title} already exists in the notes DB.`,
-            res
-        );
-    }
+    // const findNoteByTitle = note => {
+    //     return note.title === title;
+    // };
+    // if (notes.find(findNoteByTitle)) {
+    //     return sendUserError(
+    //         `Ya gone did noted! ${title} already exists in the notes DB.`,
+    //         res
+    //     );
+    // }
 
-    notes.push(newNote);
+    const respons = notes.push(newNote);
     noteId++;
     res.json(notes);
 });
@@ -115,3 +105,9 @@ server.listen(port, err => {
     if (err) console.log(err);
     console.log(`server is listening on port ${port}`);
 });
+
+const sendUserError = (msg, res) => {
+    res.status(422);
+    res.json({Error: msg});
+    return;
+};
