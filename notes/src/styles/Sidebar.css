@@ -12,7 +12,7 @@
 .sidebar__title {
   font-size: 41px;
   color: rgb(74, 74, 74);
-  letter-spacing: 2px;
+  letter-spacing: 1.6px;
   font-weight: bold;
   line-height: 36px;
 }
@@ -21,20 +21,22 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  margin-top: 11px;
+  margin-top: 12px;
   margin-left: 3px;
 }
 
 .sidebar__button {
   width: 230px;
-  height: 50px;
+  height: 51px;
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 3px;
-  padding: 17px 12px 10px 1px;
+  margin-left: -1.5px;
+  padding: 17px 12px 10px 11px;
   text-align: center;
+  letter-spacing: 0.5px;
   background: rgb(40, 193, 197);
-  border: 1px rgb(171, 171, 171) solid;
+  border: 1px rgb(151, 151, 151) solid;
   color: white;
   font-size: 18px;
   cursor: default;

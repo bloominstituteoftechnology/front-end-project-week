@@ -1,22 +1,36 @@
 .noteThumb__container {
-  height: 250px;
-  width: 250px;
+  height: 237px;
+  width: 230px;
   font-size: 20px;
   background: white;
-  margin: 15px;
-  padding: 15px;
-  border: 1px solid lightgray;
-  color: rgb(74, 74, 74);
+  border: 1px solid rgb(165, 165, 165);
+  margin-right: 19px;
+  margin-bottom: 29px;
+  color: black;
 }
 
 .noteThumb__title {
-  border-bottom: 2px solid lightgray;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-left: 20px;
+  margin-bottom: -2px;
+  font-weight: bold;
+  font-size: 21px;
+  letter-spacing: 1px;
+}
+
+hr {
+  margin-left: 20px;
+  margin-right: 23px;
+  height: 1px;
+  border: 0px;
+  border-top: 1px solid rgb(151, 151, 151);
 }
 
 .noteThumb__content {
-  font-weight: lighter;
-  line-height: 30px;
+  font-family: 'Raleway';
+  font-size: 16px;
+  line-height: 26px;
   overflow: auto;
-  padding-top: 5px;
+  padding: 1px 25px 0px 20px;
+  margin-top: -5px;
 }

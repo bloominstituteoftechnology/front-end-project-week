@@ -11,7 +11,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  notes: [],
+  notes: notes,
   id: 1,
   modalVisible: false,
   selectedNote: {}
