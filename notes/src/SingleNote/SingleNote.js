@@ -6,6 +6,8 @@ import { Modal } from './Modal';
 import { EditNoteFields } from './EditNoteFields';
 import './SingleNote.css';
 
+// Don't forget to change delete to noasdfasfasdf
+
 class SingleNote extends Component {
   state = {
     note: {},
@@ -15,11 +17,19 @@ class SingleNote extends Component {
     editButtonPressed: false,
   };
 
-  componentDidMount() {
-    const id = Number(this.props.match.params.id);
-    const thisNote = this.props.notes.filter(each => each.id === id)[0];
-    this.setState({ note: thisNote });
+  componentWillMount() {
+    this.fetchNotes(this.props);
   }
+
+  componentWillReceiveProps(newProps) {
+    this.fetchNotes(newProps);
+  }
+
+  fetchNotes = props => {
+    const id = Number(props.match.params.id);
+    const thisNote = props.notes.filter(each => each.id === id)[0];
+    this.setState({ note: thisNote });
+  };
 
   displayState = key => {
     return this.state[key];
@@ -32,7 +42,7 @@ class SingleNote extends Component {
   };
 
   editNote = event => {
-    // event.preventDefault();
+    event.preventDefault();
 
     const editedNote = {
       title: this.state.title,
@@ -46,8 +56,6 @@ class SingleNote extends Component {
       body: '',
       editButtonPressed: !this.state.editButtonPressed,
     });
-
-    this.props.history.push(`/notes/${this.state.note.id}`);
   };
 
   deleteNote = () => {

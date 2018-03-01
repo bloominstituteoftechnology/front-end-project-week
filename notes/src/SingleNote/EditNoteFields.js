@@ -30,14 +30,12 @@ export const EditNoteFields = props => {
                 value={props.displayState('body')}
               />
             </div>
-            {/* <Link to={`/notes/${props.id}`}> */}
-              <input
-                onClick={props.editNote}
-                type="submit"
-                value="Update"
-                className="update-button"
-              />
-            {/* </Link> */}
+            <input
+              onClick={props.editNote}
+              type="submit"
+              value="Update"
+              className="update-button"
+            />
           </form>
         </div>
       </div>
