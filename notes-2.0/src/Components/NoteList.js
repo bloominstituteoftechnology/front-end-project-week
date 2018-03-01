@@ -14,6 +14,3 @@ const NoteList = props => {
 };
 
 export default NoteList;
-
-// <div className="noteDisplay">
-// </div>

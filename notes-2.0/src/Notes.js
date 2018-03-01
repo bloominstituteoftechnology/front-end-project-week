@@ -35,7 +35,11 @@ class Notes extends Component {
         ) : null}
         {this.state.view.create ? <CreateNote addNote={this.addNote} /> : null}
         {this.state.view.singleNote ? (
-          <SingleNote notes={this.state.notes} target={this.target} deleteNote={this.deleteNote} />
+          <SingleNote
+            notes={this.state.notes}
+            target={this.target}
+            deleteNote={this.deleteNote}
+          />
         ) : null}
       </div>
     );
@@ -55,17 +59,6 @@ class Notes extends Component {
       }
     });
     console.log("Notes Array After Deleting: ", this.state.notes);
-    console.log(
-      "Notes View: ",
-      "\n Create Status: ",
-      this.state.view.create,
-      "\n Note Status: ",
-      this.state.view.notes,
-      "\n Edit Status: ",
-      this.state.view.edit,
-      "\n SingleNote Status: ",
-      this.state.view.singleNote
-    );
   };
 
   handleTarget = i => {
@@ -79,19 +72,6 @@ class Notes extends Component {
         singleNote: true
       }
     });
-    console.log(
-      "Single Note View: ",
-      "\n Target = ",
-      this.state.target,
-      "\n Create Status: ",
-      this.state.view.create,
-      "\n Note Status: ",
-      this.state.view.notes,
-      "\n Edit Status: ",
-      this.state.view.edit,
-      "\n SingleNote Status: ",
-      this.state.view.singleNote
-    );
   };
 
   addNote = newNote => {
@@ -106,17 +86,6 @@ class Notes extends Component {
         singleNote: false
       }
     });
-    console.log(
-      " Notes View : ",
-      "\n Create Status: ",
-      this.state.view.create,
-      "\n Note Status: ",
-      this.state.view.notes,
-      "\n Edit Status: ",
-      this.state.view.edit,
-      "\n SingleNote Status: ",
-      this.state.view.singleNote
-    );
   };
 
   SetViewNotes() {
@@ -130,17 +99,6 @@ class Notes extends Component {
         singleNote: false
       }
     });
-    console.log(
-      "Notes View: ",
-      "\n Create Status: ",
-      this.state.view.create,
-      "\n Note Status: ",
-      this.state.view.notes,
-      "\n Edit Status: ",
-      this.state.view.edit,
-      "\n SingleNote Status: ",
-      this.state.view.singleNote
-    );
   }
 
   SetViewCreate() {
@@ -154,18 +112,6 @@ class Notes extends Component {
         singleNote: false
       }
     });
-
-    console.log(
-      "Create View: ",
-      "\n Create Status: ",
-      this.state.view.create,
-      "\n Note Status: ",
-      this.state.view.notes,
-      "\n Edit Status: ",
-      this.state.view.edit,
-      "\n SingleNote Status: ",
-      this.state.view.singleNote
-    );
   }
 }
 

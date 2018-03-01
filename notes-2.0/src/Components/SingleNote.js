@@ -4,7 +4,6 @@ const SingleNote = props => {
   const notes = props.notes;
   const target = props.target;
   const deleteNote = props.deleteNote;
-  console.log('This is your Target :', target);
   return (
     <div className="singleNote">
       <button>edit</button>
