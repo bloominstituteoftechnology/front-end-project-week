@@ -77,7 +77,7 @@ class Search extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    notes: state.currentUserNotes,
   };
 };
 

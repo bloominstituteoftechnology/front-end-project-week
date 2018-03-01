@@ -62,10 +62,4 @@ class CreateNote extends React.Component {
   };
 }
 
-const mapStateToProps = state => {
-  return {
-    current: state.current,
-  };
-};
-
-export default connect(mapStateToProps, { add_note, view_button_click })(CreateNote);
+export default connect(null, { add_note, view_button_click })(CreateNote);

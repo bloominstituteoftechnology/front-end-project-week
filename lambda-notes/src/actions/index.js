@@ -11,7 +11,7 @@ export const SORT_BUTTON_CLICKED = 'SORT_BUTTON_CLICKED';
 export const DOWNLOAD_BUTTON_CLICKED = 'DOWNLOAD_BUTTON_CLICKED';
 export const UPDATE_CHECK_LIST = 'UPDATE_CHECK_LIST';
 export const REMOVE_EDIT = 'REMOVE_EDIT';
-
+export const LOAD_USER_NOTES = 'LOAD_USER_NOTES';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -54,7 +54,7 @@ export const edit_note_clicked = note => {
   };
 };
 
-export const edit_note = (revised) => {
+export const edit_note = revised => {
   return {
     type: 'EDIT_NOTE',
     payload: revised,
@@ -90,27 +90,34 @@ export const sort_button_click = () => {
   return {
     type: 'SORT_BUTTON_CLICKED',
     payload,
-  }
-}
+  };
+};
 
 export const download_button_click = () => {
   const payload = 'download';
   return {
     type: 'DOWNLOAD_BUTTON_CLICKED',
     payload,
-  }
-}
+  };
+};
 
-export const update_check_list = (note) => {
+export const update_check_list = note => {
   return {
     type: 'UPDATE_CHECK_LIST',
     payload: note,
-  }
-}
+  };
+};
 
 export const remove_edit = () => {
   return {
     type: 'REMOVE_EDIT',
     payload: true,
-  }
-}
+  };
+};
+
+export const load_user_notes = notes => {
+  return {
+    type: 'LOAD_USER_NOTES',
+    payload: notes,
+  };
+};
