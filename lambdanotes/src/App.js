@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "../node_modules/font-awesome/css/font-awesome.min.css";
 
 let todos = [
   {
@@ -22,10 +23,10 @@ class App extends Component {
     this.state = {
       todos
     };
-    this.addTodo = this.addTodo.bind(this);
+    this.actionAddTodo = this.actionAddTodo.bind(this);
   }
 
-  removeTodo(index) {
+  actionRemoveTodo(index) {
     this.setState({
       todos: this.state.todos.filter(function(e, i) {
         return i !== index;
@@ -33,7 +34,7 @@ class App extends Component {
     });
   }
 
-  addTodo(todo) {
+  actionAddTodo(todo) {
     this.setState({ todos: [...this.state.todos, todo] });
   }
   render() {
@@ -41,7 +42,7 @@ class App extends Component {
       <div className="container">
         <nav className="navbar fixed-top navbar-dark bg-dark">
           <h1 className="navbar-brand">
-            Amount of todos:{" "}
+            Number of todos:{" "}
             <span className="badge badge-pill badge-secondary">
               {this.state.todos.length}
             </span>
@@ -49,8 +50,8 @@ class App extends Component {
         </nav>
 
         <div className="row mt-5">
-          <hr />
-          <InputTodo onAddTodo={this.addTodo} />
+          <br />
+          <InputTodo onAddTodo={this.actionAddTodo} />
           <hr />
         </div>
 
@@ -59,11 +60,11 @@ class App extends Component {
             <ul className="list-group">
               {this.state.todos.map((todo, index) => (
                 <li className="list-group-item" key={index}>
-                  <h4 className="list-group-item-heading">{todo.doTitle}</h4>
+                  <h4 className="list-group-item-heading">{todo.doTitle} </h4>
                   <p className="text-justify">{todo.doDescription}</p>
                   <button
                     className="btn btn-danger btn-sm float-right"
-                    onClick={this.removeTodo.bind(this, index)}
+                    onClick={this.actionRemoveTodo.bind(this, index)}
                   >
                     <span>
                       <i className="fa fa-trash-o" aria-hidden="true" />
@@ -86,10 +87,10 @@ class InputTodo extends Component {
       doTitle: "",
       doDescription: ""
     };
-    this.inputChange = this.inputChange.bind(this);
+    this.actionInputChange = this.actionInputChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
-  inputChange(event) {
+  actionInputChange(event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -113,7 +114,7 @@ class InputTodo extends Component {
         <br />
         <br />
         <br />
-        <h4>Add New Todo</h4>
+        <h4>Add New Note</h4>
         <br />
         <form onSubmit={this.handleOnSubmit}>
           <div className="form-group">
@@ -123,26 +124,23 @@ class InputTodo extends Component {
               className="form-control"
               id="inputTodoTitle"
               value={this.state.doTitle}
-              onChange={this.inputChange}
+              onChange={this.actionInputChange}
               aria-describedby="Todo Title"
               placeholder="Enter Title"
             />
           </div>
 
           <div className="form-group">
-            <label
-              htmlFor="inputTodoDescription"
-              className="control-label text-muted"
-            >
+            <label htmlFor="doDescription" className="control-label text-muted">
               <small>Description</small>
             </label>
             <textarea
-              name="todoDescription"
+              name="doDescription"
               type="text"
               className="form-control"
               id="inputTodoDescription"
               value={this.state.doDescription}
-              onChange={this.inputChange}
+              onChange={this.actionInputChange}
               aria-describedby="Todo Description"
             />
           </div>
