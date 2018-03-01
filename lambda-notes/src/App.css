@@ -3,7 +3,7 @@
 }
 .app {
   margin: auto;
-  width: 50%;
+  width: 900px;
   min-height: 800px;
   border: 1px solid #b2b2b3;
   display: flex;
