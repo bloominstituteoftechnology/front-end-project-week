@@ -1,0 +1,79 @@
+html,body {
+  font-size: 62.5%;
+  padding:4%;
+}
+
+
+.container {
+  text-align: left;
+  width: 100%;
+  min-width: 880px;
+  display: flex;
+  border: 3px solid #ddd;
+  min-height: 672px;
+  
+}
+.sidebar {
+  background-color: #ddd;
+  color: white;
+  width: 25%;
+}
+
+.button-col {
+  
+}
+.button {
+  display: block;
+  background-color: #41d8d3;
+  border: 1px solid #818787;
+  
+  padding: 5%;
+  margin: 10%;
+ /* width: 80%;*/
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+.App-title {
+  font-size: 3.9rem;
+  color: #373d3c;
+  margin: 2%;
+  padding: 2.5%;
+  font-stretch: expanded;
+}
+
+.App-intro {
+  font-size: large;
+}
+.notes-title {
+  font-size: 2rem;
+}
+.notes-container {
+ 
+display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around; 
+}
+.single-note {
+
+    width: 50%; 
+    border: 2px solid #ddd;
+    margin: 1%;
+    height: 30%;   
+}
+h4{ 
+        text-align:left;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #ddd;
+}
+p{
+    height:30%;
+    width:100%;
+    font-size: 1rem;
+}
+.new-content {
+  width: 100px;
+  height:100px;
+}

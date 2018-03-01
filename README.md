@@ -9,6 +9,14 @@ The main objective of this week is to develop the MVP feature set listed below u
 * You are required to showcase progress with at least 1 commit a day.  This will let your project manager know where you are and if you need help.  This also allows the client to get progress reports from the company in a real world setting.  
 
 ## Trello Set Up:
+<<<<<<< HEAD
+* [ Y] Create a Trello account
+* [ Y] Create a new board called "Lambda Notes"
+* [ Y] Create lists titled ```backlog```,```To Do```, ```In Progress```, and ```Done```.
+* [ Y] Fill in the ```To Do``` list with the MVP features listed below
+* [ Y] Fill in the ```backlog``` list with all the extra features listed below
+* [ Y] Share your board with the Project Manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance.
+=======
 * [ ] Create a Trello account
 * [ ] Create a new board called "Lambda Notes - {Your Name}"
 * [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
@@ -25,12 +33,13 @@ The main objective of this week is to develop the MVP feature set listed below u
 * [ ] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add the MVP Task list to your first Pull Request comment:
+>>>>>>> 3b8b8c59fa50d65fa8d5301c938dbfd61330880e
 
 ```markdown
 ## MVP Features:
-* [ ] Display a list of notes
+* [ Y] Display a list of notes
 * [ ] Create a note with a title and content
-* [ ] View an existing note
+* [Y ] View an existing note
 * [ ] Edit an existing note
 * [ ] Delete an existing note
 ```
@@ -51,3 +60,9 @@ Once your MVP has been approved, you have been given a feature list that the cli
 * Create a login system around the MVP
 
 You will notice that this repo doesn't have any starter code, this is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  
+<<<<<<< HEAD
+
+My Progress:
+ https://trello.com/b/x2ZQcksu/lambda-notes-shobana-ramesh
+=======
+>>>>>>> 3b8b8c59fa50d65fa8d5301c938dbfd61330880e
