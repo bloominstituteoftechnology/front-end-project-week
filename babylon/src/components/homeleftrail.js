@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { titleSort } from '../actions';
+import { titleSort, oldestSort, newestSort } from '../actions';
 import Button from './button';
 
 const StyledHomeRail = styled.div`
@@ -15,10 +15,11 @@ const StyledHomeRail = styled.div`
   img {
     height: 100px;
     width: 100px;
+    margin-bottom: 20px;
   }
 
   .home-left-rail__sort-buttons {
-    margin-top: 55px;
+    margin-top: 40px;
   }
 
 `;
@@ -35,10 +36,11 @@ const HomeLeftRail = props => (
     </Link>
     <div className='home-left-rail__sort-buttons'>
       <Button method={props.titleSort} backgroundColor='rgb(34, 170, 61)' title='Sort By Title' />
-      <Button backgroundColor='rgb(34, 170, 61)' title='Sort By Date/Time' />
+      <Button method={props.newestSort}backgroundColor='rgb(34, 170, 61)' title='Sort By Newest' />
+      <Button method={props.oldestSort}backgroundColor='rgb(34, 170, 61)' title='Sort By Oldest' />
     </div>
   </StyledHomeRail>
 );
 
-export default connect(null, { titleSort })(HomeLeftRail);
+export default connect(null, { titleSort, newestSort, oldestSort })(HomeLeftRail);
 

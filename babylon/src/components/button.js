@@ -7,7 +7,7 @@ const StyledButton = styled.div`
 
   button {
     display: block;
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     width: 180px;
     height: 42px;
     color: white;

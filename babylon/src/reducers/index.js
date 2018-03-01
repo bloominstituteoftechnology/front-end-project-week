@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT, OLDEST_SORT, NEWEST_SORT } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
@@ -17,6 +17,7 @@ export default (state = initialState, action) => {
           id: action.id,
           title: action.title,
           body: action.body,
+          created: Date.now(),
         }
         ],
       };
@@ -49,6 +50,22 @@ export default (state = initialState, action) => {
         sortStatus: 'A - Z',
         notes: [...state.notes].sort((a, b) => {
           return a.title > b.title;
+        }),
+      };
+    case NEWEST_SORT:
+      return {
+        ...state,
+        sortStatus: 'Most Recent',
+        notes: [...state.notes].sort((a, b) => {
+          return a.created < b.created;
+        }),
+      };
+    case OLDEST_SORT:
+      return {
+        ...state,
+        sortStatus: 'Oldest',
+        notes: [...state.notes].sort((a, b) => {
+          return a.created > b.created;
         }),
       };
     default:
