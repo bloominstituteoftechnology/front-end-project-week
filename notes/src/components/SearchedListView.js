@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { viewNote, deleteNote, reorderNotes, searchNotes } from '../actions';
+import { viewNote, deleteNote, reorderNotes } from '../actions';
 import './ListView.css';
 import Shiitake from 'shiitake';
 import DeleteNoteModal from './DeleteNoteModal';
@@ -28,7 +28,7 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
   );
 });
 
-class ListView extends React.Component {
+class SearchedListView extends React.Component {
   state = {
     id: '',
     deleting: false,
@@ -57,21 +57,21 @@ class ListView extends React.Component {
   }
 
   onSortEnd = ({oldIndex, newIndex}) => {
-    this.props.reorderNotes(arrayMove(this.props.notes, oldIndex, newIndex), this.state.searching);
+    this.props.reorderNotes(arrayMove(this.props.searchResults, oldIndex, newIndex), this.state.searching);
   }
 
   render() {
     return (
       <div className='list-view'>
-        <Search history={this.props.history} search={this.search}/>
-        {this.props.notes ?
+        <Search history={this.props.history} terms={this.props.match.params.terms}/>
+        {this.props.searchResults ?
         <div>
           <h2 className='list-title'>Your Notes:</h2>
-          <SortableList viewNote={this.viewNote} notes={this.props.notes} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
+          <SortableList viewNote={this.viewNote} notes={this.props.searchResults} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
         </div>
         :
         <div className='nothing-to-view'>
-          <h2>Please Add a note</h2>
+          <h2>Error searching Notes</h2>
         </div>
         }
         {this.state.view ? <Redirect to={`/view/${this.state.id}`} /> : null }
@@ -83,8 +83,9 @@ class ListView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
+    searchResults: state.searchResults,
+    searchTerms: state.searchTerms,
   };
 };
 
-export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes, searchNotes })(ListView);
+export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes, })(SearchedListView);

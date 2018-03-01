@@ -36,9 +36,10 @@ export const reorderNotes = (newNotes, searching) => {
   }
 }
 
-export const searchNotes = (searchResults) => {
+export const searchNotes = (searchResults, terms) => {
   return {
     type: 'SEARCH_NOTES',
     payload: searchResults,
+    searchTerms: terms,
   }
 }

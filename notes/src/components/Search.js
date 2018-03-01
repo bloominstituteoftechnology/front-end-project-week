@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { searchNotes } from '../actions';
 import './Search.css';
 
 class Search extends React.Component {
@@ -15,11 +16,31 @@ class Search extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const terms = this.state.searchTerm.toLowerCase();
-    this.props.history.push(`/search/${terms}`);
-    console.log('props', this.props);
-    // console.log(searchResults);
+    if (this.state.searchTerm !== '') {
+      const terms = this.state.searchTerm.toLowerCase();
+      this.checkSearch(terms);
+      this.props.history.push(`/search/${terms}`);
+    } else {
+      this.props.history.push('/');
+    }
+  }
 
+  componentWillReceiveProps(nextProps) {
+    if ( this.props.terms !== nextProps.match.params.terms ){
+      this.checkSearch(nextProps.match.params.terms);
+      this.props.history.push(`/search/${nextProps.match.params.terms}`);
+    }
+  }
+
+  checkSearch = (terms) => {
+    const searchResults = [];
+    let regex = new RegExp(terms, 'i');
+    this.props.notes.forEach((item) => {
+      if (item.title.match(regex) || item.entry.match(regex)) {
+        searchResults.push(item);
+      }
+    });
+    this.props.searchNotes(searchResults, terms);
   }
 
   render() {
@@ -40,4 +61,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps, { searchNotes })(Search);
