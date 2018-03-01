@@ -18,6 +18,7 @@ const StyledUpdateForm = styled.div`
     border-radius: 3px;
     border: 1px solid #bfbfc0;
     font-size: 1.4rem;
+    letter-spacing: 1px;    
     &:focus {
       outline: none;
     }
