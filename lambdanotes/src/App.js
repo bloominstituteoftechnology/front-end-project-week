@@ -1,7 +1,7 @@
 import React from 'react';
 import fire from './fire';
 import './css/App.css';
-import dummyData from './dummy-data';
+//import dummyData from './dummy-data';
 import NoteContainer from './components/NoteContainer/NoteContainer';
 import CreateNoteContainer from './components/CreateNoteContainer/CreateNoteContainer';
 import EditNoteContainer from './components/EditNoteContainer/EditNoteContainer';
@@ -11,6 +11,7 @@ import Panel from './components/Panel/Panel';
 class App extends React.Component {
   state = {
     notes: [],
+    notes2: [],
     showAddWin: false,
     showSingleNote:false,
     noteToShow: '',
@@ -19,9 +20,14 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({
-      notes: dummyData,
-    });
+    let notesRef = fire.database().ref('notes2').orderByKey().limitToLast(100);
+    notesRef.on('child_added', snapshot => {
+      let note = snapshot.val();
+      this.setState({
+      //notes: dummyData,
+      notes: [note].concat(this.state.notes),
+      });
+    })
   }
 
   handleClickForCreate = () => {
