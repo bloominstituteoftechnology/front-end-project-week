@@ -12,15 +12,15 @@
 .noteThumb__title {
   padding-top: 15px;
   padding-left: 20px;
-  margin-bottom: -2px;
+  margin-bottom: -3px;
   font-weight: bold;
   font-size: 21px;
   letter-spacing: 1px;
 }
 
 hr {
-  margin-left: 20px;
-  margin-right: 23px;
+  margin-left: 19px;
+  margin-right: 24px;
   height: 1px;
   border: 0px;
   border-top: 1px solid rgb(151, 151, 151);
@@ -32,5 +32,5 @@ hr {
   line-height: 26px;
   overflow: auto;
   padding: 1px 25px 0px 20px;
-  margin-top: -5px;
+  margin-top: -4px;
 }
