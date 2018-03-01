@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:bold');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 .note {
     position: relative;
     width: 212px;
@@ -8,7 +11,6 @@
     margin: 0 0px 27px 17px;
     padding: 0 19px 0 19px;
     background: white;
-    overflow: hidden;
     cursor: pointer;
 }
 
@@ -25,7 +27,6 @@
 }
 
 .note__content { 
-    position: relative;
     padding-top: 7px;
     color: #4a4a4a;
     font-size: 13px;
@@ -34,14 +35,4 @@
     word-spacing: 0;
     line-height: 24px;
     text-shadow: 1px 0 #d7d7d7;
-    z-index: 0;
-}
-
-.note__hide-overflow {
-    position: absolute;
-    width: 100%;
-    top: 192px;
-    height: 19px;
-    background: white;
-    z-index: 1;
 }

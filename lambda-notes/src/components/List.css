@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:bold');
-@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 .list {
     padding-left: 15px;
@@ -12,7 +11,7 @@
     padding: 0;
     color: #4d4c4d;
     font-size: 23px;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     font-weight: bold;
     letter-spacing: 0;
     word-spacing: 0;
