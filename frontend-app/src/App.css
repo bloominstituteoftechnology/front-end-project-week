@@ -1,6 +1,7 @@
 .container {
-  display: flex;
+  justify-content: flex-start;
   height: 1000px;
+
 }
 .container .left-column {
   width: 300px;
