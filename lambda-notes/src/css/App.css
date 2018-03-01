@@ -4,10 +4,12 @@
   flex-flow: row nowrap;
   height: 100%;
   min-height: 1024px;
+  width: 100%;
+  max-width: 1300px;
 }
 .App .navButton-top {
   text-decoration: none;
-  padding: 17px 51;
+  padding: 17px 51px;
   border: 1px solid #979797;
   background: #2bc1c4;
   color: white;
@@ -18,7 +20,7 @@
 }
 .App .navButton-bottom {
   text-decoration: none;
-  padding: 17px 40;
+  padding: 17px 40px;
   border: 1px solid #979797;
   background: #2bc1c4;
   color: white;
@@ -36,4 +38,32 @@
   position: absolute;
   top: 264px;
   left: 23px;
+}
+.App .edit-button {
+  position: absolute;
+  top: 28px;
+  right: 114px;
+  font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+.App .edit-button .edit-link {
+  color: black;
+}
+.App .edit-button .edit-link:hover {
+  font-weight: 600;
+}
+.App .delete-button {
+  position: absolute;
+  top: 28px;
+  right: 35px;
+  font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+}
+.App .delete-button .delete-link {
+  color: black;
+}
+.App .delete-button .delete-link:hover {
+  font-weight: 600;
 }

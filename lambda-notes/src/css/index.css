@@ -359,7 +359,7 @@ table {
   left: 20.3%;
   right: 19.1%;
   top: 26%;
-  bottom: 46.7%;
+  bottom: auto;
   margin: auto;
   background: white;
   display: -ms-flexbox;
