@@ -10,18 +10,18 @@ class CreateNote extends Component {
 render() {
     return (
         <div className="Notes">
-          <h1>Create New Note:</h1><br/>
-            <form onSubmit={this.CreateNote}>
+            <form id="form" onSubmit={this.CreateNote}>
+                <h1>Create New Note:</h1><br/>
                 <input
                     className='form-control'
                     type='text'
                     placeholder='Note Title'
                     onChange={this.updateNote}
-                    name='text'
+                    name='title'
                     value={this.state.title}
                 />
                 <input
-                    className='form-control'
+                    className='form-control1'
                     type='text'
                     placeholder='Note Content'
                     onChange={this.updateNote}
