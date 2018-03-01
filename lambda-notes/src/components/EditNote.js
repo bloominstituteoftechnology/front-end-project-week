@@ -22,7 +22,7 @@ class EditNote extends Component {
             placeholder="Add text here . . ." 
             value={this.state.contentText} 
             onChange={this.handleContentChange}/>
-          <button type="submit">Add Note</button>
+          <button type="submit">Edit Note</button>
         </form>
       </div>
     )

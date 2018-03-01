@@ -10,9 +10,18 @@
   background: #9b9b9b;
   border-right: 1px #4e4e4e solid;
 }
+.App .Sidebar .Sidebar__header {
+  font-size: 60px;
+  margin: 20px;
+}
 .App .Sidebar .Sidebar__button {
   background: cyan;
-  margin: 3px;
+  font-size: 30px;
+  text-align: center;
+  margin: 29px;
+  margin-bottom: 0px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 .App .View {
   width: 75%;
@@ -22,24 +31,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 55px;
+  padding-top: 125px;
 }
 .NoteList .NoteList__header {
   font-weight: bold;
-  padding: 5px;
 }
 .NoteList .NoteList__card-container {
   display: inline-flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-content: space-around;
+  padding-top: 65px;
 }
 .NoteList .NoteList__card-container .NoteList__card {
-  width: 30%;
+  width: 25%;
+  height: 350px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 4px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  padding: 32px;
+  padding-right: 22px;
+  padding-left: 22px;
+  margin-bottom: 22px;
   border: black 1px solid;
   background: #e0e0e0;
 }
