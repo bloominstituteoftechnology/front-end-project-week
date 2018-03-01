@@ -43,6 +43,11 @@ const StyledNote = styled.div`
     h2 {
       margin-top: 15px;
     }
+    p {
+      margin-left: 10px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
   }
 
 `;
@@ -70,6 +75,7 @@ class FullNote extends React.Component {
           <div className='full-note__card'>
             <SectionTitle name={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).title} />
             <TextBlock body={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).body} />
+            <p>{this.props.notes.find(val => val.id.toString() === this.props.match.params.id).stamp}</p>
           </div>
         </div>
       </StyledNote>
@@ -81,6 +87,7 @@ const mapStateToProps = (state) => {
   return {
     notes: state.notes,
     deleteActive: state.deleteActive,
+    stamp: state.stamp,
   };
 };
 
