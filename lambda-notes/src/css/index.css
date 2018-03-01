@@ -361,6 +361,7 @@ table {
   top: 26%;
   bottom: auto;
   margin: auto;
+  padding-bottom: 46px;
   background: white;
   display: -ms-flexbox;
   display: flex;
