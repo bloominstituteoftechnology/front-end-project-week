@@ -1,11 +1,52 @@
+h1 {
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 20px;
+  color: #4a4a4a;
+}
+
+.list-view-header {
+  margin: 7px;
+}
+
+button {
+  width: 200px;
+  height: 45px;
+  color: #ffffff;
+  background-color: #62bec2;
+  margin: 10px 0 10px 0;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #979797;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button a:link, a:visited, a:hover, a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
 .main {
   text-align: left;
   display: inline-flex;
   justify-content: center;
 }
 
+.left {
+  background-color: #d8d8d8;
+  padding: 20px;
+}
+
+.right {
+  background-color: #f3f3f3;
+}
+
 .left-nav-buttons {
-  list-style: none;
   justify-content: center;
   text-align: center;
 }
@@ -17,33 +58,134 @@
 .list-view2 {
   display: grid;
   grid-template-columns: auto auto auto;
+  /* grid-template-rows: 100px 100px 100px; */
+  overflow-wrap: break-word;
 }
 
-/* .App {
-  text-align: center;
+.note-block {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #979797;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  margin: 7px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.note-block a {
+  text-decoration: none;
+  color: #000;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.note-block-title {
+  border-color: #979797;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  padding: 0 0 5px 0;
+  margin: 15px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.note-block-content {
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 15px;
+  font-size: 12px;
 }
 
-.App-intro {
-  font-size: large;
+.full-view {
+  margin: 30px;
+  overflow-wrap: break-word;
+  width: 625px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
+.full-view a {
+  text-decoration: underline;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+.full-view-links {
+  text-align: right;
+  word-spacing: 30px;
+}
+
+.full-view-title {
+  padding: 0 0 15px 0;
+}
+
+.full-view-content {
+  color: #4a4a4a;
+  padding: 0 0 15px 0;
+}
+
+.new-note {
+  padding: 30px;
+}
+
+.new-note-title {
+  padding: 0 0 15px 0;
+}
+
+.new-note-content {
+  padding: 0 0 5px 0;
+}
+
+.new-note-title-input {
+  width: 375px;
+  height: 45px;
+  padding: 0 0 0 10px;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 1px;
+}
+
+.new-note-content-input {
+  width: 625px;
+  height: 375px;
+  padding: 0 0 0 10px;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 1px;
+}
+
+.new-note-header {
+  padding: 0 0 15px 0;
+}
+
+.edit-note {
+  padding: 30px;
+}
+
+.edit-note-title {
+  padding: 0 0 15px 0;
+}
+
+.edit-note-content {
+  padding: 0 0 5px 0;
+}
+
+.edit-note-title-input {
+  width: 375px;
+  height: 45px;
+  padding: 0 0 0 10px;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 1px;
+}
+
+.edit-note-content-input {
+  width: 625px;
+  height: 375px;
+  padding: 0 0 0 10px;
+  border-style: solid;
+  border-color: #979797;
+  border-width: 1px;
+}
+
+.edit-note-header {
+  padding: 0 0 15px 0;
+}

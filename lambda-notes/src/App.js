@@ -46,7 +46,7 @@ const NoteAPI = {
 
 const ListView = () => (
   <div className="list-view">
-  <div>
+    <div className="list-view-header">
     <h2>Your Notes:</h2>
     </div>
     <div className="list-view2">
@@ -135,12 +135,16 @@ const Note = (props) => {
   return (
     <div className="full-view">
       <div className="full-view-links">
-        <Link to='/editnote'>edit</Link>
-        {/* <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>delete</Button> */}
+        <Link to='/editnote'>edit</Link>{' '}
         <Link to='/editnote'>delete</Link>
+        {/* <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>delete</Button> */}
       </div>
-      <h2>{note.title}</h2>
-      <p>{note.content}</p>
+      <div className="full-view-content">
+        <div className="full-view-title">
+          <h2>{note.title}</h2>
+        </div>
+        <p>{note.content}</p>
+      </div>
       <Link to='/list'>Back</Link>
     </div>
   )
@@ -154,47 +158,63 @@ const Routes = () => (
 )
 
 const NewNote = () => (
-  <div>
-    <h2>Create New Note:</h2>
-    <form className="new-note-title">
-      <input
-      id="noteTitle"
-      type="text"
-      label="Title"
-      placeholder="Note Title"
-      />
-    </form>
-    <form className="new-note-content">
-      <input
-      id="noteContent"
-      type="text"
-      label="Content"
-      placeholder="Note Content"
-      />
-    </form>
+  <div className="new-note">
+    <div className="new-note-header">
+      <h2>Create New Note:</h2>
+    </div>
+    <div className="new-note-title">
+      <form>
+        <input
+        className="new-note-title-input"
+        id="noteTitle"
+        type="text"
+        label="Title"
+        placeholder="Note Title"
+        />
+      </form>
+    </div>
+    <div className="new-note-content">
+      <form>
+        <input
+        className="new-note-content-input"
+        id="noteContent"
+        type="text"
+        label="Content"
+        placeholder="Note Content"
+        />
+      </form>
+    </div>
     <button><Link to='/list'>Save</Link></button><br/>
   </div>
 )
 
 const EditNote = () => (
-  <div>
-    <h2>Edit Note:</h2>
-    <form className="new-note-title">
-      <input
-      id="noteTitle"
-      type="text"
-      label="Title"
-      placeholder="Note Title"
-      />
-    </form>
-    <form className="new-note-content">
-      <input
-      id="noteContent"
-      type="text"
-      label="Content"
-      placeholder="Note Content"
-      />
-    </form>
+  <div className="edit-note">
+    <div className="edit-note-header">
+      <h2>Edit Note:</h2>
+    </div>
+    <div className="edit-note-title">
+      <form>
+        <input
+        className="edit-note-title-input"
+        id="noteTitle"
+        type="text"
+        label="Title"
+        placeholder="Note Title"
+        />
+      </form>
+    </div>
+    <div className="edit-note-content">
+      <form>
+        <input
+        className="edit-note-content-input"
+        id="noteContent"
+        type="text"
+        label="Content"
+        placeholder="Note Content"
+        />
+      </form>
+    </div>
     <button><Link to='/list'>Update</Link></button><br/>
   </div>
 )
@@ -218,17 +238,24 @@ const Main = () => (
 const LeftNav = () => (
   <header>
     <nav>
-      <h1>Lambda<br/>Notes</h1>
-      <button><Link to='/list'>View Your Notes</Link></button><br/>
-      <button><Link to='/newnote'>+ Create New Note</Link></button>
+      <div>
+        <h1>Lambda<br/>Notes</h1>
+      </div>
+      <div className="left-nav-buttons">
+        <button><Link to='/list'>View Your Notes</Link></button><br/>
+        <button><Link to='/newnote'>+ Create New Note</Link></button>
+      </div>
     </nav>
   </header>
 )
 
 const App = () => (
   <div className="main">
-    <LeftNav />
-    <Main />
+    <div className="left">
+      <LeftNav />
+    </div><div className="right">
+      <Main />
+    </div>
   </div>
 )
 
