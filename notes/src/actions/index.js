@@ -6,7 +6,27 @@ export const FETCHING = 'FETCHING';
 export const ERROR_GETTING_NOTES = 'ERROR_GETTING_NOTES';
 export const SET_SINGLE_NOTE = 'SET_SINGLE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
-export const DELETE_NOTE = 'DELETE_NOTE';
+export const SEARCH = 'SEARCH';
+
+export const search = (criteria, status) => {
+
+    const searchResponse = axios.post(`http://localhost:3333/notes/search/${criteria}`, {
+        criteria:criteria,
+    });
+    return dispatch => {
+        searchResponse
+            .then(({data}) => {
+                console.log('comming from search server:::', data);
+
+                dispatch({type: SEARCH, payload: data, search:status });
+            })
+            .catch(err => {
+                dispatch({type: SEARCH,  search:false });
+                dispatch({type: ERROR_GETTING_NOTES, payload: err});
+            });
+    };
+
+};
 
 export const getNotes = () => {
     const notes = axios.get('http://localhost:3333/notes/');
@@ -21,6 +41,7 @@ export const getNotes = () => {
                     return note[1];
                 });
 
+                console.log('this is the data pasing to components', responseData)
                 dispatch({type: GET_NOTES, payload: responseData});
                 dispatch({type: FETCHING, fetching: false});
             })

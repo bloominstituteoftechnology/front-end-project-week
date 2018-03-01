@@ -7,10 +7,19 @@ import Loading from './Loading'
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
 class Notes extends Component {
+    state={
+       notes: this.props,
+
+    };
 
     componentDidMount() {
         this.props.getNotes();
         console.log(' this.props NOTENOTE',this.props)
+    }
+
+    componentWillReceiveProps(){
+        console.log(' this.props componentWillReceiveProps',this.props)
+
     }
 
     goNoteDetails = (note) => {
@@ -27,11 +36,11 @@ class Notes extends Component {
 
                     {(this.props.fetching)
                         ? <Loading/>
-                        : (this.props.notes.length > 0)
+                        : (this.props.notesF.length > 0)
                             ?
                                 <Row className={'notes-box'}>
 
-                                    {this.props.notes.map((note, index) => {
+                                    {this.props.notesF.map((note, index) => {
                                         return (
                                             <Link to={`/details/${note.key}`}
                                                   key={index} md={4} className={'note-container'}
@@ -69,7 +78,7 @@ class Notes extends Component {
 const mapStateToProps = state => {
     const {notes_reducer} = state;
     return {
-        notes: notes_reducer.notes,
+        notesF: notes_reducer.notes,
         fetching: notes_reducer.fetching,
         singleNote: notes_reducer.singleNote,
     }
@@ -94,6 +103,7 @@ const NotesContainer = styled.div`
                     position:relative;
                     // min-height:214px;
                     // max-height:214px;
+                    border-radius: 5px;
                     
                     border:1px solid #A7A7A7;
                     color:#71595A;

@@ -21,15 +21,17 @@ const app = firebase.initializeApp({
 const database = app.database();
 let notes = database.ref('notes');
 let prodName = '';
-for(let i=0; i < 600; ++i){
-    prodName = faker.commerce.productName();
-    notes.push({
-        title:prodName,
-        description:faker.lorem.paragraphs(8)+ ' ' + prodName,
-        image:faker.internet.avatar(),
-        tags:faker.lorem.words(7) + ' ' + prodName ,
-    });
-}
+// for(let i=0; i < 600; ++i){
+//     prodName = faker.commerce.productName();
+//     notes.push({
+//         title:prodName,
+//         description:faker.lorem.paragraphs(8)+ ' ' + prodName,
+//         image:faker.internet.avatar(),
+//         tags:faker.lorem.words(7) + ' ' + prodName ,
+//     });
+// }
+
+
 
 server.get('/notes', (req, res) => {
     notes.once('value').then(function(dataResponse) {
@@ -42,7 +44,7 @@ server.get('/notes', (req, res) => {
 
 server.post('/notes', (req, res) => {
     const {title, description, tags} = req.body;
-    const newNote = {title, description, tags, image:faker.image.animals()};
+    const newNote = {title, description, tags, image:faker.internet.avatar()};
     if (!title || !description || !tags) {
         return sendUserError(
             'Ya gone did Noted! title/description/tags are all required to create a note in the note DB.',
@@ -79,6 +81,44 @@ server.delete('/notes/delete/:key', (req, res) => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+server.post('/notes/search/:criteria', (req, res) => {
+    let {criteria} = req.params;
+    let notesF = [];
+
+    notes.orderByChild('key').on('child_added', function(snap){
+
+            const valu = snap.val();
+
+            console.log('OBject(valu)', Object.entries(valu));
+            notesF.push(Object.entries(valu));
+
+
+    });
+
+
+    console.log(notesF);
+
+    res.json(notesF);
+
+
+
+});
+
 server.listen(port, err => {
     if (err) console.log(err);
     console.log(`server is listening on port ${port}`);
@@ -89,3 +129,18 @@ const sendUserError = (msg, res) => {
     res.json({Error: msg});
     return;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

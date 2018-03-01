@@ -5,8 +5,11 @@ import Notes from './components/Notes'
 import {Row, Grid, Col} from 'react-bootstrap';
 import styled from 'styled-components';
 import CreateNewNoteForm from './components/CreateNewNoteForm'
+import Search from './components/Search'
 import Details from './components/Details';
 import UpdateNote from './components/UpdateNote';
+import SearchResults from './components/SearchResults';
+import {connect} from 'react-redux';
 
 
 class App extends Component {
@@ -33,12 +36,25 @@ class App extends Component {
 
                             </Col>
                             <Col xs={12} md={9} className={"components-container"}>
-                                <Route exact path="/" component={Notes} />
-                                <Route path="/create_new_note" component={CreateNewNoteForm} />
-                                <Route path="/details/:id" component={Details} />
-                                <Route path="/update/:id" component={UpdateNote} />
+                                {console.log('from app searchin ', this.props)}
+                                {this.props.searching
+                                    ?   <SearchResults/>
+                                    :
+                                        <div>
+                                            <Route exact path="/" component={Notes} />
+                                            <Route path="/create_new_note" component={CreateNewNoteForm} />
+                                            <Route path="/details/:id" component={Details} />
+                                            <Route path="/update/:id" component={UpdateNote} />
+                                        </div>
+                                }
+
                             </Col>
+                            <Col xs={12} md={4} className={"top-bar-container"}>
+                                <Search/>
+                            </Col>
+
                         </Row>
+
                     </Grid>
                 </Router>
             </AppContainer>
@@ -47,13 +63,29 @@ class App extends Component {
     }
 }
 
-export default App;
+
+const mapStateToProps = state => {
+    const {notes_reducer} = state;
+    return {
+        searching: notes_reducer.searching,
+    }
+};
+export default connect(mapStateToProps, {})(App);
 
 
 const AppContainer = styled.div`
 
     font-family: verdana;
     font-stretch: condensed;
+        
+        .top-bar-container{
+            border:0px solid black;
+            position:absolute;
+            height:40px;
+            margin-left:20%;
+            top:15px;
+            padding-left:22px;
+        }
     
         .sidebar {
             border:1px solid #A0A0A0;
@@ -76,7 +108,7 @@ const AppContainer = styled.div`
         .components-container{
             border:1px solid #C2C2C2;
             background-color: #f3f3f3;
-            padding-top:40px;
+            padding-top:60px;
             min-height: 750px;
         }
 `;
