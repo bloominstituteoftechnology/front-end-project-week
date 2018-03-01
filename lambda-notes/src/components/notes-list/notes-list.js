@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import notes from '../../data/notes';
+import Note from '../note/note';
 // import actions
 
 class LambdaNotes extends Component {
@@ -11,11 +12,7 @@ class LambdaNotes extends Component {
         <ul>
           {notes.map(note => {
             return (
-              <div key={note.id}>
-                <h3>{note.title}</h3>
-                <hr />
-                <p>{note.content}</p>
-              </div>
+              <Note />
             )
           })}
         </ul>
