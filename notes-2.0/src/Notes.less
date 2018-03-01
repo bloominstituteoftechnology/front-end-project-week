@@ -44,8 +44,19 @@
 
     .header {
       font-size: 2rem;
-      width: 100%;
+      width: 225px;
       font-weight: bold;
+    }
+    .search {
+      padding: 0;
+      margin: 0;
+      font-weight: bold;
+      width: 75%;
+      input {
+        font-size: 1.5rem;
+        height: 40px;
+        width: 75%;
+      }
     }
 
     .note {
@@ -73,38 +84,63 @@
         line-height: 2;
         padding-top: 15px;
         font-size: 1rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
         height: 250px;
         color: rgb(31, 31, 31);
+        text-overflow: ellipsis;
+        white-space: normal;
+        overflow: hidden;
       }
     }
   }
 
   .editNote {
     background-color: rgb(230, 227, 227);
-    padding: 10px 30px;
+    padding: 100px 75px;
     width: 110%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100vh;
     font-size: 2rem;
     font-weight: bold;
-    padding:0;
-    margin: 0;
+
+    .header {
+      margin: 0;
+      padding: 0;
+    }
 
     .noteTitle {
-      font-size: 1rem;
+      text-align: start;
+      font-size: 1.5rem;
       font-weight: bold;
-      padding:0;
       margin: 0;
-
+      margin-top: 60px;
+      padding: 30px 15px;
+      height: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .noteContent {
       line-height: 30px;
       font-size: 0.75rem;
+      height: 600px;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+
+    .save {
+      text-decoration: none;
+      width: 250px;
+      height: 75px;
+      margin-bottom: 0;
+      background-color: #08cccc;
+      color: white;
+      font-size: 1.25rem;
+      font-weight: bolder;
+      &:hover {
+        border: green 5px solid;
+        cursor: pointer;
+      }
     }
   }
 
@@ -114,8 +150,7 @@
     width: 110%;
     padding: 15px 30px;
     background: rgb(230, 227, 227);
-    height:100vh;
-    
+    height: 100vh;
 
     .buttonDisplay {
       width: 100%;

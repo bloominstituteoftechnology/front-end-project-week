@@ -41,7 +41,9 @@ class CreateNote extends Component {
           value={this.content}
           onChange={this.handleInput}
         />
-        <button onClick={this.handleSubmit}>Save</button>
+        <button className="save" onClick={this.handleSubmit}>
+          Save
+        </button>
       </form>
     );
   }

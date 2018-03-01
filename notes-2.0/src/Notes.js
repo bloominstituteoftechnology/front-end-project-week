@@ -13,8 +13,10 @@ class Notes extends Component {
       notes: false,
       create: false,
       edit: false,
-      singleNote: false
-    }
+      singleNote: false,
+      results: false
+    },
+    keyword: ""
   };
   target = null;
 
@@ -34,7 +36,21 @@ class Notes extends Component {
         {this.state.view.notes ? (
           <div className="rightPanel">
             <h1 className="header">Your Notes:</h1>
-            <NoteList notes={this.state.notes} target={this.handleTarget} />
+            <form className="search">
+              <input
+                type="text"
+                name="keyword"
+                value={this.state.keyword}
+                onChange={this.onSearch}
+                placeholder="Search for a note..."
+              />
+            </form>
+            <NoteList
+              notes={this.state.notes}
+              keyword={this.state.keyword}
+              results={this.state.view.results}
+              target={this.handleTarget}
+            />
           </div>
         ) : null}
         {this.state.view.create ? <CreateNote addNote={this.addNote} /> : null}
@@ -56,6 +72,21 @@ class Notes extends Component {
     );
   }
 
+  onSearch = e => {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      [e.target.name]: e.target.value,
+      view: {
+        notes: true,
+        edit: false,
+        create: false,
+        singleNote: false,
+        results: true
+      }
+    });
+    console.log(this.state.keyword);
+  };
   updateNote = updatedNote => {
     let mirror = this.state.notes;
     mirror[this.target] = updatedNote;
@@ -73,7 +104,8 @@ class Notes extends Component {
         notes: false,
         edit: true,
         create: false,
-        singleNote: false
+        singleNote: false,
+        results: false
       }
     });
   };
@@ -87,7 +119,8 @@ class Notes extends Component {
         notes: true,
         edit: false,
         create: false,
-        singleNote: false
+        singleNote: false,
+        results: false
       }
     });
   };
@@ -100,7 +133,8 @@ class Notes extends Component {
         notes: false,
         edit: false,
         create: false,
-        singleNote: true
+        singleNote: true,
+        results: false
       }
     });
   };
@@ -114,7 +148,8 @@ class Notes extends Component {
         notes: true,
         edit: false,
         create: false,
-        singleNote: false
+        singleNote: false,
+        results: false
       }
     });
   };
@@ -127,7 +162,8 @@ class Notes extends Component {
         notes: true,
         edit: false,
         create: false,
-        singleNote: false
+        singleNote: false,
+        results: false
       }
     });
   }
@@ -140,7 +176,8 @@ class Notes extends Component {
         notes: false,
         edit: false,
         create: true,
-        singleNote: false
+        singleNote: false,
+        results: false
       }
     });
   }

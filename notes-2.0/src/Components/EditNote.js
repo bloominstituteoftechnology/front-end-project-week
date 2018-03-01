@@ -9,21 +9,24 @@ export default class EditNote extends Component {
   render() {
     return (
       <form onSubmit={this.handleUpdate} className="editNote">
+        <h1 className="header">Edit Note:</h1>
         <input
           type="text"
           name="title"
+          className="noteTitle"
           value={this.state.title}
-          className="singleNoteTitle"
           onChange={this.handleInput}
         />
         <input
           type="text"
           name="content"
+          className="noteContent"
           value={this.state.content}
-          className="singleNoteContent"
           onChange={this.handleInput}
         />
-        <button type="onSubmit">Update</button>
+        <button className="save" type="onSubmit">
+          Update
+        </button>
       </form>
     );
   }
