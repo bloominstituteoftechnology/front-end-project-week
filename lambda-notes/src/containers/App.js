@@ -11,9 +11,9 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container d-flex">
+        <div className="container flex-column flex-md-row d-flex">
           <Sidebar />
-          <div className="col-9 main-content container-fluid align-items-center">
+          <div className="col-md-9 col-sm-12 main-content container-fluid align-items-center">
             <Route path="/" exact component={NoteGrid} />
             <Route path="/new-note" component={NewNote} />
             <Route path="/view-note/:id" component={NoteFull} />

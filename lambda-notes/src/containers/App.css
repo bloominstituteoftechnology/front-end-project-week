@@ -1,39 +1,62 @@
-html,body {
+html,
+body {
     height: 100%;
-  }
+}
+
 #root {
     height: 100%;
 }
-.container {
-    min-height:100%;
-}
 
+.container {
+    padding-right: 0;
+    padding-left: 0;
+    min-height: 100%
+}
+@media (min-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+}
+@media (min-width: 992px) {
+.container {
+    max-width: 960px;
+}
+}
 .main-content {
-    background-color:#F4F4F4;
+    background-color: #F4F4F4;
     padding: 40px 40px;
 }
 
 .sidebar {
     background-color: #D8D8D8;
-    padding:20px;
+    padding: 20px;
 }
+
+button.btn {
+    white-space: normal;
+}
+
 button {
     border: 1px #979797 solid;
-    color:white;
-    display:block;
+    color: white;
+    display: block;
     max-width: 250px;
 }
+
 .btn.delete {
     background: #bd2828!important;
-    margin-right:10px;
+    margin-right: 10px;
 }
+
 .btn.delete:hover {
     background: #d22f2f!important;
-    margin-right:10px;
+    margin-right: 10px;
 }
+
 .btn {
     background: #2bc1c4!important;
 }
+
 .btn:hover {
     background: #33dde0!important;
 }
