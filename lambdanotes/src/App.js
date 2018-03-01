@@ -1,4 +1,5 @@
 import React from 'react';
+import fire from './fire';
 import './css/App.css';
 import dummyData from './dummy-data';
 import NoteContainer from './components/NoteContainer/NoteContainer';
