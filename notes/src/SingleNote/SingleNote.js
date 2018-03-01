@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { deleteNote, editNote } from '../Redux/actions';
 import LeftBar from '../LeftBar/LeftBar';
+import { Modal } from './Modal';
+import { EditNoteFields } from './EditNoteFields';
 import './SingleNote.css';
 
 class SingleNote extends Component {
@@ -19,6 +20,10 @@ class SingleNote extends Component {
     const thisNote = this.props.notes.filter(each => each.id === id)[0];
     this.setState({ note: thisNote });
   }
+
+  displayState = key => {
+    return this.state[key];
+  };
 
   updateState = event => {
     const name = event.target.name;
@@ -55,71 +60,15 @@ class SingleNote extends Component {
     this.setState({ editButtonPressed: !this.state.editButtonPressed });
   };
 
-  modal = () => {
-    return (
-      <div className="modal-layer-one">
-        <div className="modal-layer-two">
-          <div className="the-modal">
-            <div className="modal-text">
-              Are you sure you want to delete this?
-            </div>
-            <Link to="/" className="each-link" onClick={this.deleteNote}>
-              <button className="modal-danger">Delete</button>
-            </Link>
-
-            <button className="modal-safe" onClick={this.toggleDelete}>
-              No
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  editNoteFields = () => {
-    return (
-      <div className="container">
-        <LeftBar />
-        <div className="new-note_body">
-          <div className="new-note_header">Edit Note:</div>
-          <div className="new-note_fields">
-            <form type="submit">
-              {/* <form type="submit" onSubmit={this.editNote}> */}
-              <div className="title-div">
-                <input
-                  type="text"
-                  className="title-input"
-                  placeholder="Note Title"
-                  onChange={this.updateState}
-                  name="title"
-                  value={this.state.title}
-                />
-              </div>
-              <div className="body-div">
-                <textarea
-                  type="text"
-                  className="body-input"
-                  placeholder="Note Content"
-                  onChange={this.updateState}
-                  name="body"
-                  value={this.state.body}
-                />
-              </div>
-              <Link to="/" onClick={this.editNote}>
-                <input type="submit" value="Update" className="update-button" />
-              </Link>
-            </form>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   render() {
     return (
       <div>
         {this.state.editButtonPressed ? (
-          this.editNoteFields()
+          <EditNoteFields
+            updateState={this.updateState}
+            editNote={this.editNote}
+            displayState={this.displayState}
+          />
         ) : (
           <div className="container">
             <LeftBar />
@@ -137,7 +86,12 @@ class SingleNote extends Component {
               <div className="single-note_header">{this.state.note.title}</div>
               <div className="single-note_text">{this.state.note.body}</div>
             </div>
-            {this.state.deleteButtonPressed && this.modal()}
+            {this.state.deleteButtonPressed && (
+              <Modal
+                toggleDelete={this.toggleDelete}
+                deleteNote={this.deleteNote}
+              />
+            )}
           </div>
         )}
       </div>
