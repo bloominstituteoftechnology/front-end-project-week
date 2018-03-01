@@ -15,3 +15,8 @@
   display: flex;
   flex-flow: row wrap;
 }
+
+.YourNotes-CSV {
+  align-self: flex-start;
+  color: gray;
+}

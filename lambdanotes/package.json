@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
+    "react-csv": "^1.0.12",
     "react-dom": "^16.2.0",
     "react-markdown": "^3.2.2",
     "react-router-dom": "^4.2.2",

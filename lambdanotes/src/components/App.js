@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
 import Sidebar from './Sidebar';
 import NoteList from './NoteList';
 import CreateNote from './CreateNote';
 import NoteView from './NoteView';
 import EditNote from './EditNote';
+
+import './App.css';
+
 
 export default class App extends React.Component {
   nextId = 0;

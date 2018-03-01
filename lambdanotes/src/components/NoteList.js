@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 import Note from './Note';
 
 import './NoteList.css';
@@ -43,6 +44,9 @@ class NoteList extends React.Component {
             );
           })}
         </ul>
+        {!this.boolEmptyNotes ? (
+          <CSVLink className="YourNotes-CSV" data={this.state.notes} filename={"lambda-notes.csv"}>Download CSV</CSVLink>
+        ) : (null)}
       </div>
     );
   };
