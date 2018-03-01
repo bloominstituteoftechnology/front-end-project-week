@@ -10,13 +10,11 @@ class Login extends React.Component {
   }
 
   handleSignUp = () => {
-    this.props.signUp(this.state);
+      this.props.signUp(this.state); 
   }
 
   handleSignIn = () => {
-    if(this.state.username !== '' && this.state.password !== ''){
       this.props.signIn(this.state);
-    }
   }
 
   handleOnChange = (event) => {
@@ -25,16 +23,15 @@ class Login extends React.Component {
     });
   }
   
-
-
   render() {
-    console.log('render user', this.props.user);
-    if(this.props.user.loggedIn){
+    console.log('session', sessionStorage.getItem('username'));
+    if(this.props.misc.username){
       this.props.history.push('/a/list');
     }
     return (
       <div className="login">
         <div className="title">Lambda Notes</div>
+        <div className="login_error">{this.props.misc.loginError}</div>
         <input name="username" value={this.state.name} placeholder="Username" onChange={this.handleOnChange}/><br />
         <input name="password" value={this.state.value} placeholder="Password" onChange={this.handleOnChange}/><br />
         <button className="signin" onClick={() => {this.handleSignIn()}}>Sign in</button><br />
@@ -46,9 +43,9 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
-    user: state.user
+    user: state.user,
+    misc: state.misc
   } 
 }
 

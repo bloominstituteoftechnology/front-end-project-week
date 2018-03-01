@@ -1,4 +1,5 @@
 import firebase, { firebaseRef} from '../firebase';
+import moment from 'moment';
 
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
@@ -8,9 +9,14 @@ export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const LOGGED_OUT = 'LOGGED_OUT';
 export const LOGGED_IN = 'LOGGED_IN';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const SIGN_IN = 'SIGN_IN';
+export const FETCHING_NOTES = 'FETCHING_NOTES';
 
-export const fetchNotes = () => {
+export const fetchNotes = (username) => {
   return (dispatch) => {
+    dispatch({
+      type: FETCHING_NOTES
+    });
     firebaseRef.child('notes').once('value').then((snapshot)=>{
       let notes = snapshot.val() || {};
       let parsedNotes = [];
@@ -20,6 +26,11 @@ export const fetchNotes = () => {
           ...notes[noteId]
         });
       });
+
+      parsedNotes = parsedNotes.filter((notes) => {
+        return notes.user === username;
+      });
+
       dispatch({
         type: FETCHED_NOTES,
         payload: parsedNotes
@@ -31,23 +42,22 @@ export const fetchNotes = () => {
 }
 
 export const addNote = (note) => {
+  let month = moment().format('MMM');
+  let day = moment().format('Do');
+  let year = moment().format('YYYY');
+  note.date = `${month} ${day} ${year}`;
   return (dispatch) => {
-    // build object for firebase
-    let noteOb = {
-      title: note.title,
-      content: note.content
-      }
 
     // create a reference to the new added object
-    let addNoteRef = firebaseRef.child('notes').push(noteOb);
+    let addNoteRef = firebaseRef.child('notes').push(note);
 
     addNoteRef.then(() => {
       // add new object key as id to new note object for redux
-      noteOb.id = addNoteRef.key;
+      note.id = addNoteRef.key;
 
       dispatch({
         type: ADD_NOTE,
-        payload: noteOb
+        payload: note
       });
     });
   }
@@ -82,55 +92,89 @@ export const toggleModal = (id) => {
 }
 
 export const signUp = (newUser) => {
-  console.log('signup newuser', newUser);
-  // fetch all user
-  // compare username with new user
-  // if unique then push new user to firebase
+  if(newUser.username === '' || newUser.password === ''){
+    return {
+      type: LOGIN_ERROR,
+      payload: 'Please enter Username and Password'
+    }
+  }else{
+    return (dispatch) => {
+      let userExist = false;
+      // fetch all users
+      firebaseRef.child('users').once('value').then((snapshot)=>{
+        let users = snapshot.val() || {};
+        // loop through users to compare username
+        Object.keys(users).forEach((userKey)=>{
+          if(users[userKey].username === newUser.username){
+            userExist = true;
+          }
+        });
 
-  return (dispatch) => {
-    // fetch all users
-    firebaseRef.child('users').once('value').then((snapshot)=>{
-      console.log('fetched users');
-      let users = snapshot.val() || {};
-      // loop through users to compare username
-      Object.keys(users).forEach((userKey)=>{
-        // if new username already exists in db then dispatch error
-        if(users[userKey].username === newUser.ursername){
+        // if username exists dispatch error
+        if(userExist){
           dispatch({
-            type: 'LOGIN_ERROR',
-            payload: 'Username already exist, choose a different name.'
+            type: LOGIN_ERROR,
+            payload: 'Username is taken, choose a different name.'
           });
-        }
-      });
-        console.log('prepare to push new user');
-        // else set new user to firebase
-        let userRef = firebaseRef.child('users').push();
-
+        }else{
+          // else set new user to firebase
+          let userRef = firebaseRef.child('users').push(newUser);
           userRef.then(()=>{
-            console.log('add new user success!');
             dispatch({
               type: 'LOGGED_IN',
               payload: newUser
             });
           }, ()=>{
-            console.log('add new user failed!');
+              console.log('add new user failed!');
           });
-    });
-    let userRef = firebaseRef.child('users').push(newUser);
-
+        }
+      });
+    }
   }
 }
 
 export const signIn = (user) => {
-  return {
-    type: 'SIGN_IN',
-    payload: user
-  };
+  if(user.username === '' || user.password === ''){
+    return {
+      type: LOGIN_ERROR,
+      payload: 'Please enter Username and Password'
+    }
+  }else{
+
+    return (dispatch) => {
+        // fetch all users
+      firebaseRef.child('users').once('value').then((snapshot)=>{
+        let error = true;
+        let users = snapshot.val() || {};
+        // loop through users to compare username
+        Object.keys(users).forEach((userKey)=>{
+          // if new username already exists in db then dispatch error
+          if(users[userKey].username === user.username && users[userKey].password === user.password){
+            error = false;
+          }
+        });
+
+        if(!error){
+          dispatch({
+            type: LOGGED_IN,
+            payload: user
+          });
+          sessionStorage.setItem('username', user.username);
+        }else{
+          dispatch({
+            type: LOGIN_ERROR,
+            payload: 'Wrong username and/or password'
+          });
+        }
+      });
+    }
+  }
 }
 
-// export const signOut = (user) => {
-//   return {
-//     type: 'SIGN_IN',
-//     payload: user
-//   };
-// }
+export const signOut = () => {
+  sessionStorage.clear();
+  console.log('storage after clear', sessionStorage.getItem('username'));
+  return {
+    type: LOGGED_OUT
+  };
+}

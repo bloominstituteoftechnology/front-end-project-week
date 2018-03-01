@@ -108,6 +108,8 @@
 	padding: 8px;
 	background: #555555;
 	color: white;
+	width: 120px;
+	margin: 0 auto;
 }
 
 .sidebar .signout:hover {
@@ -120,6 +122,10 @@
 	font-weight: bold;
 	text-align: left;
 	margin: 65px 0px 18px 10px;
+}
+
+.no-notes {
+	text-align: left;
 }
 
 .list {
@@ -141,6 +147,7 @@
 	background: white;
 	color: black;
 	overflow: hidden;
+	position: relative;
 }
 
 .list .notes .notes-title {
@@ -158,6 +165,16 @@
 .list .notes .notes-content {
 	text-align: left;
 	padding: 6px 20px;
+}
+
+.list .notes .note-date {
+	font-size: 12px;
+	position: absolute;
+	bottom: 0;
+	left: 0px;
+	font-style: italic;
+	background: #dedede;
+	width: 100%;
 }
 
 /*Add Noted*/
@@ -257,4 +274,9 @@
 }
 .login .signin {
 	margin-top: 20px;
+}
+
+.login .login_error {
+	color: red;
+	height: 25px;
 }

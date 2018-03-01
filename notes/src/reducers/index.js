@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { notes, modal, user } from './notes-reducer';
+import { notes, modal, misc } from './notes-reducer';
 
 export const rootReducer = combineReducers({
  	notes,
  	modal,
- 	user
+ 	misc
 })

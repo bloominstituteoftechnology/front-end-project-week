@@ -6,12 +6,14 @@ class AddNote extends React.Component {
 	state = {
 		content: '',
 		title: '',
-		id: this.lastId + 1
+		user: this.props.misc.username
 	}
 
 	handleAddNote = (event) => {
+
 		event.preventDefault();
 		if(this.state.content !== '' && this.state.title !== ''){
+			console.log('state from compo', this.state);
 			this.props.addNote(this.state);
 			this.props.history.push('/a/list');
 		}
@@ -53,6 +55,7 @@ class AddNote extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+  	misc: state.misc
   } 
 }
 

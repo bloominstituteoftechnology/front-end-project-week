@@ -1,11 +1,10 @@
 
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL, FETCHED_NOTES, LOGGED_IN, LOGGED_OUT } from '../actions';
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL, FETCHED_NOTES, LOGGED_IN, LOGGED_OUT, LOGIN_ERROR, FETCHING_NOTES } from '../actions';
 
 export const notes = (state = [], action) => {
   switch (action.type) {
 
     case FETCHED_NOTES:
-    console.log(action.payload);
       return action.payload;
   
     case ADD_NOTE:
@@ -23,6 +22,9 @@ export const notes = (state = [], action) => {
         }
         return note;
       });
+
+      case LOGGED_OUT:
+        return [];
 
     default:
       return state;
@@ -44,21 +46,34 @@ export const modal = (state = initialModal, action) => {
   } 
 }
 
-let initialUser = { 
-  loggedIn: false,
-  username: ''
+let initialMisc = {
+  username: sessionStorage.getItem('username'),
+  fetching_notes: false,
+  loginError: ''
 }
+console.log('log out outisde of switch');
 
-export const user = (state = {}, action) => {
+export const misc = (state = initialMisc, action) => {
   switch(action.type){
     case LOGGED_IN:
-      console.log('logged in', action.payload);
-      return { ...state, loggedIn: true, username: action.payload.username }
+      return { ...state, username: action.payload.username, loginError: '' }
 
-     case LOGGED_OUT:
-      return { ...state, loggedIn: false, username: '' }
+    case LOGGED_OUT:
+      return { ...state, username: null }
+
+    case FETCHING_NOTES:
+      return { ...state, fetching_notes: true }
+
+    case FETCHED_NOTES:
+      return { ...state, fetching_notes: false }
+
+    case LOGIN_ERROR:
+      return { ...state, loginError: action.payload }
+
 
     default:
       return state;
-  } 
+  }
+
+  
 }

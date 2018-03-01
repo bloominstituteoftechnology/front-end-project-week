@@ -10,13 +10,9 @@ import ViewNote from './components/ViewNote';
 import AddNote from './components/AddNote';
 import Login from './components/Login';
 import Modal from './components/Modal';
-import { fetchNotes } from './actions';
 import './firebase';
 
 class App extends Component {
-	componentDidMount() {
-    this.props.fetchNotes();
-	}
 
   render() {
     return (
@@ -41,6 +37,6 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, { fetchNotes })(App);
+export default connect(mapStateToProps)(App);
 
 

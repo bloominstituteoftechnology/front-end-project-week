@@ -18,8 +18,7 @@ class EditNote extends React.Component {
 	}
 	state = {
 		title: '',
-		content: '',
-		id: null
+		content: ''
 	}
 
 	handleEditNote = (event) => {

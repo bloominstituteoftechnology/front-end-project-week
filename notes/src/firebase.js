@@ -1,4 +1,18 @@
 import firebase from 'firebase';
+import moment from 'moment';
+
+
+let timestamp = moment().unix();
+
+let month = moment().format('MMM');
+let day = moment().format('Qo');
+let year = moment().format('YYYY');
+
+
+console.log(`${month} ${day} ${year}`);  
+
+
+
 
 // Initialize Firebase
 try {
