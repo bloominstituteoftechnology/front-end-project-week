@@ -26,10 +26,21 @@ class OneNote extends Component {
             delete
           </a>
         </div>
-        {console.log('right before error, fireRedirect is', this.state.fireRedirect)}
+        {console.log(
+          "right before error, fireRedirect is",
+          this.state.fireRedirect
+        )}
         {this.state.fireRedirect && <Redirect to="/" />}
-        <h2>{!this.state.fireRedirect ? this.props.notes[this.props.id].title : null}</h2>
-        <p>{!this.state.fireRedirect ? this.props.notes[this.props.id].text : null}</p>
+        <h2>
+          {!this.state.fireRedirect
+            ? this.props.notes[this.props.id].title
+            : null}
+        </h2>
+        <p>
+          {!this.state.fireRedirect
+            ? this.props.notes[this.props.id].text
+            : null}
+        </p>
         {this.state.showModal && (
           <div>
             <div className="deleteModal">

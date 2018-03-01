@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addNote } from "../actions";
+import { editNote } from "../actions";
 import { Redirect } from "react-router-dom";
 
-class CreateView extends Component {
+class EditView extends Component {
   state = {
     title: "",
     text: "",
@@ -12,9 +12,9 @@ class CreateView extends Component {
 
   render() {
     return (
-      <div className="CreateView">
+      <div className="EditView">
         <div className="header" />
-        <h2>Create New Note:</h2>
+        <h2>Edit Note:</h2>
         <div className="NewNote">
           <form onSubmit={this.handleSubmit}>
             <input
@@ -33,7 +33,7 @@ class CreateView extends Component {
               value={this.state.text}
               onChange={this.handleChange}
             />
-            <button>Save</button>
+            <button>Update</button>
           </form>
           {this.state.fireRedirect && <Redirect to="/" />}
           {}
@@ -49,9 +49,9 @@ class CreateView extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    this.props.editNote(this.state);
     this.setState({ title: "", text: "", fireRedirect: true });
-    console.log('fireRedirect in Create is', this.state.fireRedirect);
+    console.log('fireRedirect in Edit is', this.state.fireRedirect);
   };
 }
 
@@ -61,4 +61,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addNote })(CreateView);
+export default connect(mapStateToProps, { editNote })(EditView);
