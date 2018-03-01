@@ -11,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Note #1 Title {this.props.title}</h1>
         </header>
+        <p className="App-intro">This is the note body.</p>
         </div>  
         );
   }
