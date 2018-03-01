@@ -1,23 +1,24 @@
 .modal {
   z-index: 99;
+  box-sizing: border-box;
   position: fixed;
   display: flex;
   justify-content: center;
   margin: auto;
-  max-width: 1250px;
-  width: 100%;
-  height: 100%;
-  background: rgba(211, 211, 211, 0.7);
+  width: 1063px;
+  height: 1070px;;
+  background: rgba(211, 211, 211, 0.8);
+  border: 1px solid rgb(157, 157, 157);
 }
 
 .modal__box {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 200px;
-  width: 600px;
-  margin: auto;
-  margin-top: 200px;
+  height: 215px;
+  width: 636px;
+  margin-right: 2px;
+  margin-top: 201px;
   background: white;
   border: solid 1px rgb(109, 109, 109);
 }
@@ -25,34 +26,39 @@
 .modal__box-text {
   text-align: center;
   font-size: 18px;
-  font-weight: lighter;
+  font-family: 'Raleway';
+  letter-spacing: -0.1px;
   margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .modal__box-buttons {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .modal__box-button {
-  width: 220px;
-  padding: 20px 0px;
-  font-size: 14px;
-  border: .5px darkgray solid;
-  margin-top: 20px;
+  width: 230px;
+  padding-top: 17px;
+  padding-bottom: 15px;
   font-size: 16px;
+  font-family: 'Raleway';
+  font-weight: 500;
+  border: .5px darkgray solid;
+  margin-top: 29px;
+  font-size: 18px;
+  color: white;
+  text-align: center;
 }
 
 .delete {
-  background: rgb(192, 40, 40);
-  text-align: center;
-  color: white;
-  margin-right: 20px;
+  background: rgb(210, 1, 26);
+  margin-left: 80px;
+  letter-spacing: 0.7px;
 }
 
 .no {
-  color: white;
   background: rgb(42, 192, 196);
-  text-align: center;
+  margin-right: 69px;
 }

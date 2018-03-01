@@ -28,9 +28,10 @@ hr {
 
 .noteThumb__content {
   font-family: 'Raleway';
-  font-size: 16px;
+  font-size: 14px;
   line-height: 26px;
   overflow: auto;
+  letter-spacing: 1.3px;
   padding: 1px 25px 0px 20px;
   margin-top: -4px;
 }
