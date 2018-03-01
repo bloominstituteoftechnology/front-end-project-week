@@ -37,6 +37,9 @@ class App extends Component {
   actionAddTodo(todo) {
     this.setState({ todos: [...this.state.todos, todo] });
   }
+  actionEditTodo(todo) {
+    this.setState({ todos: [...this.state.todos, todo] });
+  }
   render() {
     return (
       <div className="container">
@@ -69,6 +72,14 @@ class App extends Component {
                     <span>
                       <i className="fa fa-trash-o" aria-hidden="true" />
                     </span>&nbsp;&nbsp; Delete
+                  </button>
+                  <button
+                    className="btn btn-danger btn-sm float-right"
+                    onClick={this.actionEditTodo.bind(this, index)}
+                  >
+                    <span>
+                      <i className="fa fa-trash-o" aria-hidden="true" />
+                    </span>&nbsp;&nbsp; Edit
                   </button>
                 </li>
               ))}
