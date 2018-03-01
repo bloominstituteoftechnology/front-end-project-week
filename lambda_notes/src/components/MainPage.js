@@ -47,7 +47,8 @@ class MainPage extends React.Component {
           <CsvCreator
             filename='my_notes'
             headers={ [{ id: 'first', display: 'Titles' }, {id: 'second', display: 'Content' }] }
-            rows={this.state.notes.map(elem => {return { first: `${elem.title}`, second: `${elem.content}` };} )}
+            rows={this.state.notes.filter(elem => elem.title.toLowerCase().includes(this.state.searchValue.toLowerCase()))
+              .map(elem => {return { first: `${elem.title}`, second: `${elem.content}` };} )}
           >
             <button className="mainPage__middleRow-button" style={this.props.caseValue === 'noteList' ? { visibility: 'visible' } : { visibility: 'hidden' } }>Download CSV</button>
           </CsvCreator>
