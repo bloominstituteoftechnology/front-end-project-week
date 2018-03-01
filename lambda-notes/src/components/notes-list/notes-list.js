@@ -11,8 +11,8 @@ class LambdaNotes extends Component {
         <ul>
           {notes.map(note => {
             return (
-              <div>
-                <h3 key={note.id}>{note.title}</h3>
+              <div key={note.id}>
+                <h3>{note.title}</h3>
                 <hr />
                 <p>{note.content}</p>
               </div>
