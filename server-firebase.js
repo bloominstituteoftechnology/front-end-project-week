@@ -21,12 +21,12 @@ const app = firebase.initializeApp({
 const database = app.database();
 let notes = database.ref('notes');
 let prodName = '';
-for(let i=0; i < 6; ++i){
+for(let i=0; i < 600; ++i){
     prodName = faker.commerce.productName();
     notes.push({
         title:prodName,
         description:faker.lorem.paragraphs(8)+ ' ' + prodName,
-        image:faker.image.animals(),
+        image:faker.internet.avatar(),
         tags:faker.lorem.words(7) + ' ' + prodName ,
     });
 }

@@ -25,6 +25,7 @@ class Details extends Component {
                     </Row>
                     <Row className="show-grid">
                         <Col>
+                            <img align={'left'} className={'image-detail'} alt={this.props.note.title} src={this.props.note.image}/>
                             {this.props.note.description}
                         </Col>
                     </Row>
@@ -47,6 +48,10 @@ const DetailsContainer = styled.div`
     .sub-lnks-container{
         text-align:right;
         padding:0px 15px 0px auto;
+    }
+    .image-detail{
+        border:4px solid white;
+        margin-right:15px;
     }
     
 `;

@@ -37,7 +37,9 @@ class Notes extends Component {
                                                   key={index} md={4} className={'note-container'}
                                                   onClick={() => {this.goNoteDetails(note)}}
                                             >
-
+                                                <div className="note-img">
+                                                    <img className={'image'} alt={note.title} src={note.image}/>
+                                                </div>
                                                 <div className={"note-title"}>
                                                     {note.title}
                                                 </div>
@@ -89,6 +91,7 @@ const NotesContainer = styled.div`
                     flex-grow: 1;
                     flex-basis: 250px;
                     max-width: 250px;
+                    position:relative;
                     // min-height:214px;
                     // max-height:214px;
                     
@@ -100,7 +103,22 @@ const NotesContainer = styled.div`
                     
                     display: flex;
                     flex-direction:column;  
-                    justify-content:flex-end;                 
+                    justify-content:flex-end;   
+                        
+                        .note-img {
+                            
+                            .image{
+                                width:50px;
+                                height:50px;
+                                border-radius: 100%;
+                                position:absolute;
+                                top:-20px;
+                                right:0px;
+                            }
+                            .image:hover{
+                                border:1px solid white;
+                            }
+                        }              
                 
                         .note-title{
                             color:#4a4a4a;
@@ -131,6 +149,10 @@ const NotesContainer = styled.div`
                                 }
                                 
                         }
+                }
+                .note-container:hover{
+                    border: 1px solid rgb(86, 180, 239);
+                    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
                 }
         }
         

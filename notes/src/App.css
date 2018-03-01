@@ -41,6 +41,7 @@
 
 .btn-text {
     color: white;
+    font-weight: 300;
 }
 
 .btn-text:hover {
