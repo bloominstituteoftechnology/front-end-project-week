@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import NotesList from './components/notes-list/notes-list';
-import logo from './logo.svg';
-import './App.css';
+import LambdaNotesSidebar from './components/sidebar/sidebar';
 
 class LambdaNotesApp extends Component {
   render() {
     return (
       <div className="lambda-notes-app">
-        <div>Sidebar</div>
+        <LambdaNotesSidebar />
         <NotesList />
       </div>
     );
