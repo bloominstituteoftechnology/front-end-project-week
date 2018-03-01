@@ -18,6 +18,9 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
+        <div className="home__header">
+          <p>Your Notes:</p>
+        </div>
         <ul className="home__list">
           {this.props.notes.map(noteObj => {
             return (

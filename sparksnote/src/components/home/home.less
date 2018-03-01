@@ -1,22 +1,39 @@
 .home {
+  margin-top: 40px;
+
+  .home__header {
+    font-size: 2.2rem;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 37px;
+  }
 
   .home__list {
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 50px;
+
 
     .home__list__cards {
-
+      width: 29%;
       border: 1px solid black;
+      margin-bottom: 20px;
+      background-color: rgb(255, 255, 255);
+      height: 175px;
 
       .home__list__cards__title {
-        font-size: 1.6rem;
-
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 10px;
       }
 
-      .home__list__cards__note{
-        font-size: 2.0rem;
+      .home__list__cards__note {
+        font-size: 1.4rem;
+        text-align: left;
+        margin: 10px 13px 0 13px;
       }
     }
   }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+﻿import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 import './styles/App.css';
 
@@ -11,7 +11,12 @@ class App extends Component {
     super(props);
 
     this.state = {
-      notes: [{ title: "Note One", note: "I like turtles" }, { title: "Note Two", note: "I like doges" }]
+      notes: [
+        { title: "Note One", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
+        { title: "Note Two", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
+        { title: "Note Three", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
+        { title: "Note Four", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
+        { title: "Note Five", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " }]
     }
   }
 
@@ -23,7 +28,7 @@ class App extends Component {
         </div>
         <div className="App__main">
           <Route path="/newnote" exact component={NewNote} />
-          <Route path="/home" exact component={() => {
+          <Route path="/" exact component={() => {
             return <Home notes={this.state.notes} />
           }} />
         </div>
