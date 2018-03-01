@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './allNotes.css';
 const AllNotes = (props) => {
   return (
-    <div>
+    <div className ="AllNotes_rail">
       <ul>
         {props.notes.map((note) => {
           return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import uuid from 'uuid';
-
+import Nav from './Components/nav';
 import AllNotes from './Components/AllNotes';
 import AddNote from './Components/AddNote';
 import './App.css';
@@ -42,8 +42,13 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <AllNotes notes={this.state.notes} />
-        <AddNote handleInput={this.handleInput} handleSubmit={this.handleSubmit} namevalue={this.state.note} datavalue={this.state.data} />
+        <div className="left-container">
+          <Nav />
+        </div>
+        <div className="right-container">
+          <AllNotes notes={this.state.notes} />
+          <AddNote handleInput={this.handleInput} handleSubmit={this.handleSubmit} namevalue={this.state.note} datavalue={this.state.data} />
+      </div>
       </div>
     );
   }

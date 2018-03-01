@@ -1,0 +1,11 @@
+.left-container {
+  width: 30%;
+   height: 200px;
+   background: #D7D7D7;
+   }
+
+.right-container{
+  width:100%;
+  flex:right;
+  background:lightsteelblue;;
+}
