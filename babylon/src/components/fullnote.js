@@ -34,6 +34,17 @@ const StyledNote = styled.div`
     }
   }
 
+  .full-note__card {
+    width: 600px;
+    margin-top: 20px;
+    background-color: #fffeff;
+    border: 1px solid #bfbfc0;  
+    border-radius: 1px;
+    h2 {
+      margin-top: 15px;
+    }
+  }
+
 `;
 
 class FullNote extends React.Component {
@@ -56,8 +67,10 @@ class FullNote extends React.Component {
             <Link to={`/updatenote/${this.props.match.params.id}`}>edit</Link>
             <a href='' onClick={this.handleDeleteLink}>delete</a>
           </div>
-          <SectionTitle name={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).title} />
-          <TextBlock body={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).body} />
+          <div className='full-note__card'>
+            <SectionTitle name={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).title} />
+            <TextBlock body={this.props.notes.find(val => val.id.toString() === this.props.match.params.id).body} />
+          </div>
         </div>
       </StyledNote>
     );
