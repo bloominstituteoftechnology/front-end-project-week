@@ -4,7 +4,7 @@ import notes from '../../data/notes';
 import Note from '../note/note';
 // import actions
 
-class LambdaNotes extends Component {
+class NotesList extends Component {
   render() {
     return (
       <div className="lambda-notes">
@@ -21,4 +21,4 @@ class LambdaNotes extends Component {
   }
 }
 
-export default LambdaNotes;
+export default NotesList;
