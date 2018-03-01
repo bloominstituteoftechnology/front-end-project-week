@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import NoteCard from './notecard';
-import LeftRail from './leftrail';
+import HomeLeftRail from './homeleftrail';
 import SectionTitle from './sectiontitle';
 
 const StyledList = styled.div`
@@ -22,7 +22,7 @@ const StyledList = styled.div`
 
 const List = props => (
   <StyledList>
-    <LeftRail />
+    <HomeLeftRail />
     <div className='list__right'>
       <SectionTitle name='Your Notes:'/>
       {props.notes.map((note, index) => {
