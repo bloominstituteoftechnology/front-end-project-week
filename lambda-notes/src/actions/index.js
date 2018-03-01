@@ -9,6 +9,7 @@ export const SEARCH_CLICK = 'SEARCH_CLICK';
 export const SEARCH_RESULTS_CLICKED = 'SEARCH_RESULTS_CLICKED';
 export const SORT_BUTTON_CLICKED = 'SORT_BUTTON_CLICKED';
 export const DOWNLOAD_BUTTON_CLICKED = 'DOWNLOAD_BUTTON_CLICKED';
+export const UPDATE_CHECK_LIST = 'UPDATE_CHECK_LIST';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -96,5 +97,12 @@ export const download_button_click = () => {
   return {
     type: 'DOWNLOAD_BUTTON_CLICKED',
     payload,
+  }
+}
+
+export const update_check_list = (note) => {
+  return {
+    type: 'UPDATE_CHECK_LIST',
+    payload: note,
   }
 }

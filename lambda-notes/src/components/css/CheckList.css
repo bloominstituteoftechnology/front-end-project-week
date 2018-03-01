@@ -1,0 +1,13 @@
+.checklist {
+    display: flex;
+    flex-direction: column;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+}
+
+.note-input {
+    width: 90%;
+}

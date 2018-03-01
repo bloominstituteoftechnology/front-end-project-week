@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from 'react-modal';
 
+import CheckList from './CheckList';
+
 import { edit_note_clicked, delete_note } from '../actions/index';
 
 import './css/ViewNote.css';
@@ -11,7 +13,6 @@ class ViewNote extends React.Component {
     modalIsOpen: false,
   };
   render() {
-    console.log(this.props.edit)
     return (
       <div className="view">
         {this.props.edit ? (
@@ -39,6 +40,10 @@ class ViewNote extends React.Component {
         ) : null}
         <h1 className="view-header"> {this.props.note.title} </h1>
         <p className="view-body"> {this.props.note.body} </p>
+        <div className="checklist">
+          
+      <CheckList key={this.props.note.id} note={this.props.note}/>
+        </div>
       </div>
     );
   }
@@ -54,6 +59,11 @@ class ViewNote extends React.Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   };
+  handleCheckList = () => {
+    let current = [].concat(this.state.count);
+    current.push(1)
+    this.setState({show:true, count: current})
+  }
 }
 
 //Tried doing this as css/className, but that didn't work.
