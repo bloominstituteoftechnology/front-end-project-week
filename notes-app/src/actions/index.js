@@ -3,5 +3,5 @@ export const addNote = (note) => {
     type: 'ADD_NOTE',
     payload: note,
   }
-  return note
+  return note;
 }

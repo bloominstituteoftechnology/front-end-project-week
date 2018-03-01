@@ -53,7 +53,6 @@ class CreateNote extends Component {
       { [event.target.name]: event.target.value } // like Object.assign..
     )  // adds the event.target.name (eg: title) property of the state to equal the new value
        // this doesn't overwrite state, but overwrites the specified [] value
-    console.log(this.state);
   }
   doSubmit = (event) => {
     event.preventDefault(); // stop default action of component

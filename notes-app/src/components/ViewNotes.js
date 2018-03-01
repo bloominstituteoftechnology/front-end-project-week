@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import MultNote from './MultNote';
+import './ViewNotes.css'
 
-function ViewNotes() {
-  return (
-    <div className="Home__Right">
-      View Notes Page
-    </div>
-  )
+class ViewNotes extends Component {
+  render () {
+    return (
+      <div className="Home__Right">
+        <div className="Right_Containers">
+          <div className="ViewNotes__Text">
+            Your Notes:
+          </div>
+          {Object.keys(this.props.notes).map(sinNote => {
+            console.log(sinNote);
+            return (
+              <MultNote note={sinNote} />
+            );
+          })}
+        </div>
+      </div>
+    )
+  }
 }
+  // console.log('the props in viewnotes' + this.props.notes)
+const mapStateToProps = (state) => {
+  return {
+    notes: state.Notes
+  };
+};
 
-export default ViewNotes;
+export default connect(mapStateToProps)(ViewNotes);
