@@ -57,9 +57,19 @@ class PostForm extends React.Component {
     redirect: false,
   }
 
+  parseDate = () => {
+    const a = new Date().toString().split(' ').slice(0, 5);
+    const b = a.splice(4, 1);
+    return `${a.join(' ')} ${b[0].split(':').slice(0, 2).join(':')}`;
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    this.props.addNote({
+      ...this.state,
+      stamp: this.parseDate(),
+      created: Date.now(),
+    });
     this.setState({
       title: '',
       body: '',

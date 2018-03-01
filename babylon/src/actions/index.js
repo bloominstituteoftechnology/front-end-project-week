@@ -12,6 +12,8 @@ export const addNote = data => ({
   id: nextNoteId++,
   title: data.title,
   body: data.body,
+  created: data.created,
+  stamp: data.stamp,
 });
 
 export const updateNote = data => ({
