@@ -40,6 +40,8 @@ class Login extends React.Component {
         }})
         if (flag) {
         const usersNotes = (this.props.users[userIndex].notes);
+        console.log(this.props.note)
+        // const userCheckList = (this.props.user[userIndex].notes)
         this.props.load_user_notes(usersNotes);
         this.props.view_button_click();
         }
@@ -53,6 +55,7 @@ class Login extends React.Component {
 const mapStateToProps = state => {
     return {
         users: state.users,
+        note: state.note,
     }
 }
 

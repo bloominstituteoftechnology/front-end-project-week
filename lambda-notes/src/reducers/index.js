@@ -102,6 +102,7 @@ const initialState = {
   remove: false,
   loggedIn: false,
   currentUserNotes: null,
+  currentUserCheckList: null,
 };
 
 export default (state = initialState, action) => {
@@ -111,25 +112,25 @@ export default (state = initialState, action) => {
     case actions.VIEW_BUTTON_CLICK:
       return { ...state, current: action.payload };
     case actions.ADD_NOTE:
-      return { ...state, notes: [...state.notes, action.payload] };
+      return { ...state, currentUserNotes: [...state.currentUserNotes, action.payload] };
     case actions.VIEW_NOTE:
       return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE_CLICKED:
       return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE:
       const removed = [
-        ...state.notes.slice(0, action.payload.index),
-        ...state.notes.slice(action.payload.index + 1),
+        ...state.currentUserNotes.slice(0, action.payload.index),
+        ...state.currentUserNotes.slice(action.payload.index + 1),
       ];
       removed.splice(action.payload.index, 0, action.payload);
-      return { ...state, notes: removed };
+      return { ...state, currentUserNotes: removed };
     case actions.DELETE_NOTE:
       return {
         ...state,
         current: action.payload.current,
-        notes: [
-          ...state.notes.slice(0, action.payload.note.index),
-          ...state.notes.slice(action.payload.note.index + 1),
+        currentUserNotes: [
+          ...state.currentUserNotes.slice(0, action.payload.note.index),
+          ...state.currentUserNotes.slice(action.payload.note.index + 1),
         ],
       };
     case actions.SEARCH_CLICK:
@@ -141,9 +142,9 @@ export default (state = initialState, action) => {
     case actions.DOWNLOAD_BUTTON_CLICKED:
       return { ...state, current: action.payload };
     case actions.UPDATE_CHECK_LIST:
-      const currentNotes = state.notes;
+      const currentNotes = state.currentUserNotes;
       currentNotes.splice(action.payload.index, 1, action.payload);
-      return { ...state, notes: currentNotes };
+      return { ...state, currentUserNotes: currentNotes };
     case actions.REMOVE_EDIT:
       return { ...state, remove: action.payload };
     case actions.LOAD_USER_NOTES:
