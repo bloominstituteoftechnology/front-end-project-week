@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import NoteList from './components/NoteList';
 import CreateForm from './components/CreateForm';
 import NoteCard from './components/Note'
+// import DummyData from "./DummyData";
 
 
 class App extends Component {
@@ -37,7 +38,10 @@ class App extends Component {
         content: 'content content content content content content content content'
       }
     ]
-  }
+  };
+
+  // create = false;
+
   render() {
 
 
@@ -50,14 +54,16 @@ class App extends Component {
                 <NavLink to="/" activeClassName="navlink--active" exact>
                   <button>
                     View Notes
-                    </button> 
+                  </button> 
                 </NavLink> 
               </div>
               <div>
                 <NavLink to="/create_note" activeClassName="navlink--active" exact>
-                <button>
-                  Create New Note
-                </button>
+                  <button
+                  //  onClick={() => this.Create()}
+                  >
+                    + Create Note
+                  </button>
                 </NavLink>
               </div>
           </div>
@@ -81,6 +87,11 @@ class App extends Component {
       </Router>
     );
   }
+
+  Create() {
+    this.create=true;
+    console.log(this.create);
+  }
 }
 
 const CardId = props => {
@@ -92,5 +103,6 @@ const CardId = props => {
   console.log(id);
   return <NoteCard note={IdNote[0]} />
 }
+
 
 export default App;

@@ -1,35 +1,11 @@
 .container {
-  width: 1024px;
-  background: gray;
-  margin: 0 auto;
   display: flex;
-  min-height: 800px;
+  height: 1000px;
 }
-
-.left-column {
-  width: 250px;
-  background: #d8d8d8;
+.container .left-column {
+  width: 300px;
 }
-
-.main-content {
+.container .main-content {
   width: 774px;
   background: red;
-  min-width: 774px;
 }
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-.navlink--active {
-  color: gray;
-}
-
-/* @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
