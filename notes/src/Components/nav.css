@@ -12,7 +12,11 @@ background:lightsteelblue;
     align-items: left;
     padding: 15px;
   }
-.button{
+.New-Note-Button{
+  padding: 15px;
+
+}
+.View-Button{
   padding: 15px;
 
 }

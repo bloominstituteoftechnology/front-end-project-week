@@ -9,10 +9,10 @@ const Nav = () => {
         <div>Notes</div>
       </div>
       <div>
-        <button>View Your Notes </button>
+        <button className="View-Button">View Your Notes </button>
       </div>
       <div>
-        <button> + Create New Note </button>
+        <button className="New-Note-Button"> + Create New Note </button>
       </div>
     </div>
   );

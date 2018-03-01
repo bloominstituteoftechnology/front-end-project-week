@@ -1,7 +1,14 @@
+.App{
+ display: flex;
+ max-width: 1600px;
+ margin-left: 150px;
+ margin-right: 150px;
+}
+
 .left-container {
   width: 30%;
-   height: 200px;
-   background: #D7D7D7;
+   height: 400px;
+    background: lightsteelblue; 
    }
 
 .right-container{
