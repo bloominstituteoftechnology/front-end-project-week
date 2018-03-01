@@ -1,12 +1,30 @@
 .container {
-  justify-content: flex-start;
+  display: flex;
   height: 1000px;
-
+  align-items: center;
+  justify-content: center;
 }
 .container .left-column {
   width: 300px;
+  background: gray;
+  flex-flow: wrap;
+}
+.container .left-column .App-title {
+  flex: 0 100%;
+  border: red solid;
+  text-align: center;
+}
+.container .left-column .createButton {
+  width: 100px;
+  height: 50px;
+  flex: 0 100%;
+}
+.container .left-column .mainButton {
+  width: 100px;
+  height: 50px;
+  flex: 0 100%;
 }
 .container .main-content {
   width: 774px;
-  background: red;
+  background: white;
 }

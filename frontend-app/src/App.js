@@ -14,27 +14,27 @@ class App extends Component {
     notes: [
       {
         id: 1,
-        title: 'Note Title Filler',
-        content: 'content content content content content content content content'
+        title: 'Note 1',
+        content: 'Note 1 content Note 1 content Note 1 content Note 1 content Note 1 content Note 1 content Note 1 content Note 1 content'
       },
       {
         id: 2,
-        title: 'Note Title Filler',
-        content: 'content content content content content content content content'
+        title: 'Note 2',
+        content: 'Note 2 content Note 2 content Note 2 content Note 2 content Note 2 content Note 2 content Note 2 content Note 2 content'
       },
       {
         id: 3,
-        title: 'Note Title Filler',
-        content: 'content content content content content content content content'
+        title: 'Note 3',
+        content: 'Note 3 content Note 3 content Note 3 content Note 3 content Note 3 content Note 3 content Note 3 content Note 3 content'
       },
       {
         id: 4,
-        title: 'Note Title Filler',
-        content: 'content content content content content content content content'
+        title: 'Note 4',
+        content: 'Note 4 content Note 4 content Note 4 content Note 4 content Note 4 content Note 4 content Note 4 content Note 4 content'
       },{
         id: 5,
-        title: 'Note Title Filler',
-        content: 'content content content content content content content content'
+        title: 'Note 5',
+        content: 'Note 5 content Note 5 content Note 5 content Note 5 content Note 5 content Note 5 content Note 5 content Note 5 content'
       }
     ]
   };
@@ -46,27 +46,27 @@ class App extends Component {
 
     return (
       <Router>
-        <div className="containter">
-          <div className="left-column">
+        <div className="container">
+          <div className="container left-column">
             <h1 className="App-title">Note App</h1>
-              <div>
+            <div>
                 <NavLink to="/" activeClassName="navlink--active" exact>
-                  <button>
+                  <button className="mainButton">
                     View Notes
                   </button> 
                 </NavLink> 
-              </div>
-              <div>
-                <NavLink to="/create_note" activeClassName="navlink--active" exact>
-                  <button
-                  //  onClick={() => this.Create()}
-                  >
-                    + Create Note
-                  </button>
+            </div>
+            <div>
+              <NavLink to="/create_note" activeClassName="navlink--active" exact>
+                <button className="createButton"
+                //  onClick={() => this.Create()}
+                >
+                  + Create Note
+                </button>
                 </NavLink>
-              </div>
+            </div>
           </div>
-          <div className="main-content">
+          <div className="container main-content">
 
           <Route path='/' component={() => <NoteList notes={this.state.notes} />} exact />
           <Route path='/create_note' component={CreateForm} />
