@@ -16,7 +16,7 @@ class App extends Component {
             <h1>Lambda Notes</h1>
             <button>
               <Link
-                to="/"
+                to="/" exact
                 style={{
                   color: "white",
                   textDecoration: "none"
@@ -40,7 +40,7 @@ class App extends Component {
           <Route exact path="/" component={MainView} />
           <Route path="/create" component={CreateView} />
           <Route path="/note/:id" render={(props) => {
-            console.log('route props is');
+            console.log('route props is', props);
             return <OneNote id={props.match.params.id}/>
           }} />
           {/* <Route path='/edit' component={EditView} /> */}

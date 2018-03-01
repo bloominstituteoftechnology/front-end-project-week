@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateSelected } from "../actions";
-import { Link } from "react-router-dom";
+import { updateSelected, deleteNote } from "../actions";
+import { Link, Redirect } from "react-router-dom";
 
 class OneNote extends Component {
   state = {
-    showModal: true
+    showModal: false,
+    fireRedirect: false
+  };
+
+  // deletes the correct prop, but renders the entire function before placing the <Redirect>
+  handleDelete = event => {
+    event.preventDefault();
+    this.props.deleteNote(this.props.notes[this.props.id].id);
+    this.setState({ fireRedirect: true });
+    console.log("fireRedirect in Delete is", this.state.fireRedirect);
   };
 
   render() {
@@ -13,19 +22,28 @@ class OneNote extends Component {
       <div className="OneNote">
         <div className="header">
           <Link to="">edit</Link>
-          <a href="" onClick={this.handleClickOnDeleteLink}>
+          <a href="" onClick={this.handleClickOnToggleDeleteModal}>
             delete
           </a>
         </div>
-        <h2>{this.props.notes[this.props.id].title}</h2>
-        <p>{this.props.notes[this.props.id].text}</p>
+        {console.log('right before error, fireRedirect is', this.state.fireRedirect)}
+        {this.state.fireRedirect && <Redirect to="/" />}
+        <h2>{!this.state.fireRedirect ? this.props.notes[this.props.id].title : null}</h2>
+        <p>{!this.state.fireRedirect ? this.props.notes[this.props.id].text : null}</p>
         {this.state.showModal && (
           <div>
             <div className="deleteModal">
               <p>Are you sure you want to delete this?</p>
               <div className="buttons">
-                <button className='deleteButton'>Delete</button>
-                <button className='noButton'>No</button>
+                <button className="deleteButton" onClick={this.handleDelete}>
+                  Delete
+                </button>
+                <button
+                  className="noButton"
+                  onClick={this.handleClickOnToggleDeleteModal}
+                >
+                  No
+                </button>
               </div>
             </div>
             <div className="background" />
@@ -36,10 +54,11 @@ class OneNote extends Component {
   }
 
   componentWillMount = () => {
-    this.props.updateSelected(this.props);
+    this.props.updateSelected(this.props.notes[this.props.id].id);
   };
 
-  handleClickOnDeleteLink = () => {
+  handleClickOnToggleDeleteModal = e => {
+    e.preventDefault();
     this.setState({ showModal: !this.state.showModal });
   };
 }
@@ -50,7 +69,9 @@ const mapPropToStates = state => {
   };
 };
 
-export default connect(mapPropToStates, { updateSelected })(OneNote);
+export default connect(mapPropToStates, { updateSelected, deleteNote })(
+  OneNote
+);
 
 // state.filter(note => {
 //   console.log('this.props is', this.props);
