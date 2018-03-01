@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import DeleteNote from './DeleteNote';
 import { Link } from 'react-router-dom';
 
@@ -45,7 +46,7 @@ export default class NoteView extends React.Component {
         </div>
         <div>
           <h2 className="SectionTitle">{title}</h2>
-          <p>{body}</p>
+          <ReactMarkdown source={body} />
         </div>
       </div>
     );
