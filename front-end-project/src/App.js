@@ -7,9 +7,25 @@ import LeftColumnPanel from "./components/LeftColumnPanel";
 import newNote from "./components/newNote";
 import axios from 'axios';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import ViewNotes from './viewnotes';
 //import Router from './Router'; 
 
 class App extends Component {
+	render() {
+		return (
+			<Router>
+			<div className='App'>
+      <Navigator />
+			<Route path="/" component={ViewNotes} exact />
+			<Route path="/viewnotes" component={ViewNotes} exact />
+			<Route path="/createnote" component={CreateNote} exact />
+			</div>
+			</Router>
+		);
+  }
+}
+
+/*class App extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -19,10 +35,10 @@ class App extends Component {
       NoteTitle: '',
 			NoteContent: '',					 
 	 },
-   updateIndex: null, */			 
+   updateIndex: null, 			 
 };
-} 
-	render() {
+} */
+/*	render() {
     return (
 			<div>	
        <Router>
@@ -57,7 +73,7 @@ class App extends Component {
 			</div>
 		 )	
 		};
- }
+ }*/
 /*componentDidMount() {
 	axios.get('http://localhost:5000/front-end-project/')
 		.then((response) => {

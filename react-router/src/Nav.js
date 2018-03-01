@@ -1,15 +1,16 @@
-import React from 'react';
+import { React, Components } from 'react';
 import NavLink from 'react-router-dom';
 import LeftColumnPanel from './LeftColumnPanel';
-import NoteDisplay from '/NoteDisplay';
+import NoteDisplay from './NoteDisplay';
 
-  function Nav() {
-      return (
+  class Nav extends Components {
+        render() {
+		    return (
           <div className="Home">
             <LeftColumnPanel />
             <div className="Notes">
             <h3 className="Note-title"> Your Notes: </h3>
-            {this.state.notes.map((note, i) => {
+            {this.props.notes.map((note, i) => {
                 return (
                 <NoteDisplay key={i} notetitle={note.Title} noteContent={note.Content} />
               );
@@ -18,5 +19,5 @@ import NoteDisplay from '/NoteDisplay';
        </div>
       )
     }
-
+ }
 export default Nav;
