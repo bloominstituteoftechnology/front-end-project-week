@@ -5,14 +5,14 @@ import DeletePopup from './deletePopup';
 const DeleteNote = (props) => {
     return (
         <div className="view-note-container">
-          <DeletePopup />
+          <DeletePopup props={this.props}/>
           <div className="edit-button">
-            <NavLink className="edit-link" to="#">
+            <NavLink className="edit-link--popup" to="#">
               edit
             </NavLink>
           </div>
           <div className="delete-button">
-            <NavLink className="delete-link" to={`/delete/${props.match.params.id}`}>
+            <NavLink className="delete-link--popup" to={`/delete/${props.match.params.id}`}>
               delete
             </NavLink>
           </div>

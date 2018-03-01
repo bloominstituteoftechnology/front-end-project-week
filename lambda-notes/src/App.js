@@ -9,46 +9,46 @@ class App extends Component {
     notes: [
       {
           id: 0,
-          title: "Note Title",
+          title: "First Note",
           body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
           id: 1,
-          title: "Note Title",
+          title: "Second Note",
           body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
           id: 2,
-          title: "Note Title",
+          title: "Third Note",
           body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
         id: 3,
-        title: "Note Title",
+        title: "Fourth Note",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
         id: 4,
-        title: "Note Title",
+        title: "Fifth Note",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
         id: 5,
-        title: "Note Title",
+        title: "Sixth Note",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
         id: 6,
-        title: "Note Title",
+        title: "Seventh Note",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
       {
         id: 7,
-        title: "Note Title",
+        title: "Eighth Note",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },      {
         id: 8,
-        title: "Note Title",
+        title: "Ninth Note",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos voluptatem, error nihil molestias ratione voluptatibus dolorem consequuntur.",
       },
   ],
