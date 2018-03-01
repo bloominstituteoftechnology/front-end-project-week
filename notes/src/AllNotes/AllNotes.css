@@ -69,6 +69,8 @@
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 18px;
   font-weight: bold;
+  text-align: center;
+  line-height: 53px;
   letter-spacing: 0.5px;
   color: white;
   background: #2ac0c4;
@@ -76,4 +78,5 @@
 }
 a {
   text-decoration: none;
+  border: none;
 }

@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 import LeftBar from '../LeftBar/LeftBar';
 import './AllNotes.css';
 
 class AllNotes extends Component {
-  convertToCSV = () => {
-    let csv = 'title,body,id\n';
+  getCSV = () => {
+    let csv = [['title', 'body', 'id']];
     for (let i = 0; i < this.props.notes.length; i++) {
-      csv += `${
-        this.props.notes[i].title},${
-        this.props.notes[i].body},${
-        this.props.notes[i].id
-      }\n`;
+      csv.push([
+        this.props.notes[i].title,
+        this.props.notes[i].body,
+        this.props.notes[i].id,
+      ]);
     }
-    console.log('CSV: ', csv.slice(0, -2));
-    return csv.slice(0, -2);
+    return csv;
   };
 
   render() {
@@ -43,9 +43,13 @@ class AllNotes extends Component {
             })}
           </div>
           <div className="export-container">
-            <button onClick={this.convertToCSV} className="export-button">
-              Export CSV
-            </button>
+            <CSVLink
+              className="export-button"
+              data={this.getCSV()}
+              filename="all-notes.csv"
+            >
+              Download CSV
+            </CSVLink>
           </div>
         </div>
       </div>
