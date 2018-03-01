@@ -1,4 +1,4 @@
-https://trello.com/b/nEzl7jCt/ashlei-jones-lamba-notes
+https://trello.com/b/nEzl7jCt/ashlei-jones-lamba-notes  
 https://lambda-notes-45h13i.firebaseapp.com/
 
 # Front End Project Week
