@@ -88,15 +88,9 @@ const initialState = {
   current: 'list',
   note: null,
   results: [],
-  edit: false,
 };
 
 export default (state = initialState, action) => {
-  // I'm sure this is frowned upon, but edit broke everything unless
-  // it was on the original page.  For the time being, this is my remedy.
-  if (state.current === 'list') state.edit = true;
-  else state.edit = false;
-
   switch (action.type) {
     case actions.ADD_BUTTON_CLICK:
       return { ...state, current: action.payload };

@@ -15,7 +15,6 @@ class ViewNote extends React.Component {
   render() {
     return (
       <div className="view">
-        {this.props.edit ? (
           <div>
             <div className="edit" onClick={this.handleEdit}>
               edit
@@ -37,7 +36,6 @@ class ViewNote extends React.Component {
               </Modal>
             </div>
           </div>
-        ) : null}
         <h1 className="view-header"> {this.props.note.title} </h1>
         <p className="view-body"> {this.props.note.body} </p>
         <div className="checklist">
