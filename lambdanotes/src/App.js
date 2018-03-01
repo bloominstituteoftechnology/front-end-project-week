@@ -84,11 +84,13 @@ class App extends Component {
 
   showDeleteModal = () => {
     this.setState({
-      viewingNotes: false,
-      creatingNote: false,
-      showingNoteDetails: true,
-      editingNote: false,
       deletingNote: true,
+    })
+  }
+
+  closeDeleteModal = () => {
+    this.setState({
+      deletingNote: false,
     })
   }
 
@@ -169,7 +171,7 @@ class App extends Component {
         {this.state.deletingNote &&
           <DeleteModal
             deleteNote={this.deleteNote}
-            showNoteDetails={this.showNoteDetails}
+            closeDeleteModal={this.closeDeleteModal}
           />}
       </AppStyled>
     );

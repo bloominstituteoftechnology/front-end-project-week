@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Styles
 const DeleteModalContainerStyled = styled.div`
   position: absolute;
   display: flex;
@@ -50,6 +51,7 @@ const DeleteModalContainerStyled = styled.div`
   }
 `
 
+// DeleteModal Component
 const DeleteModal = (props) => {
   return (
     <DeleteModalContainerStyled>
@@ -57,7 +59,7 @@ const DeleteModal = (props) => {
         <h3>Are you sure you want to delete this?</h3>
         <div className="DeleteModalButtons">
           <button className="DeleteButton" onClick={props.deleteNote}>Delete</button>
-          <button className="NoButton" onClick={props.showNoteDetails}>No</button>
+          <button className="NoButton" onClick={props.closeDeleteModal}>No</button>
         </div>
       </div>
     </DeleteModalContainerStyled>
