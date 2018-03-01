@@ -10,12 +10,6 @@ class Home extends Component {
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      notes: this.props.notes
-    })
-  }
-
   render() {
     return (
       <div className="home">
@@ -25,10 +19,10 @@ class Home extends Component {
         <ul className="home__list">
           {this.props.notes.map((noteObj, i) => {
             return (
-              <Link to="/home/{i}" state={this.props.notes[i]} ><div className="home__list__cards">
-                <li className="home__list__cards__title">{noteObj.title}</li>
-                <li className="home__list__cards__note">{noteObj.note}</li>
-              </div></Link>
+              <div className="home__list__cards">
+                <a href="/note"><li className="home__list__cards__title">{noteObj.title}</li>
+                <li className="home__list__cards__note">{noteObj.note}</li></a>
+              </div>
               )
           })}
         </ul>

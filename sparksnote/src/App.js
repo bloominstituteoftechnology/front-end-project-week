@@ -5,6 +5,7 @@ import './styles/App.css';
 import Menu from "./components/menu/menu";
 import NewNote from "./components/newNote/newNote";
 import Home from "./components/home/home";
+import ViewNote from "./components/viewNote/viewNote";
 
 class App extends Component {
   constructor(props) {
@@ -12,11 +13,11 @@ class App extends Component {
 
     this.state = {
       notes: [
-        { title: "Note One", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
-        { title: "Note Two", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
-        { title: "Note Three", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
-        { title: "Note Four", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " },
-        { title: "Note Five", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis " }]
+        { title: "Note One", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis..." },
+        { title: "Note Two", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis..." },
+        { title: "Note Three", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis..." },
+        { title: "Note Four", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis..." },
+        { title: "Note Five", note: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis..." }]
     }
   }
 
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path="/" exact component={() => {
             return <Home notes={this.state.notes} />
           }} />
+          <Route path="/note" exact component={ViewNote} />
         </div>
       </div>
     );
