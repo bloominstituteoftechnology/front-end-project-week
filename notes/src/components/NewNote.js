@@ -1,8 +1,9 @@
 import React from 'react';
 import './NewNote.css';
+import { Link } from 'react-router-dom';
 
 function NewNote(props) {
-  console.log("you called NewNote from NoteList");
+  // console.log("you called NewNote from NoteList");
   return (
     // <div>you called NewNote</div>
     <div className="newNoteDiv">
@@ -10,7 +11,7 @@ function NewNote(props) {
         <div>
           <h1>Lambda</h1>
           <h2>Notes</h2>
-          <button className="btns">View Your Notes</button>
+          <button className="btns"><Link to="/">View Your Notes</Link></button>
           <button className="btns">+ Create New Note</button>
         </div>
       </div>
@@ -29,7 +30,7 @@ function NewNote(props) {
           </form>
         </div> */}
         <div>
-          <button type="submit" className="btns">Save</button>
+          <button type="submit" className="btns"><Link to="/">Save</Link></button>
         </div>
       </div>
     </div>

@@ -1,92 +1,28 @@
 import React from 'react';
 import './NoteList.css';
 import NewNote from './NewNote';
+import kitty from '../kitty-ipsum';
+import { Link } from 'react-router-dom';
 
 class NoteList extends React.Component {
   state = {
-    noteItem: [
-      {
-        id: 1,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 2,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 3,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 4,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 5,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 6,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 7,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 8,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-      {
-        id: 9,
-        title: "kitty ipsum",
-        text:
-          "Pounce on unsuspecting person. Sniff other cat's butt and hang jaw half open thereafter. Bleghbleghvomit my furball really tie the room together.",
-      },
-    ],
-    lastId: 9, 
-    showNewNote: false,
+    notes: [],
+    lastId: 9,
   };
-  
-  
-  NewNote = (event) => {
-    console.log("hey", event);
-    this.setState({showNewNote: true});
-    console.log(this.state.showNewNote);
-    
-    // return (
-    // <NewNote />
-    // )
-  
+
+  componentDidMount() {
+    this.setState({ notes: kitty });
   }
 
   render() {
     return (
-      
       <div className="App">
         <div className="leftBar">
           <div>
             <h1>Lambda</h1>
             <h2>Notes</h2>
             <button className="btns">View Your Notes</button>
-            <button className="btns" onClick={ this.NewNote }>+ Create New Note</button>
-            { this.state.showNewNote? <NewNote /> : null}
+            <button className="btns" ><Link to="/NewNote">+ Create New Note</Link></button>
           </div>
         </div>
         <div className="rightBar">
@@ -94,24 +30,31 @@ class NoteList extends React.Component {
             <div className="yourNotes">
               <h3>Your Notes:</h3>
             </div>
-            <ul>
-              {this.state.noteItem.map(obj => {
-                return (
-                  <li key={obj.id}>
-                    <div>
-                      <p className="noteTitle">{obj.title}</p>
-                      <hr />
-                      <div>{obj.text}</div>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            {this.state.notes.map(note => (
+              <NoteCard key={note.id} note={note} />
+            ))}
           </div>
         </div>
       </div>
     );
   }
+}
+
+function NoteCard({ note }) {
+  const { id, title, text } = note;
+  return (
+    <div>
+      <Link to={`/notes/${note.id}`}>
+        <li key={note.id}>
+          <div>
+            <p className="noteTitle">{note.title}</p>
+            <hr />
+            <div>{note.text}</div>
+          </div>
+        </li>
+      </Link>
+    </div>
+  );
 }
 
 export default NoteList;
