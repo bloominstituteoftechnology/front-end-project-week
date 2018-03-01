@@ -1,6 +1,26 @@
 .note {
-    background:#fff;
-    border: 1px #A6A6A6 solid;
-    padding:20px;
-    margin-bottom:30px;
+  background: #fff;
+  border: 1px #a6a6a6 solid;
+  padding: 20px;
+  border-radius:.25rem;
+}
+
+.note:hover {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.note:active {
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+.note-link {
+    text-decoration:none;
+    color:#212529;
+    margin-bottom: 30px;
+}
+.note-link:hover {
+    color:#212529;
+    text-decoration:none;
 }

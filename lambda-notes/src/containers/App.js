@@ -6,6 +6,13 @@ import NoteFull from '../components/NoteFull.js';
 import EditNote from '../components/EditNote.js';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Raleway:400', 'Roboto:700', 'sans-serif']
+  }
+});
 
 class App extends Component {
   render() {
