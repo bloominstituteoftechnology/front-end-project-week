@@ -81,6 +81,11 @@
   font-size: 0.7rem;
 }
 
+.unstyledlink {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 /* Form */
 form {
   display: flex;

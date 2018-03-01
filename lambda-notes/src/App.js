@@ -21,7 +21,16 @@ class App extends Component {
             path="/notelist"
             render={state => <NoteList notes={this.state.notes} exact />}
           />
-          <Route path="/note/:id" component={SingleNote} />
+          <Route
+            render={routeProps => (
+              <SingleNote
+                {...routeProps}
+                {...this.props}
+                notes={this.state.notes}
+              />
+            )}
+            path="/note/:id"
+          />
           <Route path="/noteform" component={NoteForm} exact />
         </div>
       </Router>

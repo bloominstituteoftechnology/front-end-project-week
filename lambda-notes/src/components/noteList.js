@@ -7,6 +7,7 @@ class NoteList extends Component {
   state = {
     id: "",
   };
+
   render() {
     return (
       <div className="note-container">
@@ -15,7 +16,11 @@ class NoteList extends Component {
           {this.props.notes.map(note => {
             return (
               <li className="note-container notelist" key={note.id}>
-                <Link to={`/note/${note.id}`}>
+                <Link
+                  className="unstyledlink"
+                  to={`/note/${note.id}`}
+                  onClick={this.viewNote}
+                >
                   <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
                 </Link>
               </li>

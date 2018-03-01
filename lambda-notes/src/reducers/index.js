@@ -13,7 +13,7 @@ export const rootReducer = (state = initialState, action) => {
         notes: state.notes.concat(action.payload),
       };
     case VIEW_NOTE:
-      return { ...state, current: action.payload };
+      return { ...state, note: action.payload };
 
     default:
       return state;
