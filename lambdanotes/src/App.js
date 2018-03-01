@@ -48,14 +48,16 @@ class App extends Component {
             <h1> Lambda Notes </h1>
             <ul>
               <li>
-                <button className="navButton">
-                <NavLink to='/'>View Your Notes</NavLink>
-                </button>
+                
+                <NavLink to='/'>
+                  <button type="submit" className="navButton">View Your Notes</button>
+                </NavLink>
+                
               </li>
               <li>
-                <button className="navButton2">
-                <NavLink to='/createNote'>+Create New Note</NavLink>
-                </button>
+                <NavLink to='/createNote'>
+                  <button type="submit" className="navButton2">+Create New Note</button>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -63,7 +65,7 @@ class App extends Component {
           <div className="mainContent">
           <Switch>
             <Route path='/' component={this.notes} exact/>
-            <Route path='/createNote' component={this.noteForm} exact/>
+            <Route path='/createNote' component={this.noteForm} />
             <Route path='/:id' component={this.viewNote} />
             <Route path='/:id/update' component={this.updateNote} />
             <Route component={this.notes} />

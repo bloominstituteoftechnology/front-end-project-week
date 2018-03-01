@@ -3,28 +3,31 @@
 .mainContainer {
     display: flex;
     width: 1365px;
-    align-content: center;
     background: #f3f3f3;
     height: 100%;
+    padding: 0;
+    box-sizing: border-box;
 
     .navBar {
         display: flex;
-        flex-direction: column;
+        flex-flow: column;
+        align-content: flex-start;
         width: 340px;
         background: #d8d8d8;
         font-family: Roboto;
         color: #4a4a4a;
         font-size: 27px;
+        box-sizing: border-box;
+        padding-right: 20px;
         ul {
             list-style-type: none;
         }
     
         .navButton {
             background: #2bc0c4;
-            margin-top: 100px;
-            margin-right: auto;
-            width: 300px;
+            width: 310px;
             height: 60px;
+            float: left;
             a {
                 color: #ffffff;
                 text-decoration: none;
@@ -51,8 +54,7 @@
         .navButton2 {
             background: #2bc0c4;
             margin-top: 20px;
-            margin-right: 50px;
-            width: 300px;
+            width: 310px;
             height: 60px;
 
             a {
@@ -83,7 +85,6 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        width: 100%;
         background: #f3f3f3;
 
     }
