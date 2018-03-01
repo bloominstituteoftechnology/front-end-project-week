@@ -29,32 +29,34 @@ onSubmit = (values) => {
   const { handleSubmit } = this.props;
 
     return (
-      <div className="createNewContainer">
+      <div className="parentContainer">
         <h1>Create New Note</h1>
-        <div className="noteForm">
-          <form onSubmit={handleSubmit(this.onSubmit)}>
-            <Field
-              label="Title"
-              name="title"
-              component={this.renderField}
-            />
-            <Field
-              label="Categories"
-              name="categories"
-              component={this.renderField}
-            />
-            <div className="mainContent">
-            <Field 
-              className="noteContent"
-              label="Post Content"
-              name="content"
-              component={this.renderField}
-            />
-            </div>
-            <button 
-            type="submit" 
-            className="saveButton">Save</button>
-          </form>
+        <div className="mainContainer">
+          <div className="noteForm">
+            <form onSubmit={handleSubmit(this.onSubmit)}>
+              <Field
+                label="Title"
+                name="title"
+                component={this.renderField}
+              />
+              <Field
+                label="Categories"
+                name="categories"
+                component={this.renderField}
+              />
+              <div className="mainContent">
+              <Field 
+                className="noteContent"
+                label="Post Content"
+                name="content"
+                component={this.renderField}
+              />
+              </div>
+              <button 
+              type="submit" 
+              className="saveButton">Save</button>
+            </form>
+          </div>
         </div>
       </div>
     );

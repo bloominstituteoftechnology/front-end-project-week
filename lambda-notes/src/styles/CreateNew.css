@@ -1,4 +1,5 @@
-.createNewContainer {
+.mainContainer {
+  display: flex;
   width: 825px;
   height: 100%;
   background: #f3f3f3;
@@ -6,10 +7,17 @@
   padding-left: 30%;
 }
 
-/* .noteForm {
+input {
+  display: flex;
+  /* width: 500px; */
+}
+
+.noteForm {
+  display: flex;
   padding-left: 25px;
   padding-right: 15px;
-} */
+  padding-top: 12px;
+}
 
 .noteContent {
   padding-left: 25px;

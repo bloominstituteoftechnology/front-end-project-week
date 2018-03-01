@@ -22,7 +22,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
  <Provider store={store}> 
     <BrowserRouter>
-      <div>
+      <div className="masterContainer">
         <SideBar />
         <Route path="/" component={PostsIndex} exact />
         <Route path="/notes/new" component={CreateNew} />

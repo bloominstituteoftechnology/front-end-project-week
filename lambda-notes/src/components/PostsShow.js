@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPost, deletePost } from '../actions';
+import '../styles/PostsShow.css';
 
 class PostsShow extends Component {
   componentDidMount() {
@@ -24,15 +25,15 @@ class PostsShow extends Component {
     }
  
     return (
-      <div>
+      <div className="singleNoteContainer">
         <button
           onClick={this.onDeleteClick.bind(this)}
         >
         Delete Note
         </button>
-        <h1>{post.title}</h1>
-        <h6>Categories: {post.categories}</h6>
-        <p>{post.content}</p>
+        <div className="singleTitle">{post.title}</div>
+        <div className="singleCategories">Categories: {post.categories}</div>
+        <div className="singleContent">{post.content}</div>
       </div>
     );
   }

@@ -1,5 +1,9 @@
-body {
+/* body {
   margin: 0;
   justify-content: center;
   font-family: sans-serif;
+} */
+
+.masterContainer {
+  display: flex;
 }
