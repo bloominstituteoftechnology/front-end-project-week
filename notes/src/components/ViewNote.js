@@ -1,9 +1,23 @@
 import React from 'react';
 import './ViewNote.css';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import notes from '../kitty-ipsum';
 
 class ViewNote extends React.Component {
+  state = {
+    note: null,
+  }
 
+  componentDidMount() {
+    // console.log(this.props);
+    const id = this.props.match.params.id;
+    console.log("this is the id from params: ", id);
+    console.log("this is what the import of notes got us: ", notes)
+    let returnedNote = notes.filter(obj => obj.id === 2);
+    console.log("this is returnedNote after filter: ", returnedNote);
+    this.setState( {note: returnedNote} );
+    console.log("this is what is in state now: ", this.state.note);
+  }
 
   render() {
     // console.log('you called NewNote from NoteList');
@@ -21,18 +35,20 @@ class ViewNote extends React.Component {
         </div>
         <div className="rightBar">
           <div>
-            <h3>Create New Note</h3>
+            <h5><NavLink to="/notes/:id/Edit">Edit</NavLink></h5>
+            <h5>Delete</h5>
+            <h3>Note Name</h3>
           </div>
-          {/* <div>
-              <form onSubmit={this.noteTitleHandler}>
-                <input className="titleForm" placeholder="Note Title"/>
+          <div>
+              <form>
+                <input className="titleForm" value={"abc"} />
               </form>
             </div>
             <div>
-              <form onSubmit={this.noteContentHandler}>
-                <input className="contentForm" placeholder="Note Content" />
+              <form>
+                <input className="contentForm" value={"content"} />
               </form>
-            </div> */}
+            </div>
           <div>
             <button type="submit" className="btns">
               Save

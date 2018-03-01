@@ -1,8 +1,8 @@
 import React from 'react';
 import './NoteList.css';
-import NewNote from './NewNote';
-import kitty from '../kitty-ipsum';
-import { Link } from 'react-router-dom';
+import CreateNote from './CreateNote';
+import notes from '../kitty-ipsum';
+import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
 
 class NoteList extends React.Component {
   state = {
@@ -11,7 +11,9 @@ class NoteList extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({ notes: kitty });
+    console.log("notes imported into NoteList: ", notes);
+    this.setState({ notes: notes });
+    console.log("state is now: ", this.state.notes);
   }
 
   render() {
@@ -21,8 +23,8 @@ class NoteList extends React.Component {
           <div>
             <h1>Lambda</h1>
             <h2>Notes</h2>
-            <button className="btns">View Your Notes</button>
-            <button className="btns" ><Link to="/NewNote">+ Create New Note</Link></button>
+            <button className="btns"><NavLink to="/">View Your Notes</NavLink></button>
+            <button className="btns" ><NavLink to="/createnote">+ Create New Note</NavLink></button>
           </div>
         </div>
         <div className="rightBar">
@@ -44,7 +46,7 @@ function NoteCard({ note }) {
   const { id, title, text } = note;
   return (
     <div>
-      <Link to={`/notes/${note.id}`}>
+      <NavLink to={`/notes/${note.id}`}>
         <li key={note.id}>
           <div>
             <p className="noteTitle">{note.title}</p>
@@ -52,7 +54,7 @@ function NoteCard({ note }) {
             <div>{note.text}</div>
           </div>
         </li>
-      </Link>
+      </NavLink>
     </div>
   );
 }
