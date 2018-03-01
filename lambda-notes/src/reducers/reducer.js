@@ -8,6 +8,8 @@ const initialState = {
   }],
   addingNote: false,
   currentNote: [],
+  searchText: '',
+  searching: false,
 };
 
 export const rootReducer = (state = initialState, action) => {
@@ -45,6 +47,12 @@ export const rootReducer = (state = initialState, action) => {
         }),
         currentNote: [],
       };
+      case actionTypes.SEARCH:
+      return {
+        ...state,
+        filteredNotes: state.notes.filter(note => note.title.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0 || note.body.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0 ),
+        searching: true,
+      }
     default:
       return state;
   }
