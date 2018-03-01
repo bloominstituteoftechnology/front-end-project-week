@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
+    "react-csv-creator": "^1.0.8",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
   },

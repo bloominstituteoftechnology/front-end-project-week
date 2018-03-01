@@ -3,6 +3,7 @@ import NoteList from './mainpage/NoteList';
 import NoteView from './mainpage/NoteView';
 import EditNote from './mainpage/EditNote';
 import CreateNote from './mainpage/CreateNote';
+import CsvCreator from 'react-csv-creator';
 import './mainpage.css';
 import './deletebox.css';
 
@@ -36,7 +37,16 @@ class MainPage extends React.Component {
             <div className="topRow__button" onClick={() => this.toggleDeleting()}>delete</div>
           </div>
         </div>
-        <div className="mainPage__middleRow">{this.props.title}</div>
+        <div className="mainPage__middleRow">
+          <div className="mainPage__middleRow-title">{this.props.title}</div>
+          <CsvCreator
+            filename='my_notes'
+            headers={ [{ id: 'first', display: 'Titles' }, {id: 'second', display: 'Content' }] }
+            rows={this.state.notes.map(elem => {return { first: `${elem.title}`, second: `${elem.content}` };} )}
+          >
+            <button className="mainPage__middleRow-button" style={this.props.caseValue === 'noteList' ? { visibility: 'visible' } : { visibility: 'hidden' } }>Download CSV</button>
+          </CsvCreator>
+        </div>
         <div className="mainPage__bottomRow">
           {this.renderSwitch(this.props.caseValue)}
         </div>
