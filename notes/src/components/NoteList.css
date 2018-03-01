@@ -1,3 +1,9 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  max-width: 880px;
+}
+
 .leftBar {
   display: inline-flex;
   height: 900px;

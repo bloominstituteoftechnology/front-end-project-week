@@ -2,9 +2,9 @@ import React from 'react';
 import './NewNote.css';
 
 function NewNote(props) {
-  console.log(props.abc.lastId);
+  console.log("you called NewNote from NoteList");
   return (
-    
+    // <div>you called NewNote</div>
     <div className="newNoteDiv">
       <div className="leftBar">
         <div>
@@ -18,18 +18,18 @@ function NewNote(props) {
         <div>
           <h3>Create New Note</h3>
         </div>
-        <div>
-          <form >
+        {/* <div>
+          <form onSubmit={this.noteTitleHandler}>
             <input className="titleForm" placeholder="Note Title"/>
           </form>
         </div>
         <div>
-          <form>
+          <form onSubmit={this.noteContentHandler}>
             <input className="contentForm" placeholder="Note Content" />
           </form>
-        </div>
+        </div> */}
         <div>
-          <button className="btns">Save</button>
+          <button type="submit" className="btns">Save</button>
         </div>
       </div>
     </div>
