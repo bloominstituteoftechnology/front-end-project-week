@@ -13,7 +13,7 @@ class CreateNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if(this.state.title === "" || this.state.content === "") return;
+    if (this.state.title === "" || this.state.content === "") return;
     this.props.addNote(this.state);
     this.setState({
       title: "",
@@ -23,9 +23,10 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <form className="createNote">
-        <h1>Create New Note:</h1>
+      <form className="editNote">
+        <h1 className="header">Create New Note:</h1>
         <input
+          className="noteTitle"
           type="text"
           name="title"
           placeholder="Note Title"
@@ -33,6 +34,7 @@ class CreateNote extends Component {
           onChange={this.handleInput}
         />
         <input
+          className="noteContent"
           type="text"
           name="content"
           placeholder="Note Content"

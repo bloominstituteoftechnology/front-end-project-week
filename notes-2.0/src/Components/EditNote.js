@@ -7,9 +7,8 @@ export default class EditNote extends Component {
   };
 
   render() {
-    console.log("your props : ", this.props);
     return (
-      <form onSubmit={this.handleUpdate} >
+      <form onSubmit={this.handleUpdate} className="editNote">
         <input
           type="text"
           name="title"
@@ -30,7 +29,7 @@ export default class EditNote extends Component {
   }
   handleUpdate = e => {
     e.preventDefault();
-    if(this.state.title === "" || this.state.content === "") return;
+    if (this.state.title === "" || this.state.content === "") return;
     this.props.updateNote(this.state);
   };
 
@@ -41,20 +40,3 @@ export default class EditNote extends Component {
     });
   };
 }
-
-// const EditNote = props => {
-//   return (
-//     <div className="singleNote">
-//       <input type="text" value={props.note.title} className="singleNoteTitle" />
-//       <input
-//         type="text"
-//         value={props.note.content}
-//         className="singleNoteContent"
-//         onChange={props.handleChange}
-//       />
-//       <button>Update</button>
-//     </div>
-//   );
-// };
-
-// export default EditNote;

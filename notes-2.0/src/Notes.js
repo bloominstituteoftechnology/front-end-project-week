@@ -32,7 +32,10 @@ class Notes extends Component {
           </button>
         </div>
         {this.state.view.notes ? (
-          <NoteList notes={this.state.notes} target={this.handleTarget} />
+          <div className="rightPanel">
+            <h1 className="header" >Your Notes:</h1>
+            <NoteList notes={this.state.notes} target={this.handleTarget} />
+          </div>
         ) : null}
         {this.state.view.create ? <CreateNote addNote={this.addNote} /> : null}
         {this.state.view.singleNote ? (

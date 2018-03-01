@@ -5,9 +5,9 @@ const NoteList = props => {
   const target = props.target;
   return notes.map((note, i) => {
     return (
-      <div className="singleNote" key={i} onClick={() => target(i)}>
-        <h1 className="singleNoteTitle">{note.title}</h1>
-        <p className="singleNoteContent">{note.content}</p>
+      <div className="note" key={i} onClick={() => target(i)}>
+        <h1 className="noteTitle">{note.title}</h1>
+        <p className="noteContent">{note.content}</p>
       </div>
     );
   });
