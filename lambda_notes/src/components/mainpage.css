@@ -26,27 +26,27 @@
   margin-bottom: 58px;
   padding-left: 55px;
   display: flex;
+  justify-content: space-between;
 }
 
 .mainPage__middleRow-title {
   font-size: 45px;
   font-weight: bold;
   max-width: 95%;
-  margin-right: auto;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
 .mainPage__middleRow-button {
-  width: 100%;
-  max-width: 409px;
+  flex: 1;
+  width: 409px;
   height: 90px;
+  margin-right: 20px;
   background: #2AC0C4;
   border: 2px solid #BEBEBE;
   font-size: 32px;
   color: white;
-  margin-right: 200px;
 }
 
 .mainPage__middleRow-button:hover {
