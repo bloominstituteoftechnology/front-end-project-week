@@ -33,7 +33,7 @@ class Notes extends Component {
         </div>
         {this.state.view.notes ? (
           <div className="rightPanel">
-            <h1 className="header" >Your Notes:</h1>
+            <h1 className="header">Your Notes:</h1>
             <NoteList notes={this.state.notes} target={this.handleTarget} />
           </div>
         ) : null}
@@ -109,7 +109,7 @@ class Notes extends Component {
     console.log("newNote : ", newNote);
     this.target = null;
     this.setState({
-      notes: [...this.state.notes, newNote],
+      notes: [newNote, ...this.state.notes],
       view: {
         notes: true,
         edit: false,

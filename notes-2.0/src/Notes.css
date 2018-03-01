@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  max-width: 1564px;
+  max-width: 1600px;
   margin-left: 147px;
   margin-right: 147px;
   font-family: Arial, Helvetica, sans-serif;
@@ -8,7 +8,7 @@
   height: 100%;
 }
 .container .leftPanel {
-  width: 390px;
+  width: 400px;
   background-color: #cecbcb;
 }
 .container .leftPanel .leftHeader {
@@ -21,7 +21,7 @@
 }
 .container .leftPanel button {
   text-decoration: none;
-  width: 340px;
+  width: 250px;
   height: 75px;
   margin: 40px 20px;
   margin-bottom: 0;
@@ -44,6 +44,7 @@
 .container .rightPanel .header {
   font-size: 2rem;
   width: 100%;
+  font-weight: bold;
 }
 .container .rightPanel .note {
   border: grey 2px solid;
@@ -78,16 +79,21 @@
 .container .editNote {
   background-color: #e6e3e3;
   padding: 10px 30px;
-  width: 686px;
+  width: 110%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100vh;
+  font-size: 2rem;
   font-weight: bold;
+  padding: 0;
+  margin: 0;
 }
 .container .editNote .noteTitle {
   font-size: 1rem;
   font-weight: bold;
+  padding: 0;
+  margin: 0;
 }
 .container .editNote .noteContent {
   line-height: 30px;
@@ -96,7 +102,7 @@
 .container .singleNote {
   display: flex;
   flex-direction: column;
-  width: 686px;
+  width: 110%;
   padding: 15px 30px;
   background: #e6e3e3;
   height: 100vh;
@@ -117,15 +123,15 @@
   cursor: pointer;
   outline: inherit;
   width: fit-content;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 .container .singleNote .noteTitle {
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: bold;
   padding-top: 25px;
 }
 .container .singleNote .noteContent {
   padding-top: 35px;
   line-height: 30px;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
