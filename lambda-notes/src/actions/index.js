@@ -10,6 +10,7 @@ export const SEARCH_RESULTS_CLICKED = 'SEARCH_RESULTS_CLICKED';
 export const SORT_BUTTON_CLICKED = 'SORT_BUTTON_CLICKED';
 export const DOWNLOAD_BUTTON_CLICKED = 'DOWNLOAD_BUTTON_CLICKED';
 export const UPDATE_CHECK_LIST = 'UPDATE_CHECK_LIST';
+export const DELETE_CHECK = 'DELETE_CHECK';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -52,11 +53,10 @@ export const edit_note_clicked = note => {
   };
 };
 
-export const edit_note = (updated, original) => {
-  const note = { title: updated.title, body: updated.body, id: original.id, index: original.index };
+export const edit_note = (revised) => {
   return {
     type: 'EDIT_NOTE',
-    payload: note,
+    payload: revised,
   };
 };
 

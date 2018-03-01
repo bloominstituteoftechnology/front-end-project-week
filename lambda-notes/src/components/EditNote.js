@@ -50,7 +50,8 @@ class EditNote extends React.Component {
     else if (this.state.body === '') alert('Add a note!');
     else if (this.state.title === '') alert('Add a title!');
     else {
-      this.props.edit_note(this.state, this.props.note);
+      const revisedNote = {...this.props.note, title: this.state.title, body: this.state.body}
+      this.props.edit_note(revisedNote);
       this.setState({
         title: '',
         body: '',

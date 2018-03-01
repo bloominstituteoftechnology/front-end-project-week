@@ -109,18 +109,11 @@ export default (state = initialState, action) => {
     case actions.EDIT_NOTE_CLICKED:
       return { ...state, current: action.payload.current, note: action.payload.note };
     case actions.EDIT_NOTE:
-      // Not sure if this is okay.  I could get rid of note fairly easily I suppose...
-      // Not sure how to dot chain the two though.  Everything I tried failed.
-      const note = {
-        id: action.payload.id,
-        title: action.payload.title,
-        body: action.payload.body,
-      };
       const removed = [
         ...state.notes.slice(0, action.payload.index),
         ...state.notes.slice(action.payload.index + 1),
       ];
-      removed.splice(action.payload.index, 0, note);
+      removed.splice(action.payload.index, 0, action.payload);
       return { ...state, notes: removed };
     case actions.DELETE_NOTE:
       return {
@@ -140,10 +133,8 @@ export default (state = initialState, action) => {
     case actions.DOWNLOAD_BUTTON_CLICKED:
       return { ...state, current: action.payload };
     case actions.UPDATE_CHECK_LIST:
-      console.log('payload', action.payload);
-      const { index } = action.payload;
       const currentNotes = state.notes;
-      currentNotes.splice(index, 1, action.payload);
+      currentNotes.splice(action.payload.index, 1, action.payload);
       return { ...state, notes: currentNotes };
     default:
       return state;
