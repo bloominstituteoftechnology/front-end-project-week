@@ -28,7 +28,8 @@ class DeletePopup extends Component {
         event.preventDefault();
         let deletedNote = this.state.notes.splice(getNoteIndex(), 1)
         console.log('deletedNote: ', deletedNote);
-        this.setState({notes: this.state.notes.filter(note => deletedNote.id !== note.id)})
+        // this.setState({notes: this.state.notes.filter(note => deletedNote.id !== note.id)})
+        this.props.props.notes.filter(note => deletedNote.id !== note.id)
         console.log('this.state after deleting note', this.state)
         console.log('this.props.props after deleting note', this.props.props)
     }
