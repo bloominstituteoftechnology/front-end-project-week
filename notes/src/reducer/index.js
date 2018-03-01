@@ -12,7 +12,7 @@ import {
 
 const initialState = {
   notes: notes,
-  id: 1,
+  id: notes.length + 1,
   modalVisible: false,
   selectedNote: {}
 };
