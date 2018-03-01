@@ -46,6 +46,18 @@ class App extends Component {
     this.setState({ [event.target.name]: event.target.value});
   }
 
+  NewNoteForm = () => {
+    return (
+    <div>
+        <h5>Create New Note+</h5>
+        <form onSubmit={this.addNote}>
+          <input onChange={this.handleNewNoteInput} name='title' type='text' placeholder='Title' value={this.state.title}></input>
+          <input onChange={this.handleNewNoteInput} name='content' type='text' placeholder='Content' value={this.state.content}></input>
+          <button type='submit'>Save</button> 
+        </form>  
+    </div>
+    );
+}
 
 
   render() {
@@ -58,8 +70,10 @@ class App extends Component {
             <Link to='NewNoteForm' className='NewNoteButton'><button>Create New Note</button></Link>
           </div>
           <NoteContainer notes={this.state.notes} />
+          <Route path='/' component={App} />
+          <Route path='NewNoteForm' component={NewNoteForm} />
         </div>
-      </Router>
+      </Router>  
     );
   }
 }
