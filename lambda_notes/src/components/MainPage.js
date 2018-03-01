@@ -3,6 +3,7 @@ import NoteList from './mainpage/NoteList';
 import NoteView from './mainpage/NoteView';
 import EditNote from './mainpage/EditNote';
 import CreateNote from './mainpage/CreateNote';
+import SearchBar from './mainpage/SearchBar';
 import CsvCreator from 'react-csv-creator';
 import './mainpage.css';
 import './deletebox.css';
@@ -12,6 +13,7 @@ class MainPage extends React.Component {
     currentNote: {},
     notes: [],
     deleting: false,
+    searchValue: '',
 
   };
 
@@ -39,6 +41,9 @@ class MainPage extends React.Component {
         </div>
         <div className="mainPage__middleRow">
           <div className="mainPage__middleRow-title">{this.props.title}</div>
+          <div style={this.props.caseValue === 'noteList' ? { visibility: 'visible' } : { visibility: 'hidden' }}>
+            <SearchBar sendSearchValue={this.updateSearchValue}/>
+          </div>
           <CsvCreator
             filename='my_notes'
             headers={ [{ id: 'first', display: 'Titles' }, {id: 'second', display: 'Content' }] }
@@ -58,7 +63,7 @@ class MainPage extends React.Component {
     switch(param) {
       case 'noteList':
         return <div className="mainPage__noteList">
-          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote} />
+          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote} filterValue={this.state.searchValue} />
         </div>;
       case 'noteView':
         return <div className="mainPage__noteView">
@@ -96,6 +101,10 @@ class MainPage extends React.Component {
     this.setState({ notes: this.state.notes.filter(note => note.id !== this.state.currentNote.id), currentNote: {}, deleting: false });
     this.props.changeSwitch('Your Notes:','noteList');
   };
+
+  updateSearchValue = (str) => {
+    this.setState({...this.state, searchValue: str})
+  }
 
 }
 
