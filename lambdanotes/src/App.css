@@ -1,6 +1,5 @@
 .App {
   display: flex;
-  height: 100%;
 }
 
 .Left-bar {
@@ -24,7 +23,6 @@
   width: 90%;
   height: 100%;
   background: green;
-  flex-direction: row;
 }
 
 .App-logo {

@@ -2,6 +2,7 @@ import React from 'react';
 import Note from './Note';
 
 
+
 const NoteContainer = (props) => {
     return(
     <div className='Note-container'>

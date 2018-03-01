@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import NoteContainer from './Note-Container';
 import './App.css';
+import { Link } from 'react-router-dom';
+import NewNoteForm from './New-Note-Form'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 
 class App extends Component {
   constructor(props) {
@@ -46,21 +50,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className='Left-bar'>
-          <h1>Lambda Notes</h1>
-          <div>View Notes</div>  
-          <div>
-            <h5>Create New Note+</h5>
-            <form onSubmit={this.addNote}>
-              <input onChange={this.handleNewNoteInput} name='title' type='text' placeholder='Title' value={this.state.title}></input>
-              <input onChange={this.handleNewNoteInput} name='content' type='text' placeholder='Content' value={this.state.content}></input>
-              <button type='submit'>Save</button> 
-            </form>  
-          </div>  
+      <Router>
+        <div className="App">
+          <div className='Left-bar'>
+            <h1>Lambda Notes</h1>
+            <Link to='/'><button>View Notes</button></Link>
+            <Link to='NewNoteForm' className='NewNoteButton'><button>Create New Note</button></Link>
+          </div>
+          <NoteContainer notes={this.state.notes} />
         </div>
-        <NoteContainer notes={this.state.notes} />    
-      </div>
+      </Router>
     );
   }
 }
