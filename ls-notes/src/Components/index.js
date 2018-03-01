@@ -27,34 +27,7 @@ class App extends Component {
 
 
 
-class NoteListView extends React.Component {
-  render() {
-    return (<h1>I'm NoteListView {this.props.title}</h1>
-  );
-  }
-}
 
-class NoteDetailView extends React.Component {
-  render() {
-    return <h1>I'm {this.props.title}</h1>;
-  }
-}
 
-class CreateNoteView extends React.Component {
-  render() {
-    return <h1>I'm CreateNoteView{this.props.title}</h1>;
-  }
-}
 
-class EditNoteView extends React.Component {
-  render() {
-    return <h1>I'm EditNoteView{this.props.title}</h1>;
-  }
-}
-
-class DeleteNoteModal extends React.Component {
-  render() {
-    return <h1>I'm DeleteNoteModal{this.props.title}</h1>;
-  }
-}
 
