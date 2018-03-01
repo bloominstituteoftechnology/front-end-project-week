@@ -43,7 +43,7 @@ class Delete extends React.Component {
   <StyledDelete>
     <p>Are you sure you want to delete this?</p>
     <Button method={this.handleDelete} backgroundColor='#bf2828' title='Delete' />
-    <Button method={this.props.toggleDelete} backgroundColor='#5dbdc2' title='No' />
+    <Button method={this.props.toggleDelete} backgroundColor='rgb(34, 170, 61)' title='No' />
   </StyledDelete>
     );
   }

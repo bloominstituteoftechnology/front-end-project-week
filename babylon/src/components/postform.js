@@ -96,7 +96,7 @@ class PostForm extends React.Component {
             onChange={this.handleChange}
             value={this.state.body}
           />
-          <Button type='submit' backgroundColor='#5dbdc2' title='Save' />
+          <Button type='submit' backgroundColor='rgb(34, 170, 61)' title='Save' />
         </form>
         {this.state.redirect ? <Redirect to='/' /> : null}
       </StyledForm>

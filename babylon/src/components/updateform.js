@@ -103,7 +103,7 @@ class UpdateForm extends React.Component {
             onChange={this.handleChange}
             value={this.state.body}
           />
-          <Button type='submit' backgroundColor='#5dbdc2' title='Update' />
+          <Button type='submit' backgroundColor='rgb(34, 170, 61)' title='Update' />
         </form>
         {this.state.redirect ? <Redirect to={`/fullnote/${this.props.id}`} /> : null}
       </StyledUpdateForm>
