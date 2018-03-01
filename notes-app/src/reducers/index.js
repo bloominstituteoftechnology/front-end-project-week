@@ -1,22 +1,19 @@
 // not importing yet
 
-const noteState = {
+const noteState = { // main storage
   Notes: {},
   error: false,
 }
 
 const notes = (state = noteState, action) => {
   switch (action.type) {
-    case 'VIEWING_NOTE':
-      return {
-        ...state,
-        Notes: action.payload
-      };
     case 'ADD_NOTE':
       return {
         ...state,
-
+        MESSAGE: 'added the note',
+        Notes: {...state.Notes, [action.payload.title]: action.payload}, // has to be in brackets because it's coming in as a string (I think)
       }
+
     default:
       return state;
   }

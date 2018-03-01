@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './CreateNote.css';
 import { NavLink } from 'react-router-dom';
+import { addNote } from '../actions'
 
 class CreateNote extends Component {
   state = {
@@ -48,18 +50,25 @@ class CreateNote extends Component {
   doChange = (event) => { // event is that current form (textarea)
     event.preventDefault(); // stop default action of component
     this.setState(
-      { [event.target.name]: event.target.value }
-    )
+      { [event.target.name]: event.target.value } // like Object.assign..
+    )  // adds the event.target.name (eg: title) property of the state to equal the new value
+       // this doesn't overwrite state, but overwrites the specified [] value
     console.log(this.state);
   }
   doSubmit = (event) => {
     event.preventDefault(); // stop default action of component
-
-    this.setState(
+    this.props.addNote(this.state);
+    this.setState( // reset the state
       { title: '', meat: '', redirect: true, }
     );
     console.log(this.state);
   }
 }
 
-export default CreateNote;
+const mapStateToProps = (state) => {
+  return {
+    notes: state
+  };
+};
+
+export default connect(mapStateToProps, { addNote })(CreateNote);
