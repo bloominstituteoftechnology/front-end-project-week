@@ -23,7 +23,7 @@ const NewNote = () => (
   <StyledNewNote>
     <LeftRail />
     <div className='new-note__right'>
-      <SectionTitle name='Create New Note:'/>
+      <SectionTitle name='Create A New Note:'/>
       <PostForm />
     </div>
   </StyledNewNote>

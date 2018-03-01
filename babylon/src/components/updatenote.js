@@ -23,7 +23,7 @@ const UpdateNote = props => (
   <StyledUpdateNote>
     <LeftRail />
     <div className='update-note__right'>
-      <SectionTitle name='Edit Note:'/>
+      <SectionTitle name='Edit Your Note:'/>
       <UpdateForm id={props.match.params.id}/>
     </div>
   </StyledUpdateNote>
