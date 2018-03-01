@@ -21,7 +21,7 @@ class OneNote extends Component {
     return (
       <div className="OneNote">
         <div className="header">
-          <Link to="">edit</Link>
+          <Link to={`/edit/${this.props.id}`}>edit</Link>
           <a href="" onClick={this.handleClickOnToggleDeleteModal}>
             delete
           </a>
@@ -57,7 +57,7 @@ class OneNote extends Component {
                 </button>
               </div>
             </div>
-            <div className="background" />
+            <div className="background" onClick={this.handleClickOnToggleDeleteModal}/>
           </div>
         )}
       </div>

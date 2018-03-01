@@ -5,8 +5,9 @@ import { Redirect } from "react-router-dom";
 
 class EditView extends Component {
   state = {
-    title: "",
-    text: "",
+    title: this.props.notes[this.props.id].title,
+    text: this.props.notes[this.props.id].text,
+    id: Number(this.props.id),
     fireRedirect: false
   };
 
@@ -50,7 +51,7 @@ class EditView extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.editNote(this.state);
-    this.setState({ title: "", text: "", fireRedirect: true });
+    this.setState({ fireRedirect: true });
     console.log('fireRedirect in Edit is', this.state.fireRedirect);
   };
 }
