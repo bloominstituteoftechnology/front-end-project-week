@@ -6,6 +6,7 @@ import DeleteNote from './DeleteNote';
 import {BrowserRouter as Route, Link} from "react-router-dom";
 
 class Details extends Component {
+
     render() {
         return (
             <DetailsContainer>
@@ -14,7 +15,7 @@ class Details extends Component {
                         <Col className="sub-lnks-container" md={12}>
                             <Link to={`/update/${this.props.note.id}`} className={'sub-links'} > edit </Link>
                             &nbsp;&nbsp;
-                            <DeleteNote noteId={this.props.note.id}/>
+                            <DeleteNote firebaseKey={this.props.note}/>
                         </Col>
                     </Row>
                     <Row className="show-grid">

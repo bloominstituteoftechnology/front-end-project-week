@@ -15,8 +15,8 @@ class DeleteNote extends Component {
     };
 
     handleDeleteFromModal() {
-        this.props.deleteNote(this.props.noteId);
-    }
+        this.props.deleteNote(this.props.firebaseKey.key);
+    };
 
     render() {
         return (

@@ -1,4 +1,4 @@
-import {GET_NOTES, ADD_NOTES, DELETE_NOTE, FETCHING, ERROR_GETTING_NOTES, SET_SINGLE_NOTE, UPDATE_NOTE} from '../actions/';
+import {GET_NOTES, ADD_NOTES, FETCHING, ERROR_GETTING_NOTES, SET_SINGLE_NOTE, UPDATE_NOTE} from '../actions/';
 
 const initialState = {
     notes: [],
@@ -21,8 +21,6 @@ export const notes_reducer = (state = initialState, action) => {
             return {...state, notes: action.payload};
         case SET_SINGLE_NOTE:
             return {...state, singleNote: action.payload};
-        case DELETE_NOTE:
-            return {...state, notes: action.payload};
         case UPDATE_NOTE:
             return {...state, notes: action.payload};
         case ERROR_GETTING_NOTES:

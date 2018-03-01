@@ -10,15 +10,11 @@ class Notes extends Component {
 
     componentDidMount() {
         this.props.getNotes();
+        console.log(' this.props NOTENOTE',this.props)
     }
 
     goNoteDetails = (note) => {
         this.props.getSingleNote(note);
-    };
-
-    processTags = (tags) => {
-
-        // console.log('tags group', tags);
     };
 
     render() {

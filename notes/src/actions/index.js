@@ -2,11 +2,11 @@ import axios from 'axios';
 
 export const GET_NOTES = 'GET_NOTES';
 export const ADD_NOTES = 'ADD_NOTES';
-export const DELETE_NOTE = 'DELETE_NOTE';
 export const FETCHING = 'FETCHING';
 export const ERROR_GETTING_NOTES = 'ERROR_GETTING_NOTES';
 export const SET_SINGLE_NOTE = 'SET_SINGLE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 export const getNotes = () => {
     const notes = axios.get('http://localhost:3333/notes/');
@@ -15,9 +15,10 @@ export const getNotes = () => {
         dispatch({type: FETCHING, fetching: true});
         notes
             .then(response => {
-                const respVals = Object.values(response.data);
-                const responseData = respVals.map((note) => {
-                    return note;
+                const respKeys = Object.keys(response.data);
+                const responseData = Object.entries(response.data).map((note, i) => {
+                    note[1].key = respKeys[i];
+                    return note[1];
                 });
 
                 dispatch({type: GET_NOTES, payload: responseData});
@@ -49,19 +50,20 @@ export const addNote = (note) => {
 
 export const getSingleNote = (note) => {
     return dispatch => {
-        dispatch({type: SET_SINGLE_NOTE, payload: note});
+        dispatch({type: SET_SINGLE_NOTE, payload:note });
     };
 };
 
-export const deleteNote = (noteId) => {
-    const id = parseInt(noteId, 10);
-    const newNotes = axios.delete(`http://localhost:3333/notes/delete/${id}`, {
-        id:id,
+export const deleteNote = (noteKey) => {
+    const key = noteKey;
+
+    console.log('ready to delte key ', noteKey);
+    const newNotes = axios.delete(`http://localhost:3333/notes/delete/${key}`, {
+        key: key,
     });
     return dispatch => {
         newNotes
-            .then(({data}) => {
-                dispatch({type: DELETE_NOTE, payload: data});
+            .then(() => {
                 window.location = "/";
             })
             .catch(err => {

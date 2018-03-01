@@ -84,21 +84,26 @@ server.put('/notes/update/:id', (req, res) => {
     }
 });
 
-server.delete('/notes/delete/:id', (req, res) => {
-    let {id} = req.params;
-    const noteId = parseInt(id);
+server.delete('/notes/delete/:key', (req, res) => {
+    let {key} = req.params;
 
-    const foundNote = notes.find(note => {
-        return note.id == noteId;
+    notes.child(key).remove().then((notes) => {
+        res.status(200).json(notes);
+    }).catch((error) => {
+        console.log('Failed to send notification to user:', error);
     });
 
-    if (foundNote) {
-        const NoteRemoved = {...foundNote};
-        notes = notes.filter(note => note.id != id);
-        res.status(200).json({NoteRemoved});
-    } else {
-        sendUserError('No notes by that ID exists in the note DB', res);
-    }
+    // const foundNote = notes.find(note => {
+    //     return note.id == noteId;
+    // });
+    //
+    // if (foundNote) {
+    //     const NoteRemoved = {...foundNote};
+    //     notes = notes.filter(note => note.id != id);
+    //     res.status(200).json({NoteRemoved});
+    // } else {
+    //     sendUserError('No notes by that ID exists in the note DB', res);
+    // }
 });
 
 server.listen(port, err => {
