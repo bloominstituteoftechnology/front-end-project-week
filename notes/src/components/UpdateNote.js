@@ -10,6 +10,7 @@ class UpdateNote extends Component {
         description: this.props.note.description,
         tags: this.props.note.tags,
         id: this.props.note.id,
+        key: this.props.note.key,
     };
 
     updateField = (e) => {

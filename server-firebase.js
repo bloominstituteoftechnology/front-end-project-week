@@ -37,7 +37,7 @@ server.get('/notes', (req, res) => {
         const data = dataResponse.val();
         res.json(data);
     }).catch(function(error) {
-        console.log('Failed to send notification to user:', error);
+        console.log('Failed:', error);
     });
 });
 
@@ -62,26 +62,37 @@ server.post('/notes', (req, res) => {
     //     );
     // }
 
-    const respons = notes.push(newNote);
+    notes.push(newNote);
     noteId++;
     res.json(notes);
 });
 
-server.put('/notes/update/:id', (req, res) => {
-    const {id} = req.params;
-    const {title, description, tags} = req.body.note;
-    const findNoteById = note => {
-        return note.id == id;
-    };
-    const foundNote = notes.find(findNoteById);
-    if (!foundNote) {
-        return sendUserError('No Note found by that ID', res);
-    } else {
-        if (title) foundNote.title = title;
-        if (description) foundNote.description = description;
-        if (tags) foundNote.tags = tags;
-        res.json(foundNote);
-    }
+server.put('/notes/update/:key', (req, res) => {
+    const {key} = req.params;
+    const {title, description, tags} = req.body.noteObj;
+
+    database.ref('notes/' + key).update({
+        title:title,
+        description:description,
+        tags:tags,
+    }).then(() => {
+        res.status(200).json(notes);
+    }).catch((error) => {
+        console.log('Failed to send notification to user:', error);
+    });
+
+    // const findNoteById = note => {
+    //     return note.id == id;
+    // };
+    // const foundNote = notes.find(findNoteById);
+    // if (!foundNote) {
+    //     return sendUserError('No Note found by that ID', res);
+    // } else {
+    //     if (title) foundNote.title = title;
+    //     if (description) foundNote.description = description;
+    //     if (tags) foundNote.tags = tags;
+    //     res.json(foundNote);
+    // }
 });
 
 server.delete('/notes/delete/:key', (req, res) => {

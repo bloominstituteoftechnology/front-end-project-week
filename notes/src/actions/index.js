@@ -72,11 +72,12 @@ export const deleteNote = (noteKey) => {
     };
 };
 
-export const updateNote = (note) => {
-    const id = parseInt(note.id, 10);
-    const newNotes = axios.put(`http://localhost:3333/notes/update/${id}`, {
-        id:id,
-        note,
+export const updateNote = (noteObj) => {
+
+    const key = noteObj.key;
+    const newNotes = axios.put(`http://localhost:3333/notes/update/${key}`, {
+        key:key,
+        noteObj,
     });
     return dispatch => {
         newNotes
