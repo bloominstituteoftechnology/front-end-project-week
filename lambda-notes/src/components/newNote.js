@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class NewNote extends Component {
   state = {
@@ -67,7 +68,7 @@ class NewNote extends Component {
               />
             </div>
             <div className="save-btn-container">
-              <div className="save-btn" onClick={this.noteSubmitHandler}>Save</div>
+              <NavLink to="/" className="save-btn" onClick={this.noteSubmitHandler}>Save</NavLink>
             </div>
           </div>
       )
