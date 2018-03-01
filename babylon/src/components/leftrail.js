@@ -17,11 +17,17 @@ const StyledRail = styled.div`
     color: #4a494a;
   }
 
+  img {
+    height: 100px;
+    width: 100px;
+  }
+
 `;
 
 const LeftRail = props => (
   <StyledRail>
-    <h1>Operation Babylon</h1>
+    {/* <h1>Operation Babylon</h1> */}
+    <img src='https://res.cloudinary.com/jonbrunt/image/upload/v1519920433/JMB-Logo_htviyf.png' alt='JMB Logo' />
     <Link to='/' style={{ textDecoration: 'none' }}>
       <Button backgroundColor='rgb(34, 170, 61)' title='View Your Notes' />
     </Link>
