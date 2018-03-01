@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   font-family: sans-serif;
   background: #f3f3f3;
+  font-family: 'Roboto', sans-serif;
 }
 
 ul {
@@ -11,6 +12,10 @@ ul {
 
 li {
   list-style: none;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
 }
 
 button {
@@ -23,6 +28,7 @@ button {
   text-align: center;
   width: 250px;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
 
 button:hover {
