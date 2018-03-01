@@ -4,6 +4,8 @@
   flex-flow: row nowrap;
   height: 100%;
   min-height: 1024px;
+  width: 100%;
+  max-width: 1300px;
 }
 .App .navButton-top {
   text-decoration: none;
