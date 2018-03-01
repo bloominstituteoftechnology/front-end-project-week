@@ -13,6 +13,7 @@ export const UPDATE_CHECK_LIST = 'UPDATE_CHECK_LIST';
 export const REMOVE_EDIT = 'REMOVE_EDIT';
 export const LOAD_USER_NOTES = 'LOAD_USER_NOTES';
 export const NEW_USER_CREATION = 'NEW_USER_CREATION';
+export const HANDLE_LOG_OUT = 'HANDLE_LOG_OUT';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -116,16 +117,25 @@ export const remove_edit = () => {
   };
 };
 
-export const load_user_notes = notes => {
+export const load_user_notes = (user, notes) => {
+  const payload = {user, notes}
   return {
     type: 'LOAD_USER_NOTES',
-    payload: notes,
+    payload: payload,
   };
 };
 
+let userID = 2;
 export const new_user_creation = user => {
   return {
     type: 'NEW_USER_CREATION',
+    payload: {user, userID: userID++},
+  }
+}
+
+export const handle_log_out = (user) => {
+  return {
+    type: 'HANDLE_LOG_OUT',
     payload: user,
   }
 }

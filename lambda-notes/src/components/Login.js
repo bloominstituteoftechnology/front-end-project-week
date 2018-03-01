@@ -51,8 +51,9 @@ class Login extends React.Component {
                 userIndex = index;
         }})
         if (flag) {
-        const usersNotes = (this.props.users[userIndex].notes);
-        this.props.load_user_notes(usersNotes);
+        const user = this.props.users[userIndex];
+        const usersNotes = this.props.users[userIndex].notes;
+        this.props.load_user_notes(user, usersNotes);
         this.props.view_button_click();
         }
         else {

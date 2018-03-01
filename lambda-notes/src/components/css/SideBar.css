@@ -17,3 +17,18 @@
   color: white;
   font-weight: bold;
 }
+
+.side-buttons-logout {
+  width: 50%;
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+}
+
+
+.logout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}

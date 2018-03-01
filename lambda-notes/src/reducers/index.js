@@ -4,6 +4,7 @@ const dateString = new Date().toUTCString();
 const initialState = {
   users: [
     {
+      id: 0,
       username: 'default',
       password: 'default',
       notes: [
@@ -91,6 +92,7 @@ const initialState = {
       ],
     },
     {
+      id: 1,
       username: 'test',
       password: 'test',
       notes: [],
@@ -102,6 +104,7 @@ const initialState = {
   remove: false,
   loggedIn: false,
   currentUserNotes: null,
+  currentUser: null,
 };
 
 export default (state = initialState, action) => {
@@ -147,9 +150,18 @@ export default (state = initialState, action) => {
     case actions.REMOVE_EDIT:
       return { ...state, remove: action.payload };
     case actions.LOAD_USER_NOTES:
-      return { ...state, currentUserNotes: action.payload}
+      return { ...state, currentUserNotes: action.payload.notes, currentUser: action.payload.user}
     case actions.NEW_USER_CREATION:
-      return { ...state, currentUserNotes: action.payload.notes, users: [...state.users, action.payload], current: 'list'}
+      return { ...state, currentUserNotes: action.payload.notes, users: [...state.users, action.payload], current: 'list', currentUser: action.payload.user}
+    case actions.HANDLE_LOG_OUT:
+      const currentUsers = state.users;
+      let userIndex = -1;
+      currentUsers.forEach((user,index) => {
+        if (user.id === action.payload.id) userIndex = index;
+      })
+      currentUsers[userIndex].notes = state.currentUserNotes;
+      currentUsers.splice(userIndex, 1, action.payload);
+      return { ...state, users: currentUsers, current:'login', }
     default:
       return state;
   }
