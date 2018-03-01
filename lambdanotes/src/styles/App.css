@@ -4,7 +4,7 @@ html,body {
 }
 
 
-.App {
+.container {
   text-align: left;
   width: 100%;
   min-width: 880px;
@@ -13,7 +13,7 @@ html,body {
   min-height: 672px;
   
 }
-.App-header {
+.sidebar {
   background-color: #ddd;
   color: white;
   width: 25%;
@@ -22,16 +22,19 @@ html,body {
 .button-col {
   
 }
-button {
+.button {
   display: block;
   background-color: #41d8d3;
   border: 1px solid #818787;
-  height: 50px;
-  margin: 7%;
-  width: 80%;
+  
+  padding: 5%;
+  margin: 10%;
+ /* width: 80%;*/
   color: #fff;
   font-size: 1.7rem;
   cursor: pointer;
+  text-decoration: none;
+  text-align: center;
 }
 .App-title {
   font-size: 3.9rem;
@@ -55,7 +58,7 @@ display: flex;
 }
 .single-note {
 
-    width:25%; 
+    width: 50%; 
     border: 2px solid #ddd;
     margin: 1%;
     height: 30%;   

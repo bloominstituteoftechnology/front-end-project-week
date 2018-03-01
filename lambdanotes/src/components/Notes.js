@@ -3,11 +3,11 @@ import '../styles/App.css';
 import NoteView from './NoteView';
 
 function Notes(props) {
+
     
-    console.log(props);
         return (
             props.notes.map(note => {
-              return <NoteView key={note.id} note={note}/> 
+              return <NoteView key={note.id} showNote={props.showNote} note={note}/> 
             })
         )
 }

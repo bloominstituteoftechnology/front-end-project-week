@@ -1,7 +1,11 @@
+/* Index.js changed */
+
+
 import React, { Component } from 'react';
 import Notes from './Notes';
 import '../styles/App.css';
 import Createnotes from './Createnotes';
+import NoteDetail from './NoteDetail';
 
 class App extends Component {
   state = {
@@ -53,6 +57,7 @@ class App extends Component {
     },
     ],
     showCreate: false,
+    showNote: false,
   };
   
   //this.onButtonClick = this.onButtonClick.bind(this);
@@ -65,6 +70,16 @@ class App extends Component {
   handleListView=(e) => {
     this.setState({ showCreate: false });
   }
+  showNoteView = (id) => {
+        this.setState({
+          showNote: true, 
+          showCreate: false,
+          noteId: id
+        })
+        const title = ''; // get and store title based on id; or get the whole object.
+        const paragraph = ''; // get and store paragraph . planning to send as props at line 97 
+
+    }
   render() {
     return (
       <div className="App">
@@ -80,7 +95,11 @@ class App extends Component {
           <h2 className="notes-title" > Your Notes: </h2>
 
           <div className="notes-container">
-          { this.state.showCreate ? <Createnotes /> : <Notes notes={this.state.notes} />}
+          <Notes notes={this.state.notes} showNote={this.showNoteView}/>
+          
+          { this.state.showCreate ? <Createnotes /> : null}
+
+          { this.state.showNote ? <NoteDetail note={/* planning to pass title and paragraph based on id */}/> : null }
           </div>
 
         </div>
