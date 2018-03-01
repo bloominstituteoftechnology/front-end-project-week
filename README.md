@@ -66,3 +66,5 @@ My Progress:
  https://trello.com/b/x2ZQcksu/lambda-notes-shobana-ramesh
 =======
 >>>>>>> 3b8b8c59fa50d65fa8d5301c938dbfd61330880e
+
+Wednesday: Initially, I rendered componenets with react. Now using react router to render. Router rendered files are in NoteComponent. 
