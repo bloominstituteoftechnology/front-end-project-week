@@ -33,7 +33,7 @@ class Notes extends Component {
 
                                     {this.props.notes.map((note, index) => {
                                         return (
-                                            <Link to={`/details/${note.id}`}
+                                            <Link to={`/details/${note.key}`}
                                                   key={index} md={4} className={'note-container'}
                                                   onClick={() => {this.goNoteDetails(note)}}
                                             >

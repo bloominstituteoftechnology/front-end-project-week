@@ -13,7 +13,7 @@ class Details extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col className="sub-lnks-container" md={12}>
-                            <Link to={`/update/${this.props.note.id}`} className={'sub-links'} > edit </Link>
+                            <Link to={`/update/${this.props.note.key}`} className={'sub-links'} > edit </Link>
                             &nbsp;&nbsp;
                             <DeleteNote firebaseKey={this.props.note}/>
                         </Col>

@@ -28,7 +28,6 @@ for(let i=0; i < 6; ++i){
         description:faker.lorem.paragraphs(8)+ ' ' + prodName,
         image:faker.image.animals(),
         tags:faker.lorem.words(7) + ' ' + prodName ,
-        id:i,
     });
 }
 
@@ -41,11 +40,9 @@ server.get('/notes', (req, res) => {
     });
 });
 
-let noteId = 6;
-
 server.post('/notes', (req, res) => {
     const {title, description, tags} = req.body;
-    const newNote = {title, description, tags, id: noteId, image:faker.image.animals()};
+    const newNote = {title, description, tags, image:faker.image.animals()};
     if (!title || !description || !tags) {
         return sendUserError(
             'Ya gone did Noted! title/description/tags are all required to create a note in the note DB.',
@@ -63,7 +60,6 @@ server.post('/notes', (req, res) => {
     // }
 
     notes.push(newNote);
-    noteId++;
     res.json(notes);
 });
 
