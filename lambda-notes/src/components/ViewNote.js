@@ -38,9 +38,10 @@ class ViewNote extends React.Component {
         </div> : null}
         <h1 className="view-header"> {this.props.note.title} </h1>
         <p className="view-body"> {this.props.note.body} </p>
+        {!this.props.remove ? 
         <div className="checklist">
           <CheckList key={this.props.note.id} note={this.props.note} />
-        </div>
+        </div> : null}
       </div>
     );
   }
