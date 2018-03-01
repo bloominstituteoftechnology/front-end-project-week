@@ -127,9 +127,10 @@ export const load_user_notes = (user, notes) => {
 
 let userID = 2;
 export const new_user_creation = user => {
+  const payload = {...user, userID: userID++}
   return {
     type: 'NEW_USER_CREATION',
-    payload: {user, userID: userID++},
+    payload,
   }
 }
 

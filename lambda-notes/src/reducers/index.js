@@ -103,7 +103,7 @@ const initialState = {
   results: [],
   remove: false,
   loggedIn: false,
-  currentUserNotes: null,
+  currentUserNotes: [],
   currentUser: null,
 };
 
@@ -152,7 +152,8 @@ export default (state = initialState, action) => {
     case actions.LOAD_USER_NOTES:
       return { ...state, currentUserNotes: action.payload.notes, currentUser: action.payload.user}
     case actions.NEW_USER_CREATION:
-      return { ...state, currentUserNotes: action.payload.notes, users: [...state.users, action.payload], current: 'list', currentUser: action.payload.user}
+      console.log("payload.user on new user", action.payload)
+      return { ...state, currentUserNotes: action.payload.notes, users: [...state.users, action.payload], current: 'list', currentUser: action.payload}
     case actions.HANDLE_LOG_OUT:
       const currentUsers = state.users;
       let userIndex = -1;
@@ -161,6 +162,7 @@ export default (state = initialState, action) => {
       })
       currentUsers[userIndex].notes = state.currentUserNotes;
       currentUsers.splice(userIndex, 1, action.payload);
+      console.log(state.users)
       return { ...state, users: currentUsers, current:'login', }
     default:
       return state;

@@ -62,8 +62,24 @@ class Login extends React.Component {
         }
     }
     createClicked = () => {
-        const user = {...this.state, notes: []};
+        let flag = true;
+        this.props.users.forEach(user => {
+            if (user.username === this.state.newUser) {
+                alert('The Chosen User Name Already Exists, Try Again')
+                this.setState({newUser:''})
+                return flag = false;
+            }
+        })
+        if (flag === true) {
+        if (this.state.newUser === '' || this.state.newPass === '') {
+            alert('You must enter a username and password to create a new account.')
+            this.setState({newUser:'', newPass:''})
+        }
+        else {
+        const user = {username:this.state.newUser, password:this.state.newPass, notes: []};
         this.props.new_user_creation(user);
+        }
+    }
     }
 }
 
