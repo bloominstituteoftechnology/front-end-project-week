@@ -10,7 +10,8 @@ export const SEARCH_RESULTS_CLICKED = 'SEARCH_RESULTS_CLICKED';
 export const SORT_BUTTON_CLICKED = 'SORT_BUTTON_CLICKED';
 export const DOWNLOAD_BUTTON_CLICKED = 'DOWNLOAD_BUTTON_CLICKED';
 export const UPDATE_CHECK_LIST = 'UPDATE_CHECK_LIST';
-export const DELETE_CHECK = 'DELETE_CHECK';
+export const REMOVE_EDIT = 'REMOVE_EDIT';
+
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -104,5 +105,12 @@ export const update_check_list = (note) => {
   return {
     type: 'UPDATE_CHECK_LIST',
     payload: note,
+  }
+}
+
+export const remove_edit = () => {
+  return {
+    type: 'REMOVE_EDIT',
+    payload: true,
   }
 }

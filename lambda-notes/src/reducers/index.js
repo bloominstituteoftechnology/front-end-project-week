@@ -88,12 +88,13 @@ const initialState = {
   current: 'list',
   note: null,
   results: [],
+  remove: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case actions.ADD_BUTTON_CLICK:
-      return { ...state, current: action.payload };
+      return { ...state, current: action.payload, remove: false };
     case actions.VIEW_BUTTON_CLICK:
       return { ...state, current: action.payload };
     case actions.ADD_NOTE:
@@ -130,6 +131,8 @@ export default (state = initialState, action) => {
       const currentNotes = state.notes;
       currentNotes.splice(action.payload.index, 1, action.payload);
       return { ...state, notes: currentNotes };
+    case actions.REMOVE_EDIT:
+      return { ...state, remove: action.payload};
     default:
       return state;
   }

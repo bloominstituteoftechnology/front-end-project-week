@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import Note from './Note';
 
+import { remove_edit} from '../actions/index'
+
 import './css/SortOverview.css';
 
 class SortOverview extends React.Component {
@@ -78,6 +80,7 @@ class SortOverview extends React.Component {
     }, []);
     sorted = sorted.sort();
     this.setState({ sorted });
+    this.props.remove_edit();
   };
 
   clickChronologically = () => {
@@ -88,6 +91,7 @@ class SortOverview extends React.Component {
     }, []);
     sorted = sorted.sort();
     this.setState({ sorted });
+    this.props.remove_edit();
   };
 
   clickRevAlphabetically = () => {
@@ -105,6 +109,7 @@ class SortOverview extends React.Component {
     sorted = sorted.sort();
     sorted = sorted.reverse();
     this.setState({ sorted });
+    this.props.remove_edit();
   };
 
   clickRevChronologically = () => {
@@ -116,6 +121,7 @@ class SortOverview extends React.Component {
     sorted = sorted.sort();
     sorted = sorted.reverse();
     this.setState({ sorted });
+    this.props.remove_edit();
   };
 }
 
@@ -125,4 +131,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(SortOverview);
+export default connect(mapStateToProps, {remove_edit})(SortOverview);

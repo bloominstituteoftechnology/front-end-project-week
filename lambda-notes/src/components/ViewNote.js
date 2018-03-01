@@ -15,32 +15,31 @@ class ViewNote extends React.Component {
   render() {
     return (
       <div className="view">
-          <div>
-            <div className="edit" onClick={this.handleEdit}>
-              edit
-            </div>
-            <div>
-              <div className="delete" onClick={this.openModal}>
-                delete
-              </div>
-              <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
-                <div>
-                  Are you sure you want to delete this? <br />
-                  <button className="modal-delete" onClick={this.handleDelete}>
-                    Delete
-                  </button>
-                  <button className="modal-no" onClick={this.closeModal}>
-                    No
-                  </button>
-                </div>
-              </Modal>
-            </div>
+        {!this.props.remove ? <div>
+          <div className="edit" onClick={this.handleEdit}>
+            edit
           </div>
+          <div>
+            <div className="delete" onClick={this.openModal}>
+              delete
+            </div>
+            <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
+              <div>
+                Are you sure you want to delete this? <br />
+                <button className="modal-delete" onClick={this.handleDelete}>
+                  Delete
+                </button>
+                <button className="modal-no" onClick={this.closeModal}>
+                  No
+                </button>
+              </div>
+            </Modal>
+          </div>
+        </div> : null}
         <h1 className="view-header"> {this.props.note.title} </h1>
         <p className="view-body"> {this.props.note.body} </p>
         <div className="checklist">
-          
-      <CheckList key={this.props.note.id} note={this.props.note}/>
+          <CheckList key={this.props.note.id} note={this.props.note} />
         </div>
       </div>
     );
@@ -59,9 +58,9 @@ class ViewNote extends React.Component {
   };
   handleCheckList = () => {
     let current = [].concat(this.state.count);
-    current.push(1)
-    this.setState({show:true, count: current})
-  }
+    current.push(1);
+    this.setState({ show: true, count: current });
+  };
 }
 
 //Tried doing this as css/className, but that didn't work.
@@ -82,7 +81,7 @@ const mapStateToProps = state => {
   return {
     current: state.current,
     note: state.note,
-    edit: state.edit,
+    remove: state.remove,
   };
 };
 
