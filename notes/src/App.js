@@ -11,6 +11,10 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 
 class App extends Component {
+  state = {
+    test: 'the props is begin passed',
+  }
+
   render() {
     return (
       <Router>
@@ -22,6 +26,7 @@ class App extends Component {
             <Route path='/view/:id' component={NoteView} exact />
             <Route path='/edit/:id' component={EditNoteView} exact />
             <Route path='/delete/:id' component={ListView} exact />
+            <Route path='/search/:terms' component={ListView} exact />
             <Route path='/404' component={NotFound} exact />
             <Redirect to="/404" />
           </Switch>

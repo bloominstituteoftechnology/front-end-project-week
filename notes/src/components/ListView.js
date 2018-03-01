@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { viewNote, deleteNote, reorderNotes } from '../actions';
+import { viewNote, deleteNote, reorderNotes, searchNotes } from '../actions';
 import './ListView.css';
 import Shiitake from 'shiitake';
 import DeleteNoteModal from './DeleteNoteModal';
 import removeMd from 'remove-markdown';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import Search from './Search';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
   <li className='list-note' onClick={() => { viewNote(note)} }>
@@ -16,12 +17,11 @@ const SortableItem = SortableElement(({note, viewNote}) =>
 );
 
 const SortableList = SortableContainer(({notes, viewNote}) => {
-  console.log(notes);
   return (
     <ul className='list-notes'>
       {notes.map((note, index) => {
         return (
-          <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote}/>
+          <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote} />
         );
       })}
     </ul>
@@ -32,6 +32,7 @@ class ListView extends React.Component {
   state = {
     id: '',
     deleting: false,
+    searching: false,
   }
 
   viewNote = (note) => {
@@ -40,9 +41,30 @@ class ListView extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.match.url !== '/' && this.props.match.params.id) {
+    if (this.props.match.params.id) {
       this.setState({ deleting: true });
+    }
+    this.checkSearch();
+  }
 
+  // componentWillReceiveProps() {
+  //   this.checkSearch();
+  // }
+
+  checkSearch = () => {
+    console.log(this.state);
+    if ( this.props.match.params.terms ) {
+      console.log('entered');
+      this.setState({ searching: true });
+      const terms = this.props.match.params.terms;
+      const searchResults = [];
+      let regex = new RegExp(terms, 'i');
+      this.props.notes.forEach((item) => {
+        if (item.title.match(regex) || item.entry.match(regex)) {
+          searchResults.push(item);
+        }
+      });
+      this.props.searchNotes(searchResults);
     }
   }
 
@@ -58,18 +80,22 @@ class ListView extends React.Component {
   }
 
   onSortEnd = ({oldIndex, newIndex}) => {
-    this.props.reorderNotes(arrayMove(this.props.notes, oldIndex, newIndex));
+    const searchResults = this.state.searching ? this.props.searchResults : this.props.notes;
+    this.props.reorderNotes(arrayMove(searchResults, oldIndex, newIndex), this.state.searching);
   }
 
   render() {
-    console.log(this.props);
+    const searchResults = this.state.searching ? this.props.searchResults : this.props.notes;
     console.log(this.state);
+    console.log('notesSearched', this.props.searchResults);
+    console.log('notes', this.props.notes);
     return (
       <div className='list-view'>
-        {this.props.notes ?
+        <Search history={this.props.history}/>
+        {searchResults ?
         <div>
           <h2 className='list-title'>Your Notes:</h2>
-          <SortableList viewNote={this.viewNote} notes={this.props.notes} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
+          <SortableList viewNote={this.viewNote} notes={searchResults} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
         </div>
         :
         <div className='nothing-to-view'>
@@ -86,7 +112,8 @@ class ListView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    searchResults: state.searchResults,
   };
 };
 
-export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes })(ListView);
+export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes, searchNotes })(ListView);

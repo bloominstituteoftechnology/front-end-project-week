@@ -1,0 +1,30 @@
+.search {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search form {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.search form label {
+  padding: 2px 10px 0 0;
+  font-size: 0.9rem;
+  font-family: Raleway;
+  color: #4C4B4C;
+  user-select: none;
+}
+.search .search-bar {
+  padding-left: 10px;
+  border-radius: 3px;
+  border: 1px solid #C9C9C9;
+  height: 25px;
+  width: 50%;
+}
+.search .search-bar:hover,
+.search .search-bar:focus {
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+}

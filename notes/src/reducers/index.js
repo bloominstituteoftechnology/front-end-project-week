@@ -69,8 +69,14 @@ const notesReducer = (state = initialTestState, action) => {
       return { ...state, notes: state.notes.filter(note => note.id !== action.payload) };
 
     case 'REORDER_NOTES':
+      if ( action.searching ) {
+        return { ...state, searchResults: action.payload };
+      }
       return { ...state, notes: action.payload };
-    
+
+    case 'SEARCH_NOTES':
+      return { ...state, searchResults: action.payload };
+
     default:
       return state;
   }

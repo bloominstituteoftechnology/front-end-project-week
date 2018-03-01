@@ -28,9 +28,17 @@ export const deleteNote = (info) => {
   }
 }
 
-export const reorderNotes = (newNotes) => {
+export const reorderNotes = (newNotes, searching) => {
   return {
     type: 'REORDER_NOTES',
     payload: newNotes,
+    searching: searching,
+  }
+}
+
+export const searchNotes = (searchResults) => {
+  return {
+    type: 'SEARCH_NOTES',
+    payload: searchResults,
   }
 }
