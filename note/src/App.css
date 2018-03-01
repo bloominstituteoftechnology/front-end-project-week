@@ -1,3 +1,13 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #999999;
+  font-family: 'Raleway', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -32,19 +42,35 @@
   font-size: 0.75rem;
   border: 1px solid gray;
   margin: 15px;
-  width: 300px;
+  width: 100%;
+  background-color: #FFFFFF;
 }
 
 .Note-Title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
 }
 
 .Note-Text {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Raleway', sans-serif;
 }
 
 /* Notes List */
 .Note-List {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.NoteList-Container {
+  background-color: #F3F3F3;
+}
+
+.SideBar-Container {
+  background-color: #D7D7D7;
+}
+
+/* Button */
+button {
+  font-size: 1.2rem;
+  font-family: 'Raleway', sans-serif;
 }

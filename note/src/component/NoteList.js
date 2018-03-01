@@ -5,8 +5,11 @@ import '../App.css';
 class NoteList extends Component {
     render() {
         return (
-            <div className='Note-List'>
-                {this.props.notes.map((note, i) => <Note note={note} />)}
+            <div className='NoteList-Container'>
+                <h1>Your Notes:</h1>
+                <div className='Note-List'>
+                    {this.props.notes.map((note, i) => <Note note={note} />)}
+                </div>
             </div>
         );
     }
