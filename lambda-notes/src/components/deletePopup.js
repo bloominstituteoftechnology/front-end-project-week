@@ -8,7 +8,8 @@ class DeletePopup extends Component {
     render() {
     // console.log('this', this)
     console.log('this.state before deleting note', this.state)
-    // console.log('this.props', this.props)
+    console.log('this.context ', this.context)
+    console.log('this.props', this.props)
     // console.log('this.props.props', this.props.props)
     // console.log('this.props.props.match', this.props.props.match)
     // console.log('this.props.props.match.params', this.props.props.match.params)
@@ -28,8 +29,10 @@ class DeletePopup extends Component {
         event.preventDefault();
         let deletedNote = this.state.notes.splice(getNoteIndex(), 1)
         console.log('deletedNote: ', deletedNote);
-        // this.setState({notes: this.state.notes.filter(note => deletedNote.id !== note.id)})
+        this.setState({notes: this.state.notes.filter(note => deletedNote.id !== note.id)})
         this.props.props.notes.filter(note => deletedNote.id !== note.id)
+        this.props.props.history.go(-2)
+        // this.context.router.push('/')
         console.log('this.state after deleting note', this.state)
         console.log('this.props.props after deleting note', this.props.props)
     }
@@ -38,8 +41,8 @@ class DeletePopup extends Component {
         <div className="popup__inner">
         <div className="popup__msg"> Are you sure you want to delete this?</div>
           <div className="popup__btn-container">
-          {/* <NavLink to={`/`} className="popup__delete-btn" onClick={noteDeleteHandler}>Delete</NavLink>  */}
-            <NavLink to={`/`} className="popup__delete-btn" >Delete</NavLink> 
+            <NavLink to={`/`} className="popup__delete-btn" onClick={noteDeleteHandler}>Delete</NavLink> 
+            {/* <NavLink to={`/`} className="popup__delete-btn" >Delete</NavLink>  */}
             <NavLink to={`/note/${this.props.props.match.params.id}`} className="popup__no-btn">No</NavLink>
           </div>
         </div>
