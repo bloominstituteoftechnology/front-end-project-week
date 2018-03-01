@@ -7,6 +7,12 @@ const initialState = {
   sortStatus: 'Unsorted',
 };
 
+const parseDate = () => {
+  const a = new Date().toString().split(' ').slice(0, 5);
+  const b = a.splice(4, 1);
+  return `${a.join(' ')} ${b[0].split(':').slice(0, 2).join(':')}`;
+};
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
@@ -18,6 +24,7 @@ export default (state = initialState, action) => {
           title: action.title,
           body: action.body,
           created: Date.now(),
+          stamp: parseDate(),
         }
         ],
       };
@@ -30,6 +37,8 @@ export default (state = initialState, action) => {
               id: Number(action.id),
               title: action.title,
               body: action.body,
+              created: val.created,
+              stamp: val.stamp,
             };
           } return val;
         }),

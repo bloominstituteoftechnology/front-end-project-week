@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const StyledCard = styled.div`
+  position: relative;
   width: 180px;
-  height: 190px;
+  height: 200px;
   margin-top: 20px;
   margin-left: 10px;
   padding: 10px 15px 25px; 
@@ -33,6 +34,12 @@ const StyledCard = styled.div`
     color: #5e5d5e;    
   }
 
+  .notecard__footer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    font-size: 0.9rem;
+  }
 `;
 
 const NoteCard = props => (
@@ -40,6 +47,7 @@ const NoteCard = props => (
     <StyledCard>
       <h3>{props.note.title.length > 15 ? `${props.note.title.substring(0, 14)}...` : props.note.title}</h3>
       <p>{props.note.body.length > 120 ? `${props.note.body.substring(0, 119)}...` : props.note.body}</p>
+      <p className='notecard__footer'>{props.note.stamp}</p>
     </StyledCard>
   </Link>
 );
