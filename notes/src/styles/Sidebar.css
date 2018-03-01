@@ -31,10 +31,7 @@
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 3px;
-  padding-top: 17px;
-  padding-right: 12px;
-  padding-left: 1px;
-  padding-bottom: 10px;
+  padding: 17px 12px 10px 1px;
   text-align: center;
   background: rgb(40, 193, 197);
   border: 1px rgb(171, 171, 171) solid;
