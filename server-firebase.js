@@ -49,16 +49,6 @@ server.post('/notes', (req, res) => {
             res
         );
     }
-    // const findNoteByTitle = note => {
-    //     return note.title === title;
-    // };
-    // if (notes.find(findNoteByTitle)) {
-    //     return sendUserError(
-    //         `Ya gone did noted! ${title} already exists in the notes DB.`,
-    //         res
-    //     );
-    // }
-
     notes.push(newNote);
     res.json(notes);
 });
@@ -77,18 +67,6 @@ server.put('/notes/update/:key', (req, res) => {
         console.log('Failed to send notification to user:', error);
     });
 
-    // const findNoteById = note => {
-    //     return note.id == id;
-    // };
-    // const foundNote = notes.find(findNoteById);
-    // if (!foundNote) {
-    //     return sendUserError('No Note found by that ID', res);
-    // } else {
-    //     if (title) foundNote.title = title;
-    //     if (description) foundNote.description = description;
-    //     if (tags) foundNote.tags = tags;
-    //     res.json(foundNote);
-    // }
 });
 
 server.delete('/notes/delete/:key', (req, res) => {
@@ -99,18 +77,6 @@ server.delete('/notes/delete/:key', (req, res) => {
     }).catch((error) => {
         console.log('Failed to send notification to user:', error);
     });
-
-    // const foundNote = notes.find(note => {
-    //     return note.id == noteId;
-    // });
-    //
-    // if (foundNote) {
-    //     const NoteRemoved = {...foundNote};
-    //     notes = notes.filter(note => note.id != id);
-    //     res.status(200).json({NoteRemoved});
-    // } else {
-    //     sendUserError('No notes by that ID exists in the note DB', res);
-    // }
 });
 
 server.listen(port, err => {
