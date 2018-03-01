@@ -102,6 +102,10 @@
 	margin: 4px 0px 22px;
 }
 
+.sidebar .sign-inas span {
+	font-weight: bold;
+}
+
 .sidebar .signout {
 	font-size: 18px;
 	border: 1px solid #555555;
@@ -117,11 +121,28 @@
 }
 
 /*List View*/
+.list-bar {
+}
+
 .your-note {
 	font-size: 25px;
 	font-weight: bold;
 	text-align: left;
 	margin: 65px 0px 18px 10px;
+}
+
+.your-note .sort {
+	font-size: 17px;
+	margin-left: 375px;
+}
+
+.your-note .sort-type {
+	text-decoration: underline;
+	margin: 0px 10px;
+}
+
+.your-note .sort-type:hover {
+	color: blue;
 }
 
 .no-notes {
@@ -152,9 +173,10 @@
 
 .list .notes .notes-title {
 	text-align: left;
-	padding: 13px 20px 6px;
+	padding: 13px 15px 6px;
 	font-size: 20px;
 	font-weight: bold;
+	white-space: nowrap;
 }
 
 .list .notes .note-line {
@@ -269,7 +291,7 @@
 	border: 1px solid gray;
 	margin: 5px auto;
 	font-size: 17px;
-	background: #151515;
+	background: #333333;
 	color: white;
 }
 .login .signin {

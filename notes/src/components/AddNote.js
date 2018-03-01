@@ -13,7 +13,6 @@ class AddNote extends React.Component {
 
 		event.preventDefault();
 		if(this.state.content !== '' && this.state.title !== ''){
-			console.log('state from compo', this.state);
 			this.props.addNote(this.state);
 			this.props.history.push('/a/list');
 		}

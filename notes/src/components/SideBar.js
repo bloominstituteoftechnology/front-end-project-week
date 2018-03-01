@@ -20,7 +20,7 @@ class SideBar extends React.Component {
         <Link to="/a/list"><button className="viewnote">View Your Notes</button></Link><br/>
         <Link to="/a/addnote"><button>+ Create New Note</button></Link>
         <br /><br /><br /><br />
-        <div>Signed in as: {this.props.misc.username}</div>
+        <div className="sign-inas">Signed in as: <span>{this.props.misc.username}</span></div>
         <br />
         <div className="signout" onClick={()=>{this.handleSignOut()}}>Sign out</div>
       </div>

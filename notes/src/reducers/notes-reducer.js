@@ -1,5 +1,5 @@
 
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL, FETCHED_NOTES, LOGGED_IN, LOGGED_OUT, LOGIN_ERROR, FETCHING_NOTES } from '../actions';
+import { ADD_NOTE, SORT_LIST, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL, FETCHED_NOTES, LOGGED_IN, LOGGED_OUT, LOGIN_ERROR, FETCHING_NOTES } from '../actions';
 
 export const notes = (state = [], action) => {
   switch (action.type) {
@@ -22,6 +22,38 @@ export const notes = (state = [], action) => {
         }
         return note;
       });
+
+      case SORT_LIST:
+        if(action.payload === 'newest'){
+          let copyState = [...state];
+          return copyState.sort((a, b) => {
+              const idA = a.timeStamp;
+              const idB = b.timeStamp;
+              
+              let comparison = 0;
+              if(idA > idB){
+                comparison = 1;
+              } else if (idA < idB) {
+                comparison = -1;
+              }
+              return comparison;
+          });
+        }else if (action.payload === 'oldest'){
+          let copyState = [...state];
+          return copyState.sort((a, b) => {
+              const idA = a.timeStamp;
+              const idB = b.timeStamp;
+              
+              let comparison = 0;
+              if(idA < idB){
+                comparison = 1;
+              } else if (idA > idB) {
+                comparison = -1;
+              }
+              return comparison
+          });
+        }
+        return state;
 
       case LOGGED_OUT:
         return [];
@@ -51,7 +83,6 @@ let initialMisc = {
   fetching_notes: false,
   loginError: ''
 }
-console.log('log out outisde of switch');
 
 export const misc = (state = initialMisc, action) => {
   switch(action.type){
@@ -70,10 +101,7 @@ export const misc = (state = initialMisc, action) => {
     case LOGIN_ERROR:
       return { ...state, loginError: action.payload }
 
-
     default:
       return state;
   }
-
-  
 }

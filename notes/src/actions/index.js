@@ -11,6 +11,7 @@ export const LOGGED_IN = 'LOGGED_IN';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const SIGN_IN = 'SIGN_IN';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
+export const SORT_LIST = 'SORT_LIST';
 
 export const fetchNotes = (username) => {
   return (dispatch) => {
@@ -45,9 +46,17 @@ export const addNote = (note) => {
   let month = moment().format('MMM');
   let day = moment().format('Do');
   let year = moment().format('YYYY');
-  note.date = `${month} ${day} ${year}`;
+  let hour = moment().format('H');
+  let min = moment().format('mm');
+  if(hour > 12){
+    hour =  hour / 12;
+    min = min + 'pm';
+  }else{
+    min = min + 'am';
+  }
+  note.date = `${month} ${day}, ${year} @ ${hour}:${min}`;
+  note.timeStamp = moment().unix();
   return (dispatch) => {
-
     // create a reference to the new added object
     let addNoteRef = firebaseRef.child('notes').push(note);
 
@@ -124,6 +133,7 @@ export const signUp = (newUser) => {
               type: 'LOGGED_IN',
               payload: newUser
             });
+            sessionStorage.setItem('username', newUser.username);
           }, ()=>{
               console.log('add new user failed!');
           });
@@ -160,6 +170,7 @@ export const signIn = (user) => {
             payload: user
           });
           sessionStorage.setItem('username', user.username);
+          // history.push
         }else{
           dispatch({
             type: LOGIN_ERROR,
@@ -171,9 +182,15 @@ export const signIn = (user) => {
   }
 }
 
+export const sortList = (type) => {
+  return ({
+    type: SORT_LIST,
+    payload: type
+  });
+}
+
 export const signOut = () => {
   sessionStorage.clear();
-  console.log('storage after clear', sessionStorage.getItem('username'));
   return {
     type: LOGGED_OUT
   };

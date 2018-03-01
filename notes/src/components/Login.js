@@ -24,7 +24,6 @@ class Login extends React.Component {
   }
   
   render() {
-    console.log('session', sessionStorage.getItem('username'));
     if(this.props.misc.username){
       this.props.history.push('/a/list');
     }
@@ -33,7 +32,7 @@ class Login extends React.Component {
         <div className="title">Lambda Notes</div>
         <div className="login_error">{this.props.misc.loginError}</div>
         <input name="username" value={this.state.name} placeholder="Username" onChange={this.handleOnChange}/><br />
-        <input name="password" value={this.state.value} placeholder="Password" onChange={this.handleOnChange}/><br />
+        <input name="password" type="password" value={this.state.value} placeholder="Password" onChange={this.handleOnChange}/><br />
         <button className="signin" onClick={() => {this.handleSignIn()}}>Sign in</button><br />
         <div>- or -</div>
         <button onClick={() => {this.handleSignUp()}}>Sign up</button><br />
