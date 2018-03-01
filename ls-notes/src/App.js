@@ -5,15 +5,43 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App-Header">
-          <h1>Your Notes {this.props.pageHeader}</h1>
+      <div className="Container">
+        {/* Navigation controls go here */}
+          <div className="Nav-panel">
+          </div>
 
-        <header className="App-header">
-          <h1>Note #1 Title {this.props.title}</h1>
-        </header>
-        <p className="App-intro">This is the note body.</p>
-        </div>  
-        );
+        {/* Notes lists and all other view elements go below here */}
+          <div className="Notes-panel">
+            <div className="View-header">
+                <h1>Your Notes {this.props.pageHeader}</h1>
+            </div>
+            <div>
+              <ul>
+                <li className="Note-row">
+                  <div>
+                    <header className="Note-header">
+                      <h1>Note #1 Title {this.props.title}</h1>
+                    </header>
+                    <p className="Note-item">This is the note body.</p>
+                  </div>
+                  <div>
+                    <header className="Note-header">
+                      <h1>Note #1 Title {this.props.title}</h1>
+                    </header>
+                    <p className="Note-item">This is the note body.</p>
+                  </div>
+                  <div>
+                    <header className="Note-header">
+                      <h1>Note #1 Title {this.props.title}</h1>
+                    </header>
+                    <p className="Note-item">This is the note body.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>  
+      </div>
+    );
   }
 }
 
