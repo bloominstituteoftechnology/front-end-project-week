@@ -6,8 +6,6 @@ import { Modal } from './Modal';
 import { EditNoteFields } from './EditNoteFields';
 import './SingleNote.css';
 
-// Don't forget to change delete to noasdfasfasdf
-
 class SingleNote extends Component {
   state = {
     note: {},
