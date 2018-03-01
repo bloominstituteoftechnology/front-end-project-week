@@ -1,74 +1,49 @@
-.App {
+.main {
   text-align: left;
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-flex;
   justify-content: center;
 }
 
-.Left-Column {
-  color: #4a4a4a;
-  background-color: #d8d8d8;
-  border-style: solid;
-  border-color: #979797;
-  border-width: 2px 1px 2px 2px;
+.left-nav-buttons {
+  list-style: none;
+  justify-content: center;
+  text-align: center;
 }
 
-.Left-Header {
-  font-size: 35px;
-  margin: 20px 10px 20px;
+.list-view {
+  margin: 75px 30px 100px 30px;
 }
 
-.Right-Column {
-  color: #4a4a4a;
-  background-color: #f3f3f3;
-  border-style: solid;
-  border-color: #979797;
-  border-width: 2px 2px 2px 1px;
-  padding: 40px 30px;
-}
-
-.Right-Header {
-  font-size: 22px;
-  margin: 0 0 15px 6px;
-}
-
-.List-View {
+.list-view2 {
   display: grid;
   grid-template-columns: auto auto auto;
 }
 
-.Note {
-  width: 150px;
-  height: 150px;
-  padding: 10px 20px 20px 20px;
-  font-size: 14px;
-  margin: 10px 5px 15px 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #979797;
-  background-color: #fff;
-}
-
-.Note-Header {
-  color: #000;
-  font-size: 19px;
-  border-style: solid;
-  border-width: 0px 0px 1px 0px;
-  border-color: #000;
-  padding: 0px 0px 10px 0px;
-  margin: 0px;
-}
-
-button {
-  color: #fff;
-  background-color: #62bec2;
-  border-style: solid;
-  border-color: #979797;
-  border-width: 2px;
-  width: 205px;
-  height: 45px;
+/* .App {
   text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 10px 15px;
 }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
