@@ -4,6 +4,7 @@ import "./Notes.css";
 import CreateNote from "./Components/CreateNote";
 import SingleNote from "./Components/SingleNote";
 import NoteList from "./Components/NoteList";
+import EditNote from "./Components/EditNote";
 
 class Notes extends Component {
   state = {
@@ -39,12 +40,40 @@ class Notes extends Component {
             notes={this.state.notes}
             target={this.target}
             deleteNote={this.deleteNote}
+            edit={this.editNote}
+          />
+        ) : null}
+        {this.state.view.edit ? (
+          <EditNote
+            note={this.state.notes[this.target]}
+            updateNote={this.updateNote}
           />
         ) : null}
       </div>
     );
   }
 
+  updateNote = updatedNote => {
+    let mirror = this.state.notes;
+    mirror[this.target] = updatedNote;
+    this.setState({
+      ...this.state,
+      notes: mirror
+    });
+  };
+
+  editNote = target => {
+    this.target = target;
+    this.setState({
+      ...this.state,
+      view: {
+        notes: false,
+        edit: true,
+        create: false,
+        singleNote: false
+      }
+    });
+  };
   deleteNote = target => {
     let mirror = this.state.notes;
     mirror.splice(target, 1);
@@ -58,7 +87,6 @@ class Notes extends Component {
         singleNote: false
       }
     });
-    console.log("Notes Array After Deleting: ", this.state.notes);
   };
 
   handleTarget = i => {

@@ -13,6 +13,7 @@ class CreateNote extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    if(this.state.title === "" || this.state.content === "") return;
     this.props.addNote(this.state);
     this.setState({
       title: "",

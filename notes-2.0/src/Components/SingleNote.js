@@ -4,9 +4,10 @@ const SingleNote = props => {
   const notes = props.notes;
   const target = props.target;
   const deleteNote = props.deleteNote;
+  const edit = props.edit;
   return (
     <div className="singleNote">
-      <button>edit</button>
+      <button onClick={() => edit(target)}>edit</button>
       <button onClick={() => deleteNote(target)}>delete</button>
       <h1 className="singleNoteTitle">{notes[target].title}</h1>
       <p className="singleNoteContent">{notes[target].content}</p>
