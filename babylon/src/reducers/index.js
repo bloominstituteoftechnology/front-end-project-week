@@ -4,6 +4,7 @@ import dummyData from '../dummydata';
 const initialState = {
   notes: [...dummyData],
   deleteActive: false,
+  sortStatus: 'Unsorted',
 };
 
 export default (state = initialState, action) => {
@@ -11,6 +12,7 @@ export default (state = initialState, action) => {
     case ADD_NOTE:
       return {
         ...state,
+        sortStatus: 'Unsorted',
         notes: [...state.notes, {
           id: action.id,
           title: action.title,
@@ -44,6 +46,7 @@ export default (state = initialState, action) => {
     case TITLE_SORT:
       return {
         ...state,
+        sortStatus: 'A - Z',
         notes: [...state.notes].sort((a, b) => {
           return a.title > b.title;
         }),

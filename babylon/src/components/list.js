@@ -24,7 +24,7 @@ const List = props => (
   <StyledList>
     <HomeLeftRail />
     <div className='list__right'>
-      <SectionTitle name='Your Notes:'/>
+      <SectionTitle name={`Your Notes (${props.sortStatus}):`}/>
       {props.notes.map((note, index) => {
         return (
           <NoteCard key={index} note={note} />
@@ -37,6 +37,7 @@ const List = props => (
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    sortStatus: state.sortStatus,
   };
 };
 
