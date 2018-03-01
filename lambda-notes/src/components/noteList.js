@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { viewNote } from "../actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class NoteList extends Component {
+  state = {
+    id: "",
+  };
   render() {
     return (
       <div className="note-container">
@@ -10,7 +15,9 @@ class NoteList extends Component {
           {this.props.notes.map(note => {
             return (
               <li className="note-container notelist" key={note.id}>
-                <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
+                <Link to={`/note/${note.id}`}>
+                  <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
+                </Link>
               </li>
             );
           })}
@@ -18,6 +25,17 @@ class NoteList extends Component {
       </div>
     );
   }
+
+  viewNote = note => {
+    this.props.viewNote(note);
+    this.setState({ id: note.id });
+  };
 }
 
-export default NoteList;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  };
+};
+
+export default connect(mapStateToProps, { viewNote })(NoteList);
