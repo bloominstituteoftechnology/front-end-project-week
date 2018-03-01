@@ -65,6 +65,7 @@ class OneNote extends Component {
   }
 
   componentWillMount = () => {
+    console.log('updateSelected called from OneNote');
     this.props.updateSelected(this.props.notes[this.props.id].id);
   };
 

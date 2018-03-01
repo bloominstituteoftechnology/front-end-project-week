@@ -1,5 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
+import { updateSelected } from "../actions";
+import { connect } from "react-redux";
 
 const NoteStyled = styled.div`
   background-color: white;
@@ -13,7 +15,7 @@ const NoteStyled = styled.div`
     margin-bottom: 8px;
   }
   p {
-    font-family: 'Raleway';
+    font-family: "Raleway";
     font-size: 13px;
     overflow: hidden;
     position: relative;
@@ -22,13 +24,13 @@ const NoteStyled = styled.div`
     margin-right: -13px;
     padding-right: 13px;
     :before {
-      content: '...';
+      content: "...";
       position: absolute;
       right: 8px;
       bottom: 0;
     }
     :after {
-      content: '';
+      content: "";
       position: absolute;
       right: 8px;
       width: 13px;
@@ -39,13 +41,33 @@ const NoteStyled = styled.div`
   }
 `;
 
-function Notes(props) {
-  return (
-    <NoteStyled onClick={props.onClick}>
-      <h4 onClick={props.onClick}>{props.note.title}</h4>
-      <p onClick={props.onClick}>{props.note.text}</p>
-    </NoteStyled>
-  );
+class Notes extends Component {
+  render() {
+    return (
+      <NoteStyled>
+        <h4
+          onClick={() => {
+            this.props.updateSelected(this.props.note.id);
+          }}
+        >
+          {this.props.note.title}
+        </h4>
+        <p
+          onClick={() => {
+            this.props.updateSelected(this.props.note.id);
+          }}
+        >
+          {this.props.note.text}
+        </p>
+      </NoteStyled>
+    );
+  }
 }
 
-export default Notes;
+const mapStateToProps = state => {
+  return {
+    state
+  };
+};
+
+export default connect(mapStateToProps, { updateSelected })(Notes);

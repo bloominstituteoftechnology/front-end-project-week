@@ -17,9 +17,6 @@ class MainView extends Component {
                 <Notes
                   key={note.id}
                   note={note}
-                  onClick={() => {
-                    this.props.updateSelected(note.id);
-                  }}
                 />
                 {note.selected ? (
                   <Redirect to={`/note/${note.id}`} />

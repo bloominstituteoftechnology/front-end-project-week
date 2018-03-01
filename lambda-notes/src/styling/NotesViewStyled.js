@@ -41,6 +41,10 @@ const NotesViewStyled = styled.div`
       margin: 0 0 0 -10px;
       display: flex;
       flex-wrap: wrap;
+      background-color: blue;
+      form {
+        background-color: gray;
+      }
     }
   }
 
