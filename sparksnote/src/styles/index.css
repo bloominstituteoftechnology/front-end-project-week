@@ -67,6 +67,9 @@
   width: 86%;
   margin: 0 auto 0 auto;
 }
+.menu .menu__buttons .menu__buttons__links {
+  text-decoration: none;
+}
 .menu .menu__buttons .menu__buttons--align {
   display: block;
   margin-top: 20px;
@@ -91,6 +94,9 @@
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 31px;
+}
+.newNote .newNote__input .newNote__form .newNote__form__save {
+  text-decoration: none;
 }
 .newNote .newNote__input .newNote__form .newNote__form__title {
   width: 54%;

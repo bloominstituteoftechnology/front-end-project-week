@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Link } from "react";
 
 class Menu extends Component {
   constructor(props){
@@ -16,13 +16,13 @@ class Menu extends Component {
         </div>
 
         <div className="menu__buttons">
-          <div className="menu__buttons--align">
-            <p className="menu__buttons__text">View Your Notes</p>
-          </div>
+          <a href="/" className="menu__buttons__links"><div className="menu__buttons--align">
+            <p className="menu__buttons__text" >View Your Notes</p>
+          </div></a>
 
-          <div className="menu__buttons--align">
+          <a href="/newnote" className="menu__buttons__links"><div className="menu__buttons--align">
             <p className="menu__buttons__text">+ Create New Note</p>
-          </div>
+          </div></a>
 
         </div>
       </div>

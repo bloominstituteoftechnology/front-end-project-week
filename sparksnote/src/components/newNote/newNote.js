@@ -23,9 +23,9 @@ class NewNote extends Component {
             <textarea className="newNote__form__content" rows="15" columns="15">
               Note Content
             </textarea>
-            <div className="newNote__form__button">
+            <a className="newNote__form__save" href="/"><div className="newNote__form__button">
               <p className="newNote__form__button__text">Save</p>
-            </div>
+            </div></a>
           </form>
         </div>
       </div>
