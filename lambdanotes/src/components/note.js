@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 const NoteStyled = styled.a`
   display: flex;
@@ -41,7 +42,8 @@ class Note extends Component {
       <NoteStyled onClick={() => { this.props.showNoteDetails(this.props.note.id) }}>
         <h4>{this.props.note.title}</h4>
         <hr style={{ width: "100%" }} />
-        <p>{getNoteContentPreview(this.props.note.content)}</p>
+        {/* <p>{getNoteContentPreview(this.props.note.content)}</p> */}
+        <p><ReactMarkdown source={getNoteContentPreview(this.props.note.content)} /></p>
       </NoteStyled>
     )
   }

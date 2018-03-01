@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 
 // Styles
 const NoteDetailsStyled = styled.div`
@@ -62,7 +63,7 @@ class NoteDetails extends Component {
           <a onClick={this.props.showDeleteModal}>Delete</a>
         </header>
         <h1>{this.state.title}</h1>
-        <p>{this.state.content}</p>
+        <p><ReactMarkdown source={this.state.content} /></p>
       </NoteDetailsStyled>
     )
   }
