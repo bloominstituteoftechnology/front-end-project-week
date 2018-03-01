@@ -21,8 +21,12 @@ const NotesViewStyled = styled.div`
     button {
       background-color: #35c0c3;
       font-weight: bold;
+      color: white;
+      width: 175px;
+      height: 40px;
       padding: 12px 0;
       margin: 5px 0;
+      text-decoration: none;
     }
   }
 
@@ -41,10 +45,6 @@ const NotesViewStyled = styled.div`
       margin: 0 0 0 -10px;
       display: flex;
       flex-wrap: wrap;
-      background-color: blue;
-      form {
-        background-color: gray;
-      }
     }
   }
 

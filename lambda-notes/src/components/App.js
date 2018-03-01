@@ -4,8 +4,8 @@ import "../styling/App.css";
 import MainView from "./MainView";
 import CreateView from "./CreateView";
 import OneNote from "./OneNote";
-import EditView from './EditView';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import EditView from "./EditView";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import NotesViewStyled from "../styling/NotesViewStyled";
 
 class App extends Component {
@@ -15,28 +15,12 @@ class App extends Component {
         <NotesViewStyled>
           <div className="LeftBar">
             <h1>Lambda Notes</h1>
-            <button>
-              <Link
-                to="/"
-                style={{
-                  color: "white",
-                  textDecoration: "none"
-                }}
-              >
-                View Your Notes
-              </Link>
-            </button>
-            <button>
-              <Link
-                to="/create"
-                style={{
-                  color: "white",
-                  textDecoration: "none"
-                }}
-              >
-                + Create New Note
-              </Link>
-            </button>
+            <NavLink to="/">
+              <button>View Your Notes</button>
+            </NavLink>
+            <NavLink to="/create">
+              <button>+ Create New Note</button>
+            </NavLink>
           </div>
           <Route exact path="/" component={MainView} />
           <Route path="/create" component={CreateView} />
