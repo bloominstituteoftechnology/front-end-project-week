@@ -6,17 +6,16 @@ import './AllNotes.css';
 
 class AllNotes extends Component {
   convertToCSV = () => {
-    const title = this.state.note.title;
-    const body = this.state.note.body;
-    const id = this.state.note.id;
-
-    const t = 'title';
-    const b = 'body';
-    const i = 'id';
-
-    let result = {};
-
-    return null;
+    let csv = 'title,body,id\n';
+    for (let i = 0; i < this.props.notes.length; i++) {
+      csv += `${
+        this.props.notes[i].title},${
+        this.props.notes[i].body},${
+        this.props.notes[i].id
+      }\n`;
+    }
+    console.log('CSV: ', csv.slice(0, -2));
+    return csv.slice(0, -2);
   };
 
   render() {
@@ -44,7 +43,9 @@ class AllNotes extends Component {
             })}
           </div>
           <div className="export-container">
-            <button className="export-button">Export CSV</button>
+            <button onClick={this.convertToCSV} className="export-button">
+              Export CSV
+            </button>
           </div>
         </div>
       </div>
