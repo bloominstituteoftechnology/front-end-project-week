@@ -3,20 +3,38 @@ display: flex;
 flex-direction: column;
 align-items: baseline;
 padding:10px;
-background:lightsteelblue;
+background:#D0D0D0;
+height: 375px;
+border: 1px solid black;
 }
 .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: left;
-    padding: 15px;
+font-family: "Roboto";
+line-height: 25px;
+font-size: 20px;
+font-weight: bold;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: left;
+padding-top: 15px;
+padding-left: 10px;
+margin-bottom: 55px;
   }
 .New-Note-Button{
-  padding: 15px;
-
+  font-weight: bolder;
+  font-size: 12px;
+  width: 150px;
+  padding: 5px;
+  margin: 7px 7px;
+  background-color: #08cccc;
+  color:white;
 }
 .View-Button{
-  padding: 15px;
-
+  font-weight: bolder;
+  font-size: 12px;
+  width: 150px;
+  padding:  5px;
+  margin: 7px 7px;
+  background-color: #08cccc;
+  color:white;
 }

@@ -1,18 +1,45 @@
 .App{
  display: flex;
  max-width: 1600px;
- margin-left: 150px;
- margin-right: 150px;
+ margin-left: 50px;
+ margin-right: 50px;
+ position: absolute;
+
+}
+
+body{
+  background-color:#D0D0D0;
 }
 
 .left-container {
   width: 30%;
    height: 400px;
-    background: lightsteelblue; 
+    background: DFDFDF; 
+    border-right: 1px solid black;
    }
+.left-container button {
 
+    font-weight: bolder;
+    font-size: 12px;
+    width: 150px;
+    padding: 5px;
+    margin: 7px 7px;
+    background-color: #08cccc;
+    color:white;
+  
+}
 .right-container{
   width:100%;
   flex:right;
-  background:lightsteelblue;;
+  background:DFDFDF;;
 }
+ .AllNotes_rail{
+   display: flex;
+  flex-wrap: wrap; 
+  width: 60%;
+  height: 350px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+  background: #DFDFDF;
+} 
