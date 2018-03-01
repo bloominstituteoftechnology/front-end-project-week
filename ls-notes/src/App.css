@@ -36,15 +36,22 @@ body {
 }
 
 .Container {
+  width: 100%;
 
 }
 
 .Nav-panel {
-  width: 30%;
+  display: "inline-block";
+  width: 20%;
+  background: rgb(99, 170, 194);
+  height: 40px;
+  font-size: 30px;
 }
 
 .Notes-panel {
+  display: "inline-block";
   width: 70%;
+  background: lightgrey;
 }
 
 .View-header {

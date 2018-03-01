@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="Container">
         {/* Navigation controls go here */}
-          <div className="Nav-panel">
+          <div className="Nav-panel">LAMBDA NOTES
           </div>
 
         {/* Notes lists and all other view elements go below here */}
