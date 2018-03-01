@@ -3,7 +3,7 @@ export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const DELETE_NOTE = 'DELERE_NOTE';
 export const TOGGLE_DELETE = 'TOGGLE_DELETE';
 
-let nextNoteId = 10;
+let nextNoteId = 4;
 export const addNote = data => ({
   type: ADD_NOTE,
   id: nextNoteId++,
