@@ -22,6 +22,7 @@ class EditNote extends Component {
       event.preventDefault();
       this.setState({title: this.state.title, body: this.state.body});
       this.props.notes.splice(this.getNoteIndex(), 1, this.state);
+      this.props.history.go(-1)
   }
   noteChangeHandler = (event) => {
       let { name, value } = event.target;

@@ -37,13 +37,13 @@ class NewNote extends Component {
       // console.log('what is state here: ', this.state)
       // console.log('what is props here: ', this.props)
       // console.log(this);
-      console.log(this.props);
+      // console.log(this.props);
       // console.log(this.props.notes);
       // console.log(this.props.notes.slice(-1));
       // console.log(this.props.notes.slice(-1)[0]);
       // console.log(this.props.notes.slice(-1)[0].id);
       // console.log(this.props.notes.concat(this.state))
-      // console.log('this.history ', this.history)
+      // console.log('this.history ', this.history) // should be this.props.history
       return (
           <div className="new-note-container">
             <div className="note-list__title">Create New Note:</div>                

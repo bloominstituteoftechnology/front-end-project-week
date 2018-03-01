@@ -7,9 +7,9 @@ class DeletePopup extends Component {
     }
     render() {
     // console.log('this', this)
-    console.log('this.state before deleting note', this.state)
-    console.log('this.context ', this.context)
-    console.log('this.props', this.props)
+    // console.log('this.state before deleting note', this.state)
+    // console.log('this.context ', this.context)
+    // console.log('this.props', this.props)
     // console.log('this.props.props', this.props.props)
     // console.log('this.props.props.match', this.props.props.match)
     // console.log('this.props.props.match.params', this.props.props.match.params)
@@ -28,13 +28,13 @@ class DeletePopup extends Component {
     const noteDeleteHandler = (event) => {
         event.preventDefault();
         let deletedNote = this.state.notes.splice(getNoteIndex(), 1)
-        console.log('deletedNote: ', deletedNote);
+        // console.log('deletedNote: ', deletedNote);
         this.setState({notes: this.state.notes.filter(note => deletedNote.id !== note.id)})
         this.props.props.notes.filter(note => deletedNote.id !== note.id)
         this.props.props.history.go(-2)
         // this.context.router.push('/')
-        console.log('this.state after deleting note', this.state)
-        console.log('this.props.props after deleting note', this.props.props)
+        // console.log('this.state after deleting note', this.state)
+        // console.log('this.props.props after deleting note', this.props.props)
     }
     return (
       <div className="popup">
