@@ -14,9 +14,9 @@ class Note extends Component {
     return (
       <div className="Note">
         <div className="Toolbar">
-          <div className="Toolbar__button">
+          <Link to={`/note/edit/${this.props.note.id}`} className="Toolbar__button">
             Edit
-          </div>
+          </Link>
           <Link to={'/'} className="Toolbar__button" onClick={() => this.props.deleteNote(this.props.note.id)}>
             [X]
           </Link>
@@ -38,5 +38,5 @@ const mapStateToProps = state => {
     props: state,
   }
 }
-export {Note};
+
 export default connect(mapStateToProps, { deleteNote })(Note);

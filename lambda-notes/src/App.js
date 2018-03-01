@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 import { NoteList } from './components/NoteList';
+import EditNote from './components/EditNote';
 import Note from './components/Note';
 import NewNote from './components/NewNote';
 import { connect } from 'react-redux';
@@ -63,16 +64,21 @@ class App extends Component {
             <Link className="Sidebar__button" to='/'>
               View Your Notes
             </Link>
-            <Link className="Sidebar__button" to='/note'>
+            <Link className="Sidebar__button" to='/new'>
               + Create New Note
             </Link>
           </div>
           <div className="View">
             <Route path="/" render={() => <NoteList notes={this.props.notes}/>} exact/>
-            <Route path="/note" component={NewNote} exact />
+            <Route path="/new" component={NewNote} exact />
             {
               this.props.notes.map(note => {
                 return <Route key={note.id} path={`/note/${note.id}`} render={() => <Note note={note}/>}/>;
+              })
+            }
+            {
+              this.props.notes.map(note => {
+                return <Route key={note.id} path={`/note/edit/${note.id}`} render={() => <EditNote note={note}/>}/>;
               })
             }
           </div>

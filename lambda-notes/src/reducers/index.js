@@ -1,5 +1,6 @@
 import { ADD_NOTE } from '../actions';
 import { DELETE_NOTE } from '../actions';
+import { EDIT_NOTE } from '../actions';
 
 // const initialState = {
 //   notes: [
@@ -66,6 +67,20 @@ export default (state = initialState, action) => {
           if (note.id !== action.id) return note;
         })
       });
+
+    case EDIT_NOTE:
+      return Object.assign({}, {
+        notes: state.notes.map(note => {
+          if (note.id === action.id){
+              return {
+              title: action.payload.title,
+              text: action.payload.text,
+              id: action.id,
+            }
+          }
+          return note;
+        })
+      })
 
     default:
       return state;
