@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import DeletePopup from './deletePopup';
 
 const DeleteNote = (props) => {
+    // console.log('props', props);
     return (
         <div className="view-note-container">
-          <DeletePopup props={this.props}/>
+          <DeletePopup props={props}/>
           <div className="edit-button">
             <NavLink className="edit-link--popup" to="#">
               edit
