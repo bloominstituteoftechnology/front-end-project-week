@@ -4,6 +4,8 @@ const NotesViewStyled = styled.div`
   background-color: #f3f3f3;
   display: flex;
   min-height: 1000px;
+  width: 100%;
+  height: 100%;
   .LeftBar {
     background-color: #d7d7d7;
     padding: 15px;
@@ -104,6 +106,53 @@ const NotesViewStyled = styled.div`
       padding: 10px;
       font-size: 14px;
       white-space: pre-wrap;
+    }
+    .deleteModal {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 450px;
+      height: 140px;
+      background-color: white;
+      border: 1px solid black;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        text-align: center;
+      }
+      button {
+        width: 150px;
+        height: 35px;
+        margin: 5px;
+        padding: 5px 30px;
+        font-weight: bold;
+        border: 1px solid #f3f3f3;
+      }
+      .deleteButton {
+        background-color: #ce0a24;
+        color: white;
+      }
+      .noButton {
+        background-color: #35c0c3;
+        color: white;
+      }
+    }
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      background-color: white;
+      opacity: 0.6;
+      z-index: 2;
+      top: 0;
+      left: 0;
     }
   }
 `;
