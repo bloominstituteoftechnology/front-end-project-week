@@ -6,24 +6,30 @@
 
 .editNote__header {
   font-size: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   font-weight: bold;
 }
 
 .editNote__form {
   display: flex;
   flex-flow: column nowrap;
+  font-family: 'Raleway';
+  font-weight: 300;
+  margin-left: 2px;
 }
 
 .editNote__title-field {
   max-width: 500px;
-  width: 90%;
+  width: 411px;
   height: 30px;
+  font-family: 'Raleway';
+  font-weight: 300;
   font-size: 14px;
   border-radius: 3px;
-  border: 1px solid lightgray;
-  padding: 10px;
-  margin-bottom: 20px;
+  border: 1px solid rgb(153, 153, 153);
+  padding: 9px 0px 11px 15px;
+  box-shadow: inset 1px 1px 1px rgb(153, 153, 153);
+  margin-bottom: 15px;
 }
 
 .editNote__title-field:focus {
@@ -31,14 +37,17 @@
 }
 
 .editNote__content-field {
-  max-width: 600px;
-  padding: 10px;
-  width: 90%;
+  width: 690px;
+  padding: 25px 10px 10px 25px;
+  font-family: 'Raleway';
+  font-weight: 300;
   border-radius: 3px;
   font-size: 14px;
-  height: 400px;
-  border: 1px lightgray solid;
-  margin-bottom: 20px;
+  height: 380px;
+  border: 1px rgb(153, 153, 153) solid;
+  box-shadow: inset 1px 1px 1px rgb(153, 153, 153);
+  margin-bottom: 18px;
+  letter-spacing: 0.4px;
 }
 
 .editNote__content-field:focus {
@@ -46,12 +55,11 @@
 }
 
 .editNote__submit {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 13px;
   text-align: center;
   background: rgb(42, 192, 196);
-  border: 0px;
-  width: 200px;
+  border: 1px solid rgb(151, 151, 151);
+  width: 230px;
   color: white;
   font-size: 20px;
   cursor: default;

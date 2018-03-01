@@ -13,8 +13,6 @@
 .newNote__form {
   display: flex;
   flex-flow: column nowrap;
-  font-family: 'Raleway';
-  font-weight: 300;
   margin-left: 2px;
 }
 
@@ -23,8 +21,11 @@
   width: 411px;
   height: 30px;
   font-size: 14px;
+  font-family: 'Raleway';
+  font-weight: 300;
   border-radius: 3px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(153, 153, 153);
+  box-shadow: inset 1px 1px 1px rgb(153, 153, 153);
   padding: 9px 0px 11px 15px;
   margin-bottom: 15px;
 }
@@ -38,8 +39,11 @@
   padding: 25px 10px 10px 25px;
   border-radius: 3px;
   font-size: 14px;
+  font-family: 'Raleway';
+  font-weight: 300;
   height: 380px;
-  border: 1px lightgray solid;
+  border: 1px rgb(153, 153, 153) solid;
+  box-shadow: inset 1px 1px 1px rgb(153, 153, 153);
   margin-bottom: 18px;
 }
 

@@ -30,7 +30,7 @@ class EditNote extends React.Component {
   render() {
     return (
       <div className="editNote__container">
-        <div className="editNote__header">Create edit Note:</div>
+        <div className="editNote__header">Edit Note:</div>
         <form className="editNote__form" onSubmit={this.saveEdit}>
           <input
             type="text"
@@ -47,7 +47,7 @@ class EditNote extends React.Component {
             onChange={this.updateField}
             className="editNote__content-field"
           />
-          <input type="submit" value="Save" className="editNote__submit" />
+          <input type="submit" value="Update" className="editNote__submit" />
         </form>
         {this.state.redirect && <Redirect to={`/view/${this.state.note.id}`} />}
       </div>
