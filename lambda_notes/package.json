@@ -6,6 +6,7 @@
     "react": "^16.2.0",
     "react-csv-creator": "^1.0.8",
     "react-dom": "^16.2.0",
+    "react-markdown": "^3.2.2",
     "react-scripts": "1.1.1"
   },
   "scripts": {

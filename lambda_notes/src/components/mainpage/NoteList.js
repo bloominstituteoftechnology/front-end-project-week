@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import './notelist.css';
 
 const NoteList = (props) => {
@@ -12,7 +13,7 @@ const NoteList = (props) => {
       >
         <div className="noteList__box">
           <div className="noteList__box-title">{elem.title}</div>
-          <div className="noteList__box-content">{elem.content}</div>
+          <div className="noteList__box-content"><ReactMarkdown source={elem.content} /></div>
         </div>
       </div>
     );
