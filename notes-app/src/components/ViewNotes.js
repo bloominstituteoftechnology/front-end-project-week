@@ -12,12 +12,14 @@ class ViewNotes extends Component {
           <div className="ViewNotes__Text">
             Your Notes:
           </div>
-          {Object.keys(this.props.notes).map(sinNote => {
-            console.log(sinNote);
+          {Object.keys(this.props.notes).map(function(sinnote, index) {
             return (
-              <MultNote note={sinNote} />
+              <MultNote
+              title={this.props.notes[sinnote].title}
+              meat={this.props.notes[sinnote].meat}
+              />
             );
-          })}
+          }, this)}
         </div>
       </div>
     )

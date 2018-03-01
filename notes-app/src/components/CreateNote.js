@@ -60,7 +60,6 @@ class CreateNote extends Component {
     this.setState( // reset the state
       { title: '', meat: '', redirect: true, }
     );
-    console.log(this.state);
   }
 }
 
