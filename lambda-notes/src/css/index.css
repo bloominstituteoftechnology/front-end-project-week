@@ -39,6 +39,15 @@
   top: 264px;
   left: 23px;
 }
+@media (max-width: 1230px) {
+  .App .navButton-top {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .App .navButton-bottom {
+    padding: 17px auto;
+  }
+}
 .App .edit-button {
   position: absolute;
   top: 28px;

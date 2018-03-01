@@ -23,7 +23,7 @@ class NoteList extends Component {
             return (
               <div key={note.id}>
                 <NavLink className="note-list-note-link" to={`/note/${note.id}`}>
-                  <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 120)} />
+                  <NoteListNote title={this.clampNote(note.title, 10)} body={this.clampNote(note.body, 100)} />
                 </NavLink>
               </div>
             )
