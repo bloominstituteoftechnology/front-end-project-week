@@ -4,7 +4,7 @@ import NewNote from './Components/NewNote';
 import ViewNote from './Components/ViewNote';
 import UpdateNote from './Components/UpdateNote';
 import './App.css';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink,  Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -38,7 +38,6 @@ class App extends Component {
     this.notes = this.notes.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.submitNote = this.submitNote.bind(this);
-    this.noteDelete = this.noteDelete.bind(this);
   }
 
   render() {
@@ -60,11 +59,15 @@ class App extends Component {
               </li>
             </ul>
           </div>
+        
           <div className="mainContent">
+          <Switch>
             <Route path='/' component={this.notes} exact/>
             <Route path='/createNote' component={this.noteForm} exact/>
             <Route path='/:id' component={this.viewNote} />
             <Route path='/:id/update' component={this.updateNote} />
+            <Route component={this.notes} />
+        </Switch>
           </div>
         </div>
       </Router>
@@ -77,16 +80,23 @@ class App extends Component {
 
   viewNote = (props) => {
     
-    console.log(props.match.params);
     let id = props.match.params.id;
     let noteDelete = this.noteDelete;
-    if(id === 'createNote') {
+    if(id === 'createNote' || id === null) {
       return null;
     }
     let note = this.state.notes[id].note;
     let details = this.state.notes[id].details;
+    noteDelete = (e) => {
+     e.preventDefault();
+     this.setState({
+       notes: this.state.notes.splice(id, 1),
+       
+     })
+     console.log(this.state);
+    }
     return (
-      <ViewNote note={note} details={details} noteDelete={noteDelete}  />
+      <ViewNote note={note} details={details} id={id} noteDelete={noteDelete} updateNote={this.updateNote} />
     )
   }
   noteForm = () => {
@@ -104,10 +114,12 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value});
 }
 
-  updateNote = () => {
-    return (
-    <UpdateNote notes={this.state.notes}/>
-    )
+  updateNote = (props) => {
+    console.log(props);
+    let newProps = props;
+    this.setState({
+      props: newProps,
+    })
   }
   submitUpdate = (e) => {
     e.preventDefault();
@@ -115,14 +127,6 @@ class App extends Component {
       note: this.state.note,
       details: this.state.details,
     }
-  }
-
-   noteDelete = (e) => {
-    console.log(e);
-    e.preventDefault();
-    let newState = Object.assign({}, this.state);
-    newState.notes.event.target = null;
-    this.setState({ newState })
   }
   submitNote = (e) => {
       e.preventDefault();

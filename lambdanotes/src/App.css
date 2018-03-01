@@ -3,35 +3,75 @@
   display: flex;
   width: 1365px;
   align-content: center;
-  background: green;
+  background: #f3f3f3;
   height: 100%;
 }
 .mainContainer .navBar {
   display: flex;
   flex-direction: column;
   width: 340px;
-  background: grey;
+  background: #d8d8d8;
   font-family: Roboto;
+  color: #4a4a4a;
+  font-size: 27px;
 }
 .mainContainer .navBar ul {
   list-style-type: none;
 }
 .mainContainer .navBar .navButton {
+  background: #2bc0c4;
   margin-top: 100px;
-  margin-right: 50px;
+  margin-right: auto;
   width: 300px;
   height: 60px;
 }
+.mainContainer .navBar .navButton a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+}
+.mainContainer .navBar .navButton a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
 .mainContainer .navBar .navButton2 {
+  background: #2bc0c4;
   margin-top: 20px;
   margin-right: 50px;
   width: 300px;
   height: 60px;
+}
+.mainContainer .navBar .navButton2 a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+}
+.mainContainer .navBar .navButton2 a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton2 a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton2 a:visited {
+  color: #ffffff;
+  text-decoration: none;
 }
 .mainContainer .mainContent {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  background: red;
+  background: #f3f3f3;
 }
