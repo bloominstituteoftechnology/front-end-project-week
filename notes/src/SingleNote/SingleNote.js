@@ -32,7 +32,7 @@ class SingleNote extends Component {
   };
 
   editNote = event => {
-    //event.preventDefault();
+    // event.preventDefault();
 
     const editedNote = {
       title: this.state.title,
@@ -46,6 +46,8 @@ class SingleNote extends Component {
       body: '',
       editButtonPressed: !this.state.editButtonPressed,
     });
+
+    this.props.history.push(`/notes/${this.state.note.id}`);
   };
 
   deleteNote = () => {
@@ -68,6 +70,7 @@ class SingleNote extends Component {
             updateState={this.updateState}
             editNote={this.editNote}
             displayState={this.displayState}
+            id={this.state.note.id}
           />
         ) : (
           <div className="container">

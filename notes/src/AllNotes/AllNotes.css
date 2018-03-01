@@ -4,14 +4,13 @@
   border-left: 0px;
   background: #f3f3f3;
   padding-top: 10px;
-  min-height: 900px;
 }
 .all-notes_header {
   font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
   font-size: 25px;
   color: #4a494a;
   font-weight: bold;
-  margin: 65px  0px 33px 31px;
+  margin: 65px 0px 33px 31px;
 }
 
 .all-notes_notes {
@@ -57,6 +56,24 @@
   overflow: hidden;
 }
 
+.export-container {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+}
+
+.export-button {
+  width: 240px;
+  height: 53px;
+  margin: 100px 31px 15px 0px;
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: white;
+  background: #2ac0c4;
+  border: 1px solid #9b9b9b;
+}
 a {
   text-decoration: none;
 }

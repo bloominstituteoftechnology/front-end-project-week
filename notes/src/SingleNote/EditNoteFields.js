@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LeftBar from '../LeftBar/LeftBar';
 
-export const EditNoteFields = (props) => {
+export const EditNoteFields = props => {
   return (
     <div className="container">
       <LeftBar />
@@ -10,7 +10,6 @@ export const EditNoteFields = (props) => {
         <div className="new-note_header">Edit Note:</div>
         <div className="new-note_fields">
           <form type="submit">
-            {/* <form type="submit" onSubmit={props.editNote}> */}
             <div className="title-div">
               <input
                 type="text"
@@ -31,9 +30,14 @@ export const EditNoteFields = (props) => {
                 value={props.displayState('body')}
               />
             </div>
-            <Link to="/" onClick={props.editNote}>
-              <input type="submit" value="Update" className="update-button" />
-            </Link>
+            {/* <Link to={`/notes/${props.id}`}> */}
+              <input
+                onClick={props.editNote}
+                type="submit"
+                value="Update"
+                className="update-button"
+              />
+            {/* </Link> */}
           </form>
         </div>
       </div>
