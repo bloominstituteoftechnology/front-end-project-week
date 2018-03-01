@@ -1,13 +1,16 @@
 import * as actionTypes from '../actions/actions';
 
 const initialState = {
-  notes: [{
+  notes: [
+    {
       title: 'This is a tile',
       body: 'This is a body',
       id: 0,
-  }],
+    },
+  ],
   addingNote: false,
   currentNote: [],
+  filteredNotes: [],
   searchText: '',
   searching: false,
 };
@@ -42,17 +45,29 @@ export const rootReducer = (state = initialState, action) => {
             return note;
           }
           return {
-              ...action.payload,
+            ...action.payload,
           };
         }),
         currentNote: [],
       };
-      case actionTypes.SEARCH:
+    case actionTypes.SEARCH:
       return {
         ...state,
-        filteredNotes: state.notes.filter(note => note.title.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0 || note.body.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0 ),
+        filteredNotes: state.notes.filter(
+          note =>
+            note.title.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0
+            ||
+            note.body.toLowerCase().indexOf(action.payload.toLowerCase()) >= 0
+        ),
         searching: true,
-      }
+        searchText: action.payload,
+      };
+      case actionTypes.RESETSEARCH:
+      return {
+        ...state,
+        searching: action.payload,
+        filteredNotes: [],
+      };
     default:
       return state;
   }

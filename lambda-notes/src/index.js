@@ -6,7 +6,7 @@ import { rootReducer } from './reducers/reducer';
 import logger from 'redux-logger';
 import App from './containers/App';
 import { loadState, saveState } from './localStorage';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const persistedState = loadState();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -26,4 +26,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker();
+// registerServiceWorker();

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
-import { getNote, deleteNote } from '../actions/actions';
+import { getNote, deleteNote, resetSearch } from '../actions/actions';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -23,6 +23,7 @@ class NoteFull extends Component {
   };
   componentDidMount() {
     this.props.getNote(this.props.match.params.id);
+    this.props.resetSearch(false);
   }
 
   deleteNote = () => {
@@ -53,13 +54,18 @@ class NoteFull extends Component {
           shouldCloseOnOverlayClick={true}
         >
           <p>Are you sure you want to delete this?</p>
-          <div className='d-flex'>
-          <button onClick={this.deleteNote} type="button" className="btn delete">
-            Delete
-          </button>
-          <button onClick={this.closeModal} type="button" className="btn">
-            No
-          </button></div>
+          <div className="d-flex">
+            <button
+              onClick={this.deleteNote}
+              type="button"
+              className="btn delete"
+            >
+              Delete
+            </button>
+            <button onClick={this.closeModal} type="button" className="btn">
+              No
+            </button>
+          </div>
         </Modal>
         {this.props.currentNote.map(note => {
           return (
@@ -91,4 +97,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getNote, deleteNote })(NoteFull);
+export default connect(mapStateToProps, { getNote, deleteNote, resetSearch })(NoteFull);

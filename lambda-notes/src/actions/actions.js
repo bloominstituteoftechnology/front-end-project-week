@@ -3,6 +3,7 @@ export const GETNOTE = 'GETNOTE';
 export const DELETENOTE = 'DELETENOTE';
 export const UPDATENOTE = 'UPDATENOTE';
 export const SEARCH = 'SEARCH';
+export const RESETSEARCH = 'RESETSEARCH';
 
 export const addNote = (note) => {
     return {
@@ -34,9 +35,9 @@ export const search = (text) => {
         payload: text,
     }
 };
-// export const addNote = (note) => {
-//     return {
-//         type: NEWNOTE,
-//         payload: note
-//     }
-// };
+export const resetSearch = (resetAction) => {
+    return {
+        type: RESETSEARCH,
+        resetAction,
+    }
+};

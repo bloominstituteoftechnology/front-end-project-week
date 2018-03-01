@@ -9,11 +9,22 @@ class NoteGrid extends Component {
       <div>
         <h3>Your Notes</h3>
         <div className="row">
-          {this.props.notes.map((note, i) => {
-            return (
-              <Note title={note.title} body={note.body} key={i} id={note.id} />
-            );
-          })}
+          {this.props.searching && this.props.filteredNotes.length <= 0 ? (
+            <div className="col-12">
+              <p>Nothing Found...</p>
+              </div>
+          ) : (
+            this.props.notes.map((note, i) => {
+              return (
+                <Note
+                  title={note.title}
+                  body={note.body}
+                  key={i}
+                  id={note.id}
+                />
+              );
+            })
+          )}
         </div>
         {this.props.notes.length === 0 && (
           <div>
@@ -26,10 +37,10 @@ class NoteGrid extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.filteredNotes)
   return {
-    notes: state.notes,
-    searchedNotes: state.filteredNotes,
+    notes: state.filteredNotes.length > 0 ? state.filteredNotes : state.notes,
+    filteredNotes: state.filteredNotes,
+    searching: state.searching,
     error: state.error,
   };
 };

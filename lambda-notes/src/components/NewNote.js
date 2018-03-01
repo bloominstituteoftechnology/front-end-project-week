@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addNote } from '../actions/actions';
+import { addNote, resetSearch } from '../actions/actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './NewNote.css';
@@ -13,6 +13,9 @@ class NewNote extends Component {
     disabled: true,
   };
 
+  componentDidMount() {
+    this.props.resetSearch(false);
+  }
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -86,4 +89,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addNote })(NewNote);
+export default connect(mapStateToProps, { addNote, resetSearch })(NewNote);

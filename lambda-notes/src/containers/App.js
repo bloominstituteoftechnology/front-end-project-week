@@ -9,12 +9,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import WebFont from 'webfontloader';
 
-WebFont.load({
-  google: {
-    families: ['Raleway:400', 'Roboto:700', 'sans-serif']
-  }
-});
-
 class App extends Component {
   render() {
     return (
@@ -33,5 +27,9 @@ class App extends Component {
     );
   }
 }
-
+WebFont.load({
+  google: {
+    families: ['Raleway:400', 'Roboto:700', 'sans-serif']
+  }
+});
 export default App;
