@@ -136,7 +136,7 @@ body {
   display: flex;
 }
 .App header {
-  font-size: 30px;
+  font-size: 25px;
   padding-top: 40px;
   font-weight: 700;
   width: 100%;
@@ -151,4 +151,6 @@ body {
 .App .Notes-Section .Notes-Container {
   display: flex;
   flex-wrap: wrap;
+  overflow-wrap: break-word;
+  margin-bottom: 75px;
 }

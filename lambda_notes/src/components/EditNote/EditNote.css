@@ -1,29 +1,24 @@
-.Container {
-  display: flex;
-  height: 100%;
-  background-color: #F4F4F4;
-}
-.Container header {
+header {
   font-size: 25px;
   font-weight: 700;
 }
-.Container .New-Note {
+.Edit-Note {
   width: 100%;
   margin: 50px;
 }
-.Container .New-Note .New-Note-Form {
+.Edit-Note .Edit-Note-Form {
   display: flex;
   flex-direction: column;
 }
-.Container .New-Note .New-Note-Form .New-Note-Title {
+.Edit-Note .Edit-Note-Form .Edit-Note-Title {
   width: 60%;
   margin: 15px 0;
   padding: 10px;
 }
-.Container .New-Note .New-Note-Form .New-Note-Content {
+.Edit-Note .Edit-Note-Form .Edit-Note-Content {
   padding: 10px;
 }
-.Container .New-Note .New-Note-Form .Save-Button {
+.Edit-Note .Edit-Note-Form .Save-Button {
   background-color: #00CED1;
   border: 1px solid grey;
   color: white;

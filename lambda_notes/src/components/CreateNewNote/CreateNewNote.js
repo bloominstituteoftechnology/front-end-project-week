@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { connect } from 'react-redux';
 import { createNote } from '../../actions';
+import { Button } from 'semantic-ui-react';
 import './CreateNewNote.css';
 
 class CreateNewNote extends React.Component {
@@ -12,27 +13,28 @@ class CreateNewNote extends React.Component {
   render() {
     return (
       <div class="Container">
-        {/* <div className="Sidebar-Container"> */}
+        <div className="Sidebar-Container">
           <Sidebar />
-        {/* </div> */}
+        </div>
         <div className="New-Note">
           <header>
             <h2>Create New Note: </h2>
           </header>
           <form className="New-Note-Form" onSubmit={this.handleSubmit}>
-            <input type="text" 
+            <input className="New-Note-Title"
+              type="text" 
               placeholder="Note Title"
               value={this.state.title}
               onChange={this.handleTitleChange}
             />
-            <textarea 
+            <textarea className="New-Note-Content"
               rows="20" 
-              cols="50" 
+              cols="30" 
               placeholder="Note Content"
               value={this.state.content}
               onChange={this.handleContentChange}>
             </textarea>
-            <button type="submit">Save</button>
+            <button className="Save-Button" type="submit">Save</button>
           </form>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { editNote } from '../../actions';
+import './EditNote.css'
 
 class EditNote extends React.Component {
   state = {
@@ -11,23 +12,30 @@ class EditNote extends React.Component {
   }
   render() {
     return (
-    <div className="EditNote-Container">
-      <Sidebar />
-      <div className="EditNote">
-        <h2>Edit Note: </h2>
-        <input type="text" 
+    <div className="Container">
+      <div className="Sidebar-Container">
+        <Sidebar />
+      </div>
+      <div className="Edit-Note">
+        <header>
+          <h2>Edit Note: </h2>
+        </header>
+        <form className="Edit-Note-Form" onSubmit={this.handleSubmit}>
+        <input className="Edit-Note-Title" 
+          type="text" 
           placeholder="Note Title" 
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
-        <textarea 
+        <textarea className="Edit-Note-Content"
           rows="20" 
-          cols="50" 
+          cols="30" 
           placeholder="Note Content"
           value={this.state.content}
           onChange={this.handleContentChange}>
         </textarea>
-        <button onClick={this.handleSubmit}>Update</button>
+        <button className="Save-Button" type="submit">Update</button>
+        </form>
       </div>
     </div>
     )

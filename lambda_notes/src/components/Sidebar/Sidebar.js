@@ -10,14 +10,14 @@ const Sidebar = () => {
         <h1>Lambda Notes</h1>
         <div className="Sidebar-buttons">
         <Link to="/">
-          <Button color="teal" className="Sidebar-button" >
+          <button className="Sidebar-button" >
             View Your Notes
-          </Button>
+          </button>
         </Link>
         <Link to="/create">
-          <Button color="teal" className="Sidebar-button">
-            + Create New Note
-          </Button>
+          <button className="Sidebar-button">
+              + Create New Note
+          </button>
         </Link>
         </div>
       </div>
