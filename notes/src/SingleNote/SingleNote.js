@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteNote, editNote } from '../Redux/actions';
+import { deleteNote, editNote, addNote } from '../Redux/actions';
 import LeftBar from '../LeftBar/LeftBar';
 import './SingleNote.css';
 
@@ -27,20 +27,33 @@ class SingleNote extends Component {
   };
 
   editNote = event => {
-    //event.preventDefault();
+    // event.preventDefault();
 
     const editedNote = {
       title: this.state.title,
       content: this.state.content,
     };
 
-    this.props.editNote(editedNote, this.state.note.id);
+    // const promise1 = new Promise((res, re) => {
+    //   this.props.editNote(this.state.note);
+    // });
+    // const promise2 = new Promise((res, re) => {
+    //   this.props.addNote(editedNote);
+    // });
+    // Promise.all([promise1, promise2]).then(() => {
+    //    the setState stuff
+    // });
+
+    this.props.editNote(this.state.note);
+    this.props.addNote(editedNote);
 
     this.setState({
       title: '',
       content: '',
       editButtonPressed: !this.state.editButtonPressed,
     });
+
+    // this.props.history.push('/');
   };
 
   deleteNote = () => {
@@ -105,9 +118,12 @@ class SingleNote extends Component {
                   value={this.state.content}
                 />
               </div>
-              <Link to="/" onClick={this.editNote}>
-                <input type="submit" value="Update" className="update-button" />
-              </Link>
+              <input
+                onClick={this.editNote}
+                type="submit"
+                value="Update"
+                className="update-button"
+              />
             </form>
           </div>
         </div>
@@ -151,4 +167,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { deleteNote, editNote })(SingleNote);
+export default connect(mapStateToProps, { deleteNote, editNote, addNote })(
+  SingleNote
+);

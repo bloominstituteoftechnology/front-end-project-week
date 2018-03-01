@@ -15,12 +15,15 @@ export const getNotes = () => {
         dispatch({ type: GET_NOTES, payload: payload.data });
       })
       .catch(error => {
-        console.log('In actions: There was an error getting notes: ', error);
+        console.log(
+          'In actions: There was an error getting the notes: ',
+          error
+        );
       });
   };
 };
 
-export const addNote = (newNote, cb) => {
+export const addNote = newNote => {
   const notes = axios.post(`${APIroot}${APIkey}`, newNote);
   return dispatch => {
     notes
@@ -30,9 +33,8 @@ export const addNote = (newNote, cb) => {
           payload: newNote.data,
         });
       })
-      .then(cb())
       .catch(error => {
-        console.log('In actions: There was an error adding note: ', error);
+        console.log('In actions: There was an error adding the note: ', error);
       });
   };
 };
@@ -45,15 +47,23 @@ export const deleteNote = oldNote => {
         dispatch({ type: DELETE_NOTE, payload: payload.data });
       })
       .catch(error => {
-        console.log('In actions: There was an error deleting note: ', error);
+        console.log(
+          'In actions: There was an error deleting the note: ',
+          error
+        );
       });
   };
 };
 
-export const editNote = (editedNote, id) => {
-  return {
-    type: EDIT_NOTE,
-    payload: editedNote,
-    id: id,
+export const editNote = editedNote => {
+  const notes = axios.delete(`${APIroot}${editedNote.id}${APIkey}`);
+  return dispatch => {
+    notes
+      .then(payload => {
+        dispatch({ type: EDIT_NOTE, payload: payload.data });
+      })
+      .catch(error => {
+        console.log('In actions: There was an error editing the note: ', error);
+      });
   };
 };

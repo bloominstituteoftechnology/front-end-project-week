@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './LeftBar.css';
 
-export const LeftBar = () => {
+export const LeftBar = (props) => {
   return (
     <div className="left-bar">
       <div className="left-bar_header">Lambda Notes</div>

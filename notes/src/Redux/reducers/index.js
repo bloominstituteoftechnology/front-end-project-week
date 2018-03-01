@@ -19,6 +19,7 @@ export const reducer = (state = initialState, action) => {
           {
             title: action.payload.title,
             content: action.payload.content,
+            id: action.payload.id,
           },
         ],
       };
@@ -30,24 +31,29 @@ export const reducer = (state = initialState, action) => {
         }),
       };
     case EDIT_NOTE:
-      let newNotes = state.notes.map(each => {
-        if (each.id === action.id) {
-          if (action.payload.title === '') action.payload.title = each.title;
-          if (action.payload.content === '')
-            action.payload.content = each.content;
-          return {
-            title: action.payload.title,
-            content: action.payload.content,
-            id: action.id,
-          };
-        }
-        return each;
-      });
-
       return {
         ...state,
-        notes: newNotes,
+        notes: state.notes.filter(each => {
+          return each.id !== action.payload.id;
+        }),
       };
+    // case EDIT_NOTE:
+    //   let newNotes = state.notes.map(each => {
+    //     if (each.id === action.id) {
+    //       if (action.payload.title === '') action.payload.title = each.title;
+    //       if (action.payload.content === '') action.payload.content = each.content;
+    //       return {
+    //         title: action.payload.title,
+    //         content: action.payload.content,
+    //         id: action.id,
+    //       };
+    //     }
+    //     return each;
+    //   });
+    //   return {
+    //     ...state,
+    //     notes: newNotes,
+    //   };
     default:
       return state;
   }
