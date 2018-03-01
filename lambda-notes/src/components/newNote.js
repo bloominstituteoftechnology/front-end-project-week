@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { NavLink } from 'react-router-dom';
 
 class NewNote extends Component {
   state = {
@@ -19,11 +18,13 @@ class NewNote extends Component {
         this.setState({ id: nextId, title: this.state.title, body: this.state.body })
         notes.push(this.state);
         notes.slice(-1)[0].id = nextId;
+        this.props.history.go(-1)
       } else { 
         let nextId = notes.slice(-1)[0].id + 1
         this.setState({ id: nextId, title: this.state.title, body: this.state.body })
         notes.push(this.state);
         notes.slice(-1)[0].id = nextId; // this is crazy and shouldn't work this way but it does
+        this.props.history.go(-1)
       }
   }
   noteChangeHandler = (event) => {
@@ -36,12 +37,13 @@ class NewNote extends Component {
       // console.log('what is state here: ', this.state)
       // console.log('what is props here: ', this.props)
       // console.log(this);
-      // console.log(this.props);
+      console.log(this.props);
       // console.log(this.props.notes);
       // console.log(this.props.notes.slice(-1));
       // console.log(this.props.notes.slice(-1)[0]);
       // console.log(this.props.notes.slice(-1)[0].id);
       // console.log(this.props.notes.concat(this.state))
+      // console.log('this.history ', this.history)
       return (
           <div className="new-note-container">
             <div className="note-list__title">Create New Note:</div>                
