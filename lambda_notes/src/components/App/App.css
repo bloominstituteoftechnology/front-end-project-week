@@ -134,6 +134,7 @@ body {
 .App {
   width: 100%;
   display: flex;
+  min-height: 1000px;
 }
 .App header {
   font-size: 25px;
