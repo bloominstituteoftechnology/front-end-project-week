@@ -59,7 +59,7 @@ class App extends Component {
 
   DeleteModal = () => {
     return (
-      <div>
+      <div className='Delete-Modal'>
         <button type='submit'>Confirm?</button>
         <button type='submit'>JK!</button>
       </div>     
@@ -91,7 +91,7 @@ class App extends Component {
           <Route path='/' component={() => <NoteContainer notes={this.state.notes} />} exact />
           <Route path='/NewNoteForm' component={this.NewNoteForm} />
           <Route path='/:id/:title/:content' component={this.viewNote} />
-          <Route path='/DeleteModal' component={this.DeleteModal} />
+          <Route path='/:id/:title/:content/DeleteModal' component={this.DeleteModal} />
         </div>
       </Router>
     );

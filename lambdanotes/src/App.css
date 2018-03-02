@@ -2,6 +2,13 @@
   display: flex;
 }
 
+.DeleteModal {
+  z-index: 999;
+  width: 400px;
+  height: 400px;
+  color: red;
+}
+
 .Left-bar {
   width: 10%;
   height: 100%;
