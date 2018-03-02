@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class EditNote extends Component {
     state ={
         id: +this.props.match.params.id,
-        title: this.props.notes[this.props.match.params.id].title,
-        body: this.props.notes[this.props.match.params.id].body,
+        title: this.props.notes.title,
+        body: this.props.notes.body,
         
     }
   getNoteIndex = () => {
