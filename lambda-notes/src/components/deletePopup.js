@@ -44,7 +44,7 @@ class DeletePopup extends Component {
           <div className="popup__btn-container">
             <NavLink to={`/`} className="popup__delete-btn" onClick={noteDeleteHandler}>Delete</NavLink> 
             {/* <NavLink to={`/`} className="popup__delete-btn" >Delete</NavLink>  */}
-            <NavLink to={`/note/${this.props.props.match.params.id}`} className="popup__no-btn">No</NavLink>
+            <NavLink to={`/note/${this.props.props.match.params.id}/${this.props.props.match.params.title}/${this.props.props.match.params.body}`} className="popup__no-btn">No</NavLink>
           </div>
         </div>
       </div>

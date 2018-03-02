@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import DeletePopup from './deletePopup';
 
 const DeleteNote = (props) => {
-    console.log('props', props);
+    // console.log('props', props);
     const getNoteIndex = () => {
       for (let i = 0; i < props.notes.length; i++) {
           if (+props.match.params.id === props.notes[i].id) {

@@ -26,13 +26,13 @@ const CoreRail = (props) => {
                 )} path="/new"/>
             <Route render={(routeProps) => (
                     <ViewNote {...routeProps} {...props} />
-                )} path="/note/:id" />
+                )} path="/note/:id/:title/:body" />
             <Route render={(routeProps) => (
                     <EditNote {...routeProps} {...props} />
-                )} path="/edit/:id" />
+                )} path="/edit/:id/:title/:body" />
             <Route render={(routeProps) => (
                     <DeleteNote {...routeProps} {...props} />
-                )} path="/delete/:id" />
+                )} path="/delete/:id/:title/:body" />
           </div>
         </Router>
       </div>
