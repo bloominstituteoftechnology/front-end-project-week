@@ -45,7 +45,8 @@ class App extends React.Component {
   }
 
   handleClickForSave = (newNote) => {
-    fire.database().ref('notes2').update([...this.state.notes, newNote]);
+    let tempArr = [newNote, ...this.state.notes];
+    fire.database().ref('notes2').update(tempArr.reverse());
     this.setState({
       notes: [newNote, ...this.state.notes],
       showAddWin: !this.state.showAddWin
