@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import { SortableContainer, arrayMove } from 'react-sortable-hoc';
 import Note from './Note';
@@ -11,22 +10,21 @@ const SortableList = SortableContainer(props => {
     <ul className="YourNotes-NoteList">
     {props.notes.map((note, index) => {
       return (
-        <Link to={"/view"} key={note.id} onClick={() => {props.handleNoteIndex(note.id)}}>
-          <Note
-            onSortEnd={props.onSortEnd}
-            note={note}
-            index={index}
-            title={note.title}
-            body={note.body}
-          />
-        </Link>
+        <Note
+          key={note.id}
+          note={note}
+          index={index}
+          title={note.title}
+          body={note.body}
+          handleNoteIndex={props.handleNoteIndex}
+        />
       );
     })}
   </ul>
   );
 });
 
-class NoteList extends React.Component {
+export default class NoteList extends React.Component {
   boolEmptyNotes = true;
 
   state = {
@@ -59,7 +57,7 @@ class NoteList extends React.Component {
           <h3 className="YourNotes-Empty">It looks like you don't have any notes yet, click "Create New Note" to get started!</h3>
         ) 
         : (null)}
-        <SortableList lockToContainerEdges={true} axis={"xy"} notes={this.state.notes} onSortEnd={this.onSortEnd} handleNoteIndex={this.handleNoteIndex} />
+        <SortableList pressDelay={90} lockToContainerEdges={true} axis={"xy"} notes={this.state.notes} onSortEnd={this.onSortEnd} handleNoteIndex={this.handleNoteIndex} />
         {!this.boolEmptyNotes ? (
           <CSVLink className="YourNotes-CSV" data={this.state.notes} filename={"lambda-notes.csv"}>Download CSV</CSVLink>
         ) : (null)}
@@ -67,5 +65,3 @@ class NoteList extends React.Component {
     );
   };
 }
-
-export default NoteList;
