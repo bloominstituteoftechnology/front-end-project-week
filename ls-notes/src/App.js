@@ -26,11 +26,63 @@ class App extends Component {
         {/* Notes lists and all other view elements go below here */}
           <div className="Notes-panel">
             <div className="View-header">
-                <h1>Your Notes {this.props.pageHeader}</h1>
+                <h1>Your Notes: {this.props.pageHeader}</h1>
             </div>
             <div>
               <ul>
                 <li className="Note-row">
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                </li>
+                <li className="Note-row">
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                </li>
+                <li className="Note-row">
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
                   <div className="NoteItem">
                   <div className="Note-header">
                       <h3>Note #1 Title {this.props.title}</h3>
