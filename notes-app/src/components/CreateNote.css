@@ -1,0 +1,31 @@
+textarea {
+  resize: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.CreateNote__Text {
+  font-family: "Roboto Bold";
+  font-size: 28px;
+  color: #434243;
+  font-weight: bold;
+  margin-top: 65px;
+}
+
+.CreateNote__Title {
+  margin-top: 38px;
+}
+
+.CreateNote__Content {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  margin-top: 15px;
+}
+
+.CreateNote__Save {
+  margin-top: 15px;
+  width: 200px;
+  border: 1px solid #859393;
+  text-decoration: none;
+}
