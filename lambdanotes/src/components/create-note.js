@@ -76,7 +76,7 @@ class CreateNote extends Component {
   render() {
     return (
       <CreateNoteStyled>
-        <h1>Create New Note:</h1>
+        <h2>Create New Note:</h2>
         <input
           className="NoteTitleInput"
           type="text"
