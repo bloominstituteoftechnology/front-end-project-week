@@ -11,12 +11,21 @@ const NoteList = props => {
   return (
     <div className="noteList__container">
       <h1 className="notesList__header">Your Notes:</h1>
-      <CSVLink data={props.notes}>Download</CSVLink>
+      <CSVLink
+        data={props.notes}
+        filename={'my-notes.csv'}
+        className="noteList__download"
+      >
+        download
+      </CSVLink>
       <div className="noteList">
         {props.notes.map(note => {
           return (
             <div key={note.id} className="notelist__item">
-              <Link to={`/view/${note.id}`} onClick={() => props.selectNote(note.id)}>
+              <Link
+                to={`/view/${note.id}`}
+                onClick={() => props.selectNote(note.id)}
+              >
                 <NoteThumb note={note} />
               </Link>
             </div>
@@ -33,4 +42,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps,{ selectNote })(NoteList);
+export default connect(mapStateToProps, { selectNote })(NoteList);
