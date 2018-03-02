@@ -1,0 +1,172 @@
+.container {
+  display: flex;
+  max-width: 1600px;
+  margin-left: 147px;
+  margin-right: 147px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #242424;
+  height: 100%;
+}
+.container .leftPanel {
+  width: 400px;
+  background-color: #cecbcb;
+}
+.container .leftPanel .leftHeader {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: bold;
+  padding-top: 30px;
+  padding-left: 25px;
+  color: #464646;
+}
+.container .leftPanel button {
+  text-decoration: none;
+  width: 250px;
+  height: 75px;
+  margin: 40px 20px;
+  margin-bottom: 0;
+  background-color: #08cccc;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+.container .leftPanel button:hover {
+  border: green 5px solid;
+  cursor: pointer;
+}
+.container .rightPanel {
+  background-color: #e6e3e3;
+  padding: 102px 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.container .rightPanel .header {
+  font-size: 2rem;
+  width: 225px;
+  font-weight: bold;
+}
+.container .rightPanel .search {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  width: 75%;
+}
+.container .rightPanel .search input {
+  font-size: 1.5rem;
+  height: 40px;
+  width: 75%;
+}
+.container .rightPanel .note {
+  border: grey 2px solid;
+  background-color: white;
+  padding: 30px;
+  height: 350px;
+  width: 340px;
+  margin-top: 40px;
+}
+.container .rightPanel .note:hover {
+  border: green 5px solid;
+  cursor: pointer;
+}
+.container .rightPanel .note .noteTitle {
+  padding-bottom: 10px;
+  font-weight: bold;
+  border-bottom: solid 2px grey;
+  line-height: 1;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  color: #1f1f1f;
+}
+.container .rightPanel .note .noteContent {
+  line-height: 2;
+  padding-top: 15px;
+  font-size: 1rem;
+  height: 250px;
+  color: #1f1f1f;
+  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: hidden;
+}
+.container .editNote {
+  background-color: #e6e3e3;
+  padding: 100px 75px;
+  width: 110%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.container .editNote .header {
+  margin: 0;
+  padding: 0;
+}
+.container .editNote .noteTitle {
+  text-align: start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 60px;
+  padding: 30px 15px;
+  height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.container .editNote .noteContent {
+  line-height: 30px;
+  font-size: 0.75rem;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+}
+.container .editNote .save {
+  text-decoration: none;
+  width: 250px;
+  height: 75px;
+  margin-bottom: 0;
+  background-color: #08cccc;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bolder;
+}
+.container .editNote .save:hover {
+  border: green 5px solid;
+  cursor: pointer;
+}
+.container .singleNote {
+  display: flex;
+  flex-direction: column;
+  width: 110%;
+  padding: 15px 30px;
+  background: #e6e3e3;
+  height: 100vh;
+}
+.container .singleNote .buttonDisplay {
+  width: 100%;
+  text-align: right;
+}
+.container .singleNote .buttonDisplay button {
+  margin-left: 9px;
+  margin-right: 9px;
+  text-decoration: underline;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  width: fit-content;
+  font-size: 1rem;
+}
+.container .singleNote .noteTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-top: 25px;
+}
+.container .singleNote .noteContent {
+  padding-top: 35px;
+  line-height: 30px;
+  font-size: 1rem;
+}
