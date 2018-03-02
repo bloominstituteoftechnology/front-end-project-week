@@ -18,9 +18,11 @@ const NoteList = props => {
       >
         download
       </CSVLink>
-      <div>sort by:</div>
-      <div onClick={() => props.sortNotes('id')}>date</div>
-      <div onClick={() => props.sortNotes('title')}>name</div>
+      <div className="noteList__sort-options">
+        <div className="noteList__sort-title">sort by:</div>
+        <div onClick={() => props.sortNotes('id')} className="noteList__sort-option">date</div>
+        <div onClick={() => props.sortNotes('title')} className="noteList__sort-option">name</div>
+      </div>
       <div className="noteList">
         {props.notes.map(note => {
           return (

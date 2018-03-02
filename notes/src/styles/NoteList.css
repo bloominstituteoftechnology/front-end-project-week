@@ -24,9 +24,26 @@
   cursor: pointer;
 }
 
+.noteList__sort-options {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  margin-right: 40px;
+  color: rgb(74, 74, 74);
+  letter-spacing: 0.1px;
+  margin-top: -26px;
+}
+
+.noteList__sort-option {
+  text-decoration: underline;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 .noteList {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   margin-left: 4px;
+  margin-top: 10px;
 }
