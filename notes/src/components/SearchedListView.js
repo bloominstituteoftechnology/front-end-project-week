@@ -8,6 +8,7 @@ import DeleteNoteModal from './DeleteNoteModal';
 import removeMd from 'remove-markdown';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import Search from './Search';
+import SortingMenu from './SortingMenu';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
   <li className='list-note' onClick={() => { viewNote(note)} }>
@@ -67,7 +68,7 @@ class SearchedListView extends React.Component {
         <Search history={this.props.history} terms={this.props.match.params.terms}/>
         {this.props.searchResults ?
         <div>
-          <h2 className='list-title'>Your Notes:</h2>
+          <div className='list-title-container'><h2 className='list-title'>Your Notes:</h2><SortingMenu searched={true}/></div>
           <SortableList viewNote={this.viewNote} notes={this.props.searchResults} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
         </div>
         :
@@ -86,6 +87,8 @@ const mapStateToProps = (state) => {
   return {
     searchResults: state.searchResults,
     searchTerms: state.searchTerms,
+    sorted: state.sorted,
+    hash: state.hash,
   };
 };
 

@@ -37,11 +37,12 @@ export const reorderNotes = (newNotes, searching) => {
   }
 }
 
-export const sortNotes = (sortedNotes, direction) => {
+export const sortNotes = (sortedNotes, direction, searching) => {
   return {
     type: 'SORT_NOTES',
     payload: sortedNotes,
     sorted: direction,
+    searching: searching,
     hash: shortid.generate(),
   }
 }

@@ -21,14 +21,14 @@ class SortingMenu extends React.Component {
 
 
   sortByDate = (order) => {
-    const notesToSort = this.props.notes;
+    const notesToSort = this.props.searched ? this.props.searchResults : this.props.notes;
     switch (order) {
       case 'oldest':
         const sortedNotesOldest = notesToSort.sort((a, b) => {
           return Date.parse(a.dateCreated) - Date.parse(b.dateCreated);
         });
         console.log(sortedNotesOldest);
-        this.props.sortNotes(sortedNotesOldest, 'oldest');
+        this.props.sortNotes(sortedNotesOldest, 'oldest', this.props.searched);
         break;
 
       case 'newest':
@@ -36,7 +36,7 @@ class SortingMenu extends React.Component {
           return Date.parse(b.dateCreated) - Date.parse(a.dateCreated);
         });
         console.log(sortedNotesNewest);
-        this.props.sortNotes(sortedNotesNewest, 'newest');
+        this.props.sortNotes(sortedNotesNewest, 'newest', this.props.searched);
         break;
 
       case 'title_a-z':
@@ -49,7 +49,7 @@ class SortingMenu extends React.Component {
           return 0;
         });
         console.log(sortedNotesAlpha);
-        this.props.sortNotes(sortedNotesAlpha, 'title_a-z');
+        this.props.sortNotes(sortedNotesAlpha, 'title_a-z', this.props.searched);
         break;
 
 
@@ -63,7 +63,7 @@ class SortingMenu extends React.Component {
           return 0;
         });
         console.log(sortedNotesAlphaRev);
-        this.props.sortNotes(sortedNotesAlphaRev, 'title_z-a');
+        this.props.sortNotes(sortedNotesAlphaRev, 'title_z-a', this.props.searched);
         break;
 
       default:
@@ -92,6 +92,7 @@ class SortingMenu extends React.Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    searchResults: state.searchResults,
     sorted: state.sorted,
     created: state.created,
   };
