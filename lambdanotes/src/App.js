@@ -5,6 +5,7 @@ import ViewNote from './Components/ViewNote';
 import UpdateNote from './Components/UpdateNote';
 import './App.css';
 import { BrowserRouter as Router, Route, NavLink,  Switch } from 'react-router-dom';
+
 class App extends Component {
   constructor() {
     super();
@@ -68,8 +69,17 @@ class App extends Component {
      e.preventDefault();
      let arrayItem = this.state.notes[id];
      let newObj = this.state.notes.filter(item => item !== arrayItem);
+     let newerObj = newObj.map(noteObj => {
+       return noteObj = {
+         note: noteObj.note,
+         details: noteObj.details,
+         id: newObj.indexOf(noteObj),
+       }
+     })
+     console.log(newerObj);
+    
      this.setState({
-       notes: newObj,
+       notes: newerObj,
        
      })
      return props.history.push('/', this.state)
@@ -113,6 +123,7 @@ class App extends Component {
       let newObj = {
         note: this.state.note, 
         details: this.state.details,
+        id: this.state.notes.length,
       };
       this.setState({
         notes: [...this.state.notes, newObj],
@@ -120,6 +131,7 @@ class App extends Component {
       this.setState({
           note: '',
           details: '',
+          id: '',
       });
     }
   }

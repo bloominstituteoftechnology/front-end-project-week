@@ -8,10 +8,8 @@ const NoteList = (props) => {
                     <h1> Your Notes: </h1>
                     <div className="singleNote">
                         {props.notes.map(noteObj => {
-                            console.log(props.notes.indexOf(noteObj))
-                           
                             return (
-                            <Note key={props.notes.indexOf(noteObj)} noteObj={noteObj} id={props.notes.indexOf(noteObj)} />
+                            <Note key={noteObj.id} noteObj={noteObj} id={noteObj.id} />
                             )
                         })}
                     </div>
