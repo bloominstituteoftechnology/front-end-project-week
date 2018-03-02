@@ -9,14 +9,6 @@ class OneNote extends Component {
     fireRedirect: false
   };
 
-  // deletes the correct prop, but renders the entire function before placing the <Redirect>
-  handleDelete = event => {
-    event.preventDefault();
-    this.props.deleteNote(this.props.notes[this.props.id].id);
-    this.setState({ fireRedirect: true });
-    console.log("fireRedirect in Delete is", this.state.fireRedirect);
-  };
-
   render() {
     return (
       <div className="OneNote">
@@ -26,10 +18,6 @@ class OneNote extends Component {
             delete
           </a>
         </div>
-        {console.log(
-          "right before error, fireRedirect is",
-          this.state.fireRedirect
-        )}
         {this.state.fireRedirect && <Redirect to="/" />}
         <h2>
           {!this.state.fireRedirect
@@ -57,7 +45,10 @@ class OneNote extends Component {
                 </button>
               </div>
             </div>
-            <div className="background" onClick={this.handleClickOnToggleDeleteModal}/>
+            <div
+              className="background"
+              onClick={this.handleClickOnToggleDeleteModal}
+            />
           </div>
         )}
       </div>
@@ -65,13 +56,19 @@ class OneNote extends Component {
   }
 
   componentWillMount = () => {
-    console.log('updateSelected called from OneNote');
     this.props.updateSelected(this.props.notes[this.props.id].id);
   };
 
   handleClickOnToggleDeleteModal = e => {
     e.preventDefault();
     this.setState({ showModal: !this.state.showModal });
+  };
+
+  // deletes the correct prop, but renders the entire function before placing the <Redirect>
+  handleDelete = event => {
+    event.preventDefault();
+    this.props.deleteNote(this.props.notes[this.props.id].id);
+    this.setState({ fireRedirect: true });
   };
 }
 
@@ -84,8 +81,3 @@ const mapPropToStates = state => {
 export default connect(mapPropToStates, { updateSelected, deleteNote })(
   OneNote
 );
-
-// state.filter(note => {
-//   console.log('this.props is', this.props);
-//   if (note.id === this.props.id) return note;
-// })

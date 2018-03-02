@@ -49,7 +49,6 @@ class CreateView extends Component {
     event.preventDefault();
     this.props.addNote(this.state);
     this.setState({ title: "", text: "", fireRedirect: true });
-    console.log('fireRedirect in Create is', this.state.fireRedirect);
   };
 }
 

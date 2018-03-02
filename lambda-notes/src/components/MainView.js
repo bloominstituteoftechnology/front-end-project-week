@@ -21,7 +21,7 @@ class MainView extends Component {
                 {note.selected ? (
                   <Redirect to={`/note/${note.id}`} />
                 ) : (
-                  console.log("still not going through redirect", note.selected)
+                  console.log("not going through redirect")
                 )}
               </form>
             );

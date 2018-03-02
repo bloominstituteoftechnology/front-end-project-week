@@ -50,7 +50,6 @@ class EditView extends Component {
     event.preventDefault();
     this.props.editNote(this.state);
     this.setState({ fireRedirect: true });
-    console.log('fireRedirect in Edit is', this.state.fireRedirect);
   };
 }
 
