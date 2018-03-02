@@ -1,0 +1,19 @@
+.note {
+  width: 29%;
+  background: white;
+  border: 1px solid lightgray;
+  margin: 10px;
+  padding: 10px;
+  padding-bottom: 20px;
+  height: 185px;
+  overflow: hidden;
+}
+
+.note:hover {
+  cursor: pointer;
+}
+
+.note-date {
+  font-size: 0.6rem;
+  overflow: hidden;
+}

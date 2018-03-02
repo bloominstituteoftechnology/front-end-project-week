@@ -1,0 +1,39 @@
+.create {
+  background-color: #f0f0f0;
+  border: 1px solid grey;
+  border-left: 0px;
+  width: 75%;
+  padding: 20px;
+}
+
+.create-header {
+  font-size: 1.5rem;
+  padding: 20px 20px 20px 0;
+  padding-top: 40px;
+}
+
+.create-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.save {
+  width: 25%;
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.title-input {
+  width: 60%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.body-input {
+  width: 100%;
+  padding: 10px;
+  height: 300px;
+}

@@ -1,0 +1,36 @@
+.checklist {
+  display: flex;
+  flex-direction: column;
+}
+
+.checklist-header {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border: 1px 1px 0 1px;
+  font-size: 1.2rem;
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+  border: 1px 1px 0 1px;
+  padding: 5px;
+}
+
+.items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid grey;
+  padding: 5px;
+}
+
+.note-input {
+  padding: 5px;
+}
+
+.check-buttons {
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+}

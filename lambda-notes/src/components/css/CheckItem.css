@@ -1,0 +1,7 @@
+.check-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid grey;
+  padding: 10px;
+}

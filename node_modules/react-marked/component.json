@@ -1,0 +1,10 @@
+{
+  "name": "react-marked",
+  "version": "0.3.1",
+  "repo": "LinuxBasic/react-marked",
+  "description": "A markdown parser built for speed that works with react",
+  "keywords": ["markdown", "markup", "html","react"],
+  "scripts": ["lib/marked.js"],
+  "main": "lib/marked.js",
+  "license": "MIT"
+}

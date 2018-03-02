@@ -1,0 +1,66 @@
+.view {
+  background-color: #f0f0f0;
+  border: 1px solid grey;
+  border-left: 0px;
+  width: 75%;
+  padding: 20px;
+  position: relative;
+}
+
+.view-header {
+  font-size: 1.5rem;
+  padding: 10px 20px 20px 0;
+  padding-top: 40px;
+}
+
+.view-body {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 20px;
+}
+
+.edit {
+  position: absolute;
+  top: 15px;
+  right: 80px;
+  text-decoration: underline;
+}
+
+.edit:hover {
+  cursor: pointer;
+}
+
+.delete {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  text-decoration: underline;
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.modal-delete {
+  background: red;
+  color: white;
+  font-weight: bold;
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.modal-no {
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+  width: 40%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.checklist {
+  margin-top: 20px;
+}

@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.container {
+  width: 70%;
+  max-width: 800px;
+  display: flex;
+  flex-basis: row;
+  min-height: 100%;
+  overflow: visible;
+}

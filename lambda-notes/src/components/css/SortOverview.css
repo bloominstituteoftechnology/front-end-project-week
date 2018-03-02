@@ -1,0 +1,28 @@
+.sort {
+  background-color: #f0f0f0;
+  border: 1px solid grey;
+  border-left: 0px;
+  width: 75%;
+  padding: 20px;
+  min-height: 100%;
+}
+
+.sort-header {
+  font-size: 1.5rem;
+  padding: 20px 20px 20px 0;
+  padding-top: 40px;
+}
+
+.sorted-notes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sort-buttons {
+  margin-top: 10px;
+  padding: 10px;
+  width: 50%;
+  background: #6dcfca;
+  color: white;
+  font-weight: bold;
+}
