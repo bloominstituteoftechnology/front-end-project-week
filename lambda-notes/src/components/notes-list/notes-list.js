@@ -8,7 +8,8 @@ class NotesList extends Component {
   state = {
     notesListHeading: "Your Notes:",
     notes,
-  }
+  };
+  
   render() {
     return (
       <div className="lambda-notes">
