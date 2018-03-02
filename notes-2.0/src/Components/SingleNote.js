@@ -1,10 +1,7 @@
 import React from "react";
 
 const SingleNote = props => {
-  const notes = props.notes;
-  const target = props.target;
-  const deleteNote = props.deleteNote;
-  const edit = props.edit;
+  const { notes, target, deleteNote, edit } = props;
   return (
     <div className="singleNote">
       <div className="buttonDisplay">
