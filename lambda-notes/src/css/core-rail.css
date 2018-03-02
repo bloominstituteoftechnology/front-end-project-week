@@ -89,3 +89,12 @@
 .core-rail .delete-note-container {
   opacity: 50%;
 }
+@media (max-width: 1230px) {
+  .App .navButton-top {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  .App .navButton-bottom {
+    padding: 17px 0px;
+  }
+}
