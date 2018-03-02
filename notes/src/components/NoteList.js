@@ -22,8 +22,9 @@ class NoteList extends React.Component {
           <div>
             <h1>Lambda</h1>
             <h2>Notes</h2>
-            <button className="btns"><NavLink to="/">View Your Notes</NavLink></button>
-            <button className="btns" ><NavLink to="/createnote">+ Create New Note</NavLink></button>
+            <NavLink to="/"><button className="btns">View Your Notes</button></NavLink>
+            
+            <NavLink to="/createnote"><button className="btns">+Create New Note</button></NavLink>
           </div>
         </div>
         <div className="rightBar">

@@ -8,16 +8,16 @@ class ViewNote extends React.Component {
     
 
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
     const paramsId = this.props.match.params.id;
-    console.log("this is the id from params: ", typeof(paramsId), paramsId);
-    console.log("this is what the import of kitty got us: ", kitty)
+    // console.log("this is the id from params: ", typeof(paramsId), paramsId);
+    // console.log("this is what the import of kitty got us: ", kitty)
     const returnedNote = kitty.find(obj => obj.id === Number(paramsId));
-    console.log("this is returnedNote after filter: ", returnedNote);
+    // console.log("this is returnedNote after filter: ", returnedNote);
     let newState = returnedNote;
-    console.log(newState);
+    // console.log(newState);
     this.setState(newState);
-    console.log("this is what is in state now: ", this.state);
+    // console.log("this is what is in state now: ", this.state);
   }
 
   render() {
@@ -28,10 +28,9 @@ class ViewNote extends React.Component {
           <div>
             <h1>Lambda</h1>
             <h2>Notes</h2>
-            <button className="btns">
-              <Link to="/">View Your Notes</Link>
-            </button>
-            <button className="btns">+ Create New Note:</button>
+            <NavLink to="/"><button className="btns">View Your Notes</button></NavLink>
+            
+            <NavLink to="/createnote"><button className="btns">+Create New Note</button></NavLink>
           </div>
         </div>
         <div className="rightBar">
