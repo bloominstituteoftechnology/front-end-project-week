@@ -1,0 +1,84 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+.top-title {
+    font-size:21px;
+    font-stretch: condensed;
+    font-weight: bold;
+    color:#4a4a4a;
+    margin-bottom:35px;
+}
+
+.btn-side {
+    border: 1px solid #7D9190;
+    padding: 10px 0px 10px 0px;
+    background-color: #62bec2;
+    margin-top: 15px;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.btn-text {
+    color: white;
+    font-weight: 300;
+}
+
+.btn-text:hover {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sub-links {
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.sub-links:hover {
+    font-weight: bold;
+    color: #4a4a4a;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal-container {
+    position: relative;
+}
+
+.modal-container .modal, .modal-container .modal-backdrop {
+    position: absolute;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.note-container:hover {
+    text-decoration: none;
+}
