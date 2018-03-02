@@ -3,22 +3,17 @@ import NoteContainer from './Note-Container';
 import './App.css';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Note from './Note';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [
-        { title: 'test',
-      content: 'test'},
-        { title: 'test2',
-      content: 'test2'},
-        { title: 'test3',
-      content: 'test3'}
-      ],
+      notes: [],
       title: '',
       content: '',
+      id: 1,
       visible: true
     }
     this.addNote = this.addNote.bind(this);
@@ -29,15 +24,19 @@ class App extends Component {
     event.preventDefault();
     let newObj = {
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content,
+      id: this.state.id
     };
+    let newId = this.state.id;
+    console.log(newObj.id);
     this.setState({
       notes: [...this.state.notes, newObj]
     })
-    console.log(this.state.notes);
+    newId++;
     this.setState({
       title: '',
-      content: ''
+      content: '',
+      nextId: newId
     })
   }
 
@@ -56,15 +55,14 @@ class App extends Component {
         </form>  
     </div>
     );
-}
-
-  Randomn = () => {
-    return (
-      <div>Hello</div>
-    );
   }
 
-
+  ViewNote = () => {
+    return (
+       <Note /> 
+    );
+  }
+ 
   render() {
     return (
       <Router>
@@ -76,8 +74,9 @@ class App extends Component {
           </div>
           <Route path='/' component={() => <NoteContainer notes={this.state.notes} />} exact />
           <Route path='/NewNoteForm' component={this.NewNoteForm} />
+          <Route path='/:id' component={this.ViewNote} />
         </div>
-      </Router>  
+      </Router>
     );
   }
 }

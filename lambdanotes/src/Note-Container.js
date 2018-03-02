@@ -10,7 +10,7 @@ const NoteContainer = (props) => {
         <ul className='Note-list'>
         { props.notes.map((note) => {
             return (
-            <Note key={note.title} title={note.title} content={note.content} />
+            <Note key={note.id} title={note.title} content={note.content} />
             );
         })
         }
