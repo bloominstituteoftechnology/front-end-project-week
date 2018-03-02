@@ -9,7 +9,7 @@
   align-items: left;
 }
 .note-view .separator {
-  width: 70%;
+  width: 60%;
 }
 .note-view .button-container {
   width: 100%;
@@ -29,6 +29,14 @@
   color: #565556;
   font-size: 1.4rem;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.note-view .note-timestamp {
+  color: #9b9b9b;
+  font-family: Raleway;
+  font-size: 1rem;
+  user-select: none;
 }
 .note-view .note-entry {
   line-height: 30px;

@@ -9,6 +9,7 @@ class NoteView extends React.Component {
     title: '',
     entry: '',
     id: '',
+    dateCreated: '',
     redirect: false,
   };
 
@@ -17,12 +18,13 @@ class NoteView extends React.Component {
       this.setState({ redirect: true });
     }
     if ( this.props.current !== undefined ) {
-      const { title, entry } = this.props.current;
-      this.setState({ title: title, entry: entry, id: this.props.match.params.id });
+      console.log(this.props.current);
+      const { title, entry, dateCreated } = this.props.current;
+      this.setState({ title: title, entry: entry, dateCreated: dateCreated, id: this.props.match.params.id });
     } else {
       const toEdit = this.props.notes.filter(note => this.props.match.params.id === note.id);
       if (toEdit.length > 0) {
-        this.setState({ title: toEdit[0].title, entry: toEdit[0].entry, id: toEdit[0].id });
+        this.setState({ title: toEdit[0].title, entry: toEdit[0].entry,  dateCreated: toEdit[0].dateCreated, id: toEdit[0].id });
       } else {
         this.setState({ redirect: true });
       }
@@ -40,7 +42,7 @@ class NoteView extends React.Component {
             <Link to={`/edit/${this.state.id}`} className='edit-button'>edit</Link>
             <Link to={`/delete/${this.state.id}`} className='delete-button'>delete</Link>
           </div>
-          <div className='note-title'>{this.state.title}</div>
+          <div className='note-title'><span>{this.state.title}</span><span className='note-timestamp'>{this.state.dateCreated}</span></div>
           <div className='note-entry'>{converter.convert(this.state.entry)}</div>
         </div>
         <div>

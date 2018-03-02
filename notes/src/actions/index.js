@@ -36,6 +36,14 @@ export const reorderNotes = (newNotes, searching) => {
   }
 }
 
+export const sortNotes = (sortedNotes, direction) => {
+  return {
+    type: 'SORT_NOTES',
+    payload: sortedNotes,
+    sorted: direction,
+  }
+}
+
 export const searchNotes = (searchResults, terms) => {
   return {
     type: 'SEARCH_NOTES',

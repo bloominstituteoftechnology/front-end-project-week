@@ -8,12 +8,13 @@ import DeleteNoteModal from './DeleteNoteModal';
 import removeMd from 'remove-markdown';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import Search from './Search';
+import SortingMenu from './SortingMenu';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
   <li className='list-note' onClick={() => { viewNote(note)} }>
-    <div className='item-timestamp'>{note.dateCreated}</div>
     <div className='item-title'><Shiitake lines={1} throttleRate={200}>{note.title}</Shiitake></div>
     <Shiitake lines={6} throttleRate={200} className='item-entry'>{removeMd(note.entry)}</Shiitake>
+    <div className='item-timestamp'>{note.dateCreated}</div>
   </li>
 );
 
@@ -21,7 +22,6 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
   return (
     <ul className='list-notes'>
       {notes.map((note, index) => {
-        console.log('testing notes',note);
         return (
           <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote} />
         );
@@ -66,6 +66,7 @@ class ListView extends React.Component {
     return (
       <div className='list-view'>
         <Search history={this.props.history} search={this.search}/>
+        <SortingMenu />
         {this.props.notes ?
         <div>
           <h2 className='list-title'>Your Notes:</h2>
@@ -86,6 +87,7 @@ class ListView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    sorted: state.sorted,
   };
 };
 

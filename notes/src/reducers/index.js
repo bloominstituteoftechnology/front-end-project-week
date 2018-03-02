@@ -87,6 +87,9 @@ const notesReducer = (state = initialTestState, action) => {
     case 'SEARCH_NOTES':
       return { ...state, searchResults: action.payload, searchTerms: action.searchTerms };
 
+    case 'SORT_NOTES':
+      return { ...state, notes: action.payload, sorted: action.sorted };
+
     default:
       return state;
   }
