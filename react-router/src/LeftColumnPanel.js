@@ -1,14 +1,15 @@
   import React, { Component } from 'react';
  
-  const LeftColumnPanel = (props) => {
-  
+  class LeftColumnPanel extends React.Component {
+     render() {
      return (
          <div className="LeftColumnPanel">
          <p> Lambda Notes </p>
-         <button>View Your Notes</button><br />
-         <button>+Create New Note</button>
+         <button onClick={this.props.ClickForView}>View Your Notes</button><br />
+         <button onClick={this.props.ClickForView}>+Create New Note</button>
       </div>
       );
+		 } 
   };
  
   export default LeftColumnPanel;

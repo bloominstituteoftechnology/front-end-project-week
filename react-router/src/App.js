@@ -14,20 +14,18 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <Nav />
+					<Route path="/" component={ViewNotes} exact />;
 					<Route path="/viewnotes" component={this.ViewNotes} exact />
+					<Route path="/createnote" component={CreateNote} exact />
+					<Route path="/viewsinglenote/:id"
+					     render={props => {
+							    return <ViewSingleNote id={props.match.params.id} />}
+							 }
+				/>
       </div>
 			</Router>
     );
   }
-
-	 ViewNotes = () => {
-    return (
-      <div className="Home__Right">
-        Right
-      </div>
-    )
-  };
-
 }
 
 export default App;
