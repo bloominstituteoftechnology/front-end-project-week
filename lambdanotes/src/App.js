@@ -49,7 +49,8 @@ class App extends Component {
       console.log(notes);
       for (let note in notes) {
         newState.push({
-          id: notes[note].id,
+          // id: notes[note].id,
+          id: note,
           title: notes[note].title,
           content: notes[note].content
         })
@@ -115,10 +116,8 @@ class App extends Component {
 
   saveNewNote = (note) => {
     // const prevNotes = this.state.notes;
-
     const notesRef = firebase.database().ref('notes');
     notesRef.push(note)
-
     // this.setState({ notes: [...prevNotes, note] })
     this.viewNotes();
   }
@@ -147,8 +146,12 @@ class App extends Component {
   }
 
   deleteNote = () => {
-    let updatedNotes = this.state.notes.filter(note => note.id !== this.state.noteDetails.id);
-    this.setState({ notes: updatedNotes });
+    let id = this.state.noteDetails.id;
+    console.log(id)
+    const notesRef = firebase.database().ref(`/notes/${id}`);
+    notesRef.remove();
+    // let updatedNotes = this.state.notes.filter(note => note.id !== this.state.noteDetails.id);
+    // this.setState({ notes: updatedNotes });
     this.viewNotes();
   }
 
