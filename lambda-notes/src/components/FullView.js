@@ -13,9 +13,12 @@ const Note = (props) => {
   return (
     <div className="full-view">
       <div className="full-view-links">
-        <Link to='/editnote'>edit</Link>{' '}
-        {/* <Link to='/editnote'>delete</Link> */}
-        <DeleteModal />
+        <div className="full-view-link-edit">
+          <Link to='/editnote'>edit</Link>
+        </div>
+        <div className="full-view-link-delete">
+          <DeleteModal />
+        </div>
       </div>
       <div className="full-view-content">
         <div className="full-view-title">

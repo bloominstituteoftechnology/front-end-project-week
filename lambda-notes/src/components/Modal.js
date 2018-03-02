@@ -1,44 +1,52 @@
 import React, { Component } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { ButtonToolbar, Modal } from 'react-bootstrap';
 
 class DeleteModal extends Component {
   constructor(props, context) {
-    super (props, context);
+    super(props, context);
 
     this.handleShow = this.handleShow.bind(this);
-    this.handleShow = this.handleClose.bind(this);
+    this.handleHide = this.handleHide.bind(this);
 
     this.state = {
       show: false
     };
   }
 
-  handleClose() {
-    this.setState({ show: false });
-  }
-
   handleShow() {
     this.setState({ show: true });
   }
 
+  handleHide() {
+    this.setState({ show: false });
+  }
+
   render() {
     return (
-      <div>
-        <a className="delete-button" onClick={this.handleShow}>delete</a>
-              
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closebutton>
-          </Modal.Header>
-          <Modal.Body>
-            <p>Are you sure you want to delete this?</p>
-            <Button onClick={this.handleClose}>Delete</Button>
-            <Button onClick={this.handleClose}>Close</Button>
-          </Modal.Body>
-          <Modal.Footer>
-          </Modal.Footer>
-        </Modal>
-      </div>
-    )
+      <ButtonToolbar>
+          <p 
+            onClick={this.handleShow}
+            className="delete"
+          >
+            delete
+          </p>
+
+          <Modal
+            {...this.props}
+            show={this.state.show}
+            onHide={this.handleHide}
+            dialogClassName="custom-modal"
+          >
+            <Modal.Body>
+              <p>
+                Are you sure you want to delete this?
+              </p>
+              <button className="delete" onClick={this.handleHide}>Delete</button>
+              <button onClick={this.handleHide}>Close</button>
+            </Modal.Body>
+          </Modal>
+      </ButtonToolbar>
+    );
   }
 }
 

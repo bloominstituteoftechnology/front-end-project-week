@@ -117,7 +117,19 @@ button a:link, a:visited, a:hover, a:active {
 
 .full-view-links {
   text-align: right;
-  word-spacing: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.full-view-link-edit {
+  padding: 0 20px 0 0;
+}
+
+.full-view-link-delete {
+  color: #4a4a4a;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 .full-view-title {
@@ -204,3 +216,4 @@ button a:link, a:visited, a:hover, a:active {
 .delete-button {
   background-color: none;
 }
+
