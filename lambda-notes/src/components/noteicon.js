@@ -1,13 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+        
+    }
+`;
 
 const Note = (props) => {
     return (
         icons.map(icon =>
-            <section>
-                    <h6 key ={icon.id} >{icon.title}</h6>
+            <StyledLink to="/noteview"><section>
+                    <p key ={icon.id} >{icon.title}</p>
                     <hr/>
                     <p>{icon.content}</p>
-            </section>));
+            </section></StyledLink>));
 
 
 };

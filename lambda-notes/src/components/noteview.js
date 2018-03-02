@@ -1,4 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+`;
 
 class NoteView extends Component {
     render() {
@@ -7,17 +18,17 @@ class NoteView extends Component {
 
                 <div className="section__content__left">
                     <h1>Lambda Notes</h1>
-                    <div className="button__main">View Your Notes</div>
+                    <StyledLink to="/noteview"><div className="button__main">View Your Notes</div></StyledLink>
                     <br />
-                    <div className="button__main">+ Create New Note</div>
+                    <StyledLink to="/newview"><div className="button__main">+ Create New Note</div></StyledLink>
 
                 </div>
 
                 <div className="section__content__right">
                     <div className="section__content__inputs">
-                        <h3>Create New Note</h3>
-                        <a href="#">edit</a>
-                        <a href="#">delete</a>
+                        <h3>Note Name</h3>
+                        <StyledLink to="/editview"><div>edit</div></StyledLink>
+                        <StyledLink to="/delete"><div>delete</div></StyledLink>
                         <div>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</div>
                     </div>
                 </div>
