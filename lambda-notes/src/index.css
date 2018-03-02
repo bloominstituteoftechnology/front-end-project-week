@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+button {
+  color: white;
+  background-color: #2dc1c6;
+}
+
+.sidebar-header, .lambda-notes h1 {
+  color: rgb(70, 70, 70);
+}
