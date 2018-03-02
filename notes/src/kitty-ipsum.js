@@ -1,4 +1,4 @@
-const notes = [
+const kitty = [
   {
     id: 1,
     title: "kitty ipsum",
@@ -55,4 +55,4 @@ const notes = [
   },
 ];
 
-export default notes;
+export default kitty;

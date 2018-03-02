@@ -1,7 +1,7 @@
 import React from 'react';
 import './NoteList.css';
 import CreateNote from './CreateNote';
-import notes from '../kitty-ipsum';
+import kitty from '../kitty-ipsum';
 import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
 
 class NoteList extends React.Component {
@@ -11,8 +11,8 @@ class NoteList extends React.Component {
   };
 
   componentDidMount() {
-    console.log("notes imported into NoteList: ", notes);
-    this.setState({ notes: notes });
+    console.log("notes imported into NoteList: ", kitty);
+    this.setState({ notes: kitty });
     console.log("state is now: ", this.state.notes);
   }
 

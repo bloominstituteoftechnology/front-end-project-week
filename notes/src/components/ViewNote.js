@@ -1,21 +1,22 @@
 import React from 'react';
 import './ViewNote.css';
 import { NavLink, Link } from 'react-router-dom';
-import notes from '../kitty-ipsum';
+import kitty from '../kitty-ipsum';
 
 class ViewNote extends React.Component {
   state = {
-    note: null,
+    note: [],
   }
 
   componentDidMount() {
-    // console.log(this.props);
-    const id = this.props.match.params.id;
-    console.log("this is the id from params: ", id);
-    console.log("this is what the import of notes got us: ", notes)
-    let returnedNote = notes.filter(obj => obj.id === 2);
+    console.log(this.props);
+    const pid = this.props.match.params.id;
+    console.log("this is the id from params: ", pid);
+    console.log("this is what the import of notes got us: ", kitty)
+    let returnedNote = kitty.find(obj => obj.id === 2);
     console.log("this is returnedNote after filter: ", returnedNote);
-    this.setState( {note: returnedNote} );
+    let newState = {note:returnedNote};
+    this.setState(newState);
     console.log("this is what is in state now: ", this.state.note);
   }
 
@@ -40,13 +41,11 @@ class ViewNote extends React.Component {
             <h3>Note Name</h3>
           </div>
           <div>
-              <form>
-                <input className="titleForm" value={"abc"} />
-              </form>
-            </div>
+              {this.state.note.title}
+        </div>
             <div>
               <form>
-                <input className="contentForm" value={"content"} />
+                <input className="contentForm" value={this.state.note.text} />
               </form>
             </div>
           <div>
