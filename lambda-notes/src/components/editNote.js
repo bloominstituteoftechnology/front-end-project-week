@@ -22,7 +22,7 @@ class EditNote extends Component {
       event.preventDefault();
       this.setState({title: this.state.title, body: this.state.body});
       this.props.notes.splice(this.getNoteIndex(), 1, this.state);
-      this.props.history.go(-1)
+      this.props.history.push("/")
   }
   noteChangeHandler = (event) => {
       let { name, value } = event.target;
@@ -47,7 +47,7 @@ class EditNote extends Component {
             <div className="new-note__title-input" name="id" value="9">
               <textarea 
                 className="title-input" 
-                placeholder={this.props.notes[this.props.match.params.id].title}
+                placeholder={this.props.notes[this.getNoteIndex()].title}
                 rows="50" cols="1" 
                 maxLength="50" 
                 name="title" 
@@ -58,7 +58,7 @@ class EditNote extends Component {
             <div className="new-note__content-input">
               <textarea 
                 className="content-input" 
-                placeholder={this.props.notes[this.props.match.params.id].body}
+                placeholder={this.props.notes[this.getNoteIndex()].body}
                 rows="4" 
                 cols="72" 
                 name="body"

@@ -24,7 +24,7 @@ class NewNote extends Component {
         this.setState({ id: nextId, title: this.state.title, body: this.state.body })
         notes.push(this.state);
         notes.slice(-1)[0].id = nextId; // this is crazy and shouldn't work this way but it does
-        this.props.history.go(-1)
+        this.props.history.push('/')
       }
   }
   noteChangeHandler = (event) => {

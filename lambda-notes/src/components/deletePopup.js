@@ -15,6 +15,7 @@ class DeletePopup extends Component {
     // console.log('this.props.props.match.params', this.props.props.match.params)
     // console.log('this.props.props.match.params.id', this.props.props.match.params.id)
     // console.log('this.props.props.notes', this.props.props.notes)
+    console.log('this.props.props.history', this.props.props.history)
     const getNoteIndex = () => {
         for (let i = 0; i < this.state.notes.length; i++) {
             if (+this.props.props.match.params.id === this.state.notes[i].id) {
@@ -31,7 +32,7 @@ class DeletePopup extends Component {
         // console.log('deletedNote: ', deletedNote);
         this.setState({notes: this.state.notes.filter(note => deletedNote.id !== note.id)})
         this.props.props.notes.filter(note => deletedNote.id !== note.id)
-        this.props.props.history.go(-2)
+        this.props.props.history.push('/')
         // this.context.router.push('/')
         // console.log('this.state after deleting note', this.state)
         // console.log('this.props.props after deleting note', this.props.props)
