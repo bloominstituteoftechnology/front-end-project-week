@@ -8,13 +8,13 @@
 
 .ViewNotes__Note {
   margin-top: 30px;
-  border-style: solid;
   border-width: 1px;
   background-color: white;
   border-color: #c9c9c9;
-  width: 210px;
-  height: 240px;
+  width: 240px;
+  height: 250px;
   padding: 20px;
+  font-size: 10px;
 }
 
 .ViewNotes__Note__Title {
