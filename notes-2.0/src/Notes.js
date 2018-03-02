@@ -85,7 +85,6 @@ class Notes extends Component {
         results: true
       }
     });
-    console.log(this.state.keyword);
   };
   updateNote = updatedNote => {
     let mirror = this.state.notes;
@@ -149,7 +148,6 @@ class Notes extends Component {
   };
 
   addNote = newNote => {
-    console.log("newNote : ", newNote);
     this.target = null;
     this.setState({
       notes: [newNote, ...this.state.notes],

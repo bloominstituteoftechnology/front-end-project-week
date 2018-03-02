@@ -15,7 +15,7 @@ const NoteList = props => {
       ) {
         if (tempKeyword === tempTitle.substring(j, j + length)) {
           return (
-            <div className="note" onClick={() => target(i)}>
+            <div className="note" key={i} onClick={() => target(i)}>
               <h1 className="noteTitle">{note.title}</h1>
               <p className="noteContent">{note.content}</p>
             </div>
