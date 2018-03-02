@@ -27,7 +27,7 @@ const List = props => (
       <SectionTitle name={`Your Notes (${props.sortStatus}):`}/>
       {props.notes.map((note, index) => {
         return (
-          <NoteCard key={index} note={note} />
+          note.filtered ? null : <NoteCard key={index} note={note} />
         );
       })}
     </div>

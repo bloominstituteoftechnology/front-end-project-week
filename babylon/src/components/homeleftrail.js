@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { titleSort, oldestSort, newestSort } from '../actions';
+import Search from './search';
 import Button from './button';
 
 const StyledHomeRail = styled.div`
@@ -26,7 +27,6 @@ const StyledHomeRail = styled.div`
 
 const HomeLeftRail = props => (
   <StyledHomeRail>
-    {/* <h1>Operation Babylon</h1> */}
     <img src='https://res.cloudinary.com/jonbrunt/image/upload/v1519920433/JMB-Logo_htviyf.png' alt='JMB Logo' />
     <Link to='/' style={{ textDecoration: 'none' }}>
       <Button backgroundColor='rgb(34, 170, 61)' title='View Your Notes' />
@@ -39,6 +39,7 @@ const HomeLeftRail = props => (
       <Button method={props.newestSort}backgroundColor='rgb(34, 170, 61)' title='Sort By Newest' />
       <Button method={props.oldestSort}backgroundColor='rgb(34, 170, 61)' title='Sort By Oldest' />
     </div>
+    <Search />
   </StyledHomeRail>
 );
 

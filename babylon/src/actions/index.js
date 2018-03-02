@@ -7,6 +7,7 @@ export const TOGGLE_DELETE = 'TOGGLE_DELETE';
 export const TITLE_SORT = 'TITLE_SORT';
 export const NEWEST_SORT = 'NEWEST_SORT';
 export const OLDEST_SORT = 'OLDEST_SORT';
+export const UPDATE_SEARCH = 'UPDATE_SEARCH';
 
 export const addNote = data => ({
   type: ADD_NOTE,
@@ -43,4 +44,9 @@ export const newestSort = data => ({
 
 export const oldestSort = data => ({
   type: OLDEST_SORT,
+});
+
+export const updateSearch = data => ({
+  type: UPDATE_SEARCH,
+  input: data.input,
 });

@@ -1,10 +1,11 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT, OLDEST_SORT, NEWEST_SORT } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT, OLDEST_SORT, NEWEST_SORT, UPDATE_SEARCH } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
   notes: [...dummyData],
   deleteActive: false,
   sortStatus: 'Unsorted',
+  input: '',
 };
 
 export default (state = initialState, action) => {
@@ -69,6 +70,16 @@ export default (state = initialState, action) => {
         sortStatus: 'Oldest',
         notes: [...state.notes].sort((a, b) => {
           return a.created > b.created;
+        }),
+      };
+    case UPDATE_SEARCH:
+      return {
+        ...state,
+        input: action.input,
+        notes: [...state.notes].map((val) => {
+          if (!val.title.includes(state.input) && !val.body.includes(state.input)) {
+            return { ...val, filtered: true };
+          } return { ...val, filtered: false };
         }),
       };
     default:
