@@ -1,6 +1,7 @@
 // dependencies
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import firebase from './firebase';
 
 // Components
 import Sidebar from './components/sidebar';
@@ -9,8 +10,6 @@ import CreateNote from './components/create-note';
 import NoteDetails from './components/note-details';
 import EditNote from './components/edit-note';
 import DeleteModal from './components/delete-modal';
-
-import dummyData from './dummy-data';
 
 import './App.css';
 
@@ -28,12 +27,31 @@ class App extends Component {
     creatingNote: false,
     editingNote: false,
     showingNoteDetails: false,
-    notes: dummyData,
+    notes: [],
     noteDetails: {
       title: '',
       content: '',
       id: '',
     }
+  }
+
+  componentDidMount() {
+    const notesRef = firebase.database().ref('notes');
+    notesRef.on('value', (snapshot) => {
+      let notes = snapshot.val();
+      let newState = [];
+      console.log(notes);
+      for (let note in notes) {
+        newState.push({
+          // id: notes[note].id,
+          id: note,
+          title: notes[note].title,
+          content: notes[note].content
+        })
+      }
+      this.setState({ notes: newState });
+    });
+    console.log(this.state);
   }
 
   viewNotes = () => {
@@ -91,34 +109,36 @@ class App extends Component {
   }
 
   saveNewNote = (note) => {
-    let prevNotes = this.state.notes;
-    this.setState({ notes: [...prevNotes, note] })
+    const notesRef = firebase.database().ref('notes');
+    notesRef.push(note)
     this.viewNotes();
   }
 
   updateNote = (updatedNote) => {
+    const notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
+    notesRef.update(updatedNote);
     let { title, content, id } = updatedNote;
-    let updatedNotes = this.state.notes.map((note) => {
-      if (note.id === id) {
-        note.title = title;
-        note.content = content;
-      }
-      return note
-    })
-    this.setState({ notes: updatedNotes, noteDetails: updatedNote });
-    this.showNoteDetails(id);
+    this.setState({ noteDetails: updatedNote });
+    this.showNoteDetails(updatedNote.id);
   }
 
   getNextId = () => {
-    let lastNoteIndex = this.state.notes.length - 1;
-    let lastNote = this.state.notes[lastNoteIndex];
-    let nextId = lastNote.id + 1;
-    return nextId;
+    if (this.state.notes.length === 0) return 0;
+    else {
+      let lastNoteIndex = this.state.notes.length - 1;
+      let lastNote = this.state.notes[lastNoteIndex];
+      let nextId = lastNote.id + 1;
+      return nextId;
+    }
   }
 
   deleteNote = () => {
-    let updatedNotes = this.state.notes.filter(note => note.id !== this.state.noteDetails.id);
-    this.setState({ notes: updatedNotes });
+    let id = this.state.noteDetails.id;
+    console.log(id)
+    const notesRef = firebase.database().ref(`/notes/${id}`);
+    notesRef.remove();
+    // let updatedNotes = this.state.notes.filter(note => note.id !== this.state.noteDetails.id);
+    // this.setState({ notes: updatedNotes });
     this.viewNotes();
   }
 
@@ -131,7 +151,7 @@ class App extends Component {
         />
 
         <div style={{ width: "100%", height: "100%" }} className="Content">
-          {this.state.viewingNotes &&
+          {(this.state.viewingNotes && this.state.notes.length > 0) &&
             <NotesList
               notes={this.state.notes}
               showNoteDetails={this.showNoteDetails}

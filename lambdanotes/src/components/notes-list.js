@@ -25,15 +25,29 @@ const NoteListStyled = styled.div`
       margin-top: 20px;
 
       input {
-        outline: none;
+        /* outline: none; */
+        border-style: solid;
+        border: 0.5px solid grey;
+        /* border-radius: 3px; */
+
+
+        &:hover {
+          border-style: solid;
+          /* outline: 1px solid black; */
+          border: 1px solid black;
+        }
+        
+        &:focus {
+          outline: 1px solid rgb(94, 190, 195);
+          border: 1px solid rgb(94, 190, 195);
+          border-style: solid;
+        }
       }
 
-      input:focus {
-        outline: 1px solid rgb(94, 190, 195);
-      }
+
     }
   }
-`
+`;
 
 class NotesList extends Component {
   state = {
@@ -72,7 +86,7 @@ class NotesList extends Component {
             Search: <input onChange={this.handleSearch} value={this.state.searchInput} />
           </div>
         </header>
-        <div style={{ display: "flex", flexFlow: "row wrap"}} className="NotesList__body" >
+        <div style={{ display: "flex", flexFlow: "row wrap" }} className="NotesList__body" >
           {this.state.notesFiltered.map((note) => {
             return (
               <Note

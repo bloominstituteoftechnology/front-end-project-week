@@ -31,7 +31,6 @@ const EditNoteStyled = styled.div`
   .NoteTitleInput {
     width: 50%;
     margin-top: 20px;
-    outline: none;
     font-size: 1rem;
   }
 
@@ -39,13 +38,26 @@ const EditNoteStyled = styled.div`
     width: 80%;
     height: 300px;
     margin-top: 20px;
-    outline: none;
     font-size: 1rem;
     resize: none;
   }
 
-  input:focus, textarea:focus {
-    outline: 1px solid rgb(94, 190, 195);
+  input, textarea {
+    outline: 1px solid rgba(0 0 0 0);
+    border-style: solid;
+    border: 1px solid grey;
+
+    &:hover {
+      border-style: solid;
+      outline: 1px solid rgba(0 0 0 0);
+      border: 1px solid black;
+    }
+    
+    &:focus {
+      outline: 1px solid rgb(94, 190, 195);
+      border: 1px solid rgb(94, 190, 195);
+      border-style: solid;
+    }
   }
 `;
 
@@ -86,7 +98,7 @@ class EditNote extends Component {
   render() {
     return (
       <EditNoteStyled className="EditNoteForm">
-        <h1>Edit Note:</h1>
+        <h2>Edit Note:</h2>
         <input
           className="NoteTitleInput"
           type="text"
