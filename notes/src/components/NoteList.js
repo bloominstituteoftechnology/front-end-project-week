@@ -6,8 +6,7 @@ import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
 
 class NoteList extends React.Component {
   state = {
-    notes: [],
-    lastId: 9,
+    notes:[],
   };
 
   componentDidMount() {

@@ -4,20 +4,20 @@ import { NavLink, Link } from 'react-router-dom';
 import kitty from '../kitty-ipsum';
 
 class ViewNote extends React.Component {
-  state = {
-    note: [],
-  }
+  state = {};
+    
 
   componentDidMount() {
     console.log(this.props);
-    const pid = this.props.match.params.id;
-    console.log("this is the id from params: ", pid);
+    const paramsId = this.props.match.params.id;
+    console.log("this is the id from params: ", paramsId);
     console.log("this is what the import of notes got us: ", kitty)
-    let returnedNote = kitty.find(obj => obj.id === 2);
+    const returnedNote = kitty.find(obj => obj.id === 2);
     console.log("this is returnedNote after filter: ", returnedNote);
-    let newState = {note:returnedNote};
+    let newState = returnedNote;
+    console.log(newState);
     this.setState(newState);
-    console.log("this is what is in state now: ", this.state.note);
+    console.log("this is what is in state now: ", this.state);
   }
 
   render() {
@@ -41,11 +41,11 @@ class ViewNote extends React.Component {
             <h3>Note Name</h3>
           </div>
           <div>
-              {this.state.note.title}
+          {this.state.id}
         </div>
             <div>
               <form>
-                <input className="contentForm" value={this.state.note.text} />
+                <input className="contentForm" value={this.state.text} />
               </form>
             </div>
           <div>
