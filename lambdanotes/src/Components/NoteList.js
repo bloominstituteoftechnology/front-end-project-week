@@ -6,13 +6,14 @@ const NoteList = (props) => {
         return (
                <div className="noteBox">
                     <h1> Your Notes: </h1>
-                    <div className="singleNote">
+                   
                         {props.notes.map(noteObj => {
                             return (
+                                <div className="singleNote">
                             <Note key={noteObj.id} noteObj={noteObj} id={noteObj.id} />
+                            </div>
                             )
                         })}
-                    </div>
                 </div>
         )
 

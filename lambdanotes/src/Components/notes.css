@@ -4,7 +4,9 @@
   height: auto;
   font-family: roboto;
   padding: 30px;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  justify-content: space-around;
   color: #4a4a4a;
 }
 .noteBox a {

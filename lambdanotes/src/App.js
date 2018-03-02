@@ -25,20 +25,20 @@ class App extends Component {
         <div className="mainContainer">
           <div className="navBar">
             <h1> Lambda Notes </h1>
-            <ul>
-              <li>
+          
                 
                 <NavLink to='/'>
-                  <button type="submit" className="navButton">View Your Notes</button>
+                  <button type="submit" className="navButton"><p>View Your Notes</p>
+                  </button>
                 </NavLink>
-                
-              </li>
-              <li>
+          
                 <NavLink to='/createNote'>
-                  <button type="submit" className="navButton2">+Create New Note</button>
+                <div className="navButton2">
+                  <p>+Create New Note</p>
+              
+                </div>
                 </NavLink>
-              </li>
-            </ul>
+            
           </div>
         
           <div className="mainContent">

@@ -4,6 +4,7 @@
   width: 1365px;
   background: #f3f3f3;
   height: 100%;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -11,68 +12,58 @@
   display: flex;
   flex-flow: column;
   align-content: flex-start;
+  justify-content: flex-start;
   width: 340px;
   background: #d8d8d8;
   font-family: Roboto;
   color: #4a4a4a;
   font-size: 27px;
   box-sizing: border-box;
-  padding-right: 20px;
 }
-.mainContainer .navBar ul {
-  list-style-type: none;
+.mainContainer .navBar a {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
+.mainContainer .navBar a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar a:visited {
+  color: #ffffff;
+  text-decoration: none;
 }
 .mainContainer .navBar .navButton {
-  background: #2bc0c4;
-  width: 310px;
+  background-color: #2bc0c4;
+  width: 300px;
   height: 60px;
-  float: left;
-}
-.mainContainer .navBar .navButton a {
-  color: #ffffff;
-  text-decoration: none;
+  font-family: Roboto;
+  font-weight: Bold;
   font-size: 23px;
-  font-weight: bold;
-}
-.mainContainer .navBar .navButton a:link {
   color: #ffffff;
-  text-decoration: none;
-}
-.mainContainer .navBar .navButton a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-.mainContainer .navBar .navButton a:visited {
-  color: #ffffff;
-  text-decoration: none;
 }
 .mainContainer .navBar .navButton2 {
-  background: #2bc0c4;
   margin-top: 20px;
-  width: 310px;
+  background-color: #2bc0c4;
+  width: 300px;
   height: 60px;
-}
-.mainContainer .navBar .navButton2 a {
-  color: #ffffff;
-  text-decoration: none;
+  font-family: Roboto;
+  font-weight: Bold;
   font-size: 23px;
-  font-weight: bold;
-}
-.mainContainer .navBar .navButton2 a:link {
   color: #ffffff;
-  text-decoration: none;
-}
-.mainContainer .navBar .navButton2 a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-.mainContainer .navBar .navButton2 a:visited {
-  color: #ffffff;
-  text-decoration: none;
 }
 .mainContainer .mainContent {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   background: #f3f3f3;
 }
