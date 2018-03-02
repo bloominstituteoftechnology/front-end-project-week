@@ -1,4 +1,4 @@
-import { ADD_NOTE, VIEW_NOTE } from "../actions";
+import { ADD_NOTE, VIEW_NOTE, EDIT_NOTE, DELETE_NOTE } from "../actions";
 import notes from "../dummyNotes";
 
 const initialState = {
@@ -12,8 +12,26 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         notes: state.notes.concat(action.payload),
       };
+
     case VIEW_NOTE:
-      return { ...state, note: action.payload };
+      return { ...state, current: action.payload };
+
+    case EDIT_NOTE:
+      return {
+        ...state.map(note => {
+          if (note.id === action.payload.id) {
+            return action.payload;
+          }
+          return note;
+        }),
+      };
+
+    case DELETE_NOTE:
+      return {
+        ...state.filter(note => {
+          return note.id !== action.payload;
+        }),
+      };
 
     default:
       return state;

@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 const SingleNote = props => {
   console.log("props", props);
@@ -8,7 +7,7 @@ const SingleNote = props => {
     <div>
       <h3 className="heading">{props.notes[id].title}</h3>
       <p>{props.notes[id].text}</p>
-      <NavLink>Edit</NavLink>
+      <div>Edit</div>
       <div>Delete</div>
     </div>
   );
