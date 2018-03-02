@@ -5,10 +5,13 @@ import Note from '../note/note';
 // import actions
 
 class NotesList extends Component {
+  state = {
+    notesListHeading: "Your Notes:"
+  }
   render() {
     return (
       <div className="lambda-notes">
-        <h1>Your Notes:</h1>
+        <h1>{this.state.notesListHeading}</h1>
         <ul>
           {notes.map(note => {
             return (
