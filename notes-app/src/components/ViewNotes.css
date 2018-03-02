@@ -41,18 +41,25 @@
 }
 
 .ViewNotes__Actions {
+  text-decoration: none;
+  color: black;
   display: flex;
   width: 0px;
   position: absolute;
   margin-top: 25px;
-  font-size: 25px;
+  font-size: 20px;
   right: 200px;
+  font-weight: lighter;
 }
 
 .ViewNotes__Delete {
   margin-left: 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .ViewNotes__Edit {
   padding: 0px;
+  text-decoration: none;
+  color: black;
 }

@@ -7,9 +7,11 @@ class singleNote extends Component {
     return (
       <div className="Home__Right">
         <div className="ViewNotes__Actions">
-          <div className="ViewNotes__Edit">
-            <u>edit</u>
-          </div>
+          <NavLink to={`/editnote/${this.props.id}`}>
+            <div className="ViewNotes__Edit">
+              <u>edit</u>
+            </div>
+          </NavLink>
           <div className="ViewNotes__Delete">
             <u>delete</u>
           </div>

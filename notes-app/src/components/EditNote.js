@@ -6,8 +6,8 @@ import { addNote } from '../actions'
 
 class EditNote extends Component {
   state = {
-    title: '',
-    meat: '',
+    title: this.props.id,
+    meat: this.props.notes.Notes[this.props.id].meat,
     redirect: false,
   };
   render() {
