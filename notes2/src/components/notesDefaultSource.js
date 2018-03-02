@@ -1,11 +1,9 @@
-
-const notesDefaultSource = [
+const title = [
 
   [
-      this.Title = 'Addiction',
-      this.NoteBody = 'A track by Kanye West 10/10',
-      this.id = 0,
+      this.title = 'Addiction '
+
   ]
 ];
 
-export default notesDefaultSource;
+export default title;
