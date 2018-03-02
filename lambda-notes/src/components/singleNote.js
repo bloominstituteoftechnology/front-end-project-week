@@ -38,13 +38,13 @@ class SingleNote extends Component {
   }
 
   deleteNote = () => {
-    deleteNote(this.props.notes[this.props.match.params.id]);
-    this.props.history.push("/");
-    this.setState({ deleting: false });
+    deleteNote(this.props.notes.id);
+    this.props.history.push("/notelist");
+    this.setState({ deleting: true });
   };
 
   cancelDelete = () => {
-    this.props.history.push("/");
+    this.props.history.push("/notelist");
     this.setState({ deleting: false });
   };
 }
