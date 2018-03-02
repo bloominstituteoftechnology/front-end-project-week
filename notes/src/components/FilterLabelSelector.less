@@ -1,0 +1,64 @@
+.filter-label-selector {
+  margin-top: 45px;
+
+  .label-selector-menu {
+    position: fixed;
+    left: 658px;
+    top: 150px;
+    width: 100px;
+    background: white;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 2px 1px rgba(100, 100, 100, 0.1);
+
+    button {
+      width: 100%;
+      height: 20px;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+
+      &:hover {
+        height: 25px;
+      }
+    }
+    .default {
+      background: #999999;
+    }
+    .red {
+      background: #D2001B;
+    }
+    .blue {
+      background: #00C0C2;
+    }
+    .tan {
+      background: #e7d39c;
+    }
+    .orange {
+    background: #ff9558;
+    }
+    .purple {
+      background: #101632;
+    }
+  }
+  .label-selector-button {
+    width: 100px;
+    height: 20px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Raleway;
+    font-size: 0.8rem;
+    border: 1px solid #C9C9C9;
+    padding: 1px 3px 1px 0px;
+    user-select: none;
+    cursor: pointer;
+  }
+  &:hover {
+    .label-selector-button {
+    }
+  }
+}

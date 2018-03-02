@@ -33,12 +33,12 @@ class ListItem extends React.Component {
         break;
       case 'tan':
         selectorStyle = {
-          background: '#F7EEB9',
+          background: '#e7d39c',
         }
         break;
       case 'orange':
         selectorStyle = {
-          background: '#E08450',
+          background: '#ff9558',
         }
         break;
       case 'purple':
