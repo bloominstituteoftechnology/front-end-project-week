@@ -6,6 +6,7 @@ import { getNotes } from "./dummyNotes";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SingleNote from "./components/singleNote";
 import NoteForm from "./components/noteForm";
+import DeleteModal from "./components/deleteModal";
 
 class App extends Component {
   state = {
@@ -32,6 +33,7 @@ class App extends Component {
             path="/note/:id"
           />
           <Route path="/noteform" component={NoteForm} exact />
+          <Route path="/delete/:id" component={DeleteModal} />
         </div>
       </Router>
     );

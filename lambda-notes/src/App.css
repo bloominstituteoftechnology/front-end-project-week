@@ -47,6 +47,7 @@
   box-sizing: border-box;
   margin: 50px 20px 0 20px;
   font-family: "Roboto", sans-serif;
+  font-size: 1.4rem;
 }
 .notelist {
   box-sizing: border-box;
@@ -109,4 +110,17 @@ form .formtext {
 
 form .button {
   margin: 0 0 0 20px;
+}
+
+.notetext {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  text-align: left;
+  margin: 40px 20px;
+  line-height: 1.5rem;
+}
+
+.modaltext {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
 }
