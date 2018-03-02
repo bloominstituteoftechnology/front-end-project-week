@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import CheckItem from './CheckItem';
+
 import { update_check_list } from '../actions/index';
 
 import './css/CheckList.css';
@@ -10,12 +12,7 @@ class CheckList extends React.Component {
     note: '',
   };
 
-  componentWillMount(event) {
-    event.preventDefault();
-  }
-
   render() {
-    console.log(this.state);
     return (
       <div className="checklist">
         <h1 className="checklist-header"> Your Note's Check List </h1>
@@ -26,46 +23,24 @@ class CheckList extends React.Component {
           value={this.state.note}
           onChange={this.handleNoteChange}
         />
-        <button className="check-buttons" onClick={this.saveCheckList}>
+        <button className="check-buttons" onClick={this.update_checklist}>
           Click to Add to CheckList
         </button>
-
-        {this.props.note.checklist
-          ? this.props.note.checklist.map((note, index) => {
-              return (
-                <div className="items" key={index}>
-                    <input
-                      type="checkbox"
-                      onClick={() => {
-                        const key = `${this.props.note.title}click${index}`;
-                        const keys = Object.keys(this.state);
-                        let flag = false;
-                        keys.forEach(element => {
-                          if (element === key) flag = true;
-                        });
-                        if (flag === true)
-                          this.setState({ ...this.state, [key]: !this.state[key] });
-                        else this.setState({ ...this.state, [key]: false });
-                      }}
-                    />
-                    <div>{note}</div>
-                </div>
-              );
-            })
-          : null}
+        {this.props.note.checklist.map((check, index) => {
+          return <CheckItem key={check.id} check={check} index={index}/>
+        })}
       </div>
     );
   }
   handleNoteChange = event => {
     this.setState({ note: event.target.value });
   };
-  saveCheckList = () => {
+  update_checklist = () => {
     if (this.state.note === '') return;
-    const updated = this.props.note;
-    updated.checklist.push([this.state.note, this.props.note.id]);
-    this.props.update_check_list(updated);
-    this.setState({ note: '', [this.props.note.title + this.props.note.id]: false });
-  };
+    const check = {note: this.state.note, checked: false}
+    this.props.update_check_list(check, this.props.note);
+    this.setState({ note: ''});
+  }
 }
 const mapStateToProps = state => {
   return {
@@ -73,4 +48,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { update_check_list })(CheckList);
+export default connect(mapStateToProps, {update_check_list})(CheckList);

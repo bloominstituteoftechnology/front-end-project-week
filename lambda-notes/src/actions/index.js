@@ -14,6 +14,7 @@ export const REMOVE_EDIT = 'REMOVE_EDIT';
 export const LOAD_USER_NOTES = 'LOAD_USER_NOTES';
 export const NEW_USER_CREATION = 'NEW_USER_CREATION';
 export const HANDLE_LOG_OUT = 'HANDLE_LOG_OUT';
+export const TOGGLE_CHECK = 'TOGGLE_CHECK';
 
 export const add_button_click = () => {
   const payload = 'create-note';
@@ -103,13 +104,6 @@ export const download_button_click = () => {
   };
 };
 
-export const update_check_list = note => {
-  return {
-    type: 'UPDATE_CHECK_LIST',
-    payload: note,
-  };
-};
-
 export const remove_edit = () => {
   return {
     type: 'REMOVE_EDIT',
@@ -134,9 +128,25 @@ export const new_user_creation = user => {
   }
 }
 
-export const handle_log_out = (user) => {
+export const handle_log_out = user => {
   return {
     type: 'HANDLE_LOG_OUT',
     payload: user,
+  }
+}
+
+let checkID = 0;
+export const update_check_list = (check, currentNote) => {
+  const payload = {...check, checkID: checkID++, index: currentNote.index};
+  return {
+    type: 'UPDATE_CHECK_LIST',
+    payload,
+  };
+};
+
+export const toggle_check = (note) => {
+  return {
+    type: 'TOGGLE_CHECK',
+    payload: note,
   }
 }

@@ -143,25 +143,41 @@ export default (state = initialState, action) => {
       return { ...state, current: action.payload };
     case actions.DOWNLOAD_BUTTON_CLICKED:
       return { ...state, current: action.payload };
-    case actions.UPDATE_CHECK_LIST:
-      const currentNotes = state.currentUserNotes;
-      currentNotes.splice(action.payload.index, 1, action.payload);
-      return { ...state, currentUserNotes: currentNotes };
     case actions.REMOVE_EDIT:
       return { ...state, remove: action.payload };
     case actions.LOAD_USER_NOTES:
-      return { ...state, currentUserNotes: action.payload.notes, currentUser: action.payload.user}
+      return { ...state, currentUserNotes: action.payload.notes, currentUser: action.payload.user };
     case actions.NEW_USER_CREATION:
-      return { ...state, currentUserNotes: action.payload.notes, users: [...state.users, action.payload], current: 'list', currentUser: action.payload}
+      return {
+        ...state,
+        currentUserNotes: action.payload.notes,
+        users: [...state.users, action.payload],
+        current: 'list',
+        currentUser: action.payload,
+      };
     case actions.HANDLE_LOG_OUT:
       const currentUsers = state.users;
       let userIndex = -1;
-      currentUsers.forEach((user,index) => {
+      currentUsers.forEach((user, index) => {
         if (user.id === action.payload.id) userIndex = index;
-      })
+      });
       currentUsers[userIndex].notes = state.currentUserNotes;
       currentUsers.splice(userIndex, 1, action.payload);
-      return { ...state, users: currentUsers, current:'login', }
+      return { ...state, users: currentUsers, current: 'login' };
+    case actions.UPDATE_CHECK_LIST:
+      const currentNotes = state.currentUserNotes;
+      const checklist = currentNotes[action.payload.index].checklist;
+      checklist.push({
+        note: action.payload.note,
+        id: action.payload.checkID,
+        index: checklist.length,
+        checked: action.payload.checked,
+      });
+      return { ...state, currentUserNotes: currentNotes };
+    case actions.TOGGLE_CHECK:
+      const currentUsernotes= state.currentUserNotes;
+      currentUsernotes.splice(state.note.index, 1, action.payload);
+      return { ...state, currentUserNotes: currentUsernotes };
     default:
       return state;
   }
