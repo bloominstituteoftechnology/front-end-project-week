@@ -1,169 +1,200 @@
 import React, { Component } from "react";
 import "./App.css";
-import "../node_modules/font-awesome/css/font-awesome.min.css";
-
-let todos = [
-  {
-    doTitle: "this is a mock todo",
-    doDescription: "This is supposed to describe what I do"
-  },
-  {
-    doTitle: "this is a mock todo",
-    doDescription: "This is supposed to describe what I do"
-  },
-  {
-    doTitle: "this is a mock todo",
-    doDescription: "This is supposed to describe what I do"
-  }
-];
-
+import ChangeTodo from "./components/ChangeTodo";
+import GetOneTodo from "./components/GetOneTodo";
+import MakeTodo from "./components/MakeTodo";
+import TodosList from "./components/TodosList";
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos
-    };
-    this.actionAddTodo = this.actionAddTodo.bind(this);
-  }
+  state = {
+    todos: [
+      {
+        doTitle: "this is a mock todo",
+        doDescription: "This is supposed to describe what I do"
+      },
+      {
+        doTitle: "this is a mock todo",
+        doDescription: "This is supposed to describe what I do"
+      },
+      {
+        doTitle: "this is a mock todo",
+        doDescription: "This is supposed to describe what I do"
+      },
+      {
+        doTitle: "this is a mock todo",
+        doDescription: "This is supposed to describe what I do"
+      }
+    ],
+    isShowing: {
+      todos: false,
+      create: false,
+      patch: false,
+      oneTodo: false,
+      showAll: false
+    },
+    searchWord: ""
+  };
+  target = null;
 
-  actionRemoveTodo(index) {
-    this.setState({
-      todos: this.state.todos.filter(function(e, i) {
-        return i !== index;
-      })
-    });
-  }
-
-  actionAddTodo(todo) {
-    this.setState({ todos: [...this.state.todos, todo] });
-  }
-  actionEditTodo(todo) {
-    this.setState({ todos: [...this.state.todos, todo] });
+  componentDidMount() {
+    this.viewNotes();
   }
   render() {
     return (
       <div className="container">
-        <nav className="navbar fixed-top navbar-dark bg-dark">
-          <h1 className="navbar-brand">
-            Number of todos:{" "}
-            <span className="badge badge-pill badge-secondary">
-              {this.state.todos.length}
-            </span>
-          </h1>
-        </nav>
-
-        <div className="row mt-5">
-          <br />
-          <InputTodo onAddTodo={this.actionAddTodo} />
-          <hr />
+        <div className="leftRail">
+          <h1 className="leftRailTitle">LambdaNotes</h1>
+          <button onClick={() => this.viewNotes()}>View Notes</button>
+          <button onClick={() => this.createView()}>+ Create note</button>
         </div>
-
-        <div className="row mt-5">
-          <div className="col">
-            <ul className="list-group">
-              {this.state.todos.map((todo, index) => (
-                <li className="list-group-item" key={index}>
-                  <h4 className="list-group-item-heading">{todo.doTitle} </h4>
-                  <p className="text-justify">{todo.doDescription}</p>
-                  <button
-                    className="btn btn-danger btn-sm float-right"
-                    onClick={this.actionRemoveTodo.bind(this, index)}
-                  >
-                    <span>
-                      <i className="fa fa-trash-o" aria-hidden="true" />
-                    </span>&nbsp;&nbsp; Delete
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm float-right"
-                    onClick={this.actionEditTodo.bind(this, index)}
-                  >
-                    <span>
-                      <i className="fa fa-trash-o" aria-hidden="true" />
-                    </span>&nbsp;&nbsp; Edit
-                  </button>
-                </li>
-              ))}
-            </ul>
+        {this.state.isShowing.todos ? (
+          <div className="rightRail">
+            <h1 className="header">Your Notes:</h1>
+            <form className="search">
+              <input
+                type="text"
+                name="searchWord"
+                value={this.state.searchWord}
+                onChange={this.searchTodo}
+                placeholder="Search for your note"
+              />
+            </form>
+            <TodosList
+              todos={this.state.todos}
+              searchWord={this.state.searchWord}
+              showAll={this.state.isShowing.showAll}
+              target={this.handleTarget}
+            />
           </div>
-        </div>
+        ) : null}
+        {this.state.isShowing.create ? (
+          <MakeTodo addTodo={this.addTodo} />
+        ) : null}
+        {this.state.isShowing.oneTodo ? (
+          <GetOneTodo
+            todos={this.state.todos}
+            target={this.target}
+            deleteTodo={this.deleteTodo}
+            patch={this.patchTodo}
+          />
+        ) : null}
+        {this.state.isShowing.patch ? (
+          <ChangeTodo
+            todo={this.state.todos[this.target]}
+            updateTodo={this.updateTodo}
+          />
+        ) : null}
       </div>
     );
   }
-}
 
-class InputTodo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      doTitle: "",
-      doDescription: ""
-    };
-    this.actionInputChange = this.actionInputChange.bind(this);
-    this.handleOnSubmit = this.handleOnSubmit.bind(this);
-  }
-  actionInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  searchTodo = e => {
+    e.preventDefault();
     this.setState({
-      [name]: value
+      ...this.state,
+      [e.target.name]: e.target.value,
+      isShowing: {
+        todos: true,
+        patch: false,
+        create: false,
+        oneTodo: false,
+        showAll: true
+      }
+    });
+  };
+
+  updateTodo = updatedTodo => {
+    let tempHold = this.state.todos;
+    tempHold[this.target] = updatedTodo;
+    this.setState({
+      ...this.state,
+      todos: tempHold
+    });
+  };
+
+  patchTodo = target => {
+    this.target = target;
+    this.setState({
+      ...this.state,
+      isShowing: {
+        todos: false,
+        patch: true,
+        create: false,
+        onTodo: false,
+        showAll: false
+      }
+    });
+  };
+
+  deleteTodo = target => {
+    let string = this.state.todos;
+    string.splice(target, 1);
+    this.target = null;
+    this.setState({
+      todos: string,
+      isShowing: {
+        todos: true,
+        patch: false,
+        create: false,
+        oneTodo: false,
+        showAll: false
+      }
+    });
+  };
+
+  handleTarget = i => {
+    this.target = i;
+    this.setState({
+      ...this.state,
+      isShowing: {
+        todos: false,
+        patch: false,
+        create: false,
+        oneTodo: true,
+        showAll: false
+      }
+    });
+  };
+
+  addTodo = newTodo => {
+    this.target = null;
+    this.setState({
+      todos: [newTodo, ...this.state.todos],
+      isShowing: {
+        todos: true,
+        patch: false,
+        create: false,
+        oneTodo: false,
+        showAll: false
+      }
+    });
+  };
+
+  createView() {
+    this.target = null;
+    this.setState({
+      ...this.state,
+      isShowing: {
+        todos: false,
+        patch: false,
+        create: true,
+        oneTodo: false,
+        showAll: false
+      }
     });
   }
 
-  handleOnSubmit(event) {
-    event.preventDefault();
-    this.props.onAddTodo(this.state);
+  viewNotes() {
+    this.target = null;
     this.setState({
-      doTitle: "",
-      doDescription: ""
+      ...this.state,
+      isShowing: {
+        todos: true,
+        patch: false,
+        create: false,
+        oneTodo: false,
+        showAll: false
+      }
     });
-  }
-
-  render() {
-    return (
-      <div className="col">
-        <br />
-        <br />
-        <br />
-        <h4>Add New Note</h4>
-        <br />
-        <form onSubmit={this.handleOnSubmit}>
-          <div className="form-group">
-            <input
-              name="doTitle"
-              type="text"
-              className="form-control"
-              id="inputTodoTitle"
-              value={this.state.doTitle}
-              onChange={this.actionInputChange}
-              aria-describedby="Todo Title"
-              placeholder="Enter Title"
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="doDescription" className="control-label text-muted">
-              <small>Description</small>
-            </label>
-            <textarea
-              name="doDescription"
-              type="text"
-              className="form-control"
-              id="inputTodoDescription"
-              value={this.state.doDescription}
-              onChange={this.actionInputChange}
-              aria-describedby="Todo Description"
-            />
-          </div>
-
-          <div className="form-group">
-            <button type="submit" className="btn btn-primary float-right">
-              Add Todo
-            </button>
-          </div>
-        </form>
-      </div>
-    );
   }
 }
 
