@@ -14,10 +14,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App__leftbox">
-          <NavBar changeSwitch={this.changeSwitch} />
+          <NavBar changeSwitch={this.changeSwitch} reverseOrder={this.reverseOrder} />
         </div>
         <div className="App__rightbox">
-          <MainPage title={currentState.mainPageTitle} caseValue={currentState.mainPageSwitchValue} changeSwitch={this.changeSwitch}/>
+          <MainPage title={currentState.mainPageTitle} caseValue={currentState.mainPageSwitchValue} changeSwitch={this.changeSwitch} onRef={ref => (this.mainpage = ref)}/>
         </div>
       </div>
     );
@@ -26,6 +26,12 @@ class App extends Component {
   changeSwitch = (title, casevalue) => {
     this.setState({mainPageTitle: title, mainPageSwitchValue: casevalue})
   };
+
+  reverseOrder = () => {
+    if (this.state.mainPageSwitchValue === 'noteList') {
+      this.mainpage.reverseNoteOrder();
+    }
+  }
 }
 
 export default App;

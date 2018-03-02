@@ -18,6 +18,13 @@ class MainPage extends React.Component {
 
   };
 
+  componentDidMount() {
+    this.props.onRef(this)
+  }
+  componentWillUnmount() {
+    this.props.onRef(undefined)
+  }
+
   render() {
     return (
       <div>
@@ -65,7 +72,10 @@ class MainPage extends React.Component {
     switch(param) {
       case 'noteList':
         return <div className="mainPage__noteList">
-          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote} filterValue={this.state.searchValue} onSortEnd={this.onSortEnd} distance={10} />
+          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote}
+           filterValue={this.state.searchValue} onSortEnd={this.onSortEnd}
+           distance={10} axis={'xy'}
+          />
         </div>;
       case 'noteView':
         return <div className="mainPage__noteView">
@@ -113,6 +123,10 @@ class MainPage extends React.Component {
       notes: arrayMove(this.state.notes, oldIndex, newIndex),
     });
   };
+
+  reverseNoteOrder = () => {
+    this.setState({ ...this.state, notes: [...this.state.notes].reverse() });
+  }
 
 }
 
