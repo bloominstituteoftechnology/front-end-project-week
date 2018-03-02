@@ -8,6 +8,7 @@ const initialState = {
     searching:false,
     searchResults:[],
     retrievingSearch: true,
+    firstTime:true,
 };
 
 export const notes_reducer = (state = initialState, action) => {
@@ -19,6 +20,7 @@ export const notes_reducer = (state = initialState, action) => {
                 ...state,
                 notes: action.payload,
                 fetching: false,
+                firstTime:action.first_time,
             };
         case ADD_NOTES:
             return {...state, notes: action.payload};

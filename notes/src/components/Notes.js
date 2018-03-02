@@ -1,25 +1,25 @@
 import React, {Component} from 'react';
 import {Row, Grid} from 'react-bootstrap';
-import {getNotes, getSingleNote} from '../actions'
+import {getNotes, getSingleNote, syncLocalStore} from '../actions'
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import Loading from './Loading'
+import firebase from './firebase'
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
 class Notes extends Component {
     state={
-       notes: this.props,
-
+        notes: this.props,
     };
 
-    componentDidMount() {
-        this.props.getNotes();
-        console.log(' this.props NOTENOTE',this.props)
-    }
-
-    componentWillReceiveProps(){
-        console.log(' this.props componentWillReceiveProps',this.props)
-
+    componentDidMount(){
+        if(this.props.firstTime){
+            this.props.getNotes();
+        }else{
+            firebase.on('value', (snap) => {
+                this.props.syncLocalStore(snap.val());
+            });
+        }
     }
 
     goNoteDetails = (note) => {
@@ -81,10 +81,11 @@ const mapStateToProps = state => {
         notesF: notes_reducer.notes,
         fetching: notes_reducer.fetching,
         singleNote: notes_reducer.singleNote,
+        firstTime: notes_reducer.firstTime,
     }
 };
 
-export default connect(mapStateToProps, {getNotes, getSingleNote})(Notes);
+export default connect(mapStateToProps, {getNotes, getSingleNote, syncLocalStore})(Notes);
 
 
 const NotesContainer = styled.div`

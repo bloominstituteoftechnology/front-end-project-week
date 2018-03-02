@@ -12,7 +12,7 @@ export const RETRIEVING_SEARCH = 'RETRIEVING_SEARCH';
 export const search = (criteria, status) => {
 
     // Handle when user deletes input and gets to 0
-    if(criteria.length == 0){
+    if(criteria.length === 0){
         return dispatch => {
             dispatch({type: SEARCH, payload: [], search:status });
         };
@@ -58,20 +58,23 @@ export const getNotes = () => {
         dispatch({type: FETCHING, fetching: true});
         notes
             .then(response => {
+
                 const respKeys = Object.keys(response.data);
                 const responseData = Object.entries(response.data).map((note, i) => {
                     note[1].key = respKeys[i];
                     return note[1];
                 });
-                
+
                 responseData.reverse();
-                dispatch({type: GET_NOTES, payload: responseData});
+                dispatch({type: GET_NOTES, payload: responseData, first_time:false});
                 dispatch({type: FETCHING, fetching: false});
             })
             .catch(err => {
                 dispatch({type: ERROR_GETTING_NOTES, payload: err});
             });
     };
+
+
 };
 
 export const addNote = (note) => {
@@ -132,6 +135,25 @@ export const updateNote = (noteObj) => {
             .catch(err => {
                 dispatch({type: ERROR_GETTING_NOTES, payload: err});
             });
+    };
+};
+
+export const syncLocalStore = (response) => {
+
+    return dispatch => {
+
+        dispatch({type: FETCHING, fetching: true});
+
+        const respKeys = Object.keys(response);
+        const responseData = Object.entries(response).map((note, i) => {
+            note[1].key = respKeys[i];
+            return note[1];
+        });
+
+        responseData.reverse();
+        dispatch({type: GET_NOTES, payload: responseData, first_time:false});
+        dispatch({type: FETCHING, fetching: false});
+
     };
 };
 
