@@ -5,6 +5,7 @@ import List from './list';
 import NewNote from './newnote';
 import FullNote from './fullnote';
 import UpdateNote from './updatenote';
+import NotFound from './notfound';
 
 const StyledApp = styled.div`
   width: 830px;
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/fullnote/:id' component={FullNote} />
           <Route path='/newnote' component={NewNote} />
           <Route path='/updatenote/:id' component={UpdateNote} />
+          <Route path='*' component={NotFound} />
         </StyledApp>
       </Router>
     );
