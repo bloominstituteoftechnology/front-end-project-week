@@ -11,7 +11,8 @@ class ListView extends Component {
       </div>
       <div className="list-view2">
       {
-        NoteAPI.all().map(n => (
+        // NoteAPI.all().map(n => (
+        NoteAPI.notes.map(n => (
           <div key={n.id} className="list-view-notes">
             <div className="note-block">
               <Link to={`/list/${n.id}`}>

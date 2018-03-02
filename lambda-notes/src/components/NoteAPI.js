@@ -31,7 +31,6 @@ const NoteAPI = {
       content: "Null" 
     },
   ],
-  all: function() { return this.notes},
   get: function(id) {
     const isNote = n => n.id === id
     return this.notes.find(isNote)

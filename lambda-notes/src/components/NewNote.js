@@ -2,20 +2,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteAPI from './NoteAPI';
 
+let idCounter = 6;
+
 class NewNote extends Component {
-  constructor() {
-    super();
-    this.state = {};
-    this.handleSubmit = this.handleSubmit.bind(this);
+  state = {
+    id: '',
+    title: '',
+    content: '',
   }
 
-  handleSubmit(event) {
+  addNote = (event) => {
     event.preventDefault();
+    idCounter++;
+    const notes = NoteAPI.notes;
+    this.setState({
+      id: idCounter,
+      title: this.state.title,
+      content: this.state.content,
+    });
+    notes.push(this.state);
+  }
 
-    // fetch('./NoteAPI', {
-    //   method: 'POST',
-    //   body: data,
-    // });
+  handleChange = (event) => {
+    this.setState({[event.target.name]: event.target.value});
   }
 
   render() {
@@ -24,26 +33,28 @@ class NewNote extends Component {
         <div className="new-note-header">
           <h2>Create New Note:</h2>
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.addNote}>
           <div className="new-note-title">
             <input
             className="new-note-title-input"
-            id="noteTitle"
             type="text"
             name="title"
             placeholder="Note Title"
+            onChange={this.handleChange}
+            value={this.state.title}
             />
           </div>
           <div className="new-note-content">
             <textarea
             className="new-note-content-input"
-            id="noteContent"
             type="text"
             name="content"
             placeholder="Note Content"
+            onChange={this.handleChange}
+            value={this.state.content}
             />
           </div>
-          <button><Link to='/list'>Save</Link></button>
+          <button stype="submit"><Link to='/list'>Save</Link></button>
         </form>
       </div>
     )
