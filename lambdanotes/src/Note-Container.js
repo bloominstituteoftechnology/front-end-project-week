@@ -1,5 +1,6 @@
 import React from 'react';
 import Note from './Note';
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,7 +11,7 @@ const NoteContainer = (props) => {
         <ul className='Note-list'>
         { props.notes.map((note) => {
             return (
-            <Note key={note.id} title={note.title} content={note.content} />
+                <Link to={`/${note.id}`}><Note key={note.id} title={note.title} content={note.content} /></Link>
             );
         })
         }

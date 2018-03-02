@@ -3,7 +3,7 @@ import NoteContainer from './Note-Container';
 import './App.css';
 import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Note from './Note';
+import ViewNote from './View-Note'
 
 
 class App extends Component {
@@ -57,10 +57,17 @@ class App extends Component {
     );
   }
 
-  ViewNote = () => {
+  viewNote = (props) => {
+    console.log(props);
+    let id = props.match.params.id;
+    console.log(id);
+    let title = props.match.params.title;
+    console.log(title);
+    let content = props.match.params.content;
+    console.log(content);
     return (
-       <Note /> 
-    );
+      <ViewNote title={title} content={content} id={id} />
+    )
   }
  
   render() {
@@ -69,12 +76,12 @@ class App extends Component {
         <div className="App">
           <div className='Left-bar'>
             <h1>Lambda Notes</h1>
-            <Link to='/'><button>View Notes</button></Link>
+            <Link to='/' exact><button>View Notes</button></Link>
             <Link to='/NewNoteForm' className='NewNoteButton'><button>Create New Note</button></Link>
           </div>
           <Route path='/' component={() => <NoteContainer notes={this.state.notes} />} exact />
           <Route path='/NewNoteForm' component={this.NewNoteForm} />
-          <Route path='/:id' component={this.ViewNote} />
+          <Route path='/:id' component={this.viewNote} />
         </div>
       </Router>
     );
