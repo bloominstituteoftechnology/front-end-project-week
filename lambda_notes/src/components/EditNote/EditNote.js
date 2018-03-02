@@ -1,6 +1,5 @@
 import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { editNote } from '../../actions';
 import './EditNote.css'

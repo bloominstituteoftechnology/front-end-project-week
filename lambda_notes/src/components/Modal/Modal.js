@@ -1,29 +1,26 @@
-import React, { Component } from 'react'
-import { Button, Confirm } from 'semantic-ui-react'
+import React from 'react';
+import './Modal.css';
 
-class Modal extends Component {
-  state = { 
-    open: false 
-  }
-  show = () => this.setState({ open: true })
-  handleConfirm = () => this.setState({ open: false })
-  handleCancel = () => this.setState({ open: false })
-
+class Modal extends React.Component {
   render() {
-    console.log(this.props);
+    if (this.props.isOpen === false) return null;
     return (
       <div>
-        <Button color="red" onClick={this.show}>{this.props.text}</Button>
-        <Confirm
-          open={this.state.open}
-          content="Are You Sure?????"
-          cancelButton="Nope"
-          confirmButton="Hell Yes!"
-          onCancel={this.handleCancel}
-          onConfirm={this.handleConfirm}
-        />
+        <div className="Backdrop"/>
+        <div className="Modal">
+          <div>{this.props.children}</div>
+          <div onClick={event => this.close(event)}/>
+        </div>
       </div>
     )
+  }
+
+  close(event) {
+    event.preventDefault()
+
+    if (this.props.onClose) {
+      this.props.onClose()
+    }
   }
 }
 

@@ -2,7 +2,6 @@ import React from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { connect } from 'react-redux';
 import { createNote } from '../../actions';
-import { Button } from 'semantic-ui-react';
 import './CreateNewNote.css';
 
 class CreateNewNote extends React.Component {
@@ -12,7 +11,7 @@ class CreateNewNote extends React.Component {
   }
   render() {
     return (
-      <div class="Container">
+      <div className="Container">
         <div className="Sidebar-Container">
           <Sidebar />
         </div>

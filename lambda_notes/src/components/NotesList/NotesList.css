@@ -9,6 +9,8 @@
   margin: 12px;
   font-size: 22px;
   font-weight: 700;
+  height: 23px;
+  overflow: hidden;
 }
 .Note hr {
   margin: 12px;
@@ -17,4 +19,6 @@
 .Note .Note-Content {
   margin: 12px;
   font-size: 15px;
+  height: 150px;
+  overflow: hidden;
 }

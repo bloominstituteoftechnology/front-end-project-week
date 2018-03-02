@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import NotesList from '../NotesList/NotesList';
-import Note from '../Note/Note';
 import { connect } from 'react-redux';
 import './App.css';
 

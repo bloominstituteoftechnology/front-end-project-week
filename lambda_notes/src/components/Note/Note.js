@@ -11,6 +11,9 @@ const linkStyles = {
   textDecoration: 'underline',
 }
 class Note extends React.Component {
+  state = {
+    isModalOpen: false,
+  }
   render() {
     return (
       <div className="Container">
@@ -23,9 +26,15 @@ class Note extends React.Component {
               <Link to={`/edit/${this.props.match.params.id}`} style={linkStyles}>edit</Link>
             </div>
             <div className="Delete-Link">
-              <a href='#'onClick={this.handleDelete} style={linkStyles}>delete</a>
+              <a href='#' onClick={() => this.openModal()} style={linkStyles}>delete</a>
+              <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
+                <div className="Modal-contents">
+                  <h1>Are you sure you want to delete?</h1>
+                  <button className="Delete-button" onClick={() => this.handleDelete()}>Delete</button>
+                  <button className="Cancel-button" onClick={() => this.closeModal()}>No</button>
+                </div>
+              </Modal>
             </div>
-            <Modal />
           </div>
           <div className="Note-Whole">
             <div className="Note-Title">
@@ -39,8 +48,14 @@ class Note extends React.Component {
       </div>
     )
   }
-  handleDelete = (event) => {
-    event.preventDefault();
+  openModal() {
+    this.setState({ isModalOpen: true })
+  }
+
+  closeModal() {
+    this.setState({ isModalOpen: false })
+  }
+  handleDelete = () => {
     this.props.deleteNote(this.props.match.params.id);
     this.props.history.push('/');
   }

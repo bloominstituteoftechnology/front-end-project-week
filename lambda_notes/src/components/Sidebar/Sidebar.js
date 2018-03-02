@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
-import { Button } from 'semantic-ui-react';
 
 const Sidebar = () => {
   return (
