@@ -15,7 +15,7 @@ const StyledForm = styled.div`
 
   input, textarea {
     margin-left: 10px;
-    border-radius: 3px;
+    border-radius: 2px;
     border: 1px solid #bfbfc0;
     font-family: Raleway, sans-serif;
     letter-spacing: 1px;

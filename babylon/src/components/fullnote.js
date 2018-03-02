@@ -39,7 +39,7 @@ const StyledNote = styled.div`
     margin-top: 20px;
     background-color: #fffeff;
     border: 1px solid #bfbfc0;  
-    border-radius: 1px;
+    border-radius: 2px;
     h2 {
       margin-top: 15px;
     }
@@ -57,12 +57,6 @@ class FullNote extends React.Component {
     event.preventDefault();
     this.props.toggleDelete();
   }
-
-  // componentDidMount = () => {
-  //   if (!this.props.match.params.id) {
-  //     this.props.history.push('/');
-  //   }
-  // }
 
   render() {
     return (

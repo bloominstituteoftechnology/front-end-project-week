@@ -11,7 +11,7 @@ const StyledCard = styled.div`
   padding: 10px 15px 25px; 
   background-color: #fffeff;
   border: 1px solid #bfbfc0;  
-  border-radius: 1px;
+  border-radius: 2px;
   word-wrap: break-word;
 
   h3 {
