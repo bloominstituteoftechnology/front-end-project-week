@@ -11,6 +11,7 @@ import Search from './Search';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
   <li className='list-note' onClick={() => { viewNote(note)} }>
+    <div className='item-timestamp'>{note.dateCreated}</div>
     <div className='item-title'><Shiitake lines={1} throttleRate={200}>{note.title}</Shiitake></div>
     <Shiitake lines={6} throttleRate={200} className='item-entry'>{removeMd(note.entry)}</Shiitake>
   </li>
@@ -20,6 +21,7 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
   return (
     <ul className='list-notes'>
       {notes.map((note, index) => {
+        console.log('testing notes',note);
         return (
           <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote} />
         );

@@ -7,13 +7,14 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import notesReducer from './reducers';
-// import registerServiceWorker from './registerServiceWorker';
+import { initialTestState } from './reducers';
+import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : {};
+const persistState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : initialTestState;
 
-const store = createStore(notesReducer, persistedState, composeEnhancers(applyMiddleware(thunk, logger)));
+const store = createStore(notesReducer, persistState, composeEnhancers(applyMiddleware(logger)));
 
 store.subscribe(()=>{
   localStorage.setItem('reduxState', JSON.stringify(store.getState()));
@@ -24,4 +25,4 @@ ReactDOM.render(
     <App />
   </Provider>
 , document.getElementById('root'));
-// registerServiceWorker();
+registerServiceWorker();

@@ -18,7 +18,8 @@ class CreateNote extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    const timeStamp = new Date();
+    this.props.addNote({ ...this.state, dateCreated: timeStamp.toLocaleString() });
     this.setState({ redirect: true });
   }
 

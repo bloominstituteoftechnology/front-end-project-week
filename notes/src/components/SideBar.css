@@ -40,6 +40,9 @@
 .sidebar button:active {
   background: #24abad;
 }
+.sidebar button:hover {
+  background: #00b6b9;
+}
 .sidebar .export {
   width: 81%;
 }
