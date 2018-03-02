@@ -8,6 +8,11 @@ class Note extends Component {
     content: '',
   };
 
+  constructor(props) {
+    super(props);
+    this.processDelete = this.processDelete.bind(this);
+  }
+
   toggleDeleteModal() {
     document.getElementById('delete-modal').classList.toggle('delete-modal--display');
     document.getElementById('opaque-shield').classList.toggle('opaque-shield--display');
@@ -32,15 +37,23 @@ class Note extends Component {
       this.setState(() => response.data.find(note => note.id === Number(this.props.match.params.id)));
     })
     .catch((error) => {
-      alert('Server error: Please try again later.');
+      alert(error);
       window.location.href = '/';
     });
   }
 
-  render() {;
+  componentDidUpdate() {
+    let noteHeight = window.getComputedStyle(document.getElementById('note')).getPropertyValue('height');
+    noteHeight = Number(noteHeight.substring(0, noteHeight.length - 2));
+    const windowHeight = document.documentElement.clientHeight;
+    document.getElementById('App').style.height = (noteHeight + 107 > windowHeight) ? `${noteHeight + 107}px` :
+      '100%';
+  }
+
+  render() {
     return (
       <div>
-        <div className="note">
+        <div className="note" id="note">
           <div className="note__link note__edit-link" onClick={this.redirectEdit}>edit</div>
           <div className="note__link note__delete-link" onClick={this.toggleDeleteModal}>delete</div>
           <div className="note__title">{this.state.title}</div>
@@ -48,8 +61,12 @@ class Note extends Component {
         </div>
         <div className="delete-modal" id="delete-modal">
           <div className="delete-modal__warning">Are you sure you want to delete this?</div>
-          <div className="delete-modal__delete-button" onClick={this.processDelete}>Delete</div>
-          <div className="delete-modal__cancel-button" onClick={this.toggleDeleteModal}>No</div>
+          <div className="delete-modal__button delete-modal__delete-button" onClick={this.processDelete}>
+            Delete
+          </div>
+          <div className="delete-modal__button delete-modal__cancel-button" onClick={this.toggleDeleteModal}>
+            No
+          </div>
         </div>
       </div>
     );

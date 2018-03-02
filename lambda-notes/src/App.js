@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
 import List from './components/List';
 import Note from './components/Note';
 import Create from './components/Create';
@@ -11,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App" id="App">
           <div className="left-panel">
             <h1 className="left-panel__heading">
               Lambda

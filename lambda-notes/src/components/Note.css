@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Roboto:bold');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway:bold');
 
 .note {
     padding: 0 45px 0 30px;
+    height: 100%
 }
 
 .note__link {
@@ -48,12 +50,13 @@
 
 .delete-modal {
     position: absolute;
-    left: -47px;
-    top: 186px;
-    width: 582px;
+    left: -46px;
+    top: 184px;
+    width: 583px;
     height: 198px;
     border: solid #505050 1px;
     background: #fbfbfb;
+    text-align: center;
     z-index: 2;
     display: none;
 }
@@ -63,7 +66,39 @@
 }
 
 .delete-modal__warning {
-    position: absolute;
-    font-family: "Raleway", sans-serif;
+    position: relative;
+    top: 47px;
+    left: -4px;
+    word-spacing: 0.5px;
+    font-family: "Roboto", sans-serif;
     font-size: 17px;
+}
+
+.delete-modal__button {
+    position: absolute;
+    width: 210px;
+    height: 47px;
+    top: 102px;
+    padding-top: 12px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 0;
+    color: white;
+    text-align: center;
+    cursor: pointer;    
+}
+
+.delete-modal__delete-button {
+    border: solid #a86770 1px;
+    box-shadow: 1px 1px #d9b5b9;
+    left: 74px;
+    background: #d0011b;
+}
+
+.delete-modal__cancel-button {
+    border: solid #79a1a2 1px;
+    box-shadow: 1px 1px #d0ddde;
+    left: 307px;
+    background: #2ac0c4;
 }
