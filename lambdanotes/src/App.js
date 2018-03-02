@@ -118,13 +118,6 @@ class App extends Component {
     const notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
     notesRef.update(updatedNote);
     let { title, content, id } = updatedNote;
-    let updatedNotes = this.state.notes.map((note) => {
-      if (note.id === id) {
-        note.title = title;
-        note.content = content;
-      }
-      return note
-    })
     this.setState({ noteDetails: updatedNote });
     this.showNoteDetails(updatedNote.id);
   }
