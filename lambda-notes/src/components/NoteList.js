@@ -6,7 +6,7 @@ export const NoteList = (props) => {
   return (
     <div className="NoteList">
       <div className="NoteList__header">
-        This is the header for the notes.
+        Your Notes:
       </div>
       <div className="NoteList__card-container">
         {

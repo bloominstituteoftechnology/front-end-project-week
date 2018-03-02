@@ -12,17 +12,22 @@ class NewNote extends Component {
   render() {
     console.log('The properties of NewNote are:', this.props)
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" 
+      <div className="EditView">
+        <div className="EditView__header">
+          Create New Note:
+        </div>
+        <form className="Form" onSubmit={this.handleSubmit}>
+          <input type="text"
+            className="Form__title"
             placeholder="New note" 
             value={this.state.titleText} 
             onChange={this.handleTitleChange}/>
-          <input type="text" 
+          <textarea type="text"
+            className="Form__text"
             placeholder="Add text here . . ." 
             value={this.state.contentText} 
             onChange={this.handleContentChange}/>
-          <button type="submit">Add Note</button>
+          <button className="Form__submit" type="submit">Save</button>
         </form>
       </div>
     )
