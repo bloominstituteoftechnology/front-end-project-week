@@ -3,19 +3,29 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import LeftBar from '../LeftBar/LeftBar';
+import { getNotes } from '../Redux/actions';
 import './AllNotes.css';
 
 class AllNotes extends Component {
   state = {
-    alphabetButtonPressed: false,
-    timeButtonPressed: true,
+    alphabetButtonPressed: true,
+    timeButtonPressed: false,
   };
+
+  componentDidMount() {
+    this.props.getNotes();
+  }
+
+  componentWillReceiveProps() {
+    this.props.getNotes();
+  }
+
   getCSV = () => {
-    let csv = [['title', 'body', 'id']];
+    let csv = [['title', 'content', 'id']];
     for (let i = 0; i < this.props.notes.length; i++) {
       csv.push([
         this.props.notes[i].title,
-        this.props.notes[i].body,
+        this.props.notes[i].content,
         this.props.notes[i].id,
       ]);
     }
@@ -23,26 +33,26 @@ class AllNotes extends Component {
   };
 
   orderByAlphabet = () => {
-    let arr = [];
-    this.props.notes.map(eachNote => {
-      let eachArr = [];
-      eachArr.push(eachNote.title, eachNote.body, eachNote.id);
-      arr.push(eachArr);
+    return this.props.notes.sort((a, b) => {
+      const aye = a.title.toUpperCase();
+      const bee = b.title.toUpperCase();
+
+      if (aye < bee) return -1;
+      if (aye > bee) return 1;
+      return 0;
     });
-    arr.sort();
-    return arr;
   };
 
-  orderByTime = () => {
+  orderByTimeEdited = () => {
     let arr = [];
-    this.props.notes.map(eachNote => {
+    this.props.notes.forEach(eachNote => {
       let eachArr = [];
-      eachArr.push(eachNote.id, eachNote.title, eachNote.body);
+      eachArr.push(eachNote.id, eachNote.title, eachNote.content);
       arr.push(eachArr);
     });
     arr.sort();
     let reOrderedArr = [];
-    arr.map(eachNote => {
+    arr.forEach(eachNote => {
       let eachArr = [];
       eachArr.push(eachNote[1], eachNote[2], eachNote[0]);
       reOrderedArr.push(eachArr);
@@ -70,27 +80,28 @@ class AllNotes extends Component {
       return (
         <div className="container">
           <LeftBar />
-          <div className="all-notes_body">
+          <div className="all-notes_content">
             <div className="all-notes_header">Your Notes:</div>
             <button
               className="order-button"
               onClick={this.toggleAlphabetButton}
             >
-              Order By Time Created
+              Order By Time Edited
             </button>
             <div className="all-notes_notes">
               {noteList.map((eachNote, i) => {
+                if (eachNote.content === null) eachNote.content = '';
                 const charsVisible =
-                  eachNote[1].length < 105
-                    ? eachNote[1]
-                    : eachNote[1].slice(0, 105) + ' ...';
+                  eachNote.content.length < 105
+                    ? eachNote.content
+                    : eachNote.content.slice(0, 105) + ' ...';
                 return (
-                  <div className="note-box" key={eachNote[2]}>
-                    <Link to={`/notes/${eachNote[2]}`}>
+                  <div className="note-box" key={eachNote.id}>
+                    <Link to={`/notes/${eachNote.id}`}>
                       <div className="note-title">{`${i + 1}. ${
-                        eachNote[0]
+                        eachNote.title
                       }`}</div>
-                      <div className="note-body">{charsVisible}</div>
+                      <div className="note-content">{charsVisible}</div>
                     </Link>
                   </div>
                 );
@@ -110,12 +121,12 @@ class AllNotes extends Component {
       );
     }
     if (this.state.timeButtonPressed) {
-      let noteList = this.orderByTime();
+      let noteList = this.orderByTimeEdited();
 
       return (
         <div className="container">
           <LeftBar />
-          <div className="all-notes_body">
+          <div className="all-notes_content">
             <div className="all-notes_header">Your Notes:</div>
             <button
               className="order-button"
@@ -125,6 +136,7 @@ class AllNotes extends Component {
             </button>
             <div className="all-notes_notes">
               {noteList.map((eachNote, i) => {
+                if (eachNote[1] === null) eachNote[1] = '';
                 const charsVisible =
                   eachNote[1].length < 105
                     ? eachNote[1]
@@ -135,7 +147,7 @@ class AllNotes extends Component {
                       <div className="note-title">{`${i + 1}. ${
                         eachNote[0]
                       }`}</div>
-                      <div className="note-body">{charsVisible}</div>
+                      <div className="note-content">{charsVisible}</div>
                     </Link>
                   </div>
                 );
@@ -163,4 +175,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(AllNotes);
+export default connect(mapStateToProps, { getNotes })(AllNotes);

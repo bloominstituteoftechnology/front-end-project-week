@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteNote, editNote } from '../Redux/actions';
+import { deleteNote, editNote, addNote } from '../Redux/actions';
 import LeftBar from '../LeftBar/LeftBar';
 import { Modal } from './Modal';
 import { EditNoteFields } from './EditNoteFields';
@@ -10,7 +10,7 @@ class SingleNote extends Component {
   state = {
     note: {},
     title: '',
-    body: '',
+    content: '',
     deleteButtonPressed: false,
     editButtonPressed: false,
   };
@@ -44,16 +44,19 @@ class SingleNote extends Component {
 
     const editedNote = {
       title: this.state.title,
-      body: this.state.body,
+      content: this.state.content,
+      id: this.state.note.id,
     };
 
-    this.props.editNote(editedNote, this.state.note.id);
+    this.props.editNote(editedNote);
 
     this.setState({
       title: '',
-      body: '',
-      editButtonPressed: !this.state.editButtonPressed,
+      content: '',
+      // editButtonPressed: !this.state.editButtonPressed,
     });
+
+    // this.props.history.push(`/notes/${this.state.note.id}`);
   };
 
   deleteNote = () => {
@@ -81,7 +84,7 @@ class SingleNote extends Component {
         ) : (
           <div className="container">
             <LeftBar />
-            <div className="single-note_body">
+            <div className="single-note_content">
               <div className="edit-delete_links">
                 <div className="links">
                   <div className="each-link" onClick={this.toggleEdit}>
@@ -93,7 +96,7 @@ class SingleNote extends Component {
                 </div>
               </div>
               <div className="single-note_header">{this.state.note.title}</div>
-              <div className="single-note_text">{this.state.note.body}</div>
+              <div className="single-note_text">{this.state.note.content}</div>
             </div>
             {this.state.deleteButtonPressed && (
               <Modal
@@ -114,4 +117,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { deleteNote, editNote })(SingleNote);
+export default connect(mapStateToProps, { deleteNote, editNote, addNote })(
+  SingleNote
+);
