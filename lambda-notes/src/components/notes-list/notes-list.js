@@ -6,14 +6,15 @@ import Note from '../note/note';
 
 class NotesList extends Component {
   state = {
-    notesListHeading: "Your Notes:"
+    notesListHeading: "Your Notes:",
+    notes,
   }
   render() {
     return (
       <div className="lambda-notes">
         <h1>{this.state.notesListHeading}</h1>
         <ul>
-          {notes.map(note => {
+          {this.state.notes.map(note => {
             return (
               <Note />
             )
