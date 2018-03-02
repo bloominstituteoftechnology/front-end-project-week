@@ -6,6 +6,22 @@ class singleNote extends Component {
   render() {
     return (
       <div className="Home__Right">
+
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onClick={this.closeModal}>&times;</span>
+            <p>Are you sure you want to delete this?</p>
+          <div class="modal-actions">
+            <div class="modal-actions-delete">
+              Delete
+            </div>
+            <div class="modal-actions-no">
+              No
+            </div>
+          </div>
+        </div>
+      </div>
+
         <div className="ViewNotes__Actions">
           <NavLink to={`/editnote/${this.props.id}`}>
             <div className="ViewNotes__Edit">
@@ -28,7 +44,12 @@ class singleNote extends Component {
     )
   }
   showModal() {
-    alert('test');
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+  }
+  closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = "none";
   }
 }
 
