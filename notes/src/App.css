@@ -5,4 +5,5 @@ h1 {
 .container {
   display: flex;
   justify-content: center;
-  padding-top: 76px; }
+  padding-top: 76px;
+  padding-bottom: 76px; }

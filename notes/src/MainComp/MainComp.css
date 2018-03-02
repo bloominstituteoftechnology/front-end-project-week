@@ -1,12 +1,13 @@
-* {
-  text-decoration: none; }
+a:link {
+  text-decoration: none !important; }
 
 .view {
   width: 825px;
   border: 1px solid #9b9b9b;
   border-left: 0px;
   background: #f3f3f3;
-  padding-top: 10px; }
+  padding-top: 10px;
+  text-decoration: none; }
   .view--header {
     font-family: "Roboto", "Segoe UI", "Open Sans", "Arial";
     font-size: 24px;

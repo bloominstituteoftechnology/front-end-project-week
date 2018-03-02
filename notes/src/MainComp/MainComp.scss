@@ -1,5 +1,5 @@
-* {
-  text-decoration: none;
+a:link{
+  text-decoration: none!important;
 }
 
 .view {
@@ -8,6 +8,7 @@
   border-left: 0px;
   background: #f3f3f3;
   padding-top: 10px;
+  text-decoration: none;
 
   &--header {
     font-family: "Roboto", "Segoe UI", "Open Sans", "Arial";
