@@ -33,7 +33,7 @@ const NoteListStyled = styled.div`
       }
     }
   }
-`
+`;
 
 class NotesList extends Component {
   state = {

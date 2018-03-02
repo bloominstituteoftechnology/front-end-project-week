@@ -35,10 +35,6 @@ class App extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   this.setState({ notes: dummyData })
-  // }
-
   componentDidMount() {
     const notesRef = firebase.database().ref('notes');
     notesRef.on('value', (snapshot) => {
@@ -113,10 +109,8 @@ class App extends Component {
   }
 
   saveNewNote = (note) => {
-    // const prevNotes = this.state.notes;
     const notesRef = firebase.database().ref('notes');
     notesRef.push(note)
-    // this.setState({ notes: [...prevNotes, note] })
     this.viewNotes();
   }
 

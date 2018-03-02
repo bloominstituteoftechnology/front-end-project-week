@@ -19,7 +19,7 @@ const SideBarStyled = styled.div`
     margin-bottom: 31px;
     padding-top: 10px;
   }
-`
+`;
 
 const ButtonStyled = styled.button`
   margin-bottom: 20px;
@@ -37,7 +37,7 @@ const ButtonStyled = styled.button`
   &:hover {
     border: 2px solid rgb(243, 243, 243);
   }
-`
+`;
 
 // Sidebar Component
 const Sidebar = (props) => {

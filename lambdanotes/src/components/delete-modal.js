@@ -54,7 +54,7 @@ const DeleteModalContainerStyled = styled.div`
       background-color: rgb(94, 190, 195);
     }
   }
-`
+`;
 
 // DeleteModal Component
 const DeleteModal = (props) => {
