@@ -10,6 +10,7 @@ const NoteDetailsStyled = styled.div`
   width: 100%;
   height: 100vh;
   background-color: rgb(243, 243, 243);
+  border-left: 1px solid rgb(151, 151, 151);
 
   header {
     display: flex;
@@ -32,6 +33,27 @@ const NoteDetailsStyled = styled.div`
   p {
     width: 90%;
     white-space: pre-line;
+    padding-bottom: 15px;
+    }
+
+  ul {
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+
+  ol {
+    padding-left: 20px;
+    list-style-type: decimal;
+  }
+
+  li, tbody {
+    font-size: 1rem;
+    line-height: 25px;
+  }
+
+  thead, td, th {
+    border: 1px solid black;
+    padding: 10px;
   }
 `
 
@@ -63,7 +85,7 @@ class NoteDetails extends Component {
           <a onClick={this.props.showDeleteModal}>Delete</a>
         </header>
         <h1>{this.state.title}</h1>
-        <p><ReactMarkdown source={this.state.content} /></p>
+        <ReactMarkdown source={this.state.content} />
       </NoteDetailsStyled>
     )
   }

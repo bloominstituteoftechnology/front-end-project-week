@@ -9,6 +9,7 @@ const EditNoteStyled = styled.div`
   width: 100%;
   height: 100vh;
   background-color: rgb(243, 243, 243);
+  border-left: 1px solid rgb(151, 151, 151);
 
   button {
     width: 100px;

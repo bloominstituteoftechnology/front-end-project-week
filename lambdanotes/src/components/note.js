@@ -26,6 +26,26 @@ const NoteStyled = styled.a`
     line-height: 25px;
     margin: 0 3px;;
   }
+
+  ul {
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+
+  ol {
+    padding-left: 15px;
+    list-style-type: decimal;
+  }
+
+  li, tbody, thead {
+    font-size: 0.8rem;
+    line-height: 20px;
+  }
+
+    thead, td, th {
+    border: 1px solid black;
+    padding: 5px;
+  }
 `;
 
 const getNoteContentPreview = (content) => {
@@ -42,8 +62,7 @@ class Note extends Component {
       <NoteStyled onClick={() => { this.props.showNoteDetails(this.props.note.id) }}>
         <h4>{this.props.note.title}</h4>
         <hr style={{ width: "100%" }} />
-        {/* <p>{getNoteContentPreview(this.props.note.content)}</p> */}
-        <p><ReactMarkdown source={getNoteContentPreview(this.props.note.content)} /></p>
+        <ReactMarkdown source={getNoteContentPreview(this.props.note.content)} />
       </NoteStyled>
     )
   }
