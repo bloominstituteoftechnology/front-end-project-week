@@ -6,3 +6,8 @@
   align-items: center;
   margin-top: 45px;
 }
+.sorting-menu-container .sorting-menu {
+  font-family: Raleway;
+  padding: 2px;
+  border-radius: 0px;
+}
