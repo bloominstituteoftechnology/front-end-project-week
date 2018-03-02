@@ -1,0 +1,8 @@
+.sorting-menu-container {
+  width: 10%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+}

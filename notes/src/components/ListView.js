@@ -66,10 +66,9 @@ class ListView extends React.Component {
     return (
       <div className='list-view'>
         <Search history={this.props.history} search={this.search}/>
-        <SortingMenu />
         {this.props.notes ?
         <div>
-          <h2 className='list-title'>Your Notes:</h2>
+          <div className='list-title-container'><h2 className='list-title'>Your Notes:</h2><SortingMenu /></div>
           <SortableList viewNote={this.viewNote} notes={this.props.notes} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
         </div>
         :

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { sortNotes } from '../actions';
+import './SortingMenu.css';
 
 class SortingMenu extends React.Component {
   state = {
@@ -68,7 +69,7 @@ class SortingMenu extends React.Component {
     return (
       <div className='sorting-menu-container'>
         <form>
-          <select value={this.props.sorted ? this.props.sorted : this.state.value} onChange={this.onChange}>
+          <select className='sorting-menu' value={this.props.sorted ? this.props.sorted : this.state.value} onChange={this.onChange}>
             <option value='default'>Sort by</option>
             <option value='newest'>Sort by Newest</option>
             <option value='oldest'>Sort by Oldest</option>
