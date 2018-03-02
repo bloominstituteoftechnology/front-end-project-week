@@ -9,7 +9,7 @@ import ViewNote from './View-Note'
 class App extends Component {
   constructor(props) {
     super(props);
-    let id = 1;
+    this.id = 1;
     this.state = {
       notes: [],
       title: '',
@@ -27,12 +27,12 @@ class App extends Component {
       content: this.state.content,
       id: this.id
     };
-    let newId = this.id;
     console.log(newObj.id);
     this.setState({
       notes: [...this.state.notes, newObj]
     })
-    newId++;
+    let newId = (this.id)++
+    console.log(newId);
     this.setState({
       title: '',
       content: '',
@@ -54,6 +54,15 @@ class App extends Component {
           <button type='submit'>Save</button> 
         </form>  
     </div>
+    );
+  }
+
+  DeleteModal = () => {
+    return (
+      <div>
+        <button type='submit'>Confirm?</button>
+        <button type='submit'>JK!</button>
+      </div>     
     );
   }
 
@@ -82,6 +91,7 @@ class App extends Component {
           <Route path='/' component={() => <NoteContainer notes={this.state.notes} />} exact />
           <Route path='/NewNoteForm' component={this.NewNoteForm} />
           <Route path='/:id/:title/:content' component={this.viewNote} />
+          <Route path='/DeleteModal' component={this.DeleteModal} />
         </div>
       </Router>
     );
