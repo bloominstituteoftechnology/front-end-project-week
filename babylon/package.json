@@ -2,7 +2,6 @@
   "name": "babylon",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jonbrunt.github.io/Operation-Babylon",
   "dependencies": {
     "ajv": "^6.1.1",
     "axios": "^0.18.0",
@@ -23,14 +22,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "npm run build&&gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "gh-pages": "^1.1.0",
     "react-scripts": "1.0.10"
   }
 }

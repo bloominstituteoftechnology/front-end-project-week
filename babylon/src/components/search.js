@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { updateSearch } from '../actions';
+import { updateSearch, showNotes } from '../actions';
 
 const StyledSearch = styled.div`
   display: flex;
@@ -23,9 +23,7 @@ const StyledSearch = styled.div`
 
 class Search extends React.Component {
   componentDidMount() {
-    this.props.updateSearch({
-      input: '',
-    });
+    this.props.showNotes();
   }
 
   handleChange = (event) => {
@@ -58,4 +56,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { updateSearch })(Search);
+export default connect(mapStateToProps, { updateSearch, showNotes })(Search);

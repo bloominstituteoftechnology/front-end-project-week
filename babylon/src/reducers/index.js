@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT, OLDEST_SORT, NEWEST_SORT, UPDATE_SEARCH } from '../actions';
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE, TITLE_SORT, OLDEST_SORT, NEWEST_SORT, UPDATE_SEARCH, SHOW_NOTES } from '../actions';
 import dummyData from '../dummydata';
 
 const initialState = {
@@ -80,6 +80,14 @@ export default (state = initialState, action) => {
           if (!val.title.includes(state.input) && !val.body.includes(state.input)) {
             return { ...val, filtered: true };
           } return { ...val, filtered: false };
+        }),
+      };
+    case SHOW_NOTES:
+      return {
+        ...state,
+        input: '',
+        notes: [...state.notes].map((val) => {
+          return { ...val, filtered: false };
         }),
       };
     default:

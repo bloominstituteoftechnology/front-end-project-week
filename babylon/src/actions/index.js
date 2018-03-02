@@ -8,6 +8,7 @@ export const TITLE_SORT = 'TITLE_SORT';
 export const NEWEST_SORT = 'NEWEST_SORT';
 export const OLDEST_SORT = 'OLDEST_SORT';
 export const UPDATE_SEARCH = 'UPDATE_SEARCH';
+export const SHOW_NOTES = 'SHOW_NOTES';
 
 export const addNote = data => ({
   type: ADD_NOTE,
@@ -49,4 +50,8 @@ export const oldestSort = data => ({
 export const updateSearch = data => ({
   type: UPDATE_SEARCH,
   input: data.input,
+});
+
+export const showNotes = data => ({
+  type: SHOW_NOTES,
 });
