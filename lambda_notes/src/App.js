@@ -17,15 +17,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route path="/" component={Sidebar} />
-          <Route
-            path="/list"
-            render={state => <List notes={this.state.notes} exact />}
-          />
-          <Route
-            path="/createnote"
-            component={state => <CreateNote notes={this.state.notes} exact />}
-          />
-        
+          <Route path="/list" render={state => <List notes={this.state.notes} exact />} />
+          <Route path="/createnote" component={state => <CreateNote notes={this.state.notes} exact />} />
+          <Route path='/delete/:id' component={List} exact />
         
         </div>
       </Router> 

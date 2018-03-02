@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import Redirect from 'react-router-dom/Redirect';
 
 class CreateNote extends Component {
     
     state = {
         title:'', 
-        text:''
+        text:'',
+        redirect: false,
     };
-        
+     
+    updateNote = (event) => {
+      let { name, value } = event.target;
+      this.setState({ [name]: value });
+  };
+
+  createNote = (event) => {
+      event.preventDefault();
+      this.props.newNote(this.state);
+      this.setState({ redirect: true });
+    };
+
+
 render() {
     return (
         <div className="Notes">
@@ -28,31 +42,16 @@ render() {
                     name='text'
                     value={this.state.text}
                 />
-                <button id='save' type='submit'>Save</button>
+                <button id='save' type='submit'><b>Save</b></button>
             </form>
+            {this.state.redirect ? <Redirect to='/' /> : null }
         </div>
           
       
     );
   }
 
-  updateNote = event => {
-      const name = event.target.name;
-      const value = event.target.value;
-
-      this.setState({ [name]: value });
-  };
-
-  createNote = event => {
-      event.preventDefault();
-      const newNote = {
-          title: this.state.title,
-          text: this.state.text
-      };
-
-      const newNotes = [...this.state.notes, newNote];
-      this.setState({ notes: newNotes, title: '', text: ''});
-  };
+  
 
 }
 

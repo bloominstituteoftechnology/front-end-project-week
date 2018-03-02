@@ -30,13 +30,21 @@
 #save {
   width: 40%;
   margin: 0;
-  padding: 5.5%;
+  background: teal;
+  color: white;
+  font-size: x-large;
+  margin-bottom: 6%;
+  padding: 2%;
+  border:  1px solid gray;
+}
+#save:hover {
+  background: blue;
 }
 
 .form-control, .form-control1 {
   margin-bottom: 3%;
   padding: 3%;
-  border-radius: 0;
+  border-radius: 6px;
 
 }
 

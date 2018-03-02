@@ -8,10 +8,10 @@ class Sidebar extends Component {
             <div className="Menu">
                 <h1 id="title">Lambda<br/> Notes</h1>
                     <Link to='list'>
-                        <button><b>View Your Notes</b></button><br/>
+                        <button className="sidebutton"><b>View Your Notes</b></button><br/>
                     </Link>
                     <Link to='/createnote'>
-                        <button><b>+ Create New Note</b></button>
+                        <button className="sidebutton"><b>+ Create New Note</b></button>
                     </Link>
             </div>
         )

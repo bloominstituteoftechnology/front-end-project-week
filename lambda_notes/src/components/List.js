@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
+import Delete from './Delete';
+import Redirect from 'react-router-dom/Redirect';
 
 class List extends Component {
+
+        deleteNote = () => {
+            this.props.deleteNote(this.props.match.params.id);
+            this.props.push('/');
+            this.setState({ deleting: false });
+          }
+        
+        cancelDelete = () => {
+            this.props.push('/');
+            this.setState({ deleting: false });
+          }
 
     render() {
         return (
@@ -17,6 +30,10 @@ class List extends Component {
                         })}
                     </ul>
                 </div>
+                
+                    <Delete deleteNote={this.deleteNote} cancelDelete={this.cancelDelete}/>
+                
+                
             </div>
           
           

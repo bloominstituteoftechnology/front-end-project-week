@@ -1,0 +1,51 @@
+.delete-modal {
+      position: fixed;
+      display: flex;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      width: 600px;
+      height: 200px;
+      background: white;
+      box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.1), 0 0 20px 2000px rgba(0, 0, 0, 0.2);
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .box .title {
+      font-size: 1rem;
+      font-family: Raleway;
+      margin-bottom: 30px;
+    }
+    .box .deletebuttons {
+      width: 70%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .box .deletebuttons {
+      font-weight: 700;
+      font-family: inherit;
+      font-size: 1rem;
+      width: 90%;
+      height: 45px;
+      background: #1DC0C3;
+      color: white;
+      border: 1px solid #76A1A1;
+      user-select: none;
+      cursor: pointer;
+      width: 200px;
+      letter-spacing: 1px;
+    }
+    .box .deletebuttons .deletebutton:active {
+      background: #24abad;
+    }
+    .box .deletebuttons .delete {
+      background: #D1001B;
+    }

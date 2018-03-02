@@ -23,7 +23,7 @@
     color: rgb(51, 51, 51);
     margin-bottom: 5%;
   }
-button {
+.sidebutton {
     background: teal;
     color: white;
     font-size: x-large;
@@ -34,6 +34,6 @@ button {
     border:  1px solid gray;
   }
   
-  button:hover {
+  .sidebutton:hover {
     background: blue;
   }
