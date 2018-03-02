@@ -19,9 +19,11 @@ class singleNote extends Component {
           <span class="close" onClick={this.closeModal}>&times;</span>
             <p>Are you sure you want to delete this?</p>
           <div class="modal-actions">
-            <div class="modal-actions-delete" onClick={this.deleteModal}>
-              Delete
-            </div>
+            <NavLink to='/viewnotes'>
+              <div class="modal-actions-delete" onClick={this.deleteModal}>
+                Delete
+              </div>
+            </NavLink>
             <div class="modal-actions-no" onClick={this.closeModal}>
               No
             </div>
