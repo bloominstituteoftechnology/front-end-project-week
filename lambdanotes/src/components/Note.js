@@ -1,31 +1,20 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { SortableElement } from 'react-sortable-hoc';
 
 import "./Note.css";
 
-export default class Note extends React.Component {
+const Note = SortableElement(({note}) => {
+  return (
+      <li className="Note">
+        <div className="Note-NoteTitle">
+          <h2>{note.title}</h2> <br />
+        </div>
+        <div className="Note-NoteBody">
+          <ReactMarkdown source={note.body} />
+        </div>
+      </li>
+  );
+});
 
-  truncateNote = text => {
-    const maxLength = 200;
-    if (text.length <= maxLength) {
-      return text;
-    } else {
-      return text.slice(0, maxLength).concat('...');
-    }
-  };
-
-  render() {
-    const displayText = this.truncateNote(this.props.body);
-    return (
-        <li className="Note">
-          <div className="Note-NoteTitle">
-            <h2>{this.props.title}</h2> <br />
-          </div>
-          <div className="Note-NoteBody">
-            {/* {this.truncateNote(this.props.body)} <br /> */}
-            <ReactMarkdown source={displayText} />
-          </div>
-        </li>
-    );
-  };
-}
+export default Note;
