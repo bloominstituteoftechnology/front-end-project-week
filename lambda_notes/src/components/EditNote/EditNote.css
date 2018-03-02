@@ -14,6 +14,7 @@ header {
   width: 60%;
   margin: 15px 0;
   padding: 10px;
+  border: 1px solid grey;
 }
 .Edit-Note .Edit-Note-Form .Edit-Note-Content {
   padding: 10px;
