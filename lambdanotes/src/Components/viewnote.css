@@ -38,18 +38,21 @@
 }
 .modalWindow h3 {
   width: 100%;
+  font-size: 27px;
 }
 .modalWindow .redDelete {
   height: 100px;
   width: 350px;
   background: red;
   color: white;
+  font-size: 27px;
 }
 .modalWindow .blueCancel {
   height: 100px;
   width: 350px;
   background: #2bc0c4;
   color: white;
+  font-size: 27px;
 }
 .noDisplay {
   display: none;
