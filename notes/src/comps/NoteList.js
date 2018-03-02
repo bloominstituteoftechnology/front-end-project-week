@@ -3,7 +3,7 @@ import NoteThumb from './NoteThumb';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
-import { selectNote } from '../actions';
+import { selectNote, sortNotes } from '../actions';
 import '../styles/NoteList.css';
 
 // props include the list of notes from App.js
@@ -18,6 +18,9 @@ const NoteList = props => {
       >
         download
       </CSVLink>
+      <div>sort by:</div>
+      <div onClick={() => props.sortNotes('id')}>date</div>
+      <div onClick={() => props.sortNotes('title')}>name</div>
       <div className="noteList">
         {props.notes.map(note => {
           return (
@@ -42,4 +45,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { selectNote })(NoteList);
+export default connect(mapStateToProps, { selectNote, sortNotes })(NoteList);
