@@ -6,6 +6,10 @@ import LeftBar from '../LeftBar/LeftBar';
 import './AllNotes.css';
 
 class AllNotes extends Component {
+  state = {
+    alphabetButtonPressed: false,
+    timeButtonPressed: true,
+  };
   getCSV = () => {
     let csv = [['title', 'body', 'id']];
     for (let i = 0; i < this.props.notes.length; i++) {
@@ -18,42 +22,138 @@ class AllNotes extends Component {
     return csv;
   };
 
+  orderByAlphabet = () => {
+    let arr = [];
+    this.props.notes.map(eachNote => {
+      let eachArr = [];
+      eachArr.push(eachNote.title, eachNote.body, eachNote.id);
+      arr.push(eachArr);
+    });
+    arr.sort();
+    return arr;
+  };
+
+  orderByTime = () => {
+    let arr = [];
+    this.props.notes.map(eachNote => {
+      let eachArr = [];
+      eachArr.push(eachNote.id, eachNote.title, eachNote.body);
+      arr.push(eachArr);
+    });
+    arr.sort();
+    let reOrderedArr = [];
+    arr.map(eachNote => {
+      let eachArr = [];
+      eachArr.push(eachNote[1], eachNote[2], eachNote[0]);
+      reOrderedArr.push(eachArr);
+    });
+    return reOrderedArr;
+  };
+
+  toggleAlphabetButton = () => {
+    this.setState({
+      alphabetButtonPressed: !this.state.alphabetButtonPressed,
+      timeButtonPressed: !this.state.timeButtonPressed,
+    });
+  };
+
+  toggleTimeButton = () => {
+    this.setState({
+      alphabetButtonPressed: !this.state.alphabetButtonPressed,
+      timeButtonPressed: !this.state.timeButtonPressed,
+    });
+  };
+
   render() {
-    return (
-      <div className="container">
-        <LeftBar />
-        <div className="all-notes_body">
-          <div className="all-notes_header">Your Notes:</div>
-          <div className="all-notes_notes">
-            {this.props.notes.map((eachNote, i) => {
-              const charsVisible =
-                eachNote.body.length < 105
-                  ? eachNote.body
-                  : eachNote.body.slice(0, 105) + ' ...';
-              return (
-                <div className="note-box" key={eachNote.id}>
-                  <Link to={`/notes/${eachNote.id}`}>
-                    <div className="note-title">{`${i + 1}. ${
-                      eachNote.title
-                    }`}</div>
-                    <div className="note-body">{charsVisible}</div>
-                  </Link>
-                </div>
-              );
-            })}
-          </div>
-          <div className="export-container">
-            <CSVLink
-              className="export-button"
-              data={this.getCSV()}
-              filename="all-notes.csv"
+    if (this.state.alphabetButtonPressed) {
+      let noteList = this.orderByAlphabet();
+      return (
+        <div className="container">
+          <LeftBar />
+          <div className="all-notes_body">
+            <div className="all-notes_header">Your Notes:</div>
+            <button
+              className="order-button"
+              onClick={this.toggleAlphabetButton}
             >
-              Download CSV
-            </CSVLink>
+              Order By Time Created
+            </button>
+            <div className="all-notes_notes">
+              {noteList.map((eachNote, i) => {
+                const charsVisible =
+                  eachNote[1].length < 105
+                    ? eachNote[1]
+                    : eachNote[1].slice(0, 105) + ' ...';
+                return (
+                  <div className="note-box" key={eachNote[2]}>
+                    <Link to={`/notes/${eachNote[2]}`}>
+                      <div className="note-title">{`${i + 1}. ${
+                        eachNote[0]
+                      }`}</div>
+                      <div className="note-body">{charsVisible}</div>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="export-container">
+              <CSVLink
+                className="export-button"
+                data={this.getCSV()}
+                filename="all-notes.csv"
+              >
+                Download CSV
+              </CSVLink>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
+    if (this.state.timeButtonPressed) {
+      let noteList = this.orderByTime();
+
+      return (
+        <div className="container">
+          <LeftBar />
+          <div className="all-notes_body">
+            <div className="all-notes_header">Your Notes:</div>
+            <button
+              className="order-button"
+              onClick={this.toggleAlphabetButton}
+            >
+              Alphabetize
+            </button>
+            <div className="all-notes_notes">
+              {noteList.map((eachNote, i) => {
+                const charsVisible =
+                  eachNote[1].length < 105
+                    ? eachNote[1]
+                    : eachNote[1].slice(0, 105) + ' ...';
+                return (
+                  <div className="note-box" key={eachNote[2]}>
+                    <Link to={`/notes/${eachNote[2]}`}>
+                      <div className="note-title">{`${i + 1}. ${
+                        eachNote[0]
+                      }`}</div>
+                      <div className="note-body">{charsVisible}</div>
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="export-container">
+              <CSVLink
+                className="export-button"
+                data={this.getCSV()}
+                filename="all-notes.csv"
+              >
+                Download CSV
+              </CSVLink>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

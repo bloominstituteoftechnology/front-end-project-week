@@ -76,6 +76,22 @@
   background: #2ac0c4;
   border: 1px solid #9b9b9b;
 }
+
+.order-button {
+  width: 240px;
+  height: 53px;
+  margin: 0px 31px 15px 33px;
+  font-family: 'Roboto', 'Segoe UI', 'Open Sans', 'Arial';
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 53px;
+  letter-spacing: 0.5px;
+  color: white;
+  background: #2ac0c4;
+  border: 1px solid #9b9b9b;
+}
+
 a {
   text-decoration: none;
   border: none;
