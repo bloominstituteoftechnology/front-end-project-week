@@ -12,7 +12,7 @@ class ViewNote extends Component {
   }
 
   handleEdit = (event) => {
-    document.getElementsByClassName("deleteNote").style.display = "none";
+    document.getElementsByClassName("deleteNote").style.display = "block";
   }
 
   render() {
@@ -20,7 +20,7 @@ class ViewNote extends Component {
       <div className="viewNote">
         <div className="viewNote__options">
           <a href="/edit"><p className="viewNote__options__text">edit</p></a>
-          <p className="viewNote__options__text" onClick={this.handleEdit}>delete</p>
+          <button type="button" className="viewNote__options__text" onClick={this.handleEdit}>delete</button>
         </div>
 
         <div className="viewNote__header">
