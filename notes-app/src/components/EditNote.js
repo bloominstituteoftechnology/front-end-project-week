@@ -16,7 +16,7 @@ class EditNote extends Component {
       <div className="Home__Right">
         <div className="Right__Containers">
           <div className="CreateNote__Text">
-            Create New Note:
+            Edit Note:
           </div>
           <div className="CreateNote__Title">
             <textarea
@@ -40,7 +40,7 @@ class EditNote extends Component {
           </div>
           <NavLink activeClassName='NavButton' to='/viewnotes'>
             <div className="button CreateNote__Save" onClick={this.doSubmit}>
-              <b>Save</b>
+              <b>Update</b>
             </div>
           </NavLink>
         </div>

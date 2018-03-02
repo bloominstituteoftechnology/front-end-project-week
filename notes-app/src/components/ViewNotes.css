@@ -57,6 +57,9 @@
   text-decoration: none;
   color: black;
 }
+.ViewNotes__Delete:hover{
+  cursor: pointer;
+}
 
 .ViewNotes__Edit {
   padding: 0px;

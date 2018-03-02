@@ -12,7 +12,7 @@ class singleNote extends Component {
               <u>edit</u>
             </div>
           </NavLink>
-          <div className="ViewNotes__Delete">
+          <div className="ViewNotes__Delete" onClick={this.showModal}>
             <u>delete</u>
           </div>
         </div>
@@ -26,6 +26,9 @@ class singleNote extends Component {
         </div>
       </div>
     )
+  }
+  showModal() {
+    alert('test');
   }
 }
 
