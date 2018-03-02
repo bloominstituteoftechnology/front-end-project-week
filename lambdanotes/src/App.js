@@ -71,6 +71,25 @@ class App extends React.Component {
     })
   }
 
+  sortAfterDrag = (notes) => {
+    let notes2 = notes.replace(/[^0-9]/g, '');
+    let tempArr = [];
+    let tempArr2 = [];
+    let temp = this.state.notes;
+    for (let i = 0; i < notes2.length; i++) {
+      tempArr.push(notes2[i]);
+    }
+    console.log(Object.keys(temp));
+    console.log(tempArr);
+    for (let i = 0; i < tempArr.length; i++) {
+     tempArr2.push(temp[tempArr[i]]);
+    }
+    fire.database().ref('notes2').set(tempArr2);
+    this.setState({
+      notes: tempArr2,
+    })
+  }
+
   handleEditPrompt = (note) => {
     this.setState({
       showEditWin: !this.state.showEditWin,
@@ -105,7 +124,7 @@ class App extends React.Component {
               ? <SingleNote indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleDeletePrompt={this.handleDeletePrompt} handleEditPrompt={this.handleEditPrompt} />
               : this.state.showEditWin
                 ? <EditNoteContainer indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleClickForUpdate={this.handleClickForUpdate} />
-                : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
+                : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} sortAfterDrag={this.sortAfterDrag}/>
         }
       </div>
     );
