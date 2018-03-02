@@ -17,7 +17,7 @@ class Search extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     if (this.state.searchTerm !== '') {
-      const terms = this.state.searchTerm.toLowerCase();
+      const terms = this.state.searchTerm.toLowerCase().replace(/[\W_]+/g," ").replace(/\s/g, '');
       this.checkSearch(terms);
       this.props.history.push(`/search/${terms}`);
     } else {
@@ -25,19 +25,27 @@ class Search extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ( this.props.terms !== nextProps.match.params.terms ){
-      this.checkSearch(nextProps.match.params.terms);
-      this.props.history.push(`/search/${nextProps.match.params.terms}`);
-    }
-  }
-
   checkSearch = (terms) => {
+    console.log('terms',terms)
     const searchResults = [];
-    let regex = new RegExp(terms, 'i');
+    let looseReg = '';
+    for (let i = 0; i < terms.length; i++) {
+      looseReg += terms[i] + "\\s*";
+    }
+    let strictRegex = new RegExp(terms, 'i');
+    let looseRegex = new RegExp(looseReg, 'i');
+    console.log('search term', looseReg);
     this.props.notes.forEach((item) => {
-      if (item.title.match(regex) || item.entry.match(regex)) {
+      if (item.title.match(strictRegex) || item.entry.match(strictRegex)) {
         searchResults.push(item);
+      }
+    });
+    console.log(searchResults);
+    this.props.notes.forEach((item) => {
+      if (item.title.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex) || item.entry.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex)) {
+        if (!searchResults.includes(item)){
+          searchResults.push(item);
+        }
       }
     });
     this.props.searchNotes(searchResults, terms);
