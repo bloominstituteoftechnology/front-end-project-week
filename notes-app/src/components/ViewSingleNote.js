@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { deleteNote } from '../actions';
 
 class singleNote extends Component {
   render() {
@@ -12,7 +13,7 @@ class singleNote extends Component {
           <span class="close" onClick={this.closeModal}>&times;</span>
             <p>Are you sure you want to delete this?</p>
           <div class="modal-actions">
-            <div class="modal-actions-delete">
+            <div class="modal-actions-delete" onClick={this.deleteModal}>
               Delete
             </div>
             <div class="modal-actions-no" onClick={this.closeModal}>
@@ -51,6 +52,11 @@ class singleNote extends Component {
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
   }
+  deleteModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = "none";
+    console.log('modal deleted TEST');
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -59,4 +65,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(singleNote);
+export default connect(mapStateToProps, { deleteNote })(singleNote);

@@ -13,3 +13,11 @@ export const editNote = (note) => {
   }
   return note;
 }
+
+export const deleteNote = (note) => {
+  return {
+    type: 'DELETE_NOTE',
+    payload: note,
+  }
+  return note;
+}

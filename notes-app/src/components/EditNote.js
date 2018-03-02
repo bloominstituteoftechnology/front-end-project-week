@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './CreateNote.css';
 import { NavLink } from 'react-router-dom';
-import { editNote } from '../actions'
+import { editNote } from '../actions';
 
 class EditNote extends Component {
   state = {

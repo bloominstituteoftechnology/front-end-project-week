@@ -25,6 +25,15 @@ const notes = (state = noteState, action) => {
         console.log('edited');
       }
       return tempObj;
+    case 'DELETE_NOTE':
+      let delObj = {
+        ...state,
+        MESSAGE: 'deleted the note',
+        Notes: {...state.Notes},
+      }
+      delete delObj.Notes[action.payload];
+      console.log('deleted');
+      return delObj;
     default:
       return state;
   }
