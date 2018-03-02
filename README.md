@@ -50,7 +50,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 Once your MVP has been approved, you have been given a feature list that the client would love to have completed.  Your goal would be to finish MVP as soon as you can and get working the list of features.
 
 ## Extra Features:
-* [ ] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
+* [x] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
 * [ ] Search functionality
 * [ ] Markdown support in notes
 * [ ] Sorting options in the list view

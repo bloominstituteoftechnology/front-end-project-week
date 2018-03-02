@@ -3,6 +3,26 @@ import { Link } from 'react-router-dom';
 import NoteAPI from './NoteAPI';
 
 class ListView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000')
+      // .then(res => {
+      //   return res.json();
+      // })
+      .then(data => {
+        this.setState({ notes: data.notes });
+      })
+      .catch(err => {
+        throw new Error(err);
+      });
+  }
+
   render() {
     return (
       <div className="list-view">
@@ -13,6 +33,7 @@ class ListView extends Component {
       {
         // NoteAPI.all().map(n => (
         NoteAPI.notes.map(n => (
+        // this.state.notes.map(n => (
           <div key={n.id} className="list-view-notes">
             <div className="note-block">
               <Link to={`/list/${n.id}`}>
