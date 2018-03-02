@@ -1,5 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
+import '../styles/App.css';
 import { Route, Link } from 'react-router-dom';
 
 class NoteView extends React.Component {
@@ -80,11 +81,8 @@ class NoteView extends React.Component {
     // }
 
     render() {
-        console.log('Note View renders');
-        console.log(this.state.notes)
         return(
             <div className="note-list">
-            <div>inside map</div>
                 {this.state.notes.map(note => (
                     <SingleNote key={note.id} note={note} />
                         
@@ -95,13 +93,12 @@ class NoteView extends React.Component {
     }
 }
 function SingleNote({ note }) {
-    console.log(note)
     const  {id, title, paragraph}  = note;
     return (
-        <Link to={`/notes/${note.id}`}>
+        <Link to={{pathname: "/ViewSingleNote", singlenote: note}}>
             <div className="single-note">
                 <h2>{title}</h2>
-                <div  className='paragraph'> {paragraph} </div>
+                <div className='para'> {paragraph} </div>
             </div>
         </Link>
     );

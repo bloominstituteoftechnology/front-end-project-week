@@ -50,30 +50,42 @@ html,body {
 .notes-title {
   font-size: 2rem;
 }
+.note-list {
+  display: flex;
+  justify-content: space-around;
+}
 .notes-container {
  
 display: flex;
- flex-wrap: wrap;
  justify-content: space-around; 
 }
 .single-note {
-
-    width: 50%; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%; 
     border: 2px solid #ddd;
     margin: 1%;
-    height: 30%;   
+    height: 10%; 
 }
 h4{ 
-        text-align:left;
-        font-size: 1.5rem;
-        border-bottom: 2px solid #ddd;
+  text-align:left;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #ddd;
+}
+h2 {
+  text-decoration: none;
+  font-size: 2rem;
 }
 p{
-    height:30%;
-    width:100%;
-    font-size: 1rem;
+  height:30%;
+  width:100%;
+  font-size: 1rem;
 }
 .new-content {
   width: 100px;
   height:100px;
+}
+.para {
+  text-decoration: none;
 }
