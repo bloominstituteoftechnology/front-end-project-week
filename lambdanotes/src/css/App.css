@@ -19,6 +19,16 @@ button {
 hr {
   color: #646364;
 }
+
+ol {
+  list-style-type: none;
+  margin-left: -35px;
+  position: fixed;
+  margin-top: 90px;
+}
+li {
+  display: inline-block;
+}
 .edit-delete {
   text-align: right;
   font-weight: bolder;

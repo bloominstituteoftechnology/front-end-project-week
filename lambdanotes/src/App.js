@@ -82,7 +82,6 @@ class App extends React.Component {
     if(window.confirm("Are you sure you want to delete this?")) {
       const tempArr = this.state.notes;
       tempArr.splice(i, 1);
-      //fire.database().ref("notes2").child(0).remove();
       if (tempArr.length <= 1) {
         fire.database().ref("notes2").remove();
       } else {
@@ -106,7 +105,7 @@ class App extends React.Component {
               ? <SingleNote indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleDeletePrompt={this.handleDeletePrompt} handleEditPrompt={this.handleEditPrompt} />
               : this.state.showEditWin
                 ? <EditNoteContainer indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleClickForUpdate={this.handleClickForUpdate} />
-                : /*<CSVLink data={this.state.notes} >Download me</CSVLink>*/ <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
+                : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
         }
       </div>
     );
