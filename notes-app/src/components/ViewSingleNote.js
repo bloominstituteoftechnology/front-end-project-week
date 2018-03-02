@@ -52,9 +52,10 @@ class singleNote extends Component {
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
   }
-  deleteModal() {
+  deleteModal = () => {
     var modal = document.getElementById('myModal');
     modal.style.display = "none";
+    this.props.deleteNote(this.props.id);
     console.log('modal deleted TEST');
   }
 }
