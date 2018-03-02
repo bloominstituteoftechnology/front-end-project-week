@@ -49,7 +49,7 @@ class NewNote extends Component {
     return (
       <div className="form-group">
         <h3>Create New Note</h3>
-        <form>
+        <form onSubmit={e =>  e.preventDefault()}>
           <input
             onChange={this.handleInput}
             className="form-control"
