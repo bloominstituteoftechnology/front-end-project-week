@@ -30,7 +30,7 @@ class DownloadNotes extends React.Component {
       note = [
         note.dateString.replace(/,/g, ''),
         note.title.replace(/,/g, ''),
-        note.body.replace(/,/g, '').concat(newLine)
+        note.body.replace(/,/g, '').concat(newLine),
       ];
       notesArray.push(note.join());
     });

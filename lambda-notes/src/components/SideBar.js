@@ -16,9 +16,11 @@ class SideBar extends React.Component {
   render() {
     return (
       <div className="sidebar">
-        <div className='logout-container'>
+        <div className="logout-container">
           <p>{this.props.currentUser.username}</p>
-          <button className='side-buttons-logout' onClick={this.handleLogOut}>LogOut </button>
+          <button className="side-buttons-logout" onClick={this.handleLogOut}>
+            LogOut{' '}
+          </button>
         </div>
         <h1 className="sidebar-header"> Lambda Notes </h1>
         <button className="side-buttons" onClick={this.handleView}>
@@ -61,10 +63,10 @@ class SideBar extends React.Component {
   };
   handleDownload = () => {
     this.props.download_button_click();
-  }
+  };
   handleLogOut = () => {
     this.props.handle_log_out(this.props.currentUser);
-  }
+  };
 }
 
 const mapStateToProps = state => {

@@ -112,7 +112,7 @@ export const remove_edit = () => {
 };
 
 export const load_user_notes = (user, notes) => {
-  const payload = {user, notes}
+  const payload = { user, notes };
   return {
     type: 'LOAD_USER_NOTES',
     payload: payload,
@@ -121,32 +121,32 @@ export const load_user_notes = (user, notes) => {
 
 let userID = 2;
 export const new_user_creation = user => {
-  const payload = {...user, userID: userID++}
+  const payload = { ...user, userID: userID++ };
   return {
     type: 'NEW_USER_CREATION',
     payload,
-  }
-}
+  };
+};
 
 export const handle_log_out = user => {
   return {
     type: 'HANDLE_LOG_OUT',
     payload: user,
-  }
-}
+  };
+};
 
 let checkID = 0;
 export const update_check_list = (check, currentNote) => {
-  const payload = {...check, checkID: checkID++, index: currentNote.index};
+  const payload = { ...check, checkID: checkID++, index: currentNote.index };
   return {
     type: 'UPDATE_CHECK_LIST',
     payload,
   };
 };
 
-export const toggle_check = (note) => {
+export const toggle_check = note => {
   return {
     type: 'TOGGLE_CHECK',
     payload: note,
-  }
-}
+  };
+};

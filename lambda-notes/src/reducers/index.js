@@ -175,7 +175,7 @@ export default (state = initialState, action) => {
       });
       return { ...state, currentUserNotes: currentNotes };
     case actions.TOGGLE_CHECK:
-      const currentUsernotes= state.currentUserNotes;
+      const currentUsernotes = state.currentUserNotes;
       currentUsernotes.splice(state.note.index, 1, action.payload);
       return { ...state, currentUserNotes: currentUsernotes };
     default:

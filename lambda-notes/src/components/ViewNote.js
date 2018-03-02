@@ -15,33 +15,36 @@ class ViewNote extends React.Component {
   render() {
     return (
       <div className="view">
-        {!this.props.remove ? <div>
-          <div className="edit" onClick={this.handleEdit}>
-            edit
-          </div>
+        {!this.props.remove ? (
           <div>
-            <div className="delete" onClick={this.openModal}>
-              delete
+            <div className="edit" onClick={this.handleEdit}>
+              edit
             </div>
-            <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
-              <div>
-                Are you sure you want to delete this? <br />
-                <button className="modal-delete" onClick={this.handleDelete}>
-                  Delete
-                </button>
-                <button className="modal-no" onClick={this.closeModal}>
-                  No
-                </button>
+            <div>
+              <div className="delete" onClick={this.openModal}>
+                delete
               </div>
-            </Modal>
+              <Modal isOpen={this.state.modalIsOpen} style={customStyles} ariaHideApp={false}>
+                <div>
+                  Are you sure you want to delete this? <br />
+                  <button className="modal-delete" onClick={this.handleDelete}>
+                    Delete
+                  </button>
+                  <button className="modal-no" onClick={this.closeModal}>
+                    No
+                  </button>
+                </div>
+              </Modal>
+            </div>
           </div>
-        </div> : null}
+        ) : null}
         <h1 className="view-header"> {this.props.note.title} </h1>
         <p className="view-body"> {this.props.note.body} </p>
-        {!this.props.remove ? 
-        <div className="checklist">
-          <CheckList key={this.props.note.id} note={this.props.note} />
-        </div> : null}
+        {!this.props.remove ? (
+          <div className="checklist">
+            <CheckList key={this.props.note.id} note={this.props.note} />
+          </div>
+        ) : null}
       </div>
     );
   }

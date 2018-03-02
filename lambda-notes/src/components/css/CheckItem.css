@@ -1,5 +1,5 @@
 .check-item {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   border: 1px solid grey;

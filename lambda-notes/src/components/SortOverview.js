@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Note from './Note';
 
-import { remove_edit} from '../actions/index'
+import { remove_edit } from '../actions/index';
 
 import './css/SortOverview.css';
 
@@ -20,16 +20,16 @@ class SortOverview extends React.Component {
           <div>
             <h1 className="sort-header"> How Would You Like to Sort? </h1>
             <div>
-              <button className='sort-buttons' onClick={this.clickAlphabetically}> 
-              Alphabetically by Title 
+              <button className="sort-buttons" onClick={this.clickAlphabetically}>
+                Alphabetically by Title
               </button>
-              <button className='sort-buttons' onClick={this.clickRevAlphabetically}>
+              <button className="sort-buttons" onClick={this.clickRevAlphabetically}>
                 Reverse Alphabetically by Title
               </button>
-              <button className='sort-buttons' onClick={this.clickChronologically}> 
-              Chronologically by Date 
+              <button className="sort-buttons" onClick={this.clickChronologically}>
+                Chronologically by Date
               </button>
-              <button className='sort-buttons' onClick={this.clickRevChronologically}>
+              <button className="sort-buttons" onClick={this.clickRevChronologically}>
                 Reverse Chronologically by Date
               </button>
             </div>
@@ -55,7 +55,6 @@ class SortOverview extends React.Component {
             <h1 className="sort-header"> Chronologically Sorted by Date</h1>
             <ul className="sorted-notes">
               {this.state.sorted.map(note => {
-                console.log(note);
                 const noteObj = { body: note[2], title: note[1], dateString: note[4] };
                 return <Note key={note[3]} note={noteObj} />;
               })}
@@ -131,4 +130,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {remove_edit})(SortOverview);
+export default connect(mapStateToProps, { remove_edit })(SortOverview);

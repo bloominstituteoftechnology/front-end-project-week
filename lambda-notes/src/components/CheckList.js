@@ -27,7 +27,7 @@ class CheckList extends React.Component {
           Click to Add to CheckList
         </button>
         {this.props.note.checklist.map((check, index) => {
-          return <CheckItem key={check.id} check={check} index={index}/>
+          return <CheckItem key={check.id} check={check} index={index} />;
         })}
       </div>
     );
@@ -37,10 +37,10 @@ class CheckList extends React.Component {
   };
   update_checklist = () => {
     if (this.state.note === '') return;
-    const check = {note: this.state.note, checked: false}
+    const check = { note: this.state.note, checked: false };
     this.props.update_check_list(check, this.props.note);
-    this.setState({ note: ''});
-  }
+    this.setState({ note: '' });
+  };
 }
 const mapStateToProps = state => {
   return {
@@ -48,4 +48,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {update_check_list})(CheckList);
+export default connect(mapStateToProps, { update_check_list })(CheckList);

@@ -51,7 +51,11 @@ class Search extends React.Component {
       if (term.type === 'title') {
         let lowerTitle = note.title.toLowerCase();
         let alphaNumeric = note.title.toLowerCase().replace(/[^a-zA-Z ]/g, '');
-        if (lowerTerm === lowerTitle || lowerTerm === alphaNumeric || lowerTitle.includes(lowerTerm)) {
+        if (
+          lowerTerm === lowerTitle ||
+          lowerTerm === alphaNumeric ||
+          lowerTitle.includes(lowerTerm)
+        ) {
           results.push(note);
         }
       }
@@ -61,10 +65,14 @@ class Search extends React.Component {
         body.forEach(word => {
           let lowerWord = word.toLowerCase();
           let alphaNumeric = word.toLowerCase().replace(/[^a-zA-Z ]/g, '');
-          if (lowerTerm === lowerWord || lowerTerm === alphaNumeric || lowerWord.includes(lowerTerm)) {
+          if (
+            lowerTerm === lowerWord ||
+            lowerTerm === alphaNumeric ||
+            lowerWord.includes(lowerTerm)
+          ) {
             flag = true;
           }
-        })
+        });
         if (flag === true) {
           results.push(note);
           flag = false;

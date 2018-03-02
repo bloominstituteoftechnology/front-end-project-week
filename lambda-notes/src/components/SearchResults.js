@@ -10,13 +10,15 @@ class SearchResults extends React.Component {
     return (
       <div className="notes-list">
         <h1 className="notes-header"> Results From Search: </h1>
-        {this.props.results.length === 0 ? <h1 className='notes-header'>No Results</h1> :
-        <ul className="notes">
-          {this.props.results.map((note, index) => {
-            return <Note key={note.id} note={{ ...note, index: index }} />;
-          })}
-        </ul>
-        }
+        {this.props.results.length === 0 ? (
+          <h1 className="notes-header">No Results</h1>
+        ) : (
+          <ul className="notes">
+            {this.props.results.map((note, index) => {
+              return <Note key={note.id} note={{ ...note, index: index }} />;
+            })}
+          </ul>
+        )}
       </div>
     );
   }

@@ -7,8 +7,8 @@ import './css/EditNote.css';
 
 class EditNote extends React.Component {
   state = {
-    title: '',
-    body: '',
+    title: this.props.note.title,
+    body: this.props.note.body,
   };
 
   render() {
@@ -19,14 +19,12 @@ class EditNote extends React.Component {
           <input
             className="title-input"
             type="text"
-            placeholder="Note Title"
             value={this.state.title}
             onChange={this.handleTitleChange}
           />
           <textarea
             className="body-input"
             type="text"
-            placeholder="Note Content"
             value={this.state.body}
             onChange={this.handleBodyChange}
           />
@@ -50,7 +48,7 @@ class EditNote extends React.Component {
     else if (this.state.body === '') alert('Add a note!');
     else if (this.state.title === '') alert('Add a title!');
     else {
-      const revisedNote = {...this.props.note, title: this.state.title, body: this.state.body}
+      const revisedNote = { ...this.props.note, title: this.state.title, body: this.state.body };
       this.props.edit_note(revisedNote);
       this.setState({
         title: '',

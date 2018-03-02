@@ -52,7 +52,7 @@ class CreateNote extends React.Component {
     else if (this.state.body === '') alert('Add a note!');
     else if (this.state.title === '') alert('Add a title!');
     else {
-      this.props.add_note({...this.state, date, dateString, checklist:[]});
+      this.props.add_note({ ...this.state, date, dateString, checklist: [] });
       this.setState({
         title: '',
         body: '',
