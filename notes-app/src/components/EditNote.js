@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './CreateNote.css';
 import { NavLink } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { editNote } from '../actions';
 
 class EditNote extends Component {
@@ -43,6 +44,7 @@ class EditNote extends Component {
               <b>Update</b>
             </div>
           </NavLink>
+          {this.state.redirect && <Redirect to="/viewnotes" />}
         </div>
       </div>
     )
