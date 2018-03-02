@@ -25,4 +25,6 @@
 }
 .Container .Note-Container .Note-Content {
   margin: 10px 0;
+  font-family: 'Raleway';
+  line-height: 1.5;
 }
