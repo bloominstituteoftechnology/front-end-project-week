@@ -15,7 +15,7 @@ class DeletePopup extends Component {
     // console.log('this.props.props.match.params', this.props.props.match.params)
     // console.log('this.props.props.match.params.id', this.props.props.match.params.id)
     // console.log('this.props.props.notes', this.props.props.notes)
-    console.log('this.props.props.history', this.props.props.history)
+    // console.log('this.props.props.history', this.props.props.history)
     const getNoteIndex = () => {
         for (let i = 0; i < this.state.notes.length; i++) {
             if (+this.props.props.match.params.id === this.state.notes[i].id) {

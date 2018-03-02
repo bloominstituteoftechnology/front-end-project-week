@@ -29,8 +29,8 @@ class EditNote extends Component {
       
   }
   render() {
-      console.log('what is state here: ', this.state)
-      console.log('what is props here: ', this.props)
+    // console.log('what is state here: ', this.state)
+    // console.log('what is props here: ', this.props)
     //   console.log('Does my function give me the right index?', this.getNoteIndex());
     //   console.log(this);
     //   console.log(this.props);
