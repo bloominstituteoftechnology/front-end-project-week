@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SideBar from './SideBar';
 import '../styles/ViewNotes.css';
 
+
 class ViewNotes extends Component {
   render() {
     return (
@@ -15,7 +16,7 @@ class ViewNotes extends Component {
             {this.props.notes.map((note, i) => {
               return (
                 <div className="noteCard" key={note.id}>
-                  <Link to={`/notes/${note.id}`}>
+                  <Link to={`/view-note/${note.id}`}>
                     <div className="noteTitle">{note.title}</div>
                     <div className="noteBody">{note.body}</div>
                   </Link>

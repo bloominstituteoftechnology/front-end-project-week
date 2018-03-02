@@ -12,7 +12,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={ViewNotes} />
           <Route path="/create-new-note" component={CreateNote} />
-          <Route path="/notes/:id" component={DisplayOne} />
+          <Route path="/view-note/:id" component={DisplayOne} />
         </div>
       </BrowserRouter>
     );

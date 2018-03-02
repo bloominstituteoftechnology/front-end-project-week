@@ -29,8 +29,8 @@ export const reducer = (state = initialState, action) => {
     case DELETE_NOTE:
       return {
         ...state,
-        notes: state.notes.filter(each => {
-          return each.id !== action.payload;
+        notes: state.notes.filter(note => {
+          return note.id !== action.payload;
         }),
       };
     default:
