@@ -1,7 +1,7 @@
 import React from 'react';
 import fire from './fire';
 import './css/App.css';
-//import dummyData from './dummy-data';
+import dummyData from './dummy-data';
 import NoteContainer from './components/NoteContainer/NoteContainer';
 import CreateNoteContainer from './components/CreateNoteContainer/CreateNoteContainer';
 import EditNoteContainer from './components/EditNoteContainer/EditNoteContainer';
@@ -20,7 +20,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    let notesRef = fire.database().ref('notes2').orderByKey().limitToLast(100);
+    let notesRef = fire.database().ref('notes2').orderByKey();
     notesRef.on('child_added', snapshot => {
       let note = snapshot.val();
       this.setState({
@@ -45,17 +45,19 @@ class App extends React.Component {
   }
 
   handleClickForSave = (newNote) => {
+    fire.database().ref('notes2').update([...this.state.notes, newNote]);
     this.setState({
-      notes: [...this.state.notes, newNote],
+      notes: [newNote, ...this.state.notes],
       showAddWin: !this.state.showAddWin
     });
   }
 
   handleClickForUpdate = (updatedNote, i) => {
-    const tempArr = this.state.notes;
-    tempArr[i] = updatedNote;
+    const temp = this.state.notes;
+    temp[i] = updatedNote;
+    fire.database().ref('notes2').update(temp.reverse());
     this.setState({
-      notes: tempArr,
+      notes: temp.reverse(),
       showEditWin: !this.state.showEditWin
     });
   }
@@ -79,8 +81,15 @@ class App extends React.Component {
     if(window.confirm("Are you sure you want to delete this?")) {
       const tempArr = this.state.notes;
       tempArr.splice(i, 1);
+      //fire.database().ref("notes2").child(0).remove();
+      if (tempArr.length <= 1) {
+        fire.database().ref("notes2").remove();
+      } else {
+        fire.database().ref("notes2").remove();
+        fire.database().ref("notes2").update(tempArr.reverse());
+      }
       this.setState({
-        notes: tempArr,
+        notes: tempArr.reverse(),
         showSingleNote: !this.state.showSingleNote
       })
     }

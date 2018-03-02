@@ -57,6 +57,7 @@ hr {
   border: solid 1px #96AEAF;
   margin: 1.5vh 1.5vh 1.5vh 0vh;
   padding: 3vh;
+  height: 221px;
 }
 .note-container {
   height: 195px;
@@ -100,4 +101,6 @@ hr {
 .yn-title {
   width: 70vw;
   margin-top: 7vh;
+  font-size: 3.8vh;
+  font-weight: bolder;
 }

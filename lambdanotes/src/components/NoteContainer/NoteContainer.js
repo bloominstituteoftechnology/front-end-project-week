@@ -9,7 +9,7 @@ class NoteContainer extends React.Component {
   render() {
     return (
       <div className="Notes">
-      <div className="sn-title yn-title">Your Notes:</div>
+      <p className="yn-title">Your Notes:</p>
         {this.props.notes.map((note, index) => {
           return (
             <div className="wrapper">
