@@ -45,25 +45,3 @@
     text-shadow: 1px 1px #d7d7d7;
     white-space: pre-line;
 }
-
-.delete-modal {
-    position: absolute;
-    left: -47px;
-    top: 186px;
-    width: 582px;
-    height: 198px;
-    border: solid #505050 1px;
-    background: #fbfbfb;
-    z-index: 2;
-    display: none;
-}
-
-.delete-modal--display {
-    display: block;
-}
-
-.delete-modal__warning {
-    position: absolute;
-    font-family: "Raleway", sans-serif;
-    font-size: 17px;
-}
