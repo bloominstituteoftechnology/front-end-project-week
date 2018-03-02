@@ -1,6 +1,7 @@
 // dependencies
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import firebase from './firebase';
 
 // Components
 import Sidebar from './components/sidebar';
@@ -28,12 +29,34 @@ class App extends Component {
     creatingNote: false,
     editingNote: false,
     showingNoteDetails: false,
-    notes: dummyData,
+    notes: [],
     noteDetails: {
       title: '',
       content: '',
       id: '',
     }
+  }
+
+  // componentWillMount() {
+  //   this.setState({ notes: dummyData })
+  // }
+
+  componentDidMount() {
+    const notesRef = firebase.database().ref('notes');
+    notesRef.on('value', (snapshot) => {
+      let notes = snapshot.val();
+      let newState = [];
+      console.log(notes);
+      for (let note in notes) {
+        newState.push({
+          id: notes[note].id,
+          title: notes[note].title,
+          content: notes[note].content
+        })
+      }
+      this.setState({ notes: newState });
+    });
+    console.log(this.state);
   }
 
   viewNotes = () => {
@@ -91,8 +114,12 @@ class App extends Component {
   }
 
   saveNewNote = (note) => {
-    let prevNotes = this.state.notes;
-    this.setState({ notes: [...prevNotes, note] })
+    // const prevNotes = this.state.notes;
+
+    const notesRef = firebase.database().ref('notes');
+    notesRef.push(note)
+
+    // this.setState({ notes: [...prevNotes, note] })
     this.viewNotes();
   }
 
@@ -110,10 +137,13 @@ class App extends Component {
   }
 
   getNextId = () => {
-    let lastNoteIndex = this.state.notes.length - 1;
-    let lastNote = this.state.notes[lastNoteIndex];
-    let nextId = lastNote.id + 1;
-    return nextId;
+    if (this.state.notes.length === 0) return 0;
+    else {
+      let lastNoteIndex = this.state.notes.length - 1;
+      let lastNote = this.state.notes[lastNoteIndex];
+      let nextId = lastNote.id + 1;
+      return nextId;
+    }
   }
 
   deleteNote = () => {
@@ -131,7 +161,7 @@ class App extends Component {
         />
 
         <div style={{ width: "100%", height: "100%" }} className="Content">
-          {this.state.viewingNotes &&
+          {(this.state.viewingNotes && this.state.notes.length > 0) &&
             <NotesList
               notes={this.state.notes}
               showNoteDetails={this.showNoteDetails}
