@@ -33,7 +33,7 @@ class App extends Component {
                 <li className="Note-row">
                   <div className="NoteItem">
                   <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
+                      <h3>Note #0 Title {this.props.title}</h3>
                   </div>
                   <div className="Note-body">This is the note body.</div>
                   </div>
@@ -45,27 +45,7 @@ class App extends Component {
                   </div>
                   <div className="NoteItem">
                   <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
-                  </div>
-                  <div className="Note-body">This is the note body.</div>
-                  </div>
-                </li>
-                <li className="Note-row">
-                  <div className="NoteItem">
-                  <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
-                  </div>
-                  <div className="Note-body">This is the note body.</div>
-                  </div>
-                  <div className="NoteItem">
-                  <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
-                  </div>
-                  <div className="Note-body">This is the note body.</div>
-                  </div>
-                  <div className="NoteItem">
-                  <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
+                      <h3>Note #2 Title {this.props.title}</h3>
                   </div>
                   <div className="Note-body">This is the note body.</div>
                   </div>
@@ -73,19 +53,39 @@ class App extends Component {
                 <li className="Note-row">
                   <div className="NoteItem">
                   <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
+                      <h3>Note #3 Title {this.props.title}</h3>
                   </div>
                   <div className="Note-body">This is the note body.</div>
                   </div>
                   <div className="NoteItem">
                   <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
+                      <h3>Note #4 Title {this.props.title}</h3>
                   </div>
                   <div className="Note-body">This is the note body.</div>
                   </div>
                   <div className="NoteItem">
                   <div className="Note-header">
-                      <h3>Note #1 Title {this.props.title}</h3>
+                      <h3>Note #5 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                </li>
+                <li className="Note-row">
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #6 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #7 Title {this.props.title}</h3>
+                  </div>
+                  <div className="Note-body">This is the note body.</div>
+                  </div>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #8 Title {this.props.title}</h3>
                   </div>
                   <div className="Note-body">This is the note body.</div>
                   </div>
