@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App__leftbox">
-          <NavBar changeSwitch={this.changeSwitch} reverseOrder={this.reverseOrder} />
+          <NavBar changeSwitch={this.changeSwitch} reverseOrder={this.reverseOrder} switchValue={this.state.mainPageSwitchValue} />
         </div>
         <div className="App__rightbox">
           <MainPage title={currentState.mainPageTitle} caseValue={currentState.mainPageSwitchValue} changeSwitch={this.changeSwitch} onRef={ref => (this.mainpage = ref)}/>

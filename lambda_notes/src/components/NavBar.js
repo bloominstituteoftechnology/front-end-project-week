@@ -15,7 +15,7 @@ const NavBar = (props) => {
         <button className="navBar__button" onClick={() => props.changeSwitch('Create New Note:', 'createNote')} >+ Create New Note</button>
       </div>
       <div>
-        <button className="navBar__button" onClick={() => props.reverseOrder()} >Reverse Note Order</button>
+        <button className="navBar__button" onClick={() => props.reverseOrder()} style={props.switchValue === 'noteList'? { visibility: 'visible' } : { visibility: 'hidden' } } >Reverse Note Order</button>
       </div>
     </div>
   );
