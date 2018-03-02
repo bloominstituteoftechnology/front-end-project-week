@@ -4,7 +4,7 @@ class LambdaNotesSidebar extends Component {
   render() {
     return (
       <div>
-        <header>
+        <header className="sidebar-header">
           <h1>Lambda</h1>
           <h1>Notes</h1>
         </header>
