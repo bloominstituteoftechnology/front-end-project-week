@@ -6,6 +6,7 @@
     position: absolute;
     left: calc(50% - 459px);
     border: 1px solid #989898;
+    overflow: hidden;
 }
 
 .left-panel {
@@ -63,29 +64,7 @@
     left: 242px;
     top: 0;
     background: #f3f3f3;
-    overflow-x: hidden;
-}
-
-.delete-modal {
-    position: absolute;
-    left: -47px;
-    top: 186px;
-    width: 582px;
-    height: 198px;
-    border: solid #505050 1px;
-    background: #fbfbfb;
-    z-index: 2;
-    display: none;
-}
-
-.delete-modal--display {
-    display: block;
-}
-
-.delete-modal__warning {
-    position: absolute;
-    font-family: "Raleway", sans-serif;
-    font-size: 17px;
+    overflow-y: auto;
 }
 
 .opaque-shield {
