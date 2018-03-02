@@ -1,19 +1,18 @@
 .App {
   display: flex;
+  height: 100%;
 }
 
 .Delete {
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
   background: red;
   z-index: 999;
   position: absolute;
-
 }
 
 .Left-bar {
   width: 10%;
-  height: 100%;
   background: orange;
 }
 
@@ -30,31 +29,5 @@
 
 .Note-container {
   width: 90%;
-  height: 100%;
   background: green;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

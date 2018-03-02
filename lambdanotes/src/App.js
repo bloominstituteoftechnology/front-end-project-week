@@ -51,7 +51,7 @@ class App extends Component {
         <form onSubmit={this.addNote}>
           <input onChange={this.handleNewNoteInput} name='title' type='text' placeholder='Title' value={this.state.title}></input>
           <input onChange={this.handleNewNoteInput} name='content' type='text' placeholder='Content' value={this.state.content}></input>
-          <button type='submit'>Save</button> 
+          <button type='submit'>Save</button>
         </form>  
     </div>
     );
@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <div className='Delete'>
         <button type='submit'>Confirm?</button>
-        <button type='submit'>JK!</button>
+        <Link to='/'><button type='submit'>JK!</button></Link>
       </div>     
     );
   }
