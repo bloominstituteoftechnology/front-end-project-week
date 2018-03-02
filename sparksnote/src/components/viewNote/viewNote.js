@@ -14,8 +14,8 @@ class ViewNote extends Component {
     return (
       <div className="viewNote">
         <div className="viewNote__options">
-          <p className="viewNote__options__text">Edit</p>
-          <p className="viewNote__options__text">Delete</p>
+          <a href="/edit"><p className="viewNote__options__text">edit</p></a>
+          <p className="viewNote__options__text">delete</p>
         </div>
 
         <div className="viewNote__header">
