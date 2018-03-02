@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import NoteContainer from './Note-Container';
 import './App.css';
 import { Link } from 'react-router-dom';
-import NewNoteForm from './New-Note-Form'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
@@ -59,6 +58,12 @@ class App extends Component {
     );
 }
 
+  Randomn = () => {
+    return (
+      <div>Hello</div>
+    );
+  }
+
 
   render() {
     return (
@@ -67,11 +72,10 @@ class App extends Component {
           <div className='Left-bar'>
             <h1>Lambda Notes</h1>
             <Link to='/'><button>View Notes</button></Link>
-            <Link to='NewNoteForm' className='NewNoteButton'><button>Create New Note</button></Link>
+            <Link to='/NewNoteForm' className='NewNoteButton'><button>Create New Note</button></Link>
           </div>
-          <NoteContainer notes={this.state.notes} />
-          <Route path='/' component={App} />
-          <Route path='NewNoteForm' component={NewNoteForm} />
+          <Route path='/' component={() => <NoteContainer notes={this.state.notes} />} exact />
+          <Route path='/NewNoteForm' component={this.NewNoteForm} />
         </div>
       </Router>  
     );
