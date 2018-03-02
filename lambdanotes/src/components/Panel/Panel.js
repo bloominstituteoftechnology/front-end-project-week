@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {CSVLink, CSVDownload} from 'react-csv';
 class Panel extends React.Component {
   render() {
     return (
@@ -9,7 +9,7 @@ class Panel extends React.Component {
         <div className="panel-buttons">
           <button onClick={this.props.handleClickForView}>View Your Notes</button>
           <button onClick={this.props.handleClickForCreate}>+ Create New Note</button>
-          <button onClick={this.props.handleClickForExport}>Export to CSV</button>
+          <CSVLink data={this.props.notes} ><button>Export to CSV</button></CSVLink>
         </div>
       </div>
     );

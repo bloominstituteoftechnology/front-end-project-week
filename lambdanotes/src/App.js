@@ -1,7 +1,7 @@
 import React from 'react';
 import fire from './fire';
 import './css/App.css';
-import dummyData from './dummy-data';
+//import dummyData from './dummy-data';
 import NoteContainer from './components/NoteContainer/NoteContainer';
 import CreateNoteContainer from './components/CreateNoteContainer/CreateNoteContainer';
 import EditNoteContainer from './components/EditNoteContainer/EditNoteContainer';
@@ -63,11 +63,6 @@ class App extends React.Component {
     });
   }
 
-  handleClickForExport = () => {
-    const temp = this.state.notes;
-    fire.database().ref('notes2').set(temp.reverse());
-  }
-
   singleNoteView = (singleNote, i) => {
     this.setState({
       showSingleNote: !this.state.showSingleNote,
@@ -104,14 +99,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Panel showAddWin={this.state.showAddWin} handleClickForCreate={this.handleClickForCreate} handleClickForView={this.handleClickForView} handleClickForExport={this.handleClickForExport} />
+        <Panel notes={this.state.notes} showAddWin={this.state.showAddWin} handleClickForCreate={this.handleClickForCreate} handleClickForView={this.handleClickForView} />
         {this.state.showAddWin
             ? <CreateNoteContainer handleClickForSave={this.handleClickForSave} />
             : this.state.showSingleNote
               ? <SingleNote indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleDeletePrompt={this.handleDeletePrompt} handleEditPrompt={this.handleEditPrompt} />
               : this.state.showEditWin
                 ? <EditNoteContainer indexOfNote={this.state.indexOfNote} noteToShow={this.state.noteToShow} handleClickForUpdate={this.handleClickForUpdate} />
-                : <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
+                : /*<CSVLink data={this.state.notes} >Download me</CSVLink>*/ <NoteContainer showSingleNote={this.state.showSingleNote} notes={this.state.notes} singleNoteView={this.singleNoteView} />
         }
       </div>
     );
