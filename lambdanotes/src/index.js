@@ -12,11 +12,10 @@ ReactDOM.render(
     <Router>
     <div className="container">
         <Sidebar />
-        <NoteView />
-        <Route path='/NoteView' component={NoteView} exact />
+        <Route path='/' component={NoteView} exact />
         <Route path='/Createnote' component={Createnote}/>
         <Route path='/EditView' component={EditView} exact />
-       // <Route path='/ViewSingleNote' component={ViewSingleNote}/>
+        <Route path='/ViewSingleNote' component={ViewSingleNote}/>
     </div>
     </Router>,
      document.getElementById('root'));

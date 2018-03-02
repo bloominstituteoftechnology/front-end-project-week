@@ -7,7 +7,7 @@ function Sidebar () {
         <div className="sidebar">
               <h1 className="App-title">Lambda Notes</h1>
               <div className="button-col">
-                <Link exact className='button' to={`/Noteview`}>View your notes</Link>
+                <Link exact className='button' to={`/`}>View your notes</Link>
                 <Link className='button' to={`/Createnote`}>+ Create your notes</Link>
               </div>   
         </div>
