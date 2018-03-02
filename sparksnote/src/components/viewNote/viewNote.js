@@ -1,4 +1,5 @@
 ﻿import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class ViewNote extends Component {
   constructor(props) {
@@ -10,12 +11,16 @@ class ViewNote extends Component {
     }
   }
 
+  handleEdit = (event) => {
+    document.getElementsByClassName("deleteNote").style.display = "none";
+  }
+
   render() {
     return (
       <div className="viewNote">
         <div className="viewNote__options">
           <a href="/edit"><p className="viewNote__options__text">edit</p></a>
-          <p className="viewNote__options__text">delete</p>
+          <p className="viewNote__options__text" onClick={this.handleEdit}>delete</p>
         </div>
 
         <div className="viewNote__header">
@@ -31,10 +36,10 @@ class ViewNote extends Component {
             <p className="deleteNote__modal__header">Are you sure you want to delete this?</p>
             <div className="deleteNote__modal__buttons">
               <div className="deleteNote__modal__delete">
-                <p className="deleteNote__modal__delete__text">Delete</p>
+                <a className="deleteNote__modal__link" href="/"><p className="deleteNote__modal__delete__text">Delete</p></a>
               </div>
-              <div className="deleteNote__modal__no">
-                <p className="deleteNote__modal__no__text">No</p>
+             <div className="deleteNote__modal__no">
+                 <a className="deleteNote__modal__link" href="/note"><p className="deleteNote__modal__no__text">No</p></a>
               </div>
             </div>
           </div>

@@ -199,7 +199,7 @@
   font-size: 1.9rem;
 }
 .viewNote .deleteNote {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #000000;
   z-index: 1;
   top: 40%;
   left: 25%;
@@ -211,6 +211,9 @@
   background-color: white;
   border: 1px solid black;
   margin: auto auto auto auto;
+}
+.viewNote .deleteNote .deleteNote__modal .deleteNote__modal__link {
+  text-decoration: none;
 }
 .viewNote .deleteNote .deleteNote__modal .deleteNote__modal__header {
   margin-top: 50px;
