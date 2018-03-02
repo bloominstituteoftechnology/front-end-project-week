@@ -10,9 +10,9 @@ class ViewNote extends React.Component {
   componentDidMount() {
     console.log(this.props);
     const paramsId = this.props.match.params.id;
-    console.log("this is the id from params: ", paramsId);
-    console.log("this is what the import of notes got us: ", kitty)
-    const returnedNote = kitty.find(obj => obj.id === 2);
+    console.log("this is the id from params: ", typeof(paramsId), paramsId);
+    console.log("this is what the import of kitty got us: ", kitty)
+    const returnedNote = kitty.find(obj => obj.id === Number(paramsId));
     console.log("this is returnedNote after filter: ", returnedNote);
     let newState = returnedNote;
     console.log(newState);
