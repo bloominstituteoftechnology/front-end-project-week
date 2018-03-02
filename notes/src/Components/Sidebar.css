@@ -29,11 +29,13 @@ button {
   color: white;
   font-size: 14px;
   font-weight:bolder;
-  margin-left: 5.6%;
-  margin-bottom: 6%;
-  padding: 5.5%;
+  margin-top: 20px;
+  margin-left: 20px;
+  height:45px;
   width: 89%;
-  border:  1px solid gray;
+  border:  1px solid lavenderblush;
+  width:200px;
+  height:45px;
 }
 
 button:hover {
