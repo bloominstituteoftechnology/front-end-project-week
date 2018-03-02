@@ -7,10 +7,10 @@
     "\\sparksnote\\src",
     "\\sparksnote\\src\\components",
     "\\sparksnote\\src\\components\\deleteNote",
-    "\\sparksnote\\src\\components\\editNote",
-    "\\sparksnote\\src\\components\\home",
-    "\\sparksnote\\src\\components\\newNote"
+    "\\sparksnote\\src\\components\\menu",
+    "\\sparksnote\\src\\components\\viewNote",
+    "\\sparksnote\\src\\styles"
   ],
-  "SelectedNode": "\\sparksnote\\src\\components\\newNote\\newNote.js",
+  "SelectedNode": "\\sparksnote\\src\\components\\viewNote\\viewNote.js",
   "PreviewInSolutionExplorer": false
 }
