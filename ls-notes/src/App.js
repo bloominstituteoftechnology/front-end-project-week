@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NoteListView from './src/Components/NoteListView';
+import NoteDetailView from './src/Components/NoteDetailView';
+import CreateNoteView from './src/Components/CreateNoteView';
+import EditNoteView from './src/Components/EditNoteView';
+import DeleteNoteModal from './src/Components/DeleteNoteModal';
 
 class App extends Component {
   render() {
@@ -63,3 +68,4 @@ export default App;
 //     );
 //   }
 // }
+
