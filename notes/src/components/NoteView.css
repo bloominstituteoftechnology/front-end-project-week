@@ -1,8 +1,7 @@
 .note-view {
   background: #F3F3F3;
-  height: 100%;
+  min-height: 100%;
   margin-left: 240px;
-  padding-top: 40px;
   padding-left: 35px;
   display: flex;
   flex-direction: column;
@@ -16,6 +15,7 @@
   font-size: 1rem;
   display: flex;
   justify-content: flex-end;
+  margin-top: 40px;
 }
 .note-view .button-container .edit-button {
   color: #4b4b4b;

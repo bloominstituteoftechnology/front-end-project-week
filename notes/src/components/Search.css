@@ -3,6 +3,7 @@
   width: 90%;
   display: flex;
   justify-content: left;
+  margin-top: 20px;
   margin-left: 20px;
   align-items: center;
 }
