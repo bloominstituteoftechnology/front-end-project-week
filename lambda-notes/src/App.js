@@ -11,7 +11,7 @@ class App extends Component {
       <Router>
         <div className='app'>
           <LeftColumn />
-          <Route path='/' component={RightColumn} exact />
+          <Route exact path='/' component={RightColumn} />
           <Route path='/addnote' component={AddNote} />
         </div>
       </Router>
