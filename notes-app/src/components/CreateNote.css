@@ -17,6 +17,9 @@ textarea {
 }
 
 .CreateNote__Content {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  text-overflow: ellipsis;
   margin-top: 15px;
 }
 

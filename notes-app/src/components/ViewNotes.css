@@ -26,8 +26,11 @@
 }
 
 .ViewNotes__Note__Title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   width: 100%;
-  height: 34px;
+  height: 44px;
   border-bottom-color: #c5c5c5;
   border-bottom-style: solid;
   border-bottom-width: 2px;
