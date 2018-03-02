@@ -47,6 +47,7 @@ export default class NoteList extends React.Component {
     this.setState({
       notes: arrayMove(this.state.notes, oldIndex, newIndex),
     });
+    this.props.updateSortedNotes(this.state.notes);
   };
 
   render() {
