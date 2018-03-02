@@ -23,16 +23,17 @@
 .modalWindow {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
   position: absolute;
   border: 1px solid black;
-  width: 500px;
+  width: 900px;
   height: 300px;
   background: #ffffff;
   opacity: 100;
   z-index: 999;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 300px;
+  margin-right: 150px;
+  margin-left: 0;
   text-align: center;
 }
 .modalWindow h3 {
@@ -40,13 +41,13 @@
 }
 .modalWindow .redDelete {
   height: 100px;
-  width: 200px;
+  width: 350px;
   background: red;
   color: white;
 }
 .modalWindow .blueCancel {
   height: 100px;
-  width: 200px;
+  width: 350px;
   background: #2bc0c4;
   color: white;
 }

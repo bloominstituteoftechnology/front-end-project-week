@@ -1,12 +1,13 @@
 import React from 'react';
 import './notes.css';
 import { Link } from 'react-router-dom';
+
 const NoteList = (props) => {
-    
+  
         return (
                <div className="noteBox">
                     <h1> Your Notes: </h1>
-                   
+
                         {props.notes.map(noteObj => {
                             return (
                                 <div className="singleNote">
@@ -30,6 +31,8 @@ const NoteList = (props) => {
                 </div>
             </Link>
         )
+
+       
 
 
     }
