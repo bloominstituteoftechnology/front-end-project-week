@@ -3,21 +3,21 @@ import './ViewNote.css';
 import { NavLink, Link } from 'react-router-dom';
 import kitty from '../kitty-ipsum';
 
-class ViewNote extends React.Component {
+class DeleteNote extends React.Component {
   state = {};
 
-  componentDidMount() {
-    // console.log(this.props);
-    const paramsId = this.props.match.params.id;
-    // console.log("this is the id from params: ", typeof(paramsId), paramsId);
-    // console.log("this is what the import of kitty got us: ", kitty)
-    const returnedNote = kitty.find(obj => obj.id === Number(paramsId));
-    // console.log("this is returnedNote after filter: ", returnedNote);
-    let newState = returnedNote;
-    // console.log(newState);
-    this.setState(newState);
-    // console.log("this is what is in state now: ", this.state);
-  }
+  // componentDidMount() {
+  //   // console.log(this.props);
+  //   const paramsId = this.props.match.params.id;
+  //   // console.log("this is the id from params: ", typeof(paramsId), paramsId);
+  //   // console.log("this is what the import of kitty got us: ", kitty)
+  //   const returnedNote = kitty.find(obj => obj.id === Number(paramsId));
+  //   // console.log("this is returnedNote after filter: ", returnedNote);
+  //   let newState = returnedNote;
+  //   // console.log(newState);
+  //   this.setState(newState);
+  //   // console.log("this is what is in state now: ", this.state);
+  // }
 
   render() {
     // console.log('you called NewNote from NoteList');
@@ -42,18 +42,20 @@ class ViewNote extends React.Component {
             <h5><NavLink to="/delete">Delete</NavLink></h5>
             <h3>{this.state.title}</h3>
           </div>
+
           <div>
             {this.state.text}
           </div>
           <div>
-            <button type="submit" className="btns">Save</button>
-          </div>
-            
+            <button type="submit" className="btns">
+              Save
+            </button>
           </div>
         </div>
-      
+      </div>
     );
   }
 }
 
-export default ViewNote;
+
+export default DeleteNote;
