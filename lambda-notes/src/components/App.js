@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import logo from "../styling/logo.svg";
 import "../styling/App.css";
 import MainView from "./MainView";
 import CreateView from "./CreateView";

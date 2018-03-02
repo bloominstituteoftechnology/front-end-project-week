@@ -29,8 +29,6 @@ class EditView extends Component {
             <textarea
               name="text"
               placeholder="Note Content"
-              rows="30"
-              cols="85"
               value={this.state.text}
               onChange={this.handleChange}
             />

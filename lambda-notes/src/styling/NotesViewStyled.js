@@ -74,7 +74,10 @@ const NotesViewStyled = styled.div`
       }
       textarea {
         padding: 10px;
-        width: 100%;
+        box-sizing: border-box;
+        resize: none;
+        width: 500px;
+        height: 400px;
         margin: 5px 8px 5px 0;
       }
       button {
@@ -191,8 +194,9 @@ const NotesViewStyled = styled.div`
       }
       textarea {
         padding: 10px;
-        width: 100%;
         margin: 5px 8px 5px 0;
+        width: 500px;
+        height: 400px;
       }
       button {
         background-color: #35c0c3;
