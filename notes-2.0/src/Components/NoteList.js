@@ -8,16 +8,12 @@ const NoteList = props => {
     let tempKeyword = keyword.toLowerCase();
     let tempTitle = note.title.toLowerCase();
     if (results) {
-      if (length === 1 && tempTitle.includes(tempKeyword)) {
-        return (
-          <div className="note" onClick={() => target(i)}>
-            <h1 className="noteTitle">{note.title}</h1>
-            <p className="noteContent">{note.content}</p>
-          </div>
-        );
-      }
-      for (let i = 0; i < tempTitle.length; i = i++) {
-        if (tempKeyword === tempTitle.substring(i, i + length)) {
+      for (
+        let j = tempTitle.indexOf(tempKeyword[0]);
+        j < tempTitle.length;
+        j = j++
+      ) {
+        if (tempKeyword === tempTitle.substring(j, j + length)) {
           return (
             <div className="note" onClick={() => target(i)}>
               <h1 className="noteTitle">{note.title}</h1>

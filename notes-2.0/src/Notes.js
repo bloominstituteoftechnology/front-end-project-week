@@ -92,7 +92,15 @@ class Notes extends Component {
     mirror[this.target] = updatedNote;
     this.setState({
       ...this.state,
-      notes: mirror
+      notes: mirror,
+      keyword: "",
+      view: {
+        notes: true,
+        edit: false,
+        create: false,
+        singleNote: false,
+        results: false
+      }
     });
   };
 
@@ -121,7 +129,8 @@ class Notes extends Component {
         create: false,
         singleNote: false,
         results: false
-      }
+      },
+      keyword: ""
     });
   };
 
@@ -150,7 +159,8 @@ class Notes extends Component {
         create: false,
         singleNote: false,
         results: false
-      }
+      },
+      keyword: ""
     });
   };
 
@@ -164,7 +174,8 @@ class Notes extends Component {
         create: false,
         singleNote: false,
         results: false
-      }
+      },
+      keyword: ""
     });
   }
 
