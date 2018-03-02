@@ -9,11 +9,24 @@
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 34px;
+  margin-left: 2px;
+}
+
+.noteList__download {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -105px;
+  margin-right: 40px;
+  margin-bottom: 89px;
+  text-decoration: underline;
+  color: rgb(74, 74, 74);
+  letter-spacing: 0.1px;
+  cursor: pointer;
 }
 
 .noteList {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  margin-left: 5px;
+  margin-left: 4px;
 }
