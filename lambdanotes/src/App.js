@@ -45,7 +45,7 @@ class App extends Component {
             <Route path='/' component={this.notes} exact/>
             <Route path='/createNote' component={this.noteForm} />
             <Route path='/:id' component={this.viewNote} />
-            <Route path='/:id/update' component={this.updateNote} />
+            <Route path='/update' component={this.updateNote} />
       
           </div>
         </div>
@@ -55,44 +55,44 @@ class App extends Component {
 
 
   viewNote = (props) => {
-    
     let id = props.match.params.id;
-    
-    console.log(props);
     let noteDelete = this.noteDelete;
-    if(id === 'createNote') {
+
+    if(id.length > 1) {
       return null;
     } 
+
     let note = this.state.notes[id].note;
     let details = this.state.notes[id].details;
+
     noteDelete = (e) => {
-     e.preventDefault();
-     let arrayItem = this.state.notes[id];
-     let newObj = this.state.notes.filter(item => item !== arrayItem);
-     let newerObj = newObj.map(noteObj => {
-       return noteObj = {
-         note: noteObj.note,
-         details: noteObj.details,
-         id: newObj.indexOf(noteObj),
-       }
-     })
-     console.log(newerObj);
-    
-     this.setState({
-       notes: newerObj,
-       
-     })
+      e.preventDefault();
+      let arrayItem = this.state.notes[id];
+      let newObj = this.state.notes.filter(item => item !== arrayItem);
+      let newerObj = newObj.map(noteObj => {
+        return noteObj = {
+          note: noteObj.note,
+          details: noteObj.details,
+          id: newObj.indexOf(noteObj),
+        }
+      })
+      this.setState({
+        notes: newerObj,
+       })
      return props.history.push('/', this.state)
-    }
+    }//Note Delete Function
+
     return (
       <ViewNote note={note} details={details} id={id} noteDelete={noteDelete} updateNote={this.updateNote} />
     )
   }
+
   noteForm = () => {
     return (
       <NewNote handleInput={this.handleInput} submitNote={this.submitNote} noteValue={this.state.note} detailsValue={this.state.details} />
     )
   }
+
   notes = () => {
     return (
       <NoteList notes={this.state.notes}  navNote={this.navToNote} idGenerator={this.idGenerator}/>
@@ -103,13 +103,12 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value});
 }
 
-  /*updateNote = (props) => {
-    console.log(props);
-    let newProps = props;
-    this.setState({
-      props: newProps,
-    })
-  }*/
+  updateNote = () => {
+    return (
+    <UpdateNote handleInput={this.handleInput} submitNote={this.submitNote} noteValue={this.state.note} detailsValue={this.state.details} />
+    )
+  }
+
   submitUpdate = (e) => {
     e.preventDefault();
     let updateObj = {
@@ -117,6 +116,7 @@ class App extends Component {
       details: this.state.details,
     }
   }
+
   submitNote = (e) => {
       e.preventDefault();
       if(this.state.note.length > 0 && this.state.details.length > 0) {
