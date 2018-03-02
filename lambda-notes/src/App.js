@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
-import { addNote } from './actions';
+import { createNote } from './actions';
 import NoteList from './components/NoteList';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
   }
   createNote = (event) => {
     event.preventDefault();
-    this.props.addNote({
+    this.props.createNote({
       titleValue: this.state.title,
       messageValue: this.state.message
     });
@@ -46,4 +46,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, { addNote })(App);
+export default connect(mapStateToProps, { createNote })(App);
