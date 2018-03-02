@@ -3,6 +3,7 @@ export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const SELECT_NOTE = 'SELECT_NOTE';
+export const SORT_NOTES = 'SORT_NOTES';
 
 export const addNote = note => {
   return {
@@ -35,5 +36,12 @@ export const selectNote = (id) => {
   return {
     type: SELECT_NOTE,
     payload: id
+  }
+}
+
+export const sortNotes = (sort) => {
+  return {
+    type: SORT_NOTES,
+    payload: sort,
   }
 }
