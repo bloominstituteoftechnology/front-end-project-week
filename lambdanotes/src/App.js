@@ -8,20 +8,16 @@ class App extends Component {
   state = {
     todos: [
       {
-        doTitle: "this is a mock todo",
-        doDescription: "This is supposed to describe what I do"
+        doTitle: "Bitconnect",
+        doDescription: "Earn 1% per day of your total investment"
       },
       {
-        doTitle: "this is a mock todo",
-        doDescription: "This is supposed to describe what I do"
+        doTitle: "Bitconnect",
+        doDescription: "Earn 1% per day of your total investment"
       },
       {
-        doTitle: "this is a mock todo",
-        doDescription: "This is supposed to describe what I do"
-      },
-      {
-        doTitle: "this is a mock todo",
-        doDescription: "This is supposed to describe what I do"
+        doTitle: "Bitconnect",
+        doDescription: "Earn 1% per day of your total investment"
       }
     ],
     isShowing: {
