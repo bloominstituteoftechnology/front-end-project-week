@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './CreateNote.css';
 import { NavLink } from 'react-router-dom';
-import { addNote } from '../actions'
+import { editNote } from '../actions'
 
 class EditNote extends Component {
   state = {
     title: this.props.id,
+    oldtitle: this.props.id,
     meat: this.props.notes.Notes[this.props.id].meat,
     redirect: false,
   };
@@ -56,9 +57,9 @@ class EditNote extends Component {
   }
   doSubmit = (event) => {
     event.preventDefault(); // stop default action of component
-    this.props.addNote(this.state);
+    this.props.editNote(this.state);
     this.setState( // reset the state
-      { title: '', meat: '', redirect: true, }
+      { title: '', meat: '', oldtitle: '', redirect: true, }
     );
   }
 }
@@ -69,4 +70,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addNote })(EditNote);
+export default connect(mapStateToProps, { editNote })(EditNote);

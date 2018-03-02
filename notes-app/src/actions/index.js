@@ -5,3 +5,11 @@ export const addNote = (note) => {
   }
   return note;
 }
+
+export const editNote = (note) => {
+  return {
+    type: 'EDIT_NOTE',
+    payload: note,
+  }
+  return note;
+}
