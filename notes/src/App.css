@@ -19,7 +19,7 @@
 /*CreateNote*/
 
 #input {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 .form-title {
   width: 650px;
-  padding: 3%;
+  padding: 2.5%;
 }
 
 .form-text {

@@ -38,8 +38,9 @@ class AddNote extends Component {
             data: this.state.data
 
         };
-        const newNotes = [...this.state.notes, noteObj];
+        
         this.setState({ notes: newNotes, name: '', data: '' });
+        const newNotes = [...this.state.notes, noteObj];
     };
 }
 
