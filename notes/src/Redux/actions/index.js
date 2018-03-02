@@ -59,7 +59,11 @@ export const editNote = editedNote => {
   const notes = axios.delete(`${APIroot}${editedNote.id}${APIkey}`);
   return dispatch => {
     notes
-      .then(payload => {
+    .then(() => {
+      return axios.post(`${APIroot}${APIkey}`, editedNote);
+    })
+    .then(payload => {
+      console.log('in editNote action', payload);
         dispatch({ type: EDIT_NOTE, payload: payload.data });
       })
       .catch(error => {

@@ -27,33 +27,19 @@ class SingleNote extends Component {
   };
 
   editNote = event => {
-    // event.preventDefault();
-
     const editedNote = {
       title: this.state.title,
       content: this.state.content,
+      id: this.state.note.id,
     };
 
-    // const promise1 = new Promise((res, re) => {
-    //   this.props.editNote(this.state.note);
-    // });
-    // const promise2 = new Promise((res, re) => {
-    //   this.props.addNote(editedNote);
-    // });
-    // Promise.all([promise1, promise2]).then(() => {
-    //    the setState stuff
-    // });
-
-    this.props.editNote(this.state.note);
-    this.props.addNote(editedNote);
+    this.props.editNote(editedNote);
 
     this.setState({
       title: '',
       content: '',
       editButtonPressed: !this.state.editButtonPressed,
     });
-
-    // this.props.history.push('/');
   };
 
   deleteNote = () => {

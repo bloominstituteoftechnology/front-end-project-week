@@ -33,8 +33,9 @@ export const reducer = (state = initialState, action) => {
     case EDIT_NOTE:
       return {
         ...state,
-        notes: state.notes.filter(each => {
-          return each.id !== action.payload.id;
+        notes: state.notes.map(each => {
+          if(each.id !== action.payload.id) return each;
+          return action.payload;
         }),
       };
     default:
