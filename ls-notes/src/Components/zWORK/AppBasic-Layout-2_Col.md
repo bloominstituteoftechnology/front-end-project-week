@@ -2,21 +2,21 @@
 <!-- HTML -->
 <div id="container" class="flexChild rowParent">
   
-  <div id="rowChild18977" class="flexChild columnParent">
-    <div id="columnChild2858" class="flexChild"></div>
+  <div id="rowChildNavPanel" class="flexChild columnParent">
+    <div id="columnChild-02" class="flexChild"></div>
 
     <div id="columnChild19959" class="flexChild columnParent">
-      <div id="columnChild98911" class="flexChild"></div>
+      <div id="columnChild-01" class="flexChild"></div>
 
       <div id="columnChild91761" class="flexChild selected"></div>
 </div>
 </div>
 
-  <div id="rowChild15152" class="flexChild columnParent">
-    <div id="columnChild94464" class="flexChild"></div>
+  <div id="rowChildNotePanel" class="flexChild columnParent">
+    <div id="columnChild-05" class="flexChild"></div>
 
     <div id="columnChild21162" class="flexChild columnParent">
-      <div id="columnChild8122" class="flexChild"></div>
+      <div id="columnChild-04" class="flexChild"></div>
 
       
 </div>
@@ -30,100 +30,180 @@
 }
 
 .rowParent, .columnParent{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
-  -webkit-align-content: stretch;
-  -ms-flex-line-pack: stretch;
   align-content: stretch;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-  -ms-flex-align: stretch;
   align-items: stretch;
 }
 
 .columnParent{
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 .flexChild{
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -ms-flex: 1;
   flex: 1;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
   align-self: auto;
 }
 
-
-#columnChild98911{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#columnChild-01{
  flex: 0 0 auto; height: 10%;
+    border-style: solid !important;
+    border-width: 2px !important;
+       border-color: green;
 }
 
-
-#columnChild2858{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#columnChild-02{
  flex: 0 0 auto; height: 20%;
+
+    border-style: solid !important;
+    border-width: 2px !important;
+       border-color: blueviolet;
 }
 
-
-#columnChild85373{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#columnChild-03{
  flex: 0 0 auto; height: 80%;
+
+    border-style: solid !important;
+    border-width: 2px !important;
+       border-color: firebrick;
 }
 
-
-#columnChild8122{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#columnChild-04{
  flex: 0 0 auto; height: 10%;
+
+    border-style: solid !important;
+    border-width: 2px !important;
+       border-color: darkorange;
 }
 
-
-#columnChild94464{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#columnChild-05{
  flex: 0 0 auto; height: 20%;
+
+    border-style: solid !important;
+    border-width: 2px !important;
+       border-color: yellow;
 }
 
-
-#rowChild15152{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#rowChildNotePanel{
  flex: 0 0 auto; width: 80%;
+
+    border-style: solid !important;
+    border-width: 2px !important;
+   border-color: darkviolet;
 }
 
-
-#rowChild18977{
- -webkit-box-flex: 0;
- -webkit-flex: 0 0 auto;
- -ms-flex: 0 0 auto;
+#rowChildNavPanel{
  flex: 0 0 auto; width: 20%;
+
+    border-style: solid !important;
+    border-width: 2px !important;
+   border-color: burlywood;
+}
+
+/* DD Additions */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.Container {
+  width: 100%;
+  /* DD FFC */
+  height: 800px !important;
+
+}
+.Nav-Panel, .Notes-Panel {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: space-between;
+  /* border-style: solid;
+  border-width: 2px; */
+}
+
+.Nav-panel {
+  width: 18%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: blue;
+}
+
+.Notes-panel {
+  /* FFC */
+  width: 78%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: red;
+  
+  /* DD */
+  display: "inline-block";
+  width: 70%;
+  background: lightgrey;
+
+}
+
+.View-header {
+  background-color: rgb(182, 90, 90);
+  height: 50px;
+  padding: 20px;
+  color: white;
+}
+
+.Note-row {
+  display: inline-flex;
+	margin: 10px;
+	/* border: 1px solid #eee;
+	box-shadow: 0 2px 2px #ccc; */
+	width: 70%;
+	padding: 20px;
+}
+.Note-header {
+  background-color: blue;
+  height: 40px;
+  width: 200px;
+  margin: 10px 10px 20px;
+  padding: 20px 20px;
+  color: white;
+}
+
+.Note-item {
+	display: inline-block;
+	margin: 10px;
+	border: 1px solid #eee;
+	box-shadow: 0 2px 2px #ccc;
+	width: 200px;
+  padding: 20px;
+  background: lightcyan;
+  color: black;
+}
+
+.Input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Label {
+  font-weight: bold;
+  display:  block;
+  margin-bottom: 8px;
+}
+
+.InputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
 }

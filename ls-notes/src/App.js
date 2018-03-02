@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NoteListView from './src/Components/NoteListView';
-import NoteDetailView from './src/Components/NoteDetailView';
-import CreateNoteView from './src/Components/CreateNoteView';
-import EditNoteView from './src/Components/EditNoteView';
-import DeleteNoteModal from './src/Components/DeleteNoteModal';
+// import NoteListView from './src/Components/NoteListView';
+// import NoteDetailView from './src/Components/NoteDetailView';
+// import CreateNoteView from './src/Components/CreateNoteView';
+// import EditNoteView from './src/Components/EditNoteView';
+// import DeleteNoteModal from './src/Components/DeleteNoteModal';
 
 class App extends Component {
   render() {
     return (
       <div className="Container">
         {/* Navigation controls go here */}
-          <div className="Nav-panel">LAMBDA NOTES
-          </div>
+          <div className="Nav-panel"><h2>LAMBDA NOTES</h2>
 
+<div><button class="btn-NavButton">View Your Notes</button></div>
+<div><button class="btn-NavButton">+ Create New Note</button></div>
+          </div>
+          {/* <ul>
+            <li>Button - View Your Notes</li>
+            </ul> */}
+
+
+            
         {/* Notes lists and all other view elements go below here */}
           <div className="Notes-panel">
             <div className="View-header">
@@ -23,23 +31,11 @@ class App extends Component {
             <div>
               <ul>
                 <li className="Note-row">
-                  <div>
-                    <header className="Note-header">
-                      <h1>Note #1 Title {this.props.title}</h1>
-                    </header>
-                    <p className="Note-item">This is the note body.</p>
+                  <div className="NoteItem">
+                  <div className="Note-header">
+                      <h3>Note #1 Title {this.props.title}</h3>
                   </div>
-                  <div>
-                    <header className="Note-header">
-                      <h1>Note #1 Title {this.props.title}</h1>
-                    </header>
-                    <p className="Note-item">This is the note body.</p>
-                  </div>
-                  <div>
-                    <header className="Note-header">
-                      <h1>Note #1 Title {this.props.title}</h1>
-                    </header>
-                    <p className="Note-item">This is the note body.</p>
+                  <div className="Note-body">This is the note body.</div>
                   </div>
                 </li>
               </ul>
