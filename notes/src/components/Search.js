@@ -25,8 +25,12 @@ class Search extends React.Component {
     }
   }
 
+  componentWillReceiveProps() {
+    this.setState({ searchTerm: ''});
+  }
+
   checkSearch = (terms) => {
-    console.log('terms',terms)
+
     const searchResults = [];
     let looseReg = '';
     for (let i = 0; i < terms.length; i++) {
@@ -34,13 +38,13 @@ class Search extends React.Component {
     }
     let strictRegex = new RegExp(terms, 'i');
     let looseRegex = new RegExp(looseReg, 'i');
-    console.log('search term', looseReg);
+
     this.props.notes.forEach((item) => {
       if (item.title.match(strictRegex) || item.entry.match(strictRegex)) {
         searchResults.push(item);
       }
     });
-    console.log(searchResults);
+
     this.props.notes.forEach((item) => {
       if (item.title.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex) || item.entry.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex)) {
         if (!searchResults.includes(item)){
@@ -56,7 +60,7 @@ class Search extends React.Component {
       <div className='search'>
         <form onSubmit={this.onSubmit}>
           <label>Search:</label>
-          <input className='search-bar' name='searchTerm' onChange={this.onChange}/>
+          <input className='search-bar' value={this.state.searchTerm} name='searchTerm' onChange={this.onChange} placeholder={this.props.terms}/>
         </form>
       </div>
     );
