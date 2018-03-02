@@ -10,6 +10,7 @@ import reducer from './reducer';
 
 // List of Components
 import App from './App';
+import ScrollToTop from './comps/ScrollToTop';
 
 render(
   <Provider
@@ -20,7 +21,9 @@ render(
     )}
   >
     <Router>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </Router>
   </Provider>,
   document.getElementById('root')
