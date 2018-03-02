@@ -3,19 +3,16 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { viewNote, deleteNote, reorderNotes } from '../actions';
 import './ListView.css';
-import Shiitake from 'shiitake';
 import DeleteNoteModal from './DeleteNoteModal';
-import removeMd from 'remove-markdown';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import Search from './Search';
 import SortingMenu from './SortingMenu';
+import ListItem from './ListItem';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
-  <li className='list-note' onClick={() => { viewNote(note)} }>
-    <div className='item-title'><Shiitake lines={1} throttleRate={200}>{note.title}</Shiitake></div>
-    <Shiitake lines={6} throttleRate={200} className='item-entry'>{removeMd(note.entry)}</Shiitake>
-    <div className='item-timestamp'>{note.dateCreated}</div>
-  </li>
+  <div>
+    <ListItem note={note} viewNote={viewNote} />
+  </div>
 );
 
 const SortableList = SortableContainer(({notes, viewNote}) => {
@@ -23,7 +20,7 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
     <ul className='list-notes'>
       {notes.map((note, index) => {
         return (
-          <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote} />
+          <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote}/>
         );
       })}
     </ul>
@@ -34,12 +31,14 @@ class ListView extends React.Component {
   state = {
     id: '',
     deleting: false,
+    selectingLabel: false,
   }
 
   viewNote = (note) => {
     this.props.viewNote(note);
     this.setState({ view: true, id: note.id });
   }
+
 
   componentDidMount() {
     if (this.props.match.params.id) {
@@ -69,7 +68,7 @@ class ListView extends React.Component {
         {this.props.notes ?
         <div>
           <div className='list-title-container'><h2 className='list-title'>Your Notes:</h2><SortingMenu /></div>
-          <SortableList viewNote={this.viewNote} notes={this.props.notes} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
+          <SortableList viewNote={this.viewNote} toggle={this.toggleLabelSelection} selecting={this.state.selectingLabel} notes={this.props.notes} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
         </div>
         :
         <div className='nothing-to-view'>

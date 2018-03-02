@@ -49,3 +49,9 @@
 .delete-modal .box .buttons .delete-button {
   background: #D1001B;
 }
+.delete-modal .box .buttons .delete-button:hover {
+  background: #c7001b;
+}
+.delete-modal .box .buttons .delete-button:active {
+  background: #b60019;
+}

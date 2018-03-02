@@ -28,6 +28,22 @@
   display: flex;
   flex-wrap: wrap;
 }
+.list-note-container .label-selector {
+  position: relative;
+  top: 27px;
+  left: 76px;
+  width: 100px;
+  height: 10px;
+  cursor: pointer;
+}
+.list-note-container .label-selector .label-selector-button {
+  width: 100px;
+  height: 5px;
+  background: grey;
+}
+.list-note-container .label-selector:hover .label-selector-button {
+  padding-bottom: 5px;
+}
 .list-note,
 .draggable {
   line-height: 25px;

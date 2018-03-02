@@ -9,6 +9,7 @@ class CreateNote extends React.Component {
     title: '',
     entry: '',
     id: '',
+    dateCreated: '',
     redirect: false,
   }
 
@@ -20,23 +21,18 @@ class CreateNote extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     this.props.editNote(this.state);
-    this.props.history.push('/');
+    this.props.history.push(`/view/${this.state.id}`);
   }
 
   componentDidMount() {
     if (this.props.match.params.id === undefined) {
       this.setState({ redirect: true });
     }
-    if ( this.props.current !== undefined ) {
-      const { title, entry } = this.props.current;
-      this.setState({ title: title, entry: entry, id: this.props.match.params.id });
+    const toEdit = this.props.notes.filter(note => this.props.match.params.id === note.id);
+    if (toEdit.length === 1) {
+      this.setState({ title: toEdit[0].title, entry: toEdit[0].entry,  dateCreated: toEdit[0].dateCreated, id: toEdit[0].id });
     } else {
-      const toEdit = this.props.notes.filter(note => this.props.match.params.id === note.id);
-      if (toEdit.length > 0) {
-        this.setState({ title: toEdit[0].title, entry: toEdit[0].entry, id: toEdit[0].id });
-      } else {
-        this.setState({ redirect: true });
-      }
+      this.setState({ redirect: true });
     }
   }
 

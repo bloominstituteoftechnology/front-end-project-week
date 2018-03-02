@@ -17,17 +17,11 @@ class NoteView extends React.Component {
     if (this.props.match.params.id === undefined) {
       this.setState({ redirect: true });
     }
-    if ( this.props.current !== undefined ) {
-      console.log(this.props.current);
-      const { title, entry, dateCreated } = this.props.current;
-      this.setState({ title: title, entry: entry, dateCreated: dateCreated, id: this.props.match.params.id });
+    const toView = this.props.notes.filter(note => this.props.match.params.id === note.id);
+    if (toView.length === 1) {
+      this.setState({ title: toView[0].title, entry: toView[0].entry,  dateCreated: toView[0].dateCreated, id: toView[0].id });
     } else {
-      const toEdit = this.props.notes.filter(note => this.props.match.params.id === note.id);
-      if (toEdit.length > 0) {
-        this.setState({ title: toEdit[0].title, entry: toEdit[0].entry,  dateCreated: toEdit[0].dateCreated, id: toEdit[0].id });
-      } else {
-        this.setState({ redirect: true });
-      }
+      this.setState({ redirect: true });
     }
   }
 

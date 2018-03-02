@@ -54,3 +54,11 @@ export const searchNotes = (searchResults, terms) => {
     searchTerms: terms,
   }
 }
+
+export const changeNoteLabel = (newLabel, id) => {
+  return {
+    type: 'CHANGE_NOTE_LABEL',
+    payload: newLabel,
+    id: id,
+  }
+}

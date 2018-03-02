@@ -6,8 +6,6 @@
   padding-left: 30px;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
 
   .list-title-container {
     width: 44%;
@@ -31,6 +29,28 @@
     max-width: 800px;
     display: flex;
     flex-wrap: wrap;
+  }
+}
+.list-note-container {
+
+  .label-selector {
+    position: relative;
+    top: 27px;
+    left: 76px;
+    width: 100px;
+    height: 10px;
+    cursor: pointer;
+
+    .label-selector-button {
+      width: 100px;
+      height: 5px;
+      background: grey;
+    }
+    &:hover {
+      .label-selector-button {
+        padding-bottom: 5px;
+      }
+    }
   }
 }
 .list-note, .draggable {
