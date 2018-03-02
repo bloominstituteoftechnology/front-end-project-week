@@ -2,6 +2,7 @@ import React from 'react';
 import NoteThumb from './NoteThumb';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 import { selectNote } from '../actions';
 import '../styles/NoteList.css';
 
@@ -10,6 +11,7 @@ const NoteList = props => {
   return (
     <div className="noteList__container">
       <h1 className="notesList__header">Your Notes:</h1>
+      <CSVLink data={props.notes}>Download</CSVLink>
       <div className="noteList">
         {props.notes.map(note => {
           return (
