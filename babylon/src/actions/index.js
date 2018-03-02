@@ -1,3 +1,5 @@
+import { v4 } from 'uuid';
+
 export const ADD_NOTE = 'ADD_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const DELETE_NOTE = 'DELERE_NOTE';
@@ -6,10 +8,9 @@ export const TITLE_SORT = 'TITLE_SORT';
 export const NEWEST_SORT = 'NEWEST_SORT';
 export const OLDEST_SORT = 'OLDEST_SORT';
 
-let nextNoteId = 4;
 export const addNote = data => ({
   type: ADD_NOTE,
-  id: nextNoteId++,
+  id: v4(),
   title: data.title,
   body: data.body,
   created: data.created,

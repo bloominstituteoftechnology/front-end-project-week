@@ -7,6 +7,7 @@
     "ajv": "^6.1.1",
     "axios": "^0.18.0",
     "marked": "^0.3.16",
+    "node-uuid": "^1.4.8",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
@@ -16,14 +17,15 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "sortablejs": "^1.7.0",
-    "styled-components": "^3.1.6"
+    "styled-components": "^3.1.6",
+    "uuid": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy" : "npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "devDependencies": {
     "eslint": "^4.17.0",
