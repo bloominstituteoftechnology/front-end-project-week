@@ -1,4 +1,4 @@
-import {GET_NOTES, ADD_NOTES, FETCHING, ERROR_GETTING_NOTES, SET_SINGLE_NOTE, UPDATE_NOTE, SEARCH} from '../actions/';
+import {GET_NOTES, ADD_NOTES, FETCHING, ERROR_GETTING_NOTES, SET_SINGLE_NOTE, UPDATE_NOTE, SEARCH, RETRIEVING_SEARCH} from '../actions/';
 
 const initialState = {
     notes: [],
@@ -7,6 +7,7 @@ const initialState = {
     singleNote: [],
     searching:false,
     searchResults:[],
+    retrievingSearch: true,
 };
 
 export const notes_reducer = (state = initialState, action) => {
@@ -26,9 +27,11 @@ export const notes_reducer = (state = initialState, action) => {
         case UPDATE_NOTE:
             return {...state, notes: action.payload};
         case ERROR_GETTING_NOTES:
-            return {...state, notes: action.payload};
+            return {...state, error: action.payload};
         case SEARCH:
-            return {...state, searchResults:action.payload, searching: action.search};
+            return {...state, searchResults:action.payload, searching:action.search, retrievingSearch:action.retrievingSearch};
+        case RETRIEVING_SEARCH:
+            return {...state, retrievingSearch:action.retrieving_search};
         default:
             return state;
     }

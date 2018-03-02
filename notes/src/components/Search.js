@@ -7,22 +7,27 @@ import {search} from '../actions';
 class Search extends Component {
     state = {
         criteria: '',
+        searchHandler: '',
     };
 
-    updateField = (e) => {
+    searchField = (e) => {
+        const value = e.target.value;
 
-        if(e.target.value.length > 0){
+        console.log('searchField event', value.length);
+        if(value.length >= 3){
 
-            this.props.search(e.target.value, true);
-
-        }else{
-
-            this.props.search(e.target.value, false);
+            setTimeout(() => {
+                this.props.search(value, true)
+            }, 800);
 
         }
 
+        if(value.length === 0){
+            this.props.search(value, false)
+        }
+
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: value
         });
     };
 
@@ -32,7 +37,7 @@ class Search extends Component {
 
                 <FormGroup>
                     <FormControl type="text" placeholder="Search"
-                                 onChange={this.updateField} name={'criteria'}/>
+                                 onChange={this.searchField} name={'criteria'}/>
                 </FormGroup>
 
             </SearchContainer>

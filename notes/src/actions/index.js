@@ -7,21 +7,44 @@ export const ERROR_GETTING_NOTES = 'ERROR_GETTING_NOTES';
 export const SET_SINGLE_NOTE = 'SET_SINGLE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE';
 export const SEARCH = 'SEARCH';
+export const RETRIEVING_SEARCH = 'RETRIEVING_SEARCH';
 
 export const search = (criteria, status) => {
+
+    // Handle when user deletes input and gets to 0
+    if(criteria.length == 0){
+        return dispatch => {
+            dispatch({type: SEARCH, payload: [], search:status });
+        };
+    }
 
     const searchResponse = axios.post(`http://localhost:3333/notes/search/${criteria}`, {
         criteria:criteria,
     });
-    return dispatch => {
-        searchResponse
-            .then(({data}) => {
-                console.log('comming from search server:::', data);
 
-                dispatch({type: SEARCH, payload: data, search:status });
+    return dispatch => {
+        dispatch({type: RETRIEVING_SEARCH, retrieving_search:true });
+        searchResponse
+            .then(({data: response}) => {
+
+                // Handle when the search found nothing.
+                if(response === null){
+                    dispatch({type: SEARCH, payload: [], search:status });
+                    dispatch({type: RETRIEVING_SEARCH, retrieving_search:false });
+                }else{
+
+                    const respKeys = Object.keys(response);
+                    const responseData = Object.entries(response).map((note, i) => {
+                        note[1].key = respKeys[i];
+                        return note[1];
+                    });
+
+                    dispatch({type: SEARCH, payload: responseData, search:status, retrievingSearch:false });
+                }
+
             })
             .catch(err => {
-                dispatch({type: SEARCH,  search:false });
+                // dispatch({type: SEARCH,  search:true });
                 dispatch({type: ERROR_GETTING_NOTES, payload: err});
             });
     };

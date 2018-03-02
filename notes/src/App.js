@@ -36,7 +36,6 @@ class App extends Component {
 
                             </Col>
                             <Col xs={12} md={9} className={"components-container"}>
-                                {console.log('from app searchin ', this.props)}
                                 {this.props.searching
                                     ?   <SearchResults/>
                                     :

@@ -32,7 +32,6 @@ let prodName = '';
 // }
 
 
-
 server.get('/notes', (req, res) => {
     notes.once('value').then(function(dataResponse) {
         const data = dataResponse.val();
@@ -81,41 +80,18 @@ server.delete('/notes/delete/:key', (req, res) => {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// This gets executed when any update is done on Firebase DB.
+// Returns the updated record.
+notes.on('child_changed', function(snap){
+    console.log('record has changed', snap.val());
+});
 
 server.post('/notes/search/:criteria', (req, res) => {
     let {criteria} = req.params;
-    let notesF = [];
 
-    notes.orderByChild('key').on('child_added', function(snap){
-
-            const valu = snap.val();
-
-            console.log('OBject(valu)', Object.entries(valu));
-            notesF.push(Object.entries(valu));
-
-
+    notes.orderByChild("title").startAt(criteria).endAt(criteria+"\uf8ff").once("value", function(response){
+            res.json(response.val());
     });
-
-
-    console.log(notesF);
-
-    res.json(notesF);
-
-
 
 });
 
@@ -129,18 +105,3 @@ const sendUserError = (msg, res) => {
     res.json({Error: msg});
     return;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
