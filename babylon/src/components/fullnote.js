@@ -53,14 +53,16 @@ const StyledNote = styled.div`
 `;
 
 class FullNote extends React.Component {
-  state = {
-    redirect: false,
-  }
-
   handleDeleteLink = (event) => {
     event.preventDefault();
     this.props.toggleDelete();
   }
+
+  // componentDidMount = () => {
+  //   if (!this.props.match.params.id) {
+  //     this.props.history.push('/');
+  //   }
+  // }
 
   render() {
     return (

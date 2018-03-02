@@ -18,7 +18,7 @@ const dummyData = [
   {
     id: 3,
     title: 'Example Three',
-    body: 'This is an example that a continuous string will be interrupted at the box edge... aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+    body: 'This is an example that a continuous string will be interrupted at the box edge. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
     created: 1519932544103,
     stamp: 'Tue Feb 27 2018 10:24',
   },

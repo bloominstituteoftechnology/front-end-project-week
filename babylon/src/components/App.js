@@ -5,7 +5,7 @@ import List from './list';
 import NewNote from './newnote';
 import FullNote from './fullnote';
 import UpdateNote from './updatenote';
-import NotFound from './notfound';
+// import NotFound from './notfound';
 
 const StyledApp = styled.div`
   width: 830px;
