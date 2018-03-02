@@ -88,3 +88,36 @@
   text-overflow: ellipsis;
   display: block;
 }
+
+/*-----------
+Add Note
+ -----------*/
+.note-title {
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 300px;
+  height: 30px;
+}
+
+.note-content {
+  background-color: white;
+  width: 500px;
+  height: 200px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.submit-button {
+  border: 1px solid #74a6a7;
+  height: 38px;
+  width: 178px;
+  background-color: #36c0c3;
+  display: block;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: bold;
+}

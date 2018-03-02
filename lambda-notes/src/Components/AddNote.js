@@ -5,9 +5,9 @@ class AddNote extends Component {
     return (
       <div className='right-column'>
         <h2>Create New Note:</h2>
-        <input type="text" />
-        <input type="text" />
-        <input type="submit" />
+        <input className="note-title" type="text" />
+        <textarea className="note-content">Note Content</textarea>
+        <button className="submit-button">Save</button>
       </div>
     );
   }
