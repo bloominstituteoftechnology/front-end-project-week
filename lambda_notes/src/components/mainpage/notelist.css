@@ -1,4 +1,18 @@
+.sortable__container {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.sortable__container li:nth-child(3n+1){
+  margin-left: 0;
+}
+
 .noteList__container {
+  list-style-type: none;
   width: 31.2%;
   height: 415px;
   border: 1px solid #B2B2B2;

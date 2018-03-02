@@ -5,6 +5,7 @@ import EditNote from './mainpage/EditNote';
 import CreateNote from './mainpage/CreateNote';
 import SearchBar from './mainpage/SearchBar';
 import CsvCreator from 'react-csv-creator';
+import { arrayMove } from 'react-sortable-hoc';
 import './mainpage.css';
 import './deletebox.css';
 
@@ -64,7 +65,7 @@ class MainPage extends React.Component {
     switch(param) {
       case 'noteList':
         return <div className="mainPage__noteList">
-          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote} filterValue={this.state.searchValue} />
+          <NoteList notesArr={this.state.notes} changeSwitch={this.props.changeSwitch} viewNote={this.changeCurrentNote} filterValue={this.state.searchValue} onSortEnd={this.onSortEnd} distance={10} />
         </div>;
       case 'noteView':
         return <div className="mainPage__noteView">
@@ -106,6 +107,12 @@ class MainPage extends React.Component {
   updateSearchValue = (str) => {
     this.setState({...this.state, searchValue: str})
   }
+
+  onSortEnd = ({oldIndex, newIndex}) => {
+    this.setState({ ...this.state,
+      notes: arrayMove(this.state.notes, oldIndex, newIndex),
+    });
+  };
 
 }
 
