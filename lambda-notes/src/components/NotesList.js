@@ -1,33 +1,14 @@
 import React, { Component } from 'react';
+import Notes from './Notes';
 
 class NotesList extends Component {
-  state = {
-    notes: [
-      {
-        title: 'Note Title',
-        content: 'Morbi pellentesque euismod venentis. Nulla ut nibh nunc. Phallasellus diam metus, blandit ac purus a effictur mollis...'
-      },
-      {
-        title: 'Note Title',
-        content: 'Morbi pellentesque euismod venentis. Nulla ut nibh nunc. Phallasellus diam metus, blandit ac purus a effictur mollis...'
-      },
-      {
-        title: 'Note Title',
-        content: 'Morbi pellentesque euismod venentis. Nulla ut nibh nunc. Phallasellus diam metus, blandit ac purus a effictur mollis...'
-      },
-    ]
-  }
   render() {
     return (
       <div>
+        <h2>Your Notes:</h2>
         <ul>
-          {this.state.notes.map((note, index) => {
-            return (
-              <li>
-                <h2>{note.title}</h2>
-                <p>{note.content}</p>
-              </li>
-            );
+          {this.props.notes.map((note, index) => {
+            return <li key={note.id}>{note.message}</li>
           })}
         </ul>
       </div>
