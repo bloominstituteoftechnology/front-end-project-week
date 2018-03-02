@@ -31,7 +31,7 @@ class List extends Component {
                     </ul>
                 </div>
                 
-                    <Delete deleteNote={this.deleteNote} cancelDelete={this.cancelDelete}/>
+                    
                 
                 
             </div>
