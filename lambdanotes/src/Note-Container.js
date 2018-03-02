@@ -11,7 +11,7 @@ const NoteContainer = (props) => {
         <ul className='Note-list'>
         { props.notes.map((note) => {
             return (
-                <Link to={`/${note.id}`}><Note key={note.id} title={note.title} content={note.content} /></Link>
+                <Link to={`/${note.id}/${note.title}/${note.content}`}><Note key={note.id} title={note.title} content={note.content} /></Link>
             );
         })
         }

@@ -9,11 +9,11 @@ import ViewNote from './View-Note'
 class App extends Component {
   constructor(props) {
     super(props);
+    let id = 1;
     this.state = {
       notes: [],
       title: '',
       content: '',
-      id: 1,
       visible: true
     }
     this.addNote = this.addNote.bind(this);
@@ -25,9 +25,9 @@ class App extends Component {
     let newObj = {
       title: this.state.title,
       content: this.state.content,
-      id: this.state.id
+      id: this.id
     };
-    let newId = this.state.id;
+    let newId = this.id;
     console.log(newObj.id);
     this.setState({
       notes: [...this.state.notes, newObj]
@@ -76,12 +76,12 @@ class App extends Component {
         <div className="App">
           <div className='Left-bar'>
             <h1>Lambda Notes</h1>
-            <Link to='/' exact><button>View Notes</button></Link>
+            <Link to='/'><button>View Notes</button></Link>
             <Link to='/NewNoteForm' className='NewNoteButton'><button>Create New Note</button></Link>
           </div>
           <Route path='/' component={() => <NoteContainer notes={this.state.notes} />} exact />
           <Route path='/NewNoteForm' component={this.NewNoteForm} />
-          <Route path='/:id' component={this.viewNote} />
+          <Route path='/:id/:title/:content' component={this.viewNote} />
         </div>
       </Router>
     );
