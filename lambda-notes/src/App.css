@@ -33,7 +33,8 @@ button a:link, a:visited, a:hover, a:active {
 
 .main {
   text-align: left;
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -147,15 +148,17 @@ button a:link, a:visited, a:hover, a:active {
   border-style: solid;
   border-color: #979797;
   border-width: 1px;
+  border-radius: 3px;
 }
 
 .new-note-content-input {
   width: 625px;
   height: 375px;
-  padding: 0 0 0 10px;
+  padding: 10px 0 0 10px;
   border-style: solid;
   border-color: #979797;
   border-width: 1px;
+  border-radius: 3px;
 }
 
 .new-note-header {
@@ -181,17 +184,23 @@ button a:link, a:visited, a:hover, a:active {
   border-style: solid;
   border-color: #979797;
   border-width: 1px;
+  border-radius: 3px;
 }
 
 .edit-note-content-input {
   width: 625px;
   height: 375px;
-  padding: 0 0 0 10px;
+  padding: 10px 0 0 10px;
   border-style: solid;
   border-color: #979797;
   border-width: 1px;
+  border-radius: 3px;
 }
 
 .edit-note-header {
   padding: 0 0 15px 0;
+}
+
+.delete-button {
+  background-color: none;
 }

@@ -24,7 +24,7 @@ class DeleteModal extends Component {
   render() {
     return (
       <div>
-        <Button bsStyle="primary" bsSize="small" onClick={this.handleShow}>delete</Button>
+        <a className="delete-button" onClick={this.handleShow}>delete</a>
               
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closebutton>

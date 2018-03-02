@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import { Button } from 'react-bootstrap';
 import ListView from './components/ListView';
 import Note from './components/FullView';
 import NewNote from './components/NewNote';

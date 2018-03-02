@@ -8,7 +8,7 @@ const NoteAPI = {
     { 
       id: 2, 
       title: "Note 2", 
-      content: "Null" 
+      content: "Walk with me to the end Stare with me into the abyss Do you feel like letting go? I wonder how far down it is Nothing is fun" 
     },
     { 
       id: 3, 
