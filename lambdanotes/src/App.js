@@ -46,7 +46,7 @@ class App extends React.Component {
 
   handleClickForSave = (newNote) => {
     let tempArr = [newNote, ...this.state.notes];
-    fire.database().ref('notes2').update(tempArr.reverse());
+    fire.database().ref('notes2').set(tempArr.reverse());
     this.setState({
       notes: [newNote, ...this.state.notes],
       showAddWin: !this.state.showAddWin
@@ -56,11 +56,16 @@ class App extends React.Component {
   handleClickForUpdate = (updatedNote, i) => {
     const temp = this.state.notes;
     temp[i] = updatedNote;
-    fire.database().ref('notes2').update(temp.reverse());
+    fire.database().ref('notes2').set(temp.reverse());
     this.setState({
       notes: temp.reverse(),
       showEditWin: !this.state.showEditWin
     });
+  }
+
+  handleClickForExport = () => {
+    const temp = this.state.notes;
+    fire.database().ref('notes2').set(temp.reverse());
   }
 
   singleNoteView = (singleNote, i) => {
@@ -87,7 +92,7 @@ class App extends React.Component {
         fire.database().ref("notes2").remove();
       } else {
         fire.database().ref("notes2").remove();
-        fire.database().ref("notes2").update(tempArr.reverse());
+        fire.database().ref("notes2").set(tempArr.reverse());
       }
       this.setState({
         notes: tempArr.reverse(),
@@ -99,7 +104,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Panel showAddWin={this.state.showAddWin} handleClickForCreate={this.handleClickForCreate} handleClickForView={this.handleClickForView} />
+        <Panel showAddWin={this.state.showAddWin} handleClickForCreate={this.handleClickForCreate} handleClickForView={this.handleClickForView} handleClickForExport={this.handleClickForExport} />
         {this.state.showAddWin
             ? <CreateNoteContainer handleClickForSave={this.handleClickForSave} />
             : this.state.showSingleNote

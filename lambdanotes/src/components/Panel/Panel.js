@@ -9,6 +9,7 @@ class Panel extends React.Component {
         <div className="panel-buttons">
           <button onClick={this.props.handleClickForView}>View Your Notes</button>
           <button onClick={this.props.handleClickForCreate}>+ Create New Note</button>
+          <button onClick={this.props.handleClickForExport}>Export to CSV</button>
         </div>
       </div>
     );

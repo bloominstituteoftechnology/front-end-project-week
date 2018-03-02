@@ -51,13 +51,14 @@ hr {
 .Notes {
   display: flex;
   flex-wrap: wrap;
+  overflow: scroll;
 }
 .wrapper {
   background: white;
   border: solid 1px #96AEAF;
   margin: 1.5vh 1.5vh 1.5vh 0vh;
   padding: 3vh;
-  height: 221px;
+  height: 223px;
 }
 .note-container {
   height: 195px;
