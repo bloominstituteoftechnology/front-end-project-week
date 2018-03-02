@@ -11,10 +11,8 @@
 .left-panel {
     width: 242px;
     height: 100%;
-    float: left;
     background: #d7d7d7;
     border-right: 2px solid #c0c0c0;
-    z-index: 1;
 }
 
 .left-panel__heading {
@@ -60,8 +58,23 @@
 
 .container {
     height: 100%;
+    width: 734px;
     position: absolute;
     left: 242px;
+    top: 0;
     background: #f3f3f3;
     overflow-x: hidden;
+}
+
+.opaque-shield {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    display: none;
+}
+
+.opaque-shield--display {
+    display: block;
 }

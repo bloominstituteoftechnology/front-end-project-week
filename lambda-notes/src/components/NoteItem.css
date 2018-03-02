@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:bold');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-.note {
+.note-item {
     position: relative;
     width: 212px;
     height: 216px;
@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.note__title {
+.note-item__title {
     padding: 14px 0 8px 0;
     border-bottom: 1px solid #a1a1a1;
     color: black;
@@ -26,7 +26,7 @@
     word-spacing: 0;
 }
 
-.note__content { 
+.note-item__content { 
     padding-top: 7px;
     color: #4a4a4a;
     font-size: 13px;

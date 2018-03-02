@@ -30,6 +30,7 @@ class App extends Component {
             <Route path="/create" component={Create} />
             <Route path="/edit/:id" component={Edit} />
           </div>
+          <div className="opaque-shield" id="opaque-shield" />
         </div>
       </Router>
     );

@@ -13,12 +13,12 @@ let notes = [
   {
     id: 1,
     title: 'A classic pangram',
-    content: 'The quick brown fox jumps over the lazy dog.'
+    content: 'The quick brown fox jumps over the lazy dog.',
   },
   {
     id: 2,
     title: 'Another one',
-    content: 'Jackdaws love my big sphinx of quartz.'
+    content: 'Jackdaws love my big sphinx of quartz.',
   },
   {
     id: 3,

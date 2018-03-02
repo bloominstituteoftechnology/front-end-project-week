@@ -8,11 +8,11 @@ class NoteItem extends Component {
   }
   
   processRedirect() {
-    window.location.href = `http://localhost:3000/notes/${this.props.id}`;
+    window.location.href = `notes/${this.props.id}`;
   }
 
   ellipsize() {
-    var el = document.getElementById(`note__content--${this.props.id}`);
+    var el = document.getElementById(`note-item__content--${this.props.id}`);
     var wordArray = el.innerHTML.split(' ');
     while (el.scrollHeight > el.offsetHeight) {
       wordArray.pop();
@@ -21,18 +21,18 @@ class NoteItem extends Component {
   }
 
   componentDidMount() {
-    const title = document.getElementById(`note__title--${this.props.id}`)
+    const title = document.getElementById(`note-item__title--${this.props.id}`)
     const titleHeight = window.getComputedStyle(title).getPropertyValue('height');
-    document.getElementById(`note__content--${this.props.id}`).style.height =
+    document.getElementById(`note-item__content--${this.props.id}`).style.height =
       `calc(190px - ${titleHeight})`;
     this.ellipsize();
   }
 
   render() {
     return (
-      <div className="note" onClick={this.processRedirect}>
-        <div className="note__title" id={`note__title--${this.props.id}`}>{this.props.title}</div>
-        <div className="note__content" id={`note__content--${this.props.id}`}>{this.props.content}</div>
+      <div className="note-item" onClick={this.processRedirect}>
+        <div className="note-item__title" id={`note-item__title--${this.props.id}`}>{this.props.title}</div>
+        <div className="note-item__content" id={`note-item__content--${this.props.id}`}>{this.props.content}</div>
       </div>
     );
   }
