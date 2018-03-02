@@ -27,7 +27,7 @@ class Note extends React.Component {
             </div>
             <div className="Delete-Link">
               <a href='#' onClick={() => this.openModal()} style={linkStyles}>delete</a>
-              <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
+              <Modal isOpen={this.state.isModalOpen}>
                 <div className="Modal-contents">
                   <h1>Are you sure you want to delete?</h1>
                   <button className="Delete-button" onClick={() => this.handleDelete()}>Delete</button>

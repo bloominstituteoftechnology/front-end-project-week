@@ -9,18 +9,9 @@ class Modal extends React.Component {
         <div className="Backdrop"/>
         <div className="Modal">
           <div>{this.props.children}</div>
-          <div onClick={event => this.close(event)}/>
         </div>
       </div>
     )
-  }
-
-  close(event) {
-    event.preventDefault()
-
-    if (this.props.onClose) {
-      this.props.onClose()
-    }
   }
 }
 
