@@ -123,6 +123,8 @@ class App extends Component {
   }
 
   updateNote = (updatedNote) => {
+    const notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
+    notesRef.update(updatedNote);
     let { title, content, id } = updatedNote;
     let updatedNotes = this.state.notes.map((note) => {
       if (note.id === id) {
@@ -131,8 +133,8 @@ class App extends Component {
       }
       return note
     })
-    this.setState({ notes: updatedNotes, noteDetails: updatedNote });
-    this.showNoteDetails(id);
+    this.setState({ noteDetails: updatedNote });
+    this.showNoteDetails(updatedNote.id);
   }
 
   getNextId = () => {

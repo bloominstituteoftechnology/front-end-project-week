@@ -68,7 +68,7 @@ class CreateNote extends Component {
     let newNote = {
       title: this.state.title,
       content: this.state.content,
-      id: this.props.getNextId()
+      // id: this.props.getNextId()
     }
     this.props.saveNewNote(newNote);
   }
