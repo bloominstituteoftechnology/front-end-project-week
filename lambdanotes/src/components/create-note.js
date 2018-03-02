@@ -9,6 +9,8 @@ const CreateNoteStyled = styled.div`
   width: 100%;
   height: 100vh;
   background-color: rgb(243, 243, 243);
+  border-left: 1px solid rgb(151, 151, 151);
+  border-right: 1px solid rgb(151, 151, 151);
 
   button {
     width: 100px;
@@ -19,6 +21,11 @@ const CreateNoteStyled = styled.div`
     outline: none;
     font-size: 0.9rem;
     font-weight: bold;
+    border: none;
+
+    &:hover {
+      border: 2px solid white;
+    }
   }
 
   .NoteTitleInput {

@@ -11,6 +11,7 @@ const NoteDetailsStyled = styled.div`
   height: 100vh;
   background-color: rgb(243, 243, 243);
   border-left: 1px solid rgb(151, 151, 151);
+  border-right: 1px solid rgb(151, 151, 151);
 
   header {
     display: flex;
@@ -34,6 +35,7 @@ const NoteDetailsStyled = styled.div`
     width: 90%;
     white-space: pre-line;
     padding-bottom: 15px;
+    line-height: 25px;
     }
 
   ul {

@@ -11,6 +11,7 @@ const NoteListStyled = styled.div`
   display: flex;
   flex-direction: column;
   border-left: 1px solid rgb(151, 151, 151);
+  border-right: 1px solid rgb(151, 151, 151);
 
   header {
     display: flex;
