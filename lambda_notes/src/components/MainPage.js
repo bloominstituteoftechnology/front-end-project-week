@@ -41,7 +41,7 @@ class MainPage extends React.Component {
         </div>
         <div className="mainPage__middleRow">
           <div className="mainPage__middleRow-title">{this.props.title}</div>
-          <div style={this.props.caseValue === 'noteList' ? { visibility: 'visible' } : { visibility: 'hidden' }}>
+          <div style={this.props.caseValue === 'noteList' && this.state.notes.length > 1 ? { visibility: 'visible' } : { visibility: 'hidden' }}>
             <SearchBar sendSearchValue={this.updateSearchValue}/>
           </div>
           <CsvCreator
