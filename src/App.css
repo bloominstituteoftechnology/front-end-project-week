@@ -34,3 +34,13 @@
     font-size: 18px;
     padding: 20px 10px;
 }
+
+.note-thumb {
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.note-thumb a, .note-thumb a:hover {
+    text-decoration: none;
+    color: inherit;
+}

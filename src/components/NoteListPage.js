@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../actions";
+import {NavLink} from "react-router-dom";
 
 class NoteListPage extends React.Component {
 
@@ -18,12 +19,14 @@ class NoteListPage extends React.Component {
         {notes.map((note, index) => (
           <div
             key={index}
-            className="col-md-3"
+            className="col-md-3 note-thumb"
             style={{backgroundColor: "#eeeeee", margin: "10px", padding: "5px"}}>
-            <h4>{note.title}</h4>
-            <div>
-              {note.message}
-            </div>
+            <NavLink to={`/view-note/${note.id}`}>
+              <h4>{note.title}</h4>
+              <div>
+                {note.message}
+              </div>
+            </NavLink>
           </div>
         ))}
 

@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actions from "../actions";
+import {Button} from "react-bootstrap";
 
 class AddNotePage extends React.Component {
 
@@ -9,7 +10,7 @@ class AddNotePage extends React.Component {
     title: '',
     message: ''
   };
-
+// I am using Reacts State for tempory storage throughout this app
   setTitle = (event) => {
     this.setState({title: event.target.value});
   };
@@ -29,10 +30,10 @@ class AddNotePage extends React.Component {
       title: '',
       message: ''
     });
-
-    event.preventDefault(); // prevent from refreshing the page
+    this.props.history.push('/');
+    event.preventDefault(); 
   };
-
+// this prevents the app from resetting the page and losing all our data or state
   render() {
     return (
       <form onSubmit={this.saveNote}>
@@ -63,9 +64,9 @@ class AddNotePage extends React.Component {
         </div>
         <div className="row">
           <div className="col-md-3" style={{marginTop: "15px"}}>
-            <button type="submit">
-              save note
-            </button>
+            <Button type="submit">
+              Save note
+            </Button>
           </div>
         </div>
       </form>

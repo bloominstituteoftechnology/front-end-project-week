@@ -27,8 +27,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={NoteListPage}/>
               <Route path="/add-note" component={AddNotePage}/>
-              <Route path="/edit-note" component={EditNotePage}/>
-              <Route path="/view-note" component={ViewNotePage}/>
+              <Route path="/edit-note/:id" component={EditNotePage}/>
+              <Route path="/view-note/:id" component={ViewNotePage}/>
               {/*<Route component={NotFoundPage}/>*/}
             </Switch>
           </div>
