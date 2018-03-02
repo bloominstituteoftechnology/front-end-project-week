@@ -13,6 +13,8 @@
 .mainContent .createNoteStyles .formBox1 {
   width: 400px;
   height: 50px;
+  overflow-wrap: normal;
+  word-wrap: break-word;
 }
 .mainContent .createNoteStyles .formBox2 {
   width: 800px;

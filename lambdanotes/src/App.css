@@ -20,6 +20,10 @@
   font-size: 27px;
   box-sizing: border-box;
 }
+.mainContainer .navBar h1 {
+  margin-left: 20px;
+  line-height: 80%;
+}
 .mainContainer .navBar a {
   margin-left: auto;
   margin-right: auto;

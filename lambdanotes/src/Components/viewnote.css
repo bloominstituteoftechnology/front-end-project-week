@@ -1,3 +1,25 @@
+#noteView button {
+  border: none;
+  background: #f3f3f3;
+  font-size: 16px;
+  text-decoration: none;
+}
+#noteView button a {
+  text-decoration: none;
+  color: #000000;
+}
+#noteView button a:link {
+  text-decoration: none;
+  color: #000000;
+}
+#noteView button a:hover {
+  text-decoration: none;
+  color: #000000;
+}
+#noteView button a:visited {
+  text-decoration: none;
+  color: #000000;
+}
 .modalWindow {
   display: flex;
   flex-flow: row wrap;

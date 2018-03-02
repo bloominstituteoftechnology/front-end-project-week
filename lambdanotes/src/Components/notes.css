@@ -32,9 +32,12 @@
   height: 50px;
 }
 .noteBox .singleNote {
+  overflow: hidden;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
   margin-top: 15px;
 }
 .noteBox .singleNote .listBox {
