@@ -25,6 +25,20 @@ class ViewNote extends Component {
         <div className="viewNote__content">
           <p className="viewNote__content__text">{this.state.notes[0].note}</p>
         </div>
+
+        <div className="deleteNote">
+          <div className="deleteNote__modal">
+            <p className="deleteNote__modal__header">Are you sure you want to delete this?</p>
+            <div className="deleteNote__modal__buttons">
+              <div className="deleteNote__modal__delete">
+                <p className="deleteNote__modal__delete__text">Delete</p>
+              </div>
+              <div className="deleteNote__modal__no">
+                <p className="deleteNote__modal__no__text">No</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       )
   }

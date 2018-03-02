@@ -1,35 +1,91 @@
-.viewNote{
+.viewNote {
 
-  .viewNote__options{
+  .viewNote__options {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     margin-right: 20px;
     margin-top: 15px;
 
-    .viewNote__options__text{
+    .viewNote__options__text {
       font-size: 1.6rem;
       margin-right: 13px;
       font-weight: 700;
     }
   }
 
-  .viewNote__header{
+  .viewNote__header {
     text-align: left;
     margin-left: 25px;
 
-    .viewNote__header__text{
+    .viewNote__header__text {
       font-size: 2.5rem;
       font-weight: 700;
     }
   }
 
-  .viewNote__content{
+  .viewNote__content {
     text-align: left;
     margin: 0 25px 0 25px;
 
-    .viewNote__content__text{
+    .viewNote__content__text {
       font-size: 1.9rem;
     }
+  }
+
+  .deleteNote {
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    top: 40%;
+    left: 25%;
+    position: absolute;
+    width: 50%;
+
+    .deleteNote__modal {
+      width: 100%;
+      background-color: white;
+      border: 1px solid black;
+      margin: auto auto auto auto;
+
+
+      .deleteNote__modal__header {
+        margin-top: 50px;
+        font-size: 2.0rem;
+      }
+
+      .deleteNote__modal__buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 50px;
+      
+        .deleteNote__modal__delete {
+          width: 34%;
+          background-color: red;
+          margin-right: 25px;
+
+          .deleteNote__modal__delete__text {
+            font-size: 2.5rem;
+            color: #FFF4F4;
+            font-weight: bold;
+            margin-top: 13px;
+            margin-bottom: 13px;
+          }
+        }
+
+        .deleteNote__modal__no {
+          width: 34%;
+          background-color: #62bec2;
+
+          .deleteNote__modal__no__text {
+            font-size: 2.5rem;
+            color: #FFF4F4;
+            font-weight: bold;
+            margin-top: 13px;
+            margin-bottom: 13px;
+        }
+      }
+    }
+   }
   }
 }
