@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import SideBar from '../SideBar';
+import SideBar from './SideBar';
 import '../styles/ViewNotes.css';
 
-class AllNotes extends Component {
+class ViewNotes extends Component {
   render() {
     return (
       <div className="container">
@@ -15,9 +15,9 @@ class AllNotes extends Component {
             {this.props.notes.map((note, i) => {
               return (
                 <div className="noteCard" key={note.id}>
-                  <Link to={`/notes/viewnote/${note.id}`}>
-                    <div className="noteTitle">{`${i + a}. ${note.title}`}</div>
-                    <div className="noteBody">{note}</div>
+                  <Link to={`/notes/${note.id}`}>
+                    <div className="noteTitle">{note.title}</div>
+                    <div className="noteBody">{note.body}</div>
                   </Link>
                 </div>
               );

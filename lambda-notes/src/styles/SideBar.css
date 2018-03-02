@@ -36,3 +36,9 @@
   box-sizing: border-box;
   border: 1px solid lightgrey;
 }
+
+.sideBar-button:hover {
+  color: #2AC0C4;
+  background-color: white;
+  cursor: pointer;
+}

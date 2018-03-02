@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import ViewNotes from './components/ViewNotes';
 import DisplayOne from './components/DisplayOne';
 import CreateNote from './components/CreateNote';
@@ -11,7 +11,7 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <Route exact path="/" component={ViewNotes} />
-          <Route path="/create" component={CreateNote} />
+          <Route path="/create-new-note" component={CreateNote} />
           <Route path="/notes/:id" component={DisplayOne} />
         </div>
       </BrowserRouter>
