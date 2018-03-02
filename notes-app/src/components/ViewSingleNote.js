@@ -4,6 +4,12 @@ import { NavLink } from 'react-router-dom';
 import { deleteNote } from '../actions';
 
 class singleNote extends Component {
+  state = {
+    title: this.props.id,
+    oldtitle: this.props.id,
+    meat: this.props.note[this.props.id].meat,
+    redirect: false,
+  };
   render() {
     return (
       <div className="Home__Right">
@@ -38,7 +44,7 @@ class singleNote extends Component {
             {this.props.id}
           </div>
           <div className="CreateNote__Content">
-            {this.props.note[this.props.id].meat}
+            {this.state.meat}
           </div>
         </div>
       </div>
