@@ -1,43 +1,9 @@
 .App {
   width: 100%;
-}
-/*Sidebar*/
-.Menu {
-  height: 100vh;
-  width: 30%;
-  background: lightgrey;
-  float: left;
-  padding: 1%;
-  border:  1px solid gray;
-  box-sizing: border-box;
-  min-width: 20%;
-  
+  white-space: nowrap;
 }
 
-#title {
-  font-size: 50px;
-  color: rgb(51, 51, 51);
-  padding-left: 4%;
-}
-
-h1 {
-  color: rgb(51, 51, 51);
-}
-
-button {
-  background: teal;
-  color: white;
-  font-size: x-large;
-  margin: 5%;
-  padding: 5%;
-  width: 90%;
-  border:  1px solid gray;
-}
-
-button:hover {
-  background: blue;
-}
-
+/*Display*/
 .Notes {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +11,7 @@ button:hover {
   width: 70%;
   background: rgb(240, 239, 239);
   padding: 2%;
-  padding-top: 8%;
+  padding-top: 5%;
   border:  1px solid gray;
   box-sizing: border-box;
   
@@ -53,24 +19,35 @@ button:hover {
 /*CreateNote*/
 
 #form {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-content: left;
   float: left;
+  padding-left: 2%;
+}
+
+#save {
+  width: 40%;
+  margin: 0;
+  padding: 5.5%;
 }
 
 .form-control, .form-control1 {
-  margin: 3%;
-  padding: 4%;
-  width: 90%;
+  margin-bottom: 3%;
+  padding: 3%;
   border-radius: 0;
 
+}
+
+.form-control {
+  width: 65%;
 }
 
 .form-control1 {
   
   height: 300px;
+  width: 90%;
 }
 /*List*/
 .note-container-list {

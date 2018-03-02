@@ -28,7 +28,7 @@ render() {
                     name='text'
                     value={this.state.text}
                 />
-                <button type='submit'>Save</button>
+                <button id='save' type='submit'>Save</button>
             </form>
         </div>
           
