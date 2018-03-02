@@ -22,6 +22,7 @@ const SideBarStyled = styled.div`
 
 const ButtonStyled = styled.button`
   margin-bottom: 20px;
+  font-family: Roboto;
   height: 50px;
   width: 170px;
   background-color: rgb(94, 190, 195);
@@ -29,7 +30,12 @@ const ButtonStyled = styled.button`
   outline: none;
   font-size: 0.9rem;
   font-weight: bold;
+  border: none;
   cursor: pointer;
+
+  &:hover {
+    border: 2px solid #FFFFFF;
+  }
 `
 
 // Sidebar Component

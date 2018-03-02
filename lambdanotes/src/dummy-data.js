@@ -25,8 +25,8 @@ const dummyData = [
     id: 4,
   },
   {
-    title: 'Test Note 6',
-    content: 'Sed dictum iaculis volutpat. Mauris ut luctus augue. Aliquam lobortis elit vel risus bibendum, vel efficitur enim porttitor.',
+    title: 'Markdown Styling test',
+    content: '_Emphasized Item_\n\n**Strongly emphasized style**\n\n~~Strike through styling~~',
     id: 5,
   },
   {

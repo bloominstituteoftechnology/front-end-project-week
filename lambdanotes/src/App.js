@@ -21,7 +21,7 @@ const AppStyled = styled.div`
   height: 100%;
 `;
 
-// App Component
+// App Component starts here
 class App extends Component {
   state = {
     viewingNotes: true,
@@ -58,7 +58,6 @@ class App extends Component {
     });
   }
 
-  // Display Note Details when note is clicked on in Note List
   showNoteDetails = (id) => {
     const noteToView = this.state.notes.find(note => note.id === id);
     this.setState({
@@ -71,7 +70,6 @@ class App extends Component {
     });
   }
 
-  // Display Note Edit Form when 'edit' is clicked in Note Details
   showNoteEditForm = () => {
     this.setState({
       viewingNotes: false,
@@ -94,15 +92,12 @@ class App extends Component {
     })
   }
 
-  // Create new note object with data from CreateNote;
-  // Add new note object to notes array and switch view back to notes list
   saveNewNote = (note) => {
     let prevNotes = this.state.notes;
     this.setState({ notes: [...prevNotes, note] })
     this.viewNotes();
   }
 
-  // Update note data and return to Notes List view
   updateNote = (updatedNote) => {
     let { title, content, id } = updatedNote;
     let updatedNotes = this.state.notes.map((note) => {
@@ -116,7 +111,6 @@ class App extends Component {
     this.showNoteDetails(id);
   }
 
-  // Get id of last note and return new incremented id 
   getNextId = () => {
     let lastNoteIndex = this.state.notes.length - 1;
     let lastNote = this.state.notes[lastNoteIndex];
@@ -124,7 +118,6 @@ class App extends Component {
     return nextId;
   }
 
-  // Delete Note from notes array and return to Notes List view
   deleteNote = () => {
     let updatedNotes = this.state.notes.filter(note => note.id !== this.state.noteDetails.id);
     this.setState({ notes: updatedNotes });
@@ -175,6 +168,6 @@ class App extends Component {
       </AppStyled>
     );
   }
-} // App Component
+} // App Component ends here
 
 export default App;

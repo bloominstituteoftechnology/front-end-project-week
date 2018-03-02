@@ -39,10 +39,15 @@ const DeleteModalContainerStyled = styled.div`
       font-size: 0.8rem;
       font-weight: bold;
       outline: none;
+      border: none;
+
+      &:hover {
+       border: 2px solid white;
+      }
     }
 
     .DeleteButton {
-      background-color: rgb(191, 40, 40)
+      background-color: rgb(191, 40, 40);
     }
 
     .NoButton {
