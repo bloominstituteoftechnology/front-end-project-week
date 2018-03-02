@@ -43,8 +43,18 @@ class App extends Component {
       <div className="container">
         <div className="leftRail">
           <h1 className="leftRailTitle">LambdaNotes</h1>
-          <button onClick={() => this.viewNotes()}>View Notes</button>
-          <button onClick={() => this.createView()}>+ Create note</button>
+          <button
+            className="waves-effect waves-light btn"
+            onClick={() => this.viewNotes()}
+          >
+            View Notes
+          </button>
+          <button
+            className="waves-effect waves-light btn"
+            onClick={() => this.createView()}
+          >
+            + Create note
+          </button>
         </div>
         {this.state.isShowing.todos ? (
           <div className="rightRail">

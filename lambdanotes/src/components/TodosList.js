@@ -20,18 +20,34 @@ const TodosList = props => {
         )
       ) {
         return (
-          <div className="todo" key={i} onClick={() => target(i)}>
-            <h1 className="doTitle">{todo.doTitle}</h1>
-            <p className="doDescription">{todo.doDescription}</p>
+          <div className="row">
+            <div className="col s12 m12">
+              <div className="card">
+                <div className="card-content">
+                  <div className="todo" key={i} onClick={() => target(i)}>
+                    <h1 className="doTitle">{todo.doTitle}</h1>
+                    <p className="doDescription">{todo.doDescription}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       }
       return null;
     }
     return (
-      <div className="todo" key={i} onClick={() => target(i)}>
-        <h1 className="doTitle">{todo.doTitle}</h1>
-        <p className="doDescription">{todo.doDescription}</p>
+      <div className="row">
+        <div className="col s12 m12">
+          <div className="card">
+            <div className="card-content">
+              <div className="todo" key={i} onClick={() => target(i)}>
+                <h1 className="doTitle">{todo.doTitle}</h1>
+                <p className="doDescription">{todo.doDescription}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   });
