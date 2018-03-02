@@ -37,5 +37,10 @@ class CreateNote extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    sorted: state.sorted,
+  };
+}
 
-export default connect(null, { addNote })(CreateNote);
+export default connect(mapStateToProps, { addNote })(CreateNote);

@@ -13,6 +13,13 @@ class SortingMenu extends React.Component {
     this.sortByDate(event.target.value);
   }
 
+  componentDidMount() {
+    if (this.props.sorted) {
+      this.sortByDate(this.props.sorted);
+    }
+  }
+
+
   sortByDate = (order) => {
     const notesToSort = this.props.notes;
     switch (order) {
@@ -65,7 +72,6 @@ class SortingMenu extends React.Component {
   }
 
   render() {
-
     return (
       <div className='sorting-menu-container'>
         <form>
@@ -77,6 +83,7 @@ class SortingMenu extends React.Component {
             <option value='title_z-a'>Sort by Title Z-A</option>
           </select>
         </form>
+        <div className='hide'>{this.props.created}</div>
       </div>
     );
   }
@@ -86,6 +93,7 @@ const mapStateToProps = (state) => {
   return {
     notes: state.notes,
     sorted: state.sorted,
+    created: state.created,
   };
 }
 

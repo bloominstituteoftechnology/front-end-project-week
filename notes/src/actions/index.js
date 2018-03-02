@@ -4,6 +4,7 @@ export const addNote = (info) => {
   return {
     type: 'ADD_NOTE',
     payload: { ...info, id: shortid.generate() },
+    created: shortid.generate(),
   }
 }
 
@@ -41,6 +42,7 @@ export const sortNotes = (sortedNotes, direction) => {
     type: 'SORT_NOTES',
     payload: sortedNotes,
     sorted: direction,
+    hash: shortid.generate(),
   }
 }
 

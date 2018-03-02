@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { viewNote, deleteNote, reorderNotes, searchNotes } from '../actions';
+import { viewNote, deleteNote, reorderNotes } from '../actions';
 import './ListView.css';
 import Shiitake from 'shiitake';
 import DeleteNoteModal from './DeleteNoteModal';
@@ -87,7 +87,8 @@ const mapStateToProps = (state) => {
   return {
     notes: state.notes,
     sorted: state.sorted,
+    hash: state.hash,
   };
 };
 
-export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes, searchNotes })(ListView);
+export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes })(ListView);
