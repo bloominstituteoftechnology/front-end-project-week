@@ -11,6 +11,7 @@ class Note extends Component {
   constructor(props) {
     super(props);
     this.processDelete = this.processDelete.bind(this);
+    this.redirectEdit = this.redirectEdit.bind(this);
   }
 
   toggleDeleteModal() {
@@ -37,7 +38,7 @@ class Note extends Component {
       this.setState(() => response.data.find(note => note.id === Number(this.props.match.params.id)));
     })
     .catch((error) => {
-      alert(error);
+      alert('Server error: Please try again later.');
       window.location.href = '/';
     });
   }

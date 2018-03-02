@@ -29,7 +29,7 @@ class App extends Component {
             <Route path="/notes/:id" component={Note} toggleDeleteModal={this.toggleDeleteModal}
               processDelete={this.processDelete} />
             <Route path="/create" component={Create} />
-            <Route path="/edit/:id" component={Edit} />
+            <Route path="/notes/edit/:id" component={Edit} />
           </div>
           <div className="opaque-shield" id="opaque-shield" />
         </div>

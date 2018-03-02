@@ -94,8 +94,8 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/notes', (req, res) => {
-  const notes = { id: getNewId(), ...req.body };
-  friends = [...notes, note];
+  const note = { id: getNewId(), ...req.body };
+  notes = [...notes, note];
   res.status(201).json(notes);
 });
 

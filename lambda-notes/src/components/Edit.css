@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:bold');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.edit {
+    position: absolute;
+    margin-left: 29px;
+    height: 100%;
+}
+
+.edit__heading {
+    position: relative;
+    left: 1px;
+    top: 51px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0;
+    word-spacing: 1px;
+    color: #4a494a;
+}
+
+.edit-note__title {
+    position: absolute;
+    left: 0;
+    top: 106px;
+    width: 394px;
+    height: 47px;
+    border: 1px solid #a5a5a5;
+    border-radius: 2px;
+    padding: 16px 15px;
+    font-family: "Raleway", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color: #4c4b4c;
+    text-shadow: 1px 0 #e0dfe0;
+}
+
+.edit-note__content {
+    position: absolute;
+    left: 0;
+    top: 168px;
+    width: 668px;
+    height: 382px;
+    border: 1px solid #a5a5a5;
+    border-radius: 2px;
+    padding: 24px 25px;
+    font-family: "Raleway", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    line-height: 24px;
+    color: #4c4b4c;
+    text-shadow: 1px 0 #e0dfe0;
+    white-space: pre-line;
+    overflow: auto;
+}
+
+.edit-note__update-button {
+    position: absolute;
+    left: 2px;
+    top: 567px;
+    width: 210px;
+    height: 47px;
+    border: 1px solid #94a3a4;
+    box-shadow: 1px 0 #c2c8c8;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: 0;
+    word-spacing: 1px;
+    line-height: 100%;
+    background: #2ac0c4;
+    text-align: center;
+    cursor: pointer;
+}
