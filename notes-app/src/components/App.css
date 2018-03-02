@@ -29,7 +29,7 @@ a {
   color: #434243;
 }
 
-.Home_Left_Text {
+.Home__Left__Text {
   font-family: "Roboto Bold";
   font-size: 40px;
 }
@@ -44,22 +44,28 @@ a {
   border-color: #b7b7b7;
 }
 
-.Right_Containers {
+.Right__Containers {
   margin-left: 35px;
   margin-right: 35px;
 }
 
+.Right__NoteHolders {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .button {
-    background-color: #3cbbbd;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-family: "Roboto Bold";
-    font-size: 18px;
-    font-weight: bold;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    cursor: pointer;
+  background-color: #3cbbbd;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Roboto Bold";
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
 }
 
 .Home__NoteButton {

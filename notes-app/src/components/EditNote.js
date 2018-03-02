@@ -4,7 +4,7 @@ import './CreateNote.css';
 import { NavLink } from 'react-router-dom';
 import { addNote } from '../actions'
 
-class CreateNote extends Component {
+class EditNote extends Component {
   state = {
     title: '',
     meat: '',
@@ -69,4 +69,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addNote })(CreateNote);
+export default connect(mapStateToProps, { addNote })(EditNote);

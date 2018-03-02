@@ -6,7 +6,15 @@ class singleNote extends Component {
   render() {
     return (
       <div className="Home__Right">
-        <div className="Right_Containers">
+        <div className="ViewNotes__Actions">
+          <div className="ViewNotes__Edit">
+            <u>edit</u>
+          </div>
+          <div className="ViewNotes__Delete">
+            <u>delete</u>
+          </div>
+        </div>
+        <div className="Right__Containers">
           <div className="CreateNote__Text">
             {this.props.id}
           </div>
