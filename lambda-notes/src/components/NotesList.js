@@ -7,7 +7,6 @@ import './css/NotesList.css';
 
 class NotesList extends React.Component {
   render() {
-    console.log(this.props.notes);
     return (
       <div className="notes-list">
         <h1 className="notes-header"> Your Notes: </h1>

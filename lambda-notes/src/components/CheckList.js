@@ -10,6 +10,10 @@ class CheckList extends React.Component {
     note: '',
   };
 
+  componentWillMount(event) {
+    event.preventDefault();
+  }
+
   render() {
     console.log(this.state);
     return (
@@ -30,24 +34,21 @@ class CheckList extends React.Component {
           ? this.props.note.checklist.map((note, index) => {
               return (
                 <div className="items" key={index}>
-                  <div>
-                      <input
-                        type="checkbox"
-                        onClick={() => {
-                          const key = `${this.props.note.title}click${index}`;
-                          const keys = Object.keys(this.state);
-                          let flag = false;
-                          keys.forEach(element => {
-                            if (element === key) flag = true;
-                          });
-                          if (flag === true)
-                            this.setState({ ...this.state, [key]: !this.state[key] });
-                          else this.setState({ ...this.state, [key]: false });
-                        }}
-                      />
-                    </div>
-
-                  <div>{note}</div>
+                    <input
+                      type="checkbox"
+                      onClick={() => {
+                        const key = `${this.props.note.title}click${index}`;
+                        const keys = Object.keys(this.state);
+                        let flag = false;
+                        keys.forEach(element => {
+                          if (element === key) flag = true;
+                        });
+                        if (flag === true)
+                          this.setState({ ...this.state, [key]: !this.state[key] });
+                        else this.setState({ ...this.state, [key]: false });
+                      }}
+                    />
+                    <div>{note}</div>
                 </div>
               );
             })
@@ -61,9 +62,9 @@ class CheckList extends React.Component {
   saveCheckList = () => {
     if (this.state.note === '') return;
     const updated = this.props.note;
-    updated.checklist.push(this.state.note);
+    updated.checklist.push([this.state.note, this.props.note.id]);
     this.props.update_check_list(updated);
-    this.setState({ note: '' });
+    this.setState({ note: '', [this.props.note.title + this.props.note.id]: false });
   };
 }
 const mapStateToProps = state => {
