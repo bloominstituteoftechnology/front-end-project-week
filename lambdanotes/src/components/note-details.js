@@ -53,8 +53,13 @@ const NoteDetailsStyled = styled.div`
     line-height: 25px;
   }
 
-  thead, td, th {
-    border: 1px solid black;
+  thead, td {
+    border: 1px dashed rgb(166, 166, 166);
+    padding: 10px;
+  }
+
+  th, table {
+    border: 1px solid rgb(166, 166, 166);
     padding: 10px;
   }
 `

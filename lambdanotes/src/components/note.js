@@ -29,13 +29,14 @@ const NoteStyled = styled.a`
   }
 
   ul {
-    padding-left: 20px;
+    list-style-position: inside;
     list-style-type: disc;
   }
 
   ol {
-    padding-left: 15px;
+    /* padding-left: 15px; */
     list-style-type: decimal;
+    list-style-position: inside;
   }
 
   li, tbody, thead {
@@ -44,13 +45,18 @@ const NoteStyled = styled.a`
   }
 
     thead, td, th {
-    border: 1px solid black;
+    font-size: 0.7rem;
+    border: 1px dashed rgb(166, 166, 166);
     padding: 5px;
+  }
+
+  th, table {
+    border: 1px solid rgb(166, 166, 166);
   }
 `;
 
 const getNoteContentPreview = (content) => {
-  if (content.length > 120) {
+  if (content.length > 130) {
     let contentPreview = content.slice(0, 120);
     return `${contentPreview}...`
   }
