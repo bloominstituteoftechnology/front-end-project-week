@@ -15,7 +15,7 @@ class singleNote extends Component {
             <div class="modal-actions-delete">
               Delete
             </div>
-            <div class="modal-actions-no">
+            <div class="modal-actions-no" onClick={this.closeModal}>
               No
             </div>
           </div>

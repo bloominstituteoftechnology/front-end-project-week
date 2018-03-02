@@ -103,24 +103,43 @@
   height: 50%;
   padding: 0px;
   top: 30px;
-  background-color: red;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
+  align-items: center;
 }
 
 .modal-actions-delete {
+  color: white;
+  border: 2px solid #b3bdbd;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
   background-color: #cf0621;
-  width: 50px;
-  height: 50px;
+  width: 270px;
+  height: 90px;
+  font-weight: bold;
 }
 
 .modal-actions-no {
+  color: white;
+  border: 2px solid #b3bdbd;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
   background-color: #2ebfc3;
-  width: 50px;
-  height: 50px;
+  width: 270px;
+  height: 90px;
+  font-weight: bold;
 }
-
+.modal-actions-delete:hover {
+    cursor: pointer;
+}
+.modal-actions-no:hover {
+    cursor: pointer;
+}
 /* The Close Button */
 .close {
     color: #aaa;
