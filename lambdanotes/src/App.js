@@ -5,40 +5,18 @@ import ViewNote from './Components/ViewNote';
 import UpdateNote from './Components/UpdateNote';
 import './App.css';
 import { BrowserRouter as Router, Route, NavLink,  Switch } from 'react-router-dom';
-
 class App extends Component {
   constructor() {
     super();
       this.state = {
-        notes: [
-            {
-                note: 'Note Title',
-                details: 'Get app up and working',
-                id: 0,
-            },
-              {
-                note: 'Note Title',
-                details: 'Get app up and working',
-                id: 1,
-            },
-            {
-                note: 'Note Title',
-                details: 'Get app up and working',
-                id: 2,
-        },
-           
-        ],
+        notes: [],
         note: '',
         details: '',
         id: '',
     }
 
-    this.viewNote = this.viewNote.bind(this);
-    this.noteForm = this.noteForm.bind(this);
-    this.notes = this.notes.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.submitNote = this.submitNote.bind(this);
   }
+  
 
   render() {
     return (
@@ -63,39 +41,38 @@ class App extends Component {
           </div>
         
           <div className="mainContent">
-          <Switch>
             <Route path='/' component={this.notes} exact/>
             <Route path='/createNote' component={this.noteForm} />
             <Route path='/:id' component={this.viewNote} />
             <Route path='/:id/update' component={this.updateNote} />
-            <Route component={this.notes} />
-        </Switch>
+      
           </div>
         </div>
       </Router>
     );
   }
 
- componentDidMount () {
-   
-}
 
   viewNote = (props) => {
     
     let id = props.match.params.id;
+    
+    console.log(props);
     let noteDelete = this.noteDelete;
-    if(id === 'createNote' || id === null) {
+    if(id === 'createNote') {
       return null;
-    }
+    } 
     let note = this.state.notes[id].note;
     let details = this.state.notes[id].details;
     noteDelete = (e) => {
      e.preventDefault();
+     let arrayItem = this.state.notes[id];
+     let newObj = this.state.notes.filter(item => item !== arrayItem);
      this.setState({
-       notes: this.state.notes.splice(id, 1),
+       notes: newObj,
        
      })
-     console.log(this.state);
+     return props.history.push('/', this.state)
     }
     return (
       <ViewNote note={note} details={details} id={id} noteDelete={noteDelete} updateNote={this.updateNote} />
@@ -108,7 +85,7 @@ class App extends Component {
   }
   notes = () => {
     return (
-      <NoteList notes={this.state.notes}  navNote={this.navToNote}/>
+      <NoteList notes={this.state.notes}  navNote={this.navToNote} idGenerator={this.idGenerator}/>
     )
   }
 
@@ -116,13 +93,13 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value});
 }
 
-  updateNote = (props) => {
+  /*updateNote = (props) => {
     console.log(props);
     let newProps = props;
     this.setState({
       props: newProps,
     })
-  }
+  }*/
   submitUpdate = (e) => {
     e.preventDefault();
     let updateObj = {
@@ -136,7 +113,6 @@ class App extends Component {
       let newObj = {
         note: this.state.note, 
         details: this.state.details,
-        id: this.state.notes.length,
       };
       this.setState({
         notes: [...this.state.notes, newObj],
@@ -144,10 +120,11 @@ class App extends Component {
       this.setState({
           note: '',
           details: '',
-          id: '',
       });
     }
   }
 }
+
+
 
 export default App;
