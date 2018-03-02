@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import CreateNote from './components/CreateNote';
+import CreateNote from './CreateNote';
 import NotesList from './NotesList';
 
 class App extends Component {
