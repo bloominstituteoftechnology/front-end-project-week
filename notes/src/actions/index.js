@@ -63,8 +63,8 @@ export const getNotes = () => {
                     note[1].key = respKeys[i];
                     return note[1];
                 });
-
-                console.log('this is the data pasing to components', responseData)
+                
+                responseData.reverse();
                 dispatch({type: GET_NOTES, payload: responseData});
                 dispatch({type: FETCHING, fetching: false});
             })
