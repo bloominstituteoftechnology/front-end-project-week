@@ -36,7 +36,6 @@ class App extends Component {
     }
   }
 
-  // Display Notes List when Sidebar button is clicked
   viewNotes = () => {
     this.setState({
       viewingNotes: true,
@@ -47,7 +46,6 @@ class App extends Component {
     });
   }
 
-  // Display Create New Note entry form when Sidebar button is clicked
   createNewNoteForm = () => {
     this.setState({
       viewingNotes: false,
@@ -126,13 +124,13 @@ class App extends Component {
 
   render() {
     return (
-      <AppStyled>
+      <AppStyled className="App">
         <Sidebar
           viewNotes={this.viewNotes}
           createNewNoteForm={this.createNewNoteForm}
         />
 
-        <div style={{ width: "100%", height: "100%" }}>
+        <div style={{ width: "100%", height: "100%" }} className="Content">
           {this.state.viewingNotes &&
             <NotesList
               notes={this.state.notes}

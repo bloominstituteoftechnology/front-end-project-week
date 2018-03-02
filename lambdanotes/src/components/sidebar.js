@@ -35,14 +35,14 @@ const ButtonStyled = styled.button`
   cursor: pointer;
 
   &:hover {
-    border: 2px solid #FFFFFF;
+    border: 2px solid rgb(243, 243, 243);
   }
 `
 
 // Sidebar Component
 const Sidebar = (props) => {
   return(
-    <SideBarStyled>
+    <SideBarStyled className="Sidebar">
       <h1>Lambda Notes</h1>
       <ButtonStyled onClick={props.viewNotes}>View Your Notes</ButtonStyled>
       <ButtonStyled onClick={props.createNewNoteForm}>+ Create New Note</ButtonStyled>

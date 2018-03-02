@@ -85,7 +85,7 @@ class EditNote extends Component {
 
   render() {
     return (
-      <EditNoteStyled>
+      <EditNoteStyled className="EditNoteForm">
         <h1>Edit Note:</h1>
         <input
           className="NoteTitleInput"

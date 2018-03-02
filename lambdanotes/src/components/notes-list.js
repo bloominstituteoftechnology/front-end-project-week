@@ -65,25 +65,14 @@ class NotesList extends Component {
 
   render() {
     return (
-      <NoteListStyled>
-        <header>
+      <NoteListStyled className="NotesList">
+        <header className="NotesList__header">
           <h2>Your Notes:</h2>
           <div className="searchContainer">
             Search: <input onChange={this.handleSearch} value={this.state.searchInput} />
           </div>
         </header>
-        {/* <div style={{ display: "flex", flexFlow: "row wrap" }} >
-          {this.props.notes.map((note) => {
-            return (
-              <Note
-                key={note.id}
-                note={note}
-                showNoteDetails={this.props.showNoteDetails}
-              />
-            )
-          })}
-        </div> */}
-        <div style={{ display: "flex", flexFlow: "row wrap" }} >
+        <div style={{ display: "flex", flexFlow: "row wrap"}} className="NotesList__body" >
           {this.state.notesFiltered.map((note) => {
             return (
               <Note

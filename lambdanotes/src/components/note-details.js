@@ -20,7 +20,7 @@ const NoteDetailsStyled = styled.div`
     width: 90%;
   }
 
-  h1 {
+  h2 {
     margin-bottom: 20px;
   }
 
@@ -81,12 +81,12 @@ class NoteDetails extends Component {
 
   render() {
     return (
-      <NoteDetailsStyled>
+      <NoteDetailsStyled className="NoteDetails">
         <header>
           <a onClick={this.props.showNoteEditForm}>Edit</a>
           <a onClick={this.props.showDeleteModal}>Delete</a>
         </header>
-        <h1>{this.state.title}</h1>
+        <h2>{this.state.title}</h2>
         <ReactMarkdown source={this.state.content} />
       </NoteDetailsStyled>
     )

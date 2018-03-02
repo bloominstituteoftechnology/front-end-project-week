@@ -60,7 +60,7 @@ const getNoteContentPreview = (content) => {
 class Note extends Component {
   render() {
     return (
-      <NoteStyled onClick={() => { this.props.showNoteDetails(this.props.note.id) }}>
+      <NoteStyled onClick={() => { this.props.showNoteDetails(this.props.note.id) }} className="NoteTile">
         <h4>{this.props.note.title}</h4>
         <hr style={{ width: "100%" }} />
         <ReactMarkdown source={getNoteContentPreview(this.props.note.content)} />
