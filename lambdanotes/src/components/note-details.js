@@ -26,9 +26,12 @@ const NoteDetailsStyled = styled.div`
 
   a {
     padding-left: 10px;
-    text-decoration: underline;
-    font-weight: bold;
     cursor: pointer;
+    font-weight: bold;
+    
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   p {
