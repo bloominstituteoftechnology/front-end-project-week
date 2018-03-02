@@ -5,7 +5,8 @@ import ReactMarkdown from 'react-markdown';
 const NoteStyled = styled.a`
   display: flex;
   flex-direction: column;
-  width: 150px;
+  width: 160px;
+  height: 180px;
   border: 1px solid rgb(166, 166, 166);
   padding: 10px;
   margin: 10px;

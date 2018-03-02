@@ -64,6 +64,12 @@ body {
   font-family: Roboto;
   font-weight: bold;
 }
+
+h2 {
+  font-size: 1.6rem;
+  font-family: Roboto;
+  font-weight: bold;
+}
  
 strong {
   font-weight: bold;

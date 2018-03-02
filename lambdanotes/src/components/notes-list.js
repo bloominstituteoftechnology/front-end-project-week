@@ -67,7 +67,7 @@ class NotesList extends Component {
     return (
       <NoteListStyled>
         <header>
-          <h1>Your Notes:</h1>
+          <h2>Your Notes:</h2>
           <div className="searchContainer">
             Search: <input onChange={this.handleSearch} value={this.state.searchInput} />
           </div>

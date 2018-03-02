@@ -16,7 +16,8 @@ const SideBarStyled = styled.div`
   flex-grow: 1;
 
   h1 {
-    margin-bottom: 20px;
+    margin-bottom: 31px;
+    padding-top: 10px;
   }
 `
 
