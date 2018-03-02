@@ -1,3 +1,15 @@
+# Lambda Notes Project
+
+**Trello Board:** https://trello.com/b/8PLbcAOF
+
+---
+
+## Known Issues
+
+- Blank titles and note bodies can be saved.
+- Text truncation is occasionally odd (cuts letters in half, for example).
+
+---
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 

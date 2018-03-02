@@ -1,0 +1,83 @@
+html, body {
+  margin: 2px;
+  padding: 0;
+  font-family: sans-serif;
+  background: #f3f3f3;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  padding: 0;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  color: white;
+  background-color: #2bc1c4;
+  border: 1px solid rgba(0,0,0,0.5);
+  margin: 6px;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+  background-color: #219799;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+:-webkit-any-link {
+  text-decoration: none;
+  color: black;
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 80%;
+}
+
+thead {
+  background-color: rgb(235, 235, 235);
+  border: 1px solid black;
+}
+
+tbody {
+  border: 1px solid black;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(179, 179, 179);
+}
+
+tbody tr:nth-child(even) {
+  background-color: lightgrey;
+}
+
+th, td {
+  text-align: left;
+}
+
+pre {
+  background: lightgrey;
+  border: solid grey 1px;
+}
+
+.MainApp {
+  display: flex;
+  justify-content: center;
+}
+
+.SectionTitle {
+  color: rgba(0,0,0,0.8);
+}

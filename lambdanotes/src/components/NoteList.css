@@ -1,0 +1,22 @@
+.YourNotes {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 20px;
+  padding: 0px;
+}
+
+.YourNotes-Empty {
+  color: grey;
+  font-weight: 100;
+  font-family: 'Raleway', sans-serif;
+}
+
+.YourNotes-NoteList {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.YourNotes-CSV {
+  align-self: flex-start;
+  color: gray;
+}
