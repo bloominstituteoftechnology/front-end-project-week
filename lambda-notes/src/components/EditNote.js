@@ -8,8 +8,8 @@ class EditNote extends Component {
         <div className="edit-note-header">
           <h2>Edit Note:</h2>
         </div>
-        <div className="edit-note-title">
-          <form>
+        <form onSubmit={this.handleSubmit}>
+          <div className="edit-note-title">
             <input
             className="edit-note-title-input"
             id="noteTitle"
@@ -17,10 +17,8 @@ class EditNote extends Component {
             label="Title"
             placeholder="Note Title"
             />
-          </form>
-        </div>
-        <div className="edit-note-content">
-          <form>
+          </div>
+          <div className="edit-note-content">
             <textarea
             className="edit-note-content-input"
             id="noteContent"
@@ -28,9 +26,9 @@ class EditNote extends Component {
             label="Content"
             placeholder="Note Content"
             />
-          </form>
-        </div>
-        <button><Link to='/list'>Update</Link></button><br/>
+          </div>
+          <button><Link to='/list'>Update</Link></button>
+        </form>
       </div>
     )
   }
