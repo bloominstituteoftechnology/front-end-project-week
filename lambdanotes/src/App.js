@@ -59,7 +59,7 @@ class App extends Component {
 
   DeleteModal = () => {
     return (
-      <div className='Delete-Modal'>
+      <div className='Delete'>
         <button type='submit'>Confirm?</button>
         <button type='submit'>JK!</button>
       </div>     

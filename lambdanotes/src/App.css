@@ -2,11 +2,13 @@
   display: flex;
 }
 
-.DeleteModal {
-  z-index: 999;
+.Delete {
   width: 400px;
   height: 400px;
-  color: red;
+  background: red;
+  z-index: 999;
+  position: absolute;
+
 }
 
 .Left-bar {
