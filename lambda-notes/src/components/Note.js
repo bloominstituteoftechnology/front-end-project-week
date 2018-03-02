@@ -30,7 +30,7 @@ class Note extends Component {
   }
 
   redirectEdit() {
-    window.location.href = `edit/${this.props.match.params.id}`;
+    window.location.href = `/edit/${this.props.match.params.id}`;
   }
   
   componentDidMount() {
