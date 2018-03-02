@@ -1,27 +1,77 @@
-.App {
-  text-align: center;
+.mainContainer {
+  display: flex;
+  width: 1365px;
+  background: #f3f3f3;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-.SideBar {
+.mainContainer .navBar {
+  display: flex;
+  flex-flow: column;
   align-content: flex-start;
+  width: 340px;
+  background: #d8d8d8;
+  font-family: Roboto;
+  color: #4a4a4a;
+  font-size: 27px;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+.mainContainer .navBar ul {
+  list-style-type: none;
+}
+.mainContainer .navBar .navButton {
+  background: #2bc0c4;
+  width: 310px;
+  height: 60px;
+  float: left;
+}
+.mainContainer .navBar .navButton a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+}
+.mainContainer .navBar .navButton a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton2 {
+  background: #2bc0c4;
+  margin-top: 20px;
+  width: 310px;
+  height: 60px;
+}
+.mainContainer .navBar .navButton2 a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+}
+.mainContainer .navBar .navButton2 a:link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton2 a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .navBar .navButton2 a:visited {
+  color: #ffffff;
+  text-decoration: none;
+}
+.mainContainer .mainContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #f3f3f3;
 }

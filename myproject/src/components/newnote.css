@@ -1,0 +1,28 @@
+.mainContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #f3f3f3;
+}
+.mainContent .createNoteStyles {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.mainContent .createNoteStyles .formBox1 {
+  width: 400px;
+  height: 50px;
+}
+.mainContent .createNoteStyles .formBox2 {
+  width: 800px;
+  height: 600px;
+}
+.mainContent .createNoteStyles .saveNote {
+  background-color: #2bc0c4;
+  width: 400px;
+  height: 85px;
+  font-family: Roboto;
+  font-weight: Bold;
+  font-size: 23px;
+  color: #ffffff;
+}
