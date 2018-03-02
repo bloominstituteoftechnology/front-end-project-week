@@ -1,0 +1,18 @@
+searchBox__container {
+  display:flex;
+  flex-direction: row;
+}
+
+.searchBox__input {
+  font-size: 32px;
+  padding-left: 20px;
+}
+
+.searchBox__button {
+  height: 90px;
+  font-size: 32px;
+}
+
+.searchBox__button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "lambda_notes",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-csv-creator": "^1.0.8",
+    "react-dom": "^16.2.0",
+    "react-markdown": "^3.2.2",
+    "react-scripts": "1.1.1",
+    "react-sortable-hoc": "^0.6.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

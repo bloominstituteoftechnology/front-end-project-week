@@ -1,0 +1,19 @@
+.App {
+  box-sizing: border-box;
+  display: flex;
+}
+
+.App__leftbox {
+  width: 25%;
+  max-width: 475px;
+  height: auto;
+  min-height: 100vh;
+  background: #D7D7D7;
+  border-right: 1px solid #BEBEBE;
+}
+
+.App__rightbox {
+  width: 75%;
+  background: #F3F3F3;
+  
+}

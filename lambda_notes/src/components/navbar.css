@@ -1,0 +1,29 @@
+.navbar__container {
+  display: flex;
+  flex-direction: column;
+  padding: 9% 7%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 70px;
+  font-weight: bold;
+  line-height: 90%;
+  margin-bottom: 60px;
+}
+
+.navBar__button {
+  width: 100%;
+  height: 90px;
+  margin-bottom: 40px;
+  background: #2AC0C4;
+  border: 2px solid #BEBEBE;
+  font-size: 32px;
+  color: white;    
+}
+
+.navBar__button:hover {
+  cursor: pointer;
+}
