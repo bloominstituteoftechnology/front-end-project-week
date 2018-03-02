@@ -11,8 +11,6 @@ import NoteDetails from './components/note-details';
 import EditNote from './components/edit-note';
 import DeleteModal from './components/delete-modal';
 
-import dummyData from './dummy-data';
-
 import './App.css';
 
 // Styles for App Component

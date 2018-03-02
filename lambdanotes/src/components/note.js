@@ -6,7 +6,7 @@ const NoteStyled = styled.a`
   display: flex;
   flex-direction: column;
   width: 160px;
-  height: 180px;
+  height: 200px;
   border: 1px solid rgb(166, 166, 166);
   padding: 10px;
   margin: 10px;
@@ -34,7 +34,6 @@ const NoteStyled = styled.a`
   }
 
   ol {
-    /* padding-left: 15px; */
     list-style-type: decimal;
     list-style-position: inside;
   }
@@ -45,13 +44,38 @@ const NoteStyled = styled.a`
   }
 
     thead, td, th {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     border: 1px dashed rgb(166, 166, 166);
-    padding: 5px;
+    padding: 3px;
   }
 
   th, table {
     border: 1px solid rgb(166, 166, 166);
+  }
+
+    code {
+    border: 1px solid rgb(225, 225, 225);
+    color: rgb(215, 43, 63);
+    border-radius: 2px;
+    padding: 1px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    background-color: rgba(166, 166, 166, 0.2);
+    line-height: 5px;
+  }
+
+  pre {
+    border: 1px solid rgb(225, 225, 225);
+    background-color: rgba(166, 166, 166, 0.1);
+    padding: 5px;
+    width: auto;
+    margin: 10px 0;
+
+    code {
+      border: none;
+      background-color: rgba(166, 166, 166, 0);
+      border-radius: 4px;
+    }
   }
 `;
 

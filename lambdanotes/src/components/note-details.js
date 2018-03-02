@@ -62,7 +62,31 @@ const NoteDetailsStyled = styled.div`
     border: 1px solid rgb(166, 166, 166);
     padding: 10px;
   }
-`
+
+  code {
+    border: 1px solid rgb(225, 225, 225);
+    color: rgb(215, 43, 63);
+    border-radius: 2px;
+    padding: 3px;
+    font-family: monospace;
+    background-color: rgba(166, 166, 166, 0.2);
+    line-height: 15px;
+  }
+
+  pre {
+    border: 1px solid rgb(225, 225, 225);
+    background-color: rgba(166, 166, 166, 0.1);
+    padding: 5px;
+    width: 80%;
+    margin: 10px 0;
+
+    code {
+      border: none;
+      background-color: rgba(166, 166, 166, 0);
+      border-radius: 4px;
+    }
+  }
+`;
 
 // Note Details Component
 class NoteDetails extends Component {
