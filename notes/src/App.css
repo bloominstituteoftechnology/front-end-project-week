@@ -1,45 +1,64 @@
-.App{
- display: flex;
- max-width: 1600px;
- margin-left: 50px;
- margin-right: 50px;
- position: absolute;
-
+.App {
+  width: 100%;
+  white-space: nowrap;
 }
 
-body{
-  background-color:#D0D0D0;
-}
-
-.left-container {
-  width: 30%;
-   height: 400px;
-    background: DFDFDF; 
-    border-right: 1px solid black;
-   }
-.left-container button {
-
-    font-weight: bolder;
-    font-size: 12px;
-    width: 150px;
-    padding: 5px;
-    margin: 7px 7px;
-    background-color: #08cccc;
-    color:white;
+/*Display*/
+.Notes {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 70%;
+  background: rgb(240, 239, 239);
+  padding: 2%;
+  padding-top: 5%;
+  border:  1px solid gray;
+  box-sizing: border-box;
   
 }
-.right-container{
-  width:100%;
-  flex:right;
-  background:DFDFDF;;
+/*CreateNote*/
+
+#form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  float: left;
+  padding-left: 2%;
 }
- .AllNotes_rail{
-   display: flex;
-  flex-wrap: wrap; 
-  width: 60%;
-  height: 350px;
-  border: 1px solid black;
-  margin-bottom: 10px;
-  padding: 5px;
-  background: #DFDFDF;
-} 
+
+#submit {
+  width: 40%;
+  margin: 0;
+  padding: 5.5%;
+}
+
+.form-control, .form-control1 {
+  margin-bottom: 3%;
+  padding: 3%;
+  border-radius: 0;
+
+}
+
+.form-control {
+  width: 65%;
+}
+
+.form-control1 {
+  
+  height: 300px;
+  width: 90%;
+}
+/*List*/
+.note-container-list {
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+  background: white;
+  margin: 1%;
+  padding: 1%;
+  border: solid black 1px;
+  float: left;
+  flex-wrap: wrap;
+  min-height: 100%;
+}

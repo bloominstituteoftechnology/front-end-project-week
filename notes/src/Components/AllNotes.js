@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './allNotes.css';
-const AllNotes = (props) => {
-  return (
-    <div className="AllNotes_rail">
-      <ul>
-        {props.notes.map((note) => {
-          return (
+class AllNotes extends Component {
+  render() {
+  return(
+    <div className="Notes" >
+      
+        <h1> Your Notes </h1>
+        <div>
+        <ul>
+          {this.props.notes.map(notes => {
+            return (
 
-            <li key={props.notes.indexOf(note)}>{note.note}
-              <p>{note.data}</p>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
+              <li className="note-container" key={notes.id}>
+                <h3>  {notes.name} </h3>
+                <hr /> <p>{notes.data}</p>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+      </div>
   )
 }
+}
+/* render() {
+  return (
+      <div className="Notes">
+        <h1>Your Notes:</h1>
+          <div>
+              <ul>
+                  {this.props.notes.map(notes => {
+                      return (
+                          <li className="note-container-list" key={notes.id}>
+                              <h4>{notes.title}</h4> <hr/> <p>{notes.text}</p>
+                          </li>
+                      )
+                  })}
+              </ul>
+          </div>
+      </div>
+     */
 export default AllNotes;
