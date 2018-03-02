@@ -7,6 +7,15 @@ class NoteCreate extends Component {
         content: '',
         id: null,
     }
+
+    handleChange(event) {
+        event.preventDefault();
+        this.setState({
+            title: event.target.value,
+            content: event.target.value
+        });
+    }
+
     render() {
         return (
             <div>
