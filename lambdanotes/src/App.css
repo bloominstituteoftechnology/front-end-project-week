@@ -7,12 +7,13 @@
   color: #4a494a;
   font-weight: bold;
   font-family: Roboto;
+  text-decoration: none;
 }
 
 .yournotes-header {
   font-size: 1.7rem;
   position: absolute;
-  top: 90px;
+  top: 87px;
   left: 290px;
   color: #4a494a;
   font-weight: bold;
@@ -23,7 +24,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 148px 40px 0px 240px;
+  margin: 158px 40px 0px 240px;
 }
 
 .sidebar {
@@ -32,7 +33,7 @@
   left: 0;
   background-color: #d7d7d7;
   height: 100%;
-  width: 237px;
+  width: 227px;
   padding: 0px 0px 0px 15px;
   color: #4a494a;
   position: fixed;
@@ -49,6 +50,12 @@
   font-weight: bold;
   color: white;
   font-family: Roboto;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
 }
 
 .list-notes {
