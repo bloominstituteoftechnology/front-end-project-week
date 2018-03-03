@@ -7,9 +7,13 @@ function ViewSingleNote(props) {
     
         return (
             <div className='view-singlenote'>
-                <div> {props.location.singlenote.title}</div>
-                <div> {props.location.singlenote.paragraph}</div>
-                <div> SingleNote!</div>
+                <div className="nav"> 
+                <Link className='edit' to={`/EditView`}> edit </Link>
+                <Link className='delete' to={`/Deletemodal`}> delete </Link>
+                </div>
+                <div className="singlenote-title"> {props.location.singlenote.title}</div>
+                <div className="singlenote-content"> {props.location.singlenote.paragraph}</div>
+                
             </div>
             )
   }          

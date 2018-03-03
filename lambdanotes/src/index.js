@@ -6,6 +6,7 @@ import Createnote from './NoteComponent/Createnote';
 import NoteView from './NoteComponent/NoteView';
 import Sidebar from './NoteComponent/Sidebar';
 import EditView from './NoteComponent/EditView';
+import Deletemodal from './NoteComponent/Deletemodal';
 import ViewSingleNote from './NoteComponent/ViewSingleNote';
 
 ReactDOM.render(
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path='/Createnote' component={Createnote}/>
         <Route path='/EditView' component={EditView} exact />
         <Route path='/ViewSingleNote' component={ViewSingleNote}/>
+        <Route path='/Deletemodal' component={Deletemodal} exact />
     </div>
     </Router>,
      document.getElementById('root'));
