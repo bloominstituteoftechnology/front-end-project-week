@@ -26,6 +26,7 @@ const NoteStyled = styled.a`
     font-size: 0.8rem;
     line-height: 25px;
     margin: 0 3px;;
+    white-space: pre-line;
   }
 
   ul {
@@ -53,23 +54,23 @@ const NoteStyled = styled.a`
     border: 1px solid rgb(166, 166, 166);
   }
 
-    code {
+  code {
     border: 1px solid rgb(225, 225, 225);
     color: rgb(215, 43, 63);
     border-radius: 2px;
     padding: 1px;
     font-family: monospace;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     background-color: rgba(166, 166, 166, 0.2);
-    line-height: 5px;
+    line-height: 2px;
   }
 
   pre {
     border: 1px solid rgb(225, 225, 225);
     background-color: rgba(166, 166, 166, 0.1);
-    padding: 5px;
+    padding: 3px;
     width: auto;
-    margin: 10px 0;
+    margin: 5px 0;
 
     code {
       border: none;

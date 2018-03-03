@@ -28,6 +28,9 @@ const NoteListStyled = styled.div`
         /* outline: none; */
         border-style: solid;
         border: 0.5px solid grey;
+        height: 30px;
+        padding: 5px;
+        font-size: 1rem;
         /* border-radius: 3px; */
 
 
@@ -83,7 +86,7 @@ class NotesList extends Component {
         <header className="NotesList__header">
           <h2>Your Notes:</h2>
           <div className="searchContainer">
-            Search: <input onChange={this.handleSearch} value={this.state.searchInput} />
+            <input onChange={this.handleSearch} value={this.state.searchInput} placeholder="Search Titles..."/>
           </div>
         </header>
         <div style={{ display: "flex", flexFlow: "row wrap" }} className="NotesList__body" >

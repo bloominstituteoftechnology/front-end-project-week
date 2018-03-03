@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 // Styles
 const NoteDetailsStyled = styled.div`
-  padding: 20px;
+  padding: 20px 20px 20px 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -15,13 +15,17 @@ const NoteDetailsStyled = styled.div`
 
   header {
     display: flex;
-    justify-content: flex-end;
-    margin: 10px 100px 10px 0;
-    width: 90%;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 10px 30px 20px 0;
+    width: 100%;
   }
 
-  h2 {
-    margin-bottom: 20px;
+  .NoteDetails_Content {
+    border: 1px dashed rgb(151, 151, 151);
+    background-color: rgb(240, 240, 240);
+    padding: 15px 0 15px 15px;
+    min-height: 50%;
   }
 
   a {
@@ -64,6 +68,7 @@ const NoteDetailsStyled = styled.div`
   th, table {
     border: 1px solid rgb(166, 166, 166);
     padding: 10px;
+    background-color: rgb(243, 243, 243);
   }
 
   code {
@@ -115,11 +120,13 @@ class NoteDetails extends Component {
     return (
       <NoteDetailsStyled className="NoteDetails">
         <header>
-          <a onClick={this.props.showNoteEditForm}>Edit</a>
-          <a onClick={this.props.showDeleteModal}>Delete</a>
+          <h2>{this.state.title}</h2>
+          <div>
+            <a onClick={this.props.showNoteEditForm}>Edit</a>
+            <a onClick={this.props.showDeleteModal}>Delete</a>
+          </div>
         </header>
-        <h2>{this.state.title}</h2>
-        <ReactMarkdown source={this.state.content} />
+        <ReactMarkdown source={this.state.content} className="NoteDetails_Content"/>
       </NoteDetailsStyled>
     )
   }

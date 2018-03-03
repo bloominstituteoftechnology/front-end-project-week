@@ -17,7 +17,12 @@ import './App.css';
 const AppStyled = styled.div`
   display: flex;
   flex-flow: row no-wrap;
-  height: 100%;
+  height: auto;
+
+  .Content {
+    height: 80%;
+    width: 100%;
+  }
 `;
 
 // App Component starts here
@@ -113,9 +118,9 @@ class App extends Component {
   }
 
   updateNote = (updatedNote) => {
+    this.setState({ noteDetails: updatedNote });
     let notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
     notesRef.update(updatedNote);
-    this.setState({ noteDetails: updatedNote });
     this.viewNotes();
   }
 
@@ -147,7 +152,7 @@ class App extends Component {
           createNewNoteForm={this.createNewNoteForm}
         />
 
-        <div style={{ width: "100%", height: "100%" }} className="Content">
+        <div className="Content">
           {(this.state.viewingNotes && this.state.notes.length > 0) &&
             <NotesList
               notes={this.state.notes}
