@@ -40,7 +40,6 @@ class App extends Component {
     notesRef.on('value', (snapshot) => {
       let notes = snapshot.val();
       let newState = [];
-      console.log(notes);
       for (let note in notes) {
         newState.push({
           // id: notes[note].id,
@@ -51,7 +50,6 @@ class App extends Component {
       }
       this.setState({ notes: newState });
     });
-    console.log(this.state);
   }
 
   viewNotes = () => {
@@ -77,12 +75,12 @@ class App extends Component {
   showNoteDetails = (id) => {
     const noteToView = this.state.notes.find(note => note.id === id);
     this.setState({
+      noteDetails: { ...noteToView },
       viewingNotes: false,
       creatingNote: false,
       showingNoteDetails: true,
       editingNote: false,
       deletingNote: false,
-      noteDetails: { ...noteToView },
     });
   }
 
@@ -115,11 +113,10 @@ class App extends Component {
   }
 
   updateNote = (updatedNote) => {
-    const notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
+    let notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
     notesRef.update(updatedNote);
-    let { title, content, id } = updatedNote;
     this.setState({ noteDetails: updatedNote });
-    this.showNoteDetails(updatedNote.id);
+    this.viewNotes();
   }
 
   getNextId = () => {
@@ -176,6 +173,7 @@ class App extends Component {
               noteDetails={this.state.noteDetails}
               updateNote={this.updateNote}
               showNoteEditForm={this.showNoteEditForm}
+              showNoteDetails={this.showNoteDetails}
             />}
         </div>
         {this.state.deletingNote &&
