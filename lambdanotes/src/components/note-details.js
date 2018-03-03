@@ -110,6 +110,7 @@ class NoteDetails extends Component {
       content: this.props.noteDetails.content,
       id: this.props.noteDetails.id,
     })
+    window.scrollTo(0, 0)
   }
 
   handleDelete = () => {

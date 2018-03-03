@@ -27,10 +27,11 @@ const NoteListStyled = styled.div`
       input {
         /* outline: none; */
         border-style: solid;
-        border: 0.5px solid grey;
+        border: 1px solid grey;
         height: 30px;
         padding: 5px;
         font-size: 1rem;
+        width: 172px;
         /* border-radius: 3px; */
 
 

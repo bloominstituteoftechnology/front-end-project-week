@@ -60,7 +60,7 @@ const NoteStyled = styled.a`
     border-radius: 2px;
     padding: 1px;
     font-family: monospace;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     background-color: rgba(166, 166, 166, 0.2);
     line-height: 2px;
   }
@@ -76,6 +76,7 @@ const NoteStyled = styled.a`
       border: none;
       background-color: rgba(166, 166, 166, 0);
       border-radius: 4px;
+      text-overflow: ellipsis;
     }
   }
 `;

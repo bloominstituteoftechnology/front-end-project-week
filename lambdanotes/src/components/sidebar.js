@@ -18,6 +18,14 @@ const SideBarStyled = styled.div`
   h1 {
     margin-bottom: 31px;
     padding-top: 10px;
+    width: 150px;
+  }
+
+  .SidebarContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -25,7 +33,7 @@ const ButtonStyled = styled.button`
   margin-bottom: 20px;
   font-family: Roboto;
   height: 50px;
-  width: 170px;
+  width: 150px;
   background-color: rgb(94, 190, 195);
   color: #FFFFFF;
   outline: none;
@@ -33,6 +41,7 @@ const ButtonStyled = styled.button`
   font-weight: bold;
   border: none;
   cursor: pointer;
+  /* position: absolute; */
 
   &:hover {
     border: 2px solid rgb(243, 243, 243);
@@ -41,11 +50,13 @@ const ButtonStyled = styled.button`
 
 // Sidebar Component
 const Sidebar = (props) => {
-  return(
+  return (
     <SideBarStyled className="Sidebar">
-      <h1>Lambda Notes</h1>
-      <ButtonStyled onClick={props.viewNotes}>View Your Notes</ButtonStyled>
-      <ButtonStyled onClick={props.createNewNoteForm}>+ Create New Note</ButtonStyled>
+      <div className="SidebarContainer">
+        <h1>Lambda Notes</h1>
+        <ButtonStyled onClick={props.viewNotes}>View Your Notes</ButtonStyled>
+        <ButtonStyled onClick={props.createNewNoteForm}>+ Create New Note</ButtonStyled>
+      </div>
     </SideBarStyled>
   )
 }
