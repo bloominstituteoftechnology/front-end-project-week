@@ -1,0 +1,33 @@
+.App {
+  display: flex;
+  height: 100%;
+}
+
+.Delete {
+  width: 300px;
+  height: 200px;
+  background: red;
+  z-index: 999;
+  position: absolute;
+}
+
+.Left-bar {
+  width: 10%;
+  background: orange;
+}
+
+.Note {
+  width: 100px;
+  height: 100px;
+  list-style: none;
+  box-sizing: border-box;
+  border: solid black 1px;
+  background: yellow;
+  margin: 5px;
+}
+
+
+.Note-container {
+  width: 90%;
+  background: green;
+}
