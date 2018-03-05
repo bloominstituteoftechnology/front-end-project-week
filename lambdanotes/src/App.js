@@ -84,9 +84,10 @@ class App extends React.Component {
     for (let i = 0; i < tempArr.length; i++) {
      tempArr2.push(temp[tempArr[i]]);
     }
-    fire.database().ref('notes2').set(tempArr2);
+
+    fire.database().ref('notes2').set(tempArr2.reverse());
     this.setState({
-      notes: tempArr2,
+      notes: tempArr2.reverse(),
     })
   }
 
