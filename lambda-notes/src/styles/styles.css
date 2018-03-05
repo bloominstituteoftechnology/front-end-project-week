@@ -17,12 +17,30 @@ body {
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
-  background: #7386D5;
-  color: #fff;
+  background: #ccc;
+  color: #4d4d4d;
   transition: all 0.3s;
 }
 
-#sidebar sidebar-header {
+#sidebar #sidebar-header {
   padding: 20px;
-  background: #6d7fcc;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar ul li {
+  padding: 10px 20px 10px 20px;
+}
+
+#sidebar .btn {
+  border-radius: 0px;
+}
+
+#content {
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
 }
