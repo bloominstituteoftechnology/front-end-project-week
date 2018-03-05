@@ -11,10 +11,10 @@ class NotesList extends React.Component {
           </div>
           <ul>
             <li>
-              <a className="btn btn-info btn-block" href="/">View Notes</a>
+              <Link to="/" className="btn btn-info btn-block">View Notes</Link>
             </li>
             <li>
-              <a className="btn btn-info btn-block" href="/create">+ Create New Note</a>
+              <Link to="/create" className="btn btn-info btn-block">+ Create New Note</Link>
             </li>
           </ul>
         </nav>
