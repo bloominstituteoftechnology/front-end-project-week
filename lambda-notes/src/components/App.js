@@ -42,3 +42,8 @@ class App extends Component {
 }
 
 export default App;
+
+// Questions
+// 1. What order do things fire on a render? Does it go through the the entire file before implementing anything? (I have a specific example that I'd love to ask someone about)
+// 2. When does setState execute? I had a console.log right after the setState within a handler, and it didn't seem to change right there within my handler?
+// 3. With actions, I had some trouble with types (id that comes in as a Number and another time as a String). Just a general question about types as you pass through actions/reducers.
