@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+
 import './index.css';
 import App from './components/App';
 
@@ -22,9 +24,3 @@ document.getElementById('root'));
 //index contains sidebar and app
 //app contains router with different paths for the views
 
-/*state tree shape?
-{ id: 0,
-  notes: [ 
-  { id, title, text } 
-]}
-*/
