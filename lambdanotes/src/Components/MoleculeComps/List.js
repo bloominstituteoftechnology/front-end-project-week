@@ -4,15 +4,9 @@ import { Card } from '../AtomComps/Card';
 export const List = props => {
   return (
     <div className="List">
-      {props.cards.map((card, index) => {
+      {props.notes.map((note, index) => {
         return (
-          <div>
-            <Card
-              key={card + index}
-              title={card.title}
-              content={card.content}
-            />
-          </div>
+          <Card key={note + index} title={note.title} content={note.content} />
         );
       })}
     </div>

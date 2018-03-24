@@ -2,12 +2,18 @@
   display: flex;
   flex-direction: column;
 }
-.Panels {
+.PanelsSection {
   display: flex;
   height: 2000px;
 }
-.AddNote {
-  width: 100%;
+.AddNoteSection {
+  display: flex;
+  height: 2000px;
+}
+.AddNoteComp {
+  width: 80%;
+  background: lightgray;
+  padding: 5% 30px 0px 30px;
 }
 
 .LeftPanel {
@@ -72,4 +78,8 @@
 .List {
   display: flex;
   flex-wrap: wrap;
+}
+
+textarea {
+  resize: none;
 }
