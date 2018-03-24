@@ -6,12 +6,12 @@ class NoteView extends Component {
         return (
             <div className='Note-Container'>
                 <h3 className='Note-Title'>
-                    {/* {this.props.note.title} */}
-                    THE TITLE
+                    {this.props.note.title}
+                    {/* THE TITLE */}
                 </h3>
                 <p className='Note-Text'>
-                    {/* {this.props.note.text} */}
-                    PARAGRAPH
+                    {this.props.note.text}
+                    {/* PARAGRAPH */}
                 </p>
             </div>
         );

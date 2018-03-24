@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 // import logo from './logo.svg';
 import './App.css'
 
-import NoteList from './component/NoteList'
-import NoteView from './component/NoteView'
-import NoteCreate from './component/NoteCreate'
-import NoteEdit from './component/NoteEdit'
+import NoteList from './components/NoteList'
+import NoteView from './components/NoteView'
+import NoteCreate from './components/NoteCreate'
+import NoteEdit from './components/NoteEdit'
 import {BrowserRouter as Router,  Route, Switch } from 'react-router-dom'
 
 
@@ -17,10 +17,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={NoteList} />
             <Route path="/noteview" component={NoteView} />
-            <Route path="notecreate/" component={NoteCreate} />
+            <Route path="/notecreate" component={NoteCreate} />
             <Route path="/noteedit" component={NoteEdit} />
           </Switch>
-          {/* <Route path="/SideBar" component={SideBar}/> */}
           {/* <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
