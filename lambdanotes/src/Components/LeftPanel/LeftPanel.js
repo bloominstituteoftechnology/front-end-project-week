@@ -8,9 +8,17 @@ let scroll = Scroll.animateScroll;
 export default class LeftPanel extends Component {
   scrollToAddNotes = () => {
     scroll.scrollTo(2000);
+    if (this.props.getNoteInfo) {
+      this.props.getNoteInfo({ title: '', content: '' });
+    }
   };
   scrollToTop = () => {
     scroll.scrollTo(0);
+    if (this.props.getNoteInfo) {
+      setTimeout(() => {
+        this.props.getNoteInfo({ title: '', content: '' });
+      }, 500);
+    }
   };
 
   render() {

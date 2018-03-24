@@ -6,7 +6,12 @@ export const List = props => {
     <div className="List">
       {props.notes.map((note, index) => {
         return (
-          <Card key={note + index} title={note.title} content={note.content} />
+          <Card
+            key={note + index}
+            getNoteInfo={props.getNoteInfo}
+            title={note.title}
+            content={note.content}
+          />
         );
       })}
     </div>

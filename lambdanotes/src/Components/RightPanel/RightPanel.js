@@ -8,7 +8,7 @@ export default class RightPanel extends Component {
     return (
       <div>
         <Label fontSize="20px" name="Your Notes:" />
-        <List notes={this.props.notes} />
+        <List getNoteInfo={this.props.getNoteInfo} notes={this.props.notes} />
       </div>
     );
   }

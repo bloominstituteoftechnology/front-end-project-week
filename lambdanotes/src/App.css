@@ -83,3 +83,11 @@
 textarea {
   resize: none;
 }
+
+.CardLarge {
+  background: white;
+  height: 700px;
+  width: 700px;
+  margin: 30px 30px 30px 0px;
+  box-shadow: 1px 1px 1px #888888;
+}
