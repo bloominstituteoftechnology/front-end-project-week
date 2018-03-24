@@ -1,28 +1,75 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.Panels {
+  display: flex;
+  height: 2000px;
+}
+.AddNote {
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.LeftPanel {
+  width: 20%;
+  background: darkgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.LeftPanelContents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.RightPanel {
+  width: 80%;
+  background: lightgray;
+  padding: 5% 30px 0px 30px;
+}
+
+.Button {
+  display: flex;
+  background: rgb(79, 183, 187);
+  box-shadow: 2px 2px 1px #888888;
+  font-weight: bold;
   color: white;
+  width: 200px;
+  height: 50px;
+  margin: 20px 0px 20px 0px;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-title {
-  font-size: 1.5em;
+.Button:hover {
+  background: rgb(89, 131, 221);
+  cursor: pointer;
 }
 
-.App-intro {
-  font-size: large;
+.Card {
+  background: white;
+  height: 250px;
+  width: 250px;
+  margin: 30px 30px 30px 0px;
+  box-shadow: 1px 1px 1px #888888;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Card_title {
+  border-bottom: solid lightgrey;
+  margin: 0px 20px;
+  padding: 10px 0px;
+}
+
+.Card_content {
+  margin: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: dimgrey;
+}
+
+.List {
+  display: flex;
+  flex-wrap: wrap;
 }
