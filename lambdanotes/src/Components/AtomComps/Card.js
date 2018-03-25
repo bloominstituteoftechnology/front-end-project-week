@@ -6,7 +6,11 @@ export const Card = props => {
     <div
       className="Card"
       onClick={() =>
-        props.getNoteInfo({ title: props.title, content: props.content })
+        props.getNoteInfo({
+          id: props.id,
+          title: props.title,
+          content: props.content
+        })
       }
     >
       <div className="Card_title">

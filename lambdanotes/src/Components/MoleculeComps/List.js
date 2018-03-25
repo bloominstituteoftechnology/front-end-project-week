@@ -9,6 +9,7 @@ export const List = props => {
           <Card
             key={note + index}
             getNoteInfo={props.getNoteInfo}
+            id={note.id}
             title={note.title}
             content={note.content}
           />

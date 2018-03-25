@@ -61,6 +61,9 @@
   width: 250px;
   margin: 30px 30px 30px 0px;
   box-shadow: 1px 1px 1px #888888;
+  overflow: hidden;
+  white-space: pre-line;
+  text-overflow: ellipsis;
 }
 
 .Card_title {
@@ -84,10 +87,39 @@ textarea {
   resize: none;
 }
 
-.CardLarge {
-  background: white;
-  height: 700px;
-  width: 700px;
-  margin: 30px 30px 30px 0px;
-  box-shadow: 1px 1px 1px #888888;
+p {
+  padding: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+p:hover {
+  color: grey;
+}
+
+.NormalNote {
+  transition: opacity 2s;
+  opacity: 1;
+}
+
+.HideNote {
+  display: none;
+}
+
+.EditNoteBtnGroup {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Note_title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.Note_content {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: dimgrey;
 }
