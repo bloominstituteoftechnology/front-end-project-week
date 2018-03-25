@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
+import './styles/css/index.css';
 import App from './components/App';
 import rootReducer from './reducers';
 
@@ -27,9 +27,6 @@ document.getElementById('root'));
 
 //finish setting up a static version of yourNotes view then work on otherviews
 //TODO:
-  //NoteCard Component
-  //mapStateToprops for YourNotes
-  //map the list of notes in YourNotes onto NoteCard Components
   //styling for: SideBar, ContentContainer, Your Notes, NoteCard
 
 //component structure
