@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
+import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './components/App';
 import rootReducer from './reducers';
@@ -24,6 +25,13 @@ ReactDOM.render(
 document.getElementById('root'));
 
 
+//finish setting up a static version of yourNotes view then work on otherviews
+//TODO:
+  //NoteCard Component
+  //mapStateToprops for YourNotes
+  //map the list of notes in YourNotes onto NoteCard Components
+  //styling for: SideBar, ContentContainer, Your Notes, NoteCard
+
 //component structure
   //Index
     //Login Eventually
@@ -36,5 +44,5 @@ document.getElementById('root'));
         //subCompnent for noteCard?
 
 //index contains sidebar and app
-//app contains router with different paths for the views
+//content contains router with different paths for the views
 

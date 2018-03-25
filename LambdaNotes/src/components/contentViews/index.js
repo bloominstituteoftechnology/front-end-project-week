@@ -1,1 +1,3 @@
-//import and export all sub components
+import YourNotes from './YourNotes';
+
+export default YourNotes;
