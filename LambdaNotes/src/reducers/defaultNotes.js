@@ -20,13 +20,13 @@ export default [
 {
   id: 4,
   title: 'Fight Club',
-  text: 'The first rule of Fight Club is: you do not talk about Fight Club.The second rule of Fight Club is: you DO NOT talk about Fight Club!Third rule of Fight Club: someone yells "stop!", goes limp, taps out, the fight is over.Fourth rule: only two guys to a fight.Fifth rule: one fight at a time, fellas.Sixth rule: No shirts, no shoes.Seventh rule: fights will go on as long as they have to.And the eighth and final rule: if this is your first time at Fight Club, you have to fight.'
+  text: 'The first rule of Fight Club is: you do not talk about Fight Club. The second rule of Fight Club is: you DO NOT talk about Fight Club! Third rule of Fight Club: someone yells "stop!", goes limp, taps out, the fight is over. Fourth rule: only two guys to a fight. Fifth rule: one fight at a time, fellas. Sixth rule: No shirts, no shoes. Seventh rule: fights will go on as long as they have to. And the eighth and final rule: if this is your first time at Fight Club, you have to fight.'
 },
 
 {
   id: 5,
   title: 'The Dark Knight',
-  text: `You know what I've noticed? Nobody panics when things go "according to plan." Even if the plan is horrifying!If, tomorrow, I tell the press that, like, a gang banger will get shot, or a truckload of soldiers will be blown up, nobody panics, because it's all "part of the plan". But when I say that one little old mayor will die, well then everyone loses their minds!`
+  text: `You know what I've noticed? Nobody panics when things go "according to plan." Even if the plan is horrifying! If, tomorrow, I tell the press that, like, a gang banger will get shot, or a truckload of soldiers will be blown up, nobody panics, because it's all "part of the plan". But when I say that one little old mayor will die, well then everyone loses their minds!`
 },
 
 {
