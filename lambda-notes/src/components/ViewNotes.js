@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import '../css/ViewNotes.css';
 
 class ViewNotes extends Component {
+  state= {
+    notes: []
+  }
   render() {
     return (
       <div className="ViewNotes">

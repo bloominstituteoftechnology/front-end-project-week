@@ -3,10 +3,10 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../css/CreateNote.css';
 
-class CreateNote extends Component {
+class EditNote extends Component {
   render() {
     return (
-      <div className="CreateNote">
+      <div className="EditNote">
         <div className="LeftSide">
           <h1 className="LambdaNotes">Lambda Notes</h1>
           <Link to ='/'><Button className="LeftSideButtons">
@@ -16,7 +16,7 @@ class CreateNote extends Component {
         </div>
 
         <div className="RightSide">
-          <h4 className="CreateNewNote">Create New Note:</h4>
+          <h4 className="CreateNewNote">Edit Note:</h4>
           <div className="FormDiv">
             <Form>
               <FormGroup>
@@ -38,7 +38,7 @@ class CreateNote extends Component {
                 />
               </FormGroup>
 
-              <Button className="SubmitButton float-left">Save</Button>
+              <Button className="SubmitButton float-left">Update</Button>
             </Form>
           </div>
         </div>
