@@ -1,0 +1,33 @@
+.notes-nav{
+    width: 30%;
+    border-right: 1px solid black;
+    background: #D3D2D3;
+    padding-bottom: 933.1px;
+    height: 100%;
+}
+
+.nav-title{
+    margin: 50px 5%;
+    text-align: left;
+    font-size: 300%;
+    font-weight: 900;
+    color: #4a4a4a;
+}
+
+.nav-button{
+
+    /* text-align: center; */
+    margin: 10px 6%;
+    padding: 2% 20%;
+    background: #2EB8BC;
+    color: whitesmoke;
+    font-size: 150%;
+    font-weight: 1000;
+}
+
+.page-title{
+    margin: 90px 0 0 3%;
+    font-size: 230%;
+    font-weight: 800;
+    color: #4a4a4a;
+}
