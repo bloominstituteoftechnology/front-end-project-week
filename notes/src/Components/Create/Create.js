@@ -30,6 +30,9 @@ class Create extends Component{
                   <textarea value="Note Content" cols="70" rows="20"/>
                 </Row>
                 </form>
+                <Row className="show-grid">
+                  <Button id="save">Save</Button>
+                </Row>
               </Grid>
             </div>
           </Col>
