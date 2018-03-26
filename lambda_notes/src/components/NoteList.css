@@ -2,3 +2,40 @@
     display: flex;
     flex-wrap: wrap;
 }
+.Left_Container{
+    display: block;
+    border: 1px solid snow;
+    background-color: seashell;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.Right_Container{
+    display: flex;
+    background-color: snow;
+    /* max-width: 500px; */
+    margin: 0 auto;
+    width: 400px;
+}
+
+.LeftSpan{
+    font-size: 36px;
+}
+
+.Notes{
+    border: seashell solid 5px;
+    margin: 0px;
+
+}
+
+.LeftBtn{
+    margin-top: 50px;
+    background-color: teal;
+    padding: 10px;
+    width: 200px;
+}
+.RightSpan{
+    font-size: 36px;
+    align-content: center;
+    text-align: center;
+}
