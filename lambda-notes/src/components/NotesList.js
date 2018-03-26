@@ -7,9 +7,9 @@ class NotesList extends Component {
     return (
       <Fragment>
         <h3>Your Notes:</h3>
-        <div className="d-flex">
+        <div className="d-flex flex-wrap">
           {this.props.notes.map(note => (
-            <Card key={note.id}>
+            <Card style={{ minWidth: "23%" }} body outline key={note.id}>
               <CardTitle>{note.title}</CardTitle>
               <CardText>{note.body}</CardText>
             </Card>
