@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Col, Nav, NavItem, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const buttonStyles = {
   width: "100%",
@@ -15,10 +16,14 @@ export default class NavPannel extends Component {
         <h1 className="text-justify">Notes</h1>
         <Nav vertical style={{ border: "1px solid black" }}>
           <NavItem>
-            <Button style={buttonStyles}>View Your Notes</Button>
+            <Link to="/">
+              <Button style={buttonStyles}>View Your Notes</Button>
+            </Link>
           </NavItem>
           <NavItem>
-            <Button style={buttonStyles}>+ Create New Note</Button>
+            <Link to="/newnote">
+              <Button style={buttonStyles}>+ Create New Note</Button>
+            </Link>
           </NavItem>
         </Nav>
       </Col>
