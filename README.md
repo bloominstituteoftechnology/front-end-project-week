@@ -1,3 +1,5 @@
+Robert Rak's Trello board: https://trello.com/b/KXZNRps9/lambda-notes-robert-rak
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
