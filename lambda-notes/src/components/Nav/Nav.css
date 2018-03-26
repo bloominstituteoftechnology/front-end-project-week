@@ -1,0 +1,13 @@
+.nav-side {
+    padding: 1%;
+    background-color: #D3D2D3;
+    border-right: 1px solid gray;
+  }
+  
+  .btn-primary {
+    display: block;
+    padding: 3% 0%;
+    margin-top: 20px;
+    background-color: #2EB8BC;
+    border: 1px solid #2EB8BC;
+  }

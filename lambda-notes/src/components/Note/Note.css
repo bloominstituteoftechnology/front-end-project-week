@@ -1,0 +1,11 @@
+.note {
+    margin: 1%;
+    color: black;
+    width: 250px;
+    height: 250px;
+    border: 1px solid gray;
+  }
+
+.note-body {
+margin: 3% 5%;
+}

@@ -1,1 +1,14 @@
+.container {
+    display: flex;
+    color: #5F5B58;
+  }
 
+  .nav-side {
+    padding: 1%;
+    background-color: #D3D2D3;
+    border-right: 1px solid gray;
+  }
+
+  .notes-side {
+  padding: 2%;
+}
