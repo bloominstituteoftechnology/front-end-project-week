@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  margin: 0 150px 0 150px;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  max-width: 1650px;
+  flex-direction: row;
+}
+
+.container .editTodo {
+  border: solid 1px #979797;
+  background-color: #979797;
+  padding: 100px 75px;
+  width: 110%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 2rem;
+}
+
+h1 {
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+button.waves-effect waves-light btn {
+  width: 200px !important;
+  height: 45px !important;
+  color: #ffffff !important;
+  background-color: #62bec2;
+  margin: 10px 0 10px 0 !important;
+  border: solid #979797 !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  justify-content: center !important;
+}
+
+.leftRail {
+  background-color: #d8d8d8;
+  padding: 20px;
+  border: solid 1px #979797;
+}
+
+.leftRail .leftRailTitle {
+  padding: 30px 25px;
+}
+
+.rightRail {
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 100px 50px;
+  background-color: #f3f3f3;
+  border: solid 1px #979797;
+}
+
+.rightRail .header {
+  font-size: 3rem;
+}
+
+.rightRail .todo .doTitle {
+  font-size: 2rem !important;
+}
