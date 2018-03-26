@@ -1,18 +1,22 @@
 import React, { Component } from "react";
+import { Row, Col } from "reactstrap";
 import logo from "./logo.svg";
 import "./App.css";
+import Body from "./components/Body";
+import NavPannel from "./components/NavPannel";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Row>
+          <Col xs="3" style={{ maxWidth: "250px", border: "1px solid blue" }}>
+            <NavPannel xs="3" />
+          </Col>
+          <Col xs="9" style={{ border: "1px solid red" }}>
+            <Body />
+          </Col>
+        </Row>
       </div>
     );
   }
