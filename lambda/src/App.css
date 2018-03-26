@@ -1,0 +1,63 @@
+h4 {
+  margin: 0;
+  padding: 5% 0 0 0;
+  color: dodgerblue;
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(240, 232, 232);
+}
+
+.notes-menu{
+  border-right: 1px grey solid;
+  width: 22%;
+  padding: 2%;
+  background-color: gainsboro;
+
+}
+
+.notes-list{
+  width: 75%;
+  padding: 2rem 1.5rem;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.notes-items {
+  width: 27%;
+  padding: 2%;
+  margin-bottom: 1.5rem; 
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2%;
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 grey;
+  transition: 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.nav-bar {
+  text-align: center;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
