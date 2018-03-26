@@ -8,9 +8,19 @@ class Create extends Component{
   constructor(props){
     super(props);
     this.state = {
-      test:true
-
+      test:true,
+      title:'',
+      content:''
     }
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleContentChange= this.handleContentChange.bind(this);
+  }
+
+  handleTitleChange(event){
+    this.setState({title:event.target.value});
+  }
+  handleContentChange(event){
+    this.setState({content:event.target.value});
   }
   render(){
     console.log(this.props);
@@ -36,10 +46,10 @@ class Create extends Component{
                 </Row>
                 <form>
                 <Row className="show-grid">
-                  <input type="text" value="Note Title"/>
+                  <input type="text" onChange={this.handleTitleChange} value={this.state.title} placeholder="Note Title"/>
                 </Row>
                 <Row className="show-grid">
-                  <textarea value="Note Content" cols="70" rows="20"/>
+                  <textarea onChange={this.handleContentChange} value={this.state.content} placeholder="Note Content" cols="70" rows="20"/>
                 </Row>
                 </form>
                 <Row className="show-grid">
