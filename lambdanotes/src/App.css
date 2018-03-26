@@ -1,28 +1,50 @@
-.App {
-  text-align: center;
+.container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.listView {
+  height: 950px;
+  background-color: grey;
+  width: 35%;
+  margin-left: 10px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.lambdabutton {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.titleLambda {
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 20px;
+  padding-top: 20px;
 }
 
-.App-intro {
-  font-size: large;
+.titleNotes {
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 20px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn-info {
+  width: 200px;
+  padding: 30px;
+  height: 60px;
+}
+
+.notesView {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.notes {
+  margin-left: 20px;
+  margin-top: 30px;
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
 }
