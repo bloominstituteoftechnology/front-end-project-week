@@ -7,7 +7,7 @@ class View extends Component{
     return(
       <Grid className="grid">
         <Row className="show-grid">
-          <Col xs={4} md={4} lg={4} className="col">
+          <Col xs={3} md={3} lg={3} className="col">
             <div className="side-bar">
               <h1>Lambda</h1>
               <h1 id="note">Note</h1>
@@ -16,7 +16,7 @@ class View extends Component{
               <Button className="btn">+ Create New Note</Button>
             </div>
           </Col>
-          <Col xs={8} md={8} lg={8} className="col">
+          <Col xs={9} md={9} lg={9} className="col">
             <div className="main">
               <Grid className="grid">
                 <Row className="show-grid">

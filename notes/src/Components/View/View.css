@@ -1,7 +1,7 @@
 .side-bar{
-  background:gray;
+  background:#D7D7D7;
   margin-top:-20px;
-  height:1000px;
+  height:100vh;
 }
 #mainHeader{
   text-align:left;
@@ -13,8 +13,8 @@
 }
 .main{
   background:#F3F3F3;
-  height:1000px;
-  margin-top:-20px;
+  height:100vh;
+  padding-left:2%;
 }
 .show-grid{
   margin:0;
@@ -33,6 +33,7 @@
   padding:0;
 }
 .btn{
-  background:green;
+  background:#2AC0C4;
   margin-bottom:20px;
+  color:white;
 }
