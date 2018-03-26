@@ -1,0 +1,46 @@
+.side-bar{
+  background:#D7D7D7;
+  margin-top:-20px;
+  height:100vh;
+}
+#mainHeader{
+  text-align:left;
+  margin-left:10%;
+}
+.notePanel{
+  height:200px;
+  width:80%;
+}
+.main{
+  background:#F3F3F3;
+  height:100vh;
+  padding-left:2%;
+}
+.show-grid{
+  margin:0;
+  padding:0;
+}
+#note{
+  margin-bottom:30px;
+}
+textarea{
+  margin-top:20px;
+}
+input{
+  vertical-align:top;
+  margin-top:50px;
+}
+.grid{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.col{
+  margin:0;
+  padding:0;
+}
+.btn{
+  background:#2AC0C4;
+  margin-bottom:20px;
+  color:white;
+}
