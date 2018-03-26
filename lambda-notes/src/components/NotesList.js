@@ -6,7 +6,7 @@ class NotesList extends Component {
   render() {
     return (
       <Fragment>
-        <h3>Your Notes:</h3>
+        <h3 className="mt-5 ml-3">Your Notes:</h3>
         <div className="d-flex flex-wrap justify-content-center">
           {this.props.notes.map(note => (
             <Card

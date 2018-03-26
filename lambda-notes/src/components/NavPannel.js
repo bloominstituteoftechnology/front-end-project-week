@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Col, Nav, NavItem, Button } from "reactstrap";
 
 const buttonStyles = {
-  width: "90%",
-  backgroundColor: "#2BC1C5"
+  width: "100%",
+  backgroundColor: "#2BC1C5",
+  marginTop: "15px"
 };
 
 export default class NavPannel extends Component {
@@ -14,14 +15,10 @@ export default class NavPannel extends Component {
         <h1 className="text-justify">Notes</h1>
         <Nav vertical style={{ border: "1px solid black" }}>
           <NavItem>
-            <Button style={buttonStyles} className="m-2">
-              View Your Notes
-            </Button>
+            <Button style={buttonStyles}>View Your Notes</Button>
           </NavItem>
           <NavItem>
-            <Button style={buttonStyles} className="m-2">
-              + Create New Note
-            </Button>
+            <Button style={buttonStyles}>+ Create New Note</Button>
           </NavItem>
         </Nav>
       </Col>
