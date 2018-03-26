@@ -1,4 +1,4 @@
-const notes = [
+const allNotes = [
     {
         title: "Note Title 1",
         description: "Lorem ipsum dolor sit amet cursus. Augue lorem porttitor mus magna nulla. Nullam et posuere. Sed tellus vitae aptent sed."
@@ -37,4 +37,4 @@ const notes = [
     }
 ]
 
-export default notes;
+export default allNotes;
