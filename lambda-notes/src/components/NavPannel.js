@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Col, Nav, NavItem, Button } from "reactstrap";
 
 const buttonStyles = {
-  width: "90%"
+  width: "90%",
+  backgroundColor: "#2BC1C5"
 };
 
 export default class NavPannel extends Component {
