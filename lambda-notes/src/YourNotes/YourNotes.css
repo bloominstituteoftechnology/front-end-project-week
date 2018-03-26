@@ -1,0 +1,10 @@
+.card-title {
+  border-bottom: 1px solid gray;
+  text-align: start;
+}
+.col-sm-4 {
+  margin-bottom: 2%;
+}
+.row {
+  margin-top: 10%;
+}

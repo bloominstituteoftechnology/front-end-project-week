@@ -1,0 +1,31 @@
+.background {
+  background-color: #d3d2d3;
+  position: absolute;
+  height: 103%;
+  width: 16%;
+  margin-top: -7%;
+}
+
+.lambda {
+  margin-right: 46%;
+  margin-top: 7%;
+}
+
+.notes {
+  margin-right: 60%;
+  margin-top: -5.5%;
+}
+
+.view {
+  margin-right: 5%;
+  margin-top: 6%;
+  background-color: #2eb8bc;
+  width: 85%;
+}
+
+.create {
+  margin-top: 8%;
+  margin-left: -6%;
+  background-color: #2eb8bc;
+  width: 85%;
+}
