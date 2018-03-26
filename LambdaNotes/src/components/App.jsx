@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import SideBar from './SideBar';
-import YourNotes from './contentViews/';
+import { YourNotes, CreateNote } from './contentViews/';
 
 class App extends Component {
   render() {
     return (
-      <div className='app'>
-        <div className='sideBar'>
-          <SideBar />
+      <Router>
+        <div className='app'>
+          <div className='sideBar'>
+            <SideBar />
+          </div>
+          <div className='content'>
+            <Route exact path="/" component={YourNotes} />
+            <Route exact path="/create" component={CreateNote} />
+          </div>
         </div>
-        <div className='content'>
-          <YourNotes />
-        </div>
-      </div>
+      </Router>
     );
   }
 }

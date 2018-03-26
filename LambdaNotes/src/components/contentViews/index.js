@@ -1,3 +1,7 @@
 import YourNotes from './YourNotes';
+import CreateNote from './CreateNote';
 
-export default YourNotes;
+export { 
+        YourNotes,
+        CreateNote 
+        }
