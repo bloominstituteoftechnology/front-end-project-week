@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Button } from '../AtomComps/Button';
 
 import * as Scroll from 'react-scroll';
+import Modal from 'simple-react-modal';
 
 let scroll = Scroll.animateScroll;
 export default class NoteComp extends Component {
   state = {
     id: 5,
     title: '',
-    content: ''
+    content: '',
+    showModal: false
   };
 
   scrollTo = () => {
@@ -55,6 +57,10 @@ export default class NoteComp extends Component {
     } else {
       alert('Fill out Title AND Content!');
     }
+  };
+
+  closeModal = () => {
+    this.setState({ showModal: false });
   };
 
   render() {
@@ -128,17 +134,42 @@ export default class NoteComp extends Component {
           </form>
         ) : (
           <div className="ViewNote">
+            <div>
+              {this.state.showModal ? (
+                <Modal show={this.state.showModal} onClose={this.closeModal}>
+                  <div style={{ display: 'flex' }}>
+                    <div
+                      onClick={() => {
+                        this.props.deleteNote({
+                          id: this.props.selectedNote.id,
+                          title: this.props.selectedNote.title,
+                          content: this.props.selectedNote.content
+                        });
+                        this.closeModal();
+                        this.scrollTo();
+                      }}
+                    >
+                      <Button btnName="Delete" />
+                    </div>
+                    <div>
+                      <Button btnName="Cancel" />
+                    </div>
+                  </div>
+                </Modal>
+              ) : null}
+            </div>
             <div className={classes}>
               <div className="EditNoteBtnGroup">
                 <p onClick={this.editClicked}>edit</p>
                 <p
                   onClick={() => {
-                    this.props.deleteNote({
-                      id: this.props.selectedNote.id,
-                      title: this.props.selectedNote.title,
-                      content: this.props.selectedNote.content
-                    });
-                    this.scrollTo();
+                    // this.props.deleteNote({
+                    //   id: this.props.selectedNote.id,
+                    //   title: this.props.selectedNote.title,
+                    //   content: this.props.selectedNote.content
+                    // });
+                    // this.scrollTo();
+                    this.setState({ showModal: true });
                   }}
                 >
                   delete
