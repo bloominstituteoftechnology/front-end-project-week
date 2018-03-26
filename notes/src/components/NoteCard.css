@@ -1,0 +1,8 @@
+.NoteCard {
+    border: solid 2px black;
+    margin: 2% 2% 2% 2%;
+}
+
+.NoteCard__heading {
+    border-bottom: 2px solid black;
+}

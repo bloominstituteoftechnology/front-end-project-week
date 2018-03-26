@@ -1,8 +1,17 @@
-.Button {
-  background: #2EB8BC
+.Container {
+  border: solid 2px black;
 }
 
-.NavPanel {
+.Button {
+  background: #2EB8BC;
+  color: white;
+  width: 80%;
+}
+
+.Menu {
+  display: flex;
+  flex-flow: column;
+  align-content: center;
   background: #D3D2D3
 }
 

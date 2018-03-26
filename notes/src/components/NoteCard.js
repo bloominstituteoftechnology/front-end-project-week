@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Col } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import './NoteCard.css';
 
 class NoteCard extends Component {
     render() {
         return (
-            <Col>
-            hey
+            <Col xs="3" className="NoteCard">
+                <h4 className="NoteCard__heading">{this.props.note.heading}</h4>
+                <p className="NoteCard__text">{this.props.note.text}</p>
             </Col>
         );
     }

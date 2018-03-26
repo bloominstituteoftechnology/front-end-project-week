@@ -1,9 +1,30 @@
 const initialState = {
     notes: [
         {
-            heading: '',
-            text: ''
-        }
+            heading: 'Okay now here is a test',
+            text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.'
+        },
+        {
+            heading: 'Okay now here is a test',
+            text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.'
+        },
+        {
+            heading: 'Okay now here is a test',
+            text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.'
+        },
+        {
+            heading: 'Okay now here is a test',
+            text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.'
+        },
+        {
+            heading: 'Okay now here is a test',
+            text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.'
+        },
+        {
+            heading: 'Okay now here is a test',
+            text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.'
+        },
+
     ]
 }
 
