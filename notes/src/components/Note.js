@@ -9,7 +9,7 @@ function mapStateToProps(state) {
 class Note extends Component {
   render() {
     return (
-      <Card>
+      <Card className="note">
         <CardBody>
           <CardTitle>{this.props.note.title}</CardTitle>
           <CardText>{this.props.note.note}</CardText>

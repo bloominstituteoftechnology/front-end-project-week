@@ -11,3 +11,12 @@
 .rightSide {
   background: lightcyan;
 }
+
+.note {
+  height: 200px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+.note::after {
+  content: "...";
+}

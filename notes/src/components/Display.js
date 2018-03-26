@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import NotesList from "./NotesList";
 import Modal from "./Modal";
 import Form from "./Form";
+import { Container } from "reactstrap";
 
 function mapStateToProps(state) {
   return {};
@@ -11,12 +12,11 @@ function mapStateToProps(state) {
 class Display extends Component {
   render() {
     return (
-      <div>
-        Display Loaded
+      <Container>
         <NotesList />
         <Modal />
         <Form />
-      </div>
+      </Container>
     );
   }
 }
