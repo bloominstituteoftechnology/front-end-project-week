@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import SideBar from './SideBar';
-import ContentContainer from './ContentContainer';
+import YourNotes from './contentViews/';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Lambda Notes</h1>
-        </header>
-        <ContentContainer />
-        <SideBar />
+      <div className='app'>
+        <div className='sideBar'>
+          <SideBar />
+        </div>
+        <div className='content'>
+          <YourNotes />
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+//finish setting up a static version of yourNotes view then work on otherviews
+//TODO:
+  //NoteCard Component
+  //mapStateToprops for YourNotes
+  //map the list of notes in YourNotes onto NoteCard Components
+  //styling for: SideBar, ContentContainer, Your Notes, NoteCard
