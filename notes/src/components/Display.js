@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import NotesList from "./NotesList";
 import Modal from "./Modal";
-import Form from "./Form";
 import { Container } from "reactstrap";
 
 function mapStateToProps(state) {
@@ -14,8 +13,6 @@ class Display extends Component {
     return (
       <Container>
         <NotesList />
-        <Modal />
-        <Form />
       </Container>
     );
   }
