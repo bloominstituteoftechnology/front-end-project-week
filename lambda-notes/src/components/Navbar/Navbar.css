@@ -1,0 +1,21 @@
+.navbar {
+   background: rgb(211, 210, 211);
+   border:1px solid rgb(175, 175, 175);
+   width:250px;
+   height:99.85vh;
+}
+
+.navbar button {
+   background: rgb(36, 184, 189);
+   color: white;
+   border:1px solid rgb(175, 175, 175);
+   height: 48px;
+   width: 190px;
+   margin: 10px 15px 10px 15px;
+}
+
+.navbarTitle {
+   color:rgb(65, 65, 65);
+   text-align:left;
+   padding-left:10px;
+}

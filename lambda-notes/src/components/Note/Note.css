@@ -1,12 +1,14 @@
 .yourNotes {
-   padding:15px;
+   padding: 45px 15px 15px 22px;
    background: rgb(242, 241, 242);
+   border:1px solid rgb(175, 175, 175);
+   width:100%;
+   display:inline-block;
 }
 .yourNotes h2 {
-   
    padding-left: 2px;
    text-align: left;
-   color:#5F5B58;
+   color:rgb(65, 65, 65);
 }
 
 .note {

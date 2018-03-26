@@ -4,6 +4,7 @@ import ListNotes from './components/ListNotes/ListNotes';
 
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
 
 class App extends Component {
   constructor() {
@@ -18,10 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <Navbar />
         <ListNotes notes={this.state.notes}> </ListNotes>
       </div>
     );
