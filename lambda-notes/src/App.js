@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, NavLink } from 'react-router-dom';
 import './App.css';
+import NoteList from './components/NoteList';
+import {noteView} from './components/noteView';
 
 class App extends Component {
   render() {
@@ -9,19 +11,13 @@ class App extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col-3 left_side'>
-              <h2 className='nav_head'>Lambda Notes</h2>
-              <a className='nav_button'>View Your Notes</a>
+              <h2 className='nav_head'>Lambda <br/>Notes</h2>
+              <a href='/' className='nav_button'>View Your Notes</a>
               <a className='nav_button'>+Create New Notes</a>
             </div>
 
-            <div className='col-9 right_side'>
-              <div className='row title_bar'>
-                <h4>Your Notes:</h4>
-              </div>
-              <div className='row'>
-                CARDS GO HERE...
-              </div>
-            </div>
+            <Route exact path='/' component = { NoteList } />
+            <Route path='/noteview' component = { noteView} note={{title:'test', text:'asdkbasdukasbdaskuid'}} />
           </div>
         </div>
 

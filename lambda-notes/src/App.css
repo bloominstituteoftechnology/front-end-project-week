@@ -36,19 +36,24 @@
   align-items: center;
   height: 100vh;
   color: white;
-
-
+  
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
 }
 
 .right_side {
-  background-color: #5F5B58;
+  background-color: rgb(230, 230, 230);
   height: 100vh;
+  border: 1px solid gray;
+  
 }
 
 .nav_head {
   text-align: start;
   margin-top:20px;
   color: black;
+  align-self: left;
 }
 
 .left_side .nav_button {
@@ -61,3 +66,45 @@
   
 }
 
+.left_side a {
+  color: white;
+}
+
+.left_side a:hover {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.title_bar {
+  height:120px;
+  justify-content: flex-start;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 20px;
+
+  
+}
+
+.note_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.note_card {
+  height: 210px;
+  width: 200px;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  border: 1px solid gray;
+  color:black;
+}
+
+.test a:hover {
+  color: black;
+  text-decoration: none;
+
+}
