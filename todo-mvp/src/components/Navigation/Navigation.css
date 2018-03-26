@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+.Navigation {
+  background-color: RGB(216, 216, 216);
+  border: 2px dashed blue; 
+  max-width: 300px;
+}
+
+header h1 {
+  font-weight: bold;
+  color: RGB(74, 74, 74);
+  margin: 20px 25px 0px 25px
+}
+
+.nav-btn {
+  border: 1px solid RGB(151, 151, 151);
+  background-color: RGB(54, 192, 195);
+  color: RGB(255, 255, 255);
+  font-weight: bolder;
+  height: 48px;
+  margin: 10px 15px;
+}

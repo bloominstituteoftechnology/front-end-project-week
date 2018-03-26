@@ -1,0 +1,17 @@
+.TodoList {
+  border: 2px dashed red;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Card {
+  width: 300px;
+  height: 200px;
+  margin: 30px;
+}
+
+.CardTitle {
+  font-weight: bold;
+}
