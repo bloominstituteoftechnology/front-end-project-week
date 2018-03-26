@@ -1,0 +1,17 @@
+.Background-Grey {
+    background-color: #D7D7D7;
+    height: 100vh;
+}
+
+.Button {
+    border-radius: 0;
+    margin-bottom: 20px;
+    background-color: #5DBDC2;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 10px 0;
+}
+
+.Button:hover {
+    background-color: rgb(77, 154, 158);
+}
