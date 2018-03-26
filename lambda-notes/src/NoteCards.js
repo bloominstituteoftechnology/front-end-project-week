@@ -5,7 +5,7 @@ class NoteCards extends React.Component {
   render() {
     return (
       <div className="NoteSection">        
-        <div class="row">
+        <div className="row">
             <div className="note1 col-md-3">
               <h4>Note Title</h4>
                 <hr/>
@@ -23,7 +23,7 @@ class NoteCards extends React.Component {
                             </div>
                             
         </div>
-        <div class="row2 row">
+        <div className="row2 row">
             <div className="note1 col-md-3">
               <h4>Note Title</h4>
                 <hr/>
@@ -41,7 +41,7 @@ class NoteCards extends React.Component {
                             </div>
                             
         </div>
-        <div class="row3 row">
+        <div className="row3 row">
             <div className="note1 col-md-3">
               <h4>Note Title</h4>
                 <hr/>
