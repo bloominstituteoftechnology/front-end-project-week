@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Card, CardText, CardBody, CardTitle } from 'reactstrap';
-
+import { Link } from 'react-router-dom';
 import '../css/ViewNotes.css';
 
 class ViewNotes extends Component {
@@ -9,8 +9,8 @@ class ViewNotes extends Component {
       <div className="ViewNotes">
         <div className="LeftSide">
           <h1 className="LambdaNotes">Lambda Notes</h1>
-          <Button className="LeftSideButtons">View Your Notes</Button>
-          <Button className="LeftSideButtons">+ Create New Note</Button>
+          <Link to ='/'><Button className="LeftSideButtons">View Your Notes</Button></Link>
+          <Link to ='/CreateNote/'><Button className="LeftSideButtons">+ Create New Note</Button></Link>
         </div>
 
         <div className="RightSide">
