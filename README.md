@@ -1,3 +1,11 @@
+https://trello.com/b/BBqh16rj/lambda-notes-saxon
+
+
+
+* The blue color is #2EB8BC
+* The gray color on lefthand side is #D3D2D3
+* The color of _Your Notes_ is #5F5B58
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
