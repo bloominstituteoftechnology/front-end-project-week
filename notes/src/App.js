@@ -32,11 +32,11 @@ class App extends Component {
               <h1>Lambda Notes</h1>
 
               <Link to="/">
-                <Button>View Notes</Button>
+                <Button className="w-100 my-2 p-3">View Notes</Button>
               </Link>
 
               <Link to="/createNote">
-                <Button>+ Create Note </Button>
+                <Button className="w-100 my-2 p-3">+ Create Note </Button>
               </Link>
             </Col>
             <Col sm={9} className="rightSide ">

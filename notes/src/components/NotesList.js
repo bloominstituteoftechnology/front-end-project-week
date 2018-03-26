@@ -12,7 +12,7 @@ function mapStateToProps(state) {
 class NotesList extends Component {
   render() {
     return (
-      <Container>
+      <Container className="my-5">
         <Row>
           <h1>Your Notes:</h1>
         </Row>
