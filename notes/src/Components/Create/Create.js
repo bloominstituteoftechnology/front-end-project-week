@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Panel,Grid,Row,Col,Button} from 'react-bootstrap';
 import "./Create.css";
+import {Link} from 'react-router-dom';
 
 class Create extends Component{
   render(){
@@ -11,7 +12,9 @@ class Create extends Component{
             <div className="side-bar">
               <h1>Lambda</h1>
               <h1 id="note">Note</h1>
-              <Button className="btn">View Your Notes</Button>
+              <Link to={`/`}>
+                <Button className="btn">View Your Notes</Button>
+              </Link>
               <br/>
               <Button className="btn">+ Create New Note</Button>
             </div>
@@ -31,7 +34,9 @@ class Create extends Component{
                 </Row>
                 </form>
                 <Row className="show-grid">
-                  <Button id="save">Save</Button>
+                  <Link to={`/`}>
+                    <Button id="save">Save</Button>
+                  </Link>
                 </Row>
               </Grid>
             </div>

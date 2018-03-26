@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Panel,Grid,Row,Col,Button} from 'react-bootstrap';
 import "./View.css";
+import {Link} from 'react-router-dom';
 
 class View extends Component{
   render(){
@@ -13,7 +14,9 @@ class View extends Component{
               <h1 id="note">Note</h1>
               <Button className="btn">View Your Notes</Button>
               <br/>
-              <Button className="btn">+ Create New Note</Button>
+              <Link to={`/create/`}>
+                <Button className="btn">+ Create New Note</Button>
+              </Link>
             </div>
           </Col>
           <Col xs={9} md={9} lg={9} className="col">
