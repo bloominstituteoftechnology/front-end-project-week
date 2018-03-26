@@ -1,0 +1,24 @@
+.side-bar{
+  background:gray;
+  margin-top:-20px;
+  height:1000px;
+}
+.show-grid{
+  margin:0;
+  padding:0;
+}
+#note{
+  margin-bottom:30px;
+}
+.grid{
+  margin:0;
+  padding:0;
+}
+.col{
+  margin:0;
+  padding:0;
+}
+.btn{
+  background:green;
+  margin-bottom:20px;
+}
