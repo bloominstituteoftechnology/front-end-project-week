@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 import {Provider} from 'react-redux';
-import View from './View/View.js';
-import Create from './Create/Create.js';
 import PropTypes from 'prop-types';
+import Create from './Create/Create.js';
+import View from './View/View.js';
 
 const Root= ({store})=> (
   <Provider store={store}>
@@ -14,7 +14,6 @@ const Root= ({store})=> (
       </div>
     </Router>
   </Provider>
-
 )
 
 Root.propTypes={
