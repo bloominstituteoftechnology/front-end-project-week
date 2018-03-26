@@ -8,15 +8,17 @@ import {connect} from 'react-redux';
 
 class View extends Component{
   componentDidMount(){
-    this.props.add('blahlbah',0);
-    this.props.add('blahlbah',1);
-    this.props.add('blahlbah',2);
-    this.props.add('blahlbah',3);
-    this.props.add('blahlbah',4);
-    this.props.add('blahlbah',5);
-    this.props.add('blahlbah',6);
-    this.props.add('blahlbah',7);
-    this.props.add('blahlbah',8);
+    if(this.props.info.notes.length === 0){
+      this.props.add('blahlbah',0);
+      this.props.add('blahlbah',1);
+      this.props.add('blahlbah',2);
+      this.props.add('blahlbah',3);
+      this.props.add('blahlbah',4);
+      this.props.add('blahlbah',5);
+      this.props.add('blahlbah',6);
+      this.props.add('blahlbah',7);
+      this.props.add('blahlbah',8);
+    }
   }
   render(){
       return(
