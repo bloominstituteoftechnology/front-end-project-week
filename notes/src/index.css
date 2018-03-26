@@ -2,24 +2,5 @@ body {
   margin: 0;
   padding: 0;
   font-size: 100%;
-}
-.left {
-  width: 20%;
-  float: left;
-  background-color: hotpink;
-}
-.nav {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.nav li {
-  margin: 1px 0;
-  border: 1px solid #999;
-}
-.nav li a {
   display: block;
-  line-height: 3em;
-  width: 100%;
-  text-decoration: none;
 }

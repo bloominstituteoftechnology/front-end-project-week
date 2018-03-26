@@ -1,0 +1,31 @@
+p {
+  font-size: 30px;
+  color: gray;
+  flex-wrap: wrap;
+}
+.left {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #d3d2d3;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav li {
+  margin: 10%;
+  width: 80%;
+  background-color: #2eb8bc;
+}
+.nav li a {
+  line-height: 3em;
+  text-decoration: none;
+  color: white;
+}
