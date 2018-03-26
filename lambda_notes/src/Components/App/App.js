@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import '../Styles/App.css';
+import './App.css';
 
-import Navigation from './Navigation/Navigation';
-import ListNotes from './ListNotes/ListNotes';
-import CreateNewNote from './CreateNewNote/CreateNewNote';
+import Navigation from '../Navigation/Navigation';
+import ListNotes from '../ListNotes/ListNotes';
+import CreateNewNote from '../CreateNewNote/CreateNewNote';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
