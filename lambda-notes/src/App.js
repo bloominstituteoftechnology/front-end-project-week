@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
-import logo from "./logo.svg";
+
 import "./App.css";
 import Body from "./components/Body";
 import NavPannel from "./components/NavPannel";
