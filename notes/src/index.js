@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import View from './Components/View/View.js';
-import Create from './Components/Create/Create.js'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import notes from './reducers';
+import 'babel-polyfill';
+import Root from './Components/Root';
 
+
+const store = createStore(notes);
 
 
 ReactDOM.render(
-<Router>
-  <div>
-    <Route exact path="/" component={View} />
-    <Route path="/create" component={Create} />
-  </div>
-</Router>
+<Root store={store} />
 , document.getElementById('root'));
 registerServiceWorker();

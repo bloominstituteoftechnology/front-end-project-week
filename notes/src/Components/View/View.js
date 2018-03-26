@@ -2,8 +2,12 @@ import React, {Component} from 'react';
 import {Panel,Grid,Row,Col,Button} from 'react-bootstrap';
 import "./View.css";
 import {Link} from 'react-router-dom';
+import Note from "../Note/Note.js";
 
 class View extends Component{
+  constructor(props){
+    super(props);
+  }
   render(){
     return(
       <Grid className="grid">
@@ -27,53 +31,35 @@ class View extends Component{
                 </Row>
                 <Row className="show-grid">
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                 </Row>
                 <Row className="show-grid">
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                 </Row>
                 <Row className="show-grid">
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                   <Col xs={4} md={4} lg={4} className="col">
-                    <Panel className="notePanel">
-                      <Panel.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida neque pulvinar elit semper  Suspendisse rutrum velit ...</Panel.Body>
-                    </Panel>
+                    <Note/>
                   </Col>
                 </Row>
               </Grid>
