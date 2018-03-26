@@ -1,8 +1,9 @@
 .yourNotes {
-   margin:5px;
-   background: lightGrey;
+   padding:15px;
+   background: rgb(242, 241, 242);
 }
 .yourNotes h2 {
+   
    padding-left: 2px;
    text-align: left;
    color:#5F5B58;
@@ -10,6 +11,7 @@
 
 .note {
  border:1px solid grey;
+ background: white;
  margin: 10px;
  padding: 5px;
  height: 220px;
