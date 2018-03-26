@@ -1,0 +1,131 @@
+/*
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
+
+h1 {
+  color: 	#888888;
+}
+
+h3 {
+  color: 	#888888;
+}
+
+.title {
+  color: rgb(60, 59, 59);
+  font-size: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  height: 1500px;
+  width: 100%;
+}
+
+.section__content__left {
+  display: flex;
+  justify-content: flex-start;
+  background: #DDDDDD;
+  flex-direction: column;
+  min-width: 20%;
+  width: 100%;
+  align-items: center;
+  color: white;
+}
+
+.section__content__right {
+  display: flex;
+  justify-content: flex-start;
+  background: #F1F1F1;
+  flex-direction: column;
+  min-width: 80%;
+  width: 100%
+}
+
+.section__content__inputs {
+  display: flex;
+  justify-content: flex-start;
+  background: #F1F1F1;
+  flex-direction: column;
+  margin: 5%;
+}
+
+.section__content__icons {
+  margin: 0 auto;
+   display: grid;
+   grid-template-columns: 33% 33% 33%;
+}
+
+section {
+  border: solid lightgray;
+  background: white;
+  padding: 1%;
+  height: 150px;
+  margin: 5%;
+}
+
+p {
+  font-size: 10px;
+}
+
+.delete__p {
+  font-size: 1rem;
+}
+
+.note-content {
+  border-radius: 5px;
+  border: solid lightgray;
+  padding: 3%;
+}
+
+.note-title {
+  border-radius: 5px;
+  border: solid gray;
+  width: 50%;
+  height: 30px;
+  padding-left: 1%;
+}
+
+.button__main {
+  width:80%;
+  background: 	#27B0B9;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  text-align: center;
+  border: solid lightgrey;
+  color: white;
+}
+
+
+.button__delete {
+  width:40%;
+  color: white;
+  background: red;
+  display: inline-block;
+  margin: 0 2% 0 2%;
+  text-align: center;
+  border: solid grey;
+  padding: 1%;
+}
+
+.button__save {
+  width:40%;
+  color: white;
+  background: rgb(18, 215, 215);
+  display: inline-block;
+  margin: 0 2% 0 2%;
+  text-align: center;
+  border: solid grey;
+  padding: 1%;
+}
+
+.section__delete {
+  padding: 5%;
+  border: solid black;
+  text-align: center;
+}
+
