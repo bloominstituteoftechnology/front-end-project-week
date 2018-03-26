@@ -1,0 +1,33 @@
+.NoteSection {
+    margin-top: 40px;
+    overflow: hidden;
+}
+
+.row2 {
+    margin-top: 50px;
+}
+
+.row3 {
+    margin-top: 50px;
+}
+
+.note1 {
+    padding-top: 7px;
+    margin-right: 10px;
+    margin-left: 90px;
+    background: #fff;
+}
+
+.note2 {
+    padding-top: 7px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background: #fff;
+}
+
+.note3 {
+    padding-top: 7px;
+    margin-right: 10px;
+    margin-left: 20px;
+    background: #fff;
+}

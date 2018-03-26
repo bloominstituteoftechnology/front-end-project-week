@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -25,4 +29,47 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.sideBar {
+  background: #D3D2D3;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.noteSection {
+  background: #F2F1F2;
+  display: flex;
+  flex-direction: column;  
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;  
+}
+
+.yourNotes {
+  margin-left: 70px;
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #48494A;
+}
+
+.lambdaNotes {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 30px;
+  text-align: left;
+}
+
+hr {
+  background: rgb(135, 135, 136);
 }
