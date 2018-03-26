@@ -9,7 +9,7 @@ const NotesList = props => {
         <div className="row">
           {props.list.map((note, i)=> {
             return (
-            <div className="col-sm-6 col-md-4"> <NoteCard title={note.title} note={note.note}/> </div>
+            <div key={i} className="col-sm-6 col-md-4"> <NoteCard title={note.title} note={note.note}/> </div>
             ) 
           })}  
         </div>    
