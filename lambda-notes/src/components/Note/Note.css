@@ -1,0 +1,13 @@
+.note {
+ border:1px solid grey;
+ margin: 10px;
+ padding: 5px;
+}
+
+.noteTitle {
+   border-bottom: 1px solid grey;
+}
+
+.noteContent {
+
+}

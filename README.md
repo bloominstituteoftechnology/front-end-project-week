@@ -1,5 +1,6 @@
 https://trello.com/b/BBqh16rj/lambda-notes-saxon
 
+* https://getbootstrap.com/docs/4.0/components/modal/ to delete
 
 
 * The blue color is #2EB8BC
