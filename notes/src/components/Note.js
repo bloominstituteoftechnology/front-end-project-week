@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Card, CardTitle, CardBody, CardText } from "reactstrap";
 
 function mapStateToProps(state) {
   return {};
@@ -7,7 +8,14 @@ function mapStateToProps(state) {
 
 class Note extends Component {
   render() {
-    return <div>Note Loaded</div>;
+    return (
+      <Card>
+        <CardBody>
+          <CardTitle>{this.props.note.title}</CardTitle>
+          <CardText>{this.props.note.note}</CardText>
+        </CardBody>
+      </Card>
+    );
   }
 }
 

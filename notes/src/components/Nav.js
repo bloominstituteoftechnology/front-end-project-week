@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Button } from "reactstrap";
 
 function mapStateToProps(state) {
   return {};
@@ -7,7 +8,13 @@ function mapStateToProps(state) {
 
 class Nav extends Component {
   render() {
-    return <div>Nav Loaded</div>;
+    return (
+      <div>
+        <h1>Lambda Notes</h1>
+        <Button>View Your Notes</Button>
+        <Button>+ Create New Note</Button>
+      </div>
+    );
   }
 }
 

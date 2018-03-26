@@ -3,14 +3,18 @@ import { connect } from "react-redux";
 import Note from "./Note";
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    notes: state.notes
+  };
 }
 
 class NotesList extends Component {
   render() {
     return (
       <div>
-        Note List Loaded<Note />
+        {this.props.notes.map(note => {
+          return <Note note={note} />;
+        })}
       </div>
     );
   }
