@@ -28,11 +28,11 @@
 }
 
 .sidepanel {
-  background: pink;
+  background: grey;
   width: 30%;
 }
 
 .notes {
   width: 70%;
-  background: lightblue;
+  background: lightgray;
 }

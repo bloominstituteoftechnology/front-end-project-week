@@ -1,31 +1,36 @@
-import { ADD_NOTE, DELETE_NOTE} from '../actions'
+import { ADD_NOTE } from '../actions'
 
 const initialState = [
   {
     title: "Note Title",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    id: 1,
   },
   {
     title: "Note Title",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    id: 2,
   },
   {
     title: "Note Title",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    id: 3,
   },
   {
     title: "Note Title",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    id: 4,
   },
   {
     title: "Note Title",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    id: 5,
   },
   {
     title: "Note Title",
-    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
+    text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.",
+    id: 6,
   },
-
 ]
 
 export const noteReducer = (state = initialState, action) => {
@@ -35,17 +40,10 @@ export const noteReducer = (state = initialState, action) => {
         ...state,
         {
           id: action.id,
+          title: action.title,
           text: action.text,
-          completed: false
         }
       ]
-      
-    case DELETE_NOTE:
-    const newNotes = state.filter(note => {
-
-      return note.id !== action.id
-    });
-    return state = newNotes;
     default:
       return state; 
   }

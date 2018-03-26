@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NoteList from './components/NoteList';
-import AddNote from './components/AddNote';
+import CreateNewNote from './components/CreateNewNote';
 
 class App extends Component {
     render() {
@@ -13,10 +13,9 @@ class App extends Component {
                 <div className="sidepanel">
                 <b>Lambda<br/>Notes</b><br/>
                 <button> View Your Notes </button><br/>
-                <button> + Create New Note </button>
+                  <CreateNewNote />
                 </div>
                 <div className="notes">
-                  <AddNote />
                   <NoteList />
                 </div>
               </div>

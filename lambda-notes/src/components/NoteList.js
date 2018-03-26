@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteNote } from '../actions';
-import { Card, CardBody, CardTitle, CardText, Button, Row, Col} from 'reactstrap';
+import { } from '../actions';
+import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
+import './NoteList.css';
 
 class NoteList extends Component {
 
-    handleDelete = (id) => {
-        return this.props.deleteNote(id);
-    }
     render() {
         return (
-        <div>
+        <div className="NoteList">
+        <div className="NoteList__header"> Your Notes: </div>
+        <Row className="d-flex flex-wrap mx-2">
+        
             {this.props.notes.map(note => {
                 return (
-                    <Row className="d-flex justify-content-center flex-wrap">
-                      <Col sm="6">
+                    <Col sm="4" className="mb-3" key={note.id}>
                         <Card>
                             <CardBody key={note.id}>
                                 <CardTitle><b>{note.title}</b></CardTitle>
                                 <CardText>{note.text}</CardText>
-                                <Button color="primary" onClick={() => this.handleDelete(note.id)}> Delete </Button>
                             </CardBody>
                         </Card>
-                      </Col>
-                    </Row>
+                    </Col>
                 );
             })}
+        </Row>
         </div>
         )
     };
@@ -37,4 +36,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { deleteNote })(NoteList)
+export default connect(mapStateToProps, {})(NoteList)
