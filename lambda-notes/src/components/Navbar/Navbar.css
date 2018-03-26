@@ -2,7 +2,7 @@
    background: rgb(211, 210, 211);
    border:1px solid rgb(175, 175, 175);
    width:250px;
-   height:99.85vh;
+   height:auto;
 }
 
 .navbar button {
@@ -17,5 +17,6 @@
 .navbarTitle {
    color:rgb(65, 65, 65);
    text-align:left;
+   margin:10px 0;
    padding-left:10px;
 }

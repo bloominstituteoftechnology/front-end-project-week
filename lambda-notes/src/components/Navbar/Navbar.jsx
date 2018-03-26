@@ -11,16 +11,16 @@ class Navbar extends Component {
                Lambda
                <br/>Notes
             </h1>
-            <div>
-               <button className="viewNotesButton">
-                  <h3>View Your Notes</h3>
+            <Link to="/">
+               <button className="viewNotesButton" >
+               <h3>View Your Notes</h3>
                </button>
-            </div>
-            <div>
+               </Link>
+               <Link to="/newNote">
                <button className="createNoteButton">
-                  <h3>+ Create New Note</h3>
+               <h3>+ Create New Note</h3>
                </button>
-            </div>
+               </Link>
          </div>
       )
    }

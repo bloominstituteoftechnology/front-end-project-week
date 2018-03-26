@@ -1,18 +1,23 @@
 .yourNotes {
-   padding: 45px 15px 15px 22px;
+   padding: 35px 15px 15px 22px;
    background: rgb(242, 241, 242);
    border:1px solid rgb(175, 175, 175);
    width:100%;
-   display:inline-block;
+
 }
 .yourNotes h2 {
    padding-left: 2px;
    text-align: left;
    color:rgb(65, 65, 65);
+   font-weight: bold;
 }
-
+.noteList {
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
 .note {
- border:1px solid grey;
+   border:1px solid rgb(175, 175, 175);
  background: white;
  margin: 10px;
  padding: 5px;
@@ -21,7 +26,8 @@
 }
 
 .noteTitle {
-   border-bottom: 1px solid grey;
+   border-bottom: 1px solid rgb(175, 175, 175);
+   padding-bottom: 4px;
    margin:5px 15px 15px 15px;
 }
 

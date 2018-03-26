@@ -10,7 +10,7 @@ import { Route } from 'react-router-dom';
 ReactDOM.render(
   <Router>
     <div>
-      <Route exact path="/" component={App} />
+      <App />
     </div>
   </Router>,
 
