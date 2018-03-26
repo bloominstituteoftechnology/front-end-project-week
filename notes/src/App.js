@@ -7,6 +7,8 @@ import CreateNew from './components/CreateNew.js';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
 
+import 'semantic-ui-css/semantic.min.css';
+
 
 class App extends Component {
   render() {
