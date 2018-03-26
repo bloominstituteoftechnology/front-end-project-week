@@ -7,8 +7,8 @@ class Note extends Component {
         return (
             <div class='note'>
                 <div class='note-body'>
-                    <h5>Note Title</h5>
-                    <p>Some note text... What am I doing? I hope this project turns out well. I think I forgot how to add Bootstrap without CDM. I definitely forgot how to add LESS to my projects. I hope I have enough time to add it to this project later on.</p>
+                    <h5>Godard plaid kombucha</h5>
+                    <p>Cardigan pitchfork kale chips, scenester roof party farm-to-table microdosing post-ironic affogato prism la croix chambray selfies whatever. Kitsch woke hella ugh, street art bitters pickled chillwave pug cornhole.</p>
                 </div>
             </div>
         )

@@ -9,3 +9,7 @@
 .note-body {
 margin: 3% 5%;
 }
+
+h5 {
+  border-bottom: 1px solid gray;
+}
