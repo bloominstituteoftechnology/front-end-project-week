@@ -1,9 +1,15 @@
 .App {
-  text-align: center;
   display: block;
   background-color: #f2f2f2;
   height: 100%;
   width: 75%;
   margin-left: 25%;
   position: fixed;
+}
+
+.title {
+  font-size: 22px;
+  color: #5f5b58;
+  flex-wrap: wrap;
+  margin: 4%;
 }
