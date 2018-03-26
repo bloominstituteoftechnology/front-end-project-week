@@ -3,6 +3,15 @@
   margin-top:-20px;
   height:1000px;
 }
+#mainHeader{
+  text-align:left;
+  margin-left:10%;
+}
+.main{
+  background:#F3F3F3;
+  height:1000px;
+  margin-top:-20px;
+}
 .show-grid{
   margin:0;
   padding:0;
@@ -11,6 +20,7 @@
   margin-bottom:30px;
 }
 .grid{
+  width:100%;
   margin:0;
   padding:0;
 }

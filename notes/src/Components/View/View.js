@@ -16,6 +16,11 @@ class View extends Component{
               <Button className="btn">+ Create New Note</Button>
             </div>
           </Col>
+          <Col xs={8} md={8} lg={8} className="col">
+            <div className="main">
+              <h3 id="mainHeader">Your Notes:</h3>
+            </div>
+          </Col>
         </Row>
       </Grid>
     );
