@@ -1,3 +1,6 @@
+# Trello URL Link: 
+https://trello.com/invite/b/mJSHdAhJ/5f11b134794eb401093f8ef6a0c18793/lambda-notes-walter-s-woodward
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
