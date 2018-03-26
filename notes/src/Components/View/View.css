@@ -1,7 +1,7 @@
 .side-bar{
   background:#D7D7D7;
   margin-top:-20px;
-  height:100vh;
+  height:1500px;
 }
 #mainHeader{
   text-align:left;
@@ -13,7 +13,7 @@
 }
 .main{
   background:#F3F3F3;
-  height:100vh;
+  height:1500px;
   padding-left:2%;
 }
 .show-grid{

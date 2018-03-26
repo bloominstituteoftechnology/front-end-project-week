@@ -11,7 +11,8 @@ function modifyNotes(state=[],action){
       return [
         ...state,{
           text:action.text,
-          id:action.id
+          id:action.id,
+          title:action.title
         }
       ];
     default:

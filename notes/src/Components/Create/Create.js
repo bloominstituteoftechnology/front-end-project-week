@@ -3,6 +3,7 @@ import {Grid,Row,Col,Button} from 'react-bootstrap';
 import "./Create.css";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {add} from '../../actions';
 
 class Create extends Component{
   constructor(props){
@@ -14,6 +15,12 @@ class Create extends Component{
     }
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange= this.handleContentChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event){
+    this.props.add(
+    this.state.title,this.state.content,this.props.info.notes.length -1);
   }
 
   handleTitleChange(event){
@@ -23,7 +30,6 @@ class Create extends Component{
     this.setState({content:event.target.value});
   }
   render(){
-    console.log(this.props);
     return(
       <Grid className="grid">
         <Row className="show-grid">
@@ -54,7 +60,7 @@ class Create extends Component{
                 </form>
                 <Row className="show-grid">
                   <Link to={`/`}>
-                    <Button id="save">Save</Button>
+                    <Button onClick={this.handleSubmit} id="save">Save</Button>
                   </Link>
                 </Row>
               </Grid>
@@ -72,4 +78,4 @@ const mapStateToProps = (state) =>{
   }
 }
 
-export default connect(mapStateToProps)(Create);
+export default connect(mapStateToProps,{add})(Create);

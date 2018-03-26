@@ -2,10 +2,11 @@ export const ADD = "ADD";
 
 
 
-export const add = (t,i) =>{
+export const add = (t,c,i) =>{
   return {
     type:ADD,
-    text:t,
+    text:c,
+    title:t,
     id:i
   }
 }

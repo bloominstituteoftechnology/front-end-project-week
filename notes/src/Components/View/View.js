@@ -9,15 +9,15 @@ import {connect} from 'react-redux';
 class View extends Component{
   componentDidMount(){
     if(this.props.info.notes.length === 0){
-      this.props.add('blahlbah',0);
-      this.props.add('blahlbah',1);
-      this.props.add('blahlbah',2);
-      this.props.add('blahlbah',3);
-      this.props.add('blahlbah',4);
-      this.props.add('blahlbah',5);
-      this.props.add('blahlbah',6);
-      this.props.add('blahlbah',7);
-      this.props.add('blahlbah',8);
+      this.props.add('title','blahlbah',0);
+      this.props.add('title','blahlbah',1);
+      this.props.add('title','blahlbah',2);
+      this.props.add('title','blahlbah',3);
+      this.props.add('title','blahlbah',4);
+      this.props.add('title','blahlbah',5);
+      this.props.add('title','blahlbah',6);
+      this.props.add('title','blahlbah',7);
+      this.props.add('title','blahlbah',8);
     }
   }
   render(){
@@ -44,14 +44,14 @@ class View extends Component{
                       <div key={i}>
                         <Row className="show-grid"></Row>
                         <Col key={i} xs={3} md={3} lg={3} className="col">
-                          <Note text = {e.text}/>
+                          <Note title={e.title} text = {e.text}/>
                         </Col>
                       </div>
                     )}
                     else{
                       return(
                       <Col key={i} xs={3} md={3} lg={3} className="col">
-                        <Note text = {e.text}/>
+                        <Note title={e.title}text = {e.text}/>
                       </Col>
                     )}
                   })
