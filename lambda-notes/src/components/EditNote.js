@@ -6,14 +6,24 @@ class EditNote extends Component {
         text: '',
     }
 
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value})
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.setState({ name: '', text: ''})
+        this.props.history.push('/');
+    }
+
     render() {
         return (
-            <div ClassName="EditNote">
-                <h1>Edit Note:</h1>
+            <div className="EditNote">
+                <h4 className="Title">Edit Note:</h4>
                 <form>
-                    <input type='text' placeholder='New Title'></input>
-                    <input type='text' placeholder='New Content'></input>
-                    <button>Update</button>
+                    <input type='text' name='name' placeholder='New Title' onChange={this.handleChange}></input>
+                    <input type='text' name='text' placeholder='New Content' onChange={this.handleChange}></input>
+                    <button onClick={this.handleSubmit}>Update</button>
                 </form>
             </div>
         );

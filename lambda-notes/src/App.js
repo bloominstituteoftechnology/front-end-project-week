@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
 import NavBar from './components/NavBar';
 import AddNote from './components/AddNote';
+import EditNote from './components/EditNote';
 import Note from './components/Note';
 
 class App extends Component {
@@ -29,7 +30,8 @@ class App extends Component {
         <Route path="/" component={NavBar} />
         <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
         <Route exact path="/AddNote" component={AddNote} />
-        <Route path="/notes/:id" component={Note} />
+        <Route exact path="/notes/:id" component={Note} />
+        <Route exact path="/notes/:id/EditNote" component={EditNote} />
       </div>
     );
   }

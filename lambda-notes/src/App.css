@@ -1,19 +1,55 @@
 .App {
+  width: 100%;
+  height: 100%;
   display: flex;
   text-align: center;
 }
 
 .NavBar {
+  width: 300px;
+  min-height: 700px;
+  background-color: rgb(214, 214, 213);
   display: flex;
   flex-direction: column;
 }
 
-.AddNote {
-  background-color: rgb(214, 214, 213);
+.ListView {
+  background-color: rgb(241, 241, 241);
+}
+
+.AddNote, .EditNote {
+  width: 3000px;
+  background-color: rgb(241, 241, 241);
+}
+
+.Title {
+  text-align: left;
+  padding: 1%;
+}
+
+.ListCards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .ListCard {
-  width: 300px;
+  width: 360px;
+  margin: 1%;
+}
+
+.Note {
+  background-color: rgb(241, 241, 241);
+  min-height: 700px;
+
+}
+
+.Note__nav {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration-line: underline;
+  font-weight: 700;
 }
 
 /* The blue color is #2EB8BC

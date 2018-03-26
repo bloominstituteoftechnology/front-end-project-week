@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, CardBody, CardHeader, CardText } from 'reactstrap';
 
 class ListView extends Component {
     state = {
@@ -11,17 +12,20 @@ componentDidMount(){
 }
 
     render() {
-        console.log(this.state.notes[0])
         return (
-            <div>
-                <h1>Your Notes</h1>
-                <div>
+            <div className="ListView">
+                <h4 className="Title">Your Notes</h4>
+                <div className="ListCards">
                     {this.state.notes.map(((note) => {
                         return (
-                            <div className="ListCard">
+                            <div className="ListCard" key={note.id}>
                                 <Link to={{pathname: `/notes/${ note.id }}`, state: { currentNote: note }}}>
-                                    <h5>{note.title}</h5>
-                                    <h5>{note.text}</h5>
+                                    <Card>
+                                        <CardHeader>{note.title}</CardHeader>
+                                        <CardBody>
+                                        <CardText>{note.text}</CardText>
+                                        </CardBody>
+                                    </Card>
                                 </Link>
                             </div>
                         )

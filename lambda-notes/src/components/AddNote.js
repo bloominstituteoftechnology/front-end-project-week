@@ -6,14 +6,24 @@ class AddNote extends Component {
         text: '',
     }
 
+    handleChange = (e) => {
+        this.setState({ [e.target.name]: e.target.value})
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.setState({ name: '', text: ''})
+        this.props.history.push('/');
+    }
+
     render() {
         return (
             <div className="AddNote">
-                <h1>Create New Note:</h1>
+                <h4 className="Title">Create New Note:</h4>
                 <form>
-                    <input type='text' placeholder='New Title'></input>
-                    <input type='text' placeholder='New Content'></input>
-                    <button>Save</button>
+                    <input type='text' name='name' placeholder='New Title' onChange={this.handleChange} value={this.state.name}></input>
+                    <input type='text' name='text' placeholder='New Content' onChange={this.handleChange} value={this.state.text}></input>
+                    <button onClick={this.handleSubmit}>Save</button>
                 </form>
             </div>
         );
