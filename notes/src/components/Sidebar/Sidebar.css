@@ -1,0 +1,25 @@
+/* .container {
+  display: inline-block;
+  background: gray;
+} */
+
+.SidebarText {
+  padding-bottom: 30px;
+  font-size: 2rem;
+}
+
+.SidebarButtons .buttonRow1 {
+  padding-bottom: 15px;
+}
+
+.SidebarButtons .buttonRow2 {
+  padding-top: 0px;
+}
+
+.SidebarButtons .Button1 {
+  padding: 15px;
+}
+
+.SidebarButtons .Button2 {
+  padding: 15px;
+}
