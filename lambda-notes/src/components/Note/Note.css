@@ -1,11 +1,24 @@
+.yourNotes {
+   margin:5px;
+   background: lightGrey;
+}
+.yourNotes h2 {
+   padding-left: 2px;
+   text-align: left;
+   color:#5F5B58;
+}
+
 .note {
  border:1px solid grey;
  margin: 10px;
  padding: 5px;
+ height: 220px;
+ width:200px;
 }
 
 .noteTitle {
    border-bottom: 1px solid grey;
+   margin:5px 15px 15px 15px;
 }
 
 .noteContent {

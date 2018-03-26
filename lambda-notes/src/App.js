@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Note from './components/Note/Note';
+
+import ListNotes from './components/ListNotes/ListNotes';
 
 import logo from './logo.svg';
 import './App.css';
@@ -21,12 +22,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-
-        <div className="yourNotes">
-          {this.state.notes.map((note, i) => (
-            <Note key={i} index={i} title={note.title} content={note.content} />
-          ))}
-        </div>
+        <ListNotes notes={this.state.notes}> </ListNotes>
       </div>
     );
   }
