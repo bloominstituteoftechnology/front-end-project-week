@@ -1,0 +1,18 @@
+.appContainer {
+  display: flex;
+  justify-content: flex-start;
+  /* border: 1px dotted blue; */
+  min-width: 100%;
+  height: 600px;
+}
+
+.navCol {
+  background-color: #d3d2d3;
+  /* border: 1px dashed rgb(7, 245, 7); */
+  max-width: 200px;
+}
+
+.listCol {
+  /* max-width: 800px; */
+  width: 100%;
+}

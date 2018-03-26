@@ -1,0 +1,18 @@
+.navDiv {
+  height: 600px;
+}
+
+h2 {
+  padding: 10px;
+}
+
+.addNavLinks {
+  background-color: #30b8bc;
+  color: white;
+  font-size: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 140px;
+  text-align: center;
+}
