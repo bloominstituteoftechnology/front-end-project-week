@@ -1,5 +1,11 @@
 https://trello.com/b/IAIo74X4/lambda-notes-jeremy-kepf
 
+blue color : #2EB8BC
+
+gray color : #D3D2D3
+
+color of _Your Notes_ : #5F5B58
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
