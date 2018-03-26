@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import { notes } from './notes';
+import { notes } from '../notes';
 import { Sample } from './sample-card';
-import '../style/page.css';
+import '../pagestyles/page.css';
 
 class Front extends Component{
 

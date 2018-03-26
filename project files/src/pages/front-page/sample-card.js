@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/card.css';
+import '../pagestyles/card.css';
 export const Sample = () => {
     return(
         <div className='sample-card-container'>

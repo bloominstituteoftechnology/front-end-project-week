@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './navigation';
-import Front from './front-page'
+import Routes from './routes'
+// import Front from './pages/front-page'
 import './style/App.css'
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Front />
+        <Routes />
       </div>
     );
   }
