@@ -3,6 +3,7 @@ import '../Styles/App.css';
 
 import Navigation from './Navigation/Navigation';
 import ListNotes from './ListNotes/ListNotes';
+import CreateNewNote from './CreateNewNote/CreateNewNote';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           </div>
           <div className="listCol">
             <Route exact path="/" component={ListNotes} />
+            <Route path="/add" component={CreateNewNote} />
           </div>
         </div>
       </Fragment>
