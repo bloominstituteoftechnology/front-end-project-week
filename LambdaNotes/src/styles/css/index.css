@@ -13,6 +13,16 @@
 .sideBar-Contents {
   margin: 5% 5%;
 }
+.sideBar-Button {
+  margin-bottom: 5%;
+  background-color: #2EB8BC;
+}
+.create {
+  padding: 3% 7%;
+}
+.view {
+  padding: 3% 11.5%;
+}
 * {
   box-sizing: border-box;
 }
