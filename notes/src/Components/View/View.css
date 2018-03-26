@@ -7,6 +7,10 @@
   text-align:left;
   margin-left:10%;
 }
+.notePanel{
+  height:200px;
+  width:80%;
+}
 .main{
   background:#F3F3F3;
   height:1000px;
