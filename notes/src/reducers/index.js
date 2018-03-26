@@ -4,6 +4,6 @@ const initialState = {
   notes: ["Note 1", "Note 2"]
 };
 
-function notes(state = initialState, action) {
+export default function notes(state = initialState, action) {
   return state;
 }
