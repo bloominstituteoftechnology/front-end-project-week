@@ -1,28 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import DeleteNote from './DeleteNote';
-//import PropTypes from 'prop-types';
+import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 
-const Note = props => {
+class Note extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            modal: false
+        };
     
-    const handleDelete = () => {
-        props.history.push('/');
+        this.toggle = this.toggle.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+
+    }
+    
+    toggle() {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
+    
+    handleDelete = () => {
+        this.props.history.push('/');
     }
 
+    render() {
     return (
         <div className="Note">
             <div className="Note__nav">
-                <Link to={`/notes/${props.location.state.currentNote.id}/EditNote`}>edit</Link>
-                <DeleteNote delete={handleDelete}/>
+                <Link className="Nav__item" to={`/notes/${this.props.location.state.currentNote.id}/EditNote`}>edit</Link>
+                <div className="Nav__item">
+                    <a className="Nav__item" onClick={this.toggle}>delete</a>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
+                    <ModalFooter>
+                        <Button color="danger" onClick={this.handleDelete}>Do Something</Button>
+                        <Button className="Button" onClick={this.toggle}>Cancel</Button>
+                    </ModalFooter>
+                    </Modal>
+                </div>
             </div>
-            <h5>{props.location.state.currentNote.title}</h5>
-            <h5>{props.location.state.currentNote.text}</h5>
+            <h4 className="Title">{this.props.location.state.currentNote.title}</h4>
+            <p className="Content">{this.props.location.state.currentNote.text}</p>
         </div>
     );
 };
-
-// Note.propTypes = {
-    
-// };
+}
 
 export default Note;

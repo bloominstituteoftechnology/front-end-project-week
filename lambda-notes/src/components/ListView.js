@@ -21,7 +21,7 @@ componentDidMount(){
                             <div className="ListCard" key={note.id}>
                                 <Link to={{pathname: `/notes/${ note.id }}`, state: { currentNote: note }}}>
                                     <Card>
-                                        <CardHeader>{note.title}</CardHeader>
+                                        <CardHeader className="Title">{note.title}</CardHeader>
                                         <CardBody>
                                         <CardText>{note.text}</CardText>
                                         </CardBody>

@@ -5,11 +5,21 @@
   text-align: center;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .NavBar {
-  width: 300px;
+  min-width: 200px;
   min-height: 700px;
   background-color: rgb(214, 214, 213);
   display: flex;
+  align-content: center;
   flex-direction: column;
 }
 
@@ -18,31 +28,48 @@
 }
 
 .AddNote, .EditNote {
-  width: 3000px;
+  width: 3300px;
   background-color: rgb(241, 241, 241);
+}
+
+.Inputtext {
+  padding-bottom: 10px;
+  margin: 1% 3%;
+  width: 40%;
+  text-align: start;
+}
+
+.Inputfield {
+  padding-bottom: 400px;
+  width: 90%;
+  text-align: start;
+  margin: 1% 3%;
 }
 
 .Title {
   text-align: left;
-  padding: 1%;
+  padding: 1% 3%;
 }
 
 .ListCards {
-  width: 100%;
+  width: 100%; 
+  padding: 0 3%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .ListCard {
-  width: 360px;
+  flex: 1 0 30%;
+  height: 240px;
+  min-width: 200px;
   margin: 1%;
+  overflow: hidden;
 }
 
 .Note {
   background-color: rgb(241, 241, 241);
   min-height: 700px;
-
 }
 
 .Note__nav {
@@ -50,8 +77,26 @@
   justify-content: flex-end;
   text-decoration-line: underline;
   font-weight: 700;
+  margin: 1%
 }
 
-/* The blue color is #2EB8BC
-The gray color on lefthand side is #D3D2D3
-The color of _Your Notes_ is #5F5B58 */
+.Button {
+  width: 160px;
+  border: 1px solid black;
+  background-color: #2EB8BC;
+  color: white;
+  margin: 3%;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Content {
+  padding: 3%;
+}
+
+.Nav__item {
+  margin: 0 1%
+}
