@@ -17,6 +17,3 @@
   margin: 1rem 0;
   overflow: hidden;
 }
-.note::after {
-  content: "...";
-}

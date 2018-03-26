@@ -12,6 +12,7 @@ class Note extends Component {
       <Card className="note">
         <CardBody>
           <CardTitle>{this.props.note.title}</CardTitle>
+          <hr />
           <CardText>{this.props.note.note}</CardText>
         </CardBody>
       </Card>
