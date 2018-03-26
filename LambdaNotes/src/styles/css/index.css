@@ -1,5 +1,6 @@
 .app {
   display: flex;
+  height: 100vh;
 }
 .sideBar {
   background: #D3D2D3;
@@ -21,7 +22,7 @@
   padding: 3% 13%;
 }
 .view {
-  padding: 3% 17.5%;
+  padding: 3% 17%;
 }
 * {
   box-sizing: border-box;
