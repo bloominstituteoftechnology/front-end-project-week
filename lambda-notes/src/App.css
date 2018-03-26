@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  text-align: center;
+}
+
+.NavBar {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddNote {
+  background-color: rgb(214, 214, 213);
+}
+
+.ListCard {
+  width: 300px;
+}
+
+/* The blue color is #2EB8BC
+The gray color on lefthand side is #D3D2D3
+The color of _Your Notes_ is #5F5B58 */
