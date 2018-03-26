@@ -18,9 +18,9 @@ class ViewNotes extends Component {
           <div className="Cards">
             <Card className="Card">
               <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                   non ipsam laborum odit nesciunt impedit reprehenderit ...
                 </CardText>
@@ -28,20 +28,9 @@ class ViewNotes extends Component {
             </Card>
             <Card className="Card">
               <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  non ipsam laborum odit nesciunt impedit reprehenderit ...
-                </CardText>
-              </CardBody>
-            </Card>
-
-            <Card className="Card">
-              <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                   non ipsam laborum odit nesciunt impedit reprehenderit ...
                 </CardText>
@@ -50,19 +39,9 @@ class ViewNotes extends Component {
 
             <Card className="Card">
               <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  non ipsam laborum odit nesciunt impedit reprehenderit ...
-                </CardText>
-              </CardBody>
-            </Card>
-            <Card className="Card">
-              <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                   non ipsam laborum odit nesciunt impedit reprehenderit ...
                 </CardText>
@@ -71,9 +50,19 @@ class ViewNotes extends Component {
 
             <Card className="Card">
               <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                  non ipsam laborum odit nesciunt impedit reprehenderit ...
+                </CardText>
+              </CardBody>
+            </Card>
+            <Card className="Card">
+              <CardBody>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                   non ipsam laborum odit nesciunt impedit reprehenderit ...
                 </CardText>
@@ -82,19 +71,9 @@ class ViewNotes extends Component {
 
             <Card className="Card">
               <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  non ipsam laborum odit nesciunt impedit reprehenderit ...
-                </CardText>
-              </CardBody>
-            </Card>
-            <Card className="Card">
-              <CardBody>
-                <CardTitle>Note Title</CardTitle>
-
-                <CardText>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                   non ipsam laborum odit nesciunt impedit reprehenderit ...
                 </CardText>
@@ -103,9 +82,30 @@ class ViewNotes extends Component {
 
             <Card className="Card">
               <CardBody>
-                <CardTitle>Note Title</CardTitle>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                  non ipsam laborum odit nesciunt impedit reprehenderit ...
+                </CardText>
+              </CardBody>
+            </Card>
+            <Card className="Card">
+              <CardBody>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+                  non ipsam laborum odit nesciunt impedit reprehenderit ...
+                </CardText>
+              </CardBody>
+            </Card>
 
-                <CardText>
+            <Card className="Card">
+              <CardBody>
+                <CardTitle className="CardTitlex" className="CardTextx">Note Title</CardTitle>
+                <hr className="CardDivider" />
+                <CardText className="CardTextx">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
                   non ipsam laborum odit nesciunt impedit reprehenderit ...
                 </CardText>

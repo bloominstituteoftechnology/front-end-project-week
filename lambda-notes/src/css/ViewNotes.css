@@ -52,3 +52,16 @@
   border-color: #5f5b58;
   border-radius: 0%;
 }
+.CardTitlex {
+  text-align: left;
+  
+}
+
+.CardTextx {
+  text-align: left;
+}
+
+.CardDivider {
+  margin: 10px 0px;
+  border: 1.5px solid #d3d2d3;
+}
