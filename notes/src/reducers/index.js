@@ -1,4 +1,4 @@
-import {ADD,add} from '../actions';
+import {ADD} from '../actions';
 
 const defaultState = {
   notes:[]

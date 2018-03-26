@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Panel,Grid,Row,Col,Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Panel} from 'react-bootstrap';
 
 class Note extends Component{
   render(){

@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
-import {Panel,Grid,Row,Col,Button} from 'react-bootstrap';
+import {Grid,Row,Col,Button} from 'react-bootstrap';
 import "./View.css";
 import {Link} from 'react-router-dom';
 import Note from "../Note/Note.js";
 
 class View extends Component{
-  constructor(props){
-    super(props);
-  }
   render(){
     return(
       <Grid className="grid">
