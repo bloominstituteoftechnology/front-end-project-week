@@ -1,4 +1,4 @@
-import  { SEE_NOTE } from './actions/index';
+import  { SEE_NOTE } from '../actions';
 import notes from '../dummyData';
 
 const initialState = {
@@ -11,6 +11,6 @@ export const rootReducer = (state = initialState, action) => {
       return { ...state, current: action.payload };
 
     default:
-      return: state;
+      return state;
   }
 }

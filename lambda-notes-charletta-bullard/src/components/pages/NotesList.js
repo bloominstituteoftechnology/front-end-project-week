@@ -17,7 +17,7 @@ class NotesList extends Component {
           {this.props.notes.map (note => {
             return (
               <li className='note-container noteslist' key={note.id}>
-                <Link to {`/note/${note.id}`} onClick={this.seeNote}>
+                <Link to='note' params={`${note.id}`} onClick={this.seeNote}>
                   <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
                 </Link>
               </li>
@@ -40,4 +40,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { seeNote }) (NotesList);
+export default connect(mapStateToProps, { SEE_NOTE }) (NotesList);
