@@ -1,9 +1,9 @@
-.ViewNotes {
+.TodoList {
+  display: flex;
   text-align: center;
   border: 1px solid #D3D3D3;
   margin: 0 auto;
   max-width: 1000px;
-  display: flex;
   width: 100%;
 }
 
@@ -31,11 +31,13 @@
 }
 
 .RightSide {
-  max-width: 75%;
+  width: 75%;
   background-color: #f5f5f5;
   border: 1px solid #d3d2d3;
+  
 }
-.YourNotes {
+
+.CreateNewNote {
   margin-top: 40px;
   margin-left: 40px;
   text-align: left;
@@ -43,29 +45,18 @@
   font-weight: bold;
 }
 
-.Cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 80px;
+.FormDiv {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-bottom: 240px;
 }
 
-.Card {
-  width: 200px;
-  margin: 15px;
-  border-color: #5f5b58;
+.SubmitButton {
+  background-color: #2eb8bc;
+  width: 220px;
+  margin-top: 20px;
   border-radius: 0%;
-}
-.CardTitlex {
-  text-align: left;
-  
+  border-color: #5f5b58;
 }
 
-.CardTextx {
-  text-align: left;
-}
-
-.CardDivider {
-  margin: 10px 0px;
-  border: 1.5px solid #d3d2d3;
-}
