@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Front from '../pages/front-page'
-import New from '../pages/new';
+import  { Front, NewNote, SingleNote, EditNote }  from '../pages/';
 import Nav from '../navigation';
-import SingleNote from '../pages/singular';
-import EditNote from '../pages/edit';
+
 import { notes } from '../pages/notes'
 
 import './route.css';
@@ -38,7 +36,7 @@ render(){
  
         {/* <div> */}
          <Route path='/' exact component={ Front } /> 
-         <Route path='/new' component={ New } />
+         <Route path='/new' component={ NewNote } />
          <Route path='/note/:id' component={ SingleNote } />
          <Route path='/edit/:id' component={ EditNote }/>
         {/* </div> */}
