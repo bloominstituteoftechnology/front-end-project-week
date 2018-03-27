@@ -41,10 +41,12 @@ button.btn.btn-secondary {
   line-height: 85%;
 }
 /* Button Color: 2bc1c4 */
-a.header {
+.header-link {
   text-decoration: underline;
+  color: #4a4a4a;
+  cursor: pointer;
 }
-a.header:hover {
+.header-link:hover {
   color: black;
 }
 

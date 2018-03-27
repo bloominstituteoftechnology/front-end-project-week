@@ -26,22 +26,19 @@ class DeleteModal extends Component {
   render() {
     return (
       <div>
-        <a className="header" onClick={this.toggle}>
+        <div className="header-link" onClick={this.toggle}>
           {this.props.buttonLabel}
-        </a>
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}
-        >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>Are you sure you want to delete this note?</ModalBody>
-          <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>
+        </div>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ModalBody className="text-center">
+            Are you sure you want to delete this?
+          </ModalBody>
+          <ModalFooter className="d-flex justify-content-around ">
+            <Button className="w-50" color="danger" onClick={this.toggle}>
               Delete
             </Button>{" "}
-            <Button color="secondary" onClick={this.toggle}>
-              Cancel
+            <Button className="w-50" color="secondary" onClick={this.toggle}>
+              No
             </Button>
           </ModalFooter>
         </Modal>
