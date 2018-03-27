@@ -3,3 +3,34 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+
+.header {
+  color: #4A4A4A;
+}
+
+.noteHeader {
+  color: #4A4A4A;
+}
+
+.banner {
+  background-color: #D8D8D8;
+}
+
+.contBody {
+  background-color: #F3F3F3;
+
+}
+
+.navButton {
+  width: 95%;
+  height: 50px;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  border: none;
+}
+
+.noteBody {
+  width: 100%;
+}
