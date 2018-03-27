@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Button } from "reactstrap";
 
 class Modal extends Component {
   render() {
@@ -10,13 +11,13 @@ class Modal extends Component {
 
     // The gray background
     const backdropStyle = {
-      position: "fixed",
+      // position: "fixed",
       top: 0,
       bottom: 0,
       left: 0,
       right: 0,
       backgroundColor: "rgba(0,0,0,0.3)",
-      alpha: 0.75,
+      alpha: 0.5,
       padding: 50
     };
 
@@ -33,10 +34,14 @@ class Modal extends Component {
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          {this.props.children}
-
+          Is this displaying?
           <div className="footer">
-            <button onClick={this.props.onClose}>Close</button>
+            <Button color="secondary" onClick={this.props.onClose}>
+              Cancel
+            </Button>
+            <Button color="warning" onClick={this.props.deleteConfirm}>
+              Delete
+            </Button>
           </div>
         </div>
       </div>

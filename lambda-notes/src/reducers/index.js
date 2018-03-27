@@ -1,6 +1,7 @@
 // import { combineReducers } from "redux";
 import { ADD_NEW_NOTE } from "../actions/newNote";
 import { EDIT_NOTE } from "../actions/editNote";
+import { DELETE_NOTE } from "../actions/deleteNote";
 
 const initState = {
   notes: [
@@ -28,6 +29,9 @@ export default (state = initState, action) => {
       let notes = state.notes.filter(item => item.id !== action.payload.id);
       notes.unshift(action.payload);
       return { ...state, notes };
+    case DELETE_NOTE:
+      let newNotes = state.notes.filter(item => item.id !== action.payload);
+      return { ...state, notes: newNotes };
     default:
       return state;
   }
