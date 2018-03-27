@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class NoteView extends Component {
+  state = {
+    isOpen: false
+  };
   render() {
     const currentNote = this.props.notes.filter(
       item => Number(item.id) === Number(this.props.match.params.id)
@@ -17,6 +20,10 @@ class NoteView extends Component {
       </div>
     );
   }
+
+  toggleModal = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
 }
 
 const mapStateToProps = state => {
