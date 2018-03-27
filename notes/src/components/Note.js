@@ -9,17 +9,11 @@ function mapStateToProps(state) {
 
 class Note extends Component {
   render() {
-    return (
-      <Link to={`/${this.props.note.title}`}>
-        <Card className="note">
-          <CardBody>
-            <CardTitle>{this.props.note.title}</CardTitle>
-            <hr />
-            <CardText>{this.props.note.note}</CardText>
-          </CardBody>
-        </Card>
-      </Link>
-    );
+    return <div>Note Loading</div>;
+  }
+
+  componentDidMount() {
+    console.log(this.props.match);
   }
 }
 

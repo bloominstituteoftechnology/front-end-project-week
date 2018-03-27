@@ -17,3 +17,11 @@
   margin: 1rem 0;
   overflow: hidden;
 }
+
+a.card-link {
+  text-decoration: none;
+  color: black;
+}
+a.card-link:hover {
+  color: black;
+}

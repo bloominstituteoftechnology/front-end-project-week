@@ -4,6 +4,7 @@ import "./App.css";
 import Nav from "./components/Nav";
 import Display from "./components/Display";
 import NoteForm from "./components/NoteForm";
+import Note from "./components/Note";
 import { Row, Col, Container, Button } from "reactstrap";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -19,6 +20,10 @@ const routes = [
     path: "/createNote",
     sidebar: () => <Button>+ Create Note</Button>,
     main: () => <NoteForm />
+  },
+  {
+    path: "/viewNotes/:id",
+    main: Note
   }
 ];
 
@@ -48,6 +53,7 @@ class App extends Component {
                   component={route.main}
                 />
               ))}
+              <Route path="/viewNotes/:id" component={Note} />
             </Col>
           </Row>
         </Container>

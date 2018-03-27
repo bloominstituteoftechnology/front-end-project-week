@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Note from "./Note";
-import { Col, Row, Container } from "reactstrap";
+import {
+  Col,
+  Row,
+  Container,
+  Card,
+  CardBody,
+  CardTitle,
+  CardText
+} from "reactstrap";
+import { Link } from "react-router-dom";
 
 function mapStateToProps(state) {
   return {
@@ -20,7 +29,15 @@ class NotesList extends Component {
           {this.props.notes.map(note => {
             return (
               <Col sm={4}>
-                <Note note={note} />
+                <Link className="card-link" to={`/viewNotes/${note.id}`}>
+                  <Card className="note">
+                    <CardBody>
+                      <CardTitle>{note.title}</CardTitle>
+                      <hr />
+                      <CardText>{note.note}</CardText>
+                    </CardBody>
+                  </Card>
+                </Link>
               </Col>
             );
           })}
