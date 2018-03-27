@@ -9,6 +9,16 @@ const StyledHLP = styled.div`
     flex-direction: column;
     text-align: center;
     background: lightgray;
+    width: 30%;
+
+    h2 {
+        margin-bottom: 2px;
+    }
+
+    button {
+        font-size: 12px;
+        width: 80%;
+    }
 
 
 
@@ -17,11 +27,13 @@ const StyledHLP = styled.div`
 const HomeLeftPanel = () => {
     return(
     <StyledHLP>
+        <div> Lambda </div>
+        <div> Notes </div>
         <Link to='/'>
-        <button> 'View Your Notes' </button>
+        <button> View Your Notes </button>
         </Link>
         <Link to='/create-new-note/'>
-        <button> '+ Create New Note' </button>
+        <button> + Create New Note </button>
         </Link>
     </StyledHLP>
     )

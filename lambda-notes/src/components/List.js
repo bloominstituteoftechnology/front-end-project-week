@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './List.css';
 import NoteList from './NoteList';
 import CreateNewNote from './CreateNewNote';
 import HomeLeftPanel from './HomeLeftPanel';
