@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import './CreateNote.css';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 
@@ -15,6 +17,17 @@ export default class CreateNote extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.setState({ title: '', content: '' });
+    axios
+      .post('http://localhost:5000/notes', {
+        title: this.state.title,
+        content: this.state.content
+      })
+      .then(response => {
+        this.setState({ title: '', content: '' });
+      })
+      .catch(error => {
+        console.log(`There was an error adding a new note: ${error}`);
+      });
   };
 
   render() {
@@ -29,16 +42,16 @@ export default class CreateNote extends Component {
               name="title"
               placeholder="Note Title"
               onChange={this.handleChange}
-              value={this.state.name}
-            />{' '}
+              value={this.state.title}
+            />
             <Input
               className="input-content"
               type="textarea"
               name="content"
               placeholder="Note Content"
               onChange={this.handleChange}
-              value={this.state.name}
-            />{' '}
+              value={this.state.content}
+            />
           </FormGroup>
           <Button
             className="btn float-left save-button"
