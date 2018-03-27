@@ -5,7 +5,7 @@ import { addNote } from "../actions";
 import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
-  return {};
+  return { notes: state.notes };
 }
 
 class NoteForm extends Component {
@@ -31,6 +31,16 @@ class NoteForm extends Component {
     this.setState({ newNote: { title: "", note: "" } });
     this.props.history.push("/");
   }
+  componentDidMount() {
+    if (this.props.match.params.id !== undefined) {
+      this.setState({
+        newNote: this.props.notes.filter(
+          note => this.props.match.params.id == note.id
+        )[0]
+      });
+    }
+  }
+
   render() {
     return (
       <Container className="my-5">
