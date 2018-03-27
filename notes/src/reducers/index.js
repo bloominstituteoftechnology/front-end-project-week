@@ -29,15 +29,9 @@ function modifyNotes(state=[],action){
         }
       });
     case REMOVE:
-    console.log('in');
-      return state.map( (e,i)=>{
-        if(i === parseInt(action.id,10)){
-          return
-        }
-        else{
-          return e;
-        }
-      });
+    return [
+      ...state.slice(0,action.id),...state.slice(action.id + 1)
+    ]
     default:
       return state;
   }

@@ -16,14 +16,16 @@ class Note extends Component{
     if(props.id || props.id >= 0){
       this.state = {
         id: props.id ,
-        thumbNail:true
+        thumbNail:true,
+        text: props.info.notes[props.id].text
       }
     }
     else{
       this.state ={
         id: props.location.pathname.slice(7),
         thumbNail:false,
-        show:false
+        show:false,
+        text:''
       }
     }
   }
@@ -36,9 +38,7 @@ class Note extends Component{
   }
 
   handleDelete(){
-    console.log(this.state.id);
     this.props.remove(this.state.id);
-    console.log(this.props.info.notes);
   }
 
   render(){
@@ -47,13 +47,12 @@ class Note extends Component{
       fontFamily:'Raleway',
     }
     if(this.state.thumbNail){
-      if(this.props.info.notes[this.state.id]){
-        let text = this.props.info.notes[this.state.id].text;
-        if(text.length > 54){
-          text = text.slice(0,50) + '...';
+      if(this.props.info.notes[this.state.id] && this.state.text){
+        if(this.state.text.length > 54){
+          this.state.text = this.state.text.slice(0,50) + '...';
         }
         else{
-          text = text + '...';
+          this.state.text += '...';
         }
       return(
       <div>
@@ -63,7 +62,7 @@ class Note extends Component{
           }</Panel.Title>
           <Panel.Body style={style} className="content">
            { 
-             text
+             this.state.text
                }
                <br/>
               </Panel.Body>
@@ -111,7 +110,9 @@ class Note extends Component{
                       </Modal.Header>
                       <Modal.Body>Are you sure you want to delete this?</Modal.Body>
                       <Modal.Footer>
+                      <Link to={'/'}>
                         <Button className="btn" onClick={this.handleDelete}>Delete</Button>
+                      </Link>
                         <Button className="btn" onClick={this.reset}>No</Button>
                       </Modal.Footer>
                     </Modal.Dialog>
@@ -156,7 +157,7 @@ class Note extends Component{
                   }</Panel.Title>
                   <Panel.Body style={style} className="content">
                  { 
-                   this.props.info.notes[this.state.id].text
+                   this.state.text
                  }
                  <br/>
                   </Panel.Body>
