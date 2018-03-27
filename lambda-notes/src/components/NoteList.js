@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { } from '../actions';
 import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
-import './NoteList.css';
+
+
+const StyledNoteList = styled.div`
+    width: 80%;
+    background: white;
+
+`;
 
 class NoteList extends Component {
 
     render() {
         return (
-        <div className="NoteList">
+        <StyledNoteList>
         <div className="NoteList__header"> Your Notes: </div>
         <Row className="d-flex flex-wrap mx-2">
         
@@ -25,7 +32,7 @@ class NoteList extends Component {
                 );
             })}
         </Row>
-        </div>
+        </StyledNoteList>
         )
     };
 }

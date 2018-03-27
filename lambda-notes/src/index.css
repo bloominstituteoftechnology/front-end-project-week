@@ -1,6 +1,10 @@
+html {
+  width: 100%;
+}
+
 body {
   padding: 0;
   font-family: sans-serif;
-  width: 85%;
-  margin: auto;
+  width: 100%;
+  background: grey;
 }
