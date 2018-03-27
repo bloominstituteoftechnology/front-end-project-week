@@ -11,7 +11,11 @@ class YourNotes extends Component {
         <h1>Your Notes:</h1>
         <CardColumns>
           {this.props.notes.map(note => 
-            <NoteCard key={note.id} title={note.title} text={note.text} />
+            <NoteCard 
+            key={note.id} 
+            title={note.title} 
+            text={note.text} 
+            id={note.id} />
           )}
         </CardColumns>
       </div>

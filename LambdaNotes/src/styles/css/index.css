@@ -24,6 +24,9 @@
 .view {
   padding: 3% 17%;
 }
+Link {
+  text-decoration-color: black;
+}
 * {
   box-sizing: border-box;
 }
