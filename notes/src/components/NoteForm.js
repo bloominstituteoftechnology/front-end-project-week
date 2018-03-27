@@ -10,10 +10,10 @@ class NoteForm extends Component {
   render() {
     return (
       <Container className="my-5">
-        <h1>Create New Note:</h1>
+        <h3 className="header my-4">Create New Note:</h3>
         <Form>
           <FormGroup>
-            <Input type="text" placeholder="Note Title" />
+            <Input className="w-50" type="text" placeholder="Note Title" />
           </FormGroup>
           <FormGroup>
             <textarea
@@ -24,7 +24,9 @@ class NoteForm extends Component {
               cols="50"
             />
           </FormGroup>
-          <Button type="submit">Save</Button>
+          <Button className="w-25" type="submit">
+            Save
+          </Button>
         </Form>
       </Container>
     );

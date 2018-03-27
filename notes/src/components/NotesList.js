@@ -23,7 +23,7 @@ class NotesList extends Component {
     return (
       <Container className="my-5">
         <Row>
-          <h1>Your Notes:</h1>
+          <h3 className="header">Your Notes:</h3>
         </Row>
         <Row>
           {this.props.notes.map(note => {

@@ -6,10 +6,10 @@
 }
 
 .leftSide {
-  background: lightseagreen;
+  background: #d8d8d8;
 }
 .rightSide {
-  background: lightcyan;
+  background: #f3f3f3;
 }
 
 .note {
@@ -25,3 +25,15 @@ a.card-link {
 a.card-link:hover {
   color: black;
 }
+button.btn.btn-secondary {
+  background: #2bc1c4;
+  font-weight: bold;
+  border-radius: 0;
+}
+/* Header text color: 4a4a4a */
+.header {
+  color: #4a4a4a;
+  font-weight: bold;
+  line-height: 80%;
+}
+/* Button Color: 2bc1c4 */

@@ -34,14 +34,14 @@ class App extends Component {
         <Container fluid={true} className="App">
           <Row className="app-wrapper">
             <Col sm={3} className="leftSide">
-              <h1>Lambda Notes</h1>
+              <h1 className="header my-4">Lambda Notes</h1>
 
               <Link to="/">
-                <Button className="w-100 my-2 p-3">View Notes</Button>
+                <Button className="w-100 my-2 p-2">View Your Notes</Button>
               </Link>
 
               <Link to="/createNote">
-                <Button className="w-100 my-2 p-3">+ Create Note </Button>
+                <Button className="w-100 my-2 p-2">+ Create Note </Button>
               </Link>
             </Col>
             <Col sm={9} className="rightSide ">
