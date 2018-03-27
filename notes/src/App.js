@@ -7,15 +7,18 @@ import CreateNew from './components/CreateNew/CreateNew.js';
 import NoteView from './components/NoteView/NoteView.js';
 import EditNote from './components/EditNote/EditNote.js';
 
+import NavRoute from "./router/NavRoute.js";
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar />
+        {/* <Sidebar />
         <Notes />
         <CreateNew />
         <NoteView />
-        <EditNote />
+        <EditNote /> */}
+        <NavRoute />
       </div>
     );
   }
