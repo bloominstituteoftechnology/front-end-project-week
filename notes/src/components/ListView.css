@@ -1,0 +1,41 @@
+.listContainer {
+  width: 100%;
+  height: inherit;
+  border: 1px solid #b5b5b5;
+  background-color: #f3f3f3;
+  padding: 20px;
+}
+
+.listHeader {
+  text-align: center;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-bottom: 40px;
+}
+
+.listBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media screen and (min-width: 400px) {
+  .listHeader {
+    text-align: left;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-top: 70px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+  }
+
+  .listBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,18 @@
+.App {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  /* height: 100%; */
+}
+
+@media screen and (min-width: 400px) {
+  .App {
+    max-height: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+}
