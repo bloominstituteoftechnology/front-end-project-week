@@ -36,8 +36,7 @@ class Note extends Component{
   }
 
   handleDelete(){
-    console.log('test');
-    console.log(this.props);
+    console.log(this.state.id);
     this.props.remove(this.state.id);
     console.log(this.props.info.notes);
   }
@@ -75,15 +74,12 @@ class Note extends Component{
       else{
         return(
         <div>
-          <h1>There is no note here</h1>
         </div>
         );
       }
     }
     else{
       if(this.props.info.notes[this.state.id]){
-        console.log(this.props.info.notes[this.state.id]);
-        console.log(this.state.id);
         if(this.state.show){
           return(
           <div>
@@ -192,7 +188,7 @@ class Note extends Component{
               </div>
             </Col>
             <Col xs={9} md={9} lg={9} className="col">
-              <h1>There is no note here</h1>
+              <div></div>
             </Col>
           </Row>
         </Grid>
