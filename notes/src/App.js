@@ -29,6 +29,8 @@ const routes = [
 
 class App extends Component {
   render() {
+    document.body.style.background = "#f3f3f3";
+
     return (
       <Router>
         <Container fluid={true} className="App">
