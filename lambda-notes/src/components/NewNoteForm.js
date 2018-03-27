@@ -40,8 +40,8 @@ const StyledNewNoteForm = styled.div`
 
 class NewNoteForm extends React.Component {
     state = {
-      newTitle: '',
-      newText: ''
+      title: '',
+      text: ''
     }
   
     addNote = (event) => {
@@ -49,12 +49,13 @@ class NewNoteForm extends React.Component {
       console.log('addNote FIRED')
       this.props.addNote({
         ...this.state,
-        title: this.state.newTitle,
-        text: this.state.newText,
+        title: this.state.title,
+        text: this.state.text,
+        id: this.props.notes.length,
       })
       this.setState({
-        newTitle: '',
-        newText: '',
+        title: '',
+        text: '',
         redirect: true,
       })
     }
@@ -68,11 +69,12 @@ class NewNoteForm extends React.Component {
       }
 
       render () {
+        console.log('NNF this.props', this.props)
           return (
             <StyledNewNoteForm>
               <form>
-                <input className="title" type="text" name="newTitle" placeholder="Title" onChange={this.handleChange} value={this.state.newTitle}/>
-                <textarea className="text" type="text" name="newText" placeholder="Text" onChange={this.handleChange} value={this.state.newText}/>
+                <input className="title" type="text" name="title" placeholder="Title" onChange={this.handleChange} value={this.state.title}/>
+                <textarea className="text" type="text" name="text" placeholder="Text" onChange={this.handleChange} value={this.state.text}/>
                 <button onClick={this.addNote}>Save</button>
                 {this.state.redirect ? <Redirect to='/' /> : null}
               </form>
@@ -83,7 +85,7 @@ class NewNoteForm extends React.Component {
 
     const mapStateToProp = (state) => {
       return {
-        notes: state.notes,
+        notes: state,
       }
     }
     

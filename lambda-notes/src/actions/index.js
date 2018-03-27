@@ -8,8 +8,8 @@ export const addNote = note => {
     return {
         type: ADD_NOTE,
         note: note,
-        id: ++nextId,
         title: note.title,
         text: note.text,
+        id: ++nextId,
     };
 };

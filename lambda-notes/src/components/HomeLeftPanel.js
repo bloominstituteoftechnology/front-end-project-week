@@ -46,4 +46,10 @@ const HomeLeftPanel = () => {
     )
 }
 
-export default connect(null, {})(HomeLeftPanel);
+const mapStateToProps = (state) => {
+    return {
+      notes: state
+    };
+  };
+  
+  export default connect(mapStateToProps, {})(HomeLeftPanel);
