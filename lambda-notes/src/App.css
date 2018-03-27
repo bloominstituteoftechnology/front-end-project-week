@@ -7,7 +7,7 @@
 
 .background {
   min-width: 288px;
-  min-height: 700px;
+  min-height: 1015px;
   background-color: rgb(214, 214, 213);
   display: flex;
   flex-direction: column;
@@ -35,6 +35,11 @@
   font-style: Roboto Bold;
 }
 
+.view:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .create {
   background-color: #2bc1c4;
   width: 84%;
@@ -44,9 +49,21 @@
   color: white;
   font-style: Roboto Bold;
 }
+
+.create:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .card-title {
   border-bottom: 1px solid gray;
   text-align: start;
+  font-style: Roboto Bold;
+  color: black;
+}
+.card-text {
+  font-family: Raleway Regular;
+  color: black;
 }
 .row {
   margin-top: 8%;
@@ -102,12 +119,12 @@
 }
 .edit {
   margin-left: 65%;
-  border-bottom: 1px solid;
+  text-decoration: underline;
   color: black;
 }
 .edit:hover {
   color: black;
-  border-bottom: none;
+  text-decoration: underline;
 }
 .note {
   padding: 1% 0% 0% 73%;
@@ -115,9 +132,23 @@
   justify-content: space-around;
 }
 .delete {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid black;
 }
 .delete:hover {
   cursor: pointer;
   color: black;
+}
+.noteView {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.noteTitle {
+  margin: 2% 0% 3% 4%;
+}
+.noteContent {
+  margin: 0% 0% 0% 4%;
+}
+a:hover {
+  text-decoration: none;
 }

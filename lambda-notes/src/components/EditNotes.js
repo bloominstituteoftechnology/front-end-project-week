@@ -22,18 +22,22 @@ class EditNotes extends Component {
         <h4 className="title">Edit Note:</h4>
         <form>
           <input
+            className="newTitle"
             type="text"
             name="name"
             placeholder="New Title"
             onChange={this.handleChange}
           />
           <input
+            className="newContent"
             type="text"
             name="text"
             placeholder="New Content"
             onChange={this.handleChange}
           />
-          <button onClick={this.handleSubmit}>Update</button>
+          <button className="save" onClick={this.handleSubmit}>
+            Update
+          </button>
         </form>
       </div>
     );

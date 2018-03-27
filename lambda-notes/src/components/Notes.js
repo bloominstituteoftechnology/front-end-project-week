@@ -18,8 +18,8 @@ const Notes = props => {
         </Link>
         <DeleteNotes delete={handleDelete} />
       </div>
-      <h5>{props.location.state.currentNote.title}</h5>
-      <h5>{props.location.state.currentNote.text}</h5>
+      <h5 className="noteTitle">{props.location.state.currentNote.title}</h5>
+      <h5 className="noteContent">{props.location.state.currentNote.text}</h5>
     </div>
   );
 };
