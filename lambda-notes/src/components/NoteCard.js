@@ -8,8 +8,8 @@ export const NoteCard = props => {
     <div className="cardBody">
       <Card>
         <CardBody>
-          <CardTitle>{props.title}</CardTitle>
-          <CardText className="text"> {props.note} </CardText>
+          <div className="titleUnderline"><h5 className="title">{props.title}</h5></div>
+          <p className="text"> {props.note} </p>
         </CardBody>
       </Card>
     </div>  

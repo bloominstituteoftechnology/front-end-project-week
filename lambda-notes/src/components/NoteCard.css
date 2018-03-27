@@ -5,6 +5,10 @@
     
 }
 
+.titleUnderline {
+    border-bottom: thin solid black;
+}
+
 .listTitle {
     display: flex;
     justify-content: start;
@@ -21,6 +25,11 @@
     text-overflow: ellipsis;
 }
 
+.title {
+    text-decoration: none;
+}
+
 .text {
     font-size: 1rem;
+    text-decoration: none;
 }
