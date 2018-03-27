@@ -30,7 +30,11 @@ class DeleteModal extends Component {
         <div className="header-link" onClick={this.toggle}>
           {this.props.buttonLabel}
         </div>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className="modal-dialog-centered"
+        >
           <ModalBody className="text-center">
             Are you sure you want to delete this?
           </ModalBody>
