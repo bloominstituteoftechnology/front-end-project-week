@@ -13,6 +13,7 @@ const routes = [
     path: "/",
     exact: true,
     sidebar: () => <Button>View Notes</Button>,
+    main: () => <NotesList/>
   },
   {
     path: "/createNote",
@@ -37,7 +38,7 @@ class App extends Component {
               <Link to ="/createNote"><Button size="lg" className="my-2">+ Create New Note</Button></Link>
             </Col>
             <Col sm={9} className="rightSide">
-              <NotesList/>
+              
             </Col>
           </Row>
           <div style={{ flex: 1, padding: "10px" }}>

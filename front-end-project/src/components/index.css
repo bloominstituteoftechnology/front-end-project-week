@@ -45,7 +45,6 @@ a.card-link:hover {
   font-weight: bold;
   line-height: 85%;
 }
-/* Button Color: 2bc1c4 */
 .header-link {
   text-decoration: underline;
   color: #4a4a4a;
@@ -53,11 +52,4 @@ a.card-link:hover {
 }
 .header-link:hover {
   color: black;
-}
-
-h5.card-title {
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  line-height: 0.3rem;
 }
