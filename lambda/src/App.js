@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NotesList from './components';
+import NotesList from './Components/notesList';
 import './App.css';
 
 
