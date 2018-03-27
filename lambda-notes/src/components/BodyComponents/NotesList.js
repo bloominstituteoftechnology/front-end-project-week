@@ -10,13 +10,12 @@ class NotesList extends Component {
         <h3 className="mt-5 ml-3">Your Notes:</h3>
         <div className="d-flex flex-wrap justify-content-center">
           {this.props.notes.map(note => (
-            <Link to={`/noteview/${note.id}`}>
+            <Link key={note.id} to={`/noteview/${note.id}`}>
               <Card
                 body
                 className="m-3"
                 style={{ height: "250px", width: "200px" }}
                 outline
-                key={note.id}
               >
                 <CardTitle>{note.title}</CardTitle>
                 <hr />
