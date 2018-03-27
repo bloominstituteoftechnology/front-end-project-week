@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SideBar from './components/pages/SideBar';
-import ViewNotesList from './components/pages/ViewNotesList';
+import NotesList from './components/pages/NotesList';
+import { getNotes } from './dummyData';
 
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
       <Router>
         <div className='App'>
           <Route path='/' component={SideBar} />
-          <Route path='/ViewNotesList' render={state => <ViewNotesList notes={this.state.notes} exact />} />
+          <Route path='/NotesList' render={state => <NotesList notes={this.state.notes} exact />} />
         </div>
       </Router>
     );

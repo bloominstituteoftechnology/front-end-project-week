@@ -6,7 +6,7 @@ class SideBar extends Components {
     return (
       <div className='sidebar'>
         <h1 className='title'>Lambda Notes</h1>
-        <Link to='/ViewNotesList'>
+        <Link to='/NotesList'>
           <button className='button'>View Your Notes</button>
         </Link>
         <Link to='/CreateNote'>
