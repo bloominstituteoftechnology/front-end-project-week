@@ -22,7 +22,6 @@ class CreateNote extends Component {
             description: this.state.description
         }
         this.props.addNote(newNote);
-        this.props.history.push('/');
 
         this.setState({
             title: '',

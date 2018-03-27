@@ -21,9 +21,9 @@ class NotesList extends Component {
             <div className="NoteItems">
                 <h5 className="NoteItemsTitle">You're Notes:</h5>
                 <div className="NotesList">
-                    {this.state.neededData.map(((eachNote, index) =>
-                            <div className="NoteItem" key={index}>
-                                <Link to ={{pathname: `/notes/${ index }}`, state: { currentView: eachNote } }}>
+                    {this.state.neededData.map(((eachNote) =>
+                            <div className="NoteItem" key={eachNote.id}>
+                                <Link to ={{pathname: `/notes/${ eachNote.id }}`, state: { currentView: eachNote }}}>
                                     <Card>
                                         <CardBody>
                                             <CardTitle> {eachNote.title} </CardTitle>
