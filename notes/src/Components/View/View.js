@@ -19,10 +19,15 @@ class View extends Component{
       this.props.add('title','blahlbah',7);
       this.props.add('title','blahlbah',8);
     }
+
   }
   render(){
       return(
+
         <Grid className="grid">
+      <Link to={'/notes'}>
+      <Button>test</Button>
+      </Link>
           <Row className="show-grid">
             <Col xs={3} md={3} lg={3} className="col">
               <div className="side-bar">
@@ -44,14 +49,14 @@ class View extends Component{
                       <div key={i}>
                         <Row className="show-grid"></Row>
                         <Col key={i} xs={3} md={3} lg={3} className="col">
-                          <Note title={e.title} text = {e.text}/>
+                          <Note id={i}/>
                         </Col>
                       </div>
                     )}
                     else{
                       return(
                       <Col key={i} xs={3} md={3} lg={3} className="col">
-                        <Note title={e.title}text = {e.text}/>
+                        <Note id={i}/>
                       </Col>
                     )}
                   })

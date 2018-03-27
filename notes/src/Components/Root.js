@@ -1,16 +1,23 @@
 import React from 'react';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router,Switch, Route } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import PropTypes from 'prop-types';
 import Create from './Create/Create.js';
 import View from './View/View.js';
+import Edit from './Edit/Edit.js';
+import Note from './Note/Note.js';
 
 const Root= ({store})=> (
   <Provider store={store}>
     <Router>
       <div>
-        <Route exact path="/" component={View}/>
-        <Route path="/create" component={Create}/>
+        <Switch>
+          <Route exact path="/" component={View}/>
+          <Route path="/create" component={Create}/>
+          <Route path="/edit" component={Edit}/>
+          <Route path="/notes" component={Note}/>
+        </Switch>
+
       </div>
     </Router>
   </Provider>

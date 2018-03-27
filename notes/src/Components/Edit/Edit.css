@@ -1,0 +1,56 @@
+h1{
+  color:#4A4A4A;
+  font-family:Roboto Bold;
+}
+#save{
+  margin-top:20px;
+  width:25%;
+}
+.side-bar{
+  background:#D8D8D8;
+  margin-top:-20px;
+  height:100vh;
+}
+#mainHeader{
+  text-align:left;
+  margin-left:10%;
+}
+.notePanel{
+  height:200px;
+  width:80%;
+}
+.main{
+  background:#F3F3F3;
+  height:100vh;
+  padding-left:2%;
+}
+.show-grid{
+  margin:0;
+  padding:0;
+}
+#note{
+  margin-bottom:30px;
+}
+textarea{
+  margin-top:20px;
+  width:80%;
+  height:300px;
+}
+input{
+  vertical-align:top;
+  margin-top:50px;
+}
+.grid{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.col{
+  margin:0;
+  padding:0;
+}
+.btn{
+  background:#2BC1C4;
+  margin-bottom:20px;
+  color:white;
+}
