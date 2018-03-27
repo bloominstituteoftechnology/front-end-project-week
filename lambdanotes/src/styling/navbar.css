@@ -1,0 +1,17 @@
+.sidebar {
+    width: 30%;
+    height: 100%;
+    background: #D8D8D8;
+    padding-bottom: 800px;
+    margin-left: 25px;
+}
+
+.nav-title {
+    padding: 50px 250px 0 0;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.button {
+    color: white;
+}
