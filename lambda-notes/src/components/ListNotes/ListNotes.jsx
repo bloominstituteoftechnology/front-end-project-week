@@ -10,7 +10,9 @@ class ListNotes extends Component {
          <h2> Your Notes:</h2>
          <div className="noteList"> 
           {this.props.notes.map((note, i) => (
-            <Note key={i} index={i} title={note.title} content={note.content} />
+            note.title ? 
+            (<Note key={i} index={i} title={note.title} content={note.content} />)
+            : (null)
           ))}
           </div>
          </div>

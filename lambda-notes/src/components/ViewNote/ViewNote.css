@@ -1,0 +1,86 @@
+.backdrop {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   z-index: 9998;
+   background: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+   border:1px solid black;
+   position: absolute;
+   top: 25%;
+   left: 30%;
+   height: 150px;
+   width: 490px;
+   z-index: 9999;
+   background: #F3F3F3;
+   text-align: center;
+}
+
+#deleteButton {
+   background: #D0021B;
+}
+
+#edit, #delete, .viewNote a {
+   color:rgb(65, 65, 65);
+   font-weight: bold;
+   text-decoration:underline;
+   padding: 5px;
+}
+
+
+.noteNav {
+   text-align: right;
+}
+
+.viewNote {
+   padding: 20px 15px 15px 22px;
+   background: rgb(242, 241, 242);
+   border:1px solid rgb(175, 175, 175);
+   width:100%;
+   height:92.45vh;
+   font-family: 'Roboto', sans-serif;
+   text-align: left;
+}
+
+.viewNote h2 {
+   padding-left: 2px;
+   text-align: left;
+   color:rgb(65, 65, 65);
+   font-weight: bold;
+}
+
+#editNoteTitle input {
+   margin: 5px 20px 15px 1px;
+   border-radius: 3px 3px;
+   border:1px solid rgb(175, 175, 175);
+   padding: 10px;
+   width: 50%;
+}
+
+
+#editNoteContent textarea {
+   font-family: 'Roboto', sans-serif;
+   border-radius: 3px 3px;
+   border:1px solid rgb(175, 175, 175);
+   width: 91%;
+   height: 350px;
+   line-height: 40px;
+   min-height: 40px;
+   vertical-align: top;
+   resize: none;
+   padding: 10px;
+}
+
+.viewNote button {
+   background: rgb(36, 184, 189);
+   color: white;
+   border:1px solid rgb(175, 175, 175);
+   height: 48px;
+   width: 190px;
+   margin: 10px 15px 10px 0px;
+   font-weight: bold;
+}

@@ -18,10 +18,11 @@
    flex-wrap: wrap;
 }
 .note {
+ text-align: left;
  border:1px solid rgb(175, 175, 175);
  background: white;
  margin: 10px;
- padding: 5px;
+ padding: 5px 5px 5px 10px;
  height: 220px;
  width:200px;
 }
@@ -29,6 +30,10 @@
 .noteTitle {
    border-bottom: 1px solid rgb(175, 175, 175);
    padding-bottom: 4px;
-   margin:5px 15px 15px 15px;
+   padding:2px;
+   margin:2px 5px 4px 0;
 }
 
+.noteContent {
+   padding: 4px;
+}
