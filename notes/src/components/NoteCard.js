@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import './NoteCard.css';
@@ -7,12 +7,12 @@ import './NoteCard.css';
 class NoteCard extends Component {
     render() {
         return (
-            <Col xs="3" className="NoteCard">
-                <Link to={`/notes/${this.props.note.id}`}>
-                <h4 className="NoteCard__heading">{this.props.note.heading}</h4>
-                <p className="NoteCard__text">{this.props.note.text}</p>
-                </Link>
-            </Col>
+                <Card body className="NoteCard">
+                    <Link to={`/notes/${this.props.note.id}`}>
+                    <CardTitle className='NoteCard__title'>{this.props.note.title}</CardTitle>
+                    </Link>
+                    <CardText className='NoteCard__text'>{this.props.note.text}</CardText>
+                </Card>
         );
     }
 }

@@ -2,20 +2,24 @@ import React, { Component } from 'react';
 import NoteCard from './NoteCard';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import './List.css';
 
 class List extends Component {
     render() {
         return (
-            <Container className="List">
-                <Row className="List__header">
-                    <Col>
-                    <h4 >You're ntoes:</h4>
+            <Container className="Content">
+                <Row className="Content__heading">
+                    <Col xs="10" className="Content__heading__col">
+                        <h4>Your Notes:</h4>
                     </Col>
                 </Row>
-                <Row className="List__Content">
+                <Row className="List__content">
                     {this.props.notes.map(note => {
-                        return <NoteCard key={note.id} note={note}/>
+                        return (
+                        <Col className="List__card-Container" xs="4">
+                            <NoteCard key={note.id} note={note}/>
+                        </Col>
+                        )
                     })}
                 </Row>
             </Container>

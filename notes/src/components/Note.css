@@ -1,0 +1,7 @@
+.Options {
+    display: flex;
+}
+
+.Options__link {
+    margin: 20px 0 0 10%;
+}

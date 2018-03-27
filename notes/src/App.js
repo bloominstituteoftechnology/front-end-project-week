@@ -14,7 +14,7 @@ class App extends Component {
       <Container>
         <Row className="Container">
           <Col xs="3" className="Menu">
-            <h1>Lambda Notes</h1>
+            <h1 className='Menu__heading'>Lambda Notes</h1>
             <Link to="/">
               <Button color="deoco" className="Button">View Your Notes</Button>
             </Link>

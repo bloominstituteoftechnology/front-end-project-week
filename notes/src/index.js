@@ -5,11 +5,17 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/';
 import 'bootstrap/dist/css/bootstrap.css';
+import logger from 'redux-logger';
 
-const store = createStore(rootReducer);
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(logger)
+  ));
 
 ReactDOM.render(
     <Provider store={store}>
