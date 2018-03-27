@@ -1,24 +1,25 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
-import { createNote } from '../Actions';
-// import Note from './Note';
+import Note from './Note';
+import { Container, Row, CardDeck } from 'reactstrap';
 
 function NotesList(props) {
 
   return (
-    <div>
-      <ul className='notesList'>
-        {props.notes.map((note, idx) => {
-          return (
-            <li className='note' key={note.id}>
-              <div className='noteTitle'><h3>{note.title}</h3></div>
-              <div className='noteContent'><p>{note.content}</p></div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <Container>
+      <Row>
+        <h3>Your Notes:</h3>
+      </Row>
+      <Row xs='4'>
+        <CardDeck>
+          {props.notes.map((note) => {
+            return <Note
+              key={note.id}
+              note={note}
+            />;
+          })}
+        </CardDeck>
+      </Row>
+    </Container>
   );
 }
 

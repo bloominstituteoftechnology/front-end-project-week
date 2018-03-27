@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'reactstrap';
+// import { Form, Button } from 'reactstrap';
 import { connect } from 'react-redux';
-import { createNote } from '../Actions';
+import { addNote } from './notesActions';
 
 class NotesForm extends Component {
   state = {
@@ -27,4 +27,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { createNote })(NotesForm);
+const actions = {
+  addNote
+}
+
+export default connect(mapStateToProps, actions)(NotesForm);

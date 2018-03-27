@@ -1,12 +1,15 @@
 import React from 'react';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 export default function Note({ note }) {
   return (
-    <div className='note'>
-      <p>
-        <span>{note.title}</span>
-      </p>
-      <p>{note.body}</p>
+    <div>
+      <Card body outline>
+        <CardBody>
+          <CardTitle>{note.title}</CardTitle>
+          <CardText>{note.content}</CardText>
+        </CardBody>
+      </Card>
     </div>
   );
 }

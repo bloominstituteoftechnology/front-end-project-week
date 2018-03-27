@@ -1,19 +1,33 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import NotesList from './Notes/NotesList.js';
-import NoteForm from './Notes/NoteForm.js';
+// import NoteForm from './Notes/NoteForm.js';
 import { connect } from 'react-redux';
 import { getNotes } from './Notes/notesActions';
+import { Button, Container, Row, Col } from 'reactstrap';
 
 class App extends Component {
   render() {
-    // console.log(this.props.getNotes());
     return (
-      <div className="App">
-        <h1 className="App-title">Notes</h1>
-        <NotesList notes={this.props.notes} />
-        <NoteForm />
-      </div>
+      <Container className="App">
+        <Row>
+          <Col xs='3'>
+            <Row>
+              <h2 className="navTitle">Lambda Notes</h2>
+            </Row>
+            <Row>
+              <Button color="info">View Your Notes</Button>
+            </Row>
+            <Row>
+              <Button color="info">+ Create New Note</Button>
+            </Row>
+          </Col>
+          <Col xs='9'>
+            <NotesList notes={this.props.notes} />
+          </Col>
+        </Row>
+
+      </Container>
     );
   }
 
