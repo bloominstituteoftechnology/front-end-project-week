@@ -1,4 +1,4 @@
-import {EDIT,ADD} from '../actions';
+import {REMOVE,EDIT,ADD} from '../actions';
 
 const defaultState = {
   notes:[]
@@ -28,7 +28,15 @@ function modifyNotes(state=[],action){
           return e;
         }
       });
-
+    case REMOVE:
+      return state.map( (e,i)=>{
+        if(i === action.id){
+          return
+        }
+        else{
+          return e;
+        }
+      });
     default:
       return state;
   }
