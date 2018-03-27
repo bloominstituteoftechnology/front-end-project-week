@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, Input, Button, Container } from "reactstrap";
-import { addNote } from "../actions";
+import { addNote, editNote } from "../actions";
 import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
@@ -27,7 +27,11 @@ class NoteForm extends Component {
   }
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addNote(this.state.newNote);
+    if (this.state.newNote.id === undefined) {
+      this.props.addNote(this.state.newNote);
+    } else {
+      this.props.editNote(this.state.newNote.id, this.state.newNote);
+    }
     this.setState({ newNote: { title: "", note: "" } });
     this.props.history.push("/");
   }
@@ -77,4 +81,6 @@ class NoteForm extends Component {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { addNote })(NoteForm));
+export default withRouter(
+  connect(mapStateToProps, { addNote, editNote })(NoteForm)
+);

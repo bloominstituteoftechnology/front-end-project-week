@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE } from "../actions";
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from "../actions";
 
 const initialState = {
   notes: [
@@ -70,6 +70,13 @@ export default function notes(state = initialState, action) {
       return {
         ...state,
         notes: state.notes.slice().filter(note => note.id != action.id)
+      };
+    case EDIT_NOTE:
+      let copy = state.notes.slice();
+      copy.filter(note => note.id != action.id).push(action.note);
+      return {
+        ...state,
+        notes: copy
       };
     default:
       return state;

@@ -20,6 +20,7 @@ function mapStateToProps(state) {
 
 class NotesList extends Component {
   render() {
+    console.log("Notes List: ", this.props.notes);
     return (
       <Container className="my-5">
         <Row>
