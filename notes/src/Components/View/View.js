@@ -15,9 +15,7 @@ class View extends Component{
     }
   }
   render(){
-    console.log(this.props.info.notes);
       return(
-
         <Grid className="grid">
           <Row className="show-grid">
             <Col xs={3} md={3} lg={3} className="col">

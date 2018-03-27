@@ -42,17 +42,18 @@ class Note extends Component{
   }
 
   render(){
+    let text = this.state.text;
     let style={
       color:'black',
       fontFamily:'Raleway',
     }
     if(this.state.thumbNail){
-      if(this.props.info.notes[this.state.id] && this.state.text){
+      if(this.props.info.notes[this.state.id] && text){
         if(this.state.text.length > 54){
-          this.state.text = this.state.text.slice(0,50) + '...';
+          text = this.state.text.slice(0,50) + "..."
         }
         else{
-          this.state.text += '...';
+          text = this.state.text + "...";
         }
       return(
       <div>
@@ -62,7 +63,7 @@ class Note extends Component{
           }</Panel.Title>
           <Panel.Body style={style} className="content">
            { 
-             this.state.text
+             text
                }
                <br/>
               </Panel.Body>

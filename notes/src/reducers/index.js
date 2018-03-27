@@ -29,9 +29,14 @@ function modifyNotes(state=[],action){
         }
       });
     case REMOVE:
-    return [
-      ...state.slice(0,action.id),...state.slice(action.id + 1)
-    ]
+     return state.filter( (e,i)=>{
+       if(i === parseInt(action.id,10)){
+         return false;
+       }
+       else{
+         return true;
+       }
+     })
     default:
       return state;
   }
