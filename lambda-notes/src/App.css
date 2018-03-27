@@ -24,15 +24,11 @@ a:hover {
   border: 1px solid grey;
 }
 
-.ListView {
-  background-color: #F4F4F4;
-  border: 1px 1px solid grey;
-}
-
-.AddNote, .EditNote {
+.Note, .ListView, .AddNote, .EditNote {
   width: 3300px;
   background-color: #F4F4F4;
   border: 1px solid grey;
+  min-height: 700px;
 }
 
 .Inputtext {
@@ -80,11 +76,6 @@ a:hover {
   min-width: 200px;
   margin: 1%;
   overflow: hidden;
-}
-
-.Note {
-  background-color: #F4F4F4;
-  min-height: 700px;
 }
 
 .Note__nav {

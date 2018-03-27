@@ -19,7 +19,7 @@ componentDidMount(){
                     {this.state.notes.map(((note) => {
                         return (
                             <div className="ListCard" key={note.id}>
-                                <Link to={{pathname: `/notes/${ note.id }}`, state: { currentNote: note }}}>
+                                <Link to={{pathname: `/notes/${ note.id }`, state: { currentNote: note }}}>
                                     <Card>
                                         <CardHeader className="Title">{note.title}</CardHeader>
                                         <CardBody>
