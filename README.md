@@ -62,4 +62,13 @@ Once your MVP has been approved, you have been given a feature list that the cli
 * [ ] Export all notes to a CSV
 * [ ] Create a login system around the MVP
 
+## Colors + Fonts:
+* Heading Font: Roboto Bold
+* Heading color: 4A4A4A
+* Content Font: Raleway Regular
+* Content color: black
+* Button background: 2BC1C4
+* Sidebar background: D8D8D8
+* Main background: F3F3F3
+
 You will notice that this repository does not have any starter code.  This is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  

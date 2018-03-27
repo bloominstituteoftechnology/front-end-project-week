@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { } from '../actions';
 import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
+import { Fragment } from 'react';
+import SingleNoteView from './SingleNoteView';
+import { Link } from 'react-router-dom';
 
 
 const StyledNoteList = styled.div`
@@ -25,10 +28,14 @@ const StyledNoteList = styled.div`
         padding-bottom: 8px;
         border-bottom: 2px solid grey;
         font-size: 16px;
+        width: 
     }
 
     .card-text {
         font-size: 12px;
+    }
+
+    .link {
     }
 
 `;
@@ -44,6 +51,8 @@ class NoteList extends Component {
         
             {this.props.notes.map(note => {
                 return (
+                    <Link className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
+
                     <Col sm="4" className="mb-3" key={note.id}>
                         <Card>
                             <CardBody key={note.id}>
@@ -52,6 +61,7 @@ class NoteList extends Component {
                             </CardBody>
                         </Card>
                     </Col>
+                    </Link>
                 );
             })}
         </Row>

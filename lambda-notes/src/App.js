@@ -3,15 +3,17 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import List from './components/List';
 import CreateNewNote from './components/CreateNewNote';
 import styled from 'styled-components';
+import SingleNoteView from './components/SingleNoteView';
 
 const StyledApp = styled.div`
     width: 100%;
-    background: pink;
+    background: grey;
+    height: 100%;
 
     .container {
         padding: none;
         margin: none;
-        // margin-left: 12.5%;
+        
     }
 `;
 
@@ -23,6 +25,7 @@ class App extends Component {
                     <div className="container">
                     <Route path exact ='/' component={List}/>
                     <Route path='/create-new-note' component={CreateNewNote} />
+                    <Route path='/single-note-view/:id' component={SingleNoteView} />
                     </div>
                 </Router>
             </StyledApp>

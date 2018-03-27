@@ -10,14 +10,19 @@ const StyledHLP = styled.div`
     text-align: center;
     background: lightgray;
     width: 30%;
+    
+    
 
     h2 {
+        font-family: Roboto, sans-serif;
         margin-bottom: 2px;
+        font-weight: bold;
     }
 
     button {
         font-size: 12px;
         width: 80%;
+        background: #2bc1c4;
     }
 
 
@@ -27,8 +32,10 @@ const StyledHLP = styled.div`
 const HomeLeftPanel = () => {
     return(
     <StyledHLP>
-        <div> Lambda </div>
-        <div> Notes </div>
+        <div className="HLP__heading">
+            <div> Lambda </div>
+            <div> Notes </div>
+        </div>
         <Link to='/'>
         <button> View Your Notes </button>
         </Link>

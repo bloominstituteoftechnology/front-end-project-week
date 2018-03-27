@@ -28,7 +28,7 @@ const StyledNewNoteForm = styled.div`
   }
 
   button {
-    background: rgb(2, 171, 174);
+    background: #2bc1c4;
     margin-left: 20px;
     width: 150px;
   }
