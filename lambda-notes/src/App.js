@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Note from './components/Note';
+import LeftPanel from './components/LeftPanel'
+import SplitPane from 'react-split-pane';
 
 class App extends Component {
   constructor() {
@@ -18,8 +20,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h1 className="App-title">Your Notes</h1>
-          <Note />
+        <SplitPane split="vertical" defaultSize={230}>
+          
+            <LeftPanel />
+          
+          
+            {/* <h2 className="App-title">Your Notes</h2> */}
+            <Note />
+          
+        </SplitPane>
       </div>
     );
   }

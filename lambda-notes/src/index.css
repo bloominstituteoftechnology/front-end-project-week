@@ -4,12 +4,42 @@ body {
   font-family: sans-serif;
   font-size: 100%;
 }
+/* Heading Font: Roboto Bold
+Heading color: 4A4A4A
+Content Font: Raleway Regular
+Content color: black
+Button background: 2BC1C4
+Sidebar background: D8D8D8
+Main background: F3F3F3
+Delete background: D0021B */
+
+.LeftPanel {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* h1 { 
+  font-family: Roboto Bold;
+  background-color: #F3F3F3;
+} */
+
+.NoteButton {
+  background-color: #2BC1C4;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
 
 /* Note */
 .Notes {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  background-color: #F3F3F3;
 }
 
 .Note {
@@ -19,6 +49,8 @@ body {
   border: 2px solid gray;
   padding: 15px;
   margin: 10px;
+  font-family:  Raleway Regular;
+  background-color: white;
 }
 
 .Note__text {
