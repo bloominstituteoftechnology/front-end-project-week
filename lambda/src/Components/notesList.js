@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Note from './Components';
+import Note from './Display';
 
 function mapStateToProps(state) {
     return {
