@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import notes from './Notes';
+import { showWholeNote } from '../actions';
 
 class ListView extends Component {
-  constructor() {
-    super();
-    this.state = {}
-  }
-  
+  // constructor() {
+  //   super();
+  //   this.state = {}
+  // }
+  // 
   render() {
     
     return (
       <div>
-        {notes.map(note => {
-          return <note.title />
+        {this.props.notes.map((note, i) => {
+          return <div>{note.title}</div>
         })}
       </div>
     )
@@ -21,4 +22,10 @@ class ListView extends Component {
   }
 }
 
-export default ListView;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default connect(mapStateToProps, { showWholeNote })(ListView);
