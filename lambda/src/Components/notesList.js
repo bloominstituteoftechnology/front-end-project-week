@@ -1,79 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Note from './Components';
+
+function mapStateToProps(state) {
+    return {
+        notes: state.notes
+    };
+}
 
 class NotesList extends Component {
-    state = {
-        notes: [
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-                
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            },
-            {
-                title: "Note Title",
-                content: 
-                    "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a, efficitur mollis.."
-            }
-        ]
-    };
-
     render() {
         return (
-            <div className="container">
-                <h2>Notes List</h2>
-            <div className="container d-flex">
-                {this.state.notes.map((note) => {
-                    return (
-                        <div className="container">
-                        <div className="row">
-                        <div className="col-xl border border-primary">
-                            <h4>{note.title}</h4>
-                            <hr />
-                            <div>{note.content}</div>
-                        </div>
-                        </div>
-                        </div>
-                    );
+            <div>
+                {this.props.notes.map(note => {
+                    return <Note note={note} />;
                 })}
-            </div>
             </div>
         );
     }
 }
 
-export default NotesList;
+export default connect(mapStateToProps)(NotesList);
+
+
+
