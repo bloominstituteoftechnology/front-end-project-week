@@ -1,7 +1,7 @@
 import React from 'react';
 import './NotesList.css';
 
-const NotesList = () => 
+export const NotesList = (props) => 
 <div>
 <div class='container0'>
 <button> View Your Notes </button><br/>
