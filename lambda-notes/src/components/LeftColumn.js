@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './LeftColumn.css';
@@ -14,8 +15,12 @@ const LeftColumn = () => {
           <strong>Notes</strong>
         </h1>
       </div>
-      <button className="btn btn-block">View Your Notes</button>
-      <button className="btn btn-block"> + Create New Note</button>
+      <Link to="/" className="btn btn-block">
+        View Your Notes
+      </Link>
+      <Link to="/createnote" className="btn btn-block">
+        + Create New Note
+      </Link>
     </div>
   );
 };

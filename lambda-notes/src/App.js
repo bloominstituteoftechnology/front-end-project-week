@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import LeftColumn from './components/LeftColumn';
 import NoteList from './components/NoteList';
+import CreateNote from './components/CreateNote';
 
 import './App.css';
 
@@ -11,8 +12,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <LeftColumn />
-          <NoteList />
+          <Route path="/" component={LeftColumn} />
+          <Route exact path="/" component={NoteList} />
+          <Route exact path="/createnote" component={CreateNote} />
         </div>
       </Router>
     );

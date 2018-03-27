@@ -1,8 +1,10 @@
 .left-column {
   width: 350px;
   padding: 15px;
+  max-height: 100%;
   background-color: #d3d2d3;
   border-right: 1.5px solid gray;
+  height: 100vh;
 }
 
 .title {
