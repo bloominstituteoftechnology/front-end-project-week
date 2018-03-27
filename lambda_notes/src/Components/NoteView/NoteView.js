@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './NoteView.css';
 
 class NoteView extends Component {
@@ -37,17 +37,22 @@ class NoteView extends Component {
             className="deleteModal"
             centered
           >
-            <ModalHeader toggle={this.toggle}>
+            <div className="modalHeader">
               Are you sure you want to delete this?
-            </ModalHeader>
-            <ModalFooter>
-              <Button color="danger" onClick={this.toggle}>
-                Delete
-              </Button>{' '}
-              <Button onClick={this.toggle} className="delModalBtnNo">
-                No
-              </Button>
-            </ModalFooter>
+            </div>
+            <div>
+              <div className="modalFooterBtns">
+                <button
+                  className="modalBtnDelete btn-danger modalBtn"
+                  onClick={this.toggle}
+                >
+                  Delete
+                </button>{' '}
+                <button className="modalBtnNo modalBtn" onClick={this.toggle}>
+                  No
+                </button>
+              </div>
+            </div>
           </Modal>
         </div>
         <h3 className="noteTitleView">
