@@ -27,7 +27,7 @@ class Note extends Component {
           <Link className="header-link mr-3" to="/editNote/:id">
             edit
           </Link>{" "}
-          <DeleteModal buttonLabel="delete" />
+          <DeleteModal buttonLabel="delete" id={note.id} />
         </Row>
         <Row className="mt-5">
           <h3 className="header">{note.title}</h3>

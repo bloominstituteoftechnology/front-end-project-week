@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteNote } from "../actions";
 import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
   return {};
@@ -34,7 +35,14 @@ class DeleteModal extends Component {
             Are you sure you want to delete this?
           </ModalBody>
           <ModalFooter className="d-flex justify-content-around ">
-            <Button className="w-50" color="danger" onClick={this.toggle}>
+            <Button
+              className="w-50"
+              color="danger"
+              onClick={() => {
+                this.props.deleteNote(this.props.id);
+                this.props.history.push("/");
+              }}
+            >
               Delete
             </Button>{" "}
             <Button className="w-50" color="secondary" onClick={this.toggle}>
@@ -47,4 +55,6 @@ class DeleteModal extends Component {
   }
 }
 
-export default connect(mapStateToProps, { deleteNote })(DeleteModal);
+export default withRouter(
+  connect(mapStateToProps, { deleteNote })(DeleteModal)
+);
