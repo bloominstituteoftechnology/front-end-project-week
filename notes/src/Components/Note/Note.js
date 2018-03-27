@@ -3,21 +3,21 @@ import {Panel} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {add} from '../../actions';
 import {Link} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 
 class Note extends Component{
   constructor(props){
     super(props);
-    this.state = {
-      id: -1
-    }
-  }
-  componentDidMount(){
-    if(this.props.id !== -1){
-      this.setState({id:this.props.id});
+    if(props.id || props.id >= 0){
+      this.state = {
+        id: props.id 
+      }
     }
     else{
+      this.state ={
+        id: props.location.pathname.slice(7)
+      }
     }
-
   }
   render(){
     let style={
@@ -27,7 +27,6 @@ class Note extends Component{
     if(this.props.info.notes[this.state.id]){
       return(
       <div>
-        <Link to={'/'}>index</Link>
             <Panel className="notePanel">
               <Panel.Title style={style} className="title">{
                 this.props.info.notes[this.state.id].title
@@ -36,14 +35,21 @@ class Note extends Component{
              { 
                this.props.info.notes[this.state.id].title
              }
+             <br/>
+                <Link to={'/'}><Button>index</Button></Link>
               </Panel.Body>
             </Panel>
+
        </div>
       );
     }
     else{
       return(
-      <h1>test</h1>
+      <div>
+        <h1>There is no note here</h1>
+        <Link to={'/'}><Button>index</Button></Link>
+
+      </div>
       );
     }
   }
