@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button } from 'reactstrap';
 import allNotes from './dummyData';
 import NotesList from './components/NotesList';
+import CreateNote from './components/CreateNote';
+import NavBar from './components/NavBar';
 
 
 class App extends Component {
@@ -21,17 +22,13 @@ class App extends Component {
   render() {
     return (
       <div className="Lambda Notes App">
-        <header className="ToggleBar">
-          <h1 className="App-title">Lambda<br/>Notes</h1>
-          <Button>View Your Notes</Button>
-          <Button>+Create New Note</Button>
-        </header>
-          
+        <NavBar /> 
         
-        <div className="NoteItems">
+        <div className="NoteItems_Header">
           <h2>You're Notes:</h2>
           {this.state.neededData.map(((notes, index) => <NotesList notes={notes} key={index} /> ))}
         </div>
+        <CreateNote />
       </div>
 
     );
