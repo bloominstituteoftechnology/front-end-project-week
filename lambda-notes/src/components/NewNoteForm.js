@@ -5,6 +5,10 @@ import { Redirect } from 'react-router-dom';
 import { addNote } from '../actions';
 import {Button, Input} from 'reactstrap';
 
+const StyledNewNoteForm = styled.div`
+
+`;
+
 
 class NewNoteForm extends React.Component {
     state = {
@@ -12,16 +16,18 @@ class NewNoteForm extends React.Component {
       newText: ''
     }
   
-    addNote = () => {
+    addNote = (event) => {
+      event.preventDefault();
       console.log('addNote FIRED')
       this.props.addNote({
+        ...this.state,
         title: this.state.newTitle,
         text: this.state.newText,
       })
       this.setState({
-        modal: !this.state.modal,
         newTitle: '',
         newText: '',
+        redirect: true,
       })
     }
 
@@ -35,14 +41,20 @@ class NewNoteForm extends React.Component {
 
       render () {
           return (
-              <div>
-            <button color="primary" onClick={this.toggle}>+ Create New Note</button>
-            <Input className="text-center" type="text" name="newTitle" id="title" placeholder="Title" onChange={this.handleChange}/>
-            <Input className="text-center" type="textarea" name="newText" id="text" placeholder="Text" onChange={this.handleChange}/>
+              <StyledNewNoteForm>
+            <input className="title" type="text" name="newTitle" placeholder="Title" onChange={this.handleChange} value={this.state.newTitle}/>
+            <input className="text" type="text" name="newText" placeholder="Text" onChange={this.handleChange} value={this.state.newText}/>
             <Button color="primary" onClick={this.addNote}>Add</Button>
-            </div>
+            {this.state.redirect ? <Redirect to='/' /> : null}
+            </StyledNewNoteForm>
           )
       }
     }
 
-      export default connect(null, { addNote })(NewNoteForm);
+    const mapStateToProp = (state) => {
+      return {
+        notes: state.notes,
+      }
+    }
+    
+    export default connect(mapStateToProp, { addNote })(NewNoteForm);
