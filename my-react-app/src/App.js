@@ -7,7 +7,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-    <h2>Lambda Notes:</h2>
+      <h1> Lambda Notes </h1>
+    <NotesList/>
       </div>
     );
   }
