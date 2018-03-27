@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Note from '../Note/Note';
-import './Notebook.css';
+import './ListView.css';
 
-function Notebook() {
+function ListView() {
     return (
         <div class='notes-container col'>
             <h3 class='col-12'>Your notes:</h3>
@@ -20,4 +20,4 @@ function Notebook() {
     )
 };
 
-export default Notebook;
+export default ListView;
