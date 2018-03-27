@@ -3,13 +3,13 @@ import "./noteContainer.css";
 
 export const NoteContainer = (props) => {
     return(
-        <div>
+        <div className="notesContainer">
+            <h1 className="header">Your Notes: </h1>
             {props.notes.map((note => {
                 return(
-                    <div className="noteCard">
-                        {note.id}
-                        {note.title}
-                        {note.content}
+                    <div key={note.id}className="noteCard">
+                        <h4 className="noteTitle">{note.title}</h4>
+                        <div className="noteContent">{note.content}</div>
                     </div>
                 )
             }))}

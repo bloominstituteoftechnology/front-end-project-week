@@ -1,0 +1,29 @@
+
+.noteContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.header{
+    align-content: flex-end;
+}
+
+.noteCard{
+    display:inline-flex;
+    flex-flow: column wrap;
+    transition: 0.3s;
+    border: 1px solid black;
+    margin: 15px;
+    max-width: 250px;
+}
+
+.noteTitle{
+    margin-left: 0.7rem
+}
+
+.noteContent{
+    border-top: 1px solid gray;
+    padding-top: 2rem;
+    width: 70%
+}
