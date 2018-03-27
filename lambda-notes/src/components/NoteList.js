@@ -51,8 +51,8 @@ class NoteList extends Component {
         
             {this.props.notes.map(note => {
                 return (
-                    <Link className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
-                        <Col sm="4" className="mb-3" key={note.id}>
+                    <Link key={note.id} className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
+                        <Col sm="4" className="mb-3">
                             <Card>
                                 <CardBody key={note.id}>
                                     <CardTitle className="card-title"><b>{note.title}</b></CardTitle>

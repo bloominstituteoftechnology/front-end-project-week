@@ -11,14 +11,13 @@ const StyledNote = styled.div`
 
 class SingleNoteView extends React.Component {
         render() {
-            console.log('this is props', this.props)
+            console.log('this is this.props', this.props)
         return (
-            
             <StyledNote >
                 <Col sm="4" className="mb-3" key={this.props.match.params.id}>
                     <Card>
                         <CardBody key={this.props.match.params.id}>
-                            <CardTitle name={this.props.match.params.title} ></CardTitle>
+                            <CardTitle name={this.props.match.params.title} >{}</CardTitle>
                             <CardText body={this.props.match.params.text} ></CardText>
                         </CardBody>
                     </Card>
@@ -28,9 +27,11 @@ class SingleNoteView extends React.Component {
     }
 }
   const mapStateToProps = (state) => {
+      
     return {
       notes: state.notes,
     };
+    console.log('This is NOTES', state.notes)
   };
   
   export default connect(mapStateToProps, { })(SingleNoteView);

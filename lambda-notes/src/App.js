@@ -23,7 +23,7 @@ class App extends Component {
             <StyledApp>
                 <Router>
                     <div className="container">
-                    <Route path exact ='/' component={List}/>
+                    <Route path='/' component={List} exact/>
                     <Route path='/create-new-note' component={CreateNewNote} />
                     <Route path='/single-note-view/:id' component={SingleNoteView} />
                     </div>
