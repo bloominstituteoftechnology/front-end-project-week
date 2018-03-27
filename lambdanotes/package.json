@@ -8,7 +8,8 @@
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
-    "reactstrap": "^5.0.0-beta.3"
+    "reactstrap": "^5.0.0-beta.3",
+    "styled-components": "^3.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
