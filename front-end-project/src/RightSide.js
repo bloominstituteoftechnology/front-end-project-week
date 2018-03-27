@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
-export default class RightSide extends Component {
-    constructor(){
-        super();
-    }   
+export default class RightSide extends React.Component {
+    state = {
+        cards: null,
+    }
     render(){
         return( 
             <div className='rightSide'>
+                <NavLink to = '/'>
                 <p className='RS-title'>Your Notes:</p>
                 <div className = 'allCards'>
                 <div className='card1'>
@@ -46,6 +49,7 @@ export default class RightSide extends Component {
                 <b className='b'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …</b>
                 </div>
                 </div>
+                </NavLink>
             </div>
         );
 }

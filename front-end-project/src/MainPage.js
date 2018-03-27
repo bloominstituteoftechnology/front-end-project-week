@@ -3,40 +3,47 @@ import './MainPage.css';
 import RightSide from './RightSide'; 
 import NewNote from './NewNote'
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, NavLink, withRouter} from 'react-router-dom'
 
 
 
 
-class App extends Component {
+export class App extends React.Component {
   
-  componentDidMount(){
-    function ActionLink() {
-      function handleClick(e) {
-        e.preventDefault();
-        console.log('The link was clicked.');
-      }
-  }
+  // handleClick = () => {
+  //   console.log('clicked!', this);
+  //   <Route exact path='/' component={RightSide} />
+  //   <Route path='/NewNote/:id' component={NewNote} />  }
 
   render() {
     return (
-      <div className="App">
-        <div className='container'>
-        <header className="App-header">
-          <h1 className="App-title">Lambda Notes</h1>
-          <button className='button'>
-            View Your Notes
-          </button>
-          <button className='button' href='#' onClick={NewNote}>
-            + Create New Note
-          </button>
-        </header>
-        </div>
-        <RightSide/>
-
-      </div>
+      <Router>
+        <div className="App">
+          <div className='container'>
+          <header className="App-header">
+            <NavLink to='/'>
+              <div className="App-title">Lambda Notes</div>
+            </NavLink>
+            <button className='button'>
+                View Your Notes
+            </button>
+            <NavLink to='./NewNote/:id'>
+            <button className='button' onClick={this.handleClick}>
+              + Create New Note
+            </button>
+            </NavLink>
+          </header>
+          </div>
+          
+            <div>
+              <Route exact path='/' component={RightSide} />
+              <Route path='/NewNote/:id' component={NewNote} />
+            </div>
+          </div>
+      </Router>      
     );
+    document.getElementById('root')
   }
-}
+  }
 
 export default App;
