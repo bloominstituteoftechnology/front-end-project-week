@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Note.css';
-
+import { withRouter } from 'react-router-dom';
 class Note extends Component {
    state = {
       index: "",
@@ -16,7 +16,7 @@ class Note extends Component {
 
    render() {
       return (
-      <div className="note">
+      <div className="note" >
          <h3 className="noteTitle">
             {this.state.title}
          </h3>
@@ -29,4 +29,4 @@ class Note extends Component {
 
 }//End of NOTE
 
-export default Note;
+export default withRouter(Note);

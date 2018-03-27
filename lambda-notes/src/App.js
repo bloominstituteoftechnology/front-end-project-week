@@ -5,23 +5,61 @@ import ListNotes from './components/ListNotes/ListNotes';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import CreateNote from './components/CreateNote/CreateNote';
+import ViewNote from './components/ViewNote/ViewNote';
 import { Route } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       notes: [
-        { title: 'Note Title', content: 'Content1' },
+        { index: 0, title: 'Note Title', content: 'Content1' },
         {
+          index: 1,
           title: 'Note Title',
           content:
             'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
         },
         {
+          index: 2,
           title: 'Note Title',
           content: 'aosdj aslfkjle llalkfjlasjf lkajsljelj elaj'
+        },
+        {
+          index: 3,
+          title: 'Note Title',
+          content:
+            'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
+        },
+        {
+          index: 4,
+          title: 'Note Title',
+          content:
+            'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
+        },
+        {
+          index: 5,
+          title: 'Note Title',
+          content:
+            'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
+        },
+        {
+          index: 6,
+          title: 'Note Title',
+          content:
+            'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
+        },
+        {
+          index: 7,
+          title: 'Note Title',
+          content:
+            'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
+        },
+        {
+          index: 8,
+          title: 'Note Title',
+          content:
+            'Content2 asldjfk asdlkfjdf fjjffj fjf dkdkdkd d dkd dkdkeia allakd eiekdk aieikd kaiidkdid did dkieke e eid '
         }
       ]
     };
@@ -31,7 +69,11 @@ class App extends Component {
     this.setState({
       notes: [
         ...this.state.notes,
-        { title: newNote.title, content: newNote.content }
+        {
+          index: this.state.notes.length,
+          title: newNote.title,
+          content: newNote.content
+        }
       ]
     });
   };
@@ -45,6 +87,7 @@ class App extends Component {
           path="/"
           render={() => <ListNotes notes={this.state.notes} />}
         />
+        <Route path="/:id" render={() => <ViewNote />} />
         <Route
           path="/newNote"
           render={() => <CreateNote addNote={this.addNewNote} />}
@@ -55,6 +98,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <ListNotes notes={this.state.notes}> </ListNotes>
-//             withRouter(({ history }) => ())
