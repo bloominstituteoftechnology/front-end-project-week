@@ -13,11 +13,11 @@ const routes = [
     path: "/",
     exact: true,
     sidebar: () => <Button>View Notes</Button>,
-    main: () => <NotesList/>
+    main: () => <Container><NotesList/></Container>
   },
   {
     path: "/createNote",
-    sidebar: () => <Button>+ Create Note</Button>,
+    sidebar: () => <Button>+ Create New Note</Button>,
     main: () =><div>Rendered</div> //<NoteForm />
   },
   {
@@ -38,19 +38,16 @@ class App extends Component {
               <Link to ="/createNote"><Button size="lg" className="my-2">+ Create New Note</Button></Link>
             </Col>
             <Col sm={9} className="rightSide">
-              
+              {routes.map((route, index) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.main}
+                />
+              ))}
             </Col>
           </Row>
-          <div style={{ flex: 1, padding: "10px" }}>
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.main}
-              />
-            ))}
-           </div>
         </Container>
       </Router>
     );
