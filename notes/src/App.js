@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Link } from 'react-router-dom';
 import List from './components/List';
+import Edit from './components/Edit';
+import Create from './components/Create';
 import Note from './components/Note';
-import Edit from "./components/Edit";
 import { Container, Row, Col, Button } from 'reactstrap';
 
 
@@ -15,16 +16,17 @@ class App extends Component {
           <Col xs="3" className="Menu">
             <h1>Lambda Notes</h1>
             <Link to="/">
-            <Button color="deoco" className="Button">View Your Notes</Button>
+              <Button color="deoco" className="Button">View Your Notes</Button>
             </Link>
             <Link to="/create">
-            <Button color="deoco" className="Button">+ Create New Note</Button>
+              <Button color="deoco" className="Button">+ Create New Note</Button>
             </Link>
           </Col>
-          <Col>
+          <Col className="ContentArea">
             <Route exact path="/" component={List}/>
-            <Route path="/notes/:note" component={Note}/>
-            <Route path="/edit/:note" component={Edit}/>
+            <Route path="/notes/:id" component={Note}/>
+            <Route path="/edit/:id" component={Edit}/>
+            <Route path="/create" component={Create}/>
           </Col>
         </Row>
       </Container>

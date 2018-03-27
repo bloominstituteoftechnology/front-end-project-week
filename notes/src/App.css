@@ -1,5 +1,6 @@
 .Container {
   border: solid 2px black;
+  max-width: 900px;
 }
 
 .Button {
@@ -16,5 +17,5 @@
 }
 
 .ContentArea {
-  background: #5F5B58
+  background: rgb(223, 222, 222);
 }

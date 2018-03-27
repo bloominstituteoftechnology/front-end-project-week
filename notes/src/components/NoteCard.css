@@ -1,8 +1,15 @@
 .NoteCard {
-    border: solid 2px black;
+    border: solid 1px rgb(146, 143, 140);
+    border-radius: 1%;
     margin: 2% 2% 2% 2%;
+    background: white;
 }
 
 .NoteCard__heading {
-    border-bottom: 2px solid black;
+    color: black;
+    border-bottom: 1px solid rgb(146, 143, 140);
+}
+
+.NoteCard__text {
+    color: black;
 }
