@@ -30,8 +30,8 @@ class Note extends Component {
           <DeleteModal buttonLabel="delete" id={note.id} />
         </Row>
         <Row className="mt-5">
-          <h3 className="header">{note.title}</h3>
-          <p className="mt-4">{note.note}</p>
+          <h3 className="header w-100">{note.title}</h3>
+          <p className="mt-4 ">{note.note}</p>
         </Row>
       </Container>
     );
