@@ -1,0 +1,14 @@
+.Note__Content {
+    max-height: 100px;
+    white-space: wrap; 
+    overflow: hidden;
+} 
+
+.Notes__Note::after {
+    content: "...";
+} 
+
+a.Card__Link {
+   text-decoration: none;
+   color: black;
+}

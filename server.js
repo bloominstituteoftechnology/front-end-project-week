@@ -1,19 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const port = 5000;
-
 const server = express();
 server.use(express.json());
 server.use(cors());
-
 const sendUserError = (msg, res) => {
   res.status(422);
   res.json({ Error: msg });
   return;
 };
-
-let nextId = 0;
-
+let nextId = 10;
+const getNextId = () => {
+  return ++nextId;
+};
 // const gen = () => {
 //   const res = [];
 //   for(let i=0; i < 10; i++){
@@ -27,7 +26,6 @@ let nextId = 0;
 // }
 //
 // const notes = gen();
-
 const notes = [
 {
 id: 1,
@@ -83,9 +81,15 @@ content: "Lorem Ipsum is simply dummy text of the printing and typesetting indus
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
-
-
 server.listen(port, err => {
   if (err) console.log(err);
   console.log(`server is listening on port ${port}`);
+});
+server.post('/notes', (req, res) => {
+  const { title, content } = req.body;
+  const id = getNextId();
+  const newNote = { id:id, title:title, content:content };
+  notes.push(newNote);
+  nextId++;
+  res.json(notes);
 });

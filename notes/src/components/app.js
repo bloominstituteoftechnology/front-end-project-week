@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { getNotes } from '../actions';
 
 //import { Route } from 'react-router-dom';
@@ -7,7 +9,9 @@ import { getNotes } from '../actions';
 import { Container, Row } from 'reactstrap';
 
 import Notes from './notes';
+import Note from './note';
 import NavBar from './navbar';
+import NewNote from './newnote';
 import './app.css';
 
 class App extends Component {
@@ -16,7 +20,9 @@ class App extends Component {
       <Container>
         <Row className="Background">
             <NavBar/>
-            <Notes/>
+            <Route exact path='/' component = {Notes} />
+            <Route path='/newnote' component = {NewNote} />
+            <Route path='/note/:id' component = {Note} />
         </Row>   
       </Container>
     );
@@ -33,4 +39,4 @@ const mapStateToProps = ({ notes}) => {
   }
 };
 
-export default connect(mapStateToProps, { getNotes })(App);
+export default withRouter(connect(mapStateToProps, { getNotes })(App));

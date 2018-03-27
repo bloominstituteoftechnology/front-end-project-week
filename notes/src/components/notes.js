@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
 
 import { 
     Row,
@@ -8,7 +9,10 @@ import {
     CardTitle,
     CardText 
 } from 'reactstrap';
+
 import styled from 'styled-components';
+
+import './notes.css';
 
 const H3 = styled.h3`
     margin-top: 50px;
@@ -20,15 +24,17 @@ const H3 = styled.h3`
 
 const Notes = ({ notes }) => {
     return (
-        <Col xs="9" className="mb-5 pb-5 pl-5 pr-5">
+        <Col xs="9" className="mb-5 pb-5 pl-5 pr-5 ">
             <H3>Your Notes:</H3>
             <Row className="mb-5" >
-            {notes.map(note => (
+                {notes.map(note => (
             <Col className="mb-4 pl-2 pr-2" xs="4" key={note.id}>
-                <Card body className="">
+                <Link to={`/note/${note.id}`} className="Card__Link">
+                <Card className="Notes__Note" body >
                     <CardTitle className="pb-2 border-bottom border-secondary">{note.title}</CardTitle>
-                    <CardText>{note.content}</CardText>
+                    <CardText  className="Note__Content">{note.content}</CardText>
                 </Card>
+                </Link>
             </Col>
             ))}
             </Row>
@@ -36,10 +42,10 @@ const Notes = ({ notes }) => {
     );
 };
 
-const mapStateToProps = ({ notes}) => {
+const mapStateToProps = ( state ) => {
     return {
-        notes,
+        notes: state.notes
     }
 };
-
-export default connect(mapStateToProps, {})(Notes);
+  
+export default withRouter(connect(mapStateToProps, {})(Notes));
