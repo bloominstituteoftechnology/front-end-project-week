@@ -7,6 +7,16 @@ import HomeLeftPanel from './HomeLeftPanel';
 
 const StyledNote = styled.div`
     display: flex;
+    height: 700px;
+
+    .links {
+        display: flex;
+        position: absolute;
+        margin-left: 80%;
+        font-size: 14px;
+
+        
+    }
 
     .card-body {
         font-size: 12px;
@@ -33,6 +43,9 @@ class SingleNoteView extends React.Component {
         return (
             <StyledNote key={this.props.match.params.id}>
             <HomeLeftPanel />
+                <div className="links">
+                <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+                </div>
                 <div className="card-body" key={this.props.match.params.id}>
                     <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
                     <CardText className="card-text">{this.props.notes[this.props.match.params.id - 1].text}</CardText>

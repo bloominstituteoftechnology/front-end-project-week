@@ -15,7 +15,7 @@ const StyledNewNoteForm = styled.div`
     height: 40px;
     width: 60%;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 5%;
     margin-bottom: 10px;
     padding: 5px;
   }
@@ -23,13 +23,13 @@ const StyledNewNoteForm = styled.div`
   .text {
     width: 90%;
     height: 300px;
-    margin-left: 20px;
+    margin-left: 5%;
     padding: 5px;
   }
 
   button {
     background: #2bc1c4;
-    margin-left: 20px;
+    margin-left: 5%;
     width: 150px;
   }
 

@@ -4,6 +4,7 @@ import List from './components/List';
 import CreateNewNote from './components/CreateNewNote';
 import styled from 'styled-components';
 import SingleNoteView from './components/SingleNoteView';
+import EditNote from './components/EditNote';
 
 const StyledApp = styled.div`
     width: 100%;
@@ -26,6 +27,7 @@ class App extends Component {
                     <Route path='/' component={List} exact/>
                     <Route path='/create-new-note' component={CreateNewNote} />
                     <Route path='/single-note-view/:id' component={SingleNoteView} />
+                    <Route path='/edit-note/:id' component={EditNote} />
                     </div>
                 </Router>
             </StyledApp>

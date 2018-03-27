@@ -11,8 +11,6 @@ const StyledHLP = styled.div`
     background: lightgray;
     width: 30%;
     
-    
-
     h2 {
         font-family: Roboto, sans-serif;
         margin-bottom: 2px;
@@ -21,12 +19,9 @@ const StyledHLP = styled.div`
 
     button {
         font-size: 12px;
-        width: 80%;
+        width: 84%;
         background: #2bc1c4;
     }
-
-
-
 `;
 
 const HomeLeftPanel = () => {

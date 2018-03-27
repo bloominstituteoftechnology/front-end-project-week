@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 const StyledNoteList = styled.div`
     width: 70%;
     background: lavender;
+    height: 700px;
 
     .note-list__header {
         margin-top: 20px;
@@ -22,6 +23,11 @@ const StyledNoteList = styled.div`
     }
 
     .note-list__right {
+    }
+
+    .row {
+        margin-left: 1.6%;
+        margin-right: 1.6%;
     }
 
     .card {
@@ -52,7 +58,7 @@ class NoteList extends Component {
         <StyledNoteList>
         <div className="note-list__header"> Your Notes: </div>
         <div className="note-list__right">
-        <Row className="d-flex flex-wrap mx-2">
+        <Row className="row d-flex flex-wrap">
         
         
             {this.props.notes.map(note => {
