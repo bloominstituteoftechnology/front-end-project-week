@@ -16,10 +16,14 @@
 }
 
 .noteViewBody {
-  max-width: 1151px;
+  max-width: 720px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  margin-left: 17px;
 }
 
 .linkContainer {
@@ -38,8 +42,5 @@
   .noteViewHeader {
     text-align: left;
     margin-left: 15px;
-  }
-  .listBody {
-    justify-content: flex-start;
   }
 }
