@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import Navigation from '../Navigation/Navigation';
 
+import './CreateTodo.css'
+
 class CreateTodo extends Component {
   render() {
     return (
-      <div>
+      <div className="CreateTodo">
         <Navigation />
-        <form className="createForm">
-          <label>
-            Create Todo
+        <form className="create-form">
+          <label className="input-label">
+            <h2>Create New Todo:</h2>
           </label>
-          <input type="text" placeholder="Enter title"/>
-          <input type="text" placeholder="Enter todo text"/>
+          <input className="input-title" type="text" placeholder="Enter title"/>
+          <input className="input-body" type="text" placeholder="Enter todo text"/>
+          <button type="submit">Save</button>
         </form>
       </div>
     );

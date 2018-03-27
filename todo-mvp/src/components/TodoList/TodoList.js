@@ -8,10 +8,10 @@ class TodoList extends Component {
     return (
       <div className="TodoList">
         {this.props.todos.map(todo => (
-            <Card className="Card" key={todo.id} body>
-                <CardTitle className="CardTitle">{todo.id} - {todo.title}</CardTitle>
-                <CardText className="CardText">{todo.msg}</CardText>
-            </Card>
+            <div className="card-body" key={todo.id}>
+                <div className="card-title">{todo.id} - {todo.title}</div>
+                <div className="card-text">{todo.msg}</div>
+            </div>
         ))}
       </div>
     );

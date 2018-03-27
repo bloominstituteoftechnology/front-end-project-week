@@ -1,0 +1,21 @@
+.CreateTodo {
+    display: flex;
+    border: 2px green solid;
+    height: 100vh;
+  }
+
+  .create-form {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      width: 600px;
+  }
+  
+  .input-title {
+    margin-bottom: 30px;
+  }
+
+  .input-body {
+      height: 400px;
+      text-align: start;
+  }

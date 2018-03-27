@@ -11,8 +11,9 @@ import "./index.css";
 ReactDOM.render(
   <Router>
     <div>
-      <Route exact path="/" component={App} />
-      <Route path="/create" component={CreateTodo} />
+      <Route exact path="/" component={ App } />
+      <Route path="/create" component={ CreateTodo } />
+      {/* <Route path="/update" component={ UpdateTodo } /> */}
     </div>
   </Router>,
   document.getElementById("root")
