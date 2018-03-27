@@ -3,7 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
 import NavBar from './components/NavBar';
-import AddNote from './components/AddNote';
+import AddNote from './components/AddNote'; 
 import EditNote from './components/EditNote';
 import Note from './components/Note';
 

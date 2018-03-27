@@ -6,7 +6,7 @@ const NavBar = props => {
         <div className="NavBar">
             <h1>Lambda Notes</h1>
             <Link to="/">View Your Notes</Link>
-            <Link to="/AddNote">+ Create New Note</Link>
+            <Link to="/AddNote"> Create New Note</Link>
         </div>
     );
 };
