@@ -10,13 +10,18 @@ class Edit extends Component{
     super(props);
     this.state = {
       id:parseInt(props.location.pathname.slice(6),10),
-      test:true,
       title:'',
       content:''
     }
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleContentChange= this.handleContentChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  componentDidMount(){
+    if(this.props.info.notes[this.state.id]){
+      this.setState({content:this.props.info.notes[this.state.id].text});
+      this.setState({title:this.props.info.notes[this.state.id].title});
+    }
   }
 
   handleSubmit(event){
