@@ -1,10 +1,11 @@
+
 .innerBox{
     background-color: rgb(228, 228, 228);
 }
 .outerBox{
     background-color: rgb(245, 245, 245);
 }
-
 .body {
+    max-width: 900px;
     width: 100%;
 }

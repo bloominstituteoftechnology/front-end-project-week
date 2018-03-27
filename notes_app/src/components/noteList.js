@@ -55,7 +55,7 @@ class NoteList extends Component {
 	render() {
 		return (
         		
-    <div className="container border">
+    <div className="main container border">
       <div className="row">
         <h4 className="col-12">List View</h4>
       </div>
@@ -65,17 +65,17 @@ class NoteList extends Component {
               <h2 className="font-weight-bold">Lambda Notes</h2>
           </div>
           
-        <div className="col-8 ml-4">
+        <div className="col-9 ml-4">
           <div className="my-3 mt-5">
-            <span className="font-weight-bold">Your Notes:</span>
+            <h4 className="noteTitle font-weight-bold">Your Notes:</h4>
           </div>  
-          <div className="body row justify-content-between">
+          <div className="body row ">
             {this.state.notes.map((note) => {
             return (
             
-                  <div className="col-3 mx-2 my-2 border bg-white">
+                  <div className="noteCard col-3 mx-2 my-2 border bg-white">
                         <h4 className="ml-2">{note.title}</h4>
-                        <hr className="mx-2"/>
+                        <hr className="mx-1"/>
                         <p className="mx-2">{note.content}</p>
                   </div>
               );
