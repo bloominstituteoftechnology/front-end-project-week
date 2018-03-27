@@ -1,0 +1,10 @@
+.ViewTodo {
+  display: flex;
+  border: 2px green solid;
+  height: 100vh;
+}
+
+.todo-form {
+  border: 2px red solid;
+  width: 100%;
+}

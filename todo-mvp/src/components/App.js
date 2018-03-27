@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Navigation from './Navigation/Navigation';
-import TodoList from './TodoList/TodoList';
+import ListTodo from './ListTodo/ListTodo';
 import './App.css';
 
 class App extends Component {
@@ -11,8 +11,8 @@ class App extends Component {
       todos: [
         {
           id: 0,
-          title: "this title",
-          msg: "This is going to be a super long message, so that I can get an idea of the formating",
+          title: "This title",
+          msg: "This is going to be a super long message, so that I can get an idea of the formating. This is going to be a super long message. Like really very long. I need to test what happens when texts overflows. Okay It's about to go over the edge. More typing because I want to make sure there overflows.",
         },
         {
           id: 1,
@@ -21,7 +21,7 @@ class App extends Component {
         },
         {
           id: 2,
-          title: "this title",
+          title: "This title",
           msg: "This is going to be a super long message, so that I can get an idea of the formating",
         },
         {
@@ -62,7 +62,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <TodoList todos={this.state.todos} />
+        <ListTodo todos={this.state.todos} />
       </div>
     );
   }

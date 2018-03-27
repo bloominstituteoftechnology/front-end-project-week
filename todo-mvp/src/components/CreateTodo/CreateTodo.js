@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../Navigation/Navigation';
+import { Link } from 'react-router-dom';
 
 import './CreateTodo.css'
 
@@ -14,7 +15,7 @@ class CreateTodo extends Component {
           </label>
           <input className="input-title" type="text" placeholder="Enter title"/>
           <input className="input-body" type="text" placeholder="Enter todo text"/>
-          <button type="submit">Save</button>
+          <Link to="/"><button type="submit">Save</button></Link>
         </form>
       </div>
     );

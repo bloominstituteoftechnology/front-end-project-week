@@ -1,14 +1,14 @@
 .CreateTodo {
     display: flex;
     border: 2px green solid;
-    height: 100vh;
+    height: 100%;
   }
 
   .create-form {
       display: flex;
       flex-direction: column;
-      margin-left: 20px;
-      width: 600px;
+      border: 2px solid red;
+      width: 100%;
   }
   
   .input-title {

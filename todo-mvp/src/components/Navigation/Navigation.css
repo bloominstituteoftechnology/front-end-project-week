@@ -1,5 +1,5 @@
 .Navigation {
-  background-color: RGB(216, 216, 216);
+  background-color: #D8D8D8;
   border: 2px solid blue; 
   display: flex;
   flex-direction: column;
@@ -7,21 +7,21 @@
 }
 
 header {
-  color: RGB(74, 74, 74);
-  border: 2px solid black;
+  border: 2px solid crimson;
 }
 
 header h1 {
-  border: 1px solid cyan;
+  color: #4A4A4A;
+  font-family: Roboto Bold;
+  border: 2px solid cyan;
   font-weight: bold;
 }
 
 .nav-btn {
-  border: 1px solid RGB(151, 151, 151);
+  border: 2px solid RGB(151, 151, 151);
   background-color: RGB(54, 192, 195);
   color: RGB(255, 255, 255);
   font-weight: bolder;
-  border: 2px solid green;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,4 +1,4 @@
-.TodoList {
+.ListTodo {
   border: 2px solid red;
   display: flex;
   flex-wrap: wrap;
@@ -10,12 +10,20 @@
   height: 200px;
   border: 1px solid black;
   margin: 25px;
+  overflow-y: hidden;
 }
 
 .card-title {
   font-weight: bold;
 }
 
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
 .card-text {
-  font-weight: bold;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
