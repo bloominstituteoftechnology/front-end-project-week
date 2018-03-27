@@ -10,7 +10,7 @@ import NewNote from "./components/create-new-view";
 import EditNote from "./components/edit-view";
 
 class App extends Component {
-  nextId = 0;
+  nextId = 9;
   noteId = 0;
   state = {
     notes: [
@@ -73,7 +73,7 @@ class App extends Component {
 
   handleListView = eachNote => {
     for (let i = 0; i < this.state.notes.length; i++) {
-      if (this.state.notes[i].id === eachNote) this.eachNote = i;
+      if (this.state.notes[i].id === eachNote) this.noteId = i;
     }
   };
 
@@ -96,7 +96,7 @@ class App extends Component {
     });
   };
 
-  handleEditNote = update => {
+  handleEdit = update => {
     const editedNote = {
       id: update.id,
       title: update.title,
@@ -125,7 +125,8 @@ class App extends Component {
             path={"/"}
             render={() => ( 
               <ListView notes={this.state.notes}
-                handleListView={this.handleListView}   sortNotes={this.sortNotes}
+                handleListView={this.handleListView} 
+                sortNotes={this.sortNotes}
               />
             )}
           />
@@ -136,7 +137,7 @@ class App extends Component {
               <NoteView
                 note={this.state.notes[this.noteId]}
                 toggleModal={this.toggleModal}
-                deleteNote={this.handleDeleteModal}
+                handleDeleteModal={this.handleDeleteModal}
               />
             )}
           />
@@ -151,7 +152,7 @@ class App extends Component {
             render={() => (
               <EditNote
                 note={this.state.notes[this.noteId]}
-                handleEditNote={this.handleEditNote}
+                handleEdit={this.handleEdit}
               />
             )}
           />
