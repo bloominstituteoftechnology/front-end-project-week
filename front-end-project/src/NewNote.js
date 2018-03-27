@@ -8,14 +8,10 @@ export default class NewNote extends Component{
       };
 
       componentDidMount() {
-        // change this line to grab the id passed on the URL
         
         const id = this.props.match.params.id;
         console.log(this);
-        axios
-          .catch(error => {
-            console.error(error);
-          });
+        
       }
 
     render () {
