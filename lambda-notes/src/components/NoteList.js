@@ -43,11 +43,13 @@ const StyledNoteList = styled.div`
 class NoteList extends Component {
 
     render() {
+        console.log('NoteList this.props', this.props)
         return (
         <StyledNoteList>
         <div className="note-list__header"> Your Notes: </div>
         <div className="note-list__right">
         <Row className="d-flex flex-wrap mx-2">
+        
         
             {this.props.notes.map(note => {
                 return (

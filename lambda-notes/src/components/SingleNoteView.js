@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
+import HomeLeftPanel from './HomeLeftPanel';
 
 const StyledNote = styled.div`
+    display: flex;
 `;
 
 
@@ -14,11 +16,13 @@ class SingleNoteView extends React.Component {
             console.log('this is this.props', this.props)
         return (
             <StyledNote >
+            <HomeLeftPanel />
+            
                 <Col sm="4" className="mb-3" key={this.props.match.params.id}>
                     <Card>
                         <CardBody key={this.props.match.params.id}>
-                            <CardTitle name={this.props.match.params.title} >{}</CardTitle>
-                            <CardText body={this.props.match.params.text} ></CardText>
+                            <CardTitle >CardTitle</CardTitle>
+                            <CardText >CardText</CardText>
                         </CardBody>
                     </Card>
                 </Col>
@@ -27,11 +31,9 @@ class SingleNoteView extends React.Component {
     }
 }
   const mapStateToProps = (state) => {
-      
     return {
-      notes: state.notes,
+      notes: state
     };
-    console.log('This is NOTES', state.notes)
   };
   
   export default connect(mapStateToProps, { })(SingleNoteView);
