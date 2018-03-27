@@ -29,6 +29,7 @@ function modifyNotes(state=[],action){
         }
       });
     case REMOVE:
+    console.log('in');
       return state.map( (e,i)=>{
         if(i === action.id){
           return
@@ -48,6 +49,10 @@ export default (state=defaultState,action) => {
         notes:modifyNotes(state.notes,action)
       });
     case EDIT:
+      return Object.assign({},state,{
+        notes:modifyNotes(state.notes,action)
+     });
+    case REMOVE:
       return Object.assign({},state,{
         notes:modifyNotes(state.notes,action)
      });

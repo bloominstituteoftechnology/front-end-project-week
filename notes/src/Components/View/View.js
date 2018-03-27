@@ -39,7 +39,7 @@ class View extends Component{
                       <div key={i}>
                         <Row className="show-grid"></Row>
                         <Col key={i} xs={3} md={3} lg={3} className="col">
-                          <Link to={'/notes/1'}>
+                          <Link to={'notes' + i}>
                             <Note id={i}/>
                           </Link>
                         </Col>
@@ -48,7 +48,7 @@ class View extends Component{
                     else{
                       return(
                       <Col key={i} xs={3} md={3} lg={3} className="col">
-                          <Link to={'/notes/1'}>
+                          <Link to={'/notes/' + i}>
                             <Note id={i}/>
                           </Link>
                       </Col>

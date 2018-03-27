@@ -10,6 +10,7 @@ class Note extends Component{
   constructor(props){
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.reset = this.reset.bind(this);
 
     if(props.id || props.id >= 0){
@@ -32,6 +33,13 @@ class Note extends Component{
 
   handleChange(){
     this.setState({show:true});
+  }
+
+  handleDelete(){
+    console.log('test');
+    console.log(this.props);
+    this.props.remove(this.state.id);
+    console.log(this.props.info.notes);
   }
 
   render(){
@@ -74,6 +82,8 @@ class Note extends Component{
     }
     else{
       if(this.props.info.notes[this.state.id]){
+        console.log(this.props.info.notes[this.state.id]);
+        console.log(this.state.id);
         if(this.state.show){
           return(
           <div>
@@ -105,7 +115,7 @@ class Note extends Component{
                       </Modal.Header>
                       <Modal.Body>Are you sure you want to delete this?</Modal.Body>
                       <Modal.Footer>
-                        <Button className="btn">Delete</Button>
+                        <Button className="btn" onClick={this.handleDelete}>Delete</Button>
                         <Button className="btn" onClick={this.reset}>No</Button>
                       </Modal.Footer>
                     </Modal.Dialog>
