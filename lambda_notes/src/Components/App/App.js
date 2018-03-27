@@ -14,47 +14,47 @@ class App extends Component {
     this.state = {
       notes: [
         {
-          title: 'Note Title 1',
+          title: 'The Phantom Menace',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 0
         },
         {
-          title: 'Note Title 2',
+          title: 'Attack of the Clones',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 1
         },
         {
-          title: 'Note Title 3',
+          title: 'Revenge of the Sith',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 2
         },
         {
-          title: 'Note Title 4',
+          title: 'A New Hope',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 3
         },
         {
-          title: 'Note Title 5',
+          title: 'The Empire Strikes Back',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 4
         },
         {
-          title: 'Note Title 6',
+          title: 'Return of the Jedi',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 5
         },
         {
-          title: 'Note Title 7',
+          title: 'The Force Awakens',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 6
         },
         {
-          title: 'Note Title 8',
+          title: 'The Last Jedi',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 7
         },
         {
-          title: 'Note Title 9',
+          title: 'Episode IX',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
           id: 8
         }
