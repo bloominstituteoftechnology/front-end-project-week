@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Note from './note'
+import Note from './note';
 import { Container, Row, Col, Card, CardBody, CardText, CardTitle} from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './index.css';
 
 function mapStateToProps(state) {
     return {
@@ -13,16 +14,16 @@ function mapStateToProps(state) {
 class NotesList extends Component {
     render() {
         return (
-            <Container>
+            <Container className='my-5'>
                 <Row>
-                    <Col><h3>Your Notes:</h3></Col>
+                    <Col><h3 className='header'>Your Notes:</h3></Col>
                 </Row>
                 <Row>
                     {this.props.notes.map(note=>{
                         return (
-                            <Col>
-                                <Link to={`/viewNotes/${note.id}`}>
-                                    <Card>
+                            <Col sm={4}>
+                                <Link className='card-link' to={`/viewNotes/${note.id}`}>
+                                    <Card className='note pb-3'>
                                         <CardBody>
                                             <CardTitle>
                                                 {note.title}
