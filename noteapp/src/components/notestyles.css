@@ -1,0 +1,40 @@
+.notelist {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.note {
+  width: 25%;
+  margin: 12px;
+  border: 1px solid gray;
+  /*box-shadow: 0 1px 4px gray;*/
+}
+.note h3 {
+  padding: 0;
+  margin: 0;
+}
+.notepage {
+  background-color: #f3f3f3;
+}
+.notepage h3 {
+  display: flex;
+  align-self: flex-start;
+  margin: 40px 0 10px 38px;
+}
+.sidebar {
+  background-color: #d8d8d8;
+}
+.note-button {
+  border: 1px solid gray;
+  background-color: #2bc1c4;
+}
+/*
+Heading Font: Roboto Bold
+Heading color: 4A4A4A
+Content Font: Raleway Regular
+Content color: black
+Button background: 2BC1C4
+Sidebar background: D8D8D8
+Main background: F3F3F3
+Delete background: D0021B
+*/
