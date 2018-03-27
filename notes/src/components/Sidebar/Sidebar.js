@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 import './Sidebar.css';
 
@@ -12,7 +13,9 @@ class Sidebar extends Component {
         </Row>
         <div className="SidebarButtons">
           <Row className="buttonRow1">
-            <Button color="primary" className="Button1"> View Your Notes </Button>{' '}
+            <Link to="/newNote">
+              <Button color="primary" className="Button1"> View Your Notes </Button>
+            </Link>
           </Row>
           <Row classname="buttonRow2">
             <Button color="primary" className="Button2"> + Create New Note </Button>{' '}

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const NavRoute = () => (
   <Router>
-    <div>
+    {/* <div>
       <ul>
         <li>
           <Link to="/"> Home </Link>
@@ -15,10 +15,12 @@ const NavRoute = () => (
 
       <hr />
 
-      <Route exact path="/" component={Home} />
-      <Route path="/newNote" component={newNote} />
+    </div> */}
 
-    </div>
+    
+    <Route exact path="/" component={Home} />
+    <Route path="/newNote" component={newNote} />
+    
   </Router>
 );
 
