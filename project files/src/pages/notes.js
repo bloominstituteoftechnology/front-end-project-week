@@ -1,15 +1,18 @@
 export let notes = [
     {
         id: 1,
-        text:'lip'
+        title: 'Note Title',
+        text:'lipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplip'
     },
     {
         id: 2,
-        text: 'lip2'
+        title: 'Note Title',
+        text: 'lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2'
     },
     {
         id: 3,
-        text: 'lip3'
+        title: 'Note Title',
+        text: 'lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3'
     }
 
     
