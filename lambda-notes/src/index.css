@@ -2,4 +2,26 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-size: 100%;
+}
+
+/* Note */
+.Notes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Note {
+  width: 200px;
+  height: 210px;
+  font-size: 0.95rem; 
+  border: 2px solid gray;
+  padding: 15px;
+  margin: 10px;
+}
+
+.Note__text {
+  border-top: 2px solid gray;
+  padding-top: 10px; 
 }
