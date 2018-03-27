@@ -1,0 +1,125 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+.PanelsSection {
+  display: flex;
+  height: 2000px;
+}
+.AddNoteSection {
+  display: flex;
+  height: 2000px;
+}
+.AddNoteComp {
+  width: 80%;
+  background: lightgray;
+  padding: 5% 30px 0px 30px;
+}
+
+.LeftPanel {
+  width: 20%;
+  background: darkgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+}
+
+.LeftPanelContents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.RightPanel {
+  width: 80%;
+  background: lightgray;
+  padding: 5% 30px 0px 30px;
+}
+
+.Button {
+  display: flex;
+  background: rgb(79, 183, 187);
+  box-shadow: 2px 2px 1px #888888;
+  font-weight: bold;
+  color: white;
+  width: 200px;
+  height: 50px;
+  margin: 20px 0px 20px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button:hover {
+  background: rgb(89, 131, 221);
+  cursor: pointer;
+}
+
+.Card {
+  background: white;
+  height: 250px;
+  width: 250px;
+  margin: 30px 30px 30px 0px;
+  box-shadow: 1px 1px 1px #888888;
+  overflow: hidden;
+  white-space: pre-line;
+  text-overflow: ellipsis;
+}
+
+.Card_title {
+  border-bottom: solid lightgrey;
+  margin: 0px 20px;
+  padding: 10px 0px;
+}
+
+.Card_content {
+  margin: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: dimgrey;
+}
+
+.List {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+textarea {
+  resize: none;
+}
+
+p {
+  padding: 10px;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+p:hover {
+  color: grey;
+}
+
+.NormalNote {
+  transition: opacity 2s;
+  opacity: 1;
+}
+
+.HideNote {
+  display: none;
+}
+
+.EditNoteBtnGroup {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Note_title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.Note_content {
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: dimgrey;
+}
