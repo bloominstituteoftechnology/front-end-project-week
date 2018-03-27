@@ -1,0 +1,45 @@
+.noteViewContainer {
+  height: inherit;
+  width: 100%;
+  border: 1px solid #b5b5b5;
+  background-color: #f3f3f3;
+  padding: 20px;
+}
+
+.noteViewHeader {
+  text-align: center;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.noteViewBody {
+  max-width: 1151px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.linkContainer {
+  text-align: right;
+}
+
+.link {
+  color: #4a4a4a;
+  margin-left: 15px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+@media screen and (min-width: 1180px) {
+  .noteViewHeader {
+    text-align: left;
+    margin-left: 15px;
+  }
+  .listBody {
+    justify-content: flex-start;
+  }
+}
