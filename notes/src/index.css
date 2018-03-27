@@ -48,3 +48,13 @@ table {
 }
 
 /* End of Reset */
+
+body {
+  font-family: 'Raleway', serif;
+  font-weight: normal;
+}
+
+h1, h2 {
+  font-family: 'Roboto', serif;
+  font-weight: bold;
+}
