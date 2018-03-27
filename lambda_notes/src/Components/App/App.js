@@ -5,6 +5,7 @@ import Navigation from '../Navigation/Navigation';
 import ListNotes from '../ListNotes/ListNotes';
 import CreateNewNote from '../CreateNewNote/CreateNewNote';
 import NoteView from '../NoteView/NoteView';
+import EditNote from '../EditNote/EditNote';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -73,7 +74,7 @@ class App extends Component {
               path="/"
               render={() => <ListNotes notes={this.state.notes} />}
             />
-            <Route path="/add" component={CreateNewNote} />
+            <Route exact path="/add" component={CreateNewNote} />
             <Route exact path="/notes/:id" component={NoteView} />
             <Route exact path="/notes/:id/EditNote" component={EditNote} />
           </div>

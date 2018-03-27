@@ -20,8 +20,25 @@
   display: flex;
   justify-content: flex-end;
   padding: 2%;
+  font-size: 12px;
 }
 
 .editLink {
   margin-right: 10px;
+  color: black;
+  text-decoration: underline;
+}
+
+.deleteLink {
+  color: black;
+  text-decoration: underline;
+}
+
+.deleteModal {
+  text-align: center;
+}
+
+.delModalBtnNo {
+  background-color: #30b8bc;
+  color: #30b8bc;
 }
