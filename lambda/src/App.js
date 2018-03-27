@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import ListView from './components/ListView';
-
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      notes:[],
+    }
+  }
+  componentDidMount(){
+    this.setState({notes :this.props.data});
+  }
+  
+  
   render() {
     return (
-      <div>
-    <ListView  />
-      
-     </div>
+      <ul>
+         
+        {this.state.notes.map(note =>{
+          return <li>{note.name}</li>
+        })}
+          </ul>
     );
   }
 }
