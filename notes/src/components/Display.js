@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import NotesList from "./NotesList";
-import Modal from "./Modal";
 import { Container } from "reactstrap";
 
 function mapStateToProps(state) {

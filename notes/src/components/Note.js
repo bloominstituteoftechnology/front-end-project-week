@@ -9,6 +9,8 @@ import {
   CardText
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { deleteNote } from "../actions";
+import DeleteModal from "../components/DeleteModal";
 
 function mapStateToProps(state) {
   return { notes: state.notes };
@@ -25,9 +27,7 @@ class Note extends Component {
           <Link className="header mt-3 mr-3" to="/editNote/:id">
             edit
           </Link>{" "}
-          <Link className="header mt-3 mr-3" to="/deleteNote/:id">
-            delete
-          </Link>
+          <DeleteModal buttonLabel="delete" />
         </Row>
         <Row className="mt-5">
           <h3 className="header">{note.title}</h3>
@@ -40,4 +40,4 @@ class Note extends Component {
   componentDidMount() {}
 }
 
-export default connect(mapStateToProps)(Note);
+export default connect(mapStateToProps, { deleteNote })(Note);
