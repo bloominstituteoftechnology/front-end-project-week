@@ -6,7 +6,7 @@ import { Form, Input } from 'reactstrap';
 const CreateNewNote = () => {
   return (
     <div className="newNoteMainDiv">
-      <span className="newNoteHeader">Create New Note:</span>
+      <h6 className="newNoteHeader">Create New Note:</h6>
       <Form className="newNoteFormDiv">
         <Input type="text" placeholder="Note Title" className="titleDiv" />
         <Input

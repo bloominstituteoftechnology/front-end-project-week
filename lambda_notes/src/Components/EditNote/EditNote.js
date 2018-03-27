@@ -24,7 +24,7 @@ class EditNote extends Component {
   render() {
     return (
       <div className="newNoteMainDiv">
-        <span className="newNoteHeader">Edit Note:</span>
+        <h6 className="newNoteHeader">Edit Note:</h6>
         <Form className="newNoteFormDiv">
           <Input
             type="text"

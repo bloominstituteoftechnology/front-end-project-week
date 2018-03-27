@@ -5,8 +5,9 @@
 }
 
 .newNoteHeader {
-  margin: 80px 0 0 20px;
+  /* margin: 80px 0 0 20px; */
   font-weight: 650;
+  padding: 50px 20px 20px;
 }
 
 .newNoteFormDiv {

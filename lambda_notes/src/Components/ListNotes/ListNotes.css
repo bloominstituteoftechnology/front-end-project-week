@@ -9,13 +9,14 @@
   /* margin-top: 80px; */
   margin-left: 40px;
   font-weight: 650;
+  padding: 50px 20px 0 0;
 }
 
 .notesGrid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 70px;
+  margin-top: 20px;
 }
 
 .noteThumbnail {
