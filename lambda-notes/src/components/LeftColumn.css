@@ -2,7 +2,7 @@
   width: 350px;
   padding: 15px;
   max-height: 100%;
-  background-color: #d3d2d3;
+  background-color: #d8d8d8;
   border-right: 1.5px solid gray;
   height: 100vh;
 }
@@ -18,7 +18,7 @@ h1 {
 }
 
 .btn {
-  background-color: #2eb8bc;
+  background-color: #2bc1c4;
   color: white;
   font-weight: bold;
   border: 1px solid gray;

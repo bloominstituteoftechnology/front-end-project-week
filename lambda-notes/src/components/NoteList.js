@@ -27,8 +27,8 @@ export default class NoteList extends Component {
         <div className="row">
           {this.state.notes.map(note => {
             return (
-              <div className="col-lg-4 col-md-8 col-sm-12">
-                <div className="card" key={note.id}>
+              <div className="col-lg-4 col-md-8 col-sm-12" key={note.id}>
+                <div className="card">
                   <div className="card-block">
                     <h5 className="card-title">{note.title}</h5>
                     <div className="card-text">{note.content}</div>

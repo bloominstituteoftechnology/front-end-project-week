@@ -9,7 +9,7 @@ export default class CreateNote extends Component {
   };
 
   handleChange = e => {
-    this.setState({ value: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
@@ -20,8 +20,8 @@ export default class CreateNote extends Component {
   render() {
     return (
       <div>
-        <h4>Create New Note:</h4>
-        <Form>
+        <h4 className="heading">Create New Note:</h4>
+        <Form className="form">
           <FormGroup className="form-group">
             <Input
               className="input-title"
@@ -33,16 +33,19 @@ export default class CreateNote extends Component {
             />{' '}
             <Input
               className="input-content"
-              type="text"
+              type="textarea"
               name="content"
               placeholder="Note Content"
               onChange={this.handleChange}
               value={this.state.name}
             />{' '}
-            <Button className="btn save-button" onClick={this.handleSubmit}>
-              Save
-            </Button>
           </FormGroup>
+          <Button
+            className="btn float-left save-button"
+            onClick={this.handleSubmit}
+          >
+            Save
+          </Button>
         </Form>
       </div>
     );

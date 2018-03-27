@@ -1,5 +1,15 @@
 .App {
   display: flex;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #f3f3f3;
+  font-family: Railway Regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
 }

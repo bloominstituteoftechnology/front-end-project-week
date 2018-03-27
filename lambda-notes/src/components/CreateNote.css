@@ -1,10 +1,20 @@
+.heading {
+  margin-left: 40px;
+}
+
 .input-title {
-  margin: 40px 0 10px 20px;
+  margin: 40px 0 10px 40px;
   width: 500px;
 }
 
 .input-content {
-  margin: 20px 0 10px 20px;
+  margin: 20px 0 10px 40px;
   width: 1000px;
   height: 600px;
+}
+
+.save-button {
+  margin: 0 0 0 40px;
+  width: 280px;
+  height: 60px;
 }
