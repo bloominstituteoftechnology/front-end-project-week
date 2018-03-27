@@ -13,10 +13,11 @@ class App extends Component {
   }
 
   addNewNote = (note) => {
+    console.log('made it');
     note = {...note, id: this.state.nextId};
     const tempNotes = this.state.notes;
     tempNotes.push(note);
-    this.setState({notes: tempNotes, nextId: ++this.state.nextId});
+    this.setState({notes: tempNotes, nextId: (this.state.nextId + 1)});
   };
 
   render() {

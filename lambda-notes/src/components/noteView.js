@@ -2,9 +2,7 @@ import React from 'react';
 
 
 export const noteView = (notes, match) => {
-
-    const id = match.params.id;
-    const note = notes.filter(note => note.id === parseInt(id))[0];
+    const note = notes.filter(note => note.id === parseInt(match.params.id))[0];
     return (
         <div className='col-9 right_side'>
             <div className='row title_bar'>

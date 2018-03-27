@@ -1,5 +1,8 @@
+
 .App {
   text-align: center;
+  font-family: raleway regular;
+
 }
 
 .App-logo {
@@ -26,11 +29,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
 .container {
   height: 100vh;
 }
 .left_side {
-  background-color: #D3D2D3;
+  background-color: #D8D8D8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,7 +47,7 @@
 }
 
 .right_side {
-  background-color: rgb(230, 230, 230);
+  background:#F3F3F3;
   height: 100vh;
   border: 1px solid gray;
   
@@ -57,7 +61,7 @@
 }
 
 .left_side .nav_button {
-  background-color: #2EB8BC;
+  background-color: #2bc1c4;
   border: 1px solid grey;
   height: 45px;
   width: 90%;
@@ -116,4 +120,37 @@
   color: black;
   text-decoration: none;
 
+}
+
+.new_note_title {
+  width: 40%;
+}
+
+.new_note_text {
+  width:80%;
+  height: 400px;
+  margin-top:10px;
+}
+
+.save_button {
+  background-color: #2bc1c4;
+  border: 1px solid grey;
+  height: 45px;
+  width: 20%;
+  margin: 10px 0;
+ 
+  color: white;
+}
+.new_note_form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 19px;
+
+}
+form .save_button:hover {
+  cursor: pointer;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Roboto', sans-serif;
 }
