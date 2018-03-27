@@ -8,25 +8,27 @@ class CreateNote extends Component {
     super();
 
     this.state = {
-      title: '',
-      text: ''
+      note: {
+        title: '',
+        text: ''
+      }
     };
   }
 
   handleInput = (event) => {
-    if (event.target.name === 'title') {
-      this.setState({ title: event.target.value });
-    } else {
-      this.setState({ text: event.target.value });
-    }
-  }
+    const newNote = this.state.note;
+    newNote[event.target.name] = event.target.value;
+    this.setState({ newNote });
+  };
 
   submitNote = (event) => {
     event.preventDefault();
-    this.props.addNote(this.state);
-    this.setState({
-      title: '',
-      text: ''
+    this.props.addNote(this.state.note);
+    this.setState({ 
+      note: {
+        title: '',
+        text: ''
+      }
     });
   };
 
@@ -45,7 +47,5 @@ class CreateNote extends Component {
     )
   }
 }
-
-//need input handler
 
 export default connect(null, { addNote })(CreateNote);

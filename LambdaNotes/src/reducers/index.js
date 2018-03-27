@@ -1,13 +1,13 @@
 import defaultNotes from './defaultNotes';
 
-import { ADD_NOTE, ACTIVATE_NOTE, DEACTIVATE_NOTE } from '../actions';
+import { ADD_NOTE, ACTIVATE_NOTE, EDIT_NOTE } from '../actions';
 
 let nextId = 7;
 
 const intialState = {
   idCount: nextId,
   notes: defaultNotes,
-  activeNote: null
+  activeNote: {}
 }
 
 export default (state = intialState, action) => {
@@ -22,8 +22,13 @@ export default (state = intialState, action) => {
     case ACTIVATE_NOTE:
      const active = state.notes.filter(note => note.id == action.payload)
      return { ...state, activeNote: active[0]}
-    case DEACTIVATE_NOTE:
-     return 
+    case EDIT_NOTE:
+      const editedNote = {
+        id: state.idCount++,
+        title: action.title,
+        text: action.text
+      }
+      return { ...state};
     default:
       return state;
   }

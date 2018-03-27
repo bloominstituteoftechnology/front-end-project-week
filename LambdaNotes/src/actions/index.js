@@ -1,6 +1,6 @@
 export const ADD_NOTE = 'ADD_NOTE';
 export const ACTIVATE_NOTE = 'ACTIVATE_NOTE';
-export const DEACTIVATE_NOTE = 'DEACTIVATE_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
 
 export const addNote = (note) => {
   return {
@@ -17,8 +17,10 @@ export const activateNote = (id) => {
   };
 }
 
-export const deactivateNote = () => {
+export const editNote = (note) => {
   return {
-    type: DEACTIVATE_NOTE
-  }
+    type: EDIT_NOTE,
+    title: note.title,
+    text: note.text
+  };
 }

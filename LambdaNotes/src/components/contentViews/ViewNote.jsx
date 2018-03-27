@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { activateNote, deactivateNote } from '../../actions';
+import { Link } from 'react-router-dom';
+import { activateNote } from '../../actions';
 
 class ViewNote extends Component {
 
@@ -12,14 +13,18 @@ class ViewNote extends Component {
   render() {
     return (
       <div>
-        Note Name
+        <Link to={`/edit/${this.props.match.params.id}`} style={{ color: 'black' }}>
+          edit
+        </Link>
+        <p> delete</p>
         <div>
+          <h1>{this.props.activeNote.title}</h1>
+          <p>{this.props.activeNote.text}</p>
         </div>
       </div>
     )
   }
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -27,7 +32,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { activateNote, deactivateNote })(ViewNote);
+export default connect(mapStateToProps, { activateNote })(ViewNote);
 
-//map action for activate and deactivate note to component
-//activate on mount, deactivate on dismount? will need to be same for edit view
+//need to add link to edit page and then enable delete button

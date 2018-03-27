@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import SideBar from './SideBar';
-import { YourNotes, CreateNote, ViewNote } from './contentViews/';
+import { YourNotes, CreateNote, ViewNote, EditNote } from './contentViews/';
 
 class App extends Component {
   render() {
@@ -16,6 +16,7 @@ class App extends Component {
             <Route exact path="/" component={ YourNotes } />
             <Route exact path="/create" component={ CreateNote } />
             <Route exact path="/view/:id" component={ ViewNote } />
+            <Route exact path="/edit/:id" component={ EditNote } />
           </div>
         </div>
       </Router>
