@@ -7,14 +7,18 @@
 
 .leftSide {
   background: #d8d8d8;
+  border: 1px solid #979797;
 }
 .rightSide {
   background: #f3f3f3;
+  border: 1px solid #979797;
 }
 
 .note {
   height: 200px;
   margin: 1rem 0;
+}
+.card-body {
   overflow: hidden;
 }
 
@@ -29,11 +33,25 @@ button.btn.btn-secondary {
   background: #2bc1c4;
   font-weight: bold;
   border-radius: 0;
+  font-size: 1.1rem;
 }
 /* Header text color: 4a4a4a */
 .header {
   color: #4a4a4a;
   font-weight: bold;
-  line-height: 80%;
+  line-height: 85%;
 }
 /* Button Color: 2bc1c4 */
+a.header {
+  text-decoration: underline;
+}
+a.header:hover {
+  color: black;
+}
+
+h5.card-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  line-height: 0.3rem;
+}

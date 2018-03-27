@@ -30,7 +30,7 @@ class NotesList extends Component {
             return (
               <Col sm={4}>
                 <Link className="card-link" to={`/viewNotes/${note.id}`}>
-                  <Card className="note">
+                  <Card className="note pb-3">
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>
                       <hr />
