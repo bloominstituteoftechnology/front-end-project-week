@@ -16,7 +16,6 @@ ReactDOM.render(
     <Route path="/Save" component={ SaveNote } />
     <Route path="/Edit" component={ EditNote } />
     </div>
-
 </Router>, 
 document.getElementById('root'));
 

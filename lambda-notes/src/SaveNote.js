@@ -24,7 +24,7 @@ class SaveNote extends React.Component {
     render() {
       return (
         <div>
-          <div className="">        
+          <div>        
             <div className="row no-gutters">
                 <div className="sideBar col-2">
                     <span className="lambdaNotes">Lambda <br /> Notes</span>
