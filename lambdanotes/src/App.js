@@ -13,7 +13,9 @@ class App extends Component {
           <div className="titleLambda">Lambda</div>
           <div className="titleNotes">Notes</div>
           <div className="lambdabutton">
-            <Button color="info">View your notes</Button>
+            <Link to="/">
+              <Button color="info">View your notes</Button>
+            </Link>
           </div>
           <div className="lambdabutton">
             <Route path="/create-note" component={CreateNote} />
