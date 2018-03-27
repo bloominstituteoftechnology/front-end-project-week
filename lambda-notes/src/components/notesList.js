@@ -1,77 +1,37 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getNotes } from "../actions";
 
 class NotesList extends Component {
-	state = {
-		notes: [
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			},
-			{
-				title: "Note Tile",
-				content:
-					"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-			}
-		]
-	};
+	componentDidMount() {
+		this.props.getNotes();
+	}
 
 	render() {
 		return (
-			<div className="container">
+			<div
+				className="container bg-light">
 				<h2>Notes List</h2>
-				<div className="container d-flex">
-					{this.state.notes.map((note) => {
+				<ul className="note-grid">
+					{this.props.notes.map((note) => {
 						return (
-							<div className="container">
-								<div className="row">
-									<div className="col-xl border border-primary">
-										<h4>{note.title}</h4>
-										<hr />
-										<div>{note.content}</div>
-									</div>
-								</div>
-							</div>
+							<li className="friend" key={note.id}>
+								<div>{note.name}</div>
+								<div>{note.age}</div>
+								{/* <div>{note.title}</div> */}
+								{/* <hr /> */}
+								{/* <div>{note.content}</div> */}
+							</li>
 						);
 					})}
-				</div>
+				</ul>
 			</div>
 		);
 	}
 }
-export default NotesList;
+const mapStateToProps = (state) => {
+	return {
+		notes: state.notes
+	};
+};
+export default connect(mapStateToProps, { getNotes })(NotesList);

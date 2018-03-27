@@ -3,9 +3,6 @@ import React from "react";
 
 import { Field, reduxForm } from "redux-form";
 
-import React from "react";
-import { Field, reduxForm } from "redux-form";
-
 const NoteForm = (props) => {
 	const { handleSubmit, pristine, reset, submitting } = props;
 	return (
