@@ -31,8 +31,8 @@ class DeleteNote extends Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
                 <ModalFooter>
-                    <Button color="danger" onClick={this.handleDelete}>Delete</Button>
-                    <Button className="Button flex" onClick={this.toggle}>Cancel</Button>
+                    <Button className="Button__delete" onClick={this.handleDelete}>Delete</Button>
+                    <Button className="Button" onClick={this.toggle}>Cancel</Button>
                 </ModalFooter>
                 </Modal>
             </div>

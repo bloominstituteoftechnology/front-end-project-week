@@ -41,7 +41,7 @@ class Note extends Component {
                     </Modal>
                 </div>
             </div>
-            <h4 className="Title">{this.props.location.state.currentNote.title}</h4>
+            <h4 className="Note__title">{this.props.location.state.currentNote.title}</h4>
             <p className="Content">{this.props.location.state.currentNote.text}</p>
         </div>
     );
