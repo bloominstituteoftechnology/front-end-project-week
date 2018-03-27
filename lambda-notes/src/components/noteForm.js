@@ -1,41 +1,72 @@
-import React from "react";
-// import { reducer as formReducer } from 'redux-form';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+	addNote,
+	getNotes
+	// editNote,
+} from "../actions";
 
-import { Field, reduxForm } from "redux-form";
 
-const NoteForm = (props) => {
-	const { handleSubmit, pristine, reset, submitting } = props;
-	return (
-		<form onSubmit={handleSubmit}>
+class NoteForm extends Component {
+	state = {
+		title: "",
+		content: ""
+	};
+
+	addNote = (event) => {
+		event.preventDefault();
+		this.props.addNote(this.state);
+		this.setState({
+			name: "",
+			age: "",
+			email: ""
+		});
+		setTimeout(() => {
+			this.props.getNotes();
+		}, 20);
+	};
+
+	handleInputChange = (event) => {
+		console.log(this.state.name);
+		const { name, value } = event.target;
+		this.setState({ [name]: value });
+	};
+
+	render() {
+		return (
 			<div>
-				<label>Create New Note:</label>
 				<div>
-					<Field
-						name="noteTitle"
-						component="input"
+					<h3>Create New Note</h3>
+				</div>
+				<form onSubmit={this.sendFriend}>
+					<input
 						type="text"
-						placeholder="First Name"
+						name="title"
+						placeholder="Note Title"
+						onChange={this.handleInputChange}
+						value={this.state.title}
 					/>
-				</div>
+					<input
+						type="textarea"
+						name="content"
+						placeholder="Note Content"
+						onChange={this.handleInputChange}
+						value={this.state.content}
+					/>
+					<button type="submit">Save</button>
+				</form>
 			</div>
-      <div>
-				<label>Notes</label>
-				<div>
-					<Field name="notes" component="textarea" />
-				</div>
-			</div>
-			<div>
-				<button type="submit" disabled={pristine || submitting}>
-					Submit
-				</button>
-				<button type="button" disabled={pristine || submitting} onClick={reset}>
-					Clear Values
-				</button>
-			</div>
-		</form>
-	);
+		);
+	}
+}
+
+const mapStateToProps = (state) => {
+	return {
+		notes: state.notes,
+	};
 };
 
-export default reduxForm({
-	form: "simple" // a unique identifier for this form
+export default connect(mapStateToProps, {
+	addNote, 
+	getNotes, 
 })(NoteForm);

@@ -1,8 +1,8 @@
-import { FETCHED, FETCHING, ERROR } from "../actions";
-import { initialize } from "redux-form";
+import { FETCHED, FETCHING, ERROR, FETCH_NOTE } from "../actions";
 
 const initialState = {
 	notes: [],
+	note: null,
 	fetching: false
 };
 
@@ -18,6 +18,11 @@ export const NotesReducer = (state = initialState, action) => {
 				...state,
 				error: action.message
 			};
+		case FETCH_NOTE:
+		return {
+			...state,
+			note: Response.data,
+		}
 		case FETCHED:
 			return {
 				...state,
