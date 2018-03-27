@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <Route path="/">
         <div className="App">
-          <Row>
+          <Row style={{ width: "100vw" }}>
             <Col
               xs="3"
               style={{

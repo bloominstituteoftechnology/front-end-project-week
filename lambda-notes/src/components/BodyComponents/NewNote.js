@@ -1,21 +1,25 @@
 import React, { Component, Fragment } from "react";
 import { Form, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addNote } from "../../actions/newNote";
+// import { withRouter } from "react-router-dom";
 
 class NewNote extends Component {
   state = {
     title: "",
-    body: ""
+    body: "",
+    redirect: false
   };
 
   render() {
+    if (this.state.redirect) return <Redirect to="/" />;
     return (
       <Fragment>
         <h3 className="mt-5 ml-3">Create New Note:</h3>
         <Form onSubmit={this.addNewNote} className="mr-5">
           <input
+            required
             onChange={this.handleTitleChange}
             className="ml-3 mb-5"
             size="40"
@@ -25,7 +29,7 @@ class NewNote extends Component {
           />
           <textarea
             onChange={this.handleBodyChange}
-            className="ml-3"
+            className="ml-3 d-block mb-2"
             rows="12"
             cols="80"
             type="text"
@@ -52,10 +56,16 @@ class NewNote extends Component {
 
   addNewNote = event => {
     event.preventDefault();
-    this.props.addNote(this.state);
+    const postNewNote = {
+      title: this.state.title,
+      body: this.state.body
+    };
+    this.props.addNote(postNewNote);
+
     this.setState({
       title: "",
-      body: ""
+      body: "",
+      redirect: true
     });
   };
 }

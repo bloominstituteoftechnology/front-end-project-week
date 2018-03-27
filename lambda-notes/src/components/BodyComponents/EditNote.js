@@ -55,6 +55,19 @@ class EditNote extends Component {
       </Fragment>
     );
   }
+
+  updateNote = event => {
+    event.preventDefault();
+    this.props.editNote(this.state);
+  };
+
+  handleTitleChange = event => {
+    this.setState({ title: event.target.value });
+  };
+
+  handleBodyChange = event => {
+    this.setState({ body: event.target.value });
+  };
 }
 
 const mapStateToProps = state => {
