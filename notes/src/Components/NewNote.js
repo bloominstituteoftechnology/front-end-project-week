@@ -4,16 +4,22 @@ import React from 'react';
 class NewNote extends React.Component {
   state = {
     title: '',
-    content: ''
+    content: '',
+    myList: []
   }
   addNote = (e) => {
     e.preventDefault()
+    const myList = [];
+    const title = this.title.value;
+    const content = this.content.value;
     this.setState({
       title: this.title.value,
       content: this.content.value
     })
+    myList.push({title, content});
     this.title.value = ''
     this.content.value = ''
+    console.log(myList);
   }
 
   render() {
