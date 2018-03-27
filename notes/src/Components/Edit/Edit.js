@@ -66,7 +66,7 @@ class Edit extends Component{
                 </form>
                 <Row className="show-grid">
                   <Link to={`/`}>
-                    <Button onClick={this.handleSubmit} id="Update">Save Edit</Button>
+                    <Button onClick={this.handleSubmit} id="Update">Update</Button>
                   </Link>
                 </Row>
               </Grid>

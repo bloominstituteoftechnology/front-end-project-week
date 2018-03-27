@@ -3,8 +3,7 @@ import {Panel} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {add} from '../../actions';
 import {Link} from 'react-router-dom';
-import {Grid,Row,Col,Button} from 'react-bootstrap';
-import './Note.css';
+import {Button} from 'react-bootstrap';
 
 class Note extends Component{
   constructor(props){
@@ -64,23 +63,6 @@ class Note extends Component{
       if(this.props.info.notes[this.state.id]){
         return(
         <div>
-        <Grid className="grid">
-          <Row className="show-grid">
-            <Col xs={3} md={3} lg={3} className="col">
-              <div className="side-bar">
-                <h1>Lambda</h1>
-                <h1 id="note">Note</h1>
-                <Link to={`/`}>
-                  <Button className="btn">View Your Notes</Button>
-                </Link>
-                <br/>
-                <Link to={`/create/`}>
-                  <Button className="btn">+ Create New Note</Button>
-                </Link>
-              </div>
-            </Col>
-            <Col xs={9} md={9} lg={9} className="col">
-               <Link to={'/edit/' + this.state.id}><Button className="btn">edit</Button></Link>
               <Panel className="notePanel">
                 <Panel.Title style={style} className="title">{
                   this.props.info.notes[this.state.id].title
@@ -90,49 +72,33 @@ class Note extends Component{
                  this.props.info.notes[this.state.id].text
                }
                <br/>
+                   <Link to={'/'}>
+                     <Button>index</Button>
+                   </Link>
+                   <Link to={'/edit/' + this.state.id}><Button>edit</Button></Link>
+
                 </Panel.Body>
               </Panel>
-            </Col>
-          </Row>
-        </Grid>
+
          </div>
         );
       }
       else{
         return(
         <div>
-        <Grid className="grid">
-          <Row className="show-grid">
-            <Col xs={3} md={3} lg={3} className="col">
-              <div className="side-bar">
-                <h1>Lambda</h1>
-                <h1 id="note">Note</h1>
-                <Link to={`/`}>
-                  <Button className="btn">View Your Notes</Button>
-                </Link>
+          <h1>There is no note here</h1>
+          <Link to={'/'}><Button>index</Button></Link>
 
-                <br/>
-                <Link to={`/create/`}>
-                  <Button className="btnMain">+ Create New Note</Button>
-                </Link>
-              </div>
-            </Col>
-            <Col xs={9} md={9} lg={9} className="col">
-              <h1>There is no note here</h1>
-            </Col>
-          </Row>
-        </Grid>
         </div>
         );
       }
     }
   }
 }
-
 const mapStateToProps = (state) =>{
-  return {
+  return{
     info:state
   }
 }
 
-export default connect(mapStateToProps,{add})(Note);
+export default connect(mapStateToProps, {add})(Note);

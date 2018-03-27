@@ -1,0 +1,46 @@
+h1{
+  font-family:"Roboto Bold";
+  color:#4A4A4A;
+}
+.side-bar{
+  background:#D8D8D8;
+  margin-top:-20px;
+  height:1500px;
+}
+#mainHeader{
+  text-align:left;
+  margin-left:10%;
+}
+.notePanel{
+  height:200px;
+  width:80%;
+}
+.main{
+  background:#F3F3F3;
+  height:1500px;
+  padding-left:2%;
+}
+.show-grid{
+  margin:0;
+  padding:0;
+}
+#note{
+  margin-bottom:30px;
+}
+.grid{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.col{
+  margin:0;
+  padding:0;
+}
+.btnMain{
+  backgrund:green;
+}
+.btn{
+  background:#2BC1C4;
+  margin-bottom:20px;
+  color:white;
+}
