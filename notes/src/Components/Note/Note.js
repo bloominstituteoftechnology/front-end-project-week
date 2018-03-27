@@ -37,6 +37,8 @@ class Note extends Component{
              }
              <br/>
                 <Link to={'/'}><Button>index</Button></Link>
+                 <Link to={'/edit/' + this.state.id}><Button>edit</Button></Link>
+
               </Panel.Body>
             </Panel>
 
