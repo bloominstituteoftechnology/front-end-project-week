@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { Col } from "reactstrap";
 import './Nav.css';
 
 function Nav() {
     return (
-        <nav class='nav flex-column nav-side col-3'>
-          <h3>Lambda</h3>
-          <h3>Notes</h3>
-          <Link to="/" class='btn-primary'>View Your Notes</Link>
-          <Link to="/create-new-note"class='btn-primary'>+Create New Note</Link>
-        </nav>
+        <Col xs='3' className='nav-side'>
+          <h3>Lambda Notes</h3>
+          <Link to="/" className='primary-btn'>View Your Notes</Link>
+          <Link to="/create-new-note" className='primary-btn'>+Create New Note</Link>
+        </Col>
     )
 };
 

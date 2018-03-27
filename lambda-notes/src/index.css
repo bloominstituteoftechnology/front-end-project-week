@@ -1,0 +1,13 @@
+#root {
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    width: 800px;
+    max-width: 100%;
+}
+
+.row {
+    height: 100vh;
+}

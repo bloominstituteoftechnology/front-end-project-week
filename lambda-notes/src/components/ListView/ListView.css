@@ -1,6 +1,10 @@
+.list-view {
+  /* padding: 0px 2.5%; */
+  padding-top: 48px;
+}
 .notes-container {
+    background-color: #f3f3f3;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    background-color: #f2f1f2
+    justify-content: space-around;
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
+import { Col } from "reactstrap";
 import './CreateNewNote.css';
 
 class CreateNewNote extends Component {
@@ -10,25 +11,24 @@ class CreateNewNote extends Component {
 
     render() {
         return (
-            <div class='col'
-                style={{backgroundColor: '#f2f1f2'}}>
-                <h4 class='col-12'>Create new note:</h4>
-                <form class='col-12'>
-                    <div class='col-5 p-0'>
+            <Col className='new-note'>
+                <h5>Create new note:</h5>
+                <form className='form'>
+                    <div>
                         <input placeholder='Note Title'
                             type="text"
-                            class="form-control"
+                            className="form-control col-6 my-3"
                         />
                     </div>
-                    <div class='col-9 p-0'>
+                    <div>
                         <textarea placeholder="Note Content"
                             type="text"
-                            class="form-control">
+                            className="form-control">
                         </textarea>
                     </div>
-                    <Link to='/' class='btn-primary col-4'>Save</Link>
+                    <Link to='/' class='primary-btn col-3'>Save</Link>
                 </form>
-            </div>
+            </Col>
         )
     } // end render()
 } // end CreateNewNote Class

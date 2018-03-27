@@ -1,13 +1,28 @@
 .nav-side {
-  padding: 1%;
-  background-color: #D3D2D3;
+  padding: 2%;
+  background-color: #D8D8D8;
   border-right: 1px solid gray;
+  height: 100vh;
+}
+
+h3, h5 {
+  font-family: Roboto;
+  font-weight: bold;
+  color: #4A4A4A;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
 }
   
-.btn-primary {
+.primary-btn {
   display: block;
   margin-top: 20px;
+  padding: 4px 0;
   text-align: center;
-  background-color: #2EB8BC;
-  border: 1px solid #2EB8BC;
+  background-color: #2BC1C4;
 }
