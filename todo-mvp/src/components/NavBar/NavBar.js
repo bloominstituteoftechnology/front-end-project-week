@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link  } from 'react-router-dom';
-import "./Navigation.css";
+import "./NavBar.css";
 
-class Navigation extends Component {
+class NavBar extends Component {
   render() {
     return (
-      <div className="Navigation">
+      <div className="NavBar">
         <header className="nav-header">
           <h1>Lambda Notes</h1>
         </header>
@@ -20,4 +20,4 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+export default NavBar;

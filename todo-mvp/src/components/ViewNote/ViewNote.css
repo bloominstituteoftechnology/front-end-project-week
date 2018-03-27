@@ -1,10 +1,10 @@
-.ViewTodo {
+.ViewNote {
   display: flex;
   border: 2px green solid;
   height: 100vh;
 }
 
-.todo-form {
+.note-form {
   border: 2px red solid;
   width: 100%;
 }
