@@ -28,11 +28,12 @@
 
 .linkContainer {
   text-align: right;
+  margin-right: 35px;
 }
 
 .link {
   color: #4a4a4a;
-  margin-left: 15px;
+  margin-left: 20px;
   font-family: 'Roboto';
   font-weight: bold;
   font-size: 1.1em;
