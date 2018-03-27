@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './CreateNote.css';
 import { NavLink } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { addNote } from '../actions'
 
 class CreateNote extends Component {
@@ -13,7 +14,7 @@ class CreateNote extends Component {
   render() {
     return (
       <div className="Home__Right">
-        <div className="Right_Containers">
+        <div className="Right__Containers">
           <div className="CreateNote__Text">
             Create New Note:
           </div>
@@ -42,6 +43,7 @@ class CreateNote extends Component {
               <b>Save</b>
             </div>
           </NavLink>
+          {this.state.redirect && <Redirect to="/viewnotes" />}
         </div>
       </div>
     )
@@ -70,6 +72,9 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, { addNote })(CreateNote);
+
+
+
 
 /*class LeftColumnPanel extends Component {
 	state = {
