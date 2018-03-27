@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getNotes } from '../actions';
 
 //import { Route } from 'react-router-dom';
 
@@ -19,6 +21,16 @@ class App extends Component {
       </Container>
     );
   }
+
+  componentDidMount(){
+    this.props.getNotes();
+  }
 }
 
-export default App;
+const mapStateToProps = ({ notes}) => {
+  return {
+    notes,
+  }
+};
+
+export default connect(mapStateToProps, { getNotes })(App);

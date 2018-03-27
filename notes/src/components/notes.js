@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import { 
     Row,
@@ -17,16 +18,16 @@ const H3 = styled.h3`
     opacity: 0.8;
 `;
 
-const Notes = () => {
+const Notes = ({ notes }) => {
     return (
-        <Col xs="9" className="mb-5 pb-5 pl-4 pr-4">
+        <Col xs="9" className="mb-5 pb-5 pl-5 pr-5">
             <H3>Your Notes:</H3>
             <Row className="mb-5" >
-            {[1,2,3,4,5,6,7,8,9,10,11].map(x=>(
-            <Col className="mb-4" xs="4" key={x}>
-                <Card body>
-                    <CardTitle className="pb-2 border-bottom border-secondary">Note Title</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+            {notes.map(note => (
+            <Col className="mb-4 pl-2 pr-2" xs="4" key={note.id}>
+                <Card body className="">
+                    <CardTitle className="pb-2 border-bottom border-secondary">{note.title}</CardTitle>
+                    <CardText>{note.content}</CardText>
                 </Card>
             </Col>
             ))}
@@ -35,4 +36,10 @@ const Notes = () => {
     );
 };
 
-export default Notes;
+const mapStateToProps = ({ notes}) => {
+    return {
+        notes,
+    }
+};
+
+export default connect(mapStateToProps, {})(Notes);

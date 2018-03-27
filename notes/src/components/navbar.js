@@ -17,8 +17,8 @@ const NavBar = () => {
     return (
         <Col xs="3" className="Background-Grey">
             <H1>Lambda Notes</H1>
-            <Button className="Button" size="lg" block color="primary">View Your Notes</Button>
-            <Button className="Button" size="lg" block color="primary">+ Create Your Notes</Button>
+            <Button className="Button" size="lg" block>View Your Notes</Button>
+            <Button className="Button" size="lg" block>+ Create Your Notes</Button>
         </Col>
     );
 };
