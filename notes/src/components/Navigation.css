@@ -36,4 +36,7 @@
   .navHeader {
     text-align: left;
   }
+  .navButton {
+    align-self: auto;
+  }
 }
