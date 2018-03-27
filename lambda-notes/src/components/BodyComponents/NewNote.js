@@ -14,6 +14,7 @@ export default class NewNote extends Component {
         <h3 className="mt-5 ml-3">Create New Note:</h3>
         <Form onSubmit={this.addNote} className="mr-5">
           <input
+            onChange={this.handleTitleChange}
             className="ml-3 mb-5"
             size="40"
             type="text"
@@ -21,10 +22,10 @@ export default class NewNote extends Component {
             value={this.state.title}
           />
           <textarea
+            onChange={this.handleBodyChange}
             className="ml-3"
             rows="12"
             cols="80"
-            characters
             type="text"
             placeholder="Enter a Note"
             value={this.state.data}
@@ -41,6 +42,14 @@ export default class NewNote extends Component {
       </Fragment>
     );
   }
+
+  handleTitleChange = event => {
+    this.setState({ title: event.target.value });
+  };
+
+  handleBodyChange = event => {
+    this.setState({ body: event.target.value });
+  };
 
   addNote = event => {
     event.preventDefault();
