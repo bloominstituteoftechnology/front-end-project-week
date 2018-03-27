@@ -1,0 +1,150 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.App {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.5);
+  margin: auto 25px;
+  background: #f3f3f3;
+  width: 1024px;
+  min-height: 800px;
+}
+
+.ListView {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.List {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 50px 0 0 0;
+  width: 215px;
+  height: 225px;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 43px 16px 10px 15px;
+  overflow: hidden;
+  background: #fff;
+
+}
+
+.List__Title {
+  margin: 25px 20px 38px 23px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.Note { 
+  border: 1px solid rgba(0,0,0,0.5);
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.Note:hover {
+  background: #d8d8d8;
+  cursor: pointer;
+}
+
+.Note__Title {
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.Note__Body {
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.SideNav {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 5px;
+  background: #d8d8d8;
+  border-right: 1.1px solid #CDCDCD;
+  width: 230px;
+  min-height: 1200px;
+  background: #D7D7D7;
+  box-sizing: border-box;
+}
+
+.SideNav__Title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
+  color: rgba(0,0,0,0.7);
+  font-size: 35px;
+  margin: 12px 20px 20px 10px;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+
+
+button {
+  border: 1px solid #999999;
+  width: 195px;
+  height: 40px;
+  margin: 18px 10px 10px 8px;
+  padding: 1px;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  background: #2AC0C4;
+  color: white;
+}
+
+.SideNav a {
+  text-decoration: none;
+}
+
+.SideNav .View {
+  margin: 10px 0 22px 0;
+
+}
+
