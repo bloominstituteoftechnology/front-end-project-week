@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, Input, Button, Container } from "reactstrap";
+import { addNote } from "../actions";
+import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
   return {};
@@ -25,6 +27,9 @@ class NoteForm extends Component {
   }
   handleOnSubmit(event) {
     event.preventDefault();
+    this.props.addNote(this.state.newNote);
+    this.setState({ newNote: { title: "", note: "" } });
+    this.props.history.push("/");
   }
   render() {
     return (
@@ -62,4 +67,4 @@ class NoteForm extends Component {
   }
 }
 
-export default connect(mapStateToProps)(NoteForm);
+export default withRouter(connect(mapStateToProps, { addNote })(NoteForm));

@@ -1,8 +1,10 @@
-const ADD_NOTE = "ADD_NOTE";
+export const ADD_NOTE = "ADD_NOTE";
+let noteId = 10;
 
-function addNote(note) {
+export function addNote(note) {
   return {
     type: ADD_NOTE,
+    id: noteId++,
     note
   };
 }

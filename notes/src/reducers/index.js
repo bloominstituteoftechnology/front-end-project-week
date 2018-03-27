@@ -1,4 +1,4 @@
-import { addNote } from "../actions";
+import { ADD_NOTE } from "../actions";
 
 const initialState = {
   notes: [
@@ -60,5 +60,13 @@ const initialState = {
 };
 
 export default function notes(state = initialState, action) {
-  return state;
+  switch (action.type) {
+    case ADD_NOTE:
+      return {
+        ...state,
+        notes: [...state.notes, { ...action.note, id: action.id }]
+      };
+    default:
+      return state;
+  }
 }
