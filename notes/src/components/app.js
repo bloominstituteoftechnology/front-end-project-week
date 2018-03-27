@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
 // import { Route } from 'react-router-dom';
 
 import { Container, Row } from 'reactstrap'
 
+import { getNotes } from '../actions';
 import Notes from './notes';
 import NavBar from './navbar';
 import './app.css';
@@ -19,6 +21,15 @@ class App extends Component {
       </Container>
     );
   }
+  componentDidMount() {
+    this.props.getNotes();
+  }
 }
 
-export default App;
+const mapStateToProps = ( state ) => {
+  return {
+    state
+  };
+};
+
+export default connect(mapStateToProps, { getNotes })(App);
