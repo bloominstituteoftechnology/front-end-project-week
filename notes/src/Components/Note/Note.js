@@ -36,7 +36,9 @@ class Note extends Component{
                this.props.info.notes[this.state.id].title
              }
              <br/>
-                <Link to={'/'}><Button>index</Button></Link>
+                 <Link to={'/'}>
+                   <Button>index</Button>
+                 </Link>
                  <Link to={'/edit/' + this.state.id}><Button>edit</Button></Link>
 
               </Panel.Body>

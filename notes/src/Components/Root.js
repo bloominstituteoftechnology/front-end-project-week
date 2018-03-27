@@ -14,7 +14,7 @@ const Root= ({store})=> (
         <Switch>
           <Route exact path="/" component={View}/>
           <Route path="/create" component={Create}/>
-          <Route path="/edit" component={Edit}/>
+          <Route path="/edit/:id" component={Edit}/>
           <Route path="/notes/:id" component={Note}/>
         </Switch>
       </div>

@@ -3,12 +3,13 @@ import {Grid,Row,Col,Button} from 'react-bootstrap';
 import "./Edit.css";
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {add} from '../../actions';
+import {edit} from '../../actions';
 
 class Edit extends Component{
   constructor(props){
     super(props);
     this.state = {
+      id:parseInt(props.location.pathname.slice(6)),
       test:true,
       title:'',
       content:''
@@ -19,8 +20,8 @@ class Edit extends Component{
   }
 
   handleSubmit(event){
-    this.props.add(
-    this.state.title,this.state.content,this.props.info.notes.length -1);
+    this.props.edit(
+    this.state.title,this.state.content,this.state.id);
   }
 
   handleTitleChange(event){
@@ -60,7 +61,7 @@ class Edit extends Component{
                 </form>
                 <Row className="show-grid">
                   <Link to={`/`}>
-                    <Button onClick={this.handleSubmit} id="Update">Save</Button>
+                    <Button onClick={this.handleSubmit} id="Update">Save Edit</Button>
                   </Link>
                 </Row>
               </Grid>
@@ -78,4 +79,4 @@ const mapStateToProps = (state) =>{
   }
 }
 
-export default connect(mapStateToProps,{add})(Edit);
+export default connect(mapStateToProps,{edit})(Edit);
