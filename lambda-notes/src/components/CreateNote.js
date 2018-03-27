@@ -43,7 +43,7 @@ class CreateNote extends Component {
     render() {
         return (
             <div className='CreateNoteForm'>
-                <h3 className="CreateForm">Create New Note:</h3>
+                <h3 className="CreateFormTitle">Create New Note:</h3>
                 <form className="addedNote" onSubmit={this.handleOnSubmit} onChange={this.handleOnChange}>
                     <input className="InputTitle" type="text" name="title" placeholder="Title Here..." onChange={this.handleOnChange} value={this.state.title} />
                     <input className="InputTitle" type="text" name="description" placeholder="Description Here..." onChange={this.handleOnChange} value={this.state.description} />
