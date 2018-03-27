@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import NotesList from './Notes/NotesList.js';
 import NoteForm from './Notes/NoteForm.js';
@@ -7,6 +7,7 @@ import { getNotes } from './Notes/notesActions';
 
 class App extends Component {
   render() {
+    // console.log(this.props.getNotes());
     return (
       <div className="App">
         <h1 className="App-title">Notes</h1>

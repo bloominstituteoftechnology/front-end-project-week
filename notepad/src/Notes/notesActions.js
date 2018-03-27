@@ -11,7 +11,7 @@ export const getNotes = () => dispatch => {
   dispatch({ type: SHOW_LOADING });
   axios.get('http://localhost:5000/notes').then(response => {
     dispatch({ type: HIDE_LOADING });
-    dispatch({ type: FETCH_NOTES_SUCCESS, friends: response.data });
+    dispatch({ type: FETCH_NOTES_SUCCESS, notes: response.data });
   }).catch(error => {
     dispatch({ type: HIDE_LOADING });
     dispatch({ type: FETCH_NOTES_ERROR, error: error });
