@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom'
 
 import { Col, Button } from 'reactstrap';
 import styled from 'styled-components';
@@ -16,11 +18,14 @@ const NavBar = () => {
     return (
         <Col xs="3" className="Background-Grey">
             <H1>Lambda Notes</H1>
-            <Button className="Button" size="lg" block >View Your Note</Button>
-            <Button className="Button" size="lg" block >+ Create Your Notes</Button>
+            <Link className="Link" to="/" ><Button className="Button" size="lg" block >View Your Note</Button></Link>
+            <Link className="Link" to="/newnote" ><Button className="Button" size="lg" block >+ Create Your Notes</Button></Link>
         </Col>
     );
 };
 
-export default NavBar;
+const mapStateToProps = state => {
+    return state;
+}
+export default withRouter(connect(mapStateToProps, {})(NavBar));
 

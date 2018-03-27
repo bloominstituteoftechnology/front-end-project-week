@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-// import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom'
 
 import { Container, Row } from 'reactstrap'
 
 import { getNotes } from '../actions';
+import NewNote from './newnote';
+import Note from './note';
 import Notes from './notes';
 import NavBar from './navbar';
 import './app.css';
@@ -16,20 +18,25 @@ class App extends Component {
       <Container>
         <Row className="Background">
             <NavBar/>
-            <Notes/>
+            <Route exact path="/" component={ Notes } />
+            <Route path="/newnote" component={ NewNote } />
+            <Route path="/note/:id" component={ Note } />            
         </Row>   
       </Container>
     );
   }
+
   componentDidMount() {
     this.props.getNotes();
-  }
-}
-
-const mapStateToProps = ( state ) => {
-  return {
-    state
   };
+
 };
 
-export default connect(mapStateToProps, { getNotes })(App);
+const mapStateToProps = ( { notes } ) => {
+  return {
+    notes,
+  };
+  
+};
+
+export default withRouter(connect(mapStateToProps, { getNotes })(App));

@@ -10,7 +10,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import reducers from './reducers/'
+import reducers from './reducers'
 import './index.css';
 import App from './components/app';
 import registerServiceWorker from './registerServiceWorker';

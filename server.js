@@ -12,7 +12,11 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let nextId = 0;
+let nextId = 10;
+
+const getNextId = () => {
+  return ++nextId;
+};
 
 // const gen = () => {
 //   const res = [];
@@ -80,10 +84,20 @@ title: "This is a title for 10",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 }
 ];
+
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
 server.listen(port, err => {
   if (err) console.log(err);
   console.log(`server is listening on port ${port}`);
+});
+
+server.post('/notes', (req, res) => {
+  const { title, content } = req.body;
+  const id = getNextId();
+  const newNote = { id:id, title:title, content:content };
+  notes.push(newNote);
+  nextId++;
+  res.json(notes);
 });

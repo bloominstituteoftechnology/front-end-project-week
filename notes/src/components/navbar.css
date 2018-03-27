@@ -8,9 +8,13 @@
     background-color: #5DBDC2;
     font-weight: 500;
     font-size: 1.1rem;
-    padding: 10px 0;
+    /* padding: 10px 0; */
 }
 
 .Button:hover {
     background-color: rgb(77, 154, 158);
+}
+
+.Link:hover {
+    text-decoration: none;
 }
