@@ -7,21 +7,50 @@ function mapStateToProps(state) {
 }
 
 class NoteForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      newNote: {
+        title: "",
+        note: ""
+      }
+    };
+  }
+
+  handleOnChange(event) {
+    event.preventDefault();
+    let noteCopy = this.state.newNote;
+    noteCopy[event.target.name] = event.target.value;
+    this.setState({ newNote: noteCopy });
+  }
+  handleOnSubmit(event) {
+    event.preventDefault();
+  }
   render() {
     return (
       <Container className="my-5">
         <h3 className="header my-4">Create New Note:</h3>
-        <Form>
+        <Form
+          onSubmit={this.handleOnSubmit.bind(this)}
+          onChange={this.handleOnChange.bind(this)}
+        >
           <FormGroup>
-            <Input className="w-50" type="text" placeholder="Note Title" />
+            <Input
+              className="w-50"
+              type="text"
+              placeholder="Note Title"
+              value={this.state.newNote.title}
+              name="title"
+            />
           </FormGroup>
           <FormGroup>
             <textarea
               className="form-control"
               placeholder="Note Content"
-              name="textarea"
+              name="note"
               rows="10"
               cols="50"
+              value={this.state.newNote.note}
             />
           </FormGroup>
           <Button className="w-25" type="submit">
