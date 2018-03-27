@@ -3,7 +3,7 @@
   position: absolute;
   height: 103%;
   width: 16%;
-  margin-top: -7%;
+  margin-top: -3%;
 }
 
 .lambda {
@@ -21,6 +21,7 @@
   margin-top: 6%;
   background-color: #2eb8bc;
   width: 85%;
+  height: 5%;
 }
 
 .create {
@@ -28,4 +29,5 @@
   margin-left: -6%;
   background-color: #2eb8bc;
   width: 85%;
+  height: 5%;
 }

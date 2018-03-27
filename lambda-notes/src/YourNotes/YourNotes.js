@@ -6,6 +6,7 @@ class YourNotes extends Component {
   render() {
     return (
       <Container>
+        <h2 className="yourNotes">Your Notes:</h2>
         <Row>
           <Col sm="4">
             <Card body>
