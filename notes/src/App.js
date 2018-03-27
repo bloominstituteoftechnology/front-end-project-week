@@ -53,7 +53,6 @@ class App extends Component {
                   component={route.main}
                 />
               ))}
-              <Route path="/viewNotes/:id" component={Note} />
             </Col>
           </Row>
         </Container>
