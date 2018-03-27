@@ -10,15 +10,16 @@ Delete background: D0021B */
 p{background-color:white; }
 
 body {
-  margin: 0;
+  margin:0  200px 0 200px;
   padding: 0;
   font-family: sans-serif;
+
   
 }
 .view{
   width:200px;
   height:250px;
-  border:solid black;
+  border:solid grey;
   float:left;
   margin: 4px;
   font-family: Raleway Regular;
@@ -29,7 +30,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-left:100px;
-  border:solid black;
+  border:solid grey;
   max-height: 900px;
   background-color:#F3F3F3;
 
@@ -49,4 +50,7 @@ button{
   Height:50px;
   font-size: 19px;
   background-color: #2BC1C4;
+}
+form{
+  margin:10px;
 }
