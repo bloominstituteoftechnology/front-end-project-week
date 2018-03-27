@@ -49,6 +49,6 @@ table {
 
 /* End of Reset */
 
-div#root {
-  height: 100%;
-}
+/* html, body {
+	height: 2000px;
+} */

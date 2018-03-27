@@ -1,6 +1,6 @@
 .listContainer {
-  width: 100%;
   height: inherit;
+  width: 100%;
   border: 1px solid #b5b5b5;
   background-color: #f3f3f3;
   padding: 20px;
@@ -22,20 +22,12 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 1180px) {
   .listHeader {
     text-align: left;
-    font-size: 1.7em;
-    font-weight: bold;
-    color: #4a4a4a;
-    margin-top: 70px;
-    margin-left: 15px;
-    margin-bottom: 30px;
   }
 
   .listBody {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 }
