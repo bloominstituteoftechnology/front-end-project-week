@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
 import './App.css';
-import NotesList from './Components/notesList.js';
-import NoteForm from './Components/NoteForm.js';
+import NotesList from './Notes/NotesList.js';
+import NoteForm from './Notes/NoteForm.js';
+import { connect } from 'react-redux';
+import { getNotes } from './Notes/notesActions';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <h1 className="App-title">Notes</h1>
-        <NotesList />
+        <NotesList notes={this.props.notes} />
         <NoteForm />
       </div>
     );
   }
+
+  componentDidMount() {
+    this.props.getNotes();
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+    isLoading: state.isLoading
+  };
+};
+
+const actions = {
+  getNotes
+};
+
+export default connect(mapStateToProps, actions)(App);
