@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Button } from 'reactstrap';
+import Route from 'react-router-dom/Route';
+import CreateNote from './components/create-note';
 
 class App extends Component {
   render() {
@@ -13,7 +15,10 @@ class App extends Component {
             <Button color="info">View your notes</Button>
           </div>
           <div className="lambdabutton">
-            <Button color="info">+ Create New Note</Button>{' '}
+            <Route path="/create-note" component={CreateNote} />
+            <Button to="/create-note" color="info">
+              + Create New Note
+            </Button>{' '}
           </div>
         </div>
 

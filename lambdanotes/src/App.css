@@ -6,7 +6,7 @@
 
 .listView {
   height: 950px;
-  background-color: grey;
+  background-color: #d8d8d8;
   width: 35%;
   margin-left: 10px;
 }
@@ -39,12 +39,13 @@
 .notesView {
   display: flex;
   flex-wrap: wrap;
+  background-color: #f3f3f3;
 }
 
 .notes {
   margin-left: 20px;
-  margin-top: 30px;
-  height: 200px;
-  width: 200px;
+  margin-top: 60px;
+  height: 238px;
+  width: 238px;
   border: 1px solid black;
 }
