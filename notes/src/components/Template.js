@@ -1,19 +1,19 @@
-import React from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
+import React from "react";
+import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
-function(props) {
-    return(
-        <Card>
-            <CardBody>
-                <CardTitle>{props.title}</CardTitle>
-                <CardText>{props.content}</CardText>
-            </CardBody>
-        </Card>
-    )
-}
+const Template = props => {
+  return (
+    <div>
+      <Card>
+        <CardBody>
+          <CardTitle>{props.note.title}</CardTitle>
+          <CardText>{props.note.content}</CardText>
+        </CardBody>
+      </Card>
+    </div>
+  );
+};
 
 export default Template;
-
-// Populate each note with html tags
 
 // Use card component from reactstrap to format the note
