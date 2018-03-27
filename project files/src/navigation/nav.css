@@ -1,3 +1,7 @@
+ul{
+    -webkit-padding-start: 0px;
+}
+
 .notes-nav{
     width: 30%;
     border-right: 1px solid black;
