@@ -22,3 +22,9 @@
   letter-spacing: .8px;
   line-height: 1.8;
 }
+
+@media screen and (min-width: 1180px) {
+  .cardContainer {
+
+  }
+}

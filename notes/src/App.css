@@ -1,6 +1,7 @@
 .App {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 @media screen and (min-width: 1180px) {
