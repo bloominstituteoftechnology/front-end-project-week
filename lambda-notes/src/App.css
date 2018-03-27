@@ -15,35 +15,50 @@ a:hover {
 }
 
 .NavBar {
-  min-width: 200px;
+  min-width: 180px;
   min-height: 700px;
-  background-color: rgb(214, 214, 213);
+  background-color: #D8D8D8;
   display: flex;
   align-content: center;
   flex-direction: column;
+  border: 1px solid grey;
 }
 
 .ListView {
-  background-color: rgb(241, 241, 241);
+  background-color: #F4F4F4;
+  border: 1px 1px solid grey;
 }
 
 .AddNote, .EditNote {
   width: 3300px;
-  background-color: rgb(241, 241, 241);
+  background-color: #F4F4F4;
+  border: 1px solid grey;
 }
 
 .Inputtext {
   padding-bottom: 10px;
   margin: 1% 3%;
+  padding-top: 10px;
+  padding-left: 10px;
   width: 40%;
   text-align: start;
+  border-radius: 0.5%;
+  -moz-box-shadow:    inset 0 0 1px grey;
+  -webkit-box-shadow: inset 0 0 1px grey;
+  box-shadow:         inset 0 0 1px grey;
 }
 
 .Inputfield {
   padding-bottom: 400px;
+  padding-top: 10px;
+  padding-left: 10px;
   width: 90%;
   text-align: start;
   margin: 1% 3%;
+  border-radius: 0.5%;
+  -moz-box-shadow:    inset 0 0 1px grey;
+  -webkit-box-shadow: inset 0 0 1px grey;
+  box-shadow:         inset 0 0 1px grey;
 }
 
 .Title {
@@ -60,7 +75,7 @@ a:hover {
 }
 
 .ListCard {
-  flex: 1 0 30%;
+  flex: 3 3 30%;
   height: 240px;
   min-width: 200px;
   margin: 1%;
@@ -68,7 +83,7 @@ a:hover {
 }
 
 .Note {
-  background-color: rgb(241, 241, 241);
+  background-color: #F4F4F4;
   min-height: 700px;
 }
 
@@ -80,12 +95,19 @@ a:hover {
   margin: 1%
 }
 
-.Button {
+.Button, Button__Delete {
   width: 160px;
-  border: 1px solid black;
-  background-color: #2EB8BC;
+  background-color: #2BC1C5;
   color: white;
   margin: 3%;
+  padding-top: 6px;
+  border: 1px solid grey;
+  height: 40px;
+}
+
+.Button__Delete {
+  width: 160px;
+  background-color: red;
 }
 
 .Form {
@@ -99,4 +121,8 @@ a:hover {
 
 .Nav__item {
   margin: 0 1%
+}
+
+.flex {
+  padding-right: 300px;
 }

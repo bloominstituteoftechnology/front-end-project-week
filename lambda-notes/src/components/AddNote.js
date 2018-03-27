@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AddNote extends Component {
     state = {
-        name: '',
+        title: '',
         text: '',
     }
 
@@ -12,7 +12,8 @@ class AddNote extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ name: '', text: ''})
+        this.props.add(this.state);
+        this.setState({ title: '', text: ''})
         this.props.history.push('/');
     }
 
@@ -21,8 +22,8 @@ class AddNote extends Component {
             <div className="AddNote">
                 <h4 className="Title">Create New Note:</h4>
                 <form className="Form">
-                    <input className="Inputtext" type='text' name='name' placeholder='New Title' onChange={this.handleChange} value={this.state.name}></input>
-                    <input className="Inputfield" type='text' name='text' placeholder='New Content' onChange={this.handleChange} value={this.state.text}></input>
+                    <input className="Inputtext" type='text' name='title' placeholder='Note Title' onChange={this.handleChange} value={this.state.title}></input>
+                    <input className="Inputfield" type='text' name='text' placeholder='Note Content' onChange={this.handleChange} value={this.state.text}></input>
                     <button className="Button" onClick={this.handleSubmit}>Save</button>
                 </form>
             </div>
