@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import {NoteContainer} from './components/noteContainer'
 
 import './App.css';
 
@@ -17,29 +18,30 @@ class App extends Component {
 
   handleChange = event => {
     console.log(this.state)
-    this.setState({ [event.target.name]: event.target.value});
+    this.setState({ newNote: event.target.value});
   }
 
   addNote = (event) => {
     event.preventDefault();
+    const notesList = this.state.notes; 
+    notesList.push(this.state.newNote);
+    this.setState({
+      newNote: {},
+      notes: notesList
+    })
+    const form = document.getElementById("inputForm");
+    form.reset()
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.notes.map(( note => {
-          return(
-            <div key={note.id} className="charCard">
-              {note.id}{note.title}{note.content}
-            </div>
-          )
-        }))}
+        <NoteContainer notes={this.state.notes} />
 
-        <form>
-          <input onChange={this.handleChange} type="text" name="title" value={this.state.newNote.title} ></input>
-          <input onChange={this.handleChange} type="text" name="content" value={this.state.newNote.content} ></input>
-          <button onClick={this.addNote} ></button>
-
+        <form id="inputForm">
+          <input onChange={this.handleChange} type="text" name="title" value={this.state.title} ></input>
+          <input onChange={this.handleChange} type="text" name="content" value={this.state.content} ></input>
+          <button onClick={this.addNote}></button>
         </form>
       </div>
     );
