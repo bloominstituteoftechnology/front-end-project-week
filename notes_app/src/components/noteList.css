@@ -1,5 +1,8 @@
-.container {
-    width: 1100px;
+.innerBox{
+    background-color: rgb(228, 228, 228);
+}
+.outerBox{
+    background-color: rgb(245, 245, 245);
 }
 
 .body {

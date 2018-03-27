@@ -55,28 +55,36 @@ class NoteList extends Component {
 	render() {
 		return (
         		
-    <div className="container">
+    <div className="container border">
       <div className="row">
-        <h2 className="col-12">Notes List</h2>
+        <h4 className="col-12">List View</h4>
       </div>
       <hr/>
-      <div className="container row">
-      <div className="col-12 d-flex justify-content-center">
-        <div className="body row ">
-          {this.state.notes.map((note) => {
-          return (
+      <div className="outerBox row border mx-1">
+          <div className="innerBox col-2 border flex-nowrap">
+              <h2 className="font-weight-bold">Lambda Notes</h2>
+          </div>
           
-                <div className="col-3 mx-2 my-2 border">
-                      <h4 className="ml-2">{note.title}</h4>
-                      <hr className="mx-2"/>
-                      <p className="mx-2">{note.content}</p>
-                </div>
-          
-            );
-          })}
+        <div className="col-8 ml-4">
+          <div className="my-3 mt-5">
+            <span className="font-weight-bold">Your Notes:</span>
+          </div>  
+          <div className="body row justify-content-between">
+            {this.state.notes.map((note) => {
+            return (
+            
+                  <div className="col-3 mx-2 my-2 border bg-white">
+                        <h4 className="ml-2">{note.title}</h4>
+                        <hr className="mx-2"/>
+                        <p className="mx-2">{note.content}</p>
+                  </div>
+              );
+              
+            })}
+          </div>
         </div>
       </div>
-      </div>
+      
     </div>
   );
 	} 
