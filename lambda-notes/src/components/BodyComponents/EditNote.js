@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "reactstrap";
 import { editNote } from "../../actions/editNote";
+import { Redirect } from "react-router-dom";
 
 class EditNote extends Component {
   state = {
@@ -31,6 +32,8 @@ class EditNote extends Component {
     // const note = this.props.notes.filter(
     //   item => Number(item.id) === Number(this.props.match.params.id)
     // )[0];
+
+    if (this.state.redirect) return <Redirect to="/" />;
     return (
       <Fragment>
         <h3 className="mt-5 ml-3">Create New Note:</h3>
@@ -66,6 +69,7 @@ class EditNote extends Component {
     event.preventDefault();
     console.log(this.state.note);
     this.props.editNote(this.state.note);
+    this.setState({ redirect: true });
   };
 
   handleTitleChange = event => {
