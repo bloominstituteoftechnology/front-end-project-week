@@ -9,7 +9,7 @@ class Navbar extends Component {
 
          let rows = this.props.notes;
          
-         let csvContent = "data:text/csv;charset=utf-8,";
+         let csvContent = "";
 
          for(let i = 0; i < rows.length; i++) {
             let object = rows[i];
@@ -18,10 +18,20 @@ class Navbar extends Component {
          }
 
 
-         var encodedUri = encodeURI(csvContent);
-         window.open(encodedUri);
+         // window.open(encodedUri);
 
-         console.log(encodedUri);
+         let blob = new Blob([csvContent], {type: 'text/csv;charset=utf-8;'});
+         let link = document.createElement("a");
+         if(link.download !== undefined) {
+            let url = URL .createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "export.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+         }
+         
       }
 
    render() {
