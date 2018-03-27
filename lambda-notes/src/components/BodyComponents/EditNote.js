@@ -5,26 +5,32 @@ import { editNote } from "../../actions/editNote";
 
 class EditNote extends Component {
   state = {
-    title: "",
-    body: "",
-    id: ""
+    note: {
+      title: "",
+      body: "",
+      id: ""
+    },
+    redirect: false
   };
 
-  componentDidMount(props) {
-    const note = this.props.notes.filter(
+  componentDidMount() {
+    const item = this.props.notes.filter(
       item => Number(item.id) === Number(this.props.match.params.id)
     )[0];
+    console.log(this.state.note);
     this.setState({
-      title: note.title,
-      body: note.body,
-      id: note.id
+      note: {
+        title: item.title,
+        body: item.body,
+        id: item.id
+      }
     });
   }
 
   render() {
-    const note = this.props.notes.filter(
-      item => Number(item.id) === Number(this.props.match.params.id)
-    )[0];
+    // const note = this.props.notes.filter(
+    //   item => Number(item.id) === Number(this.props.match.params.id)
+    // )[0];
     return (
       <Fragment>
         <h3 className="mt-5 ml-3">Create New Note:</h3>
@@ -35,7 +41,7 @@ class EditNote extends Component {
             size="40"
             type="text"
             placeholder="Enter a Title"
-            value={this.state.title}
+            value={this.state.note.title}
           />
           <textarea
             onChange={this.handleBodyChange}
@@ -44,7 +50,7 @@ class EditNote extends Component {
             cols="80"
             type="text"
             placeholder="Enter a Note"
-            value={this.state.body}
+            value={this.state.note.body}
           />
           {/* <Link to="/"> */}
           <Button style={{ backgroundColor: "#2BC1C5" }} className="ml-3 mb-3">
@@ -58,15 +64,20 @@ class EditNote extends Component {
 
   updateNote = event => {
     event.preventDefault();
-    this.props.editNote(this.state);
+    console.log(this.state.note);
+    this.props.editNote(this.state.note);
   };
 
   handleTitleChange = event => {
-    this.setState({ title: event.target.value });
+    const id = this.state.note.id;
+    const body = this.state.note.body;
+    this.setState({ note: { title: event.target.value, body, id } });
   };
 
   handleBodyChange = event => {
-    this.setState({ body: event.target.value });
+    const id = this.state.note.id;
+    const title = this.state.note.title;
+    this.setState({ note: { body: event.target.value, title, id } });
   };
 }
 

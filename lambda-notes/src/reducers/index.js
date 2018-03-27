@@ -21,15 +21,14 @@ const initState = {
 export default (state = initState, action) => {
   switch (action.type) {
     case ADD_NEW_NOTE:
-      console.log(action.payload, "action payload");
       const newNote = { ...action.payload, id: state.notes.length };
-      console.log(newNote);
       const newArray = state.notes.push(newNote);
       return { ...state, newArray };
     case EDIT_NOTE:
-      return { ...state };
+      let notes = state.notes.filter(item => item.id !== action.payload.id);
+      notes.unshift(action.payload);
+      return { ...state, notes };
     default:
-      console.log("entering default case");
       return state;
   }
 };

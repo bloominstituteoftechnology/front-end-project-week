@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from "react";
 import { Form, Button } from "reactstrap";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addNote } from "../../actions/newNote";
 // import { withRouter } from "react-router-dom";
 
 class NewNote extends Component {
   state = {
-    title: "",
-    body: "",
+    note: {
+      title: "",
+      body: ""
+    },
     redirect: false
   };
 
@@ -25,7 +27,7 @@ class NewNote extends Component {
             size="40"
             type="text"
             placeholder="Enter a Title"
-            value={this.state.title}
+            value={this.state.note.title}
           />
           <textarea
             onChange={this.handleBodyChange}
@@ -34,7 +36,7 @@ class NewNote extends Component {
             cols="80"
             type="text"
             placeholder="Enter a Note"
-            value={this.state.body}
+            value={this.state.note.body}
           />
           {/* <Link to="/"> */}
           <Button style={{ backgroundColor: "#2BC1C5" }} className="ml-3 mb-3">
@@ -47,24 +49,29 @@ class NewNote extends Component {
   }
 
   handleTitleChange = event => {
-    this.setState({ title: event.target.value });
+    const data = this.state.note.data;
+    this.setState({ note: { title: event.target.value, data } });
   };
 
   handleBodyChange = event => {
-    this.setState({ body: event.target.value });
+    const title = this.state.note.title;
+    this.setState({ note: { body: event.target.value, title } });
   };
 
   addNewNote = event => {
     event.preventDefault();
-    const postNewNote = {
-      title: this.state.title,
-      body: this.state.body
-    };
-    this.props.addNote(postNewNote);
+    console.log(this.state.note);
+    // const postNewNote = {
+    //   title: this.state.note.title,
+    //   body: this.state.note.body
+    // };
+    this.props.addNote(this.state.note);
 
     this.setState({
-      title: "",
-      body: "",
+      note: {
+        title: "",
+        body: ""
+      },
       redirect: true
     });
   };
