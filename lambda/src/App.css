@@ -1,8 +1,11 @@
 h4 {
   margin: 0;
   padding: 5% 0 0 0;
-  color: dodgerblue;
 
+}
+
+h3 {
+  width: 100%;
 }
 
 .container {
@@ -39,6 +42,7 @@ h4 {
   background-color: white;
   border: 1px solid grey;
   border-radius: 2%;
+  
 }
 
 
@@ -54,6 +58,59 @@ h4 {
 
 .nav-bar {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
+}
+ .link {
+  background-color: rgb(57, 204, 204);
+  border: 1px grey solid;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+ }
+
+ .add-note{
+   display: flex;
+   flex-direction: column;
+   
+ }
+
+ .add-note input {
+   padding: 0.5rem;
+   width: 60%;
+   margin-bottom: 0.5rem;
+   border: 1px solid black;
+   border-radius: 0.3rem;
+ }
+
+ .add-note textarea {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  resize: none;
+  
+}
+
+.save-button {
+  width: 20%;
+  text-align: center;
+  background-color: rgb(57, 204, 204);
+  border: 1px grey solid;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+
+}
+
+.card-link{
+  text-decoration: none;
+  color: black;
 }
 
 
