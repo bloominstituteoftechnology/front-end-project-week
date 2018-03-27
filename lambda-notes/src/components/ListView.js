@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LinesEllipsis from 'react-lines-ellipsis';
+import { Button } from 'reactstrap';
 
 import { showWholeNote } from '../actions';
+import './ListView.css';
 
 class ListView extends Component {
   // constructor() {
@@ -13,8 +16,20 @@ class ListView extends Component {
     
     return (
       <div>
-        {this.props.notes.map((note, i) => {
-          return <div>{note.title}</div>
+        <Button 
+          color="success"
+          size="large"
+
+        >Press me</Button>
+        {this.props.notes.map(note => {
+          return( <div key={note.id}>
+            <LinesEllipsis
+              text={note.text}
+              maxLine="1"
+              ellipsis="..." 
+              basedOn="letters"
+            />
+          </div> )
         })}
       </div>
     )
