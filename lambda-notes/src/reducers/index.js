@@ -1,4 +1,5 @@
 // import { combineReducers } from "redux";
+import { ADD_NEW_NOTE } from "../actions/newNote";
 
 const initState = {
   notes: [
@@ -17,8 +18,15 @@ const initState = {
 // export default combineReducers(notes);
 
 export default (state = initState, action) => {
-  switch (action.payload) {
+  switch (action.type) {
+    case ADD_NEW_NOTE:
+      console.log(action.payload, "action payload");
+      const newNote = { ...action.payload, id: state.notes.length };
+      console.log(newNote);
+      const newArray = state.notes.push(newNote);
+      return { ...state, newArray };
     default:
+      console.log("entering default case");
       return state;
   }
 };

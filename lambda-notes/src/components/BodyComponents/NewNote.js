@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Form, Button } from "reactstrap";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addNote } from "../../actions/newNote";
 
-export default class NewNote extends Component {
+class NewNote extends Component {
   state = {
     title: "",
     body: ""
@@ -12,7 +14,7 @@ export default class NewNote extends Component {
     return (
       <Fragment>
         <h3 className="mt-5 ml-3">Create New Note:</h3>
-        <Form onSubmit={this.addNote} className="mr-5">
+        <Form onSubmit={this.addNewNote} className="mr-5">
           <input
             onChange={this.handleTitleChange}
             className="ml-3 mb-5"
@@ -30,14 +32,11 @@ export default class NewNote extends Component {
             placeholder="Enter a Note"
             value={this.state.data}
           />
-          <Link to="/">
-            <Button
-              style={{ backgroundColor: "#2BC1C5" }}
-              className="ml-3 mb-3"
-            >
-              Add Note
-            </Button>
-          </Link>
+          {/* <Link to="/"> */}
+          <Button style={{ backgroundColor: "#2BC1C5" }} className="ml-3 mb-3">
+            Add Note
+          </Button>
+          {/* </Link> */}
         </Form>
       </Fragment>
     );
@@ -51,7 +50,14 @@ export default class NewNote extends Component {
     this.setState({ body: event.target.value });
   };
 
-  addNote = event => {
+  addNewNote = event => {
     event.preventDefault();
+    this.props.addNote(this.state);
+    this.setState({
+      title: "",
+      body: ""
+    });
   };
 }
+
+export default connect(null, { addNote })(NewNote);
