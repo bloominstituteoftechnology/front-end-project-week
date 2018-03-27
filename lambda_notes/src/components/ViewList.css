@@ -1,0 +1,39 @@
+.NoteList{
+    display: flex;
+    flex-wrap: wrap; 
+}
+.Left_Container{
+    display: block;
+    background-color:D8D8D8;
+    margin-left: 400px;
+}
+
+.Container{
+    display: flex;
+    background-color:#F3F3F3;
+    margin:0 auto;
+    max-width:900px;
+    width: 100%;
+    font-family: Raleway Regular;
+}
+
+.LeftSpan{
+    font-size: 36px;
+    font-family:Roboto Bold;
+}
+
+.Notes{
+}
+
+.LeftBtn{
+    margin-top: 50px;
+    background-color:#2BC1C4;
+    padding: 10px;
+    width: 200px;
+}
+.RightSpan{
+    display: flex;
+    font-size: 36px;
+    align-content: center;
+    text-align: center;
+}

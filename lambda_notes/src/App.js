@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import NoteList from './components/NoteList';
+import Sidebar from './components/Sidebar';
+import CreateNew from './components/CreateNew';
+import Display from './components/Display';
+import EditNote from './components/EditNote';
+import ViewList from './components/ViewList';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <NoteList />
+       <Sidebar/> 
+       <ViewList />
       </div>
     );
   }
