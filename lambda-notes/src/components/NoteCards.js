@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Card, CardTitle, CardText } from 'reactstrap';
 
 class NoteCards extends Component {
     state = {
@@ -11,11 +11,19 @@ class NoteCards extends Component {
     render() {
         return (
             <Container>
-                <Row>
-                    <div className="cardList">
-                        <h3> Your Notes: </h3>
-                    </div>
-                </Row>
+
+                <div className="cardList">
+                    <h3> Your Notes: </h3>
+                    <Row>
+                        <Col sm="6">
+                            <Card body>
+                                <CardTitle>Note Title</CardTitle>
+                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                            </Card>
+                        </Col>
+                    </Row>
+                </div>
+
             </Container>
         )
     }
