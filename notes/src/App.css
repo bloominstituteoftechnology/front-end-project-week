@@ -1,5 +1,5 @@
 .App.container-fluid {
-  height: 100vh;
+  min-height: 100vh;
 }
 .app-wrapper {
   height: 100%;
@@ -8,10 +8,12 @@
 .leftSide {
   background: #d8d8d8;
   border: 1px solid #979797;
+  height: 100%;
 }
 .rightSide {
   background: #f3f3f3;
   border: 1px solid #979797;
+  height: 100%;
 }
 
 .note {

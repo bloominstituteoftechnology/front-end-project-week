@@ -33,7 +33,7 @@ class App extends Component {
       <Router>
         <Container fluid={true} className="App">
           <Row className="app-wrapper">
-            <Col sm={3} className="leftSide">
+            <Col sm={3} className="leftSide position-fixed">
               <h1 className="header my-4">Lambda Notes</h1>
 
               <Link to="/">
@@ -44,7 +44,7 @@ class App extends Component {
                 <Button className="w-100 my-2 p-2">+ Create Note </Button>
               </Link>
             </Col>
-            <Col sm={9} className="rightSide ">
+            <Col sm={9} className="rightSide offset-3">
               {routes.map((route, index) => (
                 <Route
                   key={index}
