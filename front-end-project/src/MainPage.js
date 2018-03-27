@@ -15,17 +15,9 @@ export class MainPage extends React.Component {
   //   <Route exact path='/' component={RightSide} />
   //   <Route path='/NewNote/:id' component={NewNote} />  }
 
-  componentDidMount() {
-        
-    const id = this.props.match.params.id;
-    console.log(this);
-    
-  }
-
-  render() {
+   render() {
     return (
       <Router>
-        <NavLink to={`/Mainpage/${MainPage.id}`}>
         <div className="App">
           <div className='container'>
           <header className="App-header">
@@ -50,8 +42,7 @@ export class MainPage extends React.Component {
               <Route path='/NewNote/:id' component={NewNote} />
             </div>
           </div>
-          </NavLink>
-      </Router>      
+        </Router>      
     );
     document.getElementById('root')
   }

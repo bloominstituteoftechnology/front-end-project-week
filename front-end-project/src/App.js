@@ -5,7 +5,6 @@ import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 
 class App extends Component {
 
-
   render(){
     return (
       <div>
@@ -14,8 +13,5 @@ class App extends Component {
     )
   }
 }
-
-
-
 
 export default App;
