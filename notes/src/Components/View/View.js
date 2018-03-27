@@ -9,17 +9,10 @@ import {connect} from 'react-redux';
 class View extends Component{
   componentDidMount(){
     if(this.props.info.notes.length === 0){
-      this.props.add('title','blahlbah',0);
-      this.props.add('title','blahlbah',1);
-      this.props.add('title','blahlbah',2);
-      this.props.add('title','blahlbah',3);
-      this.props.add('title','blahlbah',4);
-      this.props.add('title','blahlbah',5);
-      this.props.add('title','blahlbah',6);
-      this.props.add('title','blahlbah',7);
-      this.props.add('title','blahlbah',8);
+      for(let i=0;i<9;i++){
+        this.props.add('title','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a enim eu arcu mattis suscipit. Aenean finibus et odio in cursus. Suspendisse nec purus orci. Nam gravida, erat in dignissim laoreet, massa dolor finibus urna, in gravida ex metus et mi. Fusce eget arcu nisl. Morbi urna arcu, ullamcorper et enim quis, sollicitudin ullamcorper tortor. Vivamus sed pulvinar nulla. Curabitur eget posuere massa, at laoreet magna. Donec lectus felis, ultricies id tempor at, bibendum ac risus. Curabitur sollicitudin iaculis felis eget blandit. ',i);
+      }
     }
-
   }
   render(){
       return(

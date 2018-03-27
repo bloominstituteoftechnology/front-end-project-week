@@ -9,7 +9,7 @@ class Edit extends Component{
   constructor(props){
     super(props);
     this.state = {
-      id:parseInt(props.location.pathname.slice(6)),
+      id:parseInt(props.location.pathname.slice(6),10),
       test:true,
       title:'',
       content:''
