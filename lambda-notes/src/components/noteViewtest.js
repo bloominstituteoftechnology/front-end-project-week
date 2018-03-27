@@ -24,3 +24,5 @@ export const noteView = (notes, match) => {
         </div>
     )
 }
+
+

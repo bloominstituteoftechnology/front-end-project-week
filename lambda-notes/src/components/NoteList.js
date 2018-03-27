@@ -7,17 +7,16 @@ class NoteList extends Component {
     render() {
         return (
             <div className='col-9 right_side'>
-              <div className='row'>
-                <div className='col title_bar'>
+              <div className='row title_bar'>
+                <div className='col-3'>
                   <h4>Your Notes:</h4>
                 </div>
               </div>
               <div className='row'>
                 <div className='col note_box'>
-                <NoteCard />
-                <NoteCard />
-                <NoteCard />
-                <NoteCard />
+                    {this.props.notes.map(note => {
+                        return (<NoteCard note={note} key={note.id} />)
+                    })}
                 </div>
               </div>
             </div>

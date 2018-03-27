@@ -12,10 +12,11 @@ class NoteCard extends Component {
     render() {
         return (
             <div className='test'>
-                <a href='/noteview' className='note_card'>
-                    <h6>{this.state.noteTitle}</h6>
+                <a href={`/noteview/${this.props.note.id}`} className='note_card'>
+                    
+                    <h6>{this.props.note.title}</h6>
                     <hr/>
-                    <p>{this.state.noteText}</p>
+                    <div className='card_text'>{this.props.note.text}</div>
                 </a>
             </div>
         )
