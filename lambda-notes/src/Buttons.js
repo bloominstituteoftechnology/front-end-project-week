@@ -1,14 +1,15 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import './Buttons.css';
+import { Link } from 'react-router-dom';
 
 class Buttons extends React.Component {
     render() {
       return (
         <div className="Button">        
-          <Button type="button" className="BTN btn btn-info"> View Your Notes </Button>
+          <Link to="/"><Button type="button" className="BTN btn btn-info"> View Your Notes </Button></Link>
           <br />
-          <Button type="button" className="BTN btn btn-info">+ Create New Note</Button>
+          <Link to="/New"><Button type="button" className="BTN btn btn-info">+ Create New Note</Button></Link>
         </div>
       );
     }
