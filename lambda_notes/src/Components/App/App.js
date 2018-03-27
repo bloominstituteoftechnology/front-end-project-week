@@ -75,6 +75,7 @@ class App extends Component {
             />
             <Route path="/add" component={CreateNewNote} />
             <Route exact path="/notes/:id" component={NoteView} />
+            <Route exact path="/notes/:id/EditNote" component={EditNote} />
           </div>
         </div>
       </Fragment>

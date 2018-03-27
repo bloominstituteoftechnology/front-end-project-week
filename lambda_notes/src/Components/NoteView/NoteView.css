@@ -1,0 +1,27 @@
+.noteDiv {
+  background-color: #f2f1f2;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.noteTitleView {
+  /* margin-top: 80px; */
+  padding: 50px 20px 0 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.noteContentView {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.noteViewNav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2%;
+}
+
+.editLink {
+  margin-right: 10px;
+}
