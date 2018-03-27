@@ -1,0 +1,30 @@
+* {
+    overflow: hidden;
+}
+.edit {
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;    
+}
+
+.spanEdit {
+    margin-top: 10px;
+    margin-right: 20px;
+    color: black;
+}
+
+.spanDelete {
+    margin-top: 10px;
+    margin-right: 40px;
+    color: black;
+}
+
+.ModalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ModalFooter {
+    margin-right: 60px;
+}

@@ -3,9 +3,8 @@ import { Button } from 'reactstrap';
 import Buttons  from './Buttons';
 import './NewNote.css';
 import './Buttons.css';
-import { Link } from 'react-router-dom';
 
-class NewNote extends React.Component {
+class EditNote extends React.Component {
     render() {
       return (
         <div>
@@ -19,11 +18,13 @@ class NewNote extends React.Component {
             {/* <Link to="/">
             <button>Back Home</button>
               </Link> */}
-            <span className="yourNotes">Create New Note:</span>            
+            <span className="yourNotes">Edit Note:</span>            
                 <form className="Form">
                   <input className="noteTitle" type="text" placeholder="Note Title" /><br />
                   <p><textarea className="noteContent" cols="60" rows="10" placeholder="Note Content"></textarea></p>
-                  <Link to="/Save"><Button className="BTN btn btn-info" type="submit">Save</Button></Link>
+                  {/* <Link to="/Update"> */}
+                  <Button className="BTN btn btn-info" type="submit">Update</Button>
+                  {/* </Link> */}
               </form>  
             </div>  
         </div>
@@ -34,4 +35,4 @@ class NewNote extends React.Component {
     }
   }
   
-  export default NewNote;
+  export default EditNote;
