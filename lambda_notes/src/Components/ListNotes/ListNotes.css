@@ -6,7 +6,7 @@
 }
 
 .notesListHeader {
-  margin-top: 80px;
+  /* margin-top: 80px; */
   margin-left: 40px;
   font-weight: 650;
 }
@@ -34,4 +34,12 @@ p {
 
 .noteTitle {
   font-weight: 800;
+  color: black;
+  /* font-family: Roboto Bold; */
+}
+
+.noteContent {
+  color: black;
+  font-size: 12px;
+  /* font-family: Raleway Regular; */
 }
