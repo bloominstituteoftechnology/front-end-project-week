@@ -8,7 +8,7 @@ class NotesList extends Component {
     return (
       <Fragment>
         <h3 className="mt-5 ml-3">Your Notes:</h3>
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-around">
           {this.props.notes.map(note => (
             <Link key={note.id} to={`/noteview/${note.id}`}>
               <Card
