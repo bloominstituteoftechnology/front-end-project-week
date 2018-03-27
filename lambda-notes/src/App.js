@@ -22,14 +22,14 @@ class App extends Component {
     return (
       <div className="Lambda Notes App">
         <header className="ToggleBar">
-          <h1 className="App-title">Lambda Notes</h1>
-        </header>
-        <duv className="Buttons">
+          <h1 className="App-title">Lambda<br/>Notes</h1>
           <Button>View Your Notes</Button>
           <Button>+Create New Note</Button>
-        </duv>
-        <div classname="NoteItems">
-          <header classname="NotesHeader">You're Notes:</header>
+        </header>
+          
+        
+        <div className="NoteItems">
+          <h2>You're Notes:</h2>
           {this.state.neededData.map(((notes, index) => <NotesList notes={notes} key={index} /> ))}
         </div>
       </div>

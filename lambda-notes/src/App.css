@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
@@ -15,11 +17,40 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2.05em;
+  text-align: start;
+  margin-top: 15px;
+  margin-left: 15px;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.btn-secondary {
+  display: flex;
+  flex-direction: column;
+}
+
+.ToggleBar {
+  width: 220px;
+}
+
+.NoteItems {
+  width: 670px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+
+}
+
+.NotesList {
+  border: solid;
+  border-color: black;
+  width: 175px;
+  height: 175px;  
+  margin: 10px 10px 10px 10px;
 }
 
 @keyframes App-logo-spin {
