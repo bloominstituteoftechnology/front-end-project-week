@@ -1,8 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './NotesList.css';
 
+export const NotesList = (props) => {
+    return (
+        <div>
+           
+        </div>
+    );
+};
 
-class NotesList extends Component {
-    state = {
+render () {
+    return(
 
-    }
+    );
 }
