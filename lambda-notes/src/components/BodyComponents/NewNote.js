@@ -30,7 +30,7 @@ class NewNote extends Component {
             cols="80"
             type="text"
             placeholder="Enter a Note"
-            value={this.state.data}
+            value={this.state.body}
           />
           {/* <Link to="/"> */}
           <Button style={{ backgroundColor: "#2BC1C5" }} className="ml-3 mb-3">
