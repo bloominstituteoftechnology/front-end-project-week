@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './Sidebar.css';
 
 class Sidebar extends Component {
   render() {
-    return(
+    return (
       <Container className="container">
         <Row>
           <div className="SidebarText"> Lambda Notes </div>
         </Row>
         <div className="SidebarButtons">
           <Row className="buttonRow1">
-            <Link to="/newNote">
+            <Link to={"/CreateNew"}>
               <Button color="primary" className="Button1"> View Your Notes </Button>
             </Link>
           </Row>
