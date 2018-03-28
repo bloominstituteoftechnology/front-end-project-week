@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import HomeLeftPanel from './HomeLeftPanel';
-import {deleteNote, toggleDelete} from '../actions';
+import {deleteNote} from '../actions';
 import Delete from './Delete';
 
 const StyledNote = styled.div`
@@ -81,4 +81,4 @@ class SingleNoteView extends React.Component {
     };
   };
   
-  export default connect(mapStateToProps, {deleteNote, toggleDelete})(SingleNoteView);
+  export default connect(mapStateToProps, {deleteNote})(SingleNoteView);

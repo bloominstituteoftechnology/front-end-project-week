@@ -6,7 +6,7 @@ import CreateNewNote from './components/CreateNewNote';
 import styled from 'styled-components';
 import SingleNoteView from './components/SingleNoteView';
 import EditNote from './components/EditNote';
-import { toggleDelete, deleteNote } from './actions';
+import { deleteNote } from './actions';
 
 const StyledApp = styled.div`
     width: 100%;
@@ -55,4 +55,4 @@ const mapStateToProp = (state) => {
     }
 }
 
-export default connect(null, { toggleDelete, deleteNote })(App);
+export default connect(null, { deleteNote })(App);

@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE } from '../actions'
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE } from '../actions'
 import dummyData from '../dummyData';
 
 const initialState = {
@@ -37,15 +37,12 @@ export const noteReducer = (state = initialState, action) => {
         } return note;
       }),
     };
-    case TOGGLE_DELETE:
-      return {
-        ...state,
-        deleteActive: !state.deleteActive,
-      };
     case DELETE_NOTE:
     return {
       ...state,
-      // Not sure what to write here...
+      // filter returns an array with only the notes that do not
+      // match action.id - the currently viewed note.
+      notes: state.notes.filter(note => note.id !== action.id)
     };
     default:
       return state; 

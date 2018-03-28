@@ -1,8 +1,6 @@
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const UPDATE_NOTE = 'UPDATE_NOTE'
-export const TOGGLE_DELETE = 'TOGGLE_DELETE'
-
 
 let nextId = 6;
 export const addNote = data => {
@@ -24,13 +22,7 @@ export const updateNote = data => ({
     text: data.text,
   });
 
-export const toggleDelete = data => ({
-type: TOGGLE_DELETE,
-});
-
 export const deleteNote = data => ({
     type: DELETE_NOTE,
-    id: data.id,
-    title: data.title,
-    text: data.text,
+    id: Number(data),
 })
