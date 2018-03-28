@@ -58,7 +58,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SideBar/>
         <NoteContainer notes={this.state.notes} />
         <form id="inputForm">
           <input

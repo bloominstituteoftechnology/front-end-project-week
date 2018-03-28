@@ -1,8 +1,16 @@
 
 .noteContainer{
     display: flex;
-    flex-wrap: wrap;
+    flex-flow:row wrap;
     align-content: center;
+}
+
+.sideBar{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    background-color: gray;
+    order: 1;
 }
 
 .header{

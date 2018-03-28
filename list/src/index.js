@@ -6,5 +6,11 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <div>
+        {/* <Router> */}
+            <App />
+        {/* </Router> */}
+    </div>,
+document.getElementById('root'));
 registerServiceWorker();
