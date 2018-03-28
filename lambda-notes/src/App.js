@@ -10,7 +10,7 @@ import {
   Form,
   Input
 } from "reactstrap";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createUser } from "./actions/createUser";
 import { login } from "./actions/login";
@@ -156,4 +156,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { createUser, login })(App);
+export default withRouter(connect(mapStateToProps, { createUser, login })(App));
