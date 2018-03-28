@@ -23,7 +23,7 @@ class NewNote extends Component {
           <input
             required
             onChange={this.handleTitleChange}
-            className="ml-3 mb-5"
+            className="ml-3 mb-3"
             size="40"
             type="text"
             placeholder="Enter a Title"
@@ -33,7 +33,7 @@ class NewNote extends Component {
             onChange={this.handleBodyChange}
             className="ml-3 d-block mb-2"
             rows="12"
-            cols="80"
+            cols="60"
             type="text"
             placeholder="Enter a Note"
             value={this.state.note.body}

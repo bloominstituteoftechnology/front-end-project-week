@@ -40,7 +40,7 @@ class EditNote extends Component {
         <Form onSubmit={this.updateNote}>
           <input
             onChange={this.handleTitleChange}
-            className="ml-3 mb-5"
+            className="ml-3 mb-3"
             size="40"
             type="text"
             placeholder="Enter a Title"

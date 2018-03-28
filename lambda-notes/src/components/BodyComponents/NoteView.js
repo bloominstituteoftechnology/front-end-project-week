@@ -11,6 +11,7 @@ class NoteView extends Component {
     modal: false,
     redirect: false
   };
+
   render() {
     const currentNote = this.props.notes.filter(
       item => Number(item.id) === Number(this.props.match.params.id)
@@ -31,25 +32,29 @@ class NoteView extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Delete note?</ModalHeader>
-          <ModalBody className="text-center">
-            Would you like to delete note titled "{currentNote.title}"? <br />
-            This action can not be undone.
+          {/* <ModalHeader toggle={this.toggle}>Delete note?</ModalHeader> */}
+          <ModalBody className="text-center mt-4">
+            Are you sure you want to delete this?
           </ModalBody>
-          <ModalFooter>
+          <ModalBody className="d-flex justify-content-center">
             <Button
               color="danger"
+              style={{ width: "175px", margin: "10px 10px 20px 10px" }}
               onClick={() => {
                 this.props.deleteNote(currentNote.id);
                 this.setState({ redirect: true });
               }}
             >
-              Confirm Delete
+              Delete
             </Button>{" "}
-            <Button color="secondary" onClick={this.toggleModal}>
-              Cancel
+            <Button
+              style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+              color="secondary"
+              onClick={this.toggleModal}
+            >
+              No
             </Button>
-          </ModalFooter>
+          </ModalBody>
         </Modal>
       </div>
     );
