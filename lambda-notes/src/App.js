@@ -19,16 +19,12 @@ class App extends Component {
               xs="3"
               style={{
                 maxWidth: "250px",
-                border: "1px solid blue",
                 backgroundColor: "#D8D8D8"
               }}
             >
               <NavPannel xs="3" />
             </Col>
-            <Col
-              xs="9"
-              style={{ border: "1px solid red", backgroundColor: "#F4F4F4" }}
-            >
+            <Col style={{ backgroundColor: "#F4F4F4" }}>
               <Body />
             </Col>
           </Row>

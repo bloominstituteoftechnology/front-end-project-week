@@ -14,7 +14,7 @@ export default class NavPannel extends Component {
       <Col>
         <h1 className="text-justify">Lambda</h1>
         <h1 className="text-justify">Notes</h1>
-        <Nav vertical style={{ border: "1px solid black" }}>
+        <Nav vertical>
           <NavItem>
             <Link to="/">
               <Button style={buttonStyles}>View Your Notes</Button>

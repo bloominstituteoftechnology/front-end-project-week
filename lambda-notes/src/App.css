@@ -1,8 +1,9 @@
 .App {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .appContainer {
+  margin: 0;
 }
 
 h1,

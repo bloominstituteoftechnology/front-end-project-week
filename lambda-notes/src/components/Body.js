@@ -9,7 +9,7 @@ import { Route } from "react-router-dom";
 export default class Body extends Component {
   render() {
     return (
-      <div>
+      <div style={{ overflow: "auto", height: "100vh" }}>
         <Route exact path="/" component={NotesList} />
         <Route path="/newnote" component={NewNote} />
         <Route path="/noteview/:id" component={NoteView} />
