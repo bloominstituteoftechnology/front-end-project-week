@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './LeftBar.css';
+import { Link } from 'react-router-dom';
 
 class LeftBar extends Component {
   render() {
@@ -7,12 +8,13 @@ class LeftBar extends Component {
       <div className="left">
         <h1>Lambda Notes</h1>
         <ul className="nav">
-          <li>
-            <a>View Your Notes</a>
-          </li>
-          <li>
-            <a>+ Create New Note</a>
-          </li>
+          <Link to="/">
+            <button className="Button">View Your Notes</button>
+          </Link>
+
+          <Link to="/Create">
+            <button className="Button">+ Create New Note</button>
+          </Link>
         </ul>
       </div>
     );

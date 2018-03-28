@@ -1,0 +1,34 @@
+.input-title {
+  width: 94.3%;
+  height: auto;
+  text-align: center;
+  font-size: 25px;
+  padding: 3%;
+}
+
+.input-body {
+  height: 600px;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.AddNote {
+  margin: 5%;
+}
+
+.SaveButton {
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  width: 160px;
+  border: 1px solid black;
+  background-color: #2eb8bc;
+  color: white;
+  margin-top: 5%;
+  height: 55px;
+}
+
+.SaveButton:hover {
+  color: black;
+}

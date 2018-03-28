@@ -4,12 +4,13 @@ import './List.css';
 class List extends Component {
   render() {
     return (
-      <div class="card">
-        <div class="container">
+      <div class="container">
+        <div className="title">Your Notes:</div>
+        <div class="card">
           <h4>
-            <b>John Doe</b>
+            <b>Title</b>
           </h4>
-          <p>Architect & Engineer</p>
+          <p>Body</p>
         </div>
       </div>
     );
