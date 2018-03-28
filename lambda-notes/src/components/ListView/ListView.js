@@ -36,16 +36,18 @@ class ListView extends Component {
               {this.props.notes.map(note => {
                 return( <div className="eachNote" key={note.id}>
                   <Link to={`/view/${note.id}`} style={ {color: "black"} }>
-                    {/* <div onClick={() => this.props.showWholeNote(note.id)}> */}
+
                     <div className="noteTitle">{note.title}</div>
-                    <LinesEllipsis
-                      text={note.text}
-                      maxLine="6"
-                      ellipsis=" ..." 
-                      basedOn="letters"
-                    />
+                    <div>
+                      <LinesEllipsis
+                        text={note.text}
+                        maxLine="6"
+                        ellipsis=" ..." 
+                        basedOn='words'
+                      />
+                    </div>
                   </Link>
-                </div> )
+                </div> );
               })}
             </div>
           </div>
