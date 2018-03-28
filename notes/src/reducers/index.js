@@ -1,6 +1,12 @@
-import { CREATE_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions';
+import { 
+    CREATE_NOTE, 
+    EDIT_NOTE, 
+    DELETE_NOTE, 
+    SORT_NEWEST,
+    SORT_OLDEST } from '../actions';
 
 const initialState = {
+    sortedBy: null,
     notes: [
         {
             id: 0,
@@ -57,6 +63,16 @@ export default(state=initialState, action) => {
         case(DELETE_NOTE):
             return Object.assign({}, state, {
                 notes: state.notes.filter(note => note.id !== action.id),
+            });
+        case(SORT_NEWEST):
+            return Object.assign({}, state, {
+                sortedBy: 'newest',
+                notes: state.notes.sort((a, b) => a.id > b.id),
+            });
+        case(SORT_OLDEST):
+            return Object.assign({}, state, {
+                sortedBy: 'oldest',
+                notes: state.notes.sort((a, b) => a.id < b.id),
             });
         default:
             return state;

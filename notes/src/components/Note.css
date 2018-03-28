@@ -8,6 +8,7 @@
     font-size: .86em;
     text-decoration: underline;
     color: black;
+    cursor: pointer;
 }
 
 .Note__heading {

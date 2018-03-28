@@ -7,12 +7,12 @@ import './NoteCard.css';
 class NoteCard extends Component {
     render() {
         return (
+                <Link to={`/notes/${this.props.note.id}`}>
                 <Card body className="NoteCard">
-                    <Link to={`/notes/${this.props.note.id}`}>
                     <CardTitle className='NoteCard__title'>{this.props.note.title}</CardTitle>
-                    </Link>
                     <CardText className='NoteCard__text'>{this.props.note.text}</CardText>
                 </Card>
+                </Link>
         );
     }
 }
