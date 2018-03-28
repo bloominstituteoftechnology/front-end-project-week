@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import allNotes from '../dummyData';
 import { Link } from 'react-router-dom';
 
@@ -8,37 +7,43 @@ class NotesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            neededData: [],
+            neededData: allNotes,
         }
     }
 
     componentDidMount() {
-        this.setState( {neededData: allNotes} );
+        this.setState( {neededData: this.state.neededData} );
     }
 
     render() {
         return (
             <div className="NoteItems">
-                <h5 className="NoteItemsTitle">You're Notes:</h5>
+              <h5 className="NoteItemsTitle">Your Notes:</h5>
                 <div className="NotesList">
-                    {this.state.neededData.map(((eachNote) =>
-                            <div className="NoteItem" key={eachNote.id}>
-                                <Link to ={{pathname: `/notes/${ eachNote.id }}`, state: { currentView: eachNote }}}>
-                                    <Card>
-                                        <CardBody>
-                                            <CardTitle> {eachNote.title} </CardTitle>
-                                            <CardText> {eachNote.description} </CardText>
-                                        </CardBody>
-                                    </Card>
+                    {this.state.neededData.map(note => {
+                        return (
+                            <div className="NoteItem" note={note} key={note.id}>
+
+                                <Link to={{ pathname:`/notes/${note.id}`, state: { currentId: note } }}>
+
+                                    <div className="NoteCard">
+                                        <div className="NoteContainer">
+                                            <header> {note.title} </header>
+                                            <p> {note.description} </p>
+                                        </div>
+                                    </div>
+
                                 </Link>
+
                             </div>
                         )
-                    )}
-                    
+                    })}
                 </div>
             </div>
+        
         )
     }
     
 }
-export default NotesList
+
+export default NotesList;
