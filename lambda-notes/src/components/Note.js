@@ -43,7 +43,9 @@ class Note extends Component {
                 </div>
             </div>
             <h4 className="Note__title">{this.props.location.state.currentNote.title}</h4>
+            <div className="Content">
             <Markdown markup={ this.props.location.state.currentNote.text } strikethrough="true" tasklists="true" />
+            </div>
         </div>
     );
 };
