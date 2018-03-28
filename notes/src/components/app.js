@@ -10,6 +10,7 @@ import { Container, Row } from 'reactstrap';
 
 import Notes from './notes';
 import Note from './note';
+import EditNote from './editnote';
 import NavBar from './navbar';
 import NewNote from './newnote';
 import './app.css';
@@ -22,7 +23,8 @@ class App extends Component {
             <NavBar/>
             <Route exact path='/' component = {Notes} />
             <Route path='/newnote' component = {NewNote} />
-            <Route path='/note/:id' component = {Note} />
+            <Route exact path='/note/:id' component = {Note} />
+            <Route path='/note/edit/:id' component = {EditNote} />
         </Row>   
       </Container>
     );

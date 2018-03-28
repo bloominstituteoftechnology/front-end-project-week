@@ -26,7 +26,7 @@ const getNextId = () => {
 // }
 //
 // const notes = gen();
-const notes = [
+let notes = [
 {
 id: 1,
 title: "This is a title for 1",
@@ -81,10 +81,7 @@ content: "Lorem Ipsum is simply dummy text of the printing and typesetting indus
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
-server.listen(port, err => {
-  if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
-});
+
 server.post('/notes', (req, res) => {
   const { title, content } = req.body;
   const id = getNextId();
@@ -92,4 +89,31 @@ server.post('/notes', (req, res) => {
   notes.push(newNote);
   nextId++;
   res.json(notes);
+});
+
+// server.delete('/notes/:id', (req, res) => {
+//   const { id } = req.params;
+//   const foundNote = notes.find(note => (note.id).toString() === id.toString());
+//   console.log(id)
+//   if (foundNote) {
+//     const noteRemoved = { ...foundNote };
+//     notes = notes.filter(note => (note.id).toString() != id.toString());
+//     res.status(200).json({ noteRemoved });
+//   } else {
+//     sendUserError('No note by that ID exists in the note DB', res);
+//   }
+// });
+
+server.delete('/notes/:id', (req, res) => {
+  const { id } = req.params;
+
+  notes = notes.filter(note => note.id !== Number(id));
+
+  res.send(notes);
+});
+
+
+server.listen(port, err => {
+  if (err) console.log(err);
+  console.log(`server is listening on port ${port}`);
 });

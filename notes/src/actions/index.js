@@ -4,6 +4,8 @@ export const
     ROOT_URL    =   `http://localhost:5000/notes`,
     FETCHING    =   'FETCHING',
     FETCHED     =   'FETCHED',
+    DELETING    =   'DELETING',
+    DELETED     =   'DELETED',
     ERROR       =   'ERROR',
     ADDING      =   'ADDING',
     ADDED       =   'ADDED';
@@ -49,4 +51,28 @@ export const addNote = (newNote) => dispatch => {
                 errorMessage: `Could not retrieve notes! ${err}.`
             })
         });
+}
+
+export const deleteNote = id => dispatch => {
+    const url = ROOT_URL + '/' +id; 
+    dispatch({ type: DELETING });
+
+    axios
+        .delete(url)
+        .then(response => {
+            dispatch({
+                type: DELETED,
+                notes: response.data,
+            })
+        })
+        .catch(err =>{
+            dispatch({
+                type: ERROR,
+                errorMessage: `Could not delete note! ${err}.`
+            })
+        });
+};
+
+export const editNote = id => {
+    
 }
