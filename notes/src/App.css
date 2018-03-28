@@ -28,11 +28,19 @@ a.card-link {
 a.card-link:hover {
   color: black;
 }
-button.btn.btn-secondary {
+button.btn {
   background: #2bc1c4;
   font-weight: bold;
   border-radius: 0;
   font-size: 1.1rem;
+  border: 1px solid grey;
+}
+
+button.btn.deleteBtn {
+  background: red;
+}
+button.btn.deleteBtn:hover {
+  background: darkred;
 }
 /* Header text color: 4a4a4a */
 .header {
