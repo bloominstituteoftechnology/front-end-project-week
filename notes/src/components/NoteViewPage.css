@@ -1,14 +1,14 @@
-.NoteViewPageContainer {
+.noteViewPageContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 @media screen and (min-width: 1180px) {
-  .NoteViewPageContainer {
-    height: 1200px;
-    width: 100%;
+  .noteViewPageContainer {
     display: flex;
     flex-direction: row;
+    height: 1200px;
+    width: 100%;
   }
 }

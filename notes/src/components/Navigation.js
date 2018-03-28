@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import './Navigation.css';
 
-const Navigation = () => (
+const Navigation = ({ history }) => (
   <div className="navContainer">
     <h1 className="navHeader">Lambda<br />Notes</h1>
-    <Link to="/"><button className="navButton">View Your Notes</button></Link>
-    <Link to="/create"><button className="navButton">+ Create New Note</button></Link>
+    <button className="navButton" onClick={() => { history.push('/') }}>View Your Notes</button>
+    <button className="navButton" onClick={() => { history.push('/create') }}>+ Create New Note</button>
   </div>
 );
 
-export default Navigation;
+export default withRouter(Navigation);
