@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
-import NewNote from './NewNote';
-import NotesList from './NotesList';
+import React from 'react';
+import AddNote from '../containers/AddNote';
+import VisibleNotesList from '../containers/VisibleNotesList';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <p>Notes</p>
-        <NewNote />
-        <NotesList />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div>
+      <AddNote />
+      <VisibleNotesList />
+    </div>
+)
 
 export default App;
