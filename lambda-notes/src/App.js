@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import NoteList from './components/NoteList';
 import {newNote} from './components/newNote';
+import EditNote from './components/EditNote';
 import { noteView } from './components/noteView';
 
 class App extends Component {
@@ -34,6 +35,7 @@ class App extends Component {
             {/* <Route path='/noteview/:id' render={({match}) => <NoteView notes={this.state.notes} /> }/> */}
             <Route path='/noteview/:id' render={({ match }) => noteView(this.state.notes, match) }/>
             <Route path='/addNewNote' render={() => newNote(this.addNewNote)} />
+            <Route path='/EditNote/:id' component={EditNote} />
           </div>
         </div>
       

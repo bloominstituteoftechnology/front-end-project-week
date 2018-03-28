@@ -3,11 +3,11 @@ import React from 'react';
 export const newNote = (addNote) => {
 
     let titleInput, textInput;
-    console.log(addNote);
+    
     return (
         <div className='col-9 right_side'>
             <div className='row title_bar'>
-                <div className='col-4'>
+                <div className='col-4 header_font'>
                     <h4>Create New Note:</h4>
                 </div>  
             </div>    
@@ -15,8 +15,9 @@ export const newNote = (addNote) => {
                 <div className='col'>
                 <form className='new_note_form' onSubmit={(event) => {
                     event.preventDefault();
-                    addNote({title: titleInput.value, text: textInput.value});
                     window.location.href='/';
+                    addNote({title: titleInput.value, text: textInput.value});
+                    
                 }}>
                     <input className='new_note_title' ref={title => titleInput = title} placeholder='Title of New Note' autoFocus />
                     

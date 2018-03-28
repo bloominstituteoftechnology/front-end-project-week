@@ -8,7 +8,7 @@ class NoteList extends Component {
         return (
             <div className='col-9 right_side'>
               <div className='row title_bar'>
-                <div className='col-3'>
+                <div className='col-3 header_font'>
                   <h4>Your Notes:</h4>
                 </div>
               </div>

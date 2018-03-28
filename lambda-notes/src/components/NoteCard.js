@@ -14,7 +14,7 @@ class NoteCard extends Component {
             <div className='test'>
                 <a href={`/noteview/${this.props.note.id}`} className='note_card'>
                     
-                    <h6>{this.props.note.title}</h6>
+                    <h6 className='header_font'>{this.props.note.title}</h6>
                     <hr/>
                     <div className='card_text'>{this.props.note.text}</div>
                 </a>
