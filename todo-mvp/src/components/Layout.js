@@ -62,16 +62,15 @@ class Layout extends Component {
     })
   }
 
-  updateNote(event) {
-    event.preventDefault();
-    console.log('in updateNote')
+  updateNote(id) {
     const updateNote = {};
-    updateNote.id  = event.target.value;
+    updateNote.id  = id;
     updateNote.title =  this.state.title;
     updateNote.content = this.state.content;
-    console.log(event.target.value, typeof  event.target.value)
+
     let copyNotes  = this.state.notes;
-    copyNotes.splice(event, 1, updateNote);
+    let updateIndex = copyNotes.findIndex(note => note.id == updateNote.id)
+    copyNotes.splice(updateIndex, 1, updateNote);
 
     this.setState({
       notes: copyNotes,

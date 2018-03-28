@@ -6,8 +6,10 @@ import './UpdateNote.css';
 class UpdateNote extends Component {
 
   handleUpdate(event) {
-    console.log('noteID', this.props.note.id)
-    console.log('in handle update')
+    console.log('entering handle update')
+    console.log('updateID: ', this.props.note.id)
+    console.log('updateTitle: ', this.props.title)
+    console.log('updateContent: ', this.props.content)
     event.preventDefault();
     this.props.updateNote(this.props.note.id);
     this.props.history.push('/');
@@ -19,8 +21,8 @@ class UpdateNote extends Component {
       <div className="UpdateNote">
         <h3>Edit Note:</h3>
         <form className="update-form" onSubmit={this.handleUpdate.bind(this)}>
-        <input type="text" placeholder="Note Title" value={this.props.title} onChange={this.props.newTitle}/>
-        <input type="text" placeholder="Note Content" value={this.props.content} onChange={this.props.newContent}/>
+        <input required type="text" placeholder="Note Title" value={this.props.title} onChange={this.props.newTitle}/>
+        <input required type="text" placeholder="Note Content" value={this.props.content} onChange={this.props.newContent}/>
         <button type="submit">Update</button>
         </form>
       </div>
