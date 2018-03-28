@@ -1,17 +1,15 @@
 .sidebar {
-    width: 30%;
-    height: 100%;
     background: #D8D8D8;
-    padding-bottom: 800px;
-    margin-left: 25px;
+    width: 25%;
 }
 
-.nav-title {
-    padding: 50px 250px 0 0;
-    font-size: 40px;
-    font-weight: 700;
-}
-
-.button {
+Button {
+    background: #2BC1C4;
+    width: 400px;
     color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 0 40px;
+    height: 40px;
+    font-size: 20px;
 }
