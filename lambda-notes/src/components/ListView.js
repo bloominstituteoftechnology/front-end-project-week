@@ -23,7 +23,7 @@ componentDidMount(){
                                     <Card>
                                         <header className="ListCard__Header">{note.title}</header>
                                         
-                                        <body className="ListCard__Body">{note.text.length > 120 ? (note.text.substr(0, 124) + " ...") : (note.text)}</body>
+                                        <div className="ListCard__Body">{note.text.length > 120 ? (note.text.substr(0, 124) + " ...") : (note.text)}</div>
                                         
                                     </Card>
                                 </Link>

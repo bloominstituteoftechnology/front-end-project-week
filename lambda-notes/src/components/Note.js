@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { Markdown } from 'react-showdown';
 
 class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            markdown: ''
         };
     
         this.toggle = this.toggle.bind(this);
@@ -42,7 +44,7 @@ class Note extends Component {
                 </div>
             </div>
             <h4 className="Note__title">{this.props.location.state.currentNote.title}</h4>
-            <p className="Content">{this.props.location.state.currentNote.text}</p>
+            <Markdown markup={ this.props.location.state.currentNote.text } />
         </div>
     );
 };
