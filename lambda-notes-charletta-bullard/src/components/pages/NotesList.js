@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
-  constructor() {
-    super()
-    this.state = {
+  
+  state = {
       id: '',
     };
-  }
+  
   
 
   render() {

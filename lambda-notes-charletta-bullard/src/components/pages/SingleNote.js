@@ -5,15 +5,13 @@ import { deleteNote } from '../actions';
 import DeleteNote from '/components/pages/DeleteNote';
 
 class SingleNote extends Component {
-  constructor() {
-    super()
-    this.state = {
+  state = {
       title: '',
       text: '',
       id: '',
       deleting: false,
     };
-  }
+  
 
   render() {
     const id = this.props.match.params.id - 1;

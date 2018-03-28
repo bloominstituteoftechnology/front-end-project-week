@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
 class NoteForm extends Component {
-    constructor() {
-      super()
-      this.state = {
+    state = {
         title: '',
         text: '',
         redirect: false,
       };
-    }
+   
 
   render() {
     return (
