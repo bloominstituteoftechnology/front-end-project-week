@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { deleteNote } from '../actions';
-import DeleteNote from './components/pages/DeleteNote';
+import DeleteNote from '/components/pages/DeleteNote';
 
 class SingleNote extends Component {
-  state = {
-    title: '',
-    text: '',
-    id: '',
-    deleting: false,
-  };
+  constructor() {
+    super()
+    this.state = {
+      title: '',
+      text: '',
+      id: '',
+      deleting: false,
+    };
+  }
 
   render() {
     const id = this.props.match.params.id - 1;

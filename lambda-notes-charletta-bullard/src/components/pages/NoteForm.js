@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { addNote } from '../actions';
+import { addNote } from '/actions/index.js';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
 class NoteForm extends Component {
-  state = {
-    title: '',
-    text: '',
-    redirect: false,
-  };
+    constructor() {
+      super()
+      this.state = {
+        title: '',
+        text: '',
+        redirect: false,
+      };
+    }
 
   render() {
     return (

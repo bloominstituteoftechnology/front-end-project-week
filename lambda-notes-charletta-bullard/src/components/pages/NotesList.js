@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { viewNote } from '../actions/index.js';
+import { viewNote } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
-  state = {
-    id: '',
-  };
+  constructor() {
+    super()
+    this.state = {
+      id: '',
+    };
+  }
+  
 
   render() {
     return (
