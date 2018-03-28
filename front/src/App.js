@@ -3,6 +3,7 @@ import './index.css';
 import './App.css';
 import ListView from './ListView';
 import CreateNote from './CreateNote';
+import EditNote from './EditNote';
 class App extends Component {
   render() {
     return (
@@ -10,6 +11,7 @@ class App extends Component {
       
         <ListView />
        <CreateNote />
+       <EditNote />
       </div>
     );
   }

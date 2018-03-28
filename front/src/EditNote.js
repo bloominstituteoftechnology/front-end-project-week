@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-class CreateNote extends Component {
+class EditNote extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -33,17 +33,15 @@ class CreateNote extends Component {
         </div>
         
           <form onSubmit={this.handleSubmit}>
-          <h2>Create New Notes:</h2>
+          <h2>Edit Notes:</h2>
             <input class = 'kin' type ='text' placeholder ='Enter your title' 
             value = {this.state.title} onChange ={this.handleChangeTitle} /><br />
               <textarea value={this.state.notes} placeholder = 'Enter your notes'
               onChange={this.handleChange} cols={60} rows={30} />
-            <button type="submit" value="Save">Save </button>
+            <button type="submit" value="Save">Update </button>
           </form>
           </div>
       );
     }
   }
-  export default CreateNote;
-  
-  
+  export default EditNote;
