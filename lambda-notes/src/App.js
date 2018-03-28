@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Redirect, Route, Link, BrowserRouter as Router } from 'react-router-dom';
+
 import {
   Button,
   Card,
@@ -13,7 +14,13 @@ import {
 } from 'reactstrap';
 import SampleData from './SampleData';
 
-const ViewNotes = props => (
+class ViewNotes extends Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
   <div className="ViewNotes">
     <div className="LeftSide">
       <h1 className="LambdaNotes">Lambda Notes</h1>
@@ -28,7 +35,7 @@ const ViewNotes = props => (
     <div className="RightSide">
       <h4 className="YourNotes">Your Notes:</h4>
       <div className="CardsDiv">
-        {props.notes.map(note => {
+        {this.props.notes.map(note => {
           return (
             <div className="Cards" key={note.key}>
               <Card className="Card">
@@ -46,7 +53,9 @@ const ViewNotes = props => (
       </div>
     </div>
   </div>
-);
+    );}
+
+};
 
 const CreateNote = props => (
   <div className="CreateNote">
@@ -68,6 +77,10 @@ const CreateNote = props => (
               name="noteTitle"
               id="noteTitle"
               placeholder="Note Title"
+              onChange={props.handleTitleChange}
+              
+              
+          
             />
           </FormGroup>
 
@@ -79,12 +92,16 @@ const CreateNote = props => (
               name="noteContent"
               id="noteContent"
               placeholder="Note Content"
+              onChange={props.handleContentChange}
             />
           </FormGroup>
           <Button className="SubmitButton float-left" type="submit">
             Save
           </Button>
         </Form>
+        {props.fireRedirect && (
+          <Redirect to={'/'}/>
+        )}
       </div>
     </div>
   </div>
@@ -92,17 +109,19 @@ const CreateNote = props => (
 
 class App extends Component {
   state = {
-    notes: []
+    notes: [],
+    fireRedirect: false
   };
   addItem = this.addItem.bind(this);
   handleTitleChange = this.handleTitleChange.bind(this);
+  handleContentChange = this.handleContentChange.bind(this);
 
   addItem(e) {
-    if (this._inputElement.value !== '') {
+    if (this._inputElement !== '') {
       let newNote = {
         key: Date.now(),
-        title: this._inputElement.value,
-        content: this._inputElement2.value
+        title: this.props._inputElement,
+        content: this.props._inputElement2
       };
       this.setState(prevState => {
         return {
@@ -110,15 +129,19 @@ class App extends Component {
         };
       });
 
-      this._inputElement.value = '';
-      this._inputElement2.value = '';
+      // this._inputElement = '';
+      // this._inputElement2 = '';
     }
-
+    this.setState({ fireRedirect: true })
     e.preventDefault();
   }
 
   handleTitleChange(e) {
-    this.setState({ title: e._inputElement.innerRef });
+    this.setState({ title: e._inputElement });
+    
+  }
+  handleContentChange(e) {
+    this.setState({ content: e._inputElement2 });
   }
 
   componentDidMount() {
@@ -134,7 +157,8 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={props => <ViewNotes {...props} notes={this.state.notes} />}
+            render={props => (<ViewNotes {...props} notes={this.state.notes} test="test" />
+            )}
           />
           <Route
             path="/CreateNote"
@@ -143,6 +167,9 @@ class App extends Component {
                 {...props}
                 addItem={this.addItem}
                 notes={this.state.notes}
+                handleTitleChange={this.handleTitleChange}
+                handleContentChange={this.handleContentChange}
+                fireRedirect={this.state.fireRedirect}
               />
             )}
           />
