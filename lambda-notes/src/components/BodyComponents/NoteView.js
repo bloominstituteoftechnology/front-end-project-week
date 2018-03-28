@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import { deleteNote } from "../../actions/deleteNote";
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
+import { Modal, ModalBody, Button } from "reactstrap";
 
 // import DeleteModal from "./DeleteModal";
 
 class NoteView extends Component {
   state = {
     modal: false,
-    redirect: false
+    redirectToHome: false,
+    redirectToEdit: false
   };
 
   render() {
@@ -17,11 +18,22 @@ class NoteView extends Component {
       item => Number(item.id) === Number(this.props.match.params.id)
     )[0];
 
-    if (this.state.redirect === true) return <Redirect to="/" />;
+    if (this.state.redirectToHome === true) return <Redirect to="/" />;
+    if (this.state.redirectToEdit === true)
+      return <Redirect to={`/editnote/${currentNote.id}`} />;
+
     return (
       <div>
-        <div className="d-flex justify-content-end">
-          <Link to={`/editnote/${currentNote.id}`}> edit </Link>
+        <div
+          style={{ textDecoration: "underline" }}
+          className="d-flex justify-content-end"
+        >
+          <div
+            className="mr-3"
+            onClick={() => this.setState({ redirectToEdit: true })}
+          >
+            edit
+          </div>
           <div onClick={this.toggleModal}> delete </div>
         </div>
         <h3 className="mt-4 ml-3">{currentNote.title}</h3>
