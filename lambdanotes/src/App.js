@@ -4,6 +4,7 @@ import { Button } from 'reactstrap';
 import Route from 'react-router-dom/Route';
 import CreateNote from './components/create-note';
 import { Link } from 'react-router-dom';
+import DeleteModal from './components/delete-note';
 
 class App extends Component {
   render() {
@@ -24,6 +25,11 @@ class App extends Component {
             </Link>
           </div>
         </div>
+
+        <Route path="/delete-note" component={DeleteModal} />
+        <Link to="/delete-note">
+          <Button color="primary">Delete Note</Button>
+        </Link>
 
         <div className="notesView">
           <div className="notes">
