@@ -48,6 +48,16 @@ class App extends Component {
     }
   }
 
+  handleExport = () => {
+    let csvContent = "data:text/csv;charset=utf-8, Title,Text,ID\r\n";
+    const notesExported = this.state.notes
+    notesExported.forEach(function(rowArray){
+        let row = Object.values(rowArray).join(",");
+        csvContent += row + "\r\n";
+    }); 
+    return encodeURI(csvContent);
+  }
+
   componentWillMount() {
     const memory = Array.from(Object.values(localStorage));
     if (memory.length > 0) {

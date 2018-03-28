@@ -8,7 +8,6 @@ class Note extends Component {
         super(props);
         this.state = {
             modal: false,
-            markdown: ''
         };
     
         this.toggle = this.toggle.bind(this);
