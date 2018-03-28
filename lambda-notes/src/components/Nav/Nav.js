@@ -1,17 +1,19 @@
+// React and Router
 import React from 'react';
-import { Link } from 'react-router-dom';
 
+// Styling
 import { Col } from "reactstrap";
+import { BUTTON } from '../StyledComponents';
 import './Nav.css';
 
-function Nav() {
+const Nav = () => {
     return (
-        <Col xs='3' className='nav-side'>
+        <Col xs='3' className='navigation pt-3'>
           <h3>Lambda Notes</h3>
-          <Link to="/" className='primary-btn'>View Your Notes</Link>
-          <Link to="/create-new-note" className='primary-btn'>+Create New Note</Link>
+          <BUTTON to="/" className='my-3 py-2'>View Your Notes</BUTTON>
+          <BUTTON to="/create-new-note" className='mt-3 py-2'>+ Create New Note</BUTTON>
         </Col>
     )
-};
+}; // end ofNav
 
 export default Nav;

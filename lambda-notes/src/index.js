@@ -9,9 +9,11 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
+// Components
+import App from './App';
+
 // Styling
 import './index.css';
-import App from './App';
 
 // Reducer
 import rootReducer from "./reducers/rootReducer";

@@ -1,28 +1,12 @@
-.nav-side {
-  padding: 2%;
+.navigation {
   background-color: #D8D8D8;
   border-right: 1px solid gray;
   height: 100vh;
 }
 
-h3, h5 {
-  font-family: Roboto;
-  font-weight: bold;
-  color: #4A4A4A;
-}
-
-a {
-  color: white;
-}
-
 a:hover {
   text-decoration: none;
-}
-  
-.primary-btn {
-  display: block;
-  margin-top: 20px;
-  padding: 4px 0;
-  text-align: center;
-  background-color: #2BC1C4;
+  border: 1px solid #2BC1C4;
+  background-color: white;
+  color: #2BC1C4;
 }

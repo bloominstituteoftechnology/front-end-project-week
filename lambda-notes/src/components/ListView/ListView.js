@@ -9,9 +9,12 @@ import { connect } from 'react-redux';
 import { get_notes } from '../../actions';
 
 // Styling
-import { Col, Card } from "reactstrap";
+import { Col,
+    Card,
+    CardBody,
+    CardHeader,
+    CardText } from "reactstrap";
 import './ListView.css';
-// import NoteView from '../NoteView/NoteView';
 
 class ListView extends Component {
     componentDidMount() {
@@ -19,10 +22,10 @@ class ListView extends Component {
     }
     render() {
         return (
-            <Col className='list-view'
+            <Col className='pt-5'
                 style={{backgroundColor: '#f2f1f2'}}>
-                <h5>Your notes:</h5>
-                <div className='notes-container'>
+                <h5>Your Notes:</h5>
+                <div className='list-container'>
                     {this.props.notes.map(note => {
                         const notePropsAndPath = {
                             pathname: `/notes/${note.id}`,
@@ -31,10 +34,17 @@ class ListView extends Component {
                             content: note.content
                         };
                         return (
-                            <Link to={notePropsAndPath} key={`${note.id} ${note.title}`}>
-                                <Card>
-                                    <p>{note.title}</p>
-                                    <p>{note.content}</p>
+                            <Link to={notePropsAndPath} key={`${note.id} ${note.title}`}
+                                className='mt-3 mb-1'>
+                                <Card className='card'>
+                                    <CardBody className='cardbody px-3 pt-0'>
+                                        <CardHeader className='cardheader mb-1 px-0 pt-2 pb-0'>
+                                            {note.title}
+                                        </CardHeader>
+                                        <CardText>
+                                            {note.content}
+                                        </CardText>
+                                    </CardBody>
                                 </Card>
                             </Link>
                         );
@@ -43,7 +53,6 @@ class ListView extends Component {
             </Col>
         );
     } // end of render()
-
 }; // end of ListView
 
 const mapStateToProps = state => {

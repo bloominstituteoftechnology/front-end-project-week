@@ -1,3 +1,9 @@
+body, h3, h5 {
+    font-family: Roboto;
+    font-weight: bold;
+    color: #4A4A4A;
+}
+
 #root {
     height: 100vh;
 }
