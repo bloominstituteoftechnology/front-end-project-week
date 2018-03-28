@@ -22,8 +22,8 @@ class EditNote extends Component {
             <div className="EditNote">
                 <h4 className="Title">Edit Note:</h4>
                 <form className="Form">
-                    <input className="Inputtext" type='text' name='title' placeholder='Note Title' onChange={this.handleChange}></input>
-                    <textarea className="Inputfield" type='textarea' name='text' placeholder='Note Content' onChange={this.handleChange}></textarea>
+                    <input className="Inputtext" type='text' name='title' value={this.props.location.state.default.title} onChange={this.handleChange}></input>
+                    <textarea className="Inputfield" type='textarea' name='text' value={this.props.location.state.default.text} onChange={this.handleChange}></textarea>
                     <button className="Button" onClick={this.handleSubmit}>Update</button>
                 </form>
             </div>

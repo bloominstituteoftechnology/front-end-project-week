@@ -31,7 +31,7 @@ class Note extends Component {
     return (
         <div className="Note">
             <div className="Note__nav">
-                <Link className="Nav__item" to={`/notes/${this.props.location.state.currentNote.id}/EditNote`}>edit</Link>
+                <Link className="Nav__item" to={{pathname: `/notes/${this.props.location.state.currentNote.id}/EditNote`, state: { default: this.props.location.state.currentNote }}}>edit</Link>
                 <div className="Nav__item">
                     <a className="Nav__item" onClick={this.toggle}>delete</a>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -44,7 +44,7 @@ class Note extends Component {
                 </div>
             </div>
             <h4 className="Note__title">{this.props.location.state.currentNote.title}</h4>
-            <Markdown markup={ this.props.location.state.currentNote.text } />
+            <Markdown markup={ this.props.location.state.currentNote.text } strikethrough="true" tasklists="true" />
         </div>
     );
 };

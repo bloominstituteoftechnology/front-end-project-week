@@ -64,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={NavBar} />
+        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} />} />
         <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
         <Route exact path="/AddNote" render={(props) => <AddNote {...props} add={this.handleAdd} />}/>
         <Route exact path="/notes/:id" render={(props) => <Note {...props} delete={this.handleDelete} />} />
