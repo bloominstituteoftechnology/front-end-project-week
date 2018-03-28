@@ -22,7 +22,8 @@ handleFilter = (e) => {
     render() {
         return (
             <div className="ListView">
-                <h4 className="Title">Your Notes:  <input className="ListView__input" type="text" placeholder="Find Note" onChange={this.handleFilter}></input></h4>
+                <input className="ListView__input" type="text" placeholder="Find Note" onChange={this.handleFilter}></input>
+                <h4 className="Title">Your Notes:</h4>
                 <div className="ListCards">
                     {this.state.notes.map(((note) => {
                         return (

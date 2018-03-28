@@ -47,16 +47,26 @@ a:hover {
   font-weight: 700;
   font-size: 18px;
   color: white;
-  padding-top: 1%;
+  padding-top: 5%;
   margin: 4% 6%;
   border: 1px solid rgb(150, 150, 150);
-  height: 3%;
+  min-height: 50px;
 }
 
 .Note, .ListView, .AddNote, .EditNote {
   width: 100%;
   background-color: #F4F4F4;
   min-height: 700px;
+}
+
+.AddNote__Buttons {
+  display: flex;
+}
+
+.AddTag__Input {
+  display: flex;
+  margin: auto;
+  border: 2px solid rgb(150, 150, 150);
 }
 
 .Title {
@@ -139,19 +149,21 @@ a:hover {
   padding: 0 8%;
 }
 
-.Button, Button__Delete {
+.Button, Button__Delete, .AddTag {
   font-weight: 500;
   color: white;
   margin: 3%;
   border: 1px solid rgb(150, 150, 150);
   height: 50px;
 }
-.Button {
+
+.Button, .AddTag {
   background-color: #2BC1C4;
   height: 50px;
   width: 20%;
   min-width: 80px;
 }
+
 .Button__Delete {
   background-color: #D0021B;
   height: 50px;
