@@ -158,7 +158,7 @@ class Note extends Component{
                   }</Panel.Title>
                   <Panel.Body style={style} className="content">
                  { 
-                   this.state.text
+                   this.props.info.notes[this.state.id].text
                  }
                  <br/>
                   </Panel.Body>
