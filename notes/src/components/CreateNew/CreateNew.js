@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
+import Sidebar from "../Sidebar/Sidebar.js";
+
 class CreateNew extends Component {
   render() {
     return(
       <Form>
+        <Sidebar />
         <FormGroup>
           <Label for="titleArea">Title</Label>
           <Input type="titlearea" name="title" id="titleHere" placeholder="Title Here" />

@@ -13,10 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar />
-        {/* <Notes />
-        <CreateNew />
-        <NoteView />
-        <EditNote /> */}
+        <Notes />
       </div>
     );
   }

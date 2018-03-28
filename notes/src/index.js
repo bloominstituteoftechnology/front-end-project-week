@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import App from './App';
 import CreateNew from './components/CreateNew/CreateNew.js';
 import Sidebar from './components/Sidebar/Sidebar.js';
+import NoteView from './components/NoteView/NoteView.js';
 
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
     <div>
       <Route exact path='/' component={App} />
       <Route path='/CreateNew' component={CreateNew} />
+      <Route path='/NoteView' component={NoteView} />
     </div>
   </Router>
   , document.getElementById('root'));
