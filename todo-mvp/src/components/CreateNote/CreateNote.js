@@ -16,25 +16,25 @@ class CreateNote extends Component {
       <div className="CreateNote">
         <form className="create-form" onSubmit={this.handleSubmit.bind(this)}>
           <label className="input-label">
-            <h2>Create New Note:</h2>
+            <h2 className="label-h2">Create New Note:</h2>
           </label>
           <input 
           required
           className="input-title" 
           type="text" 
-          placeholder="Enter title"
+          placeholder="Note Title"
           onChange={this.props.newTitle}
           value={this.props.title}
           />
           <input 
           required
           className="input-body" 
-          type="text" 
-          placeholder="Enter note text"
+          type="text-area" 
+          placeholder="Note Content"
           onChange={this.props.newContent}
           value={this.props.content}
           />
-          <button type="submit">Save</button>
+          <button className="sav-btn" type="submit">Save</button>
         </form>
       </div>
     );

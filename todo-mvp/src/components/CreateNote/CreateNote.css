@@ -1,20 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 .CreateNote {
-    display: flex;
-    border: 2px green solid;
-  }
+  display: flex;
+  height: 100vh;
+  margin-left: 40px;
+  margin-top: 50px;
+}
 
-  .create-form {
-      display: flex;
-      flex-direction: column;
-      border: 2px solid red;
-      width: 100%;
-  }
-  
-  .input-title {
-    margin-bottom: 30px;
-  }
+.label-h2 {
+  font-weight: bolder;
+  font-family: Roboto;
+  color: RGB(74, 74, 74);
+}
 
-  .input-body {
-      height: 400px;
-      text-align: start;
-  }
+.create-form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.input-title {
+  margin-bottom: 30px;
+  height: 50px;
+  width: 400px;
+  border: 2px solid RGB(174, 174, 174);
+}
+
+.input-body {
+  height: 400px;
+  width: 600px;
+  text-align: start;
+  border: 2px solid RGB(174, 174, 174);
+}
+
+.sav-btn {
+  border: 2px solid RGB(151, 151, 151);
+  background-color: RGB(54, 192, 195);
+  color: RGB(255, 255, 255);
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  margin: 20px 15px 0px 0px;
+}

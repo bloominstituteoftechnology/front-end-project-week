@@ -1,4 +1,6 @@
 .Layout {
   display: flex;
-  border: 2px green solid;
+  border: 1px solid RGB(194, 194, 194);
+  background-color: #F3F3F3;
+
 }
