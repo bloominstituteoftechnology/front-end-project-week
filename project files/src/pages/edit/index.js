@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 
+import { notes } from '../notes';
 
 class EditNote extends Component{
     constructor(){
         super();
         this.state = {
-            editNote: ''
+            editNote: '',
+            notes: notes
         }
     }
 

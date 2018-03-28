@@ -30,7 +30,13 @@ class Front extends Component{
             
             {this.state.notes.map(note => {
             return(
-            <Link to='/note/:id' id={note.id}>
+            <Link to={{
+                pathname:`/note/${note.id}`, 
+                id:`${note.id}`,
+                title:`${note.title}`,
+                text:`${note.text}`
+            }}
+                >
             <ul key={note.id} className="note-card">
             <li className='note-title'>{note.title}</li>
             <li className='note-text'>{note.text}</li>

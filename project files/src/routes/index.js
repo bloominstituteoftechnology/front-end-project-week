@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import  { Front, NewNote, SingleNote, EditNote }  from '../pages/';
 import Nav from '../navigation';
 
@@ -20,6 +21,10 @@ class Routes extends Component {
         }
 
     }
+
+    componentDidMount(){
+        this.setState({notes: notes})
+    }
     
     
 render(){
@@ -37,8 +42,8 @@ render(){
         {/* <div> */}
          <Route path='/' exact component={ Front } /> 
          <Route path='/new' component={ NewNote } />
-         <Route path='/note/:id' component={ SingleNote } />
-         <Route path='/edit/:id' component={ EditNote }/>
+         <Route path={`/note/`} component={ SingleNote } noteid={notes.id} />
+         <Route path={`/edit/:id`} component={ EditNote }/>
         {/* </div> */}
         </div>
 
