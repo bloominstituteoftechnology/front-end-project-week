@@ -58,22 +58,19 @@ class NoteList extends Component {
         <StyledNoteList>
         <div className="note-list__header"> Your Notes: </div>
         <div className="note-list__right">
-        <Row className="row d-flex flex-wrap">
-        
-        
+        <Row className="row d-flex flex-wrap">        
             {this.props.notes.map(note => {
                 return (
-                    
-                        <Col sm="4" className="mb-3" key={note.id}>
-                            <Link  className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
-                            <Card>
-                                <CardBody className="card" key={note.id}>
-                                    <CardTitle className="card-title"><b>{note.title}</b></CardTitle>
-                                    <CardText className="card-text">{note.text}</CardText>
-                                </CardBody>
-                            </Card>
-                            </Link>
-                        </Col>
+                    <Col sm="4" className="mb-3" key={note.id}>
+                        <Link  className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
+                        <Card>
+                            <CardBody className="card" key={note.id}>
+                                <CardTitle className="card-title"><b>{note.title}</b></CardTitle>
+                                <CardText className="card-text">{note.text}</CardText>
+                            </CardBody>
+                        </Card>
+                        </Link>
+                    </Col>
                     
                 );
             })}
@@ -86,7 +83,7 @@ class NoteList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        notes: state
+        notes: state.notes
     };
 };
 

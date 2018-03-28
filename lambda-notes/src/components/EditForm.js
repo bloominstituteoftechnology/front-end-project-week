@@ -94,7 +94,7 @@ class EditForm extends React.Component {
                   maxLength='250'
                   />
                 <button onClick={this.handleSubmit}>Save</button>
-                {this.state.redirect ? <Redirect to={`/edit-note/${this.props.id}`} /> : null}
+                {this.state.redirect ? <Redirect to={`/single-note-view/${this.props.id}`} /> : null}
               </form>
             </StyledEditForm>
           )
@@ -103,7 +103,7 @@ class EditForm extends React.Component {
 
     const mapStateToProp = (state) => {
       return {
-        notes: state,
+        notes: state.notes
       }
     }
     

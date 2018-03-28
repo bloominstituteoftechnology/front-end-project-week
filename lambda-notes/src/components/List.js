@@ -28,7 +28,7 @@ class List extends Component {
 
 const mapStateToProp = (state) => {
     return {
-      notes: state,
+      notes: state.notes
     }
   }
   

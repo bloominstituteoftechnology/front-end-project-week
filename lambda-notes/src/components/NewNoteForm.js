@@ -44,14 +44,14 @@ class NewNoteForm extends React.Component {
       text: ''
     }
   
-    addNote = (event) => {
+    handleSubmit = (event) => {
       event.preventDefault();
       console.log('addNote FIRED')
       this.props.addNote({
         ...this.state,
-        title: this.state.title,
-        text: this.state.text,
-        id: this.props.notes.length,
+        // title: this.state.title,
+        // text: this.state.text,
+        // id: this.props.notes.length,
       })
       this.setState({
         title: '',
@@ -93,7 +93,7 @@ class NewNoteForm extends React.Component {
                   value={this.state.text}
                   maxLength='250'
                   />
-                <button onClick={this.addNote}>Save</button>
+                <button onClick={this.handleSubmit}>Save</button>
                 {this.state.redirect ? <Redirect to='/' /> : null}
               </form>
             </StyledNewNoteForm>
@@ -103,7 +103,7 @@ class NewNoteForm extends React.Component {
 
     const mapStateToProp = (state) => {
       return {
-        notes: state,
+        notes: state.notes
       }
     }
     

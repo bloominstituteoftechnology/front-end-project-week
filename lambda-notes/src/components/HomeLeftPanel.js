@@ -43,7 +43,7 @@ const HomeLeftPanel = () => {
 
 const mapStateToProps = (state) => {
     return {
-      notes: state
+      notes: state.notes
     };
   };
   

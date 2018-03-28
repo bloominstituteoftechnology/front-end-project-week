@@ -38,7 +38,7 @@ const StyledNote = styled.div`
 
 class SingleNoteView extends React.Component {
         render() {
-            // console.log('this is this.props.notes', this.props.notes)
+            console.log('this is this.props.notes', this.props.notes)
             // console.log('BubbleGum', this.props.notes[this.props.match.params.id].title)
         return (
             <StyledNote key={this.props.match.params.id}>
@@ -56,8 +56,8 @@ class SingleNoteView extends React.Component {
 }
   const mapStateToProps = (state) => {
     return {
-      notes: state
+      notes: state.notes
     };
   };
   
-  export default connect(mapStateToProps, { })(SingleNoteView);
+  export default connect(mapStateToProps, {})(SingleNoteView);
