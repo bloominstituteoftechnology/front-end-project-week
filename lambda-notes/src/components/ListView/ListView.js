@@ -1,8 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Note from '../Note/Note';
-import { NoteView } from "../NoteView/NoteView";
 
 import { Col } from "reactstrap";
 import './ListView.css';
@@ -40,15 +39,6 @@ function ListView() {
                 <Link to="/8">
                     <Note />
                 </Link>
-                <Route path='/0' component={NoteView} />
-                <Route path='/1' component={NoteView} />
-                <Route path='/2' component={NoteView} />
-                <Route path='/3' component={NoteView} />
-                <Route path='/4' component={NoteView} />
-                <Route path='/5' component={NoteView} />
-                <Route path='/6' component={NoteView} />
-                <Route path='/7' component={NoteView} />
-                <Route path='/8' component={NoteView} />
             </div>
         </Col>
     )

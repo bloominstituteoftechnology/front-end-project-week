@@ -1,0 +1,10 @@
+.note-view {
+    background-color: #f3f3f3;
+    padding: 0px 20px;
+}
+
+.note-actions {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+}
