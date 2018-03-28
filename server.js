@@ -86,7 +86,7 @@ app.post('/notes', (req, res) => {
 
 app.put('/notes/:id', (req, res) => {
   const { id } = req.params;
-  let noteIndex = notes.findIndex(note => note.id == id);
+  let noteIndex = notes.findIndex(note => note.id === id);
 
   if (noteIndex >= 0) {
     notes[noteIndex] = { ...notes[noteIndex], ...req.body };
@@ -97,7 +97,9 @@ app.put('/notes/:id', (req, res) => {
 });
 
 app.delete('/notes/:id', (req, res) => {
-  notes = notes.filter(note => note.id != req.params.id);
+  notes = notes.filter(note => {
+    return String(note.id) !== String(req.params.id);
+  });
   res.status(200).json(notes);
 });
 

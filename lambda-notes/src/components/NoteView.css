@@ -4,8 +4,24 @@
   margin: 30px 20px 0 0;
 }
 
+.edit-button {
+  color: black;
+  text-decoration: underline;
+}
+
 .delete-button {
   padding-left: 25px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-delete {
+  background: #cc0000;
+}
+
+.modal-lg {
+  margin-top: 300px;
 }
 
 .heading {
