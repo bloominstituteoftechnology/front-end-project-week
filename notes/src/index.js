@@ -7,7 +7,6 @@ import notes from './reducers';
 import 'babel-polyfill';
 import Root from './Components/Root';
 
-
 const store = createStore(notes);
 
 
