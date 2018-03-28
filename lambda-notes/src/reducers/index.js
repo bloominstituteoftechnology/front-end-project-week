@@ -8,7 +8,7 @@ import Notes from '../components/Notes';
 const notesReducer = (notes = Notes, action) => {
   switch (action.type) {
     case NOTE_EXPANDED:
-      return action.payload;
+      return notes[action.payload];
     default:
       return notes;
   }

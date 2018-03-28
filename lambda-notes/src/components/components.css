@@ -5,19 +5,22 @@
 .h1 {
   font-family: Roboto;
   color: #4A4A4A;
-  font-size: 28px;
+  font-size: 36px;
+  line-height: 1;
 }
 
 .listTitle {
   font-family: Roboto;
   color: #4A4A4A;
-  font-size: 17px;
+  font-size: 23px;
+  margin-left: 25px;
 }
 
 .container {
   display: flex;
-  justify-content:;
-  max-width: 900px;
+  justify-content: center;
+  max-width: 1200px;
+  /* height: 900px; */
   padding: 0px;
 }
 
@@ -30,20 +33,20 @@
 }
 
 .buttons {
-  width: 90%;
+  width: 94%;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 16px;
   color: white;
   background-color: #2BC1C4;
   padding: 5px;
   margin: 14px 10px 5px 10px;
-  height: 40px;
+  height: 44px;
   border: solid 1px #a5a4a4;
 }
 
 .rightSide {
   width: 75%;
-  padding: 20px;
+  padding: 15px;
   border: solid 1px #a5a4a4;
   background-color: #F3F3F3;
 }

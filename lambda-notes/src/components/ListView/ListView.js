@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import LinesEllipsis from 'react-lines-ellipsis';
+import { Link } from 'react-router-dom';
 // import { Button } from 'reactstrap';
 
 import { showWholeNote } from '../../actions';
@@ -20,8 +21,10 @@ class ListView extends Component {
 
         <div className="container">
           <div className="leftSide">
-            <div className='h1'>Lambda<br/> Notes</div>
-            <button className="buttons">View Your Notes</button>
+            <div className='h1'>Lambda<br/>Notes</div>
+            <Link to={`/`}>
+              <button className="buttons">View Your Notes</button>
+            </Link>
             <button className="buttons">+ Create New Note</button>
           </div>
 
@@ -32,13 +35,16 @@ class ListView extends Component {
             <div className="listView">
               {this.props.notes.map(note => {
                 return( <div className="eachNote" key={note.id}>
-                  <div className="noteTitle">Note Title</div>
-                  <LinesEllipsis
-                    text={note.text}
-                    maxLine="6"
-                    ellipsis="..." 
-                    basedOn="letters"
-                  />
+                  <Link to={`/view/${note.id}`} style={ {color: "black"} }>
+                    {/* <div onClick={() => this.props.showWholeNote(note.id)}> */}
+                    <div className="noteTitle">{note.title}</div>
+                    <LinesEllipsis
+                      text={note.text}
+                      maxLine="6"
+                      ellipsis=" ..." 
+                      basedOn="letters"
+                    />
+                  </Link>
                 </div> )
               })}
             </div>
