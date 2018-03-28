@@ -1,0 +1,8 @@
+.input {
+  max-width: 800px;
+  padding: 60px 0px 0px 60px; /* top, right, bottom, left */
+}
+
+.input .noteText {
+  padding-bottom: 30px;
+}
