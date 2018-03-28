@@ -1,10 +1,7 @@
-.App {
-    display: flex;
-}
 .routerDiv{
     display: flex;
     width: 50%;
-    background-color:#D8D8D8;
+    /* background-color:#D8D8D8; */
     padding: 10px;
     margin-left:300px;
     width: unset;

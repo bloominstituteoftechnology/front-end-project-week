@@ -1,10 +1,9 @@
 import React from 'react';
 
-class Display extends React.Component {
-
-    render(){
+class Display extends React.Component{
+    render(props){
         return(
-            <div>Inside Display</div>
+            <h1>Display one </h1>
         );
     }
 }

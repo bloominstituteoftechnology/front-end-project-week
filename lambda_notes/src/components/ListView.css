@@ -1,0 +1,35 @@
+.Container{
+    display: flex;
+    align-content:stretch;
+    /* flex-flow: wrap; */
+    height: 200px;
+    max-width: 725px;
+    width: 100%;
+    background-color: #F3F3F3;
+    margin-left:-60px;
+    margin-top: -10px;
+    /* border:solid 2px red; */
+    height: 900px;
+    align-self: auto;
+}
+
+.NoteSpan{
+    font-family: Raleway Regular;
+    font-size: 30px;
+    display:flex;
+    height: 16px;
+    width:200px;
+}
+
+.Notes{
+    margin-top: 150px;
+    border: solid 1px black;
+    width: 300px;
+    height: 200px;
+    margin-top: 110px;
+    margin-right: 10px;
+    margin-left: px;
+    margin-bottom: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    }
