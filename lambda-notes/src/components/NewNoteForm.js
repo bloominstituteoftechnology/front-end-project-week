@@ -73,8 +73,26 @@ class NewNoteForm extends React.Component {
           return (
             <StyledNewNoteForm>
               <form>
-                <input className="title" type="text" name="title" placeholder="Title" onChange={this.handleChange} value={this.state.title}/>
-                <textarea className="text" type="text" name="text" placeholder="Text" onChange={this.handleChange} value={this.state.text}/>
+                <input 
+                  required
+                  className="title" 
+                  type="text" 
+                  name="title" 
+                  placeholder="Title" 
+                  onChange={this.handleChange} 
+                  value={this.state.title}
+                  maxLength='30'
+                  />
+                <textarea 
+                  required
+                  className="text" 
+                  type="text" 
+                  name="text" 
+                  placeholder="Text" 
+                  onChange={this.handleChange} 
+                  value={this.state.text}
+                  maxLength='250'
+                  />
                 <button onClick={this.addNote}>Save</button>
                 {this.state.redirect ? <Redirect to='/' /> : null}
               </form>

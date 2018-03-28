@@ -1,4 +1,4 @@
-import { ADD_NOTE } from '../actions'
+import { ADD_NOTE, UPDATE_NOTE } from '../actions'
 
 const initialState = [
   {
@@ -42,7 +42,17 @@ export const noteReducer = (state = initialState, action) => {
           text: action.text,
           id: action.id,
         }
-      ]
+      ];
+    case UPDATE_NOTE:
+    return [
+      ...state,
+      {
+            id: Number(action.id),
+            title: action.title,
+            text: action.text,
+      }
+
+    ];
     default:
       return state; 
   }
