@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from "../actions";
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, ADD_TAG } from "../actions";
 
 const initialState = {
   notes: [
@@ -86,6 +86,19 @@ export default function notes(state = initialState, action) {
       return {
         ...state,
         notes: copy
+      };
+    case ADD_TAG:
+      let tagCopy = state.notes.slice();
+      console.log("TagCopy: ", tagCopy);
+      let newNote = tagCopy.filter(note => note.id === action.id)[0];
+      console.log(newNote);
+      newNote.tags = [...newNote.tags, action.tag];
+      console.log(newNote);
+      tagCopy.filter(note => note.id !== action.id).push(newNote);
+      console.log(tagCopy);
+      return {
+        ...state,
+        notes: tagCopy
       };
     default:
       return state;
