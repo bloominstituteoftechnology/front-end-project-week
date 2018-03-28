@@ -4,7 +4,8 @@ export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
 export const ERROR = "ERROR";
 
-export const FETCH_NOTE = 'FETCH_NOTE';
+export const FETCHING_NOTE = 'FETCHING_NOTE';
+export const FETCHED_NOTE = 'FETCHED_NOTE';
 
 export const ADDING = "ADDING";
 export const ADDED = "ADDED";
@@ -29,9 +30,9 @@ export const getNotes = () => (dispatch) => {
 export const getNote = (id) => (dispatch) => {
 	dispatch({ type: FETCHING });
 	axios
-		.get(`http://localhost:5000/api/friends${id}`)
+		.get(`http://localhost:5000/api/friends/${id}`)
 		.then((response) => {
-			dispatch({ type: FETCHED, notes: response.data });
+			dispatch({ type: FETCHED_NOTE, note: response.data });
 		})
 		.catch((err) => {
 			dispatch({ type: ERROR, message: "fetching error" });
@@ -62,7 +63,8 @@ export const deleteNote = (id) => (dispatch) => {
 };
 
 export const editNote = (id) => (dispatch) => {
-	dispatch({ type: EDITED });
+	// const id = note.id;
+	dispatch({ type: EDITING });
 	axios
 		.put(`http://localhost:5000/api/friends/${id}`, id)
 		.then((response) => {

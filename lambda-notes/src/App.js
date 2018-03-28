@@ -14,7 +14,7 @@ class App extends Component {
           <Navigation />
         <div className="container">
         <Switch>
-          <Route path='note/' component={ Note } />
+          <Route path='/notes/:id' component={ Note } />
           <Route path="/noteForm" component={ NoteForm } />
           <Route path="/" component={ NotesList } />
         </Switch>

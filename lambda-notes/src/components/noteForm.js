@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
+
 import { connect } from "react-redux";
 import {
 	addNote,
 	getNotes
 	// editNote,
 } from "../actions";
-
 
 class NoteForm extends Component {
 	state = {
@@ -17,9 +18,8 @@ class NoteForm extends Component {
 		event.preventDefault();
 		this.props.addNote(this.state);
 		this.setState({
-			name: "",
-			age: "",
-			email: ""
+			title: "",
+			content: ""
 		});
 		setTimeout(() => {
 			this.props.getNotes();
@@ -27,7 +27,6 @@ class NoteForm extends Component {
 	};
 
 	handleInputChange = (event) => {
-		console.log(this.state.name);
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
 	};
@@ -38,7 +37,27 @@ class NoteForm extends Component {
 				<div>
 					<h3>Create New Note</h3>
 				</div>
-				<form onSubmit={this.sendFriend}>
+				{/* <Form onSubmit={this.addNote}>
+					<FormGroup>
+						<Input
+							type="text"
+							name="title"
+							placeholder="Note Title"
+							onChange={this.handleInputChange}
+							value={this.state.title}
+						/>
+					</FormGroup>
+					<FormGroup>
+						<Input
+							type="textarea"
+							name="content"
+							placeholder="Note Content"
+							onChange={this.handleInputChange}
+							value={this.state.content}
+						/>
+					</FormGroup>
+				</Form> */}
+				<form onSubmit={this.addNote}>
 					<input
 						type="text"
 						name="title"
@@ -62,11 +81,11 @@ class NoteForm extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		notes: state.notes,
+		notes: state.notes
 	};
 };
 
 export default connect(mapStateToProps, {
-	addNote, 
-	getNotes, 
+	addNote,
+	getNotes
 })(NoteForm);

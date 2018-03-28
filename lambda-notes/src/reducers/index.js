@@ -1,9 +1,18 @@
-import { FETCHED, FETCHING, ERROR, FETCH_NOTE } from "../actions";
+import {
+	FETCHED,
+	FETCHING,
+	ERROR,
+	FETCHING_NOTE,
+	FETCHED_NOTE,
+	EDITING,
+	EDITED,
+} from "../actions";
 
 const initialState = {
 	notes: [],
 	note: null,
-	fetching: false
+	fetching: false,
+	error: null
 };
 
 export const NotesReducer = (state = initialState, action) => {
@@ -18,18 +27,31 @@ export const NotesReducer = (state = initialState, action) => {
 				...state,
 				error: action.message
 			};
-		case FETCH_NOTE:
-		return {
-			...state,
-			note: Response.data,
-		}
+		case FETCHING_NOTE:
+			return {
+				...state,
+				fetching: true
+			};
+		case FETCHED_NOTE:
+			return {
+				...state,
+				note: action.note
+			};
 		case FETCHED:
 			return {
 				...state,
 				notes: action.notes,
-				fetching: false,
-				error: null
+				fetching: false
 			};
+			case EDITING:
+				return {
+					...state,
+				}
+			case EDITED:
+				return {
+					...state,
+					notes: action.notes
+				}
 		default:
 			return state;
 	}

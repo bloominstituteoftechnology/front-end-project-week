@@ -12,7 +12,7 @@ import "./index.css";
 import App from "./App";
 
 const middleware = applyMiddleware(logger, thunk);
-const store = createStore(NotesReducer, middleware);
+const store = createStore(NotesReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), middleware);
 
 ReactDOM.render(
 	<Provider store={store}>
