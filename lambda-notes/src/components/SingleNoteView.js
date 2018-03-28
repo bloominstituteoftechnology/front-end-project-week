@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import HomeLeftPanel from './HomeLeftPanel';
-import {deleteNote} from '../actions';
+import {deleteNote, toggleDelete} from '../actions';
 
 const StyledNote = styled.div`
     display: flex;
@@ -39,18 +39,22 @@ const StyledNote = styled.div`
     }
 `;
 
-
-
 class SingleNoteView extends React.Component {
-        render() {
-            console.log('this is this.props.notes', this.props.notes)
-            // console.log('BubbleGum', this.props.notes[this.props.match.params.id].title)
+
+    handleToggleDeleteActive = (event) => {
+        event.preventDefault();
+        this.props.toggleDelete();
+      }
+    
+    render() {
+        console.log('this is this.props.notes', this.props.notes)
+        // console.log('BubbleGum', this.props.notes[this.props.match.params.id].title)
         return (
             <StyledNote key={this.props.match.params.id}>
             <HomeLeftPanel />
                 <div className="links">
                     <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
-                    <a href="" className="delete" > delete </a>
+                    <a href="" className="delete" onClick={this.handleToggleDeleteActive}> delete </a>
                 </div>
                 <div className="card-body" key={this.props.match.params.id}>
                     <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
@@ -66,4 +70,4 @@ class SingleNoteView extends React.Component {
     };
   };
   
-  export default connect(mapStateToProps, {deleteNote})(SingleNoteView);
+  export default connect(mapStateToProps, {deleteNote, toggleDelete})(SingleNoteView);
