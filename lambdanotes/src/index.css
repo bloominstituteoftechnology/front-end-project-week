@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.App-box {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3
+}
+.App-box2 {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3
+}
+.App-box3 {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3
+}
+.App-box4 {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3
+}

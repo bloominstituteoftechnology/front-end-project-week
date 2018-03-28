@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-left">
          </header>
           <section className="App-section">
           <h1 className="App-title">Lambda Notes</h1> 
