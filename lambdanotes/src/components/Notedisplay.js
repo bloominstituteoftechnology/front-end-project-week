@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Card, CardTitle, CardText, CardBody } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import '../styling/notedisplay.css';
 
-class Noteview extends Component {
+class Notesdisplay extends Component {
     render() {
         return (
             <div className= 'viewpage'>
@@ -83,4 +84,4 @@ class Noteview extends Component {
     };
 }
 
-export default Noteview;
+export default Notesdisplay;
