@@ -68,18 +68,10 @@ class TagModal extends Component {
                   value={this.state.newTag}
                 />
               </FormGroup>
-              <Button
-                type="submit"
-                className="w-50 ml-5 mr-2 "
-                onClick={() => {
-                  // this.props.history.go(0);
-                }}
-              >
+              <Button type="submit" onClick={() => {}}>
                 Add New Tag
               </Button>{" "}
-              <Button className="w-50 mr-5 ml-2" onClick={this.toggle}>
-                Cancel
-              </Button>
+              <Button onClick={this.toggle}>Cancel</Button>
             </Form>
           </ModalBody>
         </Modal>
