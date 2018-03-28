@@ -1,9 +1,9 @@
 import React from 'react';
 import Note from './Note';
 
-// const NotesList = ({ notes, openNote }) => (
 const NotesList = ({ notes }) => (
   <div>
+    <h3>Your Notes:</h3>
     {notes.map(note => 
       <Note
         key={note.id}
@@ -12,6 +12,6 @@ const NotesList = ({ notes }) => (
       />
     )}
   </div>
-)
+);
 
 export default NotesList;

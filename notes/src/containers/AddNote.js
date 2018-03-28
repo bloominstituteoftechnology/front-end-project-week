@@ -7,7 +7,8 @@ const AddNote = ({ dispatch }) => {
   let content 
 
   return (
-    <div>
+    <div className='noteForm'>
+      <h3>Create New Note:</h3>
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -19,10 +20,10 @@ const AddNote = ({ dispatch }) => {
           content.value = ''
         }}
       >
-        <input ref={node => title = node} />
-        <input ref={node => content = node} />
+        <input ref={node => title = node} placeholder='Note Title' className='noteTitle'/><br/>
+        <input ref={node => content = node} placeholder='Note Content' className='noteContent'/><br/>
         <button type="submit">
-          Add Note
+          Save
         </button>
       </form>
     </div>

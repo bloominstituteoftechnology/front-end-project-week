@@ -1,5 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5 {
+  color:#4A4A4A;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+.container {
+  display:flex;
+  width:800px;
+  margin:0 auto;
+  margin-top:20px;
+}
+
+.noteCard {
+  width:150px;
+  border:1px solid lightgray;
+  margin:5px;
+  padding:0 0 10px 10px;
+}
+
+.notesList {
+  display: flex;
+  flex-wrap:wrap; 
+}
+
+.noteForm {
+  display:flex;
+  flex-direction:column;
+  flex-wrap:nowrap;
+}
+
+.nav {
+  background-color:#D8D8D8;
+  height:100vh;
+  border:3px solid lightgray;
+  padding-top:15px;
+  color:#4A4A4A;
+}
+
+.nav p, .content button {
+  background-color:#2BC1C4;
+  width:150px;
+  margin:10px;
+  padding:10px;
+  text-align:center;
+  border: 2px solid lightgray;
+}
+.nav p a, .content button {
+  text-decoration:none;
+  color:white;
+  font-size:14px;
+}
+
+.content {
+  width: calc(100% - 150px);
+  margin:40px 20px;
+}
+
+.content .noteTitle {
+  height:35px;
+  margin-top:20px;
+  margin-bottom:10px;
+  padding-left:10px;
+  width:50%;
+  border:solid 2px lightgray;
+  border-radius: 4px;
+}
+
+.content .noteContent {
+  padding:10px 0 400px 10px;
+  width:100%;
+  border:solid 2px lightgray;
+  border-radius: 4px;
 }

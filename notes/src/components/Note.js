@@ -3,8 +3,9 @@ import React from 'react';
 const Note = ({ onClick, title, content }) => (
   <div
     onClick={onClick}
+    className='noteCard'
     >
-      <p>{title}</p>
+      <h4>{title}</h4>
       <p>{content}</p>
     </div>
 )
