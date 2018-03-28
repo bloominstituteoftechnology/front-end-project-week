@@ -23,7 +23,7 @@ export default (state = initState, action) => {
   switch (action.type) {
     case ADD_NEW_NOTE:
       const newNote = { ...action.payload, id: state.notes.length };
-      const newArray = state.notes.push(newNote);
+      const newArray = state.notes.unshift(newNote);
       return { ...state, newArray };
     case EDIT_NOTE:
       let notes = state.notes.filter(item => item.id !== action.payload.id);
