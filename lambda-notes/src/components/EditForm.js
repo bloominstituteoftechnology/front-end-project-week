@@ -41,14 +41,14 @@ const StyledEditForm = styled.div`
 class EditForm extends React.Component {
     state = {
       title: (this.props.notes[this.props.id - 1 ].title),
-      text: (this.props.notes[this.props.id - 1 ].text)
+      text: (this.props.notes[this.props.id - 1 ].text),
+      redirect: false,
     }
   
-    updateNote = (event) => {
+    handleSubmit = (event) => {
       event.preventDefault();
       console.log('updateNote FIRED')
       this.props.updateNote({
-        ...this.state,
         title: this.state.title,
         text: this.state.text,
         id: this.props.id,
@@ -93,7 +93,7 @@ class EditForm extends React.Component {
                   value={this.state.text}
                   maxLength='250'
                   />
-                <button onClick={this.updateNote}>Save</button>
+                <button onClick={this.handleSubmit}>Save</button>
                 {this.state.redirect ? <Redirect to={`/edit-note/${this.props.id}`} /> : null}
               </form>
             </StyledEditForm>

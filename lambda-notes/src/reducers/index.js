@@ -44,14 +44,18 @@ export const noteReducer = (state = initialState, action) => {
         }
       ];
     case UPDATE_NOTE:
-    return [...state,
-      {
+    return {
+      ...state,
+      notes: state.notes.map((note) => {
+        if (note.id.toString() === action.id) {
+          return {
             id: Number(action.id),
             title: action.title,
             text: action.text,
-      }
-
-    ];
+          };
+        } return note;
+      }),
+    };
     default:
       return state; 
   }
