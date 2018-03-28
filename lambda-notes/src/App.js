@@ -19,7 +19,7 @@ class App extends Component {
     localStorage.setItem(`id${this.state.id}`, JSON.stringify(newNote));
     const newState = this.state.notes
     newState.push(newNote);
-    const newID = this.state.id + 1;
+    const newID = Number(this.state.id) + 1;
     this.setState({ notes: newState, id: newID })
   }
 
@@ -62,7 +62,7 @@ class App extends Component {
     const memory = Array.from(Object.values(localStorage));
     if (memory.length > 0) {
     const last = memory.length - 1;
-    const memoryID = JSON.parse(memory[last]).id + 1;
+    const memoryID = Number(JSON.parse(memory[last]).id) + 1;
     const memoryNotes = [];
     for (let i = 0; i < memory.length; i++) {
       memoryNotes.push(JSON.parse(memory[i]))
