@@ -6,8 +6,7 @@ import { activateNote } from '../../actions';
 class ViewNote extends Component {
 
   componentDidMount() {
-   const id = this.props.match.params.id
-    this.props.activateNote(id)
+    this.props.activateNote(this.props.match.params.id)
   }
 
   render() {

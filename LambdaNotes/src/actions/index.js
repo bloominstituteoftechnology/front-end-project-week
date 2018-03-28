@@ -20,6 +20,7 @@ export const activateNote = (id) => {
 export const editNote = (note) => {
   return {
     type: EDIT_NOTE,
+    id: note.id,
     title: note.title,
     text: note.text
   };

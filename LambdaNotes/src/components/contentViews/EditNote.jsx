@@ -9,6 +9,7 @@ class EditNote extends Component {
 
     this.state = {
       note: {
+        id: null,
         title: '',
         text: ''
       }
@@ -16,8 +17,15 @@ class EditNote extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params.id
-    this.props.activateNote(id)
+    this.props.activateNote(this.props.match.params.id);
+    const oldNote = this.props.activeNote
+    this.setState({
+      note: {
+        id: oldNote.id,
+        title: oldNote.title,
+        text: oldNote.text
+      }
+    })
   }
 
   //add component did mount to make note as inputState
@@ -33,6 +41,7 @@ class EditNote extends Component {
     this.props.editNote(this.state.note);
     this.setState({
       note: {
+        id: null,
         title: '',
         text: ''
       }
@@ -46,8 +55,8 @@ class EditNote extends Component {
         <h1>Edit Note: </h1>
         <Form onSubmit={this.submitEdit}>
           <FormGroup>
-            <Input name="title" type="text" onChange={this.handleInput} placeholder="Note Title" />
-            <Input type="textarea" name="text" type="text" onChange={this.handleInput} placeholder="Note Content" />
+            <Input name="title" type="text" onChange={this.handleInput} value={this.state.note.title} />
+            <Input type="textarea" name="text" onChange={this.handleInput} placeholder="Note Content" value={this.state.note.text} />
             <Button>Save</Button>
           </FormGroup>
         </Form>
