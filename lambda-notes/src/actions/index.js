@@ -17,7 +17,14 @@ export const addNote = data => {
 
 export const updateNote = data => ({
     type: UPDATE_NOTE,
-    id: data.id,
+    id: Number(data.id),
     title: data.title,
     text: data.text,
   });
+
+export const deleteNote = data => ({
+    type: DELETE_NOTE,
+    id: data.id,
+    title: data.title,
+    text: data.text,
+})

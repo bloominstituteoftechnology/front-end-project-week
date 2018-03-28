@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import HomeLeftPanel from './HomeLeftPanel';
+import {deleteNote} from '../actions';
 
 const StyledNote = styled.div`
     display: flex;
@@ -49,7 +50,7 @@ class SingleNoteView extends React.Component {
             <HomeLeftPanel />
                 <div className="links">
                     <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
-                    <div className="delete" > delete </div>
+                    <a href="" className="delete" > delete </a>
                 </div>
                 <div className="card-body" key={this.props.match.params.id}>
                     <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
@@ -65,4 +66,4 @@ class SingleNoteView extends React.Component {
     };
   };
   
-  export default connect(mapStateToProps, {})(SingleNoteView);
+  export default connect(mapStateToProps, {deleteNote})(SingleNoteView);

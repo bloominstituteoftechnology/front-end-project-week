@@ -48,6 +48,7 @@ class EditForm extends React.Component {
     handleSubmit = (event) => {
       event.preventDefault();
       console.log('updateNote FIRED')
+      console.log(typeof(this.props.id))
       this.props.updateNote({
         title: this.state.title,
         text: this.state.text,
