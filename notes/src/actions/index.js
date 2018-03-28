@@ -5,7 +5,10 @@ export const
     FETCHED     =   'FETCHED',
     ERROR       =   'ERROR',
     ADDING      =   'ADDING',
-    ADDED       =   'ADDED';
+    ADDED       =   'ADDED',
+    DELETING    =   'DELETING',
+    DELETED    =    'DELETED';
+    
 
 export const getNotes = () => dispatch  => {
     dispatch({
@@ -46,4 +49,27 @@ export const addNote = (newNote) => dispatch => {
                 errorMessage: `Could not add note ${err}.`
             })
         });
+};
+
+export const deleteNote = id => dispatch => {
+    dispatch({ type: DELETING });
+
+    axios
+        .delete(`http://localhost:5000/notes/${id}`)
+        .then(response => {
+            dispatch({
+                type: DELETED,
+                notes: response.data
+            })
+        })
+        .catch(err => { 
+            dispatch({
+                type: ERROR,
+                errorMessage: `Could not delete note ${err}.`
+            })
+        });
+}
+
+export const editNote = (id) => {
+    return;
 }

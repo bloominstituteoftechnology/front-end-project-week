@@ -2,6 +2,7 @@
     max-height: 100px;
     white-space: wrap; 
     overflow: hidden;
+    /* text-overflow: ellipsis; */
 } 
 
 .Notes__Note::after {

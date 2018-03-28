@@ -10,7 +10,7 @@ import {
     CardText,
 } from 'reactstrap';
 
-
+import styled from 'styled-components';
 
 import './notes.css';
 
@@ -43,9 +43,7 @@ const Notes = ({ notes }) => {
 };
 
 const mapStateToProps = ( state ) => {
-    return {
-        notes: state.notes
-    }
+    return state;
 };
   
 export default withRouter(connect(mapStateToProps, {})(Notes));
