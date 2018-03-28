@@ -1,26 +1,38 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Note from './Display';
+import { Link } from 'react-router-dom';
 
-function mapStateToProps(state) {
-    return {
-        notes: state.notes
-    };
-}
+
 
 class NotesList extends Component {
+    state = {
+        notes: [],
+    }
+
+    componentDidMount() {
+        this.setState({ notes: this.props.notes })
+    }
+
     render() {
         return (
             <div>
-                {this.props.notes.map(note => {
-                    return <Note note={note} />;
-                })}
-            </div>
-        );
-    }
+                <h1>Your Notes</h1>
+                <div>
+                    {this.state.notes.map(((note) => {
+                        return (
+                            <div className="ListCard">
+                                <Link to={{pathname: `/notes/${ note.id }}`, state: { currentNote: note }}}>
+                                    <h5>{note.titel}</h5>
+                                    <h5>{note.text}</h5>
+                                </Link>
+                            </div>
+        )
+    }))}
+    </div>
+    </div>
+  );
 }
-
-export default connect(mapStateToProps)(NotesList);
+}
+export default NotesList;
 
 
 

@@ -1,4 +1,6 @@
 import { ADD_NOTE, DELETE_NOTE } from '../Actions';
+ 
+
 
 const initialState = {
     notes: [
@@ -67,3 +69,4 @@ export default function notes(state = initialState, action) {
             return state;
   }
 }
+

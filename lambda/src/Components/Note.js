@@ -1,21 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Card, CardTitle, CardBody, CardText } from 'reactstrap';
+import React from 'react';
 
-
-function mapStateToProps(state) {
-    return {},
-
-class Note extends Component {
-    render () {
-        return (
-            <Card>
-                <CardBody>
-                    <CardTitle>{this.props.note.title}</CardTitle>
-                    <CardText>{this.props.note.note}</CardText>
-                </CardBody>
-            </Card>
-        );
-    }
-  }
+const Note = props => {
+    return (
+        <div>
+            <h5>{props.location.state.currentNote.title}</h5>
+            <h5>{props.location.state.currentNote.text}</h5>
+        </div>
+    );
 }
+  
+
+export default Note;

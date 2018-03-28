@@ -1,21 +1,14 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import { Button } from 'reactstrap';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function mapStateToProps(state) {
-    return {};
-}
- 
-class Nav extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Lambda Notes</h1>
-                <Button>View Your Notes</Button>
-                <Button>Create New Note</Button>
-            </div>
-        );
-    }
-}
+const Nav = props => {
+    return (
+        <div className="Nav">
+            <h1>Lambda Notes</h1>
+            <Link to="/">View Your Notes</Link>
+            <Link to="/AddNote">+ Create New Note</Link>
+        </div>
+    );
+};
 
-export default connect(mapStateToProps)(Nav);
+export default Nav;

@@ -1,15 +1,20 @@
-.App.container {
- height: 100vh;
+.App {
+ display: flex;
+ text-align: center;
 }
 
-.App-wrapper{
-  height: 100%;
+.Nav {
+  display: flex;
+  flex-direction: column;
 }
 
-.leftSide {
-  background: lightseagreen;
+.AddNote {
+  background-color: rgb(214, 214, 213);
 }
 
-.rightSide {
-  background: lightcyan;
+.ListCard {
+  width: 300px
 }
+
+
+
