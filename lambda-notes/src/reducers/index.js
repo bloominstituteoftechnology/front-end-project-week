@@ -2,7 +2,8 @@ import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, TOGGLE_DELETE } from '../actions'
 import dummyData from '../dummyData';
 
 const initialState = {
-  notes: [...dummyData]
+  notes: [...dummyData],
+  modal: false
 }
 
 export const noteReducer = (state = initialState, action) => {
@@ -42,15 +43,10 @@ export const noteReducer = (state = initialState, action) => {
         deleteActive: !state.deleteActive,
       };
     case DELETE_NOTE:
-      return {
-        ...state,
-        notes: [...state.notes, {
-          id: action.id,
-          title: action.title,
-          text: action.text,
-        }
-        ],
-      };
+    return {
+      ...state,
+      // Not sure what to write here...
+    };
     default:
       return state; 
   }

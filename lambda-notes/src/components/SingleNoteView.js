@@ -5,6 +5,7 @@ import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
 import { connect } from 'react-redux';
 import HomeLeftPanel from './HomeLeftPanel';
 import {deleteNote, toggleDelete} from '../actions';
+import Delete from './Delete';
 
 const StyledNote = styled.div`
     display: flex;
@@ -16,7 +17,7 @@ const StyledNote = styled.div`
         margin-left: 72%;
         font-size: 14px;
 
-        .delete {
+        .delete-link {
             margin-left: 30px;
         }
 
@@ -40,21 +41,31 @@ const StyledNote = styled.div`
 `;
 
 class SingleNoteView extends React.Component {
+    modal = false;
 
-    handleToggleDeleteActive = (event) => {
-        event.preventDefault();
-        this.props.toggleDelete();
+    toggleModal = _ => {
+        this.modal = !this.modal;
+        this.forceUpdate();
       }
     
     render() {
+        console.log('this.props', this.props)
+        console.log('this.props.history', this.props.history)
         console.log('this is this.props.notes', this.props.notes)
         // console.log('BubbleGum', this.props.notes[this.props.match.params.id].title)
+    
         return (
             <StyledNote key={this.props.match.params.id}>
+            
             <HomeLeftPanel />
+                {this.modal ? (
+                    <div>
+                    <Delete id={this.props.match.params.id} toggleModal={this.toggleModal} handleDelete={this.props.deleteNote} />
+                    </div>
+                    ) : (null)}
                 <div className="links">
                     <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
-                    <a href="" className="delete" onClick={this.handleToggleDeleteActive}> delete </a>
+                    <a className="delete-link" onClick={() => this.toggleModal()}>delete</a>
                 </div>
                 <div className="card-body" key={this.props.match.params.id}>
                     <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
