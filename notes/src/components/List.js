@@ -28,7 +28,7 @@ class List extends Component {
                         <h4>Your Notes:</h4>
                     </Col>
                     <Col xs="2">
-                    <h4 className="">Sort by:</h4>
+                    <h4 className="Options__link">Sort by:</h4>
                     </Col>
                     <Col className="">
                         <h4 className="" onClick={() => this.handleNewest()}>newest</h4>

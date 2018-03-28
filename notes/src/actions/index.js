@@ -1,3 +1,4 @@
+import fire from '../firebase';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
@@ -6,11 +7,13 @@ export const SORT_OLDEST = 'SORT_OLDEST';
 
 let noteId = 6;
 export const createNote = note => {
-    return {
-        type: CREATE_NOTE,
+    fire.database().ref('notes').push({
         id: noteId++,
         title: note.title,
         text: note.text,
+    });
+    return {
+        type: CREATE_NOTE,
     }
 }
 

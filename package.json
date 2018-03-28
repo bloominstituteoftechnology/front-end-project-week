@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "firebase-server": "^0.12.0"
+  }
 }
