@@ -36,7 +36,7 @@ const initialState = [
 export const noteReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
-      return [...state,
+      return [...state.id,
         {
           title: action.title,
           text: action.text,
@@ -44,8 +44,7 @@ export const noteReducer = (state = initialState, action) => {
         }
       ];
     case UPDATE_NOTE:
-    return [
-      ...state,
+    return [...state,
       {
             id: Number(action.id),
             title: action.title,
