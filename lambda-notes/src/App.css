@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: 2BC1C4,
 }
 
 .App-logo {
@@ -20,6 +21,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Navigation {
+  background-color: D8D8D8
 }
 
 @keyframes App-logo-spin {

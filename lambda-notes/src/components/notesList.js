@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavItem, NavLink } from "reactstrap";
+import { NavItem, NavLink, CardTitle, CardText, CardColumns, Card, CardBody } from "reactstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getNotes } from "../actions";
@@ -22,25 +22,27 @@ class NotesList extends Component {
 		return (
 			<div className="container bg-light">
 				<h2>Notes List</h2>
-				<ul className="d-flex flex-wrap">
+				<CardColumns>
+				{/* <ul> */}
 					{this.props.notes.map((note) => {
 						return (
-							<li className="friend" key={note.id}>
-								<NavItem>
-									<NavLink>
+							// <li key={note.id}>
+						<Card key={note.id}>
+								<CardBody>
 										<Link to={`/notes/${note.id}`}>
 											{/* <div>{note.name}</div>
 										<div>{note.age}</div> */}
-											<div>{note.title}</div>
+											<CardTitle>{note.title}</CardTitle>
 											<hr />
-											<div>{note.content}</div>
+											<CardText>{note.content}</CardText>
 										</Link>
-									</NavLink>
-								</NavItem>
-							</li>
+								</CardBody>
+							</Card>
+							// </li>
 						);
 					})}
-				</ul>
+				{/* </ul> */}
+			</CardColumns>
 			</div>
 		);
 	}

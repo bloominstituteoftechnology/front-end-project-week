@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Form, FormGroup, Label, Input, FormText, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 import {
@@ -14,6 +15,7 @@ class NoteForm extends Component {
 		content: ""
 	};
 
+
 	addNote = (event) => {
 		event.preventDefault();
 		this.props.addNote(this.state);
@@ -24,6 +26,7 @@ class NoteForm extends Component {
 		setTimeout(() => {
 			this.props.getNotes();
 		}, 20);
+		this.props.history.push("/notesList");
 	};
 
 	handleInputChange = (event) => {
@@ -57,23 +60,25 @@ class NoteForm extends Component {
 						/>
 					</FormGroup>
 				</Form> */}
-				<form onSubmit={this.addNote}>
-					<input
+				<Form onSubmit={this.addNote}>
+					<Input
+						className="mt-3"
 						type="text"
 						name="title"
 						placeholder="Note Title"
 						onChange={this.handleInputChange}
 						value={this.state.title}
 					/>
-					<input
+					<Input
+						className="mt-3"
 						type="textarea"
 						name="content"
 						placeholder="Note Content"
 						onChange={this.handleInputChange}
 						value={this.state.content}
 					/>
-					<button type="submit">Save</button>
-				</form>
+						<Button className="mt-3" type="submit">Save</Button>
+				</Form>
 			</div>
 		);
 	}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
+import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import NotesList from './components/notesList';
 import NoteForm from './components/noteForm';
@@ -9,7 +9,7 @@ import Note from './components/note';
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container App pt-3">
         <div className="d-flex">
           <Navigation />
         <div className="container">
