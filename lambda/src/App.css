@@ -1,11 +1,23 @@
 h4 {
   margin: 0;
-  padding: 5% 0 0 0;
+  padding: 5% 0 2% 0;
+  border-bottom: 1px solid gray;
+}
 
+button{
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 h3 {
-  width: 100%;
+  width: 50%; 
+  margin-bottom: 1rem;
+}
+
+p{
+  text-align: justify;
 }
 
 .container {
@@ -20,13 +32,13 @@ h3 {
   border-right: 1px grey solid;
   width: 22%;
   padding: 2%;
-  background-color: gainsboro;
-
+  background-color: #D8D8D8;
 }
 
 .notes-list{
   width: 75%;
   padding: 2rem 1.5rem;
+  background-color: #F3F3F3;
 }
 
 .notes {
@@ -35,16 +47,36 @@ h3 {
   justify-content: space-between;
 }
 
+.search{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search input {
+  width: 40%;
+  padding: 0.5rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+
 .notes-items {
   width: 27%;
-  padding: 2%;
+  padding:  1% 2% 2% 2%;
   margin-bottom: 1.5rem; 
   background-color: white;
   border: 1px solid grey;
   border-radius: 2%;
-  
+  height: 180px;
+  overflow: hidden;
 }
 
+.notes-items p{
+  margin-top: 3%;
+  text-align: justify;
+}
 
 .card {
   box-shadow: 0 4px 8px 0 grey;
@@ -63,13 +95,14 @@ h3 {
   margin-top: 2.5rem;
 }
  .link {
-  background-color: rgb(57, 204, 204);
+  background-color: #2BC1C5;
   border: 1px grey solid;
   padding: 0.5rem;
   margin-bottom: 1rem;
   text-decoration: none;
   color: white;
   font-weight: bold;
+  border-radius: 0.4rem;
  }
 
  .add-note{
@@ -98,13 +131,14 @@ h3 {
 .save-button {
   width: 20%;
   text-align: center;
-  background-color: rgb(57, 204, 204);
+  background-color: #2BC1C5;
   border: 1px grey solid;
   padding: 0.5rem;
   margin-bottom: 1rem;
   text-decoration: none;
   color: white;
   font-weight: bold;
+  border-radius: 0.4rem;
 
 }
 
@@ -113,8 +147,57 @@ h3 {
   color: black;
 }
 
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.editeDelete {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -10px;
 }
+
+.editeDelete .link {
+  background-color: #2BC1C5;
+  border: 1px grey solid;
+  padding: 0.3rem;
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  font-weight: lighter;
+  margin-left: 1rem;
+ }
+
+ .delete {
+   
+   border: 1px solid black;
+   background-color: white;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 2.5rem;
+ }
+
+ .delete-btns {
+   display: flex;
+   padding: 0.3rem;
+ }
+
+ .noBtn {
+   background-color: #2BC1C5;
+   border: 1px solid grey;
+   padding: 0.7rem 5rem;
+   margin-left: 1.5rem;
+   color: white;
+   font-weight: bold;
+ }
+
+ .deleteBtn {
+    background-color: red;
+    border: 1px solid grey;
+    padding: 0.7rem 4rem;
+    color: white;
+    font-weight: bold;
+
+  }
+
+  .download{
+    display: flex; 
+    justify-content: space-around;
+  }

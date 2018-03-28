@@ -6,7 +6,7 @@ const Navigation = () => {
       <div className="nav-bar">
         <Link className = 'link' to="/">View Your Notes</Link>
         <br />
-        <Link className = 'link' to="/AddNote"> + Create New Note </Link>
+        <Link  to = '/AddNote' className = 'link'> + Create New Note </Link>
       </div>
   );
 };
