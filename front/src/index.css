@@ -50,6 +50,7 @@ button{
   Height:50px;
   font-size: 19px;
   background-color: #2BC1C4;
+  text-decoration: none;
 }
 form{
   margin:10px;

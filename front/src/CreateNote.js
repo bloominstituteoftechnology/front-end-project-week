@@ -1,10 +1,12 @@
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 class CreateNote extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        notes: '',
-        title: ''
+        title: '',
+        note: ''
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -12,24 +14,42 @@ class CreateNote extends Component {
       this.handleChangeTitle=this.handleChangeTitle.bind(this);
     }
   
-    handleChange(event) {
+    handleChange = (event) => {
       this.setState({notes: event.target.value});
     }
-    handleChangeTitle(event) {
+    handleChangeTitle = (event) => {
         this.setState({title: event.target.value});
       }
     
-    handleSubmit(event) {
+    handleSubmit = (event)  => {
       event.preventDefault();
-    }
+
+      const newNote = {
+          title: this.state.title,
+          note: this.state.note
+
+      }
+axios.post('http://localhost:3000/ListView',{newNote})
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+        this.setState({
+          note: '',
+          title: '',
+         
+        });
+              });
+  };
+
+    
   
     render() {
       return (
           <div class='container'>
         <div class = 'button3'>
         <h1>Lambda Notes</h1>
-        <button> View Your Notes</button><br/>
-        <button> + Create your Notes</button>
+       <button> <Link to='/ListView'> View Your Notes</Link></button><br/>
+       <button> <Link to='CreateNote'> + Create Your Notes</Link></button>
         </div>
         
           <form onSubmit={this.handleSubmit}>

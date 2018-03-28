@@ -4,17 +4,20 @@ import './App.css';
 import ListView from './ListView';
 import CreateNote from './CreateNote';
 import EditNote from './EditNote';
+import {Link, Route} from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      
-        <ListView />
-       <CreateNote />
-       <EditNote />
+     
+      <div>
+      <Route path="/ListView" component={ListView}/>
+      <Route path="/CreateNote" component={CreateNote}/>
+
       </div>
+      
     );
   }
 }
 
 export default App;
+ 

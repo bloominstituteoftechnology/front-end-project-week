@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import{Link} from 'react-router-dom';
 export default class ListView extends Component{
 render(){
 return(
@@ -6,8 +7,8 @@ return(
     <div class='container'>
     <div class = 'button3'>
     <h1>Lambda Notes</h1>
-    <button> View Your Notes</button><br/>
-    <button> +Create your Notes</button>
+    <button><Link to='/ListView'> View Your Notes</Link></button><br/>
+    <button><Link to='/CreateNote'> +Create your Notes</Link></button>
     </div>
     <div class= 'view'>
 <h3>Note Title</h3>
