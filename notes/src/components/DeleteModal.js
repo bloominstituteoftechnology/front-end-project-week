@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteNote } from "../actions";
-import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Modal, Button, ModalBody, ModalFooter } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {

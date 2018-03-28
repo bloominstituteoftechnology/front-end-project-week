@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Row,
-  Container,
-  Card,
-  CardTitle,
-  CardBody,
-  CardText
-} from "reactstrap";
+import { Row, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import { deleteNote } from "../actions";
 import DeleteModal from "../components/DeleteModal";
@@ -19,7 +12,7 @@ function mapStateToProps(state) {
 class Note extends Component {
   render() {
     const note = this.props.notes.filter(
-      note => note.id == this.props.match.params.id
+      note => note.id === parseInt(this.props.match.params.id, 10)
     )[0];
     return (
       <Container>
