@@ -1,0 +1,21 @@
+.list {
+  background: #F3F3F3;
+}
+
+.list__title {
+  font-weight: bold;
+  opacity: .8;
+}
+
+.link {
+  color: black;
+  
+}
+.link:hover {
+  text-decoration: none;
+}
+
+.text {
+  max-height: 100px;
+  overflow: hidden;
+}
