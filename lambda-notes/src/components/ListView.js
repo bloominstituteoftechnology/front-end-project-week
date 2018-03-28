@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, CardHeader, CardText } from 'reactstrap';
+import { Card } from 'reactstrap';
 
 class ListView extends Component {
     state = {
@@ -23,7 +23,7 @@ componentDidMount(){
                                     <Card>
                                         <header className="ListCard__Header">{note.title}</header>
                                         
-                                        <body className="ListCard__Body">{note.text}</body>
+                                        <body className="ListCard__Body">{note.text.length > 120 ? (note.text.substr(0, 124) + " ...") : (note.text)}</body>
                                         
                                     </Card>
                                 </Link>

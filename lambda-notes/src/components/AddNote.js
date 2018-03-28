@@ -23,7 +23,7 @@ class AddNote extends Component {
                 <h4 className="Title">Create New Note:</h4>
                 <form className="Form">
                     <input className="Inputtext" type='text' name='title' placeholder='Note Title' onChange={this.handleChange} value={this.state.title}></input>
-                    <input className="Inputfield" type='text' name='text' placeholder='Note Content' onChange={this.handleChange} value={this.state.text}></input>
+                    <textarea className="Inputfield" type='textarea' name='text' placeholder='Note Content' onChange={this.handleChange} value={this.state.text}></textarea>
                     <button className="Button" onClick={this.handleSubmit}>Save</button>
                 </form>
             </div>

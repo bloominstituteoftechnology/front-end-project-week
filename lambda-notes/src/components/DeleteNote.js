@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
 class DeleteNote extends Component {
@@ -28,12 +28,12 @@ class DeleteNote extends Component {
         return (
             <div>
                 <a className="Nav__item" onClick={this.toggle}>delete</a>
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
-                <ModalFooter>
-                    <Button className="Button__delete" onClick={this.handleDelete}>Delete</Button>
-                    <Button className="Button" onClick={this.toggle}>Cancel</Button>
-                </ModalFooter>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} centered>
+                    <ModalBody>
+                        Are you sure you want to delete?
+                        <Button className="Button__delete" onClick={this.handleDelete}>Delete</Button>
+                        <Button className="Button" onClick={this.toggle}>Cancel</Button>
+                    </ModalBody>
                 </Modal>
             </div>
         );
