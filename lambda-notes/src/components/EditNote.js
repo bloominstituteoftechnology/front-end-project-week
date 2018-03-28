@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 
-class EditNote extends Component {
-    
-    render() {
-        let titleInput, textInput;
+export const EditNote = ({match, history, updateNote, notes}) => {
+
+    let titleInput, textInput;
+    const id = match.params.id;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        updateNote({id: id, title: titleInput.value, text: textInput.value});
+        history.push(`/noteview/${match.params.id}`);
+
+    };
+
         return (
             <div className='col-9 right_side'>
                 <div className='row title_bar'>
@@ -13,15 +20,11 @@ class EditNote extends Component {
                 </div>    
                 <div className='row'>
                     <div className='col'>
-                    <form className='new_note_form' onSubmit={(event) => {
-                        event.preventDefault();
-                        //edit note function here 
-                        window.location.href='/';
-                    }}>
-                        <input className='new_note_title' ref={title => titleInput = title} placeholder='New Title' autoFocus />
+                    <form className='new_note_form' onSubmit={handleSubmit}>
+                        <input className='new_note_title' ref={title => titleInput = title} placeholder={notes[id].title} autoFocus />
                         
                         
-                        <textarea cols='66' rows='18' className='new_note_text' ref={text => textInput = text} placeholder='New Text'></textarea>
+                        <textarea cols='66' rows='18' className='new_note_text' ref={text => textInput = text} placeholder={notes[id].text}></textarea>
                         <input className='save_button d-flex' type='submit' />
                         <br/>
                     </form>
@@ -29,7 +32,6 @@ class EditNote extends Component {
                 </div>
             </div>
         )
-    }    
+    
 }
 
-export default EditNote;

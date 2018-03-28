@@ -1,8 +1,17 @@
 import React from 'react';
+//import {Link} from 'react-dom';
 
-
-export const noteView = (notes, match) => {
+export const NoteView = ({match, history, notes, deleteNote}) => {
+    
     const note = notes.filter(note => note.id === parseInt(match.params.id))[0];
+    
+    const handleDeleteClick= (event) => {
+        event.preventDefault();
+        deleteNote(note);
+        
+        history.push('/');
+        //window.location.assign('/');
+    }
     return (
         <div className='col-9 right_side'>
             <div className='row title_bar'>
@@ -22,20 +31,20 @@ export const noteView = (notes, match) => {
         
 
             {/* Delete Modal code starts here */}
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+            <div className="modal fade" id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
                         <div>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                         Are you sure you want to delete this note?
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="button" class="modal_btn del_btn" onClick={() => window.location.href='/'}>Delete</button>
-                            <button type="button" class="modal_btn no_btn" data-dismiss="modal">No</button>
+                        <div className="d-flex justify-content-center">
+                            <button type="button" className="modal_btn del_btn" data-dismiss="modal" onClick={handleDeleteClick}>Delete</button>
+                            <button type="button" className="modal_btn no_btn" data-dismiss="modal">No</button>
                         </div>
                     </div>
                 </div>
