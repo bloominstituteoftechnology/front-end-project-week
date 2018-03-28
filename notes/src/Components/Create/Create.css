@@ -6,14 +6,15 @@ h1{
   margin-top:20px;
   width:25%;
 }
-.side-bar{
+.side-bar-two{
   background:#D8D8D8;
-  margin-top:-20px;
   height:100vh;
 }
-#mainHeader{
-  text-align:left;
-  margin-left:10%;
+#mainHeaderTwo{
+margin-top:40px;
+margin-bottom:0;
+margin-left:0;
+  font-size:2em;
 }
 .notePanel{
   height:200px;
@@ -38,6 +39,7 @@ textarea{
 }
 input{
   vertical-align:top;
+  width:50%;
   margin-top:50px;
 }
 .grid{
@@ -53,4 +55,5 @@ input{
   background:#2BC1C4;
   margin-bottom:20px;
   color:white;
+  font-weight:bold;
 }

@@ -19,9 +19,9 @@ class View extends Component{
         <Grid className="grid">
           <Row className="show-grid">
             <Col xs={3} md={3} lg={3} className="col">
-              <div className="side-bar">
-                <h1>Lambda</h1>
-                <h1 id="note">Note</h1>
+              <div className="side-bar-two">
+                <h1 className="noteTwo"> Lambda</h1>
+                <h1 className="noteTwo"> Notes</h1>
                 <Button className="btn">View Your Notes</Button>
                 <br/>
                 <Link to={`/create/`}>
@@ -30,8 +30,9 @@ class View extends Component{
               </div>
             </Col>
             <Col xs={9} md={9} lg={9} className="col">
-              <div className="main">
+              <div className="main-two">
                 <Grid className="grid">
+                <h1 id="header">Your Notes:</h1>
                   {this.props.info.notes.map( (e,i)=>{
                     if(i%3 === 0 && i !== 0){
                       return(

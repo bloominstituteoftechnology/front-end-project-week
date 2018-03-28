@@ -34,9 +34,9 @@ class Create extends Component{
       <Grid className="grid">
         <Row className="show-grid">
           <Col xs={3} md={3} lg={3} className="col">
-            <div className="side-bar">
+            <div className="side-bar-two">
               <h1>Lambda</h1>
-              <h1 id="note">Note</h1>
+              <h1>Note</h1>
               <Link to={`/`}>
                 <Button className="btn">View Your Notes</Button>
               </Link>
@@ -48,7 +48,7 @@ class Create extends Component{
             <div className="main">
               <Grid className="grid">
                 <Row className="show-grid">
-                  <h3 id="mainHeader">Your Notes:</h3>
+                  <h1 id="mainHeaderTwo">Create New Note:</h1>
                 </Row>
                 <form>
                 <Row className="show-grid">

@@ -1,21 +1,24 @@
 h1{
   font-family:"Roboto Bold";
   color:#4A4A4A;
+  margin-top:0;
+  font-weight:bold;
 }
-.side-bar{
+.side-bar-two{
   background:#D8D8D8;
-  margin-top:-20px;
   height:1500px;
 }
-#mainHeader{
+#header{
   text-align:left;
-  margin-left:10%;
+  margin-top:50px;
+  margin-left:0;
+  margin-bottom:30px;
 }
 .notePanel{
   height:200px;
   width:80%;
 }
-.main{
+.main-two{
   background:#F3F3F3;
   height:1500px;
   padding-left:2%;
@@ -23,9 +26,6 @@ h1{
 .show-grid{
   margin:0;
   padding:0;
-}
-#note{
-  margin-bottom:30px;
 }
 .grid{
   width:100%;

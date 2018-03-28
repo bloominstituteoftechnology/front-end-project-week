@@ -42,10 +42,70 @@ class Note extends Component{
   }
 
   render(){
+    let modalMain={
+      border:'none',
+      textAlign:'center'
+    }
+    let modalHeader ={
+      border:'none',
+    }
+    let modalFooter ={
+      border:'none',
+    }
+    let deleteButton ={
+      marginRight:'10%',
+      backgroundColor:'red',
+      borderRadius:'0',
+      width:'20%',
+    }
+    let noButton={
+      borderRadius:'0',
+      marginRight:'25%',
+      width:'20%',
+    }
     let text = this.state.text;
-    let style={
+    let styleTitle={
       color:'black',
       fontFamily:'Raleway',
+      fontWeight:'bold',
+      marginLeft:'5%',
+      fontSize:'2em'
+    }
+    let styleTitleThumb={
+      color:'black',
+      fontFamily:'Raleway',
+      fontWeight:'bold',
+      borderBottom:'1px solid black',
+      marginLeft:'10%',
+      marginRight:'10%',
+      backgroundColor:'white'
+    }
+    let divThumb={
+      margin:'40px',
+      backgroundColor:'white',
+      height:'100px',
+      width:'80%'
+    }
+    let styleBodyThumb ={
+      color:'black',
+      fontFamily:'Raleway',
+      backgroundColor:'white'
+    }
+    let style={
+
+      color:'black',
+      fontFamily:'Raleway',
+    }
+    let options={
+      backgroundColor:'#F3F3F3',
+      color:'black',
+      border:'none',
+      textDecoration:'none',
+      marginLeft:'80%'
+    }
+    let anchor ={
+      color:'black',
+      marginRight:'5%'
     }
     if(this.state.thumbNail){
       if(this.props.info.notes[this.state.id] && text){
@@ -56,12 +116,12 @@ class Note extends Component{
           text = this.state.text + "...";
         }
       return(
-      <div>
-        <Panel className="notePanel">
-          <Panel.Title style={style} className="title">{
+      <div style={divThumb}>
+        <Panel >
+          <Panel.Title style={styleTitleThumb} className="title">{
             this.props.info.notes[this.state.id].title
           }</Panel.Title>
-          <Panel.Body style={style} className="content">
+          <Panel.Body style={styleBodyThumb} className="content">
            { 
              text
                }
@@ -86,7 +146,7 @@ class Note extends Component{
           <Grid className="grid">
             <Row className="show-grid">
               <Col xs={3} md={3} lg={3} className="col">
-                <div className="side-bar">
+                <div className="side">
                   <h1>Lambda</h1>
                   <h1 id="note">Note</h1>
                   <Link to={`/`}>
@@ -99,22 +159,24 @@ class Note extends Component{
                 </div>
               </Col>
               <Col xs={9} md={9} lg={9} className="col">
-                 <Link to={'/edit/' + this.state.id}><Button className="btn">edit</Button></Link>
-                 <Button className="btn" onClick={this.handleChange}>delete</Button>
+              <div style={options}>
+                 <Link to={'/edit/' + this.state.id}><a style={anchor}>edit</a></Link>
+                 <a style={anchor} onClick={this.handleChange}>delete</a>
+                 </div>
                 <Panel className="notePanel">
-                  <Panel.Title style={style} className="title">{
+                  <Panel.Title style={styleTitle} className="title">{
                     this.props.info.notes[this.state.id].title
                   }</Panel.Title>
                   <div className="static-modal">
-                    <Modal.Dialog>
-                      <Modal.Header>
+                    <Modal.Dialog style={modalMain}>
+                      <Modal.Header style={modalHeader}>
                       </Modal.Header>
                       <Modal.Body>Are you sure you want to delete this?</Modal.Body>
-                      <Modal.Footer>
+                      <Modal.Footer style={modalFooter}>
                       <Link to={'/'}>
-                        <Button className="btn" onClick={this.handleDelete}>Delete</Button>
+                        <Button style={deleteButton} onClick={this.handleDelete}>Delete</Button>
                       </Link>
-                        <Button className="btn" onClick={this.reset}>No</Button>
+                        <Button style={noButton} onClick={this.reset}>No</Button>
                       </Modal.Footer>
                     </Modal.Dialog>
                   </div>
@@ -137,7 +199,7 @@ class Note extends Component{
           <Grid className="grid">
             <Row className="show-grid">
               <Col xs={3} md={3} lg={3} className="col">
-                <div className="side-bar">
+                <div className="side">
                   <h1>Lambda</h1>
                   <h1 id="note">Note</h1>
                   <Link to={`/`}>
@@ -150,10 +212,12 @@ class Note extends Component{
                 </div>
               </Col>
               <Col xs={9} md={9} lg={9} className="col">
-                 <Link to={'/edit/' + this.state.id}><Button className="btn">edit</Button></Link>
-                 <Button className="btn" onClick={this.handleChange}>delete</Button>
+              <div style={options}>
+                 <Link to={'/edit/' + this.state.id}><a style={anchor}>edit</a></Link>
+                 <a style={anchor} onClick={this.handleChange}>delete</a>
+               </div>
                 <Panel className="notePanel">
-                  <Panel.Title style={style} className="title">{
+                  <Panel.Title style={styleTitle} className="title">{
                     this.props.info.notes[this.state.id].title
                   }</Panel.Title>
                   <Panel.Body style={style} className="content">
@@ -176,7 +240,7 @@ class Note extends Component{
         <Grid className="grid">
           <Row className="show-grid">
             <Col xs={3} md={3} lg={3} className="col">
-              <div className="side-bar">
+              <div className="side">
                 <h1>Lambda</h1>
                 <h1 id="note">Note</h1>
                 <Link to={`/`}>
