@@ -1,4 +1,4 @@
-import { ADD_NOTE, VIEW_NOTE, EDIT_NOTE, DELETE_NOTE } from './action/actions';
+import { ADD_NOTE, VIEW_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/index.js';
 import notes from '../dummyData';
 
 const initialState = {

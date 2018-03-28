@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { viewNote } from './actions/actions.js';
+import { viewNote } from '../actions/index.js';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 

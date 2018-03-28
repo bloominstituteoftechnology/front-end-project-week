@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { addNote } from './actions/actions.js';
+import { addNote } from '../actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 

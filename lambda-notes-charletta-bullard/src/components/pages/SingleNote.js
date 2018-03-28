@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { deleteNote } from './actions/actions.js';
+import { deleteNote } from '../actions';
 import DeleteNote from './components/pages/DeleteNote';
 
 class SingleNote extends Component {
