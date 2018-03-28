@@ -13,6 +13,7 @@ import {
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { createUser } from "./actions/createUser";
+import { login } from "./actions/login";
 
 import "./App.css";
 import Body from "./components/Body";
@@ -52,7 +53,7 @@ class App extends Component {
             className={this.props.className}
           >
             <ModalHeader className="text-center mt-4">
-              Login or Sign Up to continue.
+              Login or Create Account to continue.
             </ModalHeader>
             <Form>
               <ModalBody className="text-center">
@@ -73,20 +74,22 @@ class App extends Component {
                 />
                 {/* </ModalBody>
               <ModalBody className="d-flex justify-content-center"> */}
-                <Button
-                  color="danger"
-                  style={{ width: "175px", margin: "10px 10px 20px 10px" }}
-                  onClick={this.singInClicked}
-                >
-                  Delete
-                </Button>{" "}
-                <Button
-                  style={{ width: "175px", margin: "10px 10px 20px 10px" }}
-                  color="secondary"
-                  onClick={this.createUserClicked}
-                >
-                  Create Account
-                </Button>
+                <ModalFooter>
+                  <Button
+                    color="secondary"
+                    style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+                    onClick={this.singInClicked}
+                  >
+                    Login
+                  </Button>{" "}
+                  <Button
+                    style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+                    color="success"
+                    onClick={this.createUserClicked}
+                  >
+                    Create Account
+                  </Button>
+                </ModalFooter>
               </ModalBody>
             </Form>
           </Modal>
@@ -97,7 +100,19 @@ class App extends Component {
 
   singInClicked = event => {
     event.preventDefault();
-    this.props.users.forEach(user => {});
+    this.props.users.forEach(user => {
+      if (
+        user.username === this.state.username &&
+        user.password === this.state.password
+      ) {
+        alert("Login successful");
+        this.props.login();
+        this.setState({
+          username: "",
+          password: ""
+        });
+      }
+    });
   };
 
   createUserClicked = event => {
@@ -140,4 +155,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { createUser })(App);
+export default connect(mapStateToProps, { createUser, login })(App);
