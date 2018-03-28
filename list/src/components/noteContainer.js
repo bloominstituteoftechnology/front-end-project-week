@@ -1,25 +1,28 @@
-import React from 'react';
+import React from "react";
 import "./noteContainer.css";
+import {Link} from 'react-router-dom';
 
-export const NoteContainer = (props) => {
-    return(
-        <div className="notesContainer">
-            <div className="sideBar">
-                <h1>
-                    Lambda Notes
-                </h1>
-                <button className="sideButton"> View Your Notes </button>
-                <button className="sideButton"> + Create New Note </button>
-            </div>
-            <h1 className="header">Your Notes: </h1>
-            {props.notes.map((note => {
-                return(
-                    <div key={note.id}className="noteCard">
-                        <h4 className="noteTitle">{note.title}</h4>
-                        <div className="noteContent">{note.content}</div>
-                    </div>
-                )
-            }))}
-        </div>
-    )
-}
+export const NoteContainer = props => {
+  const contentChecker = note => {
+    return note.content && note.content.length > 120
+      ? note.content.substr(0, 124) + " ..."
+      : note.content;
+  };
+  return (
+    <div className="notesContainer">
+      <h1 className="header">Your Notes: </h1>
+      <div className="cardContainer">
+        {props.notes.map(note => {
+          return (
+            <Link className="noteLink" to={`/viewnote/${note.id}`}>
+              <div key={note.id} className="noteCard">
+                <h4 className="noteTitle">{note.title}</h4>
+                <div className="noteContent">{contentChecker(note)}</div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+};

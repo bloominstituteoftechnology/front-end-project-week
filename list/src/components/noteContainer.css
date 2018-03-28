@@ -1,37 +1,72 @@
-
-.noteContainer{
-    display: flex;
-    flex-flow:row wrap;
-    align-content: center;
+.cardContainer {
+  display: flex;
+  flex-flow: row wrap;
 }
 
-.sideBar{
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    background-color: gray;
-    order: 1;
+.notesContainer {
+  padding-left: 30px;
+  overflow: scroll;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
-.header{
-    align-content: flex-end;
+.sideBar {
+  max-width: 330px;
+  width: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #d8d8d8;
+  align-content: flex-start;
+  height: 100vh;
 }
 
-.noteCard{
-    display:inline-flex;
-    flex-flow: column wrap;
-    transition: 0.3s;
-    border: 1px solid black;
-    margin: 15px;
-    max-width: 250px;
+.sideButton {
+  background-color: #2bc1c4;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  width: 300px;
+  height: 70px;
+  border: 1px solid darkgray;
 }
 
-.noteTitle{
-    margin-left: 0.7rem
+.noteLink{
+    text-decoration: none;
+    color: black;
 }
 
-.noteContent{
-    border-top: 1px solid gray;
-    padding-top: 2rem;
-    width: 70%
+.header {
+  align-content: flex-end;
+  color: #4a4a4a;
+  font-family: "Roboto", sans-serif;
+}
+
+.noteCard {
+  display: inline-flex;
+  flex-flow: column;
+  border: 1px solid black;
+  margin: 15px;
+  padding: 15px;
+  max-width: 250px;
+  min-width: 200px;
+  height: 250px;
+  max-height: 250px;
+}
+
+.noteTitle {
+  margin: 2px 0 10px 0;
+  padding: 0;
+}
+
+.noteContent {
+  border-top: 1px solid gray;
+  padding-top: 1rem;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
 }

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import { NoteContainer } from "./components/noteContainer";
-import {SideBar} from './components/sideBar';
+import { Route } from 'react-router-dom'
+import { NoteContainer, SideBar, AddNoteView, ViewNote } from "./components";
+
 import "./App.css";
 
 class App extends Component {
@@ -44,36 +45,38 @@ class App extends Component {
   };
 
   addNote = event => {
-    event.preventDefault();
     const notesList = this.state.notes;
     notesList.push(this.state.newNote);
     this.setState({
-      newNote: {},
+      newNote: {title:'', content: '',},
       notes: notesList
     });
-    const form = document.getElementById("inputForm");
-    form.reset();
   };
+
+  noteContainer = props => {
+    return <NoteContainer notes={this.state.notes} {...props} />
+  }
+
+  renderNoteView = props => {
+    return <AddNoteView handleChange={this.handleChange} addNote={this.addNote} note={this.state.newNote} {...props} />
+  }
+
+  indivNoteView = props => {
+     const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id  )
+    return <ViewNote notes={filteredNotes[0]} />
+  }
+
+  deleteNote = props => {
+    const notesList = this.state.notes;
+  }
 
   render() {
     return (
       <div className="App">
-        <NoteContainer notes={this.state.notes} />
-        <form id="inputForm">
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="title"
-            value={this.state.title}
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="content"
-            value={this.state.content}
-          />
-          <button onClick={this.addNote} />
-        </form>
+        <SideBar />
+        <Route exact path="/" render={this.noteContainer} />
+        <Route path="/addNote" render={this.renderNoteView} />
+        <Route path="/viewNote/:id" render={this.indivNoteView} />
       </div>
     );
   }
