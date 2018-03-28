@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-class NewNote extends Component {
-  state = {
-    notes: [],
-    note: {
-        id: null,
-        title: '',
-        text: '',
-        completed: false
-      }
-  }
-}
-
-export default NewNote;
+export const NewNote = () => (
+  <div>
+    <h2>Create New Note</h2>
+    <form>
+      <input className="NewTitle" placeholder="Note Title" />
+      <input className="NewText" placeholder="Note Content" />
+      <button className="SaveButton" type="submit">Save</button>
+    </form>
+  </div>
+);
