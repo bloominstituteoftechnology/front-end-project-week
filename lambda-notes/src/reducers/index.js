@@ -4,7 +4,6 @@ import { EDIT_NOTE } from "../actions/editNote";
 import { DELETE_NOTE } from "../actions/deleteNote";
 import { SIGN_OUT } from "../actions/signOut";
 import { CREATE_USER } from "../actions/createUser";
-import { LOGIN } from "../actions/login";
 
 const initState = {
   notes: [
@@ -37,8 +36,6 @@ export default (state = initState, action) => {
     case DELETE_NOTE:
       let newNotes = state.notes.filter(item => item.id !== action.payload);
       return { ...state, notes: newNotes };
-    case LOGIN:
-      return { ...state, loggedIn: true };
     case SIGN_OUT:
       return { ...state, loggedIn: false };
     case CREATE_USER:
