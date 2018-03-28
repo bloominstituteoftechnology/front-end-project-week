@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Note from "./Note";
 import {
   Col,
   Row,

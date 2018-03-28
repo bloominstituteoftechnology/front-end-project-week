@@ -69,11 +69,11 @@ export default function notes(state = initialState, action) {
     case DELETE_NOTE:
       return {
         ...state,
-        notes: state.notes.slice().filter(note => note.id != action.id)
+        notes: state.notes.slice().filter(note => note.id !== action.id)
       };
     case EDIT_NOTE:
       let copy = state.notes.slice();
-      copy.filter(note => note.id != action.id).push(action.note);
+      copy.filter(note => note.id !== action.id).push(action.note);
       return {
         ...state,
         notes: copy

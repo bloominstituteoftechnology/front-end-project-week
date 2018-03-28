@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Nav from "./components/Nav";
-import Display from "./components/Display";
+import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
 import { Row, Col, Container, Button } from "reactstrap";
@@ -14,7 +12,7 @@ const routes = [
     path: "/",
     exact: true,
     sidebar: () => <Button>View Notes</Button>,
-    main: () => <Display />
+    main: () => <NotesList />
   },
   {
     path: "/createNote",
