@@ -18,7 +18,7 @@ const routes = [
   {
     path: "/createNote",
     sidebar: () => <Button>+ Create New Note</Button>,
-    main: () =><div>Rendered<NoteForm /></div> 
+    main: () =><Container><NoteForm /></Container>
   },
   {
     path: "/viewNotes/:id",

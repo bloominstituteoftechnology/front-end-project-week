@@ -1,49 +1,67 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
+import { Form, FormGroup, Input, Button, Container } from 'reactstrap';
 
 class NoteForm extends Component {
-    state={
-        title: '',
-        note: '',
-        id: '',
-    };
+    constructor() {
+        super();
+        this.state= {
+            newNote:{
+                title: '',
+                note: '',
+            }
+        }
+    }
 
     handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+        event.preventDefault();
+        let new_note = this.state.newNote;
+        new_note[event.target.name] = event.target.value;
+        this.setState({ newNote: new_note});
     };
     
     submitNote = (event) => {
-        this.props.addNote(this.state);
+        event.preventDefault();
+        this.props.addNote(this.state.newNote);
         this.setState({
-            title:'',
-            note:'',
+            newNote:{title:'',note:'',}
         });
+        // this.props.history.push('/');
     };
 
     render () {
         return (
-            <div className="col-one-half friend-form">
-                <form>
-                    <input
-                        onChange={this.handleChange}
-                        type="text"
-                        name="title"
-                        placeholder="title"
-                    />
-
-                    <input
-                        onChange={this.handleChange}
-                        type="text"
-                        name="note"
-                        placeholder="note"
-                    />
-            
-                    <button type="submit" onClick={this.submitNote}>
-                        Add Note
-                    </button>
-                </form>
-            </div>
+        <Container className="my-5">
+        <h3 className="header my-4">Create New Note:</h3>
+        <Form
+          onSubmit={this.submitNote.bind(this)}
+          onChange={this.handleChange.bind(this)}
+        >
+          <FormGroup>
+            <Input
+              className="w-50"
+              type="text"
+              placeholder="Title"
+              value={this.state.newNote.title}
+              name="title"
+            />
+          </FormGroup>
+          <FormGroup>
+            <textarea
+              className="form-control"
+              placeholder="Note"
+              name="note"
+              rows="10"
+              cols="50"
+              value={this.state.newNote.note}
+            />
+          </FormGroup>
+          <Button className="w-25" type="submit">
+            Save
+          </Button>
+        </Form>
+      </Container>
         )
     }
 }

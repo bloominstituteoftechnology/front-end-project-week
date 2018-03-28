@@ -54,7 +54,9 @@ const initialState = {
 export default function notes(state=initialState, action) {
     switch (action.type) {
         case actions.ADDING_NOTE:
-            return {...state, addingNote: true};
+            return {...state, addingNote: true,
+                notes: [...state.notes, { ...action.note, id: action.id }]
+            };
         case actions.NOTE_ADDED:
             return {...state, addingNote: false, notes: action.payload};
         case actions.ERROR_ADDING_NOTE:
