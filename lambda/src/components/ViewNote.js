@@ -44,7 +44,7 @@ class ViewNote extends Component {
             <React.Fragment>
                 <div className = 'editeDelete'>
                         <Link to = '/EditeNote' className = 'link'> Edite </Link>
-                        <Link to = '/'><button onClick = {this.handleDelete} className = 'link'> Delete </button> </Link>
+                        <Link to = '/NotesList'><button onClick = {this.handleDelete} className = 'link'> Delete </button> </Link>
                 </div>
                 {this.state.index ? (
                     <div className = 'add-note'>

@@ -9,6 +9,8 @@ button{
   padding: 0;
   font-size: 1rem;
   cursor: pointer;
+  background-color: #2BC1C5; 
+  border: none;
 }
 
 h3 {
@@ -111,7 +113,7 @@ p{
    
  }
 
- .add-note input {
+ input {
    padding: 0.5rem;
    width: 60%;
    margin-bottom: 0.5rem;
@@ -119,7 +121,7 @@ p{
    border-radius: 0.3rem;
  }
 
- .add-note textarea {
+ textarea {
   padding: 0.5rem;
   margin-bottom: 0.5rem;
   border: 1px solid black;
@@ -200,4 +202,58 @@ p{
   .download{
     display: flex; 
     justify-content: space-around;
+    background-color: green;
   }
+
+  .signOut{
+    background-color: red; 
+  }
+
+  .login{
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 grey;
+    transition: 0.2s;
+    width: 140%;
+    margin-left: -250px;
+    background-color: black;
+    color: white;
+    padding: 5%;
+    border-radius: 1rem;
+    opacity: 0.8;
+
+  }
+
+  .login:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .login form{
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: 20rem;
+    border: 1px black dotted;
+    padding: 4rem;
+
+  }
+  .login form:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+
+  .login input {
+    margin-bottom: 2rem;
+  }
+  
+  .login button {
+    width: 12.4rem;
+    color: white;
+    font-weight: bold;
+  }
+  

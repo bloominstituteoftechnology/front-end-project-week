@@ -34,7 +34,7 @@ class AddNote extends Component {
         <h3>Create New Note: </h3>
         <input onChange = {this.onChange} name = 'title' type = 'text' placeholder = 'Note title' />
         <textarea onChange = {this.onChange} name = 'text' placeholder = 'Note Content' rows = '20' />
-        <Link onClick = {this.handleClick} className = 'save-button' to="/">Save</Link> 
+        <Link onClick = {this.handleClick} className = 'save-button' to="/NotesList">Save</Link> 
       </div>
     )
   }
