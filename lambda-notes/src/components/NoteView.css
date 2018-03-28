@@ -15,15 +15,28 @@ p {
     font-size: 1rem;
 }
 
-.mainTitle {
+.mainTitleTop {
     font-weight: 900
+}
+
+.mainTitleBot {
+    
+    font-weight: 900;
+    
+    
+}
+
+.botTitleDiv {
+    
+    position: relative;
+    top: -20px;
 }
 
 .titleContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 20px;
+    
 }
 
 .redButton {
@@ -44,4 +57,30 @@ p {
         border: blue;
         color: white;
         font-size: 1rem;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    background-color: #2BC1C4;
+    border: #2BC1C4;
+    color: white;
+    font-size: 1rem;
+    margin: 10px;
+}
+
+.botTitleDiv {
+    
+    position: relative;
+    top: -20px;
+}
+
+.head {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headText {
+    text-decoration: underline;
+    margin: 3px;
 }

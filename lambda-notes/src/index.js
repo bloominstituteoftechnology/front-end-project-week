@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+
   } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -13,14 +17,19 @@ import CreateNoteForm from './components/CreateNoteForm';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote'
 
+
+const store = createStore(reducers)
+
 ReactDOM.render(
-<Router>
-    <div>    
-        <Route exact path='/' component={ App } />
-        <Route path='/create-note' component={ CreateNoteForm } />
-        <Route path='/note-view' component={ NoteView } />
-        <Route path='/edit-note' component={ EditNote } />
-    </div>    
-</Router>
+ <Provider store={store}>   
+    <Router>
+        <div>    
+            <Route exact path='/' component={ App } />
+            <Route path='/create-note' component={ CreateNoteForm } />
+            <Route path='/note-view/:id' component={ NoteView } />
+            <Route path='/edit-note' component={ EditNote } />
+        </div>    
+    </Router>
+</Provider>
 , document.getElementById('root'));
 

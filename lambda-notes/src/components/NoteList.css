@@ -2,10 +2,49 @@
     text-decoration: none;
 }
 
+/* @media (max-width: 500px){
+    .indexCol {
+    
+        max-width: 230px;
+       
+   }
+}
+
+.indexCol {
+    
+     max-width: 230px;
+    
+} */
+
+.button {
+    width: 200px;
+    height: 50px;
+    background-color: #2BC1C4;
+    border: #2BC1C4;
+    color: white;
+    font-size: 1rem;
+}
+
 .mainTitle {
     font-weight: 900
 }
 
 .titleContainer {
     margin-top: 20px;
+}
+
+.listTitle {
+    display: flex;
+    width: 100%; 
+}
+
+.listContainer {
+    max-width: 600px;
+}
+
+.noteCardCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 1000px;
 }

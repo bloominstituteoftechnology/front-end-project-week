@@ -1,13 +1,54 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 
 import NotesList from '../components/NotesList';
-import Button from '../components/Button';
+
 import './CreateNoteForm.css';
 
 class CreateNoteForm extends Component {
-  
+    constructor(props) {
+        super(props);
+        this.state = {
+          title: '',
+          note: '',
+        };
+        const { dispatch } = props;
+        this.addNote= this.addNote.bind(this);
+        this.handleTitleInput = this.handleTitleInput.bind(this);
+        this.handleNoteInput = this.handleNoteInput.bind(this);
+      }  
+    
+      handleTitleInput(event) {
+
+        this.setState({ title: event.target.value })
+          console.log(this.state.title);
+      }
+
+      handleNoteInput(event) {
+
+        this.setState({ note: event.target.value })
+          console.log(this.state.note);
+      }
+
+      addNote(event) {
+        event.preventDefault();
+        let { title, note } = this.state;
+        this.props.addNote( title, note );
+        this.setState({
+          title: '',
+          note: '',
+        });
+      }
+    
+    viewNotesRoute() {
+        this.props.history.push("/");
+      }
+    
+
     render() {
         return (
             
@@ -16,25 +57,23 @@ class CreateNoteForm extends Component {
         <div className="col-md-3 col-sm-12 indexCol">
         <div className="titleContainer">
             <div > <h1 className="mainTitle"> Lambda </h1> </div>
-            <div > <h1 className="mainTitle"> Notes </h1> </div>
+            <div className="botTitleDiv" > <h1 className="mainTitle"> Notes </h1> </div>
         </div>   
           
-        <Link to={'/'}>
-          <div> <Button name={'View Your Notes'}/> </div>
-        </Link>
+        <div> <button className="button"  onClick={()=> {this.viewNotesRoute()}}> View Your Notes </button> </div>
+        <div><button className="button"> Create New Notes </button> </div>
 
-          <div> <Button name={'+Create New Notes'}/> </div>
         </div>
        
         <div className="col-md-9 col-sm-12 createDiv">
         <div className="listTitle"> <h4> Create New Note: </h4> </div>
          
             
-        <Form>
+        <Form onSubmit={this.addNote}>
             <FormGroup>
-                <Input className="col-6 mb-4 mt-4" name="title" placeholder="Note Title" />
-                <Input className="mb-2" rows="15" name="note" type="textarea" placeholder="Note Content" />
-                <button className="createButton" > Save </button>
+                <Input  onChange={this.handleTitleInput} value={this.state.newTitle} className="col-6 mb-4 mt-4" name="title" placeholder="Note Title" />
+                <Input  onChange={this.handleNoteInput} value={this.state.newNote} className="mb-2" rows="15" name="note" type="textarea" placeholder="Note Content" />
+                <div className="createButtonDiv"><button className="createButton" > Save </button></div>
             </FormGroup>         
         </Form> 
               
@@ -49,4 +88,12 @@ class CreateNoteForm extends Component {
     }
 }
 
-export default CreateNoteForm;
+const mapStateToProps = (state) => {
+    return {
+      notesList: state.notesList,
+    }
+  }
+
+
+
+export default connect(mapStateToProps, { addNote })(withRouter(CreateNoteForm));

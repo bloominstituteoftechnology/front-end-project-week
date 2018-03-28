@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Button from '../components/Button';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import './NoteView.css'
 
 class NoteView extends Component {
@@ -21,6 +22,20 @@ class NoteView extends Component {
         });
       }
 
+      editNoteRoute() {
+        this.props.history.push("/edit-note");
+      }
+
+
+     createNoteRoute() {
+      this.props.history.push("/create-note");
+    }
+  
+     viewNotesRoute() {
+      this.props.history.push("/");
+    }
+    
+
 render() {
      return (
         <div className="container-fluid mainDiv">
@@ -28,27 +43,27 @@ render() {
         <div className="col-md-3 col-sm-12 indexCol">
           <div className="titleContainer">
          <div><h1> Lambda </h1></div> 
-         <div><h1> Notes </h1></div>
+         <div className="botTitleDiv"><h1> Notes </h1></div>
           </div>
-        <Link to={'/'}>  
-          <div> <Button name={'View Your Notes'}/> </div>
-        </Link>  
-        <Link to={'/create-note'}>  
-          <div> <Button name={'+Create New Notes'}/> </div>
-        </Link>  
+         
+          <div> <button onClick={()=> {this.viewNotesRoute()}} className="button"> View Your Notes </button> </div>
+      
+          
+          <div> <button onClick={()=> {this.createNoteRoute()}} className="button">Create New Notes</button> </div>
+          
         </div>
        
         <div className="col-md-9 col-sm-12 mainDiv">
 
-        <div><Link to={'/edit-note'}><p>edit</p></Link> 
-        <p onClick={()=>{this.toggle()}}>delete</p> 
+
+        <div className="head"><p className="headText" onClick={()=> {this.editNoteRoute()}}>edit</p> 
+        <p className="headText" onClick={()=>{this.toggle()}}>delete</p> 
         </div>
        
          
-        <h1>Note Title</h1> 
+        <h1> {this.props.notesList[0].title}</h1> 
         
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ex justo, tristique sit amet pellentesque id, maximus venenatis sapien. Pellentesque vestibulum commodo nulla, ac placerat purus auctor in. In ut aliquam nisi. Donec vitae massa odio. Nunc eu tristique mauris, finibus aliquam enim. Quisque faucibus nec nibh eu pulvinar. Integer semper urna venenatis accumsan vehicula. Etiam nec tincidunt quam, at placerat ipsum. Fusce tempor convallis iaculis. Phasellus elit massa, varius eu lorem ac, efficitur tempor augue. In eu nisl sagittis, pharetra nisi id, eleifend eros. Praesent rhoncus enim ut dignissim lacinia. Quisque vel ullamcorper ipsum. Ut in mauris libero. Ut vehicula augue imperdiet, ultricies mi sit amet, fermentum nulla.</p><br/>
-        <p>Quisque sed sodales quam. Donec congue magna a massa posuere varius. Mauris placerat nulla velit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur ante quam, ultricies in congue ut, faucibus sit amet dolor. Sed venenatis sem tellus, in ullamcorper velit suscipit eu. Maecenas blandit neque eget libero aliquam elementum. Phasellus vestibulum nisi sit amet velit lacinia, quis placerat metus lobortis. In finibus iaculis massa a semper. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ut finibus lorem, egestas varius eros. Suspendisse potenti.</p>
+       <p>{this.props.notesList[0].note}</p>
      
               
 
@@ -75,4 +90,10 @@ render() {
   }  
 }
 
-export default NoteView;
+const mapStateToProps = (state) => {
+  return {
+    notesList: state.notesList,
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(NoteView));

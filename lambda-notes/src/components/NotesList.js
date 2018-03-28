@@ -1,45 +1,65 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { Route, Redirect } from 'react-router';
 
+import { connect } from 'react-redux';
+
+
+import NoteView from '../components/NoteView';
 import NoteCard from '../components/NoteCard';
-import Button from '../components/Button';
+
 import './NoteList.css';
 
 class NotesList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-        notesList: [{title: 'Note Title', note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.' },{title:'Note Title', note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title', note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title' , note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title' , note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title' , note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title' , note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title' , note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},{title:'Note Title', note:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit rutrum est eu laoreet. Nunc mollis augue sit amet est pellentesque placerat. Sed augue arcu, auctor sed purus quis, elementum vulputate libero. Proin vestibulum congue aliquam. Sed lacinia et felis id elementum. Donec auctor luctus fermentum. Praesent aliquam in ex ac ornare. Integer vulputate bibendum est vitae consectetur.'},],
-        
-    };
+    
   }  
+
+
+
+  createNoteRoute() {
+    this.props.history.push("/create-note");
+  }
+
+  viewNotesRoute() {
+    this.props.history.push("/");
+  }
+
+  noteView(i) {
+    this.props.history.push(`/note-view/${i}`)
+  }
+
 render() {
      return (
         <div className="container-fluid">
       <div className="row  App">
         <div className="col-md-3 col-sm-12 indexCol">
           <div className="titleContainer">
-            <div > <h1 className="mainTitle"> Lambda </h1> </div>
-            <div > <h1 className="mainTitle"> Notes </h1> </div>
-            <div> <Button name={'View Your Notes'}/> </div>
+            <div > <h1 className="mainTitleTop"> Lambda </h1> </div>
+            <div className="botTitleDiv" > <h1 className="mainTitleBot"> Notes </h1> </div>
           </div>
-        <Link to={'/create-note'}>  
-          <div> <Button name={'+Create New Notes'}/> </div>
-        </Link>  
+        
+           <div> <button className="button"> View Your Notes </button> </div>
+      
+          
+           <div> <button className="button" onClick={()=> {this.createNoteRoute()}}>Create New Notes</button> </div>
+         
         </div>
        
         <div className="col-md-9 col-sm-12 noteCardCol">
-        <div className="listTitle"> <h4> Your Notes: </h4> </div>
+       
          
-            
+         <div className="listContainer">  
+         <div className="listTitle"> <h4> Your Notes: </h4> </div> 
         <div className="row">
-          {this.state.notesList.map((note, i)=> {
+          {this.props.notesList.map((note, i)=> {
             return (
-       <div key={i} className="col-sm-6 col-md-4"><Link to={'/note-view'}> <NoteCard title={note.title} note={note.note}/></Link> </div> 
+       <div key={i} onClick={()=>{this.noteView(i)}} className="col-sm-6 col-md-4"> <NoteCard id={i} title={note.title} note={note.note}/> </div> 
             ) 
           })}  
         </div>
-              
+         </div>     
 
           
         </div>
@@ -52,4 +72,10 @@ render() {
   }  
 }
 
-export default NotesList;
+const mapStateToProps = (state) => {
+  return {
+    notesList: state.notesList,
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(NotesList));
