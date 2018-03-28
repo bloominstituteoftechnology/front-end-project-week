@@ -4,9 +4,9 @@ import './App.css';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import Note from './components/note'
-import DisplayNotesList from './components/displayNotesList'
+import NoteForm from './components/noteForm';
+import Note from './components/note';
+import DisplayNotesList from './components/displayNotesList';
 
 const routes = [
   {
@@ -18,7 +18,7 @@ const routes = [
   {
     path: "/createNote",
     sidebar: () => <Button>+ Create New Note</Button>,
-    main: () =><div>Rendered</div> //<NoteForm />
+    main: () =><div>Rendered<NoteForm /></div> 
   },
   {
     path: "/viewNotes/:id",
