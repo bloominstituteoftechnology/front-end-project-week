@@ -1,13 +1,27 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
 
-
-
 .header {
   color: #4A4A4A;
+  font-weight: bold;
+  font-size: 42px;
+}
+
+.sub_header {
+  color: #4A4A4A;
+  font-weight: bold;
+  font-size: 32px;
 }
 
 .noteHeader {
@@ -15,6 +29,7 @@ body {
 }
 
 .banner {
+  padding: 0 auto;
   background-color: #D8D8D8;
 }
 
@@ -24,13 +39,106 @@ body {
 }
 
 .navButton {
-  width: 95%;
+  width: 100%;
   height: 50px;
   background-color: #2BC1C4;
   color: #FFFFFF;
+  font-weight: bold;
+  font-size: 21px;
+  border: 1px solid rgb(133, 131, 131);
+  border-radius: 1%;
+}
+
+.navButton_save {
+  width: 30%;
+  height: 50px;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 21px;
+  border: 1px solid rgb(133, 131, 131);
+  border-radius: 1%;
+}
+
+.navLink {
+  width: 95%;
+}
+
+.body {
+  min-height: 100%;
+  margin-top: 7%;
+}
+
+.viewNote {
+  min-height: 100%;
+  margin-top: 7%;
+}
+
+.noteTitle {
+  max-width: 60%;
+  height: 50px;
+  border: 1px solid rgb(133, 131, 131);
+}
+
+.noteComment {
+  height: 600px;
+}
+
+.noteLink {
+  text-decoration: none;
+  color: black;
+  
+}
+
+.noteLink:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.modalLink {
+  text-decoration: underline;
+  color: gray;
   border: none;
 }
 
-.noteBody {
+.modalLink:hover {
+  color: gray;
+  cursor: default;
+}
+
+.modal-footer {
+  border-top: 0px;
+}
+
+.delete-Link {
+  width: 90%;
+}
+
+.modeTitle {
+  width: 90%;
+  text-align: center;
+}
+
+.modeButton {
   width: 100%;
+  border: 1px solid gray;
+  width: 100%;
+  height: 45px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
+.modeButton_no {
+  width: 100%;
+  background-color: #2BC1C4;
+  border: 1px solid gray;
+  width: 100%;
+  height: 45px;
+  color: white;
+  font-weight: bold;
+}
+
+.deleteModal{
+  width: 80%;
 }
