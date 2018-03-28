@@ -151,7 +151,7 @@ table {
     display: flex;
     flex-flow: row nowrap;
     max-width: 240px;
-    max-height: 250px;
+    max-height: 270px;
 }
 
 .List__Title {
@@ -165,7 +165,6 @@ table {
     font-size: 23px;
     font-weight: bold;
     color: #4A4A4A;
-    border: 1px solid red;
 }
 
 .List__View {
@@ -174,6 +173,9 @@ table {
     max-width: 220px;
     max-height: 230px;
     margin-left: 15px;
+}
+
+.List__View__Link {
     text-decoration: none !important;
 }
 
@@ -182,6 +184,7 @@ table {
     color: black;
     display: flex;
     flex-flow: column wrap;
+    background: #fff;
 }
 
 .Note:hover {

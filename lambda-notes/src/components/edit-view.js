@@ -29,30 +29,22 @@ class EditNote extends Component {
   };
 
   render() {
-    const { title, body } = this.state;
+    const { id, title, body } = this.state;
     return (
       <div className="Each">
         <h2 className="Each__Title">Edit Note:</h2>
         <form onSubmit={this.handleSubmit}>
-          <input
-            value={title}
-            name="title"
-            type="text"
-            onChange={this.handleUpdate}
-            className="Each__Input-Title"
-            required
-          />
+          <input  value={title}
+            name="title" type="text"
+            onChange={this.handleUpdate} className="Each__Input-Title"
+            required />
           <br />
-          <textarea
-            className="Each__Input-Body"
-            value={body}
-            name="body"
-            type="text"
-            onChange={this.handleUpdate}
-            required
-          />
+          <textarea  className="Each__Input-Body"
+            value={body} name="body"
+            type="text" onChange={this.handleUpdate} 
+            required />
           <br />
-          <Link to={"/view"}><button onClick={() => this.handleSubmit()} type="submit">Update</button></Link>
+          <Link to={`/view/${id}`}><button onClick={() => this.handleSubmit()} type="submit">Update</button></Link>
         </form>
       </div>
     );
