@@ -1,54 +1,54 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import React, { Component } from 'react';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import  { Front, NewNote, SingleNote, EditNote }  from '../pages/';
-import Nav from '../navigation';
+// import  { Front, NewNote, SingleNote, EditNote }  from '../pages/';
+// import Nav from '../navigation';
 
-import { notes } from '../pages/notes'
+// import { notes } from '../pages/notes'
 
-import './route.css';
+// import './route.css';
 
 
-// import '../pages/pagestyles/page.css';
-// import '../style/nav.css';
+// // import '../pages/pagestyles/page.css';
+// // import '../style/nav.css';
 
-class Routes extends Component {
+// class Routes extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-            notes: notes
-        }
+//     // constructor(){
+//     //     super();
+//     //     this.state = {
+//     //         notes: notes
+//     //     }
 
-    }
+//     // }
 
-    componentDidMount(){
-        this.setState({notes: notes})
-    }
+//     // componentDidMount(){
+//     //     this.setState({notes: notes})
+//     // }
     
     
-render(){
+// render(){
 
 
 
-    return(
-    <Router>
+//     return(
+//     <Router>
 
-        <div className="route-container">
+//         <div className="route-container">
 
 
-        <Nav />
+//         <Nav />
  
-        {/* <div> */}
-         <Route path='/' exact component={ Front } /> 
-         <Route path='/new' component={ NewNote } />
-         <Route path={`/note/`} component={ SingleNote } noteid={notes.id} />
-         <Route path={`/edit/:id`} component={ EditNote }/>
-        {/* </div> */}
-        </div>
+//         {/* <div> */}
+//          <Route path='/' exact component={ Front } /> 
+//          <Route path='/new' component={ NewNote } />
+//          <Route path={`/note/:id`} component={ SingleNote } />
+//          <Route path={`/edit/:id`} component={ EditNote }/>
+//         {/* </div> */}
+//         </div>
 
-    </Router>);
-}
-}
+//     </Router>);
+// }
+// }
 
-export default Routes;
+// // export default Routes

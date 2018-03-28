@@ -17,7 +17,11 @@ class NewNote extends Component{
         return(
         <div className='page-container'>
         <div className='page-title'>New Note:</div>
-        <input type='text' onChange={this.handleInputChange} />
+        <form>
+        <input type='text' onChange={this.handleInputChange}>
+            
+        </input>
+        </form>
         </div>
         )
     }
