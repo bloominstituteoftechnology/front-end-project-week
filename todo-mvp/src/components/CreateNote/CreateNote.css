@@ -1,7 +1,7 @@
 .CreateNote {
     display: flex;
     border: 2px green solid;
-    height: 100%;
+    height: 100vh;
   }
 
   .create-form {

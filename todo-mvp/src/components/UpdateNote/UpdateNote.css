@@ -1,0 +1,10 @@
+.UpdateNote {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+}

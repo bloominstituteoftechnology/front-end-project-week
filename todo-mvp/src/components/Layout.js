@@ -5,6 +5,7 @@ import NavBar from './NavBar/NavBar';
 import ListNotes from './ListNotes/ListNotes';
 import CreateNote from './CreateNote/CreateNote';
 import ViewNote from './ViewNote/ViewNote';
+import UpdateNote from './UpdateNote/UpdateNote';
 
 import dummyNotes from '../dummydata';
 
@@ -17,7 +18,7 @@ class Layout extends Component {
       notes: [],
       title: '',
       content: '',
-      id: Number('')
+      id: Number(''),
     };
     this.createNote = this.createNote.bind(this);
     this.updateTitle = this.updateTitle.bind(this);
@@ -46,13 +47,13 @@ class Layout extends Component {
 
   updateTitle(event) {
     this.setState({
-      title: event.target.value
+      title: event.target.value,
     });
   }
 
   updateContent(event) {
     this.setState({
-      content: event.target.value
+      content: event.target.value,
     });
   }
 
@@ -64,9 +65,9 @@ class Layout extends Component {
           <Route
             exact
             path="/"
-            render={() => <ListNotes notes={this.state.notes} />}
+            render={() => 
+            <ListNotes notes={this.state.notes} />}
           />
-
           <Route 
           path="/create" 
           render={() => 
@@ -81,9 +82,15 @@ class Layout extends Component {
           <Route 
           path="/view/:id" 
           render={(props) => 
-          <ViewNote 
-          note={this.state.notes[props.match.params.id]} />} 
+          <ViewNote note={this.state.notes[props.match.params.id]} />} 
           />
+
+          <Route
+          path="/update/:id"
+          render={(props) => 
+          <UpdateNote note={this.state.notes[props.match.params.id]} />} 
+          />
+
         </div>
       </div>
     );

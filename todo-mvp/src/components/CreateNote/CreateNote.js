@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import './CreateNote.css'
 
 class CreateNote extends Component {
   
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.CreateNote();
+    this.props.history.push('/');
+  }
+
   render() {
     return (
       <div className="CreateNote">
@@ -28,14 +34,12 @@ class CreateNote extends Component {
           onChange={this.props.updateContent}
           value={this.props.content}
           />
-          <button type="submit" onSubmit={() => {
-            this.props.createNote;
-            <Link exact to="/" />
-            }}>Save</button>
+          <button type="submit" onSubmit={this.handleSubmit.bind(this)}
+            >Save</button>
         </form>
       </div>
     );
   }
 }
 
-export default CreateNote;
+export default withRouter(CreateNote);
