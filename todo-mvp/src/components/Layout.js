@@ -53,7 +53,6 @@ class Layout extends Component {
   deleteNote(event) {
     event.preventDefault();
     const newNotes = this.state.notes.filter( note => note.id !== Number(event.target.value) )
-    console.log(event.target.value, newNotes)
     this.setState({
       notes: newNotes,
       title: '',
@@ -134,7 +133,6 @@ class Layout extends Component {
           title={this.state.title} 
           content={this.state.content} />} 
           />
-
         </div>
       </div>
     );

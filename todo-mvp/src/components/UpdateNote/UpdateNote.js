@@ -6,14 +6,9 @@ import './UpdateNote.css';
 class UpdateNote extends Component {
 
   handleUpdate(event) {
-    console.log('entering handle update')
-    console.log('updateID: ', this.props.note.id)
-    console.log('updateTitle: ', this.props.title)
-    console.log('updateContent: ', this.props.content)
     event.preventDefault();
     this.props.updateNote(this.props.note.id);
     this.props.history.push('/');
-    console.log('exiting handle update')
   }
 
   render() {
