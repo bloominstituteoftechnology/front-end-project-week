@@ -54,7 +54,7 @@ export default class CreateNote extends Component {
             />
           </FormGroup>
           <Button
-            className="btn float-left save-button"
+            className="btn btn-block float-left save-button"
             onClick={this.handleSubmit}
           >
             Save

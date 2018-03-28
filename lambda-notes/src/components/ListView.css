@@ -15,6 +15,14 @@ h5 {
   opacity: 0.85;
 }
 
+.card:hover {
+  background: #2bc1c4;
+}
+
+.card-block {
+  color: black;
+}
+
 .card {
   margin: 30px 0 0 20px;
   padding: 10px 35px;

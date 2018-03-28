@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import 'bootstrap/dist/css/bootstrap.css';
+
 import './NoteView.css';
 
 class NoteView extends Component {
@@ -29,14 +31,8 @@ class NoteView extends Component {
           <h5 className="delete-button">delete</h5>
         </div>
         <div className="note-view">
-          {/* {this.state.note.map(note => {
-            return ( */}
-          <div>
-            <h4 className="heading">{this.state.note.title}</h4>
-            <p>{this.state.note.content}</p>
-          </div>
-          {/* );
-          })} */}
+          <h4 className="heading">{this.state.note.title}</h4>
+          <p className="content">{this.state.note.content}</p>
         </div>
       </div>
     );

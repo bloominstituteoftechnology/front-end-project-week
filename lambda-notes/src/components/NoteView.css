@@ -7,3 +7,14 @@
 .delete-button {
   padding-left: 25px;
 }
+
+.heading {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.content {
+  text-align: left;
+  margin-left: 40px;
+  font-size: 1.3rem;
+}

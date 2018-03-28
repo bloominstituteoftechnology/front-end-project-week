@@ -12,57 +12,57 @@ function getNewId() {
 let notes = [
   {
     id: 1,
-    title: 'Note Title',
+    title: 'Give Me Liberty or Give Me Death, 1775',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'Is life so dear, or peace so sweet, as to be purchased at the price of chains and slavery? Forbid it, Almighty God! — I know not what course others may take; but as for me, give me liberty or give me death! —Patrick Henry'
   },
   {
     id: 2,
-    title: 'Note Title',
+    title: 'Apology, 4th century B.C.',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'The hour of departure has arrived, and we go our ways — I to die, and you to live. Which is better God only knows. —Socrates'
   },
   {
     id: 3,
-    title: 'Note Title',
+    title: 'The Hypocrisy of American Slavery, 1852',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'Whether we turn to the declarations of the past, or to the professions of the present, the conduct of the nation seems equally hideous and revolting. America is false to the past, false to the present, and solemnly binds herself to be false to the future. —Frederick Douglas'
   },
   {
     id: 4,
-    title: 'Note Title',
+    title: 'Gettysburg Address, 1863',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal. —Abraham Lincoln'
   },
   {
     id: 5,
-    title: 'Note Title',
+    title: "Women's Rights to the Suffrage, 1873",
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'It was we, the people; not we, the white male citizens; nor yet we, the male citizens; but we, the whole people, who formed the Union. And we formed it, not to give the blessings of liberty, but to secure them; not to the half of ourselves and the half of our posterity, but to the whole people — women as well as men. —Susan B. Anthony'
   },
   {
     id: 6,
-    title: 'Note Title',
+    title: 'Blood, Toil, Tears and Sweat, 1940',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'You ask, what is our policy? I can say: It is to wage war, by sea, land and air, with all our might and with all the strength that God can give us; to wage war against a monstrous tyranny, never surpassed in the dark, lamentable catalogue of human crime. That is our policy. —Winston Churchhill'
   },
   {
     id: 7,
-    title: 'Note Title',
+    title: 'Inaugural Address, 1961',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'My fellow Americans: ask not what your country can do for you — ask what you can do for your country. —John F. Kennedy'
   },
   {
     id: 8,
-    title: 'Note Title',
+    title: 'I Have a Dream, 1963',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'We have also come to this hallowed spot to remind America of the fierce urgency of Now. This is no time to engage in the luxury of cooling off or to take the tranquilizing drug of gradualism. Now is the time to make real the promises of democracy. —Martin Luther King, Jr.'
   },
   {
     id: 9,
-    title: 'Note Title',
+    title: 'The American Promise, 1965',
     content:
-      'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis …'
+      'There is no moral issue. It is wrong — deadly wrong — to deny any of your fellow Americans the right to vote in this country. There is no issue of States rights or national rights. There is only the struggle for human rights. I have not the slightest doubt what will be your answer. —Lyndon B. Johnson'
   }
 ];
 
