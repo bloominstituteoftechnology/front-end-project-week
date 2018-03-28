@@ -54,7 +54,7 @@ class NoteView extends Component {
               style={{ width: "175px", margin: "10px 10px 20px 10px" }}
               onClick={() => {
                 this.props.deleteNote(currentNote.id);
-                this.setState({ redirect: true });
+                this.setState({ redirectToHome: true });
               }}
             >
               Delete
