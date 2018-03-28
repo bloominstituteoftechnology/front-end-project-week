@@ -27,10 +27,5 @@ class List extends Component {
     }
 }
 
- const mapStateToProps = state => {
-    return {
-        notes: state.notes
-    }
-}
 
-export default connect(mapStateToProps)(List);
+export default connect()(List);

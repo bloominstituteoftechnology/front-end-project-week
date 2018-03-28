@@ -1,31 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader, Button } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
+import { Container, Row, Col, Modal, ModalBody, Button } from 'reactstrap';
 import './Note.css';
-import { deleteNote } from '../actions';
 
 class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: {
-                id: '',
-                title: '',
-                text: '',
-            },
             modal: false,
         }
 
         this.toggleModal=this.toggleModal.bind(this);
         this.handleDelete=this.handleDelete.bind(this);
-    }
-
-    componentDidMount() {
-        this.setState({
-            note: this.props.notes.find(note => {
-                return note.id === parseInt(this.props.match.params.id, 10)}),
-        })
     }
 
     toggleModal() {
@@ -34,46 +20,46 @@ class Note extends Component {
         })
     }
 
-    handleDelete(id) {
-        this.props.deleteNote(id);
+    handleDelete() {
+        this.props.deleteNote(this.props.note);
         this.props.history.push('/');
     }
 
     render() {
         return (
-            <Container>
+            <Container className="Content">
                 <Row>
-                    <Col xs="10"/>
-                    <Col className="Options">
-                        <Link to={`/edit/${this.props.match.params.id}`}>
+                    <Col xs="9"/>
+                    <Col xs="2" className="Options">
+                        <Link to={`/edit/${this.props.note.id}`}>
                         <p className='Options__link'>edit</p>
                         </Link>
                         <p className='Options__link'
                         onClick={this.toggleModal}>
                         delete</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
                         <Modal isOpen={this.state.modal} toggle={this.toggleModal}
                         className={this.props.className}>
-                            <ModalHeader toggle={this.toggleModal}>Modal title</ModalHeader>
                             <ModalBody>
-                                Are you sure you want to delete this?
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button color="primary" onClick={() => this.handleDelete(this.state.note)}>
+                                <h4>Are you sure you want to delete this?</h4>
+                                <Button className="Button DeleteModal__delete-button" color="deoco" onClick={() => this.handleDelete()}>
                                     Delete</Button>{' '}
-                                <Button color="secondary" onClick={this.toggleModal}>No</Button>
-                            </ModalFooter>
+                                <Button className="Button DeleteModal__no-button" color="deoco" onClick={this.toggleModal}>No</Button>
+                            </ModalBody>
                         </Modal>
                     </Col>
-                    
                 </Row>
-                <Row>
-                    <Col className='Note__Title'>
-                        {this.state.note.title}
+                <Row className='Content__heading Note__heading'>
+                    <Col className='Content__heading__col Note__heading__col'>
+                        <h4>{this.props.note.title}</h4>
                     </Col>
                 </Row>
-                <Row>
-                    <Col className='Note__Text'>
-                        {this.state.note.text}
+                <Row className='Note__text'>
+                    <Col>
+                        <p>{this.props.note.text}</p>
                     </Col>
                 </Row>
             </Container>
@@ -81,10 +67,5 @@ class Note extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        notes: state.notes
-    }
-}
 
-export default connect(mapStateToProps, { deleteNote })(Note);
+export default withRouter(Note);

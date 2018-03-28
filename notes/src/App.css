@@ -1,6 +1,7 @@
 .Container {
   border: solid 1px rgb(170, 170, 170);
   max-width: 890px;
+  min-height: 55.5rem;
 }
 
 .Button {

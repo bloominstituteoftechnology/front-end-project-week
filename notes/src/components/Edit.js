@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Button, Container, Row, Col, Form, FormGroup, Input } from 'reactstrap';
-import { editNote } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class Edit extends Component {
     state = {
@@ -12,9 +11,10 @@ class Edit extends Component {
 
     componentDidMount() {
         this.setState({
-            id: parseInt(this.props.match.params.id, 10),
+            id: this.props.note.id,
+            title: this.props.note.title,
+            text: this.props.note.text,
         });
-        console.log('Currently Editing: ' + this.state.id)
     }
 
     handleChange(event) {
@@ -23,24 +23,29 @@ class Edit extends Component {
         })
     }
 
+    handleSubmit() {
+        this.props.editNote(this.state);
+        this.props.history.push('/');
+    }
+
     render() {
         return (
-            <Container>
-                <Row>
-                    <Col>
-                        Edit Note:
+            <Container className="Create">
+                <Row className="Content__heading Create__heading">
+                    <Col className="Content__heading__col Create__heading__col">
+                        <h4>Edit Note:</h4>
                     </Col>
                 </Row>
-                <Form>
-                    <FormGroup className='Edit__Title'>
-                        <Input type='text' name='title' placeholder='Edit Title'
+                <Form className="Create__form">
+                    <FormGroup className='Create__form__title'>
+                        <Input type='text' name='title' value={this.state.title}
                         onChange={this.handleChange.bind(this)}/>
                     </FormGroup>
-                    <FormGroup className='Edit__Text'>
-                        <Input type='text' name='text' placeholder='Edit Text'
+                    <FormGroup>
+                        <Input className="Create__form__text" type='textarea' name='text' value={this.state.text}
                         onChange={this.handleChange.bind(this)}/>
                     </FormGroup>
-                    <Button onClick={() => this.props.editNote(this.state)}>Save</Button>
+                    <Button className="Button Create__button" color="deoco" onClick={() => this.handleSubmit()}>Save</Button>
                 </Form>
             </Container>
         );
@@ -48,4 +53,4 @@ class Edit extends Component {
 }
 
 
-export default connect(null, { editNote })(Edit);
+export default withRouter(Edit);
