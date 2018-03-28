@@ -73,6 +73,11 @@ app.get('/notes', (req, res) => {
   res.status(200).json(notes);
 });
 
+app.get('/notes/:id', (req, res) => {
+  const note = notes.filter(note => note.id.toString() === req.params.id)[0];
+  res.status(200).json(note);
+});
+
 app.post('/notes', (req, res) => {
   const note = { id: getNewId(), ...req.body };
   notes = [...notes, note];

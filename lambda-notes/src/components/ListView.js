@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './NoteList.css';
+import { Link } from 'react-router-dom';
 
-export default class NoteList extends Component {
+import './ListView.css';
+
+export default class ListView extends Component {
   state = {
     notes: []
   };
@@ -28,12 +30,12 @@ export default class NoteList extends Component {
           {this.state.notes.map(note => {
             return (
               <div className="col-lg-4 col-md-8 col-sm-12" key={note.id}>
-                <div className="card">
+                <Link to={`/noteview/${note.id}`} className="card">
                   <div className="card-block">
                     <h5 className="card-title">{note.title}</h5>
                     <div className="card-text">{note.content}</div>
                   </div>
-                </div>
+                </Link>
               </div>
             );
           })}

@@ -1,0 +1,9 @@
+.modify-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 20px 0 0;
+}
+
+.delete-button {
+  padding-left: 25px;
+}

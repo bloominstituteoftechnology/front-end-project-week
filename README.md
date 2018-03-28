@@ -27,7 +27,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 ## MVP Features:
 
 * [x] Display a list of notes
-* [ ] Create a note with a title and content
+* [x] Create a note with a title and content
 * [ ] View an existing note
 * [ ] Edit an existing note
 * [ ] Delete an existing note
@@ -48,7 +48,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 ## MVP Features:
 
 * [x] Display a list of notes
-* [ ] Create a note with a title and content
+* [x] Create a note with a title and content
 * [ ] View an existing note
 * [ ] Edit an existing note
 * [ ] Delete an existing note
