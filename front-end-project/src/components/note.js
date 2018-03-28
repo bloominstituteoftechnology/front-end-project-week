@@ -1,6 +1,6 @@
 import  React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row, Col, Card, CardBody, CardText, CardTitle} from 'reactstrap';
+import { Container, Row, Col} from 'reactstrap';
 
 function mapStateToProps(state) {
     return {notes: state.notes};
@@ -8,17 +8,18 @@ function mapStateToProps(state) {
 
 class Note extends Component {
     render() {
-        const note = this.props.notes.filter(note=>{
-            note.id === this.props.match.params.id
-        })[0];
+        const note = this.props.notes.filter(
+            note => note.id == this.props.match.params.id
+        )[0];
         return(
             <Container>
-                <Row>
+                <Row className='mt-5'>
                     <Col>
-                        <h3>
+                        <h3 className='header'>Title
                             {note.title}
                         </h3>
                         <p>
+                            Note
                             {note.note}
                         </p>
                     </Col>
@@ -26,6 +27,7 @@ class Note extends Component {
             </Container>
         )
     }
+    componentDidMount() {}
 }
 
 export default connect(mapStateToProps)(Note)

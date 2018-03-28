@@ -6,14 +6,14 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Note from './components/note'
-import NotesList from './components/notesList'
+import DisplayNotesList from './components/displayNotesList'
 
 const routes = [
   {
     path: "/",
     exact: true,
     sidebar: () => <Button>View Notes</Button>,
-    main: () => <Container><NotesList/></Container>
+    main: () => <DisplayNotesList/>
   },
   {
     path: "/createNote",
@@ -28,16 +28,17 @@ const routes = [
 
 class App extends Component {
   render() {
+    document.body.style.background = "#f3f3f3";
     return (
       <Router>
         <Container fluid={true} className="App">
-          <Row>
-            <Col sm={3} className="leftSide">
-              <h1>Lambda Notes</h1>
-              <Link to ="/"><Button size="lg" className="my-2">View Your Notes</Button></Link>
-              <Link to ="/createNote"><Button size="lg" className="my-2">+ Create New Note</Button></Link>
+          <Row className="app-wrapper">
+            <Col sm={3} className="leftSide position-fixed">
+              <h1 className="header my-4">Lambda Notes</h1>
+              <Link to ="/"><Button className="w-100 my-2 p-2">View Your Notes</Button></Link>
+              <Link to ="/createNote"><Button className="w-100 my-2 p-2">+ Create New Note</Button></Link>
             </Col>
-            <Col sm={9} className="rightSide">
+            <Col sm={9} className="rightSide offset-3">
               {routes.map((route, index) => (
                 <Route
                   key={index}
