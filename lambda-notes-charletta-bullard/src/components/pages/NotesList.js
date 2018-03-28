@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
+import { viewNote } from './actions/actions.js';
 import { connect } from 'react-redux';
-import  { SEE_NOTE } from '../actions';
 import { Link } from 'react-router-dom';
-
 
 class NotesList extends Component {
   state = {
     id: '',
-  }
+  };
 
   render() {
     return (
       <div className='note-container'>
         <h3 className='heading'>Your Notes:</h3>
         <ul>
-          {this.props.notes.map (note => {
+          {this.props.notes.map(note => {
             return (
-              <li className='note-container noteslist' key={note.id}>
-                <Link to='note' params={`${note.id}`} onClick={this.seeNote}>
+              <li className='note-container notelist' key={note.id}>
+                <Link
+                  to={`/note/${note.id}`}
+                  onClick={this.viewNote}
+                >
                   <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
                 </Link>
               </li>
@@ -28,10 +30,10 @@ class NotesList extends Component {
     );
   }
 
-  seeNote = note => {
-    this.props.seeNote(note);
+  viewNote = note => {
+    this.props.viewNote(note);
     this.setState({ id: note.id });
-  }
+  };
 }
 
 const mapStateToProps = state => {
@@ -40,4 +42,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { SEE_NOTE }) (NotesList);
+export default connect(mapStateToProps, { viewNote })(NotesList);

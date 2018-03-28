@@ -7,10 +7,10 @@ class SideBar extends Components {
       <div className='sidebar'>
         <h1 className='title'>Lambda Notes</h1>
         <Link to='/NotesList'>
-          <button className='button'>View Your Notes</button>
+          <button className='view-btn'>View Your Notes</button>
         </Link>
         <Link to='/CreateNote'>
-          <button className='button'>+Create New Note</button>
+          <button className='create-btn'>+Create New Note</button>
         </Link>
       </div>
     );
