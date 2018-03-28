@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Buttons from './buttons/Buttons.js'
 
 class NoteList extends Component {
 	state = {
@@ -57,12 +57,13 @@ class NoteList extends Component {
         		
     <div className="main container border">
       <div className="row">
-        <h4 className="col-12">List View</h4>
+        <h4 className="col-12 font-weight-bold">List View</h4>
       </div>
       <hr/>
       <div className="outerBox row border mx-1">
           <div className="innerBox col-2 border flex-nowrap">
               <h2 className="font-weight-bold">Lambda Notes</h2>
+							<Buttons />
           </div>
           
         <div className="col-9 ml-4">
