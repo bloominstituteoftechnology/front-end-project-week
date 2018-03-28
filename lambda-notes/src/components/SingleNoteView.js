@@ -12,8 +12,12 @@ const StyledNote = styled.div`
     .links {
         display: flex;
         position: absolute;
-        margin-left: 80%;
+        margin-left: 72%;
         font-size: 14px;
+
+        .delete {
+            margin-left: 30px;
+        }
 
         
     }
@@ -44,7 +48,8 @@ class SingleNoteView extends React.Component {
             <StyledNote key={this.props.match.params.id}>
             <HomeLeftPanel />
                 <div className="links">
-                <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+                    <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+                    <div className="delete" > delete </div>
                 </div>
                 <div className="card-body" key={this.props.match.params.id}>
                     <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
