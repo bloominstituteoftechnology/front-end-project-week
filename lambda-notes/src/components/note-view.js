@@ -36,7 +36,7 @@ class NoteView extends Component {
             <DeleteModal
               id={id}
               toggleModal={this.toggleModal}
-              handleDeletModal={this.props.handleDeleteModal}
+              handleDeleteModal={this.props.handleDeleteModal}
             />
           </div>
         ) : null}
