@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Route } from "react-router-dom";
+
 
 export default class Buttons extends Component {
   constructor() {
@@ -10,9 +13,13 @@ export default class Buttons extends Component {
   render() {
     return(
       <div>
-        <button type="button" className="btn btn-primary">Primary</button>
-        <button type="button" className="btn btn-primary mt-1">Primary</button>
+         <Route path="/addNote" component={AddNote} />
+        <button type="button" className="btn btn-primary btn-block mt-3">View Your notes</button>
+        <Link to="/addNote"> // need to create this link
+          <button type="button" className="btn btn-primary btn-block mt-3"> +Create Note</button>
+        </Link>
       </div>
+      
     )
       
   }

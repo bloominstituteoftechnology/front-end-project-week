@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Buttons from './buttons/Buttons.js'
+import { Route } from "react-router-dom";
 
 class NoteList extends Component {
 	state = {
@@ -54,40 +55,40 @@ class NoteList extends Component {
 
 	render() {
 		return (
-        		
-    <div className="main container border">
-      <div className="row">
-        <h4 className="col-12 font-weight-bold">List View</h4>
-      </div>
-      <hr/>
-      <div className="outerBox row border mx-1">
-          <div className="innerBox col-2 border flex-nowrap">
-              <h2 className="font-weight-bold">Lambda Notes</h2>
-							<Buttons />
-          </div>
-          
-        <div className="col-9 ml-4">
-          <div className="my-3 mt-5">
-            <h4 className="noteTitle font-weight-bold">Your Notes:</h4>
-          </div>  
-          <div className="body row ">
-            {this.state.notes.map((note) => {
-            return (
-            
-                  <div className="noteCard col-3 mx-2 my-2 border bg-white">
-                        <h4 className="ml-2">{note.title}</h4>
-                        <hr className="mx-1"/>
-                        <p className="mx-2">{note.content}</p>
-                  </div>
-              );
-              
-            })}
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  );
+      //<Route path="/">  		
+				<div className="main container border">
+					<div className="row">
+						<h4 className="col-12 font-weight-bold">List View</h4>
+					</div>
+					<hr/>
+					<div className="outerBox row border mx-1">
+							<div className="innerBox col-2 border flex-nowrap">
+									<h2 className="font-weight-bold">Lambda Notes</h2>
+									<Buttons />
+							</div>
+							
+						<div className="col-9 ml-4">
+							<div className="my-3 mt-5">
+								<h4 className="noteTitle font-weight-bold">Your Notes:</h4>
+							</div>  
+							<div className="body row ">
+								{this.state.notes.map((note) => {
+								return (
+								
+											<div className="noteCard col-3 mx-2 my-2 border bg-white">
+														<h4 className="ml-2">{note.title}</h4>
+														<hr/>
+														<p className="mx-2">{note.content}</p>
+											</div>
+									);
+									
+								})}
+							</div>
+						</div>
+					</div>
+			 </div>
+			//</Route>
+    );
 	} 
 }
 export default NoteList;
