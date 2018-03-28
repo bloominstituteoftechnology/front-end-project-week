@@ -2,6 +2,7 @@
 import { ADD_NEW_NOTE } from "../actions/newNote";
 import { EDIT_NOTE } from "../actions/editNote";
 import { DELETE_NOTE } from "../actions/deleteNote";
+import { SIGN_OUT } from "../actions/signOut";
 
 const initState = {
   notes: [
@@ -14,7 +15,9 @@ const initState = {
     { id: 6, title: "Seventh Note", body: "This is the body of the 7 note" },
     { id: 7, title: "Eighth Note", body: "This is the body of the 8 note" },
     { id: 8, title: "Ninth Note", body: "This is the body of the 9 note" }
-  ]
+  ],
+  loggedIn: true,
+  users: [{ userName: "DragonRydrz", password: "CNCg00dguy5" }]
 };
 
 // export default combineReducers(notes);
@@ -32,6 +35,8 @@ export default (state = initState, action) => {
     case DELETE_NOTE:
       let newNotes = state.notes.filter(item => item.id !== action.payload);
       return { ...state, notes: newNotes };
+    case SIGN_OUT:
+      return { ...state, loggedIn: false };
     default:
       return state;
   }

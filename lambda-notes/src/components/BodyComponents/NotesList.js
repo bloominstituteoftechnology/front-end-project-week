@@ -9,6 +9,7 @@ class NotesList extends Component {
       <Fragment>
         <h3 className="mt-5 ml-3">Your Notes:</h3>
         <div className="d-flex flex-wrap justify-content-around">
+          {/* <CardColumns> */}
           {this.props.notes.map(note => (
             <Link key={note.id} to={`/noteview/${note.id}`}>
               <Card
@@ -23,6 +24,7 @@ class NotesList extends Component {
               </Card>
             </Link>
           ))}
+          {/* </CardColumns> */}
         </div>
       </Fragment>
     );
