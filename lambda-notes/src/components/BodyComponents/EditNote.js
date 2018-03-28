@@ -35,9 +35,9 @@ class EditNote extends Component {
 
     if (this.state.redirect) return <Redirect to="/" />;
     return (
-      <Fragment>
-        <h3 className="mt-5 ml-3">Create New Note:</h3>
-        <Form onSubmit={this.updateNote} className="mr-5">
+      <div>
+        <h3 className="mt-5 ml-3">Edit Note:</h3>
+        <Form onSubmit={this.updateNote}>
           <input
             onChange={this.handleTitleChange}
             className="ml-3 mb-5"
@@ -48,9 +48,9 @@ class EditNote extends Component {
           />
           <textarea
             onChange={this.handleBodyChange}
-            className="ml-3"
+            className="ml-3 mb-2 d-block"
             rows="12"
-            cols="80"
+            cols="60"
             type="text"
             placeholder="Enter a Note"
             value={this.state.note.body}
@@ -61,7 +61,7 @@ class EditNote extends Component {
           </Button>
           {/* </Link> */}
         </Form>
-      </Fragment>
+      </div>
     );
   }
 
