@@ -8,12 +8,10 @@ import { connect } from 'react-redux';
 // Actions
 import { get_notes } from '../../actions';
 
-// Components
-import Note from '../Note/Note';
-
 // Styling
 import { Col, Card } from "reactstrap";
 import './ListView.css';
+// import NoteView from '../NoteView/NoteView';
 
 class ListView extends Component {
     componentDidMount() {
@@ -26,19 +24,26 @@ class ListView extends Component {
                 <h5>Your notes:</h5>
                 <div className='notes-container'>
                     {this.props.notes.map(note => {
+                        const notePropsAndPath = {
+                            pathname: `/notes/${note.id}`,
+                            id: note.id,
+                            title: note.title,
+                            content: note.content
+                        };
                         return (
-                            <Link to={`/notes/${note.id}`}>
-                                <Card key={`${note.id} ${note.title}`}>
+                            <Link to={notePropsAndPath} key={`${note.id} ${note.title}`}>
+                                <Card>
                                     <p>{note.title}</p>
                                     <p>{note.content}</p>
                                 </Card>
                             </Link>
-                        )
+                        );
                     })}
                 </div>
             </Col>
         );
     } // end of render()
+
 }; // end of ListView
 
 const mapStateToProps = state => {

@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
+// React and Router
+import React from 'react';
 import { Link } from "react-router-dom";
 
+// Styling
 import { Col } from 'reactstrap';
 import './NoteView.css';
 
-class NoteView extends Component {
-    render() {
-        return (
-            <Col className='note-view'>
-                <div class='note-actions col-1'>
-                    <Link to='/' style={{color: 'black'}}>edit</Link>
-                    <Link to='/' style={{color: 'black'}}>delete</Link>
-                </div>
-                <h5>Godard plaid</h5>
-                <p>Cardigan pitchfork kale chips, scenester roof party farm-to-table microdosing post-ironic affogato prism la croix chambray selfies whatever.</p>
-            </Col>
-        )
-    }
-}
+const NoteView = (props) => {
+    console.log('props', props);
+    return (
+        <Col className='note-view'>
+            <div className='note-actions col-1'>
+                <Link to='/' style={{color: 'black'}}>edit</Link>
+                <Link to='/' style={{color: 'black'}}>delete</Link>
+            </div>
+            <h5>{props.location.title}</h5>
+            <p>{props.location.content}</p>
+        </Col>
+    )
+} // end of NoteView
 
 export default NoteView;
