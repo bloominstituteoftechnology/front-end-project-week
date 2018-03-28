@@ -4,7 +4,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducers from './reducers';
+import noteData from './reducers';
 
 import './index.css';
 import App from './App';
@@ -12,7 +12,7 @@ import NoteViewPage from './components/NoteViewPage';
 import NoteCreatePage from './components/NoteCreatePage';
 import NoteEditPage from './components/NoteEditPage';
 
-let store = createStore(reducers);
+let store = createStore(noteData);
 
 render(
   <Provider store={store}>
@@ -20,7 +20,7 @@ render(
     <div>
       <Route exact path="/" component={ App } />
       <Route exact path="/create" component={ NoteCreatePage } />
-      <Route path="/notes/0" component={ NoteViewPage } />
+      <Route path="/notes/:number" component={ NoteViewPage } />
       <Route path="/edit/:number" component={ NoteEditPage } />
     </div>
   </Router>

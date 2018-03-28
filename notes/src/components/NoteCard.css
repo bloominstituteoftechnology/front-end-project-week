@@ -28,7 +28,7 @@
   overflow: hidden;
   position: relative;
   margin-right: -1em;
-  padding-right: 1em;
+  padding-right: 1.5em;
 }
 
 .truncate:before {

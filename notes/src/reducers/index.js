@@ -4,39 +4,48 @@ const initialState = {
   notes: [
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah testing update',
+      id: 0,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah this is note 1',
+      id: 1,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah this is note 2',
+      id: 2,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
+      id: 3,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
+      id: 4,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
+      id: 5,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
+      id: 6,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
+      id: 7,
     },
     {
       title: 'Note Title',
-      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis'
+      body: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis blah blah blah blah blah blah',
+      id: 8,
     },
   ],
   note: {

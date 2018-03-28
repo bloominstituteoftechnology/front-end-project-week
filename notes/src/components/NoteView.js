@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import './NoteView.css';
 
 class NoteView extends Component {
@@ -9,36 +11,24 @@ class NoteView extends Component {
   }
 
   render() {
+    const id = this.props.match.params.number;
+    const noteTitle = this.props.noteData.notes[id].title;
+    const noteBody = this.props.noteData.notes[id].body;
     return (
       <div className="noteViewContainer">
         <div className="linkContainer">
-          <a href='#' className="link">edit</a>
-          <a href='#' className="link" onClick={() => { this.triggerModal() }}>delete</a>
+          <p className="link" onClick={() => {alert('Not implemented yet!')}}>edit</p>
+          <p className="link" onClick={() => { this.triggerModal() }}>delete</p>
         </div>
-        <h2 className="noteViewHeader">Note Name</h2>
-        <p className="noteViewBody">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas mauris sed nibh
-          vulputate, ac pharetra lacus aliquam. Duis malesuada justo a iaculis sagittis. Vestibulum
-          ultrices ultricies arcu sit amet pharetra. Duis et lectus arcu. Morbi ornare dignissim dui, eu
-          accumsan sapien lacinia et. Maecenas ultricies, ante in accumsan tempor, tortor diam
-          vulputate elit, id finibus enim magna in massa. Suspendisse vel accumsan nisi. Vivamus
-          elementum auctor ligula, at tempor nisl rutrum in. Sed in eros luctus ligula porta efficitur eu
-          non nibh. Aliquam tellus ipsum, semper id cursus vel, posuere in dolor. Phasellus maximus
-          lacinia dolor eget laoreet.
-        </p>
-        <p className="noteViewBody">
-          Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac
-          purus a, efficitur mollis velit. Ut egestas, ante at lobortis ullamcorper, neque odio fringilla
-          odio, non mattis elit lacus ut velit. Sed feugiat nibh vel molestie sollicitudin. Duis tincidunt
-          porttitor sem, sit amet ultricies lacus pellentesque vel. Aenean quis enim placerat, posuere
-          orci ac, condimentum tellus. Vivamus vitae sodales quam, eget ultricies lorem. Nam
-          pellentesque massa nisl, at pellentesque nisi faucibus vitae. Curabitur sit amet turpis quam.
-          Duis eget metus elementum, sollicitudin dui sed, accumsan dui. Donec ut est orci. Nunc
-          fringilla purus sit amet posuere volutpat. Fusce vitae lectus id neque facilisis laoreet eget non
-          odio. Praesent sed mauris porta, volutpat ante hendrerit, ultrices nisl.
-        </p>
+        <h2 className="noteViewHeader">{noteTitle}</h2>
+        <p className="noteViewBody">{noteBody}</p>
       </div>
     );
   }
 }
 
-export default NoteView;
+const mapStateToProps = (state) => ({
+  noteData: state,
+});
+
+export default connect(mapStateToProps)(withRouter(NoteView));

@@ -27,7 +27,9 @@
 }
 
 .linkContainer {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  text-decoration-line: underline;
   margin-right: 35px;
 }
 
@@ -37,6 +39,10 @@
   font-family: 'Roboto';
   font-weight: bold;
   font-size: 1.1em;
+}
+
+.link:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1180px) {
