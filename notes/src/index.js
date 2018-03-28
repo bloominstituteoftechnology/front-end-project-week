@@ -13,8 +13,8 @@ render(
   <Router>
     <div>
       <Route exact path="/" component={ App } />
+      <Route exact path="/create" component={ NoteCreatePage } />
       <Route path="/notes/0" component={ NoteViewPage } />
-      <Route path="/create" component={ NoteCreatePage } />
-      <Route path="/edit/0" component={ NoteEditPage } />
+      <Route path="/edit/:number" component={ NoteEditPage } />
     </div>
   </Router>, document.getElementById('root'));

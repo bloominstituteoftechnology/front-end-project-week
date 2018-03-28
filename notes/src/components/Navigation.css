@@ -1,3 +1,7 @@
+Link:hover {
+  cursor: pointer;
+}
+
 .navContainer {
   width: inherit;
   height: inherit;
