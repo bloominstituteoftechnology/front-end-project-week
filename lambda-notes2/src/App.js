@@ -20,17 +20,32 @@ class App extends Component {
     ],
 }
 
-  render() {
-    return (
-      <div className="App">
-        <Route path="/" component={NavBar} />
-        <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
-        <Route exact path="/AddNote" component={AddNote} />
-        <Route exact path="/notes/:id" component={Note} />
-        <Route exact path="/notes/:id/EditNote" component={EditNote} />
-      </div>
-    );
+
+
+handleDelete = (num) => {
+  localStorage.removeItem(`id${num}`);
+  const memory = Array.from(Object.values(localStorage));
+  if (memory.length >= 0) {
+    const memoryNotes = [];
+    for (let i = 0; i < memory.length; i++) {
+      memoryNotes.push(JSON.parse(memory[i]))
+    }
+    this.setState({ notes: memoryNotes})
   }
+}
+
+
+render() {
+  return (
+    <div className="App">
+      <Route path="/" component={NavBar} />
+      <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
+      <Route exact path="/AddNote" render={(props) => <AddNote {...props} add={this.handleAdd} />}/>
+      <Route exact path="/notes/:id" render={(props) => <Note {...props} delete={this.handleDelete} />} />
+      <Route exact path="/notes/:id/EditNote" render={(props) => <EditNote {...props} edit={this.handleEdit} />} />
+    </div>
+  );
+}
 }
 
 export default App;

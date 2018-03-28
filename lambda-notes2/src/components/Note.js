@@ -21,22 +21,24 @@ class Note extends Component {
     }
     
     handleDelete = () => {
+        this.props.delete(this.props.match.params.id);
         this.props.history.push('/');
     }
 
     render() {
-    return (
-        <div className="Note">
-            <div className="Note__nav">
-                <Link className="Nav__item" to={`/notes/${this.props.location.state.currentNote.id}/EditNote`}>edit</Link>
-                <div className="Nav__item">
+        return (
+            <div className="Note">
+                <div className="Note__nav">
+                    <Link className="Nav__item" to={`/notes/${this.props.location.state.currentNote.id}/EditNote`}>edit</Link>
+                    <div className="Nav__item">
+                            <a className="Button__Delete" onClick={this.handleDelete}>Delete</a>
+                    </div>
                 </div>
+                <h4 className="Title">{this.props.location.state.currentNote.title}</h4>
+                <p className="Content">{this.props.location.state.currentNote.text}</p>
             </div>
-            <h4 className="Title">{this.props.location.state.currentNote.title}</h4>
-            <p className="Content">{this.props.location.state.currentNote.text}</p>
-        </div>
-    );
-};
-}
-
+        );
+    };
+    }
+    
 export default Note;
