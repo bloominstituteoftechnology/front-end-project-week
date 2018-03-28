@@ -6,18 +6,23 @@ import './Buttons.css';
 import { Link } from 'react-router-dom';
 
 class NewNote extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      noteTitle: '',
-      noteDescription: ''
-    }
+      name: '',
+      text: '',
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (event) => {
-    const { name , value } = event.target;
-    this.setState({ [name]: value })
-    console.log(this.state);
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+   
+  handleSubmit(event) {    
+    event.preventDefault();
+    this.setState({ name: '', text: ''})
   }
 
     render() {
@@ -28,17 +33,17 @@ class NewNote extends React.Component {
               <div className="sideBar col-2">
                 <span className="lambdaNotes">Lambda <br /> Notes</span>
                   <span className="buttons"><Buttons /></span>
-              </div>
-                <div className="noteSection col-md-10">
-                  <span className="yourNotes">Create New Note:</span>            
-                    <form className="Form">
-                      <input name="noteTitle" value={this.state.noteTitle} onChange={this.handleChange} className="noteTitle" type="text" placeholder="Note Title" /><br />
-                        <p><textarea name="noteDescription" onChange={this.handleChange} className="noteContent" cols="60" rows="10" placeholder="Note Content"></textarea></p>
-                          <Link to="/Save"><Button className="BTN btn btn-info" type="submit">Save</Button></Link>
-                    </form>  
-                </div>  
-            </div>
-          </div>               
+                    </div>
+                      <div className="noteSection col-md-10">
+                        <span className="yourNotes">Create New Note:</span>            
+                          <form className="Form" >
+                            <input name="name" onChange={this.handleChange} value={this.state.name} className="noteTitle" type="text" placeholder="Note Title" /><br />
+                              <p><textarea name={this.state.text} onChange={this.handleChange} className="noteContent" cols="60" rows="10" placeholder="Note Content"></textarea></p>
+                                <Link to="/Save"><Button  type="submit" className="BTN btn btn-info">Save</Button></Link>
+                          </form>  
+                      </div>  
+             </div>
+           </div>               
         </div>
       );
     }

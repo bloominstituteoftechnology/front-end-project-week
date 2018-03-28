@@ -1,6 +1,3 @@
-* {
-    overflow: hidden;
-}
 .edit {
     text-decoration: underline;
     display: flex;
@@ -26,5 +23,15 @@
 }
 
 .ModalFooter {
-    margin-right: 60px;
+    margin-right: 60px;    
+}
+
+.ModalDelete {
+    background: #C70A22 !important;
+}
+
+.noteName{
+    margin-top: 40px;
+    margin-left: 70px;
+    line-height: 40px;
 }

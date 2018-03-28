@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import NoteCards  from './NoteCards';
+import { NoteCards } from './NoteCards';
 import Buttons  from './Buttons';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+      id: 0
+    };
+  }
   render() {
     return (
       <div className="">        
@@ -13,8 +20,8 @@ class App extends Component {
           <span className="buttons"><Buttons /></span>
           </div>
             <div className="noteSection col-md-10">
-            <span className="yourNotes">Your Notes:</span>
-            <NoteCards />              
+            <span className="yourNotes">Your Notes:</span>            
+              <NoteCards notes={this.state.notes} />            
             </div>  
         </div>
       </div>

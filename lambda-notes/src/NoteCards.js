@@ -1,8 +1,7 @@
 import React from 'react';
 import './NoteCard.css';
 
-class NoteCards extends React.Component {
-  render() {
+export const NoteCards = () => { 
     return (
       <div className="NoteSection">        
         <div className="row">
@@ -55,13 +54,10 @@ class NoteCards extends React.Component {
                         <div className="note3 col-md-3">
                           <h4>Note Title</h4>
                             <hr/>
-                              <p>Everyday carry gluten-free lumbersexual tousled, shaman kombucha +1 forage fixie.</p>
+                              <p>Everyday carry gluten-free organic tousled, shaman kombucha +1 forage fixie.</p>
                             </div>
                             
         </div>
       </div>
     );
   }
-}
-
-export default NoteCards;

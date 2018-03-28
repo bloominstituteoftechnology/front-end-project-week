@@ -39,12 +39,35 @@ class SaveNote extends React.Component {
                                             <span className="ModalBody">Are you sure you want to delete this?</span>
                                             </ModalBody>
                                             <ModalFooter>
-                                                <Button className="BTN ModalFooter" color="danger" onClick={this.toggle}>Delete</Button>{' '}
-                                                <Button className="BTN ModalFooter" color="info" onClick={this.toggle}>No</Button>
+                                                <Button className="BTN ModalFooter ModalDelete" onClick={this.toggle}>Delete</Button>{' '}
+                                                <Button className="BTN ModalFooter" onClick={this.toggle}>No</Button>
                                             </ModalFooter>
                                     </Modal>
                         </div>
                             <span className="yourNotes">Note Name</span>
+                            <div className="row">
+            <div className="noteName col-md-8">
+                  <p> Gluten-free portland ramps listicle cloud bread copper mug synth PBR&B plaid.
+                      Gluten-free portland ramps listicle cloud bread copper mug synth PBR&B plaid.
+                      Pickled neutra edison bulb, food truck copper mug single-origin coffee 3 wolf 
+                      moon celiac. Cloud bread yuccie thundercats, four loko keytar master cleanse 
+                      humblebrag live-edge iPhone trust fund whatever cardigan. Shoreditch disrupt ramps 
+                      slow-carb locavore readymade godard craft beer heirloom. Lumbersexual mustache synth 
+                      readymade, seitan jean shorts adaptogen plaid sriracha bespoke hot chicken lo-fi. 
+                      Kickstarter hot chicken letterpress pinterest, pug cold-pressed blog chicharrones biodiesel.
+                      Gluten-free portland ramps listicle cloud bread copper mug synth PBR&B plaid.
+                      Gluten-free portland ramps listicle cloud bread copper mug synth PBR&B plaid.
+                      Pickled neutra edison bulb, food truck copper mug single-origin coffee 3 wolf 
+                      moon celiac. Cloud bread yuccie thundercats, four loko keytar master cleanse 
+                      humblebrag live-edge iPhone trust fund whatever cardigan. Shoreditch disrupt ramps 
+                      slow-carb locavore readymade godard craft beer heirloom. Lumbersexual mustache synth 
+                      readymade, seitan jean shorts adaptogen plaid sriracha bespoke hot chicken lo-fi. 
+                      Kickstarter hot chicken letterpress pinterest, pug cold-pressed blog chicharrones biodiesel. 
+                  </p>
+                </div>
+                
+                            
+        </div>
                     </div>  
                 </div>
             </div>               

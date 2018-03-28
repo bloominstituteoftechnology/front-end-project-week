@@ -1,4 +1,10 @@
 .BTN {
     width: 170px;
     margin-top: 14px;
+    
+}
+
+Button {
+    background: #2BC1C4 !important;
+    border: none !important;
 }
