@@ -7,7 +7,8 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardText
+  CardText,
+  CardFooter
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -30,12 +31,17 @@ class NotesList extends Component {
             return (
               <Col sm={4}>
                 <Link className="card-link" to={`/viewNotes/${note.id}`}>
-                  <Card className="note pb-3">
+                  <Card className="note my-3">
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>
                       <hr />
                       <CardText>{note.note}</CardText>
                     </CardBody>
+                    <CardFooter>
+                      {note.tags.map(tag => (
+                        <span className="badge badge-primary">{tag}</span>
+                      ))}
+                    </CardFooter>
                   </Card>
                 </Link>
               </Col>
