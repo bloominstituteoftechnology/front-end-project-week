@@ -78,7 +78,7 @@ class App extends Component {
                   <Button
                     color="secondary"
                     style={{ width: "175px", margin: "10px 10px 20px 10px" }}
-                    onClick={this.singInClicked}
+                    onClick={this.signInClicked}
                   >
                     Login
                   </Button>{" "}
@@ -98,7 +98,7 @@ class App extends Component {
     );
   }
 
-  singInClicked = event => {
+  signInClicked = event => {
     event.preventDefault();
     this.props.users.forEach(user => {
       if (
