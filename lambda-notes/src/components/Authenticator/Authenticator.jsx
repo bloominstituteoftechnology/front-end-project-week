@@ -23,7 +23,7 @@ class Authenticator extends Component {
       }
 
       this.checkUser = User => {
-         console.log(User);
+         
          if(localStorage.getItem(this.asdf(User.name))) {
             console.log("userFound");
             this.setState({user: User.name});

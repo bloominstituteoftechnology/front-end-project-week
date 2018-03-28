@@ -18,9 +18,9 @@ class App extends Component {
 
   componentDidMount() {
     const cachedHits = localStorage.getItem(this.props.user);
-    console.log(cachedHits);
+
     if (!JSON.parse(cachedHits)) console.log('invalid json confirmed');
-    // if (cachedHits.length <= 1) localStorage.setItem(this.props.user);
+
     if (cachedHits) {
       this.setState({ notes: JSON.parse(cachedHits) });
       return;
@@ -36,7 +36,8 @@ class App extends Component {
         {
           index: this.state.notes.length,
           title: newNote.title,
-          content: newNote.content
+          content: newNote.content,
+          tags: newNote.tags
         }
       ]
     });
@@ -48,7 +49,8 @@ class App extends Component {
         {
           index: this.state.notes.length,
           title: newNote.title,
-          content: newNote.content
+          content: newNote.content,
+          tags: newNote.tags
         }
       ])
     );
@@ -59,7 +61,8 @@ class App extends Component {
     newNotes[updatedNote.index] = {
       index: updatedNote.index,
       title: updatedNote.title,
-      content: updatedNote.content
+      content: updatedNote.content,
+      tags: updatedNote.tags
     };
     this.setState({ notes: newNotes });
     localStorage.setItem(this.props.user, JSON.stringify(newNotes));
@@ -83,7 +86,9 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={() => <ListNotes notes={this.state.notes} />}
+          render={() => (
+            <ListNotes name={this.props.user} notes={this.state.notes} />
+          )}
         />
         <Route
           path="/viewNote/:id"

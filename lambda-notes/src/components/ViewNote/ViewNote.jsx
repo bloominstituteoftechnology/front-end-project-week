@@ -10,6 +10,7 @@ class ViewNote extends Component {
          index: "",
          title: "",
          content: "",
+         tags: [],
       }
    }
 
@@ -23,13 +24,14 @@ class ViewNote extends Component {
       this.toggleDisplay("editNoteTitle");
       this.toggleDisplay("editNoteContent");
       this.toggleDisplay("submitEdits");
+      this.toggleDisplay('editNoteTags');
       // hide the note displaying
       document.getElementById("viewNoteTitle").innerHTML = "Edit Note: ";
       this.toggleDisplay("viewNoteContent");
 
       document.getElementById("editNoteTitleInput").value = this.state.title;
       document.getElementById("editNoteContentInput").value = "   " + this.state.content;
-
+      document.getElementById('editNoteTagsInput').value = this.state.tags;
 
    }
 
@@ -45,10 +47,13 @@ class ViewNote extends Component {
       this.toggleDisplay("editNoteTitle");
       this.toggleDisplay("editNoteContent");
       this.toggleDisplay("submitEdits");
+      this.toggleDisplay('editNoteTags');
+
       this.setState({
          index: this.props.index,
          title: this.props.title,
          content: this.props.content,
+         tags: this.props.tags,
       });
 
    }
@@ -76,7 +81,12 @@ class ViewNote extends Component {
             <h2 id="viewNoteTitle" > {this.state.title} </h2>
             <div id="editNoteTitle"> <input type="text" id="editNoteTitleInput"/> </div>
 
-            <div id="viewNoteContent"> {this.state.content} </div>
+            <h4 id="viewNoteTags" > Tags: {this.state.tags ? this.state.tags.map(tag => {
+               <span className="viewNoteTag"> {tag} </span>
+            }): null} </h4>
+            <div id="editNoteTags"> <input type="text" id="editNoteTagsInput" placeholder="tags"/> </div>
+
+            <div id="viewNoteContent">  {this.state.content} </div>
 
             <div id="editNoteContent"> <textarea id="editNoteContentInput"/> </div>
             <div>

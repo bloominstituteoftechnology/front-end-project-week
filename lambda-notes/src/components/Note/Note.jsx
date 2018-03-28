@@ -6,6 +6,7 @@ class Note extends Component {
       index: "",
       title: "",
       content: "",
+      tags: [],
    }
 
    componentDidMount() {
@@ -23,6 +24,7 @@ class Note extends Component {
          <div className="noteContent">
             {this.state.content.length > 170 ? (this.state.content.substr(0, 190) + "...") : (this.state.content)}
          </div>
+         <div className="noteTags"></div>
       </div>
       )
    } //end of render
