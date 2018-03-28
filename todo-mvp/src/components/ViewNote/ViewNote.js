@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import './ViewNote.css';
 
+  
 class ViewNote extends Component {
+  handleDelete(event) {
+    event.preventDefault();
+    this.props.deleteNote(event);
+    this.props.history.push('/');
+  }
+
   render() {
-    console.log('ViewNote note: ', this.props.note);
-    console.log(typeof this.props.note)
     return (
       <div className="ViewNote">
-        {/* <div>{this.props.note.title}</div> */}
-        <div>{this.props.note.content}</div>
         <div className="note-form">
-          <Link to={`/update/${this.props.note.id}`}>Update</Link>
-          <Link to='/'>Delete</Link>
+          <Link className="note-update" to={`/update/${this.props.note.id}`}>Update</Link>
+          <button className="note-update" onClick={this.handleDelete.bind(this)}  value={this.props.note.id}>Delete</button>
         </div>
+        <h2>{this.props.note.title}</h2>
+        <p>{this.props.note.content}</p>
       </div>
     );
   }
 }
 
-export default ViewNote;
+export default withRouter(ViewNote);

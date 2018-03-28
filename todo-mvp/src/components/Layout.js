@@ -19,10 +19,14 @@ class Layout extends Component {
       title: '',
       content: '',
       id: Number(''),
+      count: 9,
     };
+
     this.createNote = this.createNote.bind(this);
-    this.updateTitle = this.updateTitle.bind(this);
-    this.updateContent = this.updateContent.bind(this);
+    this.newTitle = this.newTitle.bind(this);
+    this.newContent = this.newContent.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
+    this.updateNote = this.updateNote.bind(this);
   }
 
   componentDidMount() {
@@ -35,23 +39,55 @@ class Layout extends Component {
     const note = {};
     note.title = this.state.title;
     note.content = this.state.content;
-    note.id = this.state.notes.length + 1;
+    note.id = this.state.count;
 
     this.setState({
       notes: [...this.state.notes, note],
       title: '',
       content: '',
       id: Number(''),
+      count: this.state.count + 1,
     });
   }
 
-  updateTitle(event) {
+  deleteNote(event) {
+    event.preventDefault();
+    const newNotes = this.state.notes.filter( note => note.id !== Number(event.target.value) )
+    console.log(event.target.value, newNotes)
+    this.setState({
+      notes: newNotes,
+      title: '',
+      content: '',
+      id: Number(''),
+    })
+  }
+
+  updateNote(event) {
+    event.preventDefault();
+    console.log('in updateNote')
+    const updateNote = {};
+    updateNote.id  = event.target.value;
+    updateNote.title =  this.state.title;
+    updateNote.content = this.state.content;
+    console.log(event.target.value, typeof  event.target.value)
+    let copyNotes  = this.state.notes;
+    copyNotes.splice(event, 1, updateNote);
+
+    this.setState({
+      notes: copyNotes,
+      title: '',
+      content: '',
+      id: Number(''),
+    })
+  }
+
+  newTitle(event) {
     this.setState({
       title: event.target.value,
     });
   }
 
-  updateContent(event) {
+  newContent(event) {
     this.setState({
       content: event.target.value,
     });
@@ -68,12 +104,13 @@ class Layout extends Component {
             render={() => 
             <ListNotes notes={this.state.notes} />}
           />
+          
           <Route 
           path="/create" 
           render={() => 
           <CreateNote
-          updateTitle={this.updateTitle} 
-          updateContent={this.updateContent} 
+          newTitle={this.newTitle} 
+          newContent={this.newContent} 
           createNote={this.createNote} 
           title={this.state.title} 
           content={this.state.content} />} 
@@ -82,13 +119,21 @@ class Layout extends Component {
           <Route 
           path="/view/:id" 
           render={(props) => 
-          <ViewNote note={this.state.notes[props.match.params.id]} />} 
+          <ViewNote 
+          note={this.state.notes.filter( note => note.id  == props.match.params.id)[0]}
+          deleteNote={this.deleteNote} />} 
           />
 
           <Route
           path="/update/:id"
           render={(props) => 
-          <UpdateNote note={this.state.notes[props.match.params.id]} />} 
+          <UpdateNote 
+          note={this.state.notes.filter( note => note.id  == props.match.params.id)[0]}
+          newTitle={this.newTitle} 
+          newContent={this.newContent} 
+          updateNote={this.updateNote}
+          title={this.state.title} 
+          content={this.state.content} />} 
           />
 
         </div>

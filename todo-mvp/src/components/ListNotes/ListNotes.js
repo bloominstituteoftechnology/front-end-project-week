@@ -6,20 +6,18 @@ import "./ListNotes.css";
 class ListNotes extends Component {
   render(props) {
     return (
-      <div><h2>Your Notes: </h2>
         <div className="ListNotes">
           {this.props.notes.map(note => (
-                <div className="card-body" key={note.id}>
-                  <div className="card-title">
-                    <Link className = "card-link" to={`/view/${note.id}`}>
-                    {note.id} - {note.title}
-                    </Link>
-                  </div>
-                    <div className="card-text">{note.content}</div>
-                </div>
+            <div className="card-body" key={note.id}>
+              <div className="card-title">
+                <Link className = "card-link" to={`/view/${note.id}`}>
+                  {note.id} - {note.title}
+                </Link>
+              </div>
+                <div className="card-text">{note.content}</div>
+              </div>
           ))}
         </div>
-      </div>
     );
   }
 }

@@ -1,10 +1,17 @@
 .ViewNote {
   display: flex;
+  flex-direction: column;
   border: 2px green solid;
-  height: 100vh;
 }
 
 .note-form {
   border: 2px red solid;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-update {
+  margin-left: 10px;
+  margin-right: 10px;
 }
