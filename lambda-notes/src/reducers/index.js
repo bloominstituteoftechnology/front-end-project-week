@@ -38,12 +38,11 @@ export const noteReducer = (state = initialState, action) => {
       }),
     };
     case DELETE_NOTE:
-    return {
-      ...state,
+    return {...state,
       // filter returns an array with only the notes that do not
       // match action.id - the currently viewed note.
       notes: state.notes.filter(note => note.id !== action.id)
-    };
+    }
     default:
       return state; 
   }

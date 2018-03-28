@@ -28,18 +28,7 @@ class App extends Component {
                     <div className="container">
                     <Route path='/' component={List} exact/>
                     <Route path='/create-new-note' component={CreateNewNote} />
-
-                    {/* Notice that I am passing props a different way here.
-                    See https://tylermcginnis.com/react-router-pass-props-to-components/ */}
-                    <Route path='/single-note-view/:id' component={SingleNoteView} 
-                        render={() => 
-                            <SingleNoteView 
-                                note={this.props.notes[this.props.id - 1]} 
-                                toggleModal={this.props.toggleModal} 
-                                deleteNote={this.props.deleteNote} 
-                            />
-                        } 
-                    />
+                    <Route path='/single-note-view/:id' component={SingleNoteView}/>
                     <Route path='/edit-note/:id' component={EditNote} />
                     </div>
                 </Router>

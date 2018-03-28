@@ -32,16 +32,14 @@ const StyledNewNoteForm = styled.div`
     margin-left: 5%;
     width: 150px;
   }
-
-
-
 `;
 
 
 class NewNoteForm extends React.Component {
     state = {
       title: '',
-      text: ''
+      text: '',
+      id: this.props.notes.length + 1,
     }
   
     handleSubmit = (event) => {
@@ -49,9 +47,6 @@ class NewNoteForm extends React.Component {
       console.log('addNote FIRED')
       this.props.addNote({
         ...this.state,
-        // title: this.state.title,
-        // text: this.state.text,
-        // id: this.props.notes.length,
       })
       this.setState({
         title: '',

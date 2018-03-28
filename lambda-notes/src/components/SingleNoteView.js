@@ -68,8 +68,16 @@ class SingleNoteView extends React.Component {
                     <a className="delete-link" onClick={() => this.toggleModal()}>delete</a>
                 </div>
                 <div className="card-body" key={this.props.match.params.id}>
-                    <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
-                    <CardText className="card-text">{this.props.notes[this.props.match.params.id - 1].text}</CardText>
+                    {/* Since you made the SingleNoteView's functionality dependent on a sequential id
+                    system, using v4 will break the single note view unless this is changed.  Regardless,
+                    getting the notes data in this way presents a lot of problems when trying to implement
+                    delete functionality */}
+                    {/* <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
+                    <CardText className="card-text">{this.props.notes[this.props.match.params.id - 1].text}</CardText> */}
+                    
+                    <h2 className="card-title">{this.props.notes.find(note => note.id === Number(this.props.match.params.id)).title}</h2>
+                    <CardText className="card-text">{this.props.notes.find(note => note.id === Number(this.props.match.params.id)).text}</CardText>
+                    
                 </div>
             </StyledNote >
         )

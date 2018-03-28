@@ -13,6 +13,7 @@ const StyledCreateNewNote = styled.div`
 `;
 
 const CreateNewNote = () => {
+    // console.log('this.props.id from App', this.props.id)
     return (
       <StyledCreateNewNote>
         <HomeLeftPanel />
