@@ -1,0 +1,43 @@
+h1{
+  font-family:"Roboto Bold";
+  color:#4A4A4A;
+  margin-top:0;
+  font-weight:bold;
+}
+.side-bar-two{
+  background:#D8D8D8;
+  height:1500px;
+}
+#header{
+  text-align:left;
+  margin-top:50px;
+  margin-left:0;
+  margin-bottom:30px;
+}
+.notePanel{
+  height:200px;
+  width:80%;
+}
+.main-two{
+  background:#F3F3F3;
+  height:1500px;
+  padding-left:2%;
+}
+.show-grid{
+  margin:0;
+  padding:0;
+}
+.grid{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.col{
+  margin:0;
+  padding:0;
+}
+.btn{
+  background:#2BC1C4;
+  margin-bottom:20px;
+  color:white;
+}

@@ -1,0 +1,45 @@
+.content{
+  border:none;
+  text-align:justify;
+}
+
+h1{
+  font-family:"Roboto Bold";
+  color:#4A4A4A;
+}
+
+.side{
+  background-color:#D8D8D8;
+  height:1500px;
+}
+#mainHeader{
+  text-align:left;
+  margin-left:10%;
+}
+.notePanel{
+  background:#F3F3F3;
+  border:none;
+  height:200px;
+  width:80%;
+}
+.main{
+  height:1500px;
+  padding-left:2%;
+}
+.show-grid{
+  background:#F3F3F3;
+  margin:0;
+  padding:0;
+}
+#note{
+  margin-bottom:30px;
+}
+.grid{
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.col{
+  margin:0;
+  padding:0;
+}
