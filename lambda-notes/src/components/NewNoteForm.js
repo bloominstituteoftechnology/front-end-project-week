@@ -9,30 +9,42 @@ const StyledNewNoteForm = styled.div`
   display: flex;
   flex-wrap: wrap;
   background: whitesmoke;
-  width: 70%;
+  width: 73%;
   font-family: Roboto;
+
+  form {
+    margin-top: 51px;
+  }
+
+  .form-header {
+    font-weight: bold;
+    margin-left: 33px;
+  }
 
   .title {
     height: 40px;
-    width: 60%;
-    margin-top: 20px;
-    margin-left: 5%;
+    width: 58%;
+    margin-top: 14px;
+    margin-left: 33px;
     margin-bottom: 10px;
     padding: 5px;
   }
 
   .text {
     width: 90%;
-    height: 300px;
-    margin-left: 5%;
+    height: 347px;
+    margin-top: 6px;
+    margin-left: 33px;
     padding: 5px;
     font-family: 'Raleway', regular;
   }
 
   button {
     background: #2bc1c4;
-    margin-left: 5%;
-    width: 150px;
+    margin-top: 2px;
+    margin-left: 33px;
+    width: 192px;
+    height: 44px;
     font-size: 16px;
   }
 `;
@@ -70,7 +82,7 @@ class NewNoteForm extends React.Component {
     return (
       <StyledNewNoteForm>
         <form>
-          <div>Create New Note:</div>
+          <div className="form-header">Create New Note:</div>
           <input
             required
             className="title"

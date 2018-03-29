@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { deleteNote } from "../actions";
 
 const StyledNoteList = styled.div`
-  width: 80%;
+  width: 73%;
   background: whitesmoke;
   font-family: Roboto;
   height: 700px;

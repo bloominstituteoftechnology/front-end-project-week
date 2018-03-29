@@ -8,7 +8,7 @@ const StyledEditNote = styled.div`
     height: 700px;
 
     .update-note__right {
-      width: 100%;
+      width: 73%;
     }
 `;
 

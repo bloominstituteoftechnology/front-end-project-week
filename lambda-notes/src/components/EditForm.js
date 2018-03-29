@@ -15,7 +15,7 @@ const StyledEditForm = styled.div`
 
   h6 {
     margin-top: 20px;
-    margin-left: 5%;
+    margin-left: 6.5%;
     font-weight: bold;
   }
 
