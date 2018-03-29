@@ -6,6 +6,7 @@ import { Card, CardBody, CardTitle, CardText, Row, Col} from 'reactstrap';
 import { Fragment } from 'react';
 import SingleNoteView from './SingleNoteView';
 import { Link } from 'react-router-dom';
+import {deleteNote} from '../actions';
 
 
 const StyledNoteList = styled.div`
@@ -22,6 +23,16 @@ const StyledNoteList = styled.div`
         width: 20%;
     }
 
+    .notes-empty {
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-top: 50px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2bc1c4;
+    }
+
     .note-list__right {
     }
 
@@ -32,6 +43,17 @@ const StyledNoteList = styled.div`
 
     .card {
         width: 100%;
+
+        
+    }
+
+    .quick-delete {
+        margin: none;
+        padding: none;
+        position: absolute;
+        margin-left: 60%;
+        margin-top: 85%;
+        z-index: 5;
     }
 
     .card-title {
@@ -51,27 +73,30 @@ const StyledNoteList = styled.div`
 `;
 
 class NoteList extends Component {
+    emptynotes = true;
 
     render() {
-        console.log('NoteList this.props', this.props)
         return (
         <StyledNoteList>
-        <div className="note-list__header"> Your Notes: </div>
+        {this.props.notes.length === 0 ? (
+          <div className="notes-empty">You don't have any notes yet, click "Create New Note" to add one!</div>
+        ) 
+        : <div className="note-list__header"> Your Notes: </div>}
         <div className="note-list__right">
         <Row className="row d-flex flex-wrap">        
             {this.props.notes.map(note => {
                 return (
                     <Col sm="4" className="mb-3" key={note.id}>
-                    <div>
                         <Link  className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
                         <Card>
                             <CardBody className="card" key={note.id}>
+                            {/* Tried to place a quick-delete here, but couldn't figure it out
+                            <button className="quick-delete" onClick={this.props.deleteNote}><b>x</b></button> */}
                                 <CardTitle className="card-title"><b>{note.title.length > 16 ? `${note.title.substring(0, 15)}...` : note.title}</b></CardTitle>
                                 <CardText className="card-text">{note.text.length > 30 ? `${note.text.substring(0, 29)}...` : note.text}</CardText>
                             </CardBody>
                         </Card>
                         </Link>
-                        </div>
                     </Col>
                     
                 );
@@ -85,8 +110,9 @@ class NoteList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        notes: state.notes
+        notes: state.notes,
+        // emptynotes: state.emptynotes
     };
 };
 
-export default connect(mapStateToProps, {})(NoteList)
+export default connect(mapStateToProps, { deleteNote })(NoteList)

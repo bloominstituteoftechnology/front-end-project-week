@@ -24,7 +24,8 @@ const CreateNewNote = () => {
 
 const mapStateToProp = (state) => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    emptynotes: state.emptynotes
   }
 }
 

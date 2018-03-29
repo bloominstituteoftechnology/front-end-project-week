@@ -3,7 +3,8 @@ import dummyData from '../dummyData';
 
 const initialState = {
   notes: [...dummyData],
-  modal: false
+  modal: false,
+  emptynotes: true,
 }
 
 export const noteReducer = (state = initialState, action) => {
