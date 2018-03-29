@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 import './CreateNote.css';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
@@ -7,7 +8,8 @@ import { Form, FormGroup, Input, Button } from 'reactstrap';
 export default class CreateNote extends Component {
   state = {
     title: '',
-    content: ''
+    content: '',
+    fireRedirect: false
   };
 
   handleChange = e => {
@@ -24,6 +26,7 @@ export default class CreateNote extends Component {
       })
       .then(response => {
         this.setState({ title: '', content: '' });
+        this.setState({ fireRedirect: true });
       })
       .catch(error => {
         console.log(`There was an error adding a new note: ${error}`);
@@ -31,6 +34,9 @@ export default class CreateNote extends Component {
   };
 
   render() {
+    const { from } = this.props.location.state || '/';
+    const { fireRedirect } = this.state;
+
     return (
       <div>
         <h4 className="heading">Create New Note:</h4>
@@ -60,6 +66,7 @@ export default class CreateNote extends Component {
             Save
           </Button>
         </Form>
+        {fireRedirect && <Redirect to={from || '/'} />}
       </div>
     );
   }

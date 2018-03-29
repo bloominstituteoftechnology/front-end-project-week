@@ -4,10 +4,12 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 
-export default class EditeNote extends Component {
+export default class EditNote extends Component {
   state = {
+    notes: [],
     title: '',
-    content: ''
+    content: '',
+    id: ''
   };
 
   handleChange = e => {
@@ -21,11 +23,13 @@ export default class EditeNote extends Component {
     const id = this.props.match.params.id;
 
     axios
+
       .put(`http://localhost:5000/notes/${id}`, {
         title: this.state.title,
         content: this.state.content
       })
       .then(response => {
+        console.log('check check');
         this.setState({ title: '', content: '' });
       })
       .catch(error => {
