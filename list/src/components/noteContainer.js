@@ -14,8 +14,8 @@ export const NoteContainer = props => {
       <div className="cardContainer">
         {props.notes.map(note => {
           return (
-            <Link className="noteLink" to={`/viewnote/${note.id}`}>
-              <div key={note.id} className="noteCard">
+            <Link key={note.id} className="noteLink" to={`/viewnote/${note.id}`}>
+              <div className="noteCard">
                 <h4 className="noteTitle">{note.title}</h4>
                 <div className="noteContent">{contentChecker(note)}</div>
               </div>

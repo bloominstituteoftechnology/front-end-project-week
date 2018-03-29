@@ -53,6 +53,13 @@ class App extends Component {
     });
   };
 
+  editNote = id => {
+    const {notes, newNote} = this.state
+    console.log(this.state)
+    const newArr = notes.map(note => note.id === id ? newNote: note  )
+    this.setState({ notes: newArr })
+  };
+
   noteContainer = props => {
     return <NoteContainer notes={this.state.notes} {...props} />
   }
@@ -66,13 +73,14 @@ class App extends Component {
     return <ViewNote notes={filteredNotes[0]} />
   }
 
+
   editNoteView = props => {
     const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id  )
-    return <EditNote note={filteredNotes[0]} />
+    return <EditNote note={filteredNotes[0]} handleChange={this.handleChange} editNote={this.editNote} {...props} {...this.state}/>
   }
 
+
   deleteNote = props => {
-    const notesList = this.state.notes;
   }
 
   render() {
