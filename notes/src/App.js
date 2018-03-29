@@ -17,7 +17,7 @@ class App extends Component {
       //   <Sidebar />
       //   <Notes />
       // </div>
-      <Container>
+      <Container className="container">
         <Row>
           <Col className="sideCol">
             <Sidebar />

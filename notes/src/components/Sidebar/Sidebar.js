@@ -14,12 +14,12 @@ class Sidebar extends Component {
         <div className="SidebarButtons">
           <Row className="buttonRow1">
             <Link to={"/"}>
-              <Button color="primary" className="Button1"> View Your Notes </Button>
+              <Button color="primary" className="ButtonSide"> View Your Notes </Button>
             </Link>
           </Row>
           <Row classname="buttonRow2">
             <Link to={"/CreateNew"}>
-              <Button color="primary" className="Button2"> + Create New Note </Button>{' '}
+              <Button color="primary" className="ButtonSide"> + Create New Note </Button>{' '}
             </Link>
           </Row>
         </div>

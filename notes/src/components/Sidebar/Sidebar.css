@@ -1,6 +1,11 @@
+.SidebarButtons .buttonRow1 {
+  background: #D8D8D8;
+}
+
 .SidebarText {
   padding-bottom: 30px;
   font-size: 2rem;
+  background: #D8D8D8;
 }
 
 .SidebarButtons .buttonRow1 {
@@ -11,10 +16,8 @@
   padding-top: 0px;
 }
 
-.SidebarButtons .Button1 {
+.SidebarButtons .ButtonSide {
   padding: 15px;
-}
-
-.SidebarButtons .Button2 {
-  padding: 15px;
+  width: 165px;
+  background: #2BC1C4;
 }
