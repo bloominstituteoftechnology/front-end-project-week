@@ -3,26 +3,27 @@ import "./App.css";
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
+import Login from "./components/Login";
 import { Row, Col, Container, Button } from "reactstrap";
 import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
+import { firebaseAuth } from "./utilities/auth";
 
-const auth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    setTimeout(cb, 100);
-  },
-  signout(cb) {
-    this.isAuthenticated = false;
-    setTimeout(cb, 100);
-  }
-};
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      this.authed === true ? <Component {...props} /> : <Redirect to="/login" />
+    }
+  />
+);
 
-const routes = [
-  {
-    path: "/public"
-  },
+const privateRoutes = [
   {
     path: "/",
     exact: true,
@@ -45,6 +46,24 @@ const routes = [
 ];
 
 class App extends Component {
+  state = {
+    authed: false
+  };
+
+  componentDidMount() {
+    this.removeListener = firebaseAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          authed: true
+        });
+      } else {
+        this.setState({
+          authed: false
+        });
+      }
+    });
+  }
+
   render() {
     document.body.style.background = "#f3f3f3";
 
@@ -62,24 +81,22 @@ class App extends Component {
               <Link to="/createNote">
                 <Button className="w-100 my-3 p-2">+ Create Note </Button>
               </Link>
-              {/* {routes.map((route, index) => (
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  component={route.sidebar}
-                />
-              ))} */}
             </Col>
             <Col sm={6} md={9} className="rightSide">
-              {routes.map((route, index) => (
-                <Route
+              {privateRoutes.map((route, index) => (
+                <PrivateRoute
+                  authed={this.state.authed}
                   key={index}
                   path={route.path}
                   exact={route.exact}
                   component={route.main}
                 />
               ))}
+              <Route
+                path="/login"
+                authed={this.state.authed}
+                component={Login}
+              />
             </Col>
           </Row>
         </Container>
