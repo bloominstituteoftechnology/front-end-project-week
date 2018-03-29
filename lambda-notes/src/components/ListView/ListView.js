@@ -9,11 +9,6 @@ import { connect } from 'react-redux';
 import { get_notes } from '../../actions';
 
 // Styling
-import { Col,
-    Card,
-    CardBody,
-    CardHeader,
-    CardText } from "reactstrap";
 import './ListView.css';
 
 class ListView extends Component {
@@ -22,10 +17,9 @@ class ListView extends Component {
     }
     render() {
         return (
-            <Col className='pt-5'
-                style={{backgroundColor: '#f2f1f2'}}>
-                <h5>Your Notes:</h5>
-                <div className='list-container'>
+            <div className='list-view pl-4 pt-5'>
+                <h2 className='my-3 ml-2'>Your Notes:</h2>
+                <div className='list-view-notes'>
                     {this.props.notes.map(note => {
                         const notePropsAndPath = {
                             pathname: `/notes/${note.id}`,
@@ -35,22 +29,20 @@ class ListView extends Component {
                         };
                         return (
                             <Link to={notePropsAndPath} key={`${note.id} ${note.title}`}
-                                className='mt-3 mb-1'>
-                                <Card className='card'>
-                                    <CardBody className='cardbody px-3 pt-0'>
-                                        <CardHeader className='cardheader mb-1 px-0 pt-2 pb-0'>
+                                className='mx-2 my-3'>
+                                    <div className='note p-3'>
+                                        <h3>
                                             {note.title}
-                                        </CardHeader>
-                                        <CardText>
+                                        </h3>
+                                        <p className='pt-2'>
                                             {note.content}
-                                        </CardText>
-                                    </CardBody>
-                                </Card>
+                                        </p>
+                                    </div>
                             </Link>
                         );
                     })}
                 </div>
-            </Col>
+            </div>
         );
     } // end of render()
 }; // end of ListView

@@ -9,20 +9,18 @@ import ListView from './components/ListView/ListView';
 import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditNote';
 
-// Styling
-import { Container, Row } from 'reactstrap';
-
 const App = () => {
   return (
-    <Container>
-      <Row>
+    
+      <div style={{display: 'flex'}}>
           <Route path='/' component={Nav} />
           <Route exact path='/create-new-note' component={CreateNewNote} />
           <Route exact path='/' component={ListView} />
           <Route exact path='/notes/:id' component={NoteView} />
           <Route exact path='/notes/:id/edit' component={EditNote} />
-      </Row>
-    </Container>
+       </div>
+     
+
   );
 } // end of App
 

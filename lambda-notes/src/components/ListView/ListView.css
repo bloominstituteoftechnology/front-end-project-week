@@ -1,38 +1,36 @@
-.list-container {
-    background-color: #f3f3f3;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.list-view {
+    background-color: #f2f1f2;
 }
 
-.list-container a {
+.list-view h2 {
+    letter-spacing: 1px;
+}
+
+.list-view-notes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-view-notes a {
     color: black;
     background-color: white;
     border: 1px solid gray;
 }
 
-.list-container a:hover {
-    border: 1px solid blue;
-}
-
-.card {
-    border-radius: 0%;
-}
-
-.cardbody {
-    width: 175px;
-    height: 175px;
+.note {
+    width: 213px;
+    height: 217px;
     overflow: hidden;
-    font-family: Raleway;
+    font-family: 'Raleway', sans-serif;
     font-weight: 300;
     font-size: 12px;
     line-height: 1.5;
 }
 
-.cardheader {
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: 16px;
-    background-color: white;
+.note h3 {
+    border-bottom: 1px solid lightgray;
+}
 
+.note p {
+    line-height: 2;
 }

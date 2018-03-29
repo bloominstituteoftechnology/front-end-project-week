@@ -45,7 +45,7 @@ Trace:
   Exit code: 3221225786
   Command: C:\WINDOWS\system32\cmd.exe
   Arguments: /d /s /c nodemon server.js
-  Directory: c:\Users\megan_000\LambdaSchool\front-end-project-week
+  Directory: C:\Users\megan_000\LambdaSchool\front-end-project-week
   Output:
   
       at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)

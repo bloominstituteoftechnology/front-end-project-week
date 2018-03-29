@@ -1,9 +1,10 @@
-// React
+// React and Router
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // Styling
-import { Col } from "reactstrap";
-import { BUTTON } from './StyledComponents';
+import { Form, Input } from "reactstrap";
+import './EditNote.css';
 
 class EditNote extends Component {
     // state = {
@@ -12,24 +13,26 @@ class EditNote extends Component {
 
     render() {
         return (
-            <Col className='new-note'>
-                <h5>Edit Note:</h5>
-                <form className='form'>
+            <div className='editNote'>
+                <h2 className='my-3 py-3'>Edit Note:</h2>
+                <Form className='form'>
                     <div>
-                        <input placeholder='Note Title'
+                        <Input placeholder='Note Title'
                             type="text"
-                            className="form-control col-6 my-3"
+                            bsSize='lg'
+                            className="form-control col-7 my-3 py-3"
                         />
                     </div>
                     <div>
-                        <textarea placeholder="Note Content"
-                            type="text"
-                            className="form-control">
-                        </textarea>
+                        <Input placeholder="Note Content"
+                            type="textarea"
+                            style={{height: 390}}
+                            className="form-control"
+                        />
                     </div>
-                    <BUTTON to='/' className='py-2'>Save</BUTTON>
-                </form>
-            </Col>
+                    <Link to='/' className='link m-0 mt-3'>Update</Link>
+                </Form>
+            </div>
         )
     } // end render()
 } // end EditNote Class

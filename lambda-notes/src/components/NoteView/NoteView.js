@@ -6,20 +6,18 @@ import { Link } from "react-router-dom";
 import DeleteNote from "../DeleteNote";
 
 // Styling
-import { Col } from 'reactstrap';
 import './NoteView.css';
 
 const NoteView = (props) => {
-    console.log('props', props);
     return (
-        <Col className='note-view'>
-            <div className='note-actions col-1'>
-                <Link to='/notes/:id/edit' style={{color: 'black'}}>edit</Link>
-                <DeleteNote buttonLabel='Delete Note'/>
+        <div className='note-view p-4'>
+            <div className='note-actions'>
+                <Link to={`/notes/${props.match.params.id}/edit`}>edit</Link>
+                <DeleteNote className='note-delete' buttonLabel='Delete Note'/>
             </div>
-            <h5>{props.location.title}</h5>
-            <p>{props.location.content}</p>
-        </Col>
+            <h2 className='my-4'>{props.location.title}</h2>
+            <p className='pt-2'>{props.location.content}</p>
+        </div>
     )
 } // end of NoteView
 

@@ -1,8 +1,10 @@
 // React
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Styling
-import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+import './DeleteNote.css';
 
 class DeleteNote extends React.Component {
   constructor(props) {
@@ -22,15 +24,15 @@ class DeleteNote extends React.Component {
 
   render() {
     return (
-      <div>
-        <Button onClick={this.toggle}>{this.props.buttonLabel}</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+      <div >
+        <button onClick={this.toggle} className='link-secondary mx-2'>delete</button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             Are you sure you want to delete this?
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Delete</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>No</Button>
+            <Link to='/' className='link' style={{backgroundColor: 'red'}} onClick={this.toggle}>Delete</Link>
+            <button className='link' onClick={this.toggle}>No</button>
           </ModalFooter>
         </Modal>
       </div>

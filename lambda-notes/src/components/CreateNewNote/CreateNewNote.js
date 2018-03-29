@@ -1,9 +1,10 @@
 // React and Router
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 // Styling
-import { Col } from 'reactstrap';
-import { BUTTON } from '../StyledComponents'
+import { Form, Input } from 'reactstrap';
+import './CreateNewNote.css';
 
 class CreateNewNote extends Component {
     // state = {
@@ -12,25 +13,26 @@ class CreateNewNote extends Component {
 
     render() {
         return (
-            <Col style={{backgroundColor: '#f3f3f3'}} className='px-4'>
-                <h5 className='pt-5'>Create New Note:</h5>
-                <form>
+            <div className='newNote'>
+                <h2 className='my-3 py-3'>Create New Note:</h2>
+                <Form>
                     <div>
-                        <input placeholder='Note Title'
+                        <Input placeholder='Note Title'
                             type='text'
-                            className='form-control col-7 mt-4 py-2'
+                            bsSize='lg'
+                            className='form-control col-7 my-3 py-3'
                         />
                     </div>
                     <div>
-                        <textarea placeholder='Note Content'
-                            type='text'
-                            className='form-control col-12 mt-3'
-                            style={{height: 310}}>
-                        </textarea>
+                        <Input placeholder='Note Content'
+                            type='textarea'
+                            className='form-control mt-3'
+                            style={{height: 390}}
+                        />
                     </div>
-                    <BUTTON to='/' className='col-4 mt-3 py-2'>Save</BUTTON>
-                </form>
-            </Col>
+                    <Link to='/' className='link m-0 mt-3'>Save</Link>
+                </Form>
+            </div>
         )
     } // end render()
 } // end CreateNewNote Class

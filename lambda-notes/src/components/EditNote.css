@@ -1,0 +1,18 @@
+.editNote {
+    width: 100%;
+    padding: 2rem;
+    background-color: #f3f3f3;
+}
+
+.form a:hover {
+    text-decoration: none;
+    border: 1px solid #2BC1C4;
+    background-color: white;
+    color: #2BC1C4;
+}
+
+.form-control {
+    font-size: 14px;
+    color: black;
+    border-radius: 0%;
+}

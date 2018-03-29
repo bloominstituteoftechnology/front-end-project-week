@@ -1,10 +1,26 @@
 .note-view {
     background-color: #f3f3f3;
-    padding: 0px 20px;
+}
+
+.note-view p {
+    line-height: 1.8;
 }
 
 .note-actions {
     display: flex;
     justify-content: flex-end;
-    font-size: 13px;
+    font-size: 15px;
+}
+
+.note-actions a {
+    text-decoration: underline;
+}
+
+.note-actions a:hover {
+    color: #2BC1C4;
+}
+
+.note-delete {
+    display: inline-block;
+    width: 0;
 }
