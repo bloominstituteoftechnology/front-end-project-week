@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
 
 class FullNote extends Component {
   state = {
@@ -21,13 +22,16 @@ class FullNote extends Component {
       view: getNote
     });
   }
+
   render() {
     // const { id, title, text } = this.state.note;
     console.log(this.props.notes);
     return (
       <div>
-        <div>edit</div>
-        <div>delete</div>
+        <Link to="/editNote">
+          <button>edit</button>
+        </Link>
+        <DeleteModal />
         <div>
           {this.state.view.map((note, i) => {
             return (

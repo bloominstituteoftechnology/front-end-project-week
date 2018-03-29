@@ -8,7 +8,12 @@
   width: 25%;
   margin: 12px;
   border: 1px solid gray;
+
   /*box-shadow: 0 1px 4px gray;*/
+}
+.note-text {
+  padding: 10px;
+  text-decoration: none;
 }
 .note h3 {
   padding: 0;
@@ -25,7 +30,6 @@
 }
 .sidebar {
   background-color: #d8d8d8;
-  width: 30%;
 }
 .note-button {
   border: 1px solid gray;
