@@ -1,3 +1,11 @@
+import React, { Component } from 'react';
+
+let nextId = 10;
+
+function getNextId() {
+    return nextId++;
+};
+
 let notes = [
     {
         id: 1,
@@ -48,14 +56,10 @@ let notes = [
 
 
 
-let nextId = 10;
 
 export default notes;
 export const getNotes = () => notes;
 export const addNote = notes => {
-    return notes;
+    return getNextId;
 };
 
-const getNextId = () => {
-    return nextId++;
-};

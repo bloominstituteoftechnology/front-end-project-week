@@ -14,8 +14,9 @@ class Sidebar extends Component {
                         <button className="sidebutton"><b>+ Create New Note</b></button>
                     </Link>
             </div>
-        )
+        );
     }
-}
+    
+};
 
 export default Sidebar;

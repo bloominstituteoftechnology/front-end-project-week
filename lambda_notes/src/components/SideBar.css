@@ -1,6 +1,6 @@
 /*Sidebar*/
 .Menu {
-    height: 100vh;
+    height: 120vh;
     width: 28.6%;
     background: lightgrey;
     float: left;
@@ -21,8 +21,9 @@
   
   h1 {
     color: rgb(51, 51, 51);
-    margin-bottom: 5%;
+    
   }
+ 
 .sidebutton {
     background: teal;
     color: white;
