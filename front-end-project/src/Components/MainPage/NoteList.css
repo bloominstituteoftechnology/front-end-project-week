@@ -33,7 +33,7 @@
 }
 
 .noteList__box-title {
-  font-size: 40px;
+  font-size: 15x;
   font-weight: bold;
   border-bottom: 2px solid #B2B2B2;
   padding-bottom: 9px;
@@ -44,7 +44,7 @@
 }
 
 .noteList__box-content {
-  font-size: 30px;
+  font-size: 15px;
   max-height: 305px;
   overflow: hidden;
   word-break: break-word;

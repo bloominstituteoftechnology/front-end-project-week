@@ -4,14 +4,14 @@
 }
 
 .note__title {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: -3px;
-  padding-left: 26px;
-  width: 56%;
-  height: 82px;
-  border: 3px solid #BEBEBE;
+  padding-left: 15px;
+  width: 75%;
+  height: 42px;
+  border: 1px solid #BEBEBE;
   border-radius: 2%;
-  font-size: 26px;
+  font-size: 12px;
 }
 
 .note__content {
@@ -19,21 +19,22 @@
   width: 95%;
   height: 420px;
   margin-top: 30px;
-  border: 3px solid #BEBEBE;
+  border: 1px solid #BEBEBE;
   border-radius: 1%;
-  padding: 40px 0 0 45px;
-  font-size: 26px;
+  padding: 15px 0 0 15px;
+  font-size: 12px;
 }
 
 .note__button {
-  width: 100%;
+  width: 40%;
   max-width: 409px;
-  height: 90px;
+  height: 50px;
   margin-top: 30px;
   background: #2AC0C4;
   border: 2px solid #BEBEBE;
-  font-size: 32px;
-  color: white;  
+  font-size: 15px;
+  color: white;
+  font-weight: bold;  
 }
 
 .note__button:hover {
