@@ -12,7 +12,7 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let nextId = 10;
+let nextId = 0;
 
 const getNextId = () => {
   return ++nextId;

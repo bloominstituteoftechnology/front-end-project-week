@@ -1,0 +1,16 @@
+.card {
+  color: #212529;
+}
+
+.notes {
+  text-align: left;
+}
+
+.title {
+  border-bottom: 1px solid gray;
+}
+
+.content {
+  max-height: 150px;
+  overflow: hidden;
+}

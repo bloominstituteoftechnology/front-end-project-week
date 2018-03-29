@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Container, Row, Form, FormGroup, Input, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addNote } from './notesActions';
 import { withRouter } from 'react-router-dom';
