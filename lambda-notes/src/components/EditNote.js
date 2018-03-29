@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 
+
+
 class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editTitle: '',
-            editDescription: '',
+            editTitle: [],
+            editDescription: [],
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount() {
+        this.setState(  )
+    }
     handleSubmit = event => {
         event.preventDefault();
         
@@ -29,24 +34,28 @@ class EditNote extends Component {
     }
 
     render() {
+        
+        const {title, description} = this.props.note
+
         return (
             <div className="EditNoteContainer">
 
-                <h7 className="EditHeader">Edit Note:</h7>
+
+                <header className="EditHeader">Edit Note:</header>
 
                 <form className="EditTitleContainer">
 
                     <input 
                         type="text" 
                         name="editTitle" 
-                        placeholder={this.state.editTitle} 
+                        defaultValue={`${title}`} 
                         onChange={this.handleChange} 
                         onSubmit={this.handleSubmit} 
                     />
                     <input 
                         type="text"
                         name="editDescription"
-                        placeholder={this.state.editDescription}
+                        defaultValue={`${description}`}
                         onChange={this.handleChange}
                         onSubmit={this.handleSubmit}
                     />

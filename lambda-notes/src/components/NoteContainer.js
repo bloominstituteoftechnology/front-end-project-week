@@ -26,17 +26,16 @@ class NoteContainer extends Component {
             <div className="NoteContainer">
 
               
-                  <Link to={`/notes/${id}/EditNote`}>edit</Link>  
+                  <Link className="EditLink" to={`/EditNote/${id}`}>edit</Link>  
                 
+                <Link className="DeleteLink" to={`/DeleteNote/${id}`} onclick={this.toggle}>delete</Link>
 
-                <div className="DeleteNoteLink" onClick={this.toggle}>
-                    delete
-                </div>
 
                 <Modal 
                     isOpen={this.state.modal} 
                     toggle={this.toggle}
                     className="delete">
+                    centered
 
                         <ModalHeader toggle={this.toggle}>Are you surre you want to delete this?</ModalHeader>
 
