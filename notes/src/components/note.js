@@ -75,7 +75,7 @@ class Note extends React.Component {
         );
     }
   
-    componentDidMount() {
+    componentWillMount() {
         const id = this.props.match.params.id;
         const notes = this.props.notes;
         const note = notes.find(note => (note.id).toString() === id.toString())
