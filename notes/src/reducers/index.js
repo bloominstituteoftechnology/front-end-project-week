@@ -54,7 +54,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'addNote':
-      return { ...state, notes: [...state.notes, action.note], nextid: state.nextid++ };
+      return { ...state, notes: [...state.notes, action.note], nextid: state.nextid + 1 };
     case 'editNote':
       return { ...state, notes: state.notes.map(obj => obj.id === action.note.id ? obj = action.note : obj) };
     case 'deleteNote':

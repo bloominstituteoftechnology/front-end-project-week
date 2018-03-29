@@ -5,7 +5,6 @@ import './ListView.css';
 
 const ListView = (state) => (
   <div className="listContainer">
-    {console.log(state.noteData)}
     <h2 className="listHeader">Your Notes:</h2>
     <div className="listBody">
         {state.noteData.notes.map((note) =>
