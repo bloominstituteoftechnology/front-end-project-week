@@ -4,6 +4,7 @@ import Buttons  from './Buttons';
 import './NewNote.css';
 import './Buttons.css';
 import Notes from './Notes';
+import { Fade } from 'reactstrap';
 
 class NewNote extends React.Component {  
   constructor(props) {
@@ -13,9 +14,13 @@ class NewNote extends React.Component {
       title: '',
       text: ''
     };
+    this.state = { fadeIn: false };
+    this.toggle = this.toggle.bind(this);
+
     this.handleAddTodoItem = this.handleAddTodoItem.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -32,6 +37,12 @@ class NewNote extends React.Component {
       text: ''
     }    
     )
+  }
+
+  toggle() {
+    this.setState({
+        fadeIn: !this.state.fadeIn
+    });
   }
 
   componentDidMount() {
@@ -54,7 +65,10 @@ class NewNote extends React.Component {
                           <form className="Form" onSubmit={this.handleAddTodoItem} >
                             <input name="title" onChange={this.handleChange} className="noteTitle" type="text" placeholder="Note Title" /><br />
                               <p><textarea name="text" onChange={this.handleChange}  className="noteContent" cols="60" rows="10" placeholder="Note Content"></textarea></p>
-                                <Button type="submit" className="BTN btn btn-info">Save</Button>
+                              <Fade in={this.state.fadeIn} tag="h6" className="faded mt-2">
+                                  Your Note Has Been Created
+                              </Fade>
+                                <Button onClick={this.toggle} type="submit" className="BTN btn btn-info">Save</Button>
                           </form>  
                       </div>  
              </div>

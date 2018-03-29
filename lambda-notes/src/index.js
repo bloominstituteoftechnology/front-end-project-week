@@ -13,7 +13,7 @@ ReactDOM.render(
     <div>
     <Route exact path="/" component={ App } />
     <Route path="/New" component={ NewNote } />
-    <Route path="/Save" component={ SaveNote } />
+    <Route path="/Save/:id" component={ SaveNote } />
     <Route path="/Edit" component={ EditNote } />
     </div>
 </Router>, 
