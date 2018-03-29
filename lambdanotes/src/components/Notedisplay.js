@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Card, CardTitle, CardText, CardBody } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Card, CardTitle, CardText, CardBody } from 'reactstrap';
+//import { Link } from 'react-router-dom';
 import '../styling/notedisplay.css';
 
 class Notesdisplay extends Component {

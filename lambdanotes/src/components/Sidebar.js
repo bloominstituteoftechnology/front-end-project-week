@@ -9,10 +9,10 @@ class Sidebar extends Component {
         <div className= 'sidebar'>
             <h1 className= 'lambdanotes'>Lamba<br></br>Notes</h1>
             <Link to= '/' style={{ textDecoration: 'none' }}>
-                <Button classname= 'sidebarbut'>View Your Notes</Button>
+                <Button className= 'sidebarbut'>View Your Notes</Button>
             </Link>
             <Link to= '/createnote' style={{ textDecoration: 'none' }}>
-                <Button classname= 'sidebarbut2'>+ Create New Note</Button>
+                <Button className= 'sidebarbut2'>+ Create New Note</Button>
             </Link>
         </div>
         )
