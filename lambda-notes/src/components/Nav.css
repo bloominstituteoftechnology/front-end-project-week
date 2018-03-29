@@ -1,5 +1,5 @@
 .NavBar {
-  width: 100%;
+  max-width: 100%;
   background: #D8D8D8;
 }
 .NavBar__title { 
@@ -7,11 +7,12 @@
   font-weight: bold;
   opacity: .85;
 }
-.item {
+/* .item {
   background-color: #2BC1C4;
 
-}
+} */
 .navButton {
-  min-width: 210px;
+
+  /* width: 100%; */
   background: #2BC1C4;
 }

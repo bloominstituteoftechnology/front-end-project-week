@@ -1,0 +1,8 @@
+.newNote {
+  background: #F3F3F3;
+}
+
+.newNote__title {
+  font-weight: bold;
+  opacity: .8;
+}

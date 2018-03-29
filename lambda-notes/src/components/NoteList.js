@@ -11,8 +11,9 @@ class NoteList extends Component {
   componentDidMount() {
     this.setState({ notes: this.props.notes })
   }
-
+  
   render() {
+    console.log('state', this.state)
     return (
       <Col xs='9' className='list'>
         <h4 className='list__title d-flex flex-start mt-5 mb-4 ml-3'>Your Notes:</h4>
@@ -31,7 +32,7 @@ class NoteList extends Component {
               <Card className='card mb-3 mx-2'>
                 <CardBody className='body'>
                   <CardTitle className='ctitle border-bottom pb-2'>{ note.title }</CardTitle>
-                  <CardText className='text'>{ note.body }</CardText>
+                  <CardText className='text'>{ note.content }</CardText>
                 </CardBody>
               </Card>
               </Link>
