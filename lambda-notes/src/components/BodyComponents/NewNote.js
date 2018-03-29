@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Form, Button } from "reactstrap";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { addNote } from "../../actions/newNote";
+import { newNote } from "../../actions/newNote";
 // import { withRouter } from "react-router-dom";
 
 class NewNote extends Component {
@@ -65,7 +65,7 @@ class NewNote extends Component {
     //   title: this.state.note.title,
     //   body: this.state.note.body
     // };
-    this.props.addNote(this.state.note);
+    this.props.newNote(this.state.note);
 
     this.setState({
       note: {
@@ -77,4 +77,4 @@ class NewNote extends Component {
   };
 }
 
-export default connect(null, { addNote })(NewNote);
+export default connect(null, { newNote })(NewNote);
