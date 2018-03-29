@@ -47,7 +47,9 @@ class Edit extends Component{
                 <Button className="btn">View Your Notes</Button>
               </Link>
               <br/>
-              <Button className="btn">+ Create New Note</Button>
+              <Link to={'/create'}>
+                <Button className="btn">+ Create New Note</Button>
+              </Link>
             </div>
           </Col>
           <Col xs={9} md={9} lg={9} className="col">
