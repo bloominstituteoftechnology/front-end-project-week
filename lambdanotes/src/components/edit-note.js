@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, Input } from 'reactstrap';
-import './create-note.css'
+import './edit-note.css'
 
-class CreateNote extends Component {
+class EditOldNote extends Component {
   state = {
-    title: '',
-    text: '',
+    title: this.props.location.state.default.title,
+    text: this.props.location.state.default.text,
     tags: [],
     showTag: false
   };
@@ -16,7 +16,7 @@ class CreateNote extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.add(this.state);
+    this.props.edit(this.state, this.props.match.params.id);
     this.setState({ title: '', text: '' });
     this.props.history.push('/');
   };
@@ -28,8 +28,8 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <div className="add-note-bg">
-        <h4 className="note-title">Create New Note:</h4>
+      <div className="edit-note">
+        <h4 className="note-title">Edit Note:</h4>
         <FormGroup>
           <Input
             className="title-text"
@@ -40,7 +40,7 @@ class CreateNote extends Component {
             value={this.state.title}
           />
           <Input
-            className="title-text"
+            className="content-text"
             type="textarea"
             name="text"
             placeholder="Note Content"
@@ -48,7 +48,7 @@ class CreateNote extends Component {
             value={this.state.text}
           />
         </FormGroup>
-        <div className="addnote-button">
+        <div className="edit-add-note">
           <Button className="save-button" onClick={this.handleSubmit}>
             Save
           </Button>
@@ -58,4 +58,4 @@ class CreateNote extends Component {
   }
 }
 
-export default CreateNote;
+export default EditOldNote;

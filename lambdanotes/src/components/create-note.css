@@ -1,0 +1,32 @@
+.note-title {
+  text-align: left;
+  margin: 3.8% 3% 2% 3%;
+  font-size: 26px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.add-note-bg {
+  width: 100%;
+  background-color: #f4f4f4;
+  height: 1000px;
+}
+
+textarea {
+    height: 250px;
+}
+
+.addnote-button {
+  display: flex;
+}
+
+.save-button {
+  background-color: #2bc1c4;
+  height: 50px;
+  width: 20%;
+  min-width: 80px;
+  font-weight: bold;
+  color: white;
+  margin-left: 3%;
+  border: 1px solid rgb(150, 150, 150);
+}

@@ -1,0 +1,51 @@
+a {
+    color: black;
+  }
+  
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .a-note {
+    width: 100%;
+    background-color: #f4f4f4;
+    min-height: 700px;
+  }
+  
+  .listofnotes {
+    width: 100%;
+    background-color: #f4f4f4;
+    min-height: 1000px;
+  }
+  
+  .your-notes {
+    text-align: left;
+    margin: 9% 3% 2% 3%;
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+
+  div.card {
+      width: 200px;
+      height: 200px;
+      text-align: left;
+  }
+
+  .note {
+    flex: 3 0 100%;
+    max-width: 200px;
+    margin: 25px;
+  }
+
+  .notes {
+    width: 100%;
+    padding: 0 3%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  h3, h6 {
+      margin-left: 5%;
+      margin-top: 2%;
+  }
