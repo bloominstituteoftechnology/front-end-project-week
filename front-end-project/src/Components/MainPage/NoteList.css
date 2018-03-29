@@ -3,7 +3,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
+  padding-left: 0px;
   margin-top: 0;
 }
 
@@ -13,11 +13,11 @@
 
 .noteList__container {
   list-style-type: none;
-  width: 31.2%;
-  height: 415px;
+  width: 125px;
+  height: 150px;
   border: 1px solid #B2B2B2;
-  margin-bottom: 53px;
-  margin-left: 34px;
+  margin-bottom: 20px;
+  margin-left: 15px;
   background: #FFFFFF;
 }
 
@@ -29,23 +29,29 @@
 .noteList__box {
   display:flex;
   flex-direction: column;
-  padding: 22px 36px;
+  padding: 10px 15px;
 }
 
 .noteList__box-title {
-  font-size: 15x;
+  font-size: 15px;
   font-weight: bold;
-  border-bottom: 2px solid #B2B2B2;
-  padding-bottom: 9px;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #B2B2B2;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
 .noteList__box-content {
-  font-size: 15px;
-  max-height: 305px;
+  font-family: Roboto Bold;
+  font-size: 11px;
+  max-height: 100px;
   overflow: hidden;
   word-break: break-word;
 }
+
+.top {
+  font-size: 15px;
+  font-weight: bold;
+  }

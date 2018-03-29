@@ -6,6 +6,7 @@ import CreateNote from './MainPage/CreateNote';
 import { arrayMove } from 'react-sortable-hoc';
 import './MainPage.css';
 import './DeleteBox.css';
+import './TopBox.css'
 
 class MainPage extends React.Component {
   state = {
@@ -40,15 +41,16 @@ class MainPage extends React.Component {
           </div>
         </div>
         <div className="mainPage__topRow" style={this.props.caseValue === 'noteView' ? { visibility: 'visible' } : { visibility: 'hidden' } }>
+        <div className='top__title'><div style={this.props.caseValue === 'noteList' ? { visibility: 'visible' } : { visibility: 'hidden' }}>Your Notes:</div></div>
           <div className="topRow__button-box">
+            
             <div className="topRow__button" onClick={() => this.props.changeSwitch('Edit Note:', 'editNote')}>edit</div>
             <div className="topRow__button" onClick={() => this.toggleDeleting()}>delete</div>
           </div>
         </div>
         <div className="mainPage__middleRow">
           <div className="mainPage__middleRow-title">{this.props.title}</div>
-          <div style={this.props.caseValue === 'noteList' && this.state.notes.length > 1 ? { visibility: 'visible' } : { visibility: 'hidden' }}>
-          </div>
+          <div style={this.props.caseValue === 'noteList' && this.state.notes.length > 1 ? { visibility: 'visible' } : { visibility: 'hidden' }}></div>
         </div>
         <div className="mainPage__bottomRow">
           {this.renderSwitch(this.props.caseValue)}
@@ -105,7 +107,7 @@ class MainPage extends React.Component {
 
   deleteCurrentNote = () => {
     this.setState({ notes: this.state.notes.filter(note => note.id !== this.state.currentNote.id), currentNote: {}, deleting: false });
-    this.props.changeSwitch('Your Notes:','noteList');
+    this.props.changeSwitch('Your: Notes','noteList');
   };
 
   updateSearchValue = (str) => {

@@ -1,6 +1,7 @@
 .note__form {
   display: flex;
   flex-direction: column;
+  margin-left: 15px;
 }
 
 .note__title {
@@ -12,6 +13,7 @@
   border: 1px solid #BEBEBE;
   border-radius: 2%;
   font-size: 12px;
+  
 }
 
 .note__content {
@@ -39,4 +41,8 @@
 
 .note__button:hover {
   cursor: pointer;
+}
+
+.top {
+  margin-left: 15px;
 }

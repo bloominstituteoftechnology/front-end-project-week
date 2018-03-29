@@ -4,17 +4,17 @@
 }
 
 .topRow__button-box {
-  width: 100px;
+  width: 15px;
   display: flex;
   justify-content: space-between;
-  padding-top: 36px;
-  padding-right: 180px;
+  padding-top: 15px;
+  padding-right: 100px;
 }
 
 .topRow__button {
   text-decoration: underline;
-  font-size: 30px;
-  margin-left: 35px
+  font-size: 15px;
+  margin-left: 90%;
 }
 
 .topRow__button:hover {
@@ -23,8 +23,8 @@
 
 .mainPage__middleRow {
   margin-top: 50px;
-  margin-bottom: 17px;
-  padding-left: 55px;
+  margin-bottom: 15px;
+  padding-left: 15px;
   display: flex;
   justify-content: space-between;
 }
@@ -54,7 +54,10 @@
 }
 
 .mainPage__bottomRow {
-  padding: 0 60px;
+  padding: 0px;
+  margin-left: 15px;
+  margin-top: 50px;
+  font-size: 20px;
 }
 
 .mainPage__noteList {
