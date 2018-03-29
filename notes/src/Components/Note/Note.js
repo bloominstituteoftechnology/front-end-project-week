@@ -80,16 +80,20 @@ class Note extends Component{
       marginRight:'10%',
       backgroundColor:'white'
     }
+    let panelThumb={
+      paddingBottom:'60px',
+    }
     let divThumb={
       margin:'40px',
       backgroundColor:'white',
-      height:'100px',
-      width:'80%'
+      height:'200px',
+      width:'80%',
     }
     let styleBodyThumb ={
       color:'black',
       fontFamily:'Raleway',
-      backgroundColor:'white'
+      backgroundColor:'white',
+      border:'none'
     }
     let style={
 
@@ -109,15 +113,15 @@ class Note extends Component{
     }
     if(this.state.thumbNail){
       if(this.props.info.notes[this.state.id] && text){
-        if(this.state.text.length > 54){
-          text = this.state.text.slice(0,50) + "..."
+        if(this.state.text.length > 104){
+          text = this.state.text.slice(0,100) + "..."
         }
         else{
           text = this.state.text + "...";
         }
       return(
       <div style={divThumb}>
-        <Panel >
+        <Panel style={panelThumb}>
           <Panel.Title style={styleTitleThumb} className="title">{
             this.props.info.notes[this.state.id].title
           }</Panel.Title>
