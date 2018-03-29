@@ -18,11 +18,11 @@ export const getNotes = () => dispatch => {
   });
 };
 
-export const addNote = () => dispatch => {
+export const addNote = (newNote) => dispatch => {
   dispatch({ type: SHOW_LOADING });
-  axios.post('http://localhost:5000/notes').then(response => {
+  axios.post('http://localhost:5000/notes', newNote).then(response => {
     dispatch({ type: HIDE_LOADING });
-    dispatch({ type: ADD_NOTE, note: response.note });
+    dispatch({ type: ADD_NOTE, notes: response.data });
   }).catch(error => {
     console.log('Add failed: ', error);
   });
