@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardText, CardColumns } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { connect } from 'react-redux';
 
 
 class NoteCards extends Component {
     render() {
         return (
-            <div className="cardList">
+            <div className="NoteCards">
                 <h3> Your Notes: </h3>
                 {this.props.Notes.map(notes => {
                     return (
-                        <CardColumns>
+                    
                             <Card>
-                                <div key={notes.noteNum} class="CardColumn">
+                                <div key={notes.noteNum} class="Card">
                                     <CardTitle> {notes.noteTitle}</CardTitle>
                                     <p>
                                         <CardText> {notes.noteContent}  </CardText>
                                     </p>
                                 </div>
                             </Card>
-                        </CardColumns>
+                        
                     )
                 })}
             </div>

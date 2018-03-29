@@ -1,8 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Raleway Regular, sans-serif;
+  background-color: #F3F3F3;
+  max-width: 900px;
+  display: flex;
+  align-self: center;
+}
 .App {
   text-align: center;
-  background-color: #D3D2D3;
+  background-color: #F3F3F3;
+  display: flex;
+  flex-flow: row nowrap;
+
 }
 
+.SideNav {
+  background-color: #D8D8D8;
+  width: 220px;
+  padding: 15px;
+  display: flex;
+  flex-flow: column;
+  
+}
+.SideNav .navButton {
+  width: 100%;
+  height: 40px;
+  background-color: #2BC1C4;
+  color: white;
+  border: 1px solid #D2D1D2;
+}
+
+.NoteCards {
+  background-color: F3F3F3;
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: 30px;
+  overflow: hidden;
+
+}
+.NoteCards h3 {
+  margin: 50px 0 0 30px;
+  display: flex;
+  width: 100%;
+}
+
+.NoteCards .Card {
+  
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  overflow-y: hidden;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #D8D8D8;
+  background-color: white;
+  padding: 5px;
+}
 
 .App-title {
   font-size: 1.5em;
