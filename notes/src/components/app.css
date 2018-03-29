@@ -1,3 +1,6 @@
+.Container {
+    max-width: 1000px;
+}
 
 .Background {
     background-color: #F3F3F3;

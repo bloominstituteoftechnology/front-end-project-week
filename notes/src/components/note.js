@@ -43,7 +43,6 @@ class Note extends React.Component {
     }
 
     render() {
-        console.log('render', this.props)
         return (
             <React.Fragment>
                 {(this.state.Redirect) ? (<Redirect to={'/'}/>) : ('') }  
@@ -53,8 +52,8 @@ class Note extends React.Component {
                     <Modal className="Modal" isOpen={this.state.DeleteModal} onClose={this.toggleModal}>
                         <p>Are you sure you want to delete this?</p>
                         <ModalButton>
-                            <Btn className="" onClick={this.toggleModal}>No</Btn>
                             <Btn className="Button-Danger" onClick={this.handleDelete}>Delete</Btn>
+                            <Btn className="" onClick={this.toggleModal}>No</Btn>
                         </ModalButton>                    
                     </Modal>
                 ) : ('') }

@@ -19,19 +19,21 @@ const H3 = styled.h3`
     margin-bottom: 30px;
     font-size: 1.4rem;
     font-weight: bold;
+    font-family: Raleway Regular;
     opacity: 0.8;
 `;
 
 const Notes = ({ notes }) => {
+    
     return (
         <Col xs="9" className="mb-5 pb-5 pl-5 pr-5 ">
             <H3>Your Notes:</H3>
             <Row className="mb-5" >
                 {notes.map(note => (
-            <Col className="mb-4 pl-2 pr-2" xs="4" key={note.id}>
+            <Col className="mb-4 pl-2 pr-2" xs="4" key= { `${note.id} ${note.title}` }>
                 <Link className="Card__Link" to={`/note/${note.id}`} >
                 <Card className="Notes__Note" body >
-                    <CardTitle className="pb-2 border-bottom border-secondary">{note.title}</CardTitle>
+                    <CardTitle className=" Note_Title pb-2 border-bottom border-secondary">{note.title}</CardTitle>
                     <CardText  className="Note__Content">{note.content}</CardText>
                 </Card>
                 </Link>

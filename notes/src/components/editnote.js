@@ -67,9 +67,16 @@ class EditNote extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.Fields.title && this.state.Fields.content) { 
-            this.props.editNote(this.state.Fields);
-            this.setState({ Redirect: true });
+        if (this.state.Fields.title && this.state.Fields.content) {
+            this.props.editNote(this.state.id, this.state.Fields);
+            this.setState({ 
+                Redirect: true, 
+                Fields: {
+                    title: '',
+                    content: '',
+                }
+            
+            });
         }
     }
 
@@ -81,7 +88,7 @@ class EditNote extends React.Component {
             title: note.title,
             content: note.content, 
         }
-        this.setState({ Fields: fields })
+        this.setState({ Fields: fields, id })
     }
 };
 

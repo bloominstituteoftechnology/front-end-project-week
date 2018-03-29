@@ -5,7 +5,9 @@ import {
     ADDING,
     ERROR,
     DELETING,
-    DELETED
+    DELETED,
+    UPDATED,
+    UPDATING,
 } from '../actions';
 
 const initState = {
@@ -14,6 +16,7 @@ const initState = {
     loadingMsg: null,
     isFetched: false,
     isAdding: false,
+    isUpdating: false,
     isDeleting: false,
     error: null,
 };
@@ -21,19 +24,23 @@ const initState = {
 export default function fetchReducer(state = initState, action) {
     switch(action.type) {
         case FETCHING:
-            return {...state, isFetching: true, loadingMsg: action.msg };
+            return { ...state, isFetching: true, loadingMsg: action.msg };
         case FETCHED:
-            return {...state, notes: action.notes, isFetched: true, isFetching: false, loadingMsg: null  };
+            return { ...state, notes: action.notes, isFetched: true, isFetching: false, loadingMsg: null  };
         case ADDING:
-            return {...state, isAdding: true }
+            return { ...state, isAdding: true }
         case ADDED: 
-            return {...state, isAdding: false, notes: action.notes };
+            return { ...state, isAdding: false, notes: action.notes };
         case DELETING:
-            return {...state, isDeleting: true }
+            return { ...state, isDeleting: true }
         case DELETED: 
-            return {...state, notes: action.notes, isDeleting: false };
+            return { ...state, notes: action.notes, isDeleting: false };
+        case UPDATING:
+            return { ...state, isUpdating: true};
+        case UPDATED:
+            return { ...state, notes: action.notes, isUpdating: false };
         case ERROR:
-            return {...state, error: action.errorMessage, loadingMsg: null };
+            return { ...state, error: action.errorMessage, loadingMsg: null };
         default:
             return state;
     }

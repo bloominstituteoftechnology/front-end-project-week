@@ -4,10 +4,13 @@
     overflow: hidden;
     /* text-overflow: ellipsis; */
 } 
+.Notes__Note {
+    font-family: Raleway Regular;
+}
 
-.Notes__Note::after {
-    content: "...";
-} 
+.Note_Title {
+    font-weight: bold;
+}
 
 a.Card__Link  {
     text-decoration: none;

@@ -1,14 +1,14 @@
 .Background-Grey {
-    background-color: #D7D7D7;
+    background-color: #D8D8D8;
 }
 
 .Button {
     border-radius: 0;
     margin-bottom: 20px;
-    background-color: #5DBDC2;
-    font-weight: 500;
-    font-size: 1.1rem;
-    /* padding: 10px 0; */
+    background-color: #2BC1C4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Raleway Regular;
 }
 
 .Button:hover {
@@ -18,3 +18,4 @@
 .Link:hover {
     text-decoration: none;
 }
+
