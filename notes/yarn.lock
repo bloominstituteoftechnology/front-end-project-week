@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@firebase/app-types@0.1.2", "@firebase/app-types@^0.1.0":
+"@firebase/app-types@0.1.2", "@firebase/app-types@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.1.2.tgz#a20cb346e3be374c0bdee6b102de0ea5e8e6fa27"
 

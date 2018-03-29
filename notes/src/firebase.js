@@ -1,12 +1,12 @@
-import firebase from 'firebase';
+import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyDAReV6uAhiDSiMVOe69EgJTy-1AG4NsOA",
-    authDomain: "lambda-notes-b2b43.firebaseapp.com",
-    databaseURL: "https://lambda-notes-b2b43.firebaseio.com",
-    projectId: "lambda-notes-b2b43",
-    storageBucket: "lambda-notes-b2b43.appspot.com",
-    messagingSenderId: "337557344869"
-  };
-var fire = firebase.initializeApp(config);
+  apiKey: "AIzaSyAU7uLB6CSNGNh4AknNGXv6xmrI6_uOB-M",
+  authDomain: "notes-f8af8.firebaseapp.com",
+  databaseURL: "https://notes-f8af8.firebaseio.com",
+  projectId: "notes-f8af8",
+  storageBucket: "notes-f8af8.appspot.com",
+  messagingSenderId: "820090967930"
+};
+firebase.initializeApp(config);
 export default fire;

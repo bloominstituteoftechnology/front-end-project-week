@@ -24,17 +24,14 @@ class List extends Component {
         return (
             <Container className="Content">
                 <Row className="Content__heading">
-                    <Col xs="4" className="Content__heading__col">
+                    <Col xs="9" className="Content__heading__col">
                         <h4>Your Notes:</h4>
                     </Col>
-                    <Col xs="2">
-                    <h4 className="Options__link">Sort by:</h4>
+                    <Col className="">
+                        <h4 className="Options__link" onClick={() => this.handleNewest()}>newest</h4>
                     </Col>
                     <Col className="">
-                        <h4 className="" onClick={() => this.handleNewest()}>newest</h4>
-                    </Col>
-                    <Col className="">
-                        <h4 className="" onClick={() => this.handleOldest()}>oldest</h4>
+                        <h4 className="Options__link" onClick={() => this.handleOldest()}>oldest</h4>
                     </Col>
                 </Row>
                 <Row className="List__content">

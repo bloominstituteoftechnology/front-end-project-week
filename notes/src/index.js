@@ -9,13 +9,12 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/';
 import 'bootstrap/dist/css/bootstrap.css';
 import logger from 'redux-logger';
-import thunk from 'redux-thunk';
 
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(
-    applyMiddleware(logger, thunk)
+    applyMiddleware(logger)
   ));
 
 ReactDOM.render(
