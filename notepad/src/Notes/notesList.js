@@ -8,17 +8,17 @@ function NotesList({ notes }) {
 
   return (
     <Container>
-    <Row>
-      <h3>Your Notes:</h3>
-    </Row>
-    <Row>
-      <CardDeck>
-        {notes.map((note) => {
-          return <Col key={note.id} className='pl-0 pr-0' xs='4'><Note note={note} /></Col>;
-        })}
-      </CardDeck>
-    </Row>
-    // </Container>
+      <Row>
+        <h3>Your Notes:</h3>
+      </Row>
+      <Row>
+        <CardDeck>
+          {notes.map((note) => {
+            return <Col key={note.id} className='pl-0 pr-0' xs='4'><Note note={note} /></Col>;
+          })}
+        </CardDeck>
+      </Row>
+    </Container>
   );
 }
 
