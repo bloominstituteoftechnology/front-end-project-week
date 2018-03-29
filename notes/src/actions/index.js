@@ -18,12 +18,18 @@ export function fetchNotes () {
 export const createNote = note => {
     return dispatch => {
         return axios.put(`https://notes-f8af8.firebaseio.com/notes/${noteId}.json`, {
-            id: noteId++,
+            id: noteId,
             title: note.title,
             text: note.text
         })
         .then((response) => {
-            dispatch({type: CREATE_NOTE, note})})
+            dispatch({
+                type: CREATE_NOTE,
+                id: noteId++,
+                title: note.title,
+                text: note.text
+            })
+        })
         .catch((error) => console.log(error))};
 }
 
@@ -37,12 +43,18 @@ export const editNote = note => {
 }
 
 export const deleteNote = note => {
-    return {
-        type: DELETE_NOTE,
-        id: note.id,
-        title: note.title,
-        text: note.text,
-    }
+    return dispatch => {
+        return axios.delete(`https://notes-f8af8.firebaseio.com/notes/${note.id}.json`, {
+            id: note.id,
+        })
+        .then((response) => {
+            dispatch({
+                type: DELETE_NOTE,
+                id: note.id,
+                title: note.title,
+                text: note.text
+            })})
+        .catch((error) => console.log(error))};
 }
 
 export const sortNewest = () => {
