@@ -3,15 +3,20 @@ import {
     EDIT_NOTE, 
     DELETE_NOTE, 
     SORT_NEWEST,
-    SORT_OLDEST } from '../actions';
+    SORT_OLDEST, 
+    FETCH_NOTES} from '../actions';
 
 const initialState = {
     sortedBy: null,
-    notes: [{ id: 0, title: 'Note Title', text: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus. blandit ac purus a. efficitur mollis blah blah blah blah blah asdfasdfadf', }, { id: 1, title: 'Okay now here is a test', text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.' }, { id: 2, title: 'Okay now here is a test', text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.' }, { id: 3, title: 'Okay now here is a test', text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.' }, { id: 4, title: 'Okay now here is a test', text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.' }, { id: 5, title: 'Okay now here is a test', text: 'Let me tell you what it is a really good test and I am just going to tell you right now about how good of a test it is.' }]
+    notes:[]
 }
 
 export default(state=initialState, action) => {
     switch(action.type) {
+        case(FETCH_NOTES):
+            return Object.assign({}, state, {
+                notes: action.notes
+            })
         case(CREATE_NOTE):
             return Object.assign({}, state, {
                 notes: state.notes.concat({

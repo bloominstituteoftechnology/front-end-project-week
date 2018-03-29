@@ -5,17 +5,24 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/';
 import 'bootstrap/dist/css/bootstrap.css';
-import logger from 'redux-logger';
+import * as firebase from 'firebase';
+import thunk from 'redux-thunk';
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
+var config = {
+apiKey: "AIzaSyAU7uLB6CSNGNh4AknNGXv6xmrI6_uOB-M",
+authDomain: "notes-f8af8.firebaseapp.com",
+databaseURL: "https://notes-f8af8.firebaseio.com",
+projectId: "notes-f8af8",
+storageBucket: "notes-f8af8.appspot.com",
+messagingSenderId: "820090967930"
+};
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancers(
-    applyMiddleware(logger)
-  ));
+firebase.initializeApp(config);
 
 ReactDOM.render(
     <Provider store={store}>

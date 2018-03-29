@@ -3,7 +3,7 @@ import NoteCard from './NoteCard';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import './List.css';
-import { sortNewest, sortOldest } from '../actions';
+import { sortNewest, sortOldest, fetchNotes } from '../actions';
 
 class List extends Component {
     state = {
@@ -18,6 +18,10 @@ class List extends Component {
     handleOldest() {
         this.props.sortOldest();
         this.props.history.push('/');
+    }
+
+    componentDidMount() {
+        this.props.fetchNotes();
     }
 
     render() {
@@ -37,8 +41,8 @@ class List extends Component {
                 <Row className="List__content">
                     {this.props.notes.map(note => {
                         return (
-                        <Col className="List__card-Container" xs="4">
-                            <NoteCard key={note.id} note={note}/>
+                        <Col key={note.id} className="List__card-Container" xs="4">
+                            <NoteCard note={note}/>
                         </Col>
                         )
                     })}
@@ -55,4 +59,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { sortNewest, sortOldest })(List);
+export default connect(mapStateToProps, { sortNewest, sortOldest, fetchNotes })(List);

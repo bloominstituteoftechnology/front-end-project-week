@@ -1,17 +1,30 @@
+import axios from 'axios';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const SORT_NEWEST = 'SORT_NEWEST';
 export const SORT_OLDEST = 'SORT_OLDEST';
+export const FETCH_NOTES = 'FETCH_NOTES';
 
 let noteId = 6;
+export function fetchNotes () {
+    return dispatch => {
+        return axios.get('https://notes-f8af8.firebaseio.com/notes.json')
+        .then((response) => {
+            dispatch({type: FETCH_NOTES, notes: response.data})})
+        .catch((error) => console.log(error))};
+}
+
 export const createNote = note => {
-    return {
-        type: CREATE_NOTE,
-        id: noteId++,
-        title: note.title,
-        text: note.text,
-    };
+    return dispatch => {
+        return axios.put(`https://notes-f8af8.firebaseio.com/notes/${noteId}.json`, {
+            id: noteId++,
+            title: note.title,
+            text: note.text
+        })
+        .then((response) => {
+            dispatch({type: CREATE_NOTE, note})})
+        .catch((error) => console.log(error))};
 }
 
 export const editNote = note => {
