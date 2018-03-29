@@ -53,7 +53,7 @@ class NoteForm extends Component {
     render () {
         let createNote= this.state.newNote;
         if (this.state.newNote.id === undefined) createNote = this.state.newNote.id;
-        console.log(this.state.newNote.id);
+        //console.log(this.state.newNote.id);
         return (
         <Container className="my-5">
         {createNote ? (

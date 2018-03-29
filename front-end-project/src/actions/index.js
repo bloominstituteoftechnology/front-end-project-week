@@ -1,4 +1,3 @@
-import axios from 'axios';
 export const ADD_NOTE = 'ADD_NOTE';
 let noteId = 10;
 
