@@ -7,7 +7,7 @@ export const ADD_TAG = "ADD_TAG";
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
 export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
-export const CREATE_USER_FAIL = "CREATE_USER_FAIL";
+export const ERROR = "ERROR";
 
 let noteId = 10;
 
@@ -55,9 +55,9 @@ export const signInSuccess = response => {
   };
 };
 
-export const createUserFail = response => {
+export const errorHandler = response => {
   return {
-    type: CREATE_USER_FAIL,
+    type: ERROR,
     error: response
   };
 };
@@ -68,15 +68,18 @@ export const createUser = (email, pw) => dispatch => {
     .then(response => {
       return dispatch(createUserSuccess(response));
     })
-    .catch(error => dispatch(createUserFail));
+    .catch(error => {
+      return dispatch(errorHandler(error));
+    });
 };
 
 export const signIn = (email, pw) => dispatch => {
   login(email, pw)
     .then(response => {
+      console.log("Sign in function response: ", response);
       return dispatch(signInSuccess(response));
     })
-    .catch();
+    .catch(e => console.log(e.message));
 };
 
 export const signOut = () => dispatch => {

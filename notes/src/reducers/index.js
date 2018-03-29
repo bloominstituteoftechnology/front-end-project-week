@@ -6,7 +6,7 @@ import {
   SIGN_IN,
   SIGN_OUT,
   CREATE_USER_SUCCESS,
-  CREATE_USER_FAIL
+  ERROR
 } from "../actions";
 
 const initialState = {
@@ -108,12 +108,14 @@ export default function notes(state = initialState, action) {
         notes: tagCopy
       };
     case SIGN_IN:
+      console.log("Sign In Reducer Fired");
       return { ...state, authed: true, user: action.user.email };
     case SIGN_OUT:
       return { ...state, authed: false };
     case CREATE_USER_SUCCESS:
       return { ...state, authed: true, user: action.user.email };
-    case CREATE_USER_FAIL:
+    case ERROR:
+      console.log("Error reducer fired: ", action.error);
       return { ...state, authed: false, error: action.error };
     default:
       return state;

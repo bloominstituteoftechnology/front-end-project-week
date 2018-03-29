@@ -3,15 +3,10 @@ import { connect } from "react-redux";
 import { Container, Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { login, resetPassword, auth } from "../utilities/auth";
 import { withRouter } from "react-router-dom";
-import { signIn } from "../actions";
+import { signIn, createUser } from "../actions";
 
 function mapStateToProps(state) {
-  return {};
-}
-function setErrorMsg(msg) {
-  return {
-    loginError: msg
-  };
+  return { error: state.error };
 }
 
 class Login extends Component {
@@ -35,7 +30,7 @@ class Login extends Component {
     this.setState(copy);
   }
   handleRegister() {
-    auth(this.state.email, this.state.password);
+    this.props.createUser(this.state.email, this.state.password);
   }
   render() {
     return (
@@ -71,10 +66,13 @@ class Login extends Component {
           <Button onClick={this.handleRegister.bind(this)}>
             Register New Account
           </Button>
+          {this.props.error}
         </Form>
       </Container>
     );
   }
 }
 
-export default withRouter(connect(mapStateToProps, { signIn })(Login));
+export default withRouter(
+  connect(mapStateToProps, { signIn, createUser })(Login)
+);
