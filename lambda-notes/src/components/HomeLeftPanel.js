@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { CSVLink } from 'react-csv';
 // import { Button } from 'reactstrap';
 
 const StyledHLP = styled.div`
@@ -19,7 +20,7 @@ const StyledHLP = styled.div`
     font-weight: bold;
     margin-top: 18px;
     margin-bottom: 21px;
-    margin-left: 20px;
+    margin-left: 14%;
     line-height: 1;
   }
 
@@ -38,11 +39,12 @@ const StyledHLP = styled.div`
   }
 `;
 
-const HomeLeftPanel = () => {
+const HomeLeftPanel = (props) => {
+  console.log('HLP this.props', props)
   return (
     <StyledHLP>
       <div className="HLP__heading">
-        <div> Lambda <br/> Notes </div>
+        <div className="heading"> Lambda <br/> Notes </div>
       </div>
       <div className="button-links">
       <Link to="/">
@@ -51,6 +53,11 @@ const HomeLeftPanel = () => {
       <Link to="/create-new-note/">
         <button> + Create New Note </button>
       </Link>
+      <CSVLink 
+        className="csv-link" 
+        data={props.notes} filename={"lambda-notes.csv"}
+        ><button>Download CSV</button>
+      </CSVLink>
       </div>
     </StyledHLP>
   );

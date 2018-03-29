@@ -14,7 +14,7 @@ const StyledNote = styled.div`
 
     .links {
         float: right;
-        margin-right: 21px
+        margin-right: 40px
         display: flex;
         position: static;
         font-size: 16px;
@@ -32,6 +32,7 @@ const StyledNote = styled.div`
     }
 
     .card-title {
+        margin-top: 27px;
         font-size: 20px;
 
     }

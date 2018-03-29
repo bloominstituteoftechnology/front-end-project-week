@@ -26,6 +26,7 @@ class App extends Component {
       <StyledApp>
         <Router>
           <div className="container">
+          
             <Route path="/" component={List} exact />
             <Route path="/create-new-note" component={CreateNewNote} />
             <Route path="/single-note-view/:id" component={SingleNoteView} />

@@ -22,6 +22,7 @@ class List extends Component {
 }
 
 const mapStateToProp = state => {
+  console.log(this.props)
   return {
     notes: state.notes
   };
