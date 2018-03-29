@@ -14,8 +14,8 @@ class Note extends Component {
       <Container>
         <Col className='Container'>
           <Row className='links'>
-            {/* <Link>edit</Link>
-            <Link>delete</Link> */}
+            <Link to={`/note/edit/${this.state.note.id}`}>edit</Link>
+            {/* <Link>delete</Link> */}
           </Row>
           <Row className='title'>
             {this.state.note.title}

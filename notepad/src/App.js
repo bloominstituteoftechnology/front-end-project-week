@@ -3,6 +3,7 @@ import './App.css';
 import NotesList from './Notes/NotesList.js';
 import NoteForm from './Notes/NoteForm.js';
 import Note from './Notes/Note.js';
+import EditForm from './Notes/EditForm.js';
 import { connect } from 'react-redux';
 import { getNotes } from './Notes/notesActions';
 import { Button, Container, Row, Col } from 'reactstrap';
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path='/' component={NotesList} />
             <Route path='/addnote' component={NoteForm} />
             <Route path='/note/:id' component={Note} />
+            <Route path='/note/edit/:id' component={EditForm} />
           </Col>
         </Row>
 

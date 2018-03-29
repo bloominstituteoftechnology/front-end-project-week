@@ -5,6 +5,7 @@ import { SHOW_LOADING, HIDE_LOADING } from '../common/loadingActions';
 export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
 export const FETCH_NOTES_ERROR = 'FETCH_NOTES_ERROR';
 export const ADD_NOTE = 'ADD_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
 // export const FETCH_NOTES_ERROR = 'FETCH_NOTES_ERROR';
 
 export const getNotes = () => dispatch => {
@@ -26,4 +27,13 @@ export const addNote = (newNote) => dispatch => {
   }).catch(error => {
     console.log('Add failed: ', error);
   });
+};
+
+export const editNote = (id, note) => dispatch => {
+  axios.put(`http://localhost:5000/note/${id}`, note)
+    .then(response => {
+      dispatch({ type: EDIT_NOTE, notes: response.data });
+    }).catch(error => {
+      console.log('Edit error: ', error);
+    });
 };
