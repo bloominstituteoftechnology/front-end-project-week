@@ -1,13 +1,30 @@
 import axios from 'axios';
-export const ADDING_NOTE = 'ADDING_NOTE';
-export const NOTE_ADDED  ='NOTE_ADDED';
-export const ERROR_ADDING_NOTE ='ERROR_ADDING_NOTE';
+export const ADD_NOTE = 'ADDING_NOTE';
 let noteId = 10;
 
 export const addNote = (note) => {
     return {
-        type:ADDING_NOTE,
+        type:ADD_NOTE,
         id:noteId++,
         note
+    }
+}
+
+export const EDIT_NOTE = 'EDIT_NOTE';
+
+export const editNote =(note,id) => {
+    return {
+        type: EDIT_NOTE,
+        note,
+        id
+    }
+}
+
+export const DELETE_NOTE = 'DELETE_NOTE';
+
+export const deleteNote =(id) => {
+    return {
+        type: DELETE_NOTE,
+        id
     }
 }

@@ -23,6 +23,10 @@ const routes = [
   {
     path: "/viewNotes/:id",
     main: Note
+  },
+  {
+    path:"/editNote/:id",
+    main: NoteForm,
   }
 ];
 

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { addNote, editNote } from '../actions';
 import { Form, FormGroup, Input, Button, Container } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
+
+const mapStateToProps = state => {
+    return {notes: state.notes}
+};
 
 class NoteForm extends Component {
     constructor() {
@@ -23,12 +28,27 @@ class NoteForm extends Component {
     
     submitNote = (event) => {
         event.preventDefault();
-        this.props.addNote(this.state.newNote);
+        if (this.state.newNote.id === undefined) {
+            this.props.addNote(this.state.newNote);
+        }
+        else {
+            this.props.editNote(this.state.newNote,this.state.newNote.id);
+        }
         this.setState({
             newNote:{title:'',note:'',}
         });
-        // this.props.history.push('/');
+        //this.props.history.push('/');
     };
+
+    componentDidMount() {
+        if (this.props.match.params.id !== undefined) {
+          this.setState({
+            newNote: this.props.notes.filter(
+              note => parseInt(this.props.match.params.id, 10) === note.id
+            )[0]
+          });
+        }
+    }
 
     render () {
         return (
@@ -66,8 +86,4 @@ class NoteForm extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {}
-};
-
-export default connect(mapStateToProps, {addNote})(NoteForm)
+export default withRouter(connect(mapStateToProps, {addNote, editNote})(NoteForm))
