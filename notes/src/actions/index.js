@@ -16,7 +16,7 @@ export const editNote = (title, body, id) => ({
   }
 });
 
-export const deleteNote = () => ({
+export const deleteNote = (id) => ({
   type: 'deleteNote',
-  id: '',
+  id: id,
 });

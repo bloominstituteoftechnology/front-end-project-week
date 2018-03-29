@@ -56,10 +56,9 @@ export default (state = initialState, action) => {
     case 'addNote':
       return { ...state, notes: [...state.notes, action.note], nextid: state.nextid++ };
     case 'editNote':
-    {console.log(action)}
       return { ...state, notes: state.notes.map(obj => obj.id === action.note.id ? obj = action.note : obj) };
     case 'deleteNote':
-      return { ...state, notes: state.notes.filter(obj => obj.id !== action.id), nextid: state.nextid-- };
+      return { ...state, notes: state.notes.filter(obj => obj.id !== action.id).map((obj, i) => { obj.id = i; return obj; }), nextid: state.nextid - 1 };
     default:
       return state;
     }
