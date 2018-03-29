@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 import DeleteModal from "./delete-modal";
 
+import Markdown from 'react-markdown';
+
 const NoteView = props => {
   const { note: { id, title, body }, handleDeleteModal, handleToggle, toggle } = props;
 
@@ -25,7 +27,9 @@ const NoteView = props => {
       </div>
       <div>
         <h2 className="Each__Title">{title}</h2>
-        <div className="Each__Body">{body}</div>
+        <div className="Each__Body">
+        <Markdown source={body} />
+        </div>
       </div>
     </div>
   );

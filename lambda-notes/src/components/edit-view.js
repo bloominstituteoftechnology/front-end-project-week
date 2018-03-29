@@ -37,14 +37,16 @@ class EditNote extends Component {
           <input  value={title}
             name="title" type="text"
             onChange={this.handleUpdate} className="Each__Input-Title"
+            minLength="1"
             required />
           <br />
           <textarea  className="Each__Input-Body"
             value={body} name="body"
             type="text" onChange={this.handleUpdate} 
-            required />
+            minLength="1" required />
           <br />
-          <Link to={`/view/${id}`}><button onClick={() => this.handleSubmit()} type="submit">Update</button></Link>
+          <Link to={`/view/${id}`}><button onClick={() => 
+            this.handleSubmit()} type="submit">Update</button></Link>
         </form>
       </div>
     );

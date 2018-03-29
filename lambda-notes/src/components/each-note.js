@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 import TextEllipsis from 'react-text-ellipsis';
+import Markdown from 'react-markdown';
 
 
 class EachNote extends Component {
-
   render() {
     const cardText = this.props.body;
     return (      
@@ -19,7 +19,7 @@ class EachNote extends Component {
                   console.log("text get truncated");
                 else console.log("text does not get truncated");
               }}>
-              {cardText}
+              <Markdown source={cardText} />
             </TextEllipsis>
           </div>
           <br />

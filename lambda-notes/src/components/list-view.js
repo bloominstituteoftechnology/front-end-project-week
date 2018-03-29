@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 
 import EachNote from "./each-note";
 
