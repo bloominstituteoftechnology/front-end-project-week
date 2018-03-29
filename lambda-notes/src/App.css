@@ -114,6 +114,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  padding: 0 60px;
 }
 
 .note_card {
@@ -125,6 +126,7 @@
   display: inline-block;
   border: 1px solid gray;
   color:black;
+  box-shadow:2px 2px 2px 1px gray;
 }
 
 .test a:hover {
