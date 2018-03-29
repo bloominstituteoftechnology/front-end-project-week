@@ -55,7 +55,7 @@ class SaveNote extends React.Component {
                       Pickled neutra edison bulb, food truck copper mug single-origin coffee 3 wolf 
                       moon celiac. Cloud bread yuccie thundercats, four loko keytar master cleanse 
                       humblebrag live-edge iPhone trust fund whatever cardigan. Shoreditch disrupt ramps 
-                      slow-carb locavore readymade godard craft beer heirloom. Lumbersexual mustache synth 
+                      slow-carb locavore readymade godard craft beer heirloom. Organic mustache synth 
                       readymade, seitan jean shorts adaptogen plaid sriracha bespoke hot chicken lo-fi. 
                       Kickstarter hot chicken letterpress pinterest, pug cold-pressed blog chicharrones biodiesel.
                       Gluten-free portland ramps listicle cloud bread copper mug synth PBR&B plaid.
@@ -63,7 +63,7 @@ class SaveNote extends React.Component {
                       Pickled neutra edison bulb, food truck copper mug single-origin coffee 3 wolf 
                       moon celiac. Cloud bread yuccie thundercats, four loko keytar master cleanse 
                       humblebrag live-edge iPhone trust fund whatever cardigan. Shoreditch disrupt ramps 
-                      slow-carb locavore readymade godard craft beer heirloom. Lumbersexual mustache synth 
+                      slow-carb locavore readymade godard craft beer heirloom. Organic mustache synth 
                       readymade, seitan jean shorts adaptogen plaid sriracha bespoke hot chicken lo-fi. 
                       Kickstarter hot chicken letterpress pinterest, pug cold-pressed blog chicharrones biodiesel. 
                   </p>

@@ -12,7 +12,8 @@ class NewNote extends React.Component {
     this.state = {
       notes: [],
       title: '',
-      text: ''
+      text: '',
+      id: 0
     };
     this.state = { fadeIn: false };
     this.toggle = this.toggle.bind(this);
@@ -34,7 +35,8 @@ class NewNote extends React.Component {
     e.target.reset();
     this.setState({
       title: '',
-      text: ''
+      text: '',
+      id: 0
     }    
     )
   }
