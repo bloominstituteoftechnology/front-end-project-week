@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { deleteNote } from '../actions';
-import DeleteNote from '/components/pages/DeleteNote';
+// import { deleteNote } from '../actions';
+import DeleteNote from './DeleteNote';
 
 class SingleNote extends Component {
   state = {
@@ -38,11 +38,11 @@ class SingleNote extends Component {
     );
   }
 
-  deleteNote = () => {
-    deleteNote(this.props.notes.id);
-    this.props.history.push('/noteslist');
-    this.setState({ deleting: true });
-  };
+  // deleteNote = () => {
+  //   deleteNote(this.props.notes.id);
+  //   this.props.history.push('/noteslist');
+  //   this.setState({ deleting: true });
+  // };
 
   cancelDelete = () => {
     this.props.history.push('/noteslist');
@@ -57,4 +57,4 @@ const mapStateToProps = state => {
     deleting: state.deleting,
   };
 };
-export default connect(mapStateToProps)(SingleNote);
+export default SingleNote;

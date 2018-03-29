@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { addNote } from '/actions/index.js';
-import { connect } from 'react-redux';
+// import { addNote } from '/actions/index.js';
+// import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
 class NoteForm extends Component {
@@ -55,4 +55,4 @@ class NoteForm extends Component {
   };
 }
 
-export default connect(null, { addNote })(NoteForm);
+export default NoteForm;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { viewNote } from '../actions';
-import { connect } from 'react-redux';
+// import { viewNote } from '../actions';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 class NotesList extends Component {
@@ -9,8 +9,6 @@ class NotesList extends Component {
       id: '',
     };
   
-  
-
   render() {
     return (
       <div className='note-container'>
@@ -45,4 +43,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { viewNote })(NotesList);
+export default NotesList;
