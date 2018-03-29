@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
-
+import '../App.css'
 
 class NoteContainer extends Component {
     constructor(props) {
@@ -28,11 +28,11 @@ class NoteContainer extends Component {
             <div className="NoteContainer">
 
               
-                <Link className="EditLink" to={`/EditNote/${id}`}>edit</Link>  
+                <Link className="EditLink" to={`/EditNote/${id}`}>edit</Link>   
                 
             <div className="DeleteMod">
 
-                <Link className="EditLink" to={`/DeleteNote/${id}`} onClick={this.toggle}>delete</Link>
+                <Link to={`/notes/${id}`} onClick={this.toggle}>delete</Link>
 
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="delete" centered>
 

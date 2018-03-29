@@ -45,7 +45,7 @@ class App extends Component {
 
           
         
-          <Route path="/" render={(props) => <NavBar {...props} onClick={this.handleViewNoteClick.bind(this)} />}/>  
+          <Route path="/" render={(props) => <NavBar {...props} />}/>  
           <Route path="/viewnotes" render={(props) => <NotesList {...props} needed={this.state.neededData} />}/>
           <Route path="/CreateNote" render={(props) => <CreateNote {...props} />}/> 
           <Route path="/notes/:id" render={this.noteView} />

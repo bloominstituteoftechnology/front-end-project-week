@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../App.css'
 
 
 class EditNote extends Component {
@@ -18,9 +18,8 @@ class EditNote extends Component {
         this.setState(  )
     }
     handleSubmit = event => {
-        event.preventDefault();
-        
         this.setState({ editTitle: '', editDescription: '' })
+    
     }
 
     handleChange = event => {

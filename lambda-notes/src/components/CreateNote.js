@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { addNote } from '../actions/notesActions';
 import { connect } from 'react-redux';
+import '../App.css'
 
 class CreateNote extends Component {
     constructor(props) {

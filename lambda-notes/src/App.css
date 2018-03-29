@@ -32,26 +32,38 @@
   flex-direction: column;
 }
 
-.ToggleBar {
-  width: 220px;
+
+
+
+
+
+
+.NavBar {
+    min-width: 182px;
+    min-height: 700px;
+    background-color: #D8D8D8;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    border-right: 1px solid rgb(150, 150, 150);
 }
 
-.NoteItems {
-  width: 670px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+ .NotesList {
+  width: 100%;
+  background-color: #F4F4F4;
   
-
 }
 
-.NotesList {
-  border: solid;
-  border-color: black;
-  width: 175px;
-  height: 175px;  
-  margin: 10px 10px 10px 10px;
+.CreateNote {
+  width: 100%;
+  background-color: #F4F4F4;
 }
+
+.EditNote {
+  width: 100%;
+  background-color: #F4F4F4;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
