@@ -37,7 +37,8 @@ class App extends Component {
             <Route path="/CreateNote" render={(props) => <CreateNote {...props} />}/> 
             <Route path="/notes/:id" render={this.noteView} />
             <Route path="/EditNote/:id" render={this.editView} />
-        
+            <Route path="/DeleteNote/:id" render={this.noteView} />
+            
         </div>
       </Fragment>
     );

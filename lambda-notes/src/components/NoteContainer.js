@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class NoteContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Modal: false,
+            modal: false,
         }
-        this.toggle = this.toggleDelete.bind(this);
+        this.toggle = this.toggle.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
-    toggleDelete() {
+    toggle() {
         this.setState({
-            Modal: !this.state.Modal
+            modal: !this.state.modal
         })
     }
 
@@ -26,25 +27,28 @@ class NoteContainer extends Component {
             <div className="NoteContainer">
 
               
-                  <Link className="EditLink" to={`/EditNote/${id}`}>edit</Link>  
+                <Link className="EditLink" to={`/EditNote/${id}`}>edit</Link>  
                 
-                <Link className="DeleteLink" to={`/DeleteNote/${id}`} onclick={this.toggle}>delete</Link>
+            <div className="DeleteMod">
 
+                <Link className="EditLink" to={`/DeleteNote/${id}`} onClick={this.toggle}>delete</Link>
 
-                <Modal 
-                    isOpen={this.state.modal} 
-                    toggle={this.toggle}
-                    className="delete">
-                    centered
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className="delete" centered>
 
-                        <ModalHeader toggle={this.toggle}>Are you surre you want to delete this?</ModalHeader>
+                    <ModalBody>
+                        Are you surre you want to delete this?
+                    </ModalBody>
 
-                        <ModalBody>
-                            <Button>Delete</Button>
-                            <Button>No</Button>
-                        </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={this.toggle}>Delete</Button>{' '}
+                        <Button color="secondary" onClick={this.toggle}>No</Button>
+                    </ModalFooter>
 
                 </Modal>
+
+            </div>    
+
+                
                 
                 <div className="NoteView">  
                     <header className="NoteContainerTitle"> {title} </header> 
