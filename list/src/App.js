@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import { Route } from 'react-router-dom'
-import { NoteContainer, SideBar, AddNoteView, ViewNote } from "./components";
+import { NoteContainer, SideBar, AddNoteView, ViewNote, EditNote } from "./components";
 
 import "./App.css";
 
@@ -66,6 +66,11 @@ class App extends Component {
     return <ViewNote notes={filteredNotes[0]} />
   }
 
+  editNoteView = props => {
+    const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id  )
+    return <EditNote note={filteredNotes[0]} />
+  }
+
   deleteNote = props => {
     const notesList = this.state.notes;
   }
@@ -77,6 +82,7 @@ class App extends Component {
         <Route exact path="/" render={this.noteContainer} />
         <Route path="/addNote" render={this.renderNoteView} />
         <Route path="/viewNote/:id" render={this.indivNoteView} />
+        <Route path="/editNote/:id" render={this.editNoteView}/>
       </div>
     );
   }

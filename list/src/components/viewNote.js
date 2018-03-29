@@ -1,18 +1,20 @@
-import React from 'react';
-
+import React from "react";
+import { Link } from "react-router-dom";
 
 export const ViewNote = props => {
-    // display a maximized version of the title and content of note clicked
-    console.log(props);
+  // display a maximized version of the title and content of note clicked
+  console.log(props);
 
-    return(
+  return (
     <div>
-        <div className="updateButtons">
-            <button> Edit Note </button>
-            <button> Delete Note </button>
-        </div>
-         <h1> {props.notes.title} </h1>
-         <div>{props.notes.content}</div>
+      <div className="updateButtons">
+        <Link to={`/editnote/${props.notes.id}`}>
+          <button> Edit Note </button>
+        </Link>
+        <button> Delete Note </button>
+      </div>
+      <h1> {props.notes.title} </h1>
+      <div>{props.notes.content}</div>
     </div>
-    )
-}
+  );
+};
