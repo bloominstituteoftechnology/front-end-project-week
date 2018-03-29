@@ -14,6 +14,11 @@ import {
   Redirect
 } from "react-router-dom";
 import { firebaseAuth } from "./utilities/auth";
+import { connect } from "react-redux";
+
+function mapStateToProps(state) {
+  return { authed: state.authed, user: state.user };
+}
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
   console.log("Authed: ", authed);
@@ -50,31 +55,6 @@ const privateRoutes = [
 ];
 
 class App extends Component {
-  state = {
-    authed: false,
-    user: {}
-  };
-
-  componentDidMount() {
-    this.removeListener = firebaseAuth.onAuthStateChanged(user => {
-      window.user = user;
-      this.setState({ user: user });
-      console.log("User: ", user);
-      if (user) {
-        this.setState({
-          authed: true
-        });
-      } else {
-        this.setState({
-          authed: false
-        });
-      }
-    });
-  }
-  componentWillUnmount() {
-    this.removeListener();
-  }
-
   render() {
     document.body.style.background = "#f3f3f3";
 
@@ -94,10 +74,10 @@ class App extends Component {
               </Link>
             </Col>
             <Col sm={6} md={9} className="rightSide">
-              <User authed={this.state.authed} user={this.state.user} />{" "}
+              <User />{" "}
               {privateRoutes.map((route, index) => (
                 <PrivateRoute
-                  authed={this.state.authed}
+                  authed={this.props.authed}
                   key={index}
                   path={route.path}
                   exact={route.exact}
@@ -106,9 +86,9 @@ class App extends Component {
               ))}
               <Route
                 path="/login"
-                authed={this.state.authed}
+                authed={this.props.authed}
                 render={() => {
-                  return this.state.authed ? <Redirect to="/" /> : <Login />;
+                  return this.props.authed ? <Redirect to="/" /> : <Login />;
                 }}
               />
             </Col>
@@ -122,4 +102,4 @@ class App extends Component {
 Container.propTypes = {
   fluid: PropTypes.bool
 };
-export default App;
+export default connect(mapStateToProps)(App);

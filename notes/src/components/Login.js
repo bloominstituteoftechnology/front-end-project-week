@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { login, resetPassword } from "../utilities/auth";
+import { login, resetPassword, auth } from "../utilities/auth";
 import { withRouter } from "react-router-dom";
+import { signIn } from "../actions";
 
 function mapStateToProps(state) {
   return {};
@@ -22,9 +23,8 @@ class Login extends Component {
   };
   handleOnSubmit(event) {
     // event.preventDefault();
-    login(this.state.email, this.state.password).catch(error => {
-      this.setState(setErrorMsg("Invalid Login Stuff!"));
-    });
+    this.props.signIn(this.state.email, this.state.password);
+
     this.props.history.push("/");
   }
   handleOnChange(event) {
@@ -33,6 +33,9 @@ class Login extends Component {
     let copy = this.state;
     copy[event.target.name] = event.target.value;
     this.setState(copy);
+  }
+  handleRegister() {
+    auth(this.state.email, this.state.password);
   }
   render() {
     return (
@@ -63,12 +66,15 @@ class Login extends Component {
             />
           </FormGroup>
           <h3>{this.state.loginError}</h3>
-
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Log In</Button>
+          <span> OR </span>
+          <Button onClick={this.handleRegister.bind(this)}>
+            Register New Account
+          </Button>
         </Form>
       </Container>
     );
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Login));
+export default withRouter(connect(mapStateToProps, { signIn })(Login));

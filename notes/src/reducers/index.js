@@ -1,6 +1,17 @@
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, ADD_TAG } from "../actions";
+import {
+  ADD_NOTE,
+  DELETE_NOTE,
+  EDIT_NOTE,
+  ADD_TAG,
+  SIGN_IN,
+  SIGN_OUT,
+  CREATE_USER_SUCCESS,
+  CREATE_USER_FAIL
+} from "../actions";
 
 const initialState = {
+  user: {},
+  authed: false,
   notes: [
     {
       id: 1,
@@ -89,17 +100,21 @@ export default function notes(state = initialState, action) {
       };
     case ADD_TAG:
       let tagCopy = state.notes.slice();
-      console.log("TagCopy: ", tagCopy);
       let newNote = tagCopy.filter(note => note.id === action.id)[0];
-      console.log(newNote);
       newNote.tags = [...newNote.tags, action.tag];
-      console.log(newNote);
       tagCopy.filter(note => note.id !== action.id).push(newNote);
-      console.log(tagCopy);
       return {
         ...state,
         notes: tagCopy
       };
+    case SIGN_IN:
+      return { ...state, authed: true, user: action.user.email };
+    case SIGN_OUT:
+      return { ...state, authed: false };
+    case CREATE_USER_SUCCESS:
+      return { ...state, authed: true, user: action.user.email };
+    case CREATE_USER_FAIL:
+      return { ...state, authed: false, error: action.error };
     default:
       return state;
   }
