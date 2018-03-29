@@ -10,6 +10,7 @@ const StyledCreateNewNote = styled.div`
     display: flex;
     width: 100%;
     height: 700px;
+    font-family: 'Raleway', regular;
 `;
 
 const CreateNewNote = () => {

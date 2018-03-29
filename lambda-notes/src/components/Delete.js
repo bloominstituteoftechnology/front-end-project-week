@@ -10,6 +10,7 @@ const StyledDelete = styled.div`
   border: 1px solid grey;
   margin-top: 10%;
   text-align: center;
+  font-family: 'Raleway', regular;
 
   .delete-modal {
     text-align: center;

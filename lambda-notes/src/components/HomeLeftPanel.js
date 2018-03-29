@@ -6,20 +6,34 @@ import { connect } from "react-redux";
 
 const StyledHLP = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: start;
   text-align: center;
-  background: lightgray;
-  width: 30%;
+  background: lavender;
+  width: 27%;
+  font-family: Roboto;
 
-  h2 {
-    font-family: Roboto, sans-serif;
-    margin-bottom: 2px;
+  .HLP__heading {
+    text-align: left;
+    font-size: 29px;
     font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 21px;
+    margin-left: 20px;
+    line-height: 1;
+  }
+
+  .button-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   button {
     font-size: 12px;
-    width: 84%;
+    width: 168px;
+    height: 36px;
+    margin-bottom: 20px;
     background: #2bc1c4;
   }
 `;
@@ -28,15 +42,16 @@ const HomeLeftPanel = () => {
   return (
     <StyledHLP>
       <div className="HLP__heading">
-        <div> Lambda </div>
-        <div> Notes </div>
+        <div> Lambda <br/> Notes </div>
       </div>
+      <div className="button-links">
       <Link to="/">
         <button> View Your Notes </button>
       </Link>
       <Link to="/create-new-note/">
         <button> + Create New Note </button>
       </Link>
+      </div>
     </StyledHLP>
   );
 };

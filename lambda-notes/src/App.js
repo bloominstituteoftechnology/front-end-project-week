@@ -16,6 +16,7 @@ const StyledApp = styled.div`
   .container {
     padding: none;
     margin: none;
+    width: 74%;
   }
 `;
 

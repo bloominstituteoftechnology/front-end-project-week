@@ -8,8 +8,9 @@ import { Button, Input } from "reactstrap";
 const StyledNewNoteForm = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background: lavender;
+  background: whitesmoke;
   width: 70%;
+  font-family: Roboto;
 
   .title {
     height: 40px;
@@ -25,12 +26,14 @@ const StyledNewNoteForm = styled.div`
     height: 300px;
     margin-left: 5%;
     padding: 5px;
+    font-family: 'Raleway', regular;
   }
 
   button {
     background: #2bc1c4;
     margin-left: 5%;
     width: 150px;
+    font-size: 16px;
   }
 `;
 
@@ -67,6 +70,7 @@ class NewNoteForm extends React.Component {
     return (
       <StyledNewNoteForm>
         <form>
+          <div>Create New Note:</div>
           <input
             required
             className="title"

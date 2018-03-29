@@ -8,10 +8,22 @@ import { Button, Input } from "reactstrap";
 const StyledEditForm = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background: lavender;
-  width: 70%;
+  width: 100%;
+  height: 700px;
+  background: whitesmoke;
+  font-size: 16px;
 
-  .title {
+  h6 {
+    margin-top: 20px;
+    margin-left: 5%;
+    font-weight: bold;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .edit-title {
     height: 40px;
     width: 60%;
     margin-top: 20px;
@@ -20,11 +32,12 @@ const StyledEditForm = styled.div`
     padding: 5px;
   }
 
-  .text {
+  .edit-text {
     width: 90%;
     height: 300px;
     margin-left: 6.5%;
     padding: 5px;
+    font-family: 'Raleway', regular;
   }
 
   .save-button {
@@ -74,9 +87,10 @@ class EditForm extends React.Component {
     return (
       <StyledEditForm>
         <form>
+          <h6>Edit Your Note:</h6>
           <input
             required
-            className="title"
+            className="edit-title"
             type="text"
             name="title"
             placeholder="Title"
@@ -86,7 +100,7 @@ class EditForm extends React.Component {
           />
           <textarea
             required
-            className="text"
+            className="edit-text"
             type="text"
             name="text"
             placeholder="Text"

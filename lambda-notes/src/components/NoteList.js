@@ -9,13 +9,14 @@ import { Link } from "react-router-dom";
 import { deleteNote } from "../actions";
 
 const StyledNoteList = styled.div`
-  width: 70%;
-  background: lavender;
+  width: 80%;
+  background: whitesmoke;
+  font-family: Roboto;
   height: 700px;
 
   .note-list__header {
-    margin-top: 20px;
-    margin-left: 25px;
+    margin-top: 45px;
+    margin-left: 20px;
     margin-bottom: 20px;
     font-weight: bold;
 
@@ -40,10 +41,6 @@ const StyledNoteList = styled.div`
     margin-right: 1.6%;
   }
 
-  .card {
-    width: 100%;
-  }
-
   .quick-delete {
     margin: none;
     padding: none;
@@ -57,11 +54,11 @@ const StyledNoteList = styled.div`
     padding-bottom: 8px;
     border-bottom: 2px solid grey;
     font-size: 16px;
-    width: ;
   }
 
   .card-text {
     font-size: 12px;
+    font-family: 'Raleway', regular;
   }
 
   .link {

@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 
 const StyledList = styled.div`
   display: flex;
+  font-family: Roboto;
 `;
 
 class List extends Component {
