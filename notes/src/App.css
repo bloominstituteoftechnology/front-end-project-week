@@ -1,0 +1,20 @@
+.container {
+  max-width: 100%;
+  background: #F3F3F3;
+}
+
+.sideCol {
+  /* max-width: 20%; */
+  max-width: 200px;
+  padding-right: 220px;
+  background: #D8D8D8;
+}
+
+.notesCol {
+  padding-top: 50px;
+  max-width: 65%;
+}
+
+.notesText {
+  padding-bottom: 25px;
+}
