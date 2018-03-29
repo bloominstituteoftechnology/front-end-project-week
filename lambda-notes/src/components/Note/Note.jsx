@@ -10,8 +10,9 @@ class Note extends Component {
    }
 
    componentDidMount() {
+      console.log(this.props);
       this.setState(
-         {index: this.props.index, title: this.props.title, content: this.props.content}
+         {index: this.props.index, title: this.props.title, content: this.props.content, tags:this.props.tags}
       );
    }//end of CDM
 
@@ -24,7 +25,9 @@ class Note extends Component {
          <div className="noteContent">
             {this.state.content.length > 170 ? (this.state.content.substr(0, 190) + "...") : (this.state.content)}
          </div>
-         <div className="noteTags"></div>
+         <div className="noteTags">
+            {this.props.tags ? this.props.tags.map((tag, i) => <span className="listNoteTag" key={i}> {tag} </span>): null}
+         </div>
       </div>
       )
    } //end of render

@@ -7,7 +7,9 @@
    z-index: 9998;
    background: rgba(0, 0, 0, 0.3);
 }
-
+button {
+   cursor: pointer;
+}
 .modal {
    border:1px solid black;
    position: absolute;
@@ -29,8 +31,8 @@
    font-weight: bold;
    text-decoration:underline;
    padding: 5px;
+   cursor:pointer;
 }
-
 
 .noteNav {
    text-align: right;
@@ -41,7 +43,8 @@
    background: rgb(242, 241, 242);
    border:1px solid rgb(175, 175, 175);
    width:100%;
-   height:92.45vh;
+   height:94.0vh;
+   min-height:100%;
    font-family: 'Roboto', sans-serif;
    text-align: left;
 }
@@ -53,7 +56,7 @@
    font-weight: bold;
 }
 
-#editNoteTitle input {
+.smallInput {
    margin: 5px 20px 15px 1px;
    border-radius: 3px 3px;
    border:1px solid rgb(175, 175, 175);
@@ -61,19 +64,36 @@
    width: 50%;
 }
 
+#viewNoteContent {
+   margin-top: 20px;
+}
+#viewNoteTags {
+   margin-bottom: 4px;
+}
+
+#addTagButton {
+   width: 67px;
+   height: 30px;
+}
+
+#editNoteTagsInput {
+   width: 30%;
+}
 
 #editNoteContent textarea {
    font-family: 'Roboto', sans-serif;
    border-radius: 3px 3px;
    border:1px solid rgb(175, 175, 175);
    width: 91%;
-   height: 350px;
-   line-height: 40px;
+   height: 220px;
+   line-height: 20px;
    min-height: 40px;
    vertical-align: top;
    resize: none;
    padding: 10px;
 }
+
+
 
 .viewNote button {
    background: rgb(36, 184, 189);

@@ -9,6 +9,26 @@
    text-align: left;
 }
 
+
+.viewNoteTag {
+   border: solid 1px grey;
+   background: rgba(36, 184, 189, .5);
+   color: rgb(65, 65, 65);
+   margin: 10px 1px 2px 5px;
+   width: 0; 
+   height: 0; 
+   padding: 2px 8px 2px 1px;
+   border-radius: 3px 9px 9px 3px;
+   cursor: pointer;
+}
+
+.viewNoteTag:hover::after{
+   margin-left:5px;
+   margin-right: 3px;
+   content:' X ';
+   color: red;
+}
+
 .createNewNote h2 {
    padding-left: 2px;
    text-align: left;
@@ -30,9 +50,10 @@
    border-radius: 3px 3px;
    border:1px solid rgb(175, 175, 175);
    width: 91%;
-   height: 350px;
-   line-height: 40px;
+   height: 220px;
+   line-height: 20px;
    min-height: 40px;
+   padding: 10px;
    vertical-align: top;
    resize: none;
 }

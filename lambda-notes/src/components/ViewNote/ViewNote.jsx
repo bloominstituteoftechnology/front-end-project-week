@@ -16,23 +16,32 @@ class ViewNote extends Component {
 
    edit = () => {
       console.log(this);
-      // const noteTitle = document.getElementById("viewNoteTitle");
-      // const noteContent = document.getElementById("viewNoteContent");
-      // noteContent.removeChild(noteContent.firstChild);
 
       // show the edit note textboxes
       this.toggleDisplay("editNoteTitle");
       this.toggleDisplay("editNoteContent");
       this.toggleDisplay("submitEdits");
       this.toggleDisplay('editNoteTags');
+      this.toggleDisplay('edit');
       // hide the note displaying
       document.getElementById("viewNoteTitle").innerHTML = "Edit Note: ";
       this.toggleDisplay("viewNoteContent");
 
       document.getElementById("editNoteTitleInput").value = this.state.title;
       document.getElementById("editNoteContentInput").value = "   " + this.state.content;
-      document.getElementById('editNoteTagsInput').value = this.state.tags;
 
+   }
+
+   addTag = () => {
+      console.log("addTag clicked");
+
+      let newTag = document.getElementById('editNoteTagsInput');
+
+
+      this.setState({tags: [...this.state.tags, newTag.value]});
+
+      newTag.value = "";
+      console.log(this.state.tags);
    }
 
    delete = () => {
@@ -41,6 +50,14 @@ class ViewNote extends Component {
       this.props.history.push('/');
    }
 
+   deleteTag = (tagId) => {
+      this.state.tags.splice(tagId, 1);
+      
+      this.setState({
+         tags: this.state.tags,
+      });
+
+   }
 
    componentDidMount() {
       this.toggleDisplay("modal");
@@ -53,7 +70,7 @@ class ViewNote extends Component {
          index: this.props.index,
          title: this.props.title,
          content: this.props.content,
-         tags: this.props.tags,
+         tags: this.props.tags ? this.props.tags: [],
       });
 
    }
@@ -65,7 +82,7 @@ class ViewNote extends Component {
    }
 
    submitEdits = () => {
-      this.props.update({index: this.props.index, title: document.getElementById("editNoteTitleInput").value, content: document.getElementById("editNoteContentInput").value});
+      this.props.update({index: this.props.index, title: document.getElementById("editNoteTitleInput").value, content: document.getElementById("editNoteContentInput").value, tags: this.state.tags});
 
       this.props.history.push('/');
    }
@@ -79,12 +96,15 @@ class ViewNote extends Component {
             </div>
 
             <h2 id="viewNoteTitle" > {this.state.title} </h2>
-            <div id="editNoteTitle"> <input type="text" id="editNoteTitleInput"/> </div>
+            <div id="editNoteTitle"> <input type="text" id="editNoteTitleInput" className="smallInput"/> </div>
 
-            <h4 id="viewNoteTags" > Tags: {this.state.tags ? this.state.tags.map(tag => {
-               <span className="viewNoteTag"> {tag} </span>
-            }): null} </h4>
-            <div id="editNoteTags"> <input type="text" id="editNoteTagsInput" placeholder="tags"/> </div>
+            <h4 id="viewNoteTags" >  Tags:  {this.state.tags.map((tag, i) => 
+               <span className="viewNoteTag" key={i} onClick={() => this.deleteTag(i)}>  {tag}  </span>
+            )} </h4> 
+            <div id="editNoteTags">
+             <input type="text" id="editNoteTagsInput" className="smallInput" placeholder="Enter tags"/> 
+             <button id="addTagButton" onClick={() => this.addTag()}> Add Tag</button>
+             </div>
 
             <div id="viewNoteContent">  {this.state.content} </div>
 
@@ -98,7 +118,7 @@ class ViewNote extends Component {
                      <p className="modalText"> Are you sure you want to delete this? </p>
                      <div className="deleteButton">
                         <button id="deleteButton" onClick={() => this.delete()}>Delete</button>
-                        <button id="noButton" onClick={() => this.toggleDisplay("modal")}>No</button>
+                        <button  onClick={() => this.toggleDisplay("modal")}>No</button>
                      </div>
 
                   </div>

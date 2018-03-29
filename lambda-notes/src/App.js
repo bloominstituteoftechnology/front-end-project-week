@@ -104,6 +104,10 @@ class App extends Component {
                   this.state.notes[this.props.location.pathname.split('/')[2]]
                     .content
                 }
+                tags={
+                  this.state.notes[this.props.location.pathname.split('/')[2]]
+                    .tags
+                }
                 update={this.updateNote}
                 delete={this.deleteNote}
               />
