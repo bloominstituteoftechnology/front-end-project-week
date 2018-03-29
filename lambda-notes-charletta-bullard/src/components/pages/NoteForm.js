@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
+
 class NoteForm extends Component {
     state = {
         title: '',
@@ -36,7 +37,7 @@ class NoteForm extends Component {
             className='formtitle'
             type='text'
             placeholder='Note Title'
-            onChange={this.updateNote}
+            onChange={this.handleTitleInput}
             name='title'
             value={this.state.title}
           />
@@ -44,7 +45,7 @@ class NoteForm extends Component {
             className='formcontent'
             type='text'
             placeholder='Note Content'
-            onChange={this.updateNote}
+            onChange={this.handleContentInput}
             name='content'
             value={this.state.content}
           />
