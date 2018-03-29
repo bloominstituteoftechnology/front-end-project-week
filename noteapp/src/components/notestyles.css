@@ -1,6 +1,7 @@
 .notelist {
   display: flex;
-  flex-flow: wrap;
+  flex-flow: row;
+  justify-content: space-around;
 }
 
 .note {
@@ -15,6 +16,7 @@
 }
 .notepage {
   background-color: #f3f3f3;
+  width: 100%;
 }
 .notepage h3 {
   display: flex;
@@ -23,10 +25,16 @@
 }
 .sidebar {
   background-color: #d8d8d8;
+  width: 30%;
 }
 .note-button {
   border: 1px solid gray;
   background-color: #2bc1c4;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
 }
 /*
 Heading Font: Roboto Bold

@@ -1,16 +1,32 @@
 import React, { Component } from 'react';
-import Notes from './Note';
 import notestyles from './notestyles.css';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class NotesPage extends Component {
   render() {
     return (
-      <div className="notepage">
+      <div className="container">
         <h3>Your Notes:</h3>
-        <Notes />
+        <div>
+          {this.props.notes.map((note, index) => {
+            return (
+              <div className="note" key={note.id}>
+                <div>{note.title}</div>
+                <div>{note.text}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
 }
 
-export default NotesPage;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
+
+export default connect(mapStateToProps)(NotesPage);

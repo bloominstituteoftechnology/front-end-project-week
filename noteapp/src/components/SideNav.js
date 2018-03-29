@@ -11,12 +11,12 @@ class SideNav extends Component {
       //   <button className="note-button">View Notes</button>
       //   <button className="note-button">Add note</button>
       // </div>
-      <div className="">
+      <div className="sidebar">
         <h2>Lambda Notes</h2>
-        <div>
+        <div className="note-button">
           <Link to="/">View Notes</Link>
         </div>
-        <div>
+        <div className="note-button">
           <Link to="/NoteForm">+ Create New Note</Link>
         </div>
       </div>
