@@ -3,7 +3,7 @@
   border: 1px solid #b5b5b5;
   background-color: #f3f3f3;
   padding: 20px;
-  min-height: 850px;
+  min-height: 100vh;
 }
 
 .noteCreateHeader {
