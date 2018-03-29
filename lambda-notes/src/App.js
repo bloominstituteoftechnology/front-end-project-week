@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, BrowserRouter as Router } from 'react-router-dom'
 import SideNav from './components/SideNav';
-import mainBody from './components/mainBody';
+import MainBody from './components/mainBody';
 
 class App extends Component {
   render() {
     return (
-      <Router>
       <div className="App">
-        <Route exact path="/" component= { SideNav } />
-        <Route exact path="/" component={ mainBody } />
+        <SideNav />
+        <MainBody />
         </div>
-        </Router>
     );
   }
 }

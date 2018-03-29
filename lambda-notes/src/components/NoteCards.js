@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle, CardText, CardColumns } from 'reactstrap';
+import { connect } from 'react-redux';
+
 
 class NoteCards extends Component {
-    state = {
-        notes: [],
-    }
-    componentDidMount() {
-        this.setState({ notes: this.props.notes })
-    }
     render() {
         return (
-            <Container>
-
-                <div className="cardList">
-                    <h3> Your Notes: </h3>
-                    <Row>
-                        <Col sm="6">
-                            <Card body>
-                                <CardTitle>Note Title</CardTitle>
-                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+            <div className="cardList">
+                <h3> Your Notes: </h3>
+                {this.props.Notes.map(notes => {
+                    return (
+                        <CardColumns>
+                            <Card>
+                                <div key={notes.noteNum} class="CardColumn">
+                                    <CardTitle> {notes.noteTitle}</CardTitle>
+                                    <p>
+                                        <CardText> {notes.noteContent}  </CardText>
+                                    </p>
+                                </div>
                             </Card>
-                        </Col>
-                    </Row>
-                </div>
-
-            </Container>
+                        </CardColumns>
+                    )
+                })}
+            </div>
         )
     }
 }
-export default NoteCards;
+const mapStateToProps = state => {
+    return {
+        Notes: state.notes,
+    };
+};
+
+export default connect(mapStateToProps)(NoteCards);
