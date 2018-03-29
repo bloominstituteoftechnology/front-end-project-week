@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { getNotes } from '../actions';
 
-//import { Route } from 'react-router-dom';
 
 import { Container, Row } from 'reactstrap';
 
@@ -14,6 +13,7 @@ import EditNote from './editnote';
 import NavBar from './navbar';
 import NewNote from './newnote';
 import './app.css';
+
 
 class App extends Component {
   render() {

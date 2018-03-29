@@ -12,7 +12,7 @@ import {
 
 import styled from 'styled-components';
 
-import { editNote } from '../actions';
+import { getNote, editNote } from '../actions';
 
 const H3 = styled.h3`
     margin-top: 50px;
@@ -59,13 +59,19 @@ class EditNote extends React.Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
+        this.setState({id: id});
         const notes = this.props.notes;
         const note = notes.find(note => (note.id).toString() === id.toString())
-        const fields = { 
-            title: note.title,
-            content: note.content, 
-        }
-        this.setState({ Fields: fields })
+        if (note === undefined ){
+            // do a get request
+            this.props.getNote(id);
+        } else{
+            const fields = { 
+                title: note.title,
+                content: note.content, 
+            }
+            this.setState({ Fields: fields })
+        }  
     }
     
     handleInputChange = (event) => {
@@ -87,4 +93,4 @@ class EditNote extends React.Component {
 const mapStateToProps = state => {
     return state;
 }
-export default withRouter(connect(mapStateToProps, { editNote })(EditNote));
+export default withRouter(connect(mapStateToProps, { getNote, editNote })(EditNote));

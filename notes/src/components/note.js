@@ -7,7 +7,7 @@ import {
     Modal,
 } from 'reactstrap';
 import styled from 'styled-components';
-import { deleteNote } from '../actions'
+import { getNote, deleteNote } from '../actions'
 import './note.css';
 const H3 = styled.h3`
     margin-top: 50px;
@@ -71,8 +71,15 @@ class Note extends React.Component {
         const id = this.props.match.params.id;
         const notes = this.props.notes;
         const note = notes.find(note => (note.id).toString() === id.toString())
-        this.setState({ Note: note })
+        if (note === undefined ){
+            // do a get request
+            this.props.getNote(id);
+            console.log(this.props, 'i here here am');
+        } else{
+            this.setState({ Note: note })
+        }  
     }
+
     handleDelete = () => {
         this.props.deleteNote(this.state.Note.id);
         this.setState({ 
@@ -84,7 +91,9 @@ class Note extends React.Component {
         this.setState({ DeleteModal: !this.state.DeleteModal})
     }
 };
-const mapStateToProps = state => {
-    return state;
+const mapStateToProps = ( state ) => {
+    return {
+        notes: state.notes
+    }
 };
-export default withRouter(connect(mapStateToProps, { deleteNote })(Note));
+export default withRouter(connect(mapStateToProps, {getNote, deleteNote })(Note));

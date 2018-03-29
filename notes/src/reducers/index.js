@@ -1,6 +1,8 @@
 import {
-    FETCHING,
-    FETCHED,
+    FETCHING_NOTES,
+    NOTES_FETCHED,
+    FETCHING_NOTE,
+    NOTE_FETCHED,
     ADDING,
     ADDED,
     DELETING,
@@ -10,6 +12,7 @@ import {
 
 const initState = {
     notes: [],
+    note: {},
     isFetching: false,
     loadingMsg: null,
     isFetched: false,
@@ -20,10 +23,14 @@ const initState = {
 
 export default function fetchReducer(state = initState, action) {
     switch(action.type) {
-        case FETCHING:
+        case FETCHING_NOTES:
             return {...state, isFetching: true, loadingMsg: action.msg };
-        case FETCHED:
+        case NOTES_FETCHED:
             return {...state, notes: action.notes, isFetched: true, isFetching: false, loadingMsg: null  };
+        case FETCHING_NOTE:
+            return {...state, isFetching: true, loadingMsg: action.msg };
+        case NOTE_FETCHED:
+            return {...state, note: action.note, isFetched: true, isFetching: false, loadingMsg: null  };
         case ADDING:
             return {...state, isAdding: true }
         case ADDED: 
