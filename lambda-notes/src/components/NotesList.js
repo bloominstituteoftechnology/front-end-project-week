@@ -16,6 +16,7 @@ class NotesList extends Component {
     }
 
     render() {
+    
         return (
             <div className="NoteItems">
               <h5 className="NoteItemsTitle">Your Notes:</h5>

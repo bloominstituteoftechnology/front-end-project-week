@@ -10,7 +10,6 @@ class NoteContainer extends Component {
             modal: false,
         }
         this.toggle = this.toggle.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
     }
 
     toggle() {
@@ -24,6 +23,8 @@ class NoteContainer extends Component {
         const {title, description} = this.props.note
         console.log(title, description);
         return (
+
+            
             <div className="NoteContainer">
 
               
@@ -40,7 +41,7 @@ class NoteContainer extends Component {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button color="primary" onClick={this.toggle}>Delete</Button>{' '}
+                        <Link className="redirect" to={`/viewnotes`}><Button>Delete</Button></Link>{' '}
                         <Button color="secondary" onClick={this.toggle}>No</Button>
                     </ModalFooter>
 

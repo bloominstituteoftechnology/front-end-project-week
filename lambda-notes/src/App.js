@@ -11,11 +11,16 @@ import EditNote from './components/EditNote';
 class App extends Component {
   state = {
     neededData: [],
+    isHidden: false
   }
 
   componentDidMount() {
     this.setState( {neededData: allNotes} );
-}
+  }
+
+  handleViewNoteClick() {
+    this.setState( {isHidden: !this.state.isHidden} )
+  }
 
   noteView = (props) => {
     const note = this.state.neededData.filter(note => note.id === +props.match.params.id)
@@ -28,18 +33,56 @@ class App extends Component {
   }
 
   render() {
-    return (
+    const {isHidden} = this.state;
+    if (isHidden) {
+      return (
+      
       <Fragment>
-        <div className="Lambda Notes App">
+
+        
+
+      <div className="Lambda Notes App">
+
           
-            <Route path="/" component={NavBar} />
+        
+          <Route path="/" render={(props) => <NavBar {...props} onClick={this.handleViewNoteClick.bind(this)} />}/>  
+          <Route path="/viewnotes" render={(props) => <NotesList {...props} needed={this.state.neededData} />}/>
+          <Route path="/CreateNote" render={(props) => <CreateNote {...props} />}/> 
+          <Route path="/notes/:id" render={this.noteView} />
+          <Route path="/EditNote/:id" render={this.editView} />
+          <Route path="/DeleteNote/:id" render={this.noteView} /> 
+
+          
+      </div>
+
+      
+    </Fragment>
+      )
+    }
+    return (
+
+      
+      
+      <Fragment>
+
+        
+
+        <div className="Lambda Notes App">
+
+            
+          
+            <Route path="/" render={(props) => <NavBar {...props} onClick={this.handleViewNoteClick.bind(this)} />}/>  
             <Route path="/viewnotes" render={(props) => <NotesList {...props} needed={this.state.neededData} />}/>
             <Route path="/CreateNote" render={(props) => <CreateNote {...props} />}/> 
             <Route path="/notes/:id" render={this.noteView} />
             <Route path="/EditNote/:id" render={this.editView} />
-            <Route path="/DeleteNote/:id" render={this.noteView} />
+            <Route path="/DeleteNote/:id" render={this.noteView} /> 
+
+            <div className="Greeting">Welcome To Lamda Notes!</div>
             
         </div>
+
+        
       </Fragment>
     );
   }
