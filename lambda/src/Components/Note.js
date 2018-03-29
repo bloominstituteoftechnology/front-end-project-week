@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 
+
 class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
             modal: false
         };
-
+    
         this.toggle = this.toggle.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
     }
@@ -27,6 +28,7 @@ class Note extends Component {
         return (
             <div className="Note">
                 <div className="Nav__nav">
+                {/* <Link to ={`/notes/${props.location.state.currentNote.id}/EditNote`}>edit</Link> */}
                     <Link className="Nav__item" to={`/notes/${this.props.location.state.currentNote.id}/EditNote`}>edit</Link>
                     <div className="Nav__item">
                         <a className="Nav__item" onClick={this.toggle}>delete</a>
@@ -45,5 +47,6 @@ class Note extends Component {
         );
     };
 }
+
 
 export default Note;
