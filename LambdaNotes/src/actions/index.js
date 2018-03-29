@@ -1,6 +1,7 @@
 export const ADD_NOTE = 'ADD_NOTE';
 export const ACTIVATE_NOTE = 'ACTIVATE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 
 export const addNote = (note) => {
   return {
@@ -23,5 +24,12 @@ export const editNote = (note) => {
     id: note.id,
     title: note.title,
     text: note.text
+  };
+}
+
+export const deleteNote = (id) => {
+  return {
+    type: DELETE_NOTE,
+    payload: id
   };
 }

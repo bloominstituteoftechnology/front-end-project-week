@@ -1,6 +1,6 @@
 import defaultNotes from './defaultNotes';
 
-import { ADD_NOTE, ACTIVATE_NOTE, EDIT_NOTE } from '../actions';
+import { ADD_NOTE, ACTIVATE_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions';
 
 let nextId = 7;
 
@@ -31,13 +31,16 @@ export default (state = intialState, action) => {
         title: action.title,
         text: action.text
       }
-      const notes = state.notes;
+      let notes = state.notes;
       notes.forEach(note => {
         if (note.id == editedNote.id) {
           note.title = editedNote.title;
           note.text = editedNote.text; 
         }
       })
+
+    case DELETE_NOTE:
+      notes = state.notes.filter(note => note.id != action.payload)
       return { ...state, notes: notes };
     default:
       return state;
