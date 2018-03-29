@@ -51,9 +51,17 @@ class NoteForm extends Component {
     }
 
     render () {
+        let createNote= this.state.newNote;
+        if (this.state.newNote.id === undefined) createNote = this.state.newNote.id;
+        console.log(this.state.newNote.id);
         return (
         <Container className="my-5">
-        <h3 className="header my-4">Create New Note:</h3>
+        {createNote ? (
+            <h3 className="header my-4">Edit Note:</h3>
+        ) : (
+            <h3 className="header my-4">Create New Note:</h3>
+        )}
+        
         <Form
           onSubmit={this.submitNote.bind(this)}
           onChange={this.handleChange.bind(this)}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const ADD_NOTE = 'ADDING_NOTE';
+export const ADD_NOTE = 'ADD_NOTE';
 let noteId = 10;
 
 export const addNote = (note) => {
