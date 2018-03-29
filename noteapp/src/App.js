@@ -15,11 +15,11 @@ class App extends Component {
           <SideNav />
           <Route exact path="/" component={NotesPage} />
           <Route path="/NoteForm" component={NoteForm} />
-          <Route exact path="/FullNote/:id" component={FullNote} />
+          <Route path="/FullNote/:id" component={FullNote} />
         </div>
       </Router>
     );
   }
 }
-
+// component={FullNote}
 export default App;

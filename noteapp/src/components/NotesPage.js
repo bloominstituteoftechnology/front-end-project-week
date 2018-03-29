@@ -13,7 +13,7 @@ class NotesPage extends Component {
             return (
               <div className="note" key={note.id}>
                 <Link to={`FullNote/${note.id}`}>
-                  <div>{note.title}</div>
+                  <div className="note-card">{note.title}</div>
                   <div>{note.text}</div>
                 </Link>
               </div>
