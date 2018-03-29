@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { deleteNote } from '../actions';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { withRouter } from "react-router-dom";
 
 class DeleteNote extends Component {
   constructor(props) {
@@ -22,15 +23,17 @@ class DeleteNote extends Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
+        <div className='header-link' onClick={this.toggle}>{this.props.buttonLabel}</div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-dialog modal-dialog-centered">
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
+          <ModalBody className='text-center p-5'>
               Are you sure you want to delete this?
           </ModalBody>
-          <ModalFooter>
-            <Button color="danger" onClick={this.toggle}>Delete</Button>{' '}
-            <Button color="primary" onClick={this.toggle}>No</Button>
+          <ModalFooter className='d-flex justify-content-center'>
+            <Button className='w-50' color="danger" onClick={() => {
+                this.props.deleteNote(this.props.id);
+                this.props.history.push("/");
+            }}>Delete</Button>{' '}
+            <Button className='w-50' color="primary" onClick={this.toggle}>No</Button>
           </ModalFooter>
         </Modal>
       </div>
@@ -38,4 +41,4 @@ class DeleteNote extends Component {
   }
 }
 
-export default DeleteNote;
+export default withRouter(connect(null,{deleteNote})(DeleteNote));

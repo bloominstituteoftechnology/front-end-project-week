@@ -36,4 +36,4 @@ class Note extends Component {
     componentDidMount() {}
 }
 
-export default connect(mapStateToProps)(Note)
+export default connect(mapStateToProps,{ deleteNote })(Note)

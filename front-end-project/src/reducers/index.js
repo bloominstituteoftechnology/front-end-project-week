@@ -61,6 +61,11 @@ export default function notes(state=initialState, action) {
                 ...state,
                 notes: new_note,
             };
+        case actions.DELETE_NOTE:
+            return {
+                ...state,
+                notes: state.notes.slice().filter(note => note.id !== action.id),
+            };
         default:
             return state;
     }   
