@@ -18,10 +18,15 @@ const StyledNote = styled.div`
         display: flex;
         position: static;
         font-size: 16px;
+        text-decoration: underline;
 
         .delete-link {
             margin-left: 30px;
         }
+    }
+
+    a {
+        color: black;
     }
 
     .card-body {

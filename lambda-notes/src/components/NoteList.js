@@ -19,8 +19,8 @@ const StyledNoteList = styled.div`
     margin-left: 20px;
     margin-bottom: 20px;
     font-weight: bold;
-
     width: 20%;
+    min-width: 125px;
   }
 
   .notes-empty {
@@ -100,8 +100,8 @@ class NoteList extends Component {
                           </b>
                         </CardTitle>
                         <CardText className="card-text">
-                          {note.text.length > 30
-                            ? `${note.text.substring(0, 29)}...`
+                          {note.text.length > 100
+                            ? `${note.text.substring(0, 100)}...`
                             : note.text}
                         </CardText>
                       </CardBody>

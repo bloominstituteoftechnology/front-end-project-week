@@ -24,10 +24,27 @@ const StyledHLP = styled.div`
     line-height: 1;
   }
 
+  .add-heading {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    width: 120px;
+    line-height: 1.2;
+    font-weight: bold;
+    font-family: 'Kaushan Script', cursive;
+    border: 2px dashed black;
+    padding: 5px;
+
+  }
+
   .button-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .csv-button {
+    background: pink;
   }
 
   button {
@@ -53,10 +70,11 @@ const HomeLeftPanel = (props) => {
       <Link to="/create-new-note/">
         <button> + Create New Note </button>
       </Link>
+      <div className="add-heading"> Additional<br/>Features </div>
       <CSVLink 
         className="csv-link" 
         data={props.notes} filename={"lambda-notes.csv"}
-        ><button>Download CSV</button>
+        ><button className="csv-button">Download CSV</button>
       </CSVLink>
       </div>
     </StyledHLP>
