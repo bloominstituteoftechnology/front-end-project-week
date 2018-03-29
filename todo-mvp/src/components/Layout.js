@@ -95,7 +95,6 @@ class Layout extends Component {
     return (
       <div className="Layout">
         <NavBar />
-        <div>
           <Route
             exact
             path="/"
@@ -133,7 +132,6 @@ class Layout extends Component {
           title={this.state.title} 
           content={this.state.content} />} 
           />
-        </div>
       </div>
     );
   }

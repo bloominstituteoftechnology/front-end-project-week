@@ -13,12 +13,24 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
 
 header h1 {
   color: #4A4A4A;
   font-family: Roboto;
-  font-weight: bold;
+  font-weight: 900;
+  margin-bottom: 0px;
+}
+
+header h1:hover {
+  color: RGB(54, 192, 195);
+}
+
+.nav-link-header:hover {
+  text-decoration: none;
 }
 
 .nav-btn {

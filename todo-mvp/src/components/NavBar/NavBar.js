@@ -7,7 +7,9 @@ class NavBar extends Component {
     return (
       <div className="NavBar">
         <header className="nav-header">
+          <Link className="nav-link-header" to="/">
           <h1>Lambda Notes</h1>
+          </Link>
         </header>
         <Link className="nav-btn" to="/">
           <div>View Your Notes</div>

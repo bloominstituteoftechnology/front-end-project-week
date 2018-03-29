@@ -14,11 +14,27 @@ class UpdateNote extends Component {
   render() {
     return (
       <div className="UpdateNote">
-        <h3>Edit Note:</h3>
         <form className="update-form" onSubmit={this.handleUpdate.bind(this)}>
-        <input required type="text" placeholder="Note Title" value={this.props.title} onChange={this.props.newTitle}/>
-        <input required type="text" placeholder="Note Content" value={this.props.content} onChange={this.props.newContent}/>
-        <button type="submit">Update</button>
+        <label className="input-label">
+            <h2 className="label-h2">Edit Note:</h2>
+          </label>
+        <input 
+          required 
+          className="input-title"
+          type="text" 
+          placeholder="Note Title" 
+          value={this.props.title} 
+          onChange={this.props.newTitle}
+          />
+        <textarea 
+          required 
+          className="input-body"
+          type="text" 
+          placeholder="Note Content" 
+          value={this.props.content} 
+          onChange={this.props.newContent}
+        />
+        <button className="sav-btn" type="submit">Update</button>
         </form>
       </div>
     );

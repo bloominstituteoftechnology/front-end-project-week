@@ -26,10 +26,10 @@ class CreateNote extends Component {
           onChange={this.props.newTitle}
           value={this.props.title}
           />
-          <input 
+          <textarea 
           required
           className="input-body" 
-          type="text-area" 
+          type="textarea" 
           placeholder="Note Content"
           onChange={this.props.newContent}
           value={this.props.content}

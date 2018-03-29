@@ -5,12 +5,12 @@
   font-family: Roboto;
 }
 
-.list_h3 {
+.list_h2 {
   font-weight: bolder;
   font-family: Roboto;
   color: RGB(74,74,74);
   margin-top: 50px;
-  margin-left: 25px;
+  margin-left: 60px;
 }
 
 .notes {
@@ -33,6 +33,8 @@
 .card-title {
   font-weight: bold;
   font-family: Roboto;
+  padding-bottom: 5px;
+  border-bottom: 2px solid  gray;
 }
 
 .card-link {
@@ -43,4 +45,6 @@
 
 .card-link:hover {
   text-decoration: none;
+  color:  RGB(54, 192, 195);
 }
+

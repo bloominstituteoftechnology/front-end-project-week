@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import { NavLink } from 'reactstrap'
 import './ViewNote.css';
 
   
@@ -16,10 +16,10 @@ class ViewNote extends Component {
       <div className="ViewNote">
         <div className="note-form">
           <Link className="note-update" to={`/update/${this.props.note.id}`}>Update</Link>
-          <button className="note-update" onClick={this.handleDelete.bind(this)}  value={this.props.note.id}>Delete</button>
+          <button className="note-delete" onClick={this.handleDelete.bind(this)}  value={this.props.note.id}>Delete</button>
         </div>
-        <h2>{this.props.note.title}</h2>
-        <p>{this.props.note.content}</p>
+        <h2 className="note-title">{this.props.note.title}</h2>
+        <p className="note-content">{this.props.note.content}</p>
       </div>
     );
   }
