@@ -1,4 +1,4 @@
-import { ADD, EDIT, DELETE } from '../actions';
+import { addNote, editNote, deleteNote } from '../actions';
 
 const initialState = {
   notes: [
@@ -57,11 +57,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD:
+    case 'addNote':
+      return { ...state, notes: [...state.notes, action.note], nextid: state.nextid++ };
+    case 'editNote':
       return { ...state };
-    case EDIT:
-      return { ...state };
-    case DELETE:
+    case 'deleteNote':
       return { ...state };
     default:
       return state;

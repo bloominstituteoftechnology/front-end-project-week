@@ -1,15 +1,20 @@
-export const ADD = 'ADD';
-export const DELETE = 'DELETE';
-export const EDIT = 'EDIT';
+export const addNote = (title, body, id) => ({
+  type: 'addNote',
+  note: {
+    title: title,
+    body: body,
+    id: id,
+  }
+});
 
-const addNote = () => (dispatch) => {
-  dispatch({ type: ADD });
-};
+export const editNote = () => ({
+  type: 'editNote',
+  title: '',
+  body: '',
+  id: '',
+});
 
-const editNote = () => (dispatch) => {
-  dispatch({ type: EDIT });
-};
-
-const deleteNote = () => (dispatch) => {
-  dispatch({ type: DELETE });
-};
+export const deleteNote = () => ({
+  type: 'deleteNote',
+  id: '',
+});

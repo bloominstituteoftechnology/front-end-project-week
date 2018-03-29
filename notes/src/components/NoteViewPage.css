@@ -8,7 +8,6 @@
   .noteViewPageContainer {
     display: flex;
     flex-direction: row;
-    height: 1200px;
     width: 100%;
   }
 }
