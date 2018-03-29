@@ -17,7 +17,7 @@ class NoteView extends Component {
     return (
       <div className="noteViewContainer">
         <div className="linkContainer">
-          <p className="link" onClick={() => {alert('Not implemented yet!')}}>edit</p>
+          <p className="link" onClick={() => { this.props.history.push(`/edit/${id}`) }}>edit</p>
           <p className="link" onClick={() => { this.triggerModal() }}>delete</p>
         </div>
         <h2 className="noteViewHeader">{noteTitle}</h2>

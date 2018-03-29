@@ -3,11 +3,10 @@ import Navigation from './Navigation';
 import NoteEdit from './NoteEdit';
 
 import './NoteEditPage.css';
-import './Navigation.css';
 
 const NoteEditPage = () => {
     return (
-      <div className="NoteEditPageContainer">
+      <div className="noteEditPageContainer">
         <Navigation />
         <NoteEdit />
       </div>

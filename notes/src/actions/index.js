@@ -7,11 +7,13 @@ export const addNote = (title, body, id) => ({
   }
 });
 
-export const editNote = () => ({
+export const editNote = (title, body, id) => ({
   type: 'editNote',
-  title: '',
-  body: '',
-  id: '',
+  note: {
+    title: title,
+    body: body,
+    id: id,
+  }
 });
 
 export const deleteNote = () => ({
