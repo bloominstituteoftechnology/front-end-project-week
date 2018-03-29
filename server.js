@@ -82,6 +82,11 @@ server.get('/notes', (req, res) => {
   res.json(notes);
 });
 
+server.get('/notes/:id', (req, res) => {
+	const note = notes.filter(note => note.id.toString() === req.params.id)[0];
+	res.status(200).json(note);
+});
+
 server.post('/notes', (req, res) => {
   const { title, content } = req.body;
   const id = getNextId();
@@ -89,6 +94,25 @@ server.post('/notes', (req, res) => {
   notes.push(newNote);
   nextId++;
   res.json(notes);
+});
+
+server.put('/notes/:id', (req, res) => {
+  const { id } = req.params;
+
+  const noteIndex = notes.findIndex(f => f.id == id);
+
+  if (noteIndex > -1) {
+    const note = { ...notes[noteIndex], ...req.body };
+
+    notes = [
+      ...notes.slice(0, noteIndex),
+      note,
+      ...notes.slice(noteIndex + 1),
+    ];
+    res.send(notes);
+  } else {
+    res.status(404).send({ msg: 'Note not found' });
+  }
 });
 
 // server.delete('/notes/:id', (req, res) => {

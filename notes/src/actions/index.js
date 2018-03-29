@@ -6,11 +6,14 @@ export const
     NOTES_FETCHED       =   'NOTES_FETCHED',
     FETCHING_NOTE       =   'FETCHING_NOTE',
     NOTE_FETCHED        =   'NOTE_FETCHED',
+    ADDING              =   'ADDING',
+    ADDED               =   'ADDED',
+    UPDATING            =   'UPDATING',
+    UPDATED             =   'UPDATED',
     DELETING            =   'DELETING',
     DELETED             =   'DELETED',
-    ERROR               =   'ERROR',
-    ADDING              =   'ADDING',
-    ADDED               =   'ADDED';
+    ERROR               =   'ERROR';
+    
 
 export const getNotes = () => dispatch  => {
     const url = ROOT_URL;
@@ -36,7 +39,7 @@ export const getNotes = () => dispatch  => {
 };
 
 export const getNote = id => dispatch  => {
-    const url = ROOT_URL + '/' + id;
+    const url = `${ROOT_URL}/${id}`;
 
     dispatch({
         type: FETCHING_NOTE,
@@ -79,8 +82,28 @@ export const addNote = (newNote) => dispatch => {
         });
 }
 
+export const editNote = (id, updatedNnote) => dispatch => {
+    const url = `${ROOT_URL}/${id}`; 
+    dispatch({type: UPDATING});
+
+    axios
+        .put(url, updatedNnote)
+        .then(response => {
+            dispatch({
+                type: UPDATED,
+                notes: response.data,
+            })
+        })
+        .catch(err =>{
+            dispatch({
+                type: ERROR,
+                errorMessage: `Could not edit note! ${err}.`
+            })
+        });
+}
+
 export const deleteNote = id => dispatch => {
-    const url = ROOT_URL + '/' +id; 
+    const url = `${ROOT_URL}/${id}`; 
     dispatch({ type: DELETING });
 
     axios
@@ -98,7 +121,3 @@ export const deleteNote = id => dispatch => {
             })
         });
 };
-
-export const editNote = id => {
-
-}
