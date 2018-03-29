@@ -29,17 +29,12 @@ class ViewNote extends Component {
 
       document.getElementById("editNoteTitleInput").value = this.state.title;
       document.getElementById("editNoteContentInput").value = "   " + this.state.content;
-
    }
 
    addTag = () => {
       console.log("addTag clicked");
-
       let newTag = document.getElementById('editNoteTagsInput');
-
-
       this.setState({tags: [...this.state.tags, newTag.value]});
-
       newTag.value = "";
       console.log(this.state.tags);
    }
@@ -52,11 +47,9 @@ class ViewNote extends Component {
 
    deleteTag = (tagId) => {
       this.state.tags.splice(tagId, 1);
-      
       this.setState({
          tags: this.state.tags,
       });
-
    }
 
    componentDidMount() {
@@ -78,7 +71,7 @@ class ViewNote extends Component {
    toggleDisplay(componentId) {
       let component = document.getElementById(componentId);
       component.style.display === 'none' ? (component.style.display = 'block') : (component.style.display = 'none');
-
+   
    }
 
    submitEdits = () => {

@@ -9,7 +9,6 @@
    text-align: left;
 }
 
-
 .viewNoteTag {
    border: solid 1px grey;
    background: rgba(36, 184, 189, .5);
@@ -43,7 +42,6 @@
    padding: 10px;
    width: 50%;
 }
-
 
 #newContent {
    font-family: 'Roboto', sans-serif;
