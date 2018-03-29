@@ -62,14 +62,16 @@ class NoteList extends Component {
             {this.props.notes.map(note => {
                 return (
                     <Col sm="4" className="mb-3" key={note.id}>
+                    <div>
                         <Link  className="link" to={`/single-note-view/${note.id}`} style={{ textDecoration: 'none' }}>
                         <Card>
                             <CardBody className="card" key={note.id}>
-                                <CardTitle className="card-title"><b>{note.title}</b></CardTitle>
-                                <CardText className="card-text">{note.text}</CardText>
+                                <CardTitle className="card-title"><b>{note.title.length > 16 ? `${note.title.substring(0, 15)}...` : note.title}</b></CardTitle>
+                                <CardText className="card-text">{note.text.length > 30 ? `${note.text.substring(0, 29)}...` : note.text}</CardText>
                             </CardBody>
                         </Card>
                         </Link>
+                        </div>
                     </Col>
                     
                 );

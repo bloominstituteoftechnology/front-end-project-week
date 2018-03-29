@@ -40,8 +40,8 @@ const StyledEditForm = styled.div`
 
 class EditForm extends React.Component {
     state = {
-      title: (this.props.notes[this.props.id - 1 ].title),
-      text: (this.props.notes[this.props.id - 1 ].text),
+      title: this.props.notes.find(note => note.id === Number(this.props.match.params.id)).title,
+      text: this.props.notes.find(note => note.id === Number(this.props.match.params.id)).text,
       redirect: false,
     }
   
