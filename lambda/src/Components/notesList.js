@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, CardBody, CardHeader, CardText } from 'reactstrap';
 
 
 
@@ -14,24 +15,29 @@ class NotesList extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Your Notes</h1>
-                <div>
+            <div className="NotesList">
+            <h4 className="Title">Your Notes</h4>
+                <div className="ListCards">
                     {this.state.notes.map(((note) => {
                         return (
-                            <div className="ListCard">
+                            <div className="ListCard" key={note.id}>
                                 <Link to={{pathname: `/notes/${ note.id }}`, state: { currentNote: note }}}>
-                                    <h5>{note.titel}</h5>
-                                    <h5>{note.text}</h5>
+                                    <Card>
+                                        <CardHeader className="Title">{note.title}</CardHeader>
+                                        <CardBody>
+                                        <CardText>{note.text}</CardText>
+                                        </CardBody>
+                                    </Card>
                                 </Link>
                             </div>
-        )
-    }))}
-    </div>
-    </div>
-  );
+                        )
+                    }))}
+                </div>
+            </div>
+        );
+    }
 }
-}
+
 export default NotesList;
 
 
