@@ -3,18 +3,13 @@
 }
 .routerDiv{
     display: flex;
-    width: 50%;
+    flex-direction: column;
+    width: 250px;
     background-color:#D8D8D8;
-    padding: 10px;
-    margin-left:300px;
-    width: unset;
-    width: 200px;
-    height: 880px;
-    /* border: 2px solid green; */
+    height: 100%;
+    border: 1px solid green; 
 }
 
 .routeUl{
     list-style-type: none;
-    padding: 0;
-    margin: 100px;
 }

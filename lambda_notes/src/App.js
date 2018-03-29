@@ -1,47 +1,98 @@
 import React, { Component } from "react";
 import "./App.css";
-// import Layout from './components/Layout';
 import ListView from "./components/ListView";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import CreateNew from "./components/CreateNew";
-import Display from "./components/Display";
+import ViewNote from "./components/ViewNote";
+import dummyNotes from "../src/NoteData/dummyNotes";
+import Update from "./components/Update";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: [],
+      count: 9
+    };
+    this.createNew = this.createNew.bind(this);
+    this.newUpdate = this.newUpdate.bind(this);
+    this.deleteNote= this.deleteNote.bind(this);
+  }
+  componentDidMount() {
+    this.setState({
+      notes: dummyNotes
+    });
+  }
+
+  deleteNote(id){
+    //use filter to evalute on current copy of state
+    let filteredNotes= this.state.notes.filter(note=> note.id != id)
+    this.setState({
+      notes: filteredNotes,
+    })
+}
+
+  newUpdate(note){
+    let clonedNotes = this.state.notes
+    console.log("inside update", note.id, typeof(note.id), "clonedNotes", clonedNotes)
+    const updatedindex = clonedNotes.findIndex(ele => note.id == ele.id)
+    console.log("updatedIndex", updatedindex, "clonedNotes", clonedNotes)
+       clonedNotes.splice(Number(updatedindex),1,note)
+    this.setState({
+      notes: clonedNotes, 
+    })
+  }
+
+  createNew(note) {
+    note.id = this.state.count;
+    console.log("I am createNew", note)
+    this.setState({
+      notes: [...this.state.notes, note],
+      count: this.state.count + 1
+    });
+
+  }
   render() {
     return (
       <div className="App">
-        {/* <Layout/> */}
-        <Router>
-          <div className="routerDiv">
-            <ul className="routeUl">
-              <li>
-                <Link to="/ListView">ListView </Link>
-              </li>
-              <li>
-                <Link to="/CreateNew">CreateNew</Link>
-              </li>
-              <li>
-            
-              </li>
-            </ul>
-            <Switch>
-              <Route exact path="/" component={ListView} />
-              <Route path="/ListView" component={ListView} />
-              <Route path="/CreateNew" component={CreateNew} />
-              <Route path="./:id" component={Display} />
-            
-            </Switch>
+        
+        
+          <ul className="routerDiv">
+          <div>
+            <h1>Lambda Notes </h1>
           </div>
-        </Router>
-      </div>
+            <li>
+              <Link to="/">ListView </Link>
+            </li>
+            <li>
+              <Link to="/CreateNew">CreateNew</Link>
+            </li>
+          </ul>
+
+          <Route
+            exact
+            path="/"
+            render={() => <ListView notes={this.state.notes} />}
+          />
+
+          <Route
+            path="/ViewNote/:id"
+            render={props =>
+              <ViewNote
+                note={
+                  this.state.notes.filter(
+                    note => props.match.params.id == note.id
+                  )[0]
+                  }
+                  deleteNote = {this.deleteNote}
+              />}
+          />
+          <Route path="/CreateNew" render= {() => <CreateNew createNote={this.createNew} />} />
+          <Route path="/Update/:id" render={() => <Update updateNote= {this.newUpdate} /> } />
+        </div>
+      // </div>
     );
   }
-}
-
-const id = ({match}) => {
-  <div>
-    <h2>id:{match.params.id}</h2>
-    </div>
 }
 
 export default App;
