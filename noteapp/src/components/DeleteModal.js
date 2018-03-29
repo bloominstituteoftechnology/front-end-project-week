@@ -25,12 +25,9 @@ class DeleteModal extends Component {
           isOpen={this.state.modal}
           toggle={this.toggle}
           className={this.props.className}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
+          <ModalBody>What do ya wanna do?</ModalBody>
           <ModalFooter>
-            <Button onClick={this.toggle}>Do Something</Button>{' '}
+            <Button onClick={this.toggle}>DELETE</Button>{' '}
             <Button onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
