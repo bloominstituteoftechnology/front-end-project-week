@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './index.css';
 import './App.css';
-import ListView from './ListView';
 import CreateNote from './CreateNote';
 import EditNote from './EditNote';
-import {Link, Route} from 'react-router-dom';
+import { Route} from 'react-router-dom';
+import Data from './Data'
 class App extends Component {
   render() {
     return (
      
       <div>
-      <Route path="/ListView" component={ListView}/>
+      <Route path="/Data" component={Data}/>
       <Route path="/CreateNote" component={CreateNote}/>
-
+      <Route path="/EditNote" component={EditNote} />
       </div>
       
     );

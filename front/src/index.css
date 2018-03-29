@@ -18,25 +18,25 @@ body {
 }
 .view{
   width:200px;
-  height:250px;
-  float:left;
+  height:230px;
   margin: 4px;
   font-family: Raleway Regular;
-  margin-top: 50px;
+  margin-top: 5px;
+  border:solid #F3F3F3;
+float:left;
   
   }
 .container{
-  width:1000px;
+  width:950px;
   display: flex;
   flex-wrap: wrap;
   margin-left:100px;
   border:solid grey;
   max-height: 900px;
   background-color:#F3F3F3;
-
 }
 .button3{
-  width:340px;
+  width:250px;
   height:900px;
   border:solid grey;
   font-family: Roboto Bold;

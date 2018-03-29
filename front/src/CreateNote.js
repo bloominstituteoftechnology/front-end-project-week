@@ -1,65 +1,54 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 class CreateNote extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        title: '',
-        note: ''
+       Title:'',
+       Body:''
       };
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit= this.handleSubmit.bind(this);
       this.handleChangeTitle=this.handleChangeTitle.bind(this);
+    this.handleChange=this.handleChange.bind(this);
+      this.handleSubmit=this.handleSubmit.bind(this);
     }
   
-    handleChange = (event) => {
-      this.setState({notes: event.target.value});
-    }
     handleChangeTitle = (event) => {
-        this.setState({title: event.target.value});
+      this.setState({title: event.target.value});
+    }
+    handleChange = (event) => {
+        this.setState({note: event.target.value});
       }
-    
-    handleSubmit = (event)  => {
-      event.preventDefault();
-
-      const newNote = {
-          title: this.state.title,
-          note: this.state.note
-
+     handleSubmit = (event) =>{
+event.preventDefault();
+          this.state.notes.push();
+          this.setState({
+            Title:'',
+            Body:'' 
+          })
       }
-axios.post('http://localhost:3000/ListView',{newNote})
-      .then(response => {
-        console.log(response);
-        console.log(response.data);
-        this.setState({
-          note: '',
-          title: '',
-         
-        });
-              });
-  };
-
+ 
     
-  
-    render() {
+    
+    render(){
+        
       return (
-          <div class='container'>
-        <div class = 'button3'>
+          <div className='container'>
+        <div className = 'button3'>
         <h1>Lambda Notes</h1>
-       <button> <Link to='/ListView'> View Your Notes</Link></button><br/>
+       <button> <Link to='Data'> View Your Notes</Link></button><br/>
        <button> <Link to='CreateNote'> + Create Your Notes</Link></button>
         </div>
+
         
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} >
           <h2>Create New Notes:</h2>
             <input class = 'kin' type ='text' placeholder ='Enter your title' 
-            value = {this.state.title} onChange ={this.handleChangeTitle} /><br />
-              <textarea value={this.state.notes} placeholder = 'Enter your notes'
+            value = {this.state.Title} onChange ={this.handleChangeTitle} /><br />
+              <textarea value={this.state.Body} placeholder = 'Enter your notes'
               onChange={this.handleChange} cols={60} rows={30} />
-            <button type="submit" value="Save">Save </button>
+            <button>Save </button>
           </form>
+          
           </div>
       );
     }
