@@ -13,6 +13,7 @@ componentDidMount(){
 }
 
 handleFilter = (e) => {
+    console.log(this.state.notes)
     if (e.nativeEvent.inputType === "deleteContentBackward") this.setState({ notes: this.props.notes})
     else { const currentState = this.state.notes
     const newState = currentState.filter((note) => note.title.toLowerCase().includes(e.target.value.toLowerCase()));
@@ -30,7 +31,7 @@ handleFilter = (e) => {
                             <div className="ListCard" key={note.id}>
                                 <Link to={{pathname: `/notes/${ note.id }`, state: { currentNote: note }}}>
                                     <Card>
-                                        <header className="ListCard__Header">{note.title}</header>
+                                        <header className="ListCard__Header">{note.title} {note.tags.map(((tag) => { return(<span style={{color: `${tag.color}`}}>|</span>)}))}</header>
                                         <div className="ListCard__Body"><Markdown markup={note.text.length > 120 ? (note.text.substr(0, 124) + " ...") : (note.text)} strikethrough="true" tasklists="true" /></div>
                                     </Card>
                                 </Link>

@@ -15,6 +15,7 @@ class App extends Component {
 }
 
   handleAdd = (note) => {
+    console.log(note);
     const newNote = {...note, id: this.state.id };
     localStorage.setItem(`id${this.state.id}`, JSON.stringify(newNote));
     const newState = this.state.notes

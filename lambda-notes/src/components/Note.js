@@ -42,7 +42,19 @@ class Note extends Component {
                     </Modal>
                 </div>
             </div>
-            <h4 className="Note__title">{this.props.location.state.currentNote.title}</h4>
+            <div className="AddNote__Tags">
+                <h4 className="Note__title">{this.props.location.state.currentNote.title}</h4>
+                <div className="Tags">
+                    {this.props.location.state.currentNote.tags.length > 0 ? this.props.location.state.currentNote.tags.map(((tag, index) => {
+                                    return (
+                                        <div key={index} className="Tag" style={ { background: `${tag.color}` } }>
+                                            {tag.name}
+                                        </div> 
+                                    )
+                                })) 
+                                : <div></div> }
+                </div>
+            </div>
             <div className="Content">
             <Markdown markup={ this.props.location.state.currentNote.text } strikethrough="true" tasklists="true" />
             </div>
