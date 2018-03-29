@@ -84,3 +84,22 @@
   margin: 10px 0px;
   border: 1.5px solid #d3d2d3;
 }
+
+.ViewNoteLink {
+  text-decoration: none !important;
+  color: black;
+}
+
+.TopLinks {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  
+}
+
+.TopLinks a {
+  margin-right: 20px;
+  color: black;
+  text-decoration: underline;
+}
