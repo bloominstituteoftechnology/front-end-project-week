@@ -4,14 +4,6 @@ import { withRouter } from 'react-router';
 import './NoteView.css';
 
 class NoteView extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      id: this.props.match.params.number,
-      noteTitle: this.props.noteData.notes[this.props.match.params.number].title,
-      noteBody: this.props.noteData.notes[this.props.match.params.number].body,
-    }
-  }
 
   triggerModal = () => {
     const modal = document.getElementsByClassName('modalContainer')[0];
@@ -19,17 +11,17 @@ class NoteView extends Component {
   }
 
   render() {
-    // const id = this.props.match.params.number;
-    // const noteTitle = this.props.noteData.notes[id].title;
-    // const noteBody = this.props.noteData.notes[id].body;
+    const id = this.props.match.params.number;
+    const noteTitle = this.props.noteData.notes[id].title;
+    const noteBody = this.props.noteData.notes[id].body;
     return (
       <div className="noteViewContainer">
         <div className="linkContainer">
-          <p className="link" onClick={() => { this.props.history.push(`/edit/${this.state.id}`) }}>edit</p>
+          <p className="link" onClick={() => { this.props.history.push(`/edit/${id}`) }}>edit</p>
           <p className="link" onClick={() => { this.triggerModal() }}>delete</p>
         </div>
-        <h2 className="noteViewHeader">{this.state.noteTitle}</h2>
-        <p className="noteViewBody">{this.state.noteBody}</p>
+        <h2 className="noteViewHeader">{noteTitle}</h2>
+        <p className="noteViewBody">{noteBody}</p>
       </div>
     );
   }
