@@ -10,7 +10,7 @@ export const NoteCards = (props) => {
           {props.notes.map((note, id) => {
             return (              
               <div key={id} className="note1 col-md-3">
-            <Link to={`/:${note.id}`} className="Link"><h4 className="title">{note.title}</h4>
+            <Link to={`/Save:${note.id}`} className="Link"><h4 className="title">{note.title}</h4>
               <hr />
                 <p>{note.text}</p>
                 </Link> </div>             
