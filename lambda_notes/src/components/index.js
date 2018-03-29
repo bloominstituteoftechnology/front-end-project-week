@@ -1,3 +1,5 @@
 export * from './SideMenu'
 export * from './Content'
 export * from './Note'
+export * from './Create'
+export * from './Edit'

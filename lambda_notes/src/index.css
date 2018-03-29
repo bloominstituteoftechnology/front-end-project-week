@@ -1,6 +1,6 @@
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
   font-family: sans-serif;
   font-size: 100%;
 }
@@ -11,22 +11,22 @@ body {
   height: 100vh;
 }
 
+/* SideMenu */
 .SideMenu {
   display: flex;
   flex-flow: column;
   align-items: center;
-  height: 100vh;
   width: 250px;
   padding: 15px;
   background-color: #d1d1d1;
 }
 
 .SideMenu h1 {
-  font-size: 3rem;
-  line-height: 3rem;
-  margin: 0;
   padding: 0;
+  margin: 0;
   color: #414041;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
 }
 
 .SideMenu_buttons {
@@ -35,13 +35,73 @@ body {
   width: 100%;
 }
 
-.SideMenu_buttons button {
-  background-color: #25b8bc;
-  border: 1px solid #829091;
-  height: 45px;
-  margin: 20px 0 0 0;
-  padding: 0;
+.SideMenu_buttons a {
   color: white;
+  text-decoration: none;
+}
+
+.SideMenu_buttons a:hover {
+  color: lightgray;
+}
+
+.SideMenu_buttons button {
+  height: 45px;
+  padding: 0;
+  margin: 20px 0 0 0;
+  border: 1px solid #829091;
+  background-color: #25b8bc;
   font-size: 1rem;
   font-weight: bold;
+}
+
+/* Content */
+.Content__container {
+  width: 100vw;
+  padding: 20px 20px 60px 20px;
+  background: #f3f3f3;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.Content__container h2 {
+  margin-left: 10px;
+  color: #4a494a;
+}
+
+.Content {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+  height: 100vh;
+  padding: 0 0 20px 0;
+  margin-bottom: 20px;
+}
+
+.Content a {
+  color: #212121;
+  text-decoration: none;
+}
+
+.Content a:hover {
+  background-color: lightgray;
+}
+
+.Note__container {
+  width: 200px;
+  height: 250px;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #b9b9b9;
+  margin: 10px;
+  background: white;
+}
+
+.Note__container h2 {
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #b9b9b9;
+  color: #212121;
+  margin: 0;
+}
+
+.Note__container p {
+  margin: 10px 0 10px 0;
 }

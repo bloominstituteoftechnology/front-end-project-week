@@ -1,3 +1,8 @@
 import React from 'react'
 
-export const Note = (props) => <div>Note</div>
+export const Note = ({ title, text }) => (
+  <div>
+    <h2>{title}</h2>
+    <p>{text}</p>
+  </div>
+)
