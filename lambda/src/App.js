@@ -16,6 +16,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      longinFlag: false,
       notes: [
         {
             title: 'A Title',
@@ -80,30 +81,47 @@ deleteNote = (index) => {
   })
 };
 
+login = () =>{
+  this.setState({
+    longinFlag: true,
+  })
+}
+
+logout = () =>{
+  this.setState({
+    longinFlag: false,
+  })
+}
+
   render() {
     return (
+     
       <div className='container'>
-        
-            <div className = 'notes-menu'>
+        {this.state.longinFlag ? (
+           <React.Fragment>
+              <div className = 'notes-menu'>
               <h2> Lambda Notes </h2>
-              <Navigation />
-              <div className = 'nav-bar'>
-                <CSVLink data={this.state.notes}
-                  filename={"My-notes.csv"}
-                  className = 'link download'>
-                    Download Notes
-                </CSVLink>
-                <Link to = '/' className = 'link signOut'> Sign Out </Link>
+                <Navigation />
+                <div className = 'nav-bar'>
+                  <CSVLink data={this.state.notes}
+                    filename={"My-notes.csv"}
+                    className = 'link download'>
+                      Download Notes
+                  </CSVLink>
+                  <Link to = '/' className = 'link signOut' onClick = {this.logout}> Sign Out </Link>
+                </div>
               </div>
-            </div>
 
-            <div className = 'notes-list'>
-              <Route  path = '/NotesList' render = {() => <NotesList notes = {this.state.notes} /> } />
-              <Route  path = '/AddNote' render = {() => <AddNote onSubmit = {this.addNote} /> } />
-              <Route  path = '/ViewNote/:id' render={(props) => <ViewNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote} /> } />
-              <Route  path = '/EditeNote' render = {() => <EditeNote/> } />
-              <Route  exact path = '/' component = {Login}  />
-            </div>
+              <div className = 'notes-list'>
+                <Route  path = '/NotesList' render = {() => <NotesList notes = {this.state.notes} /> } />
+                <Route  path = '/AddNote' render = {() => <AddNote onSubmit = {this.addNote} /> } />
+                <Route  path = '/ViewNote/:id' render={(props) => <ViewNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote} /> } />
+                <Route  path = '/EditeNote' render = {() => <EditeNote/> } /> 
+              </div>
+          </React.Fragment>
+        ) : (
+            <Route  exact path = '/' render = {() => <Login changeLoginFlag = {this.login} />} />
+        )}
       </div>
     );
   }

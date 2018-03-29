@@ -44,7 +44,7 @@ export default class Login extends Component {
                         type="password"
                         name = 'password'
                     />
-                    <Link to = '/NotesList' className = 'link'>
+                    <Link to = '/NotesList' className = 'link' onClick = {this.props.changeLoginFlag}>
                         <button
                             block
                             disabled={!this.validateForm()}
