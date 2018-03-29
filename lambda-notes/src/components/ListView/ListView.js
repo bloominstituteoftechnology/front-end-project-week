@@ -25,7 +25,9 @@ class ListView extends Component {
             <Link to={`/`}>
               <button className="buttons">View Your Notes</button>
             </Link>
-            <button className="buttons">+ Create New Note</button>
+            <Link to={`/create`}>
+              <button className="buttons">+ Create New Note</button>
+            </Link>
           </div>
 
           <div className="rightSide">

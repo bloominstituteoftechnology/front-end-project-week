@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
 
+import { deleteNoteAction } from '../../actions';
 import { showWholeNote } from '../../actions';
 import './NoteView.css';
 import '../components.css';
@@ -14,6 +15,7 @@ class NoteView extends Component {
       title: '',
       text: '',
       isEditing: false,
+      id: null,
     }
   }
   
@@ -26,11 +28,24 @@ class NoteView extends Component {
         console.log(note.title);
         this.setState({
           title: note.title,
-          text: note.text
+          text: note.text,
+          id: note.id,
         });
       }
     });
     console.log(this.state);
+  }
+  
+  goToViewMode = () => {
+    this.props.history.go(-1);
+  }
+  
+  delete = (id) => {
+    // const youNoDelete = window.confirm('alert');
+    // if (youNoDelete) {
+    // }
+    this.props.deleteNoteAction(id);
+    this.goToViewMode();
   }
   
   toggleEdit = () => {
@@ -68,7 +83,9 @@ class NoteView extends Component {
               <Link to={`/`}>
                 <button className="buttons">View Your Notes</button>
               </Link>
-              <button className="buttons">+ Create New Note</button>
+              <Link to={`/create`}>
+                <button className="buttons">+ Create New Note</button>
+              </Link>
             </div>
 
             <div className="rightSide">
@@ -111,14 +128,16 @@ class NoteView extends Component {
               <Link to={`/`}>
                 <button className="buttons">View Your Notes</button>
               </Link>
-              <button className="buttons">+ Create New Note</button>
+              <Link to={`/create`}>
+                <button className="buttons">+ Create New Note</button>
+              </Link>
             </div>
 
             <div className="rightSide">
 
               <div className="editDelete">
                 <div onClick={this.toggleEdit}>Edit</div>
-                <div>Delete</div>
+                <div onClick={() => this.delete(this.state.id)}>Delete</div>
               </div>
 
               <br/>
@@ -138,9 +157,7 @@ class NoteView extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
-    
   }
-  
 }
 
-export default connect(mapStateToProps, { showWholeNote })(NoteView);
+export default connect(mapStateToProps, { showWholeNote, deleteNoteAction })(NoteView);
