@@ -12,9 +12,10 @@ const StyledNote = styled.div`
     height: 700px;
 
     .links {
+        float: right;
+        margin-right: 30px
         display: flex;
-        position: absolute;
-        margin-left: 72%;
+        position: static;
         font-size: 14px;
 
         .delete-link {
@@ -63,11 +64,12 @@ class SingleNoteView extends React.Component {
                     <Delete id={this.props.match.params.id} toggleModal={this.toggleModal} handleDelete={this.props.deleteNote} />
                     </div>
                     ) : (null)}
+                
+                <div className="card-body" key={this.props.match.params.id}>
                 <div className="links">
                     <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
                     <a className="delete-link" onClick={() => this.toggleModal()}>delete</a>
                 </div>
-                <div className="card-body" key={this.props.match.params.id}>
                     {/* Since you made the SingleNoteView's functionality dependent on a sequential id
                     system, using v4 will break the single note view unless this is changed.  Regardless,
                     getting the notes data in this way presents a lot of problems when trying to implement

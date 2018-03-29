@@ -14,7 +14,7 @@ class List extends Component {
     return (
       <StyledList>
         <HomeLeftPanel />
-        <NoteList id={this.props.match.params.id}/>
+        <NoteList id={this.props.match.params.id} />
       </StyledList>
     );
   }

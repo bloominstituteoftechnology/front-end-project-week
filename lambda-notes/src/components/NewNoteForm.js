@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { addNote } from '../actions';
-import {Button, Input} from 'reactstrap';
+import React from "react";
+import styled from "styled-components";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { addNote } from "../actions";
+import { Button, Input } from "reactstrap";
 
 const StyledNewNoteForm = styled.div`
   display: flex;
@@ -34,72 +34,71 @@ const StyledNewNoteForm = styled.div`
   }
 `;
 
-
 class NewNoteForm extends React.Component {
-    state = {
-      title: '',
-      text: '',
-      id: this.props.notes.length + 1,
-    }
-  
-    handleSubmit = (event) => {
-      event.preventDefault();
-      console.log('addNote FIRED')
-      this.props.addNote({
-        ...this.state,
-      })
-      this.setState({
-        title: '',
-        text: '',
-        redirect: true,
-      })
-    }
+  state = {
+    title: "",
+    text: "",
+    id: this.props.notes.length + 1
+  };
 
-    handleChange = (e) => {
-        console.log(`setState to --> [${e.target.name}]: ${e.target.value}`)
-          console.log('handleChange: e.target.value', e.target.value)
-          this.setState({
-            [e.target.name]: e.target.value
-          });
-      }
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("addNote FIRED");
+    this.props.addNote({
+      ...this.state
+    });
+    this.setState({
+      title: "",
+      text: "",
+      redirect: true
+    });
+  };
 
-      render () {
-        console.log('NNF this.props', this.props)
-          return (
-            <StyledNewNoteForm>
-              <form>
-                <input 
-                  required
-                  className="title" 
-                  type="text" 
-                  name="title" 
-                  placeholder="Title" 
-                  onChange={this.handleChange} 
-                  value={this.state.title}
-                  maxLength='30'
-                  />
-                <textarea 
-                  required
-                  className="text" 
-                  type="text" 
-                  name="text" 
-                  placeholder="Text" 
-                  onChange={this.handleChange} 
-                  value={this.state.text}
-                  maxLength='250'
-                  />
-                <button onClick={this.handleSubmit}>Save</button>
-                {this.state.redirect ? <Redirect to='/' /> : null}
-              </form>
-            </StyledNewNoteForm>
-          )
-      }
-    }
+  handleChange = e => {
+    console.log(`setState to --> [${e.target.name}]: ${e.target.value}`);
+    console.log("handleChange: e.target.value", e.target.value);
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
 
-    const mapStateToProp = (state) => {
-      return {
-        notes: state.notes
-      }
-    }
-    
-    export default connect(mapStateToProp, { addNote })(NewNoteForm);
+  render() {
+    console.log("NNF this.props", this.props);
+    return (
+      <StyledNewNoteForm>
+        <form>
+          <input
+            required
+            className="title"
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={this.handleChange}
+            value={this.state.title}
+            maxLength="30"
+          />
+          <textarea
+            required
+            className="text"
+            type="text"
+            name="text"
+            placeholder="Text"
+            onChange={this.handleChange}
+            value={this.state.text}
+            maxLength="250"
+          />
+          <button onClick={this.handleSubmit}>Save</button>
+          {this.state.redirect ? <Redirect to="/" /> : null}
+        </form>
+      </StyledNewNoteForm>
+    );
+  }
+}
+
+const mapStateToProp = state => {
+  return {
+    notes: state.notes
+  };
+};
+
+export default connect(mapStateToProp, { addNote })(NewNoteForm);
