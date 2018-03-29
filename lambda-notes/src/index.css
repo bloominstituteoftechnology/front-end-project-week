@@ -51,6 +51,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   margin: 5px;
+  color: white;
 }
 
 /* Note */
@@ -127,4 +128,20 @@ h2 {
   width: 200px;
   height: 45px;
   padding: 10px;
+  color: white;
+}
+
+
+.EditTitle {
+  width: 60%;
+  margin: 15px;
+  margin-left: 1.5rem;
+}
+
+.EditText {
+  height: 350px;
+  width: 93%;
+  margin-left: 1.5rem;
+  padding-bottom: 300px;
+  margin-bottom: 15px;
 }

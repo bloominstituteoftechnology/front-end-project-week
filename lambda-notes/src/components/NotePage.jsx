@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-export const NotePage = ({ note: { text, title }}) => {
+export const NotePage = ( props ) => {
+  console.log(props);
+  const { note: { text, title }} = props;
   return (
     <Fragment>
       <div className="Edit">

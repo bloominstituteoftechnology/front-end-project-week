@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SplitPane from 'react-split-pane';
 import { Route, Switch } from 'react-router-dom';
-import { LeftPanel, NewNote, NoteList, NotePage } from './components/';
-
+import { LeftPanel, NewNote, NoteList, NotePage, EditNote } from './components/';
+import DeleteModal from './components/DeleteModal';
 class App extends Component {
   state = {
     notes: [{
@@ -68,9 +68,29 @@ class App extends Component {
 
   NoteList = props => <NoteList {...props} notes={this.state.notes} />;
 
-  NotePage = props => {
+  ViewNotePage = props => {
     const note = this.state.notes.filter(note => note.id === +props.match.params.id)[0]
     return <NotePage {...props} note={note} />
+  }
+
+  NewNote = props => {
+    const { title, text } = this.state.note;
+    return <NewNote handleChange={this.handleChange} title={title} text={text} />
+  }
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ note: {...this.state.note, [name]: value }});
+    console.log(this.state.note);
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  EditNote = props => {
+    const { title, text } = this.state.note;
+    return <EditNote handleChange={this.handleChange} title={title} text={text} />
   }
 
   render() {
@@ -80,8 +100,10 @@ class App extends Component {
             <LeftPanel />
             <Switch>
               <Route exact path="/" render={this.NoteList} />
-              <Route path="/note/:id" render={this.NotePage} />
-              <Route path="/new" component={NewNote} />
+              <Route path="/note/:id" render={this.ViewNotePage} />
+              <Route path="/new" render={this.NewNote} />
+              <Route path="/edit" render={this.EditNote} />
+              <Route path="/delete" component={DeleteModal} />
             </Switch>
         </SplitPane>
       </div>
