@@ -27,7 +27,7 @@ ReactDOM.render(
             <Route exact path='/' component={ App } />
             <Route path='/create-note' component={ CreateNoteForm } />
             <Route path='/note-view/:id' component={ NoteView } />
-            <Route path='/edit-note' component={ EditNote } />
+            <Route path='/edit-note/:id' component={ EditNote } />
         </div>    
     </Router>
 </Provider>

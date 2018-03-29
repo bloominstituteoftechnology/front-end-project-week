@@ -15,6 +15,11 @@ p {
     font-size: 1rem;
 }
 
+.modal-content {
+    background: black;
+    top: 300px;
+}
+
 .mainTitleTop {
     font-weight: 900
 }
@@ -25,7 +30,41 @@ p {
     
     
 }
+/*  */
+.innerCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+    
 
+}
+
+/* .mode {
+    position: absolute;
+    top: 200px;
+    border: thin solid black;
+    margin: 0 auto;  
+    width: 130%;
+    height: 190px;
+    background: black;
+} */
+
+.test {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.outerCont {
+   position: relative;
+   top: 30px;
+ 
+    
+}
+
+/*  */
 .botTitleDiv {
     
     position: relative;
@@ -39,25 +78,35 @@ p {
     
 }
 
+
+.buttCon {
+
+    display: flex;
+}
+
 .redButton {
     
-        width: 200px;
-        height: 50px;
+        width: 150px;
+        height: 40px;
         background-color: red;
         border: red;
         color: white;
         font-size: 1rem;
+        margin: 10px;
     
 }
 
 .blueButton {
-        width: 200px;
-        height: 50px;
-        background-color: blue;
-        border: blue;
+        width: 150px;
+        height: 40px;
+        background-color: #2BC1C4;
+        border: #2BC1C4;
         color: white;
         font-size: 1rem;
+        margin: 10px
 }
+
+
 
 .button {
     width: 200px;
@@ -76,6 +125,7 @@ p {
 }
 
 .head {
+    margin-top: 10px;
     display: flex;
     justify-content: flex-end;
 }
@@ -84,3 +134,4 @@ p {
     text-decoration: underline;
     margin: 3px;
 }
+

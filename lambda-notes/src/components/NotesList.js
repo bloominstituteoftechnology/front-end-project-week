@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Route, Redirect } from 'react-router';
 
 import { connect } from 'react-redux';
-
+import { addNote } from '../actions';
 
 import NoteView from '../components/NoteView';
 import NoteCard from '../components/NoteCard';
@@ -26,41 +26,44 @@ class NotesList extends Component {
     this.props.history.push("/");
   }
 
-  noteView(i) {
-    this.props.history.push(`/note-view/${i}`)
-  }
+  // noteView(id) {
+  //   this.props.history.push(`/note-view/${id}`)
+  // }
 
 render() {
      return (
-        <div className="container-fluid">
+        <div className="container-fluid main">
       <div className="row  App">
         <div className="col-md-3 col-sm-12 indexCol">
+        <div className="indColHolder">
           <div className="titleContainer">
             <div > <h1 className="mainTitleTop"> Lambda </h1> </div>
             <div className="botTitleDiv" > <h1 className="mainTitleBot"> Notes </h1> </div>
           </div>
         
-           <div> <button className="button"> View Your Notes </button> </div>
+           <div className="butDiv"> <button className="button"> View Your Notes </button> </div>
       
           
-           <div> <button className="button" onClick={()=> {this.createNoteRoute()}}>Create New Notes</button> </div>
+           <div className="butDiv"> <button className="button" onClick={()=> {this.createNoteRoute()}}>Create New Notes</button> </div>
          
         </div>
-       
+        </div>
+
         <div className="col-md-9 col-sm-12 noteCardCol">
        
          
          <div className="listContainer">  
          <div className="listTitle"> <h4> Your Notes: </h4> </div> 
-        <div className="row">
+        <div className="row listRow">
           {this.props.notesList.map((note, i)=> {
             return (
-       <div key={i} onClick={()=>{this.noteView(i)}} className="col-sm-6 col-md-4"> <NoteCard id={i} title={note.title} note={note.note}/> </div> 
+            
+       <div key={i} className="col-sm-6 col-md-4 col-lg-4"><NoteCard id={note.id} title={note.title} note={note.note}/> </div> 
             ) 
           })}  
         </div>
          </div>     
-
+          {console.log(this.props.notesList)}
           
         </div>
       </div> 
@@ -78,4 +81,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(withRouter(NotesList));
+export default connect(mapStateToProps, { addNote })(withRouter(NotesList));

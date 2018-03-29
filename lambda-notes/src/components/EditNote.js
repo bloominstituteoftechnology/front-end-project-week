@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -53,4 +54,13 @@ class EditNote extends Component {
     }
 }
 
-export default withRouter(EditNote);
+
+const mapStateToProps = (state) => {
+    return {
+      notesList: state.notesList,
+    }
+  }
+
+
+
+export default connect(mapStateToProps)(withRouter(EditNote));

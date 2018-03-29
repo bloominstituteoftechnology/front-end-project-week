@@ -16,14 +16,17 @@
 }
 
 .cardBody {
-    width: 200px;
-    max-height: 200px;
+    width: 400px;
+    height: 330px;
+    /* padding-bottom: 100%; */
     margin: 10px 0;
 
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+
 
 .title {
     text-decoration: none;

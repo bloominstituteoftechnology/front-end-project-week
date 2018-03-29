@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { deleteNote } from '../actions';
 
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -8,22 +9,23 @@ import './NoteView.css'
 
 class NoteView extends Component {
     constructor(props) {
-        super(props);
+        super(props);    
         this.state = {
           modal: false
+
         };
-    
-        this.toggle = this.toggle.bind(this);
+        this.toggle = this.toggle.bind(this);   
       }
     
       toggle() {
         this.setState({
           modal: !this.state.modal
         });
-      }
+      }  
+  
 
-      editNoteRoute() {
-        this.props.history.push("/edit-note");
+      editNoteRoute(id) {
+        this.props.history.push(`/edit-note/${id}`);
       }
 
 
@@ -35,8 +37,12 @@ class NoteView extends Component {
       this.props.history.push("/");
     }
     
+    
 
 render() {
+  
+
+
      return (
         <div className="container-fluid mainDiv">
       <div className="row  App">
@@ -55,15 +61,17 @@ render() {
        
         <div className="col-md-9 col-sm-12 mainDiv">
 
+        
 
-        <div className="head"><p className="headText" onClick={()=> {this.editNoteRoute()}}>edit</p> 
-        <p className="headText" onClick={()=>{this.toggle()}}>delete</p> 
+
+        <div className="head"><p className="headText" onClick={()=> {this.editNoteRoute(this.props.match.params.id)}}>edit</p> 
+        <p onClick={this.toggle} className="headText" >delete</p> 
         </div>
        
          
-        <h1> {this.props.notesList[0].title}</h1> 
+        <h1> {this.props.notesList[this.props.match.params.id].title}</h1> 
         
-       <p>{this.props.notesList[0].note}</p>
+       <p>{this.props.notesList[this.props.match.params.id].note}</p>
      
               
 
@@ -71,15 +79,27 @@ render() {
         </div>
       </div> 
 
-      
+
+      <div className="test">        
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-          
-          <ModalBody>
-          <button className="redButton" onClick={this.toggle}>Delete </button>{' '}
-            <button className="blueButton" onClick={this.toggle}>No</button>
-          </ModalBody>
         
+          {/* <ModalBody className="mode"> */}
+          <div className="outerCont">
+            <div className="innerCont">
+             <p>Are you sure you want to delete this?</p>
+             
+             <div className=" buttCon">
+             <div className="red"><button className="redButton" onClick={()=>{this.props.deleteNote(this.props.match.params.id)}}>Delete </button></div>
+             <div className="blue"><button className="blueButton" onClick={this.toggle}>No</button></div>
+             </div>
+
+            </div>
+          </div>
+          {/* </ModalBody> */}
+         
         </Modal>
+      </div>
+
     </div> // end of container 
 
 
@@ -96,4 +116,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(withRouter(NoteView));
+export default connect(mapStateToProps, { deleteNote })(withRouter(NoteView));
