@@ -16,7 +16,7 @@ class App extends Component {
           <Route exact path="/" component={ListView} />
           <Route exact path="/createnote" component={CreateNote} />
           <Route exact path="/noteview/:id" component={NoteView} />
-          <Route path="/editnote" component={EditNote} />
+          <Route path="/editnote/:id" component={EditNote} />
         </div>
       </Router>
     );

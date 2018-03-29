@@ -86,13 +86,14 @@ app.post('/notes', (req, res) => {
 
 app.put('/notes/:id', (req, res) => {
   const { id } = req.params;
-  let noteIndex = notes.findIndex(note => note.id === id);
-
+  let noteIndex = notes.findIndex(note => Number(note.id) === Number(id));
   if (noteIndex >= 0) {
     notes[noteIndex] = { ...notes[noteIndex], ...req.body };
     res.status(200).json(notes);
   } else {
-    res.status(404).json({ message: `The note with id ${id} does not exist.` });
+    res
+      .status(404)
+      .json({ message: `The note with id ${noteIndex} does not exist.` });
   }
 });
 

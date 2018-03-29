@@ -56,13 +56,9 @@ class NoteView extends Component {
     return (
       <div className="container">
         <div className="modify-buttons">
-          {/* {this.state.note.map(note => {
-            return ( */}
-          <Link to="/editnote">
+          <Link to={`/editnote/${this.state.note.id}`}>
             <h5 className="edit-button">edit</h5>
           </Link>
-          {/* );
-          })} */}
           <div>
             <h5 className="delete-button" onClick={this.toggle}>
               delete

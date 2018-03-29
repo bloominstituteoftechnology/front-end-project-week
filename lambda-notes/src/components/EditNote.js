@@ -6,17 +6,16 @@ import { Form, FormGroup, Input, Button } from 'reactstrap';
 
 export default class EditNote extends Component {
   state = {
-    notes: [],
+    note: [],
     title: '',
-    content: '',
-    id: ''
+    content: ''
   };
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleUpdate = e => {
     e.preventDefault();
     this.setState({ title: '', content: '' });
 
@@ -29,11 +28,11 @@ export default class EditNote extends Component {
         content: this.state.content
       })
       .then(response => {
-        console.log('check check');
+        console.log(response);
         this.setState({ title: '', content: '' });
       })
       .catch(error => {
-        console.log(`There was an error updating notes: ${error}`);
+        console.log(`There was an error updating notes: ${error.message}`);
       });
   };
 
@@ -62,7 +61,8 @@ export default class EditNote extends Component {
           </FormGroup>
           <Button
             className="btn btn-block float-left save-button"
-            onClick={this.handleSubmit}
+            onClick={this.handleUpdate}
+            // onClick={() => this.handleUpdate(this.state.note.id)}
           >
             Update
           </Button>

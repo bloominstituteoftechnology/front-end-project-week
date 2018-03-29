@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router';
-
 import './CreateNote.css';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 
