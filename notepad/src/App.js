@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import NotesList from './Notes/NotesList.js';
-// import NoteForm from './Notes/NoteForm.js';
+import NoteForm from './Notes/NoteForm.js';
 import { connect } from 'react-redux';
 import { getNotes } from './Notes/notesActions';
 import { Button, Container, Row, Col } from 'reactstrap';
+import { Link, Route, withRouter } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -16,14 +17,15 @@ class App extends Component {
               <h2 className="navTitle">Lambda Notes</h2>
             </Row>
             <Row>
-              <Button color="info">View Your Notes</Button>
+              <Link to='/'><Button color="info">View Your Notes</Button></Link>
             </Row>
             <Row>
-              <Button color="info">+ Create New Note</Button>
+              <Link to='/addnote'><Button color="info">+ Create New Note</Button></Link>
             </Row>
           </Col>
           <Col xs='9'>
-            <NotesList notes={this.props.notes} />
+            <Route exact path='/' component={NotesList} />
+            <Route path='/addnote' component={NoteForm} />
           </Col>
         </Row>
 
@@ -47,4 +49,5 @@ const actions = {
   getNotes
 };
 
-export default connect(mapStateToProps, actions)(App);
+// export default connect(mapStateToProps, actions)(App);
+export default withRouter(connect(mapStateToProps, actions)(App));

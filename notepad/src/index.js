@@ -5,9 +5,12 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './common/reduxStore';
 import { Provider } from 'react-redux';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>
   , document.getElementById('root'));
