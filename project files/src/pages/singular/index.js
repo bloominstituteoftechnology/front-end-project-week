@@ -4,7 +4,7 @@ import { notes } from '../notes';
 
 const SingleNote = ( props ) => {
     // console.log(props)
-    console.log('click')
+    console.log(props)
         return(
             <div className='page-container'>
             

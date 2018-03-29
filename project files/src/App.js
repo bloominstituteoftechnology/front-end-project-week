@@ -33,8 +33,14 @@ singleComponent = (props) => {
   return <SingleNote note={note} />
 }
 
+editComponent = (props) => {
+  const edit = this.state.notes.filter(note => note.id === +props.match.params.id)[0]
+  return <EditNote edit={edit} />
+}
+
 newComponent = (props) => {
-  return <NewNote title={this.state.title} text={this.state.text} />
+  const newnote = this.state.notes
+  return <NewNote note={newnote} />
 }
 
 
@@ -53,6 +59,7 @@ componentDidMount() {
               <Switch>
                 <Route exact path='/' render={this.frontComponent} />
                 <Route path='/note/:id' render={this.singleComponent} />
+                <Route path='/edit/:id' render={this.editComponent} />
                 <Route path='/new' render={this.newComponent} />
               </Switch>
           </div>

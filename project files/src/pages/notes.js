@@ -1,18 +1,23 @@
-export let notes = [
+export const notes = [
     {
         id: 1,
         title: 'Note Title',
-        text:'lipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplipliplip'
+        text:'1Hodor. Hodor hodor hodor hodor hodor hodor. Hodor. Hodor hodor hodor hodor... Hodor hodor hodor? Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor! Hodor hodor - hodor hodor, hodor. Hodor hodor hodor! Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor. Hodor hodor hodor hodor - hodor?!'
     },
     {
         id: 2,
         title: 'Note Title',
-        text: 'lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2lip2'
+        text: '2Hodor. Hodor hodor hodor hodor hodor hodor. Hodor. Hodor hodor hodor hodor... Hodor hodor hodor? Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor! Hodor hodor - hodor hodor, hodor. Hodor hodor hodor! Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor. Hodor hodor hodor hodor - hodor?!'
     },
     {
         id: 3,
         title: 'Note Title',
-        text: 'lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3lip3'
+        text: '3Hodor. Hodor hodor hodor hodor hodor hodor. Hodor. Hodor hodor hodor hodor... Hodor hodor hodor? Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor! Hodor hodor - hodor hodor, hodor. Hodor hodor hodor! Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor. Hodor hodor hodor hodor - hodor?!'
+    },
+    {
+        id: 4,
+        title: 'Note Title',
+        text: '4Hodor. Hodor hodor hodor hodor hodor hodor. Hodor. Hodor hodor hodor hodor... Hodor hodor hodor? Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor! Hodor hodor - hodor hodor, hodor. Hodor hodor hodor! Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor. Hodor hodor hodor hodor - hodor?!'
     }
 
     
