@@ -6,9 +6,25 @@ import { Redirect } from 'react-router';
 class NoteForm extends Component {
     state = {
         title: '',
-        text: '',
+        content: '',
         redirect: false,
       };
+
+    handleTitleInput = event => {
+      this.setState({ title: event.target.value });
+    };
+
+    handleContentInput = event => {
+      this.setState({ content: event.target.value });
+    };
+
+    handleSave = () => {
+      let newNote ={
+        title: this.state.title,
+        content: this.state.content,
+      }
+      this.props.saveNewNote(newNote);
+    }
    
 
   render() {
@@ -25,12 +41,12 @@ class NoteForm extends Component {
             value={this.state.title}
           />
           <textarea
-            className='formtext'
+            className='formcontent'
             type='text'
             placeholder='Note Content'
             onChange={this.updateNote}
-            name='text'
-            value={this.state.text}
+            name='content'
+            value={this.state.content}
           />
           <button className='save-btn' type='submit'>
             Save
@@ -47,12 +63,12 @@ class NoteForm extends Component {
 
     this.setState({ [name]: value });
   };
-
-  createNote = event => {
-    event.preventDefault();
-    this.props.addNote(this.state);
-    this.setState({ redirect: true });
-  };
+  
+  // createNote = event => {
+  //   event.preventDefault();
+  //   this.props.addNote(this.state);
+  //   this.setState({ redirect: true });
+  // };
 }
 
 export default NoteForm;
