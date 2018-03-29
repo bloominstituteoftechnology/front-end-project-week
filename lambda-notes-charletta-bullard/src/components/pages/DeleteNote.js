@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class DeleteNote extends Component {
   render() {
@@ -25,4 +25,4 @@ class DeleteNote extends Component {
   }
 }
 
-export default connect(null)(DeleteNote);
+export default DeleteNote;
