@@ -50,9 +50,8 @@ class Layout extends Component {
     });
   }
 
-  deleteNote(event) {
-    event.preventDefault();
-    const newNotes = this.state.notes.filter( note => note.id !== Number(event.target.value) )
+  deleteNote(id) {
+    const newNotes = this.state.notes.filter( note => note.id !== Number(id) )
     this.setState({
       notes: newNotes,
       title: '',
