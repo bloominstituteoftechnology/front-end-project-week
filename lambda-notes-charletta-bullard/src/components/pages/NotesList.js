@@ -37,10 +37,10 @@ class NotesList extends Component {
   };
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     notes: state.notes,
+//   };
+// };
 
 export default NotesList;

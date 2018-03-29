@@ -50,11 +50,11 @@ class SingleNote extends Component {
   };
 }
 
-const mapStateToProps = state => {
-  return {
-    current: state.current,
-    notes: state.notes,
-    deleting: state.deleting,
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     current: state.current,
+//     notes: state.notes,
+//     deleting: state.deleting,
+//   };
+
 export default SingleNote;
