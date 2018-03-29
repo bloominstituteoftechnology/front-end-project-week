@@ -7,6 +7,7 @@ import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class SaveNote extends React.Component {
     constructor(props) {
+        console.log(`these are saveNote props :`, props);
         super(props);
         this.state = {
           modal: false
@@ -20,6 +21,8 @@ class SaveNote extends React.Component {
           modal: !this.state.modal
         });
       }
+
+      
 
     render() {
       return (

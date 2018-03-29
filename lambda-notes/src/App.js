@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { NoteCards } from './NoteCards';
 import Buttons  from './Buttons';
+import Notes from './Notes';
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,11 @@ class App extends Component {
       id: 0
     };
   }
+
+  componentDidMount() {
+    this.setState({ notes: Notes });
+  }
+
   render() {
     return (
       <div className="">        
@@ -21,7 +27,7 @@ class App extends Component {
           </div>
             <div className="noteSection col-md-10">
             <span className="yourNotes">Your Notes:</span>            
-              <NoteCards notes={this.state.notes} />            
+              <NoteCards key={this.state.id} notes={this.state.notes} />            
             </div>  
         </div>
       </div>

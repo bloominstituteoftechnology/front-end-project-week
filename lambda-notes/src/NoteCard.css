@@ -2,31 +2,21 @@
     margin-top: 40px;
 }
 
-.row2 {
-    margin-top: 50px;
-}
-
-.row3 {
-    margin-top: 50px;
-}
-
 .note1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 80px;
     padding-top: 7px;
-    margin-right: 10px;
-    margin-left: 90px;
+    margin-bottom: 40px;
     background: #fff;
 }
 
-.note2 {
-    padding-top: 7px;
-    margin-right: 10px;
-    margin-left: 20px;
-    background: #fff;
-}
+hr {
+    width: 100%;               
+    background:#000;
+  }
 
-.note3 {
-    padding-top: 7px;
-    margin-right: 10px;
-    margin-left: 20px;
-    background: #fff;
-}
+  .title {
+      margin-top: 15px;
+  }

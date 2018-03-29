@@ -3,27 +3,42 @@ import { Button } from 'reactstrap';
 import Buttons  from './Buttons';
 import './NewNote.css';
 import './Buttons.css';
-import { Link } from 'react-router-dom';
+import Notes from './Notes';
 
-class NewNote extends React.Component {
+class NewNote extends React.Component {  
   constructor(props) {
-    super();
+    super(props);
     this.state = {
-      name: '',
-      text: '',
+      notes: [],
+      title: '',
+      text: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddTodoItem = this.handleAddTodoItem.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+    console.log(this.state);
+  }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  handleAddTodoItem(e) {
+    e.preventDefault();
+    this.state.notes.push(this.state);
+    e.target.reset();
+    this.setState({
+      title: '',
+      text: ''
+    }    
+    )
   }
-   
-  handleSubmit(event) {    
-    event.preventDefault();
-    this.setState({ name: '', text: ''})
+
+  componentDidMount() {
+    this.setState({ notes: Notes });
   }
+
+  
 
     render() {
       return (
@@ -36,10 +51,10 @@ class NewNote extends React.Component {
                     </div>
                       <div className="noteSection col-md-10">
                         <span className="yourNotes">Create New Note:</span>            
-                          <form className="Form" >
-                            <input name="name" onChange={this.handleChange} value={this.state.name} className="noteTitle" type="text" placeholder="Note Title" /><br />
-                              <p><textarea name={this.state.text} onChange={this.handleChange} className="noteContent" cols="60" rows="10" placeholder="Note Content"></textarea></p>
-                                <Link to="/Save"><Button  type="submit" className="BTN btn btn-info">Save</Button></Link>
+                          <form className="Form" onSubmit={this.handleAddTodoItem} >
+                            <input name="title" onChange={this.handleChange} className="noteTitle" type="text" placeholder="Note Title" /><br />
+                              <p><textarea name="text" onChange={this.handleChange}  className="noteContent" cols="60" rows="10" placeholder="Note Content"></textarea></p>
+                                <Button type="submit" className="BTN btn btn-info">Save</Button>
                           </form>  
                       </div>  
              </div>
