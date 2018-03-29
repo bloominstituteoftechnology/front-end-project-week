@@ -1,12 +1,13 @@
 import React from 'react';
 import './CreateNote.css';
 
-let idCounter = 0;
+
 
 class CreateNote extends React.Component {
   state = {
     title: '',
     content: '',
+    idCounter:0,
   }
 
   render() {
@@ -29,9 +30,9 @@ class CreateNote extends React.Component {
   addNewNote = (event) => {
     event.preventDefault();
     const newNote = Object.assign({}, this.state);
-    newNote.id = idCounter;
+    newNote.id = this.state.idCounter;
     this.props.addNote(newNote);
-    this.setState({title: '', content: ''});
+    this.setState({title: '', content: '', idCounter: this.state.idCounter+1});
   }
 }
 

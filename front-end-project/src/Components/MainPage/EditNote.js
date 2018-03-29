@@ -13,6 +13,7 @@ class EditNote extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <form className="note__form" onSubmit={this.modifyNote}>
@@ -23,6 +24,8 @@ class EditNote extends React.Component {
       </div>
     );
   }
+
+  
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value});
