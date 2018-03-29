@@ -18,12 +18,12 @@ class EditNote extends Component {
                 <h2> Edit Note: </h2>
               </div>
               <FormGroup>
-                <Input type="titlearea" name="title" id="titleHere" placeholder="Note Title" />
+                <Input type="titlearea" name="title" id="titleHere" placeholder="Note Title" className="titleInput"/>
               </FormGroup>
               <FormGroup>
-                <Input type="textarea" name="text" id="textHere" placeholder="Note Content" />
+                <Input type="textarea" name="text" id="textHere" placeholder="Note Content" className="noteInput" />
               </FormGroup>
-              <Button>Update</Button>
+              <Button className="updateButton">Update</Button>
             </Col>
           </Row>
         </Form>

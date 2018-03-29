@@ -1,8 +1,12 @@
 .noteName {
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 30px;
 }
 
 .editNote {
   padding-right: 5px;
+}
+
+.editDelete {
+  max-width: 300px;
 }
