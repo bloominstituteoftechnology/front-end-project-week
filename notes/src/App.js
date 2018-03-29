@@ -14,14 +14,17 @@ import {
 } from "react-router-dom";
 import { firebaseAuth } from "./utilities/auth";
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      this.authed === true ? <Component {...props} /> : <Redirect to="/login" />
-    }
-  />
-);
+function PrivateRoute({ component: Component, authed, ...rest }) {
+  console.log("Authed: ", authed);
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        authed === true ? <Component {...props} /> : <Redirect to="/login" />
+      }
+    />
+  );
+}
 
 const privateRoutes = [
   {
@@ -52,6 +55,8 @@ class App extends Component {
 
   componentDidMount() {
     this.removeListener = firebaseAuth.onAuthStateChanged(user => {
+      window.user = user;
+      console.log("User: ", user);
       if (user) {
         this.setState({
           authed: true
@@ -62,6 +67,9 @@ class App extends Component {
         });
       }
     });
+  }
+  componentWillUnmount() {
+    this.removeListener();
   }
 
   render() {

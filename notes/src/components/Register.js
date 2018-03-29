@@ -15,31 +15,19 @@ function setErrorMsg(msg) {
 class Login extends Component {
   state = {
     redirect: true,
-    loginError: null,
-    email: "",
-    password: ""
+    loginError: null
   };
   handleOnSubmit(event) {
     event.preventDefault();
-    login(this.state.email, this.state.password).catch(error => {
+    login(this.email.value, this.password.value).catch(error => {
       this.setState(setErrorMsg("Invalid Login Stuff!"));
     });
-  }
-  handleOnChange(event) {
-    event.preventDefault();
-    console.log(event.target.name);
-    let copy = this.state;
-    copy[event.target.name] = event.target.value;
-    this.setState(copy);
   }
   render() {
     return (
       <div>
         <h1>Login</h1>
-        <Form
-          onSubmit={this.handleOnSubmit.bind(this)}
-          onChange={this.handleOnChange.bind(this)}
-        >
+        <Form onSubmit={this.handleOnSubmit}>
           <FormGroup>
             <Label for="email">Email</Label>
             <Input
@@ -47,7 +35,7 @@ class Login extends Component {
               name="email"
               id="email"
               placeholder="Enter Your Email, Please"
-              value={this.state.email}
+              ref={email => (this.email = email)}
             />
           </FormGroup>
           <FormGroup>
@@ -57,7 +45,7 @@ class Login extends Component {
               type="password"
               name="password"
               id="password"
-              value={this.state.password}
+              ref={password => (this.password = password)}
             />
           </FormGroup>
           <h3>{this.state.loginError}</h3>

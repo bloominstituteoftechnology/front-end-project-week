@@ -22,7 +22,12 @@ export function logout() {
 }
 
 export function login(email, pw) {
-  return firebaseAuth.signInWithEmailAndPassword(email, pw);
+  return firebaseAuth
+    .signInWithEmailAndPassword(email, pw)
+    .catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+    });
 }
 
 export function resetPassword(email) {
