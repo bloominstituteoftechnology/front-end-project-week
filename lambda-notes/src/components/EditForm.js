@@ -27,7 +27,7 @@ const StyledEditForm = styled.div`
     padding: 5px;
   }
 
-  button {
+  .save-button {
     background: #2bc1c4;
     margin-left: 6.5%;
     width: 150px;
@@ -37,10 +37,10 @@ const StyledEditForm = styled.div`
 class EditForm extends React.Component {
   state = {
     title: this.props.notes.find(
-      note => note.id === Number(this.props.match.params.id)
+      note => note.id === Number(this.props.id)
     ).title,
     text: this.props.notes.find(
-      note => note.id === Number(this.props.match.params.id)
+      note => note.id === Number(this.props.id)
     ).text,
     redirect: false
   };
@@ -94,7 +94,7 @@ class EditForm extends React.Component {
             value={this.state.text}
             maxLength="250"
           />
-          <button onClick={this.handleSubmit}>Save</button>
+          <button className="save-button" onClick={this.handleSubmit}>Save</button>
           {this.state.redirect ? (
             <Redirect to={`/single-note-view/${this.props.id}`} />
           ) : null}
