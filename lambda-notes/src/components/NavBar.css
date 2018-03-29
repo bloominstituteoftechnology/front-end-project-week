@@ -1,0 +1,24 @@
+.NavBar {
+    min-width: 182px;
+    min-height: 700px;
+    background-color: #D8D8D8;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    border-right: 1px solid rgb(150, 150, 150);
+}
+
+.App_Title {
+    font-size: 2.05em;
+    text-align: start;
+    margin-top: 15px;
+    margin-left: 15px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+       
+}
+
+a:visited {
+    color: darkslategray;
+}

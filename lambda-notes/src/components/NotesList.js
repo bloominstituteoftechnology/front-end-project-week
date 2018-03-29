@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import allNotes from '../dummyData';
 import { Link } from 'react-router-dom';
 import '../App.css'
+import './NotesList.css'
 
 class NotesList extends Component {
     constructor(props) {
