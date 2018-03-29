@@ -12,7 +12,13 @@ class NotesList extends Component {
           style={{ textDecoration: "underline" }}
           className="d-flex justify-content-end"
         >
-          <CSVLink data={this.props.notes}>Download notes as CSV File</CSVLink>
+          <CSVLink
+            data={this.props.notes}
+            filename={"user_notes_csv"}
+            target="_self"
+          >
+            Download notes as CSV File
+          </CSVLink>
         </div>
         <h3 className="mt-5 ml-3">Your Notes:</h3>
         <div className="d-flex flex-wrap justify-content-around">
