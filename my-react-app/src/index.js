@@ -6,3 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+{/* <Router>
+<div>
+  <Router exact path="/" component={NewNote}/>
+  <Router exact path="/movies/:id" component={MovieList}/>
+</div>
+</Router> */}

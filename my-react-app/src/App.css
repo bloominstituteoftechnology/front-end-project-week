@@ -1,7 +1,17 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start;
+  flex-flow: row wrap; */
+  margin: 10px 10px 10px 10px;
+  background-color: #F3F3F3;
+}
+
+.container0{
+   text-align: center; 
+   display: flex;
+   justify-content: flex-start;
+   
 }
 
 .App-logo {
@@ -28,5 +38,7 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
 
 
