@@ -1,0 +1,41 @@
+.note__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.note__title {
+  margin-top: 10px;
+  margin-left: -3px;
+  padding-left: 26px;
+  width: 56%;
+  height: 82px;
+  border: 3px solid #BEBEBE;
+  border-radius: 2%;
+  font-size: 26px;
+}
+
+.note__content {
+  margin-left: -3px;
+  width: 95%;
+  height: 420px;
+  margin-top: 30px;
+  border: 3px solid #BEBEBE;
+  border-radius: 1%;
+  padding: 40px 0 0 45px;
+  font-size: 26px;
+}
+
+.note__button {
+  width: 100%;
+  max-width: 409px;
+  height: 90px;
+  margin-top: 30px;
+  background: #2AC0C4;
+  border: 2px solid #BEBEBE;
+  font-size: 32px;
+  color: white;  
+}
+
+.note__button:hover {
+  cursor: pointer;
+}

@@ -3,7 +3,6 @@ import NoteList from './MainPage/NoteList';
 import NoteView from './MainPage/NoteView';
 import EditNote from './MainPage/EditNote';
 import CreateNote from './MainPage/CreateNote';
-import SearchBar from './MainPage/SearchBar';
 import { arrayMove } from 'react-sortable-hoc';
 import './MainPage.css';
 import './DeleteBox.css';
