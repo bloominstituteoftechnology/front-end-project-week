@@ -14,9 +14,17 @@ class NoteView extends Component {
   };
 
   render() {
-    const currentNote = this.props.notes.filter(
+    let currentNote = this.props.notes.filter(
       item => Number(item.id) === Number(this.props.match.params.id)
     )[0];
+
+    if (currentNote === undefined) {
+      currentNote = {
+        id: -10,
+        title: "",
+        body: ""
+      };
+    }
 
     if (this.state.redirectToHome === true) return <Redirect to="/" />;
     if (this.state.redirectToEdit === true)

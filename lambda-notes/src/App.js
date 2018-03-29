@@ -100,19 +100,28 @@ class App extends Component {
 
   signInClicked = event => {
     event.preventDefault();
+    let attempted = false;
     this.props.users.forEach(user => {
       if (
         user.username === this.state.username &&
         user.password === this.state.password
       ) {
         alert("Login successful");
-        this.props.login();
+        this.props.login(user);
         this.setState({
           username: "",
           password: ""
         });
+        attempted = true;
+      } else if (
+        user.username === this.state.username &&
+        user.password !== this.state.password
+      ) {
+        alert("incorrect Password");
+        attempted = true;
       }
     });
+    if (!attempted) alert("User does not exist.");
   };
 
   createUserClicked = event => {
