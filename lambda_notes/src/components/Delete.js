@@ -2,7 +2,9 @@ import React from 'react';
 import './Delete.css';
 
 
-function Delete (props) {
+function Delete(props) {
+
+  
   return (
     <div className='Note'>
       <div className='box'>
