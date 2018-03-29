@@ -7,7 +7,22 @@ import { Row, Col, Container, Button } from "reactstrap";
 import PropTypes from "prop-types";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+const auth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 100);
+  },
+  signout(cb) {
+    this.isAuthenticated = false;
+    setTimeout(cb, 100);
+  }
+};
+
 const routes = [
+  {
+    path: "/public"
+  },
   {
     path: "/",
     exact: true,
@@ -37,7 +52,7 @@ class App extends Component {
       <Router>
         <Container fluid={true} className="App">
           <Row className="app-wrapper">
-            <Col sm={3} className="leftSide position-fixed">
+            <Col sm={6} md={3} className="leftSide ">
               <h1 className="header my-4">Lambda Notes</h1>
 
               <Link to="/">
@@ -56,7 +71,7 @@ class App extends Component {
                 />
               ))} */}
             </Col>
-            <Col sm={9} className="rightSide offset-3">
+            <Col sm={6} md={9} className="rightSide">
               {routes.map((route, index) => (
                 <Route
                   key={index}

@@ -29,7 +29,7 @@ class NotesList extends Component {
         <Row>
           {this.props.notes.map(note => {
             return (
-              <Col sm={4}>
+              <Col sm={12} md={6} lg={4}>
                 <Link className="card-link" to={`/viewNotes/${note.id}`}>
                   <Card className="note my-3">
                     <CardBody>
