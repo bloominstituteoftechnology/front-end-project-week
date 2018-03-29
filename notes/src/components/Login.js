@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Container, Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { login, resetPassword } from "../utilities/auth";
+import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
   return {};
@@ -20,10 +21,11 @@ class Login extends Component {
     password: ""
   };
   handleOnSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
     login(this.state.email, this.state.password).catch(error => {
       this.setState(setErrorMsg("Invalid Login Stuff!"));
     });
+    this.props.history.push("/");
   }
   handleOnChange(event) {
     event.preventDefault();
@@ -34,7 +36,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div>
+      <Container className="mt-5">
         <h1>Login</h1>
         <Form
           onSubmit={this.handleOnSubmit.bind(this)}
@@ -64,9 +66,9 @@ class Login extends Component {
 
           <Button type="submit">Submit</Button>
         </Form>
-      </div>
+      </Container>
     );
   }
 }
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));

@@ -4,6 +4,7 @@ import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
 import Login from "./components/Login";
+import User from "./components/User";
 import { Row, Col, Container, Button } from "reactstrap";
 import PropTypes from "prop-types";
 import {
@@ -50,12 +51,14 @@ const privateRoutes = [
 
 class App extends Component {
   state = {
-    authed: false
+    authed: false,
+    user: {}
   };
 
   componentDidMount() {
     this.removeListener = firebaseAuth.onAuthStateChanged(user => {
       window.user = user;
+      this.setState({ user: user });
       console.log("User: ", user);
       if (user) {
         this.setState({
@@ -91,6 +94,7 @@ class App extends Component {
               </Link>
             </Col>
             <Col sm={6} md={9} className="rightSide">
+              <User authed={this.state.authed} user={this.state.user} />{" "}
               {privateRoutes.map((route, index) => (
                 <PrivateRoute
                   authed={this.state.authed}
@@ -103,7 +107,9 @@ class App extends Component {
               <Route
                 path="/login"
                 authed={this.state.authed}
-                component={Login}
+                render={() => {
+                  return this.state.authed ? <Redirect to="/" /> : <Login />;
+                }}
               />
             </Col>
           </Row>
