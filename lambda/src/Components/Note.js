@@ -33,7 +33,7 @@ class Note extends Component {
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
                         <ModalFooter>
-                            <Button color="danger" onClick={this.handleDelete}>Do Something</Button>
+                            <Button color="Button__Delete" onClick={this.handleDelete}>Delete</Button>
                             <Button className="Button" onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                         </Modal>
