@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/app-types": "^0.1.0",
     "axios": "^0.18.0",
     "bootstrap": "4.0.0",
+    "firebase": "^4.12.0",
     "firebase-tools": "^3.17.7",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

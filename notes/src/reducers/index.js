@@ -1,4 +1,3 @@
-import fire from '../firebase';
 
 import { 
     CREATE_NOTE, 
@@ -7,7 +6,7 @@ import {
     SORT_NEWEST,
     SORT_OLDEST } from '../actions';
 
-const notes = fire.database().ref('notes');
+const notes = []
 
 const initialState = {
     sortedBy: null,
