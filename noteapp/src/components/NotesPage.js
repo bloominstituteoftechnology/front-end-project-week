@@ -9,11 +9,13 @@ class NotesPage extends Component {
       <div className="container">
         <h3>Your Notes:</h3>
         <div>
-          {this.props.notes.map((note, index) => {
+          {this.props.notes.map(note => {
             return (
               <div className="note" key={note.id}>
-                <div>{note.title}</div>
-                <div>{note.text}</div>
+                <Link to={`FullNote/${note.id}`}>
+                  <div>{note.title}</div>
+                  <div>{note.text}</div>
+                </Link>
               </div>
             );
           })}
