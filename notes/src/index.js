@@ -10,8 +10,9 @@ import rootReducer from './reducers/';
 import 'bootstrap/dist/css/bootstrap.css';
 import * as firebase from 'firebase';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 var config = {
 apiKey: "AIzaSyAU7uLB6CSNGNh4AknNGXv6xmrI6_uOB-M",

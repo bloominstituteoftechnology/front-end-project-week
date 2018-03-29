@@ -15,8 +15,8 @@ export default(state=initialState, action) => {
     switch(action.type) {
         case(FETCH_NOTES):
             return Object.assign({}, state, {
-                notes: action.notes
-            })
+                notes: Object.values(action.notes).filter(note => note !== null),
+            });
         case(CREATE_NOTE):
             return Object.assign({}, state, {
                 notes: state.notes.concat({
@@ -27,7 +27,7 @@ export default(state=initialState, action) => {
             });
         case(EDIT_NOTE):
             return Object.assign({}, state, {
-                notes: state.notes.filter(note => note.id !== action.id).concat({
+                notes: state.notes.filter.concat({
                     id: action.id,
                     title: action.title,
                     text:action.text,

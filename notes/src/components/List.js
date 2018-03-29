@@ -6,10 +6,6 @@ import './List.css';
 import { sortNewest, sortOldest, fetchNotes } from '../actions';
 
 class List extends Component {
-    state = {
-        notes: []
-    }
-
     handleNewest() {
         this.props.sortNewest();
         this.props.history.push('/');
@@ -54,6 +50,7 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
+        notes: state.notes,
         sortedNewest: state.sortedNewest,
     }
 }

@@ -6,26 +6,38 @@ export const SORT_NEWEST = 'SORT_NEWEST';
 export const SORT_OLDEST = 'SORT_OLDEST';
 export const FETCH_NOTES = 'FETCH_NOTES';
 
-let noteId = 6;
+
+let noteId;
+
+axios.get('https://notes-f8af8.firebaseio.com/notes.json')
+        .then((response) => {
+            noteId = (Object.keys(response.data).reduce(
+                (a,b) => {return a > b  ? a : b}));
+            console.log(noteId);
+        })
+        .catch((error) => console.log(error));
+
 export function fetchNotes () {
     return dispatch => {
         return axios.get('https://notes-f8af8.firebaseio.com/notes.json')
         .then((response) => {
-            dispatch({type: FETCH_NOTES, notes: response.data})})
+            console.log(response);
+            dispatch({type: FETCH_NOTES, notes: response.data});
+        })
         .catch((error) => console.log(error))};
 }
 
 export const createNote = note => {
     return dispatch => {
-        return axios.put(`https://notes-f8af8.firebaseio.com/notes/${noteId}.json`, {
-            id: noteId,
+        return axios.put(`https://notes-f8af8.firebaseio.com/notes/${++noteId}.json`, {
+            id: noteId.toString(),
             title: note.title,
             text: note.text
         })
         .then((response) => {
             dispatch({
                 type: CREATE_NOTE,
-                id: noteId++,
+                id: noteId.toString(),
                 title: note.title,
                 text: note.text
             })

@@ -9,7 +9,6 @@ import Note from './components/Note';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { createNote, deleteNote, editNote } from './actions';
 
-
 class App extends Component {
   render() {
     return (
@@ -31,13 +30,13 @@ class App extends Component {
             <Route path="/notes/:id" 
               render={({match}) => <Note
               note={this.props.notes.find(note => 
-                {return note.id === parseInt(match.params.id, 10)})}
+                {return note.id === match.params.id})}
               deleteNote={this.props.deleteNote}/>}
             />
             <Route path="/edit/:id"
               render={({match}) => <Edit 
               note={this.props.notes.find(note => 
-                {return note.id === parseInt(match.params.id, 10)})}
+                {return note.id === match.params.id})}
               editNote={this.props.editNote}/>}
             />
             <Route path="/create" 
