@@ -14,7 +14,8 @@ class NoteForm extends Component {
     this.state = {
       newNote: {
         title: "",
-        note: ""
+        note: "",
+        tags: []
       }
     };
   }
