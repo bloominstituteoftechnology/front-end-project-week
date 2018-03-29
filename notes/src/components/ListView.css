@@ -1,5 +1,5 @@
 .listContainer {
-  height: inherit;
+  min-height: 1200px;
   width: 100%;
   border: 1px solid #b5b5b5;
   background-color: #f3f3f3;

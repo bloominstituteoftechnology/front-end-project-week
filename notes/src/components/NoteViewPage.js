@@ -4,7 +4,6 @@ import NoteView from './NoteView';
 import Modal from './Modal';
 
 import './NoteViewPage.css';
-import './Navigation.css';
 
 const NoteViewPage = () => (
   <div className="noteViewPageContainer">

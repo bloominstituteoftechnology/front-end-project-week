@@ -1,11 +1,11 @@
-.NoteEditPageContainer {
+.noteEditPageContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 @media screen and (min-width: 1180px) {
-  .NoteEditPageContainer {
+  .noteEditPageContainer {
     width: 100%;
     display: flex;
     flex-direction: row;

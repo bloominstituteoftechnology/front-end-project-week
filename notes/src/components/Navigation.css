@@ -3,8 +3,8 @@ Link:hover {
 }
 
 .navContainer {
-  width: inherit;
-  height: inherit;
+  height: auto;
+  width: 100%;
   border: 1px solid #b5b5b5;
   background-color: #d8d8d8;
   display: flex;

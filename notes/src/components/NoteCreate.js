@@ -10,7 +10,7 @@ class NoteCreate extends Component {
     this.state = {
       noteTitle: '',
       noteBody: '',
-      id: props.nextid,
+      id: props.noteData.nextid,
     }
   }
 
@@ -22,8 +22,12 @@ class NoteCreate extends Component {
   handleAdd = (event) => {
     event.preventDefault();
     let { noteTitle, noteBody, id} = this.state;
-    this.props.addNote(noteTitle, noteBody, id);
-    this.props.history.push('/');
+    if (noteTitle && noteBody !== '') {
+      this.props.addNote(noteTitle, noteBody, id);
+      this.props.history.push('/');
+    } else {
+      alert('Fields must not be empty!');
+    }
   }
 
   render() {

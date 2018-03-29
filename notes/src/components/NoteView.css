@@ -1,5 +1,5 @@
 .noteViewContainer {
-  height: inherit;
+  height: auto;
   width: 100%;
   border: 1px solid #b5b5b5;
   background-color: #f3f3f3;
@@ -19,7 +19,6 @@
   max-width: 720px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   font-size: 1.1em;
   line-height: 1.8;
   margin-bottom: 20px;
