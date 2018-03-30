@@ -104,3 +104,12 @@ a:hover {
     overflow-x: hidden;
     background-color: #f3f3f3;
 }
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-input {
+    min-width: 250px;
+}

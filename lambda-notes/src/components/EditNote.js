@@ -1,6 +1,6 @@
 // React and Router
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
@@ -14,21 +14,26 @@ import './EditNote.css';
 
 class EditNote extends Component {
     state = {
+        Redirect: false,
         id: this.props.match.params.id,
+        fields: {
         title: '',
         content: ''
+        }
     };
 
     render() {
+        console.log('state', this.state);
         return (
             <div className='editNote'>
+            {(this.state.Redirect) ? (<Redirect to='/' />) : ('')}
                 <h2 className='my-3 py-3'>Edit Note:</h2>
                 <Form className='form'>
                     <div>
                         <Input placeholder='Note Title'
                             type="text"
                             name='title'
-                            value={this.state.title}
+                            value={this.state.fields.title}
                             onChange={this.handleNewInput}
                             bsSize='lg'
                             className="form-control col-7 my-3 py-3"
@@ -38,7 +43,7 @@ class EditNote extends Component {
                         <Input placeholder="Note Content"
                             type="textarea"
                             name='content'
-                            value={this.state.content}
+                            value={this.state.fields.content}
                             onChange={this.handleNewInput}
                             style={{height: 390}}
                             className="form-control"
@@ -50,20 +55,53 @@ class EditNote extends Component {
         )
     } // end render()
 
+    componentDidMount() {
+        // functionality to show previous note
+        const id = this.props.match.params.id;
+        const notes = this.props.notes;
+        const note = notes.find(note => (note.id).toString() === id.toString());
+        const fields = {
+            title: note.title,
+            content: note.content
+        };
+        this.setState({
+            fields: fields, id
+        });
+        console.log('cdm', fields);
+    }
+
     handleNewInput = event => {
-        event.preventDefault();
-        this.setState({ [event.target.name]: event.target.value });
+        // this.setState({ [event.target.name]: event.target.value });
+        const { name, value } = event.target;
+        const fields = this.state.fields;
+        fields[name] = value;
+        console.log('handleInput', fields);
+        this.setState({
+            fields
+        })
     }
 
     submitEditNote = event => {
-        const { title, content } = this.state;
-        const EditNotePkg = { title, content };
-        this.props.edit_note(this.state.id, EditNotePkg);
-        this.setState({
-            title: '',
-            content: ''
-        });
+        event.preventDefault();
+        if (this.state.fields.title && this.state.fields.content) {
+            // const { title, content } = this.state;
+            // const EditNotePkg = { title, content };
+            this.props.edit_note(this.state.id, this.state.fields);
+            this.setState({
+                Redirect: true,
+                fields: {
+                title: '',
+                content: ''
+                }
+            });
+        }
     }
 } // end EditNote Class
 
-export default connect(null, { edit_note })(EditNote);
+const mapStateToProps = state => {
+    return {
+      notes: state.notes,
+    };
+};
+
+export default connect(mapStateToProps, { edit_note })(EditNote);

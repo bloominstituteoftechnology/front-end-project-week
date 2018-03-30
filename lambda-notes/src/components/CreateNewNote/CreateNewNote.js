@@ -37,6 +37,7 @@ class CreateNewNote extends Component {
                         <Input placeholder='Note Content'
                             type='textarea'
                             name='content'
+                            data-provide="markdown"
                             value={this.state.content}
                             onChange={this.handleNewNote}
                             className='form-control mt-3'

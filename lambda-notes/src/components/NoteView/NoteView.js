@@ -12,7 +12,6 @@ import DeleteNote from "../DeleteNote";
 import './NoteView.css';
 
 const NoteView = (props) => {
-    console.log('props', props);
     const { id } = props.match.params;
     const getNote = (id) => {
         return props.notes.find(obj => obj.id === +id );
