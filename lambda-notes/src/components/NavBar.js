@@ -41,11 +41,11 @@ export default class NavBar extends React.Component {
                 this.props.isAuth ? (
                 <div>
                     Welcome {this.state.username}{" "}
-                    <button onClick={this.handleSignout}> Sign out </button>
+                    <button onClick={this.handleSignout} className="ExtraButton"> Sign out </button>
                 </div>
                 ) : (
                 <div>
-                    <button onClick={this.toggle}>Log in</button>
+                    <button onClick={this.toggle} className="ExtraButton">Log in</button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} centered>
                             <ModalHeader toggle={this.toggle}>
                                 Enter your username and password

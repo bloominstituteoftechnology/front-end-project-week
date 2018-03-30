@@ -95,9 +95,10 @@ a:hover {
   width: 40%;
   text-align: start;
   border-radius: 0.5%;
-  -moz-box-shadow:    inset 0 0 1px grey;
-  -webkit-box-shadow: inset 0 0 1px grey;
-  box-shadow:         inset 0 0 1px grey;
+  border: none;
+  -moz-box-shadow:    inset 0 0 12px rgb(150, 150, 150);
+  -webkit-box-shadow: inset 0 0 12px rgb(150, 150, 150);
+  box-shadow:         inset 0 0 12px rgb(150, 150, 150);
   white-space: wrap;
 }
 
@@ -110,9 +111,9 @@ a:hover {
   margin: 1% 3%;
   border-radius: 0.5%;
   border: none;
-  -moz-box-shadow:    inset 0 0 1px grey;
-  -webkit-box-shadow: inset 0 0 1px grey;
-  box-shadow:         inset 0 0 1px grey;
+  -moz-box-shadow:    inset 0 0 12px rgb(150, 150, 150);
+  -webkit-box-shadow: inset 0 0 12px rgb(150, 150, 150);
+  box-shadow:         inset 0 0 12px rgb(150, 150, 150);
   white-space: wrap;
 }
 
@@ -120,6 +121,12 @@ a:hover {
   width: 64%;
   font-size: 18px;
   text-align: center;
+}
+
+.ListView__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .ListCards {
@@ -179,6 +186,12 @@ a:hover {
   height: 50px;
   width: 20%;
   min-width: 80px;
+}
+
+.ExtraButton {
+  background-color: #2BC1C4;
+  border: 1px solid rgb(150, 150, 150);
+  color: white;
 }
 
 .Form {

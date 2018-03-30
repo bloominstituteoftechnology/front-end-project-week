@@ -14,7 +14,7 @@ componentDidMount(){
 
 handleFilter = (e) => {
     if (e.nativeEvent.inputType === "deleteContentBackward") this.setState({ notes: this.props.notes})
-    else { const currentState = this.state.notes
+    else { const currentState = this.state.notes;
     const newState = currentState.filter((note) => {
         if (note.title.toLowerCase().includes(e.target.value.toLowerCase())) return true;
         for (let i = 0; i < note.tags.length; i++) { 
@@ -25,13 +25,21 @@ handleFilter = (e) => {
     this.setState({ notes: newState }) }
 }
 
+sortA = () => {
+    const currentState = this.state.notes;
+}
+
+sortZ = () => {
+    const currentState = this.state.notes;
+}
+
 handleDrag = (e) => {
     e.dataTransfer.setData("text/plain", e.target.id);
 }
 
 handleDragOver = (e) => {
     e.preventDefault();
-    e.dataTransfer.dropEffect = "move"
+    e.dataTransfer.dropEffect = "move";
 }
 
 handleDrop = (e) => {
@@ -50,7 +58,14 @@ handleDrop = (e) => {
     render() {
         return (
             <div className="ListView">
-                <input className="ListView__input" type="text" placeholder="Find Note" onChange={this.handleFilter}></input>
+                <div className="ListView__nav">
+                    <input className="ListView__input" type="text" placeholder="Find Note" onChange={this.handleFilter}></input>
+                    <div>
+                        Sort:
+                        <button onClick={this.sortA} className="ExtraButton">A-z</button>
+                        <button onClick={this.sortZ} className="ExtraButton">Z-a</button>
+                    </div>
+                </div>
                 <h4 className="Title">Your Notes:</h4>
                 <div className="ListCards" onDragOver={this.handleDragOver} onDrop={this.handleDrop}>
                     {this.state.notes.map(((note, index) => {

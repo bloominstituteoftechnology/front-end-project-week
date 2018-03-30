@@ -51,11 +51,10 @@ class App extends Component {
 
   handleExport = () => {
     if(this.state.isAuthenticated) {
-      let csvContent = "data:text/csv;charset=utf-8, Title,Text,ID\r\n";
-      const notesExported = this.state.notes
+      let csvContent = "data:text/csv;charset=utf-8, Title,Text\r\n";
+      const notesExported = this.state.notes;
       notesExported.forEach(function(rowArray){
-          let row = Object.values(rowArray).join(",");
-          csvContent += row + "\r\n";
+          csvContent += `${rowArray.title},${rowArray.text}\r\n`;
       }); 
       return encodeURI(csvContent);
     }
