@@ -21,7 +21,7 @@ export default class Search extends Component {
           onChange={this.searchChange}
         />
         <Button
-          className="ml-1"
+          className="ml-2"
           style={buttonStyles}
           onClick={e => {
             e.preventDefault();
@@ -29,6 +29,17 @@ export default class Search extends Component {
           }}
         >
           Search
+        </Button>
+        <Button
+          className="ml-2"
+          style={buttonStyles}
+          onClick={e => {
+            e.preventDefault();
+            this.setState({ searchFor: "" });
+            this.props.search("");
+          }}
+        >
+          Reset
         </Button>
       </div>
     );
