@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import '../styling/noteview.css';
 
 class Delete extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Delete extends React.Component {
   render() {
     return (
       <div>
-        <a color="danger" onClick={this.toggle}>{this.props.buttonLabel}delete</a>
+        <h4 className= 'deletebut' color="danger" onClick={this.toggle}>{this.props.buttonLabel}Delete</h4>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className= 'deletemodal'>
           <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
           <ModalFooter>

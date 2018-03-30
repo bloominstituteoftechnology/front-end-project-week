@@ -2,6 +2,7 @@
     width: 100%;
     background: #F3F3F3;
     margin: 0 20px 0 0;
+    min-height: 1100px;
 }
 
 .nav {
@@ -12,10 +13,9 @@
 
 .edit {
     margin: 40px 80px 0 0;
-}
-
-.delete {
-    margin: 40px 100px 0 0;
+    text-decoration: underline;
+    font-size: 20px;
+    color: black;
 }
 
 .noteview {
@@ -24,10 +24,21 @@
 
 .notename {
     font-size: 45px;
-    margin: 20px 0 0 75px;
+    margin: 25px 0 0 75px;
 }
 
 .content {
     margin: 50px 100px 0 75px;
     font-size: 20px;
+}
+
+.deletemodal {
+    z-index: 0;
+}
+
+#bootstrap-override .deletebut {
+    margin: 40px 80px 0 0;
+    text-decoration: underline;
+    font-size: 20px;
+    color: black;
 }
