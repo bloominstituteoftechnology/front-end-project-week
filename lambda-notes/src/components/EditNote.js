@@ -16,14 +16,9 @@ export default class EditNote extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleUpdate = e => {
-    e.preventDefault();
-    this.setState({ title: '', content: '' });
-
+  updateNotes = () => {
     const id = this.props.match.params.id;
-
     axios
-
       .put(`http://localhost:5000/notes/${id}`, {
         title: this.state.title,
         content: this.state.content
@@ -36,6 +31,12 @@ export default class EditNote extends Component {
       .catch(error => {
         console.log(`There was an error updating notes: ${error.message}`);
       });
+  };
+
+  handleUpdate = e => {
+    e.preventDefault();
+    this.setState({ title: '', content: '' });
+    this.updateNotes();
   };
 
   render() {

@@ -18,9 +18,8 @@ class NoteView extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  componentDidMount() {
+  getNoteById = () => {
     const id = this.props.match.params.id;
-
     axios
       .get(`http://localhost:5000/notes/${id}`)
       .then(response => {
@@ -29,6 +28,10 @@ class NoteView extends Component {
       .catch(error => {
         console.log(`There was an error getting notes: ${error}`);
       });
+  };
+
+  componentDidMount() {
+    this.getNoteById();
   }
 
   toggle() {

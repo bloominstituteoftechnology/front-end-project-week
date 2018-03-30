@@ -7,25 +7,19 @@ import './ListView.css';
 export default class ListView extends Component {
   state = {
     notes: [],
-    titles: [],
     search: ''
   };
 
   updateSearch = e => {
     if (e.target.value.length < this.state.search.length) {
       this.getNotes();
-      this.filterAndChange();
-      if (e.target.value.length === 0) {
-        this.getNotes();
-      }
+      // this.filterAndChange(); // How to refilter at current value?
     }
     this.setState({ search: e.target.value });
-
-    //filter the state to match values for onChange
-
     this.filterAndChange();
-
   };
+
+  //filters the state to match values for onChange event
 
   filterAndChange = () => {
     let filterNotes = this.state.notes.filter(note => {
@@ -33,9 +27,8 @@ export default class ListView extends Component {
         note.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
       ) {
         return true;
-      } else
+      }
     });
-
     this.setState({ notes: filterNotes });
   };
 
@@ -57,25 +50,27 @@ export default class ListView extends Component {
   render() {
     return (
       <div className="container">
-        <nav className="navbar navbar-light">
-          <form className="form-inline">
-            <input
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              value={this.state.search}
-              onChange={this.updateSearch}
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </form>
-        </nav>
-        <h4>Your Notes:</h4>
+        <div className="d-flex align-items-baseline mb-3">
+          <h4>Your Notes:</h4>
+          <nav className="navbar navbar-light">
+            <form className="form-inline">
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                value={this.state.search}
+                onChange={this.updateSearch}
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </nav>
+        </div>
         <div className="row">
           {this.state.notes.map(note => {
             return (
