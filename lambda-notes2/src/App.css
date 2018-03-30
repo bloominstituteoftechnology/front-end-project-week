@@ -22,9 +22,9 @@
     align-content: center;
     flex-direction: column;
   }
-  /* .ListView {
+  .ListView {
     background-color: rgb(241, 241, 241);
-  } */
+  }
   .AddNote, .EditNote {
     width: 3300px;
     background-color: rgb(241, 241, 241);
@@ -32,13 +32,13 @@
   .InputTitel {
     padding-bottom: 10px;
     margin: 1% 3%;
-    width: 40%;
+    width: 20%;
     text-align: start;
   }
   
   .InputContent{
     padding-bottom: 400px;
-    width: 90%;
+    width: 70%;
     text-align: start;
     margin: 1% 3%;
   }
@@ -46,4 +46,54 @@
   .Title {
     text-align: left;
     padding: 1% 3%;
+  }
+  
+.ListCards {
+    width: 100%; 
+    padding: 0 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .ListCard {
+    flex: 1 0 30%;
+    height: 240px;
+    min-width: 200px;
+    margin: 1%;
+    overflow: hidden;
+  }
+  
+  .Note {
+    background-color: rgb(241, 241, 241);
+    min-height: 700px;
+  }
+  
+  .Note__nav {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration-line: underline;
+    font-weight: 700;
+    margin: 1%
+  }
+  
+  .Button {
+    width: 160px;
+    border: 1px solid black;
+    background-color: #2EB8BC;
+    color: white;
+    margin: 3%;
+  }
+  
+  .Form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Content {
+    padding: 3%;
+  }
+  
+  .Nav__item {
+    margin: 0 1%
   }

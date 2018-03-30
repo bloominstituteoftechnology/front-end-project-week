@@ -22,8 +22,8 @@ class App extends Component {
 
 
 
-handleDelete = (num) => {
-  localStorage.removeItem(`id${num}`);
+handleDelete = (D) => {
+  localStorage.removeItem(`id${D}`);
   const memory = Array.from(Object.values(localStorage));
   if (memory.length >= 0) {
     const memoryNotes = [];
