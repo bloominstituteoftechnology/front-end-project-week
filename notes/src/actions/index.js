@@ -24,7 +24,7 @@ let noteId = 10;
 
 export const addNote = note => dispatch => {
   console.log("Note from Action: ", note);
-  writeNote({ ...note, id: noteId++, tags: [""] }).then(response => {
+  writeNote({ ...note, tags: [""] }).then(response => {
     getNotes();
     return {
       type: ADD_NOTE

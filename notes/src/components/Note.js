@@ -13,7 +13,7 @@ function mapStateToProps(state) {
 class Note extends Component {
   render() {
     const note = this.props.notes.filter(
-      note => note.id === parseInt(this.props.match.params.id, 10)
+      note => note.id === this.props.match.params.id
     )[0];
     return (
       <Container>
