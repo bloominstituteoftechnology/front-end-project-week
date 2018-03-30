@@ -1,46 +1,44 @@
 import React, { Component, Fragment } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Content, Create, Edit, Note, SideMenu } from './components'
-import notes from './notes'
+import firebase from './firebase.js'
 
 class App extends Component {
   state = {
-    note: { id: null, text: '', title: '' },
+    note: { text: '', title: '' },
     notes: []
   }
 
-  componentDidMount() {
-    this.setState({ notes })
+  async componentDidMount() {
+    await firebase.database().ref('notes').on('value', snapshot => {
+      const notes = Object
+        .entries(snapshot.val())
+        .map(([key, val]) => ({...val, db: key}))
+      this.setState({ notes })
+    })
   }
 
   handleFormChange = ({ target: { name, value } }) =>
     this.setState({ note: { ...this.state.note, [name]: value } })
 
-  handleFormSubmit = id => {
-    const { note, notes } = this.state
-    this.setState({
-      notes: [...notes, { ...note, id }],
-      note: { id: null, title: '', text: '' }
-    })
+  handleFormSubmit = async id => {
+    await firebase.database().ref('notes').push({...this.state.note, id})
+    this.setState({ note: { text: '', title: '' } })
   }
 
-  handleEdit = id => {
-    let { note, notes } = this.state
-    notes = notes.map(obj => obj.id === +id ? {...note, id: +id } : obj)
-    this.setState({ notes, note: { id: null, title: '', text: '' } })
-  }
+  handleEdit = async ({ db, id, text, title }) =>
+    await firebase.database().ref(`/notes/${db}`).set({ id, text, title })
 
-  handleDelete = id => {
-    let { notes } = this.state
-    notes = notes.filter(obj => obj.id !== +id)
-    this.setState({ notes })
-  }
+  handleDelete = async id =>
+    await firebase.database().ref(`/notes/${id}`).remove()
+
+  getNote = id => this.state.notes.find(note => note.id === id)
 
   Content = () => <Content notes={this.state.notes} />
 
-  Note = ({ match: { params: { id } } }) => {
-    const note = this.state.notes.find(note => note.id === +id)
-    return <Note {...note} del={this.handleDelete} />
+  Note = props => {
+    const note = this.getNote(+props.match.params.id)
+    return <Note {...props} {...note} del={this.handleDelete} />
   }
 
   Create = props => {
@@ -57,19 +55,12 @@ class App extends Component {
   }
 
   Edit = props => {
-    const { id } = props.match.params
-    return (
-      <Edit
-        {...props}
-        {...this.state.note}
-        id={id}
-        change={this.handleFormChange}
-        submit={this.handleEdit}
-      />
-    )
+    const note = this.getNote(+props.match.params.id)
+    return <Edit {...props} {...note} submit={this.handleEdit} />
   }
 
   render() {
+    console.log(this.state)
     return (
       <BrowserRouter>
         <Fragment>
