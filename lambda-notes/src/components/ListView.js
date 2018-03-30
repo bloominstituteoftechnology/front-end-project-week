@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import './ListView.css';
 
@@ -65,10 +67,7 @@ export default class ListView extends Component {
                 value={this.state.search}
                 onChange={this.updateSearch}
               />
-              <button
-                className="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
+              <button className="btn my-2 my-sm-0 search-button" type="submit">
                 Search
               </button>
             </form>
@@ -94,6 +93,9 @@ export default class ListView extends Component {
             );
           })}
         </div>
+        <CSVLink className="btn mt-5 csv-button" data={this.state.notes}>
+          Export Notes To CSV
+        </CSVLink>
       </div>
     );
   }

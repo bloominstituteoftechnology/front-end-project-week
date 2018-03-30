@@ -36,3 +36,12 @@ h5 {
   padding: 5px;
   border-spacing: 15px;
 }
+
+.search-button:hover {
+  color: blue;
+}
+
+.csv-button {
+  position: relative;
+  margin: auto;
+}
