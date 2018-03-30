@@ -52,3 +52,26 @@
   height: 44px;
   border: solid 1px #a5a4a4;
 }
+
+.popUp {
+  width: 600px;
+  height: auto;
+  position: absolute;
+  top: 15%;  /* position the top  edge of the element at the middle of the parent */
+  left: 40%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+}
+
+.popButton {
+  width: 170px;
+  height: auto;
+  margin: 10px;
+}
+
+.modalBody {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}

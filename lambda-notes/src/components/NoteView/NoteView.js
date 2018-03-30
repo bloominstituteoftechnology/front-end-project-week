@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Form, FormGroup, Input } from 'reactstrap';
+import { Form, FormGroup, Input, Modal, ModalBody, Button } from 'reactstrap';
 
 import { deleteNoteAction } from '../../actions';
 import { showWholeNote } from '../../actions';
@@ -30,6 +30,7 @@ class NoteView extends Component {
           title: note.title,
           text: note.text,
           id: note.id,
+          modal: false,
         });
       }
     });
@@ -50,6 +51,10 @@ class NoteView extends Component {
   
   toggleEdit = () => {
     this.setState({ isEditing: !this.state.isEditing })
+  }
+  
+  toggleModal = () => {
+    this.setState({ modal: !this.state.modal })
   }
   
   
@@ -137,7 +142,20 @@ class NoteView extends Component {
 
               <div className="editDelete">
                 <div onClick={this.toggleEdit}>Edit</div>
-                <div onClick={() => this.delete(this.state.id)}>Delete</div>
+
+                <div onClick={this.toggleModal}>Delete</div>
+                <Modal isOpen={this.state.modal} fade={true} toggle={this.toggleModal} className="popUp">
+                  <ModalBody className="modalBody">
+                    Are you sure you want to delete this?
+                    <br/>
+                    <br/>
+                    <Button color="danger" onClick={() => this.delete(this.state.id)} className="popButton">Delete</Button>
+                    <Button color="info" onClick={this.toggleModal} className="popButton">No</Button>
+                  </ModalBody>
+                </Modal>
+
+
+                {/* <div onClick={() => this.delete(this.state.id)}>Delete</div> */}
               </div>
 
               <br/>
