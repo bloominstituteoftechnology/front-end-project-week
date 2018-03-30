@@ -126,6 +126,13 @@ class App extends Component {
 
   EditNote = props => {
     const { id } = props.match.params;
+    // const notes = this.state.notes;
+    // const note = notes.find( note => (note.id).toString()===id.toString())
+    // const fields = { 
+    //   title: note.title,
+    //   text: note.text,
+    // }
+    // this.setState({ note: fields});
     return <EditNote
       {...props}
       {...this.state.note}

@@ -17,8 +17,6 @@ class DeleteModal extends React.Component {
     });
   }
 
- // <Link className="Edit__Link" to="/delete">delete</Link>
- 
   render() {
     return (
       <div>
