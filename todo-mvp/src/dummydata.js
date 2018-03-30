@@ -1,48 +1,48 @@
 const dummyNotes = [
   {
     id: 0,
-    title: "This title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating. This is going to be a super long message. Like really very long. I need to test what happens when texts overflows. Okay It's about to go over the edge. More typing because I want to make sure there overflows.",
+    title: "Ellen Ullman",
+    content: "We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins.",
   },
   {
     id: 1,
-    title: "One more Title",
-    content: "lorem2 ipsum2",
+    title: "Fred Brooks",
+    content: "What one programmer can do in one month, two programmers can do in two months.",
   },
   {
     id: 2,
-    title: "This title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Patrick McKenzie",
+    content: "Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.",
   },
   {
     id: 3,
-    title: "this title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Niklaus Wirth",
+    content: "A primary cause of complexity is that software vendors uncritically adopt almost any feature that users want.",
   },
   {
     id: 4,
-    title: "this title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Andy Hunt",
+    content: "No one in the brief history of computing has ever written a piece of perfect software. It's unlikely that you'll be the first.",
   },
   {
     id: 5,
-    title: "this title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Jeremy Keith",
+    content: "Java is to JavaScript as ham is to hamster.",
   },
   {
     id: 6,
-    title: "this title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Oscar Godson",
+    content: "One of the best programming skills you can have is knowing when to walk away for awhile.",
   },
   {
     id: 7,
-    title: "this title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Louis Srygley",
+    content: "Without requirements or design, programming is the art of adding bugs to an empty text file.",
   },
   {
     id: 8,
-    title: "this title",
-    content: "This is going to be a super long message, so that I can get an idea of the formating",
+    title: "Cesar",
+    content: "The force is with me. I am one with the force.",
   },
 ]
 

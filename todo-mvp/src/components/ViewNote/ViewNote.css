@@ -20,8 +20,8 @@
   font-weight: bolder;
 }
 
-.note-update:hover {
-  text-decoration: none;
+.note-edit:hover {
+  text-decoration: underline;
   color: RGB(54, 192, 195);
 }
 
@@ -35,10 +35,23 @@
 }
 
 .note-delete:hover {
-  text-decoration: none;
+  text-decoration: underline;
   color: RGB(54, 192, 195);
 }
 
+.note-delete:active {
+  text-decoration: none !important;
+  border: none !important;
+}
+
+.note-delete:active {
+  text-decoration: none !important;
+  border: none !important;
+}
+.note-delete:active {
+  text-decoration: none !important;
+  border: none !important;
+}
 .note-title {
   font-weight: bolder;
   font-family: Roboto;
