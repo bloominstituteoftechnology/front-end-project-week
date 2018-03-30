@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Note from './note';
 import { Container, Row, Col, Card, CardBody, CardText, CardTitle} from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './index.css';
 
 function mapStateToProps(state) {
     return {
@@ -28,6 +26,7 @@ class NotesList extends Component {
                                             <CardTitle>
                                                 {note.title}
                                             </CardTitle>
+                                            <hr/>
                                             <CardText>
                                                 {note.note}
                                             </CardText>

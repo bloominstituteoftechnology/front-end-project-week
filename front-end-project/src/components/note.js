@@ -21,14 +21,12 @@ class Note extends Component {
                     <DeleteNote buttonLabel='Delete' id={note.id}/>
                 </Row>
                 <Row className='mt-5'>
-                    <Col>
-                        <h3 className='header'>
-                            {note.title}
-                        </h3>
-                        <p>
-                            {note.note}
-                        </p>
-                    </Col>
+                    <h3 className='header w-100'>
+                        {note.title}
+                    </h3>
+                    <p className='mt-4'>
+                        {note.note}
+                    </p>
                 </Row>
             </Container>
         )

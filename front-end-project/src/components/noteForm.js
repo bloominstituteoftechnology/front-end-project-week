@@ -37,7 +37,7 @@ class NoteForm extends Component {
         this.setState({
             newNote:{title:'',note:'',}
         });
-        //this.props.history.push('/');
+        this.props.history.push('/');
     };
 
     componentDidMount() {
@@ -65,7 +65,7 @@ class NoteForm extends Component {
         <Form
           onSubmit={this.submitNote.bind(this)}
           onChange={this.handleChange.bind(this)}
-        >
+        > 
           <FormGroup>
             <Input
               className="w-50"
@@ -85,9 +85,11 @@ class NoteForm extends Component {
               value={this.state.newNote.note}
             />
           </FormGroup>
-          <Button className="w-25" type="submit">
-            Save
-          </Button>
+            {createNote ? (
+                <Button className="w-25" type="submit">Update</Button>
+            ) : (
+                <Button className="w-25" type="submit">Save</Button>
+            )}
         </Form>
       </Container>
         )
