@@ -2,23 +2,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+// Redux
+import { connect } from 'react-redux';
+
+// Actions
+import { post_note } from '../../actions';
+
 // Styling
 import { Form, Input } from 'reactstrap';
 import './CreateNewNote.css';
 
 class CreateNewNote extends Component {
-    // state = {
-
-    // };
+    state = {
+        title: '',
+        content: ''
+    };
 
     render() {
         return (
             <div className='newNote'>
                 <h2 className='my-3 py-3'>Create New Note:</h2>
-                <Form className='form'>
+                <Form method='post' className='form'>
                     <div>
                         <Input placeholder='Note Title'
                             type='text'
+                            name='title'
+                            value={this.state.title}
+                            onChange={this.handleNewNote}
                             bsSize='lg'
                             className='form-control col-7 my-3 py-3'
                         />
@@ -26,15 +36,35 @@ class CreateNewNote extends Component {
                     <div>
                         <Input placeholder='Note Content'
                             type='textarea'
+                            name='content'
+                            value={this.state.content}
+                            onChange={this.handleNewNote}
                             className='form-control mt-3'
                             style={{height: 390}}
                         />
                     </div>
-                    <Link to='/' className='link m-0 mt-3'>Save</Link>
+                    <Link to='/' onClick={this.submitNewNote} className='link m-0 mt-3'>Save</Link>
                 </Form>
             </div>
         )
     } // end render()
+
+    handleNewNote = event => {
+        event.preventDefault();
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    submitNewNote = event => {
+        const { title, content } = this.state;
+        const note = { title, content };
+        this.props.post_note(note);
+        this.setState({
+            title: '',
+            content: ''
+        });
+        setTimeout(() => { window.location.reload(); }, 0);
+        
+    }
 } // end CreateNewNote Class
 
-export default CreateNewNote;
+export default connect(null, { post_note })(CreateNewNote);

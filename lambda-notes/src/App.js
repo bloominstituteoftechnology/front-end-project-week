@@ -11,13 +11,14 @@ import EditNote from './components/EditNote';
 
 const App = () => {
   return (
-    
       <div style={{display: 'flex'}}>
           <Route path='/' component={Nav} />
-          <Route exact path='/create-new-note' component={CreateNewNote} />
-          <Route exact path='/' component={ListView} />
-          <Route exact path='/notes/:id' component={NoteView} />
-          <Route exact path='/notes/:id/edit' component={EditNote} />
+          <div className='left-container'>
+            <Route exact path='/create-new-note' component={CreateNewNote} />
+            <Route exact path='/' component={ListView} />
+            <Route exact path='/notes/:id' component={NoteView} />
+            <Route exact path='/notes/edit/:id' component={EditNote} />
+          </div>
        </div>
      
 

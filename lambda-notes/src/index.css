@@ -97,3 +97,10 @@ a:hover {
     background-color: #2BC1C4;
     border: 1px solid gray;
   }
+
+.left-container {
+    width: 100vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: #f3f3f3;
+}

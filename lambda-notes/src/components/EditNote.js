@@ -14,13 +14,12 @@ import './EditNote.css';
 
 class EditNote extends Component {
     state = {
-        id: 1,
+        id: this.props.match.params.id,
         title: '',
         content: ''
     };
 
     render() {
-        console.log('editNote', this.state);
         return (
             <div className='editNote'>
                 <h2 className='my-3 py-3'>Edit Note:</h2>
@@ -45,7 +44,7 @@ class EditNote extends Component {
                             className="form-control"
                         />
                     </div>
-                    <Link to='/' onClick={this.submitEditNote}className='link m-0 mt-3'>Update</Link>
+                    <Link to='/' onClick={this.submitEditNote} className='link m-0 mt-3'>Update</Link>
                 </Form>
             </div>
         )

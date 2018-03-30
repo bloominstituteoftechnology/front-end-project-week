@@ -21,21 +21,16 @@ class ListView extends Component {
                 <h2 className='my-3 ml-2'>Your Notes:</h2>
                 <div className='list-view-notes'>
                     {this.props.notes.map(note => {
-                        const notePropsAndPath = {
-                            pathname: `/notes/${note.id}`,
-                            id: note.id,
-                            title: note.title,
-                            content: note.content
-                        };
                         return (
-                            <Link to={notePropsAndPath} key={`${note.id} ${note.title}`}
+                        
+                            <Link to={`/notes/${note.id}`} key={`${note.id} ${note.title}`}
                                 className='mx-2 my-3'>
                                     <div className='note p-3'>
                                         <h3>
                                             {note.title}
                                         </h3>
                                         <p className='pt-2'>
-                                            {note.content}
+                                        {note.content.length > 125 ? `${note.content.slice(0, 125)}…` : note.content}
                                         </p>
                                     </div>
                             </Link>
