@@ -43,7 +43,7 @@ class EditNote extends Component{
     }
 
     handleDelete = () => {
-        notes.splice(notes, 1)
+        notes.splice(notes.id, 1)
         console.log('del')
     }
 

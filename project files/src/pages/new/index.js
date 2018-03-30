@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Link } from 'react-router-dom'
 import { notes } from '../notes'
 
 class NewNote extends Component{
@@ -7,7 +8,7 @@ class NewNote extends Component{
         super();
         this.state = {
             
-            id: ++notes.length,
+            id: notes.length,
             title: '',
             text: ''
         }
@@ -26,7 +27,7 @@ class NewNote extends Component{
         
         notes.push(this.state)
             this.setState({
-            id,
+            id: ++id,
             title: event.target.value,
             text: event.target.value
         })
@@ -50,7 +51,7 @@ class NewNote extends Component{
         <form>
         <input name='title' type='text' placeholder='-Note Title Here-' value={this.state.title} onChange={(event) => this.handleChange(event)} />
         <input name='text'type='text' placeholder='-Note Here-' value={this.state.text} onChange={(event) => this.handleChange(event)} />
-        <button onClick={(event) => this.handleSubmit(event)}>Submit</button>
+        <button onClick={(event) => this.handleSubmit(event)}><Link to='/'>Submit</Link></button>
             
         </form>
         </div>

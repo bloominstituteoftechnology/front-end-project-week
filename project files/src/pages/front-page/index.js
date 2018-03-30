@@ -20,13 +20,13 @@ class Front extends Component{
             
             {this.props.notes.map(note => {
             return(
-            <Link to={`/note/${note.id}`} >
-            <ul key={note.id} className="note-card">
-            <li className='note-title'>{note.title}</li>
-            <li className='note-text'>{note.text}</li>
+            <Link className="note-card" to={`/note/${note.id}`} >
+            <div key={note.id} className="note-card">
+            <div className='note-title'>{note.title}</div>
+            <div className='note-text'>{note.text}</div>
           
             {/* <Sample /> */}
-            </ul>
+            </div>
             </Link>
             )}
             )}

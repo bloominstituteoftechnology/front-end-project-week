@@ -7,8 +7,9 @@ import Nav from './navigation';
 
 import './style/App.css'
 import './route.css';
-// // import '../pages/pagestyles/page.css';
-// // import '../style/nav.css';
+// import './pages/pagestyles/page.css';
+import './navigation/nav.css';
+
 
 import { notes } from './pages/notes';
 
