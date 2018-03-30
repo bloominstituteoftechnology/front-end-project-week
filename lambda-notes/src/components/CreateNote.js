@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { addNote } from '../actions/notesActions';
 import { connect } from 'react-redux';
 import '../App.css'
+import './CreateNote.css';
 
 class CreateNote extends Component {
     constructor(props) {
@@ -48,8 +49,8 @@ class CreateNote extends Component {
 
                 <form className="addedNote" onSubmit={this.handleOnSubmit} onChange={this.handleOnChange}>
                     <input className="InputTitle" type="text" name="title" placeholder="Title Here..." onChange={this.handleOnChange} value={this.state.title} />
-                    <input className="InputTitle" type="text" name="description" placeholder="Description Here..." onChange={this.handleOnChange} value={this.state.description} />
-                    <button type="button" onClick={this.handleOnSubmit}>Save</button>
+                    <input className="InputContent" type="text" name="description" placeholder="Description Here..." onChange={this.handleOnChange} value={this.state.description} />
+                    <button className="SaveBtn" type="button" onClick={this.handleOnSubmit}><h10 className="Save" >Save</h10></button>
                 </form>
 
             </div>

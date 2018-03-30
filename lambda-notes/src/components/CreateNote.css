@@ -1,0 +1,46 @@
+.CreateNoteForm {
+    width: 750px;
+}
+
+h3 {
+    text-align: justify;
+    margin-left: 27px;
+    margin-top: 49px;
+}
+
+.addedNote {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.InputTitle {
+    margin-left: 27px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 35px;
+    width: 350px;
+}
+
+.InputContent {
+    margin-left: 27px;
+    height: 340px;
+    width: 600px;
+    margin-top: -3px;
+
+}
+
+.SaveBtn {
+    width: 190px;
+    height: 44px;
+    margin-left: 27px;  
+    margin-top: 12px;
+    background-color: #2BC1C4;
+}
+
+.Save {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-left: 5px;
+    color: white;
+}
