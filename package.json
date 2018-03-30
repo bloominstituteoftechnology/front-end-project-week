@@ -1,0 +1,28 @@
+{
+  "name": "frontend-project",
+  "version": "1.0.0",
+  "description": "Frontend mockup server",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnathanHuggett/front-end-project-week.git"
+  },
+  "keywords": [],
+  "author": "Johnathan Huggett",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://github.com/JohnathanHuggett/front-end-project-week.git",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}

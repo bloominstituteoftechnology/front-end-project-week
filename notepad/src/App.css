@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.nav {
+}
+
+.navButton {
+  display: flex;
+  width: 250px;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
