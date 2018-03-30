@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path="/" component={ Notes } />
             <Route path="/newnote" component={ NewNote } />
             <Route exact path="/note/:id" component={ Note } />   
-            <Route exact path="/note/edit/:id" component={ EditNote } />                                 
+            <Route path="/note/edit/:id" component={ EditNote } />                                 
         </Row>   
       </Container>
     );

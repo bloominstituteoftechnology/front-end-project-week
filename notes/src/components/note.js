@@ -45,7 +45,7 @@ class Note extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {(this.state.Redirect) ? (<Redirect to={'/'}/>) : ('') }  
+                {(this.state.Redirect) ? (<Redirect to={'/'}/>) : (null) }  
                 {(this.state.Note) ? (
                 <Col xs="9">
                 { (this.state.DeleteModal) ? (
@@ -56,7 +56,7 @@ class Note extends React.Component {
                             <Btn className="" onClick={this.toggleModal}>No</Btn>
                         </ModalButton>                    
                     </Modal>
-                ) : ('') }
+                ) : (null) }
                 <Row>
                     <Col className="d-flex justify-content-end mr-5 mt-3">
                         <Link className= "Link__Note mr-2" to={`/note/edit/${this.state.Note.id}`} >edit</Link>
@@ -70,12 +70,12 @@ class Note extends React.Component {
                     </Col>
                 </Row>
                 </Col>
-                ) : ('') }  
+                ) : (null) }  
             </React.Fragment>
         );
     }
   
-    componentWillMount() {
+    componentDidMount() {
         const id = this.props.match.params.id;
         const notes = this.props.notes;
         const note = notes.find(note => (note.id).toString() === id.toString())

@@ -75,7 +75,6 @@ class EditNote extends React.Component {
                     title: '',
                     content: '',
                 }
-            
             });
         }
     }
@@ -83,7 +82,7 @@ class EditNote extends React.Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         const notes = this.props.notes;
-        const note = notes.find(note => (note.id).toString() === id.toString())
+        const note = notes.find(note => (note.id).toString() === id.toString());
         const fields = { 
             title: note.title,
             content: note.content, 
