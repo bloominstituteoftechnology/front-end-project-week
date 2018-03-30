@@ -1,69 +1,67 @@
 import React, { Component } from 'react';
 // import { addNote } from '/actions/index.js';
 // import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
-
+import { Link} from 'react-router-dom';
+import './NoteForm.css';
 
 class NoteForm extends Component {
     state = {
         title: '',
-        content: '',
-        redirect: false,
+        body: '',
+       
       };
 
-    handleTitleInput = event => {
-      this.setState({ title: event.target.value });
-    };
-
-    handleContentInput = event => {
-      this.setState({ content: event.target.value });
-    };
-
-    handleSave = () => {
-      let newNote ={
-        title: this.state.title,
-        content: this.state.content,
-      }
-      this.props.saveNewNote(newNote);
+    handleInputChange = event => {
+      this.setState({ [event.target.name]: event.target.value });
     }
+
+    handleSubmit = _ => {
+      const { title, body } = this.state;
+      this.props.createNote({ title, body });
+      this.setState({ title: '', body: '', });
+    };
    
 
   render() {
+    const { title, body } = this.state;
     return (
-      <div>
-        <h3 className='heading'>Create New Note:</h3>
-        <form onSubmit={this.createNote}>
+      <div className='NoteForm'>
+        <h2 className='SectionTitle'>Create New Note:</h2>
+        <form onSubmit={this.handleSubmit}>
           <input
-            className='formtitle'
+            className='TitleInput'
             type='text'
             placeholder='Note Title'
-            onChange={this.handleTitleInput}
+            onChange={this.handleInputChange}
             name='title'
-            value={this.state.title}
+            value={title}
+            required
           />
+          <br />
           <textarea
-            className='formcontent'
+            className='BodyInput'
             type='text'
             placeholder='Note Content'
-            onChange={this.handleContentInput}
-            name='content'
-            value={this.state.content}
+            onChange={this.handleInputChange}
+            name='body'
+            value={body}
+            required
           />
-          <button className='save-btn' type='submit'>
-            Save
-          </button>
+          <br />
+          <Link to={'/'}><button onClick={() => this.handleSubmit()} className='Submit-Button' type='submit'>
+            Submit
+          </button></Link>
         </form>
-        {this.state.redirect ? <Redirect to='/noteslist' /> : null}
       </div>
     );
   }
 
-  updateNote = event => {
-    const name = event.target.name;
-    const value = event.target.value;
+  // updateNote = event => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
 
-    this.setState({ [name]: value });
-  };
+  //   this.setState({ [name]: value });
+  // };
   
   // createNote = event => {
   //   event.preventDefault();
