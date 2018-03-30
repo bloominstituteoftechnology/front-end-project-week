@@ -1,11 +1,11 @@
 .App-left {
-    background-color: Red;
+    background-color: #F3F3F3;
     float: left;
     width: 50%;
 }
 
 .App-right {
-    background-color: Aqua;
+    background-color: grey;
     margin-left: 50%;
 }
 

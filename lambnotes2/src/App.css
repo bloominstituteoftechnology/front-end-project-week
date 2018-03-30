@@ -1,0 +1,129 @@
+/*
+.left {
+    background-color: Red;
+    float: left;
+    width: 25%;
+}
+
+.right {
+    background-color: Aqua;
+    margin-left: 75%;
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-Box {
+  height: 200px;
+  width: 200px;
+  background-color: #F3F3F3;
+  color: black;
+  border-width: 1px solid black;
+}
+
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+.App-left {
+    background-color: Red;
+    float: left;
+    width: 50%;
+}
+
+.App-right {
+    background-color: Aqua;
+    margin-left: 50%;
+}
+
+
+.App {
+  text-align: left;
+}
+
+
+
+.App-header {
+  background-color: dark grey;
+  height: 150px;
+  width: 20%;
+  padding: 20px;
+  color: black;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+-----------------------------------------------------
+*/
+.App-columnl {
+height: 600px;
+border: 1px solid black;
+color: black;
+background-color: red;
+display: inline-block;
+vertical-align: left;
+width: 25.5%;
+}
+
+
+.App-columnr {
+height: 600px;
+width: 74%;
+border: 1px solid black;
+color: black;
+background-color: blue;
+float: right;
+display: inline-block;
+vertical-align: top;
+}
+
+.App-box {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3;
+}
+.App-box2 {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3;
+}
+.App-box3 {
+height:200px;
+width: 200px;
+border: 1px solid black;
+color: black;
+background-color: #F3F3F3;
+}
+.App-box4 {
+height:200px;
+width: 200px;
+border: 1px solid black;
+background-color: #F3F3F3;
+}
+

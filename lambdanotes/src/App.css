@@ -14,7 +14,13 @@
   text-align: center;
 }
 
-
+.App-Box {
+  height: 200px;
+  width: 200px;
+  background-color: #F3F3F3;
+  color: black;
+  border-width: 1px solid black;
+}
 
 /*
 .App-header {
