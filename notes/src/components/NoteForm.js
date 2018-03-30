@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 import { writeNote } from "../utilities/auth";
 
 function mapStateToProps(state) {
-  return { notes: state.notes };
+  return { notes: state.notes, uid: state.uid };
 }
 
 class NoteForm extends Component {
@@ -32,7 +32,11 @@ class NoteForm extends Component {
     if (this.state.newNote.id === undefined) {
       this.props.addNote(this.state.newNote);
     } else {
-      this.props.editNote(this.state.newNote.id, this.state.newNote);
+      this.props.editNote(
+        this.state.newNote,
+        this.state.newNote.id,
+        this.props.uid
+      );
     }
     this.setState({ newNote: { title: "", note: "" } });
     this.props.history.push("/");
@@ -41,7 +45,7 @@ class NoteForm extends Component {
     if (this.props.match.params.id !== undefined) {
       this.setState({
         newNote: this.props.notes.filter(
-          note => parseInt(this.props.match.params.id, 10) === note.id
+          note => this.props.match.params.id === note.id
         )[0]
       });
     }

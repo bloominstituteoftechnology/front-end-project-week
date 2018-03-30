@@ -109,7 +109,12 @@ export default function notes(state = initialState, action) {
         notes: tagCopy
       };
     case SIGN_IN:
-      return { ...state, authed: true, user: action.user.email };
+      return {
+        ...state,
+        authed: true,
+        user: action.user.email,
+        uid: action.user.uid
+      };
     case SIGN_OUT:
       return { ...state, authed: false };
     case CREATE_USER_SUCCESS:

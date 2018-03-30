@@ -46,13 +46,13 @@ export function deleteNote(id) {
   };
 }
 
-export function editNote(note, id) {
+export const editNote = (note, id, uid) => dispatch => {
+  ref.child(`users/${uid}/notes/${id}`).set(note);
+  getNotes();
   return {
-    type: EDIT_NOTE,
-    note,
-    id
+    type: EDIT_NOTE
   };
-}
+};
 
 export const createUserSuccess = response => {
   return {
