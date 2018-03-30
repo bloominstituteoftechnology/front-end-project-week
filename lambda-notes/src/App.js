@@ -78,7 +78,7 @@ class App extends Component {
             <Route path="/EditNote/:id" render={this.editView} />
             <Route path="/DeleteNote/:id" render={this.noteView} /> 
 
-            <div className="Greeting">Welcome To Lamda Notes!</div>
+            <div className="Greeting"><header>Welcome To Lamda Notes!</header></div>
             
         </div>
 

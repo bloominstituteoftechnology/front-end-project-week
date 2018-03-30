@@ -1,6 +1,6 @@
 .NavBar {
-    min-width: 182px;
-    min-height: 700px;
+    width: 215px;
+    height: 950px;
     background-color: #D8D8D8;
     display: flex;
     align-content: center;
@@ -9,16 +9,54 @@
 }
 
 .App_Title {
-    font-size: 2.05em;
+    font-size: 2.18em;
     text-align: start;
     margin-top: 15px;
-    margin-left: 15px;
+    margin-left: 10px;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto;
     font-weight: bold;
        
 }
 
 a:visited {
     color: darkslategray;
+}
+
+.ViewBtn {
+    width: 190px;
+    height: 44px;
+    margin-left: 13px;  
+    margin-top: 12px;
+    background-color: #2BC1C4;
+    
+}
+
+.viewActive {
+    border-color: darkslategray;
+}
+
+
+.CreateBtn {
+    width: 190px;
+    margin-top: 16px;
+    margin-left: 13px; 
+    height: 44px;
+    background-color: #2BC1C4;
+}
+
+
+
+h1 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-left: 28px;
+    color: white;
+}
+
+h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-left: 20px; 
+    color: white;
 }

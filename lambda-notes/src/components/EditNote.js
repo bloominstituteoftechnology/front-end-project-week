@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { updateNote } from '../actions/notesActions';
+import { connect } from 'react-redux';
 import '../App.css'
 
 
@@ -18,6 +20,13 @@ class EditNote extends Component {
         this.setState(  )
     }
     handleSubmit = event => {
+        event.preventDefault();
+        const newNote = {
+            editTitle: this.state.editTitle,
+            editDescription: this.state.editDescription
+        }
+        this.props.updateNote(newNote);
+
         this.setState({ editTitle: '', editDescription: '' })
     
     }
@@ -68,4 +77,8 @@ class EditNote extends Component {
     }
 }
 
-export default EditNote;
+function mapStateToProps(state) {
+    return {};
+}
+
+export default connect(mapStateToProps, { updateNote })(EditNote);

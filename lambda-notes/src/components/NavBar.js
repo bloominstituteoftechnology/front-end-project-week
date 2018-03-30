@@ -13,8 +13,8 @@ class NavBar extends Component {
 
             <a href="/" className="App_Title" >Lambda<br/>Notes</a>
 
-            <Link to="/viewnotes"><Button onClick={onClick}>View Your Notes</Button></Link>
-            <Link to="/CreateNote"> <Button>+ Create New Note</Button></Link>
+            <Link to="/viewnotes" activeClassName="viewActive" style={{ textDecoration: 'none' }}><Button className="ViewBtn" onClick={onClick}><h1>View Your Notes</h1></Button></Link>
+            <Link to="/CreateNote" style={{ textDecoration: 'none' }}> <Button className="CreateBtn" onClick={onClick}><h2>+ Create New Note</h2></Button></Link>
             
         </div>
     )

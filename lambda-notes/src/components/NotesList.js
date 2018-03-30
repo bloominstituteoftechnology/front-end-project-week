@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../App.css'
 import './NotesList.css'
 
+
 class NotesList extends Component {
     constructor(props) {
         super(props);
@@ -26,14 +27,14 @@ class NotesList extends Component {
                         return (
                             <div className="NoteItem" note={note} key={note.id}>
 
-                                <Link to={{ pathname:`/notes/${note.id}`, state: { currentId: note } }}>
-
-                                    <div className="NoteCard">
-                                        <div className="NoteContainer">
-                                            <header> {note.title} </header>
+                                <Link to={{ pathname:`/notes/${note.id}`, state: { currentId: note } }} style={{ textDecoration: 'none', color: 'darkslategray' }}>
+                                    
+                                    
+    
+                                            <header className="NoteItemHeader"> {note.title} </header>
                                             <p> {note.description} </p>
-                                        </div>
-                                    </div>
+                                        
+                                    
 
                                 </Link>
 
