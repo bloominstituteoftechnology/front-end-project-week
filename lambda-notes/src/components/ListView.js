@@ -24,7 +24,10 @@ export default class ListView extends Component {
   filterAndChange = () => {
     let filterNotes = this.state.notes.filter(note => {
       if (
-        note.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        note.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+          -1 ||
+        note.content.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+          -1
       ) {
         return true;
       }
