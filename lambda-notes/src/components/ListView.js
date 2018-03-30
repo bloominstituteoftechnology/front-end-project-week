@@ -26,9 +26,6 @@ handleFilter = (e) => {
 }
 
 handleDrag = (e) => {
-    console.log("dragon");
-    console.log(e.target.id)
-    // Add the target element's id to the data transfer object
     e.dataTransfer.setData("text/plain", e.target.id);
 }
 
@@ -39,11 +36,15 @@ handleDragOver = (e) => {
 
 handleDrop = (e) => {
     e.preventDefault();
-    // Get the id of the target and add the moved element to the target's DOM
-    const data = e.dataTransfer.getData("text");
-    console.log(e.target.parentNode.parentNode.parentNode.className)
-    e.target.appendChild(document.getElementById(data));
-    console.log("dragoff");
+    const targetParent = e.target.parentNode.parentNode.parentNode;
+    if(targetParent.className === "ListCard") {
+        const newOrder = targetParent.style.order;
+        const data = e.dataTransfer.getData("text");
+        const dragItem = document.getElementById(data);
+        const oldOrder = dragItem.style.order;
+        targetParent.style.order = `${oldOrder}`;
+        dragItem.style.order = `${newOrder}`;
+    }
 }
 
     render() {
