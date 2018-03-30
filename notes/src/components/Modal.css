@@ -57,7 +57,7 @@
   margin-left: 25px;
 }
 
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 1080px) {
   .modalBanner {
     height: 230px;
     width: 848px;

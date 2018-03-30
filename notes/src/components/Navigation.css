@@ -47,7 +47,7 @@ Link:hover {
   }
 }
 
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 1080px) {
   .navContainer {
     min-height: 100vh;
     width: 320px;

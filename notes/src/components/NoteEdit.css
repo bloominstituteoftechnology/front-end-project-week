@@ -60,7 +60,7 @@
     margin-bottom: 15px;
 }
 
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 1080px) {
   .noteEditHeader {
     margin-left: 15px;
   }

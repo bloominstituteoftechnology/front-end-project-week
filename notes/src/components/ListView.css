@@ -22,7 +22,7 @@
   justify-content: center;
 }
 
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 1080px) {
   .listHeader {
     text-align: left;
     margin-left: 15px;

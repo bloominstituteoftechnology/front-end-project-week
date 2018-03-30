@@ -44,7 +44,7 @@
   cursor: pointer;
 }
 
-@media screen and (min-width: 1180px) {
+@media screen and (min-width: 1080px) {
   .noteViewHeader {
     text-align: left;
     margin-left: 15px;
