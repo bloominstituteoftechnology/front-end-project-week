@@ -10,7 +10,8 @@ class SaveNote extends React.Component {
         console.log(`these are saveNote props :`, props);
         super(props);
         this.state = {
-          modal: false
+          modal: false,
+          id: 0
         };
     
         this.toggle = this.toggle.bind(this);

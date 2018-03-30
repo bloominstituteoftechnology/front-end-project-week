@@ -9,7 +9,6 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
-      id: 0
     };
   }
 
@@ -27,7 +26,7 @@ class App extends Component {
           </div>
             <div className="noteSection col-md-10">
             <span className="yourNotes">Your Notes:</span>            
-              <NoteCards key={this.state.id} notes={this.state.notes} />            
+              <NoteCards notes={this.state.notes} />            
             </div>  
         </div>
       </div>

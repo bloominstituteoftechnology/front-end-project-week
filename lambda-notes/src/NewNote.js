@@ -11,9 +11,7 @@ class NewNote extends React.Component {
     super(props);
     this.state = {
       notes: [],
-      title: '',
-      text: '',
-      id: 0
+      id: 0    
     };
     this.state = { fadeIn: false };
     this.toggle = this.toggle.bind(this);
@@ -31,13 +29,13 @@ class NewNote extends React.Component {
 
   handleAddTodoItem(e) {
     e.preventDefault();
-    this.state.notes.push(this.state);
+    this.state.notes.push((this.state));
     e.target.reset();
     this.setState({
       title: '',
       text: '',
       id: 0
-    }    
+    }        
     )
   }
 
