@@ -18,6 +18,7 @@ body {
 .SideNav {
   background-color: #D8D8D8;
   width: 220px;
+  height: 750px;
   padding: 15px;
   display: flex;
   flex-flow: column;
@@ -25,7 +26,7 @@ body {
   font-family: Roboto Bold, sans-serif;  
 }
 .SideNav .navButton {
-  width: 100%;
+  width: 200px;
   height: 40px;
   background-color: #2BC1C4;
   color: white;
@@ -33,10 +34,11 @@ body {
 }
 
 .NoteCards {
+  width: 100%;
   background-color: F3F3F3;
   display: flex;
   flex-flow: row wrap;
-  margin-left: 30px;
+  margin-left: 25px;
   overflow: hidden;
 
 }
@@ -52,11 +54,50 @@ body {
   height: 200px;
   overflow: hidden;
   overflow-y: hidden;
-  margin-right: 20px;
+  margin-right: 15px;
   margin-bottom: 15px;
   border: 1px solid #D8D8D8;
   background-color: white;
   padding-bottom: 15px;
+}
+.CreateNote {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 20px;
+}
+.CreateNote h3 {
+  color: #4A4A4A;
+  display: flex;
+  justify-self: flex-start;
+  
+}
+.CreateNote .NoteBoxTitle {
+  display:flex;
+  border: 1px solid #4A4A4A;
+  border-radius: 5px;
+  width: 350px;
+  justify-self: flex-start;
+  margin-bottom: 15px;
+}
+
+.CreateNote .NoteBoxContent {
+  border: 1px solid #4A4A4A;
+  border-radius: 5px;
+  width: 550px;
+  height: 400px;
+  align-self: center;
+}
+.CreateNote Button {
+  width: 200px;
+  height: 40px;
+  background-color: #2BC1C4;
+  color: white;
+  border: 1px solid #D2D1D2;
+  display: flex;
+  justify-self: flex-start;
+  text-align: center;
+  justify-content: center;
 }
 
 .App-title {
