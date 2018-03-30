@@ -5,7 +5,7 @@ import { Modal, Button, ModalBody, ModalFooter } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
-  return {};
+  return { uid: state.uid };
 }
 
 class DeleteModal extends Component {
@@ -42,7 +42,7 @@ class DeleteModal extends Component {
             <Button
               className="w-50 ml-5 mr-2 deleteBtn"
               onClick={() => {
-                this.props.deleteNote(this.props.id);
+                this.props.deleteNote(this.props.id, this.props.uid);
                 this.props.history.push("/");
               }}
             >

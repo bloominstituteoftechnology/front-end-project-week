@@ -39,12 +39,13 @@ export function addTag(tag, id) {
   };
 }
 
-export function deleteNote(id) {
+export const deleteNote = (id, uid) => dispatch => {
+  ref.child(`users/${uid}/notes/${id}`).set(null);
+  getNotes();
   return {
-    type: DELETE_NOTE,
-    id
+    type: DELETE_NOTE
   };
-}
+};
 
 export const editNote = (note, id, uid) => dispatch => {
   ref.child(`users/${uid}/notes/${id}`).set(note);
