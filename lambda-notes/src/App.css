@@ -6,6 +6,7 @@ body {
   max-width: 900px;
   display: flex;
   align-self: center;
+  border: 1px solid rgb(161, 161, 161);
 }
 .App {
   text-align: center;
@@ -24,6 +25,8 @@ body {
   flex-flow: column;
   color: #4A4A4A;
   font-family: Roboto Bold, sans-serif;  
+  border-right: 1px solid rgb(161, 161, 161);
+  
 }
 .SideNav .navButton {
   width: 200px;
@@ -31,8 +34,15 @@ body {
   background-color: #2BC1C4;
   color: white;
   border: 1px solid #D2D1D2;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.SideNav .navButton href {
+  
+  margin-top:5px;
+}
 .NoteCards {
   width: 100%;
   background-color: F3F3F3;
@@ -40,6 +50,7 @@ body {
   flex-flow: row wrap;
   margin-left: 25px;
   overflow: hidden;
+  
 
 }
 .NoteCards h3 {
@@ -96,7 +107,6 @@ body {
   border: 1px solid #D2D1D2;
   display: flex;
   justify-self: flex-start;
-  text-align: center;
   justify-content: center;
 }
 
