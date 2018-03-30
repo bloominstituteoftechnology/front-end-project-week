@@ -5,36 +5,42 @@ import notes from './notes'
 
 class App extends Component {
   state = {
-    notes: [],
-    note: { id: null, title: '', text: '' }
-  }
-
-  handleFormChange = ({ target: { name, value } }) =>
-    this.setState({ note: { ...this.state.note, [name]: value } })
-
-  handleFormSubmit = id => {
-    const { notes, note } = this.state
-    this.setState({
-      notes: [...notes, { ...note, id }],
-      note: { id: null, title: '', text: '' }
-    })
-  }
-
-  handleEditSubmit = id => {
-    let { note, notes } = this.state
-    notes = notes.map(obj => obj.id === +id ? note : obj)
-    this.setState({ notes, note: { id: null, title: '', text: '' } })
+    note: { id: null, text: '', title: '' },
+    notes: []
   }
 
   componentDidMount() {
     this.setState({ notes })
   }
 
+  handleFormChange = ({ target: { name, value } }) =>
+    this.setState({ note: { ...this.state.note, [name]: value } })
+
+  handleFormSubmit = id => {
+    const { note, notes } = this.state
+    this.setState({
+      notes: [...notes, { ...note, id }],
+      note: { id: null, title: '', text: '' }
+    })
+  }
+
+  handleEdit = id => {
+    let { note, notes } = this.state
+    notes = notes.map(obj => obj.id === +id ? {...note, id: +id } : obj)
+    this.setState({ notes, note: { id: null, title: '', text: '' } })
+  }
+
+  handleDelete = id => {
+    let { notes } = this.state
+    notes = notes.filter(obj => obj.id !== +id)
+    this.setState({ notes })
+  }
+
   Content = () => <Content notes={this.state.notes} />
 
   Note = ({ match: { params: { id } } }) => {
-    const note = this.state.notes.filter(note => note.id === +id)[0]
-    return <Note {...note} />
+    const note = this.state.notes.find(note => note.id === +id)
+    return <Note {...note} del={this.handleDelete} />
   }
 
   Create = props => {
@@ -58,7 +64,7 @@ class App extends Component {
         {...this.state.note}
         id={id}
         change={this.handleFormChange}
-        submit={this.handleEditSubmit}
+        submit={this.handleEdit}
       />
     )
   }

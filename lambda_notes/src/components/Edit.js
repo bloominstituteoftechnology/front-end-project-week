@@ -1,9 +1,6 @@
 import React, { Fragment } from 'react'
 
-export const Edit = (props) => {
-  const { change, history, id, submit, text, title } = props
-  console.log(props);
-
+export const Edit = ({ change, history, id, submit, text, title }) => {
   const handleSubmit = e => {
     e.preventDefault()
     submit(id)
