@@ -17,13 +17,7 @@ class Note extends Component {
     )[0];
     return (
       <Container>
-        <Row className="d-flex justify-content-between mt-3 mr-3">
-          <div>
-            {note.tags.map(tag => (
-              <span className="badge badge-warning m-1 text-white">{tag}</span>
-            ))}
-            <TagModal tags={note.tags} id={note.id} />
-          </div>
+        <Row className="d-flex justify-content-end mt-3 mr-3">
           <div className="d-flex">
             <Link className="header-link mr-3" to={`/editNote/${note.id}`}>
               edit
@@ -34,6 +28,12 @@ class Note extends Component {
         <Row className="mt-5">
           <h3 className="header w-100">{note.title}</h3>
           <p className="mt-4 ">{note.note}</p>
+        </Row>
+        <Row>
+          {note.tags.map(tag => (
+            <span className="badge badge-warning m-1 text-white">{tag}</span>
+          ))}
+          <TagModal tags={note.tags} id={note.id} />
         </Row>
       </Container>
     );
