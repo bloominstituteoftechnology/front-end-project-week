@@ -1,6 +1,7 @@
 import {
   ADD_NOTE,
-  DELETE_NOTE
+  DELETE_NOTE,
+  EDIT_NOTE
 } from '../actions/notes';
 
 const notes = (state = [], action) => {
@@ -16,9 +17,11 @@ const notes = (state = [], action) => {
       ];
     case DELETE_NOTE:
       return state.filter((note) => note.id !== action.id);
+    // case EDIT_NOTE:
+    //   return stuff;
     default:
       return state;
-  }
+    }
 };
 
 export default notes;

@@ -26,11 +26,17 @@ body {
   border:1px solid lightgray;
   margin:5px;
   padding:0 0 10px 10px;
+  height:150px;
+  overflow:hidden;
 }
 
 .notesList {
-  display: flex;
+  display:flex;
   flex-wrap:wrap; 
+}
+
+.notesList h3 {
+  width:100%;
 }
 
 .noteForm {
