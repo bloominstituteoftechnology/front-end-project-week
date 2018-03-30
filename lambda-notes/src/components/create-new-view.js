@@ -26,11 +26,11 @@ class NewNote extends Component {
         <h2 className="Each__Title">Create New Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={title} name="title" placeholder="Note Title" onChange={this.handleInput}
-            className="Each__Input-Title" minLength="1" required />
+            className="Each__Input-Title" minLength="1" maxLength="30" required />
           <br />
           <textarea className="Each__Input-Body" value={body}
             name="body" type="text" placeholder="Note Content"
-            onChange={this.handleInput} minLength="1" required />
+            onChange={this.handleInput} minLength="1"required />
           <br />
           <Link to={"/"}><button onClick={() => this.handleSubmit()} type="submit">Save</button></Link>
         </form>

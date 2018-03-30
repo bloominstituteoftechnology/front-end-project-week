@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Markdown } from 'react-showdown';
 
 import DeleteModal from "./delete-modal";
 
-import Markdown from 'react-markdown';
 
 const NoteView = props => {
   const { note: { id, title, body }, handleDeleteModal, handleToggle, toggle } = props;
 
   const modal = () => {
-    console.log('test')
     return (
     <DeleteModal
       id={id}
@@ -19,7 +18,7 @@ const NoteView = props => {
   )}
 
   return (
-    <div className="Each__View">
+    <div className="Each__View" key={id}>
       {toggle && modal()}
       <div className="Each__Links">
         <Link className="Each__Link" to={"/edit"}>edit</Link>
@@ -28,7 +27,7 @@ const NoteView = props => {
       <div>
         <h2 className="Each__Title">{title}</h2>
         <div className="Each__Body">
-        <Markdown source={body} />
+        <Markdown markup={body} strikethrough="true" tasklists="true" />
         </div>
       </div>
     </div>

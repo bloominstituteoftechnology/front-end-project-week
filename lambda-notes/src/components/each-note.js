@@ -1,31 +1,31 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
 import TextEllipsis from 'react-text-ellipsis';
-import Markdown from 'react-markdown';
+import { Markdown } from 'react-showdown';
+import { SortableElement } from 'react-sortable-hoc';
 
 
-class EachNote extends Component {
-  render() {
-    const cardText = this.props.body;
-    return (      
+const EachNote = SortableElement(props => {
+    const cardText = props.note.body;
+    return (
+      <Link className="List__View__Link" to={`/view/${props.note.id}`} onClick={() => {props.handleListView(props.note.id)}}> 
         <div className="Note">
-          <div className="Note__Title">{this.props.title}</div>
+          <div className="Note__Title">{props.note.title}</div>
           <div className="Note__Body">
-            <TextEllipsis lines={5} tag={"p"}
+            <TextEllipsis lines={6}
               ellipsisChars={" ..."} tagClass={"className"}
-              debounceTimeoutOnResize={200} useJsOnly={true}
+              debounceTimeoutOnResize={215} useJsOnly={true}
               onResult={result => {
-                if (result === TextEllipsis.RESULT.TRUNCATED)
-                  console.log("text get truncated");
-                else console.log("text does not get truncated");
+                if (result === TextEllipsis.RESULT.TRUNCATED);
               }}>
-              <Markdown source={cardText} />
+              <Markdown markup={cardText} strikethrough="true" tasklists="true" />
             </TextEllipsis>
           </div>
           <br />
         </div>
+      </Link>
     );
-  }
-}
+  });
 
 export default EachNote;

@@ -139,44 +139,94 @@ table {
     margin: auto 25px;
     background: #f3f3f3;
     max-width: 1224px;
-    min-height: 950px;
+    min-height: 1050px;
+    padding: 0;
 }
 
 .ListView {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
+    padding-right: -10px;
+    margin: 0 -25px 0 0 !important;
 }
 
 .List {
+    position: relative;
+    margin: 0 0 0 275px ;
     display: flex;
-    flex-flow: row nowrap;
-    max-width: 240px;
-    max-height: 270px;
+    flex-flow: column nowrap;
+    max-width: 220px;
+    min-height: 270px;
 }
 
-.List__Title {
-    display: flex;
+.List__Wrap {
+   /* display: flex;
     flex-flow: column nowrap;
     align-self: flex-start;
     justify-content: space-between;
-    align-content: space-between;
-    margin: 55px 20px 38px 5px;
+    align-content: space-between;*/
+    position: relative;
+    margin: 100px 20px 5px 295px;
     font-family: 'Roboto', sans-serif;
-    font-size: 23px;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #4A4A4A;
+    transform: translateX(-60%) translateY(-40%);
+    list-style: none;
+}
+
+.List__Wrap.Hidden {
+    border-bottom: 3px solid #fff;
+}
+
+.List__Wrap li {
+  display: inline-block;
+/*  font-size: 2em;*/
+  color: #000;
+  opacity: 1;
+  transition: all 1.5s ease-in-out;
+  max-width: 2rem;  
+}
+
+.List__Wrap.Hidden li.List__Spaced {
+    padding-left: 0;
+}
+
+.List__Wrap li.List__Spaced {
+    padding-left: 0.5rem;
+}
+
+.List__Wrap.Hidden li.List__Ghost {
+    opacity: 0;
+    max-width: 0;
 }
 
 .List__View {
     display: flex;
     flex-flow: row wrap;
-    max-width: 220px;
-    max-height: 230px;
-    margin-left: 15px;
+    width: 210px;
+    min-height: 230px;
 }
 
 .List__View__Link {
     text-decoration: none !important;
+}
+
+.CSV {
+    border: 3px #2BC1C4 dotted;
+    width: 120px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Raleway', serif;
+    color: #000;
+    margin-top: 20px;
+}
+
+.CSV:hover {
+    background: #fff;
+    color: #2BC1C4;
+    border: 4px #fff solid;
 }
 
 .Note {
@@ -185,6 +235,9 @@ table {
     display: flex;
     flex-flow: column wrap;
     background: #fff;
+    width: 230px;
+    height: 250px;
+    margin: 0 20px 5px 0 !important;
 }
 
 .Note:hover {
@@ -195,23 +248,32 @@ table {
 
 .Note__Title {
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    padding-bottom: 4px;
+    width: 90%;
+    justify-content: center;
+    align-self: center;
+    padding: 10px 0 0 0;
+    height: 45px;
     font-size: 21px;
-    font-family: 'Raleway', sans-serif
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 .Note__Body {
     overflow: hidden;
     margin-right: 10px;
-    width: 90%;
+    width: 85%;
+    height: 67%;
     display: block;
-    padding: 0;
-    margin-bottom: -17px;
-    line-height: 1.3;
-    font-family: 'Raleway', sans-serif
+    font-size: .97rem;
+    padding: 10px 0 0 20px;
+    margin-bottom: 5px;
+    line-height: 1.6;
+    font-family: 'Raleway', sans-serif;
+    text-overflow: ellipsis;
 }
 
 .SideNav {
+    position: fixed;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -220,7 +282,7 @@ table {
     background: #d8d8d8;
     border-right: 1.1px solid #CDCDCD;
     width: 260px;
-    min-height: 800px;
+    min-height: 100vh;
     background: #D7D7D7;
     box-sizing: border-box;
 }
@@ -232,7 +294,7 @@ table {
     align-self: flex-start;
     color: #4A4A4A;
     font-size: 40px;
-    margin: 18px 20px 15px 10px;
+    margin: 40px 20px 15px 10px;
     line-height: 36px;
     font-weight: bold;
     text-align: left;
@@ -302,7 +364,7 @@ button {
     display: flex;
     flex-flow: column nowrap;
     width: 70%;
-    margin: 0 20px;
+    margin: 0 20px 0 275px;
     height: 100%;
     text-decoration: none;
 }
@@ -339,7 +401,7 @@ button {
     display: flex;
     flex-flow: column nowrap;
     width: 70%;
-    margin: 25px 0 0 30px;
+    margin: 25px 0 0 300px;
 }
 
 .Each__Input-Title {

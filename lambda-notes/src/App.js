@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Provider, Consumer } from "./Provider";
+import { Route } from "react-router-dom";
+// import { Provider, Consumer } from "./Provider";
 
 import "./App.css";
 
@@ -11,11 +11,78 @@ import NewNote from "./components/create-new-view";
 import EditNote from "./components/edit-view";
 
 class App extends Component {
-  
+  nextId = 9;
+  noteId = 0;
+  state = {
+    notes: [
+      {
+        id: 0,
+        title: "Note Title",
+        body:
+          "0 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 1,
+        title: "Note Title",
+        body:
+          "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 2,
+        title: "Note Title",
+        body:
+          "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 3,
+        title: "Note Title",
+        body:
+          "3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 4,
+        title: "Note Title",
+        body:
+          "4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 5,
+        title: "Note Title",
+        body:
+          "5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 6,
+        title: "Note Title",
+        body:
+          "6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 7,
+        title: "Note Title",
+        body:
+          "7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      },
+      {
+        id: 8,
+        title: "Note Title",
+        body:
+          "8 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id.  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum commodi tempora quam quaerat odit nesciunt, esse minus architecto necessitatibus aliquam nisi aut a doloremque voluptates facere voluptatem qui voluptate id."
+      }
+    ],
+    toggle: false,
+    viewer: null
+  };
 
-  handleListView = eachNote => {
+  logIn = name => {
+    this.setState({ viewer: name });
+  };
+
+  logOut = () => this.setState({ viewer: null });
+
+  handleListView = index => {
     for (let i = 0; i < this.state.notes.length; i++) {
-      if (this.state.notes[i].id === eachNote) this.noteId = i;
+      if (this.state.notes[i].id === index) this.noteId = i;
     }
   };
 
@@ -30,13 +97,14 @@ class App extends Component {
       title: input.title,
       body: input.body
     };
+    localStorage.setItem(`id${newNote.id}`, JSON.stringify(newNote));
     const newNotes = [...this.state.notes, newNote];
     this.setState({
       notes: newNotes
     });
   };
 
-  handleEdit = update => {
+   handleEdit = update => {
     const editedNote = {
       id: update.id,
       title: update.title,
@@ -96,17 +164,19 @@ class App extends Component {
     )
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('notes', JSON.stringify(nextState.notes));
+  }
+
   render() {
     return (
-      <Router>
         <div className="App">
-          <SideNav />
+          <SideNav notes={this.state.notes} />
           <Route exact path="/" render={this.List} />
           <Route path="/view/:id" render={this.Note}/>
           <Route exact path="/create" render={this.Create}/>
-          <Route exact path={"/edit"} render={this.Edit}/>
+          <Route exact path="/edit" render={this.Edit}/>
         </div>
-      </Router>
         )
       }
   }
