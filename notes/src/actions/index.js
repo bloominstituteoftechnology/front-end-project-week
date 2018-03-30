@@ -5,6 +5,7 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const SORT_NEWEST = 'SORT_NEWEST';
 export const SORT_OLDEST = 'SORT_OLDEST';
 export const FETCH_NOTES = 'FETCH_NOTES';
+export const SEARCH = 'SEARCH';
 
 
 let noteId;
@@ -87,4 +88,18 @@ export const sortOldest = () => {
     return {
         type: SORT_OLDEST,
     }
+}
+
+export const search = (input) => {
+    return dispatch => {
+        return axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
+        .then((response) => {
+            dispatch({
+                type: SEARCH, 
+                notes: response.data,
+                searching: true,
+                input
+            });
+        })
+        .catch((error) => console.log(error))};
 }

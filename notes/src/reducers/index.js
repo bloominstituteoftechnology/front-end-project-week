@@ -4,11 +4,15 @@ import {
     DELETE_NOTE, 
     SORT_NEWEST,
     SORT_OLDEST, 
-    FETCH_NOTES} from '../actions';
+    FETCH_NOTES,
+    SEARCH
+} from '../actions';
 
 const initialState = {
+    searching: false,
     sortedBy: null,
-    notes:[]
+    notes:[],
+    visibleNotes: [],
 }
 
 export default(state=initialState, action) => {
@@ -16,10 +20,11 @@ export default(state=initialState, action) => {
         case(FETCH_NOTES):
             return Object.assign({}, state, {
                 notes: Object.values(action.notes).filter(note => note !== null),
+                visibleNotes: Object.values(action.notes).filter(note => note !== null),
             });
         case(CREATE_NOTE):
             return Object.assign({}, state, {
-                notes: state.notes.concat({
+                visibleNotes: state.notes.concat({
                     id: action.id,
                     title: action.title,
                     text: action.text
@@ -27,7 +32,7 @@ export default(state=initialState, action) => {
             });
         case(EDIT_NOTE):
             return Object.assign({}, state, {
-                notes: state.notes.filter(note => {
+                visibleNotes: state.notes.filter(note => {
                     return note.id !== action.id
                 }).concat({
                     id: action.id,
@@ -37,17 +42,24 @@ export default(state=initialState, action) => {
             });
         case(DELETE_NOTE):
             return Object.assign({}, state, {
-                notes: state.notes.filter(note => note.id !== action.id),
+                visibleNotes: state.notes.filter(note => note.id !== action.id),
             });
         case(SORT_OLDEST):
             return Object.assign({}, state, {
                 sortedBy: 'newest',
-                notes: state.notes.sort((a, b) => a.id > b.id),
+                visibleNotes: state.notes.sort((a, b) => a.id > b.id),
             });
         case(SORT_NEWEST):
             return Object.assign({}, state, {
                 sortedBy: 'oldest',
-                notes: state.notes.sort((a, b) => a.id < b.id),
+                visibleNotes: state.notes.sort((a, b) => a.id < b.id),
+            });
+        case(SEARCH):
+            return Object.assign({}, state, {
+                searching: true,
+                visibleNotes: Object.values(action.notes).filter(
+                    note => note !== null).filter(
+                        note => note.text.includes(action.input)),
             });
         default:
             return state;
