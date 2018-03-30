@@ -83,7 +83,7 @@ export const errorHandler = response => {
 export const createUser = (email, pw) => dispatch => {
   auth(email, pw)
     .then(response => {
-      return dispatch(createUserSuccess(response));
+      return dispatch(createUserSuccess(email));
     })
     .catch();
 };
