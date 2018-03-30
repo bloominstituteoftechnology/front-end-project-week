@@ -32,7 +32,7 @@ class NotesList extends Component {
                                     
     
                                             <header className="NoteItemHeader"> {note.title} </header>
-                                            <p> {note.description} </p>
+                                            <p clasName="NoteItemContent"> {note.description} </p>
                                         
                                     
 

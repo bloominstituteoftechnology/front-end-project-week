@@ -1,5 +1,5 @@
 .NoteItems {
-    width: 1690px;
+    width: 750px;
     background-color: #F3F3F3;
     display: flex;
     flex-wrap: wrap;
@@ -9,7 +9,7 @@
 .NotesList {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: -250px;
 }
 
 .NoteItem {
@@ -19,14 +19,35 @@
     margin-left: 31px;
 }
 
+.NoteItemTitle: {
+    
+}
 h5 {
     text-align: justify;
     width: 1690px;
+    margin-left: 27px;
+    height: 20px;
+    margin-top: 48px;
+    font-size: 1.3em;
 }
 
 .NoteItemHeader {
-    height: 50px;
+    height: 30px;
     margin-top: 10px;
+    font-family: Raleway Regular;
+    font-size: 1.3em;
+    text-align: justify;
+    margin-left: 8px;
+    border-bottom: 1px solid black;
+    margin-right: 10px;
+}
+
+p {
+    text-align: justify;
+    font-size: 1.0em;
+    margin-left: 8px;
+    margin-right: 8px;
+    
 }
 
 a:visited {
