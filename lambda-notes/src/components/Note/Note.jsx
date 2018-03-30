@@ -26,7 +26,7 @@ class Note extends Component {
          <div className="noteContent">
             { // If note has tags, print less chars to leave space for tags
                this.props.tags ? ( this.props.tags.length > 0 ? (this.state.content.length > 119 ? (this.state.content.substr(0, 119) + "...") : (this.state.content)) 
-               : (this.state.content.length > 140 ? (this.state.content.substr(0, 140) + "...") : (this.state.content)) )
+               : (this.state.content.length > 130 ? (this.state.content.substr(0, 130) + "...") : (this.state.content)) )
                
                 : null}
          </div>

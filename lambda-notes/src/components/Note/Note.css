@@ -1,5 +1,5 @@
 .yourNotes {
-   padding: 35px 15px 15px 22px;
+   padding: 15px 15px 15px 22px;
    background: rgb(242, 241, 242);
    border:1px 0 1px 1px solid rgb(175, 175, 175);
    width:100%;
@@ -17,6 +17,12 @@
    flex-direction: row;
    flex-wrap: wrap;
 }
+
+#filteringText {
+   font-weight: bold;
+   padding-right: 10px;
+}
+
 #filterTags {
    text-align: left;
 }
@@ -34,6 +40,27 @@
    padding: 10px;
    width: 18%;
    max-width: 120px;
+}
+
+#searchWrapper {
+   text-align: left;
+}
+
+#searchInput {
+   margin: 0px 10px 0px 10px;
+   border-radius: 15px 15px;
+   border:1px solid rgb(175, 175, 175);
+   padding: 10px;
+   width: 90%;
+   max-width: 500px;
+}
+
+#searchedWords {
+   padding-top: 7px;
+}
+
+#searchedWords:hover {
+   color:red;
 }
 
 .note {
@@ -66,7 +93,8 @@
 
 .listNoteTag {
    border: solid 1px grey;
-   background: rgb(36, 184, 189);
+   color:black;
+   background: rgba(36, 184, 189, .65);
    margin: 0px 1px 2px 5px;
    width: 0; 
    height: 0; 
