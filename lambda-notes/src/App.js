@@ -4,11 +4,12 @@ import Navigation from './components/Nav'
 import NoteList from './components/NoteList';
 import AddNote from './components/AddNote';
 import NoteView from './components/NoteView';
+import EditNote from './components/EditNote';
 // import DeleteNote from './components/DeleteNote';
 import { Route } from 'react-router-dom';
 import { Row, Container } from 'reactstrap';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     notes: [
       {
@@ -64,24 +65,18 @@ class App extends Component {
     return (
       <Container className="App">
         <Row>
-          <Route path='/' component={Navigation}/>
-          
+          <Navigation/>
+          {/* <Route path='/' component={Navigation}/> */}
           <Route 
             exact path='/' 
-            render={() => <NoteList notes={ this.state.notes }/> }
-          />
-          <Route 
-            exact path='/add' 
-            component={ AddNote }
-          />
+            render={() => <NoteList notes={ this.state.notes }/> }/>
+          <Route path='/add' component={ AddNote }/>
           <Route
-            exact path='/notes/:id' 
-            component={ NoteView }
-          />
+            path='/notes/:id' component={ NoteView }/>
+          <Route
+            path='/notes/edit/:id' component={ EditNote }/>
         </Row>
       </Container>
     );
   }
 }
-
-export default App;

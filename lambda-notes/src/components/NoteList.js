@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardTitle, CardBody, CardText, CardDeck, Col, Row } from 'reactstrap';
 import './NoteList.css';
 
-class NoteList extends Component {
+export default class NoteList extends Component {
   state = {
     notes: []
   }
@@ -15,24 +15,23 @@ class NoteList extends Component {
   render() {
     console.log('state', this.state)
     return (
-      <Col xs='9' className='list'>
-        <h4 className='list__title d-flex flex-start mt-5 mb-4 ml-3'>Your Notes:</h4>
-        <Row className='noteGrid mx-2'>
+      <Col xs='9' className='list px-4'>
+        <h4 className='list__title text-left font-weight-bold mt-5 mb-4'>Your Notes:</h4>
+        <Row className='list__grid'>
           {this.state.notes.map(note => {
             return (
-            <Col xs='4' className='noteCard' key={note.id}>
+            <Col xs='4' className='cardCol' key={note.id}>
             <CardDeck>
               <Link
                 className='link text-left'
-                to={{
-                  pathname: `/notes/${ note.id }`,
-                  state: { currentNote: note }
-                }}
+                to={`/notes/${ note.id }`
+                  // state: { currentNote: note }
+                }
               >
               <Card className='card mb-3 mx-2'>
-                <CardBody className='body'>
-                  <CardTitle className='ctitle border-bottom pb-2'>{ note.title }</CardTitle>
-                  <CardText className='text'>{ note.content }</CardText>
+                <CardBody className='card__body'>
+                  <CardTitle className='card__title border-bottom pb-2'>{ note.title }</CardTitle>
+                  <CardText className='card__content'>{ note.content }</CardText>
                 </CardBody>
               </Card>
               </Link>
@@ -45,5 +44,3 @@ class NoteList extends Component {
     )
   }
 }
-
-export default NoteList;

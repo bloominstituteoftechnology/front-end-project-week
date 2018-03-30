@@ -1,8 +1,15 @@
-.newNote {
+.addNote {
   background: #F3F3F3;
 }
 
-.newNote__title {
+.addNote__title {
   font-weight: bold;
   opacity: .8;
+}
+
+#bootstrap-overrides .addNote__button {
+  width: 210px;
+  height: 40px;
+  background: #2BC1C4;
+  border: none;
 }

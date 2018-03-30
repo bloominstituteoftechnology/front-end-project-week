@@ -3,7 +3,7 @@
 }
 
 .list__title {
-  font-weight: bold;
+  /* font-2weight: bold; */
   opacity: .8;
 }
 
@@ -15,7 +15,13 @@
   text-decoration: none;
 }
 
-.text {
-  max-height: 100px;
+.card__title {
+  font-family: 'Roboto', sans-serif;
+  /* font-weight: 900; */
+}
+
+.card__content {
+  max-height: 144px;
   overflow: hidden;
+  font-family: 'Raleway';
 }

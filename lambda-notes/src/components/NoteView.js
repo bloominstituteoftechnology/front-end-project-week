@@ -9,11 +9,11 @@ const NoteView = props => {
   return (
     <Col className='note'>
       <div className='note__options'>
-        <Link className='link' to='/notes/:id/edit'>edit</Link>
+        <Link className='link' to='/notes/edit/:id'>edit</Link>
         <DeleteNote label='Delete note'/>
       </div>
-      <h4>{props.location.title}</h4>
-      <p>{props.location.content}</p>
+      <h4>{props.match.params.title}</h4>
+      <p>{props.match.params.content}</p>
     </Col>
   )
 }

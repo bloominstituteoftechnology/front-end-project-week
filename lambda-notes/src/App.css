@@ -1,9 +1,9 @@
 .App {
-  max-width: 900px;
-  text-align: center;
-  display: flex;
-  justify-content: flex-start;
-  margin: 1rem;
+  max-width: 1000px;
+  /* text-align: center; */
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* margin: 1rem; */
 }
 
 /* .navCol {

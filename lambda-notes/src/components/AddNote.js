@@ -23,11 +23,11 @@ export default class AddNote extends Component {
 
   render() {
     return (
-      <Col className='newNote'>
-        <Form 
+      <Col className='addNote px-4'>
+        <Form
         // onSubmit={ this.handeSubmit }
         >
-          <h4 className='newNote__title text-left mt-5 mb-4'>Create New Note:</h4>
+          <h4 className='addNote__title text-left mt-5 mb-4'>Create New Note:</h4>
           <FormGroup>
             <Input
               type='text'
@@ -40,14 +40,14 @@ export default class AddNote extends Component {
           <FormGroup>
             <Input
               type='textarea'
-              rows='10'
+              rows='16'
               name='content'
               placeholder='Note Content'
               onChange={ this.handleChange }
               value={ this.state.content }
             />
           </FormGroup>
-          <Button>Save</Button>
+          <Button className='addNote__button mb-3'>Save</Button>
         </Form>
       </Col>
     )

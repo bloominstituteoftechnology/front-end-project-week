@@ -1,18 +1,15 @@
 .NavBar {
-  max-width: 100%;
+  width: 20%;
   background: #D8D8D8;
 }
 .NavBar__title { 
-  /* width: 100%; */
-  font-weight: bold;
-  opacity: .85;
+  opacity: .8;
+  font-family: 'Roboto', sans-serif;
 }
-/* .item {
-  background-color: #2BC1C4;
 
-} */
-.navButton {
-
-  /* width: 100%; */
+#bootstrap-overrides .navButton {
+  width: 210px;
+  height: 40px;
   background: #2BC1C4;
+  border: none;
 }
