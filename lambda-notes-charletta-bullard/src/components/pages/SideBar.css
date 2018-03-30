@@ -1,0 +1,40 @@
+.sidebar {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #D8D8D8;
+  position: fixed;
+}
+
+.title {
+  margin-bottom: 31px;
+  padding-top: 10px;
+  width: 150px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  color: #4A4A4A;
+}
+
+.buttons {
+  margin-bottom: 20px;
+  font-family: 'Roboto';
+  height: 50px;
+  width: 150px;
+  background-color: #2BC1C4;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button :hover {
+  border: 2px solid black;
+}
+
+
+
