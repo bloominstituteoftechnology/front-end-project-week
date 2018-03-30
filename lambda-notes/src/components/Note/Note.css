@@ -10,7 +10,7 @@
    padding-left: 2px;
    text-align: left;
    color:rgb(65, 65, 65);
-   font-weight: bold;
+   font-family:"Roboto";
 }
 .noteList {
    display:flex;
@@ -49,13 +49,19 @@
 
 .noteTitle {
    border-bottom: 1px solid rgb(175, 175, 175);
-   padding-bottom: 4px;
-   padding:2px;
-   margin:2px 5px 4px 0;
+   padding-bottom: 6px;
+   padding:5px;
+   margin:2px 5px 0px 0;
+   font-family: "Roboto";
+   font-weight:bold;
 }
 
 .noteContent {
-   padding: 4px;
+   color:rgb(51, 51, 51);
+   line-height: 30px;
+   font-size: .9rem;
+   padding: 4px 6px 5px 6px;
+   font-weight:600;
 }
 
 .listNoteTag {

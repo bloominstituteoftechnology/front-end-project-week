@@ -13,8 +13,9 @@ class CreateNote extends Component {
    sumbitNote = () => {
       let noteTitle = document.getElementById('newTitle').value;
       let noteContent = document.getElementById('newContent').value;
+      let noteTags = this.state.tags;
       if(noteTitle !== "" && noteContent !== ""){
-         this.props.addNote({title: noteTitle, content: noteContent});
+         this.props.addNote({title: noteTitle, content: noteContent, tags: this.state.tags});
          noteTitle = "";
          noteContent = "";
       }

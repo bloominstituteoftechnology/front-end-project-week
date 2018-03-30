@@ -2,14 +2,15 @@
   text-align: center;
   box-sizing:border-box;
   display:flex;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
-a {
+h1 {
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  font-size:2.5rem;
+  line-height:35px;
 }
 
 .App-title {
