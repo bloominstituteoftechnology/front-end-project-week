@@ -24,7 +24,8 @@ a:hover {
 }
 
 .NavBar {
-  min-width: 182px;
+  min-width: 224px;
+  max-width: 224px;
   min-height: 700px;
   background-color: #D8D8D8;
   display: flex;
@@ -230,4 +231,9 @@ a:hover {
   margin: 1%; 
   color: white;
   border: 1px solid rgb(150, 150, 150);
+}
+
+.Login {
+  position: absolute;
+  right: 12%;
 }

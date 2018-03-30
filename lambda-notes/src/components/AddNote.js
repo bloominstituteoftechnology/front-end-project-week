@@ -23,7 +23,7 @@ class AddNote extends Component {
         }
         this.props.add( currentState );
         this.setState({ title: '', text: ''})
-        this.props.history.push('/');
+        this.props.history.push('/notes');
     }
 
     handleReveal = (e) => {

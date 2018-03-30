@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
 import NavBar from './components/NavBar';
 import AddNote from './components/AddNote';
 import EditNote from './components/EditNote';
 import Note from './components/Note';
+//import Login from './components/Login';
+import { Route, Redirect } from "react-router-dom";
 
 class App extends Component {
-
   state = {
     notes: [],
     id: 0,
+    isAuthenticated: false
 }
 
   handleAdd = (note) => {
-    console.log(note);
     const newNote = {...note, id: this.state.id };
     localStorage.setItem(`id${this.state.id}`, JSON.stringify(newNote));
     const newState = this.state.notes
@@ -50,13 +50,28 @@ class App extends Component {
   }
 
   handleExport = () => {
-    let csvContent = "data:text/csv;charset=utf-8, Title,Text,ID\r\n";
-    const notesExported = this.state.notes
-    notesExported.forEach(function(rowArray){
-        let row = Object.values(rowArray).join(",");
-        csvContent += row + "\r\n";
-    }); 
-    return encodeURI(csvContent);
+    if(this.state.isAuthenticated) {
+      let csvContent = "data:text/csv;charset=utf-8, Title,Text,ID\r\n";
+      const notesExported = this.state.notes
+      notesExported.forEach(function(rowArray){
+          let row = Object.values(rowArray).join(",");
+          csvContent += row + "\r\n";
+      }); 
+      return encodeURI(csvContent);
+    }
+  }
+
+  handleLogin(user, pass) {
+    setTimeout(() => {
+      console.log("Authenticating...")
+      //GET request on user, if (response === pass)
+      this.setState({isAuthenticated: true});
+    }, 500);
+  }
+
+  handleSignout(cb) {
+    this.setState({isAuthenticated: false});
+    setTimeout(cb, 100);
   }
 
   componentWillMount() {
@@ -73,16 +88,23 @@ class App extends Component {
   }
 
   render() {
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignout = this.handleSignout.bind(this);
+    const PrivateRoute = ({ component: Component, ...rest }) => (
+      <Route {...rest} render={props => this.state.isAuthenticated ? ( <Component {...props} {...rest} /> ) : ( <Redirect to="/" /> ) }/>
+    );
     return (
       <div className="App">
-        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} />} />
-        <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
-        <Route exact path="/AddNote" render={(props) => <AddNote {...props} add={this.handleAdd} />}/>
-        <Route exact path="/notes/:id" render={(props) => <Note {...props} delete={this.handleDelete} />} />
-        <Route exact path="/notes/:id/EditNote" render={(props) => <EditNote {...props} edit={this.handleEdit} />} />
+        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signout={this.handleSignout} isAuth={this.state.isAuthenticated} />} />
+        {/* {<Route path="/"  render={(props) => <Login {...props} login={this.handleLogin} signout={this.handleSignout} isAuth={this.state.isAuthenticated}/>} />} */}
+        <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
+        <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
+        <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />
+        <PrivateRoute exact path="/notes/:id/EditNote" component={EditNote} edit={this.handleEdit} />
       </div>
     );
   }
 }
 
 export default App;
+

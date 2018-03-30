@@ -23,7 +23,7 @@ class EditNote extends Component {
         }
         this.props.edit(currentState, this.props.match.params.id);
         this.setState({ title: '', text: ''})
-        this.props.history.push('/');
+        this.props.history.push('/notes');
     }
 
     handleReveal = (e) => {
