@@ -23,6 +23,7 @@ class ListOfNotes extends Component {
                 <Link to={{ pathname: `/notes/${note.id}`, state: { currentNote: note } }}>
                   <Card>
                     <h3>{note.title}</h3>
+                    <div className="lineUnderNeath"></div>
                     <h6>{note.text}</h6>
                   </Card>
                 </Link>

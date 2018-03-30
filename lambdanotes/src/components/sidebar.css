@@ -26,11 +26,8 @@
   min-width: 15%;
   font-size: 16px;
   padding-top: 5%;
-  margin: 5% 7%;
-  /* border: 1px solid rgb(150, 150, 150); */
-  min-height: 50px;
-}
-
-div {
+  font-weight: bold;
   color: white;
+  margin: 5% 7%;
+  min-height: 50px;
 }
