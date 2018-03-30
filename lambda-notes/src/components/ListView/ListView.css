@@ -1,0 +1,29 @@
+
+.listView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.eachNote {
+  font-family: Raleway;
+  font-size: 15px;
+  line-height: 1.7;
+  width: 230px;
+  height: 230px;
+  margin: 10px;
+  padding: 10px 15px;
+  border: solid 1px #a5a4a4;
+  background-color: white;
+}
+
+.noteTitle {
+  font-family: Roboto;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.noteTitle:after {
+    content: " ";
+    display: block;
+    border-bottom: solid 1px black;
+  }

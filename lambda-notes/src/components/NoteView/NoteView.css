@@ -1,0 +1,91 @@
+.noteViewTitle {
+  font-family: Roboto;
+  color: #4A4A4A;
+  font-size: 23px;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+
+.textArea {
+  font-family: Raleway;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 10px;
+  padding: 10px 15px;
+}
+
+.editDelete {
+  font-family: Roboto;
+  color: #4A4A4A;
+  font-size: 14px;
+}
+
+.editDeleteInner {
+  width: 80px;
+  float: right;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.editBox {
+  float: left;
+  text-decoration: underline;
+}
+
+.deleteBox {
+  float: right;
+  text-decoration: underline;
+}
+
+
+.titleInput {
+  width: 250px;
+  height: 40px;
+  
+}
+
+.textInput {
+  width: 400px;
+  height: 300px;
+  
+}
+
+.form {
+  margin-left: 25px;
+}
+
+.updateButton {
+  width: 200px;
+  font-family: Roboto;
+  font-size: 16px;
+  color: white;
+  background-color: #2BC1C4;
+  padding: 5px;
+  margin-top: 10px;
+  height: 44px;
+  border: solid 1px #a5a4a4;
+}
+
+.popUp {
+  width: 600px;
+  height: auto;
+  position: absolute;
+  top: 15%;  /* position the top  edge of the element at the middle of the parent */
+  left: 40%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
+}
+
+.popButton {
+  width: 170px;
+  height: auto;
+  margin: 10px;
+}
+
+.modalBody {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+}
