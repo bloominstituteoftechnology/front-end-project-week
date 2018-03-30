@@ -15,6 +15,16 @@ const Navigation = () => {
         <Link to="/add" className="addNavLinks">
           + Create New Note
         </Link>
+
+        <Link
+          to="/"
+          className="addNavLinks"
+          onClick={() => {
+            console.log('Downloaded CSV');
+          }}
+        >
+          Download CSV
+        </Link>
       </Nav>
     </div>
   );

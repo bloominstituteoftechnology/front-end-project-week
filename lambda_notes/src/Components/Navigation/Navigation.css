@@ -16,5 +16,6 @@ h2 {
   margin-right: auto;
   min-width: 120px;
   width: 90%;
+  max-height: 40px;
   text-align: center;
 }
