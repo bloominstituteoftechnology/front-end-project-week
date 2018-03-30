@@ -1,6 +1,6 @@
 import React from 'react';
 import Note from './Note';
-// import FilterNote from '../containers/FilterNote';
+// import { Route, Redirect } from 'react-router';
 
 const NotesList = ({ notes }) => (
   <div className='notesList'>
@@ -10,7 +10,6 @@ const NotesList = ({ notes }) => (
         key={note.id}
         {...note}
         onClick={() => console.log(note.id, {...note})}
-        // onClick={() => <FilterLink filter={filter.FILTER_NOTE} />}
       />
     )}
   </div>

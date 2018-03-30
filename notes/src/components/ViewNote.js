@@ -1,41 +1,16 @@
 import React from 'react';
-// import Note from './Note';
-// import FilterNote from '../containers/FilterNote';
+import { connect } from 'react-redux';
+// import { deleteNote } from '../actions/notes';
 
-// const ViewNote = ({ notes }) => (
-//   <div className='notesList'>
-//   <h3>View Note</h3>
-//     {notes.map(note =>
-//       <Note
-//         key={note.id}
-//         {...note}
-//         onClick={() => console.log(note.id, {...note})}
-//         // onClick={() => <FilterLink filter={filter.FILTER_NOTE} />}
-//       />
-//     )}
-//   </div>
-// );
-
-// export default ViewNote;
-// import { store } from '../index.js';
-
-// need to pull the id from the URL (react router)
-// then, need to pull the note from state by its id
-const ViewNote = ({ note }) => {
+const ViewNote = ({ note, deleteNote }) => {
   return (
     <div className='viewNote'>
+      <button onClick={() => deleteNote(note.id)}>Delete Note</button>
+      {/* <button onClick={() => editNote(note.id)}>Edit Note</button> */}
       <h3>{note.title}</h3>
       <p>{note.content}</p>
     </div>
     )
 };
-
-// export default ViewNote;
-
-// export default ViewNote;
-
-// const ViewNote = ({ match }) => {
-//   return <h1>Hello {match.params.id}!</h1>
-// }
 
 export default ViewNote;
