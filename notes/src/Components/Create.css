@@ -1,16 +1,23 @@
+.Title {
+  font-size: 25px;
+  color: gray;
+  flex-wrap: wrap;
+}
+
 .input-title {
-  width: 94.3%;
+  width: 65%;
   height: auto;
   text-align: center;
-  font-size: 25px;
-  padding: 3%;
+  font-size: 20px;
+  padding: 2%;
+  margin-bottom: 15px;
 }
 
 .input-body {
-  height: 600px;
+  height: 500px;
   width: 100%;
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .AddNote {
@@ -25,8 +32,9 @@
   border: 1px solid black;
   background-color: #2eb8bc;
   color: white;
-  margin-top: 5%;
+  margin-top: 10px;
   height: 55px;
+  border-radius: 5px;
 }
 
 .SaveButton:hover {
