@@ -13,6 +13,7 @@ export const NoteContainer = props => {
       <h1 className="header">Your Notes: </h1>
       <div className="cardContainer">
         {props.notes.map(note => {
+          {console.log(props.notes)}
           return (
             <Link key={note.id} className="noteLink" to={`/viewnote/${note.id}`}>
               <div className="noteCard">

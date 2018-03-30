@@ -11,7 +11,10 @@ export const ViewNote = props => {
         <Link to={`/editnote/${props.notes.id}`}>
           <button> Edit Note </button>
         </Link>
-        <button> Delete Note </button>
+        <Link to="/">
+        <button onClick={() => props.deleteNote(props.notes.id)}> Delete Note </button>
+        </Link>
+
       </div>
       <h1> {props.notes.title} </h1>
       <div>{props.notes.content}</div>

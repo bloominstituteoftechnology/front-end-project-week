@@ -70,17 +70,22 @@ class App extends Component {
 
   indivNoteView = props => {
      const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id  )
-    return <ViewNote notes={filteredNotes[0]} />
+    return <ViewNote notes={filteredNotes[0]} deleteNote={this.deleteNote}/>
   }
 
 
+
   editNoteView = props => {
-    const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id  )
+    const filteredNotes = this.state.notes.filter(note => +props.match.params.id !== note.id  )
     return <EditNote note={filteredNotes[0]} handleChange={this.handleChange} editNote={this.editNote} {...props} {...this.state}/>
   }
 
 
-  deleteNote = props => {
+  deleteNote = id => {
+    const {notes, newNote} = this.state;
+    const delArr = notes.filter(note => note.id !== id);
+    this.setState({ notes: delArr });
+    console.log(delArr);
   }
 
   render() {
