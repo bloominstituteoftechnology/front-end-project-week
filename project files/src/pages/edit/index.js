@@ -6,9 +6,9 @@ class EditNote extends Component{
     constructor(props){
         super();
         this.state = {
-            props,
+            id: props.edit.id,
             title: props.edit.title,
-            text: props.text
+            text: props.edit.text
             
         }
         // console.log('edit-tite', this.state.props.edit.title);
@@ -32,13 +32,19 @@ class EditNote extends Component{
     }
 
     handleSubmit = (event) => {
-        event.preventDefault();
-        notes.concat(this.state);
+        // event.preventDefault();
+        notes.splice(notes, 1, this.state)
         this.setState({
+            id: this.state.id,
             title: event.target.value,
             text: event.target.value
         })
         console.log(notes)
+    }
+
+    handleDelete = () => {
+        notes.splice(notes, 1)
+        console.log('del')
     }
 
     // handletitleSubmit = (event) => {
@@ -77,7 +83,8 @@ class EditNote extends Component{
         <form>
         <input name='title' type='text' onChange={(event) => this.handleChange(event)} placeholder='-Edit Title Here-' value={this.state.title} />
         <input name='text' type='text' onChange={(event) => this.handleChange(event)} placeholder='-Edit Text Here-' value={this.state.text} />
-        <button onClick={(event) => {this.handleSubmit(event)}}>Submit</button>
+        <Link to={`/note/${this.state.id}`}><button onClick={(event) => {this.handleSubmit(event)}}>Submit</button></Link>
+        <Link to='/'><button onClick={this.handleDelete}>Delete</button></Link>
         <Link to='/'><button>Cancel</button></Link>
         </form>
         </div>

@@ -44,6 +44,7 @@ newComponent = (props) => {
 }
 
 
+
 componentDidMount() {
     this.setState({ notes: notes, title: notes.title, text: notes.text })
 }
