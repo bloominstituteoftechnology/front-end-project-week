@@ -7,21 +7,23 @@ import { Container, Row, Col } from 'reactstrap';
 class NotesPage extends Component {
   render() {
     return (
-      <Container>
+      <div className="notepage">
         <h3>Your Notes:</h3>
-        <Row>
-          {this.props.notes.map(note => {
-            return (
-              <Col sm="4" className="note" key={note.id}>
-                <Link to={`FullNote/${note.id}`}>
-                  <div>{note.title}</div>
-                  <p className="note-text">{note.text}</p>
-                </Link>
-              </Col>
-            );
-          })}
-        </Row>
-      </Container>
+        <Container>
+          <Row className="notelist">
+            {this.props.notes.map(note => {
+              return (
+                <Col sm="3" className="note" key={note.id}>
+                  <Link to={`FullNote/${note.id}`}>
+                    <h4>{note.title}</h4>
+                    <p className="note-text">{note.text}</p>
+                  </Link>
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      </div>
     );
   }
 }

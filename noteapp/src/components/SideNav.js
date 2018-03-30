@@ -8,12 +8,14 @@ class SideNav extends Component {
     return (
       <div className="sidebar">
         <h2>Lambda Notes</h2>
-        <Link to="/">
-          <button className="note-button">View Notes</button>
-        </Link>
-        <Link to="/NoteForm">
-          <button className="note-button">+ Create New Note</button>
-        </Link>
+        <div className="home-buttons">
+          <Link to="/">
+            <button className="nav-button">View Notes</button>
+          </Link>
+          <Link to="/NoteForm">
+            <button className="nav-button">+ Create New Note</button>
+          </Link>
+        </div>
       </div>
     );
   }

@@ -22,7 +22,7 @@ class FullNote extends Component {
   render() {
     console.log(this.props.notes);
     return (
-      <div>
+      <div className="full-view">
         <Link to="/editNote">
           <button>edit</button>
         </Link>
@@ -32,7 +32,7 @@ class FullNote extends Component {
           {this.state.view.map((note, i) => {
             return (
               <div key={note.id}>
-                <div>{note.title}</div>
+                <h4>{note.title}</h4>
                 <div>{note.text}</div>
               </div>
             );
