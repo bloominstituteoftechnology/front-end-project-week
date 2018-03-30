@@ -1,4 +1,5 @@
-import { LOAD_NOTES } from '../actions';
+import { LOAD_NOTES } from '../actions/LoadAction';
+import { DELETE_NOTE } from '../actions/DeleteAction';
 import noteData from '../noteData';
 const initialState = {
   notes: [...noteData]
@@ -17,6 +18,13 @@ export const rootReducer = (state = initialState, action) => {
             text: action.payload.text
           }
         ]
+      };
+    case DELETE_NOTE:
+      return {
+        ...state,
+        notes: state.notes.filter(note => {
+          return note.id !== action.payload;
+        })
       };
     default:
       return state;

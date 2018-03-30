@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class DeleteModal extends Component {
@@ -27,7 +29,7 @@ class DeleteModal extends Component {
           className={this.props.className}>
           <ModalBody>What do ya wanna do?</ModalBody>
           <ModalFooter>
-            <Button onClick={this.toggle}>DELETE</Button>{' '}
+            <Button>Delete</Button>{' '}
             <Button onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
@@ -36,4 +38,10 @@ class DeleteModal extends Component {
   }
 }
 
-export default DeleteModal;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
+
+export default connect(mapStateToProps)(DeleteModal);

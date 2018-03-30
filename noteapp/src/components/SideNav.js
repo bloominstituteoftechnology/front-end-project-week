@@ -6,19 +6,14 @@ import notestyles from './notestyles.css';
 class SideNav extends Component {
   render() {
     return (
-      // <div className="sidebar">
-      //   <h2>Lambda Notes</h2>
-      //   <button className="note-button">View Notes</button>
-      //   <button className="note-button">Add note</button>
-      // </div>
       <div className="sidebar">
         <h2>Lambda Notes</h2>
-        <div className="note-button">
-          <Link to="/">View Notes</Link>
-        </div>
-        <div className="note-button">
-          <Link to="/NoteForm">+ Create New Note</Link>
-        </div>
+        <Link to="/">
+          <button className="note-button">View Notes</button>
+        </Link>
+        <Link to="/NoteForm">
+          <button className="note-button">+ Create New Note</button>
+        </Link>
       </div>
     );
   }
