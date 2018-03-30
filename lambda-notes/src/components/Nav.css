@@ -1,0 +1,15 @@
+.NavBar {
+  width: 20%;
+  background: #D8D8D8;
+}
+.NavBar__title { 
+  opacity: .8;
+  font-family: 'Roboto', sans-serif;
+}
+
+#bootstrap-overrides .navButton {
+  width: 210px;
+  height: 40px;
+  background: #2BC1C4;
+  border: none;
+}
