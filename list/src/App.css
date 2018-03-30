@@ -1,0 +1,7 @@
+
+.App{
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #F3F3F3;
+}
+

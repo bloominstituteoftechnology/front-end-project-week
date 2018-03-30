@@ -1,0 +1,71 @@
+.cardContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.notesContainer {
+  padding-left: 30px;
+  overflow: scroll;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.sideBar {
+  max-width: 330px;
+  width: 500px;
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: #d8d8d8;
+  align-content: flex-start;
+  height: 100vh;
+}
+
+.sideButton {
+  background-color: #2bc1c4;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  width: 300px;
+  height: 70px;
+  border: 1px solid darkgray;
+}
+
+.noteLink{
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+  align-content: flex-end;
+  color: #4a4a4a;
+  font-family: "Roboto", sans-serif;
+}
+
+.noteCard {
+  display: inline-flex;
+  flex-flow: column;
+  border: 1px solid black;
+  margin: 15px;
+  padding: 15px;
+  width: 250px;
+  height: 250px;
+  max-height: 250px;
+}
+
+.noteTitle {
+  margin: 2px 0 10px 0;
+  padding: 0;
+}
+
+.noteContent {
+  border-top: 1px solid gray;
+  padding-top: 1rem;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
