@@ -8,7 +8,7 @@ export const createNote = note => {
   return {
     type: CREATE_NOTE,
     id: nextId++,
-    name: note.title,
+    title: note.title,
     text: note.text
   };
 };
@@ -17,7 +17,7 @@ export const editNote = note => {
   return {
     type: EDIT_NOTE,
     id: note.id,
-    name: note.title,
+    title: note.title,
     text: note.text
   };
 };
@@ -26,7 +26,7 @@ export const deleteNote = note => {
   return {
     type: DELETE_NOTE,
     id: note.id,
-    name: note.title,
+    title: note.title,
     text: note.text
   };
 };

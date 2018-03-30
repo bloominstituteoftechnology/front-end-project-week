@@ -64,14 +64,24 @@ export default function notes(state = initialState, action) {
     case actions.CREATE_NOTE:
       return {
         ...state,
-        notes: [...state.notes, { ...action.note, id: action.id }]
+        notes: [
+          ...state.notes,
+          {
+            ...action.note,
+            id: action.id,
+            title: action.title,
+            text: action.text
+          }
+        ]
       };
     case actions.EDIT_NOTE:
-      let notes = state.notes.filter(note => note.id !== action.id);
-      notes.unshift(action.id);
       return {
         ...state,
-        notes
+        notes: state.notes.filter(note => note.id !== action.id).concat({
+          id: action.id,
+          title: action.title,
+          text: action.text
+        })
       };
     case actions.DELETE_NOTE:
       return {
