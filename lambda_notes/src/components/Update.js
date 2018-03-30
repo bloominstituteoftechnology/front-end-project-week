@@ -35,26 +35,28 @@ class Update extends Component {
   render() {
     return (
       <div className="Container">
-        <Form className="updateForm" onSubmit={this.updateNoteChild.bind(this)}>
-          <FormGroup>
-            <Label>Update Note:</Label>
-            <Input
+        <form className="updateForm" onSubmit={this.updateNoteChild.bind(this)}>
+          
+            <label className="labelName"><h3>Update Note:</h3></label>
+            <input
+              className="inputText"
               onChange={this.updateTitle}
               type="text"
               name="Note"
               placeholder="Note Title"
             />
-            <Input
+            <input
+              className="textarea"
               onChange={this.updateContent}
               type="textarea"
               name="text"
               placeholder="Note Content"
             />
-          </FormGroup>
-          <Button type="submit">
+          
+          <button className="formButton" type="submit">
           update
-          </Button>
-        </Form>
+          </button>
+        </form>
       </div>
     );
   }

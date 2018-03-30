@@ -10,14 +10,21 @@ class ListView extends Component {
   render() {
     return (
       <div className="NoteList">
-         <h1 >Your Notes:</h1>
-         <div className="Notes">
-            {this.props.notes.map(note => (
-                <div className="Note" key={note.id}>
-                  <Link className="noteLink" to={`/ViewNote/${note.id}`}><div className="noteTitle">{note.title}</div></Link>
-                  <div className="noteContent">{note.content}</div>
-                </div>))}
-          </div>
+        <div className="headerBody"><h1 className="HeaderText">Your Notes:</h1></div>
+        <div className="Notes">
+          {this.props.notes.map(note =>
+            <div className="Note" key={note.id}>
+              <Link className="noteLink" to={`/ViewNote/${note.id}`}>
+                <div className="noteTitle">
+                  {note.title}
+                </div>
+              </Link>
+              <div className="noteContent">
+                {note.content}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

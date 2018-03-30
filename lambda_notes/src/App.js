@@ -16,7 +16,7 @@ class App extends Component {
     };
     this.createNew = this.createNew.bind(this);
     this.newUpdate = this.newUpdate.bind(this);
-    this.deleteNote= this.deleteNote.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
   componentDidMount() {
     this.setState({
@@ -24,73 +24,86 @@ class App extends Component {
     });
   }
 
-  deleteNote(id){
+  deleteNote(id) {
     //use filter to evalute on current copy of state
-    let filteredNotes= this.state.notes.filter(note=> note.id != id)
+    let filteredNotes = this.state.notes.filter(note => note.id != id);
     this.setState({
-      notes: filteredNotes,
-    })
-}
+      notes: filteredNotes
+    });
+  }
 
-  newUpdate(note){
-    let clonedNotes = this.state.notes
-    console.log("inside update", note.id, typeof(note.id), "clonedNotes", clonedNotes)
-    const updatedindex = clonedNotes.findIndex(ele => note.id == ele.id)
-    console.log("updatedIndex", updatedindex, "clonedNotes", clonedNotes)
-       clonedNotes.splice(Number(updatedindex),1,note)
+  newUpdate(note) {
+    let clonedNotes = this.state.notes;
+    // console.log(
+    //   "inside update",
+    //   note.id,
+    //   typeof note.id,
+    //   "clonedNotes",
+    //   clonedNotes
+    // );
+    const updatedindex = clonedNotes.findIndex(ele => note.id == ele.id);
+    console.log("updatedIndex", updatedindex, "clonedNotes", clonedNotes);
+    clonedNotes.splice(Number(updatedindex), 1, note);
     this.setState({
-      notes: clonedNotes, 
-    })
+      notes: clonedNotes
+    });
   }
 
   createNew(note) {
     note.id = this.state.count;
-    console.log("I am createNew", note)
+    console.log("I am createNew", note);
     this.setState({
       notes: [...this.state.notes, note],
       count: this.state.count + 1
     });
-
   }
   render() {
     return (
       <div className="App">
-        
-        
-          <ul className="routerDiv">
-          <div>
-            <h1>Lambda Notes </h1>
+        <div className="routerNavBar">
+          <div className="header">
+            {" "}<h1 className="header">Lambda Notes </h1>{" "}
           </div>
-            <li>
-              <Link to="/">ListView </Link>
-            </li>
-            <li>
-              <Link to="/CreateNew">CreateNew</Link>
-            </li>
-          </ul>
-
-          <Route
-            exact
-            path="/"
-            render={() => <ListView notes={this.state.notes} />}
-          />
-
-          <Route
-            path="/ViewNote/:id"
-            render={props =>
-              <ViewNote
-                note={
-                  this.state.notes.filter(
-                    note => props.match.params.id == note.id
-                  )[0]
-                  }
-                  deleteNote = {this.deleteNote}
-              />}
-          />
-          <Route path="/CreateNew" render= {() => <CreateNew createNote={this.createNew} />} />
-          <Route path="/Update/:id" render={() => <Update updateNote= {this.newUpdate} /> } />
+          <div className="btnSideNav">
+            {" "}<Link className="btnLink" to="/">
+              View Your Notes{" "}
+            </Link>
+          </div>
+          <div className="btnSideNav">
+            {" "}<Link className="btnLink" to="/CreateNew">
+              + Create New Note
+            </Link>
+          </div>
         </div>
-      // </div>
+
+        <Route
+          exact
+          path="/"
+          render={() => <ListView notes={this.state.notes} />}
+        />
+
+        <Route
+          path="/ViewNote/:id"
+          render={props =>
+            <ViewNote
+              note={
+                this.state.notes.filter(
+                  note => props.match.params.id == note.id
+                )[0]
+              }
+              deleteNote={this.deleteNote}
+            />}
+        />
+
+        <Route
+          path="/CreateNew"
+          render={() => <CreateNew createNote={this.createNew} />}
+        />
+        <Route
+          path="/Update/:id"
+          render={() => <Update updateNote={this.newUpdate} />}
+        />
+      </div>
     );
   }
 }

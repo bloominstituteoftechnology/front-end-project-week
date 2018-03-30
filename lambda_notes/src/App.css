@@ -1,15 +1,38 @@
 .App {
     display: flex;
 }
-.routerDiv{
+.routerNavBar{
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 457px;
+    min-height: 100vh;
     background-color:#D8D8D8;
-    height: 100%;
-    border: 1px solid green; 
+    /* border: 1px solid green;  */
 }
 
-.routeUl{
-    list-style-type: none;
+.header{
+    font-family: Roboto Bold;
+    font-size: 60px;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.btnSideNav{
+    display: flex;
+    padding:10px;
+    background-color: #2BC1C4;
+    width: 289px;
+    height: 40px;
+    margin-top: -2px;
+    margin-left: 24px;
+    margin-bottom: 10px;
+}
+
+.btnLink{
+    display: flex;
+    text-decoration: none;
+    align-content: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { Link, withRouter } from "react-router-dom";
 import "./CreateNew.css";
 
@@ -26,36 +25,43 @@ class CreateNew extends React.Component {
       title: this.state.title,
       content: this.state.content
     };
-    console.log('I am in here submitNote', newNote)
-    this.props.createNote(newNote);
-    console.log('I am in back!!!!!', newNote)
+    console.log(newNote)
+    if (newNote !== null){
+      this.props.createNote(newNote);
+      this.props.history.push("/" )
+   } else{
     this.props.history.push("/" )
+   } 
+    
   };
 
   render() {
     return (
-      <Form onSubmit={this.submitNote.bind(this)}>
-        <FormGroup>
-          <Label>Create New Note:</Label>
-          <Input
+    <div>  
+      <form className="newForm" onSubmit={this.submitNote.bind(this)}>
+        
+          <div className="labelName"> <h3>Create New Note:</h3></div>
+          <label></label>
+          <input
+            className="inputText"
             onChange={this.newTitle}
             type="text"
             name="Note"
             id="noteId"
             placeholder="Note Title"
           />
-          <Input
+          <input
+            className="textarea"
             onChange={this.newContent}
             type="textarea"
             name="text"
             id="Text"
             placeholder="Note Content"
           />
-        </FormGroup>
-        <Button type="submit">
-          Save
-       </Button>
-      </Form>
+      
+        <button className="formButton" type="submit">Save</button>
+      </form>
+    </div>
     );
   }
 }
