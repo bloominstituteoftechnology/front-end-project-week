@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CardText, CardBody, CardTitle, Col, Card } from "reactstrap";
 
 const StyledListItem = styled.div`
@@ -23,14 +23,13 @@ const StyledListItem = styled.div`
 class ListItem extends Component {
   render() {
     return (
-      
-      <Col sm="4" className="mb-3" key={this.props.note.id}>
-      <StyledListItem>
-        {/* <Link
+        <Col sm="4" className="mb-3" key={this.props.note.id}>
+        <StyledListItem>
+        <Link
           className="link"
           to={`/single-note-view/${this.props.note.id}`}
           style={{ textDecoration: "none" }}
-        > */}
+          >
           <Card>
             <CardBody className="card" key={this.props.note.id}>
               {/* Tried to place a quick-delete here, but couldn't figure it out
@@ -49,10 +48,9 @@ class ListItem extends Component {
               </CardText>
             </CardBody>
           </Card>
-        {/* </Link> */}
+          </Link>
         </StyledListItem>
       </Col>
-      
     );
   }
 }

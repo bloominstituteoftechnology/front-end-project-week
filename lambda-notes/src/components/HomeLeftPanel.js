@@ -57,7 +57,6 @@ const StyledHLP = styled.div`
 `;
 
 const HomeLeftPanel = (props) => {
-  console.log('HLP this.props', props)
   return (
     <StyledHLP>
       <div className="HLP__heading">

@@ -81,8 +81,6 @@ class NoteList extends Component {
     selectingLabel: false
   };
 
-  emptynotes = true;
-
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.props.reorderNotes(
       arrayMove(this.props.notes, oldIndex, newIndex),
@@ -102,11 +100,9 @@ class NoteList extends Component {
             {" "}
             Your Notes:
             <SortableList
-              toggle={this.toggleLabelSelection}
-              selecting={this.state.selectingLabel}
               notes={this.props.notes}
+              pressDelay={25}
               onSortEnd={this.onSortEnd}
-              distance={20}
               axis="xy"
             />
           </div>
@@ -119,7 +115,6 @@ class NoteList extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes
-    // emptynotes: state.emptynotes
   };
 };
 
