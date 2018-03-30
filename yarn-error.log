@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js start
+  /usr/bin/node /usr/share/yarn/bin/yarn.js firebase list
 
 PATH: 
   /home/william/anaconda3/bin:/home/william/bin:/home/william/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -661,7 +661,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 Trace: 
-  Error: Couldn't find a package.json file in "/home/william/lambdaschool/week8/front-end-project-week"
+  Error: Couldn't find a package.json file in "/home/william/lambdaschool/week8/reset-to-last-functioning"
       at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
       at /usr/share/yarn/lib/cli.js:40048:15
       at Generator.next (<anonymous>)

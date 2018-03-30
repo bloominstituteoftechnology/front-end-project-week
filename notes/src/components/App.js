@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { Route, Link } from 'react-router-dom';
-import List from './components/List';
-import Edit from './components/Edit';
-import Create from './components/Create';
-import Note from './components/Note';
+import List from './List';
+import Edit from './Edit';
+import Create from './Create';
+import Note from './Note';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { createNote, deleteNote, editNote } from './actions';
+import { createNote, deleteNote, editNote } from '../actions';
 
 class App extends Component {
   render() {

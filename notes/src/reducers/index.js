@@ -27,7 +27,9 @@ export default(state=initialState, action) => {
             });
         case(EDIT_NOTE):
             return Object.assign({}, state, {
-                notes: state.notes.filter.concat({
+                notes: state.notes.filter(note => {
+                    return note.id !== action.id
+                }).concat({
                     id: action.id,
                     title: action.title,
                     text:action.text,
