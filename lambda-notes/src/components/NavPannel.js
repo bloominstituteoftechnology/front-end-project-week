@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Col, Nav, NavItem, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../actions/signOut";
 
@@ -33,6 +33,7 @@ class NavPannel extends Component {
               style={buttonStyles}
               onClick={() => {
                 this.props.signOut();
+                this.props.history.push("/");
               }}
             >
               Sign Out
@@ -50,4 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { signOut })(NavPannel);
+export default withRouter(connect(mapStateToProps, { signOut })(NavPannel));

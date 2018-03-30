@@ -48,13 +48,17 @@ class NotesList extends Component {
       </Fragment>
     );
   }
-  componentWillReceiveProps() {
+  componentDidMount() {
+    this.setState({ filteredNotes: this.props.notes });
     this.filterTheNotes("");
   }
+  componen;
 
   filterTheNotes = searchFor => {
     const filteredNotes = this.props.notes.filter(
-      item => item.title.includes(searchFor) || item.body.includes(searchFor)
+      item =>
+        item.title.toLowerCase().includes(searchFor.toLowerCase()) ||
+        item.body.toLowerCase().includes(searchFor.toLowerCase())
     );
     this.setState({ filteredNotes });
   };

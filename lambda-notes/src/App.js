@@ -25,7 +25,6 @@ class App extends Component {
     password: ""
   };
   render() {
-    // if (this.state.loggedIn) return <Redirect to="/notelist" />;
     return (
       <Route path="/">
         <div className="App">
@@ -111,10 +110,10 @@ class App extends Component {
         this.props.login(user);
         this.setState({
           username: "",
-          password: "",
-          loggedIn: true
+          password: ""
         });
         attempted = true;
+        this.props.history.push("/notelist");
       } else if (
         user.username === this.state.username &&
         user.password !== this.state.password
@@ -144,9 +143,9 @@ class App extends Component {
         this.props.createUser(this.state);
         this.setState({
           username: "",
-          password: "",
-          loggedIn: true
+          password: ""
         });
+        this.props.history.push("/notelist");
       }
     } else {
       alert("UserName already exists!  Please use another UserName");
