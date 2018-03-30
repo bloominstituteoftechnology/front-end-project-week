@@ -82,3 +82,13 @@ server.get('/notes', (req, res) => {
     });
 });
 
+<<<<<<< HEAD:lambda_notes/src/components/exampleNotes.js
+=======
+
+export default notes;
+export const getNotes = () => notes;
+export const addNote = notes => {
+    return getNextId;
+};
+
+>>>>>>> 40d54a23ba376676252507199cc13991573f23de:lambda_notes/src/components/exampleNotes.js
