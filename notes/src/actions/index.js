@@ -40,11 +40,15 @@ export function addTag(tag, id) {
 }
 
 export const deleteNote = (id, uid) => dispatch => {
-  ref.child(`users/${uid}/notes/${id}`).set(null);
-  getNotes();
-  return {
-    type: DELETE_NOTE
-  };
+  ref
+    .child(`users/${uid}/notes/${id}`)
+    .set(null)
+    .then(() => {
+      getNotes();
+      return {
+        type: DELETE_NOTE
+      };
+    });
 };
 
 export const editNote = (note, id, uid) => dispatch => {
