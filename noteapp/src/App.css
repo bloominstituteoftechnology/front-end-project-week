@@ -1,0 +1,7 @@
+.App {
+  display: flex;
+  max-width: 70%;
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 2px;
+}

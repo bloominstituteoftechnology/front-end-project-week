@@ -1,0 +1,74 @@
+.notepage {
+  padding-top: 50px;
+  width: 80%;
+}
+.notelist {
+  display: flex;
+  margin: 15px 40px 100px 50px;
+
+  justify-content: center;
+}
+.note {
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 30px;
+  background-color: white;
+  /*box-shadow: 0 1px 4px gray;*/
+}
+.note-text {
+  text-decoration: none;
+  padding: 25px 8px;
+}
+.note h4 {
+  border-bottom: 2px solid #bebebe;
+  padding: 1px;
+  margin: 0;
+}
+.notepage {
+  background-color: #f3f3f3;
+}
+.notepage h3 {
+  display: flex;
+  align-self: flex-start;
+  margin: 40px 0 10px 72px;
+}
+.sidebar {
+  border-right: 1px solid gray;
+  background-color: #d8d8d8;
+  width: 25%;
+}
+.note-button {
+  border: 1px solid gray;
+  background-color: #2bc1c4;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.home-buttons {
+  flex-flow: column;
+  justify-content: center;
+}
+.nav-button {
+  border: 1px solid gray;
+  background-color: #2bc1c4;
+  margin: 10px 0 10px 30px;
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+}
+.full-view {
+  background-color: #f3f3f3;
+}
+
+/*
+Heading Font: Roboto Bold
+Heading color: 4A4A4A
+Content Font: Raleway Regular
+Content color: black
+Button background: 2BC1C4
+Sidebar background: D8D8D8
+Main background: F3F3F3
+Delete background: D0021B
+*/
