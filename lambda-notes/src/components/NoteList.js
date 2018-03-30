@@ -50,7 +50,6 @@ const StyledNoteList = styled.div`
     position: absolute;
     margin-left: 60%;
     margin-top: 85%;
-    z-index: 5;
   }
 
 `;
