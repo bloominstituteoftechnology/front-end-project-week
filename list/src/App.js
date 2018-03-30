@@ -40,23 +40,23 @@ class App extends Component {
   handleChange = event => {
     console.log(this.state);
     const { name, value } = event.target;
-    const {newNote, notes} = this.state;
-    this.setState({newNote: {...newNote, [name]: value, id: notes.length}})
+    const { newNote, notes } = this.state;
+    this.setState({ newNote: { ...newNote, [name]: value, id: notes.length } })
   };
 
   addNote = event => {
     const notesList = this.state.notes;
     notesList.push(this.state.newNote);
     this.setState({
-      newNote: {title:'', content: '',},
+      newNote: { title: '', content: '', },
       notes: notesList
     });
   };
 
   editNote = id => {
-    const {notes, newNote} = this.state
+    const { notes, newNote } = this.state
     console.log(this.state)
-    const newArr = notes.map(note => note.id === id ? newNote: note  )
+    const newArr = notes.map(note => note.id === id ? newNote : note)
     this.setState({ notes: newArr })
   };
 
@@ -69,20 +69,20 @@ class App extends Component {
   }
 
   indivNoteView = props => {
-     const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id  )
-    return <ViewNote notes={filteredNotes[0]} deleteNote={this.deleteNote}/>
+    const filteredNotes = this.state.notes.filter(note => +props.match.params.id === note.id)
+    return <ViewNote notes={filteredNotes[0]} deleteNote={this.deleteNote} />
   }
 
 
 
   editNoteView = props => {
-    const filteredNotes = this.state.notes.filter(note => +props.match.params.id !== note.id  )
-    return <EditNote note={filteredNotes[0]} handleChange={this.handleChange} editNote={this.editNote} {...props} {...this.state}/>
+    const filteredNotes = this.state.notes.filter(note => +props.match.params.id !== note.id)
+    return <EditNote note={filteredNotes[0]} handleChange={this.handleChange} editNote={this.editNote} {...props} {...this.state} />
   }
 
 
   deleteNote = id => {
-    const {notes, newNote} = this.state;
+    const { notes, newNote } = this.state;
     const delArr = notes.filter(note => note.id !== id);
     this.setState({ notes: delArr });
     console.log(delArr);
@@ -95,7 +95,7 @@ class App extends Component {
         <Route exact path="/" render={this.noteContainer} />
         <Route path="/addNote" render={this.renderNoteView} />
         <Route path="/viewNote/:id" render={this.indivNoteView} />
-        <Route path="/editNote/:id" render={this.editNoteView}/>
+        <Route path="/editNote/:id" render={this.editNoteView} />
       </div>
     );
   }
