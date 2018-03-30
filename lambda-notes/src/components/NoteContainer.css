@@ -1,0 +1,41 @@
+.NoteContainer {
+    width: 750px;
+    background-color: #F3F3F3;
+    justify-content: flex-start;
+}
+
+.EditBtn {
+    border: none;
+    background-color:  #F3F3F3;
+}
+
+.DeleteBtn {
+    border: none;
+    background-color:  #F3F3F3;
+}
+
+.NavArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+
+.NoteView {
+    text-align: justify;
+    margin-left: 27px;
+    
+}
+
+.NoteContainerTitle {
+    margin-top: 30px;
+    font-size: 1.3em;
+    font-family: Raleway Regular;
+}
+
+.Description {
+    font-size: 1.1em;
+    font-family: Raleway Regular; 
+    margin-left: -5px;
+    margin-right: 50px;
+}

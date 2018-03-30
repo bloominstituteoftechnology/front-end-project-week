@@ -1,21 +1,21 @@
-.CreateNoteForm {
+.EditNoteContainer {
     width: 750px;
     background-color: #F3F3F3;
 }
 
-h3 {
+.EditHeader {
     text-align: justify;
     margin-left: 27px;
     margin-top: 49px;
+    font-size: 1.3em;
 }
 
-.addedNote {
+.EditTitleContainer {
     display: flex;
     flex-direction: column;
-   
 }
 
-.InputTitle {
+.editTitleIn {
     margin-left: 27px;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -23,18 +23,15 @@ h3 {
     width: 350px;
 }
 
-.InputContent {
+.EditDes {
     margin-left: 27px;
     padding-bottom: 340px;
     width: 600px;
     margin-top: -3px;
     padding: -200px 200px -15px 0px;
-    
 }
 
-
-
-.SaveBtn {
+.UpdateBtn {
     width: 190px;
     height: 44px;
     margin-left: 27px;  
@@ -42,7 +39,7 @@ h3 {
     background-color: #2BC1C4;
 }
 
-.Save {
+h12 {
     font-size: 1.3em;
     font-weight: bold;
     margin-left: 5px;

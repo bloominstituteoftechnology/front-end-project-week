@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import '../App.css'
+import "./NoteContainer.css"
 
 class NoteContainer extends Component {
     constructor(props) {
@@ -25,30 +26,35 @@ class NoteContainer extends Component {
         return (
 
             
-            <div className="NoteContainer">
+        <div className="NoteContainer">
+
+            <div className="NavArea">
 
               
-                <Link className="EditLink" to={`/EditNote/${id}`}>edit</Link>   
+                 <Link className="EditLink" to={`/EditNote/${id}`}><Button className="EditBtn">edit</Button></Link>   
                 
-            <div className="DeleteMod">
+                
+                    <div className="DeleteMod">
 
-                <Link to={`/notes/${id}`} onClick={this.toggle}>delete</Link>
+                 <Link to={`/notes/${id}`} onClick={this.toggle}><Button className="DeleteBtn">delete</Button></Link>
 
-                <Modal isOpen={this.state.modal} toggle={this.toggle} className="delete" centered>
+            
 
-                    <ModalBody>
-                        Are you surre you want to delete this?
-                    </ModalBody>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} className="delete" centered>
 
-                    <ModalFooter>
-                        <Link className="redirect" to={`/viewnotes`}><Button>Delete</Button></Link>{' '}
-                        <Button color="secondary" onClick={this.toggle}>No</Button>
-                    </ModalFooter>
+                        <ModalBody>
+                            Are you surre you want to delete this?
+                        </ModalBody>
 
-                </Modal>
+                        <ModalFooter>
+                            <Link className="redirect" to={`/viewnotes`}><Button>Delete</Button></Link>{' '}
+                            <Button color="secondary" onClick={this.toggle}>No</Button>
+                         </ModalFooter>
 
-            </div>    
+                    </Modal>
 
+                    </div>    
+            </div>
                 
                 
                 <div className="NoteView">  
@@ -59,7 +65,7 @@ class NoteContainer extends Component {
 
             
                 
-            </div>
+        </div>
         )
     }
 }

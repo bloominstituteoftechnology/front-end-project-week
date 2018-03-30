@@ -48,8 +48,8 @@ class CreateNote extends Component {
                 <h3 className="CreateFormTitle">Create New Note:</h3>
 
                 <form className="addedNote" onSubmit={this.handleOnSubmit} onChange={this.handleOnChange}>
-                    <input className="InputTitle" type="text" name="title" placeholder="Title Here..." onChange={this.handleOnChange} value={this.state.title} />
-                    <input className="InputContent" type="text" name="description" placeholder="Description Here..." onChange={this.handleOnChange} value={this.state.description} />
+                    <input className="InputTitle" type="text" name="title" placeholder="New TItle..." onChange={this.handleOnChange} value={this.state.title} />
+                    <input className="InputContent" placeholder="New Content" type="text" name="description"  onChange={this.handleOnChange} value={this.state.description} />
                     <button className="SaveBtn" type="button" onClick={this.handleOnSubmit}><h10 className="Save" >Save</h10></button>
                 </form>
 

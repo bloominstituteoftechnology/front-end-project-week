@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { updateNote } from '../actions/notesActions';
 import { connect } from 'react-redux';
 import '../App.css'
+import './EditNote.css'
 
 
 class EditNote extends Component {
@@ -53,14 +54,14 @@ class EditNote extends Component {
 
                 <form className="EditTitleContainer">
 
-                    <input 
+                    <input className="editTitleIn"
                         type="text" 
                         name="editTitle" 
                         defaultValue={`${title}`} 
                         onChange={this.handleChange} 
                         onSubmit={this.handleSubmit} 
                     />
-                    <input 
+                    <input className="EditDes"
                         type="text"
                         name="editDescription"
                         defaultValue={`${description}`}
@@ -68,7 +69,7 @@ class EditNote extends Component {
                         onSubmit={this.handleSubmit}
                     />
 
-                    <button type="button" onClick={this.handleSubmit}>Update</button>
+                    <button className="UpdateBtn" type="button" onClick={this.handleSubmit}><h12>Update</h12></button>
 
                 </form>
 
