@@ -72,14 +72,16 @@ class NoteView extends Component {
                 Are you sure you want to delete this?
               </ModalBody>
               <ModalFooter className="lead d-flex justify-content-center">
-                <Button
-                  className="btn-lg modal-delete"
-                  onClick={() => this.handleDelete(this.state.note.id)}
-                >
-                  Delete
-                </Button>
+                <div className="modal-button-left">
+                  <Button
+                    className="btn-lg modal-delete"
+                    onClick={() => this.handleDelete(this.state.note.id)}
+                  >
+                    Delete
+                  </Button>
+                </div>
 
-                <Button className="btn-lg" onClick={this.toggle}>
+                <Button className="btn-lg modal-no" onClick={this.toggle}>
                   No
                 </Button>
               </ModalFooter>

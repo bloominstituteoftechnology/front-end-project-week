@@ -16,12 +16,19 @@
   cursor: pointer;
 }
 
+.modal-button-left {
+  padding-right: 50px;
+}
 .modal-delete {
   background: #cc0000;
 }
 
 .modal-lg {
   margin-top: 300px;
+}
+
+.btn-lg {
+  width: 250px;
 }
 
 .heading {

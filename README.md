@@ -28,9 +28,9 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 * [x] Display a list of notes
 * [x] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+* [x] View an existing note
+* [x] Edit an existing note
+* [x] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
@@ -49,9 +49,9 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 
 * [x] Display a list of notes
 * [x] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+* [x] View an existing note
+* [x] Edit an existing note
+* [x] Delete an existing note
 ```
 
 ---
@@ -63,7 +63,7 @@ Once your MVP has been approved, you have been given a feature list that the cli
 ## Extra Features:
 
 * [ ] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
-* [ ] Search functionality
+* [x] Search functionality
 * [ ] Markdown support in notes
 * [ ] Sorting options in the list view
 * [ ] Create and display tags that can be added to notes

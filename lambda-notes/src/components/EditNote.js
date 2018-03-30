@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import { Redirect } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 
@@ -8,7 +8,8 @@ export default class EditNote extends Component {
   state = {
     note: [],
     title: '',
-    content: ''
+    content: '',
+    fireRedirect: false
   };
 
   handleChange = e => {
@@ -30,6 +31,7 @@ export default class EditNote extends Component {
       .then(response => {
         console.log(response);
         this.setState({ title: '', content: '' });
+        this.setState({ fireRedirect: true });
       })
       .catch(error => {
         console.log(`There was an error updating notes: ${error.message}`);
@@ -37,6 +39,9 @@ export default class EditNote extends Component {
   };
 
   render() {
+    const { from } = this.props.location.state || '/';
+    const { fireRedirect } = this.state;
+
     return (
       <div>
         <h4 className="heading">Edit Note:</h4>
@@ -62,11 +67,11 @@ export default class EditNote extends Component {
           <Button
             className="btn btn-block float-left save-button"
             onClick={this.handleUpdate}
-            // onClick={() => this.handleUpdate(this.state.note.id)}
           >
             Update
           </Button>
         </Form>
+        {fireRedirect && <Redirect to={from || '/'} />}
       </div>
     );
   }
