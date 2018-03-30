@@ -17,7 +17,7 @@ const StyledNoteList = styled.div`
   font-family: Roboto;
   height: 700px;
 
-  .note-list__header {
+  .note-list {
     margin-top: 45px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -35,12 +35,13 @@ const StyledNoteList = styled.div`
     color: #2bc1c4;
   }
 
-  .note-list__right {
+  .note-list-header {
+    margin: 4%;
   }
 
   .row {
-    margin-left: 1.6%;
-    margin-right: 1.6%;
+    margin-left: 1.8%;
+    margin-right: 1.8%;
   }
 
   .quick-delete {
@@ -96,9 +97,10 @@ class NoteList extends Component {
             You don't have any notes yet, click "Create New Note" to add one!
           </div>
         ) : (
-          <div className="note-list__header">
-            {" "}
+          <div className="note-list">
+          <div className="note-list-header">
             Your Notes:
+            </div>
             <SortableList
               notes={this.props.notes}
               pressDelay={25}
