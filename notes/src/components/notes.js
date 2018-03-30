@@ -6,8 +6,14 @@ import {
     Row,
     Col, 
     Card,
+    CardBody,
     CardTitle,
-    CardText 
+    CardSubtitle,
+    CardText ,
+    Input,
+    Button,
+    Label,
+    FormGroup,
 } from 'reactstrap';
 
 import styled from 'styled-components';
@@ -22,19 +28,44 @@ const H3 = styled.h3`
     opacity: 0.8;
 `;
 
-const Notes = ({ notes }) => {
+const Notes = ({notes}) => {
     return (
         <Col xs="9" className="mb-5 pb-5 pl-5 pr-5 ">
-            <H3>Your Notes:</H3>
+            <Row>
+            <H3>Notes:</H3>
+            </Row>
+            <Row className="mb-4">
+                <Col xs="10">
+                    <Input className="mr-0" type="Text" serarch="search" placeholder="Search Notes" />
+                </Col>
+                <Col xs="1">
+                    <Button className="ml-0">Search</Button>
+                </Col>
+            </Row>
             <Row className="mb-5" >
                 {notes.map(note => (
             <Col className="mb-4 pl-2 pr-2" xs="4" key={note.id}>
-                <Link to={`/note/${note.id}`} className="Card__Link">
-                <Card className="Notes__Note" body >
-                    <CardTitle className="pb-2 border-bottom border-secondary">{note.title}</CardTitle>
-                    <CardText  className="Note__Content">{note.content}</CardText>
+                <Card>
+                    <CardBody>
+                        <CardTitle >{note.title}</CardTitle>
+                        <CardSubtitle className="pb-2 border-bottom border-secondary Author">Author: {note.user.author}</CardSubtitle>
+                        <CardText className="Note__Content"> 
+                            {note.content}
+                        </CardText>
+                    </CardBody>
+                    <CardBody>
+                    <FormGroup check>
+                        <Label check>
+                            <Input type="checkbox" />{' '}
+                            
+                        </Label>
+                        </FormGroup>
+                        <Link to={`/note/${note.id}`} className="Card_Link d-flex justify-content-end">
+                            more
+                        </Link>
+                    </CardBody>
                 </Card>
-                </Link>
+                
             </Col>
             ))}
             </Row>
@@ -42,10 +73,10 @@ const Notes = ({ notes }) => {
     );
 };
 
-const mapStateToProps = ( state ) => {
+const mapStateToProps = ( {notes} ) => {
     return {
-        notes: state.notes
-    }
+        notes: notes.notes
+    };
 };
   
 export default withRouter(connect(mapStateToProps, {})(Notes));

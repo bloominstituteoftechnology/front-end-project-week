@@ -26,58 +26,121 @@ const getNextId = () => {
 // }
 //
 // const notes = gen();
+let users = [
+  {
+    id: 1,
+    name: `Edward Manda`,
+    username: `emukupa`,
+    password: `secret`
+  },
+
+  {
+    id: 2,
+    name: `Donald Trump`,
+    username:`trump`,
+    password: `huge`
+  },
+  {
+    id: 1,
+    name: `Josh Knell`,
+    username: `josh`,
+    password: `password`
+  }
+];
+
 let notes = [
 {
 id: 1,
-title: "This is a title for 1",
+user: {
+  author: `Edward Manda`,
+  userId: 1,
+},
+title: "Javascript Lessons",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 2,
-title: "This is a title for 2",
+user: {
+  author: `Edward Manda`,
+  userId: 1,
+},
+title: "CSS tricks",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 3,
-title: "This is a title for 3",
+title: "Huge Moves",
+user: {
+  author: `Donald Trump`,
+  userId: 2,
+},
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 4,
-title: "This is a title for 4",
+user: {
+  author: `Josh Knell`,
+  userId: 3,
+},
+title: "Master HTML",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 5,
-title: "This is a title for 5",
+user: {
+  author: `Donald Trump`,
+  userId: 2,
+},
+title: "Talking about chaos",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 6,
-title: "This is a title for 6",
+user: {
+  author: `Edward Manda`,
+  userId: 1,
+},
+title: "How to think",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 7,
-title: "This is a title for 7",
+user: {
+  author: `Donald Trump`,
+  userId: 2,
+},
+title: "Think big",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 8,
-title: "This is a title for 8",
+user: {
+  author: `John Knell`,
+  userId: 3,
+},
+title: "Laugh it out",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 9,
-title: "This is a title for 9",
+user: {
+  author: `Donald Trump`,
+  userId: 2,
+},
+title: "How to win",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 },
 {
 id: 10,
-title: "This is a title for 10",
+user: {
+  author: `Donald Trump`,
+  userId: 2,
+},
+title: "Nick Naming",
 content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 }
 ];
+
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
@@ -88,9 +151,9 @@ server.get('/notes/:id', (req, res) => {
 });
 
 server.post('/notes', (req, res) => {
-  const { title, content } = req.body;
+  const { title, content, user } = req.body;
   const id = getNextId();
-  const newNote = { id:id, title:title, content:content };
+  const newNote = { id:id, title:title, content:content, user: user };
   notes.push(newNote);
   nextId++;
   res.json(notes);

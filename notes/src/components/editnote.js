@@ -12,7 +12,7 @@ import {
 
 import styled from 'styled-components';
 
-import { getNote, editNote } from '../actions';
+import { getNote, updateNote } from '../actions/notesActions';
 
 const H3 = styled.h3`
     margin-top: 50px;
@@ -34,6 +34,7 @@ class EditNote extends React.Component {
             content: '',
         },
         id: 0,
+        Refresh: false,
     }
     render() {
         return (
@@ -58,20 +59,44 @@ class EditNote extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
-        this.setState({id: id});
-        const notes = this.props.notes;
-        const note = notes.find(note => (note.id).toString() === id.toString())
-        if (note === undefined ){
-            // do a get request
+        const id = this.props.match.params.id; 
+
+        if(this.props.notes.length === 0){
+            // it was a refresh
             this.props.getNote(id);
-        } else{
+            this.setState({
+                Refresh: true,
+            });
+        }else{
+            const notes = this.props.notes;
+            const Note = notes.find(note => (note.id).toString() === id.toString())
+
             const fields = { 
-                title: note.title,
-                content: note.content, 
+                title: Note.title,
+                content: Note.content, 
             }
-            this.setState({ Fields: fields })
-        }  
+            this.setState({
+                Fields: fields,
+                id: id, 
+            });
+        }
+       
+    }
+
+    componentWillUpdate(){
+        if(this.state.Refresh){
+            // page was manually refreshed, repopulate the note
+            const Note = this.props.note;
+            const fields = {
+                title: Note.title,
+                content: Note.content,
+            };
+            this.setState({
+                Fields: fields,
+                id: Note.id,
+                Refresh: false,
+            })
+        }
     }
     
     handleInputChange = (event) => {
@@ -84,13 +109,16 @@ class EditNote extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         if (this.state.Fields.title && this.state.Fields.content) { 
-            this.props.editNote(this.state.id, this.state.Fields);
+            this.props.updateNote(this.state.id, this.state.Fields);
             this.setState({ Redirect: true });
         }
     }
 };
 
-const mapStateToProps = state => {
-    return state;
+const mapStateToProps = ({note, notes}) => {
+    return {
+        note: notes.note,
+        notes: notes.notes,
+    };
 }
-export default withRouter(connect(mapStateToProps, { getNote, editNote })(EditNote));
+export default withRouter(connect(mapStateToProps, { getNote, updateNote })(EditNote));

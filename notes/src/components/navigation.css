@@ -18,3 +18,11 @@
 .Link:hover {
     text-decoration: none;
 }
+
+.Primary {
+    background-color: #0F6BFF;
+}
+
+.Danger {
+    background-color: red;
+}

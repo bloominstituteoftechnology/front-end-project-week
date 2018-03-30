@@ -7,7 +7,7 @@ import {
     Modal,
 } from 'reactstrap';
 import styled from 'styled-components';
-import { getNote, deleteNote } from '../actions'
+import { getNote, deleteNote } from '../actions/notesActions';
 import './note.css';
 const H3 = styled.h3`
     margin-top: 50px;
@@ -34,6 +34,7 @@ class Note extends React.Component {
         Redirect: false,
         Note: {},
         DeleteModal: false,
+        Refresh: false,
     }
     render() {
         return (
@@ -52,8 +53,14 @@ class Note extends React.Component {
                 ) : ('') }
                 <Row>
                     <Col className="d-flex justify-content-end mr-5 mt-3">
-                        <Link className= "Link__Note mr-2" to={`/note/edit/${this.state.Note.id}`} >edit</Link>
-                        <Link onClick={ this.toggleModal } className= "Link__Note ml-2" to={`/note/${this.state.Note.id}`} >delete</Link>                        
+                        {this.props.isAuth ? (
+                        <React.Fragment>
+                            <Link className= "Link__Note mr-2" to={`/note/edit/${this.state.Note.id}`} >edit</Link>
+                            <Link onClick={ this.toggleModal } className= "Link__Note ml-2" to={`/note/${this.state.Note.id}`} >delete</Link>  
+                        </React.Fragment>
+                        ) : (
+                            <Link className= "Link__Note mr-2" to={`/login`} >Login</Link>
+                        )}                      
                     </Col>
                 </Row>
                 <Row className="mb-5 mr-2 ml-2" >
@@ -67,17 +74,34 @@ class Note extends React.Component {
             </React.Fragment>
         );
     }
+
     componentDidMount() {
+        console.log(this.props)
         const id = this.props.match.params.id;
-        const notes = this.props.notes;
-        const note = notes.find(note => (note.id).toString() === id.toString())
-        if (note === undefined ){
-            // do a get request
+
+        if(this.props.notes.length === 0){
+            // it was a refresh
             this.props.getNote(id);
-            console.log(this.props, 'i here here am');
-        } else{
-            this.setState({ Note: note })
-        }  
+            this.setState({
+                Refresh: true,
+            });
+        }else{
+            const notes = this.props.notes;
+            const note = notes.find(note => (note.id).toString() === id.toString())
+            this.setState({
+                Note: note, 
+            });
+        }
+    }
+
+    componentWillUpdate(){
+        if(this.state.Refresh){
+            // page was manually refreshed, repopulate the note
+            this.setState({
+                Note: this.props.note,
+                Refresh: false,
+            })
+        }
     }
 
     handleDelete = () => {
@@ -91,9 +115,11 @@ class Note extends React.Component {
         this.setState({ DeleteModal: !this.state.DeleteModal})
     }
 };
-const mapStateToProps = ( state ) => {
+const mapStateToProps = ( { note, notes, isAuth } ) => {
     return {
-        notes: state.notes
+        note    : notes.note,
+        notes   : notes.notes,
+        isAuth,
     }
 };
 export default withRouter(connect(mapStateToProps, {getNote, deleteNote })(Note));

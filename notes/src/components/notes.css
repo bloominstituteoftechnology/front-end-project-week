@@ -1,14 +1,19 @@
 .Note__Content {
-    max-height: 100px;
-    white-space: wrap; 
+    height: 100px;
     overflow: hidden;
+    text-overflow: ellipsis;
 } 
-
-.Notes__Note::after {
-    content: "...";
-} 
+.Note__Content::after{
+    content: '...'
+}
 
 a.Card__Link {
    text-decoration: none;
    color: black;
+}
+
+.Author {
+    color: gray;
+    font-size: 0.7rem;
+    opacity: .6;
 }

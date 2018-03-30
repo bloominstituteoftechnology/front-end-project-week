@@ -12,7 +12,7 @@ import {
 
 import styled from 'styled-components';
 
-import { addNote } from '../actions';
+import { addNote } from '../actions/notesActions';
 
 const H3 = styled.h3`
     margin-top: 50px;
@@ -32,8 +32,12 @@ class NewNote extends React.Component {
         Fields: {
             title: '',
             content: '',
-        }
-    }
+        },
+        user : {
+            userId: 111,
+            author: 'John Doe',
+        },
+    };
     render() {
         return (
             <Col xs="9">
@@ -66,13 +70,20 @@ class NewNote extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault();
         if (this.state.Fields.title && this.state.Fields.content) { 
-            this.props.addNote(this.state.Fields);
+            const newNote = {
+                user: this.state.user,
+                title: this.state.Fields.title,
+                content: this.state.Fields.content
+            }
+            this.props.addNote(newNote);
             this.setState({ Redirect: true });
         }
     }
 };
 
-const mapStateToProps = state => {
-    return state;
+const mapStateToProps = ({isAuth} ) => {
+    return {
+        isAuth,
+    }
 }
 export default withRouter(connect(mapStateToProps, { addNote })(NewNote));
