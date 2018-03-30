@@ -14,8 +14,8 @@
   justify-content: flex-end;
 }
 
-.note-update {
-  text-decoration: none;
+.note-edit {
+  text-decoration: underline;
   color: RGB(74, 74, 74);
   font-weight: bolder;
 }
@@ -31,6 +31,7 @@
   background-color: #F3F3F3;
   color: RGB(74, 74, 74);
   font-weight: bolder;
+  text-decoration: underline;
 }
 
 .note-delete:hover {
@@ -50,4 +51,48 @@
   color: RGB(74, 74, 74);
   margin-left: 25px;
   margin-top:  25px;
+}
+
+.modal-modal {
+  border-radius: 0px !important;
+  border: 1px solid RGB(74, 74, 74);
+  margin-top: 200px !important;
+  
+}
+
+.modal-content {
+  border-radius: 0px !important;
+  height: 180px !important;
+}
+
+.modal-body {
+  margin-top: 25px !important;
+  text-align: center;
+  border-bottom: none !important;
+  border-radius: 0px !important;
+}
+
+.modal-footer {
+  display: flex !important;
+  justify-content: center !important;
+    font-weight: bolder;
+    border-top: none !important;
+    margin-bottom: 30px !important;
+    font-weight: bold !important;
+}
+
+.delete-button {
+  border: 1px solid RGB(174, 174, 174) !important;
+  width: 10em;
+  border-radius: 0! important;
+  font-weight: bold !important;
+}
+
+.no-button {
+  border: 1px solid RGB(174, 174, 174) !important;
+  width: 10em;
+  background-color: RGB(54, 192, 195) !important;
+  border-radius: 0 !important;
+  font-weight: bold !important;
+  margin-left: 10px !important;
 }
