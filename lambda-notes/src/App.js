@@ -96,7 +96,6 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signout={this.handleSignout} isAuth={this.state.isAuthenticated} />} />
-        {/* {<Route path="/"  render={(props) => <Login {...props} login={this.handleLogin} signout={this.handleSignout} isAuth={this.state.isAuthenticated}/>} />} */}
         <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
         <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
         <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />

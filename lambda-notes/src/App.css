@@ -221,7 +221,7 @@ a:hover {
 .Tags {
   display: flex;
   flex-wrap: wrap;
-  width: 70%;
+  width: 50%;
 }
 
 .Tag {

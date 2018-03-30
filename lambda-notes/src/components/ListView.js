@@ -15,7 +15,13 @@ componentDidMount(){
 handleFilter = (e) => {
     if (e.nativeEvent.inputType === "deleteContentBackward") this.setState({ notes: this.props.notes})
     else { const currentState = this.state.notes
-    const newState = currentState.filter((note) => note.title.toLowerCase().includes(e.target.value.toLowerCase()));
+    const newState = currentState.filter((note) => {
+        if (note.title.toLowerCase().includes(e.target.value.toLowerCase())) return true;
+        for (let i = 0; i < note.tags.length; i++) { 
+            if(note.tags[i].name.toLowerCase().includes(e.target.value.toLowerCase())) return true;
+        }
+        return false;
+    });
     this.setState({ notes: newState }) }
 }
 
@@ -26,11 +32,9 @@ handleDrag = (e) => {
     e.dataTransfer.setData("text/plain", e.target.id);
 }
 
-handleDragOver = (ev) => {
-    ev.preventDefault();
-    console.log(ev.target)
-    // Set the dropEffect to move
-    ev.dataTransfer.dropEffect = "move"
+handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move"
 }
 
 handleDrop = (e) => {
@@ -53,7 +57,7 @@ handleDrop = (e) => {
                             <div className="ListCard" key={note.id} id={note.id} draggable="true" onDragStart={this.handleDrag} style={{order: `${index}`}}>
                                 <Link to={{pathname: `/notes/${ note.id }`, state: { currentNote: note }}}>
                                     <Card>
-                                        <header className="ListCard__Header">{note.title} {note.tags.map(((tag, index) => { return(<span key={index} style={{color: `${tag.color}`}}>|</span>)}))}</header>
+                                        <header className="ListCard__Header">{note.title} {note.tags.map(((tag, index) => { return(<span key={index} style={{background: `${tag.color}`, color: "white", borderRadius: "12%", padding: "1%"}}>{tag.name}</span>)}))}</header>
                                         <div className="ListCard__Body"><Markdown markup={note.text.length > 120 ? (note.text.substr(0, 124) + " ...") : (note.text)} strikethrough="true" tasklists="true" /></div>
                                     </Card>
                                 </Link>

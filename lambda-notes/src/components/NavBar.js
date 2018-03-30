@@ -6,15 +6,23 @@ export default class NavBar extends React.Component {
 
     state = {
         modal: false,
-        username: 'Human',
+        username: '',
     };
             
     handleLogin = (e) => {
-        const username = e.target.parentNode.children[0].value;
-        const password = e.target.parentNode.children[1].value;
+        const username = e.target.parentNode.getElementsByTagName("input")[0].value;
+        const password = e.target.parentNode.getElementsByTagName("input")[1].value;
         if (username && password) {
             this.props.login(username, password);
             this.setState({ modal: false, username: username });
+            setTimeout (() => { 
+                console.log("Success!")
+                this.props.history.push('/notes');
+            }, 501)
+        }
+        else { 
+            if (!username) e.target.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
+            if (!password) e.target.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
         }
     };
 
