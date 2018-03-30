@@ -9,19 +9,21 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .header {
   color: #4A4A4A;
   font-weight: bold;
   font-size: 42px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .sub_header {
   color: #4A4A4A;
   font-weight: bold;
   font-size: 32px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .noteHeader {
