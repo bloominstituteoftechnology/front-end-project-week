@@ -1,0 +1,39 @@
+.LN {
+  font-size: 30px;
+  color: gray;
+  flex-wrap: wrap;
+}
+.left {
+  text-align: center;
+  list-style-type: none;
+  margin-left: -20%;
+  padding: 0;
+  width: 20%;
+  background-color: #d3d2d3;
+  position: fixed;
+  height: 100%;
+}
+.nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.Button {
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  width: 80%;
+  border: 1px solid black;
+  background-color: #2eb8bc;
+  color: white;
+  margin: 15%;
+  height: 55px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Button:hover {
+  color: black;
+}

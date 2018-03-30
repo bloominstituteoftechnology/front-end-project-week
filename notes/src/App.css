@@ -1,0 +1,15 @@
+.App {
+  display: block;
+  background-color: #f2f2f2;
+  height: 100%;
+  width: 100%;
+  margin-left: 20%;
+  position: fixed;
+}
+
+.title {
+  font-size: 22px;
+  color: #5f5b58;
+  flex-wrap: wrap;
+  margin: 10%;
+}
