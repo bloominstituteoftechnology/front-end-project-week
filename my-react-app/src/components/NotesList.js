@@ -26,6 +26,7 @@ addNote = (note) => {
 
    render(){
        return(
+        
 
         <div className ='container0'>
         <div className ='leftnav'>
@@ -38,19 +39,29 @@ addNote = (note) => {
 
         <Link to='/NewNote'><div className='button'> +Create New Note </div></Link>
         </div>
+
+        <div className = 'titlefornotes'>
+        Your Notes:
+        </div>
         
     <div className ='container1'>
       {this.state.notes.map(note =>{
           
           return(
+            <div>
+                
               <div className = 'Note'>
             <div>{note.title}</div>
             <div>{note.content}</div>
+            </div>
+
+            
             </div>
         )})}
         
     </div>
         </div>
+        
 
        )
    }

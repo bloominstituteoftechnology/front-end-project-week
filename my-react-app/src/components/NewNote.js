@@ -45,7 +45,7 @@ axios.post('http://localhost:3000')
 
         <Link to='/NewNote'><div className='button'> +Create New Note </div></Link>
         </div>
-        <div>
+        <div className= 'form'>
             New Note:
             <form onSubmit={this.handleSubmit} action='submit'>
             <input type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleChange}/>

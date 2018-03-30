@@ -10,10 +10,12 @@
   width: 20%;
   height:100vh;
   background: #d8d8d8;
+  border: 2px solid #979797;
   
 }
 
 .container1 {
+  
   display: flex;
   width: 80%;
   flex-wrap: wrap;
@@ -29,17 +31,32 @@
   background: white;
   margin: 10px 10px;
   overflow: hidden;
+  border: 1px solid grey;
+  font-size: 13px;
+  
 }
 
 .button {
   display: flex;
   justify-content: center;
-  height: 40px;
-  width: 120px;
+  height: 50px;
+  width: 160px;
   margin: 10px 10px;
   background: #2bc1c2;
+  border-radius: 0;
+  border: 1px solid grey;
+  text-align: justify;
 }
 
+.titlefornotes{
+  display: flex;
+  justify-content: center;
+  background: #f3f3f3;
+}
 
+.form{
+  height: 400px;
+  width: 600px;
+}
 
 
