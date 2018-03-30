@@ -1,0 +1,47 @@
+.App {
+    display: flex;
+}
+.routerNavBar{
+    display: flex;
+    flex-direction: column;
+    width: 457px;
+    min-height: 100vh;
+    background-color:#D8D8D8;
+    /* border: 1px solid green;  */
+}
+.formButton{
+    margin-top:9px;
+    margin-left: 248px;
+}
+
+.header{
+    font-family: Roboto Bold;
+    font-size: 60px;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.btnSideNav{
+    text-align: center;
+    padding:10px;
+    background-color: #2BC1C4;
+    width: 289px;
+    height: 60px;
+    margin-top: -2px; 
+    margin-left: 24px;
+    margin-bottom: 10px;
+    border: darkslategray solid 1px;
+    text-decoration: none;
+}
+
+.btnLink{
+    display: flex;
+    text-decoration:navajowhite;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    justify-content: center;
+}
+.detailLink:hover{text-decoration: none}
+
+.btnLink:hover{text-decoration:none;color:white;}

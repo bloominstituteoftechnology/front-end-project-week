@@ -1,0 +1,49 @@
+.detailedNotes{
+    display: flex;
+    flex-direction: column;
+}
+.detailLink{
+    text-decoration: none;
+    margin-left: 900px;
+    color: black;
+}
+.deleteBtn{
+        background:none!important;
+        color:inherit;
+        border:none; 
+        padding:0!important;
+        font: inherit;
+        cursor: pointer;
+        margin-left: 20px;  
+}
+.h1Style{
+    -webkit-margin-after: 0em;
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.pStyle{
+    margin-left: 20px;
+    
+}
+
+.editDeleteNav{
+    align-self:flex-end;
+    margin: 10px;
+}
+
+.detailNoteContent{
+    display: flex;
+    flex-direction: column;
+}
+
+.deleteBtn{
+        background:none!important;
+        color:inherit;
+        border:none; 
+        padding:0!important;
+        font: inherit;
+        cursor: pointer;
+        border: none;
+}
