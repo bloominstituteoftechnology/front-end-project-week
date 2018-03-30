@@ -6,7 +6,7 @@ class LeftBar extends Component {
   render() {
     return (
       <div className="left">
-        <h1>Lambda Notes</h1>
+        <div className="LN">Lambda Notes</div>
         <ul className="nav">
           <Link to="/">
             <button className="Button">View Your Notes</button>

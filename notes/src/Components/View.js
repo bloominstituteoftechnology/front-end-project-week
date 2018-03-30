@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Modal } from 'reactstrap';
 import './View.css';
 
-class NoteView extends Component {
+class View extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,4 +66,4 @@ class NoteView extends Component {
   }
 }
 
-export default NoteView;
+export default View;

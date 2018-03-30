@@ -15,7 +15,7 @@ class List extends Component {
     return (
       <div>
         <h4 className="Title">Your Notes</h4>
-        <div className="card">
+        <div>
           {this.state.notes.map(note => {
             return (
               <div key={note.id}>

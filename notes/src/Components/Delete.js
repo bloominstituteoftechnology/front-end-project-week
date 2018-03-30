@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 
-class Note extends Component {
+class Delete extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,6 @@ class Note extends Component {
   }
 
   handleDelete = () => {
-    this.props.delete(this.props.match.params.id);
     this.props.history.push('/');
   };
 
@@ -35,9 +34,26 @@ class Note extends Component {
             edit
           </Link>
           <div className="Nav__item">
-            <a className="Button__Delete" onClick={this.handleDelete}>
-              Delete
+            <a className="Nav__item" onClick={this.toggle}>
+              delete
             </a>
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              <ModalHeader toggle={this.toggle}>
+                Are you sure you want to delete this?
+              </ModalHeader>
+              <ModalFooter>
+                <Button className="Button__Delete" onClick={this.handleDelete}>
+                  Delete
+                </Button>
+                <Button className="Button" onClick={this.toggle}>
+                  Cancel
+                </Button>
+              </ModalFooter>
+            </Modal>
           </div>
         </div>
         <h4 className="Title">{this.props.location.state.currentNote.title}</h4>
@@ -47,4 +63,4 @@ class Note extends Component {
   }
 }
 
-export default Note;
+export default Delete;
