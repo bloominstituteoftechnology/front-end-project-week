@@ -1,0 +1,42 @@
+.a-note-nav {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration-line: underline;
+    font-weight: 700;
+    margin: 3% 5% 1% 1%;
+  }
+  
+  .a-note-item {
+    margin: 0 1%;
+    color: #4a4a4a;
+  }
+  
+  .note-title {
+    text-align: left;
+    margin: 3.8% 3% 2% 3%;
+    font-size: 26px;
+    font-weight: 700;
+    color: #4a4a4a;
+  }
+  
+  .note-content {
+    padding: 3%;
+    text-align: left;
+    font-size: 15px;
+  }
+  
+  .delete-button {
+    background-color: #d0021b;
+    height: 50px;
+    width: 20%;
+    min-width: 80px;
+  }
+    
+  .modal-dialog {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }

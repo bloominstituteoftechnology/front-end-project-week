@@ -1,0 +1,33 @@
+.App {
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.appName {
+  text-align: left;
+  padding: 6% 2% 2% 6%;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.sidebar {
+  width: 20%;
+  background-color: #d8d8d8;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  border-right: 1px solid grey;
+}
+
+.sidebar-buttons {
+  background-color: #2bc1c4;
+  min-width: 15%;
+  font-size: 16px;
+  padding-top: 5%;
+  font-weight: bold;
+  color: white;
+  margin: 5% 7%;
+  min-height: 50px;
+}
