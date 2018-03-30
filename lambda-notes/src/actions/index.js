@@ -1,12 +1,11 @@
-import { v4 } from 'uuid';
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
-export const UPDATE_NOTE = 'UPDATE_NOTE'
+export const UPDATE_NOTE = 'UPDATE_NOTE';
+export const REORDER_NOTES = 'REORDER_NOTES';
 
 export const addNote = data => {
     return {
         type: ADD_NOTE,
-        note: data,
         title: data.title,
         text: data.text,
         id: Math.floor((Math.random() * 1000) + 1),
@@ -25,3 +24,11 @@ export const deleteNote = data => ({
     type: DELETE_NOTE,
     id: Number(data),
 })
+
+export const reorderNotes = (newNotes, searching) => {
+    return {
+      type: 'REORDER_NOTES',
+      payload: newNotes,
+      searching: searching,
+    }
+  }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NoteList from "./NoteList";
-import CreateNewNote from "./CreateNewNote";
 import HomeLeftPanel from "./HomeLeftPanel";
 import styled from "styled-components";
 import { connect } from "react-redux";

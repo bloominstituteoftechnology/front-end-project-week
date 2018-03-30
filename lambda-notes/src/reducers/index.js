@@ -1,4 +1,4 @@
-import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE } from "../actions";
+import { ADD_NOTE, UPDATE_NOTE, DELETE_NOTE, REORDER_NOTES } from "../actions";
 import dummyData from "../dummyData";
 
 const initialState = {
@@ -48,6 +48,11 @@ export const noteReducer = (state = initialState, action) => {
         // match action.id - the currently viewed note.
         notes: state.notes.filter(note => note.id !== action.id)
       };
+    case REORDER_NOTES:
+      if ( action.searching ) {
+        return { ...state, searchResults: action.payload };
+      }
+      return { ...state, notes: action.payload };
     default:
       return state;
   }

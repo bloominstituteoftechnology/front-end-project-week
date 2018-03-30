@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { Card, CardBody, CardTitle, CardText, Row, Col } from "reactstrap";
+import { CardText } from "reactstrap";
 import { connect } from "react-redux";
 import HomeLeftPanel from "./HomeLeftPanel";
 import { deleteNote } from "../actions";

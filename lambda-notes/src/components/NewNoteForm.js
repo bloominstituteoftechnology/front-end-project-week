@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { addNote } from "../actions";
-import { Button, Input } from "reactstrap";
 
 const StyledNewNoteForm = styled.div`
   display: flex;

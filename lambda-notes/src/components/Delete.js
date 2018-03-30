@@ -70,10 +70,4 @@ class Delete extends React.Component {
   }
 }
 
-const mapStateToProp = state => {
-  return {
-    notes: state.notes
-  };
-};
-
 export default connect(null, { deleteNote })(Delete);
