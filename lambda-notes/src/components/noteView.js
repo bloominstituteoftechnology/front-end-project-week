@@ -1,8 +1,8 @@
 import React from 'react';
-//import {Link} from 'react-dom';
+import {Link} from 'react-router-dom';
 
 export const NoteView = ({match, history, notes, deleteNote}) => {
-    
+    console.log(notes);
     const note = notes.filter(note => note.id === parseInt(match.params.id))[0];
     
     const handleDeleteClick= (event) => {
@@ -19,7 +19,7 @@ export const NoteView = ({match, history, notes, deleteNote}) => {
                     <h4>{note.title}</h4>
                 </div>
                 <div className='col-9 mini_nav'>
-                    <a href={`/EditNote/${match.params.id}`}>edit</a>
+                    <Link to={`/EditNote/${match.params.id}`} >edit</Link>
                     <a href='/' data-toggle="modal" data-target="#deleteModal" >delete</a>
                 </div>
             </div>    

@@ -44,11 +44,11 @@ app.get('/api/users/:username', (req, res) => {
 
 app.post('/api/users', (req, res) => {
 
-  const user = { id: getNextId(), ...req.body };
+  const user = req.body;
 
   users = [...users, user];
 
-  res.send(users);
+  res.send(user);
 });
 
 app.put('/api/users/:username', (req, res) => {
@@ -74,20 +74,20 @@ app.put('/api/users/:username', (req, res) => {
   
   if (userIndex > -1) {
     if (users[userIndex].password === req.body.password)
-      res.send(users[userIndex].notes);
+      res.send(users[userIndex]);
     else
-      res.send('Passwords did not match');
+      res.send('ERROR');
   } else {
     res.status(404).send({msg: 'No user with that name'})
   }
 });
 
-app.delete('/api/users/:id', (req, res) => {
-  const { id } = req.params;
+app.delete('/api/users/:username', (req, res) => {
+  const { username } = req.params;
 
-  users = users.filter(f => f.id !== Number(id));
+  users = users.filter(f => f.username !== username);
 
-  res.send(users);
+  res.send('Data Deleted');
 });
 
 function getNextId() {

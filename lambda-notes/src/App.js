@@ -11,9 +11,12 @@ import axios from 'axios';
 class App extends Component {
 
   state = {
-    notes: [{id:0, title: 'test', text:'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'},{id:1, title: 'test1', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'},{id:2, title: 'test2', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'},{id:3, title: 'test3', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'}, {id:4, title: 'test4', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'} ],
+    notes: [{id:666, title:'checking', text: 'hhhhhhhhhhhhhhhhhhhhhhhh'} ],
     nextId: 5,
-    axiosReq:''
+    usernameInput:'',
+    passwordInput: '',
+    loggedInAs: '',
+    password: ''
   }
 
   addNewNote = (note) => {
@@ -49,38 +52,64 @@ class App extends Component {
 
   };
 
-  handleLogin = (username, password) => {
-
-  }
-
-  componentDidMount() {
-    const newguy = {
-      username:'theotherguy',
-      password:'password',
-      notes:[
-        {id:0, title: 'test', text:'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.'},{id:1, title: 'test1', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'},{id:2, title: 'test2', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'},{id:3, title: 'test3', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'}, {id:4, title: 'test4', text:'I dont know what to type so silm gjust going to tyoe a bunch of stuff who createSecureContext.'}
-      ]
-    }
-    axios.put(`http://localhost:5000/api/users/${newguy.username}`, newguy)
+  handleLogin = () => {
+    axios.put(`http://localhost:5000/api/users/${this.state.usernameInput}`, {username: this.state.usernameInput, password: this.state.passwordInput})
     .then(response => {
-      console.log(response);
+      if(response.data !== 'ERROR')
+        this.setState({notes: response.data.notes, loggedInAs: response.data.username, password: response.data.password });
+        document.getElementById('password_warning').style.display = 'none';
+        document.getElementById('current_user').style.display = 'block';
+        document.getElementById('logout_btn').disabled = false;
+        document.getElementById('login_btn').disabled = true;
     })
     .catch(error => {
       console.log('THere was error:', error);
+      document.getElementById('password_warning').style.display = 'block';
     })
 
-    // axios.put(`http://localhost:5000/api/users/${newguy.username}`, newguy.password)
-    //   .then(response => {
-    //     console.log(response);
-    //   })
-    //   .catch(error => {
-    //     console.log('THere was error:', error);
-    //   })
+    this.setState({usernameInput: '', passwordInput: ''});
+
+  }
+
+  handleUsername = (event) => {
+    this.setState({ usernameInput: event.target.value})
+  }
+
+  handlePassword = (event) => {
+    this.setState({ passwordInput: event.target.value})
+  }
+
+  logout = () => {
+    console.log('logging out');
+    document.getElementById('logout_btn').disabled = true;
+    document.getElementById('login_btn').disabled = false;
+    document.getElementById('current_user').style.display = 'none';
+    this.updateServer();
+  }
+  updateServer = () => {
+
+    const userdata = {
+      username: this.state.loggedInAs,
+      password: this.state.password,
+      notes: this.state.notes
+    }
+    
+
+    axios.delete(`http://localhost:5000/api/users/${userdata.username}`)
+      .then(
+        axios.post(`http://localhost:5000/api/users`, userdata)
+      )
+
+  }
+  
+  componentWillUnmount() {
+
+    
   }
 
   render() {
-    let usernameInput, passwordInput;
-
+      
+    
     return (
       <div className="App">
         <div className='container'>
@@ -89,7 +118,10 @@ class App extends Component {
               <h2 className='nav_head'>Lambda <br/>Notes</h2>
               <Link to='/' className='nav_button'>View Your Notes</Link>
               <Link to='/addNewNote' className='nav_button'>+Create New Notes</Link>
-              <button data-toggle="modal" data-target="#exampleModal">Log In</button>
+              <button id='login_btn' data-toggle="modal" data-target="#loginModal">Log In</button>
+              <div id='password_warning'>Incorrect Password</div>
+              <button id='logout_btn' onClick={() => this.logout()} >Log Out</button>
+              <div className='nav_head' id='current_user'>Logged in as: {this.state.loggedInAs}</div>
             </div>
             <Route exact path='/' render={(props) => <NoteList {...props} notes={this.state.notes}/> } />
             
@@ -102,29 +134,30 @@ class App extends Component {
 
 
           {/* Login Modal Starts Here */}
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Enter Username and Password</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <div className="modal fade" id="loginModal" tabIndex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="loginModalLabel">Enter Username and Password</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body" >
                 Log In
-                <form className='new_note_form' onSubmit={this.handleLogin(usernameInput, passwordInput)}>
-                    <input className='' ref={username => usernameInput = username} placeholder='Username' autoFocus />
-                    
-                    
-                    <input className='' ref={password => passwordInput = password} placeholder='Password' />
-            
+                <form className='new_note_form' >
+                    <input onChange={this.handleUsername} value={this.state.usernameInput} placeholder='Username' id='focused' autoFocus />
                     <br/>
-                  </form>
+                    <input onChange={this.handlePassword} value={this.state.passwordInput} type='password' placeholder='Password' />
+                    <br/>               
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" onClick={(event) => {
+                    event.preventDefault();
+                    this.handleLogin();
+                    }} className="btn btn-primary" data-toggle="modal" data-target="#loginModal">Log In</button>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Log In</button>
+                </form>
                 </div>
               </div>
             </div>

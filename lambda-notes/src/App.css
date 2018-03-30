@@ -182,3 +182,12 @@ form .save_button:hover {
 .no_btn {
   background:#2bc1c4;
 }
+
+#password_warning {
+  color: red;
+  display:none;
+}
+
+#current_user{
+  display:none;
+}
