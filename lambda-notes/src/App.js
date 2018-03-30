@@ -10,7 +10,7 @@ import {
   Form,
   Input
 } from "reactstrap";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createUser } from "./actions/createUser";
 import { login } from "./actions/login";
@@ -25,6 +25,7 @@ class App extends Component {
     password: ""
   };
   render() {
+    // if (this.state.loggedIn) return <Redirect to="/notelist" />;
     return (
       <Route path="/">
         <div className="App">
@@ -110,7 +111,8 @@ class App extends Component {
         this.props.login(user);
         this.setState({
           username: "",
-          password: ""
+          password: "",
+          loggedIn: true
         });
         attempted = true;
       } else if (
@@ -142,7 +144,8 @@ class App extends Component {
         this.props.createUser(this.state);
         this.setState({
           username: "",
-          password: ""
+          password: "",
+          loggedIn: true
         });
       }
     } else {

@@ -3,15 +3,21 @@ import { connect } from "react-redux";
 import { Card, CardTitle, CardText } from "reactstrap";
 import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
+import Search from "../BodyComponents/Search";
 
 class NotesList extends Component {
+  state = {
+    filteredNotes: []
+  };
+
   render() {
     return (
       <Fragment>
         <div
           style={{ textDecoration: "underline" }}
-          className="d-flex justify-content-end"
+          className="d-flex justify-content-between"
         >
+          <Search search={this.filterTheNotes} />
           <CSVLink
             data={this.props.notes}
             filename={"user_notes_csv"}
@@ -23,7 +29,7 @@ class NotesList extends Component {
         <h3 className="mt-5 ml-3">Your Notes:</h3>
         <div className="d-flex flex-wrap justify-content-around">
           {/* <CardColumns> */}
-          {this.props.notes.map(note => (
+          {this.state.filteredNotes.map(note => (
             <Link key={note.id} to={`/noteview/${note.id}`}>
               <Card
                 body
@@ -42,6 +48,16 @@ class NotesList extends Component {
       </Fragment>
     );
   }
+  componentWillReceiveProps() {
+    this.filterTheNotes("");
+  }
+
+  filterTheNotes = searchFor => {
+    const filteredNotes = this.props.notes.filter(
+      item => item.title.includes(searchFor) || item.body.includes(searchFor)
+    );
+    this.setState({ filteredNotes });
+  };
 }
 
 const mapStateToProps = state => {

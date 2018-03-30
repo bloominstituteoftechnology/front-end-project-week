@@ -18,7 +18,7 @@ class NavPannel extends Component {
         <h1 className="text-justify">Notes</h1>
         <Nav vertical>
           <NavItem>
-            <Link to="/">
+            <Link to="/notelist">
               <Button style={buttonStyles}>View Your Notes</Button>
             </Link>
           </NavItem>

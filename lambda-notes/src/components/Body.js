@@ -10,7 +10,7 @@ export default class Body extends Component {
   render() {
     return (
       <div style={{ overflow: "auto", height: "100vh" }}>
-        <Route exact path="/" component={NotesList} />
+        <Route path="/notelist" component={NotesList} />
         <Route path="/newnote" component={NewNote} />
         <Route path="/noteview/:id" component={NoteView} />
         <Route path="/editnote/:id" component={EditNote} />
