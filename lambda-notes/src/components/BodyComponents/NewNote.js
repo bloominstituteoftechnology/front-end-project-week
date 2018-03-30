@@ -15,7 +15,7 @@ class NewNote extends Component {
   };
 
   render() {
-    if (this.state.redirect) return <Redirect to="/" />;
+    if (this.state.redirect) return <Redirect to="/notelist" />;
     return (
       <Fragment>
         <h3 className="mt-5 ml-3">Create New Note:</h3>

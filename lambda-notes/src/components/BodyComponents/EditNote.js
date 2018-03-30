@@ -33,7 +33,7 @@ class EditNote extends Component {
     //   item => Number(item.id) === Number(this.props.match.params.id)
     // )[0];
 
-    if (this.state.redirect) return <Redirect to="/" />;
+    if (this.state.redirect) return <Redirect to="/notelist" />;
     return (
       <div>
         <h3 className="mt-5 ml-3">Edit Note:</h3>

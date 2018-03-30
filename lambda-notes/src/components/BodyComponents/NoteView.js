@@ -26,7 +26,7 @@ class NoteView extends Component {
       };
     }
 
-    if (this.state.redirectToHome === true) return <Redirect to="/" />;
+    if (this.state.redirectToHome === true) return <Redirect to="/notelist" />;
     if (this.state.redirectToEdit === true)
       return <Redirect to={`/editnote/${currentNote.id}`} />;
 
