@@ -31,6 +31,18 @@ class App extends Component {
 
   }
 
+  handleDelete = (num) => {
+    localStorage.removeItem(`id${num}`);
+    const memory = Array.from(Object.values(localStorage));
+    if (memory.length >= 0) {
+      const savedNotes = [];
+      for (let i = 0; i < memory.length; i++) {
+        savedNotes.push(JSON.parse(memory[i]))
+      }
+      this.setState({ notes: savedNotes})
+    }
+  }
+
   componentWillMount() {
     const memory = Array.from(Object.values(localStorage));
     if (memory.length > 0) {
@@ -55,8 +67,8 @@ class App extends Component {
         <Route path="/" component={NavBar} />
         <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
         <Route exact path="/AddNote" render={(props) => <AddNote {...props} add={this.handleAdd} />}/>
-        <Route exact path="/notes/:id" component={Note} />
-        <Route exact path="/notes/:id/EditNote" component={EditNote} />
+        <Route exact path="/notes/:id" component={Note} delete={this.handleDelete} />
+        <Route exact path="/notes/:id/EditNote" component={EditNote} edit={this.handleEdit} />
       </div>
     );
   }

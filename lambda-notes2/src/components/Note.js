@@ -21,7 +21,6 @@ class Note extends Component {
     }
     
     handleDelete = () => {
-        this.props.delete(this.props.match.params.id);
         this.props.history.push('/');
     }
 
