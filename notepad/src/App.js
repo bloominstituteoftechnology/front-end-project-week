@@ -19,10 +19,10 @@ class App extends Component {
               <h2 className="navTitle">Lambda Notes</h2>
             </Row>
             <Row>
-              <Link to='/'><Button color="info">View Your Notes</Button></Link>
+              <Link to='/'><Button className='navButton' color="info">View Your Notes</Button></Link>
             </Row>
             <Row>
-              <Link to='/addnote'><Button color="info">+ Create New Note</Button></Link>
+              <Link to='/addnote'><Button className='navButton' color="info">+ Create New Note</Button></Link>
             </Row>
           </Col>
           <Col xs='9'>
@@ -53,5 +53,4 @@ const actions = {
   getNotes
 };
 
-// export default connect(mapStateToProps, actions)(App);
 export default withRouter(connect(mapStateToProps, actions)(App));

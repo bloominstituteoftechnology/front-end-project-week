@@ -6,8 +6,10 @@ import { withRouter } from 'react-router-dom';
 
 class NotesForm extends Component {
   state = {
-    title: '',
-    content: '',
+    properties: {
+      title: '',
+      content: ''
+    },
     id: 0
   }
 
@@ -20,10 +22,10 @@ class NotesForm extends Component {
         <Row>
           <Form onSubmit={this.handleSubmit} >
             <FormGroup>
-              <Input onChange={this.handleInputChange} type="text" name="title" id="noteTitle" placeholder="Note Title" value={this.state.title} />
+              <Input onChange={this.handleInputChange} type="text" name="title" id="noteTitle" placeholder="Note Title" value={this.state.properties.title} />
             </FormGroup>
             <FormGroup>
-              <Input onChange={this.handleInputChange} type="textarea" name="content" id="noteContent" placeholder="Note Content" value={this.state.content} />
+              <Input onChange={this.handleInputChange} type="textarea" name="content" id="noteContent" placeholder="Note Content" value={this.state.properties.content} />
             </FormGroup>
             <Button type="submit">Update</Button>
           </Form>
@@ -38,29 +40,32 @@ class NotesForm extends Component {
     const note = notes[id - 1];
     const updates = {
       title: note.title,
-      content: note.content,
-      id: id
+      content: note.content
     };
 
-    this.setState({ updates })
+    this.setState({ properties: updates, id })
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.editNote(this.state);
-    this.setState({
-      title: '',
-      content: ''
-    });
+    if (this.state.properties.title && this.state.properties.content) {
+      this.props.editNote(this.state.id, this.state.properties);
+      this.setState({
+        properties: {
+          title: '',
+          content: '',
+        }
+      });
+    }
   };
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    const updateWith = this.state;
+    const updateWith = this.state.properties;
 
     updateWith[name] = value;
 
-    this.setState({ updateWith });
+    this.setState({ properties: updateWith });
   };
 }
 

@@ -2,20 +2,19 @@ import axios from 'axios';
 
 import { SHOW_LOADING, HIDE_LOADING } from '../common/loadingActions';
 
-export const FETCH_NOTES_SUCCESS = 'FETCH_NOTES_SUCCESS';
-export const FETCH_NOTES_ERROR = 'FETCH_NOTES_ERROR';
-export const ADD_NOTE = 'ADD_NOTE';
-export const EDIT_NOTE = 'EDIT_NOTE';
-// export const FETCH_NOTES_ERROR = 'FETCH_NOTES_ERROR';
+export const FETCHED = 'FETCHED';
+export const ADDED = 'ADDED';
+export const UPDATED = 'UPDATED';
+export const DELETED = 'DELETED';
 
 export const getNotes = () => dispatch => {
   dispatch({ type: SHOW_LOADING });
   axios.get('http://localhost:5000/notes').then(response => {
     dispatch({ type: HIDE_LOADING });
-    dispatch({ type: FETCH_NOTES_SUCCESS, notes: response.data });
+    dispatch({ type: FETCHED, notes: response.data });
   }).catch(error => {
     dispatch({ type: HIDE_LOADING });
-    dispatch({ type: FETCH_NOTES_ERROR, error: error });
+    console.log('Error fetching: ', error);
   });
 };
 
@@ -23,17 +22,31 @@ export const addNote = (newNote) => dispatch => {
   dispatch({ type: SHOW_LOADING });
   axios.post('http://localhost:5000/notes', newNote).then(response => {
     dispatch({ type: HIDE_LOADING });
-    dispatch({ type: ADD_NOTE, notes: response.data });
+    dispatch({ type: ADDED, notes: response.data });
   }).catch(error => {
     console.log('Add failed: ', error);
   });
 };
 
 export const editNote = (id, note) => dispatch => {
-  axios.put(`http://localhost:5000/note/${id}`, note)
+  axios.put(`http://localhost:5000/notes/${id}`, note)
     .then(response => {
-      dispatch({ type: EDIT_NOTE, notes: response.data });
+      dispatch({ type: UPDATED, notes: response.data });
     }).catch(error => {
+      console.log('Edit error: ', error);
+    });
+};
+
+export const deleteNote = id => dispatch => {
+
+  axios.delete(`http://localhost:5000/notes/${id}`)
+    .then(response => {
+      dispatch({
+        type: DELETED,
+        notes: response.data
+      });
+    })
+    .catch(error => {
       console.log('Edit error: ', error);
     });
 };
