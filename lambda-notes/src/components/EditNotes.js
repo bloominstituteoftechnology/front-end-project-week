@@ -1,19 +1,20 @@
 import React, { Component } from "react";
+import { editNote } from "../actions";
+import { connect } from "react-redux";
 
 class EditNotes extends Component {
   state = {
+    id: 0,
     name: "",
     text: ""
   };
 
+  componentDidMount() {
+    this.setState({ id: parseInt(this.props.match.params.id, 10) });
+  }
+
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({ name: "", text: "" });
-    this.props.history.push("/");
   };
 
   render() {
@@ -35,7 +36,10 @@ class EditNotes extends Component {
             placeholder="New Content"
             onChange={this.handleChange}
           />
-          <button className="save" onClick={this.handleSubmit}>
+          <button
+            className="save"
+            onClick={() => this.props.editNote(this.state)}
+          >
             Update
           </button>
         </form>
@@ -44,4 +48,4 @@ class EditNotes extends Component {
   }
 }
 
-export default EditNotes;
+export default connect(null, { editNote })(EditNotes);

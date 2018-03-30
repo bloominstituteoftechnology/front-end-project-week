@@ -1,18 +1,18 @@
 import React, { Component } from "react";
+import { createNote } from "../actions";
+import { connect } from "react-redux";
 
 class CreateNote extends Component {
   state = {
     name: "",
     text: ""
   };
-
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({ name: "", text: "" });
+  handleSubmit = note => {
+    this.props.createNote(note);
     this.props.history.push("/");
   };
 
@@ -27,7 +27,6 @@ class CreateNote extends Component {
             name="name"
             placeholder="New Title"
             onChange={this.handleChange}
-            value={this.state.name}
           />
           <input
             className="newContent"
@@ -35,15 +34,17 @@ class CreateNote extends Component {
             name="text"
             placeholder="New Content"
             onChange={this.handleChange}
-            value={this.state.text}
           />
+          <button
+            className="save"
+            onClick={() => this.handleSubmit(this.state)}
+          >
+            Save
+          </button>
         </form>
-        <button className="save" onClick={this.handleSubmit}>
-          Save
-        </button>
       </div>
     );
   }
 }
 
-export default CreateNote;
+export default connect(null, { createNote })(CreateNote);

@@ -1,29 +1,18 @@
 import React, { Component } from "react";
 import { Card, CardTitle, CardText, Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class YourNotes extends Component {
-  state = {
-    notes: []
-  };
-  componentDidMount() {
-    this.setState({ notes: this.props.notes });
-  }
-
   render() {
     return (
       <Container>
         <h2 className="yourNotes">Your Notes:</h2>
         <div className="cardsList">
-          {this.state.notes.map(note => {
+          {this.props.notes.map(note => {
             return (
-              <div className="cardList" key={note.id}>
-                <Link
-                  to={{
-                    pathname: `/notes/${note.id}}`,
-                    state: { currentNote: note }
-                  }}
-                >
+              <div className="cardList" key={note.id} note={note}>
+                <Link to={`/notes/${note.id}}`}>
                   <Row>
                     <Card body>
                       <CardTitle>{note.title}</CardTitle>
@@ -39,5 +28,10 @@ class YourNotes extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  };
+};
 
-export default YourNotes;
+export default connect(mapStateToProps)(YourNotes);
