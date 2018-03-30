@@ -12,7 +12,7 @@ class App extends Component {
       <div>
       <Route path="/Data" component={Data}/>
       <Route path="/CreateNote" component={CreateNote}/>
-      <Route path="/EditNote" component={EditNote} />
+      <EditNote />
       </div>
       
     );

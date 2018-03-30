@@ -13,14 +13,18 @@ class CreateNote extends Component {
     }
   
     handleChangeTitle = (event) => {
-      this.setState({title: event.target.value});
+      this.setState({Title: event.target.value});
     }
     handleChange = (event) => {
-        this.setState({note: event.target.value});
+        this.setState({Body: event.target.value});
       }
      handleSubmit = (event) =>{
 event.preventDefault();
-          this.state.notes.push();
+const addNote ={
+    Title: event.target.value,
+    Body: event.target.value
+}
+          this.state.notes.push(addNote);
           this.setState({
             Title:'',
             Body:'' 
@@ -40,13 +44,13 @@ event.preventDefault();
         </div>
 
         
-          <form onSubmit={this.handleSubmit} >
+          <form>
           <h2>Create New Notes:</h2>
             <input class = 'kin' type ='text' placeholder ='Enter your title' 
             value = {this.state.Title} onChange ={this.handleChangeTitle} /><br />
               <textarea value={this.state.Body} placeholder = 'Enter your notes'
               onChange={this.handleChange} cols={60} rows={30} />
-            <button>Save </button>
+            <button onClick={this.onClick}>Save </button>
           </form>
           
           </div>

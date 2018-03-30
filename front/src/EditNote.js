@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Route} from 'react-router-dom';
 
 class EditNote extends Component {
    
-     
   
     render() {
       return (
@@ -16,11 +15,20 @@ class EditNote extends Component {
         
 
         <div class ='view'>
-        <a href=''>edit</a>
-        <a href='#'>delete</a>
-    <h3>Note Title</h3>
+        <a className='don' href=''>edit</a>
+        <a className='don' href='#'>delete</a>
+    <p>Note Title</p>
     <p>The main objective of this week is to develop the MVP feature selisted below using react and any other technologies you have learned here a Lambda School. There are design files in this repository you should use as a creative guide</p>
 </div>
+        <div>
+        <Route path='/EditNote/:id'
+        render= {() =>
+            this.state.notes[this.props.location.pathname.split('/')[2]]?(
+                <EditNote
+                index
+            )
+        
+            </div>
           </div>
       );
     }
