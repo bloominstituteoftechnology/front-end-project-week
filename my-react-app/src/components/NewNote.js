@@ -12,6 +12,8 @@ export default class NewNote extends Component {
         };
     }
 
+   
+
     handleChange = (event) => {
         const name = event.target.name 
         const value = event.target.value
@@ -28,6 +30,7 @@ getNotes() {
 axios.post('http://localhost:3000')
     .then(response => response.data.message)
 }
+
 
     render(){
         return(
@@ -50,7 +53,7 @@ axios.post('http://localhost:3000')
             </form>
             <Link to='/' data={{title: this.state.title, content: this.state.content}}><div className='button'>Save</div></Link>
         </div>
-
+       
             </div>
         )
     }
