@@ -18,13 +18,13 @@ class Login extends Component {
   };
   handleOnSubmit(event) {
     // event.preventDefault();
-    this.props.signIn(this.state.email, this.state.password);
+    // this.props.signIn(this.state.email, this.state.password);
+    this.props.signIn("kaitlynschorr@gmail.com", "testing");
 
     this.props.history.push("/");
   }
   handleOnChange(event) {
     event.preventDefault();
-    console.log(event.target.name);
     let copy = this.state;
     copy[event.target.name] = event.target.value;
     this.setState(copy);
@@ -32,6 +32,7 @@ class Login extends Component {
   handleRegister() {
     this.props.createUser(this.state.email, this.state.password);
   }
+
   render() {
     return (
       <Container className="mt-5">

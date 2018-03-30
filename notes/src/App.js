@@ -21,7 +21,6 @@ function mapStateToProps(state) {
 }
 
 function PrivateRoute({ component: Component, authed, ...rest }) {
-  console.log("Authed: ", authed);
   return (
     <Route
       {...rest}

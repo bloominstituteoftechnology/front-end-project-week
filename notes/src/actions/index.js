@@ -1,4 +1,14 @@
-import { firebaseAuth, login, logout } from "../utilities/auth";
+import {
+  firebaseAuth,
+  login,
+  logout,
+  auth,
+  retrieveNotes,
+  ref,
+  writeNote
+} from "../utilities/auth";
+
+import firebase from "firebase";
 
 export const ADD_NOTE = "ADD_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
@@ -8,16 +18,19 @@ export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
 export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
 export const ERROR = "ERROR";
+export const GET_NOTES = "GET_NOTES";
 
 let noteId = 10;
 
-export function addNote(note) {
-  return {
-    type: ADD_NOTE,
-    id: noteId++,
-    note
-  };
-}
+export const addNote = note => dispatch => {
+  console.log("Note from Action: ", note);
+  writeNote({ ...note, id: noteId++, tags: [""] }).then(response => {
+    getNotes();
+    return {
+      type: ADD_NOTE
+    };
+  });
+};
 export function addTag(tag, id) {
   return {
     type: ADD_TAG,
@@ -63,23 +76,17 @@ export const errorHandler = response => {
 };
 
 export const createUser = (email, pw) => dispatch => {
-  firebaseAuth
-    .createUserWithEmailAndPassword(email, pw)
+  auth(email, pw)
     .then(response => {
       return dispatch(createUserSuccess(response));
     })
-    .catch(error => {
-      return dispatch(errorHandler(error));
-    });
+    .catch();
 };
 
 export const signIn = (email, pw) => dispatch => {
-  login(email, pw)
-    .then(response => {
-      console.log("Sign in function response: ", response);
-      return dispatch(signInSuccess(response));
-    })
-    .catch(e => console.log(e.message));
+  login(email, pw).then(response => {
+    return dispatch(signInSuccess(response));
+  });
 };
 
 export const signOut = () => dispatch => {
@@ -88,4 +95,23 @@ export const signOut = () => dispatch => {
       type: SIGN_OUT
     });
   });
+};
+
+export const getNotes = () => dispatch => {
+  let userId = firebase.auth().currentUser.uid;
+  let notesRef = ref.child(`users/${userId}/notes/`);
+  let notes = [];
+  notesRef
+    .once("value", function(snapshot) {
+      snapshot.forEach(snap => {
+        console.log(snap.val());
+        notes.push(snap.val());
+      });
+    })
+    .then(response =>
+      dispatch({
+        type: GET_NOTES,
+        notes: notes
+      })
+    );
 };

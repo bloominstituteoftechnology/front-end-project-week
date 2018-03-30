@@ -6,7 +6,8 @@ import {
   SIGN_IN,
   SIGN_OUT,
   CREATE_USER_SUCCESS,
-  ERROR
+  ERROR,
+  GET_NOTES
 } from "../actions";
 
 const initialState = {
@@ -84,7 +85,7 @@ export default function notes(state = initialState, action) {
     case ADD_NOTE:
       return {
         ...state,
-        notes: [...state.notes, { ...action.note, id: action.id }]
+        notes: [...notes, action.note]
       };
     case DELETE_NOTE:
       return {
@@ -108,15 +109,16 @@ export default function notes(state = initialState, action) {
         notes: tagCopy
       };
     case SIGN_IN:
-      console.log("Sign In Reducer Fired");
       return { ...state, authed: true, user: action.user.email };
     case SIGN_OUT:
       return { ...state, authed: false };
     case CREATE_USER_SUCCESS:
       return { ...state, authed: true, user: action.user.email };
     case ERROR:
-      console.log("Error reducer fired: ", action.error);
       return { ...state, authed: false, error: action.error };
+    case GET_NOTES:
+      console.log("Get notes: ", action.notes);
+      return { ...state, notes: action.notes };
     default:
       return state;
   }

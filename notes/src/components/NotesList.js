@@ -11,6 +11,7 @@ import {
   CardFooter
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { getNotes } from "../actions";
 
 function mapStateToProps(state) {
   return {
@@ -19,8 +20,10 @@ function mapStateToProps(state) {
 }
 
 class NotesList extends Component {
+  componentDidMount() {
+    this.props.getNotes();
+  }
   render() {
-    console.log("Notes List: ", this.props.notes);
     return (
       <Container className="my-5">
         <Row>
@@ -55,4 +58,4 @@ class NotesList extends Component {
   }
 }
 
-export default connect(mapStateToProps)(NotesList);
+export default connect(mapStateToProps, { getNotes })(NotesList);
