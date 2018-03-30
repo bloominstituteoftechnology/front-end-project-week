@@ -28,7 +28,6 @@ class DeleteNote extends React.Component {
   }
 
   render() {
-    console.log('delete props', this.props.id);
     return (
       <div >
         <button onClick={this.toggle} className='link-secondary mx-2'>delete</button>
@@ -38,7 +37,7 @@ class DeleteNote extends React.Component {
           </ModalBody>
           <ModalFooter>
             <Link to='/' className='link' style={{backgroundColor: btnDeleteColor }} onClick={() => this.props.delete_note(this.props.id)}>Delete</Link>
-            <button className='link' onClick={this.toggle}>No</button>
+            <button className='link pt-0' onClick={this.toggle}>No</button>
           </ModalFooter>
         </Modal>
       </div>

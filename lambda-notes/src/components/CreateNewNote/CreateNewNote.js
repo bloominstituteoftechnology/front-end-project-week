@@ -64,7 +64,6 @@ class CreateNewNote extends Component {
             content: ''
         });
         setTimeout(() => { window.location.reload(); }, 0);
-        
     }
 } // end CreateNewNote Class
 

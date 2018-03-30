@@ -12,7 +12,7 @@ class Search extends Component {
     render() {
         console.log( this.state);
         return (
-            <Form onSubmit={() => this.searchNotes()} className='search'>
+            <Form className='search'>
                 <Input 
                 type='text'
                 placeholder='Search...'
@@ -26,10 +26,6 @@ class Search extends Component {
     handleSearch = event => {
         event.preventDefault();
         this.setState({ query: event.target.query });
-    }
-
-    searchNotes = event => {
-
     }
 
 } // end Search

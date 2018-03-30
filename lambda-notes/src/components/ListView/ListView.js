@@ -21,16 +21,13 @@ class ListView extends Component {
         this.props.get_notes();
     }
     render(props) {
-        // this.props.notes.filter(obj => {obj.title.includes(query) || obj.text.includes(query));
         const noteSearch = this.props.notes.filter(note => {
-            console.log(note.title)
             return note.title.indexOf(this.state.query) !== -1 || note.content.indexOf(this.state.query) !== -1;
             }  
         );
-        console.log('noteSearch', noteSearch);
         return (
             <div className='list-view pl-4 pt-5'>
-                <Form onSubmit={() => this.searchNotes()} className='search'>
+                <Form className='search'>
                     <Input 
                     type='text'
                     placeholder='Search...'
@@ -42,7 +39,6 @@ class ListView extends Component {
                 <div className='list-view-notes'>
                     {noteSearch.map(note => {
                         return (
-                        
                             <Link to={`/notes/${note.id}`} key={`${note.id} ${note.title}`}
                                 className='mx-2 my-3'>
                                     <div className='note p-3'>

@@ -23,7 +23,6 @@ class EditNote extends Component {
     };
 
     render() {
-        console.log('state', this.state);
         return (
             <div className='editNote'>
             {(this.state.Redirect) ? (<Redirect to='/' />) : ('')}
@@ -56,7 +55,7 @@ class EditNote extends Component {
     } // end render()
 
     componentDidMount() {
-        // functionality to show previous note
+        // functionality to edit note text
         const id = this.props.match.params.id;
         const notes = this.props.notes;
         const note = notes.find(note => (note.id).toString() === id.toString());
@@ -67,7 +66,6 @@ class EditNote extends Component {
         this.setState({
             fields: fields, id
         });
-        console.log('cdm', fields);
     }
 
     handleNewInput = event => {
@@ -75,10 +73,9 @@ class EditNote extends Component {
         const { name, value } = event.target;
         const fields = this.state.fields;
         fields[name] = value;
-        console.log('handleInput', fields);
         this.setState({
             fields
-        })
+        });
     }
 
     submitEditNote = event => {
