@@ -19,8 +19,11 @@ Delete background: D0021B */
 }
 
 .Pane2 {
+  padding-left: 10px;
   width: 300px;
   background-color: #F3F3F3;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .LeftPanel {
@@ -45,7 +48,7 @@ h2 {
 
 .NoteButton {
   background-color: #2BC1C4;
-  width: 200px;
+  width: 95%;
   height: 45px;
   padding: 10px;
   display: flex;
@@ -58,7 +61,6 @@ h2 {
 
 .Notes {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
   background-color: #F3F3F3;
   font-family: "Raleway", serif !important;

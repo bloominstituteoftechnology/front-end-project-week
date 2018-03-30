@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import SplitPane from 'react-split-pane';
 import { Route, Switch } from 'react-router-dom';
 import { LeftPanel, NewNote, NoteList, NotePage, EditNote } from './components/';
-import DeleteModal from './components/DeleteModal';
+// import DeleteModal from './components/DeleteModal';
+// import firebase from './firebase';
+
+// const itemsRef = firebase.database().ref('notes');
+
 class App extends Component {
   state = {
     notes: [{
       id: 0,
       title: 'Note',
-      text: 'Cupcake ipsum dolor sit amet toffee tootsie roll candy canes. Bonbon dessert cookie carrot cake. Cotton candy.',
+      text: 'Cupcake ipsum dolor sit amet toffee tootsie roll candy canes. Bonbon dessert cookie carrot cake. Cotton candy.Carrot cake I love cotton candy I love I love fruitcake gummies tootsie roll. Jelly-o sugar plum oat cake. Oat cake oat cake cookie. Candy cookie sweet. Dessert soufflé bonbon chocolate bar I love caramels lemon drops. Dragée chocolate ice cream cheesecake cookie jujubes tart I love. Ice cream tootsie roll chocolate cake. Caramels I love liquorice lollipop topping halvah.',
       completed: false
     }, {
       id: 1,
@@ -57,7 +61,7 @@ class App extends Component {
       text: 'Cupcake ipsum dolor sit amet toffee tootsie roll candy canes. Bonbon dessert cookie carrot cake. Cotton candy.',
       completed: false
     },
-  ],
+    ],
     note: {
       id: null,
       title: '',
@@ -66,31 +70,69 @@ class App extends Component {
     }
   };
 
-  NoteList = props => <NoteList {...props} notes={this.state.notes} />;
+  // componentDidMount() {
+  //   itemsRef.on('value', snapshot => {
+  //     const items = snapshot.val()
+  //   const notes = Object.entries(items);
+  //     console.log(items)
+  //     this.setState({ notes });
+  //     console.log(this.state)
+  //   });
+  // }
 
-  ViewNotePage = props => {
-    const note = this.state.notes.filter(note => note.id === +props.match.params.id)[0]
-    return <NotePage {...props} note={note} />
+  handleChange = ({ target: { name, value }}) => {
+    this.setState({ note: {...this.state.note, [name]: value }});
+  }
+
+  handleSubmit = id => {
+    const { note, notes } = this.state;
+    // itemsRef.push(note)
+    // this.setState({ note: { id: null, text: '', title: '' } });
+    this.setState({
+     notes: [...notes, {...note, id }],
+     note: { id: null, title: '', text: '' }
+    });
+  }
+
+  handleEdit = id => {
+    let { note, notes } = this.state;
+    notes = notes.map(obj => obj.id === +id ? {...note, id: +id } : obj);
+    this.setState({ notes, note: { id: null, text: '', title: '' } });
+  }
+
+  handleDelete = id => {
+    let { notes } = this.state;
+    notes = notes.filter(obj => obj.id !== +id);
+    this.setState({ notes });
+  }
+
+  NoteList = props => <NoteList notes={this.state.notes} />;
+
+  ViewNotePage = ({ match: { params: { id } } }) => {
+    const note = this.state.notes.find(note => note.id === +id);
+    return <NotePage {...note} del={this.handleDelete} />;
   }
 
   NewNote = props => {
-    const { title, text } = this.state.note;
-    return <NewNote handleChange={this.handleChange} title={title} text={text} />
-  }
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({ note: {...this.state.note, [name]: value }});
-    console.log(this.state.note);
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
+    const id = this.state.notes.length;
+    return <NewNote
+      {...props}
+      {...this.state.note}
+      id={id}
+      handleChange={this.handleChange}
+      handleSubmit={this.handleSubmit}
+    />;
   }
 
   EditNote = props => {
-    const { title, text } = this.state.note;
-    return <EditNote handleChange={this.handleChange} title={title} text={text} />
+    const { id } = props.match.params;
+    return <EditNote
+      {...props}
+      {...this.state.note}
+      id={id}
+      handleChange={this.handleChange}
+      edit={this.handleEdit}
+    />;
   }
 
   render() {
@@ -102,8 +144,8 @@ class App extends Component {
               <Route exact path="/" render={this.NoteList} />
               <Route path="/note/:id" render={this.ViewNotePage} />
               <Route path="/new" render={this.NewNote} />
-              <Route path="/edit" render={this.EditNote} />
-              <Route path="/delete" component={DeleteModal} />
+              <Route path="/edit/:id" render={this.EditNote} />
+              {/* <Route path="/delete/:id" component={DeleteModal} /> */}
             </Switch>
         </SplitPane>
       </div>
