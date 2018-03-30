@@ -1,12 +1,12 @@
 /*
 .left {
-    background-color: Red;
+    background-color:  #F3F3F3;
     float: left;
     width: 25%;
 }
 
 .right {
-    background-color: Aqua;
+    background-color:  #F3F3F3;
     margin-left: 75%;
 }
 
@@ -25,7 +25,7 @@
 
 
 .App-header {
-  background-color: #222;
+  background-color: #F3F3F3;
   height: 150px;
   padding: 20px;
   color: white;
@@ -41,13 +41,13 @@
 
 
 .App-left {
-    background-color: Red;
+    background-color: #F3F3F3;
     float: left;
     width: 50%;
 }
 
 .App-right {
-    background-color: Aqua;
+    background-color: #F3F3F3;
     margin-left: 50%;
 }
 
@@ -59,7 +59,7 @@
 
 
 .App-header {
-  background-color: dark grey;
+  background-color: #F3F3F3;
   height: 150px;
   width: 20%;
   padding: 20px;
@@ -81,7 +81,7 @@
 height: 600px;
 border: 1px solid black;
 color: black;
-background-color: red;
+background-color: #C0C0C0;
 display: inline-block;
 vertical-align: left;
 width: 25.5%;
@@ -93,7 +93,7 @@ height: 600px;
 width: 74%;
 border: 1px solid black;
 color: black;
-background-color: blue;
+background-color: #DCDCDC;
 float: right;
 display: inline-block;
 vertical-align: top;
