@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 
-export const Register = ({history, login, notes}) => {
+export const Register = ({history, login, notes, loggedInAs}) => {
 
     let usernameInput, passwordInput, repasswordInput;
 
@@ -13,7 +13,7 @@ export const Register = ({history, login, notes}) => {
         //we're asking the server if the username already exists. It will return true or false
         axios.get(`http://localhost:5000/api/users/${usernameInput.value}`)
             .then(response => {
-                console.log(response.data);
+                
                 if(response.data) {
                     document.getElementById('usernamealreadyexists').style.display = 'block';
                 } else {
@@ -21,18 +21,25 @@ export const Register = ({history, login, notes}) => {
                         document.getElementById('usernamealreadyexists').style.display = 'none';
                         document.getElementById('passwordsdontmatch').style.display = 'block';
                     } else {
-                        console.log('made it');
+
                         const newUser = {
                             username: usernameInput.value,
                             password: passwordInput.value,
                             notes: notes 
                         }
                         axios.post('http://localhost:5000/api/users', newUser)
-                            .then(login(newUser));
+                            .then(response => {
+                                if (loggedInAs !== '')
+                                    newUser.notes = [];
+                                login(newUser);
+                                history.push('/');
+                            });
+                            
                     }
                 }
             }
             )
+            .catch(error => console.log(error));
     }
 
     return (

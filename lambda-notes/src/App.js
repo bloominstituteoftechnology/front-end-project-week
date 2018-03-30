@@ -54,7 +54,7 @@ class App extends Component {
   };
 
   loginNewUser = (newUser) => {
-    console.log('logging in new user');
+    document.getElementById('password_warning').style.display = 'none';
     this.setState({
       loggedInAs: newUser.username,
       password: newUser.password,
@@ -111,6 +111,7 @@ class App extends Component {
       notes: []
     });
   }
+
   updateServer = () => {
 
     const userdata = {
@@ -123,11 +124,11 @@ class App extends Component {
       .then(
         axios.post(`http://localhost:5000/api/users`, userdata)
       )
-      .catch(error => {console.error(error)})
-      
+      .catch(error => {console.error(error)})     
   }
 
   setNextId = () => {
+    
     let newId = 0;
     let tempNotes = this.state.notes;
     for (let i = 0; i < tempNotes.length; i++){
@@ -154,7 +155,7 @@ class App extends Component {
               <Link to='/Register' className='nav_button'>Register for an Account</Link>
               <br/>
               <button id='login_btn' data-toggle="modal" data-target="#loginModal">Log In</button>
-              <div id='password_warning'>Incorrect Password</div>
+              <div id='password_warning'>Incorrect Username/Password</div>
               <br/>
               <button id='logout_btn' onClick={(event)=>{event.preventDefault(); this.logout()}}>Log Out</button>
               <div className='nav_head' id='current_user'>Logged in as: {this.state.loggedInAs}</div>

@@ -195,11 +195,13 @@ form .save_button:hover {
 #passwordsdontmatch {
   color: red;
   display:none;
+  align-self: flex-start;
 }
 
 #usernamealreadyexists {
   color: red;
   display:none;
+  align-self: flex-start;
 }
 
 .input_lable {

@@ -76,7 +76,7 @@ app.delete('/api/users/:username', (req, res) => {
 
   users = users.filter(f => f.username !== username);
   res.send('Data Deleted');
-});
+});   
 
 function getNextId() {
   return nextId++;
