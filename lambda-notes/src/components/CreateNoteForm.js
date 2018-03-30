@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Link, withRouter } from 'react-router-dom';
+import { Form, FormGroup, Input } from 'reactstrap';
+import {  withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
 
-import NotesList from '../components/NotesList';
+
 
 import './CreateNoteForm.css';
 
@@ -16,8 +16,8 @@ class CreateNoteForm extends Component {
           title: '',
           note: '',
         };
-        const { dispatch } = props;
-        this.addNote= this.addNote.bind(this);
+       
+        this.addNote = this.addNote.bind(this);
         this.handleTitleInput = this.handleTitleInput.bind(this);
         this.handleNoteInput = this.handleNoteInput.bind(this);
       }  
@@ -42,6 +42,7 @@ class CreateNoteForm extends Component {
           title: '',
           note: '',
         });
+        this.props.history.push("/");
       }
     
     viewNotesRoute() {
@@ -55,14 +56,18 @@ class CreateNoteForm extends Component {
             <div className="container-fluid createDiv">
       <div className="row  App">
         <div className="col-md-3 col-sm-12 indexCol">
+        <div className="holdsEvery">
         <div className="titleContainer">
-            <div > <h1 className="mainTitle"> Lambda </h1> </div>
+            <div > <h1 className="maithis.addNote}nTitle"> Lambda </h1> </div>
             <div className="botTitleDiv" > <h1 className="mainTitle"> Notes </h1> </div>
         </div>   
-          
-        <div> <button className="button"  onClick={()=> {this.viewNotesRoute()}}> View Your Notes </button> </div>
-        <div><button className="button"> Create New Notes </button> </div>
+        
+        <div className="row">
+        <div className="col-xs-12 col-sm-6 col-md-12"> <button className=" button"  onClick={()=> {this.viewNotesRoute()}}> View Your Notes </button> </div>
+        <div className="col-xs-12 col-sm-6 col-md-12"><button className=" button"> Create New Notes </button> </div>
+        </div>  
 
+</div>
         </div>
        
         <div className="col-md-9 col-sm-12 createDiv">

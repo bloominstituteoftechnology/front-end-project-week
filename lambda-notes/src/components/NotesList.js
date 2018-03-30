@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Route, Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom';
+
 
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
 
-import NoteView from '../components/NoteView';
 import NoteCard from '../components/NoteCard';
 
 import './NoteList.css';
@@ -41,11 +40,13 @@ render() {
             <div className="botTitleDiv" > <h1 className="mainTitleBot"> Notes </h1> </div>
           </div>
         
-           <div className="butDiv"> <button className="button"> View Your Notes </button> </div>
+          <div className="row buttCont">
+           <div className="col-xs-12 col-sm-6 col-md-12 butDiv"> <button className="button"> View Your Notes </button> </div>
       
           
-           <div className="butDiv"> <button className="button" onClick={()=> {this.createNoteRoute()}}>Create New Notes</button> </div>
-         
+           <div className="col-xs-12 col-sm-6 col-md-12 butDiv"> <button className="button" onClick={()=> {this.createNoteRoute()}}>Create New Notes</button> </div>
+         </div>
+
         </div>
         </div>
 

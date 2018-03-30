@@ -3,6 +3,11 @@
     min-height: 1000px;
 }
 
+.holdsEvery {
+    
+    
+}
+
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
@@ -16,8 +21,11 @@ p {
 }
 
 .modal-content {
-    background: black;
+    background: white;
     top: 300px;
+}
+.buttCon {
+    display: flex;
 }
 
 .mainTitleTop {
@@ -40,7 +48,9 @@ p {
     
 
 }
-
+.flexy {
+    display: flex;
+}
 /* .mode {
     position: absolute;
     top: 200px;
@@ -79,10 +89,6 @@ p {
 }
 
 
-.buttCon {
-
-    display: flex;
-}
 
 .redButton {
     
@@ -135,3 +141,16 @@ p {
     margin: 3px;
 }
 
+.out{
+display: flex;
+flex-direction: column;
+}
+
+.tit{
+display: flex;
+}
+
+
+/* .buttCont {
+    display: flex;
+} */

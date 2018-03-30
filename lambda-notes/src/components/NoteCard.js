@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardText, CardBody,
-    CardTitle,} from 'reactstrap';
+import { Card, CardBody,
+    } from 'reactstrap';
 
 import { withRouter } from 'react-router-dom';
 
@@ -12,7 +12,11 @@ export const NoteCard = props => {
     <div onClick={()=>{props.history.push(`/note-view/${props.id}`)}} className="cardBody">
       <Card>
         <CardBody>
-          <div  className="titleUnderline"><h5 className="title">{props.title}</h5></div>
+          <div className="flexy">
+          <h5 className="title">{props.title}</h5>
+          </div>
+          <div  className="titleUnderline"></div>
+          
           <p className="text"> {props.note} </p>
         </CardBody>
       </Card>

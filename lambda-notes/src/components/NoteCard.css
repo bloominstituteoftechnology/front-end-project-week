@@ -16,11 +16,12 @@
 }
 
 .cardBody {
-    width: 400px;
-    height: 330px;
-    /* padding-bottom: 100%; */
+    width: 100%;
+    height: 0px;
+    padding-bottom: 90%;
     margin: 10px 0;
 
+    
     white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
