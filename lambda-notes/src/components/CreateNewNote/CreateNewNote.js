@@ -15,7 +15,7 @@ class CreateNewNote extends Component {
         return (
             <div className='newNote'>
                 <h2 className='my-3 py-3'>Create New Note:</h2>
-                <Form>
+                <Form className='form'>
                     <div>
                         <Input placeholder='Note Title'
                             type='text'

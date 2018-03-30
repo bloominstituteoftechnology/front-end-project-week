@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 // Styling
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import './DeleteNote.css';
+const btnDeleteColor = '#D0021B';
 
 class DeleteNote extends React.Component {
   constructor(props) {
@@ -31,13 +32,13 @@ class DeleteNote extends React.Component {
             Are you sure you want to delete this?
           </ModalBody>
           <ModalFooter>
-            <Link to='/' className='link' style={{backgroundColor: 'red'}} onClick={this.toggle}>Delete</Link>
+            <Link to='/' className='link' style={{backgroundColor: btnDeleteColor }} onClick={this.toggle}>Delete</Link>
             <button className='link' onClick={this.toggle}>No</button>
           </ModalFooter>
         </Modal>
       </div>
     );
-  }
-}
+  } // end render()
+} // end DeleteNote
 
 export default DeleteNote;

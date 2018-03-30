@@ -1,4 +1,5 @@
-import { FETCHING_NOTES, GET_NOTES_ERROR, FETCHED_NOTES } from '../actions';
+import { FETCHING_NOTES, GET_NOTES_ERROR, FETCHED_NOTES,
+    PUTTING_NOTE, PUT_NOTE_ERROR, PUT_NOTE } from '../actions';
 
 // initial app state
 const initialState = {
@@ -18,6 +19,13 @@ export default (state = initialState, action) => {
             return { ...state, error: action.errorMessage };
         case FETCHED_NOTES:
             return { ...state, notes: action.notes, gettingNotes: false, error: false };
+        
+        case PUTTING_NOTE:
+            return { ...state, puttingNotes: true };
+        case PUT_NOTE_ERROR:
+            return { ...state, error: action.errorMessage };
+        case PUT_NOTE:
+            return { ...state, notes: [...state, action.note], puttingNotes: false };
 
         // case POSTING_NOTE:
         // case POST_NOTE_ERROR:
