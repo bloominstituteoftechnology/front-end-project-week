@@ -5,14 +5,15 @@ import NoteList from './components/NoteList';
 import {NewNote} from './components/NewNote';
 import {EditNote} from './components/EditNote';
 import { NoteView } from './components/NoteView';
+import { Register } from './components/Register';
 import NoteListTest from './components/NoteListTest';
 import axios from 'axios';
 
 class App extends Component {
 
   state = {
-    notes: [{id:666, title:'checking', text: 'hhhhhhhhhhhhhhhhhhhhhhhh'} ],
-    nextId: 5,
+    notes: [],
+    nextId: 99,
     usernameInput:'',
     passwordInput: '',
     loggedInAs: '',
@@ -52,7 +53,25 @@ class App extends Component {
 
   };
 
+  loginNewUser = (newUser) => {
+    console.log('logging in new user');
+    this.setState({
+      loggedInAs: newUser.username,
+      password: newUser.password,
+      notes: newUser.notes,
+      usenameInput: '',
+      passwordInput: ''
+    })
+
+    document.getElementById('current_user').style.display = 'block';
+    document.getElementById('logout_btn').disabled = false;
+    document.getElementById('login_btn').disabled = true;
+    this.setNextId();
+    
+
+  }
   handleLogin = () => {
+
     axios.put(`http://localhost:5000/api/users/${this.state.usernameInput}`, {username: this.state.usernameInput, password: this.state.passwordInput})
     .then(response => {
       if(response.data !== 'ERROR')
@@ -61,6 +80,7 @@ class App extends Component {
         document.getElementById('current_user').style.display = 'block';
         document.getElementById('logout_btn').disabled = false;
         document.getElementById('login_btn').disabled = true;
+        this.setNextId();
     })
     .catch(error => {
       console.log('THere was error:', error);
@@ -80,11 +100,16 @@ class App extends Component {
   }
 
   logout = () => {
-    console.log('logging out');
+    console.log('logginout');
     document.getElementById('logout_btn').disabled = true;
     document.getElementById('login_btn').disabled = false;
     document.getElementById('current_user').style.display = 'none';
     this.updateServer();
+    this.setState({
+      loggedInAs: '',
+      password: '',
+      notes: []
+    });
   }
   updateServer = () => {
 
@@ -94,22 +119,30 @@ class App extends Component {
       notes: this.state.notes
     }
     
-
     axios.delete(`http://localhost:5000/api/users/${userdata.username}`)
       .then(
         axios.post(`http://localhost:5000/api/users`, userdata)
       )
+      .catch(error => {console.error(error)})
+      
+  }
 
+  setNextId = () => {
+    let newId = 0;
+    let tempNotes = this.state.notes;
+    for (let i = 0; i < tempNotes.length; i++){
+      if (tempNotes[i].id > newId)
+        newId = (tempNotes[i].id + 1); 
+    }
+    this.setState({id: newId});
   }
   
   componentWillUnmount() {
-
-    
+    this.updateServer();  
   }
 
   render() {
       
-    
     return (
       <div className="App">
         <div className='container'>
@@ -118,18 +151,19 @@ class App extends Component {
               <h2 className='nav_head'>Lambda <br/>Notes</h2>
               <Link to='/' className='nav_button'>View Your Notes</Link>
               <Link to='/addNewNote' className='nav_button'>+Create New Notes</Link>
+              <Link to='/Register' className='nav_button'>Register for an Account</Link>
+              <br/>
               <button id='login_btn' data-toggle="modal" data-target="#loginModal">Log In</button>
               <div id='password_warning'>Incorrect Password</div>
-              <button id='logout_btn' onClick={() => this.logout()} >Log Out</button>
+              <br/>
+              <button id='logout_btn' onClick={(event)=>{event.preventDefault(); this.logout()}}>Log Out</button>
               <div className='nav_head' id='current_user'>Logged in as: {this.state.loggedInAs}</div>
             </div>
             <Route exact path='/' render={(props) => <NoteList {...props} notes={this.state.notes}/> } />
-            
-            {/* <Route path='/noteview/:id' render={({match}) => <NoteView notes={this.state.notes} /> }/> */}
-            {/* <Route path='/noteview/:id' render={({ match }) => noteView(this.state.notes, match) }/> */}
             <Route path='/noteview/:id' render={(props) => <NoteView {...props} deleteNote={this.deleteNote} notes={this.state.notes} /> }/>
             <Route path='/addNewNote' render={(props) =>  <NewNote {...props} addNewNote={this.addNewNote} />} />
             <Route path='/EditNote/:id' render={(props) => <EditNote {...props} updateNote={this.updateNote} notes={this.state.notes} />} />
+            <Route path='/Register' render={(props) => <Register {...props} login={this.loginNewUser} notes={this.state.notes} loggedInAs={this.state.loggedInAs} />} />
           </div>
 
 

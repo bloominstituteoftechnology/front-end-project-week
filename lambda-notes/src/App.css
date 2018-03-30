@@ -191,3 +191,18 @@ form .save_button:hover {
 #current_user{
   display:none;
 }
+
+#passwordsdontmatch {
+  color: red;
+  display:none;
+}
+
+#usernamealreadyexists {
+  color: red;
+  display:none;
+}
+
+.input_lable {
+  align-self: flex-start;
+  font-weight: bold;
+}

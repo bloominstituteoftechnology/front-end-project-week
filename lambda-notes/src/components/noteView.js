@@ -2,18 +2,16 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export const NoteView = ({match, history, notes, deleteNote}) => {
-    console.log(notes);
+    
     const note = notes.filter(note => note.id === parseInt(match.params.id))[0];
     
     const handleDeleteClick= (event) => {
         event.preventDefault();
-        deleteNote(note);
-        
+        deleteNote(note); 
         history.push('/');
-        //window.location.assign('/');
     }
     return (
-        <div className='col-9 right_side'>
+        <div className='col-8 right_side'>
             <div className='row title_bar'>
                 <div className='col-3 header_font'>
                     <h4>{note.title}</h4>

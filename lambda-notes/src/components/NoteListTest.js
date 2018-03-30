@@ -20,6 +20,7 @@ class NoteListTest extends Component {
     componentDidMount() {
         this.setState({notes: this.props.notes});
     }
+    
     render() {
         return (
             <div className='col-9 right_side'>

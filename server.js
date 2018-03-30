@@ -32,13 +32,17 @@ app.get('/api/users', (req, res) => {
 });
 
 app.get('/api/users/:username', (req, res) => {
-  const user = users.find(f => f.username == req.params.username);
-  console.log(req.body);
-  console.log(req.data);
+  const { username } = req.params;
+  const user = users.find(f => {
+    
+    return (f.username == username)}
+  );
+
+  
   if (user) {
-    res.status(200).json(user);
+    res.send(true);
   } else {
-    res.status(404).send({ msg: 'Friend not found' });
+    res.send(false);
   }
 });
 
@@ -52,22 +56,7 @@ app.post('/api/users', (req, res) => {
 });
 
 app.put('/api/users/:username', (req, res) => {
-  // const { id } = req.params;
 
-  // const friendIndex = users.findIndex(f => f.id == id);
-
-  // if (friendIndex > -1) {
-  //   const friend = { ...users[friendIndex], ...req.body };
-
-  //   users = [
-  //     ...users.slice(0, friendIndex),
-  //     friend,
-  //     ...users.slice(friendIndex + 1),
-  //   ];
-  //   res.send(users);
-  // } else {
-  //   res.status(404).send({ msg: 'Friend not found' });
-  // }
   const { username } = req.params;
 
   const userIndex = users.findIndex(u => u.username == username);
@@ -86,7 +75,6 @@ app.delete('/api/users/:username', (req, res) => {
   const { username } = req.params;
 
   users = users.filter(f => f.username !== username);
-
   res.send('Data Deleted');
 });
 

@@ -12,7 +12,7 @@ export const NewNote = ({addNewNote, history}) => {
     }
 
     return (
-        <div className='col-9 right_side'>
+        <div className='col-8 right_side'>
             <div className='row title_bar'>
                 <div className='col-4 header_font'>
                     <h4>Create New Note:</h4>
@@ -22,8 +22,6 @@ export const NewNote = ({addNewNote, history}) => {
                 <div className='col'>
                 <form className='new_note_form' onSubmit={handleSubmit}>
                     <input className='new_note_title' ref={title => titleInput = title} placeholder='Title of New Note' autoFocus />
-                    
-                    
                     <textarea cols='66' rows='18' className='new_note_text' ref={text => textInput = text} placeholder='New Note'></textarea>
                     <input className='save_button' type='submit' />
                     <br/>
