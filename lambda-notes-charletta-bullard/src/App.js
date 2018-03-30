@@ -4,7 +4,7 @@ import SideBar from './components/pages/SideBar';
 import NotesList from './components/pages/NotesList';
 import { getNotes } from './dummyData';
 import SingleNote from './components/pages/SingleNote';
-import NoteForm from './components/pages/NoteForm';
+import CreateANote from './components/pages/CreateANote';
 import DeleteNote from './components/pages/DeleteNote';
 
 
@@ -36,7 +36,7 @@ class App extends Component {
             )}
             path='/note/:id'
           />
-          <Route path='/noteform' component={NoteForm} exact />
+          <Route path='/createanote' component={CreateANote} exact />
           <Route path='/delete/:id' component={DeleteNote} />
         </div>
       </Router>

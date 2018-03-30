@@ -10,7 +10,7 @@ const SideBar = () => {
         <Link to='/NotesList'>
           <button className='buttons'>View Your Notes</button>
         </Link>
-        <Link to='/NoteForm'>
+        <Link to='/CreateANote'>
           <button className='buttons'>+Create New Note</button>
         </Link>
       </div>
