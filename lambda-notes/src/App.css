@@ -1,0 +1,421 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.App {
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: auto 25px;
+    background: #f3f3f3;
+    max-width: 1224px;
+    min-height: 1050px;
+    padding: 0;
+}
+
+.ListView {
+    display: flex;
+    flex-flow: row wrap;
+    padding-right: -10px;
+    margin: 0 -25px 0 0 !important;
+}
+
+.List {
+    position: relative;
+    margin: 0 0 0 275px ;
+    display: flex;
+    flex-flow: column nowrap;
+    max-width: 220px;
+    min-height: 270px;
+}
+
+.List__Wrap {
+   /* display: flex;
+    flex-flow: column nowrap;
+    align-self: flex-start;
+    justify-content: space-between;
+    align-content: space-between;*/
+    position: relative;
+    margin: 100px 20px 5px 295px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #4A4A4A;
+    transform: translateX(-60%) translateY(-40%);
+    list-style: none;
+}
+
+.List__Wrap.Hidden {
+    border-bottom: 3px solid #fff;
+}
+
+.List__Wrap li {
+  display: inline-block;
+/*  font-size: 2em;*/
+  color: #000;
+  opacity: 1;
+  transition: all 1.5s ease-in-out;
+  max-width: 2rem;  
+}
+
+.List__Wrap.Hidden li.List__Spaced {
+    padding-left: 0;
+}
+
+.List__Wrap li.List__Spaced {
+    padding-left: 0.5rem;
+}
+
+.List__Wrap.Hidden li.List__Ghost {
+    opacity: 0;
+    max-width: 0;
+}
+
+.List__View {
+    display: flex;
+    flex-flow: row wrap;
+    width: 210px;
+    min-height: 230px;
+}
+
+.List__View__Link {
+    text-decoration: none !important;
+}
+
+.CSV {
+    border: 3px #2BC1C4 dotted;
+    width: 120px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: 'Raleway', serif;
+    color: #000;
+    margin-top: 20px;
+}
+
+.CSV:hover {
+    background: #fff;
+    color: #2BC1C4;
+    border: 4px #fff solid;
+}
+
+.Note {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: black;
+    display: flex;
+    flex-flow: column wrap;
+    background: #fff;
+    width: 230px;
+    height: 250px;
+    margin: 0 20px 5px 0 !important;
+}
+
+.Note:hover {
+    background: #d8d8d8;
+    cursor: pointer;
+}
+
+
+.Note__Title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    width: 90%;
+    justify-content: center;
+    align-self: center;
+    padding: 10px 0 0 0;
+    height: 45px;
+    font-size: 21px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.Note__Body {
+    overflow: hidden;
+    margin-right: 10px;
+    width: 85%;
+    height: 67%;
+    display: block;
+    font-size: .97rem;
+    padding: 10px 0 0 20px;
+    margin-bottom: 5px;
+    line-height: 1.6;
+    font-family: 'Raleway', sans-serif;
+    text-overflow: ellipsis;
+}
+
+.SideNav {
+    position: fixed;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 0;
+    padding: 5px;
+    background: #d8d8d8;
+    border-right: 1.1px solid #CDCDCD;
+    width: 260px;
+    min-height: 100vh;
+    background: #D7D7D7;
+    box-sizing: border-box;
+}
+
+.SideNav__Title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: flex-start;
+    color: #4A4A4A;
+    font-size: 40px;
+    margin: 40px 20px 15px 10px;
+    line-height: 36px;
+    font-weight: bold;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+button {
+    border: 1px solid #999999;
+    width: 215px;
+    height: 47px;
+    margin: 18px 25px 10px 8px;
+    padding: 5px;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    background: #2BC1C4;
+    color: white;
+}
+
+.SideNav a {
+    text-decoration: none;
+}
+
+.SideNav .View {
+    margin: 10px 12px 22px 12px;
+    font-size: 16px;
+}
+
+.Popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(25, 25, 25, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+.Popup__Contents {
+    text-align: center;
+    background: white;
+    font-size: 18px;
+    border: 1px solid black;
+    height: 200px;
+    padding: 40px;
+}
+
+.Popup__Button-Delete {
+    margin: 20px 10px -30px 10px;
+    background: #D0021B;
+}
+
+.Popup_Button-Delete:hover {
+    background: #83000f;
+}
+
+.Popup__Button-No {
+    margin: 20px 10px -30px 10px;
+    background: #2BC1C4;
+}
+
+
+.Each__View {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 70%;
+    margin: 0 20px 0 275px;
+    height: 100%;
+    text-decoration: none;
+}
+
+.Each__Links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-self: flex-end;
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-right: -10px;
+}
+
+.Each__Link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.8);
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+.Each__Title {
+    margin: 35px 20px 31px 8px;
+    font-size: 23px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.Each__Body {
+    width: 100%;
+}
+
+.Each {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 70%;
+    margin: 25px 0 0 300px;
+}
+
+.Each__Input-Title {
+    display: flex;
+    padding: 10px;
+    width: 55%;
+    height: 45px;
+    font-size: .9rem;
+}
+
+.Each__Input-Body {
+    display: flex;
+    padding: 20px;
+    width: 98%;
+    min-height: 400px;
+    font-size: .9rem;
+}
