@@ -1,0 +1,33 @@
+.createpage {
+    background: #F3F3F3;
+    width: 70%;
+    margin-right: 20px;
+    height: 1100px;
+}
+
+.createtitle {
+    margin: 100px 0 0 80px;
+    font-size: 35px;
+}
+
+#bootstrap-override .inputtitle {
+    margin: 28px 0 0 80px;
+    width: 80%;
+    height: 35px;
+    padding-left: 20px;
+    font-size: 18px;
+}
+
+#bootstrap-override .inputcontent {
+    margin: 20px 0 0 80px;
+    width: 80%;
+    height: 500px;
+    padding: 20px 0 0 20px;
+    font-size: 18px;
+}
+
+.inputbut {
+    margin: 20px 0 0 80px;
+    width: 300px;
+    padding: 0 0 0 110px;
+}

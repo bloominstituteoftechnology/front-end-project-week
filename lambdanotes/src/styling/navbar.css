@@ -1,0 +1,38 @@
+.sidebar {
+    background: #D8D8D8;
+    width: 25%;
+    min-height: 100%;
+}
+
+#bootstrap-override .sidebarbut {
+    background: #2BC1C4;
+    width: 300px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 0 40px;
+    height: 40px;
+    font-size: 20px;
+}
+
+#bootstrap-override .sidebarbut2 {
+    background: #2BC1C4;
+    width: 300px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 0 40px;
+    height: 40px;
+    font-size: 20px;
+}
+
+/* Button { 
+    background: #2BC1C4;
+    width: 300px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 0 40px;
+    height: 40px;
+    font-size: 20px;
+} */

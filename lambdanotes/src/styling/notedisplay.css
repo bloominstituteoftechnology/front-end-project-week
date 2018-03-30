@@ -1,0 +1,56 @@
+.noteview {
+    display: flex;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 20px 0 0 20px;
+}
+
+.lambdanotes {
+    margin: 40px 0 25px 70px;
+    font-size: 45px;
+}
+
+.viewpage {
+    max-width: 73.5%;
+    background: #F3F3F3;
+    height: 100%;
+}
+
+.yournotes {
+    margin: 70px 20px 20px 40px;
+    font-size: 30px;
+}
+
+.notes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+
+.notetitle {
+     margin-left: 30px;
+     font-size: 25px;
+}
+
+.break {
+    width: 85%;
+    margin-top: 30px;
+}
+
+.notetext {
+    margin: 20px 15px 15px 15px;
+    font-size: 20px
+}
+
+.notebody {
+    width: 375px;
+    margin: 40px 0 0 0;
+}
+
+.note {
+    border: solid #D8D8D8;
+    background: white;
+    width: 375px;
+    margin: 40px 0 0 0;
+}
