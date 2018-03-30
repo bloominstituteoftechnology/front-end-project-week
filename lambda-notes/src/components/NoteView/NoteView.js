@@ -22,10 +22,8 @@ class NoteView extends Component {
   componentDidMount() {
     console.log(this.props);
     const id = this.props.match.params.id;
-    console.log(id);
     this.props.notes.forEach(note => {
       if (Number(id) === note.id) {
-        console.log(note.title);
         this.setState({
           title: note.title,
           text: note.text,
@@ -34,7 +32,6 @@ class NoteView extends Component {
         });
       }
     });
-    console.log(this.state);
   }
   
   goToViewMode = () => {
@@ -42,9 +39,6 @@ class NoteView extends Component {
   }
   
   delete = (id) => {
-    // const youNoDelete = window.confirm('alert');
-    // if (youNoDelete) {
-    // }
     this.props.deleteNoteAction(id);
     this.goToViewMode();
   }
