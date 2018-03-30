@@ -76,6 +76,12 @@ class App extends Component {
     localStorage.setItem(this.props.user, JSON.stringify(this.state.notes));
   };
 
+  reorder = notesArr => {
+    this.setState({
+      notes: notesArr
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -87,7 +93,11 @@ class App extends Component {
           exact
           path="/"
           render={() => (
-            <ListNotes name={this.props.user} notes={this.state.notes} />
+            <ListNotes
+              name={this.props.user}
+              notes={this.state.notes}
+              reorder={this.reorder}
+            />
           )}
         />
         <Route

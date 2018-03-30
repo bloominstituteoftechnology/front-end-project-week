@@ -10,7 +10,7 @@ class Note extends Component {
    }
 
    componentDidMount() {
-      console.log(this.props);
+
       this.setState(
          {index: this.props.index, title: this.props.title, content: this.props.content, tags:this.props.tags}
       );

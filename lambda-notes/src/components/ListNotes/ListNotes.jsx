@@ -19,9 +19,7 @@ class ListNotes extends Component {
    }
 
    filterTag = () => {
-     console.log("filterTag clicked")
     let tagToFilter = document.getElementById('filterTagsInput').value;
-    console.log(tagToFilter);
 
     //check if tag used, modify this for search but search content, titles, tags
     for(let i = 0; i < this.props.notes.length; i++){
@@ -34,13 +32,11 @@ class ListNotes extends Component {
       }//end if
     }// end for loop
     
-    console.log(this.state.filteredTags);
     document.getElementById('filterTagsInput').value = "";
    }//end filterTag
 
    search = () => {
     let word = document.getElementById('searchInput').value;
-    console.log(word);
 
     for(let i = 0; i < this.props.notes.length; i++) {
       let note = this.props.notes[i];
@@ -83,8 +79,20 @@ class ListNotes extends Component {
     }
  }
 
+    dragTask = (event) => {
+      
+    }
+
+    startDragState = () => {
+
+    }
+
+    reorderArray = () => {
+
+      this.props.reorder()
+    }
+
     handleKeyPress = event => {
-      console.log(event);
       if(event.key === 'Enter') {
         this.search();
       }
@@ -122,7 +130,7 @@ class ListNotes extends Component {
                  (note.tags.some(tag => this.state.searchWords.includes(tag))) ||
                  (this.state.searchWords.some(word => note.content.search(word) !== -1 )) ||
                   (this.state.searchWords.some(word => note.title.search(word) !== -1 )) ?
-                 (<Note key={i} index={i} title={note.title} content={note.content} tags={note.tags}/>) : null
+                 (<Note key={i} index={i} title={note.title} content={note.content} tags={note.tags} />) : null
              )))
             :
             
@@ -154,11 +162,6 @@ class ListNotes extends Component {
    }
 }
 
-          // //if false display all notes
-          // (this.props.notes.map((note, i) => (
-          //   note.title ? 
-          //   (<Note key={i} index={i} title={note.title} content={note.content} tags={note.tags}/>)
-          //   : (null)
-          // )))
+//draggable="true" onDrag={(event) => this.dragTask(event)}
 
 export default ListNotes;
