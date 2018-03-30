@@ -25,19 +25,21 @@ class CreateNew extends React.Component {
       title: this.state.title,
       content: this.state.content
     };
-    console.log(newNote)
-    if (newNote !== null){
+    console.log('newNote', newNote)
+    if (newNote.title != "" && newNote.content !="") {
       this.props.createNote(newNote);
       this.props.history.push("/" )
+      console.log("I am in if")
    } else{
     this.props.history.push("/" )
+    console.log("I am in else")
    } 
     
   };
 
   render() {
     return (
-    <div>  
+    <div className="newContainer">  
       <form className="newForm" onSubmit={this.submitNote.bind(this)}>
         
           <div className="labelName"> <h3>Create New Note:</h3></div>
@@ -50,7 +52,7 @@ class CreateNew extends React.Component {
             id="noteId"
             placeholder="Note Title"
           />
-          <input
+          <textarea
             className="textarea"
             onChange={this.newContent}
             type="textarea"

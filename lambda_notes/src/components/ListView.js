@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Col } from "reactstrap";
 import "./ListView.css";
 import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 

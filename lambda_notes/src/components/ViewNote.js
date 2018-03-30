@@ -28,11 +28,26 @@ class ViewNote extends Component {
     console.log(this.props.note);
     return (
       <div className="detailedNotes">
-               <h1>{this.props.note.title}</h1> 
-               <p> {this.props.note.content}</p>
+      <div className="editDeleteNav">
         <Link className="detailLink" to={`/Update/${this.props.note.id}`}> edit </Link>
-        <Button className="deleteBtn"color="danger" onClick={this.toggle}>delete</Button>
-        <Modal className="modal" isOpen={this.state.modal} toggle={this.toggle}>
+        <button className="deleteBtn" onClick={this.toggle}>delete</button>
+        </div>
+        <div className="detailNoteContent">
+               <div className="h1Style">{this.props.note.title}</div>
+               <div className="pStyle"> {this.props.note.content}</div>
+        </div>
+        
+        
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Delete</ModalHeader>
+          <ModalBody> Are you sure you want to delete?</ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.handleDelete.bind(this)}>delete</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+        
+        {/* <Modal className="modal" isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody> Are you sure you want to delete?</ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.handleDelete.bind(this)}>
@@ -42,7 +57,9 @@ class ViewNote extends Component {
               No
             </Button>
           </ModalFooter>
-        </Modal>
+        </Modal> */}
+
+
       </div>
     );
   }

@@ -45,7 +45,7 @@ class Update extends Component {
               name="Note"
               placeholder="Note Title"
             />
-            <input
+            <textarea
               className="textarea"
               onChange={this.updateContent}
               type="textarea"

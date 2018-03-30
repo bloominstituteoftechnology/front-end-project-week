@@ -64,16 +64,18 @@ class App extends Component {
           <div className="header">
             {" "}<h1 className="header">Lambda Notes </h1>{" "}
           </div>
-          <div className="btnSideNav">
-            {" "}<Link className="btnLink" to="/">
-              View Your Notes{" "}
-            </Link>
+
+         
+         <Link className="btnLink" to="/"> <div className="btnSideNav">
+            View Your Notes{" "}</div>
+         </Link>
+          
+         <Link className="btnLink" to="/CreateNew">
+          <div className="btnSideNav"> + Create New Note
           </div>
-          <div className="btnSideNav">
-            {" "}<Link className="btnLink" to="/CreateNew">
-              + Create New Note
-            </Link>
-          </div>
+        </Link>
+          
+
         </div>
 
         <Route

@@ -18,21 +18,27 @@
 }
 
 .btnSideNav{
-    display: flex;
+    text-align: center;
+    /* display: flex; */
     padding:10px;
     background-color: #2BC1C4;
     width: 289px;
-    height: 40px;
-    margin-top: -2px;
-    margin-left: 24px;
+    height: 60px;
+    /* margin-top: -2px; */
+    /* margin-left: 24px; */
     margin-bottom: 10px;
+    border: darkslategray solid 1px;
+    text-decoration: none;
 }
 
 .btnLink{
     display: flex;
-    text-decoration: none;
-    align-content: center;
+    text-decoration:navajowhite;
     color: white;
     font-size: 25px;
     font-weight: bold;
+    justify-content: center;
 }
+.detailLink:hover{text-decoration: none}
+
+.btnLink:hover{text-decoration:none;color:white;}
