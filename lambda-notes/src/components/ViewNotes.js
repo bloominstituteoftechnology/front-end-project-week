@@ -6,9 +6,7 @@ import '../App.css';
 
 class ViewNotes extends Component {
 
-  componentDidMount() {
-    console.log('ViewNotes',this);
-  }
+  
   render() {
     return (
       <div className="ViewNotes">
@@ -46,11 +44,11 @@ class ViewNotes extends Component {
         </div>
         <hr />
 
-        <Route path='/ViewNote/:key' render={({match: { params: { key }}} ) => (
+         {/* <Route path='/ViewNote/:key' render={({match: { params: { key }}} ) => (
           <div>
           {console.log(key)}
           </div>
-        )} /> 
+        )} />   */}
 
         
       </div>

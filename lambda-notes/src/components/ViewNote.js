@@ -5,17 +5,19 @@ import App from '../App';
 import { Button } from 'reactstrap';
 
 class ViewNote extends Component {
-  constructor({match}, props) {
-    super();
+  constructor (match,props ) {
+    super(match, props);
+    const note = this.props.notes.find(({ key  }) => key === match.match.params.note);
+    console.log('constructor', note);
+    
+      
   }
   
-
-  componentDidMount(match, params) {
-    const note = this.props.notes.find(({  key } ) => key === this.props.match.params);
-    
-    console.log('VIEW NOTE', this.note);
-  }
+  
+  
   render() {
+    console.log("hi", this );
+    
     return (
       <div className="ViewNotes">
         <div className="LeftSide">
@@ -33,9 +35,11 @@ class ViewNote extends Component {
             <a href="#">edit</a>
             <a href="#">delete</a>
           </div>
-          <h4 className="YourNotes">{this.props.notes.title || 'note title'}</h4>
+          <h4 className="YourNotes">
+            {this.props.notes.title || 'note title'}
+          </h4>
           <div className="CardsDiv">
-            <p>{this.props.notes.content|| 'note content'}</p>
+            <p>{this.props.notes.content || 'note content'}</p>
           </div>
         </div>
       </div>

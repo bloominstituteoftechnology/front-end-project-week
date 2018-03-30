@@ -10,20 +10,19 @@ import SampleData from './SampleData';
 import ViewNotes from './components/ViewNotes';
 import CreateNote from './components/CreateNote';
 import ViewNote from './components/ViewNote';
+import base from './base';
 
 
 class App extends Component {
   state = {
     notes: [],
-    key: '',
-    title: '',
-    content: ''
+    //key: '',
+    //title: '',
+    //content: ''
   };
-  addItem = this.addItem.bind(this);
-  handleTitleChange = this.handleTitleChange.bind(this);
-  handleContentChange = this.handleContentChange.bind(this);
-
-  addItem(e) {
+  
+  addItem = (e) => {
+    const notes = { ...this.state.notes};
     let newNote = {
       key: Date.now(),
       title: this.state.title,
@@ -34,27 +33,28 @@ class App extends Component {
         notes: prevState.notes.concat(newNote)
       };
     });
-    console.log(e);
+    console.log('additem',this);
 
     e.preventDefault();
-    // window.location = '/';
+    //this.props.history.push(`/`);
   }
 
-  handleTitleChange(e) {
+  handleTitleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
    
   }
-  handleContentChange(e) {
+  handleContentChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   componentDidMount() {
+    //this.ref = base.syncState(``);
     this.setState({ notes: SampleData });
     console.log('CDM', this.state.notes);
   }
 
   render() {
-    console.log('RENDER', this.state.notes);
+    console.log('RENDER', );
     return (
       <Router>
         <div>
@@ -77,16 +77,17 @@ class App extends Component {
             )}
           />
 
-          <Route path='/ViewNote/:key' 
+           <Route path='/ViewNote/:note' 
                 render={props => (
                   <ViewNote
                       {...props}
+                      //key={this.state.key} 
+                      //state={this.state}
                       notes={this.state.notes}
-                      key={this.state.key} 
-                      state={this.state}
+                      
                 
               />
-            )} />
+            )} />  
 
             
         </div>

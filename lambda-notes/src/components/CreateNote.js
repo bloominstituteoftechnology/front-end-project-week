@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 class CreateNote extends Component {
+  titleInput = React.createRef();
+  contentInput = React.createRef();
+
   render() {
     return (
       <div className="CreateNote">
@@ -21,8 +24,9 @@ class CreateNote extends Component {
             <Form onSubmit={this.props.addItem}>
               <FormGroup>
                 <Input
-                  // innerRef={e => (this._inputElement = e)}
+                 
                   type="text"
+                  ref={this.titleInput}
                   name="title"
                   id="title"
                   placeholder="Note Title"
@@ -33,8 +37,9 @@ class CreateNote extends Component {
 
               <FormGroup>
                 <Input
-                  // innerRef={e => (this._inputElement2 = e)}
+                  
                   type="textarea"
+                  ref={this.contentInput}
                   rows="14"
                   name="content"
                   id="content"
