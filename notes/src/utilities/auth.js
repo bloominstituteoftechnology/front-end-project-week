@@ -28,10 +28,7 @@ export function login(email, pw) {
   return firebaseAuth
     .signInWithEmailAndPassword(email, pw)
 
-    .catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
+    .catch(function(error) {});
 }
 
 export function resetPassword(email) {
@@ -52,7 +49,6 @@ export function saveUser(user) {
 export function writeNote(note) {
   let userId = firebase.auth().currentUser.uid;
   let newNoteKey = ref.child("notes").push().key;
-  let updates = {};
   return database
     .ref("users/" + userId + "/notes/" + newNoteKey)
     .set({ ...note, id: newNoteKey });

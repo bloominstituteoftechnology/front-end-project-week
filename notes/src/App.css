@@ -1,5 +1,6 @@
 .App.container-fluid {
   height: 100%;
+  font-family: "Raleway";
 }
 .row.app-wrapper {
   min-height: 100vh;
@@ -45,7 +46,7 @@ button.btn.deleteBtn:hover {
 .header {
   color: #4a4a4a;
   font-weight: bold;
-  line-height: 85%;
+  font-family: "Roboto";
 }
 /* Button Color: 2bc1c4 */
 .header-link {

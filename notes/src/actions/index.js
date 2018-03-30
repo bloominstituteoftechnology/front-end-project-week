@@ -1,12 +1,4 @@
-import {
-  firebaseAuth,
-  login,
-  logout,
-  auth,
-  retrieveNotes,
-  ref,
-  writeNote
-} from "../utilities/auth";
+import { login, logout, auth, ref, writeNote } from "../utilities/auth";
 
 import firebase from "firebase";
 
@@ -19,8 +11,6 @@ export const SIGN_OUT = "SIGN_OUT";
 export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
 export const ERROR = "ERROR";
 export const GET_NOTES = "GET_NOTES";
-
-let noteId = 10;
 
 export const addNote = note => dispatch => {
   console.log("Note from Action: ", note);

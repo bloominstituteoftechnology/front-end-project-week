@@ -13,7 +13,6 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import { firebaseAuth } from "./utilities/auth";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
@@ -62,7 +61,7 @@ class App extends Component {
         <Container fluid={true} className="App">
           <Row className="app-wrapper">
             <Col sm={6} md={3} className="leftSide ">
-              <h1 className="header my-4">Lambda Notes</h1>
+              <h1 className="header mt-5">Lambda Notes</h1>
 
               <Link to="/">
                 <Button className="w-100 my-3 p-2">View Your Notes</Button>

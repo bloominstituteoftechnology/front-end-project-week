@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Form, FormGroup, Input, Button, Container } from "reactstrap";
 import { addNote, editNote } from "../actions";
 import { withRouter } from "react-router-dom";
-import { writeNote } from "../utilities/auth";
 
 function mapStateToProps(state) {
   return { notes: state.notes, uid: state.uid };

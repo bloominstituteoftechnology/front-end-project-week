@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { deleteNote, addTag } from "../actions";
-import {
-  Form,
-  FormGroup,
-  Input,
-  Modal,
-  Button,
-  ModalBody,
-  ModalFooter
-} from "reactstrap";
+import { Form, FormGroup, Input, Modal, Button, ModalBody } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {

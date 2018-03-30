@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Button, Row, Col } from "reactstrap";
+import { Button, Row } from "reactstrap";
 import { signOut } from "../actions";
 
 function mapStateToProps(state) {
@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 class User extends Component {
   render() {
     return (
-      <Row className="d-flex justify-content-end">
+      <Row className="d-flex justify-content-end mt-3 mr-3">
         {this.props.authed ? (
           <Fragment>
             {/* You are signed in. as: {this.props.user.email} */}

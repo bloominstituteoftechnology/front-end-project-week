@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { login, resetPassword, auth } from "../utilities/auth";
 import { withRouter } from "react-router-dom";
 import { signIn, createUser } from "../actions";
 
@@ -36,7 +35,7 @@ class Login extends Component {
   render() {
     return (
       <Container className="mt-5">
-        <h1>Login</h1>
+        <h3 className="header">Login</h3>
         <Form
           onSubmit={this.handleOnSubmit.bind(this)}
           onChange={this.handleOnChange.bind(this)}
