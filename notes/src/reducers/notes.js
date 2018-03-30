@@ -18,7 +18,10 @@ const notes = (state = [], action) => {
     case DELETE_NOTE:
       return state.filter((note) => note.id !== action.id);
     // case EDIT_NOTE:
-    //   return stuff;
+    //   return Object.assign({}, note, {
+    //     title: action.title,
+    //     content: action.content
+    //   });
     default:
       return state;
     }

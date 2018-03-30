@@ -13,13 +13,14 @@ import React from 'react';
 // export default Note;
 
 import { Link } from 'react-router-dom';
+import { Route, Redirect } from 'react-router';
 
 const Note = ({ onClick, title, content, id }) => (
   <div
     onClick={onClick}
     className='noteCard'
     >
-      <Link to='/viewnote/:id'>
+      <Link to={`/viewnote/${id}`}>
       <h4>{title}</h4>
       <p>{content}</p>
       </Link>

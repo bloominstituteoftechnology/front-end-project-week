@@ -23,13 +23,3 @@ export const editNote = (id, title, content) => ({
   title,
   content,
 });
-
-// pass id instead of filter?
-export const filterNote = filter => ({
-  type:FILTER_NOTE,
-  filter
-});
-
-export const VisbilityFilters = {
-  
-}
