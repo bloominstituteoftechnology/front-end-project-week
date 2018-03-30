@@ -22,10 +22,10 @@ class Delete extends React.Component {
       <div>
         <a color="danger" onClick={this.toggle}>{this.props.buttonLabel}delete</a>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className= 'deletemodal'>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="danger" onClick={this.toggle}>Delete</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>No</Button>
           </ModalFooter>
         </Modal>
       </div>
