@@ -19,20 +19,20 @@ class CreateNote extends Component {
             <h2 className="label-h2">Create New Note:</h2>
           </label>
           <input 
-          required
-          className="input-title" 
-          type="text" 
-          placeholder="Note Title"
-          onChange={this.props.newTitle}
-          value={this.props.title}
+            required
+            className="input-title" 
+            type="text" 
+            placeholder="Note Title"
+            onChange={this.props.newTitle}
+            value={this.props.title}
           />
           <textarea 
-          required
-          className="input-body" 
-          type="textarea" 
-          placeholder="Note Content"
-          onChange={this.props.newContent}
-          value={this.props.content}
+            required
+            className="input-body" 
+            type="textarea" 
+            placeholder="Note Content"
+            onChange={this.props.newContent}
+            value={this.props.content}
           />
           <button className="sav-btn" type="submit">Save</button>
         </form>
