@@ -9,11 +9,7 @@ import './ListView.css';
 import '../components.css';
 
 class ListView extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {}
-  // }
-  // 
+  
   render() {
     
     return (

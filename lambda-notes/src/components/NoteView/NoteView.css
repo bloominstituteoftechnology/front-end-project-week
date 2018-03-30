@@ -16,14 +16,28 @@
 }
 
 .editDelete {
-  display: inline-block;
   font-family: Roboto;
   color: #4A4A4A;
   font-size: 14px;
+}
+
+.editDeleteInner {
+  width: 80px;
   float: right;
   cursor: pointer;
+  margin-right: 20px;
+}
+
+.editBox {
+  float: left;
   text-decoration: underline;
 }
+
+.deleteBox {
+  float: right;
+  text-decoration: underline;
+}
+
 
 .titleInput {
   width: 250px;

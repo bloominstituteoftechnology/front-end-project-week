@@ -141,9 +141,10 @@ class NoteView extends Component {
             <div className="rightSide">
 
               <div className="editDelete">
-                <div onClick={this.toggleEdit}>Edit</div>
-
-                <div onClick={this.toggleModal}>Delete</div>
+                <div className="editDeleteInner">
+                  <div className="editBox" onClick={this.toggleEdit}>edit</div>
+                  <div className="deleteBox" onClick={this.toggleModal}>delete</div>
+                </div>
                 <Modal isOpen={this.state.modal} fade={true} toggle={this.toggleModal} className="popUp">
                   <ModalBody className="modalBody">
                     Are you sure you want to delete this?
@@ -153,9 +154,6 @@ class NoteView extends Component {
                     <Button color="info" onClick={this.toggleModal} className="popButton">No</Button>
                   </ModalBody>
                 </Modal>
-
-
-                {/* <div onClick={() => this.delete(this.state.id)}>Delete</div> */}
               </div>
 
               <br/>
