@@ -1,0 +1,53 @@
+.cardContainer {
+  height: 230px;
+  width: 215px;
+  background-color: white;
+  border: 2px solid #c5c5c5;
+  padding: 30px 25px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.cardHeader {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1.6px solid #9c9c9c;
+  margin-bottom: 5px;
+}
+
+.cardBody {
+  font-size: 1.1em;
+  font-weight: lighter;
+  letter-spacing: .8px;
+  line-height: 1.8;
+}
+
+.truncate {
+  max-height: 10.8em;
+  overflow: hidden;
+  position: relative;
+  margin-right: -1em;
+  padding-right: 1.5em;
+}
+
+.truncate:before {
+  font-size: .5em;
+  font-weight: bold;
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 23%;
+  height: 13%;
+}
+
+.truncate:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}

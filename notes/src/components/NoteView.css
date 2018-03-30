@@ -1,0 +1,52 @@
+.noteViewContainer {
+  min-height: 100vh;
+  width: 100%;
+  border: 1px solid #b5b5b5;
+  background-color: #f3f3f3;
+  padding: 20px;
+}
+
+.noteViewHeader {
+  text-align: center;
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #4a4a4a;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+.noteViewBody {
+  max-width: 720px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  margin-left: 17px;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration-line: underline;
+  margin-right: 35px;
+}
+
+.link {
+  color: #4a4a4a;
+  margin-left: 20px;
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1080px) {
+  .noteViewHeader {
+    text-align: left;
+    margin-left: 15px;
+  }
+}
