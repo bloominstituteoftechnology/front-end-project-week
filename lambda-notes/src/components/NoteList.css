@@ -1,0 +1,73 @@
+
+
+.App {
+    min-height: 100vh;
+}
+
+
+
+.main {
+    height: 100vh;
+}
+
+
+.butDiv {
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+    height: 10%;
+    margin-left: 3%;
+    background-color: #2BC1C4;
+    border: #2BC1C4;
+    color: white;
+    font-size: 1rem;
+}
+
+.indColHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+    
+}
+
+.mainTitle {
+    font-weight: 900
+}
+
+.titleContainer {
+    margin-top: 20px;
+
+}
+
+.listTitle {
+    display: flex;
+    width: 100%; 
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.listRow {
+    height: 100vh;
+}
+
+.noteCardCol {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1400px;
+    
+}
+
+.indexCol {
+   /* min-height: 100vh; */
+   
+    
+}
