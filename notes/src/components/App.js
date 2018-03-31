@@ -11,9 +11,7 @@ import { createNote, deleteNote, editNote, fetchNotes } from '../actions';
 
 class App extends Component {
   componentDidMount() {
-    if (this.props.searching === false){
       this.props.fetchNotes();
-    }
   }
 
   render() {
@@ -30,23 +28,10 @@ class App extends Component {
             </Link>
           </Col>
           <Col className="ContentArea">
-            <Route exact path="/" 
-            render={(props) => <List {...props} notes={this.props.notes}/>}
-            />
-            <Route path="/notes/:id" 
-              render={({match}) => <Note
-              note={this.props.notes.find(note => 
-                {return note.id === match.params.id})}
-              deleteNote={this.props.deleteNote}/>}
-            />
-            <Route path="/edit/:id"
-              render={({match}) => <Edit 
-              note={this.props.notes.find(note => 
-                {return note.id === match.params.id})}
-              editNote={this.props.editNote}/>}
-            />
-            <Route path="/create" 
-            component={Create}/>
+            <Route exact path="/" component={List}/>
+            <Route path="/notes/:id" component={Note}/>
+            <Route path="/edit/:id" component={Edit}/>
+            <Route path="/create" component={Create}/>
           </Col>
         </Row>
       </Container>

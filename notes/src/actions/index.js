@@ -14,7 +14,6 @@ axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
         .then((response) => {
             noteId = (Object.keys(response.data).reduce(
                 (a,b) => {return a > b  ? a : b}));
-                console.log(response)
         })
         .catch((error) => console.log(error));
 
@@ -37,7 +36,7 @@ export const createNote = note => {
         .then((response) => {
             dispatch({
                 type: CREATE_NOTE,
-                id: noteId.toString(),
+                id: noteId,
                 title: note.title,
                 text: note.text
             })
@@ -97,7 +96,6 @@ export const search = (input) => {
             dispatch({
                 type: SEARCH, 
                 notes: response.data,
-                searching: true,
                 input
             });
         })

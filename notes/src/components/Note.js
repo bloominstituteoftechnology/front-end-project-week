@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Container, Row, Col, Modal, ModalBody, Button } from 'reactstrap';
+
+import { deleteNote } from '../actions';
 import './Note.css';
 
 class Note extends Component {
@@ -8,10 +11,23 @@ class Note extends Component {
         super(props);
         this.state = {
             modal: false,
+            note: {
+                id: '',
+                title: '',
+                text: '',
+            }
         }
 
         this.toggleModal=this.toggleModal.bind(this);
         this.handleDelete=this.handleDelete.bind(this);
+    }
+
+    componentDidMount() {
+        this.setState({
+            note: this.props.notes.find(note => {
+                return note.id === this.props.match.params.id
+            })
+        })
     }
 
     toggleModal() {
@@ -21,7 +37,7 @@ class Note extends Component {
     }
 
     handleDelete() {
-        this.props.deleteNote(this.props.note);
+        this.props.deleteNote(this.state.note);
         this.props.history.push('/');
     }
 
@@ -31,7 +47,7 @@ class Note extends Component {
                 <Row>
                     <Col xs="9"/>
                     <Col xs="2" className="Options">
-                        <Link to={`/edit/${this.props.note.id}`}>
+                        <Link to={`/edit/${this.state.note.id}`}>
                         <p className='Options__link'>edit</p>
                         </Link>
                         <p className='Options__link'
@@ -54,12 +70,12 @@ class Note extends Component {
                 </Row>
                 <Row className='Content__heading Note__heading'>
                     <Col className='Content__heading__col Note__heading__col'>
-                        <h4>{this.props.note.title}</h4>
+                        <h4>{this.state.note.title}</h4>
                     </Col>
                 </Row>
                 <Row className='Note__text'>
                     <Col>
-                        <p>{this.props.note.text}</p>
+                        <p>{this.state.note.text}</p>
                     </Col>
                 </Row>
             </Container>
@@ -67,5 +83,11 @@ class Note extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        notes: state.notes
+    }
+}
 
-export default withRouter(Note);
+
+export default connect(mapStateToProps, { deleteNote })(Note);

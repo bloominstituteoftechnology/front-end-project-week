@@ -1,30 +1,36 @@
 import React, { Component } from 'react';
 import { Button, Container, Row, Col, Form, FormGroup, Input } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { editNote } from '../actions';
 
 class Edit extends Component {
     state = {
-        id: 0,
-        title: '',
-        text: '',
+        note: {
+            id: 0,
+            title: '',
+            text: '',
+        }
     }
 
     componentDidMount() {
         this.setState({
-            id: this.props.note.id,
-            title: this.props.note.title,
-            text: this.props.note.text,
-        });
+            note: this.props.notes.find(note => {
+                return note.id === this.props.match.params.id
+            })
+        })
     }
+
 
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            note: Object.assign({}, this.state.note, {
+                [event.target.name]: event.target.value
+            })
         })
     }
 
     handleSubmit() {
-        this.props.editNote(this.state);
+        this.props.editNote(this.state.note);
         this.props.history.push('/');
     }
 
@@ -38,11 +44,11 @@ class Edit extends Component {
                 </Row>
                 <Form className="Create__form">
                     <FormGroup className='Create__form__title'>
-                        <Input type='text' name='title' value={this.state.title}
+                        <Input type='text' name='title' value={this.state.note.title}
                         onChange={this.handleChange.bind(this)}/>
                     </FormGroup>
                     <FormGroup>
-                        <Input className="Create__form__text" type='textarea' name='text' value={this.state.text}
+                        <Input className="Create__form__text" type='textarea' name='text' value={this.state.note.text}
                         onChange={this.handleChange.bind(this)}/>
                     </FormGroup>
                     <Button className="Button Create__button" color="deoco" onClick={() => this.handleSubmit()}>Save</Button>
@@ -52,5 +58,11 @@ class Edit extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        notes: state.notes
+    }
+}
 
-export default withRouter(Edit);
+
+export default connect(mapStateToProps, { editNote })(Edit);

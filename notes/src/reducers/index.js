@@ -9,7 +9,6 @@ import {
 } from '../actions';
 
 const initialState = {
-    searching: false,
     sortedBy: null,
     notes:[],
     visibleNotes: [],
@@ -24,7 +23,7 @@ export default(state=initialState, action) => {
             });
         case(CREATE_NOTE):
             return Object.assign({}, state, {
-                visibleNotes: state.notes.concat({
+                visibleNotes: state.visibleNotes.concat({
                     id: action.id,
                     title: action.title,
                     text: action.text
@@ -32,7 +31,7 @@ export default(state=initialState, action) => {
             });
         case(EDIT_NOTE):
             return Object.assign({}, state, {
-                visibleNotes: state.notes.filter(note => {
+                visibleNotes: state.visibleNotes.filter(note => {
                     return note.id !== action.id
                 }).concat({
                     id: action.id,
@@ -42,24 +41,24 @@ export default(state=initialState, action) => {
             });
         case(DELETE_NOTE):
             return Object.assign({}, state, {
-                visibleNotes: state.notes.filter(note => note.id !== action.id),
+                visibleNotes: state.visibleNotes.filter(note => note.id !== action.id),
             });
         case(SORT_OLDEST):
+            console.log(state.visibleNotes);
             return Object.assign({}, state, {
                 sortedBy: 'newest',
-                visibleNotes: state.notes.sort((a, b) => a.id > b.id),
+                visibleNotes: state.visibleNotes.sort((a, b) => a.id > b.id),
             });
         case(SORT_NEWEST):
             return Object.assign({}, state, {
                 sortedBy: 'oldest',
-                visibleNotes: state.notes.sort((a, b) => a.id < b.id),
+                visibleNotes: state.visibleNotes.sort((a, b) => a.id < b.id),
             });
         case(SEARCH):
             return Object.assign({}, state, {
-                searching: true,
                 visibleNotes: Object.values(action.notes).filter(
                     note => note !== null).filter(
-                        note => note.text.includes(action.input)),
+                        note => note.text.toLowerCase().includes(action.input.toLowerCase())),
             });
         default:
             return state;
