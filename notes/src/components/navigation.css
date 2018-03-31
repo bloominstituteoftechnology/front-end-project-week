@@ -1,0 +1,28 @@
+.Background-Grey {
+    background-color: #D7D7D7;
+    font-family: Roboto bold;
+}
+
+.Button {
+    border-radius: 0;
+    margin-bottom: 20px;
+    background-color: #5DBDC2;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.Button:hover {
+    background-color: rgb(77, 154, 158);
+}
+
+.Link:hover {
+    text-decoration: none;
+}
+
+.Primary {
+    background-color: #0F6BFF;
+}
+
+.Danger {
+    background-color: red;
+}
