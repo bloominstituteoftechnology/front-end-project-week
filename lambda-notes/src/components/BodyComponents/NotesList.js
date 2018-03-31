@@ -34,7 +34,7 @@ class NotesList extends Component {
               <Card
                 body
                 className="m-3"
-                style={{ height: "250px", width: "200px" }}
+                style={{ overflow: "hidden", height: "250px", width: "200px" }}
                 outline
               >
                 <CardTitle>{note.title}</CardTitle>

@@ -20,7 +20,7 @@ export default class Search extends Component {
           value={this.state.searchFor}
           onChange={this.searchChange}
         />
-        <Button
+        {/* <Button
           className="ml-2"
           style={buttonStyles}
           onClick={e => {
@@ -29,7 +29,7 @@ export default class Search extends Component {
           }}
         >
           Search
-        </Button>
+        </Button> */}
         <Button
           className="ml-2"
           style={buttonStyles}
@@ -49,6 +49,6 @@ export default class Search extends Component {
     event.preventDefault();
     this.setState({ searchFor: event.target.value });
 
-    // this.props.search(this.state.searchFor);
+    this.props.search(event.target.value);
   };
 }
