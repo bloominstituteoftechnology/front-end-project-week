@@ -1,39 +1,78 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import NewNote from './components/NewNote/NewNote';
+import List from './components/List/List';
+import NoteView from './components/NoteView/NoteView';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
-        <div className="Sidebar-container">
+      <Router>
+        <div className="App">
+          <Route exact path='/' component={ List } />
+          <Route path='/create' component={ NewNote } />
+          <Route path='/view/:id' component={ NoteView } />
+        {/* <div className="Sidebar-container">
           <div className="Side-title">Lambda Notes</div>
           <button name="button1" type="button">View Your Notes</button>
           <br />
           <button name="button2" type="button">+ Create New Note</button>
         </div>
         <div className="Notes-section-container">
-          <div className="Notes-title">Your Notes:</div>
+          <div className="Notes-section-title">Your Notes:</div>
           <div className="Notes-container">
-            <div className="Box1 Notes">hi</div>
-            <div className="Box2 Notes">hi</div>
-            <div className="Box3 Notes">hi</div>
-            <div className="Box4 Notes">hi</div>
-            <div className="Box5 Notes">hi</div>
-            <div className="Box6 Notes">hi</div>
-            <div className="Box7 Notes">hi</div>
-            <div className="Box8 Notes">hi</div>
-            <div className="Box9 Notes">hi</div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
+            <div className="Box Notes">
+              <h1>Note Title</h1>
+              <hr />
+              <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...</p>
+            </div>
           </div>
+        </div> */}
         </div>
-      </div>
+      </Router>
     );
   }
 }

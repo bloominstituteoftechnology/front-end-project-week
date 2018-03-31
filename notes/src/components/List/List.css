@@ -1,0 +1,22 @@
+.appContainer {
+    height: 1000px;
+    width: 1200px;
+    border: 1px solid darkcyan;
+    margin: 5px 0 0 5px;
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+}
+.listView {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.Note {
+
+}
+
+.noteTitle {
+
+}
