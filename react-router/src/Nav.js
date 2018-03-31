@@ -1,9 +1,9 @@
-import { React, Components } from 'react';
+import React, {Component}  from 'react';
 import NavLink from 'react-router-dom';
 import LeftColumnPanel from './LeftColumnPanel';
 import NoteDisplay from './NoteDisplay';
 
-  class Nav extends Components {
+  class Nav extends Component {
         render() {
 		    return (
           <div className="Home">
