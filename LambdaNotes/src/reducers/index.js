@@ -7,7 +7,12 @@ let nextId = 7;
 const intialState = {
   idCount: nextId,
   notes: defaultNotes,
-  activeNote: {}
+  users: [{
+    name: 'user1',
+    password: 'password'
+  }],
+  activeNote: {},
+  activeUser: {}
 }
 
 export default (state = intialState, action) => {
