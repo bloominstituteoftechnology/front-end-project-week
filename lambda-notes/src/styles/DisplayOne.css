@@ -25,6 +25,11 @@
   font-weight: bold;
 }
 
+.edit-delete:hover {
+  color: darkred;
+  cursor: pointer;
+}
+
 .note-title {
   font-size: 26px;
   color: #4a494a;
