@@ -39,7 +39,7 @@ class CreateNote extends Component {
         <Form onSubmit={this.submitNote}>
           <FormGroup>
             <Input name="title" type="text" onChange={this.handleInput}placeholder="Note Title"/>
-            <Input type="textarea" name="text" type="text" onChange={this.handleInput} placeholder="Note Content"/>
+            <Input type="textarea" name="text" onChange={this.handleInput} placeholder="Note Content"/>
             <Button>Save</Button>
           </FormGroup>
         </Form>

@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+  margin: 2%;
+  background-color: #2EB8BC;
+  height: 30%;
+  width: 90%;
+  font-size: 1rem;
+  `;
+
+const SideBarContent = styled.div`
+  margin: 5% 5%;
+`;
 
 class SideBar extends Component {
   render() {
     return (
-      <div className='sideBar-Contents'>
+      <SideBarContent>
         <h1>Lambda Notes</h1>
         <Link to={'/'}>
-          <Button className='sideBar-Button view'>View Your Notes</Button>
+          <StyledButton>View Your Notes</StyledButton>
         </Link>
         <Link to={`/create`}>
-          <Button className='sideBar-Button create'>+ Create New Note</Button>
+          <StyledButton>+ Create New Note</StyledButton>
         </Link>
-      </div>
+      </SideBarContent>
     );
   }
 }

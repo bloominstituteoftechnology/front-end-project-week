@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './styles/css/index.css';
 import App from './components/App';
 import rootReducer from './reducers';
 
