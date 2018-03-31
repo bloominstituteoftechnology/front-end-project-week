@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE } from '../actions';
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from '../actions';
 
 const initialState = {
   notes: [
@@ -32,6 +32,14 @@ export const reducer = (state = initialState, action) => {
         notes: state.notes.filter(note => {
           return note.id !== action.payload;
         }),
+      };
+      case EDIT_NOTE:
+      return {
+        ...state,
+        notes: state.notes.map(note => {
+          if (note.id !== action.payload.id) return note;
+          return action.payload;
+        })
       };
     default:
       return state;

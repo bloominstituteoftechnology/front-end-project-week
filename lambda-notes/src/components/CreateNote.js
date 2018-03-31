@@ -11,13 +11,11 @@ class CreateNote extends Component {
     body: '',
   };
 
-  handleFormChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({ [name]: value });
+  handleFormChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  addNote = event => {
+  addNote = e => {
     const theNote = Object.assign({}, this.state);
     this.props.addNote(theNote);
     this.props.history.push('/');
@@ -55,7 +53,8 @@ class CreateNote extends Component {
                   value={this.state.body}
                 />
               </div>
-                <input type="submit" value="Save" className="submitButton" onClick={this.addNote} />
+                <input 
+                type="submit" value="Save" className="submitButton" onClick={this.addNote} />
             </form>
           </div>
         </div>
