@@ -29,21 +29,21 @@ class ViewNote extends Component {
   render() {
     return <div className="ViewNote">
         <div className="note-form">
-          <Link className="note-update" to={`/update/${this.props.note.id}`}>
-            Update
+          <Link className="note-edit" to={`/update/${this.props.note.id}`}>
+            edit
           </Link>
-          <button onClick={this.toggle}>
-            Delete
+          <button className="note-delete" onClick={this.toggle}>
+            delete
           </button>
-          <Modal isOpen={this.state.modal} toggle={this.toggle}>
-            <ModalBody>
+          <Modal className="modal-modal" isOpen={this.state.modal} toggle={this.toggle}>
+            <ModalBody clasName="modal-body">
               Are you sure you want to delete this?
             </ModalBody>
             <ModalFooter>
-              <Button color="danger" onClick={this.handleDelete}>
+              <Button color="danger" className="delete-button" onClick={this.handleDelete}>
                 Delete
               </Button> 
-              <Button color="success" onClick={this.toggle}>
+              <Button color="success" onClick={this.toggle} className="no-button">
                 No
               </Button>
             </ModalFooter>

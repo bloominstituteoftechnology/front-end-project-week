@@ -13,11 +13,11 @@ class ListNotes extends Component {
             <div className="card-body" key={note.id}>
               <h4 className="card-title">
                 <Link className="card-link" to={`/view/${note.id}`}>
-                  {note.title}
+                {note.title}
                 </Link>
               </h4>
                 <span className="card-text">{note.content}</span>
-              </div>
+            </div>
           ))}
           </div>
         </div>
