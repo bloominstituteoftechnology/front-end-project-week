@@ -1,0 +1,137 @@
+/* css reset */
+/* html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+} */
+/* HTML5 display-role reset for older browsers */
+/* article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} */
+@import url('https://fonts.googleapis.com/css?family=Roboto:b|Raleway');
+
+.App {
+  height: 1000px;
+  width: 1200px;
+  /* border: 1px solid darkcyan; */
+  margin: 5px 0 0 5px;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+}
+
+.Sidebar-container {
+  height: 1000px;
+  width: 275px;
+  border: 1px solid #a8a8a8;
+  background-color: #D8D8D8;
+  flex-flow: column;
+}
+
+.Side-title {
+  height: 125px;
+  width: 250px;
+  /* border: 1px solid green; */
+  font: bold 43px 'Roboto', sans-serif;
+  color: #4A4A4A;
+  display: flex;
+  text-align: left;
+  align-items: flex-end;
+  padding-left: 15px;
+  
+}
+
+.Notes-section-container {
+  height: 1000px;
+  width: 925px;
+  border: 1px solid #a8a8a8;
+  background-color: #F3F3F3;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.Notes-section-title {
+  height: 125px;
+  width: 950px;
+  /* border: 1px solid orange; */
+  font: bold 28px 'Roboto', sans-serif;
+  color: #4A4A4A;
+  display: flex;
+  text-align: left;
+  align-items: flex-end;
+  padding-left: 29px;
+}
+
+.Notes-container {
+  height: 900px;
+  width: 900px;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-flow: row wrap; 
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Box {
+  height: 230px;
+  width: 200px;
+  border: 1px solid #a8a8a8;
+  margin: 0px 20px 0 20px;
+  padding: 0px 17px 17px 17px;
+  text-align: left;
+  background-color: white;
+}
+
+h1 {
+  font: bold 20px 'Raleway', sans-serif;
+  padding: 15px 3px 0px 3px;
+}
+
+p {
+  font: 15px 'Raleway', sans-serif;
+  padding: 6px 3px 0px 3px;
+}
+
+button {
+  height: 55px;
+  width: 240px;
+  border: 1px solid #a8a8a8;
+  margin-top: 25px;
+  font: 20px 'Raleway', sans-serif;
+  color: white;
+  background-color: #2BC1C4;
+}
