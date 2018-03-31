@@ -22,10 +22,16 @@ class DisplayOne extends Component {
     return (
       <div className="container">
         <SideBar />
-        <div className="edit">edit</div>
-        <div className='delete'>delete</div>
-        <div className="title">{this.state.note.title}</div>
-        <div className="body">{this.state.note.body}</div>
+        <div className="notes-container">
+          <div className="links-parent-container">
+            <div className="links-container">
+              <div className="edit-delete">edit</div>
+              <div className="edit-delete">delete</div>
+            </div>
+          </div>
+          <div className="note-title">{this.state.note.title}</div>
+          <div className="note-body">{this.state.note.body}</div>
+        </div>
       </div>
     );
   }
