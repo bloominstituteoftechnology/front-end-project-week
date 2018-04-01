@@ -55,7 +55,10 @@ class NewNote extends Component {
 
   handleBodyChange = event => {
     const title = this.state.note.title;
-    this.setState({ note: { body: event.target.value, title } });
+    this.setState({
+      note: { body: event.target.value, title }
+    });
+    // console.log(event.target.value.replace(/\n/g, "<br>"));
   };
 
   addNewNote = event => {
@@ -63,7 +66,7 @@ class NewNote extends Component {
     console.log(this.state.note);
     // const postNewNote = {
     //   title: this.state.note.title,
-    //   body: this.state.note.body
+    //   body: this.state.note.body.replace(/\n/g, "<br>")
     // };
     this.props.newNote(this.state.note);
 
@@ -71,9 +74,10 @@ class NewNote extends Component {
       note: {
         title: "",
         body: ""
-      },
-      redirect: true
+      }
+      // redirect: true
     });
+    this.props.history.push("/notelist");
   };
 }
 

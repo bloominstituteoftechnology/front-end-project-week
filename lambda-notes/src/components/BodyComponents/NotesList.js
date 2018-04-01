@@ -1,9 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { Card, CardTitle, CardText } from "reactstrap";
-import { Link } from "react-router-dom";
 import { CSVLink } from "react-csv";
 import Search from "../BodyComponents/Search";
+import NoteCard from "./NoteCard";
 
 class NotesList extends Component {
   state = {
@@ -30,18 +29,7 @@ class NotesList extends Component {
         <div className="d-flex flex-wrap justify-content-around">
           {/* <CardColumns> */}
           {this.state.filteredNotes.map(note => (
-            <Link key={note.id} to={`/noteview/${note.id}`}>
-              <Card
-                body
-                className="m-3"
-                style={{ overflow: "hidden", height: "250px", width: "200px" }}
-                outline
-              >
-                <CardTitle>{note.title}</CardTitle>
-                <hr />
-                <CardText>{note.body}</CardText>
-              </Card>
-            </Link>
+            <NoteCard key={note.id} note={note} />
           ))}
           {/* </CardColumns> */}
         </div>
