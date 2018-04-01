@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, FormGroup, Input, Button } from 'reactstrap';
-import { createNote } from '../actions';
+import { createNote, fetchNotes } from '../actions';
 import { connect } from 'react-redux';
 import './Create.css';
 
@@ -51,4 +51,4 @@ class Create extends Component {
     }
 }
 
-export default connect(null, { createNote })(Create);
+export default connect(null, { createNote, fetchNotes })(Create);

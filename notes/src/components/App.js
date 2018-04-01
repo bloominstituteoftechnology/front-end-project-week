@@ -7,11 +7,12 @@ import Edit from './Edit';
 import Create from './Create';
 import Note from './Note';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { createNote, deleteNote, editNote, fetchNotes } from '../actions';
+import { createNote, fetchNotes, search } from '../actions';
 
 class App extends Component {
   componentDidMount() {
       this.props.fetchNotes();
+      this.props.search('');
   }
 
   render() {
@@ -41,9 +42,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    searching: state.searching,
     notes: state.notes
   }
 }
 
-export default connect(mapStateToProps, {createNote, deleteNote, editNote, fetchNotes })(App);
+export default connect(mapStateToProps, {createNote, fetchNotes, search })(App);

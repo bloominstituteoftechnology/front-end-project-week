@@ -17,10 +17,11 @@ axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
         })
         .catch((error) => console.log(error));
 
-export function fetchNotes () {
+export const fetchNotes = () => {
     return dispatch => {
         return axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
         .then((response) => {
+            console.log('fetching');
             dispatch({type: FETCH_NOTES, notes: response.data});
         })
         .catch((error) => console.log(error))};
@@ -36,10 +37,8 @@ export const createNote = note => {
         .then((response) => {
             dispatch({
                 type: CREATE_NOTE,
-                id: noteId,
-                title: note.title,
-                text: note.text
-            })
+            });
+            window.location.reload();
         })
         .catch((error) => console.log(error))};
 }
@@ -94,10 +93,9 @@ export const search = (input) => {
         return axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
         .then((response) => {
             dispatch({
-                type: SEARCH, 
-                notes: response.data,
-                input
-            });
+                type: SEARCH,
+                notes: Object.values(response.data),
+                input});
         })
         .catch((error) => console.log(error))};
 }

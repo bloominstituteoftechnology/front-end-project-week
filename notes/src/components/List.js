@@ -20,7 +20,7 @@ class List extends Component {
     render() {
         return (
             <Container className="Content">
-                <Row className="Content__heading">
+                <Row className="Content__heading List__heading">
                     <Col xs="3" className="Content__heading__col">
                         <h4>Your Notes:</h4>
                     </Col>

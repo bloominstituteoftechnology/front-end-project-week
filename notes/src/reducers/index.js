@@ -19,16 +19,9 @@ export default(state=initialState, action) => {
         case(FETCH_NOTES):
             return Object.assign({}, state, {
                 notes: Object.values(action.notes).filter(note => note !== null),
-                visibleNotes: Object.values(action.notes).filter(note => note !== null),
             });
         case(CREATE_NOTE):
-            return Object.assign({}, state, {
-                visibleNotes: state.visibleNotes.concat({
-                    id: action.id,
-                    title: action.title,
-                    text: action.text
-                }),
-            });
+            return Object.assign({}, initialState);
         case(EDIT_NOTE):
             return Object.assign({}, state, {
                 visibleNotes: state.visibleNotes.filter(note => {
@@ -56,7 +49,7 @@ export default(state=initialState, action) => {
             });
         case(SEARCH):
             return Object.assign({}, state, {
-                visibleNotes: Object.values(action.notes).filter(
+                visibleNotes: action.notes.filter(
                     note => note !== null).filter(
                         note => note.text.toLowerCase().includes(action.input.toLowerCase())),
             });
