@@ -3,13 +3,15 @@
  width: 100%; 
  display: flex;
  text-align: center;
+ margin: 0.1%;
+ border: 1px solid rgb(150, 150, 150)
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .App {
     margin: auto;
   }
-}
+} */
 
 a {
   color: black;
@@ -20,8 +22,9 @@ a:hover {
   text-decoration: none;
 }
 
-.Nav {
-  min-width: 180px;
+.NavBar {
+  width: 100%;
+  max-width: 270px;
   min-height: 700px;
   background-color: #D8D8D8;
   display: flex;
@@ -37,16 +40,16 @@ a:hover {
   color: #4A4A4A;
 }
 
-.Nav__Button {
+.NavBar__Button {
   background-color: #2BC1C4;
-  min-width: 166px;
+  min-width: 170px;
   font-weight: 700;
   font-size: 18px;
   color: white;
-  padding-top: 5%;
+  padding-top: 4%;
   margin: 4% 6%;
   border: 1px solid rgb(150, 150, 150);
-  min-height: 50px;
+  height: 50px;
 }
 
 .Note, .ListView, .AddNote, .EditNote {
@@ -55,15 +58,15 @@ a:hover {
   min-height: 700px;
 }
 
-.AddNote__Buttons {
+/* .AddNote__Buttons {
   display: flex;
-}
+} */
 
-.AddTag__Input {
+/* .AddTag__Input {
   display: flex;
   margin: auto;
   border: 2px solid rgb(150, 150, 150);
-}
+} */
 
 .Title {
   text-align: left;
@@ -78,35 +81,33 @@ a:hover {
   padding-top: 10px;
   padding-left: 10px;
   border-radius: 0.5%;
-  -moz-box-shadow: inset 0 0 1px gray;
+  -moz-box-shadow:     inset 0 0 1px gray;
   -webkit-box-shawdow: inset 0 0 1px gray;
-  box-shadow: inset 0 0 1px gray;
+  box-shadow:          inset 0 0 1px gray;
   min-width: 100px;
   margin: 2% 3%;
   width: 40%;
-  text-align: start;
   white-space: wrap;
 }
 
 .Inputfield {
-  padding-bottom: 260px;
+  padding-bottom: 300px;
   padding-top: 10px;
   padding-left: 10px;
   width: 90%;
   text-align: start;
   margin: 1% 3%;
   border-radius: 0.5%;
-  -moz-box-shadow: inset 0 0 1px gray;
+  -moz-box-shadow:    inset 0 0 1px gray;
   -webkit-box-shadow: inset 0 0 1px gray;
-  box-shadow: inset 0 0 1 px gray;
-  white-space: wrap;
+  box-shadow:         inset 0 0 1 px gray;
 }
 
-.ListView__input {
+/* .ListView__input {
   width: 64%;
   font-size: 18px;
   text-align: center;
-}
+} */
 
 .ListCards {
   width: 100%;
@@ -117,12 +118,14 @@ a:hover {
 }
 
 .ListCard {
-  flex: 3 3 100%;
+  flex: 3 0 100%;
   max-width: 220px;
   margin: 1%;
   border: 1px solid rgb(150, 150, 150);
 }
-
+a.LinkList {
+  text-decoration: none;
+}
 .ListCard__Header {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -145,27 +148,24 @@ a:hover {
   padding: 0 8%;
 }
 
-.Button, Button__Delete .AddTag {
+.Button, Button__delete {
   font-weight: 500;
-  background-color: #2BC1C5;
   border: 1px solid rgb(150, 150, 150);
   color: white;
-  margin: 3%;
+  margin: 5%;
   height: 50px;
 }
 
-.Button, .AddTag {
+.Button {
   background-color: #2BC1C4;
   height: 50px;
   width: 20%;
-  min-width: 80px;
 }
 
-.Button__Delete {
+.Button__delete {
   background-color: #D0021B;
   height: 50px;
   width: 20%;
-  min-width: 80px;
 }
 
 .Form {
@@ -173,10 +173,10 @@ a:hover {
   flex-direction: column;
 }
 
-.Note__Nav {
+.Note__nav {
   display: flex;
   justify-content: flex-end;
-  text-decoration-line: underline;
+  text-decoration-line: none;
   font-weight: 700;
   margin: 3% 5% 1% 1%;
 }
@@ -198,9 +198,4 @@ a:hover {
   padding: 3%;
   text-align: left;
   font-size: 15px;
-}
-
-.Content > * {
-  width: 100%;
-  overflow-wrap: break-word;
 }
