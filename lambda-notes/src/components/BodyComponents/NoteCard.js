@@ -13,7 +13,11 @@ export default props => {
       >
         <CardTitle>{props.note.title}</CardTitle>
         <hr />
-        <CardText>{props.note.body}</CardText>
+        <CardText>
+          {props.note.body
+            .split("<br>")
+            .map((line, index) => <p key={`line${index + 1}`}>{line}</p>)}
+        </CardText>
       </Card>
     </Link>
   );

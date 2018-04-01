@@ -45,7 +45,11 @@ class NoteView extends Component {
           <div onClick={this.toggleModal}> delete </div>
         </div>
         <h3 className="mt-4 ml-3">{currentNote.title}</h3>
-        <p className="mt-5 ml-3">{currentNote.body}</p>
+        <div className="mt-5 ml-3">
+          {currentNote.body
+            .split("<br>")
+            .map((line, index) => <p key={`line${index + 1}`}>{line}</p>)}
+        </div>
 
         <Modal
           isOpen={this.state.modal}
