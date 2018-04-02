@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import LeftColumn from './Components/LeftColumn';
-import RightColumn from './Components/RightColumn';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+
+import CreateNote from './components/CreateNote/CreateNote';
+import ListView from './components/ListView/ListView';
+import NoteView from './components/NoteView/NoteView';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import AddNote from './Components/AddNote';
 
 class App extends Component {
   render() {
-    return (
+    return(
       <Router>
-        <div className='app'>
-          <LeftColumn />
-          <Route exact path='/' component={RightColumn} />
-          <Route path='/addnote' component={AddNote} />
-        </div>
+        <div className="App">
+          <Route exact path='/' component={ ListView } />
+          <Route path='/view/:id' component={ NoteView } />
+          <Route path='/create' component={ CreateNote } />
+            </div>
       </Router>
     );
   }

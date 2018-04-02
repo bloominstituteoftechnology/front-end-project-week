@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import OneNote from './OneNote';
-
-class Notes extends Component {
-  render() {
-    let oneNote;
-      if(this.props.notes){
-        oneNote = this.props.notes.map(note => {
-          //console.log(note);
-          return (
-            <OneNote key={note.id} note={note} />
-          )
-        });
-      }
-    return (
-      <div className='Notes'>
-        {oneNote}
-      </div>
-    );
-  }
-}
-
-export default Notes;
+export default [
+  {
+    title: 'Note 1',
+    text: 'This is the first note.',
+    id: 0,
+  },
+  {
+    title: 'Note 2',
+    text: 'This is the second note.',
+    id: 1,
+  },
+  {
+    title: 'Note 3',
+    text: 'This is the third note.',
+    id: 2,
+  },
+  {
+    title: 'Note 4',
+    text: 'This is the fourth note.',
+    id: 3,
+  },
+];
