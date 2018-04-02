@@ -1,28 +1,128 @@
-.App {
-  text-align: center;
+
+.title {
+  color: rgb(60, 59, 59);
+  font-size: 100%;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 7%;
+  margin-bottom: 10%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.title_main {
+  color: rgb(60, 59, 59);
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #222;
+
+.section__content__left {
+  background: #DDDDDD;
+  color: white;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  margin-left: 25%;
+  background: yellow;
+  margin-top: 6%;
+  /* flex-direction: column;
+  min-width: 80%;
+  width: 100% */
+}
+
+.test {
+  background: #27B0B9;
+  margin: 5%;
+}
+.section__content__inputs {
+  display: flex;
+  justify-content: flex-start;
+  background: #F1F1F1;
+  flex-direction: column;
+  margin: 5%;
+}
+
+.section__content__icons {
+  margin: 0 auto;
+   display: grid;
+   grid-template-columns: 33% 33% 33%;
+}
+
+section {
+  border: solid lightgray;
+  background: white;
+  padding: 1%;
   height: 150px;
-  padding: 20px;
+  margin: 5%;
+}
+
+p {
+  font-size: 10px;
+}
+
+.delete__p {
+  font-size: 1rem;
+}
+
+.note-content {
+  border-radius: 5px;
+  border: solid lightgray;
+  padding: 3%;
+}
+
+.note-title {
+  border-radius: 5px;
+  border: solid gray;
+  width: 50%;
+  height: 30px;
+  padding-left: 1%;
+}
+
+.button__main {
+  width:80%;
+  background: 	#27B0B9;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  text-align: center;
+  border: solid lightgrey 0.5px;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+
+.button__delete {
+  width:40%;
+  color: white;
+  background: red;
+  display: inline-block;
+  margin: 0 2% 0 2%;
+  text-align: center;
+  border: solid grey;
+  padding: 1%;
 }
 
-.App-intro {
-  font-size: large;
+.button__save {
+  width:40%;
+  color: white;
+  background: rgb(18, 215, 215);
+  display: inline-block;
+  margin: 0 2% 0 2%;
+  text-align: center;
+  border: solid grey;
+  padding: 1%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.section__delete {
+  padding: 5%;
+  border: solid black;
+  text-align: center;
 }
+

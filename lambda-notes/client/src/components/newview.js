@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-
-    &:focus, &:hover, &:visited, &:link, &:active {
-        text-decoration: none;
-    }
-`;
 
 class NewView extends Component {
 
@@ -36,9 +27,9 @@ class NewView extends Component {
 
                 <div className="section__content__left">
                     <p className="title">Lambda Notes</p>
-                    <StyledLink to="/noteview"><div className="button__main">View Your Notes</div></StyledLink>
+                   <div className="button__main">View Your Notes</div>
                     <br />
-                    <StyledLink to="/newview"><div className="button__main">+ Create New Note</div></StyledLink>
+                  <div className="button__main">+ Create New Note</div>
 
                 </div>
 

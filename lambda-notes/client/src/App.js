@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import ListView from './components/listview.js';
+// import NewView from './components/newview.js';
+// import NoteView from './components/noteview.js';
+// import EditView from './components/editview.js';
+// import Delete from './components/delete.js';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+ <ListView />
+          // <Router>
+          //   <div>
+          //   <Route exact path='/' component={ListView} exact/>
+          //   <Route path='/newview' component={NewView}/>
+          //   <Route path='/noteview' component={NoteView}/>
+          //   <Route path='/editview' component={EditView}/>
+          //   <Route path='/delete' component={Delete}/>
+          //   </div>
+          // </Router>
     );
   }
 }
