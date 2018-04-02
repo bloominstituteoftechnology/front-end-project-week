@@ -14,7 +14,8 @@ axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
         .then((response) => {
             if(Object.keys(response.data).length) {
                 noteId = (Object.keys(response.data).reduce(
-                    (a,b) => {return a > b  ? a : b}));
+                    (a,b) => {return parseInt(a) > parseInt(b)  ? a : b}));
+                console.log(noteId);
             }
         })
         .catch((error) => console.log(error));

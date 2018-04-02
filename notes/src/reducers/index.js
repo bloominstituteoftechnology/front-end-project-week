@@ -46,13 +46,13 @@ export default(state=initialState, action) => {
         case(SORT_OLDEST):
             console.log(state.visibleNotes);
             return Object.assign({}, state, {
-                sortedBy: 'newest',
-                visibleNotes: state.visibleNotes.sort((a, b) => a.id > b.id),
+                sortedBy: 'oldest',
+                visibleNotes: state.visibleNotes.sort((a, b) => a.id < b.id),
             });
         case(SORT_NEWEST):
             return Object.assign({}, state, {
-                sortedBy: 'oldest',
-                visibleNotes: state.visibleNotes.sort((a, b) => a.id < b.id),
+                sortedBy: 'newest',
+                visibleNotes: state.visibleNotes.sort((a, b) => a.id > b.id),
             });
         case(SEARCH):
             return Object.assign({}, state, {

@@ -14,6 +14,7 @@ class List extends Component {
 
     handleOldest() {
         this.props.sortOldest();
+        this.props.history.push('/');   
     }
 
     render() {
@@ -49,8 +50,8 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
+        sortedby: state.sortedby,
         visibleNotes: state.visibleNotes,
-        sortedNewest: state.sortedNewest,
     }
 }
 
