@@ -5,6 +5,7 @@
   font-size: 2rem;
   font-weight: bold;
   margin-top: 7%;
+  margin: 10%;
   margin-bottom: 10%;
 }
 
@@ -32,11 +33,7 @@
 
 .main {
   margin-left: 25%;
-  background: yellow;
   margin-top: 6%;
-  /* flex-direction: column;
-  min-width: 80%;
-  width: 100% */
 }
 
 .test {
