@@ -120,8 +120,10 @@ class App extends Component {
   updateNote = (updatedNote) => {
     this.setState({ noteDetails: updatedNote });
     let notesRef = firebase.database().ref(`/notes/${updatedNote.id}`)
-    notesRef.update(updatedNote);
-    this.viewNotes();
+    notesRef.update(updatedNote)
+    .then(() => {
+      this.showNoteDetails(updatedNote.id)
+        });
   }
 
   getNextId = () => {
