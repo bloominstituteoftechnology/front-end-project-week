@@ -14,7 +14,6 @@ class List extends Component {
 
     handleOldest() {
         this.props.sortOldest();
-        this.props.history.push('/');
     }
 
     render() {

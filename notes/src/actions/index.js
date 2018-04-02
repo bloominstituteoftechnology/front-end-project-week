@@ -8,12 +8,14 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const SEARCH = 'SEARCH';
 
 
-let noteId;
+let noteId = 0;
 
 axios.get('https://lambda-notes-b2b43.firebaseio.com/notes.json')
         .then((response) => {
-            noteId = (Object.keys(response.data).reduce(
-                (a,b) => {return a > b  ? a : b}));
+            if(Object.keys(response.data).length) {
+                noteId = (Object.keys(response.data).reduce(
+                    (a,b) => {return a > b  ? a : b}));
+            }
         })
         .catch((error) => console.log(error));
 
