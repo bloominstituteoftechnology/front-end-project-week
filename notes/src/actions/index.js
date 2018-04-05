@@ -1,7 +1,8 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-const URL = 'http://localhost:5000';
+// const URL = 'http://localhost:5000';
+const URL = 'https://safe-journey-95480.herokuapp.com';
 
 export const addNote = (info, history) => {
     return dispatch => {

@@ -10,9 +10,9 @@ import SortingMenu from './SortingMenu';
 import ListItem from './ListItem';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
-  // <div className='list-note'>
+  <div>
     <ListItem note={note} viewNote={viewNote} />
-  // </div>
+  </div>
 );
 
 const SortableList = SortableContainer(({notes, viewNote}) => {
@@ -38,7 +38,6 @@ class ListView extends React.Component {
     this.props.viewNote(note);
     this.setState({ view: true, id: note._id });
   }
-
 
   componentDidMount() {
     if (this.props.match.params.id) {

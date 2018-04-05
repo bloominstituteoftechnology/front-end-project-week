@@ -27,17 +27,14 @@ class CreateNote extends React.Component {
   componentDidMount() {
     if (this.props.match.params.id === undefined) {
       this.setState({ redirect: true });
-    }
-    const toEdit = this.props.notes.filter(note => this.props.match.params.id === note.id);
-    if (toEdit.length === 1) {
-      this.setState({ title: toEdit[0].title, entry: toEdit[0].entry,  dateCreated: toEdit[0].dateCreated, id: toEdit[0].id });
     } else {
-      this.setState({ redirect: true });
+      const { title, entry, _id, dateCreated } = this.props.current;
+      this.setState({ title, entry, id: _id, dateCreated });
     }
+
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className='create-note'>
         <form onSubmit={this.onSubmit}>
@@ -54,8 +51,8 @@ class CreateNote extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.current,
-    notes: state.notes,
+    current: state.notes.current,
+    notes: state.notes.notes,
   };
 };
 
