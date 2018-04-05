@@ -12,7 +12,7 @@ export default ComposedComponent => {
     render() {
       return (
         <div>
-          {this.props.auth ? <ComposedComponent /> : null}
+          {this.props.authenticated ? <ComposedComponent {...this.props}/> : null}
         </div>
       );
     }
@@ -20,7 +20,7 @@ export default ComposedComponent => {
 
   const mapStateToProps = state => {
     return {
-      auth: state.auth.auth
+      authenticated: state.auth.authenticated
     };
   };
 

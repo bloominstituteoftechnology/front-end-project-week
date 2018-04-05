@@ -1,4 +1,5 @@
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 const URL = 'http://localhost:5000';
 
@@ -36,7 +37,7 @@ export const viewNote = info => {
         axios
             .get(`${URL}/notes/${info._id}`)
             .then(response => {
-                dispatch({ type: 'NOTES_VIEWED', payload: response.data });
+                dispatch({ type: 'VIEW_NOTE', payload: response.data });
             })
             .catch(err => {
                 dispatch({ type: 'ERROR_VIEWING_NOTE', payload: err });
@@ -117,15 +118,16 @@ export const getNotes = () => {
     };
 };
 
-export const Login = (username, password) => {
+export const login = (username, password, history) => {
   return dispatch => {
     dispatch({ type: 'LOGGING_IN' });
     axios.post(`${URL}/users/login`, { username, password })
       .then(response => {
-        dispatch({ type: 'LOGGED_IN', payload: response.data });
+        history.push('/login');
+        dispatch({ type: 'USER_AUTHENTICATED', payload: response.data });
       })
       .catch(err => {
-        dispatch({ type: 'ERROR_LOGGING_IN', payload: err });
+        dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });
       });
   };
 };

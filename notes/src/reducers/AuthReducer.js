@@ -1,4 +1,8 @@
-export default (auth = {}, action) => {
+const initialAuth = {
+  authenticated: false,
+}
+
+export default (auth = initialAuth, action) => {
   switch (action.type) {
     case 'USER_AUTHENTICATED':
       return { ...auth, authenticated: true };

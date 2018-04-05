@@ -20,7 +20,7 @@ const SortableList = SortableContainer(({notes, viewNote}) => {
     <ul className='list-notes'>
       {notes.map((note, index) => {
         return (
-          <SortableItem key={`item-${note.id}`} index={index} note={note} viewNote={viewNote}/>
+          <SortableItem key={`item-${note._id}`} index={index} note={note} viewNote={viewNote}/>
         );
       })}
     </ul>
@@ -36,7 +36,7 @@ class ListView extends React.Component {
 
   viewNote = (note) => {
     this.props.viewNote(note);
-    this.setState({ view: true, id: note.id });
+    this.setState({ view: true, id: note._id });
   }
 
 
@@ -85,9 +85,9 @@ class ListView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
-    sorted: state.sorted,
-    hash: state.hash,
+    notes: state.notes.notes,
+    sorted: state.notes.sorted,
+    hash: state.notes.hash,
   };
 };
 

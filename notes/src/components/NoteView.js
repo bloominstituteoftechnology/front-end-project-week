@@ -14,15 +14,16 @@ class NoteView extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     if (this.props.match.params.id === undefined) {
       this.setState({ redirect: true });
     }
-    const toView = this.props.notes.filter(note => this.props.match.params.id === note.id);
-    if (toView.length === 1) {
-      this.setState({ title: toView[0].title, entry: toView[0].entry,  dateCreated: toView[0].dateCreated, id: toView[0].id });
-    } else {
-      this.setState({ redirect: true });
-    }
+    // const toView = this.props.notes.filter(note => this.props.match.params.id === note.id);
+    // if (toView.length === 1) {
+    //   this.setState({ title: toView[0].title, entry: toView[0].entry,  dateCreated: toView[0].dateCreated, id: toView[0].id });
+    // } else {
+    //   this.setState({ redirect: true });
+    // }
   }
 
   render() {
@@ -36,8 +37,14 @@ class NoteView extends React.Component {
             <Link to={`/edit/${this.state.id}`} className='edit-button'>edit</Link>
             <Link to={`/delete/${this.state.id}`} className='delete-button'>delete</Link>
           </div>
-          <div className='note-title'><span>{this.state.title}</span><span className='note-timestamp'>{this.state.dateCreated}</span></div>
-          <div className='note-entry'>{converter.convert(this.state.entry)}</div>
+          {this.props.current ? <div>
+            <div className='note-title'><span>{this.props.current.title}</span><span className='note-timestamp'>{this.props.current.dateCreated}</span></div>
+            <div className='note-entry'>{converter.convert(this.props.current.entry)}</div>
+          </div>
+          :
+          <div>
+            Loading...
+          </div>}
         </div>
         <div>
           {this.state.redirect ? <Redirect to='/404' /> : null }
@@ -49,8 +56,8 @@ class NoteView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    current: state.current,
-    notes: state.notes,
+    current: state.notes.current,
+    notes: state.notes.notes,
   }
 }
 

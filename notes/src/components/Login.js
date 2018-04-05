@@ -2,14 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import { Login } from '../actions';
+import { login } from '../actions';
+import { withRouter } from 'react-router'
+
 import './Login.css';
 
 class CreateNote extends React.Component {
   state = {
     username: '',
     password: '',
-    redirect: false,
+  }
+
+  componentWillReceiveProps() {
+    console.log('auth', this.props.auth);
   }
 
   onChange = (event) => {
@@ -20,8 +25,7 @@ class CreateNote extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
-    this.props.Login(username, password);
-    this.setState({ redirect: true });
+    this.props.login(username, password, this.props.history);
   }
 
   render() {
@@ -34,15 +38,17 @@ class CreateNote extends React.Component {
           <button type='submit'>Log In</button>
         </form>
         <div className='register-prompt'>Don't have an account? <Link to='/register' >Create one here.</Link></div>
-        {this.state.redirect ? <Redirect to='/' /> : null }
+        {this.props.auth ? <Redirect to='/' /> : null }
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    sorted: state.sorted,
+    // sorted: state.sorted,
+    auth: state.auth.authenticated
   };
 }
 
-export default connect(mapStateToProps, { Login })(CreateNote);
+export default withRouter(connect(mapStateToProps, { login })(CreateNote));
