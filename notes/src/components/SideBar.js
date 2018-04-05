@@ -8,10 +8,12 @@ import FileSaver from 'file-saver';
 class SideBar extends React.Component {
 
   exportCSV = () => {
-    const jnotes = JSON.stringify(this.props.notes);
-    const csvnotes = Papa.unparse(jnotes);
-    const file = new File([csvnotes], "lambda_notes.csv", {type: 'text/plain;charset=utf8'});
-    FileSaver.saveAs(file);
+    if(this.props.auth) {
+      const jnotes = JSON.stringify(this.props.notes);
+      const csvnotes = Papa.unparse(jnotes);
+      const file = new File([csvnotes], "lambda_notes.csv", {type: 'text/plain;charset=utf8'});
+      FileSaver.saveAs(file);
+    }
   }
 
   render() {

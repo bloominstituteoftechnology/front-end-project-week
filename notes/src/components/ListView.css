@@ -44,8 +44,8 @@
 .list-note-container .label-selector:hover .label-selector-button {
   padding-bottom: 5px;
 }
-.list-note,
-.draggable {
+.list-note-container .list-note,
+.list-note-container .draggable {
   line-height: 25px;
   letter-spacing: 0.8px;
   word-wrap: break-word;
@@ -65,8 +65,8 @@
   cursor: pointer;
   user-select: none;
 }
-.list-note .item-timestamp,
-.draggable .item-timestamp {
+.list-note-container .list-note .item-timestamp,
+.list-note-container .draggable .item-timestamp {
   position: relative;
   padding: 0;
   margin: 0;
@@ -77,8 +77,8 @@
   left: 40px;
   top: 1px;
 }
-.list-note .item-title,
-.draggable .item-title {
+.list-note-container .list-note .item-title,
+.list-note-container .draggable .item-title {
   width: 80%;
   font-size: 1.3rem;
   display: flex;
@@ -87,13 +87,13 @@
   margin-bottom: 10px;
   border-bottom: 2px solid #CACACA;
 }
-.list-note .item-entry,
-.draggable .item-entry {
+.list-note-container .list-note .item-entry,
+.list-note-container .draggable .item-entry {
   height: 70%;
   width: 80%;
   font-family: Raleway;
 }
-.list-note:hover,
-.draggable:hover {
+.list-note-container .list-note:hover,
+.list-note-container .draggable:hover {
   background: rgba(226, 226, 226, 0.1);
 }

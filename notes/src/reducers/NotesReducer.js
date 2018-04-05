@@ -68,6 +68,11 @@ const NotesReducer = (state = {}, action) => {
               ...state, notes: action.payload
             };
 
+        case 'FLUSH_NOTES':
+            return {
+                ...state, notes: [],
+            }
+
         default:
             return state;
     }

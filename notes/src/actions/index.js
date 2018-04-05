@@ -5,7 +5,6 @@ const URL = 'http://localhost:5000';
 
 export const addNote = (info, history) => {
     return dispatch => {
-        dispatch({ type: 'ADDING_NOTE' });
         axios
             .post(`${URL}/notes/new`, info)
             .then(response => {
@@ -20,7 +19,6 @@ export const addNote = (info, history) => {
 
 export const editNote = info => {
     return dispatch => {
-        dispatch({ type: 'EDITING_NOTE' });
         axios
             .put(`${URL}/notes/edit/${info._id}`, info)
             .then(response => {
@@ -34,7 +32,6 @@ export const editNote = info => {
 
 export const viewNote = info => {
     return dispatch => {
-        dispatch({ type: 'VIEWING_NOTE' });
         axios
             .get(`${URL}/notes/${info._id}`)
             .then(response => {
@@ -48,7 +45,6 @@ export const viewNote = info => {
 
 export const deleteNote = info => {
     return dispatch => {
-        dispatch({ type: 'DELETING_NOTE' });
         axios
             .post(`${URL}/notes/remove/${info}`)
             .then(response => {
@@ -80,7 +76,6 @@ export const sortNotes = (sortedNotes, direction, searching) => {
 
 export const searchNotes = terms => {
     return dispatch => {
-        dispatch({ type: 'SEARCHING_NOTES ' });
         axios
             .get(`${URL}/notes/search/${terms}`)
             .then(results => {
@@ -94,7 +89,6 @@ export const searchNotes = terms => {
 
 export const changeNoteLabel = (newLabel, note) => {
     return dispatch => {
-        dispatch({ type: 'CHANGING_LABEL' });
         axios
             .put(`${URL}/notes/edit/${note._id}`, { ...note, label: newLabel })
             .then(result => {
@@ -108,7 +102,6 @@ export const changeNoteLabel = (newLabel, note) => {
 
 export const getNotes = () => {
     return dispatch => {
-        dispatch({ type: 'GETTING_NOTES' });
         axios
             .get(`${URL}/notes/`)
             .then(response => {
@@ -122,7 +115,6 @@ export const getNotes = () => {
 
 export const login = (username, password, history) => {
     return dispatch => {
-        dispatch({ type: 'LOGGING_IN' });
         axios
             .post(`${URL}/users/login`, { username, password })
             .then(response => {
@@ -131,6 +123,35 @@ export const login = (username, password, history) => {
                     type: 'USER_AUTHENTICATED',
                     payload: response.data,
                 });
+            })
+            .catch(err => {
+                dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });
+            });
+    };
+};
+
+export const logout = () => {
+    return dispatch => {
+        axios.post(`${URL}/users/logout`)
+            .then(response => {
+                dispatch({
+                    type: 'USER_UNAUTHENTICATED'
+                });
+                dispatch({
+                    type: 'FLUSH_NOTES'
+                });
+            })
+            .catch(err => {
+                dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });
+            });
+    };
+};
+
+export const register = (username, password, history) => {
+    return dispatch => {
+        axios.post(`${URL}/users/register`, { username, password })
+            .then(response => {
+                history.push('/login');
             })
             .catch(err => {
                 dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });

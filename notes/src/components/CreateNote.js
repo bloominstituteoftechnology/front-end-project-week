@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
 import { addNote } from '../actions';
 import './CreateNote.css';
 
@@ -18,7 +17,6 @@ class CreateNote extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    const timeStamp = new Date();
     const { title, entry } = this.state;
     this.props.addNote({ title, entry }, this.props.history);
   }

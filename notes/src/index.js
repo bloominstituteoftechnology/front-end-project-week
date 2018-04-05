@@ -13,14 +13,13 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initialTestState = {};
 
-const persistState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : initialTestState;
+const persistState = sessionStorage.getItem('reduxState') ? JSON.parse(sessionStorage.getItem('reduxState')) : initialTestState;
 
 // const store = createStore(notesReducer, persistState, composeEnhancers(applyMiddleware(logger)));
 const store = createStore(rootReducer, persistState, composeEnhancers(applyMiddleware(logger, thunk)));
 
-
 store.subscribe(()=>{
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+  sessionStorage.setItem('reduxState', JSON.stringify(store.getState()));
 });
 
 ReactDOM.render(

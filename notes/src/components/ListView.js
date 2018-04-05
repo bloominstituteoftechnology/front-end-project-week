@@ -10,9 +10,9 @@ import SortingMenu from './SortingMenu';
 import ListItem from './ListItem';
 
 const SortableItem = SortableElement(({note, viewNote}) =>
-  <div>
+  // <div className='list-note'>
     <ListItem note={note} viewNote={viewNote} />
-  </div>
+  // </div>
 );
 
 const SortableList = SortableContainer(({notes, viewNote}) => {

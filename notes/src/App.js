@@ -8,8 +8,9 @@ import NoteView from './components/NoteView';
 import EditNoteView from './components/EditNoteView';
 import NotFound from './components/NotFound';
 import SearchedListView from './components/SearchedListView';
-// import Register from './components/Register';
+import Register from './components/Register';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import {
     BrowserRouter as Router,
     Route,
@@ -33,6 +34,8 @@ class App extends Component {
                         <Route path="/" component={RequireAuth(ListView)} exact />
                         {/* <Route path="/register" component={Register} exact /> */}
                         <Route path="/login" component={Login} exact />
+                        <Route path="/logout" component={Logout} exact />
+                        <Route path="/register" component={Register} exact />
                         <Route path="/new" component={RequireAuth(CreateNote)} exact />
                         <Route path="/view/:id" component={RequireAuth(NoteView)} exact />
                         <Route
