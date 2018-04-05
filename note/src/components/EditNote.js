@@ -6,7 +6,7 @@ class EditNote extends React.Component {
 	componentWillMount(){
 		const note = this.props.location.note;
 		if(!note){
-			this.props.history.push('/a/list');
+			this.props.history.push('/app/list');
 		}else{
 
 			this.setState({
@@ -25,7 +25,7 @@ class EditNote extends React.Component {
 		event.preventDefault();
 		if(this.state.content !== '' && this.state.title !== ''){
 			this.props.editNote(this.state);
-			this.props.history.push('/a/list');
+			this.props.history.push('/app/list');
 		}
 	}
 
@@ -37,7 +37,7 @@ class EditNote extends React.Component {
 
   render() {
   	if(!this.props.location.note){
-      this.props.history.push('/a/list');
+      this.props.history.push('/app/list');
       return null;
     }
     return (

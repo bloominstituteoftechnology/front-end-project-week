@@ -17,8 +17,8 @@ class SideBar extends React.Component {
       <div className="sidebar">
         <div className="sidebar-title">Lambda Notes</div>
 
-        <Link to="/a/list"><button className="viewnote">View Your Notes</button></Link><br/>
-        <Link to="/a/addnote"><button>+ Create New Note</button></Link>
+        <Link to="/app/list"><button className="viewnote">View Your Notes</button></Link><br/>
+        <Link to="/app/addnote"><button>+ Create New Note</button></Link>
         <br /><br /><br /><br />
         <div className="sign-inas">Signed in as: <span>{this.props.misc.username}</span></div>
         <br />

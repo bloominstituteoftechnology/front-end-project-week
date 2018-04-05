@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { signUp, signIn } from '../actions';
-import { signIn } from '../actions';
+import { signUp, signIn } from '../actions';
 
 class Login extends React.Component {
 
@@ -10,9 +9,9 @@ class Login extends React.Component {
     password: ''
   }
 
-//   handleSignUp = () => {
-//       this.props.signUp(this.state); 
-//   }
+  handleSignUp = () => {
+      this.props.signUp(this.state); 
+  }
 
   handleSignIn = () => {
       this.props.signIn(this.state);
@@ -26,7 +25,7 @@ class Login extends React.Component {
   
   render() {
     if(this.props.misc.username){
-      this.props.history.push('/a/list');
+      this.props.history.push('/app/list');
     }
     return (
       <div className="login">
@@ -35,8 +34,8 @@ class Login extends React.Component {
         <input name="username" value={this.state.name} placeholder="Username" onChange={this.handleOnChange}/><br />
         <input name="password" type="password" value={this.state.value} placeholder="Password" onChange={this.handleOnChange}/><br />
         <button className="signin" onClick={() => {this.handleSignIn()}}>Sign in</button><br />
-        {/* <div>- or -</div> */}
-        {/* <button onClick={() => {this.handleSignUp()}}>Sign up</button><br /> */}
+        <div>- or -</div>
+        <button onClick={() => {this.handleSignUp()}}>Sign up</button><br />
       </div>
     );
   }
@@ -49,5 +48,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-// export default connect(mapStateToProps, {signUp, signIn})(Login);
-export default connect(mapStateToProps, { signIn })(Login);
+export default connect(mapStateToProps, {signUp, signIn})(Login);

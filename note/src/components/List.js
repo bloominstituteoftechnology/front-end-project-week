@@ -26,7 +26,7 @@ class List extends React.Component {
         	{this.props.notes.map((note) => {
             
             return (
-              <Link key={note.id} to={{ pathname: `/a/notes/${note.id}`, note: note}}>
+              <Link key={note.id} to={{ pathname: `/app/notes/${note.id}`, note: note}}>
                 <div className='notes'>
                   <div className="notes-title">{note.title.length > 22 ? note.title.split('').slice(0, 23).join('') + '...' : note.title}</div>
                   <div className="note-line"></div>

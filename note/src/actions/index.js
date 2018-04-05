@@ -100,48 +100,48 @@ export const toggleModal = (id) => {
   return {type: TOGGLE_MODAL, payload: id}
 }
 
-// export const signUp = (newUser) => {
-//   if(newUser.username === '' || newUser.password === ''){
-//     return {
-//       type: LOGIN_ERROR,
-//       payload: 'Please enter Username and Password'
-//     }
-//   }else{
-//     return (dispatch) => {
-//       let userExist = false;
-//       // fetch all users
-//       firebaseRef.child('users').once('value').then((snapshot)=>{
-//         let users = snapshot.val() || {};
-//         // loop through users to compare username
-//         Object.keys(users).forEach((userKey)=>{
-//           if(users[userKey].username === newUser.username){
-//             userExist = true;
-//           }
-//         });
+export const signUp = (newUser) => {
+  if(newUser.username === '' || newUser.password === ''){
+    return {
+      type: LOGIN_ERROR,
+      payload: 'Please enter Username and Password'
+    }
+  }else{
+    return (dispatch) => {
+      let userExist = false;
+      // fetch all users
+      firebaseRef.child('users').once('value').then((snapshot)=>{
+        let users = snapshot.val() || {};
+        // loop through users to compare username
+        Object.keys(users).forEach((userKey)=>{
+          if(users[userKey].username === newUser.username){
+            userExist = true;
+          }
+        });
 
-//         // if username exists dispatch error
-//         if(userExist){
-//           dispatch({
-//             type: LOGIN_ERROR,
-//             payload: 'Username is taken, choose a different name.'
-//           });
-//         }else{
-//           // else set new user to firebase
-//           let userRef = firebaseRef.child('users').push(newUser);
-//           userRef.then(()=>{
-//             dispatch({
-//               type: 'LOGGED_IN',
-//               payload: newUser
-//             });
-//             sessionStorage.setItem('username', newUser.username);
-//           }, ()=>{
-//               console.log('add new user failed!');
-//           });
-//         }
-//       });
-//     }
-//   }
-// }
+        // if username exists dispatch error
+        if(userExist){
+          dispatch({
+            type: LOGIN_ERROR,
+            payload: 'Username is taken, choose a different name.'
+          });
+        }else{
+          // else set new user to firebase
+          let userRef = firebaseRef.child('users').push(newUser);
+          userRef.then(()=>{
+            dispatch({
+              type: 'LOGGED_IN',
+              payload: newUser
+            });
+            sessionStorage.setItem('username', newUser.username);
+          }, ()=>{
+              console.log('add new user failed!');
+          });
+        }
+      });
+    }
+  }
+}
 
 export const signIn = (user) => {
   if(user.username === '' || user.password === ''){

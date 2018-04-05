@@ -7,7 +7,7 @@ class Modal extends React.Component {
   handleDeleteNote = () => {
     console.log(this.props.modal.deleteId);
     this.props.deleteNote(this.props.modal.deleteId);
-    this.props.history.push('/a/list');
+    this.props.history.push('/app/list');
   }
 
   render() {
