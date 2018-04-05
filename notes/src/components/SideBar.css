@@ -6,6 +6,7 @@
   border-right: 2px solid #BDBDBD;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   height: 100%;
@@ -13,7 +14,7 @@
   left: 0;
   top: 0;
 }
-.sidebar h1 {
+.sidebar .top h1 {
   font-size: 2.9rem;
   padding-left: 20px;
   text-align: left;
@@ -21,10 +22,10 @@
   color: #4B4A4B;
   margin: 25px 0 20px 0;
 }
-.sidebar .button {
+.sidebar .top .button {
   width: 90%;
 }
-.sidebar button {
+.sidebar .top button {
   font-weight: 700;
   font-family: inherit;
   font-size: 1rem;
@@ -37,14 +38,36 @@
   cursor: pointer;
   margin: 10px;
 }
-.sidebar button:active {
+.sidebar .top button:active {
   background: #24abad;
 }
-.sidebar button:hover {
+.sidebar .top button:hover {
   background: #00b6b9;
 }
-.sidebar .export {
-  width: 81%;
+.sidebar .bottom {
+  width: 100%;
+}
+.sidebar .bottom .button {
+  width: 90%;
+}
+.sidebar .bottom button {
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 90%;
+  height: 45px;
+  background: #1DC0C3;
+  color: white;
+  border: 1px solid #76A1A1;
+  user-select: none;
+  cursor: pointer;
+  margin: 10px;
+}
+.sidebar .bottom button:active {
+  background: #24abad;
+}
+.sidebar .bottom button:hover {
+  background: #00b6b9;
 }
 .sidebar a {
   cursor: default;

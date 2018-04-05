@@ -3,13 +3,14 @@ axios.defaults.withCredentials = true;
 
 const URL = 'http://localhost:5000';
 
-export const addNote = info => {
+export const addNote = (info, history) => {
     return dispatch => {
         dispatch({ type: 'ADDING_NOTE' });
         axios
             .post(`${URL}/notes/new`, info)
             .then(response => {
                 dispatch({ type: 'NOTE_ADDED', payload: response.data });
+                history.push('/');
             })
             .catch(err => {
                 dispatch({ type: 'ERROR_ADDING_NOTE', payload: err });
@@ -60,20 +61,21 @@ export const deleteNote = info => {
 };
 
 export const reorderNotes = (newNotes, searching) => {
-  return dispatch => {
-    dispatch({ type: 'REORDERING_NOTES' });
-    // axios.p
-  };
+    return {
+        type: 'REORDER_NOTES',
+        payload: newNotes,
+        searching: searching,
+    };
 };
 
 export const sortNotes = (sortedNotes, direction, searching) => {
-  return {
-    type: 'SORT_NOTES',
-    payload: sortedNotes,
-    sorted: direction,
-    searching: searching,
-    // hash: shortid.generate(),
-  };
+    return {
+        type: 'SORT_NOTES',
+        payload: sortedNotes,
+        sorted: direction,
+        searching: searching,
+        // hash: shortid.generate(),
+    };
 };
 
 export const searchNotes = terms => {
@@ -119,15 +121,19 @@ export const getNotes = () => {
 };
 
 export const login = (username, password, history) => {
-  return dispatch => {
-    dispatch({ type: 'LOGGING_IN' });
-    axios.post(`${URL}/users/login`, { username, password })
-      .then(response => {
-        history.push('/login');
-        dispatch({ type: 'USER_AUTHENTICATED', payload: response.data });
-      })
-      .catch(err => {
-        dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });
-      });
-  };
+    return dispatch => {
+        dispatch({ type: 'LOGGING_IN' });
+        axios
+            .post(`${URL}/users/login`, { username, password })
+            .then(response => {
+                history.push('/login');
+                dispatch({
+                    type: 'USER_AUTHENTICATED',
+                    payload: response.data,
+                });
+            })
+            .catch(err => {
+                dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });
+            });
+    };
 };

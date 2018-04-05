@@ -17,10 +17,22 @@ class SideBar extends React.Component {
   render() {
     return (
       <div className='sidebar'>
-        <h1>Lambda Notes</h1>
-        <NavLink to='/' className='button'><button>View Your Notes</button></NavLink>
-        <NavLink to='/new' className='button'><button>+ Create New Node</button></NavLink>
-        <button className='export' onClick={this.exportCSV}>Export Notes</button>
+        <div className='top'>
+          <h1>Lambda Notes</h1>
+          <NavLink to='/' className='button'><button>View Your Notes</button></NavLink>
+          <NavLink to='/new' className='button'><button>+ Create New Node</button></NavLink>
+          <button className='export' onClick={this.exportCSV}>Export Notes</button>
+        </div>
+        <div className='bottom'>
+          {!this.props.auth ?
+          <div className='btns'>
+            <NavLink to='/login' className='button'><button>Log In</button></NavLink>
+            <NavLink to='/register' className='button'><button>Register</button></NavLink>
+          </div>
+           :
+           <NavLink to='/logout' className='button'><button>Log Out</button></NavLink>
+          }
+        </div>
       </div>
     );
   }
@@ -29,7 +41,8 @@ class SideBar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
+    notes: state.notes.notes,
+    auth: state.auth.authenticated
   }
 }
 

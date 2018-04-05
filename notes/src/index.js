@@ -11,15 +11,17 @@ import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const persistState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : initialTestState;
+const initialTestState = {};
+
+const persistState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : initialTestState;
 
 // const store = createStore(notesReducer, persistState, composeEnhancers(applyMiddleware(logger)));
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
+const store = createStore(rootReducer, persistState, composeEnhancers(applyMiddleware(logger, thunk)));
 
 
-// store.subscribe(()=>{
-//   localStorage.setItem('reduxState', JSON.stringify(store.getState()));
-// });
+store.subscribe(()=>{
+  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+});
 
 ReactDOM.render(
   <Provider store={store}>

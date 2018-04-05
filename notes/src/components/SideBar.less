@@ -23,6 +23,7 @@
   border-right: 2px solid #BDBDBD;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   height: 100%;
@@ -30,27 +31,43 @@
   left: 0;
   top: 0;
 
-  h1 {
-    font-size: 2.9rem;
-    padding-left: 20px;
-    text-align: left;
-    user-select: none;
-    color: #4B4A4B;
-    margin: 25px 0 20px 0;
-  }
-  .button {
-    width: 90%;
-  }
-  button {
-    .button-mix();
-    margin: 10px;
-
-    &:hover {
-      background: #00b6b9;
+  .top {
+    h1 {
+      font-size: 2.9rem;
+      padding-left: 20px;
+      text-align: left;
+      user-select: none;
+      color: #4B4A4B;
+      margin: 25px 0 20px 0;
     }
+    .button {
+      width: 90%;
+    }
+    button {
+      .button-mix();
+      margin: 10px;
+
+      &:hover {
+        background: #00b6b9;
+      }
+    }
+    // .export {
+    //   width: 81%;
+    // }
   }
-  .export {
-    width: 81%;
+  .bottom {
+    width: 100%;
+    .button {
+      width: 90%;
+    }
+    button {
+      .button-mix();
+      margin: 10px;
+
+      &:hover {
+        background: #00b6b9;
+      }
+    }
   }
 
   a {

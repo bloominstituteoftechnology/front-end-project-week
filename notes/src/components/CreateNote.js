@@ -19,8 +19,8 @@ class CreateNote extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     const timeStamp = new Date();
-    this.props.addNote({ ...this.state, dateCreated: timeStamp.toLocaleString() });
-    this.setState({ redirect: true });
+    const { title, entry } = this.state;
+    this.props.addNote({ title, entry }, this.props.history);
   }
 
   render() {
@@ -32,7 +32,6 @@ class CreateNote extends React.Component {
           <div className='area-container'><textarea onChange={this.onChange} value={this.state.entry} name="entry" placeholder='Note Content' required='true'></textarea></div>
           <button type='submit'>Save</button>
         </form>
-        {this.state.redirect ? <Redirect to='/' /> : null }
       </div>
     );
   }
