@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
-import { viewNote, deleteNote, reorderNotes } from '../actions';
+import { viewNote, deleteNote, reorderNotes, getNotes } from '../actions';
 import './ListView.css';
 import DeleteNoteModal from './DeleteNoteModal';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
@@ -44,6 +44,7 @@ class ListView extends React.Component {
     if (this.props.match.params.id) {
       this.setState({ deleting: true });
     }
+    this.props.getNotes();
   }
 
   deleteNote = () => {
@@ -90,4 +91,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes })(ListView);
+export default connect(mapStateToProps, { viewNote, deleteNote, reorderNotes, getNotes })(ListView);
