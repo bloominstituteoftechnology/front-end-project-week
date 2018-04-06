@@ -37,6 +37,7 @@ const NotesReducer = (state = {}, action) => {
                 ...state,
                 searchResults: action.payload,
                 searchTerms: action.searchTerms,
+                searching: true,
                 loading: false
             };
 
@@ -70,7 +71,7 @@ const NotesReducer = (state = {}, action) => {
 
         case 'GOT_NOTES':
             return {
-              ...state, notes: action.payload, current: {}, loading: false
+              ...state, notes: action.payload, current: {}, loading: false, searching: false
             };
 
         case 'FLUSH_NOTES':
