@@ -58,7 +58,7 @@ class SearchedListView extends React.Component {
   }
 
   onSortEnd = ({oldIndex, newIndex}) => {
-    this.props.reorderNotes(arrayMove(this.props.searchResults, oldIndex, newIndex), this.state.searching);
+    this.props.reorderNotes(arrayMove(this.props.searchResults, oldIndex, newIndex), this.props.searching);
   }
 
   render() {
@@ -79,6 +79,7 @@ class SearchedListView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     searchResults: state.notes.searchResults,
+    searching: state.notes.searching,
     searchTerms: state.notes.searchTerms,
     sorted: state.notes.sorted,
     hash: state.notes.hash,
