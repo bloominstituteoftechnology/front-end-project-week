@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { login } from '../actions';
 import { withRouter } from 'react-router'
 
+import Loading from './Loading';
+
 import './Login.css';
 
 class CreateNote extends React.Component {
@@ -35,7 +37,7 @@ class CreateNote extends React.Component {
           <h2>Login:</h2>
           <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true'/>
           <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' />
-          <button type='submit'>Log In</button>
+          {this.props.loading ? <Loading /> : <button type='submit'>Log In</button>}
         </form>
         <div className='register-prompt'>Don't have an account? <Link to='/register' >Create one here.</Link></div>
         {this.props.auth ? <Redirect to='/' /> : null }
@@ -47,7 +49,8 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     // sorted: state.sorted,
-    auth: state.auth.authenticated
+    auth: state.auth.authenticated,
+    loading: state.auth.loading,
   };
 }
 

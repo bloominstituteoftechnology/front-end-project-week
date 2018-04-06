@@ -1,10 +1,12 @@
 const NotesReducer = (state = {}, action) => {
     switch (action.type) {
+        case 'LOADING_NOTES':
+            return { ...state, loading: true };
         case 'ADD_NOTE':
-            return { ...state, notes: state.notes.concat(action.payload) };
+            return { ...state, notes: state.notes.concat(action.payload), loading: false };
 
         case 'VIEW_NOTE':
-            return { ...state, current: action.payload };
+            return { ...state, current: action.payload, loading: false };
 
         case 'EDIT_NOTE':
             return {
@@ -15,12 +17,13 @@ const NotesReducer = (state = {}, action) => {
                     }
                     return note;
                 }),
+                 loading: false
             };
 
         case 'DELETE_NOTE':
             return {
                 ...state,
-                notes: state.notes.filter(note => note.id !== action.payload),
+                notes: state.notes.filter(note => note.id !== action.payload), loading: false
             };
 
         case 'REORDER_NOTES':
@@ -34,6 +37,7 @@ const NotesReducer = (state = {}, action) => {
                 ...state,
                 searchResults: action.payload,
                 searchTerms: action.searchTerms,
+                loading: false
             };
 
         case 'SORT_NOTES':
@@ -66,7 +70,7 @@ const NotesReducer = (state = {}, action) => {
 
         case 'GOT_NOTES':
             return {
-              ...state, notes: action.payload
+              ...state, notes: action.payload, current: {}, loading: false
             };
 
         case 'FLUSH_NOTES':
