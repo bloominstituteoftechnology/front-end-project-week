@@ -65,7 +65,7 @@ class App extends React.Component {
       const tempArr = this.state.notes;
       tempArr.splice(i, 1);
       this.setState({
-        notes: tempArr.reverse(),
+        notes: tempArr,
         showSingleNote: !this.state.showSingleNote
       })
     }

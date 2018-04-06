@@ -6,7 +6,7 @@ const ACCESS_TOKEN_KEY = 'access_token';
 
 const CLIENT_ID = 'GmvYnc9BARvaP0vmBEgbq7VtggydTzCw';
 const CLIENT_DOMAIN = '45h131.auth0.com';
-const REDIRECT = 'https://lambda-notes-2.herokuapp.com/callback';
+const REDIRECT = 'https://b28982db.ngrok.io/callback';
 const SCOPE = 'openid email';
 const AUDIENCE = '45h131-lambda-notes';
 
