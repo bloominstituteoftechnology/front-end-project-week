@@ -41,9 +41,9 @@ class Register extends React.Component {
         <form onSubmit={this.onSubmit}>
           <h2>Register:</h2>
           {this.state.error ? <div style={{ color: 'red' }}>Passwords must match</div> : null}
-          <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true'/>
-          <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' />
-          <input onChange={this.onChange} value={this.state.entry} name="confirmPassword" placeholder='confirm password' type='password' required='true' />
+          <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true' maxlength='100'/>
+          <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' maxlength='100'/>
+          <input onChange={this.onChange} value={this.state.entry} name="confirmPassword" placeholder='confirm password' type='password' required='true' maxlength='100'/>
           { this.props.loading ? <Loading /> : <button type='submit'>Register</button> }
         </form>
       </div>
