@@ -60,7 +60,7 @@ class Search extends React.Component {
       <div className='search'>
         <form onSubmit={this.onSubmit}>
           <label>Search:</label>
-          <input className='search-bar' value={this.state.searchTerm} name='searchTerm' onChange={this.onChange} placeholder={this.props.terms}/>
+          <input className='search-bar' value={this.state.searchTerm} name='searchTerm' onChange={this.onChange} placeholder={this.props.terms} maxlength='100'/>
         </form>
       </div>
     );

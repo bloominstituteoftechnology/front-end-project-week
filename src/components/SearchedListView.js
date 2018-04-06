@@ -65,16 +65,10 @@ class SearchedListView extends React.Component {
     return (
       <div className='list-view'>
         <Search history={this.props.history} terms={this.props.match.params.terms}/>
-        {this.props.searchResults ?
         <div>
           <div className='list-title-container'><h2 className='list-title'>Your Notes:</h2><SortingMenu searched={true}/></div>
         {this.props.loading ? <Loading /> : <SortableList viewNote={this.viewNote} notes={this.props.searchResults} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/> }
         </div>
-        :
-        <div className='nothing-to-view'>
-          <h2>Error searching Notes</h2>
-        </div>
-        }
         {this.state.view ? <Redirect to={`/view/${this.state.id}`} /> : null }
         {this.state.deleting ? <DeleteNoteModal deleteNote={this.deleteNote} cancelDelete={this.cancelDelete}/> : null}
       </div>

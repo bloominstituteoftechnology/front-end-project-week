@@ -26,8 +26,8 @@ export const editNote = (title, entry, id, history) => {
         axios
             .put(`${URL}/notes/edit/${id}`, { title, entry })
             .then(response => {
-                history.push('/');
                 dispatch({ type: 'NOTE_EDITED', payload: response.data });
+                history.push('/');
             })
             .catch(err => {
                 dispatch({ type: 'ERROR_EDITING_NOTE', payload: err });
