@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+
 import { editNote } from '../actions';
 import './CreateNote.css';
 
@@ -20,7 +21,8 @@ class CreateNote extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    this.props.editNote(this.state);
+    const { title, entry, id } = this.state;
+    this.props.editNote(title, entry, id, this.props.history);
     this.props.history.push(`/view/${this.state.id}`);
   }
 

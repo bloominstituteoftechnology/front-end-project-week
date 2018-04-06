@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+
 import './NoteView.css';
 
 class NoteView extends React.Component {
@@ -17,7 +19,6 @@ class NoteView extends React.Component {
     if (this.props.match.params.id === undefined) {
       this.setState({ redirect: true });
     }
-
   }
 
   render() {
@@ -32,7 +33,7 @@ class NoteView extends React.Component {
             <Link to={`/delete/${this.props.current._id}`} className='delete-button'>delete</Link>
           </div>
           {this.props.current ? <div>
-            <div className='note-title'><span>{this.props.current.title}</span><span className='note-timestamp'>{this.props.current.dateCreated}</span></div>
+            <div className='note-title'><span>{this.props.current.title}</span><span className='note-timestamp'>{moment(this.props.current.dateCreated).format(' hh:mm:ss A MMM-DD-YYYY')}</span></div>
             <div className='note-entry'>{converter.convert(this.props.current.entry)}</div>
           </div>
           :

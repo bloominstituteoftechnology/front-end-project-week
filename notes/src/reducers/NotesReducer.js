@@ -41,14 +41,14 @@ const NotesReducer = (state = {}, action) => {
                 return {
                     ...state,
                     searchResults: action.payload,
-                    sorted: action.sorted,
+                    direction: action.direction,
                     hash: action.hash,
                 };
             }
             return {
                 ...state,
                 notes: action.payload,
-                sorted: action.sorted,
+                direction: action.direction,
                 hash: action.hash,
             };
 
@@ -56,7 +56,8 @@ const NotesReducer = (state = {}, action) => {
             return {
                 ...state,
                 notes: state.notes.map(note => {
-                    if (note.id === action.id) {
+                    console.log('test: ', note);
+                    if (note._id === action.id) {
                         return { ...note, label: action.payload };
                     }
                     return note;
@@ -69,9 +70,8 @@ const NotesReducer = (state = {}, action) => {
             };
 
         case 'FLUSH_NOTES':
-            return {
-                ...state, notes: [],
-            }
+        sessionStorage.removeItem('reduxState');
+        return {};
 
         default:
             return state;

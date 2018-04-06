@@ -6,6 +6,7 @@ import { changeNoteLabel } from '../actions';
 class LabelSelector extends React.Component {
 
   onClick = (event) => {
+    console.log('label', event.target.name);
     this.props.changeNoteLabel(event.target.name, this.props.note);
   }
 

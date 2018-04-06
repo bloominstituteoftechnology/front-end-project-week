@@ -1,4 +1,5 @@
 import axios from 'axios';
+import shortid from 'shortid';
 axios.defaults.withCredentials = true;
 
 // const URL = 'http://localhost:5000';
@@ -18,11 +19,12 @@ export const addNote = (info, history) => {
     };
 };
 
-export const editNote = info => {
+export const editNote = (title, entry, id, history) => {
     return dispatch => {
         axios
-            .put(`${URL}/notes/edit/${info._id}`, info)
+            .put(`${URL}/notes/edit/${id}`, { title, entry })
             .then(response => {
+                history.push('/');
                 dispatch({ type: 'NOTE_EDITED', payload: response.data });
             })
             .catch(err => {
@@ -69,9 +71,9 @@ export const sortNotes = (sortedNotes, direction, searching) => {
     return {
         type: 'SORT_NOTES',
         payload: sortedNotes,
-        sorted: direction,
+        direction: direction,
         searching: searching,
-        // hash: shortid.generate(),
+        hash: shortid.generate(),
     };
 };
 
@@ -89,11 +91,13 @@ export const searchNotes = terms => {
 };
 
 export const changeNoteLabel = (newLabel, note) => {
+    const obj = { ...note, label: newLabel};
+    console.log('actionlabel', obj);
     return dispatch => {
         axios
-            .put(`${URL}/notes/edit/${note._id}`, { ...note, label: newLabel })
+            .put(`${URL}/notes/changeLabel/${note._id}`, { ...note, label: newLabel })
             .then(result => {
-                dispatch({ type: 'CHANGED_LABEL', payload: result.data });
+                dispatch({ type: 'CHANGE_NOTE_LABEL', payload: result.data.label, id: result.data._id });
             })
             .catch(err => {
                 dispatch({ type: 'ERROR_CHANGING_LABEL', payload: err });

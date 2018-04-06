@@ -85,7 +85,7 @@ class ListView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes.notes,
-    sorted: state.notes.sorted,
+    direction: state.notes.direction,
     hash: state.notes.hash,
   };
 };
