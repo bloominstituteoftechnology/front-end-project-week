@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signUp, signIn } from '../actions';
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
   state = {
@@ -24,7 +25,10 @@ class Login extends React.Component {
   
   render() {
     if(this.props.misc.loggedIn){
+      console.log(this.props.misc.loggedIn);
+      console.log(this.props.history);
       this.props.history.push('/app/list');
+      // return <Redirect to='/app/list' />;
     }
     return (
       <div className="login">
