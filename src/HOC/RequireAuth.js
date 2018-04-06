@@ -11,7 +11,7 @@ export default ComposedComponent => {
 
     render() {
       return (
-        <div>
+        <div className='AuthDiv'>
           {this.props.authenticated ? <ComposedComponent {...this.props}/> : null}
         </div>
       );

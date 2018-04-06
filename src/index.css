@@ -4,7 +4,7 @@ body {
   font-family: Roboto;
   font-size: 62.5%;
 }
-html, body, #root, #root>div {
+html, body, #root, #root>div, .AuthDiv {
   height: 100%;
 }
 ::-webkit-input-placeholder {
