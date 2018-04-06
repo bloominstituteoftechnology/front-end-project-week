@@ -19,6 +19,7 @@ class Register extends React.Component {
   }
 
   onChange = (event) => {
+    this.props.resetAuthError();
     let { name, value } = event.target;
     this.setState({ [name]: value });
   }
