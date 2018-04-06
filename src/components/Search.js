@@ -17,7 +17,7 @@ class Search extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     if (this.state.searchTerm !== '') {
-      const terms = this.state.searchTerm.toLowerCase().replace(/[\W_]+/g," ").replace(/\s/g, '');
+      const terms = this.state.searchTerm.toLowerCase();
       this.checkSearch(terms);
       this.props.history.push(`/search/${terms}`);
     } else {
@@ -31,28 +31,28 @@ class Search extends React.Component {
 
   checkSearch = (terms) => {
 
-    const searchResults = [];
-    let looseReg = '';
-    for (let i = 0; i < terms.length; i++) {
-      looseReg += terms[i] + "\\s*";
-    }
-    let strictRegex = new RegExp(terms, 'i');
-    let looseRegex = new RegExp(looseReg, 'i');
+    // const searchResults = [];
+    // let looseReg = '';
+    // for (let i = 0; i < terms.length; i++) {
+    //   looseReg += terms[i] + "\\s*";
+    // }
+    // let strictRegex = new RegExp(terms, 'i');
+    // let looseRegex = new RegExp(looseReg, 'i');
 
-    this.props.notes.forEach((item) => {
-      if (item.title.match(strictRegex) || item.entry.match(strictRegex)) {
-        searchResults.push(item);
-      }
-    });
+    // this.props.notes.forEach((item) => {
+    //   if (item.title.match(strictRegex) || item.entry.match(strictRegex)) {
+    //     searchResults.push(item);
+    //   }
+    // });
 
-    this.props.notes.forEach((item) => {
-      if (item.title.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex) || item.entry.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex)) {
-        if (!searchResults.includes(item)){
-          searchResults.push(item);
-        }
-      }
-    });
-    this.props.searchNotes(searchResults, terms);
+    // this.props.notes.forEach((item) => {
+    //   if (item.title.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex) || item.entry.replace(/[\W_]+/g," ").replace(/\s/g, '').match(looseRegex)) {
+    //     if (!searchResults.includes(item)){
+    //       searchResults.push(item);
+    //     }
+    //   }
+    // });
+    this.props.searchNotes(terms);
   }
 
   render() {
@@ -69,7 +69,7 @@ class Search extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
+    notes: state.notes.notes,
   }
 }
 
