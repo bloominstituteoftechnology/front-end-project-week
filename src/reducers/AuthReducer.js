@@ -16,6 +16,8 @@ export default (auth = initialAuth, action) => {
       return { ...auth, error: action.payload, loading: false };
     case 'CHECK_IF_AUTHENTICATED':
       return { ...auth };
+    case 'RESET_AUTH_ERROR':
+      return { ...auth, error: null };
     default:
       return auth;
   }

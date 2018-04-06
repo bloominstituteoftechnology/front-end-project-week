@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import { login } from '../actions';
+import { login, resetAuthError } from '../actions';
 import { withRouter } from 'react-router'
 
 import Loading from './Loading';
@@ -15,11 +15,12 @@ class CreateNote extends React.Component {
     password: '',
   }
 
-  componentWillReceiveProps() {
-    console.log('auth', this.props.auth);
+  componentDidMount() {
+    this.props.resetAuthError();
   }
 
   onChange = (event) => {
+    this.props.resetAuthError();
     let { name, value } = event.target;
     this.setState({ [name]: value });
   }
@@ -35,6 +36,7 @@ class CreateNote extends React.Component {
       <div className='login'>
         <form onSubmit={this.onSubmit}>
           <h2>Login:</h2>
+          {this.props.error ? <div className='error'>{this.props.error.response.data.error}</div> : null}
           <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true' maxlength='100'/>
           <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' maxlength='100'/>
           {this.props.loading ? <Loading /> : <button type='submit'>Log In</button>}
@@ -46,12 +48,12 @@ class CreateNote extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     // sorted: state.sorted,
     auth: state.auth.authenticated,
     loading: state.auth.loading,
+    error: state.auth.error,
   };
 }
 
-export default withRouter(connect(mapStateToProps, { login })(CreateNote));
+export default withRouter(connect(mapStateToProps, { login, resetAuthError })(CreateNote));

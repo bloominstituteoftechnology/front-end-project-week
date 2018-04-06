@@ -172,3 +172,9 @@ export const register = (username, password, history) => {
             });
     };
 };
+
+export const resetAuthError = () => {
+    return {
+        type: 'RESET_AUTH_ERROR',
+    }
+}
