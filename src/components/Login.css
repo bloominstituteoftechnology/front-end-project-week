@@ -63,3 +63,12 @@
 .login form button:active {
   background: #24abad;
 }
+.login .prompt-cont {
+  width: 65%;
+  display: flex;
+  justify-content: left;
+  margin-top: 30px;
+}
+.login .prompt-cont .register-prompt {
+  font-size: 0.75rem;
+}

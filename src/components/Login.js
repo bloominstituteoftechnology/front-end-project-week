@@ -39,7 +39,7 @@ class CreateNote extends React.Component {
           <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' maxlength='100'/>
           {this.props.loading ? <Loading /> : <button type='submit'>Log In</button>}
         </form>
-        <div className='register-prompt'>Don't have an account? <Link to='/register' >Create one here.</Link></div>
+        <div className='prompt-cont'><div className='register-prompt'>Don't have an account? <Link to='/register' >Create one here.</Link></div></div>
         {this.props.auth ? <Redirect to='/' /> : null }
       </div>
     );
