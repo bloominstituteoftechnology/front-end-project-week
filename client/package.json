@@ -1,0 +1,28 @@
+{
+  "name": "lambda-notes",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "auth0-js": "^9.4.2",
+    "axios": "^0.18.0",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "jwt-decode": "^2.2.0",
+    "mongoose": "^5.0.10",
+    "react": "^16.3.0",
+    "react-bootstrap": "^0.32.1",
+    "react-csv": "^1.0.14",
+    "react-dom": "^16.3.0",
+    "react-navigation": "^1.5.9",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001"
+}

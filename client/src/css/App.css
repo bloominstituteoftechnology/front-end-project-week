@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+}
+span {
+  margin: 10px;
+  text-decoration: underline;
+}
+button {
+  background-color: #2AC0C4;
+  color: white;
+  border: solid 1px #96AEAF;
+  font-weight: bold;
+  font-size: 1.2vw;
+  width: 90%;
+  margin-bottom: 5px;
+  height: 7vh;
+  margin-top: 2.5vh;
+}
+hr {
+  color: #646364;
+}
+
+ol {
+  list-style-type: none;
+  margin-left: -35px;
+  position: fixed;
+  margin-top: 90px;
+}
+li {
+  display: inline-block;
+}
+.edit-delete {
+  text-align: right;
+  font-weight: bolder;
+}
+.save-button {
+  width: 15vw;
+  height: 7.5vh;
+  margin-top: 0.8vh;
+}
+.App {
+  display: flex;
+}
+.Panel {
+  background: #d7d7d7;
+  height: 100vh;
+  width: 18vw;
+}
+.panel-buttons {
+  text-align: center;
+}
+.Notes,
+.single-note,
+.create-note-container,
+.edit-note-container {
+  background: #F3F3F3;
+  height: 100vh;
+  width: 82vw;
+  padding: 5vh 2vw 5vh 2vw;
+}
+.Notes {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+.wrapper {
+  background: white;
+  border: solid 1px #96AEAF;
+  margin: 1.5vh 1.5vh 1.5vh 0vh;
+  padding: 3vh;
+  height: 223px;
+}
+.note-container {
+  height: 195px;
+  width: 190px;
+  overflow: hidden;
+  padding: 0.1vh;
+}
+.title {
+  font-weight: bolder;
+  font-size: 3vh;
+}
+.noteTitleInputBox {
+  height: 10vh;
+  width: 40vw;
+}
+.noteContentInputBox {
+  height: 60vh;
+  width: 70vw;
+}
+.ln-title,
+.ln-title2 {
+  width: 90%;
+  height: 8.3%;
+  margin: 0 auto;
+  font-size: 3.1vw;
+  font-weight: bold;
+  padding: -3vh 0vw 1vh 0vw;
+}
+.ln-title {
+  padding-top: 3vh;
+}
+.cn-line {
+  font-size: 4vh;
+  height: 6%;
+  font-weight: bolder;
+}
+.sn-title {
+  font-size: 3.8vh;
+  font-weight: bolder;
+}
+.yn-title {
+  width: 70vw;
+  margin-top: 7vh;
+  font-size: 3.8vh;
+  font-weight: bolder;
+}
