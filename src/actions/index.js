@@ -7,6 +7,7 @@ const URL = 'https://safe-journey-95480.herokuapp.com';
 
 export const addNote = (info, history) => {
     return dispatch => {
+        dispatch({ type: 'LOADING_NOTES' });
         axios
             .post(`${URL}/notes/new`, info)
             .then(response => {
@@ -21,6 +22,7 @@ export const addNote = (info, history) => {
 
 export const editNote = (title, entry, id, history) => {
     return dispatch => {
+        dispatch({ type: 'LOADING_NOTES' });
         axios
             .put(`${URL}/notes/edit/${id}`, { title, entry })
             .then(response => {
@@ -35,6 +37,7 @@ export const editNote = (title, entry, id, history) => {
 
 export const viewNote = info => {
     return dispatch => {
+        dispatch({ type: 'LOADING_NOTES' });
         axios
             .get(`${URL}/notes/${info._id}`)
             .then(response => {
@@ -48,6 +51,7 @@ export const viewNote = info => {
 
 export const deleteNote = info => {
     return dispatch => {
+        dispatch({ type: 'LOADING_NOTES' });
         axios
             .post(`${URL}/notes/remove/${info}`)
             .then(response => {
@@ -79,6 +83,7 @@ export const sortNotes = (sortedNotes, direction, searching) => {
 
 export const searchNotes = terms => {
     return dispatch => {
+        dispatch({ type: 'LOADING_NOTES' });
         axios
             .get(`${URL}/notes/search/${terms}`)
             .then(results => {
@@ -91,8 +96,6 @@ export const searchNotes = terms => {
 };
 
 export const changeNoteLabel = (newLabel, note) => {
-    const obj = { ...note, label: newLabel};
-    console.log('actionlabel', obj);
     return dispatch => {
         axios
             .put(`${URL}/notes/changeLabel/${note._id}`, { ...note, label: newLabel })
@@ -107,6 +110,7 @@ export const changeNoteLabel = (newLabel, note) => {
 
 export const getNotes = () => {
     return dispatch => {
+        dispatch({ type: 'LOADING_NOTES' });
         axios
             .get(`${URL}/notes/`)
             .then(response => {
@@ -120,6 +124,7 @@ export const getNotes = () => {
 
 export const login = (username, password, history) => {
     return dispatch => {
+        dispatch({ type: 'LOADING' });
         axios
             .post(`${URL}/users/login`, { username, password })
             .then(response => {
@@ -154,9 +159,13 @@ export const logout = () => {
 
 export const register = (username, password, history) => {
     return dispatch => {
+        dispatch({ type: 'LOADING' });
         axios.post(`${URL}/users/register`, { username, password })
             .then(response => {
                 history.push('/login');
+                dispatch({
+                    type: 'USER_REGISTERED',
+                });
             })
             .catch(err => {
                 dispatch({ type: 'AUTHENTICATION_ERROR', payload: err });

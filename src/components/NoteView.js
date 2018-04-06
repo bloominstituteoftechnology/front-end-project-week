@@ -4,6 +4,8 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+import Loading from './Loading';
+
 import './NoteView.css';
 
 class NoteView extends React.Component {
@@ -32,13 +34,13 @@ class NoteView extends React.Component {
             <Link to={`/edit/${this.props.current._id}`} className='edit-button'>edit</Link>
             <Link to={`/delete/${this.props.current._id}`} className='delete-button'>delete</Link>
           </div>
-          {this.props.current ? <div>
+          {!this.props.loading ? <div>
             <div className='note-title'><span>{this.props.current.title}</span><span className='note-timestamp'>{moment(this.props.current.dateCreated).format(' hh:mm:ss A MMM-DD-YYYY')}</span></div>
             <div className='note-entry'>{converter.convert(this.props.current.entry)}</div>
           </div>
           :
           <div>
-            Loading...
+            <Loading />
           </div>}
         </div>
         <div>
@@ -53,6 +55,7 @@ const mapStateToProps = (state) => {
   return {
     current: state.notes.current,
     notes: state.notes.notes,
+    loading: state.notes.loading,
   }
 }
 

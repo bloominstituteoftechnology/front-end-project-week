@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { register } from '../actions';
 import { withRouter } from 'react-router'
 
+import Loading from './Loading';
+
 import './Login.css';
 
 class Register extends React.Component {
@@ -42,7 +44,7 @@ class Register extends React.Component {
           <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true'/>
           <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' />
           <input onChange={this.onChange} value={this.state.entry} name="confirmPassword" placeholder='confirm password' type='password' required='true' />
-          <button type='submit'>Register</button>
+          { this.props.loading ? <Loading /> : <button type='submit'>Register</button> }
         </form>
       </div>
     );
@@ -52,7 +54,8 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     // sorted: state.sorted,
-    auth: state.auth.authenticated
+    auth: state.auth.authenticated,
+    loading: state.auth.loading,
   };
 }
 

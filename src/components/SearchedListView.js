@@ -9,6 +9,8 @@ import Search from './Search';
 import SortingMenu from './SortingMenu';
 import ListItem from './ListItem';
 
+import Loading from './Loading';
+
 const SortableItem = SortableElement(({note, viewNote}) =>
   <div>
     <ListItem note={note} viewNote={viewNote} />
@@ -66,7 +68,7 @@ class SearchedListView extends React.Component {
         {this.props.searchResults ?
         <div>
           <div className='list-title-container'><h2 className='list-title'>Your Notes:</h2><SortingMenu searched={true}/></div>
-          <SortableList viewNote={this.viewNote} notes={this.props.searchResults} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/>
+        {this.props.loading ? <Loading /> : <SortableList viewNote={this.viewNote} notes={this.props.searchResults} onSortEnd={this.onSortEnd} distance={20} axis='xy' helperClass='draggable'/> }
         </div>
         :
         <div className='nothing-to-view'>
@@ -86,6 +88,7 @@ const mapStateToProps = (state) => {
     searchTerms: state.notes.searchTerms,
     sorted: state.notes.sorted,
     hash: state.notes.hash,
+    loading: state.notes.loading,
   };
 };
 

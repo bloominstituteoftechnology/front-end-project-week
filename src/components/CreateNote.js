@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { addNote } from '../actions';
 import './CreateNote.css';
 
+import Loading from './Loading';
+
 class CreateNote extends React.Component {
   state = {
     title: '',
@@ -28,7 +30,7 @@ class CreateNote extends React.Component {
           <h2>Create New Note:</h2>
           <input onChange={this.onChange} value={this.state.title} name='title' placeholder='Note Title' required='true'/>
           <div className='area-container'><textarea onChange={this.onChange} value={this.state.entry} name="entry" placeholder='Note Content' required='true'></textarea></div>
-          <button type='submit'>Save</button>
+          { this.props.loading ? <Loading /> : <button type='submit'>Save</button> }
         </form>
       </div>
     );
@@ -36,7 +38,8 @@ class CreateNote extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    sorted: state.sorted,
+    sorted: state.notes.sorted,
+    loading: state.notes.loading,
   };
 }
 
