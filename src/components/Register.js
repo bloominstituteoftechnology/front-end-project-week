@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { register } from '../actions';
+import { register, resetAuthError } from '../actions';
 import { withRouter } from 'react-router'
 
 import Loading from './Loading';
@@ -14,9 +14,8 @@ class Register extends React.Component {
     confirmPassword: '',
     error: false,
   }
-
-  componentWillReceiveProps() {
-    console.log('auth', this.props.auth);
+  componentDidMount() {
+    this.props.resetAuthError();
   }
 
   onChange = (event) => {
@@ -40,6 +39,7 @@ class Register extends React.Component {
       <div className='login'>
         <form onSubmit={this.onSubmit}>
           <h2>Register:</h2>
+          {this.props.error ? <div className='error'>{this.props.error.response.data.error}</div> : null}
           {this.state.error ? <div style={{ color: 'red' }}>Passwords must match</div> : null}
           <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true' maxlength='100'/>
           <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' maxlength='100'/>
@@ -51,12 +51,12 @@ class Register extends React.Component {
   }
 };
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     // sorted: state.sorted,
     auth: state.auth.authenticated,
     loading: state.auth.loading,
+    error: state.auth.error,
   };
 }
 
-export default withRouter(connect(mapStateToProps, { register })(Register));
+export default withRouter(connect(mapStateToProps, { register, resetAuthError })(Register));

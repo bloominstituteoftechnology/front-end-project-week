@@ -5,7 +5,7 @@ import './Logout.css';
 
 function Logout(props) {
   props.logout();
-  setTimeout(() => props.history.push('/'), 2000);
+  setTimeout(() => props.history.push('/'), 1000);
   return (
     <div className='logout'>
       <h1>You've been logged out.</h1>
