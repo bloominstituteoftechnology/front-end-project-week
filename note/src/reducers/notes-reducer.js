@@ -2,7 +2,6 @@ import { ADD_NOTE, SORT_LIST, DELETE_NOTE, EDIT_NOTE, TOGGLE_MODAL, FETCHED_NOTE
 
 export const notes = (state = [], action) => {
   switch (action.type) {
-
     case FETCHED_NOTES:
       return action.payload;
   
@@ -78,19 +77,19 @@ export const modal = (state = initialModal, action) => {
 }
 
 let initialMisc = {
-  user: sessionStorage.getItem('user'),
+  user: localStorage.getItem('userId'),
   fetching_notes: false,
-  loginError: ''
+  loginError: '',
+  loggedIn: false
 }
 
 export const misc = (state = initialMisc, action) => {
   switch(action.type){
     case LOGGED_IN:
-      // return { ...state, email: action.payload.email, loginError: '' }
-      return { ...state, user: action.payload, loginError: '' }
+      return { ...state, user: action.payload, loginError: '', loggedIn: true }
 
     case LOGGED_OUT:
-      return { ...state, email: null }
+      return { ...state, user: null }
 
     case FETCHING_NOTES:
       return { ...state, fetching_notes: true }

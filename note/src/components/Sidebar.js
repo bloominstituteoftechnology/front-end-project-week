@@ -10,7 +10,7 @@ class SideBar extends React.Component {
   }
 
   render() {
-    if(!this.props.misc.username){
+    if(!this.props.misc.loggedIn){
       this.props.history.push('/');
     }
     return (

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { signUp, signIn } from '../actions';
 
 class Login extends React.Component {
-
   state = {
     email: '',
     password: ''
@@ -24,7 +23,7 @@ class Login extends React.Component {
   }
   
   render() {
-    if(this.props.misc.email){
+    if(this.props.misc.loggedIn){
       this.props.history.push('/app/list');
     }
     return (
