@@ -82,10 +82,10 @@ class SearchedListView extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    searchResults: state.searchResults,
-    searchTerms: state.searchTerms,
-    sorted: state.sorted,
-    hash: state.hash,
+    searchResults: state.notes.searchResults,
+    searchTerms: state.notes.searchTerms,
+    sorted: state.notes.sorted,
+    hash: state.notes.hash,
   };
 };
 

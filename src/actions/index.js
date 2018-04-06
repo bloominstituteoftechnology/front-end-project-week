@@ -82,7 +82,7 @@ export const searchNotes = terms => {
         axios
             .get(`${URL}/notes/search/${terms}`)
             .then(results => {
-                dispatch({ type: 'SEARCHED_NOTES', payload: results.data });
+                dispatch({ type: 'SEARCH_NOTES', payload: results.data, searchTerms: terms });
             })
             .catch(err => {
                 dispatch({ type: 'ERROR_SEARCHING_NOTES', payload: err });
