@@ -20,6 +20,7 @@
   color: #4B4A4B;
   font-size: 1.4rem;
   margin-bottom: 20px;
+  user-select: none;
 }
 .login form input {
   font-family: inherit;
