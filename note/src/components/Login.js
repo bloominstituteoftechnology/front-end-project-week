@@ -5,7 +5,7 @@ import { signUp, signIn } from '../actions';
 class Login extends React.Component {
 
   state = {
-    username: '',
+    email: '',
     password: ''
   }
 
@@ -24,14 +24,14 @@ class Login extends React.Component {
   }
   
   render() {
-    if(this.props.misc.username){
+    if(this.props.misc.email){
       this.props.history.push('/app/list');
     }
     return (
       <div className="login">
         <div className="title">Lambda Notes</div>
         <div className="login_error">{this.props.misc.loginError}</div>
-        <input name="username" value={this.state.name} placeholder="Username" onChange={this.handleOnChange}/><br />
+        <input name="email" value={this.state.value} placeholder="Email" onChange={this.handleOnChange}/><br />
         <input name="password" type="password" value={this.state.value} placeholder="Password" onChange={this.handleOnChange}/><br />
         <button className="signin" onClick={() => {this.handleSignIn()}}>Sign in</button><br />
         <div>- or -</div>
