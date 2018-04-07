@@ -74,6 +74,7 @@ class AddNote extends Component {
                         <div className="AddTag__Input" style={display}>
                             <input type="text" name="tagName" placeholder="Name" value={this.state.tagName} onChange={this.handleChange}></input>
                             <input type="text" name="tagColor" placeholder="Color" value={this.state.tagColor} onChange={this.handleChange}></input>
+                            // do a check to see if the color is a valid color. Maybe give a list of 5 colors?
                         </div>
                     </div>
                 </form>
