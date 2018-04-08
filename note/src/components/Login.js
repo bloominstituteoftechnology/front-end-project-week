@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signUp, signIn } from '../actions';
-import { Redirect } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
@@ -51,4 +51,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, {signUp, signIn})(Login);
+export default withRouter(connect(mapStateToProps, {signUp, signIn})(Login));

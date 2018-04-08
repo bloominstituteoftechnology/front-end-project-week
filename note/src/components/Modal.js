@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote, toggleModal } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class Modal extends React.Component {
 
@@ -31,4 +32,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, { deleteNote, toggleModal })(Modal);
+export default withRouter(connect(mapStateToProps, { deleteNote, toggleModal })(Modal));

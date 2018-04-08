@@ -1,4 +1,4 @@
-// import moment from 'moment';
+import moment from 'moment';
 import axios from 'axios';
 
 export const ADD_NOTE = 'ADD_NOTE';
@@ -53,7 +53,7 @@ export const signIn = (user) => {
         console.log(userResObj.data.user);
         dispatch({
           type: LOGGED_IN,
-          payload: userResObj.data.user
+          payload: userResObj.data.user.email
         });
         localStorage.setItem('userId', userResObj.data.user._id);
         localStorage.setItem('email', userResObj.data.user.email);
@@ -71,12 +71,6 @@ export const fetchNotes = (userId) => {
     dispatch({
       type: FETCHING_NOTES
     });
-    // localStorage.setItem('userId', userResObj.data.user._id);
-    // localStorage.setItem('email', userResObj.data.user.email);
-    // localStorage.setItem('token', userResObj.data.token);
-    console.log(localStorage.getItem('userId'));
-    console.log(localStorage.getItem('email'));
-    console.log(localStorage.getItem('token'));
     axios.get(`${URL}/users/${userId}`, 
     { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } })
     .then(resObj => {
@@ -88,6 +82,63 @@ export const fetchNotes = (userId) => {
     })
   }
 }
+
+export const addNote = (note) => {
+  let month = moment().format('MMM');
+  let day = moment().format('Do');
+  let year = moment().format('YYYY');
+  let hour = moment().format('H');
+  let min = moment().format('mm');
+  if(hour > 12){
+    hour =  hour / 12;
+    min = min + 'pm';
+  }else{
+    min = min + 'am';
+  }
+  note.date = `${month} ${day}, ${year} @ ${hour}:${min}`;
+  note.timeStamp = moment().unix();
+
+  console.log(note);
+
+  return (dispatch) => {
+    dispatch({
+      type: FETCHING_NOTES
+    });
+    const userId = localStorage.getItem('userId');
+    axios.get(`${URL}/users/${userId}`,
+    { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } })
+    .then(updatedUser => {
+      console.log(updatedUser);
+      dispatch({
+        type: ADD_NOTE,
+        payload: updatedUser.notes
+      });
+    })
+  }
+};
+
+export const deleteNote = (key) => {
+  return (dispatch) => {
+    // // remove firebase item by key
+    // let deleteNoteRef = firebaseRef.child(`notes/${key}`).remove();
+    // // remove redux item by key as id
+    // dispatch({
+    //   type: DELETE_NOTE,
+    //   payload: key
+    // });
+  }
+};
+
+export const editNote = (note) => {
+  return (dispatch) => {
+    // firebaseRef.child(`notes/${note.id}`).update(note).then(()=>{
+    //   dispatch({
+    //     type: EDIT_NOTE,
+    //     payload: note
+    //   });
+    // });
+  }
+};
 
 export const toggleModal = (id) => {
   return {type: TOGGLE_MODAL, payload: id}

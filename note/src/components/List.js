@@ -5,9 +5,9 @@ import { fetchNotes, sortList } from '../actions';
 
 class List extends React.Component {
 
-  // componentWillMount() {
-  //   this.props.fetchNotes(this.props.misc.userId);
-  // }
+  componentWillMount() {
+    this.props.fetchNotes(this.props.misc.user);
+  }
 
   handleSort = (type) => {
     this.props.sortList(type);

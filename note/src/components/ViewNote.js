@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleModal } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class ViewNote extends React.Component {
   
@@ -42,4 +43,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, {toggleModal})(ViewNote);
+export default withRouter(connect(mapStateToProps, {toggleModal})(ViewNote));

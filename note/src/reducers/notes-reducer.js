@@ -77,7 +77,8 @@ export const modal = (state = initialModal, action) => {
 }
 
 let initialMisc = {
-  user: localStorage.getItem('email'),
+  userId: localStorage.getItem('userId'),
+  userEmail: localStorage.getItem('email'),
   fetching_notes: false,
   loginError: '',
   loggedIn: false
@@ -86,10 +87,10 @@ let initialMisc = {
 export const misc = (state = initialMisc, action) => {
   switch(action.type){
     case LOGGED_IN:
-      return { ...state, user: [action.payload], loginError: '', loggedIn: true }
+      return { ...state, userId: action.payload, loggedIn: true }
 
     case LOGGED_OUT:
-      return { ...state, user: null }
+      return { ...state, userId: null, loggedIn: false }
 
     case FETCHING_NOTES:
       return { ...state, fetching_notes: true }

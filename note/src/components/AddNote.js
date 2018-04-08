@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class AddNote extends React.Component {
 	state = {
 		content: '',
 		title: '',
-		user: this.props.misc.username
+		user: this.props.misc.user
 	}
 
 	handleAddNote = (event) => {
-
 		event.preventDefault();
 		if(this.state.content !== '' && this.state.title !== ''){
 			this.props.addNote(this.state);
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, { addNote })(AddNote);
+export default withRouter(connect(mapStateToProps, { addNote })(AddNote));

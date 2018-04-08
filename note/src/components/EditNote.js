@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { editNote } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class EditNote extends React.Component {
 	componentWillMount(){
@@ -74,4 +75,4 @@ const mapStateToProps = (state) => {
   } 
 }
 
-export default connect(mapStateToProps, { editNote })(EditNote);
+export default withRouter(connect(mapStateToProps, { editNote })(EditNote));
