@@ -1,38 +1,60 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {Route, Redirect, withRouter} from 'react-router-dom';
+import { persistLogIn } from './actions/index';
+
+import Main from './component/Main';
+import NavBar from './component/NavBar';
+import User from './component/User';
+
 import './App.css';
-import ListView from './components/ListView';
-import Note from './components/FullView';
-import NewNote from './components/NewNote';
-import EditNote from './components/EditNote';
-import LeftNav from './components/LeftNav';
 
-const Routes = () => (
-  <Switch>
-    <Route exact path='/list' component={ListView}/>
-    <Route path='/list/:id' component={Note}/>
-  </Switch>
-)
+class App extends Component {
 
-const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path='/' component={ListView}/>
-      <Route path='/list' component={Routes}/>
-      <Route path='/newnote' component={NewNote}/>
-      <Route path='/editnote' component={EditNote}/>
-    </Switch>
-  </main>
-)
+  componentDidMount() {
+    if(localStorage.getItem('token')) {
+      this.props.persistLogIn()
+    }
+  }
+ 
+  render() {
+    const App = () => {
+      return (
+      <div className='App'>
+        <NavBar />
+        <Main  />
+      </div>
+      );
+    }
+    const PrivateRoute = ({ component: Component, ...rest}) => (
+      <Route
+      {...rest}
+      render={props => this.props.loggedIn ? (<Component {...props} />) : (<Redirect to='/' />)}
+      />
+    )
+    return (
+      <div>
+        <PrivateRoute path='/notes' component={App} />
+        <Route exact path='/' render={() => (
+          this.props.loggedIn ? (
+            <Redirect to='/notes' />
+          ) : (<User />)  
+        )} />
+        <Route path='/notes' render={() => (
+          this.props.loggedOut ? (
+            <Redirect to='/' />
+          ) : <Route to='/notes' />  
+        )} />
+      </div>
+    );
+  }
+}
 
-const App = () => (
-  <div className="main">
-    <div className="left">
-      <LeftNav />
-    </div><div className="right">
-      <Main />
-    </div>
-  </div>
-)
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.loggedIn,
+    loggedOut: state.loggedOut
+  }
+}
 
-export default App;
+export default withRouter(connect(mapStateToProps, {persistLogIn})(App));
