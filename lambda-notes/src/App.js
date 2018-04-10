@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   Row,
   Col,
@@ -8,21 +8,21 @@ import {
   ModalFooter,
   Button,
   Form,
-  Input
-} from "reactstrap";
-import { Route, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { createUser } from "./actions/createUser";
-import { login } from "./actions/login";
+  Input,
+} from 'reactstrap';
+import { Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createUser } from './actions/createUser';
+import { login } from './actions/login';
 
-import "./App.css";
-import Body from "./components/Body";
-import NavPannel from "./components/NavPannel";
+import './App.css';
+import Body from './components/Body';
+import NavPannel from './components/NavPannel';
 
 class App extends Component {
   state = {
-    username: "",
-    password: ""
+    username: '',
+    password: '',
   };
   render() {
     return (
@@ -30,19 +30,19 @@ class App extends Component {
         <div className="App">
           <Row
             className="appContainer"
-            style={{ width: "100%", minHeight: "100vh" }}
+            style={{ width: '100%', minHeight: '100vh' }}
           >
             <Col
               xs="3"
               style={{
-                maxWidth: "250px",
-                backgroundColor: "#D8D8D8"
+                maxWidth: '250px',
+                backgroundColor: '#D8D8D8',
               }}
             >
               <NavPannel xs="3" />
             </Col>
-            <Col style={{ backgroundColor: "#F4F4F4" }}>
-              <div className={this.props.loggedIn ? null : "d-none"}>
+            <Col style={{ backgroundColor: '#F4F4F4' }}>
+              <div className={this.props.loggedIn ? null : 'd-none'}>
                 <Body />
               </div>
             </Col>
@@ -77,13 +77,13 @@ class App extends Component {
                 <ModalFooter>
                   <Button
                     color="secondary"
-                    style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+                    style={{ width: '175px', margin: '10px 10px 20px 10px' }}
                     onClick={this.signInClicked}
                   >
                     Login
-                  </Button>{" "}
+                  </Button>{' '}
                   <Button
-                    style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+                    style={{ width: '175px', margin: '10px 10px 20px 10px' }}
                     color="success"
                     onClick={this.createUserClicked}
                   >
@@ -106,29 +106,29 @@ class App extends Component {
         user.username === this.state.username &&
         user.password === this.state.password
       ) {
-        alert("Login successful");
+        alert('Login successful');
         this.props.login(user);
         this.setState({
-          username: "",
-          password: ""
+          username: '',
+          password: '',
         });
         attempted = true;
-        this.props.history.push("/notelist");
+        this.props.history.push('/notelist');
       } else if (
         user.username === this.state.username &&
         user.password !== this.state.password
       ) {
-        alert("incorrect Password");
+        alert('incorrect Password');
         attempted = true;
       }
     });
-    if (!attempted) alert("User does not exist.");
+    if (!attempted) alert('User does not exist.');
   };
 
   createUserClicked = event => {
     event.preventDefault();
     let userExists = false;
-    console.log("create clicked", this.props);
+    console.log('create clicked', this.props);
     this.props.users.forEach(user => {
       if (user.username === this.state.username) {
         userExists = true;
@@ -137,18 +137,18 @@ class App extends Component {
     });
     if (userExists === false) {
       if (this.state.password.length < 8) {
-        alert("Password must be at least 8 characters.");
+        alert('Password must be at least 8 characters.');
       } else {
-        alert("Account created successfully!");
+        alert('Account created successfully!');
         this.props.createUser(this.state);
         this.setState({
-          username: "",
-          password: ""
+          username: '',
+          password: '',
         });
-        this.props.history.push("/notelist");
+        this.props.history.push('/notelist');
       }
     } else {
-      alert("UserName already exists!  Please use another UserName");
+      alert('UserName already exists!  Please use another UserName');
     }
   };
 
@@ -163,7 +163,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     users: state.users,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
   };
 };
 

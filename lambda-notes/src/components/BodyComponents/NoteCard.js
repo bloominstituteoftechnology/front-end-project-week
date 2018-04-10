@@ -1,6 +1,6 @@
-import React from "react";
-import { Card, CardTitle, CardText } from "reactstrap";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Card, CardTitle, CardText } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default props => {
   return (
@@ -8,14 +8,14 @@ export default props => {
       <Card
         body
         className="m-3"
-        style={{ overflow: "hidden", height: "250px", width: "200px" }}
+        style={{ overflow: 'hidden', height: '250px', width: '200px' }}
         outline
       >
         <CardTitle>{props.note.title}</CardTitle>
         <hr />
         <CardText>
           {props.note.body
-            .split("<br>")
+            .split('<br>')
             .map((line, index) => <p key={`line${index + 1}`}>{line}</p>)}
         </CardText>
       </Card>

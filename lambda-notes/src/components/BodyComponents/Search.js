@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Button } from "reactstrap";
+import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 const buttonStyles = {
-  backgroundColor: "#2BC1C5",
-  height: "29px"
+  backgroundColor: '#2BC1C5',
+  height: '29px',
 };
 
 export default class Search extends Component {
   state = {
-    searchFor: ""
+    searchFor: '',
   };
 
   render() {
@@ -35,8 +35,8 @@ export default class Search extends Component {
           style={buttonStyles}
           onClick={e => {
             e.preventDefault();
-            this.setState({ searchFor: "" });
-            this.props.search("");
+            this.setState({ searchFor: '' });
+            this.props.search('');
           }}
         >
           Reset

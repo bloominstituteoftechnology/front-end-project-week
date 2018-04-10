@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Button } from "reactstrap";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
 
 class Modal extends Component {
   render() {
@@ -16,19 +16,19 @@ class Modal extends Component {
       bottom: 0,
       left: 0,
       right: 0,
-      backgroundColor: "rgba(0,0,0,0.3)",
+      backgroundColor: 'rgba(0,0,0,0.3)',
       alpha: 0.5,
-      padding: 50
+      padding: 50,
     };
 
     // The modal "window"
     const modalStyle = {
-      backgroundColor: "#fff",
+      backgroundColor: '#fff',
       borderRadius: 5,
       maxWidth: 500,
       minHeight: 300,
-      margin: "0 auto",
-      padding: 30
+      margin: '0 auto',
+      padding: 30,
     };
 
     return (
@@ -52,7 +52,7 @@ class Modal extends Component {
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Modal;

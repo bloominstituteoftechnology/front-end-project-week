@@ -1,25 +1,25 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
-import { CSVLink } from "react-csv";
-import Search from "../BodyComponents/Search";
-import NoteCard from "./NoteCard";
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { CSVLink } from 'react-csv';
+import Search from '../BodyComponents/Search';
+import NoteCard from './NoteCard';
 
 class NotesList extends Component {
   state = {
-    filteredNotes: []
+    filteredNotes: [],
   };
 
   render() {
     return (
       <Fragment>
         <div
-          style={{ textDecoration: "underline" }}
+          style={{ textDecoration: 'underline' }}
           className="d-flex justify-content-between"
         >
           <Search search={this.filterTheNotes} />
           <CSVLink
             data={this.props.notes}
-            filename={"user_notes_csv"}
+            filename={'user_notes_csv'}
             target="_self"
           >
             Download notes as CSV File
@@ -38,7 +38,7 @@ class NotesList extends Component {
   }
   componentDidMount() {
     this.setState({ filteredNotes: this.props.notes });
-    this.filterTheNotes("");
+    this.filterTheNotes('');
   }
   componen;
 
@@ -54,7 +54,7 @@ class NotesList extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
   };
 };
 

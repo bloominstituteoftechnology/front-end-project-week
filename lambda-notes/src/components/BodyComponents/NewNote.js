@@ -1,17 +1,17 @@
-import React, { Component, Fragment } from "react";
-import { Form, Button } from "reactstrap";
-import { Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { newNote } from "../../actions/newNote";
+import React, { Component, Fragment } from 'react';
+import { Form, Button } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { newNote } from '../../actions/newNote';
 // import { withRouter } from "react-router-dom";
 
 class NewNote extends Component {
   state = {
     note: {
-      title: "",
-      body: ""
+      title: '',
+      body: '',
     },
-    redirect: false
+    redirect: false,
   };
 
   render() {
@@ -39,7 +39,7 @@ class NewNote extends Component {
             value={this.state.note.body}
           />
           {/* <Link to="/"> */}
-          <Button style={{ backgroundColor: "#2BC1C5" }} className="ml-3 mb-3">
+          <Button style={{ backgroundColor: '#2BC1C5' }} className="ml-3 mb-3">
             Add Note
           </Button>
           {/* </Link> */}
@@ -56,9 +56,9 @@ class NewNote extends Component {
   handleBodyChange = event => {
     const title = this.state.note.title;
     this.setState({
-      note: { body: event.target.value, title }
+      note: { body: event.target.value, title },
     });
-    console.log(event.target.value.replace(/\n/g, "<br>").split("<br>"));
+    console.log(event.target.value.replace(/\n/g, '<br>').split('<br>'));
   };
 
   addNewNote = event => {
@@ -66,18 +66,18 @@ class NewNote extends Component {
     console.log(this.state.note);
     const postNewNote = {
       title: this.state.note.title,
-      body: this.state.note.body.replace(/\n/g, "<br>")
+      body: this.state.note.body.replace(/\n/g, '<br>'),
     };
     this.props.newNote(postNewNote);
 
     this.setState({
       note: {
-        title: "",
-        body: ""
-      }
+        title: '',
+        body: '',
+      },
       // redirect: true
     });
-    this.props.history.push("/notelist");
+    this.props.history.push('/notelist');
   };
 }
 

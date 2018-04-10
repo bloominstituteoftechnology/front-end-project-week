@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Col, Nav, NavItem, Button } from "reactstrap";
-import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { signOut } from "../actions/signOut";
+import React, { Component } from 'react';
+import { Col, Nav, NavItem, Button } from 'reactstrap';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signOut } from '../actions/signOut';
 
 const buttonStyles = {
-  width: "100%",
-  backgroundColor: "#2BC1C5",
-  marginTop: "15px"
+  width: '100%',
+  backgroundColor: '#2BC1C5',
+  marginTop: '15px',
 };
 
 class NavPannel extends Component {
@@ -29,11 +29,11 @@ class NavPannel extends Component {
           </NavItem>
           <NavItem>
             <Button
-              className={this.props.loggedIn ? null : "d-none"}
+              className={this.props.loggedIn ? null : 'd-none'}
               style={buttonStyles}
               onClick={() => {
                 this.props.signOut();
-                this.props.history.push("/");
+                this.props.history.push('/');
               }}
             >
               Sign Out
@@ -47,7 +47,7 @@ class NavPannel extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
   };
 };
 

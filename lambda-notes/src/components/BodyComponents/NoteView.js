@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { deleteNote } from "../../actions/deleteNote";
-import { Modal, ModalBody, Button } from "reactstrap";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { deleteNote } from '../../actions/deleteNote';
+import { Modal, ModalBody, Button } from 'reactstrap';
 
 // import DeleteModal from "./DeleteModal";
 
@@ -10,7 +10,7 @@ class NoteView extends Component {
   state = {
     modal: false,
     redirectToHome: false,
-    redirectToEdit: false
+    redirectToEdit: false,
   };
 
   render() {
@@ -21,8 +21,8 @@ class NoteView extends Component {
     if (currentNote === undefined) {
       currentNote = {
         id: -10,
-        title: "",
-        body: ""
+        title: '',
+        body: '',
       };
     }
 
@@ -33,7 +33,7 @@ class NoteView extends Component {
     return (
       <div>
         <div
-          style={{ textDecoration: "underline" }}
+          style={{ textDecoration: 'underline' }}
           className="d-flex justify-content-end"
         >
           <div
@@ -47,7 +47,7 @@ class NoteView extends Component {
         <h3 className="mt-4 ml-3">{currentNote.title}</h3>
         <div className="mt-5 ml-3">
           {currentNote.body
-            .split("<br>")
+            .split('<br>')
             .map((line, index) => <p key={`line${index + 1}`}>{line}</p>)}
         </div>
 
@@ -63,16 +63,16 @@ class NoteView extends Component {
           <ModalBody className="d-flex justify-content-center">
             <Button
               color="danger"
-              style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+              style={{ width: '175px', margin: '10px 10px 20px 10px' }}
               onClick={() => {
                 this.props.deleteNote(currentNote.id);
                 this.setState({ redirectToHome: true });
               }}
             >
               Delete
-            </Button>{" "}
+            </Button>{' '}
             <Button
-              style={{ width: "175px", margin: "10px 10px 20px 10px" }}
+              style={{ width: '175px', margin: '10px 10px 20px 10px' }}
               color="secondary"
               onClick={this.toggleModal}
             >
@@ -91,7 +91,7 @@ class NoteView extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
   };
 };
 export default connect(mapStateToProps, { deleteNote })(NoteView);

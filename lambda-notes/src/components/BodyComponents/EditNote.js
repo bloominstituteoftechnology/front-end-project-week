@@ -1,17 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Form, Button } from "reactstrap";
-import { editNote } from "../../actions/editNote";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Form, Button } from 'reactstrap';
+import { editNote } from '../../actions/editNote';
+import { Redirect } from 'react-router-dom';
 
 class EditNote extends Component {
   state = {
     note: {
-      title: "",
-      body: "",
-      id: ""
+      title: '',
+      body: '',
+      id: '',
     },
-    redirect: false
+    redirect: false,
   };
 
   componentDidMount() {
@@ -23,8 +23,8 @@ class EditNote extends Component {
       note: {
         title: item.title,
         body: item.body,
-        id: item.id
-      }
+        id: item.id,
+      },
     });
   }
 
@@ -56,7 +56,7 @@ class EditNote extends Component {
             value={this.state.note.body}
           />
           {/* <Link to="/"> */}
-          <Button style={{ backgroundColor: "#2BC1C5" }} className="ml-3 mb-3">
+          <Button style={{ backgroundColor: '#2BC1C5' }} className="ml-3 mb-3">
             Update Note
           </Button>
           {/* </Link> */}
@@ -87,7 +87,7 @@ class EditNote extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
   };
 };
 
