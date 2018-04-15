@@ -14,30 +14,30 @@ class List extends Component {
 
     handleOldest() {
         this.props.sortOldest();
-        this.props.history.push('/');   
+        this.props.history.push('/');
     }
 
     render() {
         return (
             <Container className="Content">
                 <Row className="Content__heading List__heading">
-                    <Col xs="3" className="Content__heading__col">
+                    <Col xs="12" md="2" className="Content__heading__col">
                         <h4>Your Notes:</h4>
                     </Col>
-                    <Col xs="6">
+                    <Col xs="12" md="6">
                         <Searchbar/>
                     </Col>
-                    <Col className="">
+                    <Col xs="6" md="2">
                         <h4 className="Options__link" onClick={() => this.handleNewest()}>newest</h4>
                     </Col>
-                    <Col className="">
+                    <Col xs="6" md="2">
                         <h4 className="Options__link" onClick={() => this.handleOldest()}>oldest</h4>
                     </Col>
                 </Row>
                 <Row className="List__content">
                     {this.props.visibleNotes.map(note => {
                         return (
-                        <Col key={note.id} className="List__card-Container" xs="4">
+                        <Col key={note.id} className="List__card-Container" xs="12" sm="6" md="4">
                             <NoteCard note={note}/>
                         </Col>
                         )

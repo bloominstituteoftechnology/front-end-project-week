@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Container>
         <Row className="Container">
-          <Col xs="3" className="Menu">
+          <Col xs="0" md="3" className="Menu">
             <h1 className='Menu__heading'>Lambda Notes</h1>
             <Link to="/">
               <Button color="deoco" className="Button">View Your Notes</Button>
