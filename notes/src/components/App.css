@@ -33,6 +33,7 @@
 .ContentArea {
   background: rgb(236, 235, 235);
   border-left: solid 1px rgb(170, 170, 170);
+
 }
 
 .Content__heading {
@@ -51,4 +52,13 @@
   font-size: 1.3em;
   color: #4A4A4A;
   font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 786px) {
+  .Container {
+    align-content: flex-start;
+  }
+  .ContentArea {
+    height: 55.5rem;
+  }
 }

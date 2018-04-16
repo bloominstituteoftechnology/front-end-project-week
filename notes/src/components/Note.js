@@ -27,7 +27,8 @@ class Note extends Component {
             note: this.props.notes.find(note => {
                 return note.id === this.props.match.params.id
             })
-        })
+        });
+        window.scrollTo(0, 0);
     }
 
     toggleModal() {
@@ -43,10 +44,10 @@ class Note extends Component {
 
     render() {
         return (
-            <Container className="Content">
+            <Container className="Content Note-content">
                 <Row>
-                    <Col xs="9"/>
-                    <Col xs="2" className="Options">
+                    <Col xs="7" md="9"/>
+                    <Col xs="4" md="2" className="Options">
                         <Link to={`/edit/${this.state.note.id}`}>
                         <p className='Options__link'>edit</p>
                         </Link>
