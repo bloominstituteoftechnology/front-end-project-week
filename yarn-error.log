@@ -2,13 +2,13 @@ Arguments:
   /usr/bin/node /usr/share/yarn/bin/yarn.js start
 
 PATH: 
-  /home/william/anaconda3/bin:/home/william/bin:/home/william/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/ronnie/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.10.0
+  6.11.4
 
 Platform: 
   linux x64
@@ -24,10 +24,10 @@ Lockfile:
   # yarn lockfile v1
 
 Trace: 
-  Error: Couldn't find a package.json file in "/home/william/lambdaschool/week8/front-end-searchbar"
+  Error: Couldn't find a package.json file in "/home/ronnie/lambdaschool/front-end-project-week"
+      at MessageError.Error (native)
       at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
       at /usr/share/yarn/lib/cli.js:40048:15
-      at Generator.next (<anonymous>)
+      at next (native)
       at step (/usr/share/yarn/lib/cli.js:98:30)
       at /usr/share/yarn/lib/cli.js:109:13
-      at <anonymous>

@@ -58,7 +58,7 @@ export default(state=initialState, action) => {
             return Object.assign({}, state, {
                 visibleNotes: action.notes.filter(
                     note => note !== null).filter(
-                        note => note.text.toLowerCase().includes(action.input.toLowerCase())),
+                        note => note.text.toLowerCase().includes(action.input.toLowerCase()) || note.title.toLowerCase().includes(action.input.toLowerCase())),
             });
         default:
             return state;
