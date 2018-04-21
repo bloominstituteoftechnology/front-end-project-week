@@ -93,7 +93,7 @@ server.put('/notes/:id', (request, response) => {
   } else {
     if (title) foundNote.title = title;
     if (content) foundNote.content = content;
-    response.json(foundNote);
+    response.json(notes);
   }
 });
 
@@ -102,9 +102,8 @@ server.delete('/notes/:id', (request, response) => {
   const foundNote = notes.find(note => note.id == id);
 
   if (foundNote) {
-    const NoteRemoved = { ...foundNote };
     notes = notes.filter(note => note.id != id);
-    response.status(200).json({ NoteRemoved });
+    response.status(200).json(notes);
   } else {
     sendUserError('No note by that ID exists in the note DB', response);
   }
