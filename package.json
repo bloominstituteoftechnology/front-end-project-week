@@ -1,0 +1,14 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/phantomflynn/front-end-project-week.git",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.3"
+  },
+  "author": "jeffrey <jeffreyneilflynn@gmail.com>",
+  "license": "MIT"
+}
