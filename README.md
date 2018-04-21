@@ -1,3 +1,5 @@
+Trello URL: https://trello.com/b/0yLgsCaK/lambda-notes
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
