@@ -3,17 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <div className='App__container'>
+        <div className='App__left'> {/* start of left side div */}
+        some holder text
+        </div> {/* end of left side div */}
+
+        <div className='App__right'> {/* start of right side div */}
+        more holding text
+        </div> {/* end of right side div */}
+
+      </div> // container div end
+      
     );
   }
 }
