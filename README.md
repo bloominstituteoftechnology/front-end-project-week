@@ -1,4 +1,7 @@
 # Front End Project Week
+
+https://trello.com/b/KHOvUuTM/lambda-notes-kyle-kauzlarich
+
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
 You are to treat this week as if you are working at a company and the instructor is your client.  The teaching assistants are acting as your project managers and will be your main support throughout the week.
