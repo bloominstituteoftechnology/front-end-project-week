@@ -31,9 +31,7 @@ const EditNote = (note, { dispatch }) => {
       >
         <input ref={node => title = node} placeholder='Title' className='Title'/><br/>
         <input ref={node => content = node} placeholder='Content' className='Content'/><br/>
-        <button type="Submit">
-          Save
-        </button>
+        <button type="Submit">Add Note</button>
       </form>
     </div>
   )

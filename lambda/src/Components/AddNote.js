@@ -7,7 +7,7 @@ const AddNote = ({ dispatch }) => {
   let content 
 
   return (
-    <div className='noteform'>
+    <div className='note'>
       <h3>Make New Note</h3>
       <form
         onSubmit={event => {

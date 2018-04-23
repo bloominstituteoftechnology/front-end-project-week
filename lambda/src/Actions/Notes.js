@@ -3,7 +3,7 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const FILTER_NOTE = 'FILTER_NOTE';
 
-let nextNoteId= 0;
+let nextNoteId= 0; //Need to define nextnoteId even though its not working
 export const addNote = (title, content) => ({
     type: ADD_NOTE,
     id: nextNoteId++,
