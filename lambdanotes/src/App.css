@@ -6,3 +6,7 @@
 .App_mainmenu_col {
   /*max-width: 21%;*/
 }
+.container {
+    height: 100%;
+    width: 100%;
+}
