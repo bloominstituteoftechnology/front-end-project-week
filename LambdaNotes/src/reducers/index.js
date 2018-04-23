@@ -7,7 +7,7 @@ import {
 } from "../actions/index.js";
 
 const initialState = {
-	todos: [],
+	todos: [{ text: "first todo item", isComplete: false }],
 	addingTodo: false,
 	updatingTodo: false,
 	deletingTodo: false,

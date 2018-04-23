@@ -5,10 +5,10 @@ export const UPDATETODO = "UPDATETODO";
 export const TOGGLETODO = "TOGGLETODO";
 
 // action creators
-export function addTodo(text) {
+export function addTodo(title, text) {
 	return {
 		type: ADDTODO,
-		payload: { text: text, isComplete: false }
+		payload: { title: title, text: text, isComplete: false }
 	};
 }
 
