@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
-import NoteList from "./components/NoteList";
-import Menu from "./components/Menu";
 import { Row, Col, Container } from "reactstrap";
+
+import NoteList from "./components/NoteList";
+import NoteView from "./components/NoteView";
+import Menu from "./components/Menu";
 
 class App extends Component {
   render() {
@@ -13,10 +16,23 @@ class App extends Component {
         <Container>
           <Row>
             <Col sm="3">
-              <Menu />
+              <Route path="/" component={Menu} />
             </Col>
-            <Col>
-              <NoteList notes={this.props.notes} />
+            <Col sm="9">
+              <Route
+                exact
+                path="/"
+                render={props => {
+                  return <NoteList notes={this.props.notes} />;
+                }}
+              />
+              <Route
+                exact
+                path="/note/:id"
+                render={props => {
+                  return <NoteView {...props} notes={this.props.notes} />;
+                }}
+              />
             </Col>
           </Row>
         </Container>

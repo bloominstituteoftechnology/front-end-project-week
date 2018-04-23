@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Card,
@@ -14,10 +15,12 @@ const Menu = props => {
     <div className="menu">
       <h1>Lambda Notes</h1>
       <br />
-      <Button color="info">Hello</Button>
+      <Link to="/">
+        <Button color="info">View Your Notes</Button>
+      </Link>
       <br />
       <br />
-      <Button color="info">Bye</Button>
+      <Button color="info">+ Create New Note</Button>
     </div>
   );
 };
