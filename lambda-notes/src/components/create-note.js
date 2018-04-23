@@ -33,7 +33,7 @@ export default class NewNote extends Component {
         />
         <br/>
         <Link to="/">
-          <button className="Button">Save</button>
+          <button className="Button col-3">Save</button>
         </Link>
       </div>
     )

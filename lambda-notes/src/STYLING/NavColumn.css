@@ -5,6 +5,7 @@
   padding: 1.5%;
   border-right: 2px solid #959595;
   background-color: #D7D7D7;
+  height: 100%;
 }
 
 .Nav__header {
@@ -17,14 +18,10 @@
 .Button {
   border: 2px solid #959595;
   background-color: #2AC1C5;
-  color: white;
   font-weight: 600;
   font-size: 2rem;
   height: 90px;
+  width: 100%;
   margin-bottom: 10%;
   cursor: pointer;
-}
-
-.ButtonLink {
-
 }
