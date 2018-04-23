@@ -4,7 +4,6 @@ import SideNav from './SideNav/SideNav';
 import Notes from './Notes/Notes';
 import NewNote from './NewNote/NewNote';
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {

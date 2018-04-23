@@ -12,6 +12,7 @@ export const getNotes = () => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
+            console.log('response',response)
             dispatch({
                 type: SUCCESS,
                 payload: response.data

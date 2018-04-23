@@ -77,6 +77,9 @@
 
 .mainContent__content {
   padding: 15px 0;
+  display: flex;
+  justify-content: flex-start;
+  
 }
 
 .mainContent__Form {
@@ -87,7 +90,8 @@
 .form__input {
   border-radius: 5px;
   padding: 15px;
-  border: 1px solid rgb(97, 76, 76, .25);
+  border: 2px solid rgb(97, 76, 76, .5);
+  /* box-shadow: -1px -1px 1px; */
 }
 
 .form__input--title {
@@ -97,4 +101,26 @@
 
 .form__input--body {
   margin: 10px 0;
+  height: 350px;
+}
+
+textarea {
+  resize: none;
+}
+
+.noteCard {
+  width: 175px;
+  height: 200px;
+  border: 1px solid black;
+  margin-right: 20px;
+}
+
+.noteCard__title {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  padding: 5px 10px;
+}
+
+.noteCard__body {
+  padding: 10px;
 }
