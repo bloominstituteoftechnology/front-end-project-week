@@ -10,7 +10,7 @@ app.use(bodyparser.json())
 app.use(cors())
 
 app.get('/api/todos', (req, res) => {
-  res.send({ todos: [...TodoData] })
+  res.send([...TodoData])
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
