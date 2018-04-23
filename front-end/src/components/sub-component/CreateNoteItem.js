@@ -3,7 +3,10 @@ import { createNote } from "../../actions";
 
 import { connect } from "react-redux";
 
-class CreateNote extends Component {
+class CreateNoteItem extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     title: "",
     content: ""
@@ -43,4 +46,4 @@ class CreateNote extends Component {
   }
 }
 
-export default connect({ createNote })(CreateNote);
+export default CreateNoteItem
