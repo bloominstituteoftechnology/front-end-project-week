@@ -7,6 +7,7 @@ h1 {
     background: #F0EFF0;
     color: #3B3B3B;
     height: 100vh;
+    width: 100%;
 }
 
 .sidebar-div {
@@ -18,7 +19,7 @@ h1 {
     background: #CECDCE;
 }
 
-.listview-div {
+.right-div {
     padding: 20px;
     padding-right: 0;
     text-align: left;
@@ -66,4 +67,20 @@ h1 {
 h5 {
     margin: 0;
     font-size: 1.1rem;
+}
+
+.title-box {
+    width: 50%;
+    height: 40px;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.text-box {
+    height: 350px;
+    width: 80%;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    padding: 15px;
 }
