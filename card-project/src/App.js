@@ -81,25 +81,22 @@ function SplitPane(props) {
 		</div>
 	);
 }
-const Home = props => {
-	return (<div>
-		<SplitPane left={<LeftContent />} right={<RightContent />} /> </div>)
+const Home = (props) => {
+	return <SplitPane left={<LeftContent />} right={<RightContent />} />
 }
 const Edit = props => {
-	return (
-		<div>
-			<SplitPane left={<LambdaEditL />} right={<LambdaEditR />} /> </div>)
+	return <SplitPane left={<LambdaEditL />} right={<LambdaEditR />} />
 			
 	
 }
-const LambdaEditL = props => {
+const LambdaEditL = () => {
 	return (
 		<div className="LeftContent">
 		<LambdaSide />
 		</div>
 	)
 }
-const LambdaEditR = props => {
+const LambdaEditR = () => {
 	return (
 		<div className="RightContent">
 		<EditNote />
@@ -121,7 +118,7 @@ const LambdaEditR = props => {
 
 const App = (props) => {
 	return (
-		<div>
+		<div style={{height: '100%'}} >
 			{/* <SplitPane left={<LeftContent />} right={<RightContent />} /> */}
 			{/* <Home /> */}
 			<Route exact path="/" component={Home} />
