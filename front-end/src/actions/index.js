@@ -1,5 +1,5 @@
-import {fetchNotes} from './fetchNotes'
-import {createNotes} from './CreateNote'
-import {editNOtes} from './EditNote'
+import { fetchNotes } from "./fetchNotes";
+import { createNote } from "./CreateNote";
+import { editNote } from "./EditNote";
 
-export { fetchNotes, createNotes, editNOtes };
+export { fetchNotes, createNote, editNote };

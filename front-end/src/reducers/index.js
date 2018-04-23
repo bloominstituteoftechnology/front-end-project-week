@@ -1,8 +1,13 @@
 import * as AT from "../actions/actionTypes";
 
 const initialState = {
-  fetching: false,
-  notes: []
+  notes: [
+    {
+      title: "someTitle",
+      content: "someConent",
+      id: 0
+    }
+  ]
 };
 
 const noteReducer = (state = initialState, action) => {

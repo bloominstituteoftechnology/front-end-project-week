@@ -1,9 +1,12 @@
+import React, { Component } from "react";
 import { createNote } from "../../actions";
+
+import { connect } from "react-redux";
 
 class CreateNote extends Component {
   state = {
-    noteTitle: "",
-    noteContent: ""
+    title: "",
+    content: ""
   };
 
   render() {
@@ -13,24 +16,24 @@ class CreateNote extends Component {
         <input
           type="text"
           placeholder="Title"
-          name="noteTitle"
-          value={this.state.noteTitle}
+          name="title"
+          value={this.state.title}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
         />
         <input
           type="text"
           placeholder="Content"
-          name="noteContent"
-          value={this.state.noteContent}
+          name="content"
+          value={this.state.content}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
         />
         <button
           onClick={() => {
             this.props.createNote({
-              noteTitle: this.state.noteContent,
-              noteContent: this.state.noteContent
+              title: this.state.content,
+              content: this.state.content
             });
-            this.setState({ noteTitle: "", noteContent: "" });
+            this.setState({ title: "", content: "" });
           }}
         >
           Save
@@ -39,3 +42,5 @@ class CreateNote extends Component {
     );
   }
 }
+
+export default connect({ createNote })(CreateNote);
