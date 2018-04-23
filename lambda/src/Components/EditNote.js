@@ -1,0 +1,42 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { editNote } from '../Actions/Notes.js';
+
+const getNote = (notes, { match }) => {
+  console.log(notes[match.params.id]);
+  return notes[match.params.id];
+}
+
+const mapStateToProps = (state, { match }) => ({
+  note: getNote(state.notes, { match })
+});
+
+const EditNote = (note, { dispatch }) => {
+  console.log(note.note);
+  let title
+  let content 
+  return (
+    <div className='noteForm'>
+      <h3>Edit Note</h3>
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          if (!title.value.trim() || !content.value.trim()) {
+            return
+          }
+          dispatch(editNote(title.value, content.value))
+          title.value = ''
+          content.value = ''
+        }}
+      >
+        <input ref={node => title = node} placeholder='Note Title' className='noteTitle'/><br/>
+        <input ref={node => content = node} placeholder='Note Content' className='noteContent'/><br/>
+        <button type="submit">
+          Save
+        </button>
+      </form>
+    </div>
+  )
+}
+
+export default connect(  mapStateToProps,)(EditNote)
