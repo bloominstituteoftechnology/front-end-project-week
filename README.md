@@ -37,7 +37,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 * [ ] Add your Trello URL to your project's README.md file.  Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
-* [ ] Display a list of notes
+* [x] Display a list of notes
 * [ ] Create a note with a title and content
 * [ ] View an existing note
 * [ ] Edit an existing note
