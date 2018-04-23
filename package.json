@@ -1,4 +1,6 @@
 {
+  "name": "lambda-notes",
+  "version": "0.1.0",
   "dependencies": {
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
