@@ -12,3 +12,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.NoteList-link {
+  text-decoration: none;
+  color: black;
+  width: 33.3%;
+}

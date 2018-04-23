@@ -1,0 +1,11 @@
+.NoteView-container {
+  padding: 20px;
+}
+
+.NoteView-title {
+  margin-left: 20px;
+}
+
+.NoteView-content {
+  padding: 10px;
+}

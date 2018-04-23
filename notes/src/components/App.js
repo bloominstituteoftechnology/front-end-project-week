@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import NoteList from "./NoteList";
+import NoteView from "./NoteView";
 import "./App.css";
 
 const lorem =
@@ -33,6 +34,7 @@ class App extends Component {
             render={() => <NoteList notes={this.state.notes} />}
           />
           <Route path="/create" render={() => <h1>Create Note Content</h1>} />
+          <Route path="/view/:id" render={props => <NoteView {...props} notes={this.state.notes}/>} />
         </div>
       </div>
     );
