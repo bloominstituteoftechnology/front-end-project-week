@@ -1,8 +1,19 @@
 .App {
 }
 
+.note-list {
+  width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note {
+  width: 33%;
+}
+
 .card {
   width: 15rem;
+  margin: 1rem 5rem;
 }
 
 .App-logo {
