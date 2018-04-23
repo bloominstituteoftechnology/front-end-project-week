@@ -15,12 +15,10 @@ const SideNav = () => {
                     Lambda Notes
                     </Link>
                 </div>
-                <div>
+                <div className="directory__links" >
                     <Link to="/" >
                         <button className="link__button" > View Your Notes </button>
                     </Link>
-                </div>
-                <div>
                     <Link to="/newNote" >
                         <button className="link__button" > + Create New Note </button>
                     </Link>
