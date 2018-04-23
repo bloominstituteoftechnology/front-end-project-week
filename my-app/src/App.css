@@ -1,28 +1,31 @@
+/* My Styling */
+
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  /* display: flex;
+  flex-flow: column; */
+  border: 2px solid red;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.App-notes {
+  display: flex;
+  flex-flow: column;
+  width: 40%;
+  border: 2px solid red;
+  padding-left: 20px;
+  height: 1000px;
+  background: rgb(209, 204, 204); 
+}
+
+.App-buttons {
   text-align: center;
+  width: 80%;
+  border: 2px solid black;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}

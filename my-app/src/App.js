@@ -6,13 +6,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1> Lambda Notes </h1>
-        <button> View Your Notes </button> 
-        <button> +Create New Note </button>
-        <h3> Your Notes </h3>
-        <div className='Notes'> 
-        <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ... </p>
-        </div> 
+        <div className= 'App-notes'> 
+          <h1> Lambda Notes </h1>
+          <p className = 'App-buttons'> View Your Notes </p> 
+          <p className = 'App-buttons'> +Create New Notes </p> 
+        </div>
       </div>
     );
   }
