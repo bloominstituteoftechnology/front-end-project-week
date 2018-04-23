@@ -15,10 +15,10 @@ const NoteDisplay = (props) => {
         <h1>{u.title}</h1>
         <p>{u.body}</p>
         <span> {index} </span></Link></div>)}
-        <Route exact path={'/Notes/${index}'} component={ViewNote} />
       </div>
     )
   }
+//<Route exact path={'/Notes/' + index} component={ViewNote} />
 
 class NoteList extends Component {
     constructor() {
