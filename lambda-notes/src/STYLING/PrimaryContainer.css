@@ -2,6 +2,11 @@
   margin: 3.33%;
 }
 
+.PrimaryContainer__newNote {
+  width: 100%;
+  margin: 3.33%;
+}
+
 .PrimaryContainer__header {
   margin: 4% 0;
   font-size: 3rem;
@@ -11,7 +16,22 @@
 .PrimaryContainer__cardContainer {
   display: flex;
   flex-flow: wrap;
+  justify-content: space-between;
 }
 
 .NoteCard {
+  margin-bottom: 3%;
+}
+
+.NoteTitle {
+  margin: 5% 5% 0;
+  padding-bottom: 3%;
+  font-size: 2.5rem;
+  border-bottom: 2px solid #959595;
+}
+
+.NoteContent {
+  margin-top: -4%;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
 }

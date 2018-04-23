@@ -47,8 +47,8 @@ export default () => {
       <div className="PrimaryContainer__cardContainer">
         {tempCard.map((note, index) => (
           <Card key={index} className="col-4 NoteCard">
-            <CardTitle>{note.title}</CardTitle>
-            <CardBody>{note.content}</CardBody>
+            <CardTitle className="NoteTitle">{note.title}</CardTitle>
+            <CardBody className="NoteContent">{note.content}</CardBody>
           </Card>
         ))}
       </div>

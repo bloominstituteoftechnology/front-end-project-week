@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
 import {
   NavColumn,
-  PrimaryContainer
+  PrimaryContainer,
+  NewNote
 } from './components';
 
 class App extends Component {
@@ -11,7 +13,8 @@ class App extends Component {
     return (
       <div className="App__container">
         <NavColumn />
-        <PrimaryContainer />
+        <Route exact path="/" component={PrimaryContainer} />
+        <Route path="/create" component={NewNote} />
       </div>
     );
   }
