@@ -4,7 +4,7 @@ import {
 	DELETETODO,
 	UPDATETODO,
 	TOGGLETODO
-} from "../acions/index.js";
+} from "../actions/index.js";
 
 const initialState = {
 	todos: [],
@@ -14,7 +14,7 @@ const initialState = {
 	viewingTodo: false
 };
 
-const todosReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
 		// add new todo
 		case ADDTODO:
@@ -45,3 +45,5 @@ const todosReducer = (state = initialState, action) => {
 			return state;
 	}
 };
+
+export default rootReducer;

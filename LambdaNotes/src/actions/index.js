@@ -1,8 +1,8 @@
 // action types
-const ADDTODO = "ADDTODO";
-const DELETETODO = "DELETETODO";
-const UPDATETODO = "UPDATETODO";
-const TOGGLETODO = "TOGGLETODO";
+export const ADDTODO = "ADDTODO";
+export const DELETETODO = "DELETETODO";
+export const UPDATETODO = "UPDATETODO";
+export const TOGGLETODO = "TOGGLETODO";
 
 // action creators
 export function addTodo(text) {
