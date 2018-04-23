@@ -3,8 +3,16 @@ import logo from "./logo.svg";
 import { Route } from "react-router-dom";
 import DisplayNotes from "./components/DisplayNotes";
 import "./App.css";
+import sampleNotes from "./sample-notes";
 
 class App extends Component {
+  state = {
+    notes: []
+  };
+
+  loadSampleNotes = () => {
+    this.setState({ notes: sampleNotes });
+  };
   render() {
     return (
       <div className="App">
@@ -16,6 +24,7 @@ class App extends Component {
                 View Your Notes
               </a>
               <a className="sidebar__button">Create New Note</a>
+              <button onClick={this.loadSampleNotes}>Load Sample Notes</button>
             </div>
             <Route exact path="/" component={DisplayNotes} />
           </div>
