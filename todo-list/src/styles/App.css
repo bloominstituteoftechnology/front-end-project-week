@@ -4,15 +4,14 @@
 
 .App {
   background: rgb(245, 245, 245);
-  border: 1px solid var(--App-borderColor);
   display: flex;
-  height: calc(100vh - 20px);
+  height: 100vh;
   width: 100%;
 }
 
 .App_sideBar {
   background: rgb(209, 209, 209);
-  border-right: 1px solid var(--App-borderColor);
+  border-right: 1px solid rgb(168, 168, 168);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,20 +20,27 @@
 }
 
 .App_sideBar h3 {
+  border-bottom: 1px solid rgb(151, 151, 151);
   color: rgb(82, 82, 82);
   font-size: 26px;
   font-weight: bold;
   line-height: 24px;
   margin: 20px 0;
+  padding-bottom: 20px;
   width: 80%;
 }
 
 .App_sideBar button {
   background: rgb(0, 178, 184);
-  border: 1px solid rgb(0, 160, 160);
+  border: 2px solid rgb(72, 182, 182);
   color: white;
   font-weight: bold;
-  margin-bottom: 10px;
   height: 40px;
+  margin-bottom: 10px;
+  cursor: pointer;
   width: 80%;
+}
+
+.App_sideBar button:focus {
+  outline: none;
 }
