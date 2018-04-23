@@ -1,0 +1,7 @@
+.Note-wrapper {
+    width: 500px;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid gray;
+    padding: 2px 16px;
+}
