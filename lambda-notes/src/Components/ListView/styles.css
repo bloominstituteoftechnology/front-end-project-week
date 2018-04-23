@@ -1,0 +1,15 @@
+.side {
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+}
+
+.center {
+    text-align: center;
+}
