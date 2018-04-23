@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Note from "./Note";
 
 export default class NotesList extends Component {
   constructor(props) {
@@ -37,5 +38,18 @@ export default class NotesList extends Component {
         }
       ]
     };
+  }
+
+  render() {
+    const { title, content } = this.state.notesList;
+    return (
+      <div>
+        {this.state.notesList.map(note => (
+          <div>
+            <Note key={note.id} note={note} />
+          </div>
+        ))}
+      </div>
+    );
   }
 }
