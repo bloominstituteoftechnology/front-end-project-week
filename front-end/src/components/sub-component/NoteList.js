@@ -8,7 +8,6 @@ export default class NoteList extends Component {
     };
   }
   render() {
-    console.log(this.props.savedNotes);
     return (
       <div>
         <div>noteExample1</div>

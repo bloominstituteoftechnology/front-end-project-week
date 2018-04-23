@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import SideMenu from "./components/SideMenu";
-import MainPageContainer from "./components/MainPageContainer";
+import MainContent from "./components/MainContent";
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
 
         <div className="PageContainer">
           <SideMenu />
-          <MainPageContainer />
+          <MainContent />
         </div>
       </div>
     );
