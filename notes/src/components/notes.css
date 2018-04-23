@@ -6,23 +6,23 @@ h1 {
     display: flex;
     background: #F0EFF0;
     color: #3B3B3B;
-    height: 100vmax;
+    height: 100vh;
 }
 
 .sidebar-div {
-    display: flex;
     flex-direction: column;
     text-align: left;
     padding: 10px;
     width: 250px;
+    max-width: 250px;
     background: #CECDCE;
 }
 
 .listview-div {
     padding: 20px;
     padding-right: 0;
-    width: 100%;
     text-align: left;
+    width: 100%;
 }
 
 .notes-h3 {
@@ -45,6 +45,7 @@ h1 {
 .notes-div {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .notecard {

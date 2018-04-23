@@ -1,13 +1,12 @@
 import React from "react";
 
 const NoteCard = props => {
+    console.log(props);
   return (
     <div className="notecard">
-      <h5 className="note-title">Note Title</h5>
+      <h5 className="note-title">{props.note.title}</h5>
       <div className="notes-text-div">
-        Morbi pellentiesque euismod venenatis. 
-        Nulla ut nibh nun. Phasellus diam metus, 
-        blandit ac purus a, efficur mollis -
+        {props.note.text}
       </div>
     </div>
   );
