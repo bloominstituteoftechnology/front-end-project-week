@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { fetchTodos } from 'actions'
 import logo from 'logo.svg'
@@ -24,6 +25,10 @@ class App extends Component {
   }
 }
 
+App.propTypes = {
+  fetchTodos: PropTypes.func
+}
+
 const mapStateToProps = state => ({
   error: state.error,
   fetchingTodos: state.fetchingTodos,
@@ -31,3 +36,5 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {fetchTodos})(App)
+
+export { App }
