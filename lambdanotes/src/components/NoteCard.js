@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardTitle, CardHeader, CardBody, CardText } from "reactstrap";
 import "./NoteCard.css";
 
 const NoteCard = props => {
+  console.log(props);
   return (
     <Card className="note-card">
-      <CardHeader>{props.note.title}</CardHeader>
+      <CardHeader>
+        <Link to={`note/${props.id + 1}`}>{props.note.title}</Link>
+      </CardHeader>
       <CardBody>
         <CardText>{props.note.content}</CardText>
       </CardBody>

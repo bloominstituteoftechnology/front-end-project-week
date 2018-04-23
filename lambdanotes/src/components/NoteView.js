@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const NoteView = props => {
   let id = props.match.params.id;
