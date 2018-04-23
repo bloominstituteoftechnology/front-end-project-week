@@ -1,4 +1,4 @@
-[{"id":1,"title":"Uraeginthus angolensis","content":"nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam"},
+module.exports = [{"id":1,"title":"Uraeginthus angolensis","content":"nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam"},
 {"id":2,"title":"Smithopsis crassicaudata","content":"non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit"},
 {"id":3,"title":"Odocoileus hemionus","content":"justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi"},
 {"id":4,"title":"Dendrocygna viduata","content":"nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra"},

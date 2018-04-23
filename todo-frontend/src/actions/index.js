@@ -8,7 +8,7 @@ export const UPDATINGTODO = 'UPDATINGTODO'
 export const TODOUPDATED = 'TODOUPDATED'
 export const ERROR = 'ERROR'
 
-const ApiUrl = '/api'
+const ApiUrl = '/api/todos'
 
 export const fetchTodos = () => async dispatch => {
   await dispatch({ type: FETCHINGTODOS })
