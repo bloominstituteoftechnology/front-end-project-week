@@ -1,0 +1,105 @@
+.ViewNotes,
+.CreateNote {
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  width: 100%;
+}
+.LeftSide {
+  border: 1px solid #d3d3d3;
+  background-color: #d3d2d3;
+  width: 25%;
+}
+.LambdaNotes {
+  color: #5f5b58;
+  font-weight: bold;
+  font-size: 38px;
+  text-align: left;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.LeftSideButtons {
+  background-color: #2eb8bc;
+  width: 220px;
+  margin-top: 20px;
+  border-radius: 0%;
+  border-color: #5f5b58;
+}
+
+.RightSide {
+  width: 75%;
+  background-color: #f5f5f5;
+  border: 1px solid #d3d2d3;
+}
+
+.YourNotes,
+.CreateNewNote {
+  margin-top: 40px;
+  margin-left: 40px;
+  text-align: left;
+  color: #5f5b58;
+  font-weight: bold;
+}
+.FormDiv {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-bottom: 180px;
+}
+.SubmitButton {
+  background-color: #2eb8bc;
+  width: 220px;
+  margin-top: 20px;
+  border-radius: 0%;
+  border-color: #5f5b58;
+}
+
+.CardsDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 280px;
+}
+
+.Cards {
+}
+
+.Card {
+  width: 200px;
+  margin: 15px;
+  border-color: #5f5b58;
+  border-radius: 0%;
+}
+.CardTitle {
+  text-align: left;
+}
+
+.CardText {
+  text-align: left;
+}
+
+.CardDivider {
+  margin: 10px 0px;
+  border: 1.5px solid #d3d2d3;
+}
+
+.ViewNoteLink {
+  text-decoration: none !important;
+  color: black;
+}
+
+.TopLinks {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  
+}
+
+.TopLinks a {
+  margin-right: 20px;
+  color: black;
+  text-decoration: underline;
+}

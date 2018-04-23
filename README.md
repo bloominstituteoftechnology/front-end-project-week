@@ -1,3 +1,13 @@
+https://trello.com/b/IAIo74X4/lambda-notes-jeremy-kepf
+
+Heading Font: Roboto Bold
+Heading color: 4A4A4A
+Content Font: Raleway Regular
+Content color: black
+Button background: 2BC1C4
+Sidebar background: D8D8D8
+Main background: F3F3F3
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
