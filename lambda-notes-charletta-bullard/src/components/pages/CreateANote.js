@@ -1,73 +1,54 @@
-import React, { Component } from 'react';
-// import { addNote } from '/actions/index.js';
-// import { connect } from 'react-redux';
-import { Link} from 'react-router-dom';
-import './CreateANote.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class CreateANote extends Component {
-    state = {
-        title: '',
-        body: '',
-       
-      };
+export default class CreateANote extends React.Component {
+  state = {
+    title: '',
+    body: '',
+  };
 
-    handleInputChange = event => {
-      this.setState({ [event.target.name]: event.target.value });
-    }
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-    handleSubmit = _ => {
-      const { title, body } = this.state;
-      this.props.createNote({ title, body });
-      this.setState({ title: '', body: '', });
-    };
-   
+  handleSubmit = _ => {
+    const { title, body } = this.state;
+    this.props.createNote({ title, body });
+    this.setState({ title: '', body: '' });
+  };
 
   render() {
     const { title, body } = this.state;
     return (
-      <div className='NoteForm'>
-        <h2 className='SectionTitle'>Create New Note:</h2>
+      <div className="CreateANote">
+        <h2 className="SectionTitle">Create New Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
-            className='TitleInput'
-            type='text'
-            placeholder='Note Title'
-            onChange={this.handleInputChange}
-            name='title'
+            className="CreateNote-TitleBox"
             value={title}
-            required
+            name="title"
+            type="text"
+            placeholder="Note Title"
+            onChange={this.handleInputChange}
           />
           <br />
           <textarea
-            className='BodyInput'
-            type='text'
-            placeholder='Note Content'
-            onChange={this.handleInputChange}
-            name='body'
+            className="CreateNote-BodyBox"
             value={body}
+            name="body"
+            type="text"
+            placeholder="Note Content"
+            onChange={this.handleInputChange}
             required
           />
           <br />
-          <Link to={'/'}><button onClick={() => this.handleSubmit()} className='Submit-Button' type='submit'>
-            Submit
-          </button></Link>
+          <Link to={'/'}>
+            <button onClick={() => this.handleSubmit()} type="submit">
+              Save
+            </button>
+          </Link>
         </form>
       </div>
     );
   }
-
-  // updateNote = event => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-
-  //   this.setState({ [name]: value });
-  // };
-  
-  // createNote = event => {
-  //   event.preventDefault();
-  //   this.props.addNote(this.state);
-  //   this.setState({ redirect: true });
-  // };
 }
-
-export default CreateANote;
