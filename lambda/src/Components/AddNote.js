@@ -20,8 +20,8 @@ const AddNote = ({ dispatch }) => {
           content.value = ''
         }}
       >
-        <input ref={node => title = node} placeholder='Note Title' className='noteTitle'/><br/>
-        <input ref={node => content = node} placeholder='Note Content' className='noteContent'/><br/>
+        <input ref={node => title = node} placeholder='Title' className='noteTitle'/><br/>
+        <input ref={node => content = node} placeholder='Content' className='noteContent'/><br/>
         <button type="submit">Add Note</button>
       </form>
     </div>

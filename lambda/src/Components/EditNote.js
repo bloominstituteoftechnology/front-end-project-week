@@ -13,8 +13,8 @@ const mapStateToProps = (state, { match }) => ({
 
 const EditNote = (note, { dispatch }) => {
   console.log(note.note);
-  let title
-  let content 
+  let title = 0;
+  let content = 0;
   return (
     <div className='noteForm'>
       <h3>Edit Note</h3>

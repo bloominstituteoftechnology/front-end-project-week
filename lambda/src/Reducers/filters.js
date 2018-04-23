@@ -9,4 +9,4 @@ const filter = (state = notes, action) => {
   }
 }
 
-export default filter
+export default filter;

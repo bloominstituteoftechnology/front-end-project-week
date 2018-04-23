@@ -11,7 +11,8 @@ const ViewNote = ({ note, title, content, deleteNote }) => {
       <p>{note.content}</p>
     <button onClick={() => editNote(note.id)}>Edit Note</button>
     <form>
-        <input name="name" placeholder="Name" value={this.note.name}/>
+    <input ref={node => title = node} placeholder='Title' className='noteTitle'/><br/>
+    <input ref={node => content = node} placeholder='Content' className='noteContent'/><br/>
     </form>
     </div>
     )

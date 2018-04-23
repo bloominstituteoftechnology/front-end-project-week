@@ -4,7 +4,7 @@ import Notes from './Notes.js';
 
 const NotesList = ({ notes }) => (
   <div className='noteslist'>
-  <h1>Notes</h1>
+  <h1>Note</h1>
     {notes.map(note =>
       <Notes
         key={note.id}
