@@ -30,7 +30,6 @@
   background-color: grey;
   float: left;
   text-align: left;
-  text-emphasis: bold;
 }
 
 .leftButtons {
@@ -43,6 +42,7 @@
  justify-content: center;
  background: teal;
  color: white;
+ align-items: center;
 }
 
 .App-intro {

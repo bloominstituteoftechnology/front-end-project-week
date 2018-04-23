@@ -5,7 +5,7 @@ const notes = [
         id: 0,
         title: 'test',
         text: 'test again'
-    }
+    },
 ];
 
 export default () => {
