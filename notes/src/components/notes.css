@@ -1,0 +1,68 @@
+h1 {
+    font-size:1.5 rem;
+}
+
+.full-container {
+    display: flex;
+    background: #F0EFF0;
+    color: #3B3B3B;
+    height: 100vmax;
+}
+
+.sidebar-div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+    width: 250px;
+    background: #CECDCE;
+}
+
+.listview-div {
+    padding: 20px;
+    padding-right: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.notes-h3 {
+    padding-top: 40px;
+}
+
+.button {
+    display: flex;
+    border: 1px solid #ABABAB;
+    margin-bottom: 20px;
+    background: #25B1B5;
+    height: 40px;
+    width: 180px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.notes-div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.notecard {
+    background: white;
+    border: 1px solid lightgrey;
+    margin: 10px;
+    margin-left: 0;
+    padding: 10px;
+    width: 150px;
+}
+
+.notes-text-div {
+    border-top: 1px solid lightgrey;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+h5 {
+    margin: 0;
+    font-size: 1.1rem;
+}
