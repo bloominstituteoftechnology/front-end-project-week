@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 // components
 import CreateTodoForm from "./components/CreateTodoForm.js";
 import Todos from "./components/Todos.js";
+import Todo from "./components/Todo.js";
 
 class App extends Component {
   render() {
@@ -16,11 +18,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        {/* Render CreateTodoForm here */}
-        <CreateTodoForm />
         {/* Render Todos here */}
         <Todos />
         {/* Render Routes here */}
+        <Route path="/addTodo" component={CreateTodoForm} />
+        <Route path="/todo/:id" component={Todo} />
       </div>
     );
   }
