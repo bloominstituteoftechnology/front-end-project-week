@@ -26,7 +26,11 @@ class App extends Component {
               <a className="sidebar__button">Create New Note</a>
               <button onClick={this.loadSampleNotes}>Load Sample Notes</button>
             </div>
-            <Route exact path="/" component={DisplayNotes} />
+            <Route
+              exact
+              path="/"
+              render={() => <DisplayNotes notes={this.state.notes} />}
+            />
           </div>
         </div>
       </div>
