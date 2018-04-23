@@ -2,17 +2,32 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import SideMenu from './components/SideMenu'
+import NoteList from './components/NoteList'
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      savedNotes: [],
+      showNoteList: true,
+      showCreateNote: false,
+      showEditNote: false
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1>List View</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <body className="PageContainer">
+          <SideMenu />
+          <NoteList />
+        </body>
+
       </div>
     );
   }
