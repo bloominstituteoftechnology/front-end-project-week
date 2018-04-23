@@ -53,6 +53,7 @@
   font-weight: bold;
   margin: 10px 0;
   width: 100%;
+  max-width: 220px;
 }
 
 .link__button:hover {
@@ -76,4 +77,24 @@
 
 .mainContent__content {
   padding: 15px 0;
+}
+
+.mainContent__Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__input {
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid rgb(97, 76, 76, .25);
+}
+
+.form__input--title {
+  width: 50%;
+  margin: 10px 0;
+}
+
+.form__input--body {
+  margin: 10px 0;
 }
