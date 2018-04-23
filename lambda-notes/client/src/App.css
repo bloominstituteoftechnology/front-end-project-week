@@ -2,6 +2,7 @@
 .App__container {
   display: flex;
   width: 100%;
+  max-width: 800px;
 }
 
 .App__left {
