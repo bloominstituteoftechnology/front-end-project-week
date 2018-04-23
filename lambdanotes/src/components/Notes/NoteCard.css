@@ -1,0 +1,12 @@
+.NoteCard {
+    width: 150px;
+    height: 200px;
+    margin-top: 15px;
+    margin-right: 25px;
+}
+
+.NoteCardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

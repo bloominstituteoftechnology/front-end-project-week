@@ -4,7 +4,7 @@ class MainMenu extends React.Component {
 
     render() {
         return(
-            <div className='container'>
+            <div className>
                 <Row>
                     <Col>
                         <h2>Lambda Notes</h2>
