@@ -10,7 +10,7 @@ export default class Note extends Component {
           <CardBody>
             <CardTitle><h4>{this.props.title}</h4></CardTitle>
             <hr />
-            <CardText>{this.props.text}</CardText>
+            <CardText>{this.props.content}</CardText>
           </CardBody>
         </Card>
       </div>

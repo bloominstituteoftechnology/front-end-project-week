@@ -1,4 +1,4 @@
-html, body {height: 100%;}
+/* html, body {height: 100%;} */
 
 .App {
 }
@@ -10,13 +10,13 @@ html, body {height: 100%;}
 .side-nav {
   border-right: 1px solid;
   background-color: gray;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .main-view {
   /* border: 1px solid red; */
   background-color: lightgray;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .note-list {

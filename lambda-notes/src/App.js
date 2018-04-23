@@ -8,6 +8,28 @@ import CreateNote from './components/createNote';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      cards: [
+        { title: "Card title # 1", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+      ],
+      newCard: {
+        title: '',
+        content: ''
+      }
+    }
+  }
+
+  updateNewCard = (newCard) => {
+    this.setState({ cards: [...this.state.cards, newCard]});
+  }
+
   render() {
     return (
       <Router>
@@ -22,9 +44,8 @@ class App extends Component {
             </div>
             <div className="main-view col-10">
               <Switch>
-                <Route exact path="/" component={NotesList} />
-                <Route path="/create-note" component={CreateNote} />
-                {/* <Route component={NotesList} /> */}
+                <Route exact path="/" render={() => <NotesList {...this.state} />} />
+                <Route path="/create-note" render={() => <CreateNote {...this.state} updateNewCard={this.updateNewCard} />} />
               </Switch>
             </div>
           </Row>
