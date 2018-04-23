@@ -6,13 +6,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1> Lambda Notes </h1>
+        <button> View Your Notes </button> 
+        <button> +Create New Note </button>
+        <h3> Your Notes </h3>
+        <div className='Notes'> 
+        <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ... </p>
+        </div> 
       </div>
     );
   }
