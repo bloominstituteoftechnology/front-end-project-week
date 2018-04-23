@@ -4,18 +4,18 @@ import { Container, Row, Col, Button, Nav, NavItem, NavLink } from 'reactstrap';
 export default class Navigation extends React.Component {
   render() {
     return (
-      <Container>
+      <Container className="navigation">
         <Row>
-          <Col xs="3"><h1>Lambda Notes</h1></Col>
+          <Col xs="4"><h1>Lambda Notes</h1></Col>
         </Row>
         <Row>
-          <Col xs="3">
+          <Col xs="7">
             <Nav vertical>
               <NavItem>
-                <Button className="button" color="info" size="md" block href="#">View Your Notes</Button>{' '}
+                <Button className="button" color="info" size="lg" block href="#">View Your Notes</Button>
               </NavItem>
               <NavItem>
-                <Button className="button" color="info" size="md" block href="#">+ Create New Note</Button>{' '}
+                <Button className="button" color="info" size="lg" block href="#">+ Create New Note</Button>
               </NavItem>
             </Nav>
           </Col>

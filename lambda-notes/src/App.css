@@ -1,8 +1,5 @@
 .container {
-  max-width: 800px;
-  min-width: 600px;
-  display: flex;
-  flex-direction: column;
+  max-width: 1000px;
   color: maroon;
   font-family: 'Francois One', sans-serif;
 }
@@ -16,8 +13,7 @@
 }
 
 .navigation {
-  display: flex;
-  flex-direction: column;
+
 }
 
 .noteForm {
