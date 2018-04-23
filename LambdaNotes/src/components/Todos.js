@@ -22,9 +22,11 @@ class Todos extends Component {
 	render() {
 		return (
 			<div>
+				{/*
 				{this.props.todos.map((todo, index) => {
 					return <SingleTodo key={index} todo={todo} index={index} />;
 				})}
+			*/}
 			</div>
 		);
 	}
