@@ -32,11 +32,28 @@
   text-align: left;
 }
 
+.borderGore {
+  padding: 20px;
+  border: solid black 1px;
+}
+
+.yourNotes {
+  text-align: left;
+}
+
 .list {
   margin: 0 0 0 0;
 float: right;
 width: 80%;
 margin-top: 4%;
+}
+
+.rightSide {
+  margin-top: 4%;
+  width: 78%;
+  float: right;
+  height: 880px;
+  margin-left: 2%;
 }
 
 .listh2 {

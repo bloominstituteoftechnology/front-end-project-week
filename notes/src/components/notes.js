@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 
 class NotesTest extends Component {
-constructor(props) {
-    super(props);
-}
 render() {
     return (
-        <ul>{this.props.notes.map(note => {
+        <div className="rightSide"> <h2 className='yourNotes'>Your Notes:</h2>{this.props.notes.map(note => {
             return (
-            <li key={note.id}>{note.title} <br />
-            {note.text}</li>
+            <div key={note.id} className="borderGore">{note.title} <br />
+            {note.text}</div>
             )
         })}
-         </ul>
+         </div>
     )
 }
 }

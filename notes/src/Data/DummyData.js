@@ -1,4 +1,4 @@
-const dummyData = [
+let dummyData = [
 {
     id: 0,
     title: 'wut',
