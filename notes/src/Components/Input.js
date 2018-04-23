@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 
-class Input extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            value: ''
-            }
+// class Input extends Component {
+//     constructor(props){
+//         super(props);
+//         this.state = {
+//             value: []
+//             }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-}
+//     this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+// }
+// render(){
 
-    handleChange(e) {
-        this.setState({ [e.target.name]: e.target.value });
-    }
-
-    handleSubmit = (e) => {
-        alert('It was Submitted' + this.state.value);
-    }
-
- 
-    render(){
+ const Input = props => {
+    
         return(
             <form onSubmit={this.handleSubmit}>
                 <label>
@@ -30,18 +23,18 @@ class Input extends Component {
                     type='text'
                     placeholder='Note Title'
                     name='note'
-                    onChange={this.handleChange} 
+                    onChange={props.handleChange} 
                 />
                  <input
                     type='text'
                     placeholder='New Content'
                     name='content'
-                    onChange={this.handleChange} 
+                    onChange={props.handleChange} 
                 />
                 <input type='submit' value='Save'/>
             </form>
         );
     }
-}
+
 
 export default Input;

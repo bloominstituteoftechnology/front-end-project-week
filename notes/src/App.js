@@ -11,6 +11,13 @@ class App extends Component {
       notes: []
     }
   }
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    alert('It was Submitted' + this.state.value);
+  }
 
   render() {
     return (
@@ -26,7 +33,10 @@ class App extends Component {
         <div>
           <h2> Your Notes </h2>
           <Cards />
-          <Input />
+          <Input 
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          />
         </div>
       </div>
     );
