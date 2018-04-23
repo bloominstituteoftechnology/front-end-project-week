@@ -1,0 +1,67 @@
+.createNewNote {
+   padding: 35px 15px 15px 22px;
+   background: rgb(242, 241, 242);
+   border:1px 0px 1px 1px solid rgb(175, 175, 175);
+   min-width: 65.5vw;
+   width:100%;
+   height:92.45vh;
+   font-family: 'Roboto', sans-serif;
+   text-align: left;
+}
+
+.viewNoteTag {
+   border: solid 1px grey;
+   background: rgba(36, 184, 189, .5);
+   color: rgb(65, 65, 65);
+   margin: 10px 1px 2px 5px;
+   width: 0; 
+   height: 0; 
+   padding: 2px 8px 2px 1px;
+   border-radius: 3px 9px 9px 3px;
+   cursor: pointer;
+}
+
+.viewNoteTag:hover::after{
+   margin-left:5px;
+   margin-right: 3px;
+   content:' X ';
+   color: red;
+}
+
+.createNewNote h2 {
+   padding-left: 2px;
+   text-align: left;
+   color:rgb(65, 65, 65);
+   font-weight: bold;
+}
+
+#newTitle {
+   margin: 5px 20px 15px 1px;
+   border-radius: 3px 3px;
+   border:1px solid rgb(175, 175, 175);
+   padding: 10px;
+   width: 50%;
+}
+
+#newContent {
+   font-family: 'Roboto', sans-serif;
+   border-radius: 3px 3px;
+   border:1px solid rgb(175, 175, 175);
+   width: 91%;
+   height: 220px;
+   line-height: 20px;
+   min-height: 40px;
+   padding: 10px;
+   vertical-align: top;
+   resize: none;
+}
+
+.createNewNote button {
+   background: rgb(36, 184, 189);
+   color: white;
+   border:1px solid rgb(175, 175, 175);
+   height: 48px;
+   width: 190px;
+   margin: 10px 15px 10px 0px;
+   font-weight: bold;
+}

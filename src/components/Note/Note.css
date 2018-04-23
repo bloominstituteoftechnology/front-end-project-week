@@ -1,0 +1,105 @@
+.yourNotes {
+   padding: 15px 15px 15px 22px;
+   background: rgb(242, 241, 242);
+   border:1px 0 1px 1px solid rgb(175, 175, 175);
+   width:100%;
+   min-width:60vw;
+   min-height: 91%;
+}
+.yourNotes h2 {
+   padding-left: 2px;
+   text-align: left;
+   color:rgb(65, 65, 65);
+   font-family:"Roboto";
+}
+.noteList {
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+#filteringText {
+   font-weight: bold;
+   padding-right: 10px;
+}
+
+#filterTags {
+   text-align: left;
+}
+
+#filterTagButton {
+   width: 50px;
+   height: 30px;
+   margin: 0px 0px 0px 0px;
+}
+
+#filterTagsInput {
+   margin: 0px 10px 0px 10px;
+   border-radius: 3px 3px;
+   border:1px solid rgb(175, 175, 175);
+   padding: 10px;
+   width: 18%;
+   max-width: 120px;
+}
+
+#searchWrapper {
+   text-align: left;
+   padding-left: 20px;
+}
+
+#searchInput {
+   margin: 0px 10px 0px 10px;
+   border-radius: 15px 15px;
+   border:1px solid rgb(175, 175, 175);
+   padding: 10px;
+   width: 900%;
+   max-width: 650px;
+}
+
+#searchedWords {
+   padding-top: 7px;
+}
+
+#searchedWords:hover {
+   color:red;
+}
+
+.note {
+ text-align: left;
+ border:1px solid rgb(175, 175, 175);
+ background: white;
+ margin: 10px;
+ padding: 5px 5px 5px 10px;
+ height: 220px;
+ width:200px;
+ cursor:pointer;
+}
+
+.noteTitle {
+   border-bottom: 1px solid rgb(175, 175, 175);
+   padding-bottom: 6px;
+   padding:5px;
+   margin:2px 5px 0px 0;
+   font-family: "Roboto";
+   font-weight:bold;
+}
+
+.noteContent {
+   color:rgb(51, 51, 51);
+   line-height: 30px;
+   font-size: .9rem;
+   padding: 4px 6px 5px 6px;
+   font-weight:600;
+}
+
+.listNoteTag {
+   border: solid 1px grey;
+   color:black;
+   background: rgba(36, 184, 189, .65);
+   margin: 0px 1px 2px 5px;
+   width: 0; 
+   height: 0; 
+   padding: 1px 3px 0px 3px;
+   border-radius: 9px 9px 9px 9px;
+  
+}
