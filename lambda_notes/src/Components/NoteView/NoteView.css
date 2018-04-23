@@ -1,0 +1,63 @@
+.noteDiv {
+  background-color: #f2f1f2;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.noteTitleView {
+  /* margin-top: 80px; */
+  padding: 50px 20px 0 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.noteContentView {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.noteViewNav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2%;
+  font-size: 12px;
+}
+
+.editLink {
+  margin-right: 10px;
+  color: black;
+  text-decoration: underline;
+}
+
+.deleteLink {
+  color: black;
+  text-decoration: underline;
+}
+
+.deleteModal {
+  text-align: center;
+}
+
+.modalFooterBtns {
+  display: flex;
+  justify-content: center;
+}
+
+.modalBtn {
+  width: 150px;
+  height: 35px;
+  margin: 10px;
+  margin-bottom: 40px;
+}
+
+.modalBtnNo {
+  background-color: #30b8bc;
+  color: white;
+}
+
+.modalHeader {
+  margin: 20px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 350;
+}
