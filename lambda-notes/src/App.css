@@ -1,3 +1,5 @@
+html, body {height: 100%;}
+
 .App {
 }
 
@@ -8,11 +10,13 @@
 .side-nav {
   border-right: 1px solid;
   background-color: gray;
+  height: 100vh;
 }
 
 .main-view {
   /* border: 1px solid red; */
   background-color: lightgray;
+  height: 100vh;
 }
 
 .note-list {
@@ -30,6 +34,14 @@
   width: 15rem;
   margin: 0 auto;
   margin-bottom: 2rem;
+}
+
+.create-note {
+
+}
+
+.create-note textarea.form-control {
+  height: 18rem;
 }
 
 .App-logo {
