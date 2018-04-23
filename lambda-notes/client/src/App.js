@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 //import axios from 'axios';
-import NoteList from './components/Notes/NoteList'
-import CreateNote from './components/Notes/CreateNote'
-import ViewNote from './components/Notes/ViewNote'
+import { Link, Route } from 'react-router-dom';
+import NoteList from './components/Notes/NoteList';
+import CreateNote from './components/Notes/CreateNote';
+import ViewNote from './components/Notes/ViewNote';
+import NoteNav from './components/Notes/NoteNav';
 
 class App extends Component {
 
@@ -13,16 +15,19 @@ class App extends Component {
       <div className='App__container'>
         <div className='App__left'> {/* start of left side div */}
         <h1>Lambda Notes</h1>
-          <div className='App__left-buttons'>
+          <Link to='/' ><div className='App__left-buttons'>
             <span>View Your Notes</span>
-          </div>
+          </div></Link>
           <div className='App__left-buttons'>
             <span>+ Create New Note</span>
           </div>
+          
         </div> {/* end of left side div */}
 
         <div className='App__right'> {/* start of right side div */}
-        <NoteList />
+        {/* <NoteList /> */}
+        <NoteNav />
+        <Route exact path='/' component={NoteList} />
         {/* <CreateNote /> */}
         {/* <ViewNote 
         name='somthing' 
