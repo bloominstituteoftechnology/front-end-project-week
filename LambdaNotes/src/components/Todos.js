@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 // actions
 import { deleteTodo, updateTodo } from "../actions/index";
 import SingleTodo from "./SingleTodo";
@@ -20,19 +22,23 @@ class Todos extends Component {
 	// }
 
 	render() {
+		console.log("PROPS: ", this.props);
 		return (
 			<div>
-				{/*
 				{this.props.todos.map((todo, index) => {
-					return <SingleTodo key={index} todo={todo} index={index} />;
+					return (
+						<Link to={`/todo/${index}`}>
+							<SingleTodo key={index} todo={todo} index={index} />
+						</Link>
+					);
 				})}
-			*/}
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => {
+	console.log("state: ", state);
 	return {
 		todos: state.todos,
 		deletingTodo: state.deletingTodo,
