@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     case FETCH_NOTES:
       return {
         ...state,
-        notes: [...state.notes, ...action.payload]
+        notes: [...action.payload]
       }
 
     case FETCHING_ERROR:

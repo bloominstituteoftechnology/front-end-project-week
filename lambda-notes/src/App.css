@@ -8,3 +8,10 @@
   height: 100%;
 }
 
+.ViewNote__editOptions {
+  float: right;
+}
+
+.ViewNote__editOptions :first-child {
+  margin-right: 10px;
+}

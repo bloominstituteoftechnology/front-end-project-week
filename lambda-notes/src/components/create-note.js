@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
-;
-export default class NewNote extends Component {
+import { saveNote } from '../REDUX/actions';
+import { connect } from 'react-redux';
+
+class NewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       content: ""
     };
+  }
+
+  handleSaveNote = () => {
+    return;
+    // const newNote = { title: this.state.title, content: this.state.content };
+    // this.props.saveNote(newNote);
+    // this.setState({ title: "", content: "" });
   }
 
   render() {
@@ -33,9 +42,11 @@ export default class NewNote extends Component {
         />
         <br/>
         <Link to="/">
-          <button className="Button col-3">Save</button>
+          <button className="Button col-3" onClick={() => this.handleSaveNote()}>Save</button>
         </Link>
       </div>
     )
   }
 }
+
+export default connect(null, { saveNote })(NewNote);

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardTitle, CardBody } from 'reactstrap';
 import { connect } from 'react-redux';
-import { getNotes } from '../REDUX/actions';
+import { Link } from 'react-router-dom';
+import { getNotes, saveNote } from '../REDUX/actions';
 
 class PrimaryContainer extends Component {
   constructor(props) {
@@ -15,7 +16,12 @@ class PrimaryContainer extends Component {
     const contentLength = note.content.split(" ");
     return (
       <Card key={note.id} className="col-4 NoteCard">
-        <CardTitle className="NoteTitle">{note.title}</CardTitle>
+        <Link to={{
+          pathname: `/viewnote/${note.id}`,
+          state: { viewNote: {note} }
+        }}>
+          <CardTitle className="NoteTitle">{note.title}</CardTitle>
+        </Link>
         <CardBody className="NoteContent">
           { contentLength.length >= 20 ? `${contentLength.slice(0, 20).join(" ")} ...` : note.content }
         </CardBody>
@@ -41,4 +47,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getNotes })(PrimaryContainer);
+export default connect(mapStateToProps, { getNotes, saveNote })(PrimaryContainer);
