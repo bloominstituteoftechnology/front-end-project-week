@@ -7,9 +7,11 @@
 .App__left {
   width: 25%;
   border: solid black 1px;
+  background-color: grey;
 }
 
 .App__right {
   width: 75%;
   border: solid black 1px;
+  background-color: lightgrey;
 }
