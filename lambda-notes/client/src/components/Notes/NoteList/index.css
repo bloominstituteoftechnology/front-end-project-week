@@ -1,11 +1,13 @@
 .note__container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 
 .note__container-notes {
-    margin: 5%;
+    margin: 10px;
     padding: 5px;
     background-color: white;
     border: solid 1px grey;
+    margin-bottom: 20px;
 }
