@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 const styled = {
     textDecoration: 'none',
-    color: 'rgb(97, 76, 76)'
+    // color: 'rgb(97, 76, 76)'
+    color: 'black'
 }
 
 const SideNav = () => {

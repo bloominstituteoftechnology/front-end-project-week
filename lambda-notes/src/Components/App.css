@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  letter-spacing: -.5px;
+}
+
 .container {
   display: flex;
   margin: 10px auto;
@@ -14,7 +19,7 @@
   border: 1px solid rgb(97, 76, 76, .25);
   display: flex;
   flex-direction: column;
-  background-color: #e3e3e3;
+  background-color: #c8c8c8;
 }
 
 .sideNav__directory {
@@ -28,9 +33,10 @@
 }
 
 .directory__title {
-  color: rgb(97, 76, 76);
+  /* color: rgb(97, 76, 76); */
   font-size: 40px;
   font-weight: bold;
+  font-weight: 800;
   line-height: 40px;
   max-width: 100%;
   padding: 10px 0;
@@ -61,14 +67,15 @@
 }
 
 .mainContent {
-  /* flex-grow: 1; */
+  /* flex-grow: 1; */  
+  background-color: #f8f8f8;
   max-width: 650px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 30px;
   padding: 20px;
+  padding-top: 50px;
 }
 
 .mainContent__title {
@@ -79,12 +86,14 @@
   padding: 15px 0;
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   
 }
 
 .mainContent__Form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .form__input {
@@ -109,18 +118,23 @@ textarea {
 }
 
 .noteCard {
-  width: 175px;
+  width: 180px;
   height: 200px;
   border: 1px solid black;
-  margin-right: 20px;
+  margin: 0 10px 20px 10px;
+  background-color: white;
 }
 
 .noteCard__title {
   font-weight: bold;
+  font-weight: 900;
   border-bottom: 1px solid black;
-  padding: 5px 10px;
+  margin: 5px 10px;
+  padding: 5px 0;
+  font-size: 20px;
 }
 
 .noteCard__body {
-  padding: 10px;
+  margin: 5px 10px;
+  padding: 5px 0;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class NewNote extends React.Component {
     constructor(props) {
@@ -49,7 +50,10 @@ class NewNote extends React.Component {
                             value={this.state.noteBody}
                             name="noteBody"
                         />
-                        <button className="link__button" type="submit">Save</button>
+                        <Link to="/" >
+                            <button className="link__button" type="submit">Save</button>
+                        </Link>
+
                     </form>
                 </div>
             </div>
