@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ListView from './Components/ListView/ListView'
+import CreateNote from './Components/CreateNote/CreateNote'
 
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <ListView/>
+        <CreateNote/>
       </div>
     );
   }
