@@ -8,16 +8,18 @@ class MainMenu extends React.Component {
             <div className='MainMenu'>
                 <Row>
                     <Col>
+                        <div className='MainMenu__header'>
                         <h2>Lambda Notes</h2>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col >
-                        <Button className='MainMenu__button'>View Your Notes</Button>
+                        <Button className='MainMenu__button' size='1lg'>View Your Notes</Button>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col >
                         <Button className='MainMenu__button'>+Create New Note</Button>
                     </Col>
                 </Row>

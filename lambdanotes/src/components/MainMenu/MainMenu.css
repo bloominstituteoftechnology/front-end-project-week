@@ -1,5 +1,5 @@
 .MainMenu {
-    width: 245px;
+    width: 275px;
     height: 100%;
     background-color: #D7D7D7;
     display: flex;
@@ -8,6 +8,16 @@
 
 }
 
+.MainMenu__header {
+    font-size: 35px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
 .MainMenu__button {
     background-color: #2AC0C4;
+    width: 240px;
+    height: 60px;
+    padding-top: 3px;
+    margin-left: 18px;
+    margin-bottom: 20px;
 }

@@ -25,8 +25,7 @@ class App extends Component {
                 {'title': 'Note 12', 'content': 'some test'},
                 {'title': 'Note 13', 'content': 'some test'},
                 {'title': 'Note 14', 'content': 'some test'},
-                {'title': 'Note 15', 'content': 'some test'},
-                {'title': 'Note 16', 'content': 'some test'},
+                {'title': 'Note 15', 'content': 'some test'}
             ]
         };
     }
@@ -34,10 +33,10 @@ class App extends Component {
     return (
         <Container>
             <Row>
-                <Col xl='3' className='App_mainmenu_col'>
+                <Col>
                     <MainMenu/>
                 </Col>
-                <Col xl='9'>
+                <Col>
                     <NoteList notes={this.state.notes}/>
                 </Col>
             </Row>
