@@ -66,7 +66,7 @@ You will notice that this repository does not have any starter code.  This is on
 
  Trello Set Up:
 Create a Trello account
-Create a new board called "Lambda Notes - {Your Name}"
+Create a new board called Lambda Notes Your Name
 Create lists titled backlog,To Do, In Progress, and Done
 Fill in the To Do list with the MVP features listed below
 Fill in the backlog list with all the extra features listed below
