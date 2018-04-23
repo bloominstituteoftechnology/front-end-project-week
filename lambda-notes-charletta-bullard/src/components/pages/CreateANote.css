@@ -1,0 +1,52 @@
+
+.SectionTitle {
+  font-family: 'Roboto','Arial';
+  font-size: 35px;
+  color: #4A4A4A;
+  font-weight: bold;
+  margin: 65px 0px 25px 31px;
+}
+
+.TitleInput {
+  width: 425px;
+  height: 52px;
+  padding-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Raleway', 'Arial';
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  font-size: 18px;
+
+}
+
+.BodyInput {
+  height: 425px;
+  width: 765px;
+  padding-left: 25px;
+  padding-top: 25px;
+  font-family: 'Raleway', 'Arial';
+  border-radius: 4px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  resize: vertical;
+  font-size: 18px;
+
+}
+
+.Submit-Button {
+  width: 225px;
+  height: 50px;
+  margin-bottom: 75px;
+  font-family: 'Raleway', 'Arial';
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background: #2BC1C4;
+  border: 2px solid #4A4A4A;
+}
+
+
+
+
