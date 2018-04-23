@@ -1,6 +1,10 @@
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
+<--[https://trello.com/b/af8IV2tM/lambda-notes-david-pok]-->
+MY TRELLO URL ^^^ MY TRELLO URL ^^^ MY TRELLO URL ^^^ MY TRELLO URL ^^^ MY TRELLO URL ^^^ 
+
+
 You are to treat this week as if you are working at a company and the instructor is your client.  The teaching assistants are acting as your project managers and will be your main support throughout the week.
 
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School.  There are design files in this repository you should use as a creative guide.  
