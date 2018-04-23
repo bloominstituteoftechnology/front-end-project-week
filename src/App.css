@@ -1,0 +1,185 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('http://www.modafinilsale.com/data/out/696/234844472-cute-youtube-backgrounds.jpg');
+  background-repeat: repeat;
+  background-size: 1275px;
+  cursor: url('http://cur.cursors-4u.net/special/spe-2/spe177.ani'), url('http://cur.cursors-4u.net/special/spe-2/spe177.png'), auto !important;
+}
+
+.App {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
+}
+
+.main {
+  display: inline-flex;
+}
+
+.navbar-intro {
+  font-size: 30px;
+  margin: 100px 10px 20px 10px;
+}
+
+.notes-search {
+  margin: 50px 0 0 35px;
+  width: 170px;
+  height: 23px;
+  font-size: 13px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0 0 0 5px;
+  border-color: #FF007F;
+}
+
+.notes {
+  /* display: grid;
+  grid-template-columns: auto auto auto; */
+}
+
+.notes-box {
+  width: 250px;
+  height: 490px;
+  overflow-y: auto;
+}
+
+.note {
+  width: 160px;
+  height: 125px;
+  border: 1.5px;
+  border-color: #FF007F;
+  border-style: solid;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.note-title {
+  border-style: solid;
+  border-width: 0;
+  border-color: #000;
+  padding: 0 0 4px 0;
+  margin: 0px 0 7px 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+}
+
+.note-content {
+  text-align: left;
+  color: #000;
+}
+
+.noteform {
+  text-align: left;
+}
+
+.noteform-title {
+  border-style: solid;
+  border-width: 0;
+  border-color: #000;
+  padding: 0 0 5px 5px;
+  margin: 23px 0 0 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  width: 300px;
+  background-color: transparent;
+}
+
+.noteform-content {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FF007F;
+  padding: 10px 0 0 10px;
+  margin: 0 0 0 0;
+  font-size: 15px;
+  color: #000;
+  width: 300px;
+  height: 500px;
+  border-radius: 5px;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+  color: #000;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.note-buttons {
+  text-align: right;
+}
+
+button {
+  border: 1px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #fff;
+  width: 30px;
+  height: 20px;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 1px;
+}
+
+.add {
+  background-color: #e2f9c7;
+}
+
+.edit {
+  background-color: #fcc3dd;
+}
+
+.delete {
+  background-color: #e2f7f7;
+}
+
+.logout {
+  border: 1px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #fce59f;
+  width: 60px;
+  height: 20px;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nav {
+  text-align: center;
+}
+
+.user-button {
+  border: 1px 2px 2px 1px;
+  border-style: solid;
+  border-color: #000;
+  background-color: #e2f7f7;
+  width: 65px;
+  height: 20px;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.user-form {
+  margin: 10px 0 0 35px;
+  width: 170px;
+  height: 23px;
+  font-size: 13px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0 0 0 5px;
+}
