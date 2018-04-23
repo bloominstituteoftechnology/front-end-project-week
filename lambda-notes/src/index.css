@@ -2,4 +2,55 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #D7D7D7!important;
+}
+
+/* Lambda Notes */
+.header {
+  color: #4A494A;
+}
+
+/* Your Notes: */
+.noteHeader {
+  color: #4A494A;
+  font-size: 25px;
+}
+
+/* Left Side Bar */
+.LeftBanner {
+  background-color: #AFAFAF;
+}
+
+.contBody {
+  background-color: #f3f3f3;
+}
+
+/* View Your Notes */
+.navButton1 {
+  width: 120%;
+  height: 35px;
+  background-color: #2AC0C4;
+  color: #ffffff;
+  border: 1px thin grey;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* +Create New Note */
+.navButton2 {
+  width: 105%;
+  height: 35px;
+  background-color: #2AC0C4;
+  color: #ffffff;
+  border: 1px thin grey;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.cardtitle {
+  font-weight: bold;
+}
+
+.noteBody {
+  width: 100%;
 }
