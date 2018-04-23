@@ -21,7 +21,7 @@ const EditNote = (note, { dispatch }) => {
       <form
         onSubmit={event => {
           event.preventDefault();
-          if (!title.value.trim() || !content.value.trim()) {
+          if (!title.value || !content.value) {
             return
           }
           dispatch(editNote(title.value, content.value))
@@ -29,9 +29,9 @@ const EditNote = (note, { dispatch }) => {
           content.value = ''
         }}
       >
-        <input ref={node => title = node} placeholder='Note Title' className='noteTitle'/><br/>
-        <input ref={node => content = node} placeholder='Note Content' className='noteContent'/><br/>
-        <button type="submit">
+        <input ref={node => title = node} placeholder='Title' className='Title'/><br/>
+        <input ref={node => content = node} placeholder='Content' className='Content'/><br/>
+        <button type="Submit">
           Save
         </button>
       </form>
