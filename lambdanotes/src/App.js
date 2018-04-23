@@ -33,7 +33,15 @@ class App extends Component {
   render() {
     return (
         <Container>
-            <NoteList notes={this.state.notes}/>
+            <Row>
+                <Col xl='3' className='App_mainmenu_col'>
+                    <MainMenu/>
+                </Col>
+                <Col xl='9'>
+                    <NoteList notes={this.state.notes}/>
+                </Col>
+            </Row>
+
         </Container>
     );
   }

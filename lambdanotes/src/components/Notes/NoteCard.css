@@ -1,6 +1,6 @@
 .NoteCard {
-    width: 150px;
-    height: 200px;
+    width: 216px;
+    height: 216px;
     margin-top: 15px;
     margin-right: 25px;
 }
@@ -9,4 +9,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.NoteCardList__holder {
+    background-color: #F3F3F3;
+    width: 800px;
 }

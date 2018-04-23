@@ -9,7 +9,7 @@ class NoteList extends React.Component {
 
         render(){
             return (
-                <div>
+                <div className='NoteCardList__holder'>
                     <h3>Your Notes </h3>
                     <div className='NoteCardList'>
                         {this.props.notes.map((note) => {
