@@ -1,6 +1,6 @@
 .NoteCard-area {
   width: 33.3%;
-  padding: 4%;
+  padding: 3%;
 }
 
 .NoteCard-container {
@@ -9,7 +9,7 @@
   background-color: white;
   border: 1px solid #cecdce;
   padding: 10px 20px;
-  height: 200px;
+  height: 290px;
 }
 
 .NoteCard-divider {
