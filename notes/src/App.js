@@ -3,13 +3,13 @@ import './App.css';
 import NotesTest from './components/notes'
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import CreateNote from './components/createNote';
 // import dummyData from './Data/DummyData';
 
 class App extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    nextId: 3,
     notes: [
       {
         id: 0,
@@ -24,12 +24,26 @@ constructor(props) {
     ]
   }
 }
+handleNew = data => {
+  const newNote = {
+    id: this.state.notes.length,
+    title: data.title,
+    text: data.text
+  };
+  const newData = [...this.state.notes, newNote];
+  this.setState({
+    notes: newData
+  })
+}
+
 
 // componentDidMount() {
 //   this.setState({
 //     notes: dummyData
 //   });
 // } Dont need it if I use a state considering it this way to simplify
+
+
   render() {
     return (
       
@@ -45,7 +59,7 @@ constructor(props) {
         
       </div>
       <Route exact path="/" render={() => <NotesTest notes={this.state.notes} />}/>
-
+      <Route exact path="/create" />
       </div>
     );
   }

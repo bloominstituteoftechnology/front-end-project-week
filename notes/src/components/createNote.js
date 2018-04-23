@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class createNote extends Component {
+export default class CreateNote extends Component {
     state = {
         title: '',
         text: ''
