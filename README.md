@@ -25,7 +25,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 * [ ] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
-
+https://trello.com/b/BFZPOutg/lambda-notes-michal-chmielniak
 ```markdown
 ## Trello Set Up:
 * [ ] Create a Trello account
