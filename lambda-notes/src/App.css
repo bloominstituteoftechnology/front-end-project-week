@@ -5,6 +5,7 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  align-content: center;
 }
 
 .App-header {
@@ -16,6 +17,7 @@
 
 .App-title {
   font-size: 1.5em;
+  text-align: center;
 }
 
 .App-intro {
@@ -25,4 +27,20 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.container {
+  max-width: 800px;
+  min-width: 600px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+}
+
+.notesView {
+
+}
+
+.navigation {
+  
 }
