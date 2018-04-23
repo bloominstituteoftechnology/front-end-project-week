@@ -1,0 +1,17 @@
+.PrimaryContainer {
+  margin: 3.33%;
+}
+
+.PrimaryContainer__header {
+  margin: 4% 0;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.PrimaryContainer__cardContainer {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.NoteCard {
+}
