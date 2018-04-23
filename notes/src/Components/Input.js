@@ -15,24 +15,27 @@ import React, { Component } from 'react';
  const Input = props => {
     
         return(
-            <form onSubmit={this.handleSubmit}>
+            <div onSubmit={props.handleSubmit}>
                 <label>
                     Create New Note:
                 </label>
                 <input
                     type='text'
                     placeholder='Note Title'
-                    name='note'
+                    name='Title'
                     onChange={props.handleChange} 
                 />
                  <input
                     type='text'
                     placeholder='New Content'
-                    name='content'
+                    name='Content'
                     onChange={props.handleChange} 
                 />
-                <input type='submit' value='Save'/>
-            </form>
+                {/* <input type='submit' value='Save'/> */}
+                <button onClick={props.handleSubmit}>
+                Save
+                </button>
+            </div>
         );
     }
 

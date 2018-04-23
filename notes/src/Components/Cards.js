@@ -5,20 +5,24 @@ import {
 } from 'reactstrap';
 
 const Cards = props => {
+    console.log(props.notes);
     return(
         <div className="myContainer">
-            <Card className="myCards col-3 ">
+            {props.notes.map((note, index) => 
+
+            <Card key={"MyNote" + index} className="myCards col-4 d-flex ">
                 <CardBody className="myCardBody ">
                     <CardTitle className="myCardTitle 
-                    text-left border-bottom font-weight-bold">Note Title</CardTitle>
+                    text-left border-bottom font-weight-bold">
+                        {note.title}
+                    </CardTitle>
                     <CardText className="myCardText text-left "> 
-                        THIS IS WHAT I WANT TO ADD TO MY NOTE
-                 
-
+                        {note.content}
                     </CardText>
                     {/* <Button> DELETE? UPDATE? </Button> */}
                 </CardBody>
             </Card>
+        )}
         </div>
         
     );

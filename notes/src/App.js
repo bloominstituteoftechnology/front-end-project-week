@@ -8,15 +8,30 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      newNote: { title: '', content: '' },
+      Notes: [
+      {title: 'One Note', content: 'Blah Blah'},
+      {title: 'Second Note', content: 'blah blah'}
+      ]
     }
-  }
-  handleChange(e) {
+  };
+
+  // componentDidMount() {
+  //   this.setState({ notes:  {Title: 'New TTT', Content: ''} });
+  // }
+
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmit = (e) => {
-    alert('It was Submitted' + this.state.value);
+    // e.preventDefault();
+    console.log("DOES HANDLE SUBMIT WORK", Notes);
+    const Notes  = this.state.Notes;
+    Notes.push(this.state.newNote);
+    this.setState({ Notes, newNote:{ title: '', content: '' }});
+    
+   
   }
 
   render() {
@@ -32,7 +47,7 @@ class App extends Component {
         
         <div>
           <h2> Your Notes </h2>
-          <Cards />
+          <Cards notes={this.state.Notes} />
           <Input 
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
