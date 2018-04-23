@@ -16,3 +16,14 @@
   border: solid black 1px;
   background-color: lightgrey;
 }
+
+.App__left-buttons {
+  background-color: teal;
+  border: solid 1px grey;
+  max-width: 100px;
+  height: 50px;
+  color: white;
+}
+.App__left-buttons:hover {
+  background-color: black;
+}

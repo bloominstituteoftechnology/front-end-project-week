@@ -10,7 +10,13 @@ class App extends Component {
     return (
       <div className='App__container'>
         <div className='App__left'> {/* start of left side div */}
-        some holder text
+        <h1>Lambda Notes</h1>
+          <div className='App__left-buttons'>
+            <span>View Your Notes</span>
+          </div>
+          <div className='App__left-buttons'>
+            <span>+ Create New Note</span>
+          </div>
         </div> {/* end of left side div */}
 
         <div className='App__right'> {/* start of right side div */}
