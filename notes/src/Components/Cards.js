@@ -4,7 +4,7 @@ import {
     CardTitle, CardSubtitle, Button 
 } from 'reactstrap';
 
-const Container = props => {
+const Cards = props => {
     return(
         <div className="myContainer">
             <Card className="myCards col-3 ">
@@ -13,10 +13,7 @@ const Container = props => {
                     text-left border-bottom font-weight-bold">Note Title</CardTitle>
                     <CardText className="myCardText text-left "> 
                         THIS IS WHAT I WANT TO ADD TO MY NOTE
-                        THIS IS WHAT I WANT TO ADD TO MY NOTE 
-                        THIS IS WHAT I WANT TO ADD TO MY NOTE 
-                        THIS IS WHAT I WANT TO ADD TO MY NOTE 
-                        THIS IS WHAT I WANT TO ADD TO MY NOTE
+                 
 
                     </CardText>
                     {/* <Button> DELETE? UPDATE? </Button> */}
@@ -28,4 +25,4 @@ const Container = props => {
 };
 
 
-export default Container;
+export default Cards;

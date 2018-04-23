@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Container from './Components/Container.js';
+import Cards from './Components/Cards.js';
+import Input from './Components/Input.js';
 
 class App extends Component {
   constructor() {
@@ -21,9 +22,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-
+        
         <div>
-          <Container />
+          <h2> Your Notes </h2>
+          <Cards />
+          <Input />
         </div>
       </div>
     );
