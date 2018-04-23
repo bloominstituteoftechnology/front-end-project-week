@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import notesTest from './components/notes'
+import NotesTest from './components/notes'
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import dummyData from './Data/DummyData';
 
 class App extends Component {
+constructor(props) {
+  super(props);
+  this.state = {
+    notes: []
+  }
+}
+
+componentDidMount() {
+  this.setState({
+    notes: dummyData
+  });
+}
   render() {
     return (
       
@@ -18,8 +31,9 @@ class App extends Component {
         <Link to={"/create"} className="leftButtons">
          +Create New Note
         </Link>
+        
       </div>
-      <Route exact path="/"/>
+      <Route exact path="/" render={() => <NotesTest notes={this.state.notes} />}/>
 
       </div>
     );

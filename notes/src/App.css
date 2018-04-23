@@ -32,8 +32,20 @@
   text-align: left;
 }
 
+.list {
+  margin: 0 0 0 0;
+float: right;
+width: 80%;
+margin-top: 4%;
+}
+
+.listh2 {
+  text-align: left;
+  margin-left: 2%;
+}
+
 .leftButtons {
- margin-bottom: 50px;
+ margin-bottom: 25px;
  height: 50px;
  width: 80%;
  display: flex;
