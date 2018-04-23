@@ -1,4 +1,4 @@
-## Trello URL:
+## Lambda Notes - Rachelle De Jesus Pestanas Trello URL:
 https://trello.com/b/OasEG4HV
 
 ## Front End Project Week
