@@ -50,10 +50,11 @@ margin-top: 4%;
 
 .rightSide {
   margin-top: 4%;
-  width: 78%;
+  width: 76%;
   float: right;
   height: 880px;
   margin-left: 2%;
+  margin-right: 2%;
 }
 
 .listh2 {
