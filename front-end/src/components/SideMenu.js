@@ -4,7 +4,7 @@ export default class SideMenu extends Component {
   render(props) {
     return (
       <div>
-        <em>Lambda Notes</em>
+        <h1>Lambda Notes</h1>
         <div>
           <button input={this.props.showNoteList}>View Your Notes</button>
           <button>+ Create New Notes</button>
