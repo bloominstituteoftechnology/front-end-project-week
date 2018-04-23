@@ -1,28 +1,40 @@
+:root {
+  --App-borderColor: rgb(168, 168, 168);
+}
+
 .App {
-  text-align: center;
+  background: rgb(245, 245, 245);
+  border: 1px solid var(--App-borderColor);
+  display: flex;
+  height: calc(100vh - 20px);
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App_sideBar {
+  background: rgb(209, 209, 209);
+  border-right: 1px solid var(--App-borderColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 100%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.App_sideBar h3 {
+  color: rgb(82, 82, 82);
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 24px;
+  margin: 20px 0;
+  width: 80%;
+}
+
+.App_sideBar button {
+  background: rgb(0, 178, 184);
+  border: 1px solid rgb(0, 160, 160);
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  font-weight: bold;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 80%;
 }
