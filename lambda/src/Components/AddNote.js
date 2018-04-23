@@ -12,7 +12,7 @@ const AddNote = ({ dispatch }) => {
       <form
         onSubmit={event => {
           event.preventDefault();
-          if (!title.value.trim() || !content.value.trim()) {
+          if (!title.value || !content.value) {
             return
           }
           dispatch(addNote(title.value, content.value))
