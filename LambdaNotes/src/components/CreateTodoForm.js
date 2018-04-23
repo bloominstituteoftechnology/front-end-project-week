@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 // actions
 import { addTodo } from "../actions/index";
 
@@ -41,9 +42,11 @@ class CreateTodoForm extends Component {
 					value={this.state.text}
 					onChange={this.handleNewInput}
 				/>
-				<button type="button" onClick={this.handleAddTodo}>
-					Save
-				</button>
+				<Link to="/">
+					<button type="button" onClick={this.handleAddTodo}>
+						Save
+					</button>
+				</Link>
 			</form>
 		);
 	}
