@@ -5,4 +5,5 @@
   margin: 25px auto;
   border: 2px solid rgb(152, 174, 175);
   background-color: rgb(242, 241, 242);
+  display: flex;
 }
