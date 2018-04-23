@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
       <div className="leftSide">
         <h1 className= "leftSideH1">Lambda Notes</h1>
-        <button className="leftButtons"> View Your Notes </button>
+        <button className="leftButtons" path="/"> View Your Notes </button>
         <button className="leftButtons"> +Create New Note </button>
       </div>
       </div>
