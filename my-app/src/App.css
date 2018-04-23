@@ -24,13 +24,14 @@
 
 .App-buttons {
   text-align: center;
-  width: 80%;
+  width: 90%;
   border: 2px solid black;
-  background: lightblue;
+  background: rgb(16, 183, 189);
   color: white;
-  height: 40px;
+  height: 60px;
   padding-top: 10px;
-  font-size: 15px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .App-content {
