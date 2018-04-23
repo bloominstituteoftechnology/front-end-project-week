@@ -9,11 +9,14 @@ class App extends Component {
     return (
       
       <div className="App">
+      <Route path="/">
       <div className="leftSide">
         <h1 className= "leftSideH1">Lambda Notes</h1>
         <button className="leftButtons"> View Your Notes </button>
         <button className="leftButtons"> +Create New Note </button>
       </div>
+      </Route>
+      <Route exact path="/"/>
       </div>
     );
   }
