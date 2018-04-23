@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import notesTest from './components/notes'
 
 class App extends Component {
   render() {
     return (
+      
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="leftSide">
+        <h1 className= "leftSideH1">Lambda Notes</h1>
+        <button className="leftButtons"> View Your Notes </button>
+        <button className="leftButtons"> +Create New Note </button>
+      </div>
       </div>
     );
   }
