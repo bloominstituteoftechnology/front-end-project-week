@@ -1,19 +1,33 @@
 .App {
 }
 
+.container {
+  border: 1px solid;
+}
+
+.side-menu {
+  border-right: 1px solid;
+}
+
+.note-list-container {
+  /* border: 1px solid red; */
+}
+
 .note-list {
-  width: 800px;
+  width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
 
-.note {
+.note-container {
   width: 33%;
 }
 
 .card {
   width: 15rem;
-  margin: 1rem 5rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
 }
 
 .App-logo {
