@@ -8,17 +8,17 @@ export default class NotesList extends Component {
       notesList: [
         {
           id: 0,
-          title: "Remember these notes!",
+          title: "This is a sample note!",
           content: "something something notetaking"
         },
         {
           id: 1,
-          title: "Remember these notes!",
+          title: "Test for note app!",
           content: "something something notetaking"
         },
         {
           id: 2,
-          title: "Remember these notes!",
+          title: "Hey it's working!",
           content: "something something notetaking"
         },
         {
@@ -28,12 +28,12 @@ export default class NotesList extends Component {
         },
         {
           id: 4,
-          title: "Remember these notes!",
+          title: "Start adding more functionality!",
           content: "something something notetaking"
         },
         {
           id: 5,
-          title: "Remember these notes!",
+          title: "Notes on notes on notes!",
           content: "something something notetaking"
         }
       ]
