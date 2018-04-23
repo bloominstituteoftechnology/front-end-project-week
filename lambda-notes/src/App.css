@@ -5,12 +5,14 @@
   border: 1px solid;
 }
 
-.side-menu {
+.side-nav {
   border-right: 1px solid;
+  background-color: gray;
 }
 
-.note-list-container {
+.main-view {
   /* border: 1px solid red; */
+  background-color: lightgray;
 }
 
 .note-list {
