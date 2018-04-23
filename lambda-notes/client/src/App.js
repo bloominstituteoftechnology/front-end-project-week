@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 //import axios from 'axios';
 import NoteList from './components/Notes/NoteList'
+import CreateNote from './components/Notes/CreateNote'
+import ViewNote from './components/Notes/ViewNote'
 
 class App extends Component {
 
@@ -21,6 +23,11 @@ class App extends Component {
 
         <div className='App__right'> {/* start of right side div */}
         <NoteList />
+        {/* <CreateNote /> */}
+        {/* <ViewNote 
+        name='somthing' 
+        body='some body holder note text for simple testing'
+        /> */}
         </div> {/* end of right side div */}
 
       </div> // container div end

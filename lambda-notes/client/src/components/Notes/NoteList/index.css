@@ -11,3 +11,12 @@
     border: solid 1px grey;
     margin-bottom: 20px;
 }
+
+.note__container-notes :link {
+    color: black;
+    text-decoration: none;
+}
+
+.note__container-notes :visited {
+    color: black;
+}

@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
+import { Link, Route } from 'react-router-dom';
+import ViewNote from '../ViewNote';
+
 
 const NoteDisplay = (props) => {
     console.log('props', props)
     return (
       <div className='note__container'>
-        {props.data.map(u => 
+        {props.data.map((u, index) => 
         <div key={u.id} className='note__container-notes'>
+        <Link to={'/Notes/' + index}>
         <h1>{u.title}</h1>
-        <p>{u.body}</p></div>)}
+        <p>{u.body}</p>
+        <span> {index} </span></Link></div>)}
+        <Route exact path={'/Notes/${index}'} component={ViewNote} />
       </div>
     )
   }
