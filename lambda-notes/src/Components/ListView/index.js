@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import Note from './NoteCard';
 
 export const NoteList = props => {
     return (
@@ -11,9 +12,9 @@ export const NoteList = props => {
             </div>
             <div className="center">
                 <h4>Your Notes:</h4>
-                {/* {this.props.Notes.map(note => {
-                    return <div>{note.title}, {note.body}</div>
-                })} */}
+                {props.Notes.map(note => {
+                    return <Note title={note.title} body={note.body} />
+                })}
             </div>
         </div>
     )
