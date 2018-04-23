@@ -1,0 +1,15 @@
+.NoteList-area {
+  width: 100%;
+}
+
+.NoteList-title {
+  margin: 20px;
+  margin-left: 50px;
+}
+
+.NoteList-container {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
