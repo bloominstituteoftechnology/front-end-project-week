@@ -1,0 +1,65 @@
+@import "mixins";
+
+.App {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    min-height: 1024px;
+    width: 100%;
+    max-width: 1300px;
+    .navButton-top {
+      .button(51px)
+    }
+    .navButton-bottom {
+      .button(40px)
+    }
+    .left-top-btn {
+      position: absolute;
+      top: 177px;
+      left: 23px;
+      
+    }
+    .left-bottom-btn {
+      position: absolute;
+      top: 264px;
+      left: 23px;
+    }
+    .edit-button {
+      position: absolute;
+      top: 28px;
+      right: 114px;
+      font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      .edit-link {
+        color: black;
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+    .delete-button {
+      position: absolute;
+      top: 28px;
+      right: 35px;
+      font-family: Raleway, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      .delete-link {
+        color: black;
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  
+
+
+  
+
+  
+
+  

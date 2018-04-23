@@ -1,3 +1,6 @@
+Aaron Burk's Trello board for this project is at:
+https://trello.com/b/K0A1Eg5h/lambda-notes
+
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
 
