@@ -7,32 +7,43 @@ class CreateTodoForm extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newTodoTitle: "",
-			newTodoText: ""
+			title: "",
+			text: ""
 		};
 	}
+	// capture new todo data
 	handleNewInput = e => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
+	// add new todo to todo list in redux store
+	handleAddTodo = () => {
+		const { title, text } = this.state;
+		this.props.addTodo(title, text);
+		// reset form fields
+		this.setState({ title: "", text: "" });
+	};
 
 	render() {
-		console.log("TITLE: ", this.state.newTodoTitle);
-		console.log("TEXT: ", this.state.newTodoText);
+		// console.log("TITLE: ", this.state.title);
+		// console.log("TEXT: ", this.state.text);
 		return (
 			<form>
 				<input
 					type="text"
-					placeholder="Name your todo here..."
-					name="newTodoTitle"
-					value={this.state.newTodoTitle}
+					placeholder="Note Title"
+					name="title"
+					value={this.state.title}
 					onChange={this.handleNewInput}
 				/>
 				<textarea
-					placeholder="Type away here!"
-					name="newTodoText"
-					value={this.state.newTodoText}
+					placeholder="Note Content"
+					name="text"
+					value={this.state.text}
 					onChange={this.handleNewInput}
 				/>
+				<button type="button" onClick={this.handleAddTodo}>
+					Save
+				</button>
 			</form>
 		);
 	}
