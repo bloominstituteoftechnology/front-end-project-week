@@ -7,10 +7,13 @@ import {
 const Cards = props => {
     console.log(props.notes);
     return(
-        <div className="myContainer">
+        <div>
+        <h4 className='Input_header text-left pl-3 pt-5 '> Your Notes: </h4>
+        
+        <div className="myContainer d-flex flex-wrap justify-content-around p-2">
             {props.notes.map((note, index) => 
-
-            <Card key={"MyNote" + index} className="myCards col-4 d-flex ">
+            <Card key={"MyNote" + index} 
+                className="myCards  d-flex flex-row mt-3">
                 <CardBody className="myCardBody ">
                     <CardTitle className="myCardTitle 
                     text-left border-bottom font-weight-bold">
@@ -24,7 +27,7 @@ const Cards = props => {
             </Card>
         )}
         </div>
-        
+        </div>
     );
 };
 

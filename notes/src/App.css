@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  align-content: center;
+  align-self: center;
+  align-self: center;
 }
 
 .App-logo {
@@ -27,3 +30,24 @@
   to { transform: rotate(360deg); }
 }
 
+.Container {
+  background:#F0F0F0;
+  border: 1px solid red;
+  max-width: 100%;
+  width: 800px;
+
+  
+}
+
+.column_left {
+  width: 20%;
+  background: #B0B0B0;
+}
+
+.column_right {
+  width: 78%;
+}
+
+.myCards {
+  width: 30%;
+}

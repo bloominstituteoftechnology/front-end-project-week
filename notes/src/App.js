@@ -11,7 +11,11 @@ class App extends Component {
       newNote: { title: '', content: '' },
       Notes: [
       {title: 'One Note', content: 'Blah Blah'},
-      {title: 'Second Note', content: 'blah blah'}
+      {title: 'Second Note', content: 'blah blah'},
+      {title: 'Third Note', content: 'blah blah blah blah'},
+      {title: 'Fourth Note', content: 'Blah Blah'},
+      {title: 'Fifth Note', content: 'blah blah'},
+      {title: 'Sixth Note', content: 'blah blah blah blah'}
       ]
     }
   };
@@ -29,6 +33,7 @@ class App extends Component {
     console.log("DOES HANDLE SUBMIT WORK", Notes);
     const Notes  = this.state.Notes;
     Notes.push(this.state.newNote);
+    console.log("DOES HANDLE SUBMIT PUSH? ", Notes);
     this.setState({ Notes, newNote:{ title: '', content: '' }});
     
    
@@ -45,13 +50,22 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         
-        <div>
-          <h2> Your Notes </h2>
-          <Cards notes={this.state.Notes} />
-          <Input 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          />
+        <div className='Container '>
+          <div className='row'>
+            <div className='column_left'>
+              <h2 className='col_left_header p-2 text-left'>Lambda Notes</h2>
+            </div>
+            <div className='column_right'>
+              <Cards notes={this.state.Notes} />
+              <Input 
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              />
+            </div>
+          </div>
+
+          
+
         </div>
       </div>
     );
