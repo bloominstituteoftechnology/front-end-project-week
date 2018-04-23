@@ -26,6 +26,10 @@
   text-align: center;
   width: 80%;
   border: 2px solid black;
+  background: lightblue;
+  color: white;
+  height: 40px;
+  padding-top: 10px;
 }
 
 .App-content {
