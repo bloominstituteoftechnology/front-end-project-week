@@ -1,0 +1,13 @@
+.menu {
+  background: lightgrey;
+  height: 100%;
+  padding: 5%;
+}
+
+.menu h1 {
+  text-align: left;
+}
+
+button {
+  width: 100%;
+}
