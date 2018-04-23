@@ -7,10 +7,12 @@ import registerServiceWorker from './registerServiceWorker';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducer from './REDUX/reducer';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>

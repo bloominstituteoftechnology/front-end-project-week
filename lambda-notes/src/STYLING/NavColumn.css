@@ -18,6 +18,7 @@
 .Button {
   border: 2px solid #959595;
   background-color: #2AC1C5;
+  color: white;
   font-weight: 600;
   font-size: 2rem;
   height: 90px;

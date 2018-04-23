@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 import {
@@ -7,6 +6,7 @@ import {
   PrimaryContainer,
   NewNote
 } from './components';
+
 
 class App extends Component {
   render() {
