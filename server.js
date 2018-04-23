@@ -61,9 +61,7 @@ let notes = [
   }
 ];
 
-server.get('/notes', (request, response) => {
-  response.json(notes);
-});
+server.get('/notes', (request, response) => { response.json(notes) });
 
 let noteID = 101;
 
