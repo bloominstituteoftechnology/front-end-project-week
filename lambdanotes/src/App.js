@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
+import newNotes from "newNotes";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="Left-nav">
-          <p className="Title">Lambda Notes</p>
-          <Button color="info" size="sm" block>View Your Notes</Button>{' '}
-          <Button color="info" size="sm" block>+ Create New Note</Button>{' '}
-        </header>
+      <div class="container-fluid">
+        <div class="row justify-content-center title">
+          <div class="col-2 Nav">
+            <h4>Lambda Notes</h4>
+              <Button color="info" size="sm" block >View Your Notes</Button>{' '}
+              <Button color="info" size="sm" block>+ Create New Note</Button>{' '}
+          </div>
+          <div class="col-9 Main">
+            Your Notes:
+          <newNotes />
+          </div>
+        </div>
       </div>
     );
-        <header className="Right-nav">
-        <h2 className="Title">Your Notes:</h2>
-        </header>
   }
 }
 

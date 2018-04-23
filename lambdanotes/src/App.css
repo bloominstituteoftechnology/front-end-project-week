@@ -1,27 +1,16 @@
-html, body {
+.container-fluid {
   height: 100%;
-  border: 1px solid gray;
-  display: flex;
 }
 
-html {
-  background-color: #DEE2E5;
+.Nav {
+  background-color: #d7d7d7;
+  color: #4a494a;
 }
 
-/* body {
-  background-color: gray;
-} */
-
-.Left-nav {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: gray;
-  padding: 20px;
-  flex-wrap: wrap;
-  width: 200px;
-}
-
-.Right-nav {
+.Main {
+  background-color: #f3f3f3;
+  color: #4a494a;
   font-size: 1em;
-  color: gray;
+  font-weight: bold;
+  padding-top: 35px;
 }
