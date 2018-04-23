@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+  border: 1px solid gray;
+  display: flex;
+}
+
+html {
+  background-color: #DEE2E5;
+}
+
+/* body {
+  background-color: gray;
+} */
+
+.Left-nav {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: gray;
+  padding: 20px;
+  flex-wrap: wrap;
+  width: 200px;
+}
+
+.Right-nav {
+  font-size: 1em;
+  color: gray;
+}
