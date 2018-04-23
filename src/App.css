@@ -1,28 +1,60 @@
-.App {
-  text-align: center;
+.container0 {
+  display: flex;
+  justify-content: center;
+  max-width: 800px ; 
+  margin: 0 auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.leftnav {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  
 }
 
-.App-header {
-  background-color: #222;
+.container1 {
+  
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  background: #f3f3f3;
+  padding: 10px;
+  
+
+}
+
+.Note {
   height: 150px;
-  padding: 20px;
-  color: white;
+  width: 150px;
+  background: white;
+  margin: 10px 10px;
+  overflow: hidden;
+  border: 1px solid grey;
+  font-size: 13px;
+  
 }
 
-.App-title {
-  font-size: 1.5em;
+.button {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 80%;
+  margin: 10px 10px;
+  background: #2bc1c2;
+  border-radius: 0;
+  border: 1px solid grey;
+  text-align: justify;
 }
 
-.App-intro {
-  font-size: large;
+.titlefornotes{
+  display: flex;
+  justify-content: center;
+  background: #f3f3f3;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.form{
+  height: 400px;
+  width: 600px;
 }
