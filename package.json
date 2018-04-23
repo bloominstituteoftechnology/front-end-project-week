@@ -1,0 +1,49 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "backend for the week's project @lambdaschool",
+  "main": "index.js",
+  "repository": "git@github.com:axhon/front-end-project-week.git",
+  "author": "axhon <axhonruiz@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "client": "cd todo-frontend && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "nodemon": "^1.17.3"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": false,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "sourceType": "module"
+    },
+    "extends": [
+      "standard",
+      "standard-react"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "jest": "^22.4.3"
+  }
+}
