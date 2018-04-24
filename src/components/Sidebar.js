@@ -4,7 +4,7 @@ import { LinkButton } from '.'
 
 const Container = styled.div`
   background-color: #D2D1D2
-  width: 250px
+  width: 280px
   display: flex
   flex-direction: column
   align-items: center
