@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LinkButton from './LinkButton'
+import { LinkButton } from '.'
 
 const Container = styled.div`
   background-color: #D2D1D2

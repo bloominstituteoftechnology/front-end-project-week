@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Sidebar from './Sidebar'
+import { Sidebar } from '.'
 
 const Container = styled.div`
   border: 1px solid #AEAEAE
