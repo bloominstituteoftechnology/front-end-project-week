@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { Route } from 'react-router'
 import { Sidebar } from '.'
+import styled from 'styled-components'
 
 const Container = styled.div`
   border: 1px solid #AEAEAE
@@ -13,11 +14,21 @@ const Container = styled.div`
   }
 `
 
+const Content = styled.div`
+  flex-grow: 1
+`
+
 class App extends Component<{}> {
   render() {
     return (
       <Container>
         <Sidebar />
+        <Content>
+          <Route exact path='/' component={null} />
+          <Route path='/create' component={null} />
+          <Route path='/edit/:id' component={null} />
+          <Route path='/show/:id' component={null} />
+        </Content>
       </Container>
     )
   }
