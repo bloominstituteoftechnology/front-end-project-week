@@ -10,9 +10,9 @@ const Home = () =>{
  </div>
  <div className="button-styles">
  <Link to="/">
- <Button color="primary" className="button">View your memes</Button>
+ <Button color="primary" className="button">View your note</Button>
  </Link>
- <Button color="primary"className="button">+create new meme</Button>
+ <Button color="primary"className="button">+ create new Note</Button>
  </div>
  </div>
 </React.Fragment>)

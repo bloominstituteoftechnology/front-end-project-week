@@ -24,12 +24,12 @@ class App extends Component {
       <div className="App">
       <Route path="/" component={Home}/>
       <div className="container-styles">    
-         { <Route exact path="/"
+          <Route exact path="/"
           render= {props =><Notes  notes={this.state.notes}/>}
-      />}
-      {<Route path ="/note/:id"
-      render ={props =><NoteView  {...this.state}/>}
-    />}
+      />
+      <Route path ="/note/:id"
+      render ={props =><NoteView {...props} {...this.state}/>}
+    />
       </div>
       </div>
     );
