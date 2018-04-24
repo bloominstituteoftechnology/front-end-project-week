@@ -5,6 +5,7 @@ class NoteForm extends React.Component{
         super(props)
     }
 
+
     render() {
         return (
             <div className='col-9 right__side'>
