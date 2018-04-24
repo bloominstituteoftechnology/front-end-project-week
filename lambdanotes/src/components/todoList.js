@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import todo from './todo.js';
+import Todo from './todo';
 
 const dummyData = ['hi', 'bye', 'see', 'my', 'eye'];
 
@@ -13,7 +13,7 @@ export default class TodoList extends Component {
     render() {
         return (
         <div className="ListContainer">
-            <todo dummyData={dummyData}/>
+            <Todo dummyData={dummyData}/>
         </div>
         )
     }

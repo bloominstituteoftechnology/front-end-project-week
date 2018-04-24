@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
 
-export const todo = props => {
+const Todo = props => {
     return (
         <div>
-            {props.dummyData.map( (item) => {
+            {props.dummyData.map ((item) => {
+            return (
                 <div>
-                        {props.dummyData.item}
-                </div>  
-                })
-            }
+                    {item}
+                </div>
+            );
+            })}
         </div>
         );
 }
+
+export default Todo;
