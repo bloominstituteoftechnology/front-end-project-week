@@ -12,7 +12,10 @@ class ViewNote extends Component {
     }
     componentDidMount() {
       let meow = window.location.href;
-      const id = meow[meow.length -1];
+      meow = meow.split('').splice(21).join('').replace ( /[^0-9]/g, '' );
+      meow = Number(meow);
+      let id = meow - 1;
+      if (meow === 0) id = meow;
       this.fetchNote(id);
     }
   
