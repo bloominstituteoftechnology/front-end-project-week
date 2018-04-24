@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Sidebar from './Sidebar'
@@ -21,8 +19,8 @@ class App extends Component<{}> {
       <Container>
         <Sidebar />
       </Container>
-    );
+    )
   }
 }
 
-export default App;
+export default App

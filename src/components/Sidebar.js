@@ -1,7 +1,6 @@
-// @flow
-
 import React from 'react'
 import styled from 'styled-components'
+import LinkButton from './LinkButton'
 
 const Container = styled.div`
   background-color: #D2D1D2
@@ -14,6 +13,12 @@ const Container = styled.div`
 const Sidebar = () => (
   <Container>
     <h1>Lambda Notes</h1>
+    <LinkButton
+      to='/'
+      text='View Your Notes' />
+    <LinkButton
+      to='/create'
+      text='+ Create New Note' />
   </Container>
 )
 
