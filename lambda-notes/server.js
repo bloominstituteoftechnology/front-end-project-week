@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(CORS());
 
-const notes = [
+let notes = [
 	{
 		id: 0,
 		title: 'Test note 1',

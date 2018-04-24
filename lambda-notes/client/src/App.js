@@ -18,15 +18,17 @@ class App extends Component {
           <Link to='/' ><div className='App__left-buttons'>
             <span>View Your Notes</span>
           </div></Link>
+          <Link to='/NewNote'>
           <div className='App__left-buttons'>
             <span>+ Create New Note</span>
-          </div>
+          </div></Link>
           
         </div> {/* end of left side div */}
 
         <div className='App__right'> {/* start of right side div */}
         {/* <NoteList /> */}
         <NoteNav />
+        <Route exact path='/NewNote' component={CreateNote} />
         <Route exact path='/' component={NoteList} />
         {/* <CreateNote /> */}
         {/* <ViewNote 

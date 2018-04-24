@@ -6,9 +6,42 @@ import './index.css';
 class CreateNote extends Component {
     constructor() {
         super();
+        this.state = {
+          title: [],
+          body: [],
+        }
     }
+    handleAddNote = event => {
+      this.setState({ [event.target.name]: event.target.value });
+    };
+    AddNote = () => {
+      axios
+        .post(`http://localhost:5000/api/notes/`, {
+          body: {
+            "id": 22,
+            "title": "fuck",
+            "body": "notes"
+          }
+        })
+        .then(response => {
+       //   this.setState(() => ({ movie: response.data }));
+       console.log('check postman and all other sources')
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    };
+    handleSubmitNote = () => {
+     const { title, body } = this.state;
+//     title.push(this.state.title);
+//     body.push(this.state.body);
+     this.AddNote();
+     this.setState({ title: ""});
+     this.setState({ body: ""});
+    };
 
     render() {
+      console.log('state', this.state)
       return (
         <div className='Create__note'>
         <h1>Create New Note:</h1>
@@ -16,14 +49,21 @@ class CreateNote extends Component {
         type='text' 
         placeholder="Note Title"
         className='Create__note-title'
+        name='title'
+        value={this.state.title}
+        onChange={this.handleAddNote}
         /> <br/> <br/>
-        <input
+        <textarea
         type='text' 
         placeholder="Note Body"
         className='Create__note-body'
-        /><br/> <br/>
+        name='body'
+        value={this.state.body}
+        onChange={this.handleAddNote}
+        ></textarea><br/> <br/>
         <button 
         className='Create__note-button'
+        onClick={this.handleSubmitNote}
         >Save</button>
           
   
