@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -35,84 +35,23 @@ const NoteParagraph = styled.p`
     margin-top: 10px;
 `;
 
-const Notes = () => {
-  return <Wrapper>
-      <Heading>Your Notes:</Heading>
-      <List>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-        <IndividualNote>
-          <NoteHeading>Note Title</NoteHeading>
-          <hr />
-          <NoteParagraph>
-            Morbi pellentesque euismod venenatis. Nulla ut nibh nunc.
-            Phasellus diam metus. blandit ac purus a. efficitur mollis ...
-          </NoteParagraph>
-        </IndividualNote>
-      </List>
-    </Wrapper>;
+class Notes extends Component {
+    render() {
+        return <Wrapper>
+            <Heading>Your Notes:</Heading>
+            <List>
+                {this.props.notes.map(note => {
+                    return (
+                        <IndividualNote key={note.id}>
+                            <NoteHeading>{note.title}</NoteHeading>
+                            <hr />
+                            <NoteParagraph>{note.text}</NoteParagraph>
+                        </IndividualNote>
+                    )
+                })}
+            </List>
+            </Wrapper>;
+    }
 };
 
 export default Notes;
