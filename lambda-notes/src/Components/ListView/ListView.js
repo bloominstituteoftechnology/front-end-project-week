@@ -26,11 +26,12 @@ class ListView extends Component {
                             <h1>Make a note</h1>
                         ) : (
                             <div className = "row">
-                                {this.props.notes.notes.map(note => {
+                                {this.props.notes.notes.map((note, index) => {
+                                    console.log('index',index)
                                 return (
                                     <div className="card">
-                                        <h1 className="underline" key={note.title}>{note.title}</h1>
-                                        <p key={note.note}>{note.note}</p>
+                                        <h1 className="underline" key={index}>{note.title} {index}</h1>
+                                        <p key={index}>{note.note}</p>
                                     </div>
                                 )
                             })} 
