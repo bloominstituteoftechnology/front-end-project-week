@@ -3,14 +3,20 @@ import { withRouter } from "react-router-dom";
 
 import { Form, Input, Row, Col, Button } from 'reactstrap';
 
-class CreateNote extends Component {
+class ViewNote extends Component {
+
+  handleDelete = () => {
+    this.props.deleteNote(this.props.selectedNote.title);
+    this.props.history.push('/');
+  }
 
   render() {
     return (
       <div>
         <Row>
           <Col className="col-3 ml-auto">
-            Edit Delete
+            <Button className="mr-2" size="sm">Edit</Button> 
+            <Button onClick={this.handleDelete} size="sm">Delete</Button>
           </Col>
         </Row>
         <Row className="mt-4">
@@ -25,4 +31,4 @@ class CreateNote extends Component {
 
 }
 
-export default withRouter(CreateNote);
+export default withRouter(ViewNote);

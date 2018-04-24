@@ -15,10 +15,10 @@ class App extends Component {
     this.state = {
       cards: [
         { title: "Card title # 1", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        // { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        // { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        // { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        // { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+        { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
       ],
       newNote: {
         title: '',
@@ -39,6 +39,11 @@ class App extends Component {
     this.setState({ selectedNote: selectedNote });
   }
 
+  deleteNote = title => {
+    const updatedNotes = this.state.cards.filter(card => card.title !== title);
+    this.setState({ cards: updatedNotes });
+  }
+
   render() {
     return (
       <Router>
@@ -57,7 +62,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" render={() => <NotesList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
                   <Route path="/create-note" render={() => <CreateNote {...this.state} updateNewNote={this.updateNewNote} />} />
-                  <Route path="/notes-view" render={() => <ViewNote {...this.state} />} />
+                  <Route path="/notes-view" render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} />} />
                 </Switch>
               </div>
             </Row>
