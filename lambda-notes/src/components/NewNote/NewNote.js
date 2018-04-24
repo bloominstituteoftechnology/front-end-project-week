@@ -16,8 +16,8 @@ class NewNote extends React.Component {
         event.preventDefault();
         const { noteName, noteBody } = this.state;
         const newNote = {
-            name: noteName,
-            body: noteBody
+            name: this.capTitle(noteName),
+            body: this.capSentences(noteBody)
         }
         this.props.addNote(newNote);
         this.setState({ noteName: '', noteBody: '' });
@@ -25,6 +25,16 @@ class NewNote extends React.Component {
 
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value })
+    }
+
+    capTitle = str => {
+        return str.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+    }
+
+    capSentences = str => {
+        return str.replace(/.+?[\.\?\!](\s|$)/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
     }
 
     render() {
@@ -51,7 +61,7 @@ class NewNote extends React.Component {
                             name="noteBody"
                         />
                         {/* <Link to="/" > */}
-                            <button className="link__button" type="submit">Save</button>
+                        <button className="link__button" type="submit">Save</button>
                         {/* </Link> */}
 
                     </form>
