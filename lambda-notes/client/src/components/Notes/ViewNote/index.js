@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
+import { Link } from 'react-router-dom';
 
 
 class ViewNote extends Component {
@@ -10,13 +11,16 @@ class ViewNote extends Component {
           note: []
         }
     }
-    componentDidMount() {
+    idHolder = () => {
       let meow = window.location.href;
       meow = meow.split('').splice(21).join('').replace ( /[^0-9]/g, '' );
       meow = Number(meow);
       let id = meow;
+      return id;
+    }
+    componentDidMount() {
       //if (meow === 0) id = meow;
-      this.fetchNote(id);
+      this.fetchNote(this.idHolder());
     }
   
     fetchNote = id => {
@@ -35,10 +39,15 @@ class ViewNote extends Component {
  //       const { title, body } = this.state.note;
       return (
         <div className='View__note'>
-        <h1>View Note:</h1>
-        <h1>{this.state.note.title} </h1>
-        <p>{this.state.note.body}</p>
-            
+          <div className='View__note-links'>
+            <Link to={'./edit/' + this.idHolder()}><span> edit </span></Link>
+            <span> delete </span>
+          </div>
+          <div>
+            <h1>View Note:</h1>
+            <h1>{this.state.note.title} </h1>
+            <p>{this.state.note.body}</p>
+          </div>
         </div> // container div end
         
       );
