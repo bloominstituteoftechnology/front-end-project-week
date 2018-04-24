@@ -31,6 +31,7 @@
     background-color: #0d5f5e;
     color: rgb(221, 221, 221);
     border: 1px solid #0d5f5e;
+    box-shadow: 3px 5px #888888;
     display: flex;
     cursor: pointer;
     margin-bottom: 20px;
@@ -57,11 +58,20 @@
     background-color: #0d5f5e;
     color: rgb(221, 221, 221);
     border: 1px solid #0d5f5e;
+    box-shadow: 3px 5px #888888;
     display: flex;
     cursor: pointer;
     padding: 0px 55px;
     width: 220px;
     height: 40px;
+}
+
+.create-btn-link {
+    text-decoration: none;
+}
+
+.view-btn-link {
+    text-decoration: none;
 }
 
 .heading-lambda {

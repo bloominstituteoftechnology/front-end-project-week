@@ -33,10 +33,9 @@
 
 .note-object-wrapper:hover {
     width: 28%;
-    background: #eeeeee;
     background: #13b1ae;
     cursor: pointer;
-    box-shadow: 2px 3px #888888;
+    box-shadow: 4px 5px #888888;
     margin: 20px;
     margin-bottom: 10px;
     border: 1px solid black;

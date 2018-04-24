@@ -1,0 +1,58 @@
+.new-note-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(212, 212, 212);
+    width: 100%;
+    height: 714px;
+    margin-top: 10px;
+}
+
+.title-input {
+    width: 45%;
+    height: 25px;
+    border-radius: 4px;
+}
+
+.body-text-area {
+    width:70%;
+    height: 400px;
+    border-radius: 4px;
+    margin-top: 20px;
+    border: none;
+}
+
+.new-note-wrapper {
+    margin: 20px;
+}
+
+.new-note-header {
+    font-family: 'Russo One', sans-serif;
+    color: #606060;
+}
+
+.save-button {
+    font-family: 'Russo One', sans-serif;
+    background-color: #18b2af;
+    color: rgb(221, 221, 221);
+    border: 1px solid #18b2af;
+    box-shadow: 1px 2px #888888;
+    display: flex;
+    padding: 0px 95px;
+    width: 220px;
+    margin-top: 10px;
+    height: 40px;
+}
+
+.save-button:hover {
+    font-family: 'Russo One', sans-serif;
+    background-color: #0d5f5e;
+    color: rgb(221, 221, 221);
+    border: 1px solid #0d5f5e;
+    box-shadow: 3px 5px #888888;
+    display: flex;
+    cursor: pointer;
+    padding: 0px 95px;
+    width: 220px;
+    margin-top: 10px;
+    height: 40px;
+}

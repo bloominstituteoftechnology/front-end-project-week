@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component }from 'react';
+import { Link } from 'react-router-dom';
 import './PageNavigator.css';
 
 class PageNavigator extends Component {
@@ -12,8 +13,8 @@ class PageNavigator extends Component {
                 <div className="page-navigator-heading">
                     <h1 className="heading-lambda">Lambda</h1>
                     <h1 className="heading-notes">Notes</h1>
-                    <button className="view-button">View Your Notes</button>
-                    <button className="create-button">+ Create New Note</button>
+                    <Link className="view-btn-link" to="/"><button className="view-button">View Your Notes</button></Link>
+                    <Link className="create-btn-link" to="/new"><button className="create-button">+ Create New Note</button></Link>
                 </div>
             </div>
         );
