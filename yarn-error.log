@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js status
+  C:\Program Files\nodejs\node.exe C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\python.exe;;C:\Program Files\Microsoft VS Code\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;C:\Users\Natalie\AppData\Roaming\npm;C:\Users\Natalie\AppData\Local\hyper\app-2.0.0\resources\bin
@@ -15,8 +15,6 @@ Platform:
 
 npm manifest: 
   {
-    "name": "lambda-notes",
-    "version": "0.1.0",
     "dependencies": {
       "create-react-app": "^1.5.2",
       "react": "^16.3.2",
@@ -640,7 +638,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 Trace: 
-  Error: Command "status" not found.
+  Error: Command "start" not found.
       at new MessageError (C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
       at C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
       at Generator.next (<anonymous>)
