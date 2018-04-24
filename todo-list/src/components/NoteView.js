@@ -7,7 +7,6 @@ export const NoteView = props => {
   const note = props.notes[props.match.params.id];
   return (
     <div className="NoteView">
-      
       <div className="NoteView_note">
         <p className="NoteView_noteTitle">{note.title}</p>
         <p className="NoteView_noteBody">{note.body}</p>

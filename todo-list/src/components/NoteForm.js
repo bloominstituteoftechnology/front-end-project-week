@@ -13,7 +13,11 @@ export class NoteForm extends Component {
   }
 
   handleInput = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
+  resetInput() {
+    this.setState({ title: '', body: '' });
   }
 
   render() {
@@ -24,13 +28,20 @@ export class NoteForm extends Component {
           <input
             className="NoteForm_inputTitle"
             placeholder="Title"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleInput}
           />
           <textarea
             className="NoteForm_inputBody"
             placeholder="Write your note here..."
+            name="body"
+            value={this.state.body}
+            onChange={this.handleInput}
           />
         </form>
-        <button className="App_button">Save</button>
+        <button className="App_button" 
+        onClick={() => {}}>Save</button>
       </div>
     )
   }
