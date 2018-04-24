@@ -41,7 +41,10 @@ export class NoteForm extends Component {
           />
         </form>
         <button className="App_button" 
-        onClick={() => {}}>Save</button>
+          onClick={() => {
+            this.props.useFunction();
+            this.resetInput();
+        }}>Save</button>
       </div>
     )
   }

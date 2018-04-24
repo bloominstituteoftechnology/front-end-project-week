@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../styles/NoteList.css';
 import { NoteCard } from './NoteCard';
@@ -11,7 +12,7 @@ export const NoteList = props => {
         <NoteCard key={note.id} note={note} />
       ))}
       <div className="createCard">
-        <p>+</p>
+        <Link to="/create">+</Link>
       </div>
     </div>
   )

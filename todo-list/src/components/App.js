@@ -9,8 +9,22 @@ import { NoteForm } from './NoteForm';
 import { Modal } from './Modal';
 
 
-class App extends Component {
+export class App extends Component {
   state = { notes: notes };
+
+  createNote = note => {
+    console.log(this.state.notes);
+    //this.setState({ });
+  }
+
+  editNote = (id, note) => {
+
+  }
+
+  deleteNote = id => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -20,25 +34,23 @@ class App extends Component {
           <Link to="/create" className="App_button">+Create New Note</Link>
         </div>
         <div className="App_body">
-          <Route exact path="/" render={() =>
+          <Route exact path="/" render={() => 
             <NoteList notes={this.state.notes}/> 
           }/>
           <Route path="/view/:id" render={props => 
             <NoteView {...props} notes={this.state.notes}/> 
           }/>
-          <Route path="/create" component={props => 
-            <NoteForm formUse="Create New Note"/> 
+          <Route path="/create" render={() => 
+            <NoteForm formUse="Create New Note" useFunction={this.createNote}/> 
           }/>
-          <Route path="/edit/:id" component={props => 
-            <NoteForm formUse="Edit Note"/> 
+          <Route path="/edit/:id" render={props => 
+            <NoteForm formUse="Edit Note" useFunction={this.editNote}/> 
           }/>
-          <Route path="/view/:id/delete" component={props => 
-            <Modal {...props}/>
+          <Route path="/view/:id/delete" render={props => 
+            <Modal {...props} deleteNote={this.deleteNote}/> 
           }/>
         </div>
       </div>
     );
   }
 }
-
-export default App;

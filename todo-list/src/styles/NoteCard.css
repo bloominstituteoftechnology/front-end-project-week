@@ -38,7 +38,7 @@
   width: 30%;
 }
 
-.createCard p {
+.createCard * {
   align-items: center;
   background: rgb(0, 214, 221);
   border: 2px solid rgb(168, 168, 168);
@@ -52,6 +52,7 @@
   height: 80px;
   padding-bottom: 10px;
   text-align: center;
+  text-decoration: none;
   text-shadow: -1px 1px 2px rgb(128, 128, 128);
   width: 80px;
 }
