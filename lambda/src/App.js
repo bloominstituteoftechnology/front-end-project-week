@@ -2,25 +2,20 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { notes } from './components/notes.js';
-import { NotesList } from './components/NotesList';
+import NotesList from './components/NotesList';
 import { SideBar } from './components/SideBar';
+import CreateNote from './components/CreateNote';
+import { EditNote } from './components/EditNote';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      notes: []
-    };
-  }
-
-  componentDidMount() {
-   this.setState({notes: notes });
-  }
+ 
   render() {
     return (
       <div className="App">
           <SideBar className="sideBar" />
-          <NotesList className="notesList" notesProp={this.state.notes} />
+          <Route exact path="/" component={NotesList} />
+          <Route path="/create" component={CreateNote} />
+          {/* <EditNote className="editNote" /> */}
       </div>
     );
   }

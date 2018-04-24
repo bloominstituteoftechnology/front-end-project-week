@@ -1,14 +1,31 @@
-import React from "react";
+import React, { Component } from 'react';
 import './NotesList.css';
+import { notes } from './notes.js';
 
-export const NotesList = props => {
-  return <div className="container"><h3 className="headerNotes">Your Notes:</h3>
-        <div className="allNotes">{props.notesProp.map(n => 
-            <div className="noteCard">
-                <div className="noteName">{n.note_name}</div>
-                <div className="divide"></div>
-                <div className="noteContent">{n.note_content}</div>
-            </div>)}
-        </div>
-        </div>;
-};
+export default class NotesList extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+          notes: []
+        };
+    }
+    
+      componentDidMount() {
+       this.setState({ notes: notes });
+      }
+
+    render() {
+    return (
+            <div className="container"><h3 className="headerNotes">Your Notes:</h3>
+                <div className="allNotes">
+                    {this.state.notes.map(notes => 
+                        <div className="noteCard">
+                            <div className="noteName">{notes.note_name}</div>
+                            <div className="divide"></div>
+                            <div className="noteContent">{notes.note_content}</div>
+                        </div>)}
+                </div>
+            </div>);
+    }
+}
+
