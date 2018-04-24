@@ -20,94 +20,54 @@ const vst = {
 	padding: 40
 };
 
-// class ModalExample extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       modal: false
-//     };
-
-//     this.toggle = this.toggle.bind(this);
-//   }
-
-//   toggle() {
-//     this.setState({
-//       modal: !this.state.modal
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
-//         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-//           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-//           <ModalBody>
-//             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-//           </ModalBody>
-//           <ModalFooter>
-//             <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-//             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-//           </ModalFooter>
-//         </Modal>
-//       </div>
-//     );
-//   }
-// }
 const bStylec = {
-    marginTop: 20,
-    width: '40%',
-    backgroundColor: '#25b8bd',
-    cursor: 'pointer',
-    color: 'white',
-    height: 50,
-    fontWeight: 'bold',
+	marginTop: 20,
+	width: '40%',
+	backgroundColor: '#25b8bd',
+	cursor: 'pointer',
+	color: 'white',
+	height: 50,
+	fontWeight: 'bold',
 	fontSize: 20,
 	marginLeft: '8%',
 	marginRight: '10%'
-
-}
+};
 const bStyled = {
-    marginTop: 20,
-    width: '40%',
-    backgroundColor: 'red',
-    cursor: 'pointer',
-    color: 'white',
-    height: 50,
-    fontWeight: 'bold',
+	marginTop: 20,
+	width: '40%',
+	backgroundColor: 'red',
+	cursor: 'pointer',
+	color: 'white',
+	height: 50,
+	fontWeight: 'bold',
 	fontSize: 20,
-	marginLeft: '10%',
-}
+	marginLeft: '10%'
+};
 const warning = {
 	textAlign: 'center'
-}
+};
 const noteSt = {
 	padding: 30
-}
+};
 const linkSte = {
 	justifyContent: 'center',
 	marginLeft: '87%',
-	// display: 'inline-flex',
 	textAlign: 'center'
-}
+};
 const linkStd = {
 	justifyContent: 'center',
 	marginLeft: '5%',
-	// display: 'inline-flex',
 	textAlign: 'center'
-}
+};
 const header = (props) => {
 	return (
 		<div>
 			<Link to={`/notes/edit/${props.id}`}>Edit</Link>
-			{/* <Link to='#' onSumbit={alert("hey")} >Delete </Link> */}
-			{/* <Link to={`/notes/view/delete/${props.id}`} >Delete</Link> */}
 			<a href="#" onClick={this.toggle}>
 				Delete{' '}
 			</a>
 			<hr />
 			<h1>Note Name</h1>
-			{/* <Route exact path="/notes/view/edit/:idE" component={Edit} /> */}
 		</div>
 	);
 };
@@ -130,36 +90,34 @@ class PresentationView extends React.Component {
 		this.setState({
 			modal: !this.state.modal
 		});
-	}
+	};
 
 	render() {
 		return (
 			<div>
 				<div>
 					{console.log('PROPS, TESTING: ', this.props)}
-					<Link to={`/notes/edit/${this.props.id}`} style={linkSte}>Edit</Link>
-					{/* <Link to='#' onSumbit={alert("hey")} >Delete </Link> */}
-					{/* <Link to={`/notes/view/delete/${props.id}`} >Delete</Link> */}
-					<a href="#" onClick={this.toggle} style={linkStd} >
+					<Link to={`/notes/edit/${this.props.id}`} style={linkSte}>
+						Edit
+					</Link>
+
+					<a href="#" onClick={this.toggle} style={linkStd}>
 						Delete
 					</a>
-				
-					
-					<h3 style={noteSt} >
-					<h1>Note Name</h1>
-						{/* <h1>{header(this.props)}</h1> <br /> */}
+
+					<h3 style={noteSt}>
+						<h1>Note Name</h1>
 						{notes[this.props.id]}
 					</h3>
 				</div>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-					{/* <ModalHeader toggle={this.toggle}>Modal title</ModalHeader> */}
-					<ModalBody style={warning} >Are you sure you want to delete this?</ModalBody>
+					<ModalBody style={warning}>Are you sure you want to delete this?</ModalBody>
 					<ModalFooter>
-						<Button color="primary" onClick={ this.handleDelete} style={bStyled}>
+						<Button color="primary" onClick={this.handleDelete} style={bStyled}>
 							Delete
 						</Button>{' '}
-						<Button color="secondary" onClick={this.toggle} style={bStylec} >
+						<Button color="secondary" onClick={this.toggle} style={bStylec}>
 							No
 						</Button>
 					</ModalFooter>
@@ -168,54 +126,5 @@ class PresentationView extends React.Component {
 		);
 	}
 }
-// const PresentationView = (props) => {
-// 	return (
-// 		<div style={vst}>
-// 			{/* <Route path="/notes/edit/:idE" component={Edit} />
-// 		<hr /> */}
-// 			{/* <Link to={`/notes/view/edit/${props.id}` }>
-//                 Edit
-//             </Link> */}
-// 			<div>
-// 				{console.log('PROPS, TESTING: ', props)}
-// 				<h3>
-// 					<h1>{header(props)}</h1> <br />
-// 					{notes[props.id]}
-// 				</h3>
-// 			</div>
-// 		</div>
-// 	);
-// };
+
 export default PresentationView;
-
-// function SplitPane(props) {
-// 	return (
-// 		<div className="SplitPane">
-// 			{/* <div className="SplitPane-left">{props.left}</div> */}
-// 			<div className="SplitPane-right">{props.right}</div>
-// 		</div>
-// 	);
-// }
-// const Edit = props => {
-// 	let idE = props.match.params.idE;
-// 	console.log('url :', props.match.params)
-
-// 	return (
-// 		<div style={{ height: '100%' }}>
-// 			<SplitPane left={<LambdaNewL />} right={<EditRight idE={idE} />} />
-// 			</div>)
-// }
-// const LambdaNewL = (props) => {
-// 	return (
-// 		<div className="LeftContent">
-// 			<LambdaSide />
-// 		</div>
-// 	);
-// };
-// const EditRight = (props) => {
-// 	return (
-// 		<div className="RightContent">
-// 		<EditNote idE={props.idE} />
-// 		</div>
-// 	)
-// }

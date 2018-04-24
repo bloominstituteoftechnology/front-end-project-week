@@ -51,14 +51,11 @@ class CreateNew extends React.Component {
     };
     newNote = (e) => {
         e.preventDefault();
-        // this.setState({title: this.state.title, note: this.state.note})
-        console.log('title: ', this.state.title);
-        console.log('note: ', this.state.note);
+        alert('New note and title coming soon, as MVP is approved... title: ' + this.state.title + "   note: " + this.state.note)
     }
 	render() {
 		return (
 			<div style={mainSt} >
-               {/* { console.log(this.state.note)} */}
                 <h3 style={hSt} >Create New Note:</h3>
 				<input style={tStyle} type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleTextInput} />
 				<input style={textarea} type="text" name="note"  value={this.state.note}  placeholder="Note Content" onChange={this.handleTextInput} />

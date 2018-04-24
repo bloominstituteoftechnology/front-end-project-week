@@ -50,11 +50,9 @@ const notes = [
 	}
 ];
 
-
 function LeftContent() {
 	return (
 		<div className="LeftContent">
-			{/* <div /> */}
 			<LambdaSide />
 		</div>
 	);
@@ -64,7 +62,6 @@ function RightContent() {
 	return (
 		<div className="RightContent">
 			<PresentationMain />
-			{/* <div /> */}
 		</div>
 	);
 }
@@ -84,45 +81,49 @@ const New = (props) => {
 	return <SplitPane left={<LambdaNewL />} right={<LambdaNewR />} />;
 };
 const View = (props) => {
-	{console.log(props.match.params.id)};
+	{
+		console.log(props.match.params.id);
+	}
 	let id = props.match.params.id;
 
 	return (
-	<div style={{ height: '100%' }}>
-		<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
-		</div>)
-}
-export const Edit = props => {
+		<div style={{ height: '100%' }}>
+			<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
+		</div>
+	);
+};
+export const Edit = (props) => {
 	let idE = props.match.params.idE;
 	return (
 		<div style={{ height: '100%' }}>
 			<SplitPane left={<LambdaNewL />} right={<EditRight idE={idE} />} />
-			</div>)
-}
-const Delete = props => {
-	// let id
+		</div>
+	);
+};
+const Delete = (props) => {
 	let id = props.match.params.id;
 
 	return (
-	<div style={{ height: '100%' }}>
-		<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
-		</div>)
-}
+		<div style={{ height: '100%' }}>
+			<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
+		</div>
+	);
+};
 
 const ViewRight = (props) => {
 	return (
-		<div className="RightContent" >
+		<div className="RightContent">
 			<PresentationView id={props.id} />
-			</div>
-	)
-}
+		</div>
+	);
+};
 const EditRight = (props) => {
 	return (
 		<div className="RightContent">
-		<EditNote idE={props.idE} />
+			<EditNote idE={props.idE} />
 		</div>
-	)
-}
+	);
+};
 
 const LambdaNewL = (props) => {
 	return (
@@ -139,29 +140,16 @@ const LambdaNewR = (props) => {
 	);
 };
 
-
 const App = (props) => {
 	return (
 		<div style={{ height: '100%' }}>
-			{/* <SplitPane left={<LeftContent />} right={<RightContent />} /> */}
-			{/* <Home /> */}
 			<Route exact path="/" component={Home} />
 			<Route path="/notes/new" component={New} />
 			<Route path="/notes/view/:id" component={View} />
 			<Route path="/notes/edit/:idE" component={Edit} />
 			<Route path="/notes/view/delete/:idE" component={Delete} />
-			
 		</div>
 	);
 };
-{
-	/* <Link style={lsty} to='/'>apple</Link>
-            <Link style={lsty} to='/iPad'>iPad</Link> */
-}
-
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('root')
-// );
 
 export default App;

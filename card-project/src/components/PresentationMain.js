@@ -10,9 +10,9 @@ const notes = [
 	'Nulla eu auctor dui. Integer convallis purus id risus condimentum venenatis. Quisque blandit elit justo, ac semper enim bibendum ',
 	'Nunc finibus ornare vehicula. Nunc eu leo maximus, tincidunt tortor non, sagittis neque. Sed nec ex lacus. Duis elementum sem at ',
 	'Sed rutrum sagittis sem, vitae aliquet velit vulputate et. In mollis suscipit odio sed blandit. Donec sed tellus quis metus congue iaculis.',
-	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet odio at sem sollicitudin fringilla. Vestibulum lacinia ante at nisl', 
-	'Praesent finibus justo diam, id elementum nulla faucibus a. Suspendisse non dolor eu ipsum lobortis pretium. Duis vel metus vel urna vulputate luctus.', 
-	'Pellentesque id velit elementum, accumsan ligula non, mattis lacus. Phasellus dui leo, porttitor id pharetra et, convallis vel lacus. Mauris lobortis eros turpis.', 
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet odio at sem sollicitudin fringilla. Vestibulum lacinia ante at nisl',
+	'Praesent finibus justo diam, id elementum nulla faucibus a. Suspendisse non dolor eu ipsum lobortis pretium. Duis vel metus vel urna vulputate luctus.',
+	'Pellentesque id velit elementum, accumsan ligula non, mattis lacus. Phasellus dui leo, porttitor id pharetra et, convallis vel lacus. Mauris lobortis eros turpis.',
 	'Sed bibendum placerat faucibus. Pellentesque non magna lobortis, ullamcorper diam ut, euismod felis. Aliquam eget feugiat ipsum, quis convallis dui.'
 ];
 // const notes = [
@@ -27,173 +27,118 @@ const notes = [
 // 	'Sed bibendum placerat faucibus. Pellentesque non magna lobortis, ullamcorper diam ut, euismod felis. Aliquam eget feugiat ipsum, quis convallis dui. Donec viverra quis ligula ut ultricies. Suspendisse potenti. Sed et nisi tempus, sagittis eros ut, finibus urna. Donec a justo magna. Mauris lacus tellus, ultrices ut ullamcorper vitae, iaculis non eros. Ut fringilla libero dui, id luctus odio viverra sed. Vivamus interdum, tellus vel malesuada efficitur, neque massa ornare quam, at condimentum justo risus a augue. Integer molestie purus vitae sollicitudin euismod. Etiam auctor neque ut orci gravida, ac cursus leo efficitur.'
 // ];
 const cStyle = {
-    // width: '22%',
-    marginLeft: '10%',
-    // marginRight: '8%',
-    // height: '30px',
-    border: '2px solid red',
-    display: 'flex',
+	marginLeft: '10%',
+	border: '2px solid red',
+	display: 'flex'
+};
 
-}
-const lambda = {
-    // width: '8%',
-    // height: 1000,
-    // marginRight: 0,
-    // marginTop: 10,
-    // marginLeft: 0,
-    // display: 'inline-block',
-    // border: '2px solid red',
-    // display: 'flex',
-
-}
 const lStyle = {
-    width: '20%',
-    marginLeft: '1%',
-    marginRight: '1%',
-    display: 'inline-block',
-    height: 1000,
-    border: '2px solid red',
-    // position: 'relative'
-}
+	width: '20%',
+	marginLeft: '1%',
+	marginRight: '1%',
+	display: 'inline-block',
+	height: 1000,
+	border: '2px solid red'
+};
 const icSt = {
-    display:'inline-flex',
-    backgroundColor: 'white',
-    width: '22%',
-    marginLeft: '3%',
-    marginRight: '3%',
-    border: '1px solid gray',
-    padding: 10,
-    height: 200,
-    cursor: 'pointer',
-    // marginLeft: '26%',
-    marginTop: 10,
-    marginBottom: 10
-    // position: 'relative'
-}
+	display: 'inline-flex',
+	backgroundColor: 'white',
+	width: '22%',
+	marginLeft: '3%',
+	marginRight: '3%',
+	border: '1px solid gray',
+	padding: 10,
+	height: 200,
+	cursor: 'pointer',
+	marginTop: 10,
+	marginBottom: 10
+};
 const hSt = {
-    fontWeight: 'bold',
-    marginLeft: '3%'
-
-}
+	fontWeight: 'bold',
+	marginLeft: '3%'
+};
 const mainSt = {
-    marginLeft: '5%',
-    paddingTop: 50
-}
+	marginLeft: '5%',
+	paddingTop: 50
+};
 const ntSt = {
-    display: 'flex',
-    width: '100%',
-    paddingBottom: 8,
-    // border: '2px solid red',
-    borderBottom: '1px solid gray',
-    fontWeight: 'bold',
-    fontSize: 20
-}
+	display: 'flex',
+	width: '100%',
+	paddingBottom: 8,
+	borderBottom: '1px solid gray',
+	fontWeight: 'bold',
+	fontSize: 20
+};
 
 const PresentationMain = (props) => {
 	return (
 		<div style={mainSt}>
-            <h4 style={hSt} >Your Notes:</h4>
-            <Link to="/notes/view/0" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[0]}</h6>
-            </Link>
-            <Link to="/notes/view/1" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[1]}</h6>
-            </Link>
-            <Link to="/notes/view/2" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[2]}</h6>
-            </Link>
-            <Link to="/notes/view/3" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[3]}</h6>
-            </Link>
-            <Link to="/notes/view/4" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[4]}</h6>
-            </Link>
-            <Link to="/notes/view/5" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[5]}</h6>
-            </Link>
-            <Link to="/notes/view/6" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[6]}</h6>
-            </Link>
-            <Link to="/notes/view/7" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[7]}</h6>
-            </Link>
-            <Link to="/notes/view/8" style={icSt}>
-            <h6><span style={ntSt}>Note Title</span><br/>{notes[8]}</h6>
-            </Link>
-
-            
-            {/* <div style={lambda}> */}
-
+			<h4 style={hSt}>Your Notes:</h4>
+			<Link to="/notes/view/0" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[0]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/1" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[1]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/2" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[2]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/3" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[3]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/4" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[4]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/5" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[5]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/6" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[6]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/7" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[7]}
+				</h6>
+			</Link>
+			<Link to="/notes/view/8" style={icSt}>
+				<h6>
+					<span style={ntSt}>Note Title</span>
+					<br />
+					{notes[8]}
+				</h6>
+			</Link>
 		</div>
 	);
 };
 
 export default PresentationMain;
-{/* <CardColumns style={lambda}> 
-<h1>Hey </h1>
-</CardColumns>
-{/* </div> */}
- {/* <CardGroup> */}
-//  <CardGroup>
-//  <CardColumns>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 1</CardTitle>
-//             <CardText>{notes[0]}</CardText>
-//         </CardBody>
-//     </Card>
-    // <Card style={cStyle}>
-    //     <CardBody>
-    //         <CardTitle>Note 2</CardTitle>
-    //         <CardText>{notes[1]}</CardText>
-    //     </CardBody>
-    // </Card>
-    // <Card style={cStyle}>
-    //     <CardBody>
-    //         <CardTitle>Note 3</CardTitle>
-    //         <CardText>{notes[2]}</CardText>
-    //     </CardBody>
-    // </Card>
-    // </CardColumns>
-    
-//     </CardGroup>
-//     <CardGroup>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 4</CardTitle>
-//             <CardText>{notes[3]}</CardText>
-//         </CardBody>
-//     </Card>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 5</CardTitle>
-//             <CardText>{notes[4]}</CardText>
-//         </CardBody>
-//     </Card>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 6</CardTitle>
-//             <CardText>{notes[5]}</CardText>
-//         </CardBody>
-//     </Card>
-//     </CardGroup>
-//     <CardGroup>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 7</CardTitle>
-//             <CardText>{notes[6]}</CardText>
-//         </CardBody>
-//     </Card>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 8</CardTitle>
-//             <CardText>{notes[7]}</CardText>
-//         </CardBody>
-//     </Card>
-//     <Card style={cStyle}>
-//         <CardBody>
-//             <CardTitle>Note 9</CardTitle>
-//             <CardText>{notes[8]}</CardText>
-//         </CardBody>
-//     </Card>
-// </ CardGroup> 
