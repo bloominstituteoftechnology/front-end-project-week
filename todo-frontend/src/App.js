@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -14,7 +15,9 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
-        <TodoList todos={this.props.todos} />
+        <Route exact path='/' render={props => <TodoList {...props} todos={this.props.todos} />} />
+
+        <Route render={() => <h3>This page is unavailable</h3>} />
       </div>
     )
   }
