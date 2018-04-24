@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Route, Link} from 'react-router-dom';
 import NoteList from './components/Notes/NoteList';
 import './App.css';
+import NoteForm from "./components/Notes/NoteForm";
 
 class App extends Component {
     constructor(props) {
@@ -36,6 +37,7 @@ class App extends Component {
                             </a>
                         </div>
                         <Route exact path='/' render={() => <NoteList notes={this.state.notes}/>}/>
+                        <Route path='/createNewNote'  render={() => <NoteForm/> }/>
                     </div>
                 </div>
             </div>

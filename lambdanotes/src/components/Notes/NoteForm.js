@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Button,} from 'react-bootstrap'
+import {Form, Input, Button, FormGroup} from 'reactstrap'
 class NoteForm extends React.Component{
     constructor(props) {
         super(props)
@@ -7,23 +7,23 @@ class NoteForm extends React.Component{
 
     render() {
         return (
-            <div>
-                <h1>Create New Note:</h1>
-                {/*<Form>*/}
-                    {/*<FieldGroup*/}
-                        {/*id="formControlsText"*/}
-                        {/*type="text"*/}
-                        {/*label="Text"*/}
-                        {/*placeholder="Enter text"*/}
-                    {/*/>*/}
-                    {/*<FieldGroup*/}
-                        {/*id="formControlsEmail"*/}
-                        {/*type="email"*/}
-                        {/*label="Email address"*/}
-                        {/*placeholder="Enter email"*/}
-                    {/*/>*/}
-                    {/*<Button>Save</Button>*/}
-                {/*</Form>*/}
+            <div className='col-9 right__side'>
+                <div className='row'>
+                    <div className="col-3">
+                        <h4>Create New Note:</h4>
+                    </div>
+                </div>
+                <div className="row">
+                    <Form>
+                        <FormGroup>
+                            <Input type="text" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input type="textarea" name="password" id="examplePassword" placeholder="password placeholder" />
+                        </FormGroup>
+                        <Button>Save</Button>
+                    </Form>
+                </div>
             </div>
         );
     }
