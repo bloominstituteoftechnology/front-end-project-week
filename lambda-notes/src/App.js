@@ -65,19 +65,20 @@ class App extends Component {
     }
   }
   render() {
-    return <div className="App">
+    return ( 
+    <div className="App">
         <div className="Container">
           <div className="row">
-            <div className="col-3 side">
+            <div className="col-2 side">
               <h1>Lambda Notes</h1>
-              <link to="/" className="links">View Your Notes</link>
-              <link to="/" className="links second">+Create New Note</link>
+              <a href="/" className="links">View Your Notes</a>
+              <a href="/" className="links second">+Create New Note</a>
             </div>
-            <h4>Your Notes:</h4>
             <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 

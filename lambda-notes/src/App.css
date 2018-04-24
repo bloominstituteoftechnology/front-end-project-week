@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100vh;
+    padding-left: 2%;
+    background: #D7D7D7;
+    margin-top: 1%;
+}
+
+.side h1 {
+  color: #4A494A;
+}
+
+.side a {
+  text-decoration: none;
+}
+
+.side a:hover {
+  color: rgb(86, 95, 95);
+}
+
+.links {
+    width: 90%;
+    padding: 5%;
+    padding-left: 7%;
+    background-color: #2AC0C4;
+    color: #FEFEFF;
+}
+
+.second {
+  margin-top: 15px;
+  padding: 5%;
+}
