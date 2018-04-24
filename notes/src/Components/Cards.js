@@ -13,7 +13,7 @@ const Cards = props => {
         <div className="myContainer d-flex flex-wrap justify-content-around p-2 mr-3">
             {props.notes.map((note, index) => 
             <Card key={"MyNote" + index} 
-                className="myCards  d-flex flex-row mt-3 ">
+                className="myCards  d-flex flex-row mt-3">
                 <CardBody className="myCardBody ">
                     <CardTitle className="myCardTitle 
                     text-left border-bottom font-weight-bold">

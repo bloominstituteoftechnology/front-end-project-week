@@ -1,0 +1,6 @@
+How do I make a new page?
+
+Link to without a server?
+
+Call a function --undefined
+

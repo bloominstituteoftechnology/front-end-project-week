@@ -21,7 +21,8 @@
 
 .myCards {
   width: 30%;
-  background: red !;
+  border-width: 2px !important;
+  border-color: #BEBEBE	!important;
 }
 
 .btn {
@@ -35,13 +36,14 @@
 
 .input_title {
   width: 50%;
-  border-color: #B0B0B0;
-  border-radius: 5px;
+  border-color: #BEBEBE !important;
+  /* border-width: 5px !important ; */
+  box-shadow: none;
 }
 .input_content {
   height: 400px;
-  border-color: #B0B0B0;
-  border-radius: 5px;
+  border-color: #BEBEBE;
+  
 }
 
 .save_button {
