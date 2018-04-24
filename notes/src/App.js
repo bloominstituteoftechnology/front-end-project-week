@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom"
 import ListView from './components/ListView';
+import Navigation from './components/Navigation';
+import NewNote from './components/NewNote';
 
 import logo from './logo.svg';
 import './App.css';
@@ -18,6 +20,8 @@ class App extends Component {
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
           <Route exact patch = '/' component={ListView} />
+          <Route path = '/Navigation' component={Navigation} />
+          <Route path = '/NewNote' component={NewNote} />
         </Switch>
       </div>
     );
