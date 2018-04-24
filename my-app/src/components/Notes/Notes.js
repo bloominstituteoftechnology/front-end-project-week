@@ -26,6 +26,7 @@ class Notes extends Component {
                     </button>
                     </div>
                 <Link to= '/edit'> edit </Link>
+                <Link to= '/delete'> delete </Link>
                 <div className='Note-create'>
                     <h2> Note Name </h2>
                 </div>

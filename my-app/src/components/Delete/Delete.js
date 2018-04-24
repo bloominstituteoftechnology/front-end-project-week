@@ -1,9 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-export const Delete = () => {
+import { Modal } from './components/Modal';
+
+class Delete extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            show: false
+        }
+    };
+
+    showModal = () => {
+        this.setState({ show: true });
+    };
+
+    hideModal = () => {
+        this.setState({ show: false });
+    };
     
-    return (
-        <div>
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <button type='button' onClick={this.showModal}>
+                    Are You Sure You Want To Delete This?
+                </button>
+            </div>
+        )
+    }
 }
+
+export default Delete;
