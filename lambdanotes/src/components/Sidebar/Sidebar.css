@@ -1,0 +1,10 @@
+.sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  padding-left: 10px;
+  width: 30%;
+  height: 100%;
+  background-color: #d7d7d7;
+}

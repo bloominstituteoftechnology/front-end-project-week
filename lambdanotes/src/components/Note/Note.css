@@ -1,0 +1,7 @@
+.note {
+  display: flex;
+  border: 1px red solid;
+  width: 30%;
+  height: 30%;
+  margin-left: 30%;
+}

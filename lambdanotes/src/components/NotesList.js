@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Note from "./Note";
+import Note from "./Note/Note";
 
 export default class NotesList extends Component {
   constructor(props) {

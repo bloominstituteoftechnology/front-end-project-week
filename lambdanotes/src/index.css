@@ -1,3 +1,6 @@
+@import "./components/Sidebar/Sidebar.css";
+@import "./components/Note/Note.css";
+
 body {
   margin: 0;
   padding: 0;
