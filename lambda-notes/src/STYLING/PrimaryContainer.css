@@ -16,7 +16,7 @@
 .PrimaryContainer__cardContainer {
   display: flex;
   flex-flow: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .CardLink {
@@ -30,6 +30,11 @@
 
 .NoteCard {
   margin-bottom: 3%;
+}
+
+.NoteCard:hover {
+  transform: scale(1.05);
+  z-index: 3;
 }
 
 .CardTitle {

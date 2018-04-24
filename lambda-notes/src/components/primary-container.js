@@ -5,13 +5,23 @@ import { Link } from 'react-router-dom';
 import { getNotes, saveNote } from '../REDUX/actions';
 
 class PrimaryContainer extends Component {
+  constructor() {
+    super();
+    this.state = { listView: false }
+  }
 
   componentDidMount() { this.props.getNotes() }
 
   cardFactory = note => {
     const contentLength = note.content.split(" ");
     return (
-      <Col md="12" lg="6" xl="4" className="NoteCard" key={note.id}>
+      <Col 
+        md="12" 
+        lg={this.state.listView ? "12" : "6"} 
+        xl={this.state.listView ? "12" : "4"} 
+        className="NoteCard" 
+        key={note.id}
+      >
         <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
           <Card className="">
             <CardBody className="CardContent">

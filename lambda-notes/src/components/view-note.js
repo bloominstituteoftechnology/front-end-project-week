@@ -27,11 +27,12 @@ class ViewNote extends Component {
       <div className="PrimaryContainer__newNote"> 
         <div className="ViewNote__editOptions">
           <Link to={{ pathname: `/edit/${note.id}`, state: { note: note } }} className="ViewNote__editOptions--click">edit</Link>
-          <button onClick={() => this.toggleModal()} className="ViewNote__editOptions--click">delete</button>
+          <button onClick={() => this.toggleModal()} className="ViewNote__editOptions--button">delete</button>
         </div>
         <h1 className="PrimaryContainer__header">{note.title}</h1>
         <div className="ViewNote__content">{note.content}</div>
         <div>{note.id}</div>
+
         {this.state.modal ? (
           <Modal isOpen={this.state.modal}>
             <ModalBody className="Modal__header">Are you sure you want to delete this?</ModalBody>
@@ -43,6 +44,7 @@ class ViewNote extends Component {
             </div>
           </Modal>
         ) : null}
+
       </div>
     )
   }
