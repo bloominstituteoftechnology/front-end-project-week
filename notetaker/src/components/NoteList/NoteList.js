@@ -1,5 +1,5 @@
-import { React } from 'react';
-import Note from './Note/Note.js';
+import React, { Component } from "react";
+import  Note  from '../Note/Note.js';
 
 class NoteList extends React.Component {
   constructor (props) {
