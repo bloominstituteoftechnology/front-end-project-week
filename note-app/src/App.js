@@ -5,6 +5,7 @@ import './App.css';
 // Combine into a single file at end
 import Header from './components/header/header.js';
 import NavBar from './components/navBar/navBar.js';
+import InputForm from './components/inputForm/inputForm.js';
 
 
 class App extends Component {
@@ -20,7 +21,9 @@ class App extends Component {
       
       <NavBar />
       
-      
+      <InputForm header='Create New Note: ' />
+      <InputForm header='Edit Note: ' />
+
       </div>
     );
   }
