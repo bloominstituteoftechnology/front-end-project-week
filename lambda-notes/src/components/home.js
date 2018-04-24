@@ -12,7 +12,9 @@ const Home = () =>{
  <Link to="/">
  <Button color="primary" className="button">View your note</Button>
  </Link>
+ <Link to="/create">
  <Button color="primary"className="button">+ create new Note</Button>
+ </Link>
  </div>
  </div>
 </React.Fragment>)

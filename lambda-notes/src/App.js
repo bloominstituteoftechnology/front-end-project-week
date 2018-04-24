@@ -5,6 +5,7 @@ import {Route} from 'react-router-dom';
 import Notes from "./Components/ListView"
 import Home from "./Components/home"
 import NoteView from "./Components/NoteView"
+import CreateView from "./Components/CreateView"
 class App extends Component {
   constructor(){
     super();
@@ -30,6 +31,7 @@ class App extends Component {
       <Route path ="/note/:id"
       render ={props =><NoteView {...props} {...this.state}/>}
     />
+    <Route path="/create" component={CreateView} />
       </div>
       </div>
     );
