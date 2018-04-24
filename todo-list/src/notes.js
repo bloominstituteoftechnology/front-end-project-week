@@ -1,4 +1,4 @@
-export const notes = [
+export const dummyNotes = [
   {
     id: 0, 
     title: 'Note 1 has a super long name to test overflow', 

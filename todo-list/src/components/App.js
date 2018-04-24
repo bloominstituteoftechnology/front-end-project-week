@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import '../styles/App.css';
-import { notes } from '../notes';
+import { dummyNotes } from '../notes';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
 import { NoteForm } from './NoteForm';
@@ -10,14 +10,28 @@ import { Modal } from './Modal';
 
 
 export class App extends Component {
-  state = { notes: notes };
+  state = { notes: [] };
 
+  componentDidMount() {
+    this.getNotes();
+  }
+
+  getNotes = () => {
+    const cachedNotes = localStorage.getItem('notes');
+    if(cachedNotes) {
+      this.setState({ notes: JSON.parse(cachedNotes) });
+      return;
+    }
+    this.setState({ notes: dummyNotes });
+  }
+  
   createNote = note => {
     console.log(this.state.notes);
+
     //this.setState({ });
   }
 
-  editNote = (id, note) => {
+  editNote = (note, id) => {
 
   }
 
