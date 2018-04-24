@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../ControlPanel.css";
 
 class ControlPanel extends Component {
 	constructor(props) {
@@ -6,7 +7,13 @@ class ControlPanel extends Component {
 	}
 
 	render() {
-		return <h3>control panel goes here</h3>;
+		return (
+			<div>
+				<h3>Lambda Notes</h3>
+				<button className="ControlPanelButton">View Your Notes</button>
+				<button className="ControlPanelButton">Create Todo</button>
+			</div>
+		);
 	}
 }
 
