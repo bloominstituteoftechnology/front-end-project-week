@@ -1,54 +1,30 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { fetchTodos, createTodo } from './actions';
+// import { fetchTodos, createTodo } from './actions';
 import { connect } from 'react-redux';
+import { getNotes } from "./defaultNotes"; 
+import DisplayNotes from './DisplayNotes'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = {
-    todo: ''
+    notes: getNotes(), 
+    view: "list"
   };
-  componentDidMount() {
-    this.props.fetchTodos();
-  }
+  
   render() {
     return (
+      <Router>
       <div className="App">
-        {this.props.pending ? (
-          <img src={logo} className="App-logo" alt="logo" />
-        ) : null}
-          <h1 className="App-title">Todos</h1>
-          <input
-          type="text"
-          placeholder="todo"
-          name="todo"
-          value={this.state.todo}
-          onChange={e => this.setState({ [e.target.name]: e.target.value })}
-        />
-        <button
-          onClick={() => {
-            this.props.createTodo({ todo: this.state.todo });
-            this.setState({ todo: '' });
-          }}
-        >
-          Add a Todo
-        </button>
-        {this.props.error !== null ? <h4>{this.props.error}</h4> : null}
-        <ul>
-          {this.props.todos.map(todo => <li key={todo.name}>{todo.name}</li>)}
-        </ul>
+      <Route
+            path="/DisplayNotes"
+            render={state => <DisplayNotes notes={this.state.notes} exact />}
+          />
       </div>
+      </Router>
     );
   }
 }
-// handler
-const mapStateToProps = state => {
-  return {
-    todos: state.todos,
-    error: state.error,
-    pending: state.pending,
-    createTodo: state.createTodo
-  };
-};
 
-export default connect(mapStateToProps, { fetchTodos,createTodo })(App);
+export default App;
