@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 // actions
 import { deleteTodo, updateTodo } from "../actions/index";
 import SingleTodo from "./SingleTodo";
@@ -27,11 +26,7 @@ class Todos extends Component {
 		return (
 			<div className="container">
 				{this.props.todos.map((todo, index) => {
-					return (
-						<Link to={`/todo/${index}`}>
-							<SingleTodo key={index} todo={todo} index={index} />
-						</Link>
-					);
+					return <SingleTodo key={index} todo={todo} index={index} />;
 				})}
 			</div>
 		);
