@@ -7,6 +7,7 @@ import NotesList from './components/NotesList';
 import NewNote from './components/NewNote';
 import DeleteNote from './components/DeleteNote';
 import Notes from './components/Data';
+import SelectedNote from './components/SelectedNote'; 
 
 class App extends Component {
 
@@ -24,6 +25,8 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={NotesList}/>
         <Route path="/NewNote" component={NewNote}/>
+        <Route path="/note:id" component={SelectedNote}/>
+        
       </div>  
     
     );
