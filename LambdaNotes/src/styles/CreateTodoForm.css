@@ -1,0 +1,31 @@
+.CreateTodoForm {
+	border: 1px solid red;
+}
+
+.CreateTodoForm_header {
+	font-size: 3rem;
+	text-align: left;
+	margin: 30px 0 20px 0;
+}
+
+.CreateTodoForm_title {
+	border: 1px solid gray !important;
+	float: left;
+	width: 60% !important;
+	margin-bottom: 20px;
+}
+
+.CreateTodoForm_content {
+	border: 1px solid gray !important;
+	float: left;
+	width: 90% !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-bottom: 20px;
+}
+
+.CreateTodoForm_savebtn {
+	float: left;
+	width: 40%;
+	margin-bottom: 20px;
+}

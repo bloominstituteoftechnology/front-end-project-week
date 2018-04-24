@@ -3,8 +3,11 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 // material ui components
 import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton";
 // actions
 import { addTodo } from "../actions/index";
+// styles
+import "../styles/CreateTodoForm.css";
 
 class CreateTodoForm extends Component {
 	constructor(props) {
@@ -31,10 +34,11 @@ class CreateTodoForm extends Component {
 		// console.log("TEXT: ", this.state.text);
 		return [
 			<div className="row">
-				<h3>Create New Note:</h3>
+				<h3 className="CreateTodoForm_header">Create New Note:</h3>
 				<TextField
-					hintText="Hint Text"
-					floatingLabelText="Floating Label Text"
+					className="CreateTodoForm_title"
+					hintText="Note Title"
+					floatingLabelText="Note Title"
 					name="title"
 					value={this.state.title}
 					onChange={this.handleNewInput}
@@ -42,10 +46,11 @@ class CreateTodoForm extends Component {
 			</div>,
 			<div className="row">
 				<TextField
-					hintText="Message Field"
-					floatingLabelText="MultiLine and FloatingLabel"
+					className="CreateTodoForm_content"
+					hintText="Note Content"
+					// floatingLabelText="Note Content"
 					multiLine={true}
-					rows={4}
+					rows={10}
 					name="text"
 					value={this.state.text}
 					onChange={this.handleNewInput}
@@ -53,9 +58,13 @@ class CreateTodoForm extends Component {
 			</div>,
 			<div className="row">
 				<Link to="/">
-					<button type="button" onClick={this.handleAddTodo}>
-						Save
-					</button>
+					<RaisedButton
+						className="CreateTodoForm_savebtn"
+						label="Save"
+						primary={true}
+						// style={style}
+						onClick={this.handleAddTodo}
+					/>
 				</Link>
 			</div>
 		];

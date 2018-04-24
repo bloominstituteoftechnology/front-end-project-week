@@ -24,7 +24,7 @@ class App extends Component {
             <Route exact path="/" component={Todos} />
           </div>
           {/* Render CreateTodoForm only at /addTodo */}
-          <div className="col-md-8">
+          <div className="col-md-8 CreateTodoForm">
             <Route exact path="/addTodo" component={CreateTodoForm} />
           </div>
           {/* Render Todo only at /todo/:id */}
