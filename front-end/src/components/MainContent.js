@@ -44,7 +44,6 @@ class MainPageContainer extends Component {
 const mapStateToProps = state => {
   return {
     noteArray: state
-
   };
 };
 
