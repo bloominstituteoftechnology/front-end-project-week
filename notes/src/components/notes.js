@@ -2,73 +2,25 @@ import React, { Component } from "react";
 import SideBar from "./sidebar";
 import ListView from "./listview";
 import CreateNote from "./createnote";
+import ViewCard from "./viewcard";
 import "./notes.css";
 
 export default class Notes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        },
-        {
-          title: "Test Note Title",
-          text:
-            "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ..."
-        }
-      ],
-      view: "list"
+      notes: [],
+      view: "create",
+      currID: 0,
+      currentCard: 0
     };
   }
 
-  addNote = note => {
+  addNote = (title, text) => {
+    let id = this.state.currID;
+    let note = { title, text, id };
     this.state.notes.push(note);
-    console.log(this.state);
-    this.setState({ view: "list" });
-    this.componentDidMount();
+    this.setState({ view: "list", currID: this.state.currID + 1 });
   };
 
   changeToList = () => {
@@ -107,6 +59,18 @@ export default class Notes extends Component {
             removeAllNotes={this.removeAllNotes}
           />
           <CreateNote addNote={this.addNote} />
+        </div>
+      );
+    }
+    if (this.state.view === "view") {
+      return (
+        <div className="full-container">
+          <SideBar
+            changeToList={this.changeToList}
+            changeToCreate={this.changeToCreate}
+            removeAllNotes={this.removeAllNotes}
+          />
+          <ViewCard note={this.state.notes[this.state.currentCard]} />
         </div>
       );
     }

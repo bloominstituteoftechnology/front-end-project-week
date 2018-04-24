@@ -37,10 +37,7 @@ class CreateNote extends Component {
             <div
               className="save-button button"
               onClick={() =>
-                this.props.addNote({
-                  title: this.state.title,
-                  text: this.state.text
-                })
+                this.props.addNote(this.state.title, this.state.text)
               }
             >
               SAVE
