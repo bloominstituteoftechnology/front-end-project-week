@@ -71,7 +71,7 @@ body {
 
 .notes__head {
   margin-top: 60px;
-  margin-left: 14px;
+  margin-left: 4%;
   text-align: left;
 }
 
@@ -81,6 +81,12 @@ body {
   margin-bottom: 14px;
 }
 
+.notes__body {
+  margin: 20px 4%;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
 .note__card {
   background-color: white;
   padding: 8px;

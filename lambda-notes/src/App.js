@@ -5,11 +5,16 @@ import DisplayNotes from "./components/DisplayNotes";
 import "./App.css";
 import sampleNotes from "./sample-notes";
 import { NewNote } from "./components/NewNote";
+import { ViewNote } from "./components/ViewNote";
 
 class App extends Component {
   state = {
     notes: []
   };
+
+  componentDidMount() {
+    this.loadSampleNotes();
+  }
 
   loadSampleNotes = () => {
     this.setState({ notes: sampleNotes });
@@ -28,22 +33,28 @@ class App extends Component {
           <div className="row">
             <div className="col-3 left__side">
               <h2 className="sidebar__head">Lambda Notes</h2>
-              <a href="/" className="sidebar__button">
+              <Link to="/" className="sidebar__button">
                 View Your Notes
-              </a>
-              <a href="/createNewNote" className="sidebar__button">
+              </Link>
+              <Link to="/createNewNote" className="sidebar__button">
                 Create New Note
-              </a>
+              </Link>
               <button onClick={this.loadSampleNotes}>Load Sample Notes</button>
             </div>
             <Route
               exact
               path="/"
-              render={() => <DisplayNotes notes={this.state.notes} />}
+              render={props => (
+                <DisplayNotes {...props} notes={this.state.notes} />
+              )}
             />
             <Route
               path="/createNewNote"
-              render={() => <NewNote addNote={this.addNote} />}
+              render={props => <NewNote {...props} addNote={this.addNote} />}
+            />
+            <Route
+              path="/viewnote/:id"
+              render={props => <ViewNote {...props} notes={this.state.notes} />}
             />
           </div>
         </div>
