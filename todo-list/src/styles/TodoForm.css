@@ -1,0 +1,14 @@
+.TodoForm {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 5%;
+}
+
+.TodoForm_header {
+  font-size: 20px;
+}
+
+.TodoForm_inputs {
+  display: flex;
+  flex-direction: column;
+}
