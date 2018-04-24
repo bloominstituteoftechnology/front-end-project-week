@@ -12,15 +12,16 @@ const placeholderText =
 
 const initialNotes = [
   {
+    id: 1,
     title: "First Note NOTENOTENOTENOTENOTENOTENOTENOTE",
     content: placeholderText + placeholderText
   },
-  { title: "Second Note", content: placeholderText },
-  { title: "Third Note", content: placeholderText },
-  { title: "Fourth Note", content: placeholderText },
-  { title: "Fifth Note", content: placeholderText },
-  { title: "Sixth Note", content: placeholderText },
-  { title: "Seventh Note", content: placeholderText }
+  { id: 2, title: "Second Note", content: placeholderText },
+  { id: 3, title: "Third Note", content: placeholderText },
+  { id: 4, title: "Fourth Note", content: placeholderText },
+  { id: 5, title: "Fifth Note", content: placeholderText },
+  { id: 6, title: "Sixth Note", content: placeholderText },
+  { id: 7, title: "Seventh Note", content: placeholderText }
 ];
 
 class App extends Component {
@@ -30,13 +31,25 @@ class App extends Component {
       notes: initialNotes
     };
   }
+
+  addNote = newNote => {
+    console.log("update notes called!");
+    console.log(newNote);
+    this.setState({ notes: [...this.state.notes, newNote] });
+  };
+
   render() {
     return (
       <div className="App">
         <Container>
           <Row>
             <Col sm="3">
-              <Route path="/" component={Menu} />
+              <Route
+                path="/"
+                render={props => {
+                  return <Menu notes={this.state.notes} />;
+                }}
+              />
             </Col>
             <Col sm="9">
               <Route
@@ -47,10 +60,15 @@ class App extends Component {
                 }}
               />
               <Route
-                exact
                 path="/note/:id"
                 render={props => {
-                  return <NoteView {...props} notes={this.state.notes} />;
+                  return (
+                    <NoteView
+                      {...props}
+                      notes={this.state.notes}
+                      addNote={this.addNote}
+                    />
+                  );
                 }}
               />
             </Col>

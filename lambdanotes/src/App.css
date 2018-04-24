@@ -2,7 +2,7 @@
   display: flex;
   text-align: center;
   background: whitesmoke;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -32,4 +32,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  height: 100%;
 }

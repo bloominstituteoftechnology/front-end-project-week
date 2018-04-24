@@ -20,7 +20,9 @@ const Menu = props => {
       </Link>
       <br />
       <br />
-      <Button color="info">+ Create New Note</Button>
+      <Link to={`/note/${props.notes.length + 1}`}>
+        <Button color="info">+ Create New Note</Button>
+      </Link>
     </div>
   );
 };

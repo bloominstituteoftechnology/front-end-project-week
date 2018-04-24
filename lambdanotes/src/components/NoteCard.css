@@ -1,7 +1,6 @@
 .note-card {
-  margin: 2% 0;
-  min-width: 100px;
-  max-width: 30%;
+  margin: 2% 1%;
+  width: 30%;
   text-align: left;
 }
 
@@ -13,8 +12,6 @@
 }
 
 .note-card .card-body .card-text {
-  text-overflow: ellipsis;
-  /* white-space: nowrap; */
   overflow: hidden;
-  max-height: 150px;
+  height: 150px;
 }
