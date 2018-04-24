@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import "./NoteList.css";
 
 const NoteList = props => {
-  console.log("NoteList: this.props", props.noteArray);
+  // console.log("NoteList: this.props", props.noteArray);
   return (
     <div className="NoteList row p-0 m-0">
       {props.noteArray.map(eachNote => (
