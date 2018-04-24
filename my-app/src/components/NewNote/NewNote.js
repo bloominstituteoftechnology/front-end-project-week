@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import './NewNote.css';
+
 class NewNote extends Component {
     render() {
         return(
