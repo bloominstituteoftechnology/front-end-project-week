@@ -1,3 +1,6 @@
+:global(html) {
+  font-size: 62.5%;
+}
 :global(*) {
   margin: 0;
   padding: 0;
@@ -5,6 +8,7 @@
 }
 :global(button) {
   border-radius: 3px;
+  min-width: 90px;
   background: #1c808e;
   color: white;
   border: 1px solid lightgray;
@@ -13,4 +17,9 @@
 }
 :global(button:hover) {
   background: #09abc2;
+}
+:global(a) {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
 }

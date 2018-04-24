@@ -1,0 +1,28 @@
+.Container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 40px;
+}
+.Container__Header{
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+.Container__input{
+  padding: 10px;
+  width: 60%;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+.Container__inputBody {
+  border-radius: 3px;
+  padding: 20px;
+  border: 1px solid lightgray;
+  height: 300px;
+  margin-bottom: 20px;
+}
+.submitButton {
+  width: 25%;
+}

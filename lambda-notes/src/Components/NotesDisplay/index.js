@@ -1,28 +1,32 @@
 import React from 'react';
 import classes from './index.css';
 import {store} from '../../index';
-import {aux} from '../HOC/Aux';
+import {Link} from 'react-router-dom';
 
 export const NotesDisplay = () => {
-  let notes = null;
+  let notes = <h1>There seems to be no notes in your list...</h1>;
   if (store.getState().length > 0){
     notes = (
-      <div className={classes.NotesContainer}>
-        {store.getState().map((note, i) => {
-          return (
-            <div className={classes.Note} key={note.id}>
-              <h2>{note.header}</h2>
-              <p>{note.body}</p>
-            </div>
-          );
-        })}
-      </div>
+      <React.Fragment>
+        <h2 className={classes.header}>Your notes:</h2>
+        <div className={classes.NotesContainer}>
+          {store.getState().map((note, i) => {
+            return (
+              <Link to={`/notes/${note.id}`} key={note.id}>
+                <div className={classes.Note}>
+                  <h2 className={classes.noteHeader}>{note.header}</h2>
+                  <p>{note.body}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </React.Fragment>
     );
   }
   return (
-    <aux>
-      <h1>Your notes:</h1>
+    <React.Fragment>
       {notes}
-    </aux>
+    </React.Fragment>
   );
 }

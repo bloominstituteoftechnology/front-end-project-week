@@ -1,14 +1,20 @@
 .NotesContainer{
   padding-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 10px;
 }
 .Note{
-  width: 180px;
   min-height: 200px;
-  border: 2px solid lightgray;
+  border: 1px solid gray;
   padding: 5px 10px 0;
 }
-.Note h2{
+.noteHeader{
   text-align: center;
   border-bottom: 1px solid lightgray;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+}
+.header{
+  margin: 40px 0 0;
 }

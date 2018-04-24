@@ -10,14 +10,17 @@
 .Container__SideBar button{
   margin-top: 20px;
 }
+.Container__SideBar button:active{
+  font-size: 18px;
+}
 .Container__Header{
   font-size: 40px;
   font-weight: bold;
   color: rgb(54, 54, 54);
 }
 .Container__MainContainer{
-  padding: 50px 30px 0;
-  width: 70%;
+  padding: 0 30px;
+  width: 100%;
 }
 .Container__MainContainer h1{
   color: rgb(54, 54, 54);
