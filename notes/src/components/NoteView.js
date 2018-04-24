@@ -4,7 +4,7 @@ import "./NoteView.css";
 
 class NoteView extends Component {
   state = {
-    note: this.props.notes.find(x => x.id == this.props.match.params.id),
+    note: this.props.notes.find(x => x.id === Number(this.props.match.params.id)),
     delete: this.props.delete,
     modalActive: false
   }

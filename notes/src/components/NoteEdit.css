@@ -1,0 +1,48 @@
+.NoteEdit-container {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteEdit-header {
+  margin: 10px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.NoteEdit-input-title{
+  height: 30px;
+  margin-left: 20px;
+  max-width: 400px;
+  border: 1px solid #bababa;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  border-radius: 4px;
+}
+
+.NoteEdit-input-content {
+  height: 600px;
+  width: calc(100% - 40px);
+  margin: 20px;
+  border: 1px solid #bababa;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  border-radius: 4px;
+}
+
+.NoteEdit-update-btn {
+  width: 200px;
+  height: 50px;
+  margin-left: 20px;
+  text-align: center;
+  color: white;
+  background-color: #2bc1c4;
+  border: 1px solid #979797;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 12px;
+  cursor: pointer;
+}
+
+.NoteEdit-link {
+  text-decoration: none;
+}

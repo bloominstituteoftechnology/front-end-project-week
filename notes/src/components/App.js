@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import NoteList from "./NoteList";
 import NoteView from "./NoteView";
+import NoteEdit from "./NoteEdit";
 import "./App.css";
 
 const lorem =
@@ -27,6 +28,17 @@ class App extends Component {
     this.setState({notes: newNotes});
   }
 
+  editNote = newNote => {
+    let notes = this.state.notes
+    notes = notes.map(note => {
+      if (newNote.id === note.id) {
+        return newNote;
+      }
+      return note;
+    });
+    this.setState({notes: notes});
+  }
+
   render() {
     return (
       <div className="App">
@@ -40,6 +52,7 @@ class App extends Component {
           />
           <Route path="/create" render={() => <h1>Create Note Content</h1>} />
           <Route path="/view/:id" render={props => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
+          <Route path="/edit/:id" render={props => <NoteEdit {...props} notes={this.state.notes} edit={this.editNote}/>} />
         </div>
       </div>
     );
