@@ -3,9 +3,9 @@ import { Route, Link } from 'react-router-dom';
 
 import '../styles/App.css';
 import { notes } from '../notes';
-import { TodoList } from './TodoList';
-import { TodoView } from './TodoView';
-import { TodoForm } from './TodoForm';
+import { NoteList } from './NoteList';
+import { NoteView } from './NoteView';
+import { NoteForm } from './NoteForm';
 
 
 class App extends Component {
@@ -20,13 +20,17 @@ class App extends Component {
         </div>
         <div className="App_body">
           <Route exact path="/" render={() =>
-            <TodoList notes={this.state.notes}/> 
+            <NoteList notes={this.state.notes}/> 
           }/>
           <Route path="/view/:id" render={props => 
-            <TodoView {...props} notes={this.state.notes}/> 
+            <NoteView {...props} notes={this.state.notes}/> 
           }/>
-          <Route path="/create" component={props => <TodoForm /> }/>
-          {/* <Route path="/edit/:id" component={props => <EditTodo /> }/> */}
+          <Route path="/create" component={props => 
+            <NoteForm formUse="Create New Note"/> 
+          }/>
+          <Route path="/edit/:id" component={props => 
+            <NoteForm formUse="Edit Note"/> 
+          }/>
         </div>
       </div>
     );

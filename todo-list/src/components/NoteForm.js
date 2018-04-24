@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import '../styles/TodoForm.css';
+import '../styles/NoteForm.css';
 
-export class TodoForm extends Component {
+export class NoteForm extends Component {
   constructor(props) {
     super(props);
 
@@ -18,16 +18,15 @@ export class TodoForm extends Component {
 
   render() {
     return(
-      <div className="TodoForm">
-        <p className="TodoForm_header">Placeholder</p>
-        <form className="TodoForm_inputs">
+      <div className="NoteForm">
+        <p className="NoteForm_header">{this.props.formUse}:</p>
+        <form className="NoteForm_inputs">
           <input
-            className="TodoForm_inputTitle"
+            className="NoteForm_inputTitle"
             placeholder="Title"
-
           />
           <textarea
-            className="TodoForm_inputBody"
+            className="NoteForm_inputBody"
             placeholder="Write your note here..."
           />
         </form>

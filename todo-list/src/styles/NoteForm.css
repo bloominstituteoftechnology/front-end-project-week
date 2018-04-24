@@ -1,17 +1,17 @@
-.TodoForm {
+.NoteForm {
   color: rgb(77, 77, 77);
   display: flex;
   flex-direction: column;
   padding: 35px 5%;
 }
 
-.TodoForm_header {
+.NoteForm_header {
   font-size: 24px;
   font-weight: bold;
   padding-top: 13px;
 }
 
-.TodoForm_header:after {
+.NoteForm_header:after {
   border-bottom: 1px solid rgb(161, 161, 161);
   content: '';
   display: block;
@@ -19,13 +19,13 @@
   margin-left: -10px;
 }
 
-.TodoForm_inputs {
+.NoteForm_inputs {
   display: flex;
   flex-direction: column;
   margin-top: 8px;
 }
 
-.TodoForm_inputs * {
+.NoteForm_inputs * {
   border: 1px solid rgb(168, 168, 168);
   border-radius: 2px;
   box-shadow: inset 1px 1px 2px rgb(128, 128, 128);
@@ -36,17 +36,17 @@
   padding: 10px;
 }
 
-.TodoForm_inputTitle {
+.NoteForm_inputTitle {
   width: 40%;
 }
 
-.TodoForm_inputBody {
+.NoteForm_inputBody {
   height: 300px;
   resize: none;
   width: 90%;
 }
 
-.TodoForm button {
+.NoteForm button {
   background: rgb(0, 200, 207);
   margin: 0 10px;
   width: 30%;

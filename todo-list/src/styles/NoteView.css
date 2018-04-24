@@ -1,29 +1,29 @@
-.TodoView {
+.NoteView {
   color: rgb(77, 77, 77);
   display: flex;
   flex-direction: column;
-  padding: 20px 5%;
+  padding: 13px 5%;
 }
 
-.TodoView_links {
+.NoteView_links {
   display: flex;
   align-self: flex-end;
 }
 
-.TodoView_links * {
+.NoteView_links * {
   background: rgb(0, 204, 211);
   height: 25px;
   margin: 0 0 0 15px;
   width: 80px
 }
 
-.TodoView_noteTitle {
+.NoteView_noteTitle {
   font-size: 22px;
   font-weight: bold;
   padding-top: 15px;
 }
 
-.TodoView_noteTitle:after {
+.NoteView_noteTitle:after {
   border-bottom: 1px solid rgb(161, 161, 161);
   content: '';
   display: block;
@@ -31,7 +31,7 @@
   margin-left: -10px;
 }
 
-.TodoView_noteBody {
+.NoteView_noteBody {
   background: white;
   border: 1px solid rgb(168, 168, 168);
   box-shadow: -1px 1px 2px rgb(128, 128, 128);

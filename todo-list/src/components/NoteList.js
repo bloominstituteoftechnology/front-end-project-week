@@ -1,14 +1,14 @@
 import React from 'react';
 
-import '../styles/TodoList.css';
-import { TodoCard } from './TodoCard';
+import '../styles/NoteList.css';
+import { NoteCard } from './NoteCard';
 
-export const TodoList = props => {
+export const NoteList = props => {
   return (
-    <div className="TodoList">
+    <div className="NoteList">
       <h4>Your Notes:</h4>
       {props.notes.map(note => (
-        <TodoCard key={note.id} note={note} />
+        <NoteCard key={note.id} note={note} />
       ))}
       <div className="createCard">
         <p>+</p>
