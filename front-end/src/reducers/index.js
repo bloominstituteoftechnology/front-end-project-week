@@ -3,9 +3,14 @@ import * as AT from "../actions/actionTypes";
 const initialState = {
   notes: [
     {
-      title: "someTitle",
-      content: "someConent",
+      title: "Sample Title",
+      content: "Sample content of this note",
       id: 0
+    },
+    {
+      title: "Sample Text",
+      content: "SO WOW MUCH COOL",
+      id: 1
     }
   ]
 };

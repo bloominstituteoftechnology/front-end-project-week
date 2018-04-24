@@ -1,3 +1,5 @@
+import "./CreateNoteItem.css"
+
 import React, { Component } from "react";
 import { createNote } from "../../actions";
 
