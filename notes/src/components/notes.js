@@ -35,8 +35,14 @@ export default class Notes extends Component {
     this.setState({ currentCard: id, view: "view" });
   };
 
+  removeNote = id => {
+    let filteredList = this.state.notes.filter(e => e.id !== id);
+    this.setState({ view: "list", notes: filteredList });
+  };
+
   removeAllNotes = () => {
-    this.setState({ view: "list", notes: [], currentCard: 0 });
+    console.log("Deleted Notes");
+    this.setState({ view: "list", notes: [] });
   };
 
   render() {
@@ -65,7 +71,6 @@ export default class Notes extends Component {
       );
     }
     if (this.state.view === "view") {
-      console.log(this.state.notes, this.state.currentCard);
       return (
         <div className="full-container">
           <SideBar
@@ -73,7 +78,10 @@ export default class Notes extends Component {
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
           />
-          <ViewCard note={this.state.notes[this.state.currentCard]} />
+          <ViewCard
+            note={this.state.notes.find(e => e.id === this.state.currentCard)}
+            removeNote={this.removeNote}
+          />
         </div>
       );
     }

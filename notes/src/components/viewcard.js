@@ -1,14 +1,13 @@
 import React from "react";
 
 const ViewCard = props => {
-  console.log(props.note);
   return (
     <div className="right-div">
       <div className="link-text-div">
         <span className="link-text">
           <u>edit</u>
         </span>
-        <span className="link-text">
+        <span className="link-text" onClick={() => props.removeNote(props.note.id)}>
           <u>delete</u>
         </span>
       </div>
