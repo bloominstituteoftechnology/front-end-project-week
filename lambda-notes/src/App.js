@@ -28,7 +28,7 @@ class App extends Component {
           render= {props =><Notes  notes={this.state.notes}/>}
       />}
       {<Route path ="/note/:id"
-      render ={props =><NoteView notes={this.state.notes} {...this.state}/>}
+      render ={props =><NoteView  {...this.state}/>}
     />}
       </div>
       </div>

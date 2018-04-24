@@ -3,7 +3,7 @@ import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
   import{ Link } from 'react-router-dom'
  const Notes = props => {
-    console.log("porps", props);
+    console.log("props", props);
     
     return(<React.Fragment>
      
