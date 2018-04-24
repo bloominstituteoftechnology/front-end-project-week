@@ -8,3 +8,21 @@
   height: 100%;
   background-color: #d7d7d7;
 }
+
+.sidebar__title {
+  color: #414242;
+}
+
+.sidebar__button {
+  background-color: #24b8bd;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: 1px grey solid;
+  margin: 10px auto;
+  height: 35px;
+  width: 200px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}

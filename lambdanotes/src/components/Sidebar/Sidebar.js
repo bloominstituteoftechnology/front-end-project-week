@@ -11,14 +11,17 @@ const Sidebar = () => (
       }}
     >
       <li>
-        <h1>Lambda</h1>
-        <h1>Notes</h1>
+        <h1 className="sidebar__title">Lambda Notes</h1>
       </li>
       <li>
-        <Link to="/">View Your Notes</Link>
+        <Link to="/">
+          <button className="sidebar__button">View Your Notes</button>
+        </Link>
       </li>
       <li>
-        <Link to="/create">+ Create New Note</Link>
+        <Link to="/create">
+          <button className="sidebar__button">+ Create New Note</button>
+        </Link>
       </li>
     </ul>
   </div>
