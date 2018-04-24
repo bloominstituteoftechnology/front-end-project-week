@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Button } from 'reactstrap';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Button, Nav } from 'reactstrap';
 
 export default () => {
   return (

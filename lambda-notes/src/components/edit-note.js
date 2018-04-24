@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input } from 'reactstrap';
+import { Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { updateNote } from '../REDUX/actions';
 import { connect } from 'react-redux';
@@ -30,12 +30,14 @@ class EditNote extends Component {
         <Input 
           type="text"
           name="title"
+          className="col-7"
           placeholder="Note Title"
           value={this.state.title}
           onChange={event => this.setState({ [event.target.name]: event.target.value })}
         />
         <br/>
         <Input 
+          className="ContentInput"
           type="textarea"
           name="content"
           placeholder="Note Content"
@@ -43,8 +45,8 @@ class EditNote extends Component {
           onChange={event => this.setState({ [event.target.name]: event.target.value })}
         />
         <br/>
-        <Link to="/">
-          <button className="Button col-3" onClick={() => this.stageUpdate()}>Update</button>
+        <Link to="/" onClick={() => this.stageUpdate()}>
+          <Button className="Button col-3">Update</Button>
         </Link>
       </div>
     )

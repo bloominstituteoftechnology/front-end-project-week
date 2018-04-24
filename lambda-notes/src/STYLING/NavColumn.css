@@ -1,11 +1,13 @@
 .Nav__Container {
   background-color: #D7D7D7;
+  border-right: 2px solid #959595;
 }
 
 .Nav__Header {
   margin: 1% 3%;
   font-weight: bold;
   font-size: 4rem;
+  color: #4A484A;
 }
 
 .Nav__ButtonsContainer {

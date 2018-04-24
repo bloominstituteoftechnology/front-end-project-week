@@ -11,8 +11,8 @@ class PrimaryContainer extends Component {
   cardFactory = note => {
     const contentLength = note.content.split(" ");
     return (
-      <Col md="12" lg="6" xl="4" className="NoteCard">
-        <Link key={note.id} to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
+      <Col md="12" lg="6" xl="4" className="NoteCard" key={note.id}>
+        <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
           <Card className="">
             <CardBody className="CardContent">
               <CardTitle className="CardTitle">{note.title}</CardTitle>

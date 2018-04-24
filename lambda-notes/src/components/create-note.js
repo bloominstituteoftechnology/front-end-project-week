@@ -14,6 +14,12 @@ class NewNote extends Component {
     };
   }
 
+  handleSaveNote = () => {
+    const newNote = { title: this.state.title, content: this.state.content };
+    this.props.saveNote(newNote);
+    this.setState({ title: "", content: "" });
+  }
+
   render() {
     return (
       <div className="PrimaryContainer__newNote">
@@ -30,13 +36,14 @@ class NewNote extends Component {
         <Input 
           type="textarea"
           name="content"
+          className="ContentInput"
           placeholder="Note Content"
           value={this.state.content}
           onChange={event => this.setState({ [event.target.name]: event.target.value })}
         />
         <br/>
-        <Link to="/">
-          <Button className="Button col-3" onClick={() => this.handleSaveNote()}>Save</Button>
+        <Link to="/" onClick={() => this.handleSaveNote()}>
+          <Button className="Button col-3">Save</Button>
         </Link>
       </div>
     )

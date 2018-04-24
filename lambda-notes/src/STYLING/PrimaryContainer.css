@@ -8,8 +8,9 @@
 
 .PrimaryContainer__header {
   margin: 4% 0;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
+  color: #4A484A;
 }
 
 .PrimaryContainer__cardContainer {
@@ -42,4 +43,8 @@
   font-size: 1.5rem;
   letter-spacing: 1px;
   line-height: 180%;
+}
+
+.ContentInput {
+  height: 200px;
 }

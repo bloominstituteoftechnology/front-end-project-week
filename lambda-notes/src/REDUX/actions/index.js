@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCHING_ERROR = "FETCHING_ERROR";
 export const FETCH_NOTES = "FETCH_NOTES";
+export const DELETED_NOTE = "DELETED_NOTE";
 
 export const getNotes = () => {
   return dispatch => {
@@ -19,7 +20,7 @@ export const saveNote = note => {
   return dispatch => {
     axios.post("http://localhost:3141/notes", note)
       .then(response => {
-        console.log(response)
+        dispatch({ type: FETCH_NOTES, payload: response.data })
       })
       .catch(error => {
         console.log(error)

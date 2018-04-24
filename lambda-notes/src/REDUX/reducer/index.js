@@ -1,5 +1,5 @@
 import {
-  FETCH_NOTES, FETCHING_ERROR
+  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE
 } from '../actions';
 
 const initialState = {
@@ -19,6 +19,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         error: "We couldn't retrieve your notes!"
+      }
+
+    case DELETED_NOTE:
+      return {
+        ...state,
+        notes: [...action.payload]
       }
 
     default:
