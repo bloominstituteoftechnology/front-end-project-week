@@ -38,3 +38,9 @@
   padding: 10px;
   margin-top: 25px;
 }
+
+@media (max-width: 545px) {
+  .NoteView {
+    padding: 13px 20px;
+  }
+}

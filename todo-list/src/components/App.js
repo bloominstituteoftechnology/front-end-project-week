@@ -31,6 +31,9 @@ class App extends Component {
           <Route path="/edit/:id" component={props => 
             <NoteForm formUse="Edit Note"/> 
           }/>
+          {/* <Route path="/delete/:id" component={props => 
+            <NoteForm /> 
+          }/> */}
         </div>
       </div>
     );

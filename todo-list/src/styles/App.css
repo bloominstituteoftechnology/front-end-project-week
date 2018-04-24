@@ -41,13 +41,10 @@
   height: 40px;
   justify-content: center;
   margin: 10px 0;
+  outline: none;
   text-decoration: none;
   text-shadow: -1px 1px 2px rgb(128, 128, 128);
   width: 80%;
-}
-
-.App_sideBar button:focus {
-  outline: none;
 }
 
 .App_body {
