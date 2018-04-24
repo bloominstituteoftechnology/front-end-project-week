@@ -24,5 +24,5 @@ const mockProps = {
 const { enzymeWrapper: TodoListWrapper } = setup(TodoList, mockProps)
 
 it('renders correct amount of todos', () => {
-  expect(TodoListWrapper.find('.Todo').getElements().length).toBe(3)
+  expect(TodoListWrapper.find('.Todo').getElements().length).toBe(mockProps.todos.length)
 })

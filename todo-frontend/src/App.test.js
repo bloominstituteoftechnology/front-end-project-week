@@ -7,6 +7,29 @@ import { App } from 'App'
 import { setup } from 'utils' // leaving this in scope allows pre-adapted enzyme to stay in scope
 /* eslint-enable */
 
+const mockProps = {
+  fetchTodos: jest.fn(),
+  getSingleTodo: jest.fn(),
+  todos: []
+}
+// const { enzymeWrapper } = setup(App, mockProps)
+
+const enzymeWrapper = mount(
+  <MemoryRouter initialEntries={['/']}>
+    <App {...mockProps} />
+  </MemoryRouter>
+)
+
+it('renders without crashing', () => {
+  expect(enzymeWrapper.find('.App').hasClass('App')).toBe(true)
+})
+
+it('tries to fetch todos on mount', async () => {
+  expect(mockProps.fetchTodos.mock.calls.length).toBe(1)
+})
+
+// for to mock thunks
+
 // const thunk = ({ dispatch, getState }) => next => action => {
 //   if (typeof action === 'function') {
 //     return action(dispatch, getState)
@@ -27,23 +50,3 @@ import { setup } from 'utils' // leaving this in scope allows pre-adapted enzyme
 
 //   return {store, next, invoke}
 // }
-
-const mockProps = {
-  fetchTodos: jest.fn(),
-  todos: []
-}
-// const { enzymeWrapper } = setup(App, mockProps)
-
-const enzymeWrapper = mount(
-  <MemoryRouter initialEntries={['/']}>
-    <App {...mockProps} />
-  </MemoryRouter>
-)
-
-it('renders without crashing', () => {
-  expect(enzymeWrapper.find('.App').hasClass('App')).toBe(true)
-})
-
-it('tries to fetch todos on mount', async () => {
-  expect(mockProps.fetchTodos.mock.calls.length).toBe(1)
-})

@@ -11,3 +11,8 @@ export function setup (Comp, props) {
     enzymeWrapper
   }
 }
+
+export const getSingleTodo = (id, todos) => {
+  const todo = todos.filter(cur => +cur.id === +id)
+  return todo[0]
+}
