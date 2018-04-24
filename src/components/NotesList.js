@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Markdown } from '.'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -40,7 +41,7 @@ const NotesList = (props) => {
 const Note = (props) => (
   <NoteContainer>
     <Link to={`/show/${props.id}`}><h2>{props.title}</h2></Link>
-    <p>{props.content}</p>
+    <Markdown markdown={props.content} />
   </NoteContainer>
 )
 

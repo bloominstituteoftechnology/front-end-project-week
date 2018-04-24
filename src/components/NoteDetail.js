@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Markdown } from '.'
 import styled from 'styled-components'
 
 const Controls = styled.div`
@@ -25,7 +26,7 @@ const Note = (props) => {
       </Controls>
       <Container>
         <h1>{props.title}</h1>
-        <p>{props.content}</p>
+        <Markdown markdown={props.content} />
       </Container>
     </div>
   )
