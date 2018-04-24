@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import PageNavigator from './components/PageNavigator';
-import NoteItem from './components/NoteItem';
+import { lambdaNotes } from './components/MyNotes';
+import { NoteList } from './components/NoteList';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      notes: [],
+    this.state ={
+      Notes: [],
     };
   }
+
+  componentDidMount() {
+    this.setState({ Notes: lambdaNotes })
+  }
+
   render() {
     return (
       <div className="app-wrapper">
           <PageNavigator />
-          <NoteItem />
+          <NoteList Note={this.state.Notes} />
       </div>
     );
   }
