@@ -22,6 +22,7 @@
 .TodoForm_inputs {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .TodoForm_inputs * {

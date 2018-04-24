@@ -31,14 +31,40 @@
   margin: 0;
 }
 
+.createCard {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.createCard p {
+  align-items: center;
+  background: rgb(0, 210, 218);
+  border: 2px solid rgb(168, 168, 168);
+  border-radius: 5px;
+  box-shadow: -1px 1px 2px rgb(128, 128, 128);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  font-size: 70px;
+  height: 80px;
+  padding-bottom: 10px;
+  text-align: center;
+  text-shadow: -1px 1px 2px rgb(128, 128, 128);
+  width: 80px;
+}
+
 @media (max-width: 768px) {
-  .TodoCard {
+  .TodoCard, .createCard {
     width: 45%;
   }
 }
 
 @media (max-width: 545px) {
-  .TodoCard {
+  .TodoCard, .createCard {
     margin-left: 10px;
     width: 90%;
   }

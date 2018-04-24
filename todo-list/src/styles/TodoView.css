@@ -33,5 +33,7 @@
 .TodoView_noteBody {
   background: white;
   border: 1px solid rgb(168, 168, 168);
+  box-shadow: -1px 1px 2px rgb(128, 128, 128);
   padding: 10px;
+  margin-top: 31px;
 }

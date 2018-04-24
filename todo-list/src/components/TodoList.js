@@ -10,6 +10,9 @@ export const TodoList = props => {
       {props.notes.map(note => (
         <TodoCard key={note.id} note={note} />
       ))}
+      <div className="createCard">
+        <p>+</p>
+      </div>
     </div>
   )
 }
