@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 
 import '../styles/App.css';
 import { TodoList } from './TodoList';
+import { notes } from '../notes';
 
 class App extends Component {
   state = {
-    notes: [
-      {id: 0, title: 'Note 1', body: 'Lorem ipsum'},
-      {id: 1, title: 'Note 2', body: 'Lorem ipsum'},
-      {id: 2, title: 'Note 3', body: 'Lorem ipsum'},
-    ]
+    notes: notes
   }
-
 
   render() {
     return (
