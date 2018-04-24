@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SideBar from "../SideBar/SideBar"
 import "./ListView.css";
 class ListView extends Component {
     constructor() {
@@ -8,14 +9,7 @@ class ListView extends Component {
     render() {
         return (
             <div className = "body">
-                <div className = "sideBar">
-                    <div className = "logo">
-                        <h1>Lambda Notes</h1>
-                    </div>
-                    <button>View Your Notes</button>
-                    <button>+Create New Note</button>
-                </div>
-
+                <SideBar/>
                 <div className = "notes">
                     <div className = "list">
                         <h2>Your Notes:</h2>

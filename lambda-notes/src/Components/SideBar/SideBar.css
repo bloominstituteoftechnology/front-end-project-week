@@ -48,39 +48,3 @@ body {
     width: 90%;
     text-align: left;
 }
-
-.notes {
-    /* background-color: green; */
-    margin: 8% 0% 4% 3%;
-    width: 69%;
-}
-
-.row {
-    display: flex;
-    justify-content: space-around;
-}
-
-.card {
-    background-color:#FFFFFF;
-    width: 30%;
-    margin-top: 3%;
-    text-align: center;
-    padding: 4%;
-    padding-top: 2%;
-}
-
-.card:hover {
-    cursor: pointer;
-    background-color: rgb(250, 250, 250)
-}
-
-.card p {
-    font-size: 1.3rem;
-    margin-top: 5%;
-}
-
-.underline {
-    border-bottom: 2px solid rgb(190, 187, 187);
-    width: 80%;
-    margin: 0 auto;
-}
