@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import NoteList from './components/NoteList';
+import NoteList from './components/NoteList.js';
+import Navigation from './components/Navigation.js';
+import { ListView, CreateNew } from './components';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -10,14 +13,24 @@ class App extends Component {
       noteList: [],
       note: ''
     };
-
     this.handleNoteChange = this.handleNoteChange.bind(this);
-
     this.handleAddNote = this.handleAddNote.bind(this);
-
     this.handleRemoveNote = this.handleRemoveNote.bind(this);
 
+
+
   }
+
+  Navi = () => (
+    <div>
+  
+      <Navigation />
+      <Route path="/ListView" component={ ListView }/>
+      {/* <Route exact path="/" component={ ListView }/> */}
+      <Route path="/CreateNew" component={ CreateNew }/>
+  
+    </div>
+  );
 
   handleRemoveNote(noteId) {
     const noteList = this.state.noteList;
@@ -44,25 +57,23 @@ class App extends Component {
   render() {
     return (
 
+  //  { this.Navi() }
+
       <div>
+          { this.Navi() }
         <input
           type="text"
           value={this.state.note}
           onChange={this.handleNoteChange}
         />
-
         <button onClick={this.handleAddNote}>Submit Note</button>
         <NoteList
           removeNote={this.handleRemoveNote}
           noteList={this.state.noteList}
         />
-
       </div>
-
     );
-
   }
-
 }
 
 
