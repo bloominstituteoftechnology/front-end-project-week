@@ -18,7 +18,7 @@ class CreateNote extends Component {
   }
 
   handleSubmit = () => {
-    this.props.updateNewCard(this.state);
+    this.props.updateNewNote(this.state);
     this.props.history.push('/');
   }
 

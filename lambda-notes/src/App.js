@@ -5,6 +5,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 
 import NotesList from './components/notesList';
 import CreateNote from './components/createNote';
+import ViewNote from './components/viewNote';
 import './App.css';
 
 class App extends Component {
@@ -19,15 +20,23 @@ class App extends Component {
         { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
         { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
       ],
-      newCard: {
+      newNote: {
+        title: '',
+        content: ''
+      },
+      selectedNote: {
         title: '',
         content: ''
       }
     }
   }
 
-  updateNewCard = (newCard) => {
-    this.setState({ cards: [...this.state.cards, newCard]});
+  updateNewNote = (newNote) => {
+    this.setState({ cards: [...this.state.cards, newNote]});
+  }
+
+  updateSelectedNote = (selectedNote) => {
+    this.setState({ selectedNote: selectedNote });
   }
 
   render() {
@@ -46,8 +55,9 @@ class App extends Component {
             <Row>
               <div className="col-12">
                 <Switch>
-                  <Route exact path="/" render={() => <NotesList {...this.state} />} />
-                  <Route path="/create-note" render={() => <CreateNote {...this.state} updateNewCard={this.updateNewCard} />} />
+                  <Route exact path="/" render={() => <NotesList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
+                  <Route path="/create-note" render={() => <CreateNote {...this.state} updateNewNote={this.updateNewNote} />} />
+                  <Route path="/notes-view" render={() => <ViewNote {...this.state} />} />
                 </Switch>
               </div>
             </Row>
