@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import TodoList from './components/todoList.js'
+import TodoList from './components/todoList.js';
+import LeftBox from './components/LeftBox';
+import CreateNote from './components/CreateNote';
 
 class App extends Component {
   render() {
     return (
+      <div className="AppContainer">
       <div className="App">
-        <h1>
-          Lambda Notes
-        </h1>
-        <TodoList />
+        <LeftBox />
+        <TodoList/>
+      </div>
       </div>
     );
   }

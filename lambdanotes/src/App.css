@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  display: flex;
+  min-width: 95%;
+  justify-items: center;
+  border: red 1px solid;
+}
+
+.AppContainer {
+  width: 100%;
+  border: blue 2px solid;
+  display: flex;
+  justify-content: center;
+  height: 800px;
 }
 
 .App-logo {

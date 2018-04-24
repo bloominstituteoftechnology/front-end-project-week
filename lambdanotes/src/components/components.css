@@ -1,0 +1,132 @@
+/* Left Side */
+
+.LeftBox {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-left: 16px;
+    width: 10%;
+}
+
+.LeftBox__Button1 {
+    min-width: 95%;
+    height: 40px;
+    background-color: teal;
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    
+}
+
+.LeftBox__Button2 {
+    min-width: 95%;
+    background-color: teal;
+    margin-top: 10px;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.LeftBox__Title {
+    /* border: 1px blue solid; */
+    width: 10%;
+    font-size: 24px;
+}
+
+.LeftBox__TitleContainer {
+  /* border: red 1px solid; */
+  width: 80%;
+}
+
+/* Your Notes */
+/* List__Container --> Todo__Container --> Todo__Title & Todo__CardsWrapper --> Todo__Card */
+.ListContainer {
+    width: 100%;
+}
+
+.Todo__Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Todo__Title {
+    font-size: 20px;
+    width: 13%;
+    margin-top: 16px;
+}
+
+.Todo__CardsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: grey 2px dashed;
+}
+
+.Todo__Card {
+    border: 2px grey solid;
+    width: 30%;
+    margin-top: 20px;
+    height: 100px;
+
+}
+
+/* CreateNote */
+/* CreateNote__Container --> 
+CreateNote__Title & CreateNote__NoteTitle 
+& CreateNote__NoteContent & CreateNote__SaveButton*/
+
+/*input fields --> CreateNote__NoteTitleFormInput 
+& CreateNote__NoteContentFormInput */
+
+.CreateNote__Container {
+    width: 100%;
+    display: inline-block;
+
+}
+
+.CreateNote__Title {
+    max-width: 20%;
+    margin-top: 20px;
+    margin-left: 12px;
+    
+}
+
+.CreateNote__Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.CreateNote__NoteTitleFormInput {
+    width: 50%;
+    margin: 20px
+}
+
+.CreateNote__NoteContentFormInput {
+    width: 90%;
+    margin: 20px;
+    margin-top: 0px;
+    height: 350px;
+}
+
+.CreateNote__SaveButton {
+    width: 20%;
+    background-color: teal;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 20px;
+}
