@@ -1,0 +1,102 @@
+/* * {
+  box-sizing: border-box;
+}
+
+.APP {
+  display: flex;
+  text-align: center;
+}
+
+
+.APP__MENU {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.APP__MENUBAR h1 {
+  text-align: left;
+  text-overflow: wrap;
+  margin: 5%;
+  font-size: 2em;
+}
+
+.APP__MENUBUTTON {
+  margin: 5%;
+  width: 90%;
+  background-color: #18A8B4 !important;
+  text-align: center !important;
+  font-size: .77em !important;
+  font-weight: bold !important;
+}
+
+
+.APP__BODY {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 2%;
+  border: 1px solid gray;
+  margin-left: 250px;
+}
+
+
+.APP__LISTVIEW {
+  margin: 50px 10px 10px;
+}
+
+.APP__LISTHEADER {
+  text-align: left;
+}
+.APP__NOTELIST {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+}
+
+.APP__NOTECARD {
+  display: flex;
+  margin: 10px;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.APP__CREATE-NOTE {
+  display: flex;
+  width: 100%;
+}
+
+.APP__CREATE-FORM {
+  width: 100%;
+}
+
+.APP__CREATE-TITLE {
+  width: 33%;
+}
+
+.APP__CREATE-CONTENT {
+  width: 75%;
+}
+
+.APP__CREATE-SAVE {
+  width: 225px;
+  font-size: .77em !important;
+} */
+
+.APP__MENU {
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.APP__NOTECARD {
+  margin: 10px;
+  height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

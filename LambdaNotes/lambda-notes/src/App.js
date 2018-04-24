@@ -1,19 +1,62 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './Styles.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom'
+import testData from './components/TestData';
+
+// REACTSTRAP COMPONENTS
+import { Container, Row, Col } from 'reactstrap';
+
+// COMPONENTS
+import MENUBAR from './components/MenuBar';
+import LISTVIEW from './components/ListView';
+import CREATENOTE from './components/CreateNote';
+import NOTEVIEW from './components/NoteView';
+import EDITNOTE from './components/EditNote';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: testData,
+      // date: new Date();
+      visibleTodos: [],
+      sortedByDate: [],
+      sortedByCompleted: [],
+    }
+  };
+
+  // componentDidRender() {
+  //   this.setState = 
+  // }
+
+
+
   render() {
+    const notes = this.state.notes;
+    console.log('App notes is ' + notes);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <Container className="APP">
+          <Row>
+            <Col xs="12" sm="12" md="3" className="APP__MENU">
+              <MENUBAR />
+            </Col>
+            <Col xs="12" sm="12" md="9" className="APP__BODY">
+              <Switch>
+                <Route exact path='/' render={( props ) => <LISTVIEW {...props} notes={this.state.notes}/> }
+                />
+                {/* <Route path={`/note/${id}`} component={NOTEVIEW} /> */}
+                <Route path='/create' component={CREATENOTE} />
+              </Switch>
+            </Col>
+          </Row>
+        </Container>
+      </Router>
     );
   }
 }
