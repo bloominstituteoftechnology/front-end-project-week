@@ -8,24 +8,23 @@ import { TodoView } from './TodoView';
 
 
 class App extends Component {
-  state = {
-    notes: notes
-  }
-
+  state = { notes: notes };
   render() {
     return (
       <div className="App">
         <div className="App_sideBar">
           <h3>Lambda<br/>Notes</h3>
-          <button onClick={() => {}}>View Your Notes</button>
-          <button onClick={() => {}}>+Create New Note</button>
+          <Link to="/" className="App_navLink">View Your Notes</Link>
+          <Link to="/create" className="App_navLink">+Create New Note</Link>
         </div>
         <div className="App_body">
-          <Route exact path="/" component={() =>
+          <Route exact path="/" render={() =>
             <TodoList notes={this.state.notes}/> 
           }/>
-          {/* <Route path="/view/:id" component={props => <TodoView /> }/>
-          <Route path="/create" component={props => <CreateTodo /> }/>
+          <Route path="/view/:id" render={props => 
+            <TodoView {...props} notes={this.state.notes}/> 
+          }/>
+          {/* <Route path="/create" component={props => <CreateTodo /> }/>
           <Route path="/edit/:id" component={props => <EditTodo /> }/> */}
         </div>
       </div>

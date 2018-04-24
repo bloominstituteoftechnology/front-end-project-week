@@ -27,16 +27,20 @@
   width: 80%;
 }
 
-.App_sideBar button {
+.App_navLink {
+  align-items: center;
+  display: flex;
   background: rgb(0, 178, 184);
   border: 2px solid rgb(72, 182, 182);
   border-radius: 3px;
   color: white;
+  cursor: pointer;
   font-size: 14px;
   font-weight: bold;
   height: 40px;
+  justify-content: center;
   margin: 8px 0;
-  cursor: pointer;
+  text-decoration: none;
   width: 80%;
 }
 
