@@ -2,6 +2,7 @@
   background: white;
   border: 1px solid rgb(168, 168, 168);
   border-radius: 2px;
+  box-shadow: -1px 1px 2px rgb(128, 128, 128);
   color: rgb(77, 77, 77);
   cursor: pointer;
   height: 200px;
@@ -32,13 +33,13 @@
 
 @media (max-width: 768px) {
   .TodoCard {
-    width: 48%;
+    width: 45%;
   }
 }
 
 @media (max-width: 545px) {
   .TodoCard {
     margin-left: 10px;
-    width: 80%;
+    width: 90%;
   }
 }

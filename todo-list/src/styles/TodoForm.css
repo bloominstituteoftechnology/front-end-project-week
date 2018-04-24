@@ -2,11 +2,11 @@
   color: rgb(77, 77, 77);
   display: flex;
   flex-direction: column;
-  padding: 40px 5%;
+  padding: 35px 5%;
 }
 
 .TodoForm_header {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
   padding-top: 13px;
 }
@@ -17,7 +17,6 @@
   display: block;
   height: 10px;
   margin-left: -10px;
-  width: 100%;
 }
 
 .TodoForm_inputs {
@@ -26,9 +25,23 @@
 }
 
 .TodoForm_inputs * {
+  border: 1px solid rgb(168, 168, 168);
   border-radius: 2px;
-  box-shadow: inset 0 0 rgb(255, 255, 255);
-  height: 30px;
-  margin: 10px 0;
+  box-shadow: inset 1px 1px 2px rgb(128, 128, 128);
+  font-size: 14px;
+  height: 40px;
+  margin-bottom: 15px;
+  outline: none;
   padding: 10px;
+}
+
+.TodoForm_inputTitle {
+  width: 40%;
+}
+
+.TodoForm_inputBody {
+  height: 300px;
+  resize: none;
+  width: 90%;
+  
 }

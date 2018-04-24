@@ -22,8 +22,8 @@
   color: rgb(82, 82, 82);
   font-size: 30px;
   line-height: 30px;
-  margin: 30px 0 15px;
-  padding-bottom: 20px;
+  margin: 20px 0 25px;
+  padding-bottom: 30px;
   width: 80%;
 }
 
@@ -33,13 +33,14 @@
   background: rgb(0, 178, 184);
   border: 2px solid rgb(72, 182, 182);
   border-radius: 3px;
+  box-shadow: -2px 1px 3px rgb(128, 128, 128);
   color: white;
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
   height: 40px;
   justify-content: center;
-  margin: 8px 0;
+  margin: 10px 0;
   text-decoration: none;
   width: 80%;
 }

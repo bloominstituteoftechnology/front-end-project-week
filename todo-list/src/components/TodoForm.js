@@ -26,9 +26,9 @@ export class TodoForm extends Component {
             placeholder="Title"
 
           />
-          <input
+          <textarea
             className="TodoForm_inputBody"
-            placeholder="Body"
+            placeholder="Write your note here..."
           />
         </form>
       </div>
