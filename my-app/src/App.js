@@ -5,6 +5,8 @@ import './App.css';
 import NotesDisplay from './components/NotesDisplay/NotesDisplay';
 import NewNote from './components/NewNote/NewNote';
 import Notes from './components/Notes/Notes';
+import Edit from './components/Edit/Edit';
+import Delete from './components/Delete/Delete';
 
 class App extends Component {
   constructor() {
@@ -19,7 +21,9 @@ class App extends Component {
       <div>
         <Route exact path = '/' component={ NotesDisplay } />
         <Route path = '/newNote' component={ NewNote } />
-        <Route path ='/noteView' component={ Notes } />
+        <Route path = '/noteView' component={ Notes } />
+        <Route path = '/edit' component= { Edit } />
+        <Route path = '/delete' component= { Delete } />
       </div>
     );
   }
