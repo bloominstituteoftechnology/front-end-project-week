@@ -24,6 +24,7 @@ export const NewNote = ({ history, addNote }) => {
             className="input__title"
             ref={title => (titleInput = title)}
             placeholder="Note Title"
+            required
           />
           <textarea
             cols="66"
@@ -31,6 +32,7 @@ export const NewNote = ({ history, addNote }) => {
             className="input__text"
             ref={text => (textInput = text)}
             placeholder="Note Content"
+            required
           />
           <button type="submit" className="save__button">
             Save

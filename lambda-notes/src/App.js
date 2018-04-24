@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import { Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import DisplayNotes from "./components/DisplayNotes";
 import "./App.css";
 import sampleNotes from "./sample-notes";
 import { NewNote } from "./components/NewNote";
 import { ViewNote } from "./components/ViewNote";
+import { EditNote } from "./components/EditNote";
 
 class App extends Component {
   state = {
@@ -32,6 +32,17 @@ class App extends Component {
     const notes = tempNotes.filter(note => note.id !== id);
     this.setState({ notes });
   };
+
+  updateNote = note => {
+    const notes = this.state.notes;
+    notes.map(item => {
+      if (item.id === parseInt(note.id, 10)) {
+        if (item.title) item.title = note.title;
+        if (item.text) item.text = note.text;
+      }
+    });
+    this.setState({ notes });
+  };
   render() {
     return (
       <div className="App">
@@ -45,29 +56,40 @@ class App extends Component {
               <Link to="/createNewNote" className="sidebar__button">
                 Create New Note
               </Link>
-              <button onClick={this.loadSampleNotes}>Load Sample Notes</button>
             </div>
-            <Route
-              exact
-              path="/"
-              render={props => (
-                <DisplayNotes {...props} notes={this.state.notes} />
-              )}
-            />
-            <Route
-              path="/createNewNote"
-              render={props => <NewNote {...props} addNote={this.addNote} />}
-            />
-            <Route
-              path="/viewnote/:id"
-              render={props => (
-                <ViewNote
-                  {...props}
-                  notes={this.state.notes}
-                  deleteNote={this.deleteNote}
-                />
-              )}
-            />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <DisplayNotes {...props} notes={this.state.notes} />
+                )}
+              />
+              <Route
+                path="/createNewNote"
+                render={props => <NewNote {...props} addNote={this.addNote} />}
+              />
+              <Route
+                path="/viewnote/:id"
+                render={props => (
+                  <ViewNote
+                    {...props}
+                    notes={this.state.notes}
+                    deleteNote={this.deleteNote}
+                  />
+                )}
+              />
+              <Route
+                path="/editNote/:id"
+                render={props => (
+                  <EditNote
+                    {...props}
+                    notes={this.state.notes}
+                    updateNote={this.updateNote}
+                  />
+                )}
+              />
+            </Switch>
           </div>
         </div>
       </div>
