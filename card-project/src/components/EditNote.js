@@ -37,42 +37,43 @@ const hSt = {
 
 }
 
-// class EditNote extends React.Component {
-// 	constructor(props) {
-// 		super(props);
-// 		this.state = {
-// 			title: '',
-// 			note: ''
-// 		};
-//     }
-//     handleTextInput = (e) => {
-//         e.preventDefault();
-//         this.setState({ [e.target.name]: e.target.value });
+class EditNote extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			title: '',
+			note: ''
+		};
+    }
+    handleTextInput = (e) => {
+        e.preventDefault();
+        this.setState({ [e.target.name]: e.target.value });
         
-//     };
-//     newNote = (e) => {
-//         e.preventDefault();
-//         // this.setState({title: this.state.title, note: this.state.note})
-//         console.log('title: ', this.state.title);
-//         console.log('note: ', this.state.note);
-//     }
-// 	render() {
-// 		return (
-// 			<div style={mainSt} >
-//                {/* { console.log(this.state.note)} */}
-//                 <h3 style={hSt}>Edit Note:</h3>
-// 				<input style={tStyle} type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleTextInput} />
-// 				<input style={textarea} type="text" name="note"  value={this.state.note}  placeholder="Note Content" onChange={this.handleTextInput} />
-//                 <button onClick={this.newNote} style={bStyle} >Update</button>
-// 			</div>
-// 		);
-// 	}
-// }
-const EditNote = props => {
-    return (
-        <div>
-            <h1>You are in the editComponent {props.idE} </h1>
-            </div>
-    )
+    };
+    newNote = (e) => {
+        e.preventDefault();
+        // this.setState({title: this.state.title, note: this.state.note})
+        console.log('title: ', this.state.title);
+        console.log('note: ', this.state.note);
+        alert('coming soon, as MVP is approved' + '    Title: ' + this.state.title + ',     Note: ' + this.state.note)
+    }
+	render() {
+		return (
+			<div style={mainSt} >
+               {/* { console.log(this.state.note)} */}
+                <h3 style={hSt}>Edit Note:</h3>
+				<input style={tStyle} type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleTextInput} />
+				<input style={textarea} type="text" name="note"  value={this.state.note}  placeholder="Note Content" onChange={this.handleTextInput} />
+                <button onClick={this.newNote} style={bStyle} >Update</button>
+			</div>
+		);
+	}
 }
+// const EditNote = props => {
+//     return (
+//         <div>
+//             <h1>You are in the editComponent {props.idE} </h1>
+//             </div>
+//     )
+// }
 export default EditNote;

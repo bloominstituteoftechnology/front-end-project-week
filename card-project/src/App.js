@@ -92,12 +92,21 @@ const View = (props) => {
 		<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
 		</div>)
 }
-const Edit = props => {
-	let idE = props.match.params.id;
+export const Edit = props => {
+	let idE = props.match.params.idE;
 	return (
 		<div style={{ height: '100%' }}>
 			<SplitPane left={<LambdaNewL />} right={<EditRight idE={idE} />} />
 			</div>)
+}
+const Delete = props => {
+	// let id
+	let id = props.match.params.id;
+
+	return (
+	<div style={{ height: '100%' }}>
+		<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
+		</div>)
 }
 
 const ViewRight = (props) => {
@@ -139,7 +148,8 @@ const App = (props) => {
 			<Route exact path="/" component={Home} />
 			<Route path="/notes/new" component={New} />
 			<Route path="/notes/view/:id" component={View} />
-			<Route path="notes/view/edit/:id" component={Edit} />
+			<Route path="/notes/edit/:idE" component={Edit} />
+			<Route path="/notes/view/delete/:idE" component={Delete} />
 			
 		</div>
 	);
