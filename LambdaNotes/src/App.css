@@ -3,13 +3,6 @@
   text-align: center;
 }
 
-.ControlPanelButton {
-  display: block;
-  margin: 0 auto;
-  width: 50%;
-  height: 40px;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
