@@ -1,7 +1,7 @@
 .menu {
   background: lightgrey;
-  height: 100%;
   padding: 5%;
+  height: 100vh;
 }
 
 .menu h1 {

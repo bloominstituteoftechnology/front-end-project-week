@@ -1,4 +1,16 @@
 .note-list .note-card {
   width: 30%;
   margin: 2% 0;
+  /* text-overflow: ellipsis; */
+  max-height: 700px;
+
+  /* Required for text-overflow to do anything */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+}
+
+.note-card .card-body .card-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
