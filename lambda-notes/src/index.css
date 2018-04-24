@@ -20,11 +20,11 @@ body {
   font-size: 42px;
 }
 
+/* Note Name when viewing notes */
 .sub_header {
   color: #4a4a4a;
   font-weight: bold;
   font-size: 32px;
-  border: 1px solid yellow;
 }
 
 /* Your Notes: */

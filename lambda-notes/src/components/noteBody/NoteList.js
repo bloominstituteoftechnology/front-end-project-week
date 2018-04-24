@@ -11,33 +11,7 @@ class NoteList extends Component {
                     <h2 className='justify-self-start font-weight-bold noteHeader'>Your Notes:</h2>
                     </div>
                 <div className='row d-flex flex-row justify-content-around'>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>                                        
-                    <Link className='col-4 noteLink' to='/viewnote'>    
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
-                    <Link className='col-4 noteLink' to='/viewnote'>
-                        <NoteCard />
-                    </Link>
+                { this.props.cards.map( (card, i) => <div className='col-4'><NoteCard key={i} { ...card }  /></div> ) }
                 </div>
             </div>
         )
