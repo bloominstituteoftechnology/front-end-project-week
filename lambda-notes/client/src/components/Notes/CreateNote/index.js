@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
 
+let id = 8;
 
 class CreateNote extends Component {
     constructor() {
@@ -11,12 +12,16 @@ class CreateNote extends Component {
           body: [],
         }
     }
+    idGen = () => {
+   //   if (id === -5) id = 0;
+   return ++id;
+    }
     handleAddNote = event => {
       this.setState({ [event.target.name]: event.target.value });
     };
     AddNote = () => {
       axios.post(`http://localhost:5000/api/notes/`, {
-            "id": 22,
+            "id": ++id,
             "title": this.state.title,
             "body": this.state.body
         })
