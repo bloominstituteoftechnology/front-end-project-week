@@ -15,6 +15,7 @@ const Wrapper = styled(Link)`
     color: #30B7BB
   }
   text-align: center
+  font-weight: bold
 `
 
 const LinkButton = (props) => (
