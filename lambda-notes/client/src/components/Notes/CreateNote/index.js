@@ -15,13 +15,10 @@ class CreateNote extends Component {
       this.setState({ [event.target.name]: event.target.value });
     };
     AddNote = () => {
-      axios
-        .post(`http://localhost:5000/api/notes/`, {
-          body: {
+      axios.post(`http://localhost:5000/api/notes/`, {
             "id": 22,
-            "title": "fuck",
-            "body": "notes"
-          }
+            "title": this.state.title,
+            "body": this.state.body
         })
         .then(response => {
        //   this.setState(() => ({ movie: response.data }));
