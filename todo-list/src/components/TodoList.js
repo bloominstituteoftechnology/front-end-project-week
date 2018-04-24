@@ -3,6 +3,7 @@ import '../styles/TodoList.css';
 import { TodoCard } from './TodoCard';
 
 export const TodoList = props => {
+  console.log(props);
   return (
     <div className="TodoList">
       <h4>Your Notes:</h4>
