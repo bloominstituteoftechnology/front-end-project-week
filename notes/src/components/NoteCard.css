@@ -1,0 +1,30 @@
+.NoteCard {
+    border: solid 1px rgb(170,170,170) !important;
+    border-radius: .5% !important;
+    margin: 0 0 0 -.3rem;
+    background: white;
+    width: 107%;
+    height: 12.3em;
+}
+
+.NoteCard__title {
+    color: black;
+    border-bottom: 1px solid rgb(105, 105, 105);
+    margin: -.6rem 0 0 0;
+    padding: 0 0 .4rem 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.09em;
+    letter-spacing: .03em;
+}
+
+.NoteCard__text {
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: .8em;
+    margin: -.4rem .1rem 0 -.1rem;
+    line-height: 1.7em;
+    letter-spacing: .04em;
+    white-space: wrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
