@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router'
-import { Sidebar, NotesList, NoteDetail } from '.'
+import { Sidebar, NotesList, NoteDetail, NoteCreate } from '.'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -23,15 +23,15 @@ const Content = styled.div`
 class App extends Component<{}> {
   render() {
     return (
-    <Container>
-      <Sidebar />
-      <Content>
-        <Route exact path='/' component={NotesList} />
-        <Route path='/create' component={null} />
-        <Route path='/edit/:id' component={null} />
-        <Route path='/show/:id' component={NoteDetail} />
-      </Content>
-    </Container>
+      <Container>
+        <Sidebar />
+        <Content>
+          <Route exact path='/' component={NotesList} />
+          <Route path='/create' component={NoteCreate} />
+          <Route path='/edit/:id' component={null} />
+          <Route path='/show/:id' component={NoteDetail} />
+        </Content>
+      </Container>
     )
   }
 }

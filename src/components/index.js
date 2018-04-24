@@ -3,6 +3,8 @@ import LinkButton from './LinkButton'
 import Sidebar from './Sidebar'
 import NotesList from './NotesList'
 import NoteDetail from './NoteDetail'
+import NoteCreate from './NoteCreate'
+import NoteForm from './NoteForm'
 import Markdown from './Markdown'
 
 export { 
@@ -11,5 +13,7 @@ export {
   Sidebar,
   NotesList,
   NoteDetail,
+  NoteCreate,
+  NoteForm,
   Markdown
 }
