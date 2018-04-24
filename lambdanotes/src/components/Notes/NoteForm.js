@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../App.css';
 import {Form, Input, Button, FormGroup} from 'reactstrap'
 class NoteForm extends React.Component{
     constructor(props) {
@@ -22,7 +23,9 @@ class NoteForm extends React.Component{
                         <FormGroup>
                             <Input type="textarea" name="noteDetail" id="noteDetail" placeholder="Note Detail" />
                         </FormGroup>
-                        <Button className='save__button'>Save</Button>
+                        <a href='/' className='sidebar__button'>
+                            Save
+                        </a>
                     </Form>
                 </div>
             </div>
