@@ -5,9 +5,13 @@
 }
 
 body {
-    height: 100%;
-    background-color: red;
+    background-color: #F3F3F3;
 }
+
+.body {
+    display: flex;
+}
+
 
 .sideBar {
     display: flex;
@@ -15,7 +19,7 @@ body {
     width: 25%;
     background-color: #D3D2D3;
     padding: 2%;
-    height: 100vh;
+    max-height: 100%;
 }
 
 .sideBar h1 {
@@ -37,4 +41,35 @@ body {
 .logo {
     width: 90%;
     text-align: left;
+}
+
+.notes {
+    /* background-color: green; */
+    margin: 8% 0% 4% 3%;
+    width: 69%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color:#FFFFFF;
+    width: 30%;
+    margin-top: 3%;
+    text-align: center;
+    padding: 4%;
+    padding-top: 2%;
+}
+
+.card p {
+    font-size: 1.3rem;
+    margin-top: 5%;
+}
+
+.underline {
+    border-bottom: 2px solid rgb(190, 187, 187);
+    width: 80%;
+    margin: 0 auto;
 }
