@@ -104,3 +104,40 @@ body {
   text-align: left;
   margin-left: 10px;
 }
+
+.add__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input__title {
+  margin: 10px 4%;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px gray;
+}
+
+.input__text {
+  margin: 10px 4%;
+  padding: 8px;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px gray;
+  width: 100%;
+  resize: none;
+}
+
+.save__button {
+  background-color: #2bc1c4;
+  border: 1px solid grey;
+  height: 45px;
+  width: 30%;
+  color: #fff;
+  margin: 10px 4%;
+  text-align: center;
+}
+
+.save__button:hover {
+  cursor: pointer;
+  background-color: #3db3b5;
+}

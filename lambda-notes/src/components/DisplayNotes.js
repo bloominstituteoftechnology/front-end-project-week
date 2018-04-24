@@ -2,9 +2,6 @@ import React from "react";
 import SingleNote from "./SingleNote";
 
 class DisplayNotes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="col-9 right__side">
