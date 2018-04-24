@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
-import {Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import {newNote} from "../../Actions"
+
 
 import "./ListView.css";
 class ListView extends Component {
@@ -33,66 +36,22 @@ class ListView extends Component {
                                 ius an natum ceteros, qui cibo volumus aliquando cu.</p>
                         </div>
                     </div>
-
-                    <div className = "row">
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                    </div>
-
-
-                    <div className = "row">
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                    </div>
-
-
-                    <div className = "row">
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default ListView
+const mapStateToProps = state => {
+    console.log('list', state)
+    return {
+        title: state.title,
+        note: state.note,
+        id: state.id
+    }
+  }
+
+export default connect(mapStateToProps, {
+    newNote,
+  })(ListView);
+  
