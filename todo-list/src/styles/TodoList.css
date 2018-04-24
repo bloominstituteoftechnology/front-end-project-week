@@ -1,0 +1,26 @@
+.TodoList {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 40px 5%;
+  justify-content: space-around;
+}
+
+.TodoList h4 {
+  color: rgb(82, 82, 82);
+  font-size: 24px;
+  width: 100%;
+}
+
+.TodoList h4:after {
+  border-bottom: 1px solid rgb(161, 161, 161);
+  content: '';
+  display: block;
+  height: 10px;
+  width: 200px;
+}
+
+@media (max-width: 545px) {
+  .TodoList {
+    justify-content: flex-start;
+  }
+}
