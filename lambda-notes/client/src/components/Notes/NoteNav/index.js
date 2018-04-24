@@ -7,10 +7,11 @@ import ViewNote from '../ViewNote';
 
 const NoteRoutes = (props) => {
     console.log('props', props)
+    //console.log('ids', props.data[0])
     return (
       <div>
         {props.data.map((u, index) => 
-        <Route exact path={'/Notes/' + index} component={ViewNote} key={u + index} />
+        <Route exact path={'/Notes/' + index} component={ViewNote} key={u.id}/>
         )}
       </div>
     )
@@ -18,7 +19,7 @@ const NoteRoutes = (props) => {
 //<Route exact path={'/Notes/' + index} component={ViewNote} />
 
 class NoteNav extends Component {
-    constructor() {
+    constructor() { 
       super()
       this.state = {
         notes: []
