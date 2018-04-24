@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Navigation } from './Components/Navigation';
 import { NotesList } from './Components/NotesList';
 import { LandingPage } from './Components/LandingPage';
+import { AddNote } from './Components/AddNote';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/Notes' component={NotesList} />
+          <Route exact path='/AddNote' component={AddNote} />
         </Switch>
       </div>
     );

@@ -1,0 +1,32 @@
+.AddNote {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddNote__Title {
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  max-width: 350px;
+  border: 2px solid rgb(152, 174, 175);
+  padding: 0 10px
+}
+
+.AddNote__Content {
+  box-sizing: border-box;
+  width: 100%;
+  height: 375px;
+  margin: 20px 0;
+  padding: 10px;
+  border: 2px solid rgb(152, 174, 175);
+  resize: none;
+}
+
+.AddNote__Save {
+  background-color: rgb(36, 184, 189);
+  border: 2px solid rgb(152, 174, 175);
+  color: white;
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+}

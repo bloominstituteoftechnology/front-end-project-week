@@ -9,7 +9,7 @@ export const Navigation = () => {
       <NavLink to='/' className='Link'><h1 className='Navigation__Heading'>Lambda Notes</h1></NavLink>
       <div className='Navigation__Buttons'>
         <NavLink to='/Notes'><button className='Navigation__Button'>View Your Notes</button></NavLink>
-        <button className='Navigation__Button'>+ Create New Note</button>
+        <NavLink to='/AddNote'><button className='Navigation__Button'>+ Create New Note</button></NavLink>
       </div>
     </div>
   );
