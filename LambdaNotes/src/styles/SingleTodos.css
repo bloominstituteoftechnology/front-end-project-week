@@ -1,0 +1,10 @@
+.container {
+	display: flex;
+	flex-flow: row;
+}
+
+.SingleTodo {
+	border: 1px solid blue;
+	width: 300px;
+	margin: 10px 3%;
+}
