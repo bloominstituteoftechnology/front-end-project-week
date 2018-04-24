@@ -28,6 +28,7 @@ class NewNote extends Component {
                         placeholder='Note Content'
                         name='Note Content'
                     />
+                    <button> Save </button>
                 </div>
             </div>
         )
