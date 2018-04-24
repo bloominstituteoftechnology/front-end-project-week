@@ -1,10 +1,15 @@
 import React from 'react';
+import '../styles/TodoCard.css';
 
 export const TodoCard = props => {
   return (
     <div className="TodoCard">
-      <div>{props.note.title}</div>
-      <div>{props.note.body}</div>
+      <p className="TodoCard_title">
+        {props.note.title}
+      </p>
+      <p className="TodoCard_body">
+        {props.note.body}
+      </p>
     </div>
   )
 }

@@ -1,0 +1,40 @@
+.TodoCard {
+  background: white;
+  border: 1px solid rgb(168, 168, 168);
+  border-radius: 2px;
+  color: rgb(77, 77, 77);
+  cursor: pointer;
+  height: 200px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  padding: 0 10px;
+  width: 30%;
+}
+
+.TodoCard_title {
+  border-bottom: 1px solid grey;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.TodoCard_body {
+  font-size: 14px;
+  margin: 0;
+  
+}
+
+@media (max-width: 768px) {
+  .TodoCard {
+    width: 48%;
+  }
+}
+
+@media (max-width: 545px) {
+  .TodoCard {
+    margin-left: 10px;
+    width: 80%;
+  }
+}
