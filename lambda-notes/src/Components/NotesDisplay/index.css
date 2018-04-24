@@ -1,0 +1,14 @@
+.NotesContainer{
+  padding-top: 30px;
+}
+.Note{
+  width: 180px;
+  min-height: 200px;
+  border: 2px solid lightgray;
+  padding: 5px 10px 0;
+}
+.Note h2{
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 8px;
+}

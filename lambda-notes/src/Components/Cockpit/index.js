@@ -7,11 +7,11 @@ export const Cockpit = () => {
     <React.Fragment>
       <div className={classes.Container__SideBar}>
         <h2 className={classes.Container__Header}>Lambda Notes</h2>
-        <button>View your notes</button>
-        <button> + Create new note</button>
+        <Link to='/'><button>View your notes</button></Link>
+        <Link to='/create-note'><button> + Create new note</button></Link>
       </div>
       <div className={classes.Container__MainContainer}>
-        <Route path='/' component={NotesDisplay}/>
+        <Route exact path='/' component={NotesDisplay}/>
       </div>
     </React.Fragment>
   );

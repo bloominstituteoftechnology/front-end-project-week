@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import {connect} from 'react-redux';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {Cockpit} from '../../Components/Cockpit';
 import {getNotes} from '../../Actions/NoteActions';
 class App extends Component {
@@ -15,7 +16,9 @@ class App extends Component {
   render() {
     return (
       <div className={classes.Container}>
-        <Cockpit/>
+        <Router>
+          <Cockpit/>
+        </Router>
       </div>
     );
   }
