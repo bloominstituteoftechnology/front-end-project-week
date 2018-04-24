@@ -1,28 +1,87 @@
 .App {
+ display: flex;
+
+ 
+ margin:0px;
+ padding:0px;
+}
+ button {
+  width:250px;
+  background: lightseagreen;
+  font-size:1.2em;
+  font-weight: bold;
+  border: 1px solid grey;
+  margin: 10px;
+  color:white;
+  height: 60px;
+}
+.LambdaNotes{
+  padding-right: 0 15px 0 15px;
+  width: 180%;
+  max-width: 180%; 
+  padding-top:20px;
+  margin:0px;
+  display:flex; 
+  flex-direction: column;
+  background:lightgrey;
+  border-right: 2px solid grey;
+  
+}
+.LambdaNotes_p{
+ margin-bottom:15px;
+ font-size: 35px;
+ width: 60%;
+ display: flex;
+ text-align: left;
+ font-weight: bold;
+ padding-left:10px;
+ color:grey;
+ 
+}
+
+.NoteTitle{
+  font-size:23px;
+  color:black;
+  font-weight: bold;
+  text-align: start;
+  margin-bottom: 8px;
+
+}
+.NoteText{
+text-align: start;
+border-top: 2px solid grey;
+padding-top: 10px;
+line-height: 40px;
+}
+.Notes{
+  border: 1.3px solid grey;
+  padding:10px;
+  margin:10px;
+  width: 27%;
+  height: 230px;
   text-align: center;
+ 
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.AllNotes p{
+  font-size: 30px;
+  font-weight: bold;
+  padding-left:30px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.NotesList{
+  display:flex;
+  flex-direction: flex-start;
+  
+}
+.NotesSection{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding : 0px;
+  /* border: 2px solid red; */
+  
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
