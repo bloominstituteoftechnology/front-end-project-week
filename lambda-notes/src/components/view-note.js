@@ -29,4 +29,3 @@ class ViewNote extends Component {
 }
 
 export default connect(null, { deleteNote })(ViewNote);
-// export default ViewNote;

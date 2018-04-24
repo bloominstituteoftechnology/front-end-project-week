@@ -13,13 +13,6 @@ class NewNote extends Component {
     };
   }
 
-  handleSaveNote = () => {
-    return;
-    // const newNote = { title: this.state.title, content: this.state.content };
-    // this.props.saveNote(newNote);
-    // this.setState({ title: "", content: "" });
-  }
-
   render() {
     return (
       <div className="PrimaryContainer__newNote">

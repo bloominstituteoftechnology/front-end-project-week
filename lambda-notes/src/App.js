@@ -9,7 +9,6 @@ import {
   EditNote
 } from './components';
 
-
 class App extends Component {
 
   render() {
@@ -24,6 +23,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

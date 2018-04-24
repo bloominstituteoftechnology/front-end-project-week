@@ -13,7 +13,7 @@ class EditNote extends Component {
     };
   }
 
-  updateNote = () => {
+  stageUpdate = () => {
     const { note } = this.props.location.state;
     const updated = {
       title: this.state.title,
@@ -24,7 +24,6 @@ class EditNote extends Component {
   }
 
   render() {
-    // const { note } = this.props.location.state;
     return (
       <div className="PrimaryContainer__newNote">
         <h1 className="PrimaryContainer__header">Edit Note:</h1>
@@ -46,7 +45,7 @@ class EditNote extends Component {
         />
         <br/>
         <Link to="/">
-          <button className="Button col-3" onClick={() => this.updateNote()}>Update</button>
+          <button className="Button col-3" onClick={() => this.stageNote()}>Update</button>
         </Link>
       </div>
     )
