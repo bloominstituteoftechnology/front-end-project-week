@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import logo from "./logo.svg";
+// styles
 import "./App.css";
 import "./bootstrap/css/bootstrap.css";
 // components

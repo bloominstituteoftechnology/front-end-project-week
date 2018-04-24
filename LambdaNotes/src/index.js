@@ -4,6 +4,8 @@ import { createStore, applyMiddleware } from "redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
+// Material-UI
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import "./index.css";
 // components
 import App from "./App";
@@ -16,7 +18,9 @@ const store = createStore(rootReducer, applyMiddleware(logger));
 const router = (
 	<Provider store={store}>
 		<Router>
-			<App />
+			<MuiThemeProvider>
+				<App />
+			</MuiThemeProvider>
 		</Router>
 	</Provider>
 );
