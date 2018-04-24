@@ -46,13 +46,13 @@
 .note-title {
     padding: 8px;
     font-family: 'Russo One', sans-serif;
-    font-size: 20px;
+    font-size: 14px;
     text-decoration: underline;
 }
 
 .note-body {
     padding: 8px;
     font-family: 'Russo One', sans-serif;
-    font-size: 8px;
-    line-height: 2;
+    font-size: 9px;
+    line-height: 1.5;
 }
