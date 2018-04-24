@@ -51,7 +51,7 @@ class App extends Component {
           <Link to="create-note"><Button className="btn-info btn-block">+ Create New Note</Button></Link>
         </div>
         <div className="main-view">
-          <Container>
+          <Container className="mt-4">
             <Row>
               <div className="col-12">
                 <Switch>

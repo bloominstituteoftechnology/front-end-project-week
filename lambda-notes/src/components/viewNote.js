@@ -4,21 +4,21 @@ import { withRouter } from "react-router-dom";
 import { Form, Input, Row, Col, Button } from 'reactstrap';
 
 class CreateNote extends Component {
-  // constructor() {
-  //   super();
-  //
-  //   this.state = {
-  //     title: '',
-  //     content: ''
-  //   }
-  // }
 
   render() {
     return (
       <div>
-        <br /><br />
-        <h3>{this.props.selectedNote.title}</h3><br />
-        <p>{this.props.selectedNote.content}</p>
+        <Row>
+          <Col className="col-3 ml-auto">
+            Edit Delete
+          </Col>
+        </Row>
+        <Row className="mt-4">
+          <Col>
+            <h3>{this.props.selectedNote.title}</h3><br />
+            <p>{this.props.selectedNote.content}</p>
+          </Col>
+        </Row>
       </div>
     );
   }

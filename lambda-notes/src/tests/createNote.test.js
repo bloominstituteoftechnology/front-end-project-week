@@ -26,6 +26,9 @@ function renderWithRouter(
 const leftClick = {button: 0};
 const { container, getByText, getByPlaceholderText } = renderWithRouter(<App />);
 
+const testTitle = 'A Test Note';
+const testContent = 'Just a test.  Nothing to see. Move along.';
+
 test('I can see home page', () => {
   expect(container.innerHTML).toMatch('Your Notes')
 
@@ -38,9 +41,6 @@ test('I can create a new note', () => {
   const titleInput = getByPlaceholderText('Note Title');
   const contentInput = getByPlaceholderText('Note Content');
 
-  const testTitle = 'A Test Note';
-  const testContent = 'Just a test.  Nothing to see. Move along.';
-
   titleInput.value = testTitle; 
   Simulate.change(titleInput);
 
@@ -51,4 +51,11 @@ test('I can create a new note', () => {
 
   expect(container.innerHTML).toMatch(testTitle);
   expect(container.innerHTML).toMatch(testContent);
+});
+
+test('I can view a note', () => {
+  Simulate.click(getByText(testTitle), leftClick)
+
+  expect(container.innerHTML).toMatch('Edit');
+  expect(container.innerHTML).toMatch(testTitle);
 });
