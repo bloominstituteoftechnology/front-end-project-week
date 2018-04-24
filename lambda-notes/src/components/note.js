@@ -14,7 +14,7 @@ class Note extends Component {
       <div className="note-container">
         <Card onClick={this.handleClickNote}>
           <CardBody>
-            <CardTitle><h4>{this.props.title}</h4></CardTitle>
+            <CardTitle>{this.props.title}</CardTitle>
             <hr />
             <CardText>{this.props.content}</CardText>
           </CardBody>
