@@ -9,7 +9,7 @@ const SideBar = () => {
         <div className = "logo">
             <h1>Lambda Notes</h1>
         </div>
-        <Link to="/notes">View Your Notes</Link>
+        <Link to="/">View Your Notes</Link>
         <Link to="/new">+Create New Note</Link>
     </div>
     )

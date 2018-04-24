@@ -13,7 +13,7 @@ class CreateNote extends Component {
                 <div className = "create">
                     <h1>Create New Note:</h1>
                     <input type="text" placeholder="Note Title"/>
-                    <input type="text" placeholder="Note Content"/>
+                    <textarea name="Text1" cols="118" rows="10" placeholder="Note Content"></textarea>
                     <button>Save</button>
                 </div>
             </div>
