@@ -1,0 +1,38 @@
+.TodoView {
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 5%;
+}
+
+.TodoView_links {
+  display: flex;
+  align-self: flex-end;
+}
+
+.TodoView_links *, .TodoView_links:visited {
+  color:  rgb(42, 42, 42);;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.TodoView_noteTitle {
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.TodoView_noteTitle:after {
+  border-bottom: 1px solid rgb(161, 161, 161);
+  content: '';
+  display: block;
+  height: 10px;
+  margin-left: -10px;
+  width: 100%;
+}
+
+.TodoView_noteBody {
+  background: white;
+  border: 1px solid rgb(168, 168, 168);
+  padding: 10px;
+}

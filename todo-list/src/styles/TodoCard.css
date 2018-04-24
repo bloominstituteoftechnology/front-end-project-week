@@ -17,7 +17,7 @@
 }
 
 .TodoCard_title {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid rgb(161, 161, 161);
   font-size: 18px;
   font-weight: bold;
   margin: 0;

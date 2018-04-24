@@ -5,6 +5,7 @@ import '../styles/App.css';
 import { notes } from '../notes';
 import { TodoList } from './TodoList';
 import { TodoView } from './TodoView';
+import { TodoForm } from './TodoForm';
 
 
 class App extends Component {
@@ -24,8 +25,8 @@ class App extends Component {
           <Route path="/view/:id" render={props => 
             <TodoView {...props} notes={this.state.notes}/> 
           }/>
-          {/* <Route path="/create" component={props => <CreateTodo /> }/>
-          <Route path="/edit/:id" component={props => <EditTodo /> }/> */}
+          <Route path="/create" component={props => <TodoForm /> }/>
+          {/* <Route path="/edit/:id" component={props => <EditTodo /> }/> */}
         </div>
       </div>
     );
