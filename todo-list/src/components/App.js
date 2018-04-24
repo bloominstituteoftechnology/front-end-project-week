@@ -14,8 +14,8 @@ class App extends Component {
       <div className="App">
         <div className="App_sideBar">
           <h3>Lambda<br/>Notes</h3>
-          <Link to="/" className="App_navLink">View Your Notes</Link>
-          <Link to="/create" className="App_navLink">+Create New Note</Link>
+          <Link to="/" className="App_link">View Your Notes</Link>
+          <Link to="/create" className="App_link">+Create New Note</Link>
         </div>
         <div className="App_body">
           <Route exact path="/" render={() =>

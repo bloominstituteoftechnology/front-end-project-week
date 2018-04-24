@@ -6,7 +6,7 @@ import '../styles/TodoCard.css';
 export const TodoCard = props => {
   return (
     <div className="TodoCard">
-      <Link to={`/view/${props.note.id}`}>
+      <Link to={`/view/${props.note.id}`} className="TodoCard_link">
       <p className="TodoCard_title">
         {props.note.title}
       </p>

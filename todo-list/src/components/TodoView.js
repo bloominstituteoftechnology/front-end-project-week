@@ -9,8 +9,10 @@ export const TodoView = props => {
         <Link to={`/edit/${note.id}`}>edit</Link>
         <button onClick={() => {}}>delete</button>
       </div>
-      <p className="TodoView_title">{note.title}</p>
-      <p className="TodoView_body">{note.body}</p>
+      <div className="TodoView_note">
+        <p className="TodoView_title">{note.title}</p>
+        <p className="TodoView_body">{note.body}</p>
+      </div>
     </div>
   )
 }

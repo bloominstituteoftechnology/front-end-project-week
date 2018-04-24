@@ -11,6 +11,11 @@
   width: 30%;
 }
 
+.TodoCard_link, .TodoCard_link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
 .TodoCard_title {
   border-bottom: 1px solid grey;
   font-size: 18px;
@@ -23,7 +28,6 @@
 .TodoCard_body {
   font-size: 14px;
   margin: 0;
-  
 }
 
 @media (max-width: 768px) {
