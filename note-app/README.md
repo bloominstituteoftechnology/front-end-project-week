@@ -1,7 +1,7 @@
 Contents:
   (a) Trello 
   (b) List of Components
-
+  (c) Questions
 
 (a) Trello
 Trello URL: https://trello.com/b/Hrk9cf8X/front-end-board
@@ -17,3 +17,5 @@ Trello URL: https://trello.com/b/Hrk9cf8X/front-end-board
       (3) Edit Note: same as #2, with 'edit note' for content head 
       (4) View Note - displays the note title/description, saved to a          state, with edit/delete button on top right that route to            different pages. Delete drops a modal that asks to confirm           deletion, and 2 options 'delete' and 'no'
     
+(c) Questions
+(1) Should I have the NavBar as a repeated component, or render it statically and change the items around it? Which is considered better? 
