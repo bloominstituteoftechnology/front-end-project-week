@@ -26,7 +26,7 @@ class Edit extends Component {
                     placeholder='Note Content'
                     name='Note Content'
                 />
-                <button> Update </button>
+                <button> Save </button>
              </div>
         </div>
         )

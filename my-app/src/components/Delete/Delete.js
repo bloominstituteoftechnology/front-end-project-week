@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Modal } from './components/Modal';
+import { Modal } from '../Modal';
 
 class Delete extends Component {
     constructor(props) {
