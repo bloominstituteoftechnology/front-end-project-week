@@ -18,24 +18,29 @@ server.get('/notes', (req, res) => {
 });
 let noteId = 0;
 
+server.get('/notes/:id', (req, res) => {
+  const note = notes.filter(note => note.id == req.params.id)[0];
+  res.status(200).json([note]);
+})
+
 server.post('/notes', (req, res) => {
   const { name, body } = req.body;
   const newNote = { name, body, id: noteId };
   if (!name || !body) {
     return sendUserError(
-      'Ya gone did Noteed! Name/body are all required to create a Note in the Note DB.',
+      'Ya gone did Noteed! Name/body are both required to create a Note in the Note DB.',
       res
     );
   }
-  const findNoteByName = note => {
-    return note.name === name;
-  };
-  if (notes.find(findNoteByName)) {
-    return sendUserError(
-      `Ya gone did NoteEd! ${name} already exists in the Note DB.`,
-      res
-    );
-  }
+  // const findNoteByName = note => {
+  //   return note.name === name;
+  // };
+  // if (notes.find(findNoteByName)) {
+  //   return sendUserError(
+  //     `Ya gone did NoteEd! ${name} already exists in the Note DB.`,
+  //     res
+  //   );
+  // }
 
   notes.push(newNote);
   noteId++;

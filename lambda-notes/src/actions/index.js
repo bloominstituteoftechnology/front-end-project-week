@@ -12,7 +12,25 @@ export const getNotes = () => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
-            console.log('response',response)
+            dispatch({
+                type: SUCCESS,
+                payload: response.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: ERROR,
+                payload: err
+            })
+        })
+    }
+}
+
+export const getNote = id => {
+    const promise = axios.get(`http://localhost:5000/notes/${id}`)
+    return dispatch => {
+        dispatch({ type: FETCHING_NOTES })
+        promise.then(response => {
             dispatch({
                 type: SUCCESS,
                 payload: response.data

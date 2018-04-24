@@ -68,7 +68,7 @@
 
 .mainContent {
   /* flex-grow: 1; */  
-  background-color: #f8f8f8;
+  background-color: #f3f3f3;
   max-width: 650px;
   width: 100%;
   display: flex;
@@ -126,15 +126,28 @@ textarea {
 }
 
 .noteCard__title {
+  max-height: 40px;
   font-weight: bold;
   font-weight: 900;
   border-bottom: 1px solid black;
-  margin: 5px 10px;
+  margin: 5px 10px 0 10px;
   padding: 5px 0;
   font-size: 20px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  width: 90%;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .noteCard__body {
-  margin: 5px 10px;
-  padding: 5px 0;
+  max-height: 130px;
+  margin: 5px 10px 15px 10px;
+  line-height: 22px;
+  padding-bottom: 10px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  width: 90%;
+  display: inline-block;
+  overflow: hidden;
 }
