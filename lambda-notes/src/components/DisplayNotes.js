@@ -9,8 +9,8 @@ class DisplayNotes extends React.Component {
     return (
       <div className="col-9 right__side">
         <div className="row">
-          <div className="col-12 notes__head">
-            <h4>Your Notes</h4>
+          <div className="col-3 notes__head">
+            <h4>Your Notes:</h4>
           </div>
         </div>
         <div className="row">

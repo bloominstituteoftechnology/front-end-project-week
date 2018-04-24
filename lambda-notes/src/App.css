@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+}
+
 #root {
   height: 100vh;
 }
@@ -20,7 +28,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .App-intro {
@@ -28,9 +36,12 @@
 }
 
 .sidebar__head {
-  text-align: center;
+  text-align: left;
   margin-top: 30px;
-  color: #000;
+  color: #484848;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 0.8;
 }
 
 .left__side {
@@ -56,4 +67,40 @@
   background: #f3f3f3;
   height: 100vh;
   border: 1px solid gray;
+}
+
+.notes__head {
+  margin-top: 60px;
+  margin-left: 14px;
+  text-align: left;
+}
+
+.notes__head h4 {
+  color: #484848;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.note__card {
+  background-color: white;
+  padding: 8px;
+  margin: 10px 14px;
+  min-height: 16vh;
+  border: 1px solid gray;
+}
+
+.note__card h5 {
+  text-align: left;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.ruler {
+  width: 90%;
+  border: 0.1rem solid gray;
+}
+
+.note__body {
+  text-align: left;
+  margin-left: 10px;
 }
