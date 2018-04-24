@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, CardColumns, CardGroup } from 'reactstrap';
 
@@ -7,10 +9,11 @@ const notes = [
 	'Praesent sed ullamcorper velit. Vestibulum volutpat leo eleifend ante volutpat, et posuere metus pellentesque. Sed molestie ',
 	'Nulla eu auctor dui. Integer convallis purus id risus condimentum venenatis. Quisque blandit elit justo, ac semper enim bibendum ',
 	'Nunc finibus ornare vehicula. Nunc eu leo maximus, tincidunt tortor non, sagittis neque. Sed nec ex lacus. Duis elementum sem at ',
-	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet odio at sem sollicitudin fringilla. Vestibulum lacinia ',
-	'Pellentesque id velit elementum, accumsan ligula non, mattis lacus. Phasellus dui leo, porttitor id pharetra et, convallis vel lacus. ',
-	'Sed bibendum placerat faucibus. Pellentesque non magna lobortis, ullamcorper diam ut, euismod felis. Aliquam eget feugiat ipsum, quis','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet odio at sem sollicitudin fringilla. Vestibulum lacinia ',
-	'Pellentesque id velit elementum, accumsan ligula non, mattis lacus. Phasellus dui leo, porttitor id pharetra et, convallis vel lacus. '
+	'Sed rutrum sagittis sem, vitae aliquet velit vulputate et. In mollis suscipit odio sed blandit. Donec sed tellus quis metus congue iaculis.',
+	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sit amet odio at sem sollicitudin fringilla. Vestibulum lacinia ante at nisl', 
+	'Praesent finibus justo diam, id elementum nulla faucibus a. Suspendisse non dolor eu ipsum lobortis pretium. Duis vel metus vel urna vulputate luctus.', 
+	'Pellentesque id velit elementum, accumsan ligula non, mattis lacus. Phasellus dui leo, porttitor id pharetra et, convallis vel lacus. Mauris lobortis eros turpis.', 
+	'Sed bibendum placerat faucibus. Pellentesque non magna lobortis, ullamcorper diam ut, euismod felis. Aliquam eget feugiat ipsum, quis convallis dui.'
 ];
 // const notes = [
 // 	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque ante, tincidunt a ex ac, dictum condimentum enim. Nunc hendrerit et nunc at interdum. Nulla fermentum augue eu nunc finibus laoreet. Aenean blandit at augue in tincidunt. Quisque urna tortor, congue vel tincidunt vitae, varius a libero. Aenean rhoncus porta elit, id maximus dui egestas quis. Mauris volutpat eros vel dignissim tempor. Vestibulum efficitur metus id orci sollicitudin auctor. Ut eu nisi in orci maximus bibendum. Praesent ultricies, quam eget tempus vulputate, eros ex bibendum sem, sit amet malesuada sem libero eu justo. In eu interdum nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla laoreet nisi vitae bibendum aliquet. Suspendisse ut eros feugiat, varius nibh vitae, mollis lorem. Suspendisse porttitor dui aliquam dolor ornare molestie.',
@@ -61,6 +64,7 @@ const icSt = {
     border: '1px solid gray',
     padding: 10,
     height: 200,
+    cursor: 'pointer',
     // marginLeft: '26%',
     marginTop: 10,
     marginBottom: 10
@@ -88,38 +92,34 @@ const ntSt = {
 const PresentationMain = (props) => {
 	return (
 		<div style={mainSt}>
-            {/* <div style={lStyle} >
-            <h1>Hello, testing</h1>
-            </div> */}
             <h4 style={hSt} >Your Notes:</h4>
-            <div style={icSt}>
-            {/* <h4 style={ntSt} >Note Title</h4> */}
+            <Link to="/notes/view/0" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[0]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/1" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[1]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/2" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[2]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/3" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[3]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/4" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[4]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/5" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[5]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/6" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[6]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/7" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[7]}</h6>
-            </div>
-            <div style={icSt}>
+            </Link>
+            <Link to="/notes/view/8" style={icSt}>
             <h6><span style={ntSt}>Note Title</span><br/>{notes[8]}</h6>
-            </div>
+            </Link>
 
             
             {/* <div style={lambda}> */}

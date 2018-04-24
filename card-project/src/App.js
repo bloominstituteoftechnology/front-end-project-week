@@ -49,11 +49,7 @@ const notes = [
 			'Sed bibendum placerat faucibus. Pellentesque non magna lobortis, ullamcorper diam ut, euismod felis. Aliquam eget feugiat ipsum, quis convallis dui. Donec viverra quis ligula ut ultricies. Suspendisse potenti. Sed et nisi tempus, sagittis eros ut, finibus urna. Donec a justo magna. Mauris lacus tellus, ultrices ut ullamcorper vitae, iaculis non eros. Ut fringilla libero dui, id luctus odio viverra sed. Vivamus interdum, tellus vel malesuada efficitur, neque massa ornare quam, at condimentum justo risus a augue. Integer molestie purus vitae sollicitudin euismod. Etiam auctor neque ut orci gravida, ac cursus leo efficitur.'
 	}
 ];
-const mainStyle = {
-	// display:'inline',
-	// maxWidth: 1024,
-	// width: '100%'
-};
+
 
 function LeftContent() {
 	return (
@@ -87,6 +83,38 @@ const Home = (props) => {
 const New = (props) => {
 	return <SplitPane left={<LambdaNewL />} right={<LambdaNewR />} />;
 };
+const View = (props) => {
+	{console.log(props.match.params.id)};
+	let id = props.match.params.id;
+
+	return (
+	<div style={{ height: '100%' }}>
+		<SplitPane left={<LambdaNewL />} right={<ViewRight id={id} />} />
+		</div>)
+}
+const Edit = props => {
+	let idE = props.match.params.id;
+	return (
+		<div style={{ height: '100%' }}>
+			<SplitPane left={<LambdaNewL />} right={<EditRight idE={idE} />} />
+			</div>)
+}
+
+const ViewRight = (props) => {
+	return (
+		<div className="RightContent" >
+			<PresentationView id={props.id} />
+			</div>
+	)
+}
+const EditRight = (props) => {
+	return (
+		<div className="RightContent">
+		<EditNote idE={props.idE} />
+		</div>
+	)
+}
+
 const LambdaNewL = (props) => {
 	return (
 		<div className="LeftContent">
@@ -101,18 +129,7 @@ const LambdaNewR = (props) => {
 		</div>
 	);
 };
-// class App extends Component {
-// 	constructor(props) {
-// 		super(props);
-// 	}
-// 	render() {
-// 		return (
-// 			<div>
-// 			<SplitPane left={<LeftContent />} right={<RightContent />} />;
-// 			</div>
-// 		);
-// 	}
-// }
+
 
 const App = (props) => {
 	return (
@@ -121,7 +138,9 @@ const App = (props) => {
 			{/* <Home /> */}
 			<Route exact path="/" component={Home} />
 			<Route path="/notes/new" component={New} />
-			{/* <Route path="/movies/:id" component={Movie} /> */}
+			<Route path="/notes/view/:id" component={View} />
+			<Route path="notes/view/edit/:id" component={Edit} />
+			
 		</div>
 	);
 };
