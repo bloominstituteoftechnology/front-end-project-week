@@ -82,27 +82,25 @@ function SplitPane(props) {
 	);
 }
 const Home = (props) => {
-	return <SplitPane left={<LeftContent />} right={<RightContent />} />
-}
-const Edit = props => {
-	return <SplitPane left={<LambdaEditL />} right={<LambdaEditR />} />
-			
-	
-}
-const LambdaEditL = () => {
+	return <SplitPane left={<LeftContent />} right={<RightContent />} />;
+};
+const New = (props) => {
+	return <SplitPane left={<LambdaNewL />} right={<LambdaNewR />} />;
+};
+const LambdaNewL = (props) => {
 	return (
 		<div className="LeftContent">
-		<LambdaSide />
+			<LambdaSide />
 		</div>
-	)
-}
-const LambdaEditR = () => {
+	);
+};
+const LambdaNewR = (props) => {
 	return (
 		<div className="RightContent">
-		<EditNote />
+			<CreateNew />
 		</div>
-	)
-}
+	);
+};
 // class App extends Component {
 // 	constructor(props) {
 // 		super(props);
@@ -118,18 +116,19 @@ const LambdaEditR = () => {
 
 const App = (props) => {
 	return (
-		<div style={{height: '100%'}} >
+		<div style={{ height: '100%' }}>
 			{/* <SplitPane left={<LeftContent />} right={<RightContent />} /> */}
 			{/* <Home /> */}
 			<Route exact path="/" component={Home} />
-        <Route  path="/notes/:id" component={EditNote} />
-		{/* <Route path="/movies/:id" component={Movie} /> */}
-
+			<Route path="/notes/new" component={New} />
+			{/* <Route path="/movies/:id" component={Movie} /> */}
 		</div>
 	);
 };
-{/* <Link style={lsty} to='/'>apple</Link>
-            <Link style={lsty} to='/iPad'>iPad</Link> */}
+{
+	/* <Link style={lsty} to='/'>apple</Link>
+            <Link style={lsty} to='/iPad'>iPad</Link> */
+}
 
 // ReactDOM.render(
 //   <App />,

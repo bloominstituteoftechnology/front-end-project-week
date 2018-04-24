@@ -54,48 +54,71 @@ const lStyle = {
 }
 const icSt = {
     display:'inline-flex',
-    width: '30%',
-    marginLeft: '1%',
-    marginRight: '1%',
-    border: '2px solid red',
-    height: 300,
+    backgroundColor: 'white',
+    width: '22%',
+    marginLeft: '3%',
+    marginRight: '3%',
+    border: '1px solid gray',
+    padding: 10,
+    height: 200,
     // marginLeft: '26%',
-    marginTop: 0,
+    marginTop: 10,
+    marginBottom: 10
     // position: 'relative'
+}
+const hSt = {
+    fontWeight: 'bold',
+    marginLeft: '3%'
+
+}
+const mainSt = {
+    marginLeft: '5%',
+    paddingTop: 50
+}
+const ntSt = {
+    display: 'flex',
+    width: '100%',
+    paddingBottom: 8,
+    // border: '2px solid red',
+    borderBottom: '1px solid gray',
+    fontWeight: 'bold',
+    fontSize: 20
 }
 
 const PresentationMain = (props) => {
 	return (
-		<div>
+		<div style={mainSt}>
             {/* <div style={lStyle} >
             <h1>Hello, testing</h1>
             </div> */}
+            <h4 style={hSt} >Your Notes:</h4>
             <div style={icSt}>
-            <h3>{notes[0]}</h3>
+            {/* <h4 style={ntSt} >Note Title</h4> */}
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[0]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[1]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[1]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[2]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[2]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[3]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[3]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[4]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[4]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[5]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[5]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[6]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[6]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[7]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[7]}</h6>
             </div>
             <div style={icSt}>
-            <h3>{notes[8]}</h3>
+            <h6><span style={ntSt}>Note Title</span><br/>{notes[8]}</h6>
             </div>
 
             
