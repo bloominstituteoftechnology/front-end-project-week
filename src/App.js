@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+
+import NotesList from "./components/NotesList";
+import Navigation from "./components/Navigation";
+import "./App.css";
+import AddNote from "./components/AddNote";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <div className="notes-menu">
+          <h1> Lambda Notes </h1>
+          <Navigation />
+        </div>
+
+        <div className="notes-list">
+          <h3>Your notes:</h3>
+          <Route exact path="/" component={NotesList} />
+          <Route path="/AddNote" component={AddNote} />
+        </div>
       </div>
     );
   }
