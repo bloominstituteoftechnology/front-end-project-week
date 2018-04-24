@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // actions
 import { deleteTodo, updateTodo } from "../actions/index";
-// components
-import App from "../App.js";
 // material components
 import Paper from "material-ui/Paper";
 import FlatButton from "material-ui/FlatButton";
 import Dialog from "material-ui/Dialog";
-import RaisedButton from "material-ui/RaisedButton";
 // styles
 import "../bootstrap/css/bootstrap.css";
 import "../styles/Todo.css";

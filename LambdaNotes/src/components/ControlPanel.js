@@ -5,10 +5,6 @@ import RaisedButton from "material-ui/RaisedButton";
 import "../styles/ControlPanel.css";
 
 class ControlPanel extends Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return [
 			<h3 className="ControlPanel_header">

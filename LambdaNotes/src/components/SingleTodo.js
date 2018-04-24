@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Route } from "react-router-dom";
 // components
 import Todo from "./Todo";
 // material components
-import { Card, CardHeader, CardTitle, CardText } from "material-ui/Card";
+import { Card, CardText } from "material-ui/Card";
 // styles
 import "../styles/SingleTodos.css";
 

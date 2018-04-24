@@ -2,8 +2,8 @@
 import {
 	ADDTODO,
 	DELETETODO,
-	UPDATETODO,
-	TOGGLETODO
+	UPDATETODO
+	// TOGGLETODO
 } from "../actions/index.js";
 
 const initialState = {
@@ -31,7 +31,7 @@ const rootReducer = (state = initialState, action) => {
 			});
 		// edit new todo
 		case UPDATETODO:
-			let updatedTodos = state.todos.map((todo, index) => {
+			let updatedTodos = state.todos.forEach((todo, index) => {
 				if (index === action.payload.index) {
 					// only change the text of a todo if its index matches
 					todo.text = action.payload.text;
