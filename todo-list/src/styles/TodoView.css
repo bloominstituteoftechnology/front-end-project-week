@@ -10,10 +10,11 @@
   align-self: flex-end;
 }
 
-.TodoView_links *, .TodoView_links:visited {
-  color:  rgb(42, 42, 42);;
-  font-weight: bold;
-  margin: 0 10px;
+.TodoView_links * {
+  background: rgb(0, 204, 211);
+  height: 25px;
+  margin: 0 0 0 15px;
+  width: 80px
 }
 
 .TodoView_noteTitle {
@@ -35,5 +36,5 @@
   border: 1px solid rgb(168, 168, 168);
   box-shadow: -1px 1px 2px rgb(128, 128, 128);
   padding: 10px;
-  margin-top: 31px;
+  margin-top: 25px;
 }

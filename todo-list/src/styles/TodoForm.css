@@ -22,7 +22,7 @@
 .TodoForm_inputs {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .TodoForm_inputs * {
@@ -44,5 +44,10 @@
   height: 300px;
   resize: none;
   width: 90%;
-  
+}
+
+.TodoForm button {
+  background: rgb(0, 200, 207);
+  margin: 0 10px;
+  width: 30%;
 }

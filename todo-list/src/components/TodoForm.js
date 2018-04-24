@@ -31,6 +31,7 @@ export class TodoForm extends Component {
             placeholder="Write your note here..."
           />
         </form>
+        <button className="App_button">Save</button>
       </div>
     )
   }

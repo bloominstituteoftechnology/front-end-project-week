@@ -8,8 +8,8 @@ export const TodoView = props => {
   return (
     <div className="TodoView">
       <div className="TodoView_links">
-        <Link to={`/edit/${note.id}`}>Edit</Link>
-        <Link to={`/edit/${note.id}`}>Delete</Link>
+        <Link to={`/edit/${note.id}`} className="App_button">Edit</Link>
+        <Link to={`/edit/${note.id}`} className="App_button">Delete</Link>
       </div>
       <div className="TodoView_note">
         <p className="TodoView_noteTitle">{note.title}</p>
