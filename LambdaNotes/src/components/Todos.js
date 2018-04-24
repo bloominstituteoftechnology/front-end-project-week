@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
 // actions
 import { deleteTodo, updateTodo } from "../actions/index";
 import SingleTodo from "./SingleTodo";
+// styles
+import "../styles/SingleTodos.css";
 
 // pass each todo its index
 // pass each todo an edit handler from redux
@@ -24,7 +25,7 @@ class Todos extends Component {
 	render() {
 		console.log("PROPS: ", this.props);
 		return (
-			<div>
+			<div className="container">
 				{this.props.todos.map((todo, index) => {
 					return (
 						<Link to={`/todo/${index}`}>
