@@ -1,54 +1,41 @@
-.App {
-  text-align: center;
-  align-content: center;
-  align-self: center;
-  align-self: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.Container {
+.container {
   background:#F0F0F0;
   border: 1px solid red;
-  max-width: 100%;
-  width: 800px;
-  margin-left: 100px;
+  /* max-width: 100%;
+  width: 800px; */
+  margin: auto;
 
   
 }
 
 .column_left {
-  width: 20%;
+  width: 21%;
   background: #B0B0B0;
 }
 
 .column_right {
-  width: 78%;
+  width: 79%;
+  background: #F0F0F0;
 }
 
 .myCards {
   width: 30%;
+  background: red !;
 }
+
+.btn {
+  background: #33CCCC;
+  margin-top: 5px ;
+  color: white;
+  width: 85%;
+  font-size: 8px;
+}
+/* button {
+  width: 10rem;
+  font-size: 8px;
+  background: #33CCCC;
+  color: white;
+  border: none;
+
+} */

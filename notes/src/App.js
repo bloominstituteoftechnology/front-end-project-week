@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Cards from './Components/Cards.js';
 import Input from './Components/Input.js';
@@ -29,11 +28,10 @@ class App extends Component {
   }
 
   handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log("DOES HANDLE SUBMIT WORK", Notes);
+    e.preventDefault();
+    // console.log("DOES HANDLE SUBMIT WORK", Notes);
     const Notes  = this.state.Notes;
     Notes.push(this.state.newNote);
-    console.log("DOES HANDLE SUBMIT PUSH? ", Notes);
     this.setState({ Notes, newNote:{ title: '', content: '' }});
     
    
@@ -41,19 +39,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        
-        <div className='Container '>
-          <div className='row'>
-            <div className='column_left'>
+      <div className="container">
+        <div className='new'>
+          <div className='row border border-primary'>
+            <div className='column_left text-center'>
               <h2 className='col_left_header p-2 text-left'>Lambda Notes</h2>
+              <button type='button' className='btn btn-sm mb-2 '>View Your Notes</button>
+              <button type='button' className='btn btn-sm'> + Create Your Note</button>
             </div>
             <div className='column_right'>
               <Cards notes={this.state.Notes} />
