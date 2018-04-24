@@ -1,86 +1,99 @@
 h1 {
-    font-size:1.5 rem;
+  font-size: 1.5 rem;
 }
 
 .full-container {
-    display: flex;
-    background: #F0EFF0;
-    color: #3B3B3B;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  background: #f0eff0;
+  color: #3b3b3b;
+  height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .sidebar-div {
-    flex-direction: column;
-    text-align: left;
-    padding: 10px;
-    width: 250px;
-    max-width: 250px;
-    background: #CECDCE;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+  width: 250px;
+  background: #cecdce;
 }
 
 .right-div {
-    padding: 20px;
-    padding-right: 0;
-    text-align: left;
-    width: 100%;
+  padding: 20px;
+  padding-right: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .notes-h3 {
-    padding-top: 40px;
+  padding-top: 40px;
 }
 
 .button {
-    display: flex;
-    border: 1px solid #ABABAB;
-    margin-bottom: 20px;
-    background: #25B1B5;
-    height: 40px;
-    width: 180px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ababab;
+  margin-bottom: 20px;
+  background: #25b1b5;
+  height: 40px;
+  width: 180px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-notes-button {
+  background: red;
+  justify-self: end;
 }
 
 .notes-div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .notecard {
-    background: white;
-    border: 1px solid lightgrey;
-    margin: 10px;
-    margin-left: 0;
-    padding: 10px;
-    width: 150px;
+  background: white;
+  border: 1px solid lightgrey;
+  margin: 10px;
+  margin-left: 0;
+  padding: 10px;
+  width: 150px;
 }
 
 .notes-text-div {
-    border-top: 1px solid lightgrey;
-    margin-top: 5px;
-    padding-top: 5px;
+  border-top: 1px solid lightgrey;
+  margin-top: 5px;
+  padding-top: 5px;
 }
 
 h5 {
-    margin: 0;
-    font-size: 1.1rem;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.create-form {
+  display: inline-block;
 }
 
 .title-box {
-    width: 50%;
-    height: 40px;
-    padding-left: 15px;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+  width: 50%;
+  height: 40px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
 .text-box {
-    height: 350px;
-    width: 80%;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    padding: 15px;
+  height: 350px;
+  width: 80%;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding: 15px;
+  resize: none;
 }

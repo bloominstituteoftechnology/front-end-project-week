@@ -17,9 +17,9 @@ class CreateNote extends Component {
   render() {
     return (
       <div className="right-div">
-        <div className="create-form">
+        <div>
           <h3 className="notes-h3">Create New Note:</h3>
-          <form>
+          <form className="create-form">
             <input
               className="title-box"
               placeholder="Note Title"
@@ -27,7 +27,7 @@ class CreateNote extends Component {
               onChange={this.handleTextInput}
             />
             <textarea
-              rows="5"
+              rows="8"
               cols="80"
               className="text-box"
               placeholder="Note Content"
