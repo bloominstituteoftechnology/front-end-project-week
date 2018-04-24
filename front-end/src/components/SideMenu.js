@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Nav, NavItem, NavLink } from "reactstrap";
 
 import "./SideMenu.css";
 
@@ -7,10 +8,13 @@ export default class SideMenu extends Component {
     return (
       <div className="SideBar">
         <h1>Lambda Notes</h1>
-        <div>
-          <button input={this.props.showNoteList}>View Your Notes</button>
-          <button>+ Create New Notes</button>
-        </div>
+          <NavLink href="/">
+            <button>View Your Notes</button>
+          </NavLink>
+
+          <NavLink href="/note/create">
+            <button>+ Create New Notes</button>
+          </NavLink>
       </div>
     );
   }
