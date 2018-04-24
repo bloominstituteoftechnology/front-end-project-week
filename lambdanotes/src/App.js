@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import MainMenu from './components/MainMenu/MainMenu';
 import Note from './components/Notes/Note'
 import NoteList from './components/Notes/NoteList';
+import NoteForm from './components/Notes/NoteForm';
 import logo from './logo.svg';
 import './App.css';
 
@@ -31,17 +32,17 @@ class App extends Component {
     }
   render() {
     return (
-        <div className='container'>
+        <Container>
             <Row>
-                <Col>
+                <Col lg='3'>
                     <MainMenu/>
                 </Col>
-                <Col>
+                <Col lg='9'>
                     <NoteList notes={this.state.notes}/>
                 </Col>
             </Row>
-
-        </div>
+            <NoteForm/>
+        </Container>
     );
   }
 }

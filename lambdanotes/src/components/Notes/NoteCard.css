@@ -9,10 +9,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #F3F3F3;
 }
 
 .NoteCardList__holder {
-    background-color: #F3F3F3;
+
     width: 800px;
     padding: 0 0;
 }
