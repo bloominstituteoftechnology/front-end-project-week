@@ -26,3 +26,66 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.App{
+  display:flex;
+}
+.home-styles{
+  width: 200px;
+  height: 650px;
+  background:rgb(219, 216, 216)
+}
+.hDiv-styles{
+    font-size: 30px;
+    display:flex;
+    flex-direction: column;
+    margin-right:65px;
+ 
+}
+.button-styles{
+display:flex;
+justify-content: center;
+flex-direction: column;
+margin: 10px;
+
+}
+.button{
+  background:rgb(70, 207, 207);
+border: 1px solid black;
+width: 180px;
+margin-bottom: 12px;
+}
+.container-styles{
+  display:flex;
+  flex-wrap: wrap;
+width:600px; 
+height:300px;
+margin-top: 30px;
+
+}
+
+.card-styles{
+
+
+}
+.x{
+  width:150px;
+  height: 150px;
+  margin: 10px;
+  margin-top: 0px;
+}
+.card-styles{
+
+}
+
+.p{
+  display: flex;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-left: 11px;
+
+ 
+}
+.cardtext-styles{
+  font-size: 8.3px;
+  
+}

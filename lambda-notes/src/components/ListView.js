@@ -6,16 +6,23 @@ import { Card, CardImg, CardText, CardBody,
     console.log("porps", props);
     
     return(<React.Fragment>
+     
+      <div className="p">
+       <h6>Your Notes:</h6>
+       </div>
      {props.notes.map(note =>(
-       <div>
-        <Card>
-       <CardBody>
+       <div className="card-styles">
+        <Card className="x">
+       <CardBody className="y">
         <CardTitle>{note.title}</CardTitle>
-        <CardText>{note.textbody}</CardText>
+        <CardText className="cardtext-styles">{note.textbody}</CardText>
         </CardBody>
         </Card>
         </div>
    ))}
+
+
+  
      </React.Fragment>)
 }
 export default Notes
