@@ -1,0 +1,19 @@
+{
+  "name": "split-chunk-loader",
+  "version": "0.0.1",
+  "author": "Jon Harris @jharris4",
+  "description": "split chunk loader module for webpack",
+  "dependencies": {
+    "loader-utils": "0.2.x"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jharris4/split-chunk-loader.git"
+  }
+}
