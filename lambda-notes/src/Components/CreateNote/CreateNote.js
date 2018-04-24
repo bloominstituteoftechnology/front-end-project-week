@@ -10,7 +10,6 @@ class CreateNote extends Component {
 
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
-        console.log(e.target.value);
         return e.target.value;
       }
 
@@ -22,7 +21,7 @@ class CreateNote extends Component {
                     <h1>Create New Note:</h1>
                     <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
                     <textarea onChange={this.handleInputChange} name="note" cols="118" rows="10" placeholder="Note Content"></textarea>
-                    <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note })}>Save</button>
+                    <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
                 </div>
             </div>
         )

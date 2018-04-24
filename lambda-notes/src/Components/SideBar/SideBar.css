@@ -6,6 +6,7 @@
 
 body {
     background-color: #F3F3F3;
+    height: 100%;
 }
 
 .body {
@@ -21,6 +22,7 @@ body {
     padding: 2%;
     height: 100vh;
     max-height: 100%;
+
 }
 
 .sideBar h1 {

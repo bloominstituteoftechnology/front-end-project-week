@@ -4,9 +4,17 @@
     width: 69%;
 }
 
+.sideBar {
+    max-height: 100000%;
+}
+
 .row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+}
+.card:first-of-type {
+    display: none;
 }
 
 .card {
@@ -15,7 +23,11 @@
     margin-top: 3%;
     text-align: center;
     padding: 4%;
+    height: 100%;
     padding-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: auto;
 }
 
 .card:hover {
@@ -26,6 +38,7 @@
 .card p {
     font-size: 1.3rem;
     margin-top: 5%;
+    justify-content: space-around;
 }
 
 .underline {

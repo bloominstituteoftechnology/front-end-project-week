@@ -12,6 +12,7 @@ class ListView extends Component {
     }
 
     render() {
+        console.log('testing', this.props.notes)
         return (
             <div className = "body">
                 <SideBar/>
@@ -19,22 +20,22 @@ class ListView extends Component {
                     <div className = "list">
                         <h2>Your Notes:</h2>
                     </div>
-                    <div className = "row">
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
-                        <div className = "card">
-                            <h2 className = "underline">Todo</h2>
-                            <p>Lorem ipsum dolor sit amet, no natum omnis cum, 
-                                ius an natum ceteros, qui cibo volumus aliquando cu.</p>
-                        </div>
+
+                    <div>
+                        {this.props.notes.notes.length === 1 ? (
+                            <h1>Make a note</h1>
+                        ) : (
+                            <div className = "row">
+                                {this.props.notes.notes.map(note => {
+                                return (
+                                    <div className="card">
+                                        <h1 className="underline" key={note.title}>{note.title}</h1>
+                                        <p key={note.note}>{note.note}</p>
+                                    </div>
+                                )
+                            })} 
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -45,9 +46,7 @@ class ListView extends Component {
 const mapStateToProps = state => {
     console.log('list', state)
     return {
-        title: state.title,
-        note: state.note,
-        id: state.id
+        notes: state
     }
   }
 
