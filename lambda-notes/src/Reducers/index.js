@@ -1,16 +1,18 @@
-import {ADD} from "../actions"
+import { NEW_NOTE } from "../Actions";
 
-const initalState = {Note:[], value: ''}
+const inititalState = {
+    title: 'title',
+    note: 'note',
+    id: 0
+}
 
-export default (state = initalState, action) => {
-    switch (action.type) {
-        case ADD:
-        console.log(state)
-        console.log('added')
-        return Object.assign({}, state, {todos: action.payload})
+export const noteReducer = (state = inititalState, action) => {
+    switch(action.type) {
+        case NEW_NOTE:
+        console.log(state, 'reducer')
 
-
-        break;
         default: return state;
     }
 }
+
+export default noteReducer

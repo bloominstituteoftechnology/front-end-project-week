@@ -6,11 +6,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter} from 'react-router-dom'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
-import reducer from "./Reducers"
+import noteReducer from "./Reducers"
 
-const store = createStore(reducer, applyMiddleware(thunk)
+const store = createStore(noteReducer, applyMiddleware(thunk)
 );
 
 
