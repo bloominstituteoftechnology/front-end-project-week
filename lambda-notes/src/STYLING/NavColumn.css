@@ -3,25 +3,25 @@
   border-right: 2px solid #959595;
 }
 
-.Nav__Container--dark {
+/* .Nav__Container--dark {
   background-color: black;
   border-right: 2px solid white;
-}
+} */
 
 .Nav__Header {
   margin: 1% 3%;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #4A484A;
 }
 
-.Nav__Header--dark {
+/* .Nav__Header--dark {
   margin: 1% 3%;
   font-weight: bold;
   font-size: 4rem;
   color: turquoise;
   text-shadow: 1px 1px snow;
-}
+} */
 
 .Nav__ButtonsContainer {
   margin: 3%;
@@ -33,14 +33,14 @@
   background-color: #2AC1C5 !important;
   border: 2px solid #959595 !important;
   font-weight: 600 !important;
-  font-size: 1.5rem !important;
+  font-size: 1.3rem !important;
 }
 
 .Nav__ButtonsContainer--navButton:hover {
   transform: scale(1.03);
 }
 
-.Nav__ButtonsContainer--navButtonDark {
+/* .Nav__ButtonsContainer--navButtonDark {
   width: 100%;
   margin: 5% auto;
   color: turquoise;
@@ -48,11 +48,11 @@
   border: 2px solid turquoise !important;
   font-weight: 600 !important;
   font-size: 1.5rem !important;
-}
+} */
 
-.Nav__ButtonsContainer--navButtonDark:hover {
+/* .Nav__ButtonsContainer--navButtonDark:hover {
   transform: scale(1.03);
-}
+} */
 
 .Button {
   background-color: #2AC1C5 !important;
@@ -65,7 +65,7 @@
   transform: scale(1.03);
 }
 
-.Button--dark {
+/* .Button--dark {
   color: turquoise;
   background-color: black !important;
   border: 2px solid turquoise !important;
@@ -75,4 +75,4 @@
 
 .Button--dark:hover {
   transform: scale(1.03);
-}
+} */

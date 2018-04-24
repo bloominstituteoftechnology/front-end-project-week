@@ -31,7 +31,6 @@ class ViewNote extends Component {
         </div>
         <h1 className="PrimaryContainer__header">{note.title}</h1>
         <div className="ViewNote__content">{note.content}</div>
-        <div>{note.id}</div>
 
         {this.state.modal ? (
           <Modal isOpen={this.state.modal}>

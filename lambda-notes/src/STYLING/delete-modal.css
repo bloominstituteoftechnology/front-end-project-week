@@ -18,10 +18,12 @@
 
 .Modal__button--link--reg {
   width: 100%;
+  font-weight: bold !important;
 }
 
 .Modal__button--reg {
   width: 35%;
   margin-left: 3%;
+  font-weight: bold !important;
 }
 

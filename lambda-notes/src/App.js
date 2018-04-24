@@ -6,7 +6,8 @@ import {
   PrimaryContainer,
   NewNote,
   ViewNote,
-  EditNote
+  EditNote,
+  Markdown
 } from './components';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/create" component={NewNote} />
           <Route path="/viewnote/:id" render={props => <ViewNote {...props} />} />
           <Route path="/edit/:id" render={props => <EditNote {...props} />} />
+          <Route path="/markdown" component={Markdown} />
         </div>
       </div>
     );

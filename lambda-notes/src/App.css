@@ -11,7 +11,13 @@
 .ScrollOverflow {
   overflow-y: scroll;
   background-color: #F3F3F3;
-  width: 100%;;
+  width: 100%;
+}
+
+.ScrollOverflow--dark {
+  overflow-y: scroll;
+  background-color: black;
+  width: 100%;
 }
 
 .ViewNote__editOptions {

@@ -22,11 +22,11 @@ class PrimaryContainer extends Component {
         className="NoteCard" 
         key={note.id}
       >
-        <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
-          <Card className="">
+        <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className={this.props.night ? "CardLink--dark" : "CardLink"}>
+          <Card className={this.props.night ? "Card--dark" : "Card"}>
             <CardBody className="CardContent">
-              <CardTitle className="CardTitle">{note.title}</CardTitle>
-              <CardText className="CardText">
+              <CardTitle className={this.props.night ? "CardTitle--dark" : "CardTitle"}>{note.title}</CardTitle>
+              <CardText className={this.props.night ? "CardText--dark" : "CardText"}>
                 { contentLength.length >= 17 ? `${contentLength.slice(0, 17).join(" ")} ...` : note.content }
               </CardText>
             </CardBody>
@@ -39,7 +39,7 @@ class PrimaryContainer extends Component {
   render() {
     return (
       <div className="PrimaryContainer">
-        <h1 className="PrimaryContainer__header">Your Notes:</h1>
+        <h1 className={this.props.night ? "PrimaryContainer__header--dark" : "PrimaryContainer__header"}>Your Notes:</h1>
         <div className="PrimaryContainer__cardContainer">
           {this.props.notes.map(note => this.cardFactory(note))}
         </div>
