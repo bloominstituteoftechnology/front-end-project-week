@@ -4,6 +4,7 @@ import NotesTest from './components/notes';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import CreateNote from './components/createNote';
+import NoteAlone from './components/viewNote';
 // import dummyData from './Data/DummyData';
 
 class App extends Component {
@@ -63,7 +64,8 @@ handleNew = data => {
       </div>
       <Route exact path="/" render={() => <NotesTest notes={this.state.notes} />}/>
       <Route exact path="/create" render={() => <CreateNote notes={this.state.notes} noteCreate={this.handleNew}/>} />
-      <Route exact path="/note/:id" />
+      <Route exact path="/note/:id" component={NoteAlone}/>
+      <Route exact path="/note/:id/edit" />
       </div>
     );
   }

@@ -22,6 +22,19 @@
   padding-left: 10%;
 }
 
+.deleteButton {
+ margin-top: 2%;
+ width: 72%;
+ float: right; 
+ text-align: right;
+ margin-right: 4%;
+ 
+}
+
+.spaces {
+  padding: 20px;
+}
+
 .leftSide {
   display: flex;
   flex-direction: column;
@@ -39,6 +52,16 @@
 
 .yourNotes {
   text-align: left;
+}
+
+.rightSideCurrent {
+  width:76%;
+  float: right;
+  text-align: left;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 3%;
+  height: 880px;
 }
 
 .list {
