@@ -1,17 +1,26 @@
 // @flow
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import styled from 'styled-components'
+import Sidebar from './Sidebar'
 
-const Wrapper = styled.div`
-
+const Container = styled.div`
+  border: 1px solid #AEAEAE
+  width: 1000px
+  h1 {
+    color: #434343
+  }
+  * {
+    font-family: sans-serif
+  }
 `
 
 class App extends Component<{}> {
   render() {
     return (
-      <Wrapper>
-      </Wrapper>
+      <Container>
+        <Sidebar />
+      </Container>
     );
   }
 }
