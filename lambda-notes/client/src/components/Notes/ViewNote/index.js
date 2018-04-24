@@ -29,12 +29,12 @@ class ViewNote extends Component {
 
     render() {
         console.log('state-notes', this.state)
-        const { title, body } = this.state.note;
+ //       const { title, body } = this.state.note;
       return (
         <div className='View__note'>
         <h1>View Note:</h1>
-        <h1>{this.state.note.name} </h1>
-        <p>{this.props.body}</p>
+        <h1>{this.state.note.title} </h1>
+        <p>{this.state.note.body}</p>
             
         </div> // container div end
         
