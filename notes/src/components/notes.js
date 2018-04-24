@@ -13,10 +13,20 @@ export default class Notes extends Component {
     };
   }
 
-  addNote = (note) => {
+  addNote = note => {
     this.state.notes.push(note);
-    this.state.view.setState("list");
-  }
+    console.log(this.state);
+    this.setState({ view: "list" });
+    this.componentDidMount();
+  };
+
+  changeToList = () => {
+    this.setState({ view: "list" });
+  };
+
+  changeToCreate = () => {
+    this.setState({ view: "create" });
+  };
 
   componentDidMount() {}
 
@@ -24,19 +34,19 @@ export default class Notes extends Component {
     if (this.state.view === "list") {
       return (
         <div className="full-container">
-          <SideBar />
-            <ListView notes={this.state.notes} />
+          <SideBar changeToList={this.changeToList} changeToCreate={this.changeToCreate}/>
+          <ListView notes={this.state.notes} />
         </div>
       );
     }
-     if (this.state.view === "create"){
+    if (this.state.view === "create") {
       return (
         <div className="full-container">
-          <SideBar />
-            <CreateNote view={this.state.view} addNote={this.addNote} />
+          <SideBar changeToList={this.changeToList} changeToCreate={this.changeToCreate}/>
+          <CreateNote addNote={this.addNote} />
         </div>
       );
-     }
+    }
     return <h1>Something didn't work</h1>;
   }
 }
