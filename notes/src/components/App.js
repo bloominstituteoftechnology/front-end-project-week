@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 import NoteList from "./NoteList";
 import NoteView from "./NoteView";
 import NoteEdit from "./NoteEdit";
+import NoteCreate from "./NoteCreate";
 import "./App.css";
 
 const lorem =
@@ -20,7 +21,8 @@ const defaultNotes = [
 
 class App extends Component {
   state = {
-    notes: defaultNotes
+    notes: defaultNotes,
+    nextID: defaultNotes.length + 1
   };
 
   deleteNote = id => {
@@ -39,6 +41,16 @@ class App extends Component {
     this.setState({notes: notes});
   }
 
+  createNote = newNote => {
+    this.setState({notes: [...this.state.notes, newNote]});
+  }
+
+  getID = () => {
+    const id = this.state.nextID;
+    this.setState({nextID: this.state.nextID + 1});
+    return id;
+  }
+
   render() {
     return (
       <div className="App">
@@ -50,7 +62,7 @@ class App extends Component {
             path="/notes"
             render={() => <NoteList notes={this.state.notes} />}
           />
-          <Route path="/create" render={() => <h1>Create Note Content</h1>} />
+          <Route path="/create" render={props => <NoteCreate {...props} create={this.createNote} getID={this.getID}/>} />
           <Route path="/view/:id" render={props => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
           <Route path="/edit/:id" render={props => <NoteEdit {...props} notes={this.state.notes} edit={this.editNote}/>} />
         </div>
