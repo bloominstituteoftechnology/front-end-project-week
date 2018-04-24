@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { NoteList } from './Components/ListView';
+import { Route, Link } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -65,8 +66,16 @@ class App extends Component {
   }
   render() {
     return <div className="App">
-        <div>
-          <NoteList Notes={this.state.notes} />
+        <div className="Container">
+          <div className="row">
+            <div className="col-3 side">
+              <h1>Lambda Notes</h1>
+              <link to="/" className="links">View Your Notes</link>
+              <link to="/" className="links second">+Create New Note</link>
+            </div>
+            <h4>Your Notes:</h4>
+            <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
+          </div>
         </div>
       </div>;
   }
