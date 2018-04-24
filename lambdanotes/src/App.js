@@ -13,7 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <Switch>
           <Route exact path="/" component={NotesList} />
           {/* <Route path ='/:id' component={Note} /> */}
