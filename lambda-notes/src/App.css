@@ -1,18 +1,9 @@
-.container{
+/* .container{
   display: flex;
   width:100%;
   box-sizing: border-box;
-}
-
-.leftbox{
-  display:flex;
-  width:25%;
-  height: 100%;
-  border: 1px solid black;
-}
-
-.buttons{
-  display:block;
+  border: 1px solid red;
+  height: auto;
 }
 
 .rightbox{
@@ -53,4 +44,36 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-} */
+} */ 
+
+.container {
+  border: 1px solid black;
+
+}
+
+.leftbox{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.title{
+  display: flex;
+  margin: 15%;
+  margin-top: 0px;
+  margin-bottom: 1px;
+}
+
+.Buttons{
+  width: 70%;
+  border: 1px solid red;
+  margin: 15%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  
+}
+
+.rightbox{
+  margin: 20px;
+  margin-top: 50px;
+}
