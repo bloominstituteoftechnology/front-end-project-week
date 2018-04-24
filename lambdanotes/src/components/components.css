@@ -149,3 +149,48 @@ CreateNote__Title & CreateNote__NoteTitle
 .ViewNote__Content{
     margin: 28px;
 }
+
+/* Edit Note */
+
+.EditNote__Container {
+    width: 100%;
+    display: inline-block;
+
+}
+
+.EditNote__Title {
+    max-width: 20%;
+    margin-top: 20px;
+    margin-left: 12px;
+    
+}
+
+.EditNote__Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.EditNote__NoteTitleFormInput {
+    width: 50%;
+    margin: 20px
+}
+
+.EditNote__NoteContentFormInput {
+    width: 90%;
+    margin: 20px;
+    margin-top: 0px;
+    height: 350px;
+}
+
+.EditNote__SaveButton {
+    width: 20%;
+    background-color: teal;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 20px;
+}
