@@ -8,7 +8,7 @@ export const NoteList = props => {
             <div className="side">
                 <h1>Lambda Notes</h1>
                 <div className="links">View Your Notes</div>
-                <div className="links">+Create New Note</div>
+                <div className="links second">+Create New Note</div>
             </div>
             <div className="center">
                 <h4>Your Notes:</h4>

@@ -1,15 +1,27 @@
-.side {
-    display: flex;
-    justify-content: flex-start;
-    width: 20%;
+.notes {
+    width: 15%;
+    border: 1px solid #BEBEBE;
+    height: 100%;
+    padding-left: 2%;
+    background: #D7D7D7;
+}
+
+.side h1 {
+  color: #4A494A;
 }
 
 .links {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
+    border: 1px solid #94A3A4;
+    width: 90%;
+    padding: 5%;
+    padding-left: 7%;
+    background-color: #2AC0C4;
+    color: #FEFEFF;
 }
 
-.center {
-    text-align: center;
+.second {
+  margin-top: 15px;
+  padding: 5%;
 }
+
+
