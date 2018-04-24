@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import NotesDisplay from './components/NotesDisplay/NotesDisplay';
 import { Route } from 'react-router';
+
+import './App.css';
 import { Navigation } from './components/Navigation';
+import NotesDisplay from './components/NotesDisplay/NotesDisplay';
 import NewNote from './components/NewNote/NewNote';
 
 class App extends Component {

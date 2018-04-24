@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const Navigation = () => {
     return (
-
-        <Link to= '/'> View Your Notes </Link>
+        <div>
+            <Link to= '/'> View Your Notes </Link>
+            <Link to= '/newNote'> +Create New Note </Link>
+        </div>
     )
 }
