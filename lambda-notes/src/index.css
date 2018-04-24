@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +16,15 @@ body {
 /* Lambda Notes */
 .header {
   color: #4A494A;
+  font-weight: bold;
+  font-size: 42px;
+}
+
+.sub_header {
+  color: #4a4a4a;
+  font-weight: bold;
+  font-size: 32px;
+  border: 1px solid yellow;
 }
 
 /* Your Notes: */
@@ -18,6 +35,7 @@ body {
 
 /* Left Side Bar */
 .LeftBanner {
+  padding: 0 auto;
   background-color: #AFAFAF;
 }
 
@@ -27,24 +45,132 @@ body {
 
 /* View Your Notes */
 .navButton1 {
-  width: 120%;
+  /* width: 120%;
   height: 35px;
   background-color: #2AC0C4;
   color: #ffffff;
   border: 1px thin grey;
   font-size: 12px;
+  font-weight: bold; */
+  width: 100%;
+  height: 50px;
+  background-color: #2bc1c4;
+  color: #ffffff;
   font-weight: bold;
+  font-size: 21px;
+  border: 1px solid rgb(133, 131, 131);
+  border-radius:1%;
 }
 
 /* +Create New Note */
 .navButton2 {
-  width: 105%;
+  /* width: 105%;
   height: 35px;
   background-color: #2AC0C4;
   color: #ffffff;
   border: 1px thin grey;
   font-size: 12px;
+  font-weight: bold; */
+  width: 100%;
+  height: 50px;
+  background-color: #2bc1c4;
+  color: #ffffff;
   font-weight: bold;
+  font-size: 21px;
+  border: 1px solid rgb(133, 131, 131);
+  border-radius:1%;
+}
+
+.navButton_save {
+  width: 30%;
+  height: 50px;
+  background-color: #2bc1c4;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 21px;
+  border: 1px solid rgb(133, 131, 131);
+  border-radius: 1%;
+}
+
+.navLink {
+  width: 95%;
+}
+
+.body {
+  min-height: 100%;
+  margin-top: 7%;
+}
+
+.viewNote {
+  min-height: 100%;
+  margin-top: 7%;
+}
+
+.noteTitle {
+  max-width: 60%;
+  height: 50px;
+  border: 1px solid rgb(133, 131, 131);
+}
+
+.noteContent {
+  height: 600px;
+}
+
+.noteLink {
+  text-decoration: none;
+  color: black;
+}
+
+.noteLink:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.modalLink {
+  text-decoration: underline;
+  color: gray;
+  border: none;
+}
+
+.modalLink:hover {
+  color: gray;
+  cursor: default;
+}
+
+.modal-footer {
+  width: 90%;
+}
+
+.delete-Link {
+  width: 90%;
+}
+
+.modeTitle {
+  width: 90%;
+  text-align: center;
+}
+
+.modeButton {
+  width: 100%;
+  border: 1px solid gray;
+  width: 100%;
+  height: 45px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+
+.modeButton_no {
+  width: 100%;
+  background-color: #2bc1c4;
+  border: 1px solid gray;
+  height: 45px;
+  color: white;
+  font-weight: bold;
+}
+
+.deleteModal {
+  width: 80%;
 }
 
 .cardtitle {
