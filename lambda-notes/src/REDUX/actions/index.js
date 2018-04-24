@@ -38,3 +38,16 @@ export const deleteNote = id => {
       })
   }
 }
+
+export const updateNote = note => {
+  return dispatch => {
+    axios.put(`http://localhost:3141/notes/${note.id}`, note)
+      .then(response => {
+        console.log(response)
+        dispatch({ type: FETCH_NOTES, payload: response.data })
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+}

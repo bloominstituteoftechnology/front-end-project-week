@@ -4,12 +4,20 @@ import { Link } from 'react-router-dom';
 import { deleteNote } from '../REDUX/actions';
 
 class ViewNote extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: "",
+      content: ""
+    }
+  }
+
   render() {
     const { note } = this.props.location.state.viewNote;
     return (
-      <div className="PrimaryContainer__newNote">
+      <div className="PrimaryContainer__newNote"> 
         <div className="ViewNote__editOptions">
-          <Link to="#">edit</Link>
+          <Link to={{ pathname: `/edit/${note.id}`, state: { note: note } }}>edit</Link>
           <Link to="/" onClick={() => this.props.deleteNote(note.id)}>delete</Link>
         </div>
         <h1 className="PrimaryContainer__header">{note.title}</h1>
@@ -21,5 +29,4 @@ class ViewNote extends Component {
 }
 
 export default connect(null, { deleteNote })(ViewNote);
-
 // export default ViewNote;

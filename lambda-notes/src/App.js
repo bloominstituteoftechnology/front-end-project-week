@@ -5,7 +5,8 @@ import {
   NavColumn,
   PrimaryContainer,
   NewNote,
-  ViewNote
+  ViewNote,
+  EditNote
 } from './components';
 
 
@@ -18,6 +19,7 @@ class App extends Component {
         <Route exact path="/" component={PrimaryContainer} />
         <Route path="/create" component={NewNote} />
         <Route path="/viewnote/:id" render={props => <ViewNote {...props} />} />
+        <Route path="/edit/:id" render={props => <EditNote {...props} />} />
       </div>
     );
   }

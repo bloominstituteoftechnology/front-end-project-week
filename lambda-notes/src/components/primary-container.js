@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 import { getNotes, saveNote } from '../REDUX/actions';
 
 class PrimaryContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   componentDidMount() { this.props.getNotes() }
 
@@ -16,10 +12,7 @@ class PrimaryContainer extends Component {
     const contentLength = note.content.split(" ");
     return (
       <Card key={note.id} className="col-4 NoteCard">
-        <Link to={{
-          pathname: `/viewnote/${note.id}`,
-          state: { viewNote: {note} }
-        }}>
+        <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }}>
           <CardTitle className="NoteTitle">{note.title}</CardTitle>
         </Link>
         <CardBody className="NoteContent">
