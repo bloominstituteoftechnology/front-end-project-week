@@ -29,7 +29,8 @@ class App extends Component {
           render={() => <NoteList Note={this.state.Notes} />} />
           <Route 
           path="/new" component={NewNoteForm} />
-          <Route path="/note/:id" component={NoteItem} />
+          <Route path="/note/:id" render={props => 
+          <NoteItem {...props} {...this.state} /> } />
       </div>
     );
   }
