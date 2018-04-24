@@ -1,5 +1,13 @@
 .App {
+  /*border: 1px solid black;*/
   text-align: center;
+}
+
+.ControlPanelButton {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 40px;
 }
 
 .App-logo {
@@ -23,6 +31,10 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
