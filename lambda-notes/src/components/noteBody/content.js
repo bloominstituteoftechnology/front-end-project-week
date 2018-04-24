@@ -11,7 +11,7 @@ class Content extends Component {
         super();
         this.state={
             cards: [ { title: "Card title # 1", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-            { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }
+            { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 4", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 5", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 6", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 7", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 8", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }, { title: "Card title # 9", content: "Some quick example text to build on the card title and make up the bulk of the card's content." }
           ], 
         };
     } 

@@ -34,7 +34,7 @@ class AddNote extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Link className='' to='/'>
-                        <button onClick={this.handleSubmit} className='navButton save mt-2'>Save Note</button>
+                        <button onClick={this.handleSubmit} className='navButton_save mt-2'>Save Note</button>
                         </Link>
                     </FormGroup>
                 </Form>
