@@ -5,27 +5,16 @@ import { Nav, NavItem, NavLink } from 'reactstrap';
 
 export default () => {
   return (
-    // <div>
-    //   <h1 className="">Lambda Notes</h1>
-    //   <Nav vertical>
-    //     <Link to="/">
-    //      <Button className="Button">View Your Notes</Button>
-    //     </Link>
-    //     <Link to="/create">
-    //      <Button className="Button">+ Create New Note</Button>
-    //     </Link>
-    //   </Nav>
-    // </div>
-    <Container className="NavContainer col-3">
-      <h2 className="Nav__header">Lambda Notes</h2>
-      <div className="Nav__Buttons">
+    <div className="Nav__Container">
+      <h1 className="Nav__Header">Lambda Notes</h1>
+      <Nav vertical className="Nav__ButtonsContainer">
         <Link to="/">
-          <Button className="Button">View Your Notes</Button>
+         <Button className="Nav__ButtonsContainer--navButton">View Your Notes</Button>
         </Link>
         <Link to="/create">
-          <Button className="Button">+ Create New Note</Button>
+         <Button className="Nav__ButtonsContainer--navButton">+ Create New Note</Button>
         </Link>
-      </div>
-    </Container>
+      </Nav>
+    </div>
   )
 }

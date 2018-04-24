@@ -11,14 +11,6 @@ class PrimaryContainer extends Component {
   cardFactory = note => {
     const contentLength = note.content.split(" ");
     return (
-      // <Card key={note.id} className="col-4 NoteCard">
-      //   <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }}>
-      //     <CardTitle className="NoteTitle">{note.title}</CardTitle>
-      //   </Link>
-      //   <CardBody className="NoteContent">
-      //     { contentLength.length >= 17 ? `${contentLength.slice(0, 17).join(" ")} ...` : note.content }
-      //   </CardBody>
-      // </Card>
       <Col md="12" lg="6" xl="4" className="NoteCard">
         <Link key={note.id} to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
           <Card className="">

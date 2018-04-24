@@ -3,6 +3,7 @@ import { Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { saveNote } from '../REDUX/actions';
 import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 
 class NewNote extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class NewNote extends Component {
         />
         <br/>
         <Link to="/">
-          <button className="Button col-3" onClick={() => this.handleSaveNote()}>Save</button>
+          <Button className="Button col-3" onClick={() => this.handleSaveNote()}>Save</Button>
         </Link>
       </div>
     )
