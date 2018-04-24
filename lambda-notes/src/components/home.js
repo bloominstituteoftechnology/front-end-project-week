@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from 'reactstrap';
+import{ Link } from 'react-router-dom'
 const Home = () =>{
     return (<React.Fragment>
 <div className="home-styles">
@@ -8,8 +9,9 @@ const Home = () =>{
  Notes</h2>
  </div>
  <div className="button-styles">
+ <Link to="/">
  <Button color="primary" className="button">View your memes</Button>
- 
+ </Link>
  <Button color="primary"className="button">+create new meme</Button>
  </div>
  </div>

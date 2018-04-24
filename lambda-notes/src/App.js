@@ -4,6 +4,7 @@ import {notes} from './Notes/notes';
 import {Route} from 'react-router-dom';
 import Notes from "./Components/ListView"
 import Home from "./Components/home"
+import NoteView from "./Components/NoteView"
 class App extends Component {
   constructor(){
     super();
@@ -26,6 +27,9 @@ class App extends Component {
          { <Route exact path="/"
           render= {props =><Notes  notes={this.state.notes}/>}
       />}
+      {<Route path ="/note/:id"
+      render ={props =><NoteView notes={this.state.notes} {...this.state}/>}
+    />}
       </div>
       </div>
     );
