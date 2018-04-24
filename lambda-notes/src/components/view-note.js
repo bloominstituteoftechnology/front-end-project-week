@@ -30,7 +30,7 @@ class ViewNote extends Component {
           <button onClick={() => this.toggleModal()} className="ViewNote__editOptions--click">delete</button>
         </div>
         <h1 className="PrimaryContainer__header">{note.title}</h1>
-        <div>{note.content}</div>
+        <div className="ViewNote__content">{note.content}</div>
         <div>{note.id}</div>
         {this.state.modal ? (
           <Modal isOpen={this.state.modal}>
