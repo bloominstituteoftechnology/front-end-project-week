@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+// material ui components
+import TextField from "material-ui/TextField";
 // actions
 import { addTodo } from "../actions/index";
 
@@ -27,28 +29,36 @@ class CreateTodoForm extends Component {
 	render() {
 		// console.log("TITLE: ", this.state.title);
 		// console.log("TEXT: ", this.state.text);
-		return (
-			<form>
-				<input
-					type="text"
-					placeholder="Note Title"
+		return [
+			<div className="row">
+				<h3>Create New Note:</h3>
+				<TextField
+					hintText="Hint Text"
+					floatingLabelText="Floating Label Text"
 					name="title"
 					value={this.state.title}
 					onChange={this.handleNewInput}
 				/>
-				<textarea
-					placeholder="Note Content"
+			</div>,
+			<div className="row">
+				<TextField
+					hintText="Message Field"
+					floatingLabelText="MultiLine and FloatingLabel"
+					multiLine={true}
+					rows={4}
 					name="text"
 					value={this.state.text}
 					onChange={this.handleNewInput}
 				/>
+			</div>,
+			<div className="row">
 				<Link to="/">
 					<button type="button" onClick={this.handleAddTodo}>
 						Save
 					</button>
 				</Link>
-			</form>
-		);
+			</div>
+		];
 	}
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import logo from "./logo.svg";
 // styles
-import "./App.css";
+import "./styles/App.css";
 import "./bootstrap/css/bootstrap.css";
 // components
 import CreateTodoForm from "./components/CreateTodoForm.js";

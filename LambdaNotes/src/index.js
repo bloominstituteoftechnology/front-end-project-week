@@ -6,7 +6,7 @@ import logger from "redux-logger";
 import { Provider } from "react-redux";
 // Material-UI
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import "./index.css";
+import "./styles/index.css";
 // components
 import App from "./App";
 // reducer
