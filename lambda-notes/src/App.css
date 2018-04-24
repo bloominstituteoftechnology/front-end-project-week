@@ -8,6 +8,11 @@
   height: 100%;
 }
 
+.ScrollOverflow {
+  overflow-y: scroll;
+  padding-right: 5%;
+}
+
 .ViewNote__editOptions {
   float: right;
 }

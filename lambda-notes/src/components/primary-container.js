@@ -16,7 +16,7 @@ class PrimaryContainer extends Component {
           <CardTitle className="NoteTitle">{note.title}</CardTitle>
         </Link>
         <CardBody className="NoteContent">
-          { contentLength.length >= 20 ? `${contentLength.slice(0, 20).join(" ")} ...` : note.content }
+          { contentLength.length >= 17 ? `${contentLength.slice(0, 17).join(" ")} ...` : note.content }
         </CardBody>
       </Card>
     )
@@ -27,17 +27,13 @@ class PrimaryContainer extends Component {
       <div className="PrimaryContainer">
         <h1 className="PrimaryContainer__header">Your Notes:</h1>
         <div className="PrimaryContainer__cardContainer">
-          {this.props.notes.map(note => { return this.cardFactory(note) })}
+          {this.props.notes.map(note => this.cardFactory(note))}
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  }
-}
+const mapStateToProps = state => ({ notes: state.notes })
 
 export default connect(mapStateToProps, { getNotes, saveNote })(PrimaryContainer);

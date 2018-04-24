@@ -16,47 +16,47 @@ const sendUserError = (message, response) => {
 let notes = [
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 0
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 1
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 2
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 3
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 4
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 5
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 6
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 7
   },
   {
     title: "Note Title",
-    content: "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat massa id lorem fermentum sodales sed at lacus. Quisque lobortis bibendum purus. Mauris molestie venenatis fringilla. Vivamus at neque tempor, ultrices sapien quis, tempus erat. Integer tincidunt orci at viverra laoreet. Vestibulum pretium nisi tellus, at elementum dolor rhoncus eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec volutpat nibh non ante facilisis, vel elementum justo accumsan. Aliquam eu neque a magna volutpat lobortis quis eget augue. Maecenas vulputate fringilla ex, ac fringilla est fermentum et. Curabitur eget erat id velit vulputate malesuada. Quisque dapibus ligula at leo blandit, sed placerat nulla elementum. Nunc vulputate felis vel aliquet lobortis. Ut eget leo ut nisi tincidunt aliquet. Etiam ut mollis risus, et suscipit metus. Integer nec purus sollicitudin, elementum lectus sit amet, placerat tellus.",
     id: 8
   }
 ];
