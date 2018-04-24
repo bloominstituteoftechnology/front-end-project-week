@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+// import { Route } from 'react-router-dom';
 import Cards from './Components/Cards.js';
 import Input from './Components/Input.js';
 
@@ -29,7 +30,6 @@ class App extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // console.log("DOES HANDLE SUBMIT WORK", Notes);
     const Notes  = this.state.Notes;
     Notes.push(this.state.newNote);
     this.setState({ Notes, newNote:{ title: '', content: '' }});
@@ -47,13 +47,19 @@ class App extends Component {
               <button type='button' className='btn btn-sm mb-2 '>View Your Notes</button>
               <button type='button' className='btn btn-sm'> + Create Your Note</button>
             </div>
-            <div className='column_right'>
-              <Cards notes={this.state.Notes} />
+            <div className='column_right '>
+              <div>
+                <Cards notes={this.state.Notes} />
+              </div>
+
+              <div>
               <Input 
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
               />
+              </div>
             </div>
+
           </div>
 
           

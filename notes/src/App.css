@@ -25,17 +25,33 @@
 }
 
 .btn {
-  background: #33CCCC;
+  background: lightseagreen;
   margin-top: 5px ;
   color: white;
   width: 85%;
   font-size: 8px;
+  cursor: pointer;
 }
-/* button {
-  width: 10rem;
-  font-size: 8px;
-  background: #33CCCC;
-  color: white;
-  border: none;
 
-} */
+.input_title {
+  width: 50%;
+  border-color: #B0B0B0;
+  border-radius: 5px;
+}
+.input_content {
+  height: 400px;
+  border-color: #B0B0B0;
+  border-radius: 5px;
+}
+
+.save_button {
+  border: 1px solid #B0B0B0;
+  color: white;
+  background-color: lightseagreen;
+  width: 25%;
+  
+}
+.btn:hover {
+  background-color: green;
+  color: white;
+}

@@ -1,43 +1,34 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Input, Label, FormText } from 'reactstrap';
 
-// class Input extends Component {
-//     constructor(props){
-//         super(props);
-//         this.state = {
-//             value: []
-//             }
 
-//     this.handleChange = this.handleChange.bind(this);
-//     this.handleSubmit = this.handleSubmit.bind(this);
-// }
-// render(){
-
- const Input = props => {
+ const Inputs = props => {
     
         return(
-            <div onSubmit={props.handleSubmit}>
-                <label>
-                    Create New Note:
-                </label>
-                <input
+            <div onSubmit={props.handleSubmit}
+                className='input d-flex flex-column' >
+                <h4 className='New_note_header text-left pl-3 pt-5 '> Create New Note: </h4>
+                    
+                <input className='input_title p-1 ml-3 mt-3 border'
                     type='text'
                     placeholder='Note Title'
                     name='Title'
                     onChange={props.handleChange} 
                 />
-                 <input
+                 <input className='input_content p-1 ml-3 mt-2 mr-5 border'
                     type='text'
                     placeholder='New Content'
                     name='Content'
                     onChange={props.handleChange} 
                 />
-                {/* <input type='submit' value='Save'/> */}
-                <button onClick={props.handleSubmit}>
-                Save
+
+                <button onClick={props.handleSubmit} 
+                    type='button' 
+                    className=' btn btn-sm ml-3 mt-2 save_button'> Save
                 </button>
             </div>
         );
     }
 
 
-export default Input;
+export default Inputs;
