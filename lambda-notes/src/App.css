@@ -94,9 +94,14 @@ background: rgb(243, 240, 240);
   margin-top: 0px;
   text-align: justify;
   text-justify: inter-word;
+  color:black;
+  
  
 }
+.card-styles:hover{
+  text-decoration: none;
 
+}
 
 .notesHeader-styles{
   margin-top:50px;

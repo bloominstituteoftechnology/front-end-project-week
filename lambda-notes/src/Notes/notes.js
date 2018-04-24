@@ -1,14 +1,10 @@
 export const notes =[
     {
+        "id":"0",
      "title":"Note Title",   
      "textbody":"morbi pellentesque euismos venmenatis. Nulla ut nibH nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ..."
     },
     {
-        "id":"0",
-        "title":"Note Title",   
-        "textbody":"morbi pellentesque euismos venmenatis. Nulla ut nibH nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ..."
-       },
-       {
         "id":"1",
         "title":"Note Title",   
         "textbody":"morbi pellentesque euismos venmenatis. Nulla ut nibH nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ..."
@@ -40,6 +36,11 @@ export const notes =[
        },
        {
         "id":"7",
+        "title":"Note Title",   
+        "textbody":"morbi pellentesque euismos venmenatis. Nulla ut nibH nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ..."
+       },
+       {
+        "id":"8",
         "title":"Note Title",   
         "textbody":"morbi pellentesque euismos venmenatis. Nulla ut nibH nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ..."
        },

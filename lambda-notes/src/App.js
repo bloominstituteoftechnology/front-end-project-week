@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import {notes} from '../notes/notes.js';
-import Notes from "./ListView"
-import Home from "./Home"
+import {notes} from './Notes/notes';
+import {Route} from 'react-router-dom';
+import Notes from "./Components/ListView"
+import Home from "./Components/home"
 class App extends Component {
   constructor(){
     super();
@@ -20,9 +21,11 @@ class App extends Component {
     return (
 
       <div className="App">
-      <Home/>
+      <Route path="/" component={Home}/>
       <div className="container-styles">    
-          <Notes  notes={this.state.notes}/>
+         { <Route exact path="/"
+          render= {props =><Notes  notes={this.state.notes}/>}
+      />}
       </div>
       </div>
     );
