@@ -11,10 +11,10 @@ export default class TodoList extends Component {
             todo:dummyData
         }
     }
-    render() {
+    render(props) {
         return (
         <div className="ListContainer">
-            <Todo dummyData={dummyData}/>
+            <Todo cardinfo={this.props.cardinfo}/>
         </div>
         )
     }

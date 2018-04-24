@@ -5,18 +5,25 @@ import LeftBox from './components/LeftBox';
 import CreateNote from './components/CreateNote';
 import ViewNote from './components/ViewNote';
 import EditNote from './components/EditNote';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  render() {
+  render(props) {
     return (
       <div className="AppContainer">
       <div className="App">
         <LeftBox />
-        <EditNote />
+        <TodoList cardinfo={this.props.cardinfo}/>
       </div>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    cardinfo: state
+  };
+}
+
+export default connect(mapStateToProps)(App);
