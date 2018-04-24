@@ -1,7 +1,9 @@
 .App {
   display: flex;
-  width: 40%;
-  margin: auto;
+  max-width: 800px;
+  height: 820px; 
+  margin: 10px auto;
+  border: 1px solid gray;
 }
 
 .App-logo {
@@ -22,10 +24,6 @@
 
 .App-intro {
   font-size: large;
-}
-
-.notesList {
- 
 }
 
 .sideBar {

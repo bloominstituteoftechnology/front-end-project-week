@@ -1,11 +1,12 @@
 import React from "react";
+import './SideBar.css';
 
 export const SideBar = props => {
   return <div className="sideBarContainer">
-            <div>
-                <h2>Lambda Notes</h2>
+            <div className="header">
+                <h1>Lambda Notes</h1>
             </div>
-            <button>View Your Notes</button>
-            <button>+ Create New Note</button>
+            <button className="button">View Your Notes</button>
+            <button className="button">+ Create New Note</button>
          </div>
 };

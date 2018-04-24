@@ -1,0 +1,23 @@
+.button {
+    background-color: rgb(58, 175, 184);
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 86%;
+    font-size: 15px;
+    margin: 10px 15px;
+    cursor: pointer;
+    border: 1px solid gray;
+    font-weight: bold;
+}
+
+.header {
+    margin-left: 15px;
+    line-height: 27px;
+}
+
+.headerSideBar {
+    font-weight: bold;
+}
