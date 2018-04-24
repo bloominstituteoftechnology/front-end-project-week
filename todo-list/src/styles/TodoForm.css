@@ -1,14 +1,34 @@
 .TodoForm {
+  color: rgb(77, 77, 77);
   display: flex;
   flex-direction: column;
   padding: 40px 5%;
 }
 
 .TodoForm_header {
-  font-size: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 13px;
+}
+
+.TodoForm_header:after {
+  border-bottom: 1px solid rgb(161, 161, 161);
+  content: '';
+  display: block;
+  height: 10px;
+  margin-left: -10px;
+  width: 100%;
 }
 
 .TodoForm_inputs {
   display: flex;
   flex-direction: column;
+}
+
+.TodoForm_inputs * {
+  border-radius: 2px;
+  box-shadow: inset 0 0 rgb(255, 255, 255);
+  height: 30px;
+  margin: 10px 0;
+  padding: 10px;
 }
