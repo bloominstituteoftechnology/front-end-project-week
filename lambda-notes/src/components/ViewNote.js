@@ -29,7 +29,51 @@ export const ViewNote = ({ match, notes, history, deleteNote }) => {
           <p>{note.text}</p>
         </div>
       </div>
-      <button onClick={handleDelete}>Delete</button>
+
+      {/* modal */}
+      <div
+        className="modal fade"
+        id="deleteModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div>
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              Are you sure you want to delete this?
+            </div>
+            <div className="d-flex justify-content-center">
+              <button
+                type="button"
+                className="modal_btn del_btn"
+                data-dismiss="modal"
+                onClick={handleDelete}
+              >
+                Delete
+              </button>
+              <button
+                type="button"
+                className="modal_btn no_btn"
+                data-dismiss="modal"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

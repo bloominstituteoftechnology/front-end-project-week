@@ -1,6 +1,6 @@
 import React from "react";
 
-export const NewNote = props => {
+export const NewNote = ({ history, addNote }) => {
   let titleInput;
   let textInput;
 
@@ -16,7 +16,8 @@ export const NewNote = props => {
           className="add__form"
           onSubmit={event => {
             event.preventDefault();
-            props.addNote({ title: titleInput.value, text: textInput.value });
+            addNote({ title: titleInput.value, text: textInput.value });
+            history.push("/");
           }}
         >
           <input
