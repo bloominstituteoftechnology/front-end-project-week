@@ -130,3 +130,22 @@ CreateNote__Title & CreateNote__NoteTitle
     cursor: pointer;
     margin-left: 20px;
 }
+
+/* ViewNote */
+
+.ViewNote__Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.ViewNote__Title {
+    margin-top: 30px;
+    margin-left: 28px;  
+}
+
+.ViewNote__Content{
+    margin: 28px;
+}

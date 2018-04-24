@@ -3,6 +3,7 @@ import './App.css';
 import TodoList from './components/todoList.js';
 import LeftBox from './components/LeftBox';
 import CreateNote from './components/CreateNote';
+import ViewNote from './components/ViewNote';
 
 class App extends Component {
   render() {
@@ -10,7 +11,7 @@ class App extends Component {
       <div className="AppContainer">
       <div className="App">
         <LeftBox />
-        <TodoList/>
+        <ViewNote/>
       </div>
       </div>
     );
