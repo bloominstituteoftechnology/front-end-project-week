@@ -16,12 +16,12 @@ class NoteForm extends React.Component{
                 <div className="row">
                     <Form>
                         <FormGroup>
-                            <Input type="text" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                            <Input type="text" name="noteTitle" id="noteTitle" placeholder="Note Title" />
                         </FormGroup>
                         <FormGroup>
-                            <Input type="textarea" name="password" id="examplePassword" placeholder="password placeholder" />
+                            <Input type="textarea" name="noteDetail" id="noteDetail" placeholder="Note Detail" />
                         </FormGroup>
-                        <Button>Save</Button>
+                        <Button className='save__button'>Save</Button>
                     </Form>
                 </div>
             </div>

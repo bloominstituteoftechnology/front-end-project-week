@@ -60,3 +60,13 @@
     height: 100vh;
     border: 1px solid gray;
 }
+
+.save__button {
+    background-color: #2bc1c4;
+    border: 1px solid grey;
+    height: 45px;
+    width: 30%;
+    color: #fff;
+    margin: 10px 4%;
+    text-align: center;
+}
