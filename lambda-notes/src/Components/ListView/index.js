@@ -10,10 +10,10 @@ export const NoteList = props => {
                 <div className="links">View Your Notes</div>
                 <div className="links second">+Create New Note</div>
             </div>
-            <div className="center">
-                <h4>Your Notes:</h4>
+            <h4>Your Notes:</h4>
+            <div className="right">
                 {props.Notes.map(note => {
-                    return <Note className="notes" title={note.title} body={note.body} />
+                    return <Note key={note.id} title={note.title} body={note.body} />
                 })}
             </div>
         </div>

@@ -12,7 +12,7 @@ class Note extends React.Component {
             <div>
                 <Card className="Card">
                     <CardTitle className="title">{this.props.title}</CardTitle>
-                    <CardBody>{this.props.body}</CardBody>
+                    <CardBody className="body">{this.props.body}</CardBody>
                 </Card>
             </div>
         )
