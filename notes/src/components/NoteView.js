@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Markdown from "react-markdown";
 import "./NoteView.css";
 
 class NoteView extends Component {
@@ -21,7 +22,7 @@ class NoteView extends Component {
           <div className="NoteView-delete-link" onClick={this.toggleModal}>delete</div>
         </div>
         <h2 className="NoteView-title">{this.state.note.title}</h2>
-        <p className="NoteView-content">{this.state.note.content}</p>
+        <Markdown className="NoteView-content" source={this.state.note.content}/>
         <div className={`NoteView-delete-modal-background${this.state.modalActive ? "" : " NoteView-delete-modal-toggle"}`} />
         <div className={`NoteView-delete-modal-container${this.state.modalActive ? "" : " NoteView-delete-modal-toggle"}`}>
           <div className="NoteView-delete-modal-text">

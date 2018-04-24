@@ -20,13 +20,31 @@ const defaultNotes = [
 ];
 
 class App extends Component {
-  state = {
-    notes: defaultNotes,
-    nextID: defaultNotes.length + 1
-  };
+  constructor() {
+    super();
+    let noteData;
+    const storedData = localStorage.getItem('notes');
+    if (storedData) {
+      noteData = JSON.parse(storedData);
+    } else {
+      noteData = defaultNotes;
+    }
+    let id;
+    const storedID = localStorage.getItem('nextID');
+    if (storedID) {
+      id = Number(JSON.parse(storedID));
+    } else {
+      id = noteData.length + 1;
+    }
+    this.state = {
+      notes: noteData,
+      nextID: id
+    };
+  }
 
   deleteNote = id => {
     const newNotes = this.state.notes.filter(note => note.id !== id);
+    localStorage.setItem('notes', JSON.stringify(newNotes));
     this.setState({notes: newNotes});
   }
 
@@ -38,16 +56,19 @@ class App extends Component {
       }
       return note;
     });
+    localStorage.setItem('notes', JSON.stringify(notes));
     this.setState({notes: notes});
   }
 
   createNote = newNote => {
+    localStorage.setItem('notes', JSON.stringify([...this.state.notes, newNote]));
     this.setState({notes: [...this.state.notes, newNote]});
   }
 
   getID = () => {
     const id = this.state.nextID;
-    this.setState({nextID: this.state.nextID + 1});
+    localStorage.setItem('nextID', JSON.stringify(id + 1));
+    this.setState({nextID: id + 1});
     return id;
   }
 

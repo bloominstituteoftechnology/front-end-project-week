@@ -1,4 +1,5 @@
 import React from "react";
+import Markdown from "react-markdown";
 import "./NoteCard.css";
 
 const NoteCard = props => {
@@ -7,9 +8,7 @@ const NoteCard = props => {
       <div className="NoteCard-container">
         <h3>{props.title}</h3>
         <div className="NoteCard-divider"/>
-        <p className="NoteCard-content">
-          {props.content}
-        </p>
+        <Markdown className="NoteCard-content" source={props.content}/>
       </div>
     </div>
   );
