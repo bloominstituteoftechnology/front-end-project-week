@@ -7,9 +7,11 @@ class ListView extends Component {
 
     render() {
         return (
-            <div>
+            <div className = "body">
                 <div className = "sideBar">
-                    <h1>Lambda Notes</h1>
+                    <div className = "logo">
+                        <h1>Lambda Notes</h1>
+                    </div>
                     <button>View Your Notes</button>
                     <button>+Create New Note</button>
                 </div>

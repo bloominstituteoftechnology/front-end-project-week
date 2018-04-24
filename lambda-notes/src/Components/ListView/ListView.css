@@ -4,8 +4,37 @@
     box-sizing: border-box;
 }
 
+body {
+    height: 100%;
+    background-color: red;
+}
+
 .sideBar {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 25%;
+    background-color: #D3D2D3;
+    padding: 2%;
+    height: 100vh;
+}
+
+.sideBar h1 {
+    color: #4A494A;
+    font-size: 3rem;
+    margin-bottom: 4%;
+}
+
+.sideBar button {
+    background-color: red;
+    border: none;
+    background-color: #2AC0C4;
+    color: white;
+    margin-top: 8%;
+    font-size: 1.4rem;
+    height: 7.5vh;
+}
+
+.logo {
+    width: 90%;
+    text-align: left;
 }
