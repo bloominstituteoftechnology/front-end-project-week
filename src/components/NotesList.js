@@ -3,6 +3,9 @@ import Data from "./Data";
 import { Link } from "react-router-dom";
 import LeftPanal from "./LeftPanal";
 import Myheader from "./Myheader";
+import SelectedNotes from './SelectedNotes'; 
+import ShowNote from './ShowNote';
+
 
 export default class NotesList extends Component {
   state = {
@@ -14,30 +17,26 @@ export default class NotesList extends Component {
 
   componentDidMount() {
     this.setState({ notes: Data });
-    console.log(this.props);
   }
 
   addNote = note => {};
 
-  selectNote = (e) => {
-
-  }
+ goToSelectedNote = (note) => {
+ 
+ }
 
   render() {
     return (
       <div className="container0">
         <LeftPanal />
         <Myheader text="Your Notes" />
-
         <div className="container1">
           {this.state.notes.map(note => {
             return (
-              <div>
-                <div  onClick={this.selectNote} className="Note">
-                  <div>{note.title}</div>
-                  <div>{note.content}</div>
-                </div>
-              </div>
+              <Link to= {`selectedNotes/${note.id}`} >
+                <ShowNote p={note} c="Note" />
+              </Link>
+           
             );
           })}
         </div>
