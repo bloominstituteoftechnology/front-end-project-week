@@ -10,24 +10,30 @@ import { Modal } from './Modal';
 
 
 export class App extends Component {
-  state = { notes: [] };
+  constructor(props) {
+    super(props);
+
+    this.state = { notes: [] }
+    localStorage.setItem('notes', JSON.stringify(this.state.notes));
+  }
 
   componentDidMount() {
     this.getNotes();
+    console.log(this.state.notes);
   }
 
   getNotes = () => {
-    const cachedNotes = localStorage.getItem('notes');
-    if(cachedNotes) {
-      this.setState({ notes: JSON.parse(cachedNotes) });
-      return;
-    }
-    this.setState({ notes: dummyNotes });
+    const notes = localStorage.getItem('notes');
+    this.setState({ notes: notes });
   }
   
   createNote = note => {
-    console.log(this.state.notes);
+    // Take in note title and body as object
+    // Grab parsed localStorage notes (array of objects)
+    localStorage.
 
+
+    console.log(this.state.notes);
     //this.setState({ });
   }
 

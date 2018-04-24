@@ -42,7 +42,7 @@ export class NoteForm extends Component {
         </form>
         <Link to="/"><button className="App_button" 
           onClick={() => {
-            this.props.useFunction();
+            this.props.useFunction(this.state);
         }}>Save</button></Link>
       </div>
     )
