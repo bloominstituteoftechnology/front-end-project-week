@@ -1,6 +1,18 @@
-.ControlPanelButton {
-	display: block;
-	margin: 0 auto;
-	width: 50%;
-	height: 40px;
+.ControlPanel {
+	border: 1px solid black;
+	height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+	margin: 0;
+	padding: 0 3%;
+}
+
+.ControlPanel_header {
+	font-size: 5rem;
+	text-align: left;
+}
+
+.ControlPanel_button {
+	margin: 0 0 20px 0;
+	width: 100%;
 }

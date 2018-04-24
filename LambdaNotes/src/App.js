@@ -16,7 +16,7 @@ class App extends Component {
       <div className="App">
         <div className="row">
           {/* Render ControlPanel here */}
-          <div className="col-md-4">
+          <div className="col-md-4 ControlPanel">
             <ControlPanel />
           </div>
           {/* Render Todos here */}

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+// material components
+import RaisedButton from "material-ui/RaisedButton";
+// styles
 import "../styles/ControlPanel.css";
 
 class ControlPanel extends Component {
@@ -7,13 +10,17 @@ class ControlPanel extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<h3>Lambda Notes</h3>
-				<button className="ControlPanelButton">View Your Notes</button>
-				<button className="ControlPanelButton">Create Todo</button>
-			</div>
-		);
+		return [
+			<h3 className="ControlPanel_header">
+				Lambda<br />Notes
+			</h3>,
+			<RaisedButton className="ControlPanel_button" primary={true}>
+				View Your Notes
+			</RaisedButton>,
+			<RaisedButton className="ControlPanel_button" primary={true}>
+				Create Todo
+			</RaisedButton>
+		];
 	}
 }
 
