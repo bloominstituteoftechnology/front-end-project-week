@@ -28,6 +28,9 @@
 }
 
 .PageContainer {
-  display: flex;
-  justify-content: left;
+  width: 100%;
+}
+
+.MainContentContainer {
+  width: 100%;
 }

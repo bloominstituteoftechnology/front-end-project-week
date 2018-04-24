@@ -1,9 +1,16 @@
 .NoteList {
   border: 2px solid red;
+  width: 100%;
 }
 
 .NoteCard {
   border: 1px solid black;
   border-radius: 10px;
-  width: 100%;
+}
+
+.TextBox {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 125px;
 }

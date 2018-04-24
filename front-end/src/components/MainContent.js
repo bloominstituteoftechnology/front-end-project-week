@@ -8,18 +8,18 @@ import { Route } from "react-router-dom";
 export default class MainPageContainer extends Component {
   constructor() {
     super();
-    this.state = {
-      showNoteList: true,
-      showCreateNote: false,
-      showEditNote: false
-    };
+    // this.state = {
+    //   showNoteList: true,
+    //   showCreateNote: false,
+    //   showEditNote: false
+    // };
   }
 
   render() {
     return (
-      <div>
-        <Route component={NoteList} />
-        <Route component={CreateNoteItem} />
+      <div className="RouteContainer">
+        <Route exact path="/" component={NoteList} />
+        <Route path="/note/create" component={CreateNoteItem} />
         {/* <Route component={EditNote} /> */}
       </div>
     );

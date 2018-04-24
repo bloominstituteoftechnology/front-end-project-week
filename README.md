@@ -18,7 +18,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 * [x] Add your Trello URL to your project's README.md file.  Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
-* [ ] Display a list of notes
+* [x] Display a list of notes
 * [ ] Create a note with a title and content
 * [ ] View an existing note
 * [ ] Edit an existing note

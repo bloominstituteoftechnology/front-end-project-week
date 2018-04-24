@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { fetchNotes } from "../../actions";
 import { connect } from "react-redux";
 
-import "./NoteList.css"
+import "./NoteList.css";
 
 class NoteList extends Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class NoteList extends Component {
   render(props) {
     console.log("things in props.notes", this.props.notes);
     return (
-      <div className="NoteList">
+      <div className="NoteList row p-0 m-0">
         {this.props.notes.map(eachNote => (
-          <div className="NoteCard" key={eachNote.id}>
+          <div className="NoteCard col-4 p-4" key={eachNote.id}>
             <h1>{eachNote.title}</h1>
-            <div>{eachNote.content}</div>
+            <div className="TextBox">{eachNote.content}</div>
           </div>
         ))}
       </div>
