@@ -1,31 +1,27 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { Route } from "react-router";
+
 import "./App.css";
+import NoteList from "./components/NoteList/NoteList.js";
+import CreateNote from "./components/CreateNote/CreateNote.js";
+import Note from "./components/Note/Note.js";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      titleInput: "",
-      descriptionInput: "",
-      noteList: []
+      note: []
     };
   }
 
-  handleAddNote = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  //   handleSubmitNote = e => {
-  //     this.setState({
-  //       const
-  //     })
-  //   }
-  
   render() {
-    return <div>Placeholder Text</div>;
+    return (
+      <div>
+        <Route exact path="/" component={NoteList} />
+        <Route path="/CreateNote" component={CreateNote} />
+        <Route path="/Note" component={Note} />
+      </div>
+    );
   }
 }
 
