@@ -10,21 +10,16 @@ import {
   Button
 } from "reactstrap";
 
-class Note extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Note = () => {
 //returns the Notecard
-  render() {
     return(
       <div>
-        <Card className="NoteCard">
+        <Card className="Note">
         <CardTitle>{props.note.title}</CardTitle>
         <CardBody>{props.note.description}</CardBody>
         </Card>
       </div>
     )
-  };
-}
+};
 
 export default Note;
