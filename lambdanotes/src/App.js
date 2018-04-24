@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col, Button } from 'reactstrap';
-import newNotes from "newNotes";
+import { getNotes } from './dummyNotes';
 
 class App extends Component {
+  state = {
+    notes: [
+      {
+        id: 1,
+        title: 'Donec tincidunt!',
+        message:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat magnam aspernatur beatae laudantium, optio harum accusantium pariatur voluptatibus earum error.',
+      },
+      // }
+    // ] getNotes(),
+    ]
+  };
+
   render() {
     return (
       <div class="container-fluid">
@@ -15,7 +28,7 @@ class App extends Component {
           </div>
           <div class="col-9 Main">
             Your Notes:
-          <newNotes />
+            <newNotes />
           </div>
         </div>
       </div>
