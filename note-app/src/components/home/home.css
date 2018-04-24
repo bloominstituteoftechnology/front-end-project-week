@@ -1,0 +1,40 @@
+.Home { 
+    width: 74%;
+    height: 40rem;
+    border: 1px solid black;
+    margin-top: 1rem;
+    float: right;
+    background-color: rgb(235, 235, 235);
+    margin-bottom: 1rem;
+    
+}
+
+.Home__content {
+    padding: 1rem;
+    margin: .5rem 1rem;
+
+}
+
+.Home__header {
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.Note {
+    display: inline-block;
+    border: 1px solid black;
+    width: 30%;
+    margin: .5rem;
+    background-color: rgb(245, 245, 245)
+}
+
+.Note__title {
+    border-bottom: 1px solid grey;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+.Note__body {
+    margin: 1rem;
+}
+

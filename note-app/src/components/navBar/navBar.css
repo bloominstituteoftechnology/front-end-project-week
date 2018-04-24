@@ -1,16 +1,22 @@
 .NavBar {
-    width: 25%;
+    width: 25.66%;
     height: 40rem;
     border: 1px solid black;
+    border-right: none;
     margin-top: 1rem;
     float: left;
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(200, 200, 200);
     margin-bottom: 1rem;
-
 }
 
-.NavBar > .NavBar__Header {
+.NavBar__Header {
+    display: flex;
     padding: 1rem;
+    text-decoration: none;
+    margin-top: 1rem;
+    color: inherit;
+
+
 }
 .NavBar > .button {
     display: flex;
