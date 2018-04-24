@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { NoteList } from './Components/ListView';
 import { Route, Link } from 'react-router-dom';
+import { CreateNote } from './Components/NewNote';
 
 class App extends Component {
   constructor(props) {
@@ -72,9 +73,10 @@ class App extends Component {
             <div className="col-2 side">
               <h1>Lambda Notes</h1>
               <a href="/" className="links">View Your Notes</a>
-              <a href="/" className="links second">+Create New Note</a>
+              <a href="/createNewNote" className="links second">+Create New Note</a>
             </div>
             <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
+            <Route path="/createNewNote" render={() => <CreateNote />}/>
           </div>
         </div>
       </div>
