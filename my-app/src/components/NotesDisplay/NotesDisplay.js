@@ -20,6 +20,7 @@ class NotesDisplay extends Component {
                 <div className= 'Note-notesDisplay'>
                     <p className='Note-notes'> 
                     <h3> Note Title </h3>
+                    <Link to= '/noteView'> +Create New Notes </Link>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
                     Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
                     rem, perferendis ex alias.
