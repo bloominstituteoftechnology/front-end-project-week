@@ -11,15 +11,9 @@ const initialState = {
 		{ title: "first", text: "first todo item", isComplete: false },
 		{ title: "second", text: "second item", isComplete: false },
 		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false }
+		{ title: "fourth", text: "fourth item", isComplete: false },
+		{ title: "fifth", text: "fifth item", isComplete: false },
+		{ title: "sixth", text: "sixth item", isComplete: false }
 	],
 	addingTodo: false,
 	updatingTodo: false,

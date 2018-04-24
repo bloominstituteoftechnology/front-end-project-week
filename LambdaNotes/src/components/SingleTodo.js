@@ -14,7 +14,7 @@ const SingleTodo = props => {
 		<Link to={`/todo/${props.index}`}>
 			<Card className="SingleTodo">
 				<CardText>
-					<h3>Hello World</h3>
+					<h3>{props.todo.title}</h3>
 					<p>{props.todo.text}</p>
 				</CardText>
 			</Card>
