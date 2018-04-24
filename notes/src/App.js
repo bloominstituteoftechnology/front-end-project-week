@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NotesTest from './components/notes'
+import NotesTest from './components/notes';
 import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import CreateNote from './components/createNote';
@@ -24,6 +24,8 @@ constructor(props) {
     ]
   }
 }
+
+//2 24 2 24 2 24 2 layout stuff
 handleNew = data => {
   const newNote = {
     id: this.state.notes.length,
@@ -35,6 +37,7 @@ handleNew = data => {
     notes: newData
   })
 }
+
 
 
 // componentDidMount() {
@@ -59,7 +62,8 @@ handleNew = data => {
         
       </div>
       <Route exact path="/" render={() => <NotesTest notes={this.state.notes} />}/>
-      <Route exact path="/create" />
+      <Route exact path="/create" render={() => <CreateNote notes={this.state.notes} noteCreate={this.handleNew}/>} />
+      <Route exact path="/note/:id" />
       </div>
     );
   }

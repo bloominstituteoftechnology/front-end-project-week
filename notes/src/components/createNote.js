@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class CreateNote extends Component {
     state = {
@@ -7,7 +8,12 @@ export default class CreateNote extends Component {
     };
 
     handleTextInput = e => {
-        this.setState({ [e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value});
+    }
+    handleSubmit = () => {
+        const { title, text } = this.state;
+        this.props.noteCreate({ title, text});
+        this.setState({ title: '', text: '' });
     }
 
 
@@ -34,6 +40,8 @@ export default class CreateNote extends Component {
                 onChange={this.handleTextInput}
                 
                 />
+                <br />
+                <Link to={"/"}><button onClick={() => this.handleSubmit()} type="submit">Save Note</button></Link>
                 
                 
             </div>
