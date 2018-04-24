@@ -40,11 +40,11 @@ export class App extends Component {
           <Route path="/view/:id" render={props => 
             <NoteView {...props} notes={this.state.notes}/> 
           }/>
-          <Route path="/create" render={() => 
-            <NoteForm formUse="Create New Note" useFunction={this.createNote}/> 
+          <Route path="/create" render={props => 
+            <NoteForm {...props} formUse="Create New Note" useFunction={this.createNote}/> 
           }/>
           <Route path="/edit/:id" render={props => 
-            <NoteForm formUse="Edit Note" useFunction={this.editNote}/> 
+            <NoteForm {...props} formUse="Edit Note" useFunction={this.editNote}/> 
           }/>
           <Route path="/view/:id/delete" render={props => 
             <Modal {...props} deleteNote={this.deleteNote}/> 

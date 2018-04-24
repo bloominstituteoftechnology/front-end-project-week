@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 import '../styles/NoteForm.css';
 
 export class NoteForm extends Component {
@@ -40,11 +40,10 @@ export class NoteForm extends Component {
             onChange={this.handleInput}
           />
         </form>
-        <button className="App_button" 
+        <Link to="/"><button className="App_button" 
           onClick={() => {
             this.props.useFunction();
-            this.resetInput();
-        }}>Save</button>
+        }}>Save</button></Link>
       </div>
     )
   }
