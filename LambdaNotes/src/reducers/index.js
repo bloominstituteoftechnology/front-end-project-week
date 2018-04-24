@@ -7,7 +7,20 @@ import {
 } from "../actions/index.js";
 
 const initialState = {
-	todos: [{ text: "first todo item", isComplete: false }],
+	todos: [
+		{ title: "first", text: "first todo item", isComplete: false },
+		{ title: "second", text: "second item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false },
+		{ title: "third", text: "third item", isComplete: false }
+	],
 	addingTodo: false,
 	updatingTodo: false,
 	deletingTodo: false,
