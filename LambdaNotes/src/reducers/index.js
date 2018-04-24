@@ -45,7 +45,10 @@ const rootReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				todos: state.todos.filter((todo, index) => {
 					// return todos that don't match the target's index
-					return index !== action.payload;
+					// console.log("index: ", index);
+					// console.log("action.payload: ", action.payload);
+					// console.log("todo: ", todo);
+					return index !== parseInt(action.payload, 10);
 				})
 			});
 		default:
