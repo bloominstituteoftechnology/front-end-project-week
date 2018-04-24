@@ -26,6 +26,12 @@ class App extends Component {
     notes.push(data);
     this.setState({ notes });
   };
+
+  deleteNote = id => {
+    const tempNotes = this.state.notes;
+    const notes = tempNotes.filter(note => note.id !== id);
+    this.setState({ notes });
+  };
   render() {
     return (
       <div className="App">
@@ -54,7 +60,13 @@ class App extends Component {
             />
             <Route
               path="/viewnote/:id"
-              render={props => <ViewNote {...props} notes={this.state.notes} />}
+              render={props => (
+                <ViewNote
+                  {...props}
+                  notes={this.state.notes}
+                  deleteNote={this.deleteNote}
+                />
+              )}
             />
           </div>
         </div>
