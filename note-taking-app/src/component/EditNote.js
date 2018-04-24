@@ -1,33 +1,25 @@
-import './Notes.css';
 import React, { Component } from 'react';
 import { Form, FormGroup, Input, Button, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
-export default class AddNote extends Component {
-  constructor(props){
-    super();
-      this.state = {
-      title: '',
-      content: ''
-    }
-  }
-  
+
+export default class EditNote extends Component {
+  state = {
+    title: '',
+    content: '',
+    id: this.props.match.params.id,
+  };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value})
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.setState({title: '', content: ''})
-  }
-
   render() {
     return (
-      <Col className='addNote px-4'>
-        <Form
+      <Col className='editNote'>
+        <Form 
+        // onSubmit={ this.handeSubmit }
         >
-          <h4 className='addNote__title text-left mt-5 mb-4'>Create New Note:</h4>
+          <h4 className='editNote__title text-left mt-5 mb-4'>Edit Note:</h4>
           <FormGroup>
             <Input
               type='text'
@@ -40,16 +32,14 @@ export default class AddNote extends Component {
           <FormGroup>
             <Input
               type='textarea'
-              rows='16'
+              rows='10'
               name='content'
               placeholder='Note Content'
               onChange={ this.handleChange }
               value={ this.state.content }
             />
           </FormGroup>
-          <Link to="/" onSubmit={this.handleSubmit}>
-            <Button type="submit" color="info" className='addNote__button mb-3'>Save</Button>
-          </Link>
+          <Button className='newNote__button'>Save</Button>
         </Form>
       </Col>
     )

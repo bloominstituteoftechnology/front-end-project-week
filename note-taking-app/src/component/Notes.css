@@ -1,7 +1,57 @@
-.Note-wrapper {
-    width: 500px;
-    display: flex;
-    align-items: flex-start;
-    border: 1px solid gray;
-    padding: 2px 16px;
-}
+.NavBar {
+    width: 20%;
+    background: #D8D8D8;
+  }
+  .NavBar__title { 
+    opacity: .8;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  #bootstrap-overrides .navButton {
+    width: 210px;
+    height: 40px;
+    background: #2BC1C4;
+    border: none;
+  }
+
+.addNote {
+    background: #F3F3F3;
+  }
+  
+  .addNote__title {
+    font-weight: bold;
+    opacity: .8;
+  }
+  
+  #bootstrap-overrides .addNote__button {
+    width: 210px;
+    height: 40px;
+    background: #2BC1C4;
+    border: none;
+  }
+
+  .list {
+    background: #F3F3F3;
+  }
+  
+  .list__title {
+    opacity: .8;
+  }
+  
+  .link {
+    color: black;
+    
+  }
+  .link:hover {
+    text-decoration: none;
+  }
+  
+  .card__title {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .card__content {
+    max-height: 144px;
+    overflow: hidden;
+    font-family: 'Raleway';
+  }
