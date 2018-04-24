@@ -1,26 +1,26 @@
 /* html, body {height: 100%;} */
 
 .App {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  border: 1px solid;
 }
 
 .side-nav {
-  border-right: 1px solid;
   background-color: gray;
-  /* height: 100vh; */
+  height: 100vh;
+  padding: 0 10px;
 }
 
 .main-view {
-  /* border: 1px solid red; */
+  width: 900px;
   background-color: lightgray;
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .note-list {
-  width: 900px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
