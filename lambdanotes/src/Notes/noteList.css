@@ -1,0 +1,18 @@
+.Note-Wrapper {
+    width:100%; 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.Body-Title {
+    width: 100%;
+    margin: 50px 0 50px;;
+    align-content: flex-start
+}
+
+.Note-Body {
+    border: 2px solid gray;
+    width: 30%;
+    margin-bottom: 45px;
+}
