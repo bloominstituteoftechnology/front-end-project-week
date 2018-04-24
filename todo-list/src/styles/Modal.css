@@ -1,0 +1,31 @@
+.Modal {
+  background: rgba(0, 0, 0, .15);
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Modal_body {
+  background: white;
+  border: 2px solid rgb(82, 82, 82);
+  margin: 50px auto;
+  padding: 15px;
+  width: 50%;
+}
+
+.Modal_buttons * {
+  background: rgb(138, 138, 138);
+  border-color: rgb(112, 112, 112);
+  display: inline-block;
+  height: 30px;
+  margin: 10px;
+  width: 100px;
+}
+
+.Modal_buttons *:first-child {
+  background: rgb(231, 0, 0);
+  border-color: rgb(184, 22, 54);
+}

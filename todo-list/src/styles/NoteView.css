@@ -17,8 +17,8 @@
 }
 
 .NoteView_links *:nth-child(2) {
-  background: red;
-  border-color: crimson;
+  background: rgb(231, 0, 0);
+  border-color: rgb(184, 22, 54);
 }
 
 .NoteView_noteTitle {

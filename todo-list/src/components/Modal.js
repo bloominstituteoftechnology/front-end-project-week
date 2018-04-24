@@ -10,12 +10,14 @@ export const Modal = props => {
 
   return (
     <div className="Modal">
-      <div className="Modal_message">
-        <p>Are you sure you want to delete this note?</p>
-      </div>
-      <div className="Modal_buttons">
-        <button onClick={back}>Confirm</button>
-        <button onClick={back}>Cancel</button>
+      <div className="Modal_body">
+        <div className="Modal_message">
+          <p>Are you sure you want to delete this note?</p>
+        </div>
+        <div className="Modal_buttons">
+          <button onClick={back} className="App_button">Confirm</button>
+          <button onClick={back} className="App_button">Cancel</button>
+        </div>
       </div>
     </div>
   );

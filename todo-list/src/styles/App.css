@@ -50,3 +50,8 @@
 .App_body {
   width: 75%;
 }
+
+.App_button-red {
+  background: rgb(255, 0, 0);
+  border-color: rgb(220, 20, 60);
+}
