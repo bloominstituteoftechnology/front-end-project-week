@@ -31,11 +31,13 @@ export default class Notes extends Component {
     this.setState({ view: "create" });
   };
 
-  removeAllNotes = () => {
-    this.setState({ notes: [] });
+  viewNote = id => {
+    this.setState({ currentCard: id, view: "view" });
   };
 
-  componentDidMount() {}
+  removeAllNotes = () => {
+    this.setState({ view: "list", notes: [], currentCard: 0 });
+  };
 
   render() {
     if (this.state.view === "list") {
@@ -46,7 +48,7 @@ export default class Notes extends Component {
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
           />
-          <ListView notes={this.state.notes} />
+          <ListView notes={this.state.notes} viewNote={this.viewNote} />
         </div>
       );
     }
@@ -63,6 +65,7 @@ export default class Notes extends Component {
       );
     }
     if (this.state.view === "view") {
+      console.log(this.state.notes, this.state.currentCard);
       return (
         <div className="full-container">
           <SideBar

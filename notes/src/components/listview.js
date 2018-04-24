@@ -16,7 +16,9 @@ const ListView = props => {
     <div className="right-div">
       <h3 className="notes-h3">Your Notes:</h3>
       <div className="notes-div">
-        {props.notes.map((note) => <NoteCard key={note.id} note={note} />)}
+        {props.notes.map(note => (
+          <NoteCard key={note.id} note={note} viewNote={props.viewNote} />
+        ))}
       </div>
     </div>
   ); //else

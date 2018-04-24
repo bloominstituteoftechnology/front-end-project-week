@@ -64,7 +64,7 @@ h1 {
   margin-left: 0;
   padding: 10px;
   width: 150px;
-  /*user-select: none; */
+  user-select: none;
 }
 
 .notes-text-div {

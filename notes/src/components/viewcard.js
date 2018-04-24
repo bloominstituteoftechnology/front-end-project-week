@@ -1,6 +1,7 @@
 import React from "react";
 
 const ViewCard = props => {
+  console.log(props.note);
   return (
     <div className="right-div">
       <div className="link-text-div">
