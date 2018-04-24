@@ -6,14 +6,20 @@ class CreateNote extends Component {
         super();
     }
 
+    handleInputChange = e => {
+        this.setState({[e.target.name]: e.target.value});
+        console.log(e.target.value);
+        return e.target.value;
+      }
+
     render() {
         return (
             <div className="body">
                 <SideBar/>
                 <div className = "create">
                     <h1>Create New Note:</h1>
-                    <input type="text" placeholder="Note Title"/>
-                    <textarea name="Text1" cols="118" rows="10" placeholder="Note Content"></textarea>
+                    <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
+                    <textarea onChange={this.handleInputChange} name="content" cols="118" rows="10" placeholder="Note Content"></textarea>
                     <button>Save</button>
                 </div>
             </div>
