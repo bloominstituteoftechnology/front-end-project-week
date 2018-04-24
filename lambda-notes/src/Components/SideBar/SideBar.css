@@ -28,7 +28,8 @@ body {
     margin-bottom: 4%;
 }
 
-.sideBar button {
+.sideBar a {
+    text-decoration: none;
     background-color: red;
     border: none;
     background-color: #2AC0C4;
@@ -36,9 +37,12 @@ body {
     margin-top: 8%;
     font-size: 1.4rem;
     height: 7.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.sideBar button:hover {
+.sideBar a:hover {
     font-size: 1.6rem;
     height: 7.7vh;
     cursor: pointer;

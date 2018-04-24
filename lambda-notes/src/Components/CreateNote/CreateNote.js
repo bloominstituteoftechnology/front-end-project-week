@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import SideBar from "../SideBar/SideBar"
+import "./CreateNote.css"
 class CreateNote extends Component {
     constructor() {
         super();
@@ -7,7 +8,15 @@ class CreateNote extends Component {
 
     render() {
         return (
-            <div>NOTE TEST</div>
+            <div className="body">
+                <SideBar/>
+                <div className = "create">
+                    <h1>Create New Note:</h1>
+                    <input type="text" placeholder="Note Title"/>
+                    <input type="text" placeholder="Note Content"/>
+                    <button>Save</button>
+                </div>
+            </div>
         )
     }
 }

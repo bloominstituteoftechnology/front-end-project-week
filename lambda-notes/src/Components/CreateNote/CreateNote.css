@@ -1,0 +1,26 @@
+.create h1 {
+    color: red;
+    margin-top: 45%;
+}
+
+input {
+    display: block;
+    margin-top: 10%;
+    font-size: 1rem;
+    padding-left: 3%;
+}
+
+input:first-of-type {
+    width: 250%;
+    height: 2rem;
+}
+
+input:last-of-type {
+    display: flex;
+    width: 330%;
+    height: 40vh;
+}
+
+.create {
+    margin-left: 3%;
+}

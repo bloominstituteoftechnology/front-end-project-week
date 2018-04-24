@@ -19,6 +19,7 @@ body {
     width: 25%;
     background-color: #D3D2D3;
     padding: 2%;
+    height: 100vh;
     max-height: 100%;
 }
 
