@@ -1,9 +1,10 @@
-.notes {
+.side {
     width: 15%;
     border: 1px solid #BEBEBE;
     height: 100%;
     padding-left: 2%;
     background: #D7D7D7;
+    margin-top: 1%;
 }
 
 .side h1 {
@@ -11,7 +12,6 @@
 }
 
 .links {
-    border: 1px solid #94A3A4;
     width: 90%;
     padding: 5%;
     padding-left: 7%;
@@ -24,4 +24,29 @@
   padding: 5%;
 }
 
+.center {
+    background: #F3F3F3;
+}
 
+.center h4 {
+    color: #4A494A;
+}
+
+.notes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Card {
+    width: 15%;
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.title {
+    border-bottom: 1px solid #BEBEBE;
+    padding-bottom: 4%;
+    padding-left: 8%;
+}

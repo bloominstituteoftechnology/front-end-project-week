@@ -10,8 +10,8 @@ class Note extends React.Component {
     render() {
         return (
             <div>
-                <Card className="card">
-                    <CardTitle>{this.props.title}</CardTitle>
+                <Card className="Card">
+                    <CardTitle className="title">{this.props.title}</CardTitle>
                     <CardBody>{this.props.body}</CardBody>
                 </Card>
             </div>
