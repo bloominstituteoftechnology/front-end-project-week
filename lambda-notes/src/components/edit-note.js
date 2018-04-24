@@ -29,7 +29,6 @@ class EditNote extends Component {
         <h1 className="PrimaryContainer__header">Edit Note:</h1>
         <Input 
           type="text"
-          className="col-7"
           name="title"
           placeholder="Note Title"
           value={this.state.title}
@@ -45,7 +44,7 @@ class EditNote extends Component {
         />
         <br/>
         <Link to="/">
-          <button className="Button col-3" onClick={() => this.stageNote()}>Update</button>
+          <button className="Button col-3" onClick={() => this.stageUpdate()}>Update</button>
         </Link>
       </div>
     )

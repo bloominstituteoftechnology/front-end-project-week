@@ -10,13 +10,14 @@
 
 .ScrollOverflow {
   overflow-y: scroll;
-  padding-right: 5%;
+  background-color: #F3F3F3;
+  width: 100%;;
 }
 
 .ViewNote__editOptions {
   float: right;
 }
 
-.ViewNote__editOptions :first-child {
+.ViewNote__editOptions--click {
   margin-right: 10px;
 }

@@ -2,10 +2,10 @@
   margin: 3.33%;
 }
 
-.PrimaryContainer__newNote {
+/* .PrimaryContainer__newNote {
   width: 100%;
   margin: 3.33%;
-}
+} */
 
 .PrimaryContainer__header {
   margin: 4% 0;
@@ -19,10 +19,33 @@
   justify-content: space-between;
 }
 
+.CardLink {
+  color: black;
+}
+
+.CardLink:hover {
+  text-decoration: none;
+  color: black;
+}
+
 .NoteCard {
   margin-bottom: 3%;
 }
 
+.CardTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #959595;
+}
+
+.CardContent {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  line-height: 180%;
+}
+
+/* 
 .NoteTitle {
   margin: 5% 5% 0;
   padding-bottom: 3%;
@@ -34,4 +57,4 @@
   margin-top: -4%;
   font-size: 1.8rem;
   letter-spacing: 0.1rem;
-}
+} */

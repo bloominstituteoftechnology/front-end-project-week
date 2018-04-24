@@ -17,8 +17,8 @@ class ViewNote extends Component {
     return (
       <div className="PrimaryContainer__newNote"> 
         <div className="ViewNote__editOptions">
-          <Link to={{ pathname: `/edit/${note.id}`, state: { note: note } }}>edit</Link>
-          <Link to="/" onClick={() => this.props.deleteNote(note.id)}>delete</Link>
+          <Link to={{ pathname: `/edit/${note.id}`, state: { note: note } }} className="ViewNote__editOptions--click">edit</Link>
+          <Link to="/" onClick={() => this.props.deleteNote(note.id)} className="ViewNote__editOptions--click">delete</Link>
         </div>
         <h1 className="PrimaryContainer__header">{note.title}</h1>
         <div>{note.content}</div>
