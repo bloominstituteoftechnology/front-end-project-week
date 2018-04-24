@@ -4,15 +4,22 @@ import { LinkButton } from '.'
 
 const Container = styled.div`
   background-color: #D2D1D2
-  width: 300px
+  width: 250px
   display: flex
   flex-direction: column
+  align-items: center
   border-right: 1px solid #AEAEAE
+  padding: 15px
+`
+
+const Header = styled.h1`
+  align-self: flex-start
+  font-size: 2.5rem
 `
 
 const Sidebar = () => (
   <Container>
-    <h1>Lambda Notes</h1>
+    <Header>Lambda Notes</Header>
     <LinkButton
       to='/'
       text='View Your Notes' />
