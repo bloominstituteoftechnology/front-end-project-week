@@ -6,9 +6,9 @@ const markdown = `
 Lorem markdownum, dum non mira fundere oculos delata intrarunt pectora! Sumit
 voce fecit quarum: dubie induruit, Cadmus atque et namque dubia iste verbis.
 
-- Alas hoc tecto ossibus ad telluris sub
-- Munus fuit sceleri repugnas multum
-- Aevi ab ungues Philyreius inquit arsit in
+[ ] Alas hoc tecto ossibus ad telluris sub  
+[x] Munus fuit sceleri repugnas multum  
+[ ] Aevi ab ungues Philyreius inquit arsit in
 - Fugit locique
 
 ## Maxima spumigeroque agat scitarier volucrem Circes rogos
