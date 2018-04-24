@@ -25,21 +25,25 @@ const Button = styled.button`
   margin-bottom: 18px;
   padding: 14px 2.3em 8px 2.5em;
   margin-left: 0.2em;
+  cursor: pointer;
 `;
 
 const StyledLink = styled(Link)`
   color: #FFF;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 const Sidebar = () => {
-    return (
-        <Wrapper>
-            <Title>Lambda Notes</Title>
-            <Button><StyledLink to="/">View Your Notes</StyledLink></Button>
-            <Button>Create New Note</Button>
-        </Wrapper>
-    )
+    return <Wrapper>
+        <Title>Lambda Notes</Title>
+        <StyledLink to="/">
+          <Button>View Your Notes</Button>
+        </StyledLink>
+        <StyledLink to="/createNote">
+          <Button>Create New Note</Button>
+        </StyledLink>
+      </Wrapper>;
 }
 
 export default Sidebar;
