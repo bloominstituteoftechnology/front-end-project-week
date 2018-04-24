@@ -6,7 +6,7 @@ import { notes } from '../notes';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
 import { NoteForm } from './NoteForm';
-import { DeleteModal } from './DeleteModal';
+import { Modal } from './Modal';
 
 
 class App extends Component {
@@ -33,7 +33,7 @@ class App extends Component {
             <NoteForm formUse="Edit Note"/> 
           }/>
           <Route path="/view/:id/delete" component={props => 
-            <DeleteModal /> 
+            <Modal {...props}/>
           }/>
         </div>
       </div>

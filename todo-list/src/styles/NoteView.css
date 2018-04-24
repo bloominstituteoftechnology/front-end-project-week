@@ -2,19 +2,23 @@
   color: rgb(77, 77, 77);
   display: flex;
   flex-direction: column;
-  padding: 13px 5%;
+  padding: 38px 5%;
 }
 
 .NoteView_links {
   display: flex;
-  align-self: flex-end;
 }
 
 .NoteView_links * {
-  background: rgb(0, 204, 211);
+  background: rgb(0, 200, 207);
   height: 25px;
   margin: 0 0 0 15px;
   width: 80px
+}
+
+.NoteView_links *:nth-child(2) {
+  background: red;
+  border-color: crimson;
 }
 
 .NoteView_noteTitle {
