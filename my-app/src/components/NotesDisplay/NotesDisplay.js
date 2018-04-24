@@ -18,61 +18,17 @@ class NotesDisplay extends Component {
             <div className='Note-content'>
                 <h1> Your Notes: </h1>
                 <div className= 'Note-notesDisplay'>
+                    <Link to= '/noteView'>   
+                    <div>
+                    <h3> Note Title </h3> 
                     <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    <Link to= '/noteView'> +Create New Notes </Link>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
                     Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
                     rem, perferendis ex alias.
                     </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
-                    <p className='Note-notes'> 
-                    <h3> Note Title </h3>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, molestias porro. 
-                    Reiciendis velit accusamus ea laborum, adipisci facere possimus fugiat incidunt ullam architecto ad beatae eos 
-                    rem, perferendis ex alias.
-                    </p>
+                    </div>
+                    </Link>
+                   
                 </div>
             </div>
         </div>
