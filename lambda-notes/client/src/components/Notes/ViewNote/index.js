@@ -14,8 +14,8 @@ class ViewNote extends Component {
       let meow = window.location.href;
       meow = meow.split('').splice(21).join('').replace ( /[^0-9]/g, '' );
       meow = Number(meow);
-      let id = meow - 1;
-      if (meow === 0) id = meow;
+      let id = meow;
+      //if (meow === 0) id = meow;
       this.fetchNote(id);
     }
   

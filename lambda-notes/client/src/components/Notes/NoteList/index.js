@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
-import { Link, Route } from 'react-router-dom';
-import ViewNote from '../ViewNote';
+import { Link } from 'react-router-dom';
+//import ViewNote from '../ViewNote';
 
 
 const NoteDisplay = (props) => {

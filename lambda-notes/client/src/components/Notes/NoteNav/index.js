@@ -10,7 +10,7 @@ const NoteRoutes = (props) => {
     return (
       <div>
         {props.data.map((u, index) => 
-        <Route exact path={'/Notes/' + index} component={ViewNote} />
+        <Route exact path={'/Notes/' + index} component={ViewNote} key={u + index} />
         )}
       </div>
     )

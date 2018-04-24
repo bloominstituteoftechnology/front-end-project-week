@@ -29,7 +29,7 @@ class CreateNote extends Component {
         });
     };
     handleSubmitNote = () => {
-     const { title, body } = this.state;
+//     const { title, body } = this.state;
 //     title.push(this.state.title);
 //     body.push(this.state.body);
      this.AddNote();

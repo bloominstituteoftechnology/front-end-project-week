@@ -5,7 +5,7 @@ import './App.css';
 import { Link, Route } from 'react-router-dom';
 import NoteList from './components/Notes/NoteList';
 import CreateNote from './components/Notes/CreateNote';
-import ViewNote from './components/Notes/ViewNote';
+//import ViewNote from './components/Notes/ViewNote';
 import NoteNav from './components/Notes/NoteNav';
 
 class App extends Component {
