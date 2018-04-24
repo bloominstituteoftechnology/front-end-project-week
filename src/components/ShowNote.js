@@ -6,8 +6,9 @@ const ShowNote = (props) => {
 
     return (
         <div className={props.c} >
-            <div>{console.log('here',props.p, props.c)}</div>
+        <div className={props.ic}>
             <div>{props.p.title}</div>
+        </div>
             <div>{props.p.content}</div>
         </div>
     )

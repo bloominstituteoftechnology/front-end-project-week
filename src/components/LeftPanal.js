@@ -10,7 +10,7 @@ class LeftPanal extends Component {
         
     
         <div className ='leftnav'>
-        <h1 className='header'> Lambda Notes </h1>
+        <h2 > Lambda Notes </h2>
     
     
         <Link to='/'><div className='button'> View Your Notes </div></Link>

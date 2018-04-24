@@ -7,7 +7,7 @@ const ShowSingle = (props) => {
         
         <div className="single-note" >
             <div>{console.log('from sigle',props)}</div>
-            <div>{props.p.title}</div>
+      
             <div>{props.p.content}</div>
         </div>
     )

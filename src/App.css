@@ -6,6 +6,7 @@
 }
 
 .leftnav {
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -49,9 +50,13 @@
 }
 
 .titlefornotes{
+  max-width: 800px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   background: #f3f3f3;
+  padding-left: 240px;
+  padding-top: 10px;
 }
 
 .form{
@@ -60,6 +65,21 @@
 }
 
 
-.single-note{
+.single-note-title{
+  border-bottom:1px solid black;
+  padding: 5px 0;
+}
+
+.single-header {
+  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
   
+}
+
+.single-header-link  {
+  padding: 5px;
+
 }

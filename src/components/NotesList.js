@@ -19,27 +19,25 @@ export default class NotesList extends Component {
     this.setState({ notes: Data });
   }
 
-  addNote = note => {};
-
- goToSelectedNote = (note) => {
- 
- }
-
   render() {
     return (
+      <div>
+      <div>
+        <Myheader p={'none'}  c={'titlefornotes'}/>
+      </div>
       <div className="container0">
         <LeftPanal />
-        <Myheader text="Your Notes" />
         <div className="container1">
           {this.state.notes.map(note => {
             return (
               <Link to= {`selectedNotes/${note.id}`} >
-                <ShowNote p={note} c="Note" />
+                <ShowNote p={note} c="Note" ic="single-note-title" />
               </Link>
            
             );
           })}
         </div>
+      </div>
       </div>
     );
   }
