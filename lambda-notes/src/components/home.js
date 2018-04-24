@@ -4,7 +4,7 @@ const Home = () =>{
     return (<React.Fragment>
 <div className="home-styles">
 <div className="hDiv-styles">
-<h2 className="h-styles">Lambda
+<h2 className="h-styles" >Lambda
  Notes</h2>
  </div>
  <div className="button-styles">

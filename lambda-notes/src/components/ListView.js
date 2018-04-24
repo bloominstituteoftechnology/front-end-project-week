@@ -7,19 +7,20 @@ import { Card, CardImg, CardText, CardBody,
     
     return(<React.Fragment>
      
-      <div className="p">
-       <h6>Your Notes:</h6>
-       </div>
+      <div className="notesHeader-styles">
+       <div className="notesText-styles">Your Notes:</div>
+       </div><div className="cardsContainer-styles">
      {props.notes.map(note =>(
        <div className="card-styles">
-        <Card className="x">
-       <CardBody className="y">
+        <Card className="card-styles">
+       <CardBody className="body-styles">
         <CardTitle>{note.title}</CardTitle>
         <CardText className="cardtext-styles">{note.textbody}</CardText>
         </CardBody>
         </Card>
         </div>
    ))}
+   </div>
 
 
   
