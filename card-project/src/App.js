@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom';
-import { Button } from 'reactstrap';
+// import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { connect } from 'react-redux';
 
 import PresentationMain from './components/PresentationMain';
 import PresentationView from './components/PresentationView';
 import EditNote from './components/EditNote';
 import CreateNew from './components/CreateNew';
 import LambdaSide from './components/LambdaSide';
+import { addNote, deleteNote} from './actions/actions';
 
 const notes = [
 	{
@@ -139,17 +141,38 @@ const LambdaNewR = (props) => {
 		</div>
 	);
 };
-
-const App = (props) => {
-	return (
-		<div style={{ height: '100%' }}>
+const mapDispatchToProps = (state) => {
+	return {
+		notes: state.notes,
+	};
+};
+// const App = (props) => {
+// 	return (
+// 		<div style={{ height: '100%' }}>
+// 			<Route exact path="/" component={Home} />
+// 			<Route path="/notes/new" component={New} />
+// 			<Route path="/notes/view/:id" component={View} />
+// 			<Route path="/notes/edit/:idE" component={Edit} />
+// 			<Route path="/notes/view/delete/:idE" component={Delete} />
+// 		</div>
+// 	);
+// };
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		console.log(this.props.notes.map((val,i) => val))
+		return (
+			<div style={{ height: '100%' }}>
 			<Route exact path="/" component={Home} />
 			<Route path="/notes/new" component={New} />
 			<Route path="/notes/view/:id" component={View} />
 			<Route path="/notes/edit/:idE" component={Edit} />
 			<Route path="/notes/view/delete/:idE" component={Delete} />
 		</div>
-	);
-};
-
-export default App;
+		)
+	}
+}
+export default connect(mapDispatchToProps, { addNote, deleteNote})(App);
+// export default App;
