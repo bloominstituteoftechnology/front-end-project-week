@@ -1,4 +1,5 @@
 import React from "react";
+import './Note.css';
 import {
   Card,
   CardImg,
@@ -13,13 +14,13 @@ class Note extends React.Component {
   constructor(props) {
     super(props);
   }
-
+//returns the Notecard
   render() {
     return(
       <div>
         <Card className="NoteCard">
-        <CardTitle>{this.props.title}</CardTitle>
-        <CardBody>{this.props.description}</CardBody>
+        <CardTitle>{props.note.title}</CardTitle>
+        <CardBody>{props.note.description}</CardBody>
         </Card>
       </div>
     )

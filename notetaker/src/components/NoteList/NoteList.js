@@ -10,7 +10,7 @@ class NoteList extends React.Component {
     return (
       <div>
         <h2>List of Notes</h2>
-        {this.props.notes.map((note) => {
+        {props.notes.map((note) => {
           return <Note title={note.title} description={note.description}/>
         })}
       </div>
