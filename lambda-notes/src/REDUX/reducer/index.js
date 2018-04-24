@@ -1,10 +1,11 @@
 import {
-  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE
+  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT
 } from '../actions';
 
 const initialState = {
   notes: [],
-  error: ""
+  error: "",
+  night: false
 };
 
 export default (state = initialState, action) => {
@@ -25,6 +26,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notes: [...action.payload]
+      }
+
+    case TOGGLE_NIGHT:
+      return {
+        ...state,
+        night: !state.night
       }
 
     default:

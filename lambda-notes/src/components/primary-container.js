@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardBody, CardText, Col } from 'reactstrap';
+import { Card, CardTitle, CardBody, CardText, Col, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getNotes, saveNote } from '../REDUX/actions';
@@ -48,6 +48,6 @@ class PrimaryContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ notes: state.notes })
+const mapStateToProps = state => ({ notes: state.notes, night: state.night })
 
 export default connect(mapStateToProps, { getNotes, saveNote })(PrimaryContainer);

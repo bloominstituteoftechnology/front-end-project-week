@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCHING_ERROR = "FETCHING_ERROR";
 export const FETCH_NOTES = "FETCH_NOTES";
 export const DELETED_NOTE = "DELETED_NOTE";
+export const TOGGLE_NIGHT = "TOGGLE_NIGHT";
 
 export const getNotes = () => {
   return dispatch => {
@@ -52,3 +53,5 @@ export const updateNote = note => {
       })
   }
 }
+
+export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }
