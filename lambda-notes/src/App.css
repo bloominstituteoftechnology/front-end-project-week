@@ -99,10 +99,7 @@ background: rgb(243,243,243);
   
  
 }
-.card-styles:hover{
-  text-decoration: none;
 
-}
 
 .notesHeader-styles{
   margin-top:50px;
@@ -154,10 +151,38 @@ text-decoration: underline black;
   text-align: left
 
 }
-
-
+.modal-button{ 
+  display:flex;
+  justify-content: space-around;
+  width:230px;
+  height:51px;
+  font-size:20px;
+}
+.danger-styles{
+  background: rgb(208,1,27);
+}
+.modal-dialog{
+  margin-top: 145px;
+  margin-left: 167px;
+}
+.modal-content{
+  display:flex;
+  padding:30px;
+  height: 190px;
+  width: 600px;
+}
+.modal-body{
+  display: flex;
+  justify-content: center;
+  border-bottom:0px solid pink;;
+}
+.modal-footer{
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .label-styles{
+  border-top:none;
   margin-top:50px;
   margin-bottom: 25px;
   margin-left:25px;
