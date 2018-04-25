@@ -16,19 +16,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: [
-        'List View',
-        'New View',
-        'Edit View',
-        'Note View'
+      newNote: '', 
+      todos: [
+        'Note 1',
+        'Note 2',
+        'Note 3',
+        'Note 4'
       ]
     }
+    this.noteHandler = this.noteHandler.bind(this);
   }
+  
+  noteHandler = event => {
+
+  }
+
+  handleSubmitNote() {}
+
   render() {
     return (
       <div className="App">
-
-
 
         <Route exact path='/' title='List View' component={Header} />
         <Route exact path='/' component={Home} />
