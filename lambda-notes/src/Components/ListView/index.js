@@ -12,7 +12,7 @@ export const NoteList = props => {
                     {props.Notes.map(note => {
                         return (
                             <div className="col-4">
-                               <Link to='/notes/id'><Note key={note.id} title={note.title} body={note.body} /></Link>
+                               <Link to={`/Notes/${note.id}`}><Note key={note.id} title={note.title} body={note.body} /></Link>
                             </div>
                         );
                     })}

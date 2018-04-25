@@ -1,5 +1,6 @@
 import React from 'react';
 import './note.css';
+import { Link } from 'react-router-dom';
 
 export class CreateNote extends React.Component {
     constructor(props) {
@@ -17,7 +18,9 @@ export class CreateNote extends React.Component {
               <form>
                 <input className="note-title" type="text" placeholder="Note Title" name="Note Title" />
                 <input className="note-body" type="textarea" placeholder="Note Content" name="Note Content" />
-                <button className="save">Save</button>
+                <Link to="/">
+                  <button className="save">Save</button>
+                </Link>
               </form>
             </div>
           </div>;
