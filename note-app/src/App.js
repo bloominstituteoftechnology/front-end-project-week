@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 // Combine Component Imports into a single file at end
 import Header from './components/header/header.js';
@@ -46,6 +47,7 @@ class App extends Component {
          */}
 
       <Route path='/' component={NavBar} />
+      <Route path='/' component={Display} />
   
       
 
