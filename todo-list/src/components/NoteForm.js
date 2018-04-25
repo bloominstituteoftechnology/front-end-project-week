@@ -41,8 +41,13 @@ export class NoteForm extends Component {
           />
         </form>
         <Link to="/"><button className="App_button" 
-          onClick={() => {
-            this.props.useFunction(this.state);
+          onClick={() => { // Maintain immutability
+            const newTodo = {...this.state};
+            Object.keys(newTodo).forEach(key => {
+              // While replacing empty values
+              newTodo[key] = !newTodo[key] ? "..." : newTodo[key];
+            });
+            this.props.useFunction(newTodo);
         }}>Save</button></Link>
       </div>
     )
