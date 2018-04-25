@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Input } from "reactstrap";
+import { Button, Form, FormGroup, Input, Modal, ModalBody } from "reactstrap";
 
 import "./NoteView.css";
 
@@ -11,7 +11,8 @@ class NoteView extends Component {
       id: parseInt(this.props.match.params.id, 10),
       title: "",
       content: "",
-      editing: false
+      editing: false,
+      deleting: false
     };
   }
 
@@ -42,9 +43,15 @@ class NoteView extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  toggle = () => {
+  editToggle = () => {
     this.setState({
       editing: !this.state.editing
+    });
+  };
+
+  deleteToggle = () => {
+    this.setState({
+      deleting: !this.state.deleting
     });
   };
 
@@ -75,9 +82,20 @@ class NoteView extends Component {
       return (
         <div className="note-view">
           <div className="modify-links">
-            <b onClick={this.toggle}>edit</b>
-            <b onClick={this.handleDeleteNote}>delete</b>
+            <b onClick={this.editToggle}>edit</b>
+            <b onClick={this.deleteToggle}>delete</b>
           </div>
+          <Modal isOpen={this.state.deleting} toggle={this.deleteToggle}>
+            <ModalBody>Are you sure you want to delete this?</ModalBody>
+            <div className="modal-buttons">
+              <Button color="danger" onClick={this.handleDeleteNote}>
+                <b>Delete</b>
+              </Button>
+              <Button color="info" onClick={this.deleteToggle}>
+                <b>No</b>
+              </Button>
+            </div>
+          </Modal>
           <h3 className="note-title">{this.state.title}</h3>
           <div className="note-content">{this.state.content}</div>
         </div>

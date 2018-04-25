@@ -25,3 +25,18 @@
   padding: 5% 0 0 0;
   margin-bottom: 5%;
 }
+
+.modal-content {
+  text-align: center;
+  padding: 5% 8%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons .btn {
+  font-size: 20px;
+  width: 45%;
+}
