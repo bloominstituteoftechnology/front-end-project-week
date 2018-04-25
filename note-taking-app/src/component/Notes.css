@@ -6,6 +6,10 @@
     opacity: .8;
     font-family: 'Roboto', sans-serif;
   }
+
+  .Navbar_Link {
+    
+  }
   
   #bootstrap-overrides .navButton {
     width: 210px;

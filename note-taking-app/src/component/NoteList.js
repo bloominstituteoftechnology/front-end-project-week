@@ -13,7 +13,6 @@ export default class NoteList extends Component {
   }
   
   render() {
-    console.log('state', this.state)
     return (
       <Col xs='9' className='list px-4'>
         <h4 className='list__title text-left font-weight-bold mt-5 mb-4'>Your Notes:</h4>

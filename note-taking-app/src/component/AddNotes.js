@@ -4,11 +4,11 @@ import { Form, FormGroup, Input, Button, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export default class AddNote extends Component {
-  constructor(props){
+  constructor(){
     super();
       this.state = {
-      title: '',
-      content: ''
+        title: '',
+        content: ''
     }
   }
   
@@ -17,10 +17,11 @@ export default class AddNote extends Component {
     this.setState({ [event.target.name]: event.target.value})
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.setState({title: '', content: ''})
+  handleSubmit = () => {
+    this.props.addNewCard(this.state);
   }
+
+  
 
   render() {
     return (
@@ -47,9 +48,7 @@ export default class AddNote extends Component {
               value={ this.state.content }
             />
           </FormGroup>
-          <Link to="/" onSubmit={this.handleSubmit}>
-            <Button type="submit" color="info" className='addNote__button mb-3'>Save</Button>
-          </Link>
+            <Button onClick={() => this.handleSubmit()} color="info" className='addNote__button mb-3'>Save</Button>
         </Form>
       </Col>
     )

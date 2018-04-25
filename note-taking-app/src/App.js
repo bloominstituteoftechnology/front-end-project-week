@@ -61,6 +61,18 @@ export default class App extends Component {
     ]
   }
 
+  componentDidMount() {
+    this.setState({ notes: this.state.notes })
+  }
+
+  addNewCard = (newCard) => {
+    this.setState({
+      notes: [
+        ...this.state.notes, newCard
+      ]
+    })
+  }
+
   render() {
     return (
       <Container className="App">
@@ -69,7 +81,7 @@ export default class App extends Component {
           <Route 
             exact path='/' 
             render={() => <NoteList notes={ this.state.notes }/> }/>
-          <Route path='/add' component={ AddNote }/>
+          <Route path='/add' render={() => <AddNote addNewCard={this.addNewCard}  />}/>
           <Route
             path='/notes/:id' component={ NoteView }/>
           <Route
