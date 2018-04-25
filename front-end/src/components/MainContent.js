@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import NoteList from "./sub-component/NoteList";
 import CreateNoteItem from "./sub-component/CreateNoteItem";
+import EditNote from "./sub-component/EditNote";
 
-import { createNote, deleteNote } from "../actions";
+import { createNote, deleteNote, editNote } from "../actions";
 import { connect } from "react-redux";
 // import EditNote from "./sub-component/EditNote" // Not done yet
 
@@ -25,28 +26,20 @@ class MainPageContainer extends Component {
         <Route
           exact
           path="/"
-          render={props => <NoteList noteArray={this.props.noteArray} />}
+          render={props => <NoteList mainProps={this.props} />}
         />
         <Route
           path="/create"
-          render={props => (
-            <CreateNoteItem
-              mainProps={this.props}
-              noteArray={this.props.noteArray}
-            />
-          )}
+          render={props => <CreateNoteItem mainProps={this.props} />}
         />
         <Route
           path="/note/:id"
-          render={props => (
-            <NoteDetail
-              {...props}
-              mainProps={this.props}
-              noteArray={this.props.noteArray}
-            />
-          )}
+          render={props => <NoteDetail {...props} mainProps={this.props} />}
         />
-        {/* <Route component={EditNote} /> */}
+        <Route
+          path="/edit"
+          render={props => <EditNote {...props} mainProps={this.props} />}
+        />
       </div>
     );
   }

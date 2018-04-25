@@ -32,8 +32,8 @@ const noteReducer = (state = initialState, action) => {
       state.splice(action.payload, 1);
       return state;
 
-    // case AT.EDIT_NOTE:
-    //   return;
+    case AT.EDIT_NOTE:
+      return null;
     default:
       return state;
   }

@@ -37,8 +37,7 @@ class CreateNoteItem extends Component {
             onClick={() => {
               this.props.mainProps.createNote({
                 title: this.state.title,
-                content: this.state.content,
-                id: this.props.noteArray.length
+                content: this.state.content
               });
               this.setState({ title: "", content: "" });
             }}

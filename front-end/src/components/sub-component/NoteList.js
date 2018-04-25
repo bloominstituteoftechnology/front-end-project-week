@@ -9,7 +9,7 @@ const NoteList = props => {
   // console.log("NoteList: this.props", props);
   return (
     <div className="NoteList row p-0 m-0">
-      {props.noteArray.map((eachNote, index) => (
+      {props.mainProps.noteArray.map((eachNote, index) => (
         <div className="NoteCard col-4 p-4" key={index}>
           <Link to={`/note/${index}`}>
             <NoteCard eachNote={eachNote} props={props} />

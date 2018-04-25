@@ -1,8 +1,8 @@
 import * as AT from "./actionTypes";
 
-export const createNote = note => {
+export const createNote = noteContent => {
   return {
     type: AT.EDIT_NOTE,
-    payload: note
+    payload: noteContent
   };
 };
