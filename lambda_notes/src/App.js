@@ -1,15 +1,38 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Container, Button } from "reactstrap";
+import PropTypes from "prop-types";
 
 import NotesList from "./components/NotesList";
+import NoteForm from "./components/NoteForm";
+import Note from "./components/Note";
 import "./App.css";
 
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    sidebar: () => <Button>View Notes</Button>,
+    main: () => <NotesList />
+  },
+  {
+    path: "/createNote",
+    sidebar: () => <Button>+ Create Note</Button>,
+    main: () => <NoteForm />
+  },
+  {
+    path: "/viewNotes/:id",
+    main: Note
+  },
+  {
+    path: "/editNote/:id",
+    main: NoteForm
+  }
+];
 
-
-export default class App extends Component {
-
+class App extends Component {
   render() {
+    document.body.style.background = "#f3f3f3";
 
     return (
       <Router>
@@ -19,19 +42,22 @@ export default class App extends Component {
               <h1 className="header my-4">Lambda Notes</h1>
 
               <Link to="/">
-                <Button className="w-100 my-2 p-2">
-                  View Your Notes
-                </Button>
+                <Button className="w-100 my-2 p-2">View Your Notes</Button>
               </Link>
 
               <Link to="/createNote">
-                <Button className="w-100 my-2 p-2">
-                  + Create Note 
-                </Button>
+                <Button className="w-100 my-2 p-2">+ Create Note </Button>
               </Link>
             </Col>
             <Col sm={9} className="rightSide offset-3">
-            <Route exact="/" component={NotesList} />
+              {routes.map((route, index) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.main}
+                />
+              ))}
             </Col>
           </Row>
         </Container>
@@ -39,3 +65,8 @@ export default class App extends Component {
     );
   }
 }
+
+// Container.propTypes = {
+//   fluid: PropTypes.bool
+// };
+export default App;
