@@ -36,7 +36,7 @@ class ListView extends Component {
                                                 index: index
                                             }
                                         }}>
-                                        <h1 className="underline" key={index}>{note.title} {index}</h1>
+                                        <h1 className="underline" key={index}>{note.title}</h1>
                                         <p key={index}>{note.note}</p>
                                         </Link>
                                         {/* <h1 className="underline" key={index}>{note.title} {index}</h1>

@@ -8,26 +8,38 @@ import { connect } from 'react-redux';
 
 class NoteView extends Component {
     constructor() {
-        super()
+        super();
+        this.state = {
+            index: 0,
+            mounted: false
+        }
+    }
+    componentDidMount() {
+        this.setState({
+            index: this.props.location.state.index,
+            mounted: true
+
+        })
     }
 
     render() {
-        console.log(this.props.location.state.index)
         return(
-            <div className="noteView">
-                <SideBar/>
-                <div className="noteCard">
-                    <div className = "links">
-                        <Link to="#">edit</Link>
-                        <Link to="#">delete</Link>
+            <div>
+                {this.state.mounted === false ? (
+                    console.log('false')
+                ) : (
+                <div className="noteView">
+                    <SideBar/>
+                    <div className="noteCard">
+                        <div className = "links">
+                            <Link to="#">edit</Link>
+                            <Link to="#">delete</Link>
+                        </div>
+                        <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
+                        <p className="note">{this.props.notes.notes[this.state.index].note}</p>
                     </div>
-                    <h1 className="title">Note Name</h1>
-                    <p className="note">
-                    Lorem ipsum dolor sit amet, legimus similique adolescens per an, feugiat eruditi et cum, eos an diam corpora. Vel tritani probatus ei, ei laudem tempor detracto pri. Vix lorem legere deserunt in, sed luptatum gubergren adversarium no. Sit et nihil tacimates, indoctum neglegentur eum cu.
-
-Liber mollis vocibus nam eu, ea prima idque est, ius et quidam dicunt constituam. Ius amet wisi feugiat ei. Ut fabellas scribentur duo. Agam scripta pri cu, usu appareat expetendis vituperatoribus te.
-                    </p>
                 </div>
+                )}
             </div>
         )
     }
