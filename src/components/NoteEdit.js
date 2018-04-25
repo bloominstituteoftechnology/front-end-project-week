@@ -7,8 +7,7 @@ import styled from 'styled-components'
 
 const NoteEdit = ({ firebase, note, match, history }) => {
   const handleSubmit = (note) => {
-    firebase.update(`notes/${match.params.id}`, note)
-    history.push('/')
+    firebase.update(`notes/${match.params.id}`, note, () => history.push(''))
   }
 
   return !isLoaded(note)
