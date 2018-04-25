@@ -64,7 +64,7 @@ test('I can create a new note', () => {
 test('I can view a note', () => {
   Simulate.click(getByText(testTitle), leftClick)
 
-  expect(container.innerHTML).toMatch('Edit');
+  expect(container.innerHTML).toMatch('edit');
   expect(container.innerHTML).toMatch(testTitle);
 });
 
@@ -74,9 +74,9 @@ const testChangeContent = 'wow, this is totally different';
 test('I can edit a note', () => {
 
   Simulate.click(getByText(testTitle), leftClick)
-  expect(container.innerHTML).toMatch('Edit');
+  expect(container.innerHTML).toMatch('edit');
 
-  Simulate.click(getByText('Edit'), leftClick)
+  Simulate.click(getByText('edit'), leftClick)
   expect(container.innerHTML).toMatch('Edit Note:');
   expect(container.innerHTML).toMatch(testTitle);
   expect(container.innerHTML).toMatch(testContent);
@@ -100,9 +100,9 @@ test('I can edit a note', () => {
 
 test('I can delete a note', () => {
   Simulate.click(getByText(testChangeTitle), leftClick)
-  expect(container.innerHTML).toMatch('Delete');
+  expect(container.innerHTML).toMatch('delete');
 
-  Simulate.click(getByText('Delete'), leftClick)
+  Simulate.click(getByText('delete'), leftClick)
   expect(container.innerHTML).toMatch('Your Notes:');
 
   expect(container.innerHTML).not.toMatch(testChangeTitle);

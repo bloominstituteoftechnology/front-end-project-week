@@ -15,8 +15,9 @@ class ViewNote extends Component {
       <div>
         <Row>
           <Col className="col-3 ml-auto">
-            <Link to="/edit-note"><Button className="mr-2" size="sm">Edit</Button></Link>
-            <Button onClick={this.handleDelete} size="sm">Delete</Button>
+            <Link to="/edit-note" className="m-3">edit</Link>
+            {/* this anchor cannot have href or else after delete, page will refresh and deleted card will reappear */}
+            <a onClick={this.handleDelete}>delete</a>
           </Col>
         </Row>
         <Row className="mt-4">
