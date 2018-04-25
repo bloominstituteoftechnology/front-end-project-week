@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom"
-import ListView from './components/ListView';
-import Navigation from './components/Navigation';
+import SideNav from './components/SideNav';
 import NoteView from './components/NoteView';
 
 import logo from './logo.svg';
@@ -11,6 +10,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <SideNav />
         <Switch>
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -19,8 +19,7 @@ export default class App extends Component {
           <p className="App-intro">
             To get started, edit <code>src/App.js</code> and save to reload.
           </p>
-          <Route exact patch = '/' component={ListView} />
-          <Route path = '/Navigation' component={Navigation} />
+          <Route path = '/NoteDisplay' component={SideNav} />
           <Route path = '/NoteView' component={NoteView} />
         </Switch>
       </div>
