@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 // material components
 import RaisedButton from "material-ui/RaisedButton";
 // styles
@@ -10,12 +11,16 @@ class ControlPanel extends Component {
 			<h3 className="ControlPanel_header">
 				Lambda<br />Notes
 			</h3>,
-			<RaisedButton className="ControlPanel_button" primary={true}>
-				View Your Notes
-			</RaisedButton>,
-			<RaisedButton className="ControlPanel_button" primary={true}>
-				Create Todo
-			</RaisedButton>
+			<Link to="/">
+				<RaisedButton className="ControlPanel_button" primary={true}>
+					View Your Notes
+				</RaisedButton>
+			</Link>,
+			<Link to="/addTodo">
+				<RaisedButton className="ControlPanel_button" primary={true}>
+					Create Todo
+				</RaisedButton>
+			</Link>
 		];
 	}
 }
