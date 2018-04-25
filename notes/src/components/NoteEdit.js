@@ -10,6 +10,8 @@ class NoteEdit extends Component {
       id: note.id,
       title: note.title,
       content: note.content,
+      tags: note.tags,
+      nextTag: "",
       edit: this.props.edit
     };
   }
@@ -18,8 +20,15 @@ class NoteEdit extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onTagSubmit = () => {
+    const tags = this.state.tags;
+    if (tags.includes(this.state.nextTag)) return;
+    tags.push(this.state.nextTag);
+    this.setState({ tags: tags, nextTag: "" });
+  };
+
   onUpdate = () => {
-    const note = {id: this.state.id, title: this.state.title, content: this.state.content};
+    const note = {id: this.state.id, title: this.state.title, content: this.state.content, tags: this.state.tags};
     this.state.edit(note);
   }
 
@@ -27,14 +36,28 @@ class NoteEdit extends Component {
     return (
       <div className="NoteEdit-container">
         <h3 className="NoteEdit-header">Edit Note:</h3>
-        <input
-          className="NoteEdit-input-title"
-          type="text"
-          placeholder="Note Title"
-          name="title"
-          value={this.state.title}
-          onChange={this.onChange}
-        />
+        <div className="NoteEdit-input-container">
+          <input
+            className="NoteEdit-input-title"
+            type="text"
+            placeholder="Note Title"
+            name="title"
+            value={this.state.title}
+            onChange={this.onChange}
+          />
+          <div className="NoteEdit-tag-container">
+            <div className="NoteEdit-tag-label">Tags: {this.state.tags.join(", ")}</div>
+            <input
+              className="NoteEdit-input-tag"
+              type="text"
+              placeholder="Add Tag"
+              name="nextTag"
+              value={this.state.nextTag}
+              onChange={this.onChange}
+            />
+            <div onClick={this.onTagSubmit} className="NoteEdit-update-btn NoteEdit-tag-btn">Add</div>
+          </div>
+        </div>
         <textarea
           className="NoteEdit-input-content"
           type="text"

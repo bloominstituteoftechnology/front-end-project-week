@@ -21,7 +21,10 @@ class NoteView extends Component {
           <Link className="NoteView-edit-link" to={`/edit/${this.state.note.id}`}>edit</Link>
           <div className="NoteView-delete-link" onClick={this.toggleModal}>delete</div>
         </div>
-        <h2 className="NoteView-title">{this.state.note.title}</h2>
+        <div className="NoteView-header">
+          <h2 className="NoteView-title">{this.state.note.title}</h2>
+          <div>{this.state.note.tags.length > 0 ? "Tags: " : ""}{this.state.note.tags.join(", ")}</div>
+        </div>
         <Markdown className="NoteView-content" source={this.state.note.content}/>
         <div className={`NoteView-delete-modal-background${this.state.modalActive ? "" : " NoteView-delete-modal-toggle"}`} />
         <div className={`NoteView-delete-modal-container${this.state.modalActive ? "" : " NoteView-delete-modal-toggle"}`}>
