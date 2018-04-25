@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
 const app = express();
+
 let nextId = 6;
 
 function getNewId() {
@@ -45,6 +45,12 @@ let notes = [
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/notes', (req, res) => {
+  setTimeout(() => {
+    res.send(notes);
+  }, 1000);
+});
+
 app.get("/notes", (req, res) => {
   res.status(200).json(notes);
 });
@@ -72,6 +78,6 @@ app.delete("/notes/:id", (req, res) => {
   res.status(200).json(notes);
 });
 
-app.listen(5001, () => {
-  console.log("server listening on port 5001");
+app.listen(5000, () => {
+  console.log("server listening on port 5000");
 });
