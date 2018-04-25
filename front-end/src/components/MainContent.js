@@ -6,7 +6,8 @@ import { createNote } from "../actions";
 import { connect } from "react-redux";
 // import EditNote from "./sub-component/EditNote" // Not done yet
 
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
+import IndividualNote from "./sub-component/IndividualNote";
 
 class MainPageContainer extends Component {
   constructor(props) {
@@ -17,8 +18,10 @@ class MainPageContainer extends Component {
     };
   }
 
+
+
   render() {
-    console.log("MainContent: this.props.noteArray", this.props);
+    // console.log("MainContent: this.props.noteArray", this.state);
     return (
       <div className="RouteContainer">
         <Route
@@ -35,6 +38,7 @@ class MainPageContainer extends Component {
             />
           )}
         />
+        {/* <Route path="/note/:id" component={IndividualNote} /> */}
         {/* <Route component={EditNote} /> */}
       </div>
     );
@@ -47,4 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { createNote })(MainPageContainer);
+export default withRouter(connect(mapStateToProps, { createNote })(MainPageContainer));

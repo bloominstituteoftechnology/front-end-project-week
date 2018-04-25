@@ -30,7 +30,9 @@ const initialState = [
 ];
 
 const noteReducer = (state = initialState, action) => {
+
   switch (action.type) {
+    
     case AT.CREATE_NOTE:
       return state = [...state, action.payload];
     default:

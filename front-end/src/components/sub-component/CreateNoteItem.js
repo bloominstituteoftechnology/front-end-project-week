@@ -2,6 +2,7 @@ import "./CreateNoteItem.css";
 
 import React, { Component } from "react";
 import { createNote } from "../../actions";
+import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
@@ -15,7 +16,7 @@ class CreateNoteItem extends Component {
   }
 
   render() {
-    console.log("CreateNote: this.props", this.props.mainProps.createNote);
+    // console.log("CreateNote: this.props", this.props.mainProps.createNote);
     return (
       <div className="Note_Creator">
         <h1>Create New Note:</h1>
@@ -33,18 +34,20 @@ class CreateNoteItem extends Component {
           value={this.state.content}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
         />
-        <button
-          onClick={() => {
-            this.props.mainProps.createNote({
-              title: this.state.content,
-              content: this.state.content,
-              id: this.props.noteArray.length + 1
-            });
-            this.setState({ title: "", content: "" });
-          }}
-        >
-          Save
-        </button>
+        <Link to="/">
+          <button
+            onClick={() => {
+              this.props.mainProps.createNote({
+                title: this.state.title,
+                content: this.state.content,
+                id: this.props.noteArray.length + 1
+              });
+              this.setState({ title: "", content: "" });
+            }}
+          >
+            Save
+          </button>
+        </Link>
       </div>
     );
   }
