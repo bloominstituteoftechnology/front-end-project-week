@@ -13,12 +13,16 @@ class UpdateNote extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({ title: this.props.clickedNote.title, content: this.props.clickedNote.content });
+  }
+
   handleInputChange = (e) => {
     this.setState({ [e.target.name]: e.target.value}); 
   }
 
   handleSubmit = () => {
-    this.props.updateNote(this.state);
+    this.props.updateEditedNote(this.state);
     this.props.history.push('/');
   }
 

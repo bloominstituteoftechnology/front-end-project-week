@@ -5,6 +5,7 @@ import { createMemoryHistory } from 'history'
 import { render, Simulate } from './'
 
 import App from '../App';
+import { testNotes } from './testData';
 
 // based off https://github.com/kentcdodds/react-testing-library/blob/master/src/__tests__/react-router.js
 
@@ -28,7 +29,14 @@ const { container, getByText, getByPlaceholderText } = renderWithRouter(<App />)
 
 test('I can see home page', () => {
   expect(container.innerHTML).toMatch('Your Notes')
+});
 
+test('I can see notes list', () => {
+  expect(container.innerHTML).toMatch('Your Notes')
+
+  testNotes.forEach( note => {
+    expect(container.innerHTML).toMatch(note.title);
+  });
 });
 
 const testTitle = 'A Test Note';
@@ -70,6 +78,8 @@ test('I can edit a note', () => {
 
   Simulate.click(getByText('Edit'), leftClick)
   expect(container.innerHTML).toMatch('Edit Note:');
+  expect(container.innerHTML).toMatch(testTitle);
+  expect(container.innerHTML).toMatch(testContent);
 
   const titleInput = getByPlaceholderText('Note Title');
   const contentInput = getByPlaceholderText('Note Content');

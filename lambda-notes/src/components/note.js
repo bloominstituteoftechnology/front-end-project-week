@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 class Note extends Component {
 
   handleClickNote = () => {
-    this.props.updateSelectedNote({ title: this.props.title, content: this.props.content });
+    this.props.updateClickedNote({ title: this.props.title, content: this.props.content });
     this.props.history.push('/notes-view');
   }
 

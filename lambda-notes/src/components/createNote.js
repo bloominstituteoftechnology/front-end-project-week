@@ -13,12 +13,12 @@ class CreateNote extends Component {
     }
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value}); 
   }
 
   handleSubmit = () => {
-    this.props.updateNewNote(this.state);
+    this.props.addNewNote(this.state);
     this.props.history.push('/');
   }
 

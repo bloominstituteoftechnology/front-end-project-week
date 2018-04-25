@@ -6,7 +6,7 @@ import { Form, Input, Row, Col, Button } from 'reactstrap';
 class ViewNote extends Component {
 
   handleDelete = () => {
-    this.props.deleteNote(this.props.selectedNote.title);
+    this.props.deleteNote();
     this.props.history.push('/');
   }
 
@@ -21,8 +21,8 @@ class ViewNote extends Component {
         </Row>
         <Row className="mt-4">
           <Col>
-            <h3>{this.props.selectedNote.title}</h3><br />
-            <p>{this.props.selectedNote.content}</p>
+            <h3>{this.props.clickedNote.title}</h3><br />
+            <p>{this.props.clickedNote.content}</p>
           </Col>
         </Row>
       </div>

@@ -7,6 +7,8 @@ import NotesList from './components/notesList';
 import CreateNote from './components/createNote';
 import ViewNote from './components/viewNote';
 import EditNote from './components/editNote';
+import { testNotes } from './tests/testData';
+
 import './App.css';
 
 class App extends Component {
@@ -14,47 +16,41 @@ class App extends Component {
     super();
 
     this.state = {
-      cards: [
-        { title: "Card title # 1", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card title # 2", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-        { title: "Card title # 3", content: "Some quick example text to build on the card title and make up the bulk of the card's content." },
-      ],
+      notes: testNotes,
       newNote: {
         title: '',
         content: ''
       },
-      selectedNote: {
+      clickedNote: {
         title: '',
         content: ''
       }
     }
   }
 
-  updateNewNote = (newNote) => {
-    this.setState({ cards: [...this.state.cards, newNote]});
+  addNewNote = (newNote) => {
+    this.setState({ notes: [...this.state.notes, newNote]});
   }
 
-  updateNote = (updatedNote) => {
-    const updatedNotes = this.state.cards.map(note => {
-      if (note.title === this.state.selectedNote.title) {
-        return { title: updatedNote.title, content: updatedNote.content };
+  updateEditedNote = (updatedNoteData) => {
+    const updatedNotes = this.state.notes.map(note => {
+      if (note.title === this.state.clickedNote.title) {
+        return { title: updatedNoteData.title, content: updatedNoteData.content };
       } else {
         return note;
       } 
     });
 
-    this.setState({ cards: updatedNotes });
+    this.setState({ notes: updatedNotes });
   }
 
-  updateSelectedNote = (selectedNote) => {
-    this.setState({ selectedNote: selectedNote });
+  deleteNote = () => {
+    const updatedNotes = this.state.notes.filter(note => note.title !== this.state.clickedNote.title);
+    this.setState({ notes: updatedNotes });
   }
 
-  deleteNote = title => {
-    const updatedNotes = this.state.cards.filter(card => card.title !== title);
-    this.setState({ cards: updatedNotes });
+  updateClickedNote = (clickedNote) => {
+    this.setState({ clickedNote: clickedNote });
   }
 
   render() {
@@ -73,10 +69,10 @@ class App extends Component {
             <Row>
               <div className="col-12">
                 <Switch>
-                  <Route exact path="/" render={() => <NotesList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
-                  <Route path="/create-note" render={() => <CreateNote {...this.state} updateNewNote={this.updateNewNote} />} />
+                  <Route exact path="/" render={() => <NotesList updateClickedNote={this.updateClickedNote} {...this.state} />} />
+                  <Route path="/create-note" render={() => <CreateNote {...this.state} addNewNote={this.addNewNote} />} />
                   <Route path="/notes-view" render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} />} />
-                  <Route path="/edit-note" render={() => <EditNote {...this.state} updateNote={this.updateNote} />} />
+                  <Route path="/edit-note" render={() => <EditNote {...this.state} updateEditedNote={this.updateEditedNote} />} />
                 </Switch>
               </div>
             </Row>
