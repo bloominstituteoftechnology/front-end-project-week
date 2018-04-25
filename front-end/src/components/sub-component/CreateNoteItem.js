@@ -40,7 +40,7 @@ class CreateNoteItem extends Component {
               this.props.mainProps.createNote({
                 title: this.state.title,
                 content: this.state.content,
-                id: this.props.noteArray.length + 1
+                id: this.props.noteArray.length
               });
               this.setState({ title: "", content: "" });
             }}
