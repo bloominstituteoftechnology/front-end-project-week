@@ -29,6 +29,7 @@ export const NewNote = ({ history, addNote }) => {
           <textarea
             cols="66"
             rows="20"
+            maxlength="1600"
             className="input__text"
             ref={text => (textInput = text)}
             placeholder="Note Content"

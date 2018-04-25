@@ -53,6 +53,7 @@ export class EditNote extends React.Component {
             <textarea
               cols="66"
               rows="20"
+              maxlength="1600"
               name="text"
               className="input__text"
               value={this.state.text}
