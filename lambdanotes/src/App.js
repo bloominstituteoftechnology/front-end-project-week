@@ -39,16 +39,19 @@ class App extends Component {
   };
 
   editNote = editedNote => {
-    console.log("the edited note passed to app.js is " + editedNote);
-    console.log(this.state.notes.filter(note => note.id === editedNote.id));
-    // this.setState({ notes: []})
     const newNotes = this.state.notes.map((note, index) => {
       if (editedNote.id === note.id) {
         note = editedNote;
       }
       return note;
     });
-    console.log(newNotes);
+    this.setState({ notes: newNotes });
+  };
+
+  deleteNote = deleteId => {
+    const newNotes = this.state.notes.filter(note => {
+      return note.id !== deleteId;
+    });
     this.setState({ notes: newNotes });
   };
 
@@ -81,8 +84,8 @@ class App extends Component {
                     <NoteView
                       {...props}
                       notes={this.state.notes}
-                      addNote={this.addNote}
                       editNote={this.editNote}
+                      deleteNote={this.deleteNote}
                     />
                   );
                 }}
@@ -92,10 +95,8 @@ class App extends Component {
                 render={props => {
                   return (
                     <CreateNote
-                      {...props}
                       notes={this.state.notes}
                       addNote={this.addNote}
-                      editNote={this.editNote}
                     />
                   );
                 }}

@@ -19,7 +19,6 @@ class NoteView extends Component {
     if (
       this.props.notes !== null &&
       this.props.notes !== undefined &&
-      this.props.notes[this.props.match.params.id - 1] &&
       this.state.editing === false
     ) {
       this.displayNote();
@@ -30,11 +29,13 @@ class NoteView extends Component {
     const displayedNote = this.props.notes.filter(
       (note, index) => this.state.id === note.id
     );
-    this.setState({
-      note: displayedNote[0],
-      title: displayedNote[0].title,
-      content: displayedNote[0].content
-    });
+    if (displayedNote[0]) {
+      this.setState({
+        note: displayedNote[0],
+        title: displayedNote[0].title,
+        content: displayedNote[0].content
+      });
+    }
   };
 
   handleInput = e => {
@@ -61,6 +62,14 @@ class NoteView extends Component {
     } else alert("Fill out all inputs to submit");
   };
 
+  handleDeleteNote = () => {
+    this.props.deleteNote(this.state.id);
+    this.setState({
+      editing: false,
+      note: null
+    });
+  };
+
   render() {
     if (this.state.editing === false && this.state.note !== null) {
       return (
@@ -68,7 +77,9 @@ class NoteView extends Component {
           <Button color="info" onClick={this.toggle}>
             Edit
           </Button>
-          <Button color="danger">Delete</Button>
+          <Button color="danger" onClick={this.handleDeleteNote}>
+            Delete
+          </Button>
           {this.state.title}
           <br />
           <br />

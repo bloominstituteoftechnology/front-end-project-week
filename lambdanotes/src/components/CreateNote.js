@@ -62,7 +62,7 @@ class CreateNote extends Component {
           onChange={this.handleInput}
         />
         <br />
-        <button onClick={this.handleCreateNote}>Create Note</button>
+        <Button onClick={this.handleCreateNote}>Create Note</Button>
       </div>
     );
   }

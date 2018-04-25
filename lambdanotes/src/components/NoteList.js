@@ -11,9 +11,7 @@ class NoteList extends Component {
         <h3>Your Notes: </h3>
         <Container className="note-list">
           {this.props.notes.map((note, index) => {
-            return (
-              <NoteCard key={note.title + index} note={note} id={note.id} />
-            );
+            return <NoteCard key={note.title + note.id} note={note} />;
           })}
         </Container>
       </div>
