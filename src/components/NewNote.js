@@ -24,7 +24,6 @@ export default class NewNote extends Component {
             <input
               type="text"
               name="title"
-              value={this.state.title}
               placeholder="Note Title"
             />
 
