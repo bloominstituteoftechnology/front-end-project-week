@@ -6,9 +6,15 @@ export class NoteForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      title: '',
-      body: ''
+    if (props.formUse === 'Create New Note') {
+      this.state = { title: '', body: '' , id: props.notes.length };
+    } else {
+      this.note = props.notes[props.match.params.id];
+      this.state = {
+        title: this.note.title,
+        body: this.note.body,
+        id: Number(props.match.params.id)
+      }
     }
   }
 
@@ -25,7 +31,7 @@ export class NoteForm extends Component {
       <div className="NoteForm">
         <p className="NoteForm_header">{this.props.formUse}:</p>
         <form className="NoteForm_inputs">
-          <input
+          <textarea
             className="NoteForm_inputTitle"
             placeholder="Title"
             name="title"
@@ -44,10 +50,11 @@ export class NoteForm extends Component {
           onClick={() => { // Maintain immutability
             const newTodo = {...this.state};
             Object.keys(newTodo).forEach(key => {
-              // While replacing empty values
-              newTodo[key] = !newTodo[key] ? "..." : newTodo[key];
-            });
-            this.props.useFunction(newTodo);
+              // While replacing empty values except id's
+              if (key !== 'id')
+              newTodo[key] = !newTodo[key] ? 
+              "..." : newTodo[key] });
+            this.props.useFunction(newTodo, this.state.id);
         }}>Save</button></Link>
       </div>
     )

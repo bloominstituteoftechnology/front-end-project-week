@@ -38,6 +38,7 @@
   margin-bottom: 15px;
   outline: none;
   padding: 10px;
+  resize: none;
 }
 
 .NoteForm_inputTitle {
@@ -46,7 +47,6 @@
 
 .NoteForm_inputBody {
   height: 40vh;
-  resize: none;
   width: 90%;
 }
 

@@ -24,13 +24,14 @@ export class App extends Component {
   
   createNote = note => { // Take in note title and body as object
     // Add note to state and update local storage
-    const newNote = {id: this.state.notes.length, ...note}
-    this.setState({ notes: this.state.notes.concat(newNote) });
+    this.setState({ notes: this.state.notes.concat(note) });
     this.local.set('notes', this.state);
   }
 
-  editNote = (note, id) => {
-
+  editNote = (newNote, id) => {
+    this.setState({ notes: this.state.notes.map(note => {
+      return note.id === id ? newNote : note;
+    })});
   }
 
   deleteNote = id => {
@@ -57,19 +58,27 @@ export class App extends Component {
             <NoteList notes={this.state.notes}/> 
           }/>
           <Route path="/view/:id" render={props => 
-            <NoteView {...props} notes={this.state.notes}/> 
+            <NoteView {...props} 
+            notes={this.state.notes}/> 
           }/>
           <Route path="/create" render={props => 
-            <NoteForm {...props} formUse="Create New Note" useFunction={this.createNote}/> 
+            <NoteForm {...props} 
+            formUse="Create New Note"
+            notes={this.state.notes}
+            useFunction={this.createNote}/> 
           }/>
           <Route path="/edit/:id" render={props => 
-            <NoteForm {...props} formUse="Edit Note" useFunction={this.editNote}/> 
+            <NoteForm {...props} formUse="Edit Note" 
+            useFunction={this.editNote} 
+            notes={this.state.notes}/> 
           }/>
           <Route path="/view/:id/delete" render={props => 
-            <Modal {...props}/> 
+            <Modal {...props}
+            notes={this.state.notes}/> 
           }/>
           <Route path="/delete/all" render={props => 
-            <Modal {...props}/> 
+            <Modal {...props}
+            deleteAll={this.clearNotes}/> 
           }/>
         </div>
       </div>
