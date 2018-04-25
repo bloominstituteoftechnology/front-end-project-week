@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Container, Button } from "reactstrap";
-import PropTypes from "prop-types";
 
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
@@ -32,13 +31,11 @@ const routes = [
 
 class App extends Component {
   render() {
-    document.body.style.background = "#f3f3f3";
-
     return (
       <Router>
         <Container fluid={true} className="App">
           <Row className="app-wrapper">
-            <Col sm={3} className="leftSide position-fixed">
+            <Col sm={3} className="leftSideBar position-fixed">
               <h1 className="header my-4">Lambda Notes</h1>
 
               <Link to="/">
@@ -46,10 +43,10 @@ class App extends Component {
               </Link>
 
               <Link to="/createNote">
-                <Button className="w-100 my-2 p-2">+ Create Note </Button>
+                <Button className="w-100 my-2 p-2">+ Create Note</Button>
               </Link>
             </Col>
-            <Col sm={9} className="rightSide offset-3">
+            <Col sm={9} className="noteContainer offset-3">
               {routes.map((route, index) => (
                 <Route
                   key={index}
@@ -66,7 +63,4 @@ class App extends Component {
   }
 }
 
-// Container.propTypes = {
-//   fluid: PropTypes.bool
-// };
 export default App;

@@ -1,28 +1,67 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f3f3f3;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App.container-fluid {
+  min-height: 100vh;
+}
+.leftSideBar {
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  height: 100%;
+}
+.noteContainer {
+  min-height: 100%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.note {
+  height: 200px;
+  margin: 1rem 0;
+}
+.card-body {
+  overflow: hidden;
+  font-size: 1rem;
 }
 
-.App-title {
-  font-size: 1.5em;
+a.card-link {
+  text-decoration: none;
+  color: black;
+}
+a.card-link:hover {
+  color: black;
+}
+button.btn {
+  background: #2bc1c4;
+  font-weight: bold;
+  border-radius: 0;
+  font-size: 1.1rem;
+  border: 1px solid grey;
 }
 
-.App-intro {
-  font-size: large;
+button.btn.deleteBtn {
+  background: red;
+}
+button.btn.deleteBtn:hover {
+  background: darkred;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.header {
+  color: #4a4a4a;
+  font-weight: bold;
+  line-height: 85%;
+}
+
+.header-link {
+  text-decoration: underline;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+.header-link:hover {
+  color: black;
+}
+
+h5.card-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }

@@ -14,8 +14,8 @@ import "./index.css";
 
 const store = createStore(      // Redux store
   reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ &&window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk, logger),
-  // window.__REDUX_DEVTOOLS_EXTENSION__ &&window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
