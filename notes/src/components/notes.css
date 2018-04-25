@@ -44,6 +44,7 @@ h1 {
   align-items: center;
   color: white;
   cursor: pointer;
+  user-select: none;
 }
 
 .delete-notes-button {
@@ -71,6 +72,10 @@ h1 {
   border-top: 1px solid lightgrey;
   margin-top: 5px;
   padding-top: 5px;
+}
+
+.notes-text-full {
+  white-space: pre-wrap;
 }
 
 h5 {

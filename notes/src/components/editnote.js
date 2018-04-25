@@ -6,8 +6,7 @@ class EditNote extends Component {
 
     this.state = {
       title: this.props.note.title,
-      text: this.props.note.text,
-      id: this.props.note.id
+      text: this.props.note.text
     };
   }
 

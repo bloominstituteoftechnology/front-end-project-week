@@ -16,12 +16,12 @@ const SideBar = props => {
       >
         + Create New Note
       </div>
-      <div
+      {/* <div
         className="delete-notes-button button"
         onClick={() => props.removeAllNotes()}
       >
         Delete All Notes
-      </div>
+      </div> */}
     </div>
   );
 };
