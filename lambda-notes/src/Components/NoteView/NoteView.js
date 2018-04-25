@@ -25,21 +25,16 @@ class NoteView extends Component {
     render() {
         return(
             <div>
-                {this.state.mounted === false ? (
-                    console.log('false')
-                ) : (
-                <div className="noteView">
-                    <SideBar/>
-                    <div className="noteCard">
-                        <div className = "links">
-                            <Link to="#">edit</Link>
-                            <Link to="#">delete</Link>
+                <div className="bodyModal">
+                    <div className="modal">
+                        <div className="modalQuestion">Are you sure you want to delete this?</div>
+                        <div>
+                            <button>Delete</button>
+                            <button>No</button>
                         </div>
-                        <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
-                        <p className="note">{this.props.notes.notes[this.state.index].note}</p>
                     </div>
                 </div>
-                )}
+
             </div>
         )
     }

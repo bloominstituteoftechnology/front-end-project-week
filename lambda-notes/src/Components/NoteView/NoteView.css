@@ -22,6 +22,7 @@ margin-top: 2%;
 .noteCard a {
     margin-left: 3%;
     font-size: 1.2rem;
+    text-decoration: underline;
     color: black;
 }
 
@@ -32,4 +33,49 @@ margin-top: 2%;
 .noteCard p{
     font-size: 1.3rem;
     margin-top: 3%;
+}
+
+.modal {
+    background-color: white;
+    width: 47%;
+    margin: 0 auto;
+    position: relative;
+    top: 8rem;
+    height: 13rem;
+    text-align: center;
+    padding: 4%;
+    border: 1px solid rgb(134, 133, 133);
+}
+
+.modalQuestion {
+    font-size: 1.2rem;
+    margin-bottom: 8%;
+}
+
+.modal button {
+    width: 40%;
+    height: 3rem;
+    margin-right: 3%;
+    color: white;
+    border: .5px solid #F3F3F3;
+    font-size: 1.2rem;
+}
+
+.modal button:hover {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal button:first-of-type {
+    background-color: #D0011B;
+}
+
+.modal button:last-of-type {
+    background-color: #2AC0C4;
+}
+
+.bodyModal {
+    background-color: #DDDDDD;
+    height: 100vh;
+    display: none;
 }
