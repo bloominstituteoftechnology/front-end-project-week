@@ -1,7 +1,8 @@
-
 .noteView {
     color: black;
     display: flex;
+    position: relative;
+    z-index: -1;
 }
 
 .noteCard {
@@ -18,8 +19,16 @@ margin-top: 2%;
     width: 98%;
     text-align: right;
 }
+.noteCard .links button {
+    color: black;
+    background-color: #F3F3F3;
+    border: none
+}
 
-.noteCard a {
+.links button:hover {
+    cursor: pointer;
+}
+.noteCard a, button {
     margin-left: 3%;
     font-size: 1.2rem;
     text-decoration: underline;
@@ -37,13 +46,14 @@ margin-top: 2%;
 
 .modal {
     background-color: white;
-    width: 47%;
-    margin: 0 auto;
-    position: relative;
+    width: 70%;
+    position: absolute;
     top: 8rem;
+    left: 20%;
     height: 13rem;
     text-align: center;
     padding: 4%;
+    z-index: 3;
     border: 1px solid rgb(134, 133, 133);
 }
 
@@ -59,6 +69,7 @@ margin-top: 2%;
     color: white;
     border: .5px solid #F3F3F3;
     font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .modal button:hover {
@@ -74,8 +85,12 @@ margin-top: 2%;
     background-color: #2AC0C4;
 }
 
-.bodyModal {
-    background-color: #DDDDDD;
-    height: 100vh;
+.none {
     display: none;
 }
+
+/* 
+.modalLayover {
+    background-color: #F3F3F3;
+    opacity: .5;
+} */

@@ -25,15 +25,35 @@ class NoteView extends Component {
     render() {
         return(
             <div>
-                <div className="bodyModal">
-                    <div className="modal">
-                        <div className="modalQuestion">Are you sure you want to delete this?</div>
-                        <div>
-                            <button>Delete</button>
-                            <button>No</button>
+                {this.state.mounted === false ? (
+                    <div className = "links">
+                            <Link to="#">edit</Link>
+                            <button>delete</button>
+                    </div>
+                ) : (
+                    <div>
+                        <div className="modal none">
+                            <div className="modalQuestion">Are you sure you want to delete this?</div>
+                            <div>
+                                <button>Delete</button>
+                                <button>No</button>
+                            </div>
                         </div>
+                <div className="modalLayover">   
+                <div className="noteView">
+                    <SideBar/>
+                    <div className="noteCard">
+                        <div className = "links">
+                            <Link to="#">edit</Link>
+                            <button>delete</button>
+                        </div>
+                        <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
+                        <p className="note">{this.props.notes.notes[this.state.index].note}</p>
                     </div>
                 </div>
+                </div>
+                </div>
+                )}
 
             </div>
         )
