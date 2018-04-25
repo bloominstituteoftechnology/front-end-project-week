@@ -1,5 +1,6 @@
 import React from 'react';
 import './view.css';
+import { Link } from 'react-router-dom';
 
 export class ViewNote extends React.Component {
     constructor(props) {
@@ -8,7 +9,13 @@ export class ViewNote extends React.Component {
     render() {
         return <div className="col-9 right__side">
             <div className="row">
-              <h4>Note Title</h4>
+                <div className="col-4 edit">
+                    <Link to="/">Edit</Link>
+                </div>
+                <div className="edit">
+                    <Link to="/">Delete</Link>
+                </div>
+                <h4>Note Title</h4>
             </div>
             <div className="row">
               <p>
