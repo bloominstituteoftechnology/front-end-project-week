@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Delete from '../Delete/Delete';
 
 class Notes extends Component {
     render() {
@@ -15,7 +16,7 @@ class Notes extends Component {
                     </button>
                     </div>
                 <Link to= '/edit'> edit </Link>
-                <Link to= '/delete'> delete </Link>
+                <Delete />
                 <div className='Note-create'>
                     <h2> Note Name </h2>
                 </div>
