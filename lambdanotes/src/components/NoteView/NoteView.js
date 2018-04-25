@@ -38,12 +38,26 @@ export default class NoteView extends Component {
     }
   }
 
+  deleteNote = id => {
+    axios
+      .delete(`http://localhost:5000/notes/${id}`)
+      .then(response => {
+        this.props.getNotes();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     // console.log('note:', this.state.note);
     return (
       <div>
         <Row>
           <Col sm={{ size: 8, offset: 4 }}>
+          <button>edit</button>
+          <button onClick={() => this.deleteNote(this.state.note.id)}>
+              delete</button>
             <h3>{this.state.note.title}</h3>
             <p>{this.state.note.content}</p>
           </Col>
