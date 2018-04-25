@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import Delete from '../Delete/Delete';
+import './Notes.css';
 
 class Notes extends Component {
     render() {
@@ -15,8 +17,10 @@ class Notes extends Component {
                         <Link to= '/newNote'> +Create New Notes </Link>
                     </button>
                     </div>
-                <Link to= '/edit'> edit </Link>
-                <Delete />
+                    <div className = 'Link'>
+                        <Link to= '/edit'> edit </Link>
+                    </div>
+                    <Delete />
                 <div className='Note-create'>
                     <h2> Note Name </h2>
                 </div>
