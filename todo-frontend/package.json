@@ -32,15 +32,12 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-react-app": "^2.1.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
     "eslint-plugin-flowtype": "^2.46.3",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-react": "^7.7.0"
   },
   "eslintConfig": {
     "env": {
@@ -56,14 +53,9 @@
       },
       "sourceType": "module"
     },
-    "extends": [
-      "standard",
-      "standard-react"
-    ]
+    "extends": ["react-app"]
   },
   "babel": {
-    "presets": [
-      "babel-preset-react-app"
-    ]
+    "presets": ["babel-preset-react-app"]
   }
 }

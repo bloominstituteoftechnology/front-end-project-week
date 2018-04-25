@@ -1,11 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import {Todo} from 'components/Todo'
+import { Todo } from 'components/Todo'
+import { AddTodoForm } from 'components/AddTodoForm'
 
-export const TodoList = ({todos}) => (<div className='TodoList'>
-  {todos.map(todo => <Todo {...todo} key={todo.id} />)}
-</div>)
-
-TodoList.propTypes = {
-  todos: PropTypes.array
-}
+export const TodoList = ({ todos }) => (
+  <div className="TodoList">
+    <AddTodoForm />
+    {todos.map(todo => <Todo {...todo} key={todo.id} />)}
+  </div>
+)

@@ -8,13 +8,20 @@ it('has inputs', () => {
 })
 
 const addedTodo = {
-  title: 'a taco',
-  constent: 'a bell'
+  title: 'Title',
+  content: 'Content'
 }
 
 describe('handleSubmit', () => {
   it('returns defaults when no inputs', () => {
-    expect(handleSubmit({preventDefault: jest.fn()}).toBe(addedTodo)
-    )
+    expect(
+      handleSubmit({
+        preventDefault: () => {}
+      })
+    ).toMatchObject(addedTodo)
+  })
+
+  it('returns values input', () => {
+    AddTodoFormWrapper.find('.ATF--input')
   })
 })
