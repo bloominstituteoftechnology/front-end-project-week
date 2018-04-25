@@ -1,5 +1,6 @@
+
 import React from "react";
-import './Note.css';
+import "./Note.css";
 import {
   Card,
   CardImg,
@@ -10,16 +11,17 @@ import {
   Button
 } from "reactstrap";
 
-const Note = () => {
-//returns the Notecard
-    return(
-      <div>
-        <Card className="Note">
-        <CardTitle>{props.note.title}</CardTitle>
-        <CardBody>{props.note.description}</CardBody>
-        </Card>
-      </div>
-    )
+const Note = props => {
+  //returns the Notecard
+  const { title, description } = props.note;
+  return (
+    <div>
+      <Card className="Note">
+        <CardTitl>{title}</CardTitl>
+        <CardBody>{description}</CardBody>
+      </Card>
+    </div>
+  );
 };
 
 export default Note;
