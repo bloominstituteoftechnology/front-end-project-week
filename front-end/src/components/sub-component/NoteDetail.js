@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalHeader } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import NoteCard from "./NoteCard";
-import { deleteNote } from "../../actions";
 
 export default class NoteDetail extends Component {
   constructor(props) {

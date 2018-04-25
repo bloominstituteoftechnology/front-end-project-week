@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 
-import { Route } from "react-router";
+import "./App.css";
 
 import SideMenu from "./components/SideMenu";
 import MainContent from "./components/MainContent";

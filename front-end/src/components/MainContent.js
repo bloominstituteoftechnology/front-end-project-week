@@ -19,7 +19,7 @@ class MainPageContainer extends Component {
   }
 
   render() {
-    console.log("MainContent: this.props.noteArray", this.props.noteArray);
+    // console.log("MainContent: this.props.noteArray", this.props.noteArray);
     return (
       <div className="RouteContainer">
         <Route

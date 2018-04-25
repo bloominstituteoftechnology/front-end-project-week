@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import { fetchNotes } from "../../actions";
-import { connect } from "react-redux";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import NoteCard from "./NoteCard";

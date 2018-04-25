@@ -1,10 +1,8 @@
 import "./CreateNoteItem.css";
 
 import React, { Component } from "react";
-import { createNote } from "../../actions";
 import { Link } from "react-router-dom";
 
-import { connect } from "react-redux";
 
 class CreateNoteItem extends Component {
   constructor(props) {
