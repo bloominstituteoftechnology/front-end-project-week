@@ -12,7 +12,7 @@ export default class SideMenu extends Component {
             <button>View Your Notes</button>
           </Link>
 
-          <Link to="/note/create">
+          <Link to="/create">
             <button>+ Create New Notes</button>
           </Link>
       </div>

@@ -16,7 +16,7 @@ class CreateNoteItem extends Component {
   }
 
   render() {
-    // console.log("CreateNote: this.props", this.props.mainProps.createNote);
+    console.log("CreateNote: this.props", this.props.mainProps);
     return (
       <div className="Note_Creator">
         <h1>Create New Note:</h1>

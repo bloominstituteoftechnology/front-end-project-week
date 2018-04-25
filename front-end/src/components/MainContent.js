@@ -30,7 +30,7 @@ class MainPageContainer extends Component {
           render={props => <NoteList noteArray={this.props.noteArray} />}
         />
         <Route
-          path="/note/create"
+          path="/create"
           render={props => (
             <CreateNoteItem
               mainProps={this.props}
