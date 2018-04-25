@@ -1,14 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-const Todo = props => (<div className='Todo'>
-  <h3 className='Todo--title'>{props.title}</h3>
-  <p className='Todo--content'>{props.content}</p>
-</div>)
+const TodoWrapper = styled.div``
+
+const TodoTitle = styled.h3`
+  padding-bottom: 2px;
+  border-bottom: 1px gray solid;
+`
+
+const TodoContent = styled.p``
+
+/** @type React.StatelessComponent<{title,content}> */
+const Todo = props => (
+  <TodoWrapper>
+    <TodoTitle>{props.title}</TodoTitle>
+    <TodoContent>{props.content}</TodoContent>
+  </TodoWrapper>
+)
 
 Todo.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string
 }
 
-export { Todo }
+export { Todo, TodoTitle, TodoContent }

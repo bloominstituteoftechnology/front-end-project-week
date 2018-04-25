@@ -2,11 +2,15 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 import { TodoList } from 'components/TodoList'
 
 import { fetchTodos } from 'actions'
-import 'App.css'
+
+const AppWrapper = styled.main`
+  text-align: center;
+`
 
 class App extends Component {
   componentDidMount() {
@@ -14,7 +18,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <AppWrapper>
         <Route
           exact
           path="/"
@@ -22,7 +26,7 @@ class App extends Component {
         />
 
         <Route render={() => <h3>This page is unavailable</h3>} />
-      </div>
+      </AppWrapper>
     )
   }
 }

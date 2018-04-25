@@ -41,7 +41,7 @@ const enzymeWrapper = mount(
 )
 
 it('renders without crashing', () => {
-  expect(enzymeWrapper.find('.App').hasClass('App')).toBe(true)
+  expect(enzymeWrapper.find('App').exists()).toBe(true)
 })
 
 it('tries to fetch todos on mount', async () => {

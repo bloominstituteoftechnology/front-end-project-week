@@ -6,13 +6,26 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-import 'index.css'
+import { injectGlobal } from 'styled-components'
+
 import App from 'App'
 import registerServiceWorker from 'registerServiceWorker'
 
 import { todosReducer } from 'reducers'
 
 const store = createStore(todosReducer, applyMiddleware(thunk, logger))
+
+injectGlobal`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+`
 
 ReactDOM.render(
   <Provider store={store}>

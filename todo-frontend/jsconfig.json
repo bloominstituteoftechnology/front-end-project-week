@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "checkJs": true,
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"]
@@ -10,9 +9,9 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   },
-  "include": ["src/**/*"],
   "typeAcquisition": {
-    "include": ["jest"],
+    "include": ["jest", "axios"],
     "enable": true
-  }
+  },
+  "include": ["src/**/*"]
 }
