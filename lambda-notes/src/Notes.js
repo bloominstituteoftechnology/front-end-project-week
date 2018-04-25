@@ -1,12 +1,3 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const CORS = require('cors');
-
-const app = express();
-
-app.use(bodyParser.json());
-app.use(CORS());
-
 export const Notes = [
     {
         id: 1,
@@ -61,22 +52,4 @@ export const Notes = [
         title: "Lorem Hipster Ipsum",
         body: "Photo booth swag actually, beard everyday carry kitsch health goth bitters poke hammock keffiyeh craft beer messenger bag copper mug meditation. Vice VHS plaid truffaut. Butcher chambray godard hoodie shabby chic quinoa pinterest chia authentic. Vice cred enamel pin lo-fi, skateboard vinyl af venmo hammock slow-carb."
     }
-];
-
-app.get('/api/Notes', (req, res) => {
-    res.send(Notes);
-});
-
-app.get('/api/Notes/:id', (req, res) => {
-    const note = Notes.filter(note => note.id.toString() === req.params.id)[0];
-    res.status(200).json(note);
-});
-
-app.post('/api/Notes', (req, res) => {
-    if (req.body.id !== undefined) Notes.push(req.body);
-    res.status(201).json(Notes);
-});
-
-app.listen(5000, () => {
-    console.log('Server listening on port 5000');
-});
+]
