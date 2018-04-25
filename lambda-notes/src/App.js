@@ -78,7 +78,7 @@ class App extends Component {
             </div>
             <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
             <Route path="/createNewNote" render={() => <CreateNote />}/>
-            <Route path="/viewNote" render={() => <viewNote Notes={this.state.notes} />}/>
+            <Route path="/viewNote/" render={() => <viewNote />}/>
           </div>
         </div>
       </div>
