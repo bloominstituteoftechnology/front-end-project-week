@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start
+  /usr/local/bin/node /usr/local/bin/yarn install --save react-redux
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -23,9 +23,9 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: Couldn't find a package.json file in "/Users/Mine/LambdaSchool/front-end-project-week"
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add react-redux" instead.
       at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at /usr/local/lib/node_modules/yarn/lib/cli.js:40048:15
+      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:21987:13)
       at Generator.next (<anonymous>)
       at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
