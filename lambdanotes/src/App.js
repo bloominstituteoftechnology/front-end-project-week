@@ -29,7 +29,7 @@ class App extends Component {
                     Lambda
                      Notes               
                   </div>
-                  <Link to="/">
+                  <Link to="/" className="ButtonLink">
                  <button>View Your Notes</button>
                   </Link>
                  <Link to="/NewNote">

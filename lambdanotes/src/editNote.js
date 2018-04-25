@@ -46,7 +46,9 @@ console.log('s',this.props.match.params)
           />
           <button className='Button' onClick={() => {
               
-              this.props.addNoteActionCreator(this.props.notes[this.props.match.params.index]) 
+              this.props.addNoteActionCreator(this.props.notes[this.props.match.params.index], this.setState({
+                  noteTitle: '',
+                  noteText: ''})) 
           }} >Save</button>
       </div>
   )

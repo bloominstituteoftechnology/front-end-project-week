@@ -4,23 +4,25 @@
  padding:0px;
 }
  button {
-  width:250px;
+  width:200px;
+  
+  margin-left: 50px;
   background: lightseagreen;
   font-size:1.2em;
   font-weight: bold;
-  border: 1px solid grey;
-  margin: 10px;
+  border: 1px solid red;
   color:white;
   height: 60px;
+  
 }
 .LambdaNotes{
-  padding-right: 0 15px 0 15px;
-  width: 24%;
-  max-width: 24%; 
-  padding-top:20px;
+ 
+  width: 220px;
+ 
   margin:0px;
   display:flex; 
   flex-direction: column;
+  align-items: center;
   background:lightgrey;
   border-right: 2px solid grey;
   
@@ -32,7 +34,7 @@
  display: flex;
  text-align: left;
  font-weight: bold;
- padding-left:10px;
+ padding-left:10p;
  color:grey;
  
 }
@@ -65,22 +67,24 @@ line-height: 40px;
 .AllNotes p{
   font-size: 30px;
   font-weight: bold;
-  padding-left:30px;
+  padding-left:20px;
 }
 
 .NotesList{
   display:flex;
   flex-direction: flex-start;
+  /* border: 1px solid red ; */
   
 }
 .NotesSection{
   display: flex;
   flex-direction:row;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  padding : 0px;
-  /* border: 2px solid red; */
+ 
+  padding-left : 14px;
+ /* border: 2px solid red;  */
   
 }
 
