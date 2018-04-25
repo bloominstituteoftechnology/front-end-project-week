@@ -35,7 +35,7 @@ class NotesList extends Component {
           "Pecorino port-salut cheddar. Halloumi camembert de normandie caerphilly everyone loves the big cheese melted cheese queso port-salut. Red leicester cheese and wine blue castello gouda smelly cheese cheesy grin blue castello stinking bishop. Port-salut cheese and wine feta manchego mozzarella everyone loves hard cheese everyone loves. Halloumi."
       },
       {
-        title: "Note Title",
+        title: "Note title",
         text:
           "Pecorino port-salut cheddar. Halloumi camembert de normandie caerphilly everyone loves the big cheese melted cheese queso port-salut. Red leicester cheese and wine blue castello gouda smelly cheese cheesy grin blue castello stinking bishop. Port-salut cheese and wine feta manchego mozzarella everyone loves hard cheese everyone loves. Halloumi."
       },
@@ -56,7 +56,6 @@ class NotesList extends Component {
       }
     ];
   }
-
   render() {
     return (
       <div className="notes">

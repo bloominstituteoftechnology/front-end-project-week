@@ -1,7 +1,22 @@
 h4 {
   margin: 0;
   padding: 5% 0 0 0;
-  color: dodgerblue;
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+}
+
+h3 {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
 }
 
 .container {
@@ -14,14 +29,16 @@ h4 {
 
 .notes-menu {
   border-right: 1px grey solid;
-  width: 22%;
-  padding: 2%;
+  width: 18%;
+  padding: 1.5%;
   background-color: gainsboro;
+  font-family: "Roboto", sans-serif;
 }
 
 .notes-list {
-  width: 75%;
+  width: 80%;
   padding: 2rem 1.5rem;
+  font-family: "Raleway", sans-serif;
 }
 
 .notes {
@@ -42,6 +59,7 @@ h4 {
 .card {
   box-shadow: 0 4px 8px 0 grey;
   transition: 0.2s;
+  /* font-family: "Raleway", sans-serif; */
 }
 
 .card:hover {
@@ -51,4 +69,59 @@ h4 {
 
 .nav-bar {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 1rem; */
+}
+
+.link {
+  background-color: rgb(57, 204, 204);
+  border: 2px grey solid;
+  padding: 0.5rem;
+  /* margin-bottom: 1rem; */
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+.add-note {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-note input {
+  padding: 0.5rem;
+  width: 60%;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.add-note textarea {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  resize: none;
+  font-family: "Raleway", sans-serif;
+}
+
+.save-button {
+  width: 20%;
+  text-align: center;
+  background-color: rgb(57, 204, 204);
+  border: 2px grey solid;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
 }

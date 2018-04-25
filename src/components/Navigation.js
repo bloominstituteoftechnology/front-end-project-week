@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 const Navigation = () => {
   return (
     <div className="nav-bar">
-      <Button href="/">View Your Notes</Button>
+      <Link className="link" to="/">
+        View Your Notes
+      </Link>
       <br />
-      <Button href="/AddNote"> + Create New Note </Button>
+      <Link className="link" to="/AddNote">
+        + Create New Note
+      </Link>
     </div>
   );
 };
