@@ -39,7 +39,7 @@ class PrimaryContainer extends Component {
   render() {
     return (
       <div className="PrimaryContainer">
-        <h1 className="PrimaryContainer__header">Your Notes:</h1>
+        <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
         <div className="PrimaryContainer__cardContainer">
           {this.props.notes.map(note => this.cardFactory(note))}
         </div>

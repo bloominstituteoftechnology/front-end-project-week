@@ -64,7 +64,7 @@
   }
 
   .nav-item:hover {
-    background-color: #959595;
+    background-color: #95959588;
   }
 }
 
@@ -78,4 +78,12 @@
 .NavRow__Link:hover {
   text-decoration: none !important;
   color: black !important;
+}
+
+.navbar-toggler {
+  border: 1px solid #959595 !important;
+}
+
+.navbar-toggler:hover {
+  background-color: #95959588;
 }

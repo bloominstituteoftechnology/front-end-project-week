@@ -13,6 +13,13 @@
   color: #4A484A;
 }
 
+.PrimaryContainer__header--notecards {
+  margin: 4% 15px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4A484A;
+}
+
 .PrimaryContainer__header--dark {
   margin: 4% 0;
   font-size: 2.5rem;
@@ -42,8 +49,6 @@
   text-decoration: none;
   color: black;
 }
-
-.Card {}
 
 .Card--dark {
   background-color: slategray !important;

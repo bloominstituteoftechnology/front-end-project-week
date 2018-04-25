@@ -34,26 +34,20 @@ class NavColumn extends Component {
           </Nav>
         </HideAt>
         <ShowAt breakpoint="small">
-          <Navbar className="d-flex justify-content-space-between pb-0 NavRow" light>
-            <NavbarBrand className="Nav__Header">Lambda Notes</NavbarBrand>
+          <Navbar className={`d-flex justify-content-space-between NavRow ${this.state.collapsed ? "" : "pb-0"}`} light>
+            <Link to="/"><NavbarBrand className="Nav__Header">Lambda Notes</NavbarBrand></Link>
             <NavbarToggler onClick={() => this.setState({ collapsed: !this.state.collapsed })} className="" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar className="Nav__ButtonsContainer">
-                <NavItem>
-                  <Link to="/" className="NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
-                    View Your Notes
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to="/create" className="NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
-                    + Create New Note
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link to="/markdown" className="NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
-                    Markdown Editor
-                  </Link>
-                </NavItem>
+                <Link to="/" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
+                  <NavItem>View Your Notes</NavItem>
+                </Link>
+                <Link to="/create" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
+                  <NavItem>+ Create New Note</NavItem>
+                </Link>
+                <Link to="/markdown" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
+                  <NavItem>Markdown Editor</NavItem>
+                </Link>
               </Nav>
             </Collapse>
           </Navbar>
