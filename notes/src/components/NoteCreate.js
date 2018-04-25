@@ -9,6 +9,8 @@ class NoteCreate extends Component {
       id: this.props.getID(),
       title: "",
       content: "",
+      nextTag: "",
+      tags: [],
       create: this.props.create
     };
   }
@@ -17,11 +19,20 @@ class NoteCreate extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onTagSubmit = () => {
+    const tags = this.state.tags;
+    if (tags.includes(this.state.nextTag)) return;
+    tags.push(this.state.nextTag);
+    this.setState({ tags: tags, nextTag: "" });
+  };
+
   onSave = () => {
     const note = {
       id: this.state.id,
-      title: this.state.title === "" ? this.state.id.toString() : this.state.title,
-      content: this.state.content
+      title:
+        this.state.title === "" ? this.state.id.toString() : this.state.title,
+      content: this.state.content,
+      tags: this.state.tags
     };
     this.state.create(note);
   };
@@ -30,14 +41,28 @@ class NoteCreate extends Component {
     return (
       <div className="NoteCreate-container">
         <h3 className="NoteCreate-header">Create New Note:</h3>
-        <input
-          className="NoteCreate-input-title"
-          type="text"
-          placeholder="Note Title"
-          name="title"
-          value={this.state.title}
-          onChange={this.onChange}
-        />
+        <div className="NoteCreate-input-container">
+          <input
+            className="NoteCreate-input-title"
+            type="text"
+            placeholder="Note Title"
+            name="title"
+            value={this.state.title}
+            onChange={this.onChange}
+          />
+          <div className="NoteCreate-tag-container">
+            <div className="NoteCreate-tag-label">Tags: {this.state.tags.join(", ")}</div>
+            <input
+              className="NoteCreate-input-tag"
+              type="text"
+              placeholder="Add Tag"
+              name="nextTag"
+              value={this.state.nextTag}
+              onChange={this.onChange}
+            />
+            <div onClick={this.onTagSubmit} className="NoteCreate-update-btn NoteCreate-tag-btn">Add</div>
+          </div>
+        </div>
         <textarea
           className="NoteCreate-input-content"
           type="text"

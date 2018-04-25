@@ -11,13 +11,32 @@
   margin-bottom: 30px;
 }
 
+.NoteCreate-input-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .NoteCreate-input-title{
   height: 30px;
   margin-left: 20px;
+  width: 40%;
   max-width: 400px;
   border: 1px solid #bababa;
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   border-radius: 4px;
+}
+
+.NoteCreate-tag-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.NoteCreate-tag-label {
+  margin-right: 10px;
+  line-height: 1.8;
 }
 
 .NoteCreate-input-content {
@@ -41,6 +60,14 @@
   font-weight: bold;
   padding-top: 12px;
   cursor: pointer;
+}
+
+.NoteCreate-tag-btn {
+  width: 120px;
+  height: 30px;
+  font-size: 16px;
+  padding-top: 3px;
+  margin: 0;
 }
 
 .NoteCreate-link {
