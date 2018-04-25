@@ -6,6 +6,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import NotesList from './components/notesList';
 import CreateNote from './components/createNote';
 import ViewNote from './components/viewNote';
+import EditNote from './components/editNote';
 import './App.css';
 
 class App extends Component {
@@ -33,6 +34,18 @@ class App extends Component {
 
   updateNewNote = (newNote) => {
     this.setState({ cards: [...this.state.cards, newNote]});
+  }
+
+  updateNote = (updatedNote) => {
+    const updatedNotes = this.state.cards.map(note => {
+      if (note.title === this.state.selectedNote.title) {
+        return { title: updatedNote.title, content: updatedNote.content };
+      } else {
+        return note;
+      } 
+    });
+
+    this.setState({ cards: updatedNotes });
   }
 
   updateSelectedNote = (selectedNote) => {
@@ -63,6 +76,7 @@ class App extends Component {
                   <Route exact path="/" render={() => <NotesList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
                   <Route path="/create-note" render={() => <CreateNote {...this.state} updateNewNote={this.updateNewNote} />} />
                   <Route path="/notes-view" render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} />} />
+                  <Route path="/edit-note" render={() => <EditNote {...this.state} updateNote={this.updateNote} />} />
                 </Switch>
               </div>
             </Row>

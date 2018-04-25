@@ -26,13 +26,13 @@ function renderWithRouter(
 const leftClick = {button: 0};
 const { container, getByText, getByPlaceholderText } = renderWithRouter(<App />);
 
-const testTitle = 'A Test Note';
-const testContent = 'Just a test.  Nothing to see. Move along.';
-
 test('I can see home page', () => {
   expect(container.innerHTML).toMatch('Your Notes')
 
 });
+
+const testTitle = 'A Test Note';
+const testContent = 'Just a test.  Nothing to see. Move along.';
 
 test('I can create a new note', () => {
   Simulate.click(getByText('+ Create New Note'), leftClick)
@@ -58,4 +58,43 @@ test('I can view a note', () => {
 
   expect(container.innerHTML).toMatch('Edit');
   expect(container.innerHTML).toMatch(testTitle);
+});
+
+const testChangeTitle = 'Changed Test Note';
+const testChangeContent = 'Just a test for change.  Nothing to see. Move along.';
+
+test('I can edit a note', () => {
+
+  Simulate.click(getByText(testTitle), leftClick)
+  expect(container.innerHTML).toMatch('Edit');
+
+  Simulate.click(getByText('Edit'), leftClick)
+  expect(container.innerHTML).toMatch('Edit Note:');
+
+  const titleInput = getByPlaceholderText('Note Title');
+  const contentInput = getByPlaceholderText('Note Content');
+
+  titleInput.value = testChangeTitle; 
+  Simulate.change(titleInput);
+
+  contentInput.value = testChangeContent; 
+  Simulate.change(contentInput);
+
+  Simulate.click(getByText('Save'), leftClick)
+  expect(container.innerHTML).toMatch('Your Notes:');
+
+  expect(container.innerHTML).toMatch(testChangeTitle);
+  expect(container.innerHTML).toMatch(testChangeContent);
+
+});
+
+test('I can delete a note', () => {
+  Simulate.click(getByText(testChangeTitle), leftClick)
+  expect(container.innerHTML).toMatch('Delete');
+
+  Simulate.click(getByText('Delete'), leftClick)
+  expect(container.innerHTML).toMatch('Your Notes:');
+
+  expect(container.innerHTML).not.toMatch(testChangeTitle);
+  expect(container.innerHTML).not.toMatch(testChangeContent);
 });

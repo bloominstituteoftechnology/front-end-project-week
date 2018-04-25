@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import { Form, Input, Row, Col, Button } from 'reactstrap';
 
@@ -15,7 +15,7 @@ class ViewNote extends Component {
       <div>
         <Row>
           <Col className="col-3 ml-auto">
-            <Button className="mr-2" size="sm">Edit</Button> 
+            <Link to="/edit-note"><Button className="mr-2" size="sm">Edit</Button></Link>
             <Button onClick={this.handleDelete} size="sm">Delete</Button>
           </Col>
         </Row>
