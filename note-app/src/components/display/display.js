@@ -26,16 +26,15 @@ class Display extends React.Component {
                 <div className='Display__buttons'>
                     <Link to='/' className='edit'> edit</Link>
                     {/* button to open modal */}
-                    <Button color='danger' onClick={this.toggle} className='delete' > delete</Button>
+                    <Button  onClick={this.toggle} className='delete' > delete</Button>
                 </div>
                 {/* modal that is opened */}
-                <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                    <ModalHeader toggle={this.toggle} className='close'>Close</ModalHeader>
-                    <ModalBody> Sample Text </ModalBody>
-                    <ModalFooter className='buttonDiv'>
-                        <Button onClick={this.toggle} className='modalButton'> Delete </Button>{' '}
-                        <Button onClick={this.toggle} className='modalButton'> Do not delete</Button>
-                    </ModalFooter>
+                <Modal className='modalOpen' isOpen={this.state.modal} toggle={this.toggle}>
+                    <div className='modalBody'> Are you sure you want to delete this note?</div>
+                    <div className='modalbtns'>
+                        <div className='teal' onClick={this.toggle}> Delete </div>
+                        <div className='red' onClick={this.toggle}> No</div>
+                    </div>
                 </Modal>
                 <div className='Display__content header'> props.header</div>
                 <div className='Display__content'>props.title</div>

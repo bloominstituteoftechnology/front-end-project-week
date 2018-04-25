@@ -33,3 +33,4 @@ Trello URL: https://trello.com/b/Hrk9cf8X/front-end-board
 (2) How do I move placehodler text within an input?
 text area
 
+(3) how can i better organize my routes?

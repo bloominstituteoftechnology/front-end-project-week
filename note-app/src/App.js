@@ -36,21 +36,18 @@ class App extends Component {
 
         <Route exact path='/new' component={Header} />
         <Route exact path='/new' component={InputForm} />
-        
+
 
         <Route exact path='/edit' component={Header} />
         <Route exact path='/edit' component={InputForm} />
 
         <Route exact path='view' component={Header} />
-          {/* <Header title='Note View' />
-          <Display header='Header' title='Title' body='body' />
-         */}
 
-      <Route path='/' component={NavBar} />
-      <Route path='/' component={Display} />
-  
-      
+        <Route path='/note' component={Header} />
+        <Route path='/note' component={Display} />
 
+
+        <Route path='/' component={NavBar} />
       </div>
     );
   }
