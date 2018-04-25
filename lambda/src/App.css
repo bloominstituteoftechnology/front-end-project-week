@@ -1,7 +1,7 @@
 .App {
   display: flex;
   max-width: 800px;
-  height: 820px; 
+  min-height: 880px;
   margin: 10px auto;
   border: 1px solid gray;
 }

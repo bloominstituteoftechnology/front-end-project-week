@@ -22,9 +22,10 @@
     padding: 10px;
     border: 1px solid gray;
     border-radius: 2px;
-    box-shadow: inset .5px .5px lightgrey;
+    box-shadow: inset .5px 1px lightgrey;
     font-size: 10px;
     margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .createNoteContent {
@@ -35,7 +36,7 @@
     resize: none;
     border: 1px solid gray;
     border-radius: 2px;
-    box-shadow: inset .5px .5px lightgrey;
+    box-shadow: inset .5px 1px lightgrey;
     font-size: 10px;
 }
 
