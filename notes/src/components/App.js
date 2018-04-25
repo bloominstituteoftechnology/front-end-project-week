@@ -10,25 +10,32 @@ import { Modal } from './Modal';
 
 
 export class App extends Component {
-  state = { notes: [] }
-
-  local = {
-    get(target) {
-      return localStorage.getItem(target) ?
-        JSON.parse(localStorage.getItem(target)) : undefined;
-    },
-    set(target, payload) {
-      localStorage.setItem(target, JSON.stringify(payload));
+  constructor(props) {
+    super(props);
+    
+    this.local = {
+      get(target) {
+        return localStorage.getItem(target) ?
+          JSON.parse(localStorage.getItem(target)) : undefined;
+      },
+      set(target, payload) {
+        localStorage.setItem(target, JSON.stringify(payload));
+      }
     }
+
+    this.getNotes = () => {
+      return this.local.get('notes');
+    }
+
+    this.state = this.getNotes() ? 
+    { notes: this.getNotes() } : { notes: [] };
   }
 
   createNote = note => { // Take in note title and body as object
     // Add note to state and update local storage
     // debugger
-    console.log(this, this.state);
-    this.setState({ notes: this.state.notes.concat(note) });
-    this.local.set('notes', this.state);
-    console.log(this, this.state);
+    this.local.set('notes', this.state.notes.concat(note));
+    this.setState({ notes: this.local.get('notes') });
   }
 
   editNote = (newNote, id) => {
