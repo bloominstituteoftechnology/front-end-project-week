@@ -1,7 +1,10 @@
-.note {
-  display: flex;
-  border: 1px red solid;
-  width: 30%;
-  height: 30%;
-  margin-left: 30%;
+.card {
+  flex-direction: row;
+  margin: 5%;
+  height: 250px;
+  width: 250px;
+}
+
+.card-header {
+  background-color: white !important;
 }

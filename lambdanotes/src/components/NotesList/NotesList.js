@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Note from "./Note/Note";
+import Note from "../Note/Note.js";
 
 export default class NotesList extends Component {
   constructor(props) {
@@ -41,12 +41,13 @@ export default class NotesList extends Component {
   }
 
   render() {
-    const { title, content } = this.state.notesList;
+    const { title, content, id } = this.state.notesList;
     return (
       <div>
+        <h1 className='notesList__title'>Your Notes:</h1>
         {this.state.notesList.map(note => (
-          <div>
-            <Note key={note.id} note={note} />
+          <div >
+            <Note className='notesList' key={note.id} note={note} notesList={this.state.notesList} />
           </div>
         ))}
       </div>

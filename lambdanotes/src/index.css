@@ -1,6 +1,6 @@
 @import "./components/Sidebar/Sidebar.css";
+@import "./components/NotesList/NotesList.css";
 @import "./components/Note/Note.css";
-
 
 body {
   margin: 0;
