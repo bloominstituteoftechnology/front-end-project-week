@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Note from "../Note/Note.js";
+import { Col, Row } from "reactstrap";
 
 export default class NotesList extends Component {
   constructor(props) {
@@ -31,17 +32,21 @@ export default class NotesList extends Component {
     // const { title, content, id } = this.state.notes;
     return (
       <div>
-        <h1 className="notesList__title">Your Notes:</h1>
-        {this.props.notes.map(note => (
-          <div>
-            <Note
-              className="notesList"
-              key={note.id}
-              note={note}
-              // getNotes={() => this.componentDidMount()}
-            />
-          </div>
-        ))}
+        <Row>
+          <Col sm={{ size: 8, offset: 4 }}>
+            <h1 className="notesList__title">Your Notes:</h1>
+            {this.props.notes.map(note => (
+              <div>
+                <Note
+                  className="notesList"
+                  key={note.id}
+                  note={note}
+                  // getNotes={() => this.componentDidMount()}
+                />
+              </div>
+            ))}
+          </Col>
+        </Row>
       </div>
     );
   }

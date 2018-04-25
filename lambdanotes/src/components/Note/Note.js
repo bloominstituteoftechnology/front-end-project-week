@@ -7,7 +7,7 @@ const Note = props => {
   return (
     <div>
       <Row>
-        <Col sm={{ size: 4, offset: 4 }}>
+        <Col>
           <Card>
             <CardBody>
               <CardHeader tag="h4">

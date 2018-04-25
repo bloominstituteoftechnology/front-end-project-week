@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { Col, Row } from "reactstrap";
 
 export default class CreateNote extends Component {
   constructor(props) {
@@ -37,32 +39,38 @@ export default class CreateNote extends Component {
   render() {
     return (
       <div>
-        <h1>Create New Note:</h1>
-        <form>
-          <label>
-            <input
-              type="text"
-              onChange={this.handleNewInput}
-              name="title"
-              value={this.state.title}
-              placeholder="Note Title"
-            />
-          </label>
+        <Row>
+          <Col sm={{ size: 8, offset: 4 }}>
+            <h1>Create New Note:</h1>
+            <form>
+              <label>
+                <input
+                  type="text"
+                  onChange={this.handleNewInput}
+                  name="title"
+                  value={this.state.title}
+                  placeholder="Note Title"
+                />
+              </label>
 
-          <label>
-            <input
-              type="text"
-              onChange={this.handleNewInput}
-              name="content"
-              value={this.state.content}
-              placeholder="Note Content"
-            />
-          </label>
+              <label>
+                <input
+                  type="text"
+                  onChange={this.handleNewInput}
+                  name="content"
+                  value={this.state.content}
+                  placeholder="Note Content"
+                />
+              </label>
 
-          <button type="button" onClick={this.handleCreateNote}>
-            Save
-          </button>
-        </form>
+              <Link to="/">
+                <button type="button" onClick={this.handleCreateNote}>
+                  Save
+                </button>
+              </Link>
+            </form>
+          </Col>
+        </Row>
       </div>
     );
   }
