@@ -6,7 +6,7 @@ import { getNotes } from "./defaultNotes";
 import DisplayNotes from './DisplayNotes'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SideBar from "./sidebar";
-import SingleNote from "./singleNote";
+import NoteCard from "./card";
 import DeleteNote from "./deleteNote";
 
 class App extends Component {
@@ -21,9 +21,19 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
-          <Route path="/" component={SideBar} />
-            <DisplayNotes notes={this.state.notes} exact />
-            
+          <SideBar/>
+          <DisplayNotes/>
+          <Route path="/Notes/:id" component={NoteCard} />
+          {/* <Route
+            render={routeProps => (
+              <SingleNote
+                {...routeProps}
+                {...this.props}
+                notes={this.state.notes}
+              />
+            )}
+            path="/note/:id"
+          /> */}
           </div>
         </Router>
       );

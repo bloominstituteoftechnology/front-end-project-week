@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { viewNote } from "../actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import NoteCard from "./card";
+import {notes} from "./defaultNotes"
 
 class DisplayNotes extends Component {
   state = {
@@ -10,31 +12,19 @@ class DisplayNotes extends Component {
 
   render() {
     return (
-    <div className="right-div">
-      <h3 className="notes-header">Your Notes:</h3>
-      <ul className="notes-div">
-          {this.props.notes.map(note => {
-            return (
-              <li className="note-card" key={note.id}>
-                <Link
-                  className="unstyledlink"
-                  to={`/note/${note.id}`}
-                  onClick={this.viewNote}
-                >
-                  <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="right-div">
+        <h3 className="notes-header">Your Notes:</h3>
+        <div className="notes-div">
+        {this.props.notes.map(note => (
+          <NoteCard key={note.id}/>
+       ))};
+      </div>
       </div>
     );
   }
 
-  viewNote = note => {
-    this.props.viewNote(note);
-    this.setState({ id: note.id });
-  };
+  
+
 }
 
 const mapStateToProps = state => {
