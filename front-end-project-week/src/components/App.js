@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Title from "react-dom";
-import statement from ".App-intro";
+import ReactDom from "react-dom";
+import statement from "./App-intro";
 import list from "App.js";
 
 class App extends Component {
