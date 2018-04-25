@@ -22,7 +22,7 @@
   color: rgb(82, 82, 82);
   font-size: 30px;
   line-height: 30px;
-  margin: 20px 0 25px;
+  margin: 20px 0 35px;
   padding-bottom: 30px;
   width: 80%;
 }
@@ -40,7 +40,7 @@
   font-weight: bold;
   height: 40px;
   justify-content: center;
-  margin: 10px 0;
+  margin-bottom: 20px;
   outline: none;
   text-align: center;
   text-decoration: none;
@@ -53,6 +53,7 @@
 }
 
 .App_button-red {
-  background: rgb(255, 0, 0);
-  border-color: rgb(220, 20, 60);
+  background: rgb(231, 0, 0);
+  border-color: rgb(184, 22, 54);
+  margin: auto 0 50px;
 }

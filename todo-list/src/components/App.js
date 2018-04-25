@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import '../styles/App.css';
-import { dummyNotes } from '../notes';
+//import { dummyNotes } from '../notes';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
 import { NoteForm } from './NoteForm';
@@ -50,7 +50,7 @@ export class App extends Component {
           <h3>Lambda<br/>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
-          <button onClick={this.clearNotes}>Clear Notes</button>
+          <button className="App_button App_button-red" onClick={this.clearNotes}>Clear Notes</button>
         </div>
         <div className="App_body">
           <Route exact path="/" render={() => 
