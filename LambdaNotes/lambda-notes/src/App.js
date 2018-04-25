@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+// Styling Components
 import './Styles.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link
-} from 'react-router-dom'
+
+// testing tools
 import testData from './components/TestData';
 
-// REACTSTRAP COMPONENTS
-import { Container, Row, Col } from 'reactstrap';
+// REDUX components
+import { connect } from 'react-redux';
+import { editNote, createNote, deleteNote, fetchNotes } from './actions';
 
-// COMPONENTS
+// REACTSTRAP COMPONENTS
+
+// REACT COMPONENTS
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import MENUBAR from './components/MenuBar';
 import LISTVIEW from './components/ListView';
 import CREATENOTE from './components/CreateNote';
@@ -19,46 +20,41 @@ import NOTEVIEW from './components/NoteView';
 import EDITNOTE from './components/EditNote';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      notes: testData,
-      // date: new Date();
-      visibleTodos: [],
-      sortedByDate: [],
-      sortedByCompleted: [],
-    }
-  };
+  state = {
+    note: [],
+  }
 
-  // componentDidRender() {
-  //   this.setState = 
-  // }
-
-
+  componentDidMount() {
+    this.setState = this.props.fetchNotes;
+  }
 
   render() {
-    const notes = this.state.notes;
-    console.log('App notes is ' + notes);
+    console.log('App state: ' , this.state);
+    console.log('App props: ' , this.props);
     return (
       <Router>
-        <Container className="APP">
-          <Row>
-            <Col xs="12" sm="12" md="3" className="APP__MENU">
+        <div className="APP">
+            <div className="APP__MENU">
               <MENUBAR />
-            </Col>
-            <Col xs="12" sm="12" md="9" className="APP__BODY">
+            </div>
+            <div className="APP__BODY">
               <Switch>
                 <Route exact path='/' render={( props ) => <LISTVIEW {...props} notes={this.state.notes}/> }
                 />
                 {/* <Route path={`/note/${id}`} component={NOTEVIEW} /> */}
                 <Route path='/create' component={CREATENOTE} />
               </Switch>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+        </div>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes:state.notes,
+  }
+}
+
+export default connect(mapStateToProps, { editNote, createNote, deleteNote, fetchNotes })(App);

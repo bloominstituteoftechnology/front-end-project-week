@@ -1,6 +1,18 @@
-/* * {
+* {
   box-sizing: border-box;
 }
+
+/* .APP__MENU {
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.APP__NOTECARD {
+  margin: 10px;
+  height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
 
 .APP {
   display: flex;
@@ -87,16 +99,4 @@
 .APP__CREATE-SAVE {
   width: 225px;
   font-size: .77em !important;
-} */
-
-.APP__MENU {
-  background-color: lightgray;
-  border: 1px solid gray;
-}
-
-.APP__NOTECARD {
-  margin: 10px;
-  height: 250px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
