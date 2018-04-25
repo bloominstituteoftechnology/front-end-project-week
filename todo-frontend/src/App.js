@@ -5,11 +5,14 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { TodoList } from 'components/TodoList'
+import { Sidebar } from 'components/Sidebar'
 
 import { fetchTodos } from 'actions'
 
 const AppWrapper = styled.main`
   text-align: center;
+  display: grid;
+  grid-template-columns: 25% 1fr;
 `
 
 class App extends Component {
@@ -19,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
+        <Sidebar />
         <Route
           exact
           path="/"
