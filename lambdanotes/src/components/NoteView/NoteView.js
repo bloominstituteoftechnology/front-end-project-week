@@ -1,13 +1,25 @@
 import React, { Component } from "react";
-import { Col, Row } from "reactstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Col,
+  Row
+} from "reactstrap";
 
 export default class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: ""
+      note: "",
+      modal: false
     };
+
+    this.toggle = this.toggle.bind(this);
   }
 
   componentDidMount() {
@@ -49,15 +61,43 @@ export default class NoteView extends Component {
       });
   };
 
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     // console.log('note:', this.state.note);
     return (
       <div>
         <Row>
           <Col sm={{ size: 8, offset: 4 }}>
-          <button>edit</button>
-          <button onClick={() => this.deleteNote(this.state.note.id)}>
-              delete</button>
+            <button>edit</button>
+            <Button color="danger" onClick={this.toggle}>
+              delete
+            </Button>
+            <Modal
+              isOpen={this.state.modal}
+              toggle={this.toggle}
+              className={this.props.className}
+            >
+              <ModalBody>Are you sure you want to delete this?</ModalBody>
+              <ModalFooter>
+                <Link to="/">
+                  <Button
+                    color="danger"
+                    onClick={() => this.deleteNote(this.state.note.id)}
+                  >
+                    Delete
+                  </Button>
+                </Link>{" "}
+                <Button color="info" onClick={this.toggle}>
+                  No
+                </Button>
+              </ModalFooter>
+            </Modal>
+
             <h3>{this.state.note.title}</h3>
             <p>{this.state.note.content}</p>
           </Col>
