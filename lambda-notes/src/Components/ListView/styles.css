@@ -9,6 +9,11 @@
     flex-wrap: wrap;
 }
 
+.right a {
+    text-decoration: none;
+    color: #4A494A;
+}
+
 .row h4 {
     color: #4A494A;
     margin-left: 2%;

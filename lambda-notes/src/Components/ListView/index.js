@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import Note from './NoteCard';
+import { Route, Link } from 'react-router-dom';
 
 export const NoteList = props => {
     return (
@@ -11,7 +12,7 @@ export const NoteList = props => {
                     {props.Notes.map(note => {
                         return (
                             <div className="col-4">
-                                <Note key={note.id} title={note.title} body={note.body} />
+                               <Link to='/notes/id'><Note key={note.id} title={note.title} body={note.body} /></Link>
                             </div>
                         );
                     })}
