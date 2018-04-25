@@ -19,12 +19,7 @@ const SingleTodo = props => {
 				</CardText>
 			</Card>
 		</Link>,
-		<Route
-			exact
-			path="/todo/:id"
-			{...props}
-			render={props => <Todo {...props} />}
-		/>
+		<Route path="/todo/:id" {...props} render={props => <Todo {...props} />} />
 	];
 };
 

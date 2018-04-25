@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Route, Redirect } from "react-router";
 // actions
 import { deleteTodo, updateTodo } from "../actions/index";
 // material components
@@ -14,7 +15,8 @@ class Todo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			open: false
+			open: false,
+			redirect: false
 		};
 	}
 	// Dialogue handlers
@@ -75,7 +77,7 @@ class Todo extends Component {
 					</div>
 				</div>
 				{/* only display todos if there are todos to display - otherwise tell user no more todos are left */}
-				{this.props.todos.length !== 0 ? (
+				{this.props.todos.includes(this.props.todos[id]) ? (
 					<div className="row">
 						<div className="col-md-12">
 							<Paper className="Todo_content">
@@ -109,7 +111,7 @@ class Todo extends Component {
 						</div>
 					</div>
 				) : (
-					<h3>Hey there, looks like you need more things to do!</h3>
+					<Redirect to="/" />
 				)}
 			</div>
 		);
