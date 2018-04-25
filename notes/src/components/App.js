@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import '../styles/App.css';
-//import { dummyNotes } from '../notes';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
 import { NoteForm } from './NoteForm';
