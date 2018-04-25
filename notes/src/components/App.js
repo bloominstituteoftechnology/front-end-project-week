@@ -72,11 +72,9 @@ export class App extends Component {
           <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>
         <div className="App_body">
-          <Route exact path="/" render={() => 
-            <NoteList notes={this.state.notes}/> 
-          }/>
+          <Route exact path="/" render={() => <NoteList notes={this.state.notes}/> }/>
           <Route path="/view/:id" render={props => 
-            <NoteView {...props} 
+            <NoteView {...props}
             notes={this.state.notes}/> 
           }/>
           <Route path="/create" render={props => 
@@ -95,7 +93,7 @@ export class App extends Component {
             useFunction={this.deleteNote}/> 
           }/>
           <Route path="/delete/all" render={props => (
-            <div> {/* To Have notes show in the background without compromisng root path */}
+            <div> {/* Make sure that modal is shown above note list */}
               <NoteList notes={this.state.notes}/> 
               <Modal {...props}
               useFunction={this.clearNotes}/> 

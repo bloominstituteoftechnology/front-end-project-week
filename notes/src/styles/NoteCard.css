@@ -27,42 +27,18 @@
   margin: 0;
 }
 
-.createCard {
-  align-items: center;
-  display: flex;
-  height: 200px;
-  justify-content: center;
-  margin-right: auto;
-  width: 30%;
-}
-
-.createCard * {
-  align-items: center;
-  background: rgb(0, 214, 221);
-  border: 2px solid rgb(168, 168, 168);
-  border-radius: 5px;
-  box-shadow: -1px 1px 2px rgb(128, 128, 128);
-  color: white;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  font-size: 70px;
-  height: 80px;
-  padding-bottom: 10px;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: -1px 1px 2px rgb(128, 128, 128);
-  width: 80px;
+.NoteCard:last-child {
+  color: blue;
 }
 
 @media (max-width: 768px) {
-  .NoteCard, .createCard {
+  .NoteCard {
     width: 45%;
   }
 }
 
 @media (max-width: 545px) {
-  .NoteCard, .createCard {
+  .NoteCard {
     margin-left: 10px;
     width: 90%;
   }
