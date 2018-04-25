@@ -1,20 +1,28 @@
 .NotesContainer{
   padding-top: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 33%);
   grid-auto-rows: auto;
   grid-gap: 10px;
 }
 .Note{
-  min-height: 200px;
+  height: 200px;
   border: 1px solid gray;
   padding: 5px 10px 0;
+  background: white;
+  overflow: hidden;
 }
 .noteHeader{
   text-align: center;
   border-bottom: 1px solid lightgray;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  margin: 10px 0;
+  white-space: nowrap;
 }
 .header{
+  font-size: 2rem;
   margin: 40px 0 0;
+}
+.emptyList {
+  margin-top: 40px;
 }
