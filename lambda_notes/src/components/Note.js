@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Row, Container } from "reactstrap";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Row, Col, Container, Button } from "reactstrap";
+
 import { deleteNote } from "../actions";
-import DeleteModal from "../components/DeleteModal";
 
 function mapStateToProps(state) {
   return { notes: state.notes };

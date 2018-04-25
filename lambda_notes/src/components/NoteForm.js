@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Form, FormGroup, Input, Button, Container } from "reactstrap";
+
 import { addNote, editNote } from "../actions";
-import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
   return { notes: state.notes };
