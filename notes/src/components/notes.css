@@ -48,7 +48,7 @@ h1 {
 }
 
 .delete-notes-button {
-  background: red;
+  background: #c30020;
   justify-self: end;
 }
 
@@ -65,14 +65,13 @@ h1 {
   margin-left: 0;
   padding: 10px;
   width: 240px;
-  user-select: none;
+  cursor: pointer;
 }
 
 .notes-text-div {
   border-top: 1px solid lightgrey;
   margin-top: 5px;
   padding-top: 5px;
-  min-width: 0;
 }
 
 .notes-text-full {
@@ -122,4 +121,29 @@ h5 {
 
 .view-h3 {
   margin-top: 0;
+}
+
+.react-responsive-modal-overlay {
+  background: rgb(211, 211, 211, 0.8);
+}
+
+.react-responsive-modal-modal {
+  margin-bottom: 400px;
+  border: 1px solid black;
+  box-shadow: none;
+}
+
+.modal-content-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 500px;
+}
+.modal-button-div {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  width: 380px;
 }
