@@ -9,7 +9,6 @@ import { Card, CardText } from "material-ui/Card";
 import "../styles/SingleTodos.css";
 
 const SingleTodo = props => {
-	console.log("PROPS singletodo:", props.todo.text);
 	return [
 		<Link to={`/todo/${props.index}`}>
 			<Card className="SingleTodo">
