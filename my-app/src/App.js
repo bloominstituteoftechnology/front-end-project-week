@@ -5,11 +5,11 @@ import './App.css';
 import NotesDisplay from './components/NotesDisplay/NotesDisplay';
 import NewNote from './components/NewNote/NewNote';
 import Notes from './components/Notes/Notes';
-import Edit from './components/Edit/Edit';
+import Edit from './components/Edit/Edit';  
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       note: []
     }

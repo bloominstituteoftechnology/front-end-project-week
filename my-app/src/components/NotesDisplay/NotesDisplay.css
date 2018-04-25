@@ -21,11 +21,11 @@
     width: 90%;
     border: 2px solid black;
     background: rgb(16, 183, 189);
-    color: white;
     height: 60px;
     padding-top: 10px;
     font-size: 25px;
     font-weight: bold;
+    text-decoration-line: none;
   }
   
   .Note-content {
