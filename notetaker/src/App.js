@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { Route } from "react-router";
-
+import { Row, Col, Container } from "reactstrap";
 import "./App.css";
-import NoteList from "./components/NoteList/NoteList.js";
-import CreateNote from "./components/CreateNote/CreateNote.js";
-import Note from "./components/Note/Note.js";
+// import NoteList from "./components/NoteList/NoteList";
+// import CreateNote from "./components/CreateNote/CreateNote";
+// import Note from "./components/Note/Note,";
+
+//remove in final release
+// const placeholderText = "Fumo fumo fumo fumo fumo fumo fumo fumo fumo";
+// const placeholderNotes = [
+//   { title: "Note 1", content: placeholderText },
+//   { title: "Note 2", content: placeholderText },
+//   { title: "Note 3", content: placeholderText },
+//   { title: "Note 4", content: placeholderText }
+// ];
 
 class App extends Component {
   constructor() {
@@ -15,13 +24,18 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Route exact path="/" component={NoteList} />
-        <Route path="/CreateNote" component={CreateNote} />
-        <Route path="/Note" component={Note} />
-      </div>
-    );
+    return <div className='App'>
+    <Container>
+      <Row>
+        <Col>
+        {/* <Route exact path="/" component={ NoteList }/> */}
+        Placeholder Routes Here
+        {/* <Route path = '/CreateNote' component = { CreateNote }/>
+        <Route path = '/NoteView' component = { Notes }/> */}
+        </Col>
+      </Row>
+    </Container>
+    </div>
   }
 }
 
