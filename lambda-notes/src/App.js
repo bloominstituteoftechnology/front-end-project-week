@@ -8,8 +8,8 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state ={
       Notes: [],
     };
@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   render() {
+    const self = this;
     return (
       <div className="app-wrapper">
           <PageNavigator />
@@ -28,7 +29,8 @@ class App extends Component {
           exact path="/"
           render={() => <NoteList Note={this.state.Notes} />} />
           <Route 
-          path="/new" component={NewNoteForm} />
+          path="/new" render={props => 
+            <NewNoteForm {...props} {...this.state} parent={self}/> }  />
           <Route path="/note/:id" render={props => 
           <NoteItem {...props} {...this.state} /> } />
       </div>
