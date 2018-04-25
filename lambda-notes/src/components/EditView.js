@@ -16,10 +16,7 @@ class EditView extends Component {
         const { id } = this.props.match.params; 
         this.setState({note:notes[id]})
         console.log(this.state) 
-        this.initState(this.state)
-    }
-    initState(w){
-console.log(w)
+       
     }
 
     handleInputChange = e => {
@@ -45,10 +42,10 @@ return(
         onChange={this.handleInputChange}
         className="createBody-styles"
         placeholder={this.state.note.textbody}
-        name="textarea"
-        type="textarea" name="text"
+        name="text"
+        type="textarea" 
         id="exampleText"  
-        value={this.state.textarea} />
+        value={this.state.text} />
      </FormGroup>
           <Link to="/"><Button className="button createButton-styles">Update</Button></Link>
     </Form>
