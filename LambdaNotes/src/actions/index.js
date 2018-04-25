@@ -4,11 +4,14 @@ export const DELETETODO = "DELETETODO";
 export const UPDATETODO = "UPDATETODO";
 export const TOGGLETODO = "TOGGLETODO";
 
+// from node-uuid
+let uuid = require("uuid-v4");
+
 // action creators
 export function addTodo(title, text) {
 	return {
 		type: ADDTODO,
-		payload: { title: title, text: text, isComplete: false }
+		payload: { title: title, text: text, isComplete: false, id: uuid() }
 	};
 }
 

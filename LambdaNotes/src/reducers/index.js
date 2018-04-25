@@ -6,26 +6,46 @@ import {
 	// TOGGLETODO
 } from "../actions/index.js";
 
+let uuid = require("uuid-v4");
+
 const initialState = {
 	todos: [
 		{
 			title: "Do Dishes",
 			text: "do dishes before going to bed",
-			isComplete: false
+			isComplete: false,
+			id: uuid()
 		},
-		{ title: "Walk Dog", text: "walk the dog after dinner", isComplete: false },
+		{
+			title: "Walk Dog",
+			text: "walk the dog after dinner",
+			isComplete: false,
+			id: uuid()
+		},
 		{
 			title: "Clean Room",
 			text: "vacuum carpet and clean up toys",
-			isComplete: false
+			isComplete: false,
+			id: uuid()
 		},
-		{ title: "Groceries", text: "get some milk and cereal", isComplete: false },
+		{
+			title: "Groceries",
+			text: "get some milk and cereal",
+			isComplete: false,
+			id: uuid()
+		},
 		{
 			title: "Dinner with Max",
 			text: "meet Max in downtown for dinner at 7",
-			isComplete: false
+			isComplete: false,
+			id: uuid()
 		},
-		{ title: "Fix bike", text: "replace flat tire", isComplete: false }
+		{
+			title: "Fix bike",
+			text: "replace flat tire",
+			isComplete: false,
+			id: uuid()
+		}
 	],
 	status: ""
 };
@@ -34,10 +54,14 @@ const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
 		// add new todo
 		case ADDTODO:
-			return Object.assign({}, state, {
-				todos: [...state.todos, action.payload],
-				status: "ADDING NEW TODO"
-			});
+			return Object.assign(
+				{},
+				state,
+				{
+					todos: [...state.todos, action.payload]
+				},
+				{ status: "ADDING NEW TODO" }
+			);
 		// edit new todo
 		case UPDATETODO:
 			state.todos[action.payload.index].title = action.payload.title;

@@ -7,6 +7,7 @@ import "../styles/SingleTodos.css";
 
 class Todos extends Component {
 	render() {
+		console.log("props", this.props.todos);
 		return (
 			<div className="container">
 				<h3 className="Notes__header">Your Notes:</h3>
