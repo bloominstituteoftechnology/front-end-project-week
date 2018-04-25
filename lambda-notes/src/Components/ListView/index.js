@@ -12,7 +12,7 @@ export const NoteList = props => {
                     {props.Notes.map(note => {
                         return (
                             <div className="col-4">
-                                <Link to={`/viewNote/${note.id}`}>
+                                <Link to={`/viewnote/${note.id}`}>
                                     <Note key={note.id} title={note.title} body={note.body} />
                                 </Link>
                             </div>
