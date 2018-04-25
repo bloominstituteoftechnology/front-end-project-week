@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Note from './Note';
 
-class NotesList extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
-}
+const NotesList = props => {
+    return (
+        <div>
+        {console.log("this is" + props)}
+        {props.notes.map(note => {
+            return <Note note={note}/>;
+        })}
+        </div>
+    );
+};
 
 export default NotesList;
