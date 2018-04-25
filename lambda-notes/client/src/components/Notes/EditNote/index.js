@@ -8,7 +8,8 @@ class EditNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          note: []
+          note: [],
+         // tester: [],
         }
     } 
     idHolder = () => {
@@ -34,11 +35,27 @@ class EditNote extends Component {
       //   });
       let data = JSON.parse(localStorage.getItem("names"))
       this.setState({ note: data[id] })
+      this.setState({ title: data[id].title, body: data[id].body })
+      let test = JSON.parse(localStorage.getItem("names"));
+      this.setState({ tester: test })
     };
 
     handleAddNote = event => {
         this.setState({ [event.target.name]: event.target.value });
       };
+
+      updateGo = () => {
+          let num = this.state.note.id;
+          this.state.tester[num].title = this.state.title;
+          this.state.tester[num].body = this.state.body;
+
+      };
+
+      handleUpdateNote = () => {
+
+            this.updateGo();
+             localStorage.setItem("names", JSON.stringify(this.state.tester));
+            };
 
 
 
@@ -47,28 +64,29 @@ class EditNote extends Component {
  //       const { title, body } = this.state.note;
       return (
         <div className='View__note'>
-          <div className='View__note-links'>
-            <span
-            onClick={this.deleteNote}> delete </span>
-          </div>
           <div>
             <h1>View Note:</h1>
             <input
             type='text' 
             className='Create__note-title'
             name='title'
-            value={this.state.note.title}
+            value={this.state.title}
             onChange={this.handleAddNote}
             /><br/> <br/>
+            <h1>{this.state.title}</h1>
             <textarea
             type='text' 
             className='Create__note-body'
             name='body'
-            value={this.state.note.body}
+            value={this.state.body}
             onChange={this.handleAddNote}
             ></textarea>
-            <h1>{this.state.note.title} </h1>
-            <p>{this.state.note.body}</p>
+            {/* <h1>{this.state.note.title} </h1>
+            <p>{this.state.note.body}</p> */}
+            <button 
+            className='Create__note-button'
+            onClick={this.handleUpdateNote}
+            >Update</button>
           </div>
         </div> // container div end
         
