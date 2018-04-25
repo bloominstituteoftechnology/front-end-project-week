@@ -3,8 +3,9 @@ import { Switch, Route } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
-import NotesList from "./components/NotesList/NotesList";
 import Sidebar from "./components/Sidebar/Sidebar";
+import NotesList from "./components/NotesList/NotesList";
+import NoteView from "./components/NoteView/NoteView";
 import CreateNote from "./components/CreateNote/CreateNote";
 
 export default class App extends Component {
@@ -46,7 +47,7 @@ export default class App extends Component {
               />
             )}
           />
-          {/* <Route path ='/note/:id' component={Note} /> */}
+          <Route path ='/note/:id' component={NoteView} />
           <Route
             path="/create"
             render={() => (
