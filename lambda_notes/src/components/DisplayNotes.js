@@ -1,25 +1,46 @@
-import React from "react";
-import NoteCard from "./card";
+import React, { Component } from "react";
+import { viewNote } from "../actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const ListView = props => {
-  if (props.notes.length === 0) {
+class DisplayNotes extends Component {
+  state = {
+    id: "",
+  };
+
+  render() {
     return (
-      <div className="right-div">
-        <h3 className="notes-header">Your Notes:</h3>
-        <div className="notes-div">
-          <h1>List is empty</h1>
-        </div>
-      </div>
-    );
-  } //if empty list
-  return (
     <div className="right-div">
       <h3 className="notes-header">Your Notes:</h3>
-      <div className="notes-div">
-        {props.notes.map((note) => <NoteCard key={note.id} note={note} />)}
+      <ul className="notes-div">
+          {this.props.notes.map(note => {
+            return (
+              <li className="note-card" key={note.id}>
+                <Link
+                  className="unstyledlink"
+                  to={`/note/${note.id}`}
+                  onClick={this.viewNote}
+                >
+                  <h4>{note.title}</h4> <hr /> <p>{note.text}</p>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-    </div>
-  ); //else
+    );
+  }
+
+  viewNote = note => {
+    this.props.viewNote(note);
+    this.setState({ id: note.id });
+  };
+}
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+  };
 };
 
-export default ListView;
+export default connect(mapStateToProps, { viewNote })(DisplayNotes);

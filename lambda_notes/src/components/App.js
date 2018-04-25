@@ -4,8 +4,10 @@ import './App.css';
 import { connect } from 'react-redux';
 import { getNotes } from "./defaultNotes";
 import DisplayNotes from './DisplayNotes'
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import SideBar from "./sidebar";
+import SingleNote from "./singleNote";
+import DeleteNote from "./deleteNote";
 
 class App extends Component {
   constructor() {
@@ -21,6 +23,7 @@ class App extends Component {
           <div className="App">
           <Route path="/" component={SideBar} />
             <DisplayNotes notes={this.state.notes} exact />
+            
           </div>
         </Router>
       );
