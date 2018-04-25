@@ -4,7 +4,7 @@ const ViewCard = props => {
   return (
     <div className="right-div">
       <div className="link-text-div">
-        <span className="link-text">
+        <span className="link-text" onClick={() => props.changeToEdit()}>
           <u>edit</u>
         </span>
         <span className="link-text" onClick={() => props.removeNote(props.note.id)}>

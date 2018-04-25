@@ -7,7 +7,9 @@ const ListView = props => {
       <div className="right-div">
         <h3 className="notes-h3">Your Notes:</h3>
         <div className="notes-div">
-          <h1>List is empty</h1>
+          <h3>
+            You don't have any notes, click "Create New Note" to add some!
+          </h3>
         </div>
       </div>
     );

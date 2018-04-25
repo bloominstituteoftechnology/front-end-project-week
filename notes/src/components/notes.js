@@ -3,6 +3,7 @@ import SideBar from "./sidebar";
 import ListView from "./listview";
 import CreateNote from "./createnote";
 import ViewCard from "./viewcard";
+import EditNote from "./editnote";
 import "./notes.css";
 
 export default class Notes extends Component {
@@ -31,6 +32,10 @@ export default class Notes extends Component {
     this.setState({ view: "create" });
   };
 
+  changeToEdit = () => {
+    this.setState({ view: "edit" });
+  };
+
   viewNote = id => {
     this.setState({ currentCard: id, view: "view" });
   };
@@ -41,8 +46,13 @@ export default class Notes extends Component {
   };
 
   removeAllNotes = () => {
-    console.log("Deleted Notes");
     this.setState({ view: "list", notes: [] });
+  };
+
+  editNote = note => {
+    let filteredList = this.state.notes.filter(e => e.id !== note.id);
+    filteredList.push(note);
+    this.setState({ view: "list", notes: filteredList });
   };
 
   render() {
@@ -81,6 +91,22 @@ export default class Notes extends Component {
           <ViewCard
             note={this.state.notes.find(e => e.id === this.state.currentCard)}
             removeNote={this.removeNote}
+            changeToEdit={this.changeToEdit}
+          />
+        </div>
+      );
+    }
+    if (this.state.view === "edit") {
+      return (
+        <div className="full-container">
+          <SideBar
+            changeToList={this.changeToList}
+            changeToCreate={this.changeToCreate}
+            removeAllNotes={this.removeAllNotes}
+          />
+          <EditNote
+            note={this.state.notes.find(e => e.id === this.state.currentCard)}
+            editNote={this.editNote}
           />
         </div>
       );
