@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom"
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
-import NewNote from './components/NewNote';
+import NoteView from './components/NoteView';
 
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
@@ -21,11 +21,11 @@ class App extends Component {
           </p>
           <Route exact patch = '/' component={ListView} />
           <Route path = '/Navigation' component={Navigation} />
-          <Route path = '/NewNote' component={NewNote} />
+          <Route path = '/NoteView' component={NoteView} />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+// export default App;

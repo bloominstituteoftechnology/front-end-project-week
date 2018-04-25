@@ -11,7 +11,7 @@ const Navigation = () => {
           <Link to='/ListView'>View Your Notes</Link>
         </NavItem>
         <NavItem>
-          <Link to='/About'>+ Create New Note</Link>
+          <Link to='/CreateNote'>+ Create New Note</Link>
         </NavItem>
       </Nav>
     </div>
