@@ -12,7 +12,7 @@ import { Card, CardImg, CardText, CardBody,
        </div><div className="cardsContainer-styles">
      {props.notes.map(note =>(
        <Link to={`/note/${note.id}`} className="card-styles">
-        <Card className="card-styles">
+        <Card className="card-styles" key={note.name+note.id}>
        <CardBody className="body-styles">
         <CardTitle>{note.title}</CardTitle>
         <CardText className="cardtext-styles">{note.textbody}</CardText>

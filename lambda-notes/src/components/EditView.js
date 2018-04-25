@@ -7,24 +7,48 @@ class EditView extends Component {
     constructor(props){
         super(props)
         this.state={
-            note:[], 
+            note:[],
+            text:'',
+            textbody:'', 
         };
     }
     componentDidMount(){
         const { id } = this.props.match.params; 
-       console.log(this.state)
         this.setState({note:notes[id]})
+        console.log(this.state) 
+        this.initState(this.state)
     }
+    initState(w){
+console.log(w)
+    }
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+      };
 render(){
+    console.log(this.state.note)
 return(
     
     <Form>
         <FormGroup>
      <Label className="label-styles editLabel-styles" for="note">Edit Note:</Label>  
-     <Input className="createInput-styles" type="text" name="Title"  placeholder="Note Title" /> 
+     <Input 
+        onChange={this.handleInputChange}
+        className="createInput-styles" 
+        placeholder={this.state.note.title}
+        value={this.state.title}
+        name="title"  
+         /> 
      </FormGroup>
      <FormGroup>
-     <Input className="createBody-styles" type="textarea" name="text" id="exampleText" placeholder="Note Content" />
+     <Input 
+        onChange={this.handleInputChange}
+        className="createBody-styles"
+        placeholder={this.state.note.textbody}
+        name="textarea"
+        type="textarea" name="text"
+        id="exampleText"  
+        value={this.state.textarea} />
      </FormGroup>
           <Link to="/"><Button className="button createButton-styles">Update</Button></Link>
     </Form>
