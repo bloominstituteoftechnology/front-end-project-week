@@ -24,7 +24,7 @@ class DeleteModal extends React.Component {
                 Are you sure you want to delete this?
             </ModalBody>
             <ModalFooter className={this.props.footer} >
-                <Button className={this.props.delete} onClick={this.toggle}>Delete</Button>{' '}
+                <Button className={this.props.delete} onClick={() => this.props.removeNote()}>Delete</Button>{' '}
                 <Button className={this.props.cancel} onClick={this.toggle}>No</Button>
             </ModalFooter>
         </Modal>

@@ -21,6 +21,9 @@ class NewNote extends React.Component {
         }
         this.props.addNote(newNote);
         this.setState({ noteName: '', noteBody: '' });
+        let route = window.location.pathname.split('/')
+        let newRoute = route.splice(0, route.length -1).join('/')
+        window.location.pathname = newRoute;
     }
 
     handleInputChange = event => {

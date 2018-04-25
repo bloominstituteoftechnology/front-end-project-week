@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { show } from 'redux-modal'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import { getNote } from '../../actions';
+import { getNote, deleteNote } from '../../actions';
 import DeleteModal from '../Modal/DeleteModal';
 import DeleterModal from '../Modal/DeleterModal'
 import { bindActionCreators } from 'redux'
@@ -30,6 +30,13 @@ class ViewNote extends Component {
     handleOpen = name => () => {
         this.props.show(name, { message: `This is a ${name} modal` })
     };
+
+    removeNote = () => {
+        this.props.deleteNote(this.props.id);
+        let route = window.location.pathname.split('/')
+        let newRoute = route.splice(0, route.length -2).join('/')
+        window.location.pathname = newRoute;
+    }
 
     // toggle = () => {             //this is for the modal i hope to implement, still having issues
     //     this.setState({  
@@ -64,6 +71,7 @@ class ViewNote extends Component {
                                         footer={'modal__footer'}
                                         delete={'button button--delete'}
                                         cancel={'button button--cancel'}
+                                        removeNote={this.removeNote}
                                     />
                                     {/* <DeleterModal show={this.props.modal} name='deleter' message={'My Message sucks'} /> */}
                                 </div>
@@ -90,4 +98,4 @@ const mapStateToProps = (state, ownProps) => {
 
 }
 
-export default connect(mapStateToProps, dispatch => bindActionCreators({ show, getNote }, dispatch))(ViewNote);
+export default connect(mapStateToProps, dispatch => bindActionCreators({ show, getNote, deleteNote }, dispatch))(ViewNote);

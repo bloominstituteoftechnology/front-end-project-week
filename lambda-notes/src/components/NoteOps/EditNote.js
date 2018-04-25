@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNote, updateNote } from '../../actions';
-// import { Link } from 'react-router-dom';
+import { Link, browserHistory } from 'react-router'
 
 class EditNote extends React.Component {
     constructor(props) {
@@ -14,11 +14,9 @@ class EditNote extends React.Component {
 
     componentDidMount() {
         this.props.getNote(this.props.id);
-        console.log('cdm state', this.state)
     }
 
     componentWillReceiveProps(newProps) {
-        console.log('cwrp', newProps)
         this.setState({
             noteName: newProps.noteName,
             noteBody: newProps.noteBody
@@ -35,6 +33,9 @@ class EditNote extends React.Component {
         }
         this.props.updateNote(changedNote);
         this.setState({ noteName: '', noteBody: '' });
+        let route = window.location.pathname.split('/')
+        let newRoute = route.splice(0, route.length -1).join('/')
+        window.location.pathname = newRoute;
     }
 
     handleInputChange = event => {
