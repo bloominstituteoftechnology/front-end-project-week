@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import '../styles/Modal.css';
 
 export const Modal = props => {
-  const id = props.match.params.id;
-  
+  const id = Number(props.match.params.id);
+
   const back = e => {
     e.stopPropagation();
     props.history.goBack();

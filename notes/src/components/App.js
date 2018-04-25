@@ -29,6 +29,11 @@ export class App extends Component {
     { notes: this.getNotes() } : { notes: [] };
   }
 
+  syncLocalState = payload => {
+    this.local.set('notes', payload );
+    this.setState({ notes: payload });
+  }
+
   createNote = note => { // Set local then update state
     this.local.set('notes', this.state.notes.concat(note));
     this.setState({ notes: this.local.get('notes') });
@@ -40,14 +45,15 @@ export class App extends Component {
     const local = this.getNotes();
     local[id] = newNote;
     // Apply changes to storage and state
-    this.local.set('notes', local );
-    this.setState({ notes: local });
+    this.syncLocalState(local);
   }
 
   deleteNote = id => {
-    console.log(this.getNotes());
-    const local = this.getNotes().forEach(note => console.log(note, id));
-    console.log(local);
+    // Make new state without target note
+    const local = this.getNotes().filter(note => note.id !== id);
+    // Adjust id's of notes that still remain
+    for (let note in local) local[note].id = Number(note);
+    this.syncLocalState(local);
   }
 
   clearNotes = () => {
