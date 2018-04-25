@@ -8,17 +8,26 @@ import {
 
 const initialState = {
 	todos: [
-		{ title: "first", text: "first todo item", isComplete: false },
-		{ title: "second", text: "second item", isComplete: false },
-		{ title: "third", text: "third item", isComplete: false },
-		{ title: "fourth", text: "fourth item", isComplete: false },
-		{ title: "fifth", text: "fifth item", isComplete: false },
-		{ title: "sixth", text: "sixth item", isComplete: false }
+		{
+			title: "Do Dishes",
+			text: "do dishes before going to bed",
+			isComplete: false
+		},
+		{ title: "Walk Dog", text: "walk the dog after dinner", isComplete: false },
+		{
+			title: "Clean Room",
+			text: "vacuum carpet and clean up toys",
+			isComplete: false
+		},
+		{ title: "Groceries", text: "get some milk and cereal", isComplete: false },
+		{
+			title: "Dinner with Max",
+			text: "meet Max in downtown for dinner at 7",
+			isComplete: false
+		},
+		{ title: "Fix bike", text: "replace flat tire", isComplete: false }
 	],
-	addingTodo: false,
-	updatingTodo: false,
-	deletingTodo: false,
-	viewingTodo: false
+	status: ""
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -26,30 +35,24 @@ const rootReducer = (state = initialState, action) => {
 		// add new todo
 		case ADDTODO:
 			return Object.assign({}, state, {
-				// append new todo objects to the list
-				todos: [...state.todos, action.payload]
+				todos: [...state.todos, action.payload],
+				status: "ADDING NEW TODO"
 			});
 		// edit new todo
 		case UPDATETODO:
-			let updatedTodos = state.todos.forEach((todo, index) => {
-				if (index === action.payload.index) {
-					// only change the text of a todo if its index matches
-					todo.text = action.payload.text;
-				}
-			});
+			state.todos[action.payload.index].title = action.payload.title;
+			state.todos[action.payload.index].text = action.payload.text;
 			return Object.assign({}, state, {
-				todos: updatedTodos
+				todos: state.todos,
+				status: "UPDATING A TODO"
 			});
 		// delete new todo
 		case DELETETODO:
 			return Object.assign({}, state, {
 				todos: state.todos.filter((todo, index) => {
-					// return todos that don't match the target's index
-					// console.log("index: ", index);
-					// console.log("action.payload: ", action.payload);
-					// console.log("todo: ", todo);
 					return index !== parseInt(action.payload, 10);
-				})
+				}),
+				status: "DELETING A TODO"
 			});
 		default:
 			return state;
