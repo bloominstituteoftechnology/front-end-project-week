@@ -12,12 +12,24 @@ import App from "./App";
 // reducer
 import rootReducer from "./reducers/index";
 import registerServiceWorker from "./registerServiceWorker";
+// local storage
+import { loadState, saveState } from "./localStorage";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const persistedState = loadState();
 const store = createStore(
 	rootReducer,
+	persistedState,
 	composeEnhancers(applyMiddleware(logger))
 );
+
+// listen to any state changes - call saveState
+// only pass in application data not UI data
+store.subscribe(() => {
+	saveState({
+		todos: store.getState()
+	});
+});
 
 const router = (
 	<Provider store={store}>
