@@ -17,3 +17,9 @@
     width: 800px;
     padding: 0 0;
 }
+
+.NoteDetail__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

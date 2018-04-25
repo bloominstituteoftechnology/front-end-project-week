@@ -10,24 +10,16 @@ class App extends Component {
         super(props);
         this.state = {
             notes: [
-                {id: 0, 'title': 'Note 1', 'content': 'some test'},
-                {id: 1, 'title': 'Note 2', 'content': 'some test'},
-                {id: 2, 'title': 'Note 3', 'content': 'some test'},
-                {id: 3, 'title': 'Note 4', 'content': 'some test'},
-                {id: 4, 'title': 'Note 5', 'content': 'some test'},
-                {id: 5, 'title': 'Note 6', 'content': 'some test'},
-                {id: 6, 'title': 'Note 7', 'content': 'some test'},
-                {id: 7, 'title': 'Note 8', 'content': 'some test'},
-                {id: 8, 'title': 'Note 9', 'content': 'some test'},
-                {id: 0, 'title': 'Note 1', 'content': 'some test'},
-                {id: 1, 'title': 'Note 2', 'content': 'some test'},
-                {id: 2, 'title': 'Note 3', 'content': 'some test'},
-                {id: 3, 'title': 'Note 4', 'content': 'some test'},
-                {id: 4, 'title': 'Note 5', 'content': 'some test'},
-                {id: 5, 'title': 'Note 6', 'content': 'some test'},
-                {id: 6, 'title': 'Note 7', 'content': 'some test'},
-                {id: 7, 'title': 'Note 8', 'content': 'some test'},
-                {id: 8, 'title': 'Note 9', 'content': 'some test'}
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+                {id: 0, 'title': 'Lorem ipsum', 'content': 'et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his. At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu'},
+
             ],
         };
     }

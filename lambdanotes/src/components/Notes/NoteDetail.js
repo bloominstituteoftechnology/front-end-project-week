@@ -1,10 +1,14 @@
 import React from 'react';
-
+import './NoteCard.css';
 const noteDetail = ({props, match}) => {
-    // const note = props.notes
-    //     .filter(note => note.id === parseInt(match.params.id, 10)).shift();
     return (
         <div className='col-9 right__side'>
+            <div className="row">
+                <div className="col-9 NoteDetail__menu">
+                    <a href='/'>Edit</a>
+                    <a href='/'>Delete</a>
+                </div>
+            </div>
             <div className="row">
                 <h1>Note Name</h1>
                 <div>
