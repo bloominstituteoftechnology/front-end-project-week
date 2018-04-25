@@ -3,6 +3,7 @@
     height: 216px;
     margin-top: 15px;
     margin-right: 25px;
+    overflow: hidden;
 }
 
 .NoteCardList {

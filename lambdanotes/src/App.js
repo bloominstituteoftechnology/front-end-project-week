@@ -3,7 +3,8 @@ import {Route, Link, Switch} from 'react-router-dom';
 import NoteList from './components/Notes/NoteList';
 import './App.css';
 import NoteForm from "./components/Notes/NoteForm";
-import NoteDetail from './components/Notes/NoteDetail'
+import NoteDetail from './components/Notes/NoteDetail';
+import NoteEdit from './components/Notes/NoteEdit';
 
 class App extends Component {
     constructor(props) {
@@ -50,7 +51,8 @@ class App extends Component {
                         <Switch>
                             <Route exact path='/' render={() => <NoteList notes={this.state.notes}/>}/>
                             <Route path='/createNewNote' render={() => <NoteForm addNote={this.addNote}/>}/>
-                            <Route path="/notedetail/" render={() => (<NoteDetail/>)}/>
+                            <Route path='/editNote' render={() => <NoteEdit />}/>
+                            <Route path="/notedetail/" render={() => <NoteDetail/>}/>
                         </Switch>
                     </div>
                 </div>

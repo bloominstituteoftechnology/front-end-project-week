@@ -5,12 +5,12 @@ const noteDetail = ({props, match}) => {
         <div className='col-9 right__side'>
             <div className="row">
                 <div className="col-9 NoteDetail__menu">
-                    <a href='/'>Edit</a>
+                    <a href='/editNote'>Edit</a>
                     <a href='/'>Delete</a>
                 </div>
             </div>
             <div className="row">
-                <h1>Note Name</h1>
+                <h1>Lorem ipsum</h1>
                 <div>
                  <p>
                      Lorem ipsum dolor sit amet, et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his.
