@@ -24,12 +24,15 @@
   border-width: 2px !important;
   border-color: #BEBEBE	!important;
 }
+/* .nav {
+  width: 100% !important;
+} */
 
 .btn {
   background: lightseagreen;
   margin-top: 5px ;
   color: white;
-  width: 85%;
+  /* width: 100%; */
   font-size: 8px;
   cursor: pointer;
 }
@@ -41,7 +44,7 @@
   box-shadow: none;
 }
 .input_content {
-  height: 400px;
+  height: 40px;
   border-color: #BEBEBE;
   
 }
