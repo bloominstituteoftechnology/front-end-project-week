@@ -51,7 +51,7 @@ export class App extends Component {
           <h3>Lambda<br/>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
-          <Link to="/delete/all" className="App_button App_button-red" onClick={this.clearNotes}>Clear Notes</Link>
+          <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>
         <div className="App_body">
           <Route exact path="/" render={() => 
@@ -76,10 +76,13 @@ export class App extends Component {
             <Modal {...props}
             notes={this.state.notes}/> 
           }/>
-          <Route path="/delete/all" render={props => 
-            <Modal {...props}
-            deleteAll={this.clearNotes}/> 
-          }/>
+          <Route path="/delete/all" render={props => (
+            <div> {/* To Have notes show in the background without compromisng root path */}
+              <NoteList notes={this.state.notes}/> 
+              <Modal {...props}
+              deleteAll={this.clearNotes}/> 
+            </div>
+          )}/>
         </div>
       </div>
     );

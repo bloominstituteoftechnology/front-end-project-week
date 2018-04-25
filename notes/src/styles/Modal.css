@@ -28,4 +28,5 @@
 .Modal_buttons *:first-child {
   background: rgb(231, 0, 0);
   border-color: rgb(184, 22, 54);
+  padding-top: 5px;
 }

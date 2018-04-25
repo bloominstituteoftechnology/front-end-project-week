@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../styles/Modal.css';
 
@@ -15,7 +16,7 @@ export const Modal = props => {
           <p>Are you sure?</p>
         </div>
         <div className="Modal_buttons">
-          <button onClick={back} className="App_button">Confirm</button>
+          <Link to="/" className="App_button" onClick={props.deleteAll}>Confirm</Link>
           <button onClick={back} className="App_button">Cancel</button>
         </div>
       </div>
