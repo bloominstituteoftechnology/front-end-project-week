@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import "./App.css";
 import AddNote from "./components/AddNote";
 import ViewNote from "./components/ViewNote";
+import EditNote from "./components/EditNote";
 
 class App extends Component {
   constructor() {
@@ -66,7 +67,7 @@ class App extends Component {
 
   addNote = (title, text) => {
     const newNotes = this.state.notes;
-    console.log(newNotes, "our notes from state");
+    console.log(newNotes, "notes from state");
     const newNote = { title: title, text: text };
     newNotes.push(newNote);
     this.setState({
@@ -94,8 +95,9 @@ class App extends Component {
           />
           <Route
             path="/ViewNote/:id"
-            render={() => <ViewNote notes={this.state.notes} />}
+            render={props => <ViewNote {...props} notes={this.state.notes} />}
           />
+          <Route path="/EditNote" render={() => <EditNote />} />
         </div>
       </div>
     );

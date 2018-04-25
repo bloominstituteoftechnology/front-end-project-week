@@ -6,13 +6,9 @@ class Note extends Component {
     console.log(this.props.notes);
     return (
       <div className="note-card">
-        <Link
-          to={`/ViewNote/${this.props.id}`}
-          className="card-link"
-          onClick={this.handleClick}
-        >
+        <Link to={`ViewNote/${this.props.id}`} className="card-link">
           <h4>{this.props.notes.title}</h4>
-          <hr />
+
           <p>{this.props.notes.text}</p>
         </Link>
       </div>
