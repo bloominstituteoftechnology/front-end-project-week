@@ -1,4 +1,4 @@
-import { get } from 'axios'
+import { get } from 'axios/dist/axios'
 
 export const FETCHINGTODOS = 'FETCHINGTODOS'
 export const TODOSFETCHED = 'TODOSFETCHED'

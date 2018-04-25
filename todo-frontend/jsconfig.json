@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"]
+    },
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
+  },
+  "typeAcquisition": {
+    "include": ["jest", "axios"],
+    "enable": true
+  },
+  "include": ["src/**/*"]
+}
