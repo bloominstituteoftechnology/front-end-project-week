@@ -13,6 +13,11 @@
   width: 30%;
 }
 
+.NoteCard p {
+  overflow-wrap: break-word;
+  white-space: pre-wrap; 
+}
+
 .NoteCard_title {
   border-bottom: 1px solid rgb(161, 161, 161);
   font-size: 18px;

@@ -5,6 +5,11 @@
   padding: 38px 5%;
 }
 
+.NoteView p {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
 .NoteView_links {
   display: flex;
 }
