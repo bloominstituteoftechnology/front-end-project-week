@@ -23,6 +23,7 @@
   width: 30%;
   border-width: 2px !important;
   border-color: #BEBEBE	!important;
+  cursor: pointer;
 }
 /* .nav {
   width: 100% !important;
@@ -59,4 +60,8 @@
 .btn:hover {
   background-color: green;
   color: white;
+}
+
+.Update_Delete {
+  color: black;
 }

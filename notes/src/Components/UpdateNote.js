@@ -2,24 +2,36 @@ import React, { Component } from 'react';
 // import { Button, Form, FormGroup, Input, Label, FormText } from 'reactstrap';
 
 
- const Inputs = props => {
-    console.log("INPUT_PROPS", props.addTitle, props.addContent)
+ class UpdateNote extends Component {
+     constructor(props) {
+         super(props);
+         this.state = {
+            addContent: '',
+            addTitle: ''  
+         }
+     }
+    handleChange = (e) => {
+        console.log('HANDLE_CHANGE_NAME', e.target.name, 'HANDLE_CHANGE_VALUE', e.target.value);
+        this.setState({[e.target.name]: e.target.value});
+  };
+ 
+    render() {
         return(
             <div className='input d-flex flex-column' >
-                <h4 className='New_note_header text-left pl-3 pt-5 '> Create New Note: </h4>
+                <h4 className='New_note_header text-left pl-3 pt-5 '> Edit Note: </h4>
                 <input className='input_title p-1 ml-3 mt-3 border rounded'
                     type='text'
                     placeholder='Note Title'
                     name='addTitle'
-                    onChange={props.handleChange} 
+                    onChange={this.handleChange} 
                 />
                  <input className='input_content p-1 ml-3 mt-2 mr-5 border rounded'
                     type='text'
                     placeholder='Note Content'
-                    name={props.addContent.content}
-                    onChange={props.handleChange} 
+                    name='addContent'
+                    onChange={this.handleChange} 
                 />
-                <button onClick={props.handleAddNote} 
+                <button onClick={ () => this.props.handleAddNote(this.state.addContent, this.state.addTitle)} 
                     type='button' 
                     className='save_button btn btn-sm ml-3 mt-2'
                 > 
@@ -28,6 +40,7 @@ import React, { Component } from 'react';
             </div>
         );
     }
+}
 
 
-export default Inputs;
+export default UpdateNote;
