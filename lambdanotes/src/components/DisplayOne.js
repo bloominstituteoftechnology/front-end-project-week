@@ -65,4 +65,4 @@ const mapStateToProps = state => {
   };
 };
   
-export default connect(mapStateToProps, { editNote })(DisplayOne);
+export default connect(mapStateToProps, { editnote })(DisplayOne);
