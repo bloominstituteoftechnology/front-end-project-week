@@ -93,6 +93,8 @@ class PresentationView extends React.Component {
 	}
 	componentDidMount() {
 		this.refresh();
+		// this.props.notes;
+
 	}
 	refresh = () => {
 		this.props.notes;

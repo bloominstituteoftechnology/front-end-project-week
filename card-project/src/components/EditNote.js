@@ -3,6 +3,7 @@ import LambdaSide from './LambdaSide';
 
 import {updateNote } from '../actions/actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const textarea = {
 	width: '90%',
@@ -58,7 +59,7 @@ class EditNote extends React.Component {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 	newNote = (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		console.log('title: ', this.state.title);
 		console.log('note: ', this.state.note);
 		const noteObject = { title: this.state.title, note: this.state.note};
@@ -91,9 +92,7 @@ class EditNote extends React.Component {
 					placeholder="Note Content"
 					onChange={this.handleTextInput}
 				/>
-				<button onClick={this.newNote} style={bStyle}>
-					Update
-				</button>
+				<Link to={`/`} onClick={this.newNote} style={bStyle}> <button  style={bStyle}>	Update</button>	</Link>
 			</div>
 		);
 	}
