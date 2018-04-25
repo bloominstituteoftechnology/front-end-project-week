@@ -37,7 +37,6 @@ export class App extends Component {
   createNote = note => { // Set local then update state
     this.local.set('notes', this.state.notes.concat(note));
     this.setState({ notes: this.local.get('notes') });
-    console.log(this.local.get('notes'));
   }
 
   editNote = (newNote, id) => {
@@ -59,7 +58,6 @@ export class App extends Component {
   clearNotes = () => {
     localStorage.clear();
     this.setState({ notes: [] });
-    console.log('Local storage has been cleared');
   }
 
   render() {
