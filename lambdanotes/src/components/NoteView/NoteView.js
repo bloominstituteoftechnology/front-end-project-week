@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Col,
-  Row
-} from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter, Col, Row } from "reactstrap";
 
 export default class NoteView extends Component {
   constructor(props) {
