@@ -60,7 +60,7 @@ class CreateNoteForm extends Component {
         const { title, text } = this.state;
         this.props.addNote({ title, text });
         this.setState({ title: '', text: '' });
-        this.props.history.push("/");
+        this.props.history.push("/notes");
     }
 
     render() {
