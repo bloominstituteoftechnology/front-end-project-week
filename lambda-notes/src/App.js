@@ -6,14 +6,20 @@ import sampleNotes from "./sample-notes";
 import { NewNote } from "./components/NewNote";
 import { ViewNote } from "./components/ViewNote";
 import { EditNote } from "./components/EditNote";
+import base from "./base";
 
 class App extends Component {
   state = {
     notes: []
   };
 
+  // sync to firebase db and update changes live
   componentDidMount() {
-    this.loadSampleNotes();
+    this.ref = base.syncState("/", {
+      context: this,
+      state: "notes",
+      isArray: true
+    });
   }
 
   loadSampleNotes = () => {
