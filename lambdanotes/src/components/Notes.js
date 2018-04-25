@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   background-color: #f2f1f2;
@@ -35,6 +36,12 @@ const NoteParagraph = styled.p`
     margin-top: 10px;
 `;
 
+const StyledLink = styled(Link)`
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+`;
+
 class Notes extends Component {
     render() {
         return <Wrapper>
@@ -43,9 +50,11 @@ class Notes extends Component {
                 {this.props.notes.map(note => {
                     return (
                         <IndividualNote key={note.id}>
-                            <NoteHeading>{note.title}</NoteHeading>
-                            <hr />
-                            <NoteParagraph>{note.text}</NoteParagraph>
+                            <StyledLink to={`/notes/${note.id}`}>
+                                <NoteHeading>{note.title}</NoteHeading>
+                                <hr />
+                                <NoteParagraph>{note.text}</NoteParagraph>
+                            </StyledLink>
                         </IndividualNote>
                     )
                 })}
