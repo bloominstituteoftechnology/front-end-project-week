@@ -10,7 +10,7 @@ class ViewNote extends Component {
         this.state = {
           note: []
         }
-    }
+    } 
     idHolder = () => {
       let meow = window.location.href;
       meow = meow.split('').splice(21).join('').replace ( /[^0-9]/g, '' );
@@ -23,15 +23,17 @@ class ViewNote extends Component {
       this.fetchNote(this.idHolder());
     }
   
-    fetchNote = id => {
-      axios
-        .get(`http://localhost:5000/api/notes/${id}`)
-        .then(response => {
-          this.setState(() => ({ note: response.data }));
-        })
-        .catch(error => {
-          console.error(error);
-        });
+    fetchNote = (id) => {
+      // axios
+      //   .get(`http://localhost:5000/api/notes/${id}`)
+      //   .then(response => {
+      //     this.setState(() => ({ note: response.data }));
+      //   })
+      //   .catch(error => {
+      //     console.error(error);
+      //   });
+      let data = JSON.parse(localStorage.getItem("note data string"))
+      this.setState({ note: data[id] })
     };
 
     render() {
@@ -41,7 +43,8 @@ class ViewNote extends Component {
         <div className='View__note'>
           <div className='View__note-links'>
             <Link to={'./edit/' + this.idHolder()}><span> edit </span></Link>
-            <span> delete </span>
+            <span
+            onClick={this.deleteNote}> delete </span>
           </div>
           <div>
             <h1>View Note:</h1>
