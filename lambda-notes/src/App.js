@@ -29,12 +29,13 @@ class App extends Component {
   }
 
   addNewNote = (newNote) => {
+    newNote.id = Number(this.state.notes[this.state.notes.length - 1].id) + 1;
     this.setState({ notes: [...this.state.notes, newNote]});
   }
 
   updateEditedNote = (updatedNoteData) => {
     const updatedNotes = this.state.notes.map(note => {
-      if (note.title === this.state.clickedNote.title) {
+      if (note.id === this.state.clickedNote.id) {
         return { title: updatedNoteData.title, content: updatedNoteData.content };
       } else {
         return note;
@@ -45,7 +46,7 @@ class App extends Component {
   }
 
   deleteNote = () => {
-    const updatedNotes = this.state.notes.filter(note => note.title !== this.state.clickedNote.title);
+    const updatedNotes = this.state.notes.filter(note => note.id !== this.state.clickedNote.id);
     this.setState({ notes: updatedNotes });
   }
 

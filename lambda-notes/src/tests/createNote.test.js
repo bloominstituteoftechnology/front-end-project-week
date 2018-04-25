@@ -68,8 +68,8 @@ test('I can view a note', () => {
   expect(container.innerHTML).toMatch(testTitle);
 });
 
-const testChangeTitle = 'Changed Test Note';
-const testChangeContent = 'Just a test for change.  Nothing to see. Move along.';
+const testChangeTitle = 'It changed dude!';
+const testChangeContent = 'wow, this is totally different';
 
 test('I can edit a note', () => {
 
