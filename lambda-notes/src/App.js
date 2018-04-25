@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import {
-  Button
-} from 'reactstrap';
-import Navigation from './components/Navigation'
+import NotesArea from './components/NotesArea'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Navigation />
-        <div className="container">
-        
-        
-        </div>
+        <div><NotesArea /></div>
       </div>
     );
   }

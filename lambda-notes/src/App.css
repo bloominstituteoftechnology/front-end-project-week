@@ -1,7 +1,13 @@
 .container {
   max-width: 1000px;
-  color: maroon;
   font-family: 'Francois One', sans-serif;
+  margin: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.col-xs-6 {
+  flex-basis: 50%;
 }
 
 .notes {
