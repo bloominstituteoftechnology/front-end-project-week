@@ -15,8 +15,8 @@ class App extends Component {
         <Navigation />
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/Notes' component={NotesList} />
-          <Route exact path='/AddNote' component={AddNote} />
+          <Route exact path='/notes' component={NotesList} />
+          <Route exact path='/addnote' component={AddNote} />
         </Switch>
       </div>
     );

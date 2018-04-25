@@ -10,8 +10,13 @@ export class NotesList extends Component {
     this.state = { notes: [] };
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    console.log('will mount');
     this.getNotes();
+  }
+
+  componentDidMount() {
+    console.log('did mount');
   }
 
   getNotes = () => {
@@ -19,6 +24,7 @@ export class NotesList extends Component {
       .get('http://localhost:3333/notes')
       .then(response => {
         this.setState({ notes: response.data });
+        console.log('data set to state');
       })
       .catch(err => {
         console.log('Error fetching notes', err);
@@ -26,6 +32,7 @@ export class NotesList extends Component {
   }
 
   render() {
+    console.log('rendering');
     return(
       <div className='Content__Wrapper'>
         <h3 className='Content__Heading'>Your Notes:</h3>
@@ -43,28 +50,3 @@ export class NotesList extends Component {
     );
   }
 }
-// export const NotesList = () => {
-//   return(
-//     <div className='Content__Wrapper'>
-//       <h3 className='Content__Heading'>Your Notes:</h3>
-//       <div className='Content NotesList'>
-//         <div className='Note'>
-//           <h4 className='Note__Heading'>Note Title</h4>
-//           <p className='Note__Content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
-//         </div>
-//         <div className='Note'>
-//           <h4 className='Note__Heading'>Note Title</h4>
-//           <p className='Note__Content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
-//         </div>
-//         <div className='Note'>
-//           <h4 className='Note__Heading'>Note Title</h4>
-//           <p className='Note__Content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
-//         </div>
-//         <div className='Note'>
-//           <h4 className='Note__Heading'>Note Title</h4>
-//           <p className='Note__Content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet.</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
