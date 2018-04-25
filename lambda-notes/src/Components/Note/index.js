@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {aux} from '../HOC/Aux';
 import classes from './index.css';
 import {store} from '../../';
+import {Link} from 'react-router-dom';
 import {updateNote, deleteNote} from '../../Actions/NoteActions';
 
 export class Note extends Component {
@@ -9,6 +10,7 @@ export class Note extends Component {
     super(props);
     this.state = {
       showForm: false,
+      showModal: false,
       header: this.props.header,
       body: this.props.body,
     };
@@ -28,17 +30,38 @@ export class Note extends Component {
   }
   changeState =  (e) => this.setState({[e.target.name]: e.target.value});
   render() {
+    let modal = null;
     let form = null;
     let note = (
       <React.Fragment>
         <div className={classes.buttonContainer}>
           <button  onClick={() => this.setState({showForm: !this.state.showForm})} className={classes.marginOne}>Edit</button>
-          <button onClick={this.deleteNote}>Delete</button>
+          <button onClick={() => this.setState({showModal: !this.state.showModal})}>Delete</button>
         </div>
         <h2 className={classes.header}>{this.props.header}</h2>
         <p className={classes.body}>{this.props.body}</p>
       </React.Fragment>
     );
+    if (this.state.showModal === true) {
+      modal = (
+        <div className={classes.ModalContainer}>
+          <div className={classes.ModalContainer__ContentContainer}>
+            <h2>Are you sure you want to delete this?</h2>
+            <div className={classes.ModalContainer__ButtonsContainer}>
+              <Link to='/' className={classes.link}>
+                <button className={classes.ModalContainer__Button + " "+ classes.ModalContainer__WrappedButton + " " + classes.red}
+                  onClick={() => {
+                    this.deleteNote()
+                    this.setState({showModal: !this.state.showModal});
+                }}>
+                  Delete
+                </button>
+              </Link>
+              <button className={classes.ModalContainer__Button} onClick={() => this.setState({showModal: !this.state.showModal})} >No</button>
+            </div>
+          </div>
+        </div>);
+    }
     if (this.state.showForm === true) {
       form = (
         <div className={classes.formContainer}>
@@ -57,13 +80,14 @@ export class Note extends Component {
             onChange={this.changeState}
             placeholder='Note Content'
           />
-          <button className={classes.submitButton} onClick={this.updateNote}>Update</button>
+          <Link to='/'><button className={classes.submitButton} onClick={this.updateNote}>Update</button></Link>
         </div>
       );
       note = null;
     }
     return (
       <aux>
+        {modal}
         {note}
         {form}
       </aux>
