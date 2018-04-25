@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Route } from 'react-router-dom';
+import { v4 } from 'uuid';
 
 import { notes } from './notes.js';
 import Sidebar from './components/Sidebar.js';
 import Notes from './components/Notes.js';
 import CreateNoteForm from './components/CreateNoteForm.js';
+import SingleNote from './components/SingleNote.js';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -52,18 +54,28 @@ class App extends Component {
   /*takes notes from state and sets them in local memory as notes
   */
 
-  persistNotes() {
-    const { notes }  = this.state;
-    localStorage.setItem('notes', JSON.stringify(notes));
-  }
+  // persistNotes() {
+  //   const { notes }  = this.state;
+  //   localStorage.setItem('notes', JSON.stringify(notes));
+  // }
 
   addNote = note => {
-    note = { ...note, id: Number(this.state.notes.length) };
-    const notes = this.state.notes;
-    notes.push(note);
-    this.persistNotes();
-    this.setState({ notes });
+    note = { ...note, id: v4() };
+    // console.log('note', note);
+    // const notes = this.state.notes;
+    // notes.concat([note]);
+    // console.log('notes', notes);
+    // this.persistNotes();
+    this.setState({ notes: [...this.state.notes, note] });
   };
+
+  deleteNote = (id) => {
+    // const notes = Object.assign([], this.state.notes);
+    // notes.filter(note => note.id !== id);
+    // notes.splice(id, 1);
+    // localStorage.setItem('notes', JSON.stringify(notes));
+    this.setState({ notes: this.state.notes.filter(note => note.id !== id) });
+  }
 
   render() {
     return (
@@ -74,13 +86,18 @@ class App extends Component {
           <Sidebar />
           <Route
             exact
-            path="/"
+            path="/notes"
             render={() => <Notes notes={this.state.notes} />}
           />
           <Route
             exact
             path="/createNote"
             render={(props) => <CreateNoteForm {...props} addNote={this.addNote} />}
+          />
+          <Route
+            exact
+            path="/notes/:id"
+            render={(props) => <SingleNote {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
           />
         </Main>
       </Wrapper>
