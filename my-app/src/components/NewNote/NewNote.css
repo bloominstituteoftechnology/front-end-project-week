@@ -1,0 +1,26 @@
+.Note-create {
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+}
+
+.Note-title {
+    width: 70%;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+.Note-contented { 
+    padding: 0 5px 350px;
+    width: 750px;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.Note-button {
+    background: rgb(16, 183, 189);
+    color: white;
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+}

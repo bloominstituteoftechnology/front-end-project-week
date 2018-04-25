@@ -17,20 +17,22 @@ class NewNote extends Component {
                     </button>
                 </div>
                 <div className='Note-content'>
-                        <div className='Note-create'>
+                    <div className='Note-create'>
                         <h2> Create New Note: </h2>
-                        <input
-                            type='text'
-                            placeholder='Note Title'
-                            name='Note Title'
-                        />
-                        <input
-                            type='text'
-                            placeholder='Note Content'
-                            name='Note Content'
-                        />
-                        <button> Save </button>
-                    </div>
+                            <input 
+                                className='Note-title'
+                                type='text'
+                                placeholder='Note Title'
+                                name='Note Title'
+                            />
+                            <textarea
+                                className='Note-contented'
+                                type='text'
+                                placeholder='Note Content'
+                                name='Note Content'
+                            />
+                        </div>
+                    <button className= 'Note-button'> Save </button>
                 </div>
             </div>
         )

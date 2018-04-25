@@ -28,9 +28,8 @@
   }
   
   .Note-content {
-
     width: 70%;
-    padding: 0 20px;
+    padding: 0 0 0 20px;
     background: rgb(245, 244, 244);
     padding-top: 84px;
   }
