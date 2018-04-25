@@ -1,13 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import Styled from 'styled-components'
 import { Todo } from 'components/Todo'
 
-const ListContainer = styled.section`
+const ListContainer = Styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 1.5%;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 10px;
+  background-color: rgb(242,243,242);
 `
 
 /** @type React.StatelessComponent<{todos}> */

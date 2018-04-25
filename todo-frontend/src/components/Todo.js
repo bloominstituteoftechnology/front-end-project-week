@@ -1,15 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import Styled from 'styled-components'
 
-const TodoWrapper = styled.div``
+const styles = {
+  underline: '#333'
+}
 
-const TodoTitle = styled.h3`
-  padding-bottom: 2px;
-  border-bottom: 1px gray solid;
+const TodoWrapper = Styled.div`
+  background-color: white;
+  color: rgb(68,68,68);
+  border: 2px solid rgb(222,222,222);
 `
 
-const TodoContent = styled.p``
+const TodoTitle = Styled.h3`
+  margin: 5px;
+  display: inline-block;
+  color: #000;
+  padding-bottom: 2px;
+  border-bottom: 1px solid ${styles.underline};
+`
+
+const TodoContent = Styled.p`
+  margin: 2px;
+`
 
 /** @type React.StatelessComponent<{title,content}> */
 const Todo = props => (
