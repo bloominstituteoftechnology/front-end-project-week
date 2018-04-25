@@ -7,6 +7,7 @@
   cursor: pointer;
   height: 200px;
   margin-bottom: 20px;
+  margin-right: 3%;
   overflow: scroll;
   padding: 0 10px;
   text-decoration: none;
@@ -32,12 +33,9 @@
   margin: 0;
 }
 
-.NoteCard:last-child {
-  color: blue;
-}
-
 @media (max-width: 768px) {
   .NoteCard {
+    margin-right: 5%;
     width: 45%;
   }
 }
