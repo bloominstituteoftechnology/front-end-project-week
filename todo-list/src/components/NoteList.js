@@ -12,7 +12,7 @@ export const NoteList = props => {
         <NoteCard key={note.id} note={note} />
       )) : 
       <div className="NoteList_noNotesMessage">
-        <p>There are currently no notes in your app</p>
+        <p style={{marginTop: 0}}>There are currently no notes in your app</p>
         <p>Please click the button to the left to create one</p>
         <p>☜( ﾟヮﾟ☜)</p>
       </div>

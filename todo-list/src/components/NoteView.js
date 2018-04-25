@@ -8,8 +8,8 @@ export const NoteView = props => {
   return (
     <div className="NoteView">
       <div className="NoteView_note">
-        <p className="NoteView_noteTitle">{note.title}</p>
-        <p className="NoteView_noteBody">{note.body}</p>
+        <pre className="NoteView_noteTitle">{note.title}</pre>
+        <pre className="NoteView_noteBody">{note.body}</pre>
       </div>
       <div className="NoteView_links">
         <Link to={`/edit/${note.id}`} className="App_button">Edit</Link>
