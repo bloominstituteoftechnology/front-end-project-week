@@ -8,6 +8,13 @@
   height: 100%;
 }
 
+@media (max-width: 743px) {
+  .App__container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+}
+
 .ScrollOverflow {
   overflow-y: scroll;
   background-color: #F3F3F3;

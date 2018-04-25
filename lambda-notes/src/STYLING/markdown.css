@@ -10,7 +10,7 @@
 
 .input-text {
 	min-height: 400px;
-	border: 2px solid #464646;
+	border: 2px solid black;
 	background: transparent;
 	color: black;
 	transition: border 0.3s;
@@ -25,14 +25,15 @@
 }
 
 .output-text {
-	background: #fdfbfb;
+  border: 2px solid black;
+	background: #fdfbfb00;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	hyphens: auto;
 }
 
 .input-text:focus {
-	border: 2px solid grey;
+	border: 2px solid black;
 }
 
 h3 {
