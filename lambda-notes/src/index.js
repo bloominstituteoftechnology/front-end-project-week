@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import { render } from 'react-dom'
 import './index.css';
 import App from './components/App';
 import thunk from 'redux-thunk';
@@ -12,11 +13,13 @@ import { routerReducer } from 'react-router-redux'
 
 const middleware = applyMiddleware(thunk, logger);
 
+const reducer = combineReducers({
+    rootReducer,
+    routing: routerReducer
+})
+
 const store = createStore(
-    combineReducers({
-        rootReducer,
-        routing: routerReducer
-    }),
+    reducer,
     middleware
 );
 
@@ -27,7 +30,7 @@ store.subscribe(() => {
     console.log(store.getState());
 })
 
-ReactDOM.render(
+render(
     <Provider store={store}>
         { /* Tell the Router to use our enhanced history */}
         <Router>

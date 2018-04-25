@@ -1,9 +1,12 @@
-import React from 'react';
-import { getNote } from '../../actions';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { show } from 'redux-modal'
+import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { getNote } from '../../actions';
 import DeleteModal from '../Modal/DeleteModal';
+import DeleterModal from '../Modal/DeleterModal'
+import { bindActionCreators } from 'redux'
 
 const styled = {
     textDecoration: 'none',
@@ -11,7 +14,7 @@ const styled = {
     color: 'black'
 }
 
-class ViewNote extends React.Component {
+class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,11 +27,15 @@ class ViewNote extends React.Component {
         console.log('cdm state', this.state)
     }
 
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
+    handleOpen = name => () => {
+        this.props.show(name, { message: `This is a ${name} modal` })
+    };
+
+    // toggle = () => {
+    //     this.setState({
+    //         modal: !this.state.modal
+    //     });
+    // }
 
     // componentWillReceiveProps(newProps) {
     //     if (this.props.match.params.id !== newProps.match.params.id) {
@@ -37,6 +44,7 @@ class ViewNote extends React.Component {
     // }
 
     render() {
+        console.log('render', this.props)
         return (
             <div className="mainContent" >
                 {this.props.notes.map(note => {
@@ -47,23 +55,15 @@ class ViewNote extends React.Component {
                                     <span className="mainContent__options--links" >edit</span>
                                 </Link>
                                 <div>
-                                    <DeleteModal 
-                                    modal={'modal'}
-                                    body={'modal__body'}
-                                    footer={'modal__footer'}
-                                    delete={'button button--delete'} 
-                                    cancel={'button button--cancel'} 
+                                    <Button className="mainContent__options--links" bsStyle="primary" onClick={this.handleOpen('deleter')}>delete</Button>
+                                    <DeleteModal
+                                        modal={'modal'}
+                                        body={'modal__body'}
+                                        footer={'modal__footer'}
+                                        delete={'button button--delete'}
+                                        cancel={'button button--cancel'}
                                     />
-                                    {/* <Button className="mainContent__options--links" onClick={this.toggle}>delete</Button>
-                                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                                        <ModalBody>
-                                            Are you sure you want to delete this?
-                                        </ModalBody>
-                                        <ModalFooter>
-                                            <Button className="button button--delete" onClick={this.toggle}>Delete</Button>{' '}
-                                            <Button className="button button--cancel" onClick={this.toggle}>No</Button>
-                                        </ModalFooter>
-                                    </Modal> */}
+                                    <DeleterModal show={this.props.modal} name='deleter' message={'My Message sucks'} />
                                 </div>
                             </div>
                             <div className="directory__title mainContent__title" >
@@ -79,12 +79,12 @@ class ViewNote extends React.Component {
     }
 };
 
-const stateProps = (state, ownProps) => {
-    console.log('state in view', state.rootReducer.noteReducer, 'state props', ownProps)
+const mapStateToProps = (state, ownProps) => {
+    console.log('state in view', state, 'state props', ownProps, 'modal', state.rootReducer.modal)
     return {
         notes: state.rootReducer.noteReducer.notes,
         id: ownProps.match.params.id
     }
 }
 
-export default connect(stateProps, { getNote })(ViewNote);
+export default connect(mapStateToProps, dispatch => bindActionCreators({ show, getNote }, dispatch))(ViewNote);
