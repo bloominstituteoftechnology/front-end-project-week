@@ -1,15 +1,30 @@
-import { React } from 'react';
+import  React, { Component }  from 'react';
+import { Button } from 'reactstrap';
+import './CreateNote.css';
 
+export default class extends Component  {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "",
+      description: ""
+    };
+  }
 
-const CreateNote = props => {
-  return (
-    //input fields for title and description here
-    <div>
-      <input type="text" name="Title" placeholder="Title" />
-      <input type="text" name="Description" placeholder="Type in your description here!"/>
+  handleInput = e => {
+    this.setState ({ [e.target.name]: e.target.value });
+  };
 
-    </div>
-  )
+//   handleSubmitNote = e => {
+//     const { notes } = this.state;
+//     notes.push(this.state.)
+//   }
+
+render() {
+  return <div>
+      <h1>Hello Hello Hello</h1>
+    </div>;
+  }
+
 }
 
-export default CreateNote;
