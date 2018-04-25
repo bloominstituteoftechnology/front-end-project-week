@@ -50,7 +50,7 @@ export class App extends Component {
           <h3>Lambda<br/>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
-          <button className="App_button App_button-red" onClick={this.clearNotes}>Clear Notes</button>
+          <Link to="/delete/all" className="App_button App_button-red" onClick={this.clearNotes}>Clear Notes</Link>
         </div>
         <div className="App_body">
           <Route exact path="/" render={() => 
@@ -66,7 +66,10 @@ export class App extends Component {
             <NoteForm {...props} formUse="Edit Note" useFunction={this.editNote}/> 
           }/>
           <Route path="/view/:id/delete" render={props => 
-            <Modal {...props} deleteNote={this.deleteNote}/> 
+            <Modal {...props}/> 
+          }/>
+          <Route path="/delete/all" render={props => 
+            <Modal {...props}/> 
           }/>
         </div>
       </div>
