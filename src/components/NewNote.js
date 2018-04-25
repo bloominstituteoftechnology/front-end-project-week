@@ -4,6 +4,17 @@ import { Link } from "react-router-dom";
 import LeftPanal from "./LeftPanal";
 
 export default class NewNote extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        title:'',
+        content:'',
+        notes: [],
+        
+    };
+}
+
   handleChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -18,20 +29,13 @@ export default class NewNote extends Component {
     return (
       <div className="container0">
         <LeftPanal />
-        <div className="form">
-          New Note:
-          <form action="submit">
-            <input
-              type="text"
-              name="title"
-              placeholder="Note Title"
-            />
-
-            <textarea name="text" placeholder="Note Content" rows="15" />
-          </form>
-          <Link to="/">
-            <div className="save-button">Save</div>
-          </Link>
+        <div className= 'form'>
+            New Note:
+            <form onSubmit={this.handleSubmit} action='submit'>
+            <input type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleChange}/>
+            <input type="text" name="content" value={this.state.content} placeholder="Note Content" onChange={this.handleChange}/>
+            </form>
+            <Link to='/' data={{title: this.state.title, content: this.state.content}}><div className='button'>Save</div></Link>
         </div>
       </div>
     );

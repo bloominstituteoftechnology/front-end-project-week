@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import Data from './Data'; 
 import { Link } from "react-router-dom";
 import LeftPanal from "./LeftPanal";
 
@@ -8,7 +8,8 @@ export default class NewNote extends Component {
     super(props);
     this.state = {
       title: "",
-      content: ""
+      content: "", 
+      notes: []
     };
   }
 
