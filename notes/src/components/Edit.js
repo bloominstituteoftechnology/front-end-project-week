@@ -8,22 +8,19 @@ class Edit extends Component {
         text: ''
     }
 
-    componentDidMount() {
-        this.setState({ notes: this.props.notes})
-    }
+    
     handleTextInput = e => {
         this.setState({ [e.target.name]: e.target.value});
     }
     handleSubmit = () => {
  this.setState({
         title: this.state.title,
-        text: this.state.text,
-        tags: this.state.tags
+        text: this.state.text
     })
         this.props.history.push("/note");
     }
     render() {
-        console.log(this.props)
+        console.log(this.props.history)
         return (
 <div>
 
