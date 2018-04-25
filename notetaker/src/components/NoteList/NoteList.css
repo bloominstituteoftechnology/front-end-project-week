@@ -1,0 +1,6 @@
+.Notelist {
+  display: flex;
+  flex-direction: row;
+  font-size: 25rem;
+
+}

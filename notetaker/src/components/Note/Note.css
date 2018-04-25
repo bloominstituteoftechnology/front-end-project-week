@@ -1,0 +1,8 @@
+.card {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin: 20px;
+  height: 220px;
+  width: 240px;
+}
