@@ -1,6 +1,9 @@
 import React from 'react';
 import LambdaSide from './LambdaSide';
 
+import {updateNote } from '../actions/actions';
+import { connect } from 'react-redux';
+
 const textarea = {
 	width: '90%',
 	height: 300,
@@ -43,6 +46,13 @@ class EditNote extends React.Component {
 			note: ''
 		};
 	}
+	
+	componentDidMount() {
+		this.props.notes;
+		console.log('INSIDE EDITNOTE, ID IS, ID: ',this.props.idE);
+		console.log(this.props)
+	}
+	
 	handleTextInput = (e) => {
 		e.preventDefault();
 		this.setState({ [e.target.name]: e.target.value });
@@ -51,7 +61,15 @@ class EditNote extends React.Component {
 		e.preventDefault();
 		console.log('title: ', this.state.title);
 		console.log('note: ', this.state.note);
-		alert('Edit note coming soon, as MVP is approved' + '    Title: ' + this.state.title + ',     Note: ' + this.state.note);
+		const noteObject = { title: this.state.title, note: this.state.note};
+		this.props.updateNote(noteObject,this.props.idE);
+		this.setState({
+            title: '',
+            note: ''
+        })
+
+		// let nNote = 
+		// alert('Edit note coming soon, as MVP is approved' + '    Title: ' + this.state.title + ',     Note: ' + this.state.note);
 	};
 	render() {
 		return (
@@ -80,5 +98,11 @@ class EditNote extends React.Component {
 		);
 	}
 }
-
-export default EditNote;
+const mapDispatchToProps = (state) => {
+	return {
+		notes: state.notes
+		// titles: state.titles
+	};
+};
+export default connect(mapDispatchToProps, {  updateNote })(EditNote);
+// export default EditNote;

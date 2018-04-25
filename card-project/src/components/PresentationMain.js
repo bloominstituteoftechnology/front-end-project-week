@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { addNote, deleteNote } from '../actions/actions';
+import { connect } from 'react-redux';
+import Renderer from './MainTwo';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, CardColumns, CardGroup } from 'reactstrap';
@@ -51,7 +54,8 @@ const icSt = {
 	height: 200,
 	cursor: 'pointer',
 	marginTop: 10,
-	marginBottom: 10
+	marginBottom: 10,
+	overflow: 'hidden'
 };
 const hSt = {
 	fontWeight: 'bold',
@@ -69,76 +73,140 @@ const ntSt = {
 	fontWeight: 'bold',
 	fontSize: 20
 };
-
-const PresentationMain = (props) => {
-	return (
-		<div style={mainSt}>
-			<h4 style={hSt}>Your Notes:</h4>
-			<Link to="/notes/view/0" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[0]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/1" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[1]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/2" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[2]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/3" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[3]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/4" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[4]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/5" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[5]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/6" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[6]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/7" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[7]}
-				</h6>
-			</Link>
-			<Link to="/notes/view/8" style={icSt}>
-				<h6>
-					<span style={ntSt}>Note Title</span>
-					<br />
-					{notes[8]}
-				</h6>
-			</Link>
-		</div>
-	);
+const mapDispatchToProps = (state) => {
+	return {
+		notes: state.notes
+		// titles: state.titles
+	};
 };
+class FnComp extends React.Component {
+	constructor(props) {
+		super(props);
 
-export default PresentationMain;
+	}
+	render() {
+		// console.log(...this.props.notes)
+		console.log('Fn component', this.props);
+		return (
+			<h3>{this.props}</h3>
+			// <h1>{this.props.notes.map(val => <h3>{val}</h3>)}</h1>
+		);
+	}
+}
+
+export class PresentationMain extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state= {
+			renderB: true,
+			list: this.props.notes
+		}
+	}
+	// console.log(...props.notes)
+
+	componentDidMount() {
+		this.props.notes;
+	}
+
+	render() {
+		return (
+			<div style={mainSt}>
+				<h4 style={hSt}>Your Notes:</h4>
+				{/* {this.props.notes[0]} */}
+				{/* <Link to="/notes/view/0" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[0]}
+						{console.log('TESTING PRESENTATIONMAIN', ...this.props)}
+						{console.log(this.props.notes)}
+					</h6>
+				</Link> */}
+				{/* {props.notes.map((note) =>  <h1>{note}</h1>)} */}
+
+				{/* <Link to="/notes/view/1" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[1]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/2" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[2]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/3" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[3]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/4" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[4]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/5" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[5]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/6" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[6]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/7" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[7]}
+					</h6>
+				</Link>
+				<Link to="/notes/view/8" style={icSt}>
+					<h6>
+						<span style={ntSt}>Note Title</span>
+						<br />
+						{notes[8]}
+					</h6>
+				</Link> */}
+				{/* {this.props.notes.map((item, index) => {
+					return <Renderer note={item} />;
+				})} */}
+				{/* <ul> */}
+				{this.props.notes.map((note, i) => {
+					console.log('presentation index of notes, i',i);
+					return (
+					
+						<Link to={`/notes/view/${i}`} style={icSt}>
+							{' '}
+							<h6>
+								<span style={ntSt}>{note.title}</span>
+								<br />
+								{note.note}
+							</h6>
+						</Link>
+					);
+				})}
+				{/* {this.props.task.createdAt.toString()} */}
+				{/* {this.props.notes.toString()} */}
+				{/* <FnComp notes={{...this.props.notes}} /> */}
+				{/* <Renderer notes={...this.props.notes} /> */}
+				{/* <h2>{JSON.stringify(...this.props.notes)}</h2> */}
+			</div>
+		);
+	}
+}
+
+// export PresentationMain;
+export default connect(mapDispatchToProps, { addNote, deleteNote })(PresentationMain);

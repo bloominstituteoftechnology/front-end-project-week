@@ -5,11 +5,13 @@ import App from './App';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import registerServiceWorker from './registerServiceWorker';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-
+// import logger from 'redux-logger';
+// const store = createStore(smurfsReducer, applyMiddleware(thunk,logger));
 import {notesReducer} from './reducers/reducers';
-const store = createStore(notesReducer);
+const store = createStore(notesReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// const store = createStore(notesReducer, applyMiddleware(logger) );
 
 ReactDOM.render(
 	

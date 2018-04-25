@@ -1,5 +1,8 @@
 import React from 'react';
 import LambdaSide from './LambdaSide';
+import { addNote} from '../actions/actions'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const textarea = {
     width: '90%',
@@ -44,14 +47,30 @@ class CreateNew extends React.Component {
 			note: ''
 		};
     }
+    refresh = () => {
+		this.props.notes;
+	}
+    componentDidMount() {
+		this.refresh();
+    }
+    
     handleTextInput = (e) => {
         e.preventDefault();
         this.setState({ [e.target.name]: e.target.value });
         
     };
     newNote = (e) => {
-        e.preventDefault();
-        alert('New note and title coming soon, as MVP is approved... title: ' + this.state.title + "   note: " + this.state.note)
+        // e.preventDefault();
+        // this.props.addNote(this.state.note);
+        // this.props.addTitle(this.state.title);
+        const noteObject = { title: this.state.title, note: this.state.note};
+        this.props.addNote(noteObject);
+        this.refresh();
+        this.setState({
+            title: '',
+            note: ''
+        })
+        // alert('New note and title coming soon, as MVP is approved... title: ' + this.state.title + "   note: " + this.state.note)
     }
 	render() {
 		return (
@@ -59,9 +78,18 @@ class CreateNew extends React.Component {
                 <h3 style={hSt} >Create New Note:</h3>
 				<input style={tStyle} type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={this.handleTextInput} />
 				<input style={textarea} type="text" name="note"  value={this.state.note}  placeholder="Note Content" onChange={this.handleTextInput} />
-                <button onClick={this.newNote} style={bStyle} >Save</button>
+                {/* <button onClick={this.newNote} style={bStyle} ><Link to={`/`}>Save</Link></button> */}
+                <Link to={`/`} onClick={this.newNote} ><button style={bStyle} >Save</button></Link>
+
 			</div>
 		);
 	}
 }
-export default CreateNew;
+const mapDispatchToProps = (state) => {
+	return {
+        notes: state.notes,
+        // titles: state.titles,
+	};
+};
+// export default CreateNew;
+export default connect(mapDispatchToProps, { addNote})(CreateNew);

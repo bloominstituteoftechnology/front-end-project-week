@@ -5,6 +5,9 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import LambdaSide from './LambdaSide';
 import EditNote from './EditNote';
 
+import { addNote, deleteNote } from '../actions/actions';
+import { connect } from 'react-redux';
+
 const notes = [
 	'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque ante, tincidunt a ex ac, dictum condimentum enim. Nunc hendrerit et nunc at interdum. Nulla fermentum augue eu nunc finibus laoreet. Aenean blandit at augue in tincidunt. Quisque urna tortor, congue vel tincidunt vitae, varius a libero. Aenean rhoncus porta elit, id maximus dui egestas quis. Mauris volutpat eros vel dignissim tempor. Vestibulum efficitur metus id orci sollicitudin auctor. Ut eu nisi in orci maximus bibendum. Praesent ultricies, quam eget tempus vulputate, eros ex bibendum sem, sit amet malesuada sem libero eu justo. In eu interdum nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla laoreet nisi vitae bibendum aliquet. Suspendisse ut eros feugiat, varius nibh vitae, mollis lorem. Suspendisse porttitor dui aliquam dolor ornare molestie.',
 	'Praesent sed ullamcorper velit. Vestibulum volutpat leo eleifend ante volutpat, et posuere metus pellentesque. Sed molestie posuere tincidunt. Etiam egestas, risus et ultrices posuere, tortor sapien laoreet nibh, vel viverra mauris tellus sit amet libero. Donec sodales sem vehicula, ultrices mauris in, iaculis arcu. In non lacinia purus. Morbi gravida justo at leo bibendum tristique. Nullam aliquam felis eget ultricies fermentum. Phasellus imperdiet mauris sit amet ipsum pharetra, sed fringilla nibh pellentesque. Fusce finibus vulputate dui eget tincidunt. Aliquam molestie massa in varius porttitor. Praesent maximus pharetra vehicula.',
@@ -59,13 +62,21 @@ const linkStd = {
 	marginLeft: '5%',
 	textAlign: 'center'
 };
+const hide = {
+	display: 'none'
+};
+let noteI = [];
+let titleI = [];
 const header = (props) => {
 	return (
 		<div>
 			<Link to={`/notes/edit/${props.id}`}>Edit</Link>
-			<a href="#" onClick={this.toggle}>
+			{/* <a href="#" onClick={this.toggle}>
 				Delete{' '}
-			</a>
+			</a> */}
+			<Link to={`/`} onClick={this.toggle}>
+				Delete
+			</Link>
 			<hr />
 			<h1>Note Name</h1>
 		</div>
@@ -75,24 +86,39 @@ class PresentationView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modal: false
+			modal: false,
+			list: this.props.notes
 		};
 		this.toggle = this.toggle.bind(this);
 	}
+	componentDidMount() {
+		this.refresh();
+	}
+	refresh = () => {
+		this.props.notes;
+	}
+
 	toggle() {
 		this.setState({
 			modal: !this.state.modal
 		});
 	}
-	handleDelete = (e) => {
-		e.preventDefault();
-		alert('Delete functionality coming soon, after MVP');
+	handleDelete = (id) => {
+		// e.preventDefault();
+		// alert('Delete functionality coming soon, after MVP');
+		// <Link to={`/`} />;
+		this.props.deleteNote(this.props.notes[id]);
+		noteI=[];
+		titleI=[];
+		this.refresh();
+		// this.props.notes;
 		this.setState({
 			modal: !this.state.modal
 		});
 	};
 
 	render() {
+
 		return (
 			<div>
 				<div>
@@ -101,22 +127,55 @@ class PresentationView extends React.Component {
 						Edit
 					</Link>
 
-					<a href="#" onClick={this.toggle} style={linkStd}>
+					{/* <a href="#" onClick={this.toggle} style={linkStd}>
 						Delete
-					</a>
+					</a> */}
+					<Link to={`#`} onClick={this.toggle}>
+						Delete
+					</Link>
 
-					<h3 style={noteSt}>
+					{/* <h3 style={noteSt}>
 						<h1>Note Name</h1>
 						{notes[this.props.id]}
+					</h3> */}
+					{this.props.notes.map((note, i) => {
+						return (
+							// <Link to={`/notes/view/${i}`} style={icSt}>
+							// 	{' '}
+							// <h3 style={noteSt}>
+							// 	<h1>{note.title}</h1>
+							<div style={hide}>
+								{noteI.push(note.note)}
+								{titleI.push(note.title)}
+								{/* {noteI} */}
+							</div>
+							// </h3>
+							// <h6>
+							// 	<span style={ntSt}>{note.title}</span>
+							// 	<br />
+							// 	{note.note}
+							// </h6>
+							// </Link>
+						);
+					})}
+					<h3 style={noteSt}>
+						{console.log('inside of PresentationView, id: ',this.props.id)}
+						<h1>{titleI[this.props.id]}</h1>
+						{noteI[this.props.id]}
 					</h3>
 				</div>
 
 				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 					<ModalBody style={warning}>Are you sure you want to delete this?</ModalBody>
 					<ModalFooter>
-						<Button color="primary" onClick={this.handleDelete} style={bStyled}>
+					<Link to={`/`} color="primary" onClick={() => this.handleDelete(this.props.id)} style={bStyled}  >
+						{/* <Button color="primary" onClick={() => this.handleDelete(this.props.id)} style={bStyled}> */}
+						
 							Delete
-						</Button>{' '}
+						{/* </Button>{' '} */}
+						</Link>
+						
+						
 						<Button color="secondary" onClick={this.toggle} style={bStylec}>
 							No
 						</Button>
@@ -126,5 +185,12 @@ class PresentationView extends React.Component {
 		);
 	}
 }
+const mapDispatchToProps = (state) => {
+	return {
+		notes: state.notes
+		// titles: state.titles
+	};
+};
+export default connect(mapDispatchToProps, { addNote, deleteNote })(PresentationView);
 
-export default PresentationView;
+// export default PresentationView;
