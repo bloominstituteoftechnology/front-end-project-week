@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display: flex; 
 }
 
 .notes-div {
@@ -35,3 +36,13 @@
   padding-left: 20px;  
   text-decoration-color: darkgrey; 
 }
+.sidebar {
+   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6e6e6;
+   padding: 0 15px 0 15px;
+  min-height: 800px;
+  height: initial;
+    width: 200px;
+  }

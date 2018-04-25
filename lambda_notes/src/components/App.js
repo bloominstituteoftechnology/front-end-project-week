@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getNotes } from "./defaultNotes";
 import DisplayNotes from './DisplayNotes'
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import SideBar from "./sidebar";
 
 class App extends Component {
   constructor() {
@@ -18,6 +19,7 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
+          <Route path="/" component={SideBar} />
             <DisplayNotes notes={this.state.notes} exact />
           </div>
         </Router>
