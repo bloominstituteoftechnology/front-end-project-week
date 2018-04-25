@@ -61,7 +61,7 @@ class App extends Component {
 
       <div>
           { this.Navi() }
-        <input
+        {/* <input
           type="text"
           value={this.state.note}
           onChange={this.handleNoteChange}
@@ -70,7 +70,7 @@ class App extends Component {
         <NoteList
           removeNote={this.handleRemoveNote}
           noteList={this.state.noteList}
-        />
+        /> */}
       </div>
     );
   }

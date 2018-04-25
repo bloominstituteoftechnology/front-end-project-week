@@ -1,12 +1,9 @@
 import React from 'react';
 
-
-
 const NoteList = props => {
   const remove = obj => {
     props.removeNote(obj.id);
   };
-
 
   return (
     <div>
@@ -27,7 +24,5 @@ const NoteList = props => {
     </div>
   );
 };
-
-
 
 export default NoteList;
