@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Notes from './components/notes';
-import './App.css';
+import React, { Component } from "react";
+import Notes from "./components/notes";
+import "./App.css";
 
 class App extends Component {
   render() {
