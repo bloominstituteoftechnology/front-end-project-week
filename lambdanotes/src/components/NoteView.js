@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       id: parseInt(this.props.match.params.id),
-      notes: this.props.notes,
-      newNote: false,
       note: null,
       title: "",
       content: ""
@@ -16,14 +13,9 @@ class NoteView extends Component {
 
   componentDidMount = () => {
     if (
-      this.state.id ===
-      this.state.notes[this.state.notes.length - 1].id + 1
-    ) {
-      this.setState({ newNote: true });
-    } else if (
-      this.state.notes !== null &&
-      this.state.notes !== undefined &&
-      this.state.notes[this.state.id - 1] &&
+      this.props.notes !== null &&
+      this.props.notes !== undefined &&
+      this.props.notes[this.props.match.params.id - 1] &&
       this.state.id > 0
     ) {
       this.displayNote();
@@ -31,12 +23,11 @@ class NoteView extends Component {
   };
 
   displayNote = () => {
-    const displayedNote = this.state.notes.filter(
+    const displayedNote = this.props.notes.filter(
       (note, index) => this.state.id === note.id
     );
     this.setState({
-      note: displayedNote[0],
-      newNote: false
+      note: displayedNote[0]
     });
   };
 
@@ -46,17 +37,18 @@ class NoteView extends Component {
 
   handleCreateNote = () => {
     const newNote = {
-      id: this.state.id,
+      id: parseInt(this.props.match.params.id),
       title: this.state.title,
       content: this.state.content
     };
     if (this.state.title !== "" && this.state.content !== "") {
+      this.props.addNote(newNote);
       this.setState({
         title: "",
         content: "",
-        newNote: false
+        note: newNote,
+        id: parseInt(this.props.match.params.id)
       });
-      this.props.addNote(newNote);
     } else {
       alert("Fill out all inputs to submit");
     }
@@ -64,8 +56,8 @@ class NoteView extends Component {
 
   render() {
     const note = this.state.note;
-    const id = this.state.id;
-    if (this.state.newNote === false && this.state.note !== null) {
+    const id = parseInt(this.props.match.params.id);
+    if (this.state.note !== null && this.state.note.id === id) {
       return (
         <div className="mt-5">
           {this.state.note.title}
@@ -74,7 +66,7 @@ class NoteView extends Component {
           {this.state.note.content}
         </div>
       );
-    } else if (this.state.newNote === true) {
+    } else if (id === this.props.notes[this.props.notes.length - 1].id + 1) {
       return (
         <div className="mt-5">
           Temporary Input Form
@@ -95,9 +87,7 @@ class NoteView extends Component {
             onChange={this.handleInput}
           />
           <br />
-          <Link to={"/"}>
-            <button onClick={this.handleCreateNote}>Create Note</button>
-          </Link>
+          <button onClick={this.handleCreateNote}>Create Note</button>
         </div>
       );
     } else return <div className="mt-5">There is no note with that id!</div>;
