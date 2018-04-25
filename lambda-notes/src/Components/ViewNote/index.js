@@ -1,6 +1,7 @@
 import React from 'react';
 import './view.css';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import { EditNote } from '../EditNote';
 
 export class ViewNote extends React.Component {
     constructor(props) {
@@ -10,11 +11,17 @@ export class ViewNote extends React.Component {
         return <div className="col-9 right__side">
             <div className="row">
                 <div className="col-4 edit">
-                    <Link to="/">Edit</Link>
+                    <Link to='/'>
+                        Edit
+                    </Link>
                 </div>
-                <div className="edit">
-                    <Link to="/">Delete</Link>
+                <div className=" col-3 delete">
+                    <Link to="/">
+                        Delete
+                    </Link>
                 </div>
+            </div>
+            <div className="row">
                 <h4>Note Title</h4>
             </div>
             <div className="row">

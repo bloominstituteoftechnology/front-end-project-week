@@ -2,3 +2,15 @@
     color: #4A494A;
 }
 
+.right__side a {
+    text-decoration: none;
+    color: #4A494A;
+}
+
+.edit a {
+    margin-left: 280%;
+}
+
+.delete a {
+    margin-left: 260%;
+}
