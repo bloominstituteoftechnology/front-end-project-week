@@ -3,6 +3,7 @@ import axios from 'axios';
 import './index.css';
 import { Route } from 'react-router-dom';
 import ViewNote from '../ViewNote';
+import EditNote from '../EditNote';
 
 
 const NoteRoutes = (props) => {
@@ -11,7 +12,10 @@ const NoteRoutes = (props) => {
     return (
       <div>
         {props.data.notes.map((u, index) => 
+        <div>
         <Route exact path={'/Notes/' + index} component={ViewNote} key={u.id}/>
+        <Route path ={'/Notes/edit/' + index} component={EditNote} />
+        </div>
         )}
       </div>
       //<h1>something</h1>
