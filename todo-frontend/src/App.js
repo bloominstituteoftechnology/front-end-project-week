@@ -9,13 +9,17 @@ import { fetchTodos } from 'actions'
 import 'App.css'
 
 class App extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchTodos()
   }
-  render () {
+  render() {
     return (
-      <div className='App'>
-        <Route exact path='/' render={props => <TodoList {...props} todos={this.props.todos} />} />
+      <div className="App">
+        <Route
+          exact
+          path="/"
+          render={props => <TodoList {...props} todos={this.props.todos} />}
+        />
 
         <Route render={() => <h3>This page is unavailable</h3>} />
       </div>
@@ -34,6 +38,6 @@ const mapStateToProps = state => ({
   todos: state.todos
 })
 
-export default connect(mapStateToProps, {fetchTodos})(App)
+export default connect(mapStateToProps, { fetchTodos })(App)
 
 export { App }
