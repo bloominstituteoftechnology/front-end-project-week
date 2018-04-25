@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 class NewNote extends Component {
-    state = {
+    state = [{
       noteTitle: '',
       noteText: '',
-    }
+    }];
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };

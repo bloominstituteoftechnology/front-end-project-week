@@ -48,3 +48,15 @@
   border-radius: 2px;
   width: 190px;
 }
+
+.card_button {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.note_card {
+  margin: 20px;
+  padding: 10px;
+  width: 80%;
+  height: 400px;
+}

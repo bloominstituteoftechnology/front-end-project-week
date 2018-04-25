@@ -16,7 +16,7 @@ class App extends Component {
   }
 
 componentDidMount () {
-  this.setState({noteData});
+  this.setState([noteData]);
 }
 
 
