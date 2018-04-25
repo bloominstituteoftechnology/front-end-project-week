@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import './index.css';
 import { Link } from 'react-router-dom';
 //import ViewNote from '../ViewNote';
@@ -26,22 +26,28 @@ class NoteList extends Component {
       this.state = {
         notes: []
       }
+      
     }
     theMount() {
-      axios
-        .get('http://localhost:5000/api/notes')
-        .then(response => {
-          this.setState(() => ({ notes: response.data }));
-        })
-        .catch(error => {
-          console.error('Server Error', error);
-        });
+      // axios
+      //   .get('http://localhost:5000/api/notes')
+      //   .then(response => {
+      //     this.setState(() => ({ notes: response.data }));
+      //   })
+      //   .catch(error => {
+      //     console.error('Server Error', error);
+      //   });
+      let data = JSON.parse(localStorage.getItem("note data string"))
+      this.setState({ notes: data })
     }
     componentDidMount() {
       this.theMount();
     }
+
+    
   
     render() {
+      console.log('stateonlist', this.state)
       return (
           <div className='note__container-bg'>
             <h3 className='note__container-h3'>Notes:</h3>
