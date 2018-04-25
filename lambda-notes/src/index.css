@@ -60,6 +60,7 @@ body {
   font-size: 21px;
   border: 1px solid rgb(133, 131, 131);
   border-radius:1%;
+  cursor: pointer;
 }
 
 /* +Create New Note */
@@ -79,6 +80,7 @@ body {
   font-size: 21px;
   border: 1px solid rgb(133, 131, 131);
   border-radius:1%;
+  cursor: pointer;
 }
 
 .navButton_save {
@@ -90,6 +92,7 @@ body {
   font-size: 21px;
   border: 1px solid rgb(133, 131, 131);
   border-radius: 1%;
+  cursor: pointer;
 }
 
 .navLink {
@@ -179,4 +182,14 @@ body {
 
 .noteBody {
   width: 100%;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.h3 {
+  font-weight: bold;
 }

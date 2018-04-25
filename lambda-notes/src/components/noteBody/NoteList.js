@@ -11,7 +11,7 @@ class NoteList extends Component {
                     <h2 className='justify-self-start font-weight-bold noteHeader'>Your Notes:</h2>
                     </div>
                 <div className='row d-flex flex-row justify-content-around'>
-                { this.props.cards.map( (card, i) => <div className='col-4'><NoteCard key={i} { ...card } /></div> ) }
+                { this.props.cards.map( (card, i) => <div className='col-4'><Link className='link' to='/ViewNote'><NoteCard  key={i} updateSelectedNote={this.props.updateSelectedNote} { ...card } /></Link></div> ) }
                 </div>
             </div>
         )
