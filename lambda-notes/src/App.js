@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 
 import { Navigation } from './Components/Navigation';
 import { NotesList } from './Components/NotesList';
@@ -17,6 +18,8 @@ class App extends Component {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/notes' component={NotesList} />
           <Route exact path='/addnote' component={AddNote} />
+          {/* <Route path='/notes/:id' render={null}/>
+          <Route exact path='/notes' render={props => <NotesList {...props}/>} /> */}
         </Switch>
       </div>
     );

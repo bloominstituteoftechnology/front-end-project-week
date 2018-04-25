@@ -7,32 +7,36 @@ import './NotesList.css';
 export class NotesList extends Component {
   constructor(props) {
     super(props);
-    this.state = { notes: [] };
+    this.state = { notes: [] }
   }
 
-  componentWillMount() {
-    console.log('will mount');
+  _mounted = false;
+
+  componentDidMount() {
+    this._mounted = true;
     this.getNotes();
   }
 
-  componentDidMount() {
-    console.log('did mount');
+  componentDidUpdate() {
+    if(this._mounted) {
+      this.getNotes();
+      this._mounted = false;
+    }
   }
 
   getNotes = () => {
     axios
-      .get('http://localhost:3333/notes')
-      .then(response => {
-        this.setState({ notes: response.data });
-        console.log('data set to state');
-      })
-      .catch(err => {
-        console.log('Error fetching notes', err);
-      });
+    .get('http://localhost:3333/notes')
+    .then(response => {
+      this.setState({ notes: response.data })
+      console.log('setting state');
+    })
+    .catch(err => {
+      console.log('Error fetching notes', err);
+    });
   }
 
   render() {
-    console.log('rendering');
     return(
       <div className='Content__Wrapper'>
         <h3 className='Content__Heading'>Your Notes:</h3>
