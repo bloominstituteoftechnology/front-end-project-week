@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 // import EditNote from "./sub-component/EditNote" // Not done yet
 
 import { Route, withRouter } from "react-router-dom";
-import IndividualNote from "./sub-component/IndividualNote";
+import NoteDetail from "./sub-component/NoteDetail";
 
 class MainPageContainer extends Component {
   constructor(props) {
@@ -38,7 +38,8 @@ class MainPageContainer extends Component {
             />
           )}
         />
-        {/* <Route path="/note/:id" component={IndividualNote} /> */}
+        <Route path="/note/:id" render={props => <NoteDetail {...props} mainProps={this.props}
+              noteArray={this.props.noteArray} />} />
         {/* <Route component={EditNote} /> */}
       </div>
     );

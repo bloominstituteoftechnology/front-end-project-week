@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { fetchNotes } from "../../actions";
 import { connect } from "react-redux";
-import { Nav, NavItem, NavLink } from "reactstrap";
+import { Link } from "react-router-dom";
 
-import IndividualNote from "./IndividualNote";
+import NoteCard from "./NoteCard";
 
 import "./NoteList.css";
 
 const NoteList = props => {
-  // console.log("NoteList: this.props", props.noteArray);
+  // console.log("NoteList: this.props", props);
   return (
     <div className="NoteList row p-0 m-0">
       {props.noteArray.map(eachNote => (
         <div className="NoteCard col-4 p-4" key={eachNote.id}>
-          <NavLink href={`/note/${eachNote.id}`}>
-            <IndividualNote eachNote={eachNote} />
-          </NavLink>
+          <Link to={`/note/${eachNote.id}`}>
+            <NoteCard eachNote={eachNote} props={props}/>
+          </Link>
         </div>
       ))}
     </div>
