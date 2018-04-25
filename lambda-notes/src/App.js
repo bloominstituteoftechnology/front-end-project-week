@@ -3,6 +3,7 @@ import './App.css';
 import { NoteList } from './Components/ListView';
 import { Route, Link } from 'react-router-dom';
 import { CreateNote } from './Components/NewNote';
+import { viewNote } from './Components/ViewNote';
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class App extends Component {
             </div>
             <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
             <Route path="/createNewNote" render={() => <CreateNote />}/>
+            <Route path="/viewNote" render={() => <viewNote Notes={this.state.notes} />}/>
           </div>
         </div>
       </div>
