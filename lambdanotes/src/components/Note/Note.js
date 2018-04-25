@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardText, CardBody, CardHeader, Col, Row } from "reactstrap";
 
 const Note = props => {
@@ -9,7 +10,9 @@ const Note = props => {
         <Col sm={{ size: 4, offset: 4 }}>
           <Card>
             <CardBody>
-              <CardHeader tag="h4">{title}</CardHeader>
+              <CardHeader tag="h4">
+                {title}
+              </CardHeader>
               <CardText>{content}</CardText>
             </CardBody>
           </Card>

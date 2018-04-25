@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Note from "../Note/Note.js";
 import axios from "axios";
+import Note from "../Note/Note.js";
 
 export default class NotesList extends Component {
   constructor(props) {

@@ -5,6 +5,7 @@ import "./App.css";
 import axios from "axios";
 import NotesList from "./components/NotesList/NotesList";
 import Sidebar from "./components/Sidebar/Sidebar";
+import CreateNote from "./components/CreateNote/CreateNote";
 
 export default class App extends Component {
   constructor() {
@@ -33,17 +34,28 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <Switch>
           <Route
             exact
             path="/"
             render={() => (
-              <NotesList getNotes={() => this.componentDidMount()} notes={this.state.notes}/>
+              <NotesList
+                getNotes={() => this.componentDidMount()}
+                notes={this.state.notes}
+              />
             )}
           />
-          {/* <Route path ='/:id' component={Note} /> */}
-          {/* <Route path ='/create' component={CreateNote} /> */}
+          {/* <Route path ='/note/:id' component={Note} /> */}
+          <Route
+            path="/create"
+            render={() => (
+              <CreateNote
+                getNotes={() => this.componentDidMount()}
+                notes={this.state.notes}
+              />
+            )}
+          />
           <Route
             component={() => <h1>There are no notes here, turn back!</h1>}
           />
