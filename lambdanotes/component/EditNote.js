@@ -17,7 +17,7 @@ export default class EditNote extends Component {
     return (
       <Col className='editNote'>
         <Form 
-        // onSubmit={ this.handeSubmit }
+        
         >
           <h4 className='editNote__title text-left mt-5 mb-4'>Edit Note:</h4>
           <FormGroup>

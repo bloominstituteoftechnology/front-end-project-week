@@ -21,8 +21,8 @@ export default class DeleteNote extends Component {
             Are you sure you want to delete this?
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Delete</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>No</Button>
+            <Button color="danger" onClick={this.toggle}>Delete</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>No</Button>
           </ModalFooter>
         </Modal>
       </div>
