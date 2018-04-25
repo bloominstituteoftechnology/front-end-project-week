@@ -18,7 +18,7 @@ return (
         
         { this.props.notes.map((note,index) =>{ return(
             note.title === this.props.match.params.noteName ? 
-          <div className='.NoteView'>
+          <div className='.NoteCard'>
                     <div className="Edit">
                         <Link to={`/EditCurrentNote/${index}`} className='edit'>
                             <div key={index} >Edit</div>
@@ -29,7 +29,7 @@ return (
                     </div> 
             <div className="noteViewCard">
                 < div className="noteViewCard_title">{note.title}</div>
-            <div>{note.text}</div>
+                <div>{note.text}</div>
             </div> 
             </div> 
         : null)} )}                        

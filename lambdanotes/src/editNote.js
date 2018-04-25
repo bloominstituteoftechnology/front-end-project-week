@@ -23,8 +23,10 @@ class EditNote extends Component{
  render(){ 
 console.log('s',this.props.match.params) 
      console.log('p', this.props.notes[this.props.match.params.index])
+     if (this.state.noteText!== "" && this.state.noteTitle !== "" ){
      this.props.notes[this.props.match.params.index]= {
          title: this.state.noteTitle, text: this.state.noteText}
+     }
      console.log('f', this.props.notes[this.props.match.params.index])
   return (
       <div className='NewNote'>
@@ -43,6 +45,7 @@ console.log('s',this.props.match.params)
               onChange={this.AddNewNoteHandler}
           />
           <button className='Button' onClick={() => {
+              
               this.props.addNoteActionCreator(this.props.notes[this.props.match.params.index]) 
           }} >Save</button>
       </div>

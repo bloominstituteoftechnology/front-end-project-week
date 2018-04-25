@@ -13,10 +13,7 @@ class NotesList extends Component{
             text:'',
          }
         }
-componentDidMount = () => {
-   
- }
- 
+
  render(){
 
   return ( 
@@ -25,7 +22,7 @@ componentDidMount = () => {
        <div className="NotesSection">      
                 {this.props.notes.map((note,index) =>{ return(                   
                           <div className="Notes"key={index }> 
-                          <Link to={`/${note.title}`}>
+                          <Link to={`/${note.title}`} className="edit">
                           <div className="NoteTitle" >{note.title}</div>
                           </Link>
                           <div  className=" NoteText" >{note.text}</div>
