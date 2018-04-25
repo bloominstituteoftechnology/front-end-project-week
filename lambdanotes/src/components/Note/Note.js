@@ -11,7 +11,7 @@ const Note = props => {
           <Card>
             <CardBody>
               <CardHeader tag="h4">
-                {title}
+                <Link to={`/note/${props.note.id}`}>{title}</Link>
               </CardHeader>
               <CardText>{content}</CardText>
             </CardBody>
