@@ -192,9 +192,10 @@ text-decoration: underline black;
 
 }
 .createInput-styles{
-  width: 350px;
+  width: 380px;
   height:45px;
   margin-left:25px;
+  font-size: 13px;
   
 }
 .createBody-styles{
@@ -213,4 +214,8 @@ text-decoration: underline black;
   justify-content: center;
   margin-left:25px;
   
+}
+
+.editLabel-styles{
+  font-size:22px;
 }

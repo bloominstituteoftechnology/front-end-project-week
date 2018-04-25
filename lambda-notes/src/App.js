@@ -6,6 +6,7 @@ import Notes from "./Components/ListView"
 import Home from "./Components/home"
 import NoteView from "./Components/NoteView"
 import CreateView from "./Components/CreateView"
+import EditView from "./Components/EditView"
 class App extends Component {
   constructor(){
     super();
@@ -32,6 +33,10 @@ class App extends Component {
       render ={props =><NoteView {...props} {...this.state}/>}
     />
     <Route path="/create" component={CreateView} />
+
+    <Route path ="/edit/:id"
+      render ={props =><EditView {...props} {...this.state}/>}
+    />
       </div>
       </div>
     );

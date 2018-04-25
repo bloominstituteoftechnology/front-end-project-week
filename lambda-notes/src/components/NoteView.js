@@ -36,7 +36,7 @@ render(){
     <Card>
       <Row>  
 <Col className="link-styles">
-    <Button color="link" className="link" >edit</Button>
+    <Link to={`/edit/${this.state.note.id}`}><Button color="link" className="link" >edit</Button></Link>
   
 <Button color="link" className="link" onClick={this.toggle} >delete</Button>
 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
