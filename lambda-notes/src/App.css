@@ -147,3 +147,44 @@ body {
   cursor: pointer;
   background-color: #3db3b5;
 }
+
+.action__bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.action__link {
+  margin-left: 10px;
+  text-decoration: underline;
+  color: #484848;
+}
+.modal-dialog {
+  border: 1px solid #484848;
+}
+
+.modal-body {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #484848;
+}
+
+.modal__btn {
+  padding: 10px;
+  margin: 6px 10px 40px;
+  width: 40%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.modal__btn:hover {
+  cursor: pointer;
+}
+
+.del__btn {
+  background-color: crimson;
+}
+
+.cancel__btn {
+  background-color: #2eb8bc;
+}

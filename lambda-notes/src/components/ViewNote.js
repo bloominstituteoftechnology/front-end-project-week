@@ -18,8 +18,15 @@ export const ViewNote = ({ match, notes, history, deleteNote }) => {
           <h4>{note.title}</h4>
         </div>
         <div className="col-9 action__bar">
-          <Link to={`/editNote/${match.params.id}`}>edit</Link>
-          <a href="/" data-toggle="modal" data-target="#deleteModal">
+          <Link className="action__link" to={`/editNote/${match.params.id}`}>
+            edit
+          </Link>
+          <a
+            href="/"
+            className="action__link"
+            data-toggle="modal"
+            data-target="#deleteModal"
+          >
             delete
           </a>
         </div>
@@ -41,23 +48,13 @@ export const ViewNote = ({ match, notes, history, deleteNote }) => {
       >
         <div className="modal-dialog" role="document">
           <div className="modal-content">
-            <div>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
             <div className="modal-body">
               Are you sure you want to delete this?
             </div>
             <div className="d-flex justify-content-center">
               <button
                 type="button"
-                className="modal_btn del_btn"
+                className="modal__btn del__btn"
                 data-dismiss="modal"
                 onClick={handleDelete}
               >
@@ -65,7 +62,7 @@ export const ViewNote = ({ match, notes, history, deleteNote }) => {
               </button>
               <button
                 type="button"
-                className="modal_btn no_btn"
+                className="modal__btn cancel__btn"
                 data-dismiss="modal"
               >
                 No
