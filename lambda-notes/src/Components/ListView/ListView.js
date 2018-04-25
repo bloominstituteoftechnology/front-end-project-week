@@ -30,7 +30,12 @@ class ListView extends Component {
                                     console.log('index',index)
                                 return (
                                     <div className="card">
-                                        <Link to={`/note/${index}`}>
+                                        <Link to={{
+                                            pathname: `/note/${index}`,
+                                            state: {
+                                                index: index
+                                            }
+                                        }}>
                                         <h1 className="underline" key={index}>{note.title} {index}</h1>
                                         <p key={index}>{note.note}</p>
                                         </Link>

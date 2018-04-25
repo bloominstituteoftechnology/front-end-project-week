@@ -13,7 +13,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ListView}/>
           <Route exact path="/new" component={CreateNote}/>
-          <Route exact path="/note/1" component={NoteView}/>
+          <Route  path="/note" component={NoteView}/>
         </Switch>
       </div>
     );
