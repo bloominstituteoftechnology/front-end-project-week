@@ -1,25 +1,48 @@
 //IMPORTS
 import React, { Component } from 'react';
-import {Route, Link} from 'react-router-dom';
-import { Modal, ModalBody } from 'reactstrap';
+// import {Route, Link} from 'react-router-dom';
+// import { Modal, ModalBody } from 'reactstrap';
+import { withRouter } from 'react-router-dom';
+import { Form, Input, Row, Col, Button } from 'reactstrap';
 
 //VIEW NOTE COMPONENT
-class ViewNote extends Component {
-    state = {
-        modal: false
-    };
+class AddNote extends Component {
 
-    toggle = this.toggle.bind(this);
+// class ViewNote extends Component {
+//     state = {
+//         modal: false
+//     };
 
-    toggle() {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
+//     toggle = this.toggle.bind(this);
+
+//     toggle() {
+//         this.setState({
+//             modal: !this.state.modal
+//         });
+//     }
     
     render() {
         return (
-            <Route path='/ViewNote'>
+            <div>
+                <Row>
+                    <Col className='col-3 ml-auto'>
+                        Edit Delete
+                    </Col>
+                </Row>
+                <Row className='mt-4'>
+                    <Col>
+                        <h3>{this.props.selectedNote.title}</h3><br />
+                        <p>{this.props.selectedNote.content}</p>
+                    </Col>
+                </Row>
+            </div>
+        );
+    }
+}
+
+export default withRouter(AddNote);
+
+            {/* <Route path='/ViewNote'>
                 <div className='body'>
                     <div className='col-12 d-flex flex-row justify-content-end'>
 
@@ -49,6 +72,4 @@ class ViewNote extends Component {
             </Route>
         )
     }
-}
-
-export default ViewNote;
+} */}

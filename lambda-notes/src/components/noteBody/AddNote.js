@@ -1,7 +1,8 @@
 //IMPORTS
 import React, { Component } from 'react';
-import { Form, FormGroup, Input } from 'reactstrap';
+import { Form, FormGroup, Input, Row, Col, Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 //ADD NOTE COMPONENT
 class AddNote extends Component {
@@ -19,6 +20,7 @@ class AddNote extends Component {
 
     handleSubmit = () => {
         this.props.addNewCard(this.state);
+        this.props.updateNewNote(this.state);
     }
 
     render() {
