@@ -11,6 +11,16 @@
   height: 290px;
 }
 
+.NoteCard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NoteCard-tags {
+  color: grey;
+}
+
 .NoteCard-divider {
   height: 1px;
   background-color: #cecdce;
