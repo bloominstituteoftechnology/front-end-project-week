@@ -29,10 +29,11 @@ const noteReducer = (state = initialState, action) => {
     case AT.CREATE_NOTE:
       return [...state, action.payload];
     case AT.DELETE_NOTE:
-      return state.splice(action.payload, 0, {
-        title: "testTitle",
-        content: "testContent"
-      });
+      state.splice(action.payload, 1);
+      return state;
+
+    // case AT.EDIT_NOTE:
+    //   return;
     default:
       return state;
   }
