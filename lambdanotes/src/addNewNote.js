@@ -7,7 +7,7 @@ import { notesReducer } from './notesReducer';
 class AddNewNote extends Component{
     constructor(props){
      super(props)
-        console.log('props',props)
+      
      this.state={
          noteTitle:'',    
          noteText:'',
@@ -54,7 +54,7 @@ const obj={
 
  const mapStateToProps = (state)=>{
      
-     console.log('state',state)
+   
      return {
 
      }

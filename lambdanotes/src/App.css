@@ -1,6 +1,7 @@
 .App {
  display: flex;
 
+
  
  margin:0px;
  padding:0px;
@@ -17,7 +18,7 @@
 }
 .LambdaNotes{
   padding-right: 0 15px 0 15px;
-  width: 180%;
+  width: 30%;
   max-width: 180%; 
   padding-top:20px;
   margin:0px;
@@ -45,6 +46,7 @@
   font-weight: bold;
   text-align: start;
   margin-bottom: 8px;
+  text-decoration: none;
 
 }
 .NoteText{

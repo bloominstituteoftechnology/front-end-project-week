@@ -6,7 +6,10 @@ import AddNewNote from './addNewNote';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Route,Link} from 'react-router-dom';
 import { addNoteActionCreator } from "./allActions";
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import NoteView from "./notView";
+import EditNote from "./editNote";
+
 
 class App extends Component {
   constructor(props){
@@ -16,8 +19,6 @@ class App extends Component {
 
     }
   }
-
-
   render() {
     
     return (
@@ -39,8 +40,18 @@ class App extends Component {
                 <Route  path="/" exact  component={NotesList}/>
               </div>
              <div>
-              <Route  path="/NewNote" exact component={AddNewNote}/>  
-            </div>     
+              <Route  path="/NewNote" exact component={AddNewNote}/> 
+
+            </div> 
+          <Route path="/EditCurrentNote/:index" exact component={EditNote} />
+            <div> 
+            <Route path="/:noteName"  exact render={(RouterProps) => {
+              return (<NoteView {...RouterProps} />)
+            }} />        
+            </div> 
+            <div>
+               
+            </div>  
           </div>
       </Router>
     );
@@ -54,3 +65,4 @@ class App extends Component {
    }
  }
 export default connect(mapStateToProps, addNoteActionCreator)(App);
+

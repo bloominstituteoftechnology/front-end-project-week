@@ -1,0 +1,25 @@
+.NoteView{
+    border: 2px solid red;
+    width:900px;
+    height: 500px;
+    padding-left: 20px
+}
+.Edit{
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    margin-right: 60px;
+
+}
+.noteViewCard_title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px ;
+}
+  .delete {
+    text-decoration: none;
+}
+.edit{
+  text-decoration: none; 
+
+}

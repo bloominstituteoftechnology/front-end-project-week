@@ -1,4 +1,5 @@
 import {ADD_NOTES} from "./allActions";
+import { EDIT_NOTE } from "./allActions";
 
 const initialState = [
     { title: 'Schools ', text: 'Lambda School offers a full-time, 6-month online full stack coding school.Lambda School offers a full-time..' },
@@ -14,9 +15,12 @@ const initialState = [
     
      
 const notesReducer = (state = initialState, action)=>{
+    console.log(action)
     switch(action.type){
        case ADD_NOTES:
-       return  state = [...state,action.payload]
+            return state = [...state,... action.payload]
+        case EDIT_NOTE :
+            return state = [...state,...action.payload]
         default:
          return state
 
