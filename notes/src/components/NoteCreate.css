@@ -35,8 +35,17 @@
 }
 
 .NoteCreate-tag-label {
+  display: flex;
+  align-items: center;
   margin-right: 10px;
   line-height: 1.8;
+}
+
+.NoteCreate-tag-link {
+  color: grey;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .NoteCreate-input-content {

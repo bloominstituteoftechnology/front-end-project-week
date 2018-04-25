@@ -35,8 +35,17 @@
 }
 
 .NoteEdit-tag-label {
+  display: flex;
+  align-items: center;
   margin-right: 10px;
   line-height: 1.8;
+}
+
+.NoteEdit-tag-link {
+  color: grey;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 .NoteEdit-input-content {

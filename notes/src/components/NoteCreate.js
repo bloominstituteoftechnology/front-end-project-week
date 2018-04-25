@@ -37,6 +37,17 @@ class NoteCreate extends Component {
     this.state.create(note);
   };
 
+  deleteTag = tag => {
+    const tags = this.state.tags.filter(x => x !== tag);
+    this.setState({tags: tags});
+  }
+
+  getTagLink = (tag, i) => {
+    return (
+      <div onClick={() => this.deleteTag(tag)} className="NoteCreate-tag-link">{tag}</div>
+    );
+  }
+
   render() {
     return (
       <div className="NoteCreate-container">
@@ -51,7 +62,7 @@ class NoteCreate extends Component {
             onChange={this.onChange}
           />
           <div className="NoteCreate-tag-container">
-            <div className="NoteCreate-tag-label">Tags: {this.state.tags.join(", ")}</div>
+            <div className="NoteCreate-tag-label">Tags: {this.state.tags.map((tag, i) => this.getTagLink(tag, i))}</div>
             <input
               className="NoteCreate-input-tag"
               type="text"

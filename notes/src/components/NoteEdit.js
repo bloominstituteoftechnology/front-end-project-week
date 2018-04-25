@@ -32,6 +32,17 @@ class NoteEdit extends Component {
     this.state.edit(note);
   }
 
+  deleteTag = tag => {
+    const tags = this.state.tags.filter(x => x !== tag);
+    this.setState({tags: tags});
+  }
+
+  getTagLink = (tag, i) => {
+    return (
+      <div onClick={() => this.deleteTag(tag)} className="NoteEdit-tag-link">{tag}</div>
+    );
+  }
+
   render() {
     return (
       <div className="NoteEdit-container">
@@ -46,7 +57,7 @@ class NoteEdit extends Component {
             onChange={this.onChange}
           />
           <div className="NoteEdit-tag-container">
-            <div className="NoteEdit-tag-label">Tags: {this.state.tags.join(", ")}</div>
+            <div className="NoteEdit-tag-label">Tags: {this.state.tags.map((tag, i) => this.getTagLink(tag, i))}</div>
             <input
               className="NoteEdit-input-tag"
               type="text"
