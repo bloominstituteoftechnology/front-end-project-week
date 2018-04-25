@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const NoteDisplay = (props) => {
-    console.log('props', props)
+    console.log('display props', props)
     return (
       <div className='note__container'>
         {props.data.map((u, index) => 
@@ -16,6 +16,7 @@ const NoteDisplay = (props) => {
         <p>{u.body}</p>
         <span> {index} </span></Link></div>)}
       </div>
+      //<h1>something</h1>
     )
   }
 //<Route exact path={'/Notes/' + index} component={ViewNote} />
@@ -37,7 +38,7 @@ class NoteList extends Component {
       //   .catch(error => {
       //     console.error('Server Error', error);
       //   });
-      let data = JSON.parse(localStorage.getItem("note data string"))
+      let data = JSON.parse(localStorage.getItem("names"))
       this.setState({ notes: data })
     }
     componentDidMount() {

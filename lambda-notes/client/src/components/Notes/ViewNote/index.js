@@ -32,7 +32,7 @@ class ViewNote extends Component {
       //   .catch(error => {
       //     console.error(error);
       //   });
-      let data = JSON.parse(localStorage.getItem("note data string"))
+      let data = JSON.parse(localStorage.getItem("names"))
       this.setState({ note: data[id] })
     };
 
