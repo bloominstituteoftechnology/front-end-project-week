@@ -16,19 +16,21 @@ class NewNote extends Component {
                         <Link to= '/newNote'> +Create New Notes </Link>
                     </button>
                 </div>
-                <div className='Note-create'>
-                    <h2> Create New Note: </h2>
-                    <input
-                        type='text'
-                        placeholder='Note Title'
-                        name='Note Title'
-                    />
-                    <input
-                        type='text'
-                        placeholder='Note Content'
-                        name='Note Content'
-                    />
-                    <button> Save </button>
+                <div className='Note-content'>
+                        <div className='Note-create'>
+                        <h2> Create New Note: </h2>
+                        <input
+                            type='text'
+                            placeholder='Note Title'
+                            name='Note Title'
+                        />
+                        <input
+                            type='text'
+                            placeholder='Note Content'
+                            name='Note Content'
+                        />
+                        <button> Save </button>
+                    </div>
                 </div>
             </div>
         )

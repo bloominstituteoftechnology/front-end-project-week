@@ -16,12 +16,10 @@ class Notes extends Component {
                     <button className ='Note-buttons'>
                         <Link to= '/newNote'> +Create New Notes </Link>
                     </button>
-                    </div>
-                    <div className = 'Link'>
-                        <Link to= '/edit'> edit </Link>
-                    </div>
-                    <Delete />
-                <div className='Note-create'>
+                </div>
+                <div className='Note-content'>
+                <Link to= '/edit'> edit </Link>
+                <Delete />
                     <h2> Note Name </h2>
                 </div>
             </div>
