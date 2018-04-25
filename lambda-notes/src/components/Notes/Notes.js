@@ -40,7 +40,7 @@ class Notes extends React.Component {
 const stateProps = (state, ownProps) => {
     console.log('state props notes', state, 'ownProps', ownProps)
     return {
-        notes: state.rootReducer.notes
+        notes: state.rootReducer.noteReducer.notes
     }
 }
 

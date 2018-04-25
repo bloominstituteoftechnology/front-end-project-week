@@ -1,10 +1,8 @@
-/* eslint react/no-multi-comp: 0, react/prop-types: 0 */
-
 import React from 'react';
 import { getNote } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import DeleteModal from '../Modal/DeleteModal';
 
 const styled = {
@@ -82,9 +80,9 @@ class ViewNote extends React.Component {
 };
 
 const stateProps = (state, ownProps) => {
-    console.log('state in view', state, 'state props', ownProps)
+    console.log('state in view', state.rootReducer.noteReducer, 'state props', ownProps)
     return {
-        notes: state.rootReducer.notes,
+        notes: state.rootReducer.noteReducer.notes,
         id: ownProps.match.params.id
     }
 }

@@ -6,6 +6,8 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
 
 export const getNotes = () => {
     const promise = axios.get('http://localhost:5000/notes')
@@ -17,12 +19,12 @@ export const getNotes = () => {
                 payload: response.data
             })
         })
-        .catch(err => {
-            dispatch({
-                type: ERROR,
-                payload: err
+            .catch(err => {
+                dispatch({
+                    type: ERROR,
+                    payload: err
+                })
             })
-        })
     }
 }
 
@@ -36,12 +38,12 @@ export const getNote = id => {
                 payload: response.data
             })
         })
-        .catch(err => {
-            dispatch({
-                type: ERROR,
-                payload: err
+            .catch(err => {
+                dispatch({
+                    type: ERROR,
+                    payload: err
+                })
             })
-        })
     }
 }
 
@@ -55,12 +57,12 @@ export const addNote = note => {
                 payload: response.data
             })
         })
-        .catch(err => {
-            dispatch({
-                type: ERROR,
-                payload: err
+            .catch(err => {
+                dispatch({
+                    type: ERROR,
+                    payload: err
+                })
             })
-        })
     }
 }
 
@@ -74,12 +76,12 @@ export const updateNote = note => {
                 payload: response.data
             })
         })
-        .catch(err => {
-            dispatch({
-                type: ERROR,
-                payload: err
+            .catch(err => {
+                dispatch({
+                    type: ERROR,
+                    payload: err
+                })
             })
-        })
     }
 }
 
@@ -93,11 +95,11 @@ export const deleteNote = noteID => {
                 payload: response.data
             })
         })
-        .catch(err => {
-            dispatch({
-                type: ERROR,
-                payload: err
+            .catch(err => {
+                dispatch({
+                    type: ERROR,
+                    payload: err
+                })
             })
-        })
     }
 }
