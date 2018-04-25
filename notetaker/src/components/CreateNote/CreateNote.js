@@ -1,5 +1,5 @@
 import  React, { Component }  from 'react';
-import { Button } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Formtext } from 'reactstrap';
 import './CreateNote.css';
 
 export default class extends Component  {
@@ -22,7 +22,18 @@ export default class extends Component  {
 
 render() {
   return <div>
-      <h1>Hello Hello Hello</h1>
+    <h2>Create New Note:</h2>
+    <div>
+      <Form>
+        <FormGroup>
+          <Input type ="title" name="title" placeholder="Note Title"/>
+        </FormGroup>
+        <FormGroup>
+          <Input type="textarea" name="description" placeholder="Note Content"/>
+        </FormGroup>
+        <Button>Save</Button>
+      </Form>
+    </div>
     </div>;
   }
 
