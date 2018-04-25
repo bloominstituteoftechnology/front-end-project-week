@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import '../styles/Modal.css';
 
 export const Modal = props => {
+  const id = props.match.params.id;
+  
   const back = e => {
     e.stopPropagation();
     props.history.goBack();
@@ -16,7 +18,7 @@ export const Modal = props => {
           <p>Are you sure?</p>
         </div>
         <div className="Modal_buttons">
-          <Link to="/" className="App_button" onClick={props.deleteAll}>Confirm</Link>
+          <Link to="/" className="App_button" onClick={() => props.useFunction(id)}>Confirm</Link>
           <button onClick={back} className="App_button">Cancel</button>
         </div>
       </div>

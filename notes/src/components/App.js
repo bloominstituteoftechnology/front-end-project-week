@@ -12,40 +12,42 @@ import { Modal } from './Modal';
 export class App extends Component {
   constructor(props) {
     super(props);
-    
+    // Calls to local storage
     this.local = {
-      get(target) {
+      get(target) { // Return parsed JSON
         return localStorage.getItem(target) ?
           JSON.parse(localStorage.getItem(target)) : undefined;
       },
-      set(target, payload) {
+      set(target, payload) { // Convert to string and store
         localStorage.setItem(target, JSON.stringify(payload));
       }
     }
-
-    this.getNotes = () => {
-      return this.local.get('notes');
-    }
-
+    // Ease of use function
+    this.getNotes = () => this.local.get('notes');
+    // Use local storage as state upon page reload
     this.state = this.getNotes() ? 
     { notes: this.getNotes() } : { notes: [] };
   }
 
-  createNote = note => { // Take in note title and body as object
-    // Add note to state and update local storage
-    // debugger
+  createNote = note => { // Set local then update state
     this.local.set('notes', this.state.notes.concat(note));
     this.setState({ notes: this.local.get('notes') });
+    console.log(this.local.get('notes'));
   }
 
   editNote = (newNote, id) => {
-    this.setState({ notes: this.state.notes.map(note => {
-      return note.id === id ? newNote : note;
-    })});
+    // Copy local storage and edit specific note
+    const local = this.getNotes();
+    local[id] = newNote;
+    // Apply changes to storage and state
+    this.local.set('notes', local );
+    this.setState({ notes: local });
   }
 
   deleteNote = id => {
-
+    console.log(this.getNotes());
+    const local = this.getNotes().forEach(note => console.log(note, id));
+    console.log(local);
   }
 
   clearNotes = () => {
@@ -84,13 +86,13 @@ export class App extends Component {
           }/>
           <Route path="/view/:id/delete" render={props => 
             <Modal {...props}
-            notes={this.state.notes}/> 
+            useFunction={this.deleteNote}/> 
           }/>
           <Route path="/delete/all" render={props => (
             <div> {/* To Have notes show in the background without compromisng root path */}
               <NoteList notes={this.state.notes}/> 
               <Modal {...props}
-              deleteAll={this.clearNotes}/> 
+              useFunction={this.clearNotes}/> 
             </div>
           )}/>
         </div>
