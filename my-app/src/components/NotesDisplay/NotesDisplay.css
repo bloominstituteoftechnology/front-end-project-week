@@ -8,8 +8,6 @@
   }
   
   .Note-feature {
-    display: flex;
-    flex-flow: column;
     width: 30%;
     padding-left: 20px;
     background: rgb(209, 204, 204); 
@@ -22,13 +20,14 @@
     border: 2px solid black;
     background: rgb(16, 183, 189);
     height: 60px;
-    padding-top: 10px;
     font-size: 25px;
     font-weight: bold;
     text-decoration-line: none;
+    margin-top: 30px;
   }
   
   .Note-content {
+
     width: 70%;
     padding: 0 20px;
     background: rgb(245, 244, 244);
