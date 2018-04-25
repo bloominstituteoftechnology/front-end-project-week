@@ -1,19 +1,20 @@
-/* html, body {height: 100%;} */
+html, body {height: 100%;}
 
 .App {
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .side-nav {
-  background-color: gray;
+  background-color: #cecece;
   height: 100vh;
   padding: 0 10px;
 }
 
 .main-view {
   width: 900px;
-  background-color: lightgray;
+  background-color: #f0f0f0;
   height: 100vh;
 }
 
@@ -41,27 +42,15 @@
   height: 18rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.btn {
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.btn-info {
+  background-image: none;
+  background-color: #40b9bb;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+h2, h3, h5 {
+  font-weight: bold;
 }
