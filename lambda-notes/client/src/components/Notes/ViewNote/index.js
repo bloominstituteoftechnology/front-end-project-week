@@ -37,6 +37,10 @@ class ViewNote extends Component {
       this.setState({ note: data[id] })
     };
 
+    deleteNote = () => {
+      return alert("Note has been Deleted");
+    }
+
     render() {
         console.log('state-notes', this.state)
  //       const { title, body } = this.state.note;
