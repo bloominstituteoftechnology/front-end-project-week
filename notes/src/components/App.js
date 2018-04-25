@@ -10,6 +10,8 @@ import { Modal } from './Modal';
 
 
 export class App extends Component {
+  state = { notes: [] }
+
   local = {
     get(target) {
       return localStorage.getItem(target) ?
@@ -20,12 +22,13 @@ export class App extends Component {
     }
   }
 
-  state = { notes: [] }
-  
   createNote = note => { // Take in note title and body as object
     // Add note to state and update local storage
+    // debugger
+    console.log(this, this.state);
     this.setState({ notes: this.state.notes.concat(note) });
     this.local.set('notes', this.state);
+    console.log(this, this.state);
   }
 
   editNote = (newNote, id) => {

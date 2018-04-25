@@ -22,6 +22,10 @@ export class NoteForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  fillEmpty(value) {
+    return (typeof value === 'string' && !value) ? '...' : value;
+  }
+
   resetInput() {
     this.setState({ title: '', body: '' });
   }
@@ -46,16 +50,14 @@ export class NoteForm extends Component {
             onChange={this.handleInput}
           />
         </form>
-        <Link to="/"><button className="App_button" 
-          onClick={() => { // Maintain immutability
-            const newTodo = {...this.state};
-            Object.keys(newTodo).forEach(key => {
-              // While replacing empty values except id's
-              if (key !== 'id')
-              newTodo[key] = !newTodo[key] ? 
-              "..." : newTodo[key] });
+        <Link to="/" className="App_button NoteForm_button" 
+          onClick={() => { // Maintain immutability and fill empty values
+            const newTodo = Object.assign({}, this.state, {
+              title: this.fillEmpty(this.state.title),
+              body: this.fillEmpty(this.state.body)
+            });
             this.props.useFunction(newTodo, this.state.id);
-        }}>Save</button></Link>
+        }}>Save</Link>
       </div>
     )
   }
