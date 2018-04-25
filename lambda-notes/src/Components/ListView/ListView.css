@@ -27,7 +27,13 @@
     padding-top: 2%;
     display: flex;
     flex-wrap: wrap;
-    flex-basis: auto;
+    flex-basis: a
+}
+.card a {
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
 }
 
 .card:hover {
@@ -38,6 +44,8 @@
 .card p {
     font-size: 1.3rem;
     margin-top: 5%;
+    width: 100%;
+    text-align: center;
     justify-content: space-around;
 }
 

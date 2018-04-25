@@ -5,5 +5,5 @@ export const newNote = note => {
     return {type: NEW_NOTE, payload: note };
 };
 
-export function getNotes() {
-}
+// export function getNotes() {
+// }

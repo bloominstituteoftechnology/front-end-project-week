@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
+import {Route} from 'react-router-dom'
+
 import { connect } from 'react-redux';
 
 
-class NewNote extends Component {
+class NoteView extends Component {
     constructor() {
         super()
     }
@@ -16,3 +18,5 @@ class NewNote extends Component {
         )
     }
 }
+
+export default NoteView;
