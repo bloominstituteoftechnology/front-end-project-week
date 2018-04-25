@@ -13,7 +13,7 @@ class CreateNote extends Component {
         }
     }
     componentDidMount() {
-      let data = JSON.parse(localStorage.getItem("note data string"))
+      let data = JSON.parse(localStorage.getItem("names"))
       this.setState({ notes: data })
     }
     idGen = () => {
