@@ -18,6 +18,12 @@
   font-size: 1.5em;
 }
 
+.listthing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .leftSideH1 {
   padding-left: 10%;
 }
@@ -47,7 +53,9 @@
 
 .borderGore {
   padding: 20px;
+  margin: 6%;
   border: solid black 1px;
+  font-size: 0.7rem;
 }
 
 .yourNotes {

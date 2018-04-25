@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import CreateNote from './components/createNote';
 import NoteAlone from './components/viewNote';
+import Edit from './components/Edit';
 // import dummyData from './Data/DummyData';
 
 class App extends Component {
@@ -19,9 +20,29 @@ constructor(props) {
     },
     {
         id: 1,
-        title: 'yut',
+        title: 'yut1',
         text: 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
     },
+    {
+      id: 2,
+      title: 'yut2',
+      text: 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+  },
+  {
+    id: 3,
+    title: 'yut3',
+    text: 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+},
+{
+  id: 4,
+  title: 'yu4t',
+  text: 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+},
+{
+  id: 5,
+  title: 'yut5',
+  text: 'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
+},
     ]
   }
 }
@@ -38,7 +59,12 @@ handleNew = data => {
     notes: newData
   })
 }
-
+// handleTextInput = e => {
+//   this.setState({ [e.target.name]: e.target.value});
+// }
+// handleClick = () => {
+//   this.props.onSubmit(this.state.title, this.state.text);
+// }
 
 
 // componentDidMount() {
@@ -65,7 +91,7 @@ handleNew = data => {
       <Route exact path="/" render={() => <NotesTest notes={this.state.notes} />}/>
       <Route exact path="/create" render={() => <CreateNote notes={this.state.notes} noteCreate={this.handleNew}/>} />
       <Route exact path="/note/:id" component={NoteAlone}/>
-      <Route exact path="/note/:id/edit" />
+      <Route path="/editnote" render ={() => <Edit />}/>
       </div>
     );
   }

@@ -10,12 +10,18 @@ class NotesTest extends Component {
     }
 render() {
     return (
-        <div className="rightSide"> <h2 className='yourNotes'>Your Notes:</h2>{this.props.notes.map(note => {
+        <div className="rightSide">
+        <h2 className='yourNotes'>Your Notes:</h2> 
+        <div className="listthing">
+        {this.props.notes.map(note => {
             return (
-          <Link to={{pathname: `/note/${note.id}`, state: { currentNote: note}}}>  <div key={note.id} className="borderGore">{note.title} <br />
+          <Link to={{pathname: `/note/${note.id}`, state: { currentNote: note}}}>  
+           <div key={note.id} className="borderGore">
+           {note.title} <br />
             {note.text}</div></Link>
             )
         })}
+        </div>
          </div>
     )
 }
