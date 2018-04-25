@@ -10,6 +10,8 @@ const Container = styled.div`
   align-items: center
   border-right: 1px solid #AEAEAE
   padding: 15px
+  
+  a { width: 100% }
 `
 
 const Header = styled.h1`

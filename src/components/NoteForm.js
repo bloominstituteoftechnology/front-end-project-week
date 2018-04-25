@@ -5,6 +5,18 @@ import styled from 'styled-components'
 const Container = styled.div`
   display: flex
   flex-direction: column
+  input, textarea {
+    padding: 15px
+    border-radius: 5px
+    border: 1px solid #AEAEAE
+    font-size: 1.1rem
+    margin-bottom: 15px
+    resize: none
+  }
+`
+
+const Control = styled.div`
+  align-self: flex-end
 `
 
 class NoteForm extends Component {
@@ -36,13 +48,16 @@ class NoteForm extends Component {
           value = {this.state.title}
           onChange={this.handleChange} />
         <textarea
+          rows='20'
           name='content'
           placeholder='Note content'
           value = {this.state.content}
           onChange={this.handleChange} />
-        <ActionButton 
-          onClick={this.handleSubmit}
-          text={this.buttonText()} />
+        <Control>
+          <ActionButton 
+            onClick={this.handleSubmit}
+            text={this.buttonText()} />
+        </Control>
       </Container>
     )
   }

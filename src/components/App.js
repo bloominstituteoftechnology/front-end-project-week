@@ -17,7 +17,11 @@ const Container = styled.div`
 const Content = styled.div`
   background-color: #F2F1F2
   width: 100%
-  padding: 30px
+  padding: 30px 30px 5px 30px
+
+  h1 {
+    font-size: 2.3rem
+  }
 `
 
 class App extends Component<{}> {

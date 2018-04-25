@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const Wrapper = styled(Link)`
-  width: 100%
   margin-bottom: 20px
   background-color: #30B7BB
   color: white
