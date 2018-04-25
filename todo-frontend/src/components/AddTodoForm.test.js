@@ -7,18 +7,16 @@ it('has inputs', () => {
   expect(AddTodoFormWrapper.find('input').length).toBe(2)
 })
 
-const addedTodo = {
+const nodesMock = {
   title: 'Title',
   content: 'Content'
 }
 
 describe('handleSubmit', () => {
+  const mockReducer = jest.fn()
   it('returns defaults when no inputs', () => {
-    expect(
-      handleSubmit({
-        preventDefault: () => {}
-      })
-    ).toMatchObject(addedTodo)
+    handleSubmit(mockReducer, nodesMock)
+    expect(mockReducer).toHaveBeenCalled()
   })
 
   it('returns values input', () => {

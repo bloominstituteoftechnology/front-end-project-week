@@ -1,7 +1,27 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
+/** @type React.StatelessComponent<{addTodo}> */
 export const AddTodoForm = props => (
-  <form className="ATF" onSubmit={e => handleSubmit(e)}>
+  <form
+    className="ATF"
+    onSubmit={e => {
+      const nodes = document.getElementsByClassName('ATF--input')
+
+      // if an HTMLInputNode has a 'name' attribute, you can call it with that name in a nodeList
+      // if the test is broken, check name attribute in JSX
+
+      e.preventDefault()
+      if (!nodes.title.value || !nodes.content.value) {
+        console.error('All fields are required')
+      }
+      handleSubmit(props.addTodo, {
+        title: nodes.title.value,
+        content: nodes.content.value
+      })
+      console.log(props.history.push('/'))
+    }}
+  >
     <label htmlFor="title">Title</label>
     <input name="title" className="ATF--input" placeholder="Note Title" />
 
@@ -12,21 +32,14 @@ export const AddTodoForm = props => (
   </form>
 )
 
-export const handleSubmit = e => {
-  const nodes = document.getElementsByClassName('ATF--input')
+AddTodoForm.propTypes = {
+  addTodo: PropTypes.func,
+  history: PropTypes.array
+}
 
-  e.preventDefault()
-
-  // if an HTMLInputNode has a 'name' attribute, you can call it with that name in a nodeList
-  // if the test is broken, check name attribute in JSX
-  if (!nodes.title)
-    return {
-      title: 'Title',
-      content: 'Content'
-    }
-
-  return {
+export const handleSubmit = (addHandler, nodes) => {
+  addHandler({
     title: nodes.title.value,
     content: nodes.content.value
-  }
+  })
 }

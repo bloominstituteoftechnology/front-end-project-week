@@ -1,7 +1,14 @@
-import { FETCHINGTODOS, TODOSFETCHED, ERROR } from 'actions'
+import {
+  FETCHINGTODOS,
+  TODOSFETCHED,
+  CREATINGTODO,
+  TODOCREATED,
+  ERROR
+} from 'actions'
 
 const initialState = {
   fetchingTodos: false,
+  creatingTodo: false,
   error: null,
   todos: []
 }
@@ -15,6 +22,15 @@ export const todosReducer = (state = initialState, { type, payload }) => {
     case TODOSFETCHED:
       return Object.assign({}, state, {
         fetchingTodos: false,
+        todos: [...payload]
+      })
+    case CREATINGTODO:
+      return Object.assign({}, state, {
+        creatingTodo: true
+      })
+    case TODOCREATED:
+      return Object.assign({}, state, {
+        creatingTodo: false,
         todos: [...payload]
       })
     case ERROR:
