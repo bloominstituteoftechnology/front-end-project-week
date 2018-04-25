@@ -18,7 +18,7 @@ class ControlPanel extends Component {
 			</Link>,
 			<Link to="/addTodo">
 				<RaisedButton className="ControlPanel_button" primary={true}>
-					Create Todo
+					&#43; Create Todo
 				</RaisedButton>
 			</Link>
 		];

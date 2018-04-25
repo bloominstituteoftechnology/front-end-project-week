@@ -37,6 +37,7 @@ class EditTodoForm extends Component {
 					className="CreateTodoForm_title"
 					hintText="Note Title"
 					floatingLabelText="Note Title"
+					underlineShow={false}
 					name="title"
 					value={this.state.title}
 					onChange={this.handleNewInput}
@@ -46,7 +47,10 @@ class EditTodoForm extends Component {
 				<TextField
 					className="CreateTodoForm_content"
 					hintText="Note Content"
-					// floatingLabelText="Note Content"
+					hintStyle={{
+						top: 25
+					}}
+					underlineShow={false}
 					multiLine={true}
 					rows={10}
 					name="text"

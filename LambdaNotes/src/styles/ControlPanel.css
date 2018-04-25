@@ -1,5 +1,5 @@
 .ControlPanel {
-	border: 1px solid black;
+	border-right: 1px solid gray;
 	height: 100vh;
 	display: flex;
 	flex-flow: column nowrap;
@@ -13,6 +13,9 @@
 }
 
 .ControlPanel_button {
+	font-size: 2rem;
+	font-weight: 600 !important;
+	color: white !important;
 	margin: 0 0 20px 0;
 	width: 100%;
 }
