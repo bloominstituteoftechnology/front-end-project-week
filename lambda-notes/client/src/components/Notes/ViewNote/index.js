@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+//import EditNote from '../EditNote';
 
 
 class ViewNote extends Component {
