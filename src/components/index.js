@@ -8,6 +8,7 @@ import NoteCreate from './NoteCreate'
 import NoteEdit from './NoteEdit'
 import NoteForm from './NoteForm'
 import Markdown from './Markdown'
+import DeleteModal from './DeleteModal'
 
 export { 
   App,
@@ -19,5 +20,6 @@ export {
   NoteCreate,
   NoteEdit,
   NoteForm,
-  Markdown
+  Markdown,
+  DeleteModal
 }
