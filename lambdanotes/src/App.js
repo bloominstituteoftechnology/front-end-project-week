@@ -47,13 +47,13 @@ export default class App extends Component {
               />
             )}
           />
-          <Route path ='/note/:id' component={NoteView} />
+          <Route path="/note/:id" component={NoteView} />
           <Route
             path="/create"
             render={() => (
               <CreateNote
                 getNotes={() => this.componentDidMount()}
-                notes={this.state.notes}
+                // notes={this.state.notes}
               />
             )}
           />
@@ -65,5 +65,3 @@ export default class App extends Component {
     );
   }
 }
-
-// export default App;

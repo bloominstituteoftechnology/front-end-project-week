@@ -21,7 +21,6 @@ export default class NoteView extends Component {
       .get(`http://localhost:5000/notes`)
       .then(response => {
         if (id > response.data.length) {
-          // return <h1>Invalid: Friend not found</h1>;
           alert("Note not found");
         } else {
           console.log("response", response.data[id]);
@@ -32,7 +31,7 @@ export default class NoteView extends Component {
         console.error(error);
       });
   };
-  // only fetch new friends
+
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.getNote(newProps.match.params.id);

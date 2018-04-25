@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => (
-  // <div style={{ display: "flex" }}>
   <div className="sidebar">
     <ul
       style={{
@@ -25,7 +24,6 @@ const Sidebar = () => (
       </li>
     </ul>
   </div>
-  // </div>
 );
 
 export default Sidebar;
