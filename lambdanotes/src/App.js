@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar.js';
 import Notes from './components/Notes.js';
 import CreateNoteForm from './components/CreateNoteForm.js';
 import SingleNote from './components/SingleNote.js';
+import EditNoteForm from './components/EditNoteForm.js';
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -69,12 +70,24 @@ class App extends Component {
     this.setState({ notes: [...this.state.notes, note] });
   };
 
-  deleteNote = (id) => {
+  deleteNote = id => {
     // const notes = Object.assign([], this.state.notes);
     // notes.filter(note => note.id !== id);
     // notes.splice(id, 1);
     // localStorage.setItem('notes', JSON.stringify(notes));
     this.setState({ notes: this.state.notes.filter(note => note.id !== id) });
+  }
+
+  updateNote = (updatedNote, id) => {
+    const updatedNotes = this.state.notes.map(note => {
+      if(note.id === id) {
+        return { title: updatedNote.title, text: updatedNote.text, id: updatedNote.id }
+      }
+      else {
+        return note;
+      }
+    });
+    this.setState({ notes: updatedNotes });
   }
 
   render() {
@@ -98,6 +111,11 @@ class App extends Component {
             exact
             path="/notes/:id"
             render={(props) => <SingleNote {...props} notes={this.state.notes} deleteNote={this.deleteNote} />}
+          />
+          <Route
+            exact
+            path="/edit/:id"
+            render={(props) => <EditNoteForm {...props} notes={this.state.notes} updateNote={this.updateNote} />}
           />
         </Main>
       </Wrapper>
