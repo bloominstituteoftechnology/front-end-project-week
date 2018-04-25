@@ -64,7 +64,7 @@ h1 {
   margin: 10px;
   margin-left: 0;
   padding: 10px;
-  width: 150px;
+  width: 240px;
   user-select: none;
 }
 
@@ -72,6 +72,7 @@ h1 {
   border-top: 1px solid lightgrey;
   margin-top: 5px;
   padding-top: 5px;
+  min-width: 0;
 }
 
 .notes-text-full {

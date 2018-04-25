@@ -1,8 +1,8 @@
 import React from "react";
 
 function ellipsify(str) {
-  if (str.length > 100) {
-    return str.substring(0, 100) + "...";
+  if (str.length > 200) {
+    return str.substring(0, 200) + "...";
   } else {
     return str;
   }
