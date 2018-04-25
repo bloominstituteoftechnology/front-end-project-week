@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
+import { Button, Form, FormGroup, Input } from "reactstrap";
 
 import "./CreateNote.css";
 
@@ -45,25 +46,34 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <div className="mt-5">
-        Temporary Input Form
-        <br />
-        <input
-          type="text"
-          name="title"
-          value={this.state.title}
-          onChange={this.handleInput}
-        />
-        <br />
-        <input
-          type="text"
-          name="content"
-          value={this.state.content}
-          onChange={this.handleInput}
-        />
-        <br />
-        <Button onClick={this.handleCreateNote}>Create Note</Button>
-      </div>
+      <Form>
+        <h3>Create New Note:</h3>
+        <FormGroup>
+          <Input
+            type="textarea"
+            name="title"
+            placeholder="Note Title"
+            value={this.state.title}
+            onChange={this.handleInput}
+            className="title-input"
+          />
+        </FormGroup>
+        <FormGroup>
+          <Input
+            type="textarea"
+            name="content"
+            placeholder="Note Content"
+            value={this.state.content}
+            onChange={this.handleInput}
+            className="content-input"
+          />
+        </FormGroup>
+        <Link to="/">
+          <Button color="info" onClick={this.handleCreateNote}>
+            <b>Create Note</b>
+          </Button>
+        </Link>
+      </Form>
     );
   }
 }

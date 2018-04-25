@@ -8,14 +8,15 @@ const Menu = props => {
   return (
     <div className="menu">
       <h1>Lambda Notes</h1>
-      <br />
       <Link to="/">
-        <Button color="info">View Your Notes</Button>
+        <Button color="info">
+          <b>View Your Notes</b>
+        </Button>
       </Link>
-      <br />
-      <br />
       <Link to={`/create`}>
-        <Button color="info">+ Create New Note</Button>
+        <Button color="info">
+          <b>+ Create New Note</b>
+        </Button>
       </Link>
     </div>
   );

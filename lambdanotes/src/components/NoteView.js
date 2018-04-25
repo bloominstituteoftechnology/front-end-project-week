@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+import { Button, Form, FormGroup, Input } from "reactstrap";
 
 import "./NoteView.css";
 
@@ -73,47 +73,43 @@ class NoteView extends Component {
   render() {
     if (this.state.editing === false && this.state.note !== null) {
       return (
-        <div className="mt-5">
-          <Button color="info" onClick={this.toggle}>
-            Edit
-          </Button>
-          <Button color="danger" onClick={this.handleDeleteNote}>
-            Delete
-          </Button>
-          {this.state.title}
-          <br />
-          <br />
-          {this.state.content}
+        <div className="note-view">
+          <div className="modify-links">
+            <b onClick={this.toggle}>edit</b>
+            <b onClick={this.handleDeleteNote}>delete</b>
+          </div>
+          <h3 className="note-title">{this.state.title}</h3>
+          <div className="note-content">{this.state.content}</div>
         </div>
       );
     } else if (this.state.editing === true) {
       return (
-        <div className="mt-5">
-          Temporary Edit Form
-          <br />
-          <form>
-            <input
-              type="text"
+        <Form>
+          <h3>Edit Note:</h3>
+          <FormGroup>
+            <Input
+              type="textarea"
               name="title"
+              placeholder="Note Title"
               value={this.state.title}
               onChange={this.handleInput}
+              className="title-input"
             />
-            <br />
-            <input
-              type="text"
+          </FormGroup>
+          <FormGroup>
+            <Input
+              type="textarea"
               name="content"
+              placeholder="Note Content"
               value={this.state.content}
               onChange={this.handleInput}
+              className="content-input"
             />
-          </form>
-          <br />
-          <Button color="primary" onClick={this.handleEditNote}>
-            Save
+          </FormGroup>
+          <Button color="info" onClick={this.handleEditNote}>
+            <b>Update</b>
           </Button>
-          <Button color="secondary" onClick={this.toggle}>
-            Cancel
-          </Button>
-        </div>
+        </Form>
       );
     } else return <div className="mt-5">There is no note with that id!</div>;
   }

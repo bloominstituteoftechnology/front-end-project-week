@@ -9,6 +9,9 @@
   text-align: left;
 }
 
-button {
+.menu .btn {
+  min-height: 62px;
   width: 100%;
+  margin-top: 8%;
+  font-size: 20px;
 }
