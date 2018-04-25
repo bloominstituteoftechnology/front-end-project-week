@@ -1,4 +1,35 @@
+
 .noteView {
-    color: red;
+    color: black;
     display: flex;
+}
+
+.noteCard {
+margin-left: 2%;
+width: 71%;
+margin-top: 2%;
+}
+
+.noteCard{
+    flex-wrap: wrap;
+}
+
+.noteCard .links {
+    width: 98%;
+    text-align: right;
+}
+
+.noteCard a {
+    margin-left: 3%;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.noteCard h1 {
+    margin-top: 3%;
+    color: #4A494A;
+}
+.noteCard p{
+    font-size: 1.3rem;
+    margin-top: 3%;
 }
