@@ -161,6 +161,11 @@ text-decoration: underline black;
 .danger-styles{
   background: rgb(208,1,27);
 }
+.danger-styles:hover{
+  background:rgb(83, 83, 83);
+text-decoration: underline rgb(83, 83, 83);
+
+}
 .modal-dialog{
   margin-top: 145px;
   margin-left: 167px;
@@ -215,7 +220,13 @@ text-decoration: underline black;
   margin-left:25px;
   
 }
-
+.link{
+  text-decoration: none
+}
 .editLabel-styles{
   font-size:22px;
+}
+.deleteLink-styles{
+ 
+  text-decoration:underline white;
 }

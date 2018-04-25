@@ -16,7 +16,7 @@ constructor(props){
     componentDidMount(){
         const { id } = this.props.match.params; 
        console.log(this.state)
-        this.setState({note:notes[id]})
+        this.setState({note: notes[id]})
     }
     toggle() {
         this.setState({
@@ -26,7 +26,7 @@ constructor(props){
 
 render(){
    
-    console.log(this.props.notes)
+    console.log(this.props)
  
     return(
         
@@ -36,9 +36,9 @@ render(){
     <Card>
       <Row>  
 <Col className="link-styles">
-    <Link to={`/edit/${this.state.note.id}`}><Button color="link" className="link" >edit</Button></Link>
+    <Link to={`/edit/${this.state.note.id}`} ><Button color="link" onClick={this.props.delete(this.state.note)} className="link editLink-styles" >edit</Button></Link>
   
-<Button color="link" className="link" onClick={this.toggle} >delete</Button>
+<Button color="link" className="link deleteLink-styles" onClick={this.toggle} >delete</Button>
 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
        
        <ModalBody>

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText, } from 'reactstrap';
 import{ Link } from 'react-router-dom'
 import {notes} from '../Notes/notes'
+import NoteView from './NoteView'
 
 class EditView extends Component {
     constructor(props){
@@ -11,10 +12,15 @@ class EditView extends Component {
             text:'',
             textbody:'', 
         };
+
+
+        
     }
+
     componentDidMount(){
-        const { id } = this.props.match.params; 
-        this.setState({note:notes[id]})
+        const { id } = this.props.match.params;
+        console.log(this.props) 
+        this.setState({note: notes[id]})
         console.log(this.state) 
        
     }
@@ -42,10 +48,10 @@ return(
         onChange={this.handleInputChange}
         className="createBody-styles"
         placeholder={this.state.note.textbody}
-        name="text"
+        name="textarea"
         type="textarea" 
         id="exampleText"  
-        value={this.state.text} />
+        value={this.state.textarea} />
      </FormGroup>
           <Link to="/"><Button className="button createButton-styles">Update</Button></Link>
     </Form>

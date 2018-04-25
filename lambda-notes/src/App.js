@@ -15,9 +15,31 @@ class App extends Component {
     };
   }
   componentDidMount(){
+
     this.setState({ notes: notes});
+    
     console.log(this.state)
    }
+delete(e){
+  let removed = e;
+  console.log(this)
+  console.log(removed)
+ console.log(this.notes)
+ const newNote = this.notes.filter(note =>{
+
+   return note.id !== removed.id;
+
+ })
+ console.log(this)
+ this.setState({ notes: notes});
+//  this.handleDelete("hi")
+}
+
+
+handleDelete = e => {
+   console.log(e)
+   return this.zsetState({ notes: e});
+ }
 
   render() {
     console.log(this.state)
@@ -30,12 +52,12 @@ class App extends Component {
           render= {props =><Notes  notes={this.state.notes}/>}
       />
       <Route path ="/note/:id"
-      render ={props =><NoteView {...props} {...this.state}/>}
+      render ={props =><NoteView {...props} delete={this.delete} {...this.state}/>}
     />
     <Route path="/create" component={CreateView} />
 
     <Route path ="/edit/:id"
-      render ={props =><EditView {...props} {...this.state}/>}
+      render ={props =><EditView {...props} notes={this.state.notes}  {...this.state}/>}
     />
       </div>
       </div>
