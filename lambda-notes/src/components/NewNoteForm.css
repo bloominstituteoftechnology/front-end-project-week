@@ -30,6 +30,10 @@
     color: #606060;
 }
 
+.save-button-link {
+    text-decoration: none;
+}
+
 .save-button {
     font-family: 'Russo One', sans-serif;
     background-color: #18b2af;
