@@ -10,31 +10,23 @@ import { Modal } from './Modal';
 
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { notes: [] }
-    localStorage.setItem('notes', JSON.stringify(this.state.notes));
+  local = {
+    get(target) {
+      return localStorage.getItem(target) ?
+        JSON.parse(localStorage.getItem(target)) : undefined;
+    },
+    set(target, payload) {
+      localStorage.setItem(target, JSON.stringify(payload));
+    }
   }
 
-  componentDidMount() {
-    this.getNotes();
-    console.log(this.state.notes);
-  }
-
-  getNotes = () => {
-    const notes = localStorage.getItem('notes');
-    this.setState({ notes: notes });
-  }
+  state = { notes: [] }
   
-  createNote = note => {
-    // Take in note title and body as object
-    // Grab parsed localStorage notes (array of objects)
-    localStorage.
-
-
-    console.log(this.state.notes);
-    //this.setState({ });
+  createNote = note => { // Take in note title and body as object
+    // Add note to state and update local storage
+    const newNote = {id: this.state.notes.length, ...note}
+    this.setState({ notes: this.state.notes.concat(note) });
+    this.local.set('notes', this.state);
   }
 
   editNote = (note, id) => {
@@ -45,6 +37,12 @@ export class App extends Component {
 
   }
 
+  clearNotes = () => {
+    localStorage.clear();
+    this.setState({ notes: [] });
+    console.log('Local storage has been cleared');
+  }
+
   render() {
     return (
       <div className="App">
@@ -52,6 +50,7 @@ export class App extends Component {
           <h3>Lambda<br/>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
+          <button onClick={this.clearNotes}>Clear Notes</button>
         </div>
         <div className="App_body">
           <Route exact path="/" render={() => 

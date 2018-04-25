@@ -8,7 +8,7 @@ export const NoteList = props => {
   return (
     <div className="NoteList">
       <h4>Your Notes:</h4>
-      {props.notes === [] ? props.notes.map(note => (
+      {props.notes.length ? props.notes.map(note => (
         <NoteCard key={note.id} note={note} />
       )) : null}
       <div className="createCard">
