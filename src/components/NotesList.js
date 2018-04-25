@@ -1,6 +1,8 @@
 import React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import { Markdown } from '.'
 import styled from 'styled-components'
 
@@ -27,10 +29,20 @@ const NoteContainer = styled.div`
   }
 `
 
-const NotesList = (props) => {
-  const noteElements = props.notes.map(note => (
-    <Note {... note} />
-  ))
+const NotesList = ({ notes }) => {
+  const noteElements = !isLoaded(notes)
+    ? 'Loading'
+    : isEmpty(notes)
+      ? 'No notes to display'
+      : Object.keys(notes).map(
+        (key, id) => (
+          <Note
+            key={id}
+            id={key}
+            title={notes[key].title}
+            content={notes[key].content} />
+        )
+      )
   return (
     <Container>
       {noteElements}
@@ -38,15 +50,16 @@ const NotesList = (props) => {
   )
 }
 
-const Note = (props) => (
+const Note = ({ id, title, content }) => (
   <NoteContainer>
-    <Link to={`/show/${props.id}`}><h2>{props.title}</h2></Link>
-    <Markdown markdown={props.content} />
+    <Link to={`/show/${id}`}><h2>{title}</h2></Link>
+    <Markdown markdown={content} />
   </NoteContainer>
 )
 
-const mapStateToProps = (state) => ({
-  notes: state.notes
-})
+const mapStateToProps = (state) => ({ notes: state.data.notes })
 
-export default connect(mapStateToProps, {})(NotesList)
+export default compose(
+  firebaseConnect([ 'notes' ]),
+  connect(mapStateToProps)
+)(NotesList)

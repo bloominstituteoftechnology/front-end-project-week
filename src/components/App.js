@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router'
-import { Sidebar, NotesList, NoteDetail, NoteCreate } from '.'
+import { Sidebar, NotesList, NoteDetail, NoteCreate, NoteEdit } from '.'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -28,7 +28,7 @@ class App extends Component<{}> {
         <Content>
           <Route exact path='/' component={NotesList} />
           <Route path='/create' component={NoteCreate} />
-          <Route path='/edit/:id' component={null} />
+          <Route path='/edit/:id' component={NoteEdit} />
           <Route path='/show/:id' component={NoteDetail} />
         </Content>
       </Container>
