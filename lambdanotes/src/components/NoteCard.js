@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card, CardTitle, CardHeader, CardBody, CardText } from "reactstrap";
+import { Card, CardHeader, CardBody, CardText } from "reactstrap";
+
 import "./NoteCard.css";
 
 const NoteCard = props => {

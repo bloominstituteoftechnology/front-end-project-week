@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import { Container } from "reactstrap";
+
 import NoteCard from "./NoteCard";
-import { Link } from "react-router-dom";
-import { Container, Col, Row } from "reactstrap";
 import "./NoteList.css";
 
 class NoteList extends Component {

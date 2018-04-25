@@ -1,13 +1,17 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
+
+import "./NoteView.css";
 
 class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: parseInt(this.props.match.params.id),
       note: null,
+      id: parseInt(this.props.match.params.id, 10),
       title: "",
-      content: ""
+      content: "",
+      editing: false
     };
   }
 
@@ -16,7 +20,7 @@ class NoteView extends Component {
       this.props.notes !== null &&
       this.props.notes !== undefined &&
       this.props.notes[this.props.match.params.id - 1] &&
-      this.state.id > 0
+      this.state.editing === false
     ) {
       this.displayNote();
     }
@@ -27,7 +31,9 @@ class NoteView extends Component {
       (note, index) => this.state.id === note.id
     );
     this.setState({
-      note: displayedNote[0]
+      note: displayedNote[0],
+      title: displayedNote[0].title,
+      content: displayedNote[0].content
     });
   };
 
@@ -35,59 +41,67 @@ class NoteView extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleCreateNote = () => {
-    const newNote = {
-      id: parseInt(this.props.match.params.id),
-      title: this.state.title,
-      content: this.state.content
-    };
+  toggle = () => {
+    this.setState({
+      editing: !this.state.editing
+    });
+  };
+
+  handleEditNote = () => {
     if (this.state.title !== "" && this.state.content !== "") {
-      this.props.addNote(newNote);
+      const editedNote = {
+        id: this.state.id,
+        title: this.state.title,
+        content: this.state.content
+      };
+      this.props.editNote(editedNote);
       this.setState({
-        title: "",
-        content: "",
-        note: newNote,
-        id: parseInt(this.props.match.params.id)
+        editing: !this.state.editing
       });
-    } else {
-      alert("Fill out all inputs to submit");
-    }
+    } else alert("Fill out all inputs to submit");
   };
 
   render() {
-    const note = this.state.note;
-    const id = parseInt(this.props.match.params.id);
-    if (this.state.note !== null && this.state.note.id === id) {
+    if (this.state.editing === false && this.state.note !== null) {
       return (
         <div className="mt-5">
-          {this.state.note.title}
+          <Button color="info" onClick={this.toggle}>
+            Edit
+          </Button>
+          <Button color="danger">Delete</Button>
+          {this.state.title}
           <br />
           <br />
-          {this.state.note.content}
+          {this.state.content}
         </div>
       );
-    } else if (id === this.props.notes[this.props.notes.length - 1].id + 1) {
+    } else if (this.state.editing === true) {
       return (
         <div className="mt-5">
-          Temporary Input Form
+          Temporary Edit Form
           <br />
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            placeholder="Add title..."
-            onChange={this.handleInput}
-          />
+          <form>
+            <input
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.handleInput}
+            />
+            <br />
+            <input
+              type="text"
+              name="content"
+              value={this.state.content}
+              onChange={this.handleInput}
+            />
+          </form>
           <br />
-          <input
-            type="text"
-            name="content"
-            value={this.state.content}
-            placeholder="Add content..."
-            onChange={this.handleInput}
-          />
-          <br />
-          <button onClick={this.handleCreateNote}>Create Note</button>
+          <Button color="primary" onClick={this.handleEditNote}>
+            Save
+          </Button>
+          <Button color="secondary" onClick={this.toggle}>
+            Cancel
+          </Button>
         </div>
       );
     } else return <div className="mt-5">There is no note with that id!</div>;

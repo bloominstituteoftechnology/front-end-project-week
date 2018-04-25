@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import "./App.css";
 import { Row, Col, Container } from "reactstrap";
 
 import NoteList from "./components/NoteList";
 import NoteView from "./components/NoteView";
+import CreateNote from "./components/CreateNote";
 import Menu from "./components/Menu";
+import "./App.css";
 
 const placeholderText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -33,7 +34,22 @@ class App extends Component {
   }
 
   addNote = newNote => {
+    newNote.id = this.state.notes[this.state.notes.length - 1].id + 1;
     this.setState({ notes: [...this.state.notes, newNote] });
+  };
+
+  editNote = editedNote => {
+    console.log("the edited note passed to app.js is " + editedNote);
+    console.log(this.state.notes.filter(note => note.id === editedNote.id));
+    // this.setState({ notes: []})
+    const newNotes = this.state.notes.map((note, index) => {
+      if (editedNote.id === note.id) {
+        note = editedNote;
+      }
+      return note;
+    });
+    console.log(newNotes);
+    this.setState({ notes: newNotes });
   };
 
   render() {
@@ -58,6 +74,7 @@ class App extends Component {
                 }}
               />
               <Route
+                exact
                 path="/note/:id"
                 render={props => {
                   return (
@@ -65,6 +82,20 @@ class App extends Component {
                       {...props}
                       notes={this.state.notes}
                       addNote={this.addNote}
+                      editNote={this.editNote}
+                    />
+                  );
+                }}
+              />
+              <Route
+                path="/create"
+                render={props => {
+                  return (
+                    <CreateNote
+                      {...props}
+                      notes={this.state.notes}
+                      addNote={this.addNote}
+                      editNote={this.editNote}
                     />
                   );
                 }}
