@@ -1,7 +1,7 @@
 import React,  { Component } from "react";
 import {notes} from '../Notes/notes'
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
+    CardTitle, CardSubtitle, Button, Row,Col } from 'reactstrap';
 class NoteView extends Component{
 constructor(props){
     super(props)
@@ -23,15 +23,27 @@ render(){
     return(
         
     <React.Fragment>
-<div>
-    <Card>
-    <CardBody>
-<CardTitle>{this.state.note.title}</CardTitle>
 
-<CardText>{this.state.note.textbody}</CardText>
+
+    <Card>
+      <Row>  
+<Col className="link-styles">
+    <Button color="link" className="link">edit</Button>
+<Button color="link" className="link">delete</Button>
+</Col>
+</Row>
+
+<Row>
+<Col>
+    <CardBody>
+<CardTitle className="title-styles">{this.state.note.title}</CardTitle>
+
+<CardText  className="text-styles">{this.state.note.textbody}</CardText>
 </CardBody>
+</Col>
+</Row>
 </Card>
-</div>
+
     </React.Fragment>
         )
     }

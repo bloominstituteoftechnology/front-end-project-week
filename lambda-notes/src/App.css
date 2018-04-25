@@ -32,7 +32,7 @@
 .home-styles{
   width: 200px;
   height: 650px;
-  background:rgb(219, 216, 216)
+  background:rgb(215,215,215)
 }
 .hDiv-styles{
     font-size: 30px;
@@ -44,11 +44,12 @@
 }
 .h-styles{
 line-height: 28px;
-  color:rgb(26, 25, 25);
+  color:rgb(74,73,74);
   margin-left: 15px;
   margin-top: 16px;
   text-align: justify;
   text-justify: inter-word;
+  font-weight:bold;
 
 }
 .button-styles{
@@ -59,7 +60,7 @@ margin: 10px;
 
 }
 .button{
-  background:rgb(70, 207, 207);
+  background:rgb(42,192,196);
 border: 1px solid rgb(77, 74, 74);
 width: 180px;
 margin-bottom: 19px;
@@ -71,7 +72,7 @@ width:600px;
 
 
 padding: 0px;
-background: rgb(243, 240, 240);
+background: rgb(243,243,243);
 
 
 }
@@ -125,7 +126,66 @@ justify-content: baseline;
   flex-wrap: wrap;
 }
 .cardtext-styles{
- 
+  text-align: left;
   font-size: 9.3px;
+  
+}
+.link-styles{
+display: flex;
+justify-content: flex-end;
+
+color:black;
+text-decoration: underline black;
+}
+.title-styles{
+  display:flex;
+  justify-content: left ;
+  border-bottom: none;
+  font-size: 23px;
+
+}
+.link{
+  font-size: 12px;
+  color:black;
+  padding: 6px;
+
+}
+.text-styles{
+  text-align: left
+
+}
+
+
+
+.label-styles{
+  margin-top:50px;
+  margin-bottom: 25px;
+  margin-left:25px;
+  display:flex;
+  justify-content: left;
+  font-weight: bold;
+
+}
+.createInput-styles{
+  width: 350px;
+  height:45px;
+  margin-left:25px;
+  
+}
+.createBody-styles{
+
+  margin-top: 10px;
+  width: 550px;
+  height: 350px;
+  margin-left:25px;
+  padding: 20px;
+  font-size: 13px;
+
+}
+.createButton-styles{
+  margin-top: 10px;
+  display:flex;
+  justify-content: center;
+  margin-left:25px;
   
 }
