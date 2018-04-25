@@ -25,7 +25,7 @@ export class App extends Component {
   createNote = note => { // Take in note title and body as object
     // Add note to state and update local storage
     const newNote = {id: this.state.notes.length, ...note}
-    this.setState({ notes: this.state.notes.concat(note) });
+    this.setState({ notes: this.state.notes.concat(newNote) });
     this.local.set('notes', this.state);
   }
 

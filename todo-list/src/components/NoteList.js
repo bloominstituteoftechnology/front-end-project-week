@@ -10,10 +10,17 @@ export const NoteList = props => {
       <h4>Your Notes:</h4>
       {props.notes.length ? props.notes.map(note => (
         <NoteCard key={note.id} note={note} />
-      )) : null}
+      )) : 
+      <div className="NoteList_noNotesMessage">
+        <p>There are currently no notes in your app</p>
+        <p>Please click the button to the left to create one</p>
+        <p>☜( ﾟヮﾟ☜)</p>
+      </div>
+      }
+      {/* Might add this back in later
       <div className="createCard">
         <Link to="/create">+</Link>
-      </div>
+      </div> */}
     </div>
   )
 }
