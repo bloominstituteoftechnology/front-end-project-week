@@ -2,11 +2,13 @@ import React from 'react';
 import './view.css';
 import { Route, Link } from 'react-router-dom';
 import { EditNote } from '../EditNote';
+import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 export class ViewNote extends React.Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         return <div className="col-9 right__side">
             <div className="row">
@@ -16,9 +18,7 @@ export class ViewNote extends React.Component {
                     </Link>
                 </div>
                 <div className=" col-3 delete">
-                    <Link to="/">
-                        Delete
-                    </Link>
+                    <Link to="/">Delete</Link>
                 </div>
             </div>
             <div className="row">
