@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SideNav from './SideNav/SideNav';
 import Notes from './Notes/Notes';
-import NewNote from './NewNote/NewNote';
+import NewNote from './NoteOps/NewNote';
 import ViewNote from './Notes/ViewNote';
+import EditNote from './NoteOps/EditNote';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/newNote"
           render = {(props) => <NewNote />} 
           />
+          <Route path="/notes/:id/edit" component={EditNote}/>
           <Route path="/notes/:id" component={ViewNote}
           // render = {(props) => <ViewNote />} 
           />

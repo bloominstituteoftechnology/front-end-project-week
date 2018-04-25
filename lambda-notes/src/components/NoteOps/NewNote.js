@@ -73,8 +73,8 @@ class NewNote extends React.Component {
 
 const stateProps = state => {
     return {
-        addingNote: state.addingNote,
-        error: state.error
+        addingNote: state.rootReducer.noteReducer.addingNote,
+        error: state.rootReducer.noteReducer.error
     }
 }
 
