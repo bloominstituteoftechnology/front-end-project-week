@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card,CardHeader, CardBody} from 'reactstrap'
+
 import './NoteCard.css';
 const note = props => {
     return (

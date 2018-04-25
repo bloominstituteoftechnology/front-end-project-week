@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Route, Link} from 'react-router-dom';
+import React, {Component} from 'react';
+import {Route, Link, Switch} from 'react-router-dom';
 import NoteList from './components/Notes/NoteList';
 import './App.css';
 import NoteForm from "./components/Notes/NoteForm";
@@ -28,9 +28,18 @@ class App extends Component {
                 {id: 6, 'title': 'Note 7', 'content': 'some test'},
                 {id: 7, 'title': 'Note 8', 'content': 'some test'},
                 {id: 8, 'title': 'Note 9', 'content': 'some test'}
-            ]
+            ],
         };
     }
+
+    addNote = (title, content) => {
+        const notes = this.state.notes;
+        const id = this.state.notes.length + 1;
+        let note = {id, title, content};
+
+        notes.push(note);
+        // this.setState({notes});
+    };
 
     render() {
         return (
@@ -46,8 +55,11 @@ class App extends Component {
                                 +Create New Note
                             </a>
                         </div>
-                        <Route exact path='/' render={() => <NoteList notes={this.state.notes}/>}/>
-                        <Route path='/createNewNote'  render={() => <NoteForm addnote={this.addNote}/> }/>
+                        <Switch>
+                            <Route exact path='/' render={() => <NoteList notes={this.state.notes}/>}/>
+                            <Route path='/createNewNote' render={() => <NoteForm addNote={this.addNote}/>}/>
+                            <Route path="/notedetail/" render={() => (<NoteDetail/>)}/>
+                        </Switch>
                     </div>
                 </div>
             </div>
