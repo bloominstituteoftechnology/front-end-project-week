@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const port = 3333;
 
 const server = express();
 server.use(bodyParser.json());
+server.use(cors());
 
 const sendUserError = (msg, res) => {
   res.status(422);
