@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import SideBar from './SideBar';
 import '../styles/ViewNotes.css';
 
 class ViewNotes extends Component {
   render() {
     return (
       <div className="container">
-
+        <SideBar />
         <div className="viewNotesBody">
           <div className="header">Your Notes:</div>
           <div className="allNotes">
