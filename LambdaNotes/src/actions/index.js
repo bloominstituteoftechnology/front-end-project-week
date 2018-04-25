@@ -26,10 +26,11 @@ export function deleteTodo(index) {
 	};
 }
 
-export function updateTodo(index, text) {
+export function updateTodo(index, title, text) {
 	return {
 		type: UPDATETODO,
 		payload: {
+			title: title,
 			text: text,
 			index: index
 		}
