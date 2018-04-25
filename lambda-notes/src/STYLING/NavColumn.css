@@ -1,6 +1,7 @@
 .Nav__Container {
   background-color: #D7D7D7 !important;
   border-right: 2px solid #959595;
+  width: 32.5%;
 }
 
 .NavRow {
@@ -19,8 +20,9 @@
 }
 
 .Nav__ButtonsContainer--navButton {
-  width: 100%;
-  margin: 5% auto;
+  text-align: center !important;
+  width: 100% !important;
+  margin: 3% 0 !important;
   background-color: #2AC1C5 !important;
   border: 2px solid #959595 !important;
   font-weight: 600 !important;
@@ -43,6 +45,10 @@
 }
 
 @media (max-width: 743px) {
+  .Nav__Container {
+    width: 100%;
+  }
+
   .Nav__Header {
     font-size: 2rem !important;
     color: #4A484A !important;

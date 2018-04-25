@@ -13,22 +13,22 @@ class NavColumn extends Component {
   render() {
     return (
       <div className="Nav__Container">
-        <HideAt breakpoint="small" className="NavColumn">
-          <h1 className="Nav__Header">Lambda <br/> Notes</h1>
-          <Nav vertical className="col-lg-12 col-md-8 Nav__ButtonsContainer">
-            <NavItem>
+        <HideAt breakpoint="small">
+          <h1 className="Nav__Header pr-2">Lambda <br/> Notes</h1>
+          <Nav vertical className="Nav__ButtonsContainer">
+            <NavItem className="col-12 p-0">
               <Link to="/">
-                <Button className="Nav__ButtonsContainer--navButton">View Your Notes</Button>
+                <Button className="Nav__ButtonsContainer--navButton px-0">View Your Notes</Button>
               </Link>
             </NavItem>
-            <NavItem>
+            <NavItem className="col-12 p-0">
               <Link to="/create">
-                <Button className="Nav__ButtonsContainer--navButton">+ Create New Note</Button>
+                <Button className="Nav__ButtonsContainer--navButton px-0">+ Create New Note</Button>
               </Link>
             </NavItem>
-            <NavItem>
+            <NavItem className="col-12 p-0">
               <Link to="/markdown">
-                <Button className="Nav__ButtonsContainer--navButton">Markdown Editor</Button>
+                <Button className="Nav__ButtonsContainer--navButton px-0">Markdown Editor</Button>
               </Link>
             </NavItem>
           </Nav>
