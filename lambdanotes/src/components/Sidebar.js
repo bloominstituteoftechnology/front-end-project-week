@@ -37,7 +37,7 @@ const StyledLink = styled(Link)`
 const Sidebar = () => {
     return <Wrapper>
         <Title>Lambda Notes</Title>
-        <StyledLink to="/">
+        <StyledLink to="/notes">
           <Button>View Your Notes</Button>
         </StyledLink>
         <StyledLink to="/createNote">
