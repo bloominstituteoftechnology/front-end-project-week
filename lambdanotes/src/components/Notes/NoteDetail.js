@@ -28,8 +28,7 @@ class NoteDetail extends React.Component {
                         <a href='/editNote'>Edit</a>
                         <a href='#' onClick={this.toggle}>{this.props.buttonLabel}Delete</a>
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                            <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                            <ModalBody>
+                            <ModalBody toggle={this.toggle}>
                                 Are you want to delete this?
                             </ModalBody>
                             <ModalFooter>

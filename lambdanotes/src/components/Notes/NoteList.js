@@ -6,6 +6,7 @@ const noteList = props => {
         <div className='col-9 right__side'>
             <div className="row">
                 <h4>Your Notes:</h4>
+                {console.log(props.notes)}
             </div>
             <div className="row">
                 {props.notes.map((note) => {

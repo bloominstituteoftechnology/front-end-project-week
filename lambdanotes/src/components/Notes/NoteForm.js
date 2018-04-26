@@ -1,9 +1,10 @@
 import React from 'react'
 import '../../App.css';
-import {Form, Input, Button, FormGroup} from 'reactstrap'
+import {Form, Input, FormGroup, Button} from 'reactstrap'
+import {Link} from 'react-router-dom';
 class NoteForm extends React.Component{
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             title: '',
             content: ''
@@ -14,6 +15,9 @@ class NoteForm extends React.Component{
         this.setState({[e.target.name]: e.target.value});
     };
 
+    handleClick = (e) => {
+        this.props.onSubmit(this.state.title, this.state.content);
+    };
     render() {
         return (
             <div className='col-9 right__side'>
@@ -29,9 +33,11 @@ class NoteForm extends React.Component{
                                 <Input  type="text" name="title" id="noteTitle" placeholder="Note Title" onChange={this.handleInputText}/>
                             </FormGroup>
                             <FormGroup>
-                                <Input type="textarea" name="detail" id="noteDetail" placeholder="Note Detail" onChange={this.handleInputText}/>
+                                <Input type="textarea" name="content" id="noteDetail" placeholder="Note Detail" onChange={this.handleInputText}/>
                             </FormGroup>
-                            <a href={'/'} onClick={this.props.addNote(this.state.title, this.state.content)}>Save</a>
+                            <Link to={'/'}>
+                            <Button onClick={this.handleClick}>Save</Button>
+                            </Link>
                         </Form>
                     </div>
                 </div>

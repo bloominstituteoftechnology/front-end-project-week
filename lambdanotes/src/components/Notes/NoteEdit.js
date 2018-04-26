@@ -1,11 +1,8 @@
 import React from 'react'
 import '../../App.css';
-import {Form, Input, Button, FormGroup} from 'reactstrap'
+import {Form, Input, FormGroup} from 'reactstrap'
 
 class NoteEdit extends React.Component{
-    constructor(props) {
-        super(props);
-    }
 
     handleInputText = (e) => {
         this.setState({[e.target.name]: e.target.value});
