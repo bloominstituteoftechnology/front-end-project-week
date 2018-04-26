@@ -17,8 +17,13 @@ a {
 }
 
 .Note-body {
-    margin-top: 80px;
+    margin-top: 60px;
     padding-left: 30px;
     padding-right: 30px;
 
+}
+
+.Note-text {
+    margin-top: 45px;
+    font-size: 25px;
 }
