@@ -1,3 +1,12 @@
 .Note_Creator {
-  border: 2px solid black
+  padding: 20px;
+}
+
+.CreateNoteText {
+  color: white;
+}
+
+.CreateNoteContainer {
+  display: flex;
+  flex-direction: column;
 }

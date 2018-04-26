@@ -15,7 +15,7 @@ const NoteCard = props => {
     // </div>
 
     <div className="TextBoxContainer">
-      <h2 className="h2_Border">{props.eachNote.title}</h2>
+      <div className="CardTitle">{props.eachNote.title}</div>
       <div className="TextBox">{props.eachNote.content}</div>
     </div>
   );

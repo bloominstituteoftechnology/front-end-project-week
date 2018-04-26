@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", sans-serif;
+  letter-spacing: -1px;
+  font-weight: 550;
 }
 
 .App-logo {

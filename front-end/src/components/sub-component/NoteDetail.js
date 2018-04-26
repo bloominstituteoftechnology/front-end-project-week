@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import NoteCard from "./NoteCard";
+import "./NoteDetail.css"
 
 export default class NoteDetail extends Component {
   constructor(props) {
@@ -58,10 +59,9 @@ export default class NoteDetail extends Component {
           </Link>
         </div>
 
-        <div className="TextBoxContainer">
+        <div className="DetailBoxContainer">
           <h2>{this.state.note.title}</h2>
-          <h1> -----------------------</h1>
-          <div className="TextBox">{this.state.note.content}</div>
+          <div className="ContentBox">{this.state.note.content}</div>
         </div>
 
         {/* <NoteCard eachNote={this.state.note} /> */}

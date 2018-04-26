@@ -1,10 +1,26 @@
 .TextBoxContainer {
-  width: 100%
+  width: 100%;
+  text-align: right;
 }
 
-/* .TextBox {
-  white-space: nowrap;
+.CardTitle {
+  font-weight: 600;
+  font-size: 1.6vw;
+  padding: 8px 6px 8px 0;
+  display: block;
+  color: white;
+  background: linear-gradient(110deg, #fa7c30 16%, rgba(0, 0, 0, 0) 16%),
+    linear-gradient(110deg, #ffffff 17%, #000000 17%);
+  margin: 0;
+}
+
+.TextBox {
+  color: black;
+  text-align: left;
+  padding: 3% 7%;
+  background: rgb(190, 181, 181);
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 150px;
-} */
+  height: 198px;
+}
