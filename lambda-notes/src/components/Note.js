@@ -16,7 +16,7 @@ function mapStatetoProps(state) {
 
   class Notes extends Component {
      render () {
-      const note = this.props.notes.filter(
+      const note = this.props.note.filter(
         note => note.id === parseInt(this.props.match.params.id, 10)
       )[0];
       return (

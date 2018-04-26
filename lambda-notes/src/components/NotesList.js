@@ -10,8 +10,6 @@ import {
   CardText,
   CardTitle
 } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.css';
-
 
 function mapStateToProps(state) {
   return {
@@ -27,15 +25,15 @@ class NotesList extends Component {
           <h2 className="section-head">Your Notes:</h2>
         </Row>
         <Row>
-          {this.props.notes.map(notes => {
+          {this.props.notes.map(note => {
             return (
               <Col sm="4">
-                <Link className="card-link" to={`/viewNotes/${notes.id}`}>
+                <Link className="card-link" to={`/viewNotes/${note.id}`}>
                   <Card className="note pb-2">
                     <CardBody>
-                      <CardTitle>{notes.title}</CardTitle>
+                      <CardTitle>{note.title}</CardTitle>
                       <hr />
-                      <CardText>{notes.notes}</CardText>
+                      <CardText>{note.note}</CardText>
                     </CardBody>
                   </Card>
                 </Link>

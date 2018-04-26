@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Container, Button } from "reactstrap";
 
 import NotesList from './components/NotesList';
-import Notes from "./components/Notes";
+import Note from "./components/Note";
 import NoteForm from "./components/NoteForm";
 import './App.css';
 
@@ -20,7 +20,7 @@ const routes = [
     main: () => <NoteForm />
   },
   { path: "/ViewNotes/:id",
-    main: Notes
+    main: Note
   },
   {
     path: "/EditNote/:id",
