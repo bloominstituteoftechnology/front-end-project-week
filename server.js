@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
+
 let nextId = 9;
 
 function getNewId() {
@@ -10,7 +11,7 @@ function getNewId() {
 }
 
 let notes = [
-  { id: 0, title: 'Note 2', content: 'some test' },
+  { id: 0, title: 'Note 7', content: 'some test' },
   { id: 1, title: 'Note 1', content: 'some test' },
   { id: 2, title: 'Note 3', content: 'some test' },
   { id: 3, title: 'Note 4', content: 'some test' },
@@ -23,6 +24,12 @@ let notes = [
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.get('/notes', (req, res) => {
+  setTimeout(() => {
+    res.send(notes);
+  }, 1000);
+});
 
 app.get('/notes', (req, res) => {
   res.status(200).json(notes);
@@ -51,6 +58,6 @@ app.delete('/notes/:id', (req, res) => {
   res.status(200).json(notes);
 });
 
-app.listen(5001, () => {
-  console.log('server listening on port 5001');
+app.listen(5000, () => {
+  console.log('server listening on port 5000');
 });

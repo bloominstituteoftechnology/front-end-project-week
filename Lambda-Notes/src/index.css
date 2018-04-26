@@ -1,4 +1,5 @@
 @import './components/Menu/Menu.css';
+@import './components/Notes/Note.css';
 
 body {
   margin: 0;
