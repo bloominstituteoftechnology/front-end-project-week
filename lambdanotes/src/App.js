@@ -96,7 +96,7 @@ class App extends Component {
         <Heading>List View</Heading>
         <Rule />
         <Main>
-          <Sidebar />
+          <Sidebar notes={this.state.notes}/>
           <Route
             exact
             path="/notes"
