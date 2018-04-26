@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import './index.css';
 import { Link } from 'react-router-dom';
 
+const Trimmer = (input) => {
+  if (input.length > 124) {
+    let modi = input;
+    modi = modi.split('').splice(0, 121).join('');
+    return modi + "...";
+  } else {
+    return input;
+  }
+}
 
+const TitleMax = (input) => {
+  if (input.length > 11) return input.split('').splice(0, 8).join('') + "...";
+  return input;
+}
 
 const NoteDisplay = (props) => {
     //console.log('display props', props)
@@ -11,9 +24,9 @@ const NoteDisplay = (props) => {
         {props.data.map((u, index) => 
         <div key={u.id} className='note__container-notes'>
         <Link to={'/Notes/' + index}>
-        <h1>{u.title}</h1>
-        <p>{u.body}</p>
-        <span> {index} </span></Link></div>)}
+        <h1>{TitleMax(u.title)}</h1>
+        <p>{Trimmer(u.body)}</p>
+        </Link></div>)}
       </div>
       //<h1>something</h1>
     )

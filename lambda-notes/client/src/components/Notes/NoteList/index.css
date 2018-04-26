@@ -10,6 +10,9 @@
     background-color: white;
     border: solid 1px grey;
     margin-bottom: 20px;
+    width: 160px;
+    height: 155px;
+    font-size: .8rem;
 }
 
 .note__container-notes :link {
