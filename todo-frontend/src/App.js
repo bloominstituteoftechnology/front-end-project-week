@@ -20,31 +20,28 @@ const AppWrapper = styled.main`
 class App extends Component {
   constructor() {
     super()
-    this.updateNotes = this.updateNotes.bind(this)
     this.state = {
       notes: []
     }
   }
 
-  updateNotes(note) {
-    const notes = [...this.state.notes]
-    notes[note.id] = note
+  /** @param {id, title, content} note */
+  updateNote(note) {
+    // first remove old note @id
+    const filteredNotes = this.state.notes.filter(val => val.id !== note.id)
 
-    this.setState({ notes })
-    this.createNote.bind(this)
+    // then add updated note to front of filtered notes
+    filteredNotes.unshift(note)
+
+    // now this is our new state
+    this.setState(prevState =>
+      Object.assign({}, prevState, { notes: filteredNotes })
+    )
   }
+
   async componentDidMount() {
-    // console.log(base)
-    // this.notesRef = base.syncState('/notes', {
-    //   context: this,
-    //   state: 'notes'
-    // })
     const { data } = await get('/api/todos')
     this.setState(prevState => Object.assign({}, prevState, { notes: data }))
-  }
-
-  componentWillUnmount() {
-    // base.removeBinding(this.notesRef)
   }
 
   createNote(note) {
@@ -67,6 +64,7 @@ class App extends Component {
         {...this.state.notes.filter(note => +note.id === +id)[0]}
         {...props}
         onDelete={id => this.deleteNote(id)}
+        onUpdate={note => this.updateNote(note)}
       />
     )
   }

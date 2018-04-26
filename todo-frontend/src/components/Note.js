@@ -77,12 +77,32 @@ deleteNote.propTypes = {
   history: PropTypes.object
 }
 
+const updateNote = props => (
+  <button
+    onClick={e => {
+      const newtitle = prompt('please update title')
+      const newcontent = prompt('what is the content for the note?')
+      props.onUpdate({ id: props.id, title: newtitle, content: newcontent })
+      e.preventDefault()
+    }}
+  >
+    Update
+  </button>
+)
+
+updateNote.propTypes = {
+  onUpdate: PropTypes.func,
+  id: PropTypes.number
+}
+
 const DeleteButton = Button(deleteNote)
+const UpdateButton = Button(updateNote)
 
 export const SingleNote = props => (
   <SNoteContainer>
     <Note {...props} />
     <DeleteButton {...props} />
+    <UpdateButton {...props} />
   </SNoteContainer>
 )
 
