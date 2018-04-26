@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+// actions
+import { setVisibilityFilter } from "../actions/index";
+// filter types
+import { VisibilityFilters } from "../actions/index";
 // material components
 import RaisedButton from "material-ui/RaisedButton";
 // styles
@@ -20,9 +25,29 @@ class ControlPanel extends Component {
 				<RaisedButton className="ControlPanel_button" primary={true}>
 					&#43; Create Todo
 				</RaisedButton>
-			</Link>
+			</Link>,
+			<RaisedButton
+				className="ControlPanel_button"
+				primary={true}
+				onClick={() => {
+					this.props.setVisibilityFilter(
+						VisibilityFilters.SHOW_COMPLETED_TODOS
+					);
+				}}
+			>
+				View Complete Tasks
+			</RaisedButton>,
+			<RaisedButton
+				className="ControlPanel_button"
+				primary={true}
+				onClick={() => {
+					this.props.setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE_TODOS);
+				}}
+			>
+				View Incomplete Tasks
+			</RaisedButton>
 		];
 	}
 }
 
-export default ControlPanel;
+export default connect(null, { setVisibilityFilter })(ControlPanel);
