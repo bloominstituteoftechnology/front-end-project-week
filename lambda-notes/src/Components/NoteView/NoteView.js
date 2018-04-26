@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom'
 import "./NoteView.css"
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import {deleteNote} from "../../Actions"
 
 
 class NoteView extends Component {
@@ -46,8 +47,12 @@ class NoteView extends Component {
                         )}>
                             <div className="modalQuestion">Are you sure you want to delete this?
                             </div>
-                            <div>
-                                <button onClick={this.display}>Delete</button>
+                            <div className="modalButtons">        
+                                <Link to="/"><button onClick={() => {
+                                    this.display();
+                                    this.props.deleteNote(this.state.index)
+                                }}>Delete</button>
+                                </Link>
                                 <button onClick={this.display}>No</button>
                             </div>
                         </div>
@@ -59,7 +64,7 @@ class NoteView extends Component {
                         )}>
                             <div className="noteView">
                                 <SideBar/>
-                                <div className="noteCard">
+                                <div className="sideBar_pop noteCard">
                                     <div className = "links">
                                         <Link to="/edit">edit</Link>
                                         <button onClick={this.display}>delete</button>
@@ -84,4 +89,6 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps)(NoteView);
+export default connect(mapStateToProps, {
+    deleteNote
+})(NoteView);

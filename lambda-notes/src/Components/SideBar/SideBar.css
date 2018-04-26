@@ -15,7 +15,7 @@ body {
 
 .sideBar {
     display: flex;
-    position: relative;
+    position: fixed;
     flex-direction: column;
     width: 27%;
     background-color: #D3D2D3;

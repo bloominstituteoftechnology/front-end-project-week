@@ -16,7 +16,7 @@ class ListView extends Component {
         return (
             <div className = "body">
                 <SideBar/>
-                <div className = "notes">
+                <div className = "sideBar_pop notes">
                     <div className = "list">
                         <h2>Your Notes:</h2>
                     </div>
@@ -29,7 +29,7 @@ class ListView extends Component {
                                 {this.props.notes.notes.map((note, index) => {
                                     console.log('index',index)
                                 return (
-                                    <div className="card">
+                                    <button className="card">
                                         <Link to={{
                                             pathname: `/note/${index}`,
                                             state: {
@@ -41,7 +41,7 @@ class ListView extends Component {
                                         </Link>
                                         {/* <h1 className="underline" key={index}>{note.title} {index}</h1>
                                         <p key={index}>{note.note}</p> */}
-                                    </div>
+                                    </button>
                                 )
                             })} 
                             </div>
