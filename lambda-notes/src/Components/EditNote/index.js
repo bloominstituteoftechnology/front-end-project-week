@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export class EditNote extends React.Component {
-    render() {
+export const EditNote = props => {
         return (
             <div className="col-9 right__side">
                 <div className="row">
@@ -21,5 +20,4 @@ export class EditNote extends React.Component {
                 </div>
             </div>
         )
-    }
 }

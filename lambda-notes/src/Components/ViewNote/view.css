@@ -14,3 +14,11 @@
 .delete a {
     margin-left: 260%;
 }
+
+.modalBody {
+    background: #FBFBFB;
+}
+
+.primary {
+    background: #D0011B;
+}

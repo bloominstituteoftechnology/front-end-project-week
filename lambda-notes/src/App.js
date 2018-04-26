@@ -4,6 +4,7 @@ import { NoteList } from './Components/ListView';
 import { Route, Switch } from 'react-router-dom';
 import { CreateNote } from './Components/NewNote';
 import { ViewNote } from './Components/ViewNote';
+import { EditNote } from './Components/EditNote';
 
 class App extends Component {
   constructor(props) {
@@ -80,6 +81,7 @@ class App extends Component {
               <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
               <Route path="/createNewNote" render={() => <CreateNote />}/>
               <Route path="/viewnote" render={() => <ViewNote />}/>
+              <Route path="/editnote" render={EditNote}/>
             </Switch>
           </div>
         </div>

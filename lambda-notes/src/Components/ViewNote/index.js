@@ -1,19 +1,42 @@
 import React from 'react';
 import './view.css';
-import { Route, Link, Switch } from 'react-router-dom';
-import { EditNote } from '../EditNote';
-// import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 export class ViewNote extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            modal: false
+        };
+        this.toggle = this.toggle.bind(this);
+    }
+
+    toggle() {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
+
     render() {
         return <div className="col-9 right__side">
             <div className="row">
               <div className="col-4 edit">
                 <Link to="/editnote">Edit</Link>
-                <Route path="/editnote" render={EditNote}/>
               </div>
               <div className=" col-3 delete">
-                <Link to="/">Delete</Link>
+                <Link to="#" onClick={this.toggle}>{this.props.buttonLabel}Delete</Link>
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <ModalBody className="modalBody">
+                        Are you sure you want to delete?
+                    </ModalBody>
+                    <ModalFooter>
+                        <Link to={'/'}>
+                            <button className="primary" onClick={this.toggle}>Delete</button>
+                        </Link>
+                        <button onClick={this.toggle}>Cancel</button>
+                    </ModalFooter>
+                </Modal>
               </div>
             </div>
             <div className="row">
