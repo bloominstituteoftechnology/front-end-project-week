@@ -3,7 +3,8 @@ import { Card, CardBlock, CardText,
   CardTitle } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 
-  class notes extends Component {
+
+  class Notes extends Component {
     constructor(props) {
       super(props);
     }
@@ -14,12 +15,13 @@ import 'bootstrap/dist/css/bootstrap.css'
           <Card>
             <CardBlock>
               <CardTitle>{title}</CardTitle>
+              <hr></hr>
               <CardText>{body}</CardText>
             </CardBlock>
           </Card>
         </div>
-      )
+      ) 
     }
   }
 
-export default notes;
+export default Notes;

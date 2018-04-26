@@ -1,40 +1,75 @@
 .container {
   max-width: 1000px;
-  font-family: 'Francois One', sans-serif;
+  font-family: sans-serif;
   margin: 1.5rem;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-.col-xs-6 {
-  flex-basis: 50%;
+body {
+  background-color: #f3f3f3;
 }
 
-.notes {
-
+.App.container-fluid {
+  min-height: 100vh;
+}
+.leftSideBar {
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  height: 100%;
+}
+.noteContainer {
+  min-height: 100%;
 }
 
-.button {
-  margin: 5px;
+.note {
+  height: 200px;
+  margin: 1rem 0;
+}
+.card-body {
+  overflow: hidden;
+  font-size: 1rem;
 }
 
-.navigation {
-
+a.card-link {
+  text-decoration: none;
+  color: black;
+}
+a.card-link:hover {
+  color: black;
+}
+button.btn {
+  background: #2bc1c4;
+  font-weight: bold;
+  border-radius: 0;
+  font-size: 1.1rem;
+  border: 1px solid grey;
 }
 
-.noteForm {
-
+button.btn.deleteBtn {
+  background: red;
+}
+button.btn.deleteBtn:hover {
+  background: darkred;
 }
 
-.modal {
-
+.header {
+  color: #4a4a4a;
+  font-weight: bold;
+  line-height: 85%;
 }
 
-.noteForm {
-
+.header-link {
+  text-decoration: underline;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+.header-link:hover {
+  color: black;
 }
 
-.noteDetail {
-
+h5.card-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
-

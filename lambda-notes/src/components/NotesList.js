@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Nav, NavItem, NavLink } from 'reactstrap';
 import Notes from './Notes';
 import { notDeepStrictEqual } from 'assert';
 
-class NotesArea extends Component {
+class NotesList extends Component {
   constructor() {
     super();
     this.state = {
@@ -71,13 +71,18 @@ class NotesArea extends Component {
 render() {
   let notes = this.state.notes.map(notes => {
     return (
-        <Col sm="4">
+        <Col sm="8">
           <Notes key={notes.id} notes={notes} />
         </Col>
     )
   })
   return (
     <Container >
+    <Col sm="4">
+      <Row>
+        <Button />
+      </Row>
+    </Col>
       <Row>
        {notes}
       </Row>
@@ -86,4 +91,4 @@ render() {
 }
 }
 
-export default NotesArea;
+export default NotesList;
