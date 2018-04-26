@@ -3,7 +3,8 @@ import {
 	ADDTODO,
 	DELETETODO,
 	UPDATETODO,
-	TOGGLETODO
+	TOGGLETODO,
+	VisibilityFilters // filter types
 } from "../actions/index.js";
 
 let uuid = require("uuid-v4");
@@ -47,7 +48,8 @@ const initialState = {
 			id: uuid()
 		}
 	],
-	status: ""
+	status: "",
+	filter: ""
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -85,6 +87,11 @@ const rootReducer = (state = initialState, action) => {
 					return todo;
 				}),
 				status: "TOGGLED A TODO"
+			});
+		// change filter status of the app
+		case "SET_VISIBILITY_FILTER":
+			return Object.assign({}, state, {
+				filter: action.payload
 			});
 		default:
 			return state;

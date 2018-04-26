@@ -3,7 +3,12 @@ export const ADDTODO = "ADDTODO";
 export const DELETETODO = "DELETETODO";
 export const UPDATETODO = "UPDATETODO";
 export const TOGGLETODO = "TOGGLETODO";
-
+// filter types
+export const VisibilityFilters = {
+	SHOW_ALL_TODOS: "ALL_TODOS",
+	SHOW_COMPLETED_TODOS: "COMPLETED_TODOS",
+	SHOW_ACTIVE_TODOS: "ACTIVE_TODOS"
+};
 // from node-uuid
 let uuid = require("uuid-v4");
 
@@ -37,5 +42,12 @@ export function updateTodo(id, title, text) {
 			text: text,
 			id: id
 		}
+	};
+}
+
+export function setVisibilityFilter(filter) {
+	return {
+		type: "SET_VISIBILITY_FILTER",
+		payload: filter
 	};
 }
