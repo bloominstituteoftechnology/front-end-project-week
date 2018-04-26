@@ -34,15 +34,13 @@ const Controls = styled.div`
 
 const ListContainer = styled.div`
   display: flex
-  justify-content: ${(props) => props.children.length >= 3 
-    ? 'space-between' 
-    : 'space-evenly'
-  }
-  flex-wrap: wrap 
+  flex-wrap: wrap
+  justify-content: space-between
   width: 100%
 `
 
 const NoteContainer = styled.div`
+  width: 49%
   height: 200px
   overflow: hidden
   background-color: white
@@ -77,7 +75,7 @@ class NotesList extends Component {
   noteElements = () => {
     const { notes } = this.state
     if (isLoaded(notes) && !isEmpty(notes)) {
-      return <SortableNotesList notes={notes} onSortEnd={this.onSortEnd} />
+      return <SortableNotesList notes={notes} onSortEnd={this.onSortEnd} distance={50} axis='xy' />
     }
 
     return <h3>Loading...</h3>
@@ -86,12 +84,19 @@ class NotesList extends Component {
   makeCSV = () => ({
     mime: 'text/plain',
     filename: 'notes.csv',
-    contents: this.notes()
+    contents: this.state.notes
       .map(({ key, value: { title, content } }) => [key, title, content].join())
       .join('\r\n')
   })
 
-  handleSelect = (e) => this.setState({ orderBy: e.target.value })
+  handleSelect = (e) => {
+    const orderBy = e.target.value
+    this.setState({ 
+      orderBy, 
+      notes: this.props.notes[orderBy] 
+    })
+  }
+
   handleFilter = (e) => {
     const { notes } = this.state
     const filter = e.target.value.toLowerCase()
@@ -117,9 +122,7 @@ class NotesList extends Component {
           </select>
         </Controls>
         <h1>Your notes:</h1>
-        <ListContainer>
-          {this.noteElements()}
-        </ListContainer>
+        {this.noteElements()}
         <DownloadButton genFile={this.makeCSV} downloadTitle="Export to CSV" />
       </Container>
     )
@@ -127,11 +130,11 @@ class NotesList extends Component {
 }
 
 const SortableNotesList = SortableContainer(({ notes }) => (
-  <ul>
+  <ListContainer>
     {notes.map((note, index) => {
       return <SortableNote key={`note-${index}`} index={index} note={note} />
     })}
-  </ul>
+  </ListContainer>
 ))
 
 const SortableNote = SortableElement(({ note: { key, value } }) => (
