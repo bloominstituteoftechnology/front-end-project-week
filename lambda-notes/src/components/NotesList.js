@@ -71,7 +71,7 @@ class NotesList extends Component {
 render() {
   let notes = this.state.notes.map(notes => {
     return (
-        <Col sm="8">
+        <Col sm="4">
           <Notes key={notes.id} notes={notes} />
         </Col>
     )
