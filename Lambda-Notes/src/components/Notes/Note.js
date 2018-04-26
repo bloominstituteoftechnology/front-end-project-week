@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Note = props => {
-  const { id, label, placeholder } = props.note;
+  const { id, title, content } = props.note;
   return (
     <div>
-      <h1>{label}</h1>
-      <p>{placeholder}</p>
+      <h1>{title}</h1>
+      <p>{content}</p>
     </div>
   );
 };

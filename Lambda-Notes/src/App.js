@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import NoteList from './components/ListView';
-import Menu from './components/Menu';
+import NoteList from './components/Notes/ListView';
+import Menu from './components/Menu/Menu';
 import axios from 'axios';
 
 export default class App extends Component {
