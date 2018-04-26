@@ -3,9 +3,21 @@ import SideBar from "../SideBar/SideBar"
 import "../CreateNote/CreateNote.css"
 import { connect } from 'react-redux';
 import {newNote} from "../../Actions"
-class CreateNote extends Component {
+class EditNote extends Component {
     constructor() {
         super();
+
+        this.state = {
+            index: 0,
+            mounted: false,
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            index: this.props.location.state.index,
+            mounted: true,
+        })
     }
 
     handleInputChange = e => {
@@ -15,14 +27,26 @@ class CreateNote extends Component {
 
     render() {
         return (
-            <div className="body">
-                <SideBar/>
-                <div className = "sideBar_pop create">
-                    <h1>Edit Note: </h1>
-                    <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
-                    <textarea onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
-                    <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
-                </div>
+            <div>
+                {this.state.mounted === false ? (
+                    <div>
+                        Fetching Note....
+                    </div>
+                ) : (
+                    <div className="body">
+                    <SideBar/>
+                        <div className = "sideBar_pop create">
+                            <h1>Edit Note: </h1>
+                            <input 
+                            value={this.props.notes.notes[this.state.index].title}
+                            onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
+                            <textarea 
+                            value={this.props.notes.notes[this.state.index].note}
+                            onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
+                            <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
+                        </div>
+                    </div>
+                )}
             </div>
         )
     }
@@ -30,9 +54,8 @@ class CreateNote extends Component {
 
 const mapStateToProps = state => {
     return {
+        notes: state
     }
   }
 
-export default connect(mapStateToProps, {
-    newNote,
-  })(CreateNote);
+export default connect(mapStateToProps)(EditNote);
