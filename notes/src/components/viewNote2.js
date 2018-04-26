@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { deleteNote } from '../actions.js';
+import { connect } from 'react-redux';
+
 
 
 
@@ -32,6 +35,7 @@ class Here extends Component {
        <Link to={{pathname: `/editnote/${this.props.location.state.currentNote.id}`, state: { currentNote: this.props.location.state.currentNote}}}>
 Edit
        </Link>
+       <Link to={'/'} onClick={() => this.props.deleteNote(this.props.location.state.currentNote.id)}>Delete</Link>
 <div>
 <h4>{this.props.location.state.currentNote.title}</h4>
 <br />
@@ -40,4 +44,4 @@ Edit
                          </div>
         )}
 }
-export default Here;
+export default connect(null, { deleteNote })(Here);

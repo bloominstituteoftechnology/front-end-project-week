@@ -24,7 +24,19 @@ export const saveData = note => {
       console.log(error);
     });
 }
-  };
+}
+export const deleteNote = noteId => {
+    return dispatch => {
+    axios
+    .delete(`http://localhost:5000/notes/${noteId}`)
+    .then(response => {
+        dispatch({ type: FETCHNOTES, payload: response.data})
+    })
+    .catch(err => {
+      console.log(err);
+    });
+    }
+}
 export const editNotes = note => {
     return dispatch => {
         axios.put(`http://localhost:5000/notes/${note.id}`, note)

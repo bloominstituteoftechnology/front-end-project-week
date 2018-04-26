@@ -9,6 +9,8 @@ import {createStore, applyMiddleware} from 'redux';
 import pops from './reducers.js';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 const store = createStore(pops, applyMiddleware(thunk, logger));
