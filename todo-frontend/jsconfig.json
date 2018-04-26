@@ -10,7 +10,7 @@
     "moduleResolution": "node"
   },
   "typeAcquisition": {
-    "include": ["jest", "axios"],
+    "include": ["jest", "axios", "firebase", "re-base"],
     "enable": true
   },
   "include": ["src/**/*"]

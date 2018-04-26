@@ -1,19 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
-import logger from 'redux-logger'
 
 import { injectGlobal } from 'styled-components'
 
 import App from 'App'
 import registerServiceWorker from 'registerServiceWorker'
-
-import { todosReducer } from 'reducers'
-
-const store = createStore(todosReducer, applyMiddleware(thunk, logger))
 
 injectGlobal`
   body {
@@ -29,9 +21,7 @@ injectGlobal`
 
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <App />
   </Router>,
   document.getElementById('root')
 )

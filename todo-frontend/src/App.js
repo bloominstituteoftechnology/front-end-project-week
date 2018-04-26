@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { get } from 'axios'
 
 import { TodoList } from 'components/TodoList'
 import { Sidebar } from 'components/Sidebar'
 import { AddTodoForm } from 'components/AddTodoForm'
 
-import { fetchTodos, createTodo } from 'actions'
+// import { base } from 'base'
 
 const AppWrapper = styled.main`
   text-align: center;
@@ -17,9 +17,34 @@ const AppWrapper = styled.main`
 `
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchTodos()
+  constructor() {
+    super()
+    this.updateNotes = this.updateNotes.bind(this)
+    this.state = {
+      notes: []
+    }
   }
+
+  updateNotes(note) {
+    const notes = [...this.state.notes ]
+    notes[note.id] = note
+
+    this.setState({ notes })
+  }
+  async componentDidMount() {
+    // console.log(base)
+    // this.notesRef = base.syncState('/notes', {
+    //   context: this,
+    //   state: 'notes'
+    // })
+    const {data} = await get('/api/todos')
+    this.setState( prevState => Object.assign({}, prevState, {notes: data}))
+  }
+
+  componentWillUnmount() {
+    // base.removeBinding(this.notesRef)
+  }
+
   render() {
     return (
       <AppWrapper>
@@ -28,7 +53,9 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={props => <TodoList {...props} todos={this.props.todos} />}
+            render={props => (
+              <TodoList {...props} todos={[...this.state.notes]} />
+            )}
           />
         </Switch>
         <Switch>
@@ -61,12 +88,6 @@ App.propTypes = {
   todos: PropTypes.array
 }
 
-const mapStateToProps = state => ({
-  error: state.error,
-  fetchingTodos: state.fetchingTodos,
-  todos: state.todos
-})
-
-export default connect(mapStateToProps, { fetchTodos, createTodo })(App)
+export default App
 
 export { App }
