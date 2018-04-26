@@ -16,7 +16,7 @@ class ViewNote extends Component {
         <Row>
           <Col className="col-3 ml-auto">
             <Link to="/edit-note" className="m-3">edit</Link>
-            <a href='' onClick={this.handleDelete} size="sm">delete</a>
+            <a onClick={this.handleDelete}>delete</a>
           </Col>
         </Row>
         <Row className="mt-4">
