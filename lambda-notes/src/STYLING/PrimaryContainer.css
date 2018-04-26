@@ -1,5 +1,5 @@
 .PrimaryContainer {
-  margin: 3.33%;
+  margin: 0 3.33% 3.33%;
 }
 
 .PrimaryContainer__newNote {
@@ -89,4 +89,8 @@
 
 .ContentInput {
   height: 300px;
+}
+
+.sticky-top {
+  background-color: rgba(243, 243, 243, 0.932);
 }

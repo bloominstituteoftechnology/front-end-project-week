@@ -82,9 +82,9 @@ class PrimaryContainer extends Component {
     });
     return (
       <div className="PrimaryContainer">
-        <div className="d-flex justify-content-between align-items-center w-100">
-          <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
-          <div className="">
+        <div className="d-flex justify-content-between align-items-center w-100 sticky-top">
+          <h1 className="PrimaryContainer__header--notecards sticky">Your Notes:</h1>
+          <div className="sticky">
             {this.viewOrder()}
           </div>
         </div>
