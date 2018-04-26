@@ -11,14 +11,21 @@ class NoteView extends Component {
         super();
         this.state = {
             index: 0,
-            mounted: false
+            mounted: false,
+            display: false,
         }
     }
+
+    display = () => {
+        this.setState({
+            display: !this.state.display
+        })
+    }
+
     componentDidMount() {
         this.setState({
             index: this.props.location.state.index,
-            mounted: true
-
+            mounted: true,
         })
     }
 
@@ -32,27 +39,37 @@ class NoteView extends Component {
                     </div>
                 ) : (
                     <div>
-                        <div className="modal none">
-                            <div className="modalQuestion">Are you sure you want to delete this?</div>
+                        <div className={this.state.display===false ? (
+                            "none"
+                        ) : (
+                            "modal block"
+                        )}>
+                            <div className="modalQuestion">Are you sure you want to delete this?
+                            </div>
                             <div>
-                                <button>Delete</button>
-                                <button>No</button>
+                                <button onClick={this.display}>Delete</button>
+                                <button onClick={this.display}>No</button>
                             </div>
                         </div>
-                <div className="modalLayover">   
-                <div className="noteView">
-                    <SideBar/>
-                    <div className="noteCard">
-                        <div className = "links">
-                            <Link to="#">edit</Link>
-                            <button>delete</button>
+                    
+                        <div className={this.state.display===false ? (
+                            "block"
+                        ) : (
+                            "modalLayover"
+                        )}>
+                            <div className="noteView">
+                                <SideBar/>
+                                <div className="noteCard">
+                                    <div className = "links">
+                                        <Link to="#">edit</Link>
+                                        <button onClick={this.display}>delete</button>
+                                    </div>
+                                    <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
+                                    <p className="note">{this.props.notes.notes[this.state.index].note}</p>
+                                </div>
+                            </div>
                         </div>
-                        <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
-                        <p className="note">{this.props.notes.notes[this.state.index].note}</p>
                     </div>
-                </div>
-                </div>
-                </div>
                 )}
 
             </div>

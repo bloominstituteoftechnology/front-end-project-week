@@ -2,7 +2,6 @@
     color: black;
     display: flex;
     position: relative;
-    z-index: -1;
 }
 
 .noteCard {
@@ -53,6 +52,7 @@ margin-top: 2%;
     height: 13rem;
     text-align: center;
     padding: 4%;
+    opacity: 1;
     z-index: 3;
     border: 1px solid rgb(134, 133, 133);
 }
@@ -89,8 +89,12 @@ margin-top: 2%;
     display: none;
 }
 
-/* 
+.display {
+    display: block;
+}
+
+
 .modalLayover {
-    background-color: #F3F3F3;
-    opacity: .5;
-} */
+    background-color: rgb(243, 243, 243);
+    opacity: .3;
+}
