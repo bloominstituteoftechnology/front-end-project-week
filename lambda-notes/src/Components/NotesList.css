@@ -4,11 +4,13 @@
 }
 
 .NotesList {
+  max-height: 750px;
   display: grid;
   grid-template-columns: 31% 31% 31%;
   grid-column-gap: 3%;
   grid-auto-rows: 200px;
   grid-row-gap: 20px; 
+  overflow: auto;
 }
 
 .Note {
