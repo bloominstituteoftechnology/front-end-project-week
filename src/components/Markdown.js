@@ -13,7 +13,7 @@ const Content = styled.div`
 
 const Markdown = (props) => {
   const markdown = renderer.render(props.markdown)
-  return <Content dangerouslySetInnerHTML={{ __html: markdown }} />
+  return <Content noteId={props.noteId} dangerouslySetInnerHTML={{ __html: markdown }} />
 }
 
 export default Markdown
