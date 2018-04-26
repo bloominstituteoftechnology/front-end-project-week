@@ -26,10 +26,11 @@ class App extends Component {
   }
 
   updateNotes(note) {
-    const notes = [...this.state.notes ]
+    const notes = [...this.state.notes]
     notes[note.id] = note
 
     this.setState({ notes })
+    this.createTodo.bind(this)
   }
   async componentDidMount() {
     // console.log(base)
@@ -37,12 +38,19 @@ class App extends Component {
     //   context: this,
     //   state: 'notes'
     // })
-    const {data} = await get('/api/todos')
-    this.setState( prevState => Object.assign({}, prevState, {notes: data}))
+    const { data } = await get('/api/todos')
+    this.setState(prevState => Object.assign({}, prevState, { notes: data }))
   }
 
   componentWillUnmount() {
     // base.removeBinding(this.notesRef)
+  }
+
+  createTodo(note) {
+    note.id = this.state.notes.length + 1
+    this.setState(prevState =>
+      Object.assign({}, prevState, { notes: [note, ...prevState.notes] })
+    )
   }
 
   render() {
@@ -65,7 +73,7 @@ class App extends Component {
             render={props => (
               <AddTodoForm
                 {...props}
-                addTodo={nTodo => this.props.createTodo(nTodo)}
+                addTodo={nTodo => this.createTodo(nTodo)}
               />
             )}
           />

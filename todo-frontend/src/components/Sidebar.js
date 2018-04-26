@@ -8,9 +8,8 @@ const SidebarContainer = Styled.aside`
     top: 0;
     background-color: rgb(211,211,211);
 `
-const activeClassName = 'sidebar-active'
 
-const Button = Styled(Link).attrs({ activeClassName })`
+const Button = Styled(Link)`
     background-color: rgb(0,184,188);
     color: rgb(213,241,241);
     font-weight: bold;
