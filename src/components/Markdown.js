@@ -9,6 +9,12 @@ const Content = styled.div`
   h1 {
     font-size: 1.5rem
   }
+  h2 {
+    font-size: 1.2rem
+  }
+  h3 {
+    font-size: 1.1rem
+  }
 `
 
 const Markdown = (props) => {
