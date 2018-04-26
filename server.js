@@ -46,6 +46,22 @@ server.post('/notes', (req, res) => {
   res.json(notes);
 });
 
+server.put('/notes/:id', (req, res) => {
+  const { id } = req.params;
+  const { title, content } = req.body;
+  const findNotebyID = note => {
+    return note.id == id;
+  };
+  const foundNote = notes.find(findNotebyID);
+  if(!foundNote) {
+    return sendUserError('No Note found by that ID', res);
+  } else {
+    if(title) foundNote.title = title;
+    if(content) foundNote.content = content;
+    res.json(foundNote);
+  }
+})
+
 server.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
   const foundNote = notes.find(note => note.id == id);

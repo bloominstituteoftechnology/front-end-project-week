@@ -11,8 +11,18 @@ export class Note extends Component {
     this.state = { note: {} };
   }
 
+  _mounted = false;
+
   componentDidMount() {
+    this._mounted = true;
     this.getNote();
+  }
+
+  componentDidUpdate() {
+    if(this._mounted) {
+      this.getNote();
+      this._mounted = false;
+    }
   }
 
   getNote = () => {
@@ -25,8 +35,6 @@ export class Note extends Component {
         console.log('Error fetching notes', err);
       });
   }
-
-  handleEdit = () => {}
 
   handleDelete = () => {
     axios
@@ -47,7 +55,7 @@ export class Note extends Component {
           <div className='ViewNote__Title'><p className='NoMargin'>{this.state.note.title}</p></div>
           <div className='ViewNote__Content'><p className='NoMargin'>{this.state.note.content}</p></div>
           <div className='ViewNote__Buttons'>
-            <NavLink to='/' className='ViewNote__Link'>
+            <NavLink to={`/note-editor/${this.state.note.id}`} className='ViewNote__Link'>
               <button className='ViewNote__Edit'>Edit</button>
             </NavLink>
             <NavLink to='/notes' className='ViewNote__Link' onClick={this.handleDelete}>

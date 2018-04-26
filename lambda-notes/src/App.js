@@ -8,6 +8,7 @@ import { NotesList } from './Components/NotesList';
 import { LandingPage } from './Components/LandingPage';
 import { AddNote } from './Components/AddNote';
 import { Note } from './Components/Note';
+import { NoteEditor } from './Components/NoteEditor';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path='/notes' component={NotesList} />
           <Route exact path='/addnote' component={AddNote} />
           <Route path='/notes/:id' render={props => <Note {...props}/>}/>
+          <Route path='/note-editor/:id' render={props => <NoteEditor {...props}/>}/>
         </Switch>
       </div>
     );
