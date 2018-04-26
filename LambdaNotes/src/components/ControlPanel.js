@@ -17,7 +17,13 @@ class ControlPanel extends Component {
 				Lambda<br />Notes
 			</h3>,
 			<Link to="/">
-				<RaisedButton className="ControlPanel_button" primary={true}>
+				<RaisedButton
+					className="ControlPanel_button"
+					primary={true}
+					onClick={() => {
+						this.props.setVisibilityFilter(VisibilityFilters.SHOW_ALL_TODOS);
+					}}
+				>
 					View Your Notes
 				</RaisedButton>
 			</Link>,

@@ -9,6 +9,7 @@ import ControlPanel from "./components/ControlPanel";
 import Todos from "./components/Todos";
 import Todo from "./components/Todo";
 import EditTodoForm from "./components/EditTodoForm";
+import VisibilityTodos from "./components/VisibilityTodos";
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
             <ControlPanel />
           </div>
           <div className="col-md-8">
-            <Route exact path="/" component={Todos} />
+            <Route exact path="/" component={VisibilityTodos} />
           </div>
           <div className="col-md-8 CreateTodoForm">
             <Route exact path="/addTodo" component={CreateTodoForm} />
