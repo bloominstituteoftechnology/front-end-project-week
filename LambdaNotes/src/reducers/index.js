@@ -3,8 +3,7 @@ import {
 	ADDTODO,
 	DELETETODO,
 	UPDATETODO,
-	TOGGLETODO,
-	VisibilityFilters // filter types
+	TOGGLETODO
 } from "../actions/index.js";
 
 let uuid = require("uuid-v4");

@@ -6,7 +6,6 @@ import "./bootstrap/css/bootstrap.css";
 // components
 import CreateTodoForm from "./components/CreateTodoForm";
 import ControlPanel from "./components/ControlPanel";
-import Todos from "./components/Todos";
 import Todo from "./components/Todo";
 import EditTodoForm from "./components/EditTodoForm";
 import VisibilityTodos from "./components/VisibilityTodos";

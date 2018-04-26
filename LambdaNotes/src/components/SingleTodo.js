@@ -1,11 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 // actions
 import { toggleTodo } from "../actions/index";
-// components
-import Todo from "./Todo";
 // material components
 import { Card, CardText } from "material-ui/Card";
 // styles
@@ -20,10 +17,7 @@ class SingleTodo extends React.Component {
 	};
 
 	render() {
-		// console.log("SINGLETODO PROPS: ", this.props);
 		const { id } = this.props.todo;
-		// console.log("SINGLETODO ID: ", this.props.todo.id);
-		console.log("COMPLETE: ", this.props.todo.isComplete);
 		return [
 			<Card className="SingleTodo">
 				<CardText onClick={() => this.handleToggleTodo(id)}>

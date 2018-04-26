@@ -1,12 +1,10 @@
-import React from "react";
 import { connect } from "react-redux";
 // filter types
 import { VisibilityFilters } from "../actions/index.js";
 // components
 import Todos from "./Todos";
 
-// container component that will filter todos in redux store according to different filters
-// pass filtered todos list to Todos which will render the list
+// container component that will filter todos list according to store's filter status
 const getVisibleTodos = (todos, filter) => {
 	switch (filter) {
 		// no filter applied
@@ -29,9 +27,7 @@ const getVisibleTodos = (todos, filter) => {
 };
 
 const mapStateToProps = state => {
-	console.log("Container STATE: ", state);
-	console.log(getVisibleTodos(state.todos, state.filter));
-	// filtered todos go here
+	// filtered todos are set as Todo component's props
 	return {
 		todos: getVisibleTodos(state.todos, state.filter)
 	};
