@@ -1,20 +1,50 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createNote } from '../actions';
 
-const CreateNote = () => {
+class CreateNote extends Component {
+  constructor(props){
+    super(props)
+    this.state= {
+      note: [{
+        title: '',
+        text: '',
+      }]
+    }
+  }
+
+  render() {
     return (
-        <div className="APP__CREATE-NOTE">
-            <h4>Create New Note:</h4>
-            <div className="APP__CREATE-CONTAINER">
-                <Form className="APP__CREATE-FORM">
-                    <Input className="APP__CREATE-TITLE" type="text" placeholder="Note Title" />
-                    <Input className="APP__CREATE-CONTENT" type="textarea" name="text" placeholder="Note Content" />
-                
-                    <Button className="APP__CREATE-SAVE">Save</Button>
-                </Form>
-            </div>
-        </div>
+      <div className="APP__CREATE-NOTE">
+        <h4>Create New Note:</h4>
+          <input className="APP__CREATE-TITLE"
+            type="text"
+            placeholder="Note Title"
+            name="title"
+            value={this.state.note.title}
+            onChange={e => this.setState({ [e.target.name]: e.target.value })}
+            />
+          <input className="APP__CREATE-CONTENT"
+            type="text"
+            placeholder="Note Content"
+            name="text"
+            value={this.state.note.text}
+            onChange={e => this.setState({ [e.target.name]: e.target.value })}
+            />
+          <button className="APP__CREATE-SAVE"
+            onClick={() => {
+              this.props.createNote(this.state)
+              this.setState({ note: [{ title: '', text: '' }]  });
+            }}>Save</button>
+      </div>
     );
+  }
 };
 
-export default CreateNote;
+const mapStateToProps = state => {
+  return {
+    note: state.note,
+  };
+};
+
+export default connect(mapStateToProps, { createNote })(CreateNote)

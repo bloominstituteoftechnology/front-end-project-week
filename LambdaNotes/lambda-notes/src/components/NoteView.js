@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
 import '../Styles.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
-import { Button } from 'reactstrap';
-import EDITNOTE from './EditNote';
+// import { Link } from 'react-router-dom'
+// import EDITNOTE from './EditNote';
 
 class NoteView extends Component {
   constructor (props){
     super(props)
-    this.state = props
+    this.state={
+      note:[],
+    }
   }
+
+  componentDidMount() {
+    // this.note=
+  }
+
+
   render() {
-    const note = this.state.note;
+    //const { title, text } = note;
     return (
-      <div>
-        NOTE VIEW
-        <Link to={`/edit/${note.id}`} component={EDITNOTE}>edit</Link>
+      <div className="APP__NOTEVIEW">
+        <p>edit</p>
+        {/* <Link to={`/edit/${note.id}`}>edit</Link> */}
         <p>delete</p>
-        <h2>{note.title}</h2>
+        {/* <h2>{note.title}</h2> */}
       </div>
     );
   };
 };
 
 export default NoteView;
+

@@ -2,17 +2,9 @@
   box-sizing: border-box;
 }
 
-/* .APP__MENU {
-  background-color: lightgray;
-  border: 1px solid gray;
+html, body {
+  height: 100%;
 }
-
-.APP__NOTECARD {
-  margin: 10px;
-  height: 250px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
 
 .APP {
   display: flex;
@@ -31,7 +23,6 @@
 
 .APP__MENUBAR h1 {
   text-align: left;
-  text-overflow: wrap;
   margin: 5%;
   font-size: 2em;
 }
@@ -39,19 +30,21 @@
 .APP__MENUBUTTON {
   margin: 5%;
   width: 90%;
-  background-color: #18A8B4 !important;
-  text-align: center !important;
-  font-size: .77em !important;
-  font-weight: bold !important;
+  background-color: #18A8B4;
+  text-align: center;
+  font-size: .77em;
+  font-weight: bold;
 }
 
 
 .APP__BODY {
   display: flex;
+  position: relative;
   width: 100%;
+  height: 100%;
   justify-content: space-around;
   padding: 2%;
-  border: 1px solid gray;
+  border: 1px solid greenyellow;
   margin-left: 250px;
 }
 
@@ -76,27 +69,44 @@
   height: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid gray;
+  border-radius: 2%;
 }
 
 
 .APP__CREATE-NOTE {
   display: flex;
   width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid black;
 }
 
 .APP__CREATE-FORM {
+  display: flex;
   width: 100%;
+  flex-direction: column;
+  border: 1px solid red;
 }
 
 .APP__CREATE-TITLE {
-  width: 33%;
+  margin-top: 15px;
+  width: 50%;
+  border: 1px solid black;
 }
 
 .APP__CREATE-CONTENT {
-  width: 75%;
+  margin-top: 15px;
+  width: 100%;
+  height: 400px;
+  display: flex;
 }
 
 .APP__CREATE-SAVE {
   width: 225px;
-  font-size: .77em !important;
+  font-size: .77em;
+  margin-top: 15px;
 }

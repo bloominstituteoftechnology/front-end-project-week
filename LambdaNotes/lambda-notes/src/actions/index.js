@@ -1,28 +1,18 @@
+// ACTION TYPES
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
-export const FETCH_NOTES = 'FETCH_NOTES';
 
-// Our action creators will return
-// an action packet that our reducer will
-// receive. What does the action packet look like?
-// Note that the action creator is not at all
-// responsible for handling any of the actual
-// logic of updating the central Redux store. That
-// is left to the reducer(s).
-
-export const editNote = () => {
-  return { type: EDIT_NOTE, payload: [] };
+// ACTION CREATORS
+export const editNote = (note, index) => {
+  console.log(index);
+  return { type: EDIT_NOTE, payload: { title: note.title, text: note.text }, index };
 };
 
-export const createNote = () => {
-  return { type: CREATE_NOTE, payload: [] };
+export const createNote = (note) => {
+  return { type: CREATE_NOTE, payload: { title: note.title, text: note.text }};
 };
 
-export const deleteNote = () => {
-  return { type: DELETE_NOTE, payload: [] };
-}
-
-export const fetchNotes = () => {
-  return { type: FETCH_NOTES, payload: [] };
-}
+export const deleteNote = (note) => {
+  return { type: DELETE_NOTE, payload: note.index };
+};
