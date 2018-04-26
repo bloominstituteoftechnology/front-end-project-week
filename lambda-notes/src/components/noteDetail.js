@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Row, Col, Container, Button } from "reactstrap";
+import 'bootstrap/dist/css/bootstrap.css';
 
 import { deleteNote } from "../actions";
 

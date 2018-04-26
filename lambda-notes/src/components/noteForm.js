@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Form, Label, FormGroup, Input, Button, Container } from "reactstrap";
+import { connect } from "react-redux";
+import { 
+  Form, 
+  Label, 
+  FormGroup, 
+  Input, 
+  Button, 
+  Container 
+} from "reactstrap";
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 import { addNote, editNote } from "../actions";
 

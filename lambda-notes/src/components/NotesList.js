@@ -1,39 +1,51 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Button, Nav, NavItem, NavLink } from 'reactstrap';
-import Notes from './Notes';
-import { notDeepStrictEqual } from 'assert';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { 
+  Container, 
+  Row, 
+  Col, 
+  Card,
+  CardBody,
+  CardText,
+  CardTitle
+} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+
+
+function mapStateToProps(state) {
+  return {
+    notes: state.notes
+  };
+}
 
 class NotesList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      
-    }
-  }
-
-
-
-render() {
-  let notes = this.state.notes.map(notes => {
+  render() {
     return (
-        <Col sm="4">
-          <Notes key={notes.id} notes={notes} />
-        </Col>
-    )
-  })
-  return (
-    <Container >
-    <Col sm="4">
-      <Row>
-        <Button />
-      </Row>
-    </Col>
-      <Row>
-       {notes}
+      <Container className="my-5">
+        <Row>
+          <h2 className="section-head">Your Notes:</h2>
+        </Row>
+        <Row>
+          {this.props.notes.map(note => {
+            return (
+              <Col sm="4">
+                <Link className="card-link" to={`/viewNotes/${note.id}`}>
+                  <Card className="note pb-2">
+                    <CardBody>
+                      <CardTitle>{note.title}</CardTitle>
+                      <hr />
+                      <CardText>{note.note}</CardText>
+                    </CardBody>
+                  </Card>
+                </Link>
+            </Col>    
+          );
+        })}
       </Row>
     </Container>
-  )
+  );
 }
 }
 
-export default NotesList;
+export default connect(mapStateToProps)(NotesList);
