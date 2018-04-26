@@ -1,8 +1,9 @@
-/* html, body {height: 100%;} */
+html, body {height: 100%;}
 
 .App {
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .side-nav {
@@ -63,3 +64,4 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   text-decoration: underline;
   color: #007bff;
 }
+

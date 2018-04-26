@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Button } from 'reactstrap';
 
 import NotesList from './components/notesList';
 import CreateNote from './components/createNote';

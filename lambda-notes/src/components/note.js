@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody, CardTitle, Button } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { withRouter } from "react-router-dom";
 
 class Note extends Component {
@@ -11,7 +11,7 @@ class Note extends Component {
 
   render() {
     return (
-      <div className="note-container">
+      // <div className="note-container">
         <Card onClick={this.handleClickNote}>
           <CardBody>
             <CardTitle>{this.props.title}</CardTitle>
@@ -19,7 +19,7 @@ class Note extends Component {
             <CardText>{this.props.content}</CardText>
           </CardBody>
         </Card>
-      </div>
+      // </div>
     );
   }
 
