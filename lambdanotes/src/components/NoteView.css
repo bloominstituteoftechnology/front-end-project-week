@@ -24,4 +24,9 @@
   margin: 0;
   padding: 5% 0 0 0;
   margin-bottom: 5%;
+  word-break: break-word;
+}
+
+.note-view .note-content {
+  word-break: break-word;
 }

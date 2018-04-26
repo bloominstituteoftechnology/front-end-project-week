@@ -33,15 +33,14 @@ class CreateNote extends Component {
       title: this.state.title,
       content: this.state.content
     };
-    if (this.state.title !== "" && this.state.content !== "") {
-      this.props.addNote(newNote);
-      this.setState({
-        title: "",
-        content: ""
-      });
-    } else {
-      alert("Fill out all inputs to submit");
+    if (this.state.title === "") {
+      newNote.title = "Untitled";
     }
+    this.props.addNote(newNote);
+    this.setState({
+      title: "",
+      content: ""
+    });
   };
 
   render() {
