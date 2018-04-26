@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { SideBar } from './SideBar';
-import { getNotes } from '../actions';
-import { connect } from 'react-redux';
 import NotesList from './NotesList';
-import HomePage from './HomePage';
+import CreateNote from './CreateNote'
 
 class App extends Component {
  
@@ -13,8 +11,8 @@ class App extends Component {
     return (
       <div className="App">
           <SideBar className="sideBar" />
-          <Route exact path="/" component={HomePage} />
-          <Route path="/view_notes" component={NotesList} />
+          <Route exact path="/" component={NotesList} />
+          <Route path="/create" component={CreateNote} />
       </div>
     );
   }

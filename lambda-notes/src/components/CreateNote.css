@@ -13,11 +13,19 @@
     font-weight: bold;
 }
 
+.createNoteContainer {
+    width: 80%;
+    padding-left: 25px;
+    padding-top: 35px;
+    background-color: #F2F1F2;
+    border-left: 1px solid gray;
+}
+
 .inputFields {
     margin-left: 12px;
 }
 
-.createNoteTitle {
+.title {
     width: 55%;
     padding: 10px;
     border: 1px solid gray;
@@ -28,7 +36,7 @@
     margin-top: 10px;
 }
 
-.createNoteContent {
+.content {
     width: 90%;
     height: 300px;
     padding: 10px;

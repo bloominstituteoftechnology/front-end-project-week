@@ -7,7 +7,7 @@ export const SideBar = props => {
             <div className="header">
                 <h1 className="headerSideBar">Lambda Notes</h1>
             </div>
-            <Link to='/view_notes'><button className="button">View Your Notes</button></Link>
+            <Link to='/'><button className="button">View Your Notes</button></Link>
             <Link to='/create'><button className="button">+ Create New Note</button></Link>
          </div>
 };

@@ -66,7 +66,7 @@ let noteId = 9;
 
 server.post('/notes', (req, res) => {
   const { title, content } = req.body;
-  const newNote = { title, content, id: noteId };
+  const newNote = { id: noteId, title, content };
   if (!title || !content) {
     return sendUserError(
       'Title and content are all required to create a note in the note DB.',

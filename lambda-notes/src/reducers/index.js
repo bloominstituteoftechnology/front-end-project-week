@@ -1,13 +1,13 @@
-import { FETCH_NOTES, FETCHED_NOTES, ERROR_FETCHING } from '../actions';
+import { FETCH_NOTES, FETCHED_NOTES, ERROR_FETCHING, CREATE_NOTE, ERROR_CREATING } from '../actions';
 
-// , ADD_SMURF, ERROR_ADDING, DELETE_SMURF, ERROR_DELETING
+//   DELETE_NOTE, ERROR_DELETING
 
  const initialState = {
    notes: [],
    fetchingNotes: false,
-//    addingSmurf: false,
-//  updatingSmurf: false,
-//    deletingSmurfs: false,
+   creatingNote: false,
+//  updatingNote: false,
+//    deletingNote: false,
    error: null
  }
 
@@ -19,7 +19,7 @@ export const rootReducer = (state = initialState, action) => {
 
     case FETCHED_NOTES:
       return Object.assign({}, state, {
-        notes: [...state.notes, ...action.payload],
+        notes: [ ...action.payload ],
         fetchingNotes: false,
         error: null
       });
@@ -28,6 +28,18 @@ export const rootReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: action.payload,
       });
+
+      case CREATE_NOTE:
+      return Object.assign({}, state, {
+        notes: [...action.payload],
+        creatingNote: true,
+        error: null
+    });
+
+    case ERROR_CREATING:
+      return Object.assign({}, state, {
+        error: action.payload,
+    });
     
     default:
       return state;

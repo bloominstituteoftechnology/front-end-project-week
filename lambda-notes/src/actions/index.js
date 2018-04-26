@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { create } from 'domain';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const ERROR_FETCHING = 'ERROR_FETCHING';
-// export const ADD_SMURF = 'ADD_SMURF';
-// export const ERROR_ADDING = 'ERROR_ADDING';
-// export const DELETE_SMURF = 'DELETE_SMURF';
+export const CREATE_NOTE = 'CREATE_NOTE';
+export const ERROR_CREATING = 'ERROR_CREATING';
+// export const DELETE_NOTE = 'DELETE_NOTE';
 // export const ERROR_DELETING = 'ERROR_DELETING';\\
 
 export const getNotes = () => {
@@ -27,4 +26,20 @@ export const getNotes = () => {
           });
         });
     };
+  };
+
+  export const createNote = data => {
+    const notes = axios.post(`http://localhost:3333/notes`, data);
+      return dispatch => {
+        notes
+        .then(response=> {
+          dispatch({ type: CREATE_NOTE })
+        })
+        .catch(err => {
+          dispatch({
+            type: ERROR_CREATING,
+            payload: 'ERROR creating note'
+          });
+        });
+      };
   };

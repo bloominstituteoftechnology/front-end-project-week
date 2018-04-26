@@ -18,15 +18,10 @@ class NotesList extends Component {
          
         <div className="mainList"><h3 className="headerNotes">Your Notes:</h3>
           {this.props.notes.map(note => <div key={note.id} className="noteList">
-                                              
-                                              <div className="noteTitle">{note.title}</div>
-                                              <div className="divide"></div>
-                                              <div className="noteText">
-                                                <div className="noteContent">{note.content}</div>
-                                                {/* <button className="button" 
-                                                  onClick={() => {
-                                                    this.props.removeSmurf(smurf.id);}}>Delete</button> */}
-                                              
+                                            <div className="noteTitle">{note.title}</div>
+                                            <div className="divide"></div>
+                                            <div className="noteText">
+                                            <div className="noteContent">{note.content}</div>
                                               </div>
                                             </div>)}
         </div>
