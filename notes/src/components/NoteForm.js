@@ -10,42 +10,42 @@ export class NoteForm extends Component {
     if (props.formUse === 'Create New Note') {
       this.state = { title: '', body: '' , id: props.notes.length };
     } else {
-      this.note = props.notes[props.match.params.id];
+      const id = props.match.params.id;
+      this.note = props.notes[id];
       this.state = {
         title: this.note.title,
         body: this.note.body,
-        id: Number(props.match.params.id)
+        id: Number(id)
       }
     }
   }
 
   componentDidMount() {
     // Make sure to resize inputs on load
-    this.resizeInput();
+    this.resizeInputs();
   }
 
   handleInput = e => {
-    // Link input to state
+    // Link input to state and resize if needed
     this.setState({ [e.target.name]: e.target.value });
-    // Adjust height of text area
-    const input = document.querySelector("."+e.target.className);
-    input.style.height = "1px";
-    input.style.height = (3+input.scrollHeight)+"px";
+    this.resizeInputs();
   }
 
   fillEmpty(value) {
-    return (typeof value === 'string' && !value) ? '...' : value;
+    return (typeof value === "string" && !value) ? "..." : value;
   }
 
   resetInput() {
     this.setState({ title: '', body: '' });
   }
 
-  resizeInput() {
-    // Adjust height of text area
-    const input = document.querySelector('.NoteForm_inputBody');
-    input.style.height = "1px";
-    input.style.height = (3+input.scrollHeight)+"px";
+  resizeInputs() {
+    // Adjust height of text areas
+    const textareas = document.querySelectorAll('textarea');
+    textareas.forEach(textarea => {
+      textarea.style.height = "1px";
+      textarea.style.height = (3+textarea.scrollHeight)+"px";
+    })
   }
 
   render() {
