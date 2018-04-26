@@ -2,7 +2,13 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import { Link, Route, Router, Switch } from 'react-router-dom'
 import { createMemoryHistory } from 'history'
-import { render, Simulate } from './'
+import { render, Simulate, wait } from './'
+import {
+  // renderIntoDocument,
+  // cleanup,
+  // render,
+  fireEvent,
+} from 'react-testing-library'
 
 import App from '../App';
 import { testNotes } from './testData';
@@ -102,7 +108,7 @@ test('I can delete a note', () => {
   Simulate.click(getByText(testChangeTitle), leftClick)
   expect(container.innerHTML).toMatch('delete');
 
-  Simulate.click(getByText('delete'), leftClick)
+  Simulate.click(getByText('for test only delete'), leftClick)
   expect(container.innerHTML).toMatch('Your Notes:');
 
   expect(container.innerHTML).not.toMatch(testChangeTitle);

@@ -44,10 +44,14 @@ html, body {height: 100%;}
 
 .btn {
   font-weight: bold;
+  background-image: none;
+}
+
+.btn-size {
+  width: 10rem;
 }
 
 .btn-info {
-  background-image: none;
   background-color: #40b9bb;
 }
 
