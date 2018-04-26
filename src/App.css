@@ -1,0 +1,204 @@
+h4 {
+  margin: 0;
+  padding: 5% 0 0 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+}
+
+h3 {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+p {
+  font-family: "Raleway", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(240, 232, 232);
+}
+
+.notes-menu {
+  border-right: 1px grey solid;
+  width: 18%;
+  padding: 1.5%;
+  background-color: gainsboro;
+  font-family: "Roboto", sans-serif;
+}
+
+.notes-list {
+  width: 80%;
+  padding: 2rem 1.5rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note-card {
+  width: 27%;
+  padding: 2%;
+  margin-bottom: 1.5rem;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 grey;
+  transition: 0.2s;
+  /* font-family: "Raleway", sans-serif; */
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.nav-bar {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+
+.link {
+  background-color: rgb(57, 204, 204);
+  border: 2px grey solid;
+  padding: 0.5rem;
+  /* margin-bottom: 1rem; */
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+.add-note {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-note input {
+  padding: 0.5rem;
+  width: 60%;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.add-note textarea {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  resize: none;
+  font-family: "Raleway", sans-serif;
+}
+
+.save-button {
+  width: 20%;
+  text-align: center;
+  background-color: rgb(57, 204, 204);
+  border: 2px grey solid;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.editDelete {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -10px;
+}
+
+.editDelete .link {
+  background-color: #2bc1c5;
+  border: 1px grey solid;
+  padding: 0.3rem;
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  font-weight: lighter;
+  margin-left: 1rem;
+}
+
+download {
+  display: flex;
+  justify-content: space-around;
+  background-color: green;
+}
+
+.signOut {
+  background-color: red;
+}
+
+.login {
+  /* position: relative */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 4px 0 grey;
+  transition: 0.7s;
+  /* width: 140%; */
+  background-color: rgba(0, 0, 0, 0.37);
+  color: black;
+  padding: 2%;
+  border-radius: 1rem;
+  opacity: 0.8;
+}
+
+.login:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  /* cursor: pointer; */
+}
+
+.login form {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 20rem;
+  border: 3px solid black;
+  padding: 4rem;
+  box-sizing: border-box;
+}
+.login form:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.login input {
+  border: black;
+
+  margin-bottom: 2rem;
+}
+
+.login button {
+  width: 12.4rem;
+  color: white;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
