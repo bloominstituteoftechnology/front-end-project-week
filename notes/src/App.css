@@ -5,6 +5,8 @@
   /* max-width: 100%;
   width: 800px; */
   margin: auto;
+  border: 2px #737373;
+  
 
   
 }
@@ -12,15 +14,18 @@
 .column_left {
   width: 21%;
   background: #B0B0B0;
+  height: 1000px;
 }
 
 .column_right {
   width: 79%;
   background: #F0F0F0;
+  height: 1000px;
 }
 
 .myCards {
   width: 30%;
+  height: 300px;
   border-width: 2px !important;
   border-color: #BEBEBE	!important;
   cursor: pointer;
@@ -45,7 +50,7 @@
   box-shadow: none;
 }
 .input_content {
-  height: 40px;
+  height: 400px;
   border-color: #BEBEBE;
   
 }

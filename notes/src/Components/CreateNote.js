@@ -22,7 +22,6 @@ function getNextId() {
  
     render() {
         return(
-            // <Route exact path="/CreateNote" component={Inputs} />
             <div className='input d-flex flex-column' >
                 <h4 className='New_note_header text-left pl-3 pt-5 '> Create New Note: </h4>
                 <input className='input_title p-1 ml-3 mt-3 border rounded'

@@ -8,7 +8,7 @@ const Navigation = (props) => {
         <div>
             <Nav>
                 <NavItem>
-                    <Link to='/Home'> {props.view} </Link>
+                    <Link to='/YourNotes'> {props.view} </Link>
                 </NavItem>
                 <NavItem>
                     <Link to='/CreateNote'> {props.create} </Link>

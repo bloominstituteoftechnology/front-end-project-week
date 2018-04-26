@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Cards from './Components/YourNotes.js';
 import Input from './Components/CreateNote.js';
-import ViewNote from './Components/ViewNote.js';
-import UpdateNote from './Components/UpdateNote.js';
+import ViewNote  from './Components/ViewNote.js';
+import EditNote from './Components/EditNote.js';
+// import DeleteNote  from './Components/DeleteNote.js';
 import Navigation from './Components/Navigation.js';
 import { Route, Link } from 'react-router-dom';
 
@@ -53,24 +54,22 @@ class App extends Component {
                 </div>
             </div>
             <div className='column_right '>
-
-
-
+             
               <div>
-                <Cards notes={this.state.Notes} />
-              </div>
-              <div>
-                {/* <Input 
-                  handleAddNote={this.handleAddNote}
-                  Notes={this.state.Notes}   
-                /> */}
-                {/* <ViewNote notes={this.state.Notes} /> */}
                 
-                <Route path="/CreateNote" component={Input} />
-                <Route path={`/ViewNote`} component={ViewNote}/>
+                <Route path={`/YourNotes`}  render ={ () => <Cards notes={this.state.Notes} />} />
+                
+                <Route path="/CreateNote" render = { () => 
+                  <Input handleAddNote={this.handleAddNote}
+                    Notes={this.Notes}  />} />
 
-                 {/* <Route exact path="/" component={Cards}/> */}
-                
+                <Route path="/EditNote" render = { () =>
+                  <EditNote handleAddNote={this.handleAddNote}
+                    Notes={this.Notes}  />} />
+
+                <Route path={`/ViewNote`}  render ={ () => <ViewNote notes={this.state.Notes} />} />
+                {/* <Route path={`/DeleteNote`} component={DeleteNote}/> */}
+               
               </div>
             </div>
           </div>

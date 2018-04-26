@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import { Button, Form, FormGroup, Input, Label, FormText } from 'reactstrap';
 
-
- class UpdateNote extends Component {
+ class EditNote extends Component {
      constructor(props) {
          super(props);
          this.state = {
@@ -10,10 +8,11 @@ import React, { Component } from 'react';
             addTitle: ''  
          }
      }
+
     handleChange = (e) => {
         console.log('HANDLE_CHANGE_NAME', e.target.name, 'HANDLE_CHANGE_VALUE', e.target.value);
         this.setState({[e.target.name]: e.target.value});
-  };
+    };
  
     render() {
         return(
@@ -35,7 +34,7 @@ import React, { Component } from 'react';
                     type='button' 
                     className='save_button btn btn-sm ml-3 mt-2'
                 > 
-                    Save
+                    Update
                 </button>
             </div>
         );
@@ -43,4 +42,4 @@ import React, { Component } from 'react';
 }
 
 
-export default UpdateNote;
+export default EditNote;
