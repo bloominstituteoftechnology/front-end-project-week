@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom"
 
 import SideNav from './components/SideNav';
-import NoteDisplay from './components/NoteDisplay';
+import ListView from './components/ListView';
 import NoteView from './components/NoteView';
 import CreateNote from './components/CreateNote';
 
@@ -15,15 +15,9 @@ export default class App extends Component {
       <div className="App">
         <SideNav />
         <Switch>
-          {/* <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p> */}
-          <Route path = '/NoteDisplay' component={NoteDisplay} />
+          <Route exact path = '/' component={ListView} />
           <Route path = '/CreateNote' component={CreateNote} />
+          <Route path = '/NoteView' component={NoteView} />
         </Switch>
       </div>
     );
