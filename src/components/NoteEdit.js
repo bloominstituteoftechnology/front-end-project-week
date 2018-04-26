@@ -26,12 +26,7 @@ const mapStateToProps = (state, props) => ({
   note: getVal(state.data, `notes/${props.match.params.id}`)
 })
 
-const mapListenerstoProps = (props) => [
-  `note/${props.match.params.id}`,
-  'notes'
-]
-
 export default compose(
-  firebaseConnect(),
+  firebaseConnect([ 'notes' ]),
   connect(mapStateToProps)
 )(NoteEdit)
