@@ -37,6 +37,7 @@
   background: lightgrey;
   width: 300px;
   border-right:1.2px solid grey;
+  height: 1500px;
 }
 
 
@@ -56,6 +57,12 @@ text-align: start;
 border-top: 2px solid grey;
 padding-top: 10px;
 line-height: 40px;
+}
+.SearchButton{
+  width:100px;
+  height: 30px; 
+  background:grey;
+  margin-left:10px;
 }
 .Notes{
   border: 1.3px solid grey;

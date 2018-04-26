@@ -1,6 +1,6 @@
 import {ADD_NOTES} from "./allActions";
 import { EDIT_NOTE } from "./allActions";
-
+import { FILTERED_NOTE } from "./allActions";
 const initialState = [
     { title: 'Schools ', text: 'Lambda School offers a full-time, 6-month online full stack coding school.Lambda School offers a full-time..' },
     { title: 'Program ', text: 'Lambda School offers a full-time, 6-month online full stack coding school.Lambda School offers a full-time..'},
@@ -14,16 +14,22 @@ const initialState = [
 ]
     
      
-const notesReducer = (state = initialState, action)=>{   
-    console.log('action',action)
+const notesReducer = (state = initialState, action)=>{  
     
+  
+       
+
+
 
     switch(action.type){
        case ADD_NOTES:           
             return (               
                 state = [...state, action.payload])
         case EDIT_NOTE :
-            return state = [...state,...action.payload]           
+            return state = [...state,...action.payload] 
+        case FILTERED_NOTE:
+            return state = [action.payload]
+            
         default:
          return state
 

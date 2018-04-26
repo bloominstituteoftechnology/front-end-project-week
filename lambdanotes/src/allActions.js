@@ -1,6 +1,6 @@
 export const ADD_NOTES = 'ADD_NOTES'
 export const EDIT_NOTE = 'EDIT_NOTE'
-
+export const FILTERED_NOTE = 'FILTERED_NOTE'
 
 
 const addNoteActionCreator = (obj)=>{
@@ -28,4 +28,14 @@ const editNoteActionCreator = (editedNote)=>{
         payload: editedNote
     }
 }
-export { addNoteActionCreator, editNoteActionCreator}
+const filterNotesActionCreator = (filteredNote) =>{
+   console.log('f',filteredNote)
+    return { 
+        type: FILTERED_NOTE,
+        payload: filteredNote
+
+    }
+}
+
+
+export { addNoteActionCreator, editNoteActionCreator, filterNotesActionCreator}

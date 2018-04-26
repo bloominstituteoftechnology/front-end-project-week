@@ -1,8 +1,14 @@
 import React,{Component} from "react";
 import {connect} from 'react-redux';
-import { addNoteActionCreator} from "./allActions";
+import { addNoteActionCreator, filterNotesActionCreator } from "./allActions";
 import { Route, Link } from 'react-router-dom';
 import NoteView from './notView';
+
+
+
+
+
+
 
 class NotesList extends Component{
     constructor(props){
@@ -11,24 +17,65 @@ class NotesList extends Component{
         this.state={
             title:'',
             text:'',
+            search:'',
+            divStyle:true
          }
         }
-
+searchHandler = (event)=>{
+    this.setState({[event.target.name]:event.target.value})
+}
  render(){
-
+   let   divStyle = {
+         display: !'none'
+     }      
+let filterNotesAction =()=>{
+    return this.state.search;
+}
   return ( 
      <div className="AllNotes">
-       <p>Your Notes:</p>
-       <div className="NotesSection">      
-                {this.props.notes.map((note,index) =>{ return(                   
+        <input  className='FilterInput'
+                type="text"
+                placeholder='Search for a note'
+                name='search'
+                value={this.state.search}
+                onChange={this.searchHandler}
+        />
+          <button className="SearchButton !important" onClick={ () =>{filterNotesAction(); this.setState({ search: ''})}} >Back</button>             
+       <p>Your Notes:</p>     
+           {this.props.notes.map((note, index) => {
+               console.log('index',index)
+               console.log('note',note)
+              {
+                  if ( filterNotesAction() === note.title) {
+                      divStyle.display = !divStyle.display;
+                      return (
+                         
+                          <div className="Notes"  >
+                              <div className="NoteTitle" key={note.title} >{note.title}</div>
+                              <div className=" NoteText" key={"index"} >{note.text}</div>
+                          </div>
+                      )
+
+                   }
+                else {
+                      
+                }
+              } 
+         
+ })}                            
+          <div className="NotesSection" style={divStyle}>      
+                {this.props.notes.map((note,index) =>{ 
+    
+                    return(                   
                           <div className="Notes"key={index }> 
                           <Link to={`/${note.title}`} className="edit">
-                          <div className="NoteTitle" >{note.title}</div>
+                          <div className="NoteTitle" key={note.title} >{note.title}</div>
                           </Link>
-                          <div  className=" NoteText" >{note.text}</div>
+                          <div  className=" NoteText" key={"note.text"} >{note.text}</div>
                           </div>                  
             )})} 
-       </div>             
+           </div>
+
       </div>
   )
  }
@@ -39,4 +86,4 @@ const mapStateToProps = (state)=>{
        notes: state.notesReducer,
     }
 }
-export default connect(mapStateToProps, {addNoteActionCreator})(NotesList)
+export default connect(mapStateToProps, { addNoteActionCreator, filterNotesActionCreator})(NotesList)
