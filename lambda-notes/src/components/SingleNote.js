@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 class SingleNote extends React.Component {
   render() {
+    let trimText = this.props.note.text.slice(0, 140) + "...";
     return (
       <div className="note__card">
         <Link
@@ -11,7 +12,7 @@ class SingleNote extends React.Component {
         >
           <h5>{this.props.note.title}</h5>
           <hr className="ruler" />
-          <p className="note__body">{this.props.note.text}</p>
+          <p className="note__body">{trimText}</p>
         </Link>
       </div>
     );

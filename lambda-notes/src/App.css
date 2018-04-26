@@ -4,10 +4,13 @@
 
 body {
   font-size: 62.5%;
+  height: 100%;
 }
 
 #root {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  background-color: gray;
 }
 
 .container {
@@ -17,7 +20,6 @@ body {
 .App {
   text-align: center;
   height: 100%;
-  background-color: gray;
 }
 
 .App-header {
@@ -49,7 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100vh;
+  height: 100vmin;
   color: white;
 }
 
@@ -70,7 +72,8 @@ body {
 
 .right__side {
   background: #f3f3f3;
-  height: 100vh;
+  height: 100vmin;
+  height: 100%;
   border: 1px solid gray;
 }
 
