@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom"
 import SideNav from './components/SideNav';
 import NoteDisplay from './components/NoteDisplay';
 import NoteView from './components/NoteView';
+import CreateNote from './components/CreateNote';
 
 import logo from './logo.svg';
 import './App.css';
@@ -22,7 +23,7 @@ export default class App extends Component {
             To get started, edit <code>src/App.js</code> and save to reload.
           </p> */}
           <Route path = '/NoteDisplay' component={NoteDisplay} />
-          <Route path = '/NoteView' component={NoteView} />
+          <Route path = '/CreateNote' component={CreateNote} />
         </Switch>
       </div>
     );
