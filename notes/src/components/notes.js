@@ -28,13 +28,18 @@ export default class Notes extends Component {
 
   addNote = (title, text) => {
     let id = this.state.currID;
-    while (this.state.notes.some(e => e.id === id)) id++;
+    this.state.notes.forEach(e => {
+      if(e.id > id)
+        id = e.id + 1;
+    })
+    // while (this.state.notes.some(e => e.id === id)) id++; //most inefficient piece of code ever written, replaced with above
     let note = { title, text, id };
-    this.state.notes.push(note);
+    let noteState = this.state.notes;
+    noteState.push(note);
     this.setState({
       view: "list",
       currID: this.state.currID + 1,
-      notes: this.state.notes
+      notes: noteState
     });
   };
 
@@ -55,8 +60,10 @@ export default class Notes extends Component {
   };
 
   removeNote = id => {
-    let filteredList = this.state.notes.filter(e => e.id !== id);
-    this.setState({ view: "list", notes: filteredList });
+    this.setState({
+      view: "list",
+      notes: this.state.notes.filter(e => e.id !== id)
+    });
   };
 
   removeAllNotes = () => {
