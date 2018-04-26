@@ -1,42 +1,63 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+
 import './App.css';
-import NotesList from './components/NotesList.js'; 
-import CreateNew from './components/CreateNew.js';
-import ListView from './components/ListView.js';
-import Navigation from './components/Navigation.js';
+import { createNew, ListView, Navigation, NotesList } from './components';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
-      notes: []
-    };
+      notes: [],
+      formText: ""
+    }
   }
 
   componentDidMount() {
-    this.newNotes();
+    console.log(this);
+    this.props.getTodos();
+  }
 
-    newNotes = () => {
-    axios
-    .get('http://localhost:3000')
-    .then(response => {
-      this.setState({ notes: response.data });
-  })
-  .catch(err => {
-  });
- }
-}
+  logTodos() {
+    console.log(this.props.todos);
+  }
+
+  handleTodoText = e => {
+    this.setState({
+      formText: e.target.value
+    });
+  }
+
   render() {
-    const { notes } = this.state;
+    let name = {
+      value: 'Default',
+      completed: false
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-         <h1 className="App-title">Lambda Notes</h1>
-        </header>
-       </div>
+      <div className="ToDoList">
+      <input onChange={e => this.handleTodoText(e)} value={this.state.formText} type="text" placeholder='Add your To Dos here!' />
+      <button onClick={() => this.props.submitTodo(this.state.formText)}>Submit</button>
+      </div>
+
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    todos: state,
+  };
+};
+
+const mapDispatchToProps = () => {
+  return {
+    getTodos,
+    submitTodo,
+    toggleTodo
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps())(App);
