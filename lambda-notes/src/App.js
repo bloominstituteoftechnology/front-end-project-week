@@ -79,8 +79,14 @@ class App extends Component {
   }
 
   addUpdate = (title, body) => {
-
-  }
+    const id = {note:id};
+    const update = {title: title, body: body};
+    const newNote = this.state.note;
+    newNote.push(update);
+    this.setState({
+      note: newNote
+    });
+  };
 
   render() {
     return ( 
