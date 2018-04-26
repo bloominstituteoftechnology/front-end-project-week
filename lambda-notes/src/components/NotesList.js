@@ -27,15 +27,15 @@ class NotesList extends Component {
           <h2 className="section-head">Your Notes:</h2>
         </Row>
         <Row>
-          {this.props.notes.map(note => {
+          {this.props.notes.map(notes => {
             return (
               <Col sm="4">
-                <Link className="card-link" to={`/viewNotes/${note.id}`}>
+                <Link className="card-link" to={`/viewNotes/${notes.id}`}>
                   <Card className="note pb-2">
                     <CardBody>
-                      <CardTitle>{note.title}</CardTitle>
+                      <CardTitle>{notes.title}</CardTitle>
                       <hr />
-                      <CardText>{note.note}</CardText>
+                      <CardText>{notes.notes}</CardText>
                     </CardBody>
                   </Card>
                 </Link>

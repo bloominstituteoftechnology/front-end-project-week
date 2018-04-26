@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
-    "glamor": "^2.20.40",
-    "glamorous": "^4.12.4",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -15,9 +12,9 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "reactstrap": "^5.0.0-beta.3",
-    "redux-promise": "^0.5.3",
-    "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react": "^0.79.1"
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
