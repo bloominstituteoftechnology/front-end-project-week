@@ -4,15 +4,27 @@ import  Notes from './Notes';
 import OneNote from './OneNote';
 // import CreateNote from './components/CreateNote';
 import './App.css';
+import {getNotes} from './defaultNotes'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: []   
+  }
+} 
+
+componentDidMount() {
+  this.setState({notes: getNotes()})
+}
+
   render() {
     return (
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={Notes} />
+          <Route exact path="/" component={Notes} notes={this.state.notes}/>
           {/* <Route path="/create-new-note" component={CreateNote} /> */}
-          <Route path="/view-note/:id" component={OneNote} />
+          <Route path="/view-note/:id" component={OneNote} notes={this.state.notes} />
         </div>
       </BrowserRouter>
     );
