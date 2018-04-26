@@ -6,7 +6,7 @@
 .CardTitle {
   font-weight: 600;
   font-size: 1.6vw;
-  padding: 8px 6px 8px 0;
+  padding: 8px 10px 8px 0;
   display: block;
   color: white;
   background: linear-gradient(110deg, #fa7c30 16%, rgba(0, 0, 0, 0) 16%),
@@ -18,7 +18,8 @@
   color: black;
   text-align: left;
   padding: 3% 7%;
-  background: rgb(190, 181, 181);
+  background: rgb(221, 221, 221);
+
   /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;

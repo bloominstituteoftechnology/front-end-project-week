@@ -1,12 +1,28 @@
 .Note_Creator {
-  padding: 20px;
+  padding: 20px 50px;
 }
 
 .CreateNoteText {
   color: white;
+  text-align: left;
 }
 
 .CreateNoteContainer {
   display: flex;
   flex-direction: column;
+}
+
+.createInputTitle {
+  margin: 10px 0;
+  width: 80%;
+}
+
+.createInputContent {
+  width: 80%;
+  margin: 10px 0;
+}
+
+.createSaveButton {
+  margin-top: 50px;
+  width: 80%;
 }
