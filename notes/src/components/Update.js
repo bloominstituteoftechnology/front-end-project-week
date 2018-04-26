@@ -21,7 +21,6 @@ class Update extends Component {
             id: this.props.location.state.currentNote.id
         }
         this.props.editNotes(edited);
-
     }
     render() {
         return (
@@ -44,7 +43,7 @@ placeholder="Note Text Here"
 onChange={this.handleTextInput}
 
 />
-<Link to="/"> <button onClick={() => this.newUpdate()} type="submit">Update Note</button></Link>
+<Link to="/" onClick={() => this.newUpdate()}><button type="submit">Update Note</button></Link>
 
     </div>
         )}

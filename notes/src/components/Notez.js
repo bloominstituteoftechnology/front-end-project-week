@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import {connect } from 'react-redux';
+import {fetchStuff } from '../actions.js';
 
 
 class free extends Component {
@@ -14,23 +15,25 @@ class free extends Component {
     }
   }
   componentDidMount() {
-    this.getFriends();
+  this.props.fetchStuff();
   }
-  getFriends = () => {
-    axios
-      .get(`http://localhost:5000/notes`)
-      .then(response => {
-        this.setState({ notes: response.data });
-      })  
-      .catch(err => {
-        console.log(err);
-      });
-    }
+//   getFriends = () => {
+//     axios
+//       .get(`http://localhost:5000/notes`)
+//       .then(response => {
+//         this.setState({ type });
+//       })  
+//       .catch(err => {
+//         console.log(err);
+//       });
+//     }
+
+
     render() {
         const { note } = this.props;
         return (
             <div>
-            {this.state.notes.map(note => {
+            {this.props.notes.map(note => {
                 return (
                     <div>
 <Link to={{pathname: `/note/${note.id}`, state: { currentNote: note}}}>    <div key={note.id}>
@@ -45,4 +48,7 @@ class free extends Component {
         )}
    
 }
-export default free;
+const mapStateToProps = state => {
+    return {notes: state.notes}
+}
+export default connect(mapStateToProps, {fetchStuff})(free);
