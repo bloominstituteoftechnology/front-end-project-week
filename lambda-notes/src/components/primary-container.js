@@ -87,7 +87,9 @@ class PrimaryContainer extends Component {
     return (
       <div className="PrimaryContainer">
         <div className="d-flex justify-content-between align-items-center w-100 sticks">
-          <h1 className="PrimaryContainer__header--notecards sticky">Your Notes:</h1>
+          <h1 className="PrimaryContainer__header--notecards sticky">
+            {this.props.username !== "" ? `${this.props.username}'s Notes:` : "Your Notes:"}
+          </h1>
           <div className="sticky">{ this.viewOrder() }</div>
         </div>
         {/* <div className="d-flex justify-content-between align-items-center w-100">

@@ -56,9 +56,9 @@
   }
 
   .Nav__Header {
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
     color: #4A484A !important;
-    text-shadow: 2px 2px #2AC1C5 !important;
+    text-shadow: 1px 1px #2AC1C5 !important;
     margin: 0;
   }
 

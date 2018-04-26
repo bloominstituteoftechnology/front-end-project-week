@@ -24,9 +24,11 @@ class Login extends Component {
   }
 
   handleLogin = () => {
-    this.state.username === "" ? this.setState({ loginError: true }) : null;
-    this.props.newUser(this.state.username); // action creator 
-    this.setState({ username: "" });
+    if (this.state.username === "") this.setState({ loginError: true });
+    else {
+      this.props.newUser(this.state.username);
+      this.setState({ username: "" });
+    }
   }
 
   render() {
@@ -65,11 +67,15 @@ class Login extends Component {
           <ModalFooter>
             <Link to={this.state.username !== "" ? "/home" : ""} onClick={() => this.handleLogin()}>
               <Button 
-                color="primary" 
-                className="Nav__ButtonsContainer--navButton"  
+                className="Nav__ButtonsContainer--navButton" 
               >Login</Button>
             </Link>
-            <Button color="danger" onClick={null}>Cancel</Button>
+            <Link to="">
+              <Button 
+                className="Nav__ButtonsContainer--navButton bg-secondary" 
+                onClick={() => this.setState({ loginError: false })}
+              >Cancel</Button>
+            </Link>
           </ModalFooter>
         </Modal>
       </div>

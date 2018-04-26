@@ -7,6 +7,10 @@ import { Button, Nav, NavItem, Navbar,
 } from 'reactstrap';
 import { toggleNight, listViews } from '../REDUX/actions';
 import { ShowAt, HideAt } from 'react-with-breakpoints';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`text-decoration-line: none; width: 100%;`;
+
 
 class NavColumn extends Component {
   constructor() {
@@ -25,21 +29,23 @@ class NavColumn extends Component {
           <Nav vertical className="Nav__ButtonsContainer">
             <NavItem className="col-12 p-0">
               {this.state.notHome ? (
-                <Link to="/">
+                <Link to="/home">
                   <Button 
                     className="Nav__ButtonsContainer--navButton px-0"
                     onClick={() => this.setState({ notHome: false })}
                     >View Your Notes</Button>
                 </Link>
               ) : (
-                <Link to="/">
+                <Link to="/home">
                   <ShowAt breakpoint="medium" breakpoints={{small: 744, medium: 992, large: Infinity}}><Button className="Nav__ButtonsContainer--navButton px-0">View Your Notes</Button></ShowAt>
                   <HideAt breakpoint="medium" breakpoints={{small: 744, medium: 992, large: Infinity}}>
                     <Dropdown group 
                       isOpen={this.state.viewOpen} 
                       className="w-100"
                       toggle={() => this.setState({ viewOpen: !this.state.viewOpen })}>
-                      <DropdownToggle caret className="Nav__ButtonsContainer--navButton">View Your Notes</DropdownToggle>
+                      <Wrapper>
+                        <DropdownToggle caret className="Nav__ButtonsContainer--navButton">View Your Notes</DropdownToggle>
+                      </Wrapper>
                       <DropdownMenu className="w-100">
                         <DropdownItem 
                           className={this.props.listView ? "" : "active"}
@@ -76,11 +82,11 @@ class NavColumn extends Component {
         </HideAt>
         <ShowAt breakpoint="small">
           <Navbar className={`d-flex justify-content-space-between NavRow ${this.state.collapsed ? "" : "pb-0"}`} light>
-            <Link to="/" className="Nav__Header">Lambda Notes</Link>
+            <Link to="/home" className="Nav__Header">Lambda Notes</Link>
             <NavbarToggler onClick={() => this.setState({ collapsed: !this.state.collapsed })} className="" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar className="Nav__ButtonsContainer">
-                <Link to="/" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
+                <Link to="/home" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
                   <NavItem>View Your Notes</NavItem>
                 </Link>
                 <Link to="/create" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
