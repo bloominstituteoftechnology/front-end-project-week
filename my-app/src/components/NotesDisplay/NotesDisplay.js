@@ -3,6 +3,18 @@ import './NotesDisplay.css';
 
 import { Link } from 'react-router-dom';
 class NotesDisplay extends Component {
+    constructor() {
+        super();
+        this.state = {
+            note: []
+        }
+    }
+
+    componentDidMount() {
+        const note = ['Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut deserunt consequuntur autem, deleniti perspiciatis placeat commodi inventore ducimus'];
+        this.setState ({ note });
+    }
+
     render() {
         return (
             <div className="Note">
@@ -15,84 +27,75 @@ class NotesDisplay extends Component {
                         <Link to= '/newNote'> +Create New Note </Link>
                     </button>
                 </div>
-            <div className='Note-content'>
-                <h1> Your Notes: </h1> 
-                <div className= 'Note-notesDisplay'>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
-                        <div className='Note-notes'>
-                            <Link to= '/noteView'>  
-                                <h3> Note Title </h3> 
-                                <p> 
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.
-                                </p>
-                            </Link>
-                        </div>
+                <div className='Note-content'>
+                    <h1> Your Notes: </h1> 
+                    <div className= 'Note-notesDisplay'>
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                        {this.state.note.map(note => {
+                            return [<div className = 'Note-notes'> 
+                            <Link to = '/noteView' >
+                            <h3>Note Title:</h3> <p>{ note }</p>
+                        </Link>
+                        </div>];
+                         })}
+                    </div>
                 </div>
             </div>
-        </div>
         );
     }
 }
