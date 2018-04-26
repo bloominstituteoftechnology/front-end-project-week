@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { 
-  Container, 
-  Row, 
-  Col, 
+import {
+  Container,
+  Row,
+  Col,
   Card,
   CardBody,
   CardText,
   CardTitle
-} from 'reactstrap';
+} from "reactstrap";
 
 function mapStateToProps(state) {
   return {
@@ -22,7 +22,7 @@ class NotesList extends Component {
     return (
       <Container className="my-5">
         <Row>
-          <h2 className="section-head">Your Notes:</h2>
+          <h2>className="section-head">Your Notes:</h2>
         </Row>
         <Row>
           {this.props.notes.map(note => {
@@ -37,13 +37,13 @@ class NotesList extends Component {
                     </CardBody>
                   </Card>
                 </Link>
-            </Col>    
-          );
-        })}
-      </Row>
-    </Container>
-  );
-}
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    );
+  }
 }
 
 export default connect(mapStateToProps)(NotesList);
