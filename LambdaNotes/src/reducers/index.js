@@ -75,8 +75,17 @@ const rootReducer = (state = initialState, action) => {
 				status: "DELETING A TODO"
 			});
 		// change a todo's completion status
-		// case TOGGLETODO:
-		// 	return Object.assign({}, state, )
+		case TOGGLETODO:
+			console.log("ACTION.PAYLOAD: ", action.payload);
+			return Object.assign({}, state, {
+				todos: state.todos.map(todo => {
+					if (todo.id === action.payload) {
+						return Object.assign({}, todo, { isComplete: !todo.isComplete });
+					}
+					return todo;
+				}),
+				status: "TOGGLED A TODO"
+			});
 		default:
 			return state;
 	}
