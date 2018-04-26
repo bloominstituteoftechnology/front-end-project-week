@@ -16,9 +16,9 @@
 
 .NoteView_links * {
   background: rgb(0, 200, 207);
-  height: 25px;
+  height: 30px;
   margin: 0 0 0 15px;
-  width: 80px
+  width: 100px
 }
 
 .NoteView_links *:nth-child(2) {

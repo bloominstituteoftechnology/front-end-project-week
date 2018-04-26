@@ -6,6 +6,7 @@ export class NoteForm extends Component {
   constructor(props) {
     super(props);
 
+    // Change state and input depending on function of form
     if (props.formUse === 'Create New Note') {
       this.state = { title: '', body: '' , id: props.notes.length };
     } else {
@@ -18,8 +19,18 @@ export class NoteForm extends Component {
     }
   }
 
+  componentDidMount() {
+    // Make sure to resize inputs on load
+    this.resizeInput();
+  }
+
   handleInput = e => {
+    // Link input to state
     this.setState({ [e.target.name]: e.target.value });
+    // Adjust height of text area
+    const input = document.querySelector("."+e.target.className);
+    input.style.height = "1px";
+    input.style.height = (3+input.scrollHeight)+"px";
   }
 
   fillEmpty(value) {
@@ -28,6 +39,13 @@ export class NoteForm extends Component {
 
   resetInput() {
     this.setState({ title: '', body: '' });
+  }
+
+  resizeInput() {
+    // Adjust height of text area
+    const input = document.querySelector('.NoteForm_inputBody');
+    input.style.height = "1px";
+    input.style.height = (3+input.scrollHeight)+"px";
   }
 
   render() {
@@ -55,7 +73,7 @@ export class NoteForm extends Component {
             const newTodo = Object.assign({}, this.state, {
               title: this.fillEmpty(this.state.title),
               body: this.fillEmpty(this.state.body)
-            });
+            }); // Call function based on form use
             this.props.useFunction(newTodo, this.state.id);
         }}>Save</Link>
       </div>
