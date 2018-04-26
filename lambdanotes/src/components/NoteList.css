@@ -8,3 +8,13 @@ h3 {
   text-align: left;
   padding: 8% 15px 0 15px;
 }
+
+#your-notes {
+  padding: 2% 15px 0 15px;
+}
+
+.searchbar.form-control {
+  margin-top: 2%;
+  margin-left: 3%;
+  width: 90%;
+}
