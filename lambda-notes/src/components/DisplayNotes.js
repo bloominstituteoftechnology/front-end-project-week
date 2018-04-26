@@ -2,15 +2,12 @@ import React from "react";
 import SingleNote from "./SingleNote";
 
 class DisplayNotes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="col-9 right__side">
         <div className="row">
           <div className="col-3 notes__head">
-            <h4>Your Notes:</h4>
+            <h4>Your Notes: </h4>
           </div>
         </div>
         <div className="row">

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import DisplayNotes from "./components/DisplayNotes";
 import "./App.css";
 import sampleNotes from "./sample-notes";
 import { NewNote } from "./components/NewNote";
 import { ViewNote } from "./components/ViewNote";
 import { EditNote } from "./components/EditNote";
+import { SideBar } from "./components/SideBar";
 import base from "./base";
 
 class App extends Component {
@@ -49,26 +50,33 @@ class App extends Component {
     });
     this.setState({ notes });
   };
+
+  handleExport = () => {
+    let csvExport = "data:text/csv;charset=utf-8, Title,Text,Id\r\n";
+    const exportedNotes = this.state.notes;
+    exportedNotes.forEach(rows => {
+      let row = Object.values(rows).join(". ");
+      csvExport += row + "\r\n";
+    });
+    return encodeURI(csvExport);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <div className="row">
-            <div className="col-3 left__side">
-              <h2 className="sidebar__head">Lambda Notes</h2>
-              <Link to="/" className="sidebar__button">
-                View Your Notes
-              </Link>
-              <Link to="/createNewNote" className="sidebar__button">
-                Create New Note
-              </Link>
-            </div>
+            <SideBar export={this.handleExport} />
             <Switch>
               <Route
                 exact
                 path="/"
                 render={props => (
-                  <DisplayNotes {...props} notes={this.state.notes} />
+                  <DisplayNotes
+                    {...props}
+                    notes={this.state.notes}
+                    export={this.handleExport}
+                  />
                 )}
               />
               <Route
