@@ -3,6 +3,22 @@ import './note.css';
 import { Link } from 'react-router-dom';
 
 export class CreateNote extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      body: ''
+    };
+  }
+
+  handleInputText = e => {
+    this.setState({[e.target.name]: e.target.value});
+  };
+
+  handleClick = e => {
+    this.props.onSubmit(this.state.title, this.state.body);
+  };
+
     render() {
         return <div className="col-9 right__side">
             <div className="row">
@@ -12,10 +28,10 @@ export class CreateNote extends React.Component {
             </div>
             <div className="row">
               <form>
-                <input className="note-title" type="text" placeholder="Note Title" name="Note Title" />
-                <input className="note-body" type="textarea" placeholder="Note Content" name="Note Content" />
+                <input className="note-title" type="text" placeholder="Note Title" name="Note Title" onChange={this.handleInputText} />
+                <input className="note-body" type="textarea" placeholder="Note Content" name="Note Content" onChange={this.handleInputText} />
                 <Link to="/">
-                  <button className="save">Save</button>
+                  <button className="save" onClick={this.handleClick}>Save</button>
                 </Link>
               </form>
             </div>
