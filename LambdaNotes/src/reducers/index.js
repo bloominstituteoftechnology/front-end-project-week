@@ -2,8 +2,8 @@
 import {
 	ADDTODO,
 	DELETETODO,
-	UPDATETODO
-	// TOGGLETODO
+	UPDATETODO,
+	TOGGLETODO
 } from "../actions/index.js";
 
 let uuid = require("uuid-v4");
@@ -54,18 +54,14 @@ const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
 		// add new todo
 		case ADDTODO:
-			return Object.assign(
-				{},
-				state,
-				{
-					todos: [...state.todos, action.payload]
-				},
-				{ status: "ADDING NEW TODO" }
-			);
+			return Object.assign({}, state, {
+				todos: [...state.todos, action.payload],
+				status: "ADDING NEW TODO"
+			});
 		// edit new todo
 		case UPDATETODO:
-			state.todos[action.payload.index].title = action.payload.title;
-			state.todos[action.payload.index].text = action.payload.text;
+			state.todos[parseInt(action.payload.id, 10)].title = action.payload.title;
+			state.todos[parseInt(action.payload.id, 10)].text = action.payload.text;
 			return Object.assign({}, state, {
 				todos: state.todos,
 				status: "UPDATING A TODO"
@@ -78,6 +74,9 @@ const rootReducer = (state = initialState, action) => {
 				}),
 				status: "DELETING A TODO"
 			});
+		// change a todo's completion status
+		// case TOGGLETODO:
+		// 	return Object.assign({}, state, )
 		default:
 			return state;
 	}

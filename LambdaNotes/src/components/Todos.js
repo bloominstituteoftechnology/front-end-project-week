@@ -7,13 +7,11 @@ import "../styles/SingleTodos.css";
 
 class Todos extends Component {
 	render() {
-		console.log("props", this.props.todos);
 		return (
 			<div className="container">
 				<h3 className="Notes__header">Your Notes:</h3>
-
 				{this.props.todos.map((todo, index) => {
-					return <SingleTodo key={index} todo={todo} index={index} />;
+					return <SingleTodo key={todo.id} todo={todo} index={index} />;
 				})}
 			</div>
 		);
@@ -21,6 +19,7 @@ class Todos extends Component {
 }
 
 const mapStateToProps = state => {
+	console.log("state: ", state);
 	return {
 		todos: state.todos
 	};

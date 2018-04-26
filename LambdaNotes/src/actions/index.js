@@ -15,27 +15,27 @@ export function addTodo(title, text) {
 	};
 }
 
-export function toggleTodo(index) {
+export function toggleTodo(id) {
 	return {
 		type: TOGGLETODO,
-		payload: index
+		payload: id
 	};
 }
 
-export function deleteTodo(index) {
+export function deleteTodo(id) {
 	return {
 		type: DELETETODO,
-		payload: index
+		payload: id
 	};
 }
 
-export function updateTodo(index, title, text) {
+export function updateTodo(id, title, text) {
 	return {
 		type: UPDATETODO,
 		payload: {
 			title: title,
 			text: text,
-			index: index
+			id: id
 		}
 	};
 }

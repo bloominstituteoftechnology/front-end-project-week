@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 // actions
-import { deleteTodo, updateTodo } from "../actions/index";
+import { deleteTodo } from "../actions/index";
 // material components
 import Paper from "material-ui/Paper";
 import FlatButton from "material-ui/FlatButton";
@@ -26,7 +26,6 @@ class Todo extends Component {
 		this.setState({ open: false });
 	};
 	handleDeleteTodo = id => {
-		// console.log("id: ", id);
 		this.props.deleteTodo(id);
 	};
 
@@ -101,6 +100,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-	deleteTodo,
-	updateTodo
+	deleteTodo
 })(Todo);

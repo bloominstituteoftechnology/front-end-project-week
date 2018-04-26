@@ -7,7 +7,7 @@ import Todo from "./Todo";
 import { Card, CardText } from "material-ui/Card";
 // styles
 import "../styles/SingleTodos.css";
-
+// <Route path="/todo/:id" {...props} render={props => <Todo {...props} />} />
 const SingleTodo = props => {
 	return [
 		<Link to={`/todo/${props.index}`}>
@@ -17,8 +17,7 @@ const SingleTodo = props => {
 					<p>{props.todo.text}</p>
 				</CardText>
 			</Card>
-		</Link>,
-		<Route path="/todo/:id" {...props} render={props => <Todo {...props} />} />
+		</Link>
 	];
 };
 

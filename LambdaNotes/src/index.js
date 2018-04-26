@@ -26,9 +26,7 @@ const store = createStore(
 // listen to any state changes - call saveState
 // only pass in application data not UI data
 store.subscribe(() => {
-	saveState({
-		todos: store.getState()
-	});
+	saveState(store.getState());
 });
 
 const router = (
