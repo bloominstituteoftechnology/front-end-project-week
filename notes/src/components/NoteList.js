@@ -35,6 +35,41 @@ class NoteList extends Component {
     return notes;
   }
 
+  moveNote = (dragIndex, hoverIndex) => {
+    const draggedNote = this.state.notes[dragIndex];
+    const otherNotes = this.state.notes.filter(x => x !== draggedNote);
+    const newNotes = [];
+    for (let i = 0; i < this.state.notes.length; i++) {
+      if (i === hoverIndex) newNotes.push(draggedNote);
+      else newNotes.push(otherNotes.shift());
+    }
+    this.setState({notes: newNotes});
+  }
+
+  getIndex = id => {
+    for (let i = 0; i < this.state.notes.length; i++) {
+      if (this.state.notes[i].id === id){
+        return i;
+      }
+    }
+    return 0;
+  }
+
+  dragStart = e => {
+    this.from = this.getIndex(Number(e.currentTarget.id));
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData("text/html", null);
+  };
+
+  dragOver = e => {
+    e.preventDefault();
+    this.to = this.getIndex(Number(e.currentTarget.id));
+  };
+
+  dragEnd = e => {
+    this.moveNote(this.from, this.to);
+  };
+
   render() {
     return (
       <div className="NoteList-area">
@@ -66,7 +101,7 @@ class NoteList extends Component {
                 to={`/view/${note.id}`}
                 className="NoteList-link"
               >
-                <NoteCard {...note} />
+                <NoteCard {...note} moveNote={this.moveNote.bind(this)} dragOver={this.dragOver} dragStart={this.dragStart} dragEnd={this.dragEnd} />
               </Link>
             ))}
         </div>
