@@ -3,9 +3,9 @@
     border: none;
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-line: underline;
-    text-decoration-style: initial;
-    font-size: 24px;
+    font-size: 25px;
     font-family: sans-serif;
+    margin-left: 50x;
+    padding: 0 10px 0;
 }
 

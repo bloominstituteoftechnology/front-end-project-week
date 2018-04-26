@@ -1,8 +1,24 @@
-.Link {
-    font-size: 25px;
-}
-
 a { 
     color: black;
 }
 
+.Note-holder {
+    width: 70%;
+    padding: 0 0 0 20px;
+    background: rgb(245, 244, 244);
+}
+
+.Note-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.Note-body {
+    margin-top: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+}

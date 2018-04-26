@@ -17,8 +17,8 @@ class NewNote extends Component {
                     </button>
                 </div>
                 <div className='Note-content'>
+                    <h1> Create New Note: </h1>
                     <div className='Note-create'>
-                        <h2> Create New Note: </h2>
                             <input 
                                 className='Note-title'
                                 type='text'
