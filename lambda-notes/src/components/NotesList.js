@@ -25,6 +25,7 @@ class NotesList extends Component {
           <h2>className="section-head">Your Notes:</h2>
         </Row>
         <Row>
+          {console.log this.props.notes}
           {this.props.notes.map(note => {
             return (
               <Col sm="4">
