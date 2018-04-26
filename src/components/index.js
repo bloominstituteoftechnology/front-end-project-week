@@ -9,6 +9,7 @@ import NoteEdit from './NoteEdit'
 import NoteForm from './NoteForm'
 import Markdown from './Markdown'
 import DeleteModal from './DeleteModal'
+import DownloadButton from './DownloadButton'
 
 export { 
   App,
@@ -21,5 +22,6 @@ export {
   NoteEdit,
   NoteForm,
   Markdown,
-  DeleteModal
+  DeleteModal,
+  DownloadButton
 }
