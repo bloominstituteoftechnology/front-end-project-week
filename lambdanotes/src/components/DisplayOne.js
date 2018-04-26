@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../styles/DisplayOne.css';
 import SideBar from './SideBar';
-import { editNote } from '../actions';
+import { editNote, deleteNote } from '../actions';
 import EditNote from './EditNote';
 
 class DisplayOne extends Component {
@@ -19,7 +19,10 @@ class DisplayOne extends Component {
     this.setState({ note: singleNote });
   }
   
-
+  toggleDelete = () => {
+    this.props.deleteNote(this.state.note);
+    this.props.history.push('/');
+  };
 
   toggleEdit = () => {
     this.setState({ edited: !this.state.edited });
@@ -46,7 +49,12 @@ class DisplayOne extends Component {
                   >
                   edit
                   </div>
-
+                  <div 
+                  className="edit-delete"
+                  onClick={this.toggleDelete}
+                  >
+                  delete
+                  </div>
                 </div>
               </div>
               <div className="note-title">{this.state.note.title}</div>
@@ -65,4 +73,4 @@ const mapStateToProps = state => {
   };
 };
   
-export default connect(mapStateToProps, { editNote })(DisplayOne);
+export default connect(mapStateToProps, { editNote, deleteNote })(DisplayOne);

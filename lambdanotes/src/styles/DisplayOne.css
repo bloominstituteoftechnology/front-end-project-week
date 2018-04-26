@@ -7,3 +7,9 @@
   padding-top: 10px;
   min-height: 900px;
 }
+
+.links-parent-container {
+  display: flex;
+  flex-direction: row-reverse;;
+}
+
