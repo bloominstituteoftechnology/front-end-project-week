@@ -34,12 +34,12 @@ class ViewNote extends Component {
                         <Button onClick={ () => this.toggleModal()} size='sm'>Delete</Button>
                         {this.state.modal ? <Modal isOpen={this.state.modal}>
                         <ModalBody>
-                            Are you sure you want to delete?
+                            Are you sure you want to delete this?
                             <Link to='/' onClick={() => this.handleDelete()}>
                             <Button className='delete'>Delete</Button>
                             </Link>
                             <Button className='modeButton_no' onClick={() => this.toggleModal()}>
-                            Cancel
+                            No
                             </Button>
                         </ModalBody>
                         </Modal> : null}    

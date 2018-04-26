@@ -153,10 +153,17 @@ body {
   cursor: pointer;
 }
 
+/* delete modal button */
 button.delete.btn.btn-secondary {
   background-color: red;
 }
 
+/* no modal button */
+button.modeButton_no.btn.btn-secondary {
+  background-color: #2bc1c4;
+}
+
+/* update button */
 button.btn-info.btn.btn-secondary {
   background-color: #2bc1c4;
 }
