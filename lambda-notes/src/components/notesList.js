@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-
+import $ from 'jquery';
 import Note from './note';
 
 export default class NotesList extends Component {
+
+  componentDidMount() {
+  // see https://github.com/gridstack/gridstack.js/issues/735#issuecomment-329888796
+    $('.grid-stack').gridstack();
+  }
 
   render() {
     return (
