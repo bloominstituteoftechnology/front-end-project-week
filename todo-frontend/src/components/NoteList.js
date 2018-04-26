@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Styled from 'styled-components'
-import { Note } from 'components/Note'
+import { LinkedNote as Note } from 'components/Note'
 
 const SectionContainer = Styled.section`
   background-color: rgb(242,243,242);
