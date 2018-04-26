@@ -15,6 +15,10 @@
   color: #4A484A;
 }
 
+.Nav__Header:hover {
+  text-decoration: none !important;
+}
+
 .Nav__ButtonsContainer {
   margin: 3%;
 }
@@ -93,6 +97,10 @@
 
 .navbar-toggler:hover {
   background-color: #95959588;
+}
+
+.navbar-toggler-icon {
+  /* color: #2AC1C5 !important; */
 }
 
 .active {

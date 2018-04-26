@@ -76,7 +76,7 @@ class NavColumn extends Component {
         </HideAt>
         <ShowAt breakpoint="small">
           <Navbar className={`d-flex justify-content-space-between NavRow ${this.state.collapsed ? "" : "pb-0"}`} light>
-            <Link to="/"><NavbarBrand className="Nav__Header">Lambda Notes</NavbarBrand></Link>
+            <Link to="/" className="Nav__Header">Lambda Notes</Link>
             <NavbarToggler onClick={() => this.setState({ collapsed: !this.state.collapsed })} className="" />
             <Collapse isOpen={!this.state.collapsed} navbar>
               <Nav navbar className="Nav__ButtonsContainer">
