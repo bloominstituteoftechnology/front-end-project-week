@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getNotes, saveNote, handleReverse, handleOrder, sortTitle } from '../REDUX/actions';
 import { CardFactory } from './card-factory';
+import { ShowAt, HideAt } from 'react-with-breakpoints';
 
 class PrimaryContainer extends Component {
   constructor() {
@@ -59,21 +60,21 @@ class PrimaryContainer extends Component {
               this.props.sortTitle();
             }}
             className={!this.state.defaultSort && !this.state.sortOldest ? "active" : ""}
-          >Title</DropdownItem>
+          >Title A-Z</DropdownItem>
           <DropdownItem 
             onClick={() => {
               this.setState({ defaultSort: false, sortOldest: true, sortTitle: false });
               this.props.handleReverse();
             }}
             className={!this.state.defaultSort && !this.state.sortTitle ? "active" : ""}  
-          >Oldest -> Newest</DropdownItem>
+          >Oldest - Newest</DropdownItem>
           <DropdownItem 
             onClick={() => {
               this.setState({ defaultSort: true, sortOldest: false, sortTitle: false });
               this.props.handleOrder();
             }}
             className={!this.state.sortTitle && !this.state.sortOldest ? "active" : ""}
-          >Newest -> Oldest</DropdownItem>
+          >Newest - Oldest</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     )
@@ -85,12 +86,14 @@ class PrimaryContainer extends Component {
     });
     return (
       <div className="PrimaryContainer">
-        <div className="d-flex justify-content-between align-items-center w-100 sticky-top">
+        <div className="d-flex justify-content-between align-items-center w-100 sticks">
           <h1 className="PrimaryContainer__header--notecards sticky">Your Notes:</h1>
-          <div className="sticky">
-            {this.viewOrder()}
-          </div>
+          <div className="sticky">{ this.viewOrder() }</div>
         </div>
+        {/* <div className="d-flex justify-content-between align-items-center w-100">
+          <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
+          <div>{ this.viewOrder() }</div>
+        </div> */}
         <div className="PrimaryContainer__cardContainer">
           {this.props.notes.map(note => this.cardFactory(note))}
         </div>

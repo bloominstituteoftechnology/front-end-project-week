@@ -91,6 +91,15 @@
   height: 300px;
 }
 
-.sticky-top {
+.sticks {
   background-color: rgba(243, 243, 243, 0.932);
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+@media (max-width: 744px) {
+  .sticks {
+    position: relative;
+  }
 }
