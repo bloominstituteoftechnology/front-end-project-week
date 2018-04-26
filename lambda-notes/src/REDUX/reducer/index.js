@@ -1,5 +1,5 @@
 import {
-  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT
+  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, NEWEST_OLDEST
 } from '../actions';
 
 const initialState = {
@@ -33,6 +33,25 @@ export default (state = initialState, action) => {
         ...state,
         night: !state.night
       }
+
+    case OLDEST_NEWEST: 
+      return {
+        ...state,
+        notes: [...state.notes].sort((a, b) => { return b.id - a.id })
+      }
+
+    case NEWEST_OLDEST:
+      return {
+        ...state,
+        notes: [...state.notes].sort((a, b) => { return a.id - b.id })
+      }
+
+      case REORDER:
+      debugger;
+        return {
+          ...state,
+          // notes: [...state.notes.splice(action.payload.id)]
+        }
 
     default:
       return state;

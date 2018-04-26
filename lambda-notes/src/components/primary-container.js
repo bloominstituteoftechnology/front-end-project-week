@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardBody, CardText, Col, Button } from 'reactstrap';
+import { Card, CardTitle, CardBody, CardText, Col, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getNotes, saveNote } from '../REDUX/actions';
+import { getNotes, saveNote, handleReverse, handleOrder } from '../REDUX/actions';
+import { CardFactory } from './card-factory';
 
 class PrimaryContainer extends Component {
   constructor() {
     super();
-    this.state = { listView: false }
+    this.state = { 
+      listView: false,
+      listOptions: false,
+      sortOptions: false,
+      defaultSort: true,
+      sortOldest: false,
+      sortTitle: false
+    }
   }
 
   componentDidMount() { this.props.getNotes() }
@@ -36,10 +44,73 @@ class PrimaryContainer extends Component {
     )
   }
 
+  viewOrder = () => {
+    return (
+      <Dropdown group 
+        isOpen={this.state.sortView} 
+        size="sm" 
+        className="mr-3"
+        toggle={() => this.setState({ sortView: !this.state.sortView })}>
+        <DropdownToggle caret className="Nav__ButtonsContainer--navButton">Sort by</DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem
+            onClick={() => {this.setState({ defaultSort: false, sortOldest: false, sortTitle: true })}}
+            className={!this.state.defaultSort && !this.state.sortOldest ? "active" : ""}
+          >Title</DropdownItem>
+          <DropdownItem 
+            onClick={() => {
+              this.setState({ defaultSort: false, sortOldest: true, sortTitle: false });
+              this.props.handleReverse();
+            }}
+            className={!this.state.defaultSort && !this.state.sortTitle ? "active" : ""}  
+          >Oldest -> Newest</DropdownItem>
+          <DropdownItem 
+            onClick={() => {
+              this.setState({ defaultSort: true, sortOldest: false, sortTitle: false });
+              this.props.handleOrder();
+            }}
+            className={!this.state.sortTitle && !this.state.sortOldest ? "active" : ""}
+          >Newest -> Oldest</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    )
+  }
+
+  viewLayout = () => {
+    return (
+      <Dropdown group 
+        isOpen={this.state.listOptions} 
+        size="sm" 
+        className="mr-3"
+        toggle={() => this.setState({ listOptions: !this.state.listOptions })}>
+        <DropdownToggle caret className="Nav__ButtonsContainer--navButton">View by</DropdownToggle>
+        <DropdownMenu>
+          <DropdownItem 
+            onClick={() => this.setState({ listView: !this.state.listView })}
+            className={this.state.listView ? "" : "active"}
+          >Card</DropdownItem>
+          <DropdownItem 
+            onClick={() => this.setState({ listView: !this.state.listView })}
+            className={this.state.listView ? "active" : ""}
+          >List</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    )
+  }
+
   render() {
+    const list = this.props.notes.map((note) => {
+      return {content: (<CardFactory note={note} />)};
+    });
     return (
       <div className="PrimaryContainer">
-        <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
+        <div className="d-flex justify-content-between align-items-center w-100">
+          <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
+          <div className="">
+            {this.viewOrder()}
+            {this.viewLayout()}
+          </div>
+        </div>
         <div className="PrimaryContainer__cardContainer">
           {this.props.notes.map(note => this.cardFactory(note))}
         </div>
@@ -50,4 +121,4 @@ class PrimaryContainer extends Component {
 
 const mapStateToProps = state => ({ notes: state.notes, night: state.night })
 
-export default connect(mapStateToProps, { getNotes, saveNote })(PrimaryContainer);
+export default connect(mapStateToProps, { getNotes, saveNote, handleReverse, handleOrder })(PrimaryContainer);

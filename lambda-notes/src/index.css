@@ -1,4 +1,6 @@
 @import "./STYLING/index.css";
+@import "../node_modules/react-grid-layout/css/styles.css";
+@import "../node_modules/react-resizable/css/styles.css";
 
 html {
   height: 100%;

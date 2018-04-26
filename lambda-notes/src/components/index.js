@@ -4,6 +4,7 @@ import NewNote from './create-note';
 import ViewNote from './view-note';
 import EditNote from './edit-note';
 import Markdown from './markdown';
+import DragSort from './drag-n-sort';
 
 
 export {
@@ -12,5 +13,6 @@ export {
   NewNote,
   ViewNote,
   EditNote,
-  Markdown
+  Markdown,
+  DragSort
 }

@@ -52,6 +52,7 @@
   .Nav__Header {
     font-size: 2rem !important;
     color: #4A484A !important;
+    text-shadow: 2px 2px #2AC1C5 !important;
     margin: 0;
   }
 
@@ -92,4 +93,10 @@
 
 .navbar-toggler:hover {
   background-color: #95959588;
+}
+
+.active {
+  background-color: #95959588 !important;
+  color: #2AC1C5 !important;
+  font-weight: bold !important;
 }

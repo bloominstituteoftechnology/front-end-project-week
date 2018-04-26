@@ -7,7 +7,8 @@ import {
   NewNote,
   ViewNote,
   EditNote,
-  Markdown
+  Markdown,
+  DragSort
 } from './components';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         <NavColumn />
         <div className="ScrollOverflow">
           <Route exact path="/" component={PrimaryContainer} />
+          {/* <Route exact path="/" component={DragSort} /> */}
           <Route path="/create" component={NewNote} />
           <Route path="/viewnote/:id" render={props => <ViewNote {...props} />} />
           <Route path="/edit/:id" render={props => <EditNote {...props} />} />

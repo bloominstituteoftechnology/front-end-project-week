@@ -4,6 +4,9 @@ export const FETCHING_ERROR = "FETCHING_ERROR";
 export const FETCH_NOTES = "FETCH_NOTES";
 export const DELETED_NOTE = "DELETED_NOTE";
 export const TOGGLE_NIGHT = "TOGGLE_NIGHT";
+export const REORDER = "REORDER";
+export const OLDEST_NEWEST = "REVERSE";
+export const NEWEST_OLDEST = "ORDER";
 
 export const getNotes = () => {
   return dispatch => {
@@ -52,6 +55,23 @@ export const updateNote = note => {
         console.log(error);
       })
   }
+}
+
+export const handleReorder = (id, newIndex) => {
+  debugger;
+  return dispatch => {
+    dispatch({ type: REORDER, payload: id })
+  }
+}
+
+export const handleReverse = () => {
+  return dispatch => {
+    dispatch({ type: OLDEST_NEWEST })
+  }
+}
+
+export const handleOrder = () => {
+  return dispatch => { dispatch({ type: NEWEST_OLDEST }) }
 }
 
 export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }

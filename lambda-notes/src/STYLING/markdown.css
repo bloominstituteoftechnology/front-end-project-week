@@ -11,12 +11,16 @@
 .input-text {
 	min-height: 400px;
 	border: 2px solid black;
-	background: transparent;
+	background-color: #2AC1C5;
 	color: black;
 	transition: border 0.3s;
+	font-family: 'Inconsolata', monospace;
+	font-size: 1rem;
 }
 
 .input-text, .output-text {
+	border: 2px solid #0f0f0f;
+	font-family: 'Inconsolata', monospace;
 	width: 100%;
 	box-sizing: border-box;
 	min-height: 400px;
@@ -25,8 +29,9 @@
 }
 
 .output-text {
-  border: 2px solid black;
-	background: #fdfbfb00;
+	border: 2px solid #2AC1C5;
+	background-color: black;
+	color: snow;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	hyphens: auto;
