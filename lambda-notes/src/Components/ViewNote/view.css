@@ -21,4 +21,22 @@
 
 .primary {
     background: #D0011B;
+    width: 30%;
+    text-align: center;
+    padding: 1%;
+    color: #FBFBFB;
+}
+
+.primary:hover {
+    color: #4A494A;
+    text-decoration: none;
+}
+
+.secondary {
+    background: #2AC0C4;
+    border: none;
+    width: 30%;
+    padding: 1%;
+    color: #FBFBFB;
+    margin-right: 20%;
 }

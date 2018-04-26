@@ -25,17 +25,17 @@ export class ViewNote extends React.Component {
                 <Link to="/editnote">Edit</Link>
               </div>
               <div className=" col-3 delete">
-                <Link to="#" onClick={this.toggle}>{this.props.buttonLabel}Delete</Link>
+                <Link to="#" onClick={this.toggle}>
+                  {this.props.buttonLabel}Delete
+                </Link>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalBody className="modalBody">
-                        Are you sure you want to delete?
-                    </ModalBody>
-                    <ModalFooter>
-                        <Link to={'/'}>
-                            <button className="primary" onClick={this.toggle}>Delete</button>
-                        </Link>
-                        <button onClick={this.toggle}>Cancel</button>
-                    </ModalFooter>
+                  <ModalBody className="modalBody">
+                    Are you sure you want to delete?
+                  </ModalBody>
+                  <ModalFooter>
+                    <Link to={"/"} className="primary" onClick={this.toggle}>Delete</Link>
+                    <button className="secondary" onClick={this.toggle}>No</button>
+                  </ModalFooter>
                 </Modal>
               </div>
             </div>
