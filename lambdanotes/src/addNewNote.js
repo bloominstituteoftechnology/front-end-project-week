@@ -7,7 +7,7 @@ import { notesReducer } from './notesReducer';
 class AddNewNote extends Component{
     constructor(props){
      super(props)
-      
+     console.log('g',this.props)
      this.state={
          noteTitle:'',    
          noteText:'',
@@ -27,6 +27,11 @@ this.setState({[event.target.name]: event.target.value})
     title: this.state.noteText,
     text: this.state.noteTitle
 }
+// let nonEmptyObj ={};
+// if (this.state.noteTitle !=='' && this.state.noteText !==''){
+//     nonEmptyObj.title = this.state.noteTitle,
+//      nonEmptyObj.text = this.state.noteText
+// }
 
       return (
   <div className='NewNote'> 
@@ -44,10 +49,10 @@ this.setState({[event.target.name]: event.target.value})
                  value={this.state.noteText}
                 onChange={this.AddNewNoteHandler}
              />
-            <button className='Button' onClick={()=>{
-             
-                 
-                this.props.addNoteActionCreator(obj), this.setState({ noteText: '', noteTitle: '' })
+            <button className='Button'            
+            onClick={ ()=>{  
+                if (this.state.noteText === '' && this.state.noteText === ''){ return;} else{             
+                  this.props.addNoteActionCreator(obj)}; this.setState({ noteText: '', noteTitle: '' })                  
             }} >Save</button>
        </div>
     )
@@ -56,7 +61,7 @@ this.setState({[event.target.name]: event.target.value})
 }
 
  const mapStateToProps = (state)=>{
-     
+     console.log('gigo',state.notesReducer)
    
      return {
 

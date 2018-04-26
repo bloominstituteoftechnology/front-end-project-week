@@ -14,13 +14,16 @@ const initialState = [
 ]
     
      
-const notesReducer = (state = initialState, action)=>{
-    console.log(action)
+const notesReducer = (state = initialState, action)=>{   
+    console.log('action',action)
+    
+
     switch(action.type){
-       case ADD_NOTES:
-            return state = [...state, action.payload]
+       case ADD_NOTES:           
+            return (               
+                state = [...state, action.payload])
         case EDIT_NOTE :
-            return state = [...state,...action.payload]
+            return state = [...state,...action.payload]           
         default:
          return state
 

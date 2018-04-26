@@ -7,8 +7,11 @@ const addNoteActionCreator = (obj)=>{
 console.log("obj",obj)
 
 // if(obj.title === "" || obj.text === ""){
-//     return ;
-// }
+//     return {
+//         type: ADD_NOTES,
+//         payload:'',
+//     }
+//  }
 
 
   return {
