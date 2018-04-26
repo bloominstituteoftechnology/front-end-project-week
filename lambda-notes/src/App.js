@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
 import NotesList from '../src/Components/NotesList';
+import CreateNote from './Components/CreateNote';
 // import CreateNote from '../src/Components/CreateNote';
 import './App.css';
+import Note from './Components/Note';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-        newNote: '',
-        notes: [{
-          title: 'Hello',
-          body: 'World'
-        }]
-    };
+      notes: [{
+        title: 'Hello',
+        body: 'World'
+      }]
+  };
     
   }
 
   // componentDidMount() {
   //   this.setState({notes})
   // }
-  createNewCard(props) {
-    console.log('testing create new card.' + props)
+
+
+  addToNotesList = note => {
+    //console.log(note);
+     const notes = this.state.notes;
+     //console.log(notes)
+     notes.push(note);
+     this.setState({notes, newNoteTitle: '', newNoteBody: ''});
+    
   }
+
   render() {
     return (
       <div className="container">
@@ -30,14 +40,30 @@ class App extends Component {
             <div className="leftbox">
               <h3 className="title">Lambda</h3>
               <h3 className="title">Notes</h3>
-                <button className ="Buttons">View Your Notes</button>
-                <button className ="Buttons" onClick={() => this.createNewCard(this.state)}>+ Create New Note</button>
+                <Link to='/'>
+                  <button className ="Buttons">View Your Notes</button>
+                </Link>
+                <Link to='/CreateNote'>
+                  <button className ="Buttons">+ Create New Note</button>
+                </Link>
             </div>
           </div>
           <div className="col-9">
             <div className="rightbox">
                 <h3>Your Notes:</h3>
-              <NotesList notes={this.state.notes}/>
+                
+                {/* <NotesList notes={this.state.notes}/> */}
+              <Switch>
+                {/* <Route path='/' component={NotesList}/> */}
+                <Route exact path='/'  render={(props) => <NotesList {...this.state}/>} />
+                <Route path='/NotesList'  render={(props) => <NotesList {...this.state}/>} />
+                {/* <Route path='/EditNote' component={EditNote}/>  */}
+                <Route path='/CreateNote'  render={(props) => <CreateNote {...props} addToNotesList={this.addToNotesList}/>} />
+                 {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
+                
+                {/* when none of the above match, <NoMatch> will be rendered */}
+                {/* <Route component={NoMatch}/> */}
+              </Switch>
             </div>
           </div>
         </div>

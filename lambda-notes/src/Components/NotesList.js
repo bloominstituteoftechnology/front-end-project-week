@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Note from './Note';
 
-const NotesList = props => {
-    return (
+export default class NotesList extends Component{
+    constructor(props) {
+        super(props);
+        // this.state = {
+            
+        // };
+    }
+    render() {
+        return(
         <div>
-        {console.log("this is" + props)}
-        {props.notes.map(note => {
+            {console.log(this.props)}
+        {this.props.notes.map(note => {
             return <Note note={note}/>;
         })}
         </div>
-    );
+        )
+    };
 };
-
-export default NotesList;
