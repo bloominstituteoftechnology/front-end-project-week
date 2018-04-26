@@ -1,20 +1,74 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 class ViewNote extends Component {
-  state = { notes: "", index: "" };
+  state = {
+    notes: "",
+    index: ""
+  };
+
+  deleteNote = index => {
+    this.props.deleteNote(index);
+  };
+
+  handleDelete = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <div className="delete">
+            <p>Are you sure You want to delete this note?</p>
+            <div className="delete-btns">
+              <button
+                onClick={() => {
+                  this.deleteNote(this.state.index);
+                  onClose();
+                }}
+                className="deleteBtn"
+              >
+                Delete
+              </button>
+              <button
+                onClick={() => {
+                  onClose();
+                }}
+                className="noBtn"
+              >
+                {" "}
+                No{" "}
+              </button>
+            </div>
+          </div>
+        );
+      }
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
         <div className="editDelete">
           <Link to="/EditNote" className="link">
-            Edit
+            {" "}
+            Edit{" "}
+          </Link>
+          <Link to="/NotesList">
+            <button onClick={this.handleDelete} className="link">
+              {" "}
+              Delete{" "}
+            </button>{" "}
           </Link>
         </div>
-        <div className="add-note">
-          <h3> {this.state.notes.title} </h3>
-          <p> {this.state.notes.text} </p>
-        </div>
+        {this.state.index ? (
+          <div className="add-note">
+            <h3> {this.state.notes[this.state.index].title} </h3>
+            <p> {this.state.notes[this.state.index].text} </p>
+          </div>
+        ) : (
+          ""
+        )}
       </React.Fragment>
     );
   }

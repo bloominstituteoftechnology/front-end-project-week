@@ -42,7 +42,11 @@ class AddNote extends Component {
           placeholder="Note Content"
           rows="20"
         />
-        <Link onClick={this.handleClick} className="save-button" to="/">
+        <Link
+          onClick={this.handleClick}
+          className="save-button"
+          to="/NotesList"
+        >
           Save
         </Link>
       </div>
