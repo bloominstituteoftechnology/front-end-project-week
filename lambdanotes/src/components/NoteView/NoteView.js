@@ -24,7 +24,7 @@ export default class NoteView extends Component {
     axios
       .get(`http://localhost:5000/notes`)
       .then(response => {
-          // fix this!!!!!!!!!!!!!!!
+        // fix this!!!!!!!!!!!!!!!
         if (id > response.data.length) {
           alert("Note not found");
         } else {

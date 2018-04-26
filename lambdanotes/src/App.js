@@ -50,7 +50,12 @@ export default class App extends Component {
           />
 
           {/* _____NOTEVIEW ROUTE______ */}
-          <Route path="/note/:id" component={NoteView} />
+          <Route
+            path="/note/:id"
+            render={({ match }) => (
+              <NoteView getNotes={this.getNotes} match={match} />
+            )}
+          />
 
           {/* _____CREATENOTE ROUTE______ */}
           <Route
