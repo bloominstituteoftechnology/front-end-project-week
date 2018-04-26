@@ -61,7 +61,7 @@ class NoteView extends Component {
                                 <SideBar/>
                                 <div className="noteCard">
                                     <div className = "links">
-                                        <Link to="#">edit</Link>
+                                        <Link to="/edit">edit</Link>
                                         <button onClick={this.display}>delete</button>
                                     </div>
                                     <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 import ListView from './Components/ListView/ListView'
 import CreateNote from './Components/CreateNote/CreateNote'
 import NoteView from "./Components/NoteView/NoteView"
-
+import EditNote from "./Components/EditNote/EditNote"
 
 class App extends Component {
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ListView}/>
           <Route exact path="/new" component={CreateNote}/>
+          <Route path="/edit" component={EditNote}/>
           <Route  path="/note" component={NoteView}/>
         </Switch>
       </div>

@@ -14,6 +14,10 @@ margin-top: 2%;
     flex-wrap: wrap;
 }
 
+.noteCard .sideBar {
+    width: 26%;
+}
+
 .noteCard .links {
     width: 98%;
     text-align: right;

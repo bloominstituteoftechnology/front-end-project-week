@@ -6,7 +6,6 @@
 
 body {
     background-color: #F3F3F3;
-    height: 100%;
 }
 
 .body {
@@ -16,8 +15,9 @@ body {
 
 .sideBar {
     display: flex;
+    position: relative;
     flex-direction: column;
-    width: 25%;
+    width: 27%;
     background-color: #D3D2D3;
     padding: 2%;
     height: 100vh;
