@@ -62,7 +62,7 @@ class CreateNew extends React.Component {
         // e.preventDefault();
         // this.props.addNote(this.state.note);
         // this.props.addTitle(this.state.title);
-        const noteObject = { title: this.state.title, note: this.state.note};
+        const noteObject = { title: this.state.title, note: this.state.note, check: false };
         this.props.addNote(noteObject);
         this.refresh();
         this.setState({
