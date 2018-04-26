@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 
 class SingleNote extends React.Component {
   render() {
-    let trimText = this.props.note.text.slice(0, 140) + "...";
+    let trimText =
+      this.props.note.text.length > 140
+        ? this.props.note.text.slice(0, 140) + "..."
+        : this.props.note.text;
     return (
       <div className="note__card">
         <Link
