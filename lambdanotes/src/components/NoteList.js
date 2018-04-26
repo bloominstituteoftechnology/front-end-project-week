@@ -86,6 +86,8 @@ class NoteList extends Component {
                 .includes(this.state.searchInput.toLowerCase())
             ) {
               return <NoteCard key={note.title + note.id} note={note} />;
+            } else {
+              return null;
             }
           })}
         </Container>

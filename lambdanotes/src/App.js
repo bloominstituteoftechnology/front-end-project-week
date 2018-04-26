@@ -40,7 +40,7 @@ class App extends Component {
       notes: initialNotes,
       password: "password",
       inputtedPassword: "",
-      access: false
+      access: true
     };
   }
 
@@ -159,6 +159,14 @@ class App extends Component {
                 />
                 <Button color="info" onClick={this.submitPassword}>
                   Login
+                </Button>
+                <Button
+                  color="info"
+                  onClick={() =>
+                    alert(`The password is "${this.state.password}"`)
+                  }
+                >
+                  Hint
                 </Button>
               </Col>
             </Row>
