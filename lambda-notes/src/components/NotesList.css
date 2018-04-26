@@ -1,0 +1,48 @@
+.mainList {
+    width: 80%;
+    padding-left: 25px;
+    padding-top: 35px;
+    background-color: #F2F1F2;
+    border-left: 1px solid gray;
+}
+.noteList {
+    display: inline-block;
+    width: 23%;
+    border: 1px solid black;
+    margin: 10px 10px 15px 10px;
+    padding: 5px 15px 20px 15px;
+    background-color: white;
+    line-height: 20px;
+    
+}
+
+.divide {
+    border-bottom: 1px solid black;
+    margin-top: 5px;
+}
+
+.noteTitle {
+    font-size: 18px;
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+.noteContent {
+    display: inline-block;
+    justify-content: flex-start;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.links {
+    color: black;
+}
+
+.sideBarContainer {
+    width: 25%;
+    background-color: #D1D1D1;
+}
+
+.headerNotes {
+    margin-left: 10px;
+}
