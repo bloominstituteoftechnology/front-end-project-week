@@ -1,5 +1,4 @@
 import React from 'react';
-import LambdaSide from './LambdaSide';
 
 import {updateNote } from '../actions/actions';
 import { connect } from 'react-redux';
@@ -50,8 +49,7 @@ class EditNote extends React.Component {
 	
 	componentDidMount() {
 		this.props.notes;
-		console.log('INSIDE EDITNOTE, ID IS, ID: ',this.props.idE);
-		console.log(this.props)
+		
 	}
 	
 	handleTextInput = (e) => {
@@ -60,8 +58,7 @@ class EditNote extends React.Component {
 	};
 	newNote = (e) => {
 		// e.preventDefault();
-		console.log('title: ', this.state.title);
-		console.log('note: ', this.state.note);
+		
 		const noteObject = { title: this.state.title, note: this.state.note};
 		this.props.updateNote(noteObject,this.props.idE);
 		this.setState({
@@ -69,8 +66,6 @@ class EditNote extends React.Component {
             note: ''
         })
 
-		// let nNote = 
-		// alert('Edit note coming soon, as MVP is approved' + '    Title: ' + this.state.title + ',     Note: ' + this.state.note);
 	};
 	render() {
 		return (
@@ -100,8 +95,6 @@ class EditNote extends React.Component {
 const mapDispatchToProps = (state) => {
 	return {
 		notes: state.notes
-		// titles: state.titles
 	};
 };
 export default connect(mapDispatchToProps, {  updateNote })(EditNote);
-// export default EditNote;

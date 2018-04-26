@@ -1,5 +1,4 @@
 import React from 'react';
-import LambdaSide from './LambdaSide';
 import { addNote} from '../actions/actions'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';

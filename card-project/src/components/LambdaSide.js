@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const bStyle = {
@@ -28,7 +28,6 @@ const LambdaSide = (props) => {
 			</div>
 			<Link to="/">
 				<button style={bStyle}>View Your Notes</button>
-				{/* {this.setState({renderB: !this.state.renderB})} */}
 			</Link>
 			<Link to="/notes/new">
 				<button style={bStyle}>+ Create New Note</button>
