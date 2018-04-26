@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import { Row, Col, Container } from "reactstrap";
+import { Row, Col, Container, Input, Button } from "reactstrap";
 
 import NoteList from "./components/NoteList";
 import NoteView from "./components/NoteView";
@@ -37,9 +37,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: initialNotes
+      notes: initialNotes,
+      password: "password",
+      inputtedPassword: "",
+      access: false
     };
   }
+
+  handlePasswordInput = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitPassword = () => {
+    if (this.state.inputtedPassword === this.state.password) {
+      this.setState({ access: true });
+    } else {
+      alert("This password is incorrect.");
+      this.setState({ inputtedPassword: "" });
+    }
+  };
 
   addNote = newNote => {
     const id = this.state.notes[this.state.notes.length - 1].id + 1;
@@ -69,56 +85,81 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div className="App">
-        <Container>
-          <Row>
-            <Col sm="3">
-              <Route
-                path="/"
-                render={props => {
-                  return <Menu notes={this.state.notes} />;
-                }}
-              />
-            </Col>
-            <Col sm="9">
-              <Route
-                exact
-                path="/"
-                render={props => {
-                  return <NoteList notes={this.state.notes} />;
-                }}
-              />
-              <Route
-                exact
-                path="/note/:id"
-                render={props => {
-                  return (
-                    <NoteView
-                      {...props}
-                      notes={this.state.notes}
-                      editNote={this.editNote}
-                      deleteNote={this.deleteNote}
-                    />
-                  );
-                }}
-              />
-              <Route
-                path="/create"
-                render={props => {
-                  return (
-                    <CreateNote
-                      notes={this.state.notes}
-                      addNote={this.addNote}
-                    />
-                  );
-                }}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
+    if (this.state.access === true) {
+      return (
+        <div className="App">
+          <Container>
+            <Row>
+              <Col sm="3">
+                <Route
+                  path="/"
+                  render={props => {
+                    return <Menu notes={this.state.notes} />;
+                  }}
+                />
+              </Col>
+              <Col sm="9">
+                <Route
+                  exact
+                  path="/"
+                  render={props => {
+                    return <NoteList notes={this.state.notes} />;
+                  }}
+                />
+                <Route
+                  exact
+                  path="/note/:id"
+                  render={props => {
+                    return (
+                      <NoteView
+                        {...props}
+                        notes={this.state.notes}
+                        editNote={this.editNote}
+                        deleteNote={this.deleteNote}
+                      />
+                    );
+                  }}
+                />
+                <Route
+                  path="/create"
+                  render={props => {
+                    return (
+                      <CreateNote
+                        notes={this.state.notes}
+                        addNote={this.addNote}
+                      />
+                    );
+                  }}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <Container>
+            <Row>
+              <Col>
+                <h4 className="mt-5">Login: </h4>
+                <Input
+                  className="password-input mt-5"
+                  type="text"
+                  name="inputtedPassword"
+                  placeholder="Type the password for access"
+                  onChange={this.handlePasswordInput}
+                  value={this.state.inputtedPassword}
+                />
+                <Button color="info" onClick={this.submitPassword}>
+                  Login
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      );
+    }
   }
 }
 

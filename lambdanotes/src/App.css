@@ -37,3 +37,11 @@
 .container {
   height: 100%;
 }
+
+.password-input.form-control {
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-top: 2%;
+  margin-right: 2px;
+  width: 40%;
+}
