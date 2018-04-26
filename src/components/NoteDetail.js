@@ -61,7 +61,9 @@ class Note extends Component {
               </Controls>
               <NoteContainer>
                 <h1>{note.title}</h1>
-                <Markdown markdown={note.content} />
+                <Markdown 
+                  noteId={match.params.id}
+                  markdown={note.content} />
               </NoteContainer>
             </Container>
           )
@@ -73,7 +75,7 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapListenersToProps = (props) => {
-  return [ `notes/${props.match.params.id}` ]
+  return [ 'notes' ]
 }
 
 export default compose(
