@@ -26,7 +26,6 @@ export default class CreateNote extends Component {
       .post("http://localhost:5000/notes", note)
       .then(savedNote => {
         console.log(note);
-
         this.props.getNotes();
       })
       .catch(err => {

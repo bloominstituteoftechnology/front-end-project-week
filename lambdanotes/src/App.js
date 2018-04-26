@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 import Sidebar from "./components/Sidebar/Sidebar";
 import NotesList from "./components/NotesList/NotesList";
 import NoteView from "./components/NoteView/NoteView";
 import CreateNote from "./components/CreateNote/CreateNote";
+import EditNote from "./components/EditNote/EditNote";
 
 export default class App extends Component {
   constructor() {
@@ -57,6 +57,7 @@ export default class App extends Component {
               />
             )}
           />
+          <Route path="/edit" component={EditNote} />
           <Route
             component={() => <h1>There are no notes here, turn back!</h1>}
           />

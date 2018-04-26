@@ -65,7 +65,17 @@ export default class NoteView extends Component {
       <div>
         <Row>
           <Col sm={{ size: 8, offset: 4 }}>
-            <button>edit</button>
+            {/* ______EDIT NOTE LINK/BUTTON HERE______ */}
+            <Link
+              to={{
+                pathname: "/edit",
+                state: { note: this.state.note.id }
+              }}
+            >
+              <button>edit</button>
+            </Link>
+
+            {/* ______DELETE NOTE MODAL HERE______ */}
             <Button color="danger" onClick={this.toggle}>
               delete
             </Button>
@@ -90,6 +100,7 @@ export default class NoteView extends Component {
               </ModalFooter>
             </Modal>
 
+            {/* ______ACTUAL NOTE TITLE+CONTENT______ */}
             <h3>{this.state.note.title}</h3>
             <p>{this.state.note.content}</p>
           </Col>
