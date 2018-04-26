@@ -51,6 +51,8 @@
 @media (max-width: 743px) {
   .Nav__Container {
     width: 100%;
+    background-color: #d7d7d7cc !important;
+    border-right: 0 !important;
   }
 
   .Nav__Header {

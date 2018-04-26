@@ -9,6 +9,7 @@ export const OLDEST_NEWEST = "REVERSE";
 export const NEWEST_OLDEST = "ORDER";
 export const LIST = "LIST";
 export const SORT_TITLE = "SORT_TITLE";
+export const NEW_USER = "NEW_USER";
 
 export const getNotes = () => {
   return dispatch => {
@@ -75,6 +76,10 @@ export const listViews = () => {
 
 export const sortTitle = () => {
   return dispatch => { dispatch({ type: SORT_TITLE }) }
+}
+
+export const newUser = name => {
+  return dispatch => { dispatch({ type: NEW_USER, payload: name }) }
 }
 
 export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }

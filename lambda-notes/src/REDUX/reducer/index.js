@@ -1,11 +1,14 @@
 import {
-  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, NEWEST_OLDEST, LIST, SORT_TITLE
+  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, 
+  TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, 
+  NEWEST_OLDEST, LIST, SORT_TITLE, NEW_USER
 } from '../actions';
 
 const initialState = {
   notes: [],
   error: "",
   listView: false,
+  username: "",
   night: false
 };
 
@@ -62,12 +65,11 @@ export default (state = initialState, action) => {
         })
       }
 
-      case REORDER:
-      debugger;
-        return {
-          ...state,
-          // notes: [...state.notes.splice(action.payload.id)]
-        }
+    case NEW_USER:
+      return {
+        ...state,
+        username: action.payload
+      }
 
     default:
       return state;

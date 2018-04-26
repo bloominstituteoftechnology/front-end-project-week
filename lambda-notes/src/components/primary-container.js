@@ -102,6 +102,11 @@ class PrimaryContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ notes: state.notes, night: state.night, listView: state.listView })
+const mapStateToProps = state => ({ 
+  notes: state.notes, 
+  night: state.night, 
+  listView: state.listView,
+  username: state.username
+})
 
 export default connect(mapStateToProps, { getNotes, saveNote, handleReverse, handleOrder, sortTitle })(PrimaryContainer);

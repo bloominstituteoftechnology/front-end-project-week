@@ -5,6 +5,7 @@ import ViewNote from './view-note';
 import EditNote from './edit-note';
 import Markdown from './markdown';
 import DragSort from './drag-n-sort';
+import Login from './login';
 
 
 export {
@@ -14,5 +15,6 @@ export {
   ViewNote,
   EditNote,
   Markdown,
-  DragSort
+  DragSort,
+  Login
 }
