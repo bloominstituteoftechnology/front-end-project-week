@@ -1,4 +1,4 @@
-import { Note, NoteTitle, NoteContent } from 'components/Note'
+import { LinkedNote, NoteTitle, NoteContent } from 'components/Note'
 import { setup } from 'utils'
 
 const mockProps = {
@@ -7,7 +7,7 @@ const mockProps = {
   id: 1
 }
 
-const { enzymeWrapper: noteWrapper } = setup(Note, mockProps)
+const { enzymeWrapper: noteWrapper } = setup(LinkedNote, mockProps)
 it('renders note component', () => {
   expect(noteWrapper.find('Note').exists()).toBe(true)
   expect(

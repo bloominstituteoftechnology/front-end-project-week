@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Styled from 'styled-components'
-import { Note } from 'components/Note'
+import { LinkedNote } from 'components/Note'
 
 const SectionContainer = Styled.section`
   background-color: rgb(242,243,242);
@@ -22,7 +22,7 @@ export const NoteList = ({ notes }) => (
   <SectionContainer>
     <h3>Your Notes</h3>
     <ListContainer>
-      {notes.map(note => <Note {...note} key={note.id} />)}
+      {notes.map(note => <LinkedNote {...note} key={note.id} />)}
     </ListContainer>
   </SectionContainer>
 )

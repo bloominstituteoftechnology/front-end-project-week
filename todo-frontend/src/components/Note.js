@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const styles = {
   underline: '#333'
@@ -36,5 +37,12 @@ Note.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string
 }
+
+/** @type Link */
+export const LinkedNote = props => (
+  <Link to={`/notes/${props.id}`}>
+    <Note {...props} />
+  </Link>
+)
 
 export { Note, NoteTitle, NoteContent }

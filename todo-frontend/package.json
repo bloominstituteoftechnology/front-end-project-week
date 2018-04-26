@@ -30,6 +30,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^4.2.6",
     "babel-eslint": "^7.2.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -68,16 +69,10 @@
       "prettier/react",
       "prettier/standard"
     ],
-    "plugins": [
-      "react",
-      "prettier",
-      "standard"
-    ]
+    "plugins": ["react", "prettier", "standard"]
   },
   "babel": {
-    "presets": [
-      "babel-preset-react-app"
-    ]
+    "presets": ["babel-preset-react-app"]
   },
   "prettier": {
     "semi": false,

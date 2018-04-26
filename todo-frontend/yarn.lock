@@ -109,9 +109,34 @@
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.8.tgz#38a936b60b898a1ad0f3719543ff1a1031f60f8b"
 
+"@types/history@*":
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/@types/history/-/history-4.6.2.tgz#12cfaba693ba20f114ed5765467ff25fdf67ddb0"
+
 "@types/node@*":
   version "9.6.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.6.tgz#439b91f9caf3983cad2eef1e11f6bedcbf9431d2"
+
+"@types/react-router-dom@^4.2.6":
+  version "4.2.6"
+  resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.2.6.tgz#9f7eb3c0e6661a9607d878ff8675cc4ea95cd276"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*":
+  version "4.0.24"
+  resolved "https://registry.yarnpkg.com/@types/react-router/-/react-router-4.0.24.tgz#e378e84186522216ae36cea12313965e190cd55f"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+
+"@types/react@*":
+  version "16.3.12"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.12.tgz#68d9146f3e9797e38ffbf22f7ed1dde91a2cfd2e"
+  dependencies:
+    csstype "^2.2.0"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -2039,6 +2064,10 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   resolved "https://registry.yarnpkg.com/cssstyle/-/cssstyle-0.2.37.tgz#541097234cb2513c83ceed3acddc27ff27987d54"
   dependencies:
     cssom "0.3.x"
+
+csstype@^2.2.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.4.0.tgz#6c7d711cc135dcd90c812a80213eab006fc1acff"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
