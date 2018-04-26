@@ -6,13 +6,13 @@ const styles = {
   underline: '#333'
 }
 
-const TodoWrapper = Styled.div`
+const NoteWrapper = Styled.div`
   background-color: white;
   color: rgb(68,68,68);
   border: 2px solid rgb(222,222,222);
 `
 
-const TodoTitle = Styled.h3`
+const NoteTitle = Styled.h3`
   margin: 5px;
   display: inline-block;
   color: #000;
@@ -20,21 +20,21 @@ const TodoTitle = Styled.h3`
   border-bottom: 1px solid ${styles.underline};
 `
 
-const TodoContent = Styled.p`
+const NoteContent = Styled.p`
   margin: 2px;
 `
 
 /** @type React.StatelessComponent<{title,content}> */
-const Todo = props => (
-  <TodoWrapper>
-    <TodoTitle>{props.title}</TodoTitle>
-    <TodoContent>{props.content}</TodoContent>
-  </TodoWrapper>
+const Note = props => (
+  <NoteWrapper>
+    <NoteTitle>{props.title}</NoteTitle>
+    <NoteContent>{props.content}</NoteContent>
+  </NoteWrapper>
 )
 
-Todo.propTypes = {
+Note.propTypes = {
   title: PropTypes.string,
   content: PropTypes.string
 }
 
-export { Todo, TodoTitle, TodoContent }
+export { Note, NoteTitle, NoteContent }

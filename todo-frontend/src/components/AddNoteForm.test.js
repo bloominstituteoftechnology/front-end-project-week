@@ -1,10 +1,10 @@
-import { AddTodoForm, handleSubmit } from 'components/AddTodoForm'
+import { AddNoteForm, handleSubmit } from 'components/AddNoteForm'
 import { setup } from 'utils'
 
-const { enzymeWrapper: AddTodoFormWrapper } = setup(AddTodoForm)
+const { enzymeWrapper: AddNoteFormWrapper } = setup(AddNoteForm)
 
 it('has inputs', () => {
-  expect(AddTodoFormWrapper.find('input').length).toBe(2)
+  expect(AddNoteFormWrapper.find('input').length).toBe(2)
 })
 
 const nodesMock = {
@@ -20,6 +20,6 @@ describe('handleSubmit', () => {
   })
 
   it('returns values input', () => {
-    AddTodoFormWrapper.find('.ATF--input')
+    AddNoteFormWrapper.find('.ATF--input')
   })
 })

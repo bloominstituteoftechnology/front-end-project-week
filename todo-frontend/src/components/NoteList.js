@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Styled from 'styled-components'
-import { Todo } from 'components/Todo'
+import { Note } from 'components/Note'
 
 const SectionContainer = Styled.section`
   background-color: rgb(242,243,242);
@@ -18,15 +18,15 @@ const ListContainer = Styled.div`
 `
 
 /** @type React.StatelessComponent<{todos}> */
-export const TodoList = ({ todos }) => (
+export const NoteList = ({ notes }) => (
   <SectionContainer>
     <h3>Your Notes</h3>
     <ListContainer>
-      {todos.map(todo => <Todo {...todo} key={todo.id} />)}
+      {notes.map(note => <Note {...note} key={note.id} />)}
     </ListContainer>
   </SectionContainer>
 )
 
-TodoList.propTypes = {
-  todos: PropTypes.array
+NoteList.propTypes = {
+  notes: PropTypes.array
 }

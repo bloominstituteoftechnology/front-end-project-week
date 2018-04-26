@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-/** @type React.StatelessComponent<{addTodo}> */
-export const AddTodoForm = props => (
+/** @type React.StatelessComponent<{addNote}> */
+export const AddNoteForm = props => (
   <form
     className="ATF"
     onSubmit={e => {
@@ -14,7 +14,7 @@ export const AddTodoForm = props => (
       if (!nodes.title.value || !nodes.content.value) {
         console.error('All fields are required')
       }
-      handleSubmit(props.addTodo, {
+      handleSubmit(props.addNote, {
         title: nodes.title.value,
         content: nodes.content.value
       })
@@ -31,8 +31,8 @@ export const AddTodoForm = props => (
   </form>
 )
 
-AddTodoForm.propTypes = {
-  addTodo: PropTypes.func,
+AddNoteForm.propTypes = {
+  addNote: PropTypes.func,
   history: PropTypes.object
 }
 

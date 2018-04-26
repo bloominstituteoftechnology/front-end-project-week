@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { get } from 'axios'
 
-import { TodoList } from 'components/TodoList'
+import { NoteList } from 'components/NoteList'
 import { Sidebar } from 'components/Sidebar'
-import { AddTodoForm } from 'components/AddTodoForm'
+import { AddNoteForm } from 'components/AddNoteForm'
 
 // import { base } from 'base'
 
@@ -62,7 +62,7 @@ class App extends Component {
             exact
             path="/"
             render={props => (
-              <TodoList {...props} todos={[...this.state.notes]} />
+              <NoteList {...props} notes={[...this.state.notes]} />
             )}
           />
         </Switch>
@@ -71,9 +71,9 @@ class App extends Component {
             exact
             path="/new"
             render={props => (
-              <AddTodoForm
+              <AddNoteForm
                 {...props}
-                addTodo={nTodo => this.createTodo(nTodo)}
+                addNote={nTodo => this.createTodo(nTodo)}
               />
             )}
           />

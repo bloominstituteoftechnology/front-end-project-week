@@ -1,8 +1,8 @@
 import { setup } from 'utils'
-import { TodoList } from 'components/TodoList'
+import { NoteList } from 'components/NoteList'
 
 const mockProps = {
-  todos: [
+  notes: [
     {
       id: 1,
       title: 'cooper why',
@@ -21,8 +21,8 @@ const mockProps = {
   ]
 }
 
-const { enzymeWrapper: TodoListWrapper } = setup(TodoList, mockProps)
+const { enzymeWrapper: NoteListWrapper } = setup(NoteList, mockProps)
 
-it('renders correct amount of todos', () => {
-  expect(TodoListWrapper.find('Todo').getElements().length).toBe(3)
+it('renders correct amount of notes', () => {
+  expect(NoteListWrapper.find('Note').getElements().length).toBe(3)
 })

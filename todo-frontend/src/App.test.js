@@ -9,7 +9,7 @@ import { setup } from 'utils' // leaving this in scope allows pre-adapted enzyme
 
 const mockProps = {
   fetchTodos: jest.fn(),
-  todos: []
+  notes: []
 }
 // const { enzymeWrapper } = setup(App, mockProps)
 
@@ -18,6 +18,8 @@ const enzymeWrapper = mount(
     <App {...mockProps} />
   </MemoryRouter>
 )
+
+enzymeWrapper.setState({ notes: [] })
 
 it('renders without crashing', () => {
   expect(enzymeWrapper.find('App').exists()).toBe(true)
