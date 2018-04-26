@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-
+import { Link } from 'react-router-dom';
 
 class CreateNote extends Component {
     constructor() {
@@ -83,10 +83,10 @@ class CreateNote extends Component {
         value={this.state.body}
         onChange={this.handleAddNote}
         ></textarea><br/> <br/>
-        <button 
+        <Link to='/'><button 
         className='Create__note-button'
         onClick={this.handleSubmitNote}
-        >Save</button>
+        >Save</button></Link>
           
   
         </div> // container div end
