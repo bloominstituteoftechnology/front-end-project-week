@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import {notes} from './Notes/notes';
 import {Route} from 'react-router-dom';
+import axios from 'axios';
 import Notes from "./Components/ListView"
 import Home from "./Components/home"
 import NoteView from "./Components/NoteView"
 import CreateView from "./Components/CreateView"
 import EditView from "./Components/EditView"
+const url = 'http://localhost:5000/notes'
 class App extends Component {
   constructor(){
     super();
@@ -19,23 +21,36 @@ class App extends Component {
 
  
   componentDidMount(){
-console.log(notes)
-    this.setState({ notes: notes});
+    console.log('i mounted')
+    this.updateGet()
+    }
+    updateGet =() =>{
+    console.log('i worked')
+     axios
+      .get(url)
+      
+      .then(response => {
+        this.setState({notes: response.data})
+      
+      })
+      .catch(err =>{
+        console.log(err);
     
-    console.log(this.state)
-   }
-delete(e){
-  let removed = e;
-  console.log(notes)
-  console.log(removed)
- console.log(this.notes)
-const editedNote = notes.filter(note =>{
+      })
+    }
+    deleteNote = noteId =>{
+      console.log('i d')
+      axios
+      .delete(`${url}/${noteId}`)
+      .then(response =>{
+          this.updateGet();
+      })
+      .catch(err =>{
+          console.log(err);
+      });
+    };
+    
 
-   return note.id !== removed.id;
-
- })
- console.log(editedNote)
-}
 
 
   render() {
@@ -49,7 +64,7 @@ const editedNote = notes.filter(note =>{
           render= {props =><Notes  notes={this.state.notes}/>}
       />
       <Route path ="/note/:id"
-      render ={props =><NoteView {...props} delete={this.delete} {...this.state}/>}
+      render ={props =><NoteView {...props} delete={this.deleteNote} {...this.state}/>}
     />
     <Route path="/create" component={CreateView} />
 

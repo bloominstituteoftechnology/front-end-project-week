@@ -36,7 +36,7 @@ render(){
     <Card>
       <Row>  
 <Col className="link-styles">
-    <Link to={`/edit/${this.state.note.id}`} ><Button color="link" onClick={this.props.delete(this.state.note)} className="link editLink-styles" >edit</Button></Link>
+    <Link to={`/edit/${this.state.note.id}`} ><Button color="link" className="link editLink-styles" >edit</Button></Link>
   
 <Button color="link" className="link deleteLink-styles" onClick={this.toggle} >delete</Button>
 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -46,7 +46,7 @@ render(){
        </ModalBody>
        <ModalFooter>
          <Link to="/">
-         <Button color="danger" className="button danger-styles modal-button" onClick={this.toggle}>Delete</Button>
+         <Button color="danger" className="button danger-styles modal-button" onClick={this.props.delete(this.state.note.id)}>Delete</Button>
          </Link>
          <Button color="secondary" className="button modal-button" onClick={this.toggle}>No</Button>
        </ModalFooter>
