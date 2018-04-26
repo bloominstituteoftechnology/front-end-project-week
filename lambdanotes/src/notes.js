@@ -5,23 +5,23 @@ export const notes = [
     'id': v4(),
     'title': 'Universidad del Istmo',
     'text':
-      'lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus',
+      'lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus lo Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi totam consequuntur, reprehenderit eligendi unde possimus ipsum dolore nulla delectus, blanditiis sit temporibus accusantium praesentium tempora pariatur necessitatibus! Unde, temporibus.',
   },
   {
     'id': v4(),
     'title': 'Universidad Kino',
     'text':
-      'eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id',
+      'eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi totam consequuntur, reprehenderit eligendi unde possimus ipsum dolore nulla delectus, blanditiis sit temporibus accusantium praesentium tempora pariatur necessitatibus! Unde, temporibus.',
   },
   {
     'id': v4(),
     'title': 'International Buddhist University',
-    'text': 'ligula sit amet eleifend pede libero quis orci nullam molestie',
+    'text': 'ligula sit amet eleifend pede libero quis orci nullam molestie Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi totam consequuntur, reprehenderit eligendi unde possimus ipsum dolore nulla delectus, blanditiis sit temporibus accusantium praesentium tempora pariatur necessitatibus! Unde, temporibus.',
   },
   {
     'id': v4(),
     'title': 'Southwest University of Political Science and Law',
-    'text': 'sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam',
+    'text': 'sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi totam consequuntur, reprehenderit eligendi unde possimus ipsum dolore nulla delectus, blanditiis sit temporibus accusantium praesentium tempora pariatur necessitatibus! Unde, temporibus.',
   },
   {
     'id': v4(),
@@ -49,6 +49,6 @@ export const notes = [
   {
     'id': v4(),
     'title': 'University College of Skövde',
-    'text': 'suscipit a feugiat et eros vestibulum ac est lacinia nisi',
+    'text': 'suscipit a feugiat et eros vestibulum ac est lacinia nisi Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sequi totam consequuntur, reprehenderit eligendi unde possimus ipsum dolore nulla delectus, blanditiis sit temporibus accusantium praesentium tempora pariatur necessitatibus! Unde, temporibus.',
   },
 ];
