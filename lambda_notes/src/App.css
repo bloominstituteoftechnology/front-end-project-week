@@ -1,9 +1,6 @@
-body {
-  background-color: #f3f3f3;
-}
-
 .App.container-fluid {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 100%;
 }
 .leftSideBar {
   background: #d8d8d8;

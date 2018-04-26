@@ -20,6 +20,9 @@ class Note extends Component {
           <Link className="header-link mr-3" to={`/editNote/${note.id}`}>
             edit
           </Link>{" "}
+          <Link className="header-link mr-3" to={`/`}>
+            delete
+          </Link>{" "}
         </Row>
         <Row className="mt-5">
           <h3 className="header w-100">{note.title}</h3>
