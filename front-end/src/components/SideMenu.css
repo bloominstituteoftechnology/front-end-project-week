@@ -1,4 +1,27 @@
 .SideBar {
-  border: 2px solid blue;
-  background: #867b74d0;
+  background: silver;
+  /* min-width: 250px; */
+  max-width: 100%;
+  height: 100vh;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
+
+.nav a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.nav a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.nav a:active {
+  background-color: #4144f4;
+  color: white;
+}
+

@@ -8,10 +8,12 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
   color: white;
+  background-color: #29292d;
+  padding: 10px 10px 10px 20px;
+
+  text-align: left;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .App-title {
@@ -22,15 +24,14 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.PageContainer {
-  width: 100%;
-}
-
 .MainContentContainer {
+  display: flex;
+}
+
+.SideMenu {
+  min-width: 290px;
+}
+
+.MainContent {
   width: 100%;
 }

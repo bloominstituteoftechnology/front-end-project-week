@@ -1,0 +1,10 @@
+.TextBoxContainer {
+  width: 100%
+}
+
+/* .TextBox {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 150px;
+} */

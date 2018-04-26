@@ -22,7 +22,7 @@ export default class NoteDetail extends Component {
   }
 
   render() {
-    // console.log("current set state:", this.props.match.params.id);
+    console.log("current set state:", this.props.match.params.id);
     return (
       <div>
         <div className="ModalContainer">
@@ -58,7 +58,13 @@ export default class NoteDetail extends Component {
           </Link>
         </div>
 
-        <NoteCard eachNote={this.state.note} />
+        <div className="TextBoxContainer">
+          <h2>{this.state.note.title}</h2>
+          <h1> -----------------------</h1>
+          <div className="TextBox">{this.state.note.content}</div>
+        </div>
+
+        {/* <NoteCard eachNote={this.state.note} /> */}
       </div>
     );
   }

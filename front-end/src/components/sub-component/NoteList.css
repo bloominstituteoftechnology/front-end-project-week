@@ -1,16 +1,24 @@
-.NoteList {
+.NoteListContainer {
+  padding: 40px;
+}
+
+.NoteListCol {
   border: 2px solid red;
   width: 100%;
 }
 
-.NoteCard {
+.NoteCardContainer {
+  height: 14rem;
   border: 1px solid black;
   border-radius: 10px;
+
 }
 
-.TextBox {
-  white-space: nowrap; 
+.NoteCard {
+  height: 200px;
+  margin: 20px;
+  border: 1px solid blue;
+  
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 125px;
 }

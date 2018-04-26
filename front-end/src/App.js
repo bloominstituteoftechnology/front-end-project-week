@@ -14,11 +14,11 @@ class App extends Component {
         </header>
 
         <div className="PageContainer">
-          <div className="MainContentContainer row m-0">
-            <div className="col-2 p-0 m-0">
+          <div className="MainContentContainer">
+            <div className="SideMenu">
               <SideMenu />
             </div>
-            <div className=" col-10 p-0 m-0">
+            <div className="MainContent">
               <MainContent />
             </div>
           </div>

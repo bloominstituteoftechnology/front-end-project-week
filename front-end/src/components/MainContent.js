@@ -37,7 +37,7 @@ class MainPageContainer extends Component {
           render={props => <NoteDetail {...props} mainProps={this.props} />}
         />
         <Route
-          path="/edit"
+          path="/edit/:id"
           render={props => <EditNote {...props} mainProps={this.props} />}
         />
       </div>
