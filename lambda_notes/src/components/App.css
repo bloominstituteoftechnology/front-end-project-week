@@ -26,23 +26,22 @@
   overflow: hidden;
   font-size: 0.9rem;
 }
-  .note-card .note-title {
-    border-bottom: 1px solid gray; 
-    margin-bottom: 10px; 
-    padding-bottom: 10px; 
-}
- .notes-header {
+ .note-card .note-title {
+  border-bottom: 1px solid gray; 
+  margin-bottom: 10px; 
+  padding-bottom: 10px; 
   text-align: left;
-  padding-left: 20px;  
+  padding-left: 10px;  
+  padding-top: 10px; 
   text-decoration-color: darkgrey; 
 }
 .sidebar {
-   box-sizing: border-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background-color: #e6e6e6;
-   padding: 0 15px 0 15px;
+  padding: 0 15px 0 15px;
   min-height: 800px;
   height: initial;
-    width: 200px;
+  width: 200px;
   }

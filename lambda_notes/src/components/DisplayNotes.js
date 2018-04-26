@@ -1,36 +1,34 @@
-import React, { Component } from "react";
-import { viewNote } from "../actions";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import NoteCard from "./card";
-import {notes} from "./defaultNotes"
+// import React, { Component } from "react";
+// import { viewNote } from "../actions";
+// import { connect } from "react-redux";
+// import { Link, Route } from "react-router-dom";
+// import NoteCard from "./card";
+// import {notes} from "./defaultNotes"
+// import OneNote from "./OneNote";
 
-class DisplayNotes extends Component {
-  state = {
-    id: "",
-  };
+// const mapStateToProps = state => {
+// 	return {
+// 		notes: state.notes
+// 	};
+// };
 
-  render() {
-    return (
-      <div className="right-div">
-        <h3 className="notes-header">Your Notes:</h3>
-        <div className="notes-div">
-        {this.props.notes.map(note => (
-          <NoteCard key={note.id}/>
-       ))};
-      </div>
-      </div>
-    );
-  }
+// class DisplayNotes extends Component {
+  
+//   render() {
+//     return (
+//       <div className="right-div">
+//         <h3 className="notes-header">Your Notes:</h3>
+//         <div className="notes-div">
+//         {this.props.notes.map((note, index) => {
+//           return <OneNote key={this.props.location.key}  params={match.params} />
+//         })}
+//       </div>
+//       </div>
+//     );
+//   }
 
   
 
-}
+// }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-  };
-};
-
-export default connect(mapStateToProps, { viewNote })(DisplayNotes);
+// export default connect(mapStateToProps, { NoteCard })(DisplayNotes);
