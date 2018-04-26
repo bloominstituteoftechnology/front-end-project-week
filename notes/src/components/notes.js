@@ -69,9 +69,7 @@ export default class Notes extends Component {
 
   editNote = (title, text, id) => {
     let currNoteIndex = this.state.notes.findIndex(e => e.id === id);
-    console.log(currNoteIndex);
     let tempNotes = this.state.notes;
-    console.log(tempNotes);
     tempNotes[currNoteIndex] = { title: title, text: text, id: id };
     this.setState({ view: "list", notes: tempNotes });
   };
