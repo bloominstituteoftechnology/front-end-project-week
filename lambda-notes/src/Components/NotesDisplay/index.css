@@ -1,10 +1,10 @@
 .NotesContainer{
   padding: 30px 0 20px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 30%));
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 10px;
   justify-content: center;
+
 }
 .Note{
   height: 200px;
@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 .Note:hover{
-  border-left: 4px solid #1c808e;
+  border-left: 2px solid #1c808e;
 }
 .noteHeader{
   text-align: center;

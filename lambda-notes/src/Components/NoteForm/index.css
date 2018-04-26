@@ -12,14 +12,14 @@
   padding: 10px;
   width: 60%;
   border-radius: 3px;
-  border: 1px solid lightgray;
+  border: 1px solid gray;
   margin-bottom: 20px;
   font-size: 1.3rem;
 }
 .Container__inputBody {
   border-radius: 3px;
   padding: 20px;
-  border: 1px solid lightgray;
+  border: 1px solid gray;
   height: 300px;
   margin-bottom: 20px;
 }

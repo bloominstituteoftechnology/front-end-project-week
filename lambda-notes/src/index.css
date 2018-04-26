@@ -1,13 +1,15 @@
 :global(html) {
   font-size: 62.5%;
+  color: rgb(54, 54, 54);
 }
 :global(*) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
 }
 :global(button) {
-  border-radius: 3px;
+  border-radius: 2px;
   min-width: 90px;
   background: #1c808e;
   color: white;

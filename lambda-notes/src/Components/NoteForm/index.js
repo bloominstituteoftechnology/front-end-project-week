@@ -18,6 +18,9 @@ export class NoteForm extends Component {
     this.setState({header: '', body: ''});
   }
   changeState = (e) => {
+    if ((this.state.body === '' && e.target.name === 'body') || (this.state.header === '' && e.target.name === 'header')) {
+      this.setState({error: false});
+    }
     this.setState({[e.target.name]: e.target.value});
   };
   render() {

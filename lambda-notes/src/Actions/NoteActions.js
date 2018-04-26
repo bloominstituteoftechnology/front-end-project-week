@@ -1,4 +1,4 @@
-import * as data from '../Data/Notes.json';
+import axios from 'axios';
 
 export const GETNOTES = 'GETNOTES';
 export const ADDNOTE = 'ADDNOTE';
@@ -6,14 +6,46 @@ export const UPDATENOTE = 'UPDATENOTE';
 export const DELETENOTE = 'DELETENOTE';
 
 export const getNotes = () => {
-  return ({type: GETNOTES, payload: data.notes});
+  const promise = axios.get('http://localhost:5000/api/notes');
+  return dispatch => {
+    promise
+      .then(response => {
+        dispatch({type: GETNOTES, payload: response.data})
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
 }
+
 export const addNote = (note) => {
-  return ({type:ADDNOTE, payload: note});
+  const promise = axios.post('http://localhost:5000/api/notes', note);
+  return dispatch => {
+    promise
+      .then(response => {
+        dispatch({type: GETNOTES, payload: response.data})
+      })
+  }
 }
 export const updateNote = (id, update) => {
-  return ({type: UPDATENOTE, id: id, payload: update});
+  const promise = axios.put(`http://localhost:5000/api/notes/${id}`, update);
+  return dispatch => {
+    promise
+      .then(response => {
+        dispatch({type: GETNOTES, payload:response.data})
+      }).catch(err => {
+        console.log(err);
+      })
+  }
 }
 export const deleteNote = (id) => {
-  return ({type: DELETENOTE, payload: id});
+  const promise = axios.delete(`http://localhost:5000/api/notes/${id}`);
+  return dispatch => {
+    promise
+      .then(response => {
+        dispatch({type:GETNOTES, payload: response.data});
+      }).catch(err => {
+        console.log(err);
+      })
+  }
 }

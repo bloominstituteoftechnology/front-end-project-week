@@ -5,6 +5,7 @@ import {NotesDisplay} from '../NotesDisplay/index';
 import {NoteForm} from '../NoteForm';
 import {Note} from '../Note';
 import {store} from '../../';
+
 export class Cockpit extends Component {
   getNote = (props) => {
     const note = store.getState().find((obj) => obj.id === props.match.params.id);

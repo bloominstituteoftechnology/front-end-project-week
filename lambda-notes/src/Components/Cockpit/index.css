@@ -1,8 +1,9 @@
 .Container__SideBar{
   border-right: 1px solid gray;
   width: 30%;
+  min-width: 200px;
   padding: 20px;
-  background: rgb(168, 166, 166);
+  background: rgb(190, 190, 190);
 }
 .Container__SideBar button{
   width: 100%;
@@ -21,7 +22,7 @@
 .Container__MainContainer{
   padding: 0 30px;
   width: 100%;
-  background: rgb(207, 207, 207);
+  background: rgb(229, 229, 229);
 }
 .Container__MainContainer h1{
   color: rgb(54, 54, 54);
