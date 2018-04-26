@@ -32,7 +32,7 @@ export class Note extends Component {
     axios
       .delete(`http://localhost:3333/notes/${this.props.match.params.id}`)
       .then(response => {
-        console.log('response', response);
+        console.log('Delete response', response);
       })
       .catch(err => {
         console.log('Error deleting note', err);
