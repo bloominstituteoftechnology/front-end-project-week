@@ -38,6 +38,30 @@
   height: 100%;
 }
 
+h3 {
+  text-align: left;
+  padding: 8% 15px 0 15px;
+}
+
+.btn {
+  margin: 0 2px;
+}
+
+.modal-content {
+  text-align: center;
+  padding: 5% 8%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons .btn {
+  font-size: 20px;
+  width: 45%;
+}
+
 .password-input.form-control {
   display: inline-block;
   padding-bottom: 10px;

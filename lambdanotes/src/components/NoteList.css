@@ -4,11 +4,6 @@
   flex-wrap: wrap;
 }
 
-h3 {
-  text-align: left;
-  padding: 8% 15px 0 15px;
-}
-
 #your-notes {
   padding: 2% 15px 0 15px;
 }
@@ -18,8 +13,4 @@ h3 {
   margin-top: 2%;
   margin-right: 2px;
   width: 40%;
-}
-
-.btn {
-  margin: 0 2px;
 }
