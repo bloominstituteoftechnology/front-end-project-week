@@ -45,7 +45,7 @@ class EditNote extends Component {
           onChange={event => this.setState({ [event.target.name]: event.target.value })}
         />
         <br/>
-        <Link to="/" onClick={() => this.stageUpdate()}>
+        <Link to="/home" onClick={() => this.stageUpdate()}>
           <Button className="Button col-3">Update</Button>
         </Link>
       </div>

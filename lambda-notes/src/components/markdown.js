@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import Remarkable from 'remarkable';
+import styled from 'styled-components';
+
+const Break = styled.section`white-space: pre-line;`;
 
 class Markdown extends Component {
   constructor() {
     super();
     this.state = {
-      value: ""
+      value: "",
+      defaultValue: ""
     };
+  }
+
+  componentDidMount() {
+    const sampleInput = `this can **convert** plain text to **markdown** 
+      \n* create\n* bulleted\n* lists\n# header #1\n## header #2\n### header #3
+      \n[ here's a link to nowhere! ]() \n *** \n**begin typing to try it yourself!**`;
+    this.setState({ value: sampleInput })
   }
 
   getRawMarkup() {
@@ -16,15 +27,18 @@ class Markdown extends Component {
 
   render() {
     return (
-      <div className="MarkdownContainer">
+      <div className="PrimaryContainer MarkdownContainer">
 
         <div className="input">
           <h3>Input</h3>
-          <textarea
-            className="input-text"
-            onChange={event => this.setState({ value: event.target.value })}
-            defaultValue={this.state.value}
-          />
+          <Break>
+            <textarea
+              className="input-text"
+              onChange={event => this.setState({ value: event.target.value })}
+              value={this.state.value}
+              // defaultValue={this.state.defaultValue}
+            />
+          </Break>
         </div>
 
         <div className="output">

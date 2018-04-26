@@ -36,7 +36,7 @@ class ViewNote extends Component {
           <Modal isOpen={this.state.modal}>
             <ModalBody className="Modal__header">Are you sure you want to delete this?</ModalBody>
             <div className="Modal__ButtonsContainer">
-              <Link to="/" onClick={() => this.handleDelete(note.id)} className="Modal__button--link">
+              <Link to="/home" onClick={() => this.handleDelete(note.id)} className="Modal__button--link">
                 <Button color="danger" className="Modal__button--link--reg">Delete</Button>
               </Link>
               <Button color="primary" onClick={() => this.toggleModal()} className="Modal__button--reg">No</Button>

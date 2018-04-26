@@ -42,7 +42,7 @@ class NewNote extends Component {
           onChange={event => this.setState({ [event.target.name]: event.target.value })}
         />
         <br/>
-        <Link to="/" onClick={() => this.handleSaveNote()}>
+        <Link to="/home" onClick={() => this.handleSaveNote()}>
           <Button className="Button col-3">Save</Button>
         </Link>
       </div>
