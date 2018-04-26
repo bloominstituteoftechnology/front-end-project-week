@@ -11,13 +11,19 @@ export const EditNote = props => {
                 </div>
                     <div className="row col-4">
                         <form>
-                            <input className="note-title" type="text" placeholder="edit title" name="edit title" />
-                            <input className="note-body" type="textarea" placeholder="edit content" name="edit content" />
+                            <input className="note-title" type="text" placeholder="edit title" name="edit title" onChange={this.handleInputText}/>
+                            <input className="note-body" type="textarea" placeholder="edit content" name="edit content" onChange={this.handleInputText} />
                             <Link to="/viewnote">
-                                <button className="save">Update</button>
+                                <button className="save" onClick={this.handleClicked}>Update</button>
                             </Link>
                         </form>
                     </div>
             </div>
         )
 }
+function handleInputText(e) {
+    this.setState({ [e.target.name]: e.target.value });
+};
+function handleClicked(e) {
+     this.props.onSubmit(this.state.title, this.state.body);;
+};
