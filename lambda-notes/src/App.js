@@ -12,34 +12,31 @@ class App extends Component {
     super();
     this.state={
       notes:[]
-    };
-  }
-  componentDidMount(){
 
+    };
+
+  }
+
+ 
+  componentDidMount(){
+console.log(notes)
     this.setState({ notes: notes});
     
     console.log(this.state)
    }
 delete(e){
   let removed = e;
-  console.log(this)
+  console.log(notes)
   console.log(removed)
  console.log(this.notes)
- const newNote = this.notes.filter(note =>{
+const editedNote = notes.filter(note =>{
 
    return note.id !== removed.id;
 
  })
- console.log(this)
- this.setState({ notes: notes});
-//  this.handleDelete("hi")
+ console.log(editedNote)
 }
 
-
-handleDelete = e => {
-   console.log(e)
-   return this.zsetState({ notes: e});
- }
 
   render() {
     console.log(this.state)
