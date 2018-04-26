@@ -10,7 +10,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import rootReducer from './reducers';
 import { routerReducer } from 'react-router-redux'
+import { localState, saveState } from './Persistence'
 
+const load = localState();
 const middleware = applyMiddleware(thunk, logger);
 
 const reducer = combineReducers({
@@ -20,6 +22,7 @@ const reducer = combineReducers({
 
 const store = createStore(
     reducer,
+    load,
     middleware
 );
 
@@ -28,6 +31,7 @@ const store = createStore(
 
 store.subscribe(() => {
     console.log(store.getState());
+    saveState(store.getState());
 })
 
 render(

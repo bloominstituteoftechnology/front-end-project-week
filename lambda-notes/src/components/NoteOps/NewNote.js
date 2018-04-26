@@ -47,7 +47,7 @@ class NewNote extends React.Component {
                     Create New Note:
                 </div>
                 <div className="mainContent__content">
-                    <form className="mainContent__Form" onSubmit={this.createNote} >
+                    <form className="mainContent__Form"  onSubmit={(this.state.noteName && this.state.noteBody) ? this.createNote : null} >
                         <input
                             className="form__input form__input--title"
                             onChange={this.handleInputChange}
@@ -63,9 +63,7 @@ class NewNote extends React.Component {
                             value={this.state.noteBody}
                             name="noteBody"
                         />
-                        {/* <Link to="/" > */}
-                        <button className="link__button" type="submit">Save</button>
-                        {/* </Link> */}
+                        <button className={(this.state.noteName && this.state.noteBody) ? "link__button" : "link__button link__button--disabled"} type="submit">Save</button>
 
                     </form>
                 </div>

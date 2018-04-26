@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { show } from 'redux-modal'
-import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { getNote, deleteNote } from '../../actions';
-import DeleteModal from '../Modal/DeleteModal';
-import DeleterModal from '../Modal/DeleterModal'
+import DeleteModal from '../Modal/DeleterModal';
 import { bindActionCreators } from 'redux'
 
 const styled = {  //this is for the link to not look like an anchor tag
@@ -24,7 +22,6 @@ class ViewNote extends Component {
 
     componentDidMount() {
         this.props.getNote(this.props.id);
-        // console.log('cdm state', this.state)
     }
 
     handleOpen = name => () => {
@@ -38,12 +35,6 @@ class ViewNote extends Component {
         window.location.pathname = newRoute;
     }
 
-    // toggle = () => {             //this is for the modal i hope to implement, still having issues
-    //     this.setState({  
-    //         modal: !this.state.modal
-    //     });
-    // }
-
     // componentWillReceiveProps(newProps) {   //this was where i tested for my EditNote component
     //     console.log('cwrp', newProps)
     //     this.setState({
@@ -53,7 +44,6 @@ class ViewNote extends Component {
     // }
 
     render() {
-        console.log('render', this.props, 'state', this.state)
         return (
             <div className="mainContent" >
                 {this.props.notes.map(note => {
@@ -64,16 +54,14 @@ class ViewNote extends Component {
                                     <span className="mainContent__options--links" >edit</span>
                                 </Link>
                                 <div>
-                                    {/* <Button className="mainContent__options--links" bsStyle="primary" onClick={this.handleOpen('deleter')}>delete</Button> */}
                                     <DeleteModal
-                                        modal={'modal'}
+                                        modal={'modal modal-test'}
                                         body={'modal__body'}
                                         footer={'modal__footer'}
                                         delete={'button button--delete'}
                                         cancel={'button button--cancel'}
                                         removeNote={this.removeNote}
                                     />
-                                    {/* <DeleterModal show={this.props.modal} name='deleter' message={'My Message sucks'} /> */}
                                 </div>
                             </div>
                             <div className="directory__title mainContent__title" >
@@ -90,7 +78,6 @@ class ViewNote extends Component {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    // console.log('state in view', state, 'state props', ownProps, 'modal', state.rootReducer.modal);
     return {
         notes: state.rootReducer.noteReducer.notes,
         id: ownProps.match.params.id,

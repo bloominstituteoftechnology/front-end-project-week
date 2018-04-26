@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNote, updateNote } from '../../actions';
-import { Link, browserHistory } from 'react-router'
 
 class EditNote extends React.Component {
     constructor(props) {
@@ -89,7 +88,7 @@ class EditNote extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     let thisNote;
     state.rootReducer.noteReducer.notes.forEach(note => {
-        if (note.id == ownProps.match.params.id) {
+        if (note.id.toString() === ownProps.match.params.id) {
             thisNote = note;
         }
     })

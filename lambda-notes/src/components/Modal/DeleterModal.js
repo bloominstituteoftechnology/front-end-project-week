@@ -1,73 +1,39 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Button, Modal } from 'react-bootstrap'
-import { connectModal } from 'redux-modal'
+import React from 'react';
+import { Button } from 'reactstrap';
 
-// class DeleterModal extends Component {
-//   // static propTypes = {
-//   //   message: PropTypes.string.isRequired,
-//   //   handleHide: PropTypes.func.isRequired
-//   // };
+class DeleteModal extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+  }
 
-//   render() {
-//     console.log('deleter props', this.props)
-//     const { show, handleHide, message } = this.props
-
-//     return (
-//       <Modal show={show}>
-//         <Modal.Header>
-//           <Modal.Title>Hello</Modal.Title>
-//         </Modal.Header>
-
-//         <Modal.Body>
-//           { message }
-//         </Modal.Body>
-
-//         <Modal.Footer>
-//           <Button bsStyle="primary" onClick={this.handleClose}>Save changes</Button>
-//           <Button onClick={handleHide}>Close</Button>
-//         </Modal.Footer>
-//       </Modal>
-//     );
-//   }
-// }
-
-// export default connectModal({ name: 'deleter' })(DeleterModal)
-// export default DeleterModal;
-
-class DynamicModal extends Component {
-  static propTypes = {
-    message: PropTypes.string.isRequired,
-    handleHide: PropTypes.func.isRequired
-  };
+  toggle = () => {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
 
   render() {
-    const { show, handleHide, message } = this.props
-
     return (
-      <Modal show={show}>
-        <Modal.Header>
-          <Modal.Title>Hello</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          {message}
-        </Modal.Body>
-
-        <Modal.Footer>
-          <Button bsStyle="primary" onClick={this.handleClose}>Save changes</Button>
-          <Button onClick={handleHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
+      <div>
+        <Button className="mainContent__options--links" onClick={this.toggle}>delete</Button>
+        {this.state.modal ? 
+        <div className={this.props.modal} >
+          <div className="contain">
+            <div className={this.props.body} >
+              Are you sure you want to delete this?
+            </div>
+            <div className={this.props.footer} >
+              <Button className={this.props.delete} onClick={() => this.props.removeNote()}>Delete</Button>{' '}
+              <Button className={this.props.cancel} onClick={this.toggle}>No</Button>
+            </div>
+          </div>
+        </div> : null }
+      </div>
     );
   }
 }
 
-export default class DeleterModal extends Component {
-  render() {
-    const { name } = this.props
-    const WrappedMyModal = connectModal({ name })(DynamicModal)
-    console.log('name', name, )
-    return <WrappedMyModal />
-  }
-}
+export default DeleteModal;

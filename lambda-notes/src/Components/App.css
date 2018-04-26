@@ -64,6 +64,11 @@
 
 .link__button:hover {
   cursor: pointer;
+  background-color: rgba(14, 168, 168, 0.945);
+}
+
+.link__button--disabled {
+  display: none;
 }
 
 .mainContent {
@@ -216,8 +221,23 @@ textarea {
   width: 550px;
   margin: 0 auto;
   height: 150px;
-  position: sticky;
+  z-index: 10040;
+  top: -610px;
+  left: 32%;
+  margin: 0 auto;
   bottom: 200px;
+}
+
+.modal-test {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10040;
+  overflow: auto;
+  overflow-y: auto;
+  background-color: #f3f3f3;
 }
 
 .modal__body {
