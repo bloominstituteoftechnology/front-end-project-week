@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import base from "./rebase";
 import SideBar from "./sidebar";
 import ListView from "./listview";
 import CreateNote from "./createnote";
@@ -11,17 +12,30 @@ export default class Notes extends Component {
     super(props);
     this.state = {
       notes: [],
-      view: "create",
+      view: "list",
       currID: 0,
       currentCard: 0
     };
   }
 
+  componentWillMount() {
+    base.syncState("/notes", {
+      context: this,
+      state: "notes",
+      asArray: true
+    });
+  }
+
   addNote = (title, text) => {
     let id = this.state.currID;
+    while (this.state.notes.some(e => e.id === id)) id++;
     let note = { title, text, id };
     this.state.notes.push(note);
-    this.setState({ view: "list", currID: this.state.currID + 1 });
+    this.setState({
+      view: "list",
+      currID: this.state.currID + 1,
+      notes: this.state.notes
+    });
   };
 
   changeToList = () => {

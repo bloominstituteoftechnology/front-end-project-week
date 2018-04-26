@@ -9,14 +9,15 @@ function ellipsify(str) {
 }
 
 function ellipsifyTitle(str) {
-  if (str.length > 20) {
-    return str.substring(0, 20) + "...";
+  if (str.length > 40) {
+    return str.substring(0, 40) + "...";
   } else {
     return str;
   }
 }
 
 const NoteCard = props => {
+  console.log(props);
   return (
     <div className="notecard" onClick={() => props.viewNote(props.note.id)}>
       <h5 className="note-title">{ellipsifyTitle(props.note.title)}</h5>
