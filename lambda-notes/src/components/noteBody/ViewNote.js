@@ -2,31 +2,23 @@
 import React, { Component } from 'react';
 // import {Route, Link} from 'react-router-dom';
 // import { Modal, ModalBody } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Form, Input, Row, Col, Button } from 'reactstrap';
 
 //VIEW NOTE COMPONENT
-class AddNote extends Component {
+class ViewNote extends Component {
 
-// class ViewNote extends Component {
-//     state = {
-//         modal: false
-//     };
+    handleDelete = () => {
+        this.props.deleteNote(this.props.selectedNote.title);
+    }
 
-//     toggle = this.toggle.bind(this);
-
-//     toggle() {
-//         this.setState({
-//             modal: !this.state.modal
-//         });
-//     }
-    
     render() {
         return (
             <div>
                 <Row>
                     <Col className='col-3 ml-auto'>
-                        Edit Delete
+                        <Link to='/edit-note'><Button className='mr-2' size='sm'>Edit</Button></Link>
+                        <Button onClick={this.handleDelete} size='sm'>Delete</Button>
                     </Col>
                 </Row>
                 <Row className='mt-4'>
@@ -40,8 +32,22 @@ class AddNote extends Component {
     }
 }
 
-export default withRouter(AddNote);
+export default withRouter(ViewNote);
 
+
+
+// class ViewNote extends Component {
+//     state = {
+//         modal: false
+//     };
+
+//     toggle = this.toggle.bind(this);
+
+//     toggle() {
+//         this.setState({
+//             modal: !this.state.modal
+//         });
+//     }
             {/* <Route path='/ViewNote'>
                 <div className='body'>
                     <div className='col-12 d-flex flex-row justify-content-end'>
