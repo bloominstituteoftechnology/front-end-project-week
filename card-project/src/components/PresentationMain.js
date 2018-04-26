@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { addNote, deleteNote } from '../actions/actions';
 import { connect } from 'react-redux';
 
-
 // const cStyle = {
 // 	marginLeft: '10%',
 // 	border: '2px solid red',
@@ -48,46 +47,52 @@ const ntSt = {
 	fontWeight: 'bold',
 	fontSize: 20
 };
-const mapDispatchToProps = (state) => {
-	return {
-		notes: state.notes
-	};
-};
 
-
+let dcolor = 'red';
+let dcomplete = 'NOT COMPLETE';
 export class PresentationMain extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state= {
+		this.state = {
 			renderB: true,
 			list: this.props.notes
-		}
+		};
 	}
 
 	componentDidMount() {
-		this.props.notes
+		this.props.notes;
 	}
 
 	render() {
 		return (
 			<div style={mainSt}>
-				<h4 style={hSt}>Your Notes:</h4>				
+				<h4 style={hSt}>Your Notes:</h4>
 				{this.props.notes.map((note, i) => {
-					return (					
+					{
+						note.check === false ? (dcolor = 'red') : (dcolor = 'blue');
+					}
+					{
+						note.check === false ? (dcomplete = 'NOT COMPLETE') : (dcomplete = 'COMPLETED');
+					}
+					return (
 						<Link to={`/notes/view/${i}`} style={icSt} key={note + i}>
 							{' '}
-							<h6>
-								<span style={ntSt}>{note.title}</span>
+							<h6 >
+								<span style={ntSt}  > <span style={{color: dcolor}}>{note.title} </span></span>
 								<br />
 								{note.note}
 							</h6>
 						</Link>
 					);
 				})}
-				
 			</div>
 		);
 	}
 }
+const mapDispatchToProps = (state) => {
+	return {
+		notes: state.notes
+	};
+};
 
 export default connect(mapDispatchToProps, { addNote, deleteNote })(PresentationMain);
