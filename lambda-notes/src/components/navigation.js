@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Nav, NavItem, Navbar, 
+import { Button, Nav, NavItem, Navbar,
   NavbarBrand, NavbarToggler, Collapse, NavLink,
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
@@ -18,7 +18,8 @@ class NavColumn extends Component {
     this.state = { 
       collapsed: true,
       viewOpen: false,
-      notHome: false
+      notHome: false,
+      isOpen: false
     }
   }
   render() {
@@ -50,7 +51,6 @@ class NavColumn extends Component {
                         <DropdownItem 
                           className={this.props.listView ? "" : "active"}
                           onClick={() => this.props.listViews() }
-                          
                         >Card</DropdownItem>
                         <DropdownItem 
                           className={this.props.listView ? "active" : ""}
