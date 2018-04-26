@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Button } from 'components/Button'
 
 const styles = {
   underline: '#333'
@@ -58,9 +59,30 @@ const SNoteContainer = Styled.div`
   '. . .';
 `
 
+const deleteNote = props => (
+  <button
+    onClick={e => {
+      props.onDelete(props.id)
+      e.preventDefault()
+      props.history.push('/')
+    }}
+  >
+    x
+  </button>
+)
+
+deleteNote.propTypes = {
+  onDelete: PropTypes.func,
+  id: PropTypes.number,
+  history: PropTypes.object
+}
+
+const DeleteButton = Button(deleteNote)
+
 export const SingleNote = props => (
   <SNoteContainer>
     <Note {...props} />
+    <DeleteButton {...props} />
   </SNoteContainer>
 )
 

@@ -54,9 +54,20 @@ class App extends Component {
     )
   }
 
-  getSingleNote(id) {
+  deleteNote(id) {
+    const updatedNotes = this.state.notes.filter(note => +note.id !== +id)
+    this.setState(prevState =>
+      Object.assign({}, prevState, { notes: [...updatedNotes] })
+    )
+  }
+
+  getSingleNote(id, props) {
     return (
-      <SingleNote {...this.state.notes.filter(note => +note.id === +id)[0]} />
+      <SingleNote
+        {...this.state.notes.filter(note => +note.id === +id)[0]}
+        {...props}
+        onDelete={id => this.deleteNote(id)}
+      />
     )
   }
 
@@ -88,7 +99,7 @@ class App extends Component {
         <Switch>
           <Route
             path="/notes/:id"
-            render={props => this.getSingleNote(props.match.params.id)}
+            render={props => this.getSingleNote(props.match.params.id, props)}
           />
         </Switch>
         <Switch>

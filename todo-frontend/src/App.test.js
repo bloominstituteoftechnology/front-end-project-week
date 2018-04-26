@@ -24,7 +24,3 @@ enzymeWrapper.setState({ notes: [] })
 it('renders without crashing', () => {
   expect(enzymeWrapper.find('App').exists()).toBe(true)
 })
-
-it('tries to fetch todos on mount', async () => {
-  expect(mockProps.fetchTodos.mock.calls.length).toBe(1)
-})
