@@ -18,6 +18,12 @@ class App extends Component {
   }
 
   render() {
+    {document.title = "Lambda Notes"}
+    if (localStorage.getItem("names") === null) {
+      return ( <div>
+        <h1>LOADING...</h1>
+        {window.location.reload()} 
+        </div>); }
     return (
       <div className='App__container'>
         <div className='App__left'> {/* start of left side div */}
