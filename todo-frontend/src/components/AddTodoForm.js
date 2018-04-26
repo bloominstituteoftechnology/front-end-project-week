@@ -18,6 +18,7 @@ export const AddTodoForm = props => (
         title: nodes.title.value,
         content: nodes.content.value
       })
+      props.history.push('/')
     }}
   >
     <label htmlFor="title">Title</label>
