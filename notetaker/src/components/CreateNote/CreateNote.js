@@ -15,25 +15,27 @@ export default class extends Component  {
     this.setState ({ [e.target.name]: e.target.value });
   };
 
-//   handleSubmitNote = e => {
-//     const { notes } = this.state;
-//     notes.push(this.state.)
-//   }
+  handleSubmitNote = e => {
+    this.props.addNewNote(this.state);
+    this.props.editNote(this.state);
+  }
+
+  
 
 render() {
   return <div>
-    <h2>Create New Note:</h2>
-    <div>
-      <Form>
-        <FormGroup>
-          <Input type ="title" name="title" placeholder="Note Title"/>
-        </FormGroup>
-        <FormGroup>
-          <Input type="textarea" name="description" placeholder="Note Content"/>
-        </FormGroup>
-        <Button>Save</Button>
-      </Form>
-    </div>
+      <h2>Create New Note:</h2>
+      <div>
+        <Form>
+          <FormGroup>
+            <Input onChange={this.handleInput} type="title" name="title" placeholder="Note Title" />
+          </FormGroup>
+          <FormGroup>
+            <Input onChange={this.handleInput} type="textarea" name="description" placeholder="Note Content" />
+          </FormGroup>
+          <Button onClick={this.handleSubmitNote}>Save</Button>
+        </Form>
+      </div>
     </div>;
   }
 
