@@ -4,7 +4,6 @@ import Cards from './Components/YourNotes.js';
 import Input from './Components/CreateNote.js';
 import ViewNote  from './Components/ViewNote.js';
 import EditNote from './Components/EditNote.js';
-// import DeleteNote  from './Components/DeleteNote.js';
 import Navigation from './Components/Navigation.js';
 import { Route, Link } from 'react-router-dom';
 
@@ -26,12 +25,12 @@ class App extends Component {
 
   handleViewNotes = () => {
     return (
-      <button type='button' className='btn btn-sm mb-2 '>View Your Notes</button>
+      <button type='button' className='NavButtons mb-2  '>View Your Notes</button>
     )
   }
   handleCreateNotes = () => {
     return (
-      <button type='button' className='btn btn-sm'> + Create New Note</button>
+      <button type='button' className='NavButtons'> + Create New Note</button>
     )
   }
 
@@ -67,9 +66,7 @@ class App extends Component {
                   <EditNote handleAddNote={this.handleAddNote}
                     Notes={this.Notes}  />} />
 
-                <Route path={`/ViewNote`}  render ={ () => <ViewNote notes={this.state.Notes} />} />
-                {/* <Route path={`/DeleteNote`} component={DeleteNote}/> */}
-               
+                <Route path={`/ViewNote`}  render ={ () => <ViewNote notes={this.state.Notes} />} />    
               </div>
             </div>
           </div>

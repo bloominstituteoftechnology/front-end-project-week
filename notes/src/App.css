@@ -24,16 +24,23 @@
 }
 
 .myCards {
-  width: 30%;
-  height: 300px;
-  border-width: 2px !important;
-  border-color: #BEBEBE	!important;
+  width: 100%;
+
+}
+
+.NavButtons {
+  background: lightseagreen;
+  margin-top: 5px ;
+  color: white;
+  width: 85%;
+  height: 40px;
+  border: 1px grey;
   cursor: pointer;
 }
-/* .nav {
-  width: 100% !important;
-} */
-
+.NavButtons:hover {
+  background-color: green;
+  color: white;
+}
 .btn {
   background: lightseagreen;
   margin-top: 5px ;
@@ -69,4 +76,25 @@
 
 .Update_Delete {
   color: black;
+}
+
+.Button_Modal {
+  width: 33%;
+  padding: 5px !important;
+}
+
+.DeleteNote {
+  cursor: pointer;
+}
+
+.DeleteNote:hover {
+  text-decoration: underline;
+}
+
+.Link {
+  width: 27%;
+  height: 300px;
+  border-width: 2px !important;
+  border-color: #BEBEBE	!important;
+  cursor: pointer;
 }

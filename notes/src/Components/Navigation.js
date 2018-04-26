@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 const Navigation = (props) => {
     return (
-        <div>
-            <Nav>
-                <NavItem>
+        <div className="w-100 ">
+            <Nav className="w-100 ">
+                <NavItem className="w-100 ">
                     <Link to='/YourNotes'> {props.view} </Link>
                 </NavItem>
-                <NavItem>
+                <NavItem className="w-100">
                     <Link to='/CreateNote'> {props.create} </Link>
                 </NavItem>
             </Nav>
