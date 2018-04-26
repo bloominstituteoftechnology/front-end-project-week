@@ -49,7 +49,7 @@
 .NoteList-search {
   height: 30px;
   margin: 24px;
-  margin-right: 40px;
+  margin-right: 20px;
   border: 1px solid grey;
   border-radius: 4px;
 }
@@ -64,4 +64,18 @@
   text-decoration: none;
   color: black;
   width: 33.3%;
+}
+
+.NoteList-export-btn {
+  width: 150px;
+  height: 30px;
+  margin-right: 30px;
+  text-align: center;
+  color: white;
+  background-color: #2bc1c4;
+  border: 1px solid #979797;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 5px;
+  cursor: pointer;
 }

@@ -70,6 +70,25 @@ class NoteList extends Component {
     this.moveNote(this.from, this.to);
   };
 
+  exportToCSV = () => {
+    const rows = [];
+    this.state.notes.forEach(note => {
+      rows.push([note.title, note.content.replace(/,/g, '","')]);
+    });
+    let csvContent = "data:text/csv;charset=utf-8,";
+    rows.forEach(rowArray => {
+      let row = rowArray.join(",");
+      csvContent += row + "\r\n";
+    }); 
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "notes.csv");
+    link.innerHTML= "Click Here to download";
+    document.body.appendChild(link);
+    link.click();
+  }
+
   render() {
     return (
       <div className="NoteList-area">
@@ -90,6 +109,7 @@ class NoteList extends Component {
               value={this.state.search}
               onChange={this.onChange}
             />
+            <div className="NoteList-export-btn" onClick={this.exportToCSV}>Export to CSV</div>
           </div>
         </div>
         <div className="NoteList-container">
