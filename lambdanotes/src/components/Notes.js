@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Dotdotdot from 'react-dotdotdot';
 
 const Wrapper = styled.div`
   background-color: #f2f1f2;
@@ -53,7 +54,9 @@ class Notes extends Component {
                             <StyledLink to={`/notes/${note.id}`}>
                                 <NoteHeading>{note.title}</NoteHeading>
                                 <hr />
-                                <NoteParagraph>{note.text}</NoteParagraph>
+                                <Dotdotdot clamp={5}>
+                                    <NoteParagraph>{note.text}</NoteParagraph>
+                                </Dotdotdot>
                             </StyledLink>
                         </IndividualNote>
                     )
