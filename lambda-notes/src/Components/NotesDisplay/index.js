@@ -4,7 +4,7 @@ import {store} from '../../index';
 import {Link} from 'react-router-dom';
 
 export const NotesDisplay = () => {
-  let notes = <h1 className={classes.emptyList}>Your list apears to be empty...</h1>;
+  let notes = <h1 className={classes.emptyList}>Your list appears to be empty...</h1>;
   if (store.getState().length > 0){
     notes = (
       <React.Fragment>

@@ -26,3 +26,9 @@
 .submitButton {
   width: 25%;
 }
+.error {
+  color: red;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}

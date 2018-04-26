@@ -9,6 +9,7 @@ export class NoteForm extends Component {
     this.state={
       header: '',
       body: '',
+      error: false,
     };
   }
   newNote = () => {
@@ -20,6 +21,12 @@ export class NoteForm extends Component {
     this.setState({[e.target.name]: e.target.value});
   };
   render() {
+    let error = null;
+    if (this.state.error === true) {
+      error = (
+        <div className={classes.error}>Please fill in all of the input components!</div>
+      )
+    };
     return (
       <div className={classes.Container}>
         <h2 className={classes.Container__Header}>Create new note:</h2>
@@ -37,7 +44,15 @@ export class NoteForm extends Component {
           onChange={this.changeState}
           placeholder='Note Content'
         />
-        <button className={classes.submitButton} onClick={this.newNote}>Save</button>
+        {error}
+        <button className={classes.submitButton} onClick={() => {
+          if (this.state.header !== '' && this.state.body !== '') {
+            this.newNote();
+            this.props.history.goBack();
+          } else {
+            this.setState({error: !this.state.error});
+          }
+        }}>Save</button>
       </div>
     );
   }
