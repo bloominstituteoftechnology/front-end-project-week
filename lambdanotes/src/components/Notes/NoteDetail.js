@@ -25,8 +25,8 @@ class NoteDetail extends React.Component {
             <div className='col-9 right__side'>
                 <div className="row">
                     <div className="col-9 NoteDetail__menu">
-                        <a href='/editNote'>Edit</a>
-                        <a href='#' onClick={this.toggle}>{this.props.buttonLabel}Delete</a>
+                        <Link to='/editNote'>Edit</Link>
+                        <Link to='#' onClick={this.toggle}>{this.props.buttonLabel}Delete</Link>
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                             <ModalBody toggle={this.toggle}>
                                 Are you want to delete this?

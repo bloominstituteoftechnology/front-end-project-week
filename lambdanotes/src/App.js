@@ -5,17 +5,22 @@ import './App.css';
 import NoteForm from "./components/Notes/NoteForm";
 import NoteDetail from './components/Notes/NoteDetail';
 import NoteEdit from './components/Notes/NoteEdit';
+import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: []
+            notes: [],
+            displayNotes:[]
         };
+
+        this.filterNotes = this.filterNotes.bind(this);
     }
 
     componentWillMount() {
         localStorage.getItem('notes') && this.setState({notes: JSON.parse(localStorage.getItem('notes'))});
+        localStorage.getItem('notes') && this.setState({displayNotes: JSON.parse(localStorage.getItem('notes'))});
     }
     componentDidMount() {
         this.getData();
@@ -35,11 +40,23 @@ class App extends Component {
         let id = newNotes.length;
         const newNote = { id: id,title: title, content: content };
         newNotes.push(newNote);
-        this.setState({
-            notes: newNotes
-        });
+        this.setState({notes: newNotes});
     };
 
+    filterNotes(criterion) {
+        if (criterion.length === 0) {
+            this.setState({
+                displayNotes: this.state.notes
+            });
+            console.log(`Display notes: ${this.state.notes}`)
+        } else {
+            const filteredPosts = this.state.notes.filter(note => note.title.includes(criterion));
+            this.setState({
+                displayNotes: filteredPosts
+            });
+        }
+
+    }
     render() {
         return (
             <div className="App">
@@ -47,6 +64,7 @@ class App extends Component {
                     <div className="row">
                         <div className="col-3 left__side">
                             <h2 className='sidebar__header'>Lambda Notes</h2>
+                            <SearchBar filterNotes={this.filterNotes}/>
                             <a href='/' className='sidebar__button'>
                                 View Notes
                             </a>
@@ -55,7 +73,7 @@ class App extends Component {
                             </a>
                         </div>
                         <Switch>
-                            <Route exact path='/' render={() => <NoteList notes={this.state.notes}/>}/>
+                            <Route exact path='/' render={() => <NoteList notes={this.state.displayNotes}/>}/>
                             <Route path='/createNewNote' render={() => <NoteForm onSubmit={this.addNote}/>}/>
                             <Route path='/editNote' render={() => <NoteEdit />}/>
                             <Route path="/notedetail/" render={() => <NoteDetail/>}/>
