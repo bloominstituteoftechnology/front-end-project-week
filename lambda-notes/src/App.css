@@ -81,6 +81,16 @@ body {
   margin-top: 60px;
   margin-left: 4%;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.notes__head input {
+  padding: 8px;
+  background-color: #fff;
+  color: #444444;
+  border: 1px solid #2bc1c4;
 }
 
 .notes__head h4 {

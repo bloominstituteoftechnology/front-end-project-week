@@ -6,38 +6,35 @@ class DisplayNotes extends React.Component {
     notes: []
   };
 
-  // componentWillMount() {
-  //   this.setState({ notes: this.props.notes });
-  // }
+  componentDidMount() {
+    this.setState({ notes: this.props.notes });
+  }
 
-  // handleSearch = e => {
-  //   if (e.nativeEvent.inputType === "deleteContentBackward")
-  //     this.setState({ notes: this.props.notes });
-  //   else {
-  //     const currentState = this.state.notes;
-  //     const newState = currentState.filter(note =>
-  //       note.title.toLowerCase().includes(e.target.value.toLowerCase())
-  //     );
-  //     this.setState({ notes: newState });
-  //   }
-  // };
+  handleSearch = e => {
+    e.preventDefault();
+    const currentState = this.props.notes;
+    let newState = currentState.filter(note =>
+      note.title.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    this.setState({ notes: newState });
+  };
+
   render() {
     return (
       <div className="col-9 right__side">
         <div className="row">
           <div className="col-3 notes__head">
-            <h4>
-              Your Notes:{" "}
-              <input
-                type="text"
-                placeholder="Find Note"
-                onChange={this.handleSearch}
-              />
-            </h4>
+            <h4> Your Notes:</h4>
+            <input
+              type="text"
+              placeholder="Find Note"
+              name="title"
+              onChange={this.handleSearch}
+            />
           </div>
         </div>
         <div className="row">
-          {this.props.notes.map(note => {
+          {this.state.notes.map(note => {
             return (
               <div className="col-4">
                 <SingleNote note={note} key={note.id} />
