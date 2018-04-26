@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
 
 /** @type React.StatelessComponent<{addTodo}> */
 export const AddTodoForm = props => (
@@ -19,7 +20,7 @@ export const AddTodoForm = props => (
         title: nodes.title.value,
         content: nodes.content.value
       })
-      console.log(props.history.push('/'))
+      return <Redirect to="/" />
     }}
   >
     <label htmlFor="title">Title</label>

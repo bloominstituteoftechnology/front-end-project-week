@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { TodoList } from 'components/TodoList'
 import { Sidebar } from 'components/Sidebar'
+import { AddTodoForm } from 'components/AddTodoForm'
 
-import { fetchTodos } from 'actions'
+import { fetchTodos, createTodo } from 'actions'
 
 const AppWrapper = styled.main`
   text-align: center;
@@ -23,17 +24,32 @@ class App extends Component {
     return (
       <AppWrapper>
         <Sidebar />
-        <Route
-          exact
-          path="/"
-          render={props => <TodoList {...props} todos={this.props.todos} />}
-        />
-
-        <Route
-          exact
-          path="/404"
-          render={() => <h3>This page is unavailable</h3>}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => <TodoList {...props} todos={this.props.todos} />}
+          />
+        </Switch>
+        <Switch>
+          <Route
+            exact
+            path="/new"
+            render={props => (
+              <AddTodoForm
+                {...props}
+                addTodo={nTodo => this.props.createTodo(nTodo)}
+              />
+            )}
+          />
+        </Switch>
+        <Switch>
+          <Route
+            exact
+            path="/404"
+            render={() => <h3>This page is unavailable</h3>}
+          />
+        </Switch>
       </AppWrapper>
     )
   }
@@ -41,6 +57,7 @@ class App extends Component {
 
 App.propTypes = {
   fetchTodos: PropTypes.func,
+  createTodo: PropTypes.func,
   todos: PropTypes.array
 }
 
@@ -50,6 +67,6 @@ const mapStateToProps = state => ({
   todos: state.todos
 })
 
-export default connect(mapStateToProps, { fetchTodos })(App)
+export default connect(mapStateToProps, { fetchTodos, createTodo })(App)
 
 export { App }
