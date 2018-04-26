@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
 
-import { Form, Input, Row, Col, Button } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 class ViewNote extends Component {
 
