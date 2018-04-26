@@ -22,6 +22,7 @@ class EditNote extends Component {
 
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
+        console.log(e.target.value, this.state)
         return e.target.value;
       }
 
@@ -38,10 +39,10 @@ class EditNote extends Component {
                         <div className = "sideBar_pop create">
                             <h1>Edit Note: </h1>
                             <input 
-                            value={this.props.notes.notes[this.state.index].title}
+                            defaultValue={this.props.notes.notes[this.state.index].title}
                             onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
                             <textarea 
-                            value={this.props.notes.notes[this.state.index].note}
+                            defaultValue={this.props.notes.notes[this.state.index].note}
                             onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
                             <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
                         </div>
