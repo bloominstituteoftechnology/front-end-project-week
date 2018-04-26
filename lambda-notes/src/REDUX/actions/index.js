@@ -7,6 +7,7 @@ export const TOGGLE_NIGHT = "TOGGLE_NIGHT";
 export const REORDER = "REORDER";
 export const OLDEST_NEWEST = "REVERSE";
 export const NEWEST_OLDEST = "ORDER";
+export const LIST = "LIST";
 
 export const getNotes = () => {
   return dispatch => {
@@ -57,13 +58,6 @@ export const updateNote = note => {
   }
 }
 
-export const handleReorder = (id, newIndex) => {
-  debugger;
-  return dispatch => {
-    dispatch({ type: REORDER, payload: id })
-  }
-}
-
 export const handleReverse = () => {
   return dispatch => {
     dispatch({ type: OLDEST_NEWEST })
@@ -72,6 +66,10 @@ export const handleReverse = () => {
 
 export const handleOrder = () => {
   return dispatch => { dispatch({ type: NEWEST_OLDEST }) }
+}
+
+export const listViews = () => {
+  return dispatch => { dispatch({ type: LIST }) }
 }
 
 export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }

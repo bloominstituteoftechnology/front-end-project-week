@@ -100,3 +100,8 @@
   color: #2AC1C5 !important;
   font-weight: bold !important;
 }
+
+.dropdown-item:hover {
+  background-color: #959595a8 !important;
+  cursor: pointer;
+}

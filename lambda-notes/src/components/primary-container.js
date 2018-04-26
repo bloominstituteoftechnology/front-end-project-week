@@ -25,8 +25,8 @@ class PrimaryContainer extends Component {
     return (
       <Col 
         md="12" 
-        lg={this.state.listView ? "12" : "6"} 
-        xl={this.state.listView ? "12" : "4"} 
+        lg={this.props.listView ? "12" : "6"} 
+        xl={this.props.listView ? "12" : "4"} 
         className="NoteCard" 
         key={note.id}
       >
@@ -76,28 +76,6 @@ class PrimaryContainer extends Component {
     )
   }
 
-  viewLayout = () => {
-    return (
-      <Dropdown group 
-        isOpen={this.state.listOptions} 
-        size="sm" 
-        className="mr-3"
-        toggle={() => this.setState({ listOptions: !this.state.listOptions })}>
-        <DropdownToggle caret className="Nav__ButtonsContainer--navButton">View by</DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem 
-            onClick={() => this.setState({ listView: !this.state.listView })}
-            className={this.state.listView ? "" : "active"}
-          >Card</DropdownItem>
-          <DropdownItem 
-            onClick={() => this.setState({ listView: !this.state.listView })}
-            className={this.state.listView ? "active" : ""}
-          >List</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    )
-  }
-
   render() {
     const list = this.props.notes.map((note) => {
       return {content: (<CardFactory note={note} />)};
@@ -108,7 +86,6 @@ class PrimaryContainer extends Component {
           <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
           <div className="">
             {this.viewOrder()}
-            {this.viewLayout()}
           </div>
         </div>
         <div className="PrimaryContainer__cardContainer">
@@ -119,6 +96,6 @@ class PrimaryContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({ notes: state.notes, night: state.night })
+const mapStateToProps = state => ({ notes: state.notes, night: state.night, listView: state.listView })
 
 export default connect(mapStateToProps, { getNotes, saveNote, handleReverse, handleOrder })(PrimaryContainer);

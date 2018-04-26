@@ -1,10 +1,11 @@
 import {
-  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, NEWEST_OLDEST
+  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, NEWEST_OLDEST, LIST
 } from '../actions';
 
 const initialState = {
   notes: [],
   error: "",
+  listView: false,
   night: false
 };
 
@@ -44,6 +45,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notes: [...state.notes].sort((a, b) => { return a.id - b.id })
+      }
+
+    case LIST:
+      return {
+        ...state,
+        listView: !state.listView
       }
 
       case REORDER:

@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { getNotes } from '../REDUX/actions';
 import { Card, CardTitle, CardBody, CardText, Col, Button } from 'reactstrap';
 import { CardFactory } from './card-factory';
-import { handleReorder } from '../REDUX/actions';
-
+// import { handleReorder } from '../REDUX/actions';
 import createAbsoluteGrid from 'react-absolute-grid';
 
 const Comp = props => {
@@ -93,14 +92,14 @@ class DragSort extends Component {
   render() {
     const AbsoluteGrid = createAbsoluteGrid(Comp);
     return (
-      <AbsoluteGrid items={notes} dragEnabled={true} responsive={true} />
+      <AbsoluteGrid items={notes} dragEnabled={true} responsive={true} onMove={() => this.handleOnMove()} />
     )
   }
 }
 
 const mapStateToProps = state => ({ notes: state.notes })
 
-export default connect(mapStateToProps, { getNotes, handleReorder })(DragSort);
+export default connect(mapStateToProps, { getNotes })(DragSort);
 // export default DragSort;
 
 /* 
