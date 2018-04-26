@@ -57,6 +57,10 @@ class App extends Component {
     }
   };
 
+  logOut = () => {
+    this.setState({ inputtedPassword: "", access: false });
+  };
+
   addNote = newNote => {
     const id = this.state.notes[this.state.notes.length - 1].id + 1;
     const addedNote = {
@@ -94,7 +98,9 @@ class App extends Component {
                 <Route
                   path="/"
                   render={props => {
-                    return <Menu notes={this.state.notes} />;
+                    return (
+                      <Menu notes={this.state.notes} logOut={this.logOut} />
+                    );
                   }}
                 />
               </Col>
