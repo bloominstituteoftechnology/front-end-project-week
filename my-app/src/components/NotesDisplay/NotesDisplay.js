@@ -19,7 +19,7 @@ class NotesDisplay extends Component {
                 <h1> Your Notes: </h1> 
                 <div className= 'Note-notesDisplay'>
                         <div className='Note-notes'>
-                            <Link to= '/noteView'>  
+                            <Link to= '/noteView'>
                                 <h3> Note Title </h3> 
                                 <p> 
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia nulla vitae error commodi. Beatae, ea! Unde veniam voluptas earum fugit quasi, nemo aperiam vero! Fugit, repellat. Iste quos sunt amet.

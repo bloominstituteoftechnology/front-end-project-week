@@ -21,10 +21,22 @@ class Delete extends Component {
       return (
         <div>
           <button className= 'Delete-Button' onClick={() => this.openModal()}>delete</button>
-          <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-            <h1>Are You Sure You Want To Delete This?</h1>
-            <button> Delete </button>
-            <p><button onClick={() => this.closeModal()}>No</button></p>
+          <Modal 
+            isOpen={this.state.isModalOpen} 
+            onClose={() => this.closeModal()}
+            className = 'Modal'
+            >
+            <div className='Delete-Modal'>
+              <h1 className= 'Text'>Are you sure you want to delete this?</h1>
+              <div className= 'Delete-Buttons'>
+                <button className= 'Delete'> Delete </button>
+                <button 
+                className= 'No-Button' 
+                onClick={() => this.closeModal()}>
+                No
+                </button>
+              </div>
+            </div>
           </Modal>
         </div>
       )

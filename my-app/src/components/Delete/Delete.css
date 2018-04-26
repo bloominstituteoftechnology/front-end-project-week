@@ -9,3 +9,40 @@
     padding: 0 10px 0;
 }
 
+.Delete-Buttons {
+    display: flex;
+}
+
+.Delete {
+    margin-right: 50px;
+    background: red;
+    color: white;
+    width: 200px;
+    height: 50px;
+}
+
+.Modal {
+    margin-left: 1000px;
+    margin-top: 300px;
+    width: 1000px;
+    border: 2px black solid;
+}
+.Delete-Modal {
+    display: flex;
+    flex-flow: column;
+    border: 2px black solid;
+    align-items: center;
+    background: white;
+}
+
+.Text {
+    font-weight: normal;
+}
+
+.No-Button {
+    margin-bottom: 20px;
+    background: rgb(16, 183, 189);
+    color: white;
+    width: 200px;
+    height: 50px;
+}
