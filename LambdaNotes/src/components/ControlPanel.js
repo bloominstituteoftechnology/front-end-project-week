@@ -32,26 +32,30 @@ class ControlPanel extends Component {
 					&#43; Create Todo
 				</RaisedButton>
 			</Link>,
-			<RaisedButton
-				className="ControlPanel_button"
-				primary={true}
-				onClick={() => {
-					this.props.setVisibilityFilter(
-						VisibilityFilters.SHOW_COMPLETED_TODOS
-					);
-				}}
-			>
-				View Complete Tasks
-			</RaisedButton>,
-			<RaisedButton
-				className="ControlPanel_button"
-				primary={true}
-				onClick={() => {
-					this.props.setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE_TODOS);
-				}}
-			>
-				View Incomplete Tasks
-			</RaisedButton>
+			<Link to="/">
+				<RaisedButton
+					className="ControlPanel_button"
+					primary={true}
+					onClick={() => {
+						this.props.setVisibilityFilter(
+							VisibilityFilters.SHOW_COMPLETED_TODOS
+						);
+					}}
+				>
+					View Complete Tasks
+				</RaisedButton>
+			</Link>,
+			<Link to="/">
+				<RaisedButton
+					className="ControlPanel_button"
+					primary={true}
+					onClick={() => {
+						this.props.setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE_TODOS);
+					}}
+				>
+					View Incomplete Tasks
+				</RaisedButton>
+			</Link>
 		];
 	}
 }
