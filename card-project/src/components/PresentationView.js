@@ -120,7 +120,8 @@ class PresentationView extends React.Component {
 	};
 
 	render() {
-
+		noteI=[];
+		titleI=[];
 		return (
 			<div>
 				<div>
@@ -162,6 +163,7 @@ class PresentationView extends React.Component {
 					})}
 					<h3 style={noteSt}>
 						{console.log('inside of PresentationView, id: ',this.props.id)}
+						{console.log('inside presentationView title + note: ', titleI[this.props.id])}
 						<h1>{titleI[this.props.id]}</h1>
 						{noteI[this.props.id]}
 					</h3>

@@ -71,7 +71,7 @@ function LeftContent() {
 
 function RightContent(props) {
 	console.log('RIGHTcontent props', props);
-	console.log(props);
+	// console.log(props);
 	// console.log(this.props.notes.map((val,i) => val))
 	return (
 		<div className="RightContent">
@@ -90,7 +90,7 @@ function SplitPane(props) {
 }
 const Home = (props) => {
 	console.log('HOME PROPS: ', props);
-	console.log(props);
+	// console.log(props);
 	return <SplitPane left={<LeftContent />} right={<RightContent notes={props.notes} />} />;
 };
 const New = (props) => {
@@ -110,7 +110,7 @@ const View = (props) => {
 };
 export const Edit = (props) => {
 	let idE = props.match.params.idE;
-	console.log(props);
+	// console.log(props);
 	return (
 		<div style={{ height: '100%' }}>
 			<SplitPane left={<LambdaNewL />} right={<EditRight idE={idE} />} />
@@ -176,6 +176,11 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+	
+	componentDidMount() {
+		this.props.notes
+	}
+	
 	render() {
 		return (
 			<div style={{ height: '100%' }}>
@@ -190,5 +195,5 @@ class App extends React.Component {
 		);
 	}
 }
-// connect(mapDispatchToProps, { addNote, deleteNote})(PresentationMain);
-export default App;
+export default connect(mapDispatchToProps, { addNote, deleteNote})(App);
+// export default App;

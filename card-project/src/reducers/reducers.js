@@ -101,8 +101,8 @@ export const notesReducer = (state = startState, action) => {
 			console.log(...state.notes);
 			// return [...litem.concat(...action.payload)]
 			return Object.assign({}, state, {
-				notes: [ ...state.notes, action.payload ],
-				// notes: [...state.notes]
+				// notes: [ ...state.notes, action.payload ],
+				notes: [...state.notes.concat(action.payload)]
 			});
 		case UPDATE_NOTE:
 			console.log('UPDATE_NOTE REDUCER action.payload: ', action.payload);
