@@ -20,12 +20,18 @@ let notes = [
     content: 'The notes contents go here!'
   }
 ];
-server.get('/Notes', (req, res) => {
-  res.json(notes);
-});
 let noteID = 1;
 
-server.post('/Notes', (req, res) => {
+server.get('/notes', (req, res) => {
+  res.json(notes);
+});
+
+server.get('/notes/:id', (req, res) => {
+  const note = notes.filter(note => note.id.toString() === req.params.id)[0];
+  res.status(200).json(note);
+});
+
+server.post('/notes', (req, res) => {
   const { title, content } = req.body;
   const newNote = { title, content, id: noteID };
   if(!title || !content) {
@@ -42,5 +48,5 @@ server.post('/Notes', (req, res) => {
 
 server.listen(port, err => {
   if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
+  console.log(`Lambda Notes server is listening on port ${port}`);
 });
