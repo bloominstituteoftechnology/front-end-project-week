@@ -1,7 +1,7 @@
 .container {
   max-width: 1000px;
   font-family: 'Francois One', sans-serif;
-  margin: 20px;
+  margin: 1.5rem;
   justify-content: space-around;
   flex-wrap: wrap;
 }

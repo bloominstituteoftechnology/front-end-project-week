@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Card, CardBlock, CardText,
-  CardTitle } from 'reactstrap';
+import { Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css'
 
-  class notes extends Component {
+  class button extends Component {
     constructor(props) {
       super(props);
     }
      render () {
-      let { id, title, body } = this.props.notes;
+      let { id, title, body } = this.props.button;
       return (
         <div className="card mt-4">
           <Card>
