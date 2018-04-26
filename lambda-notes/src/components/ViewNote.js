@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Markdown } from "react-showdown";
 
 export const ViewNote = ({ match, notes, history, deleteNote }) => {
   const note = notes
@@ -33,7 +34,7 @@ export const ViewNote = ({ match, notes, history, deleteNote }) => {
       </div>
       <div className="row">
         <div className="notes__body">
-          <p>{note.text}</p>
+          <Markdown markup={note.text} tasklists="true" />
         </div>
       </div>
 

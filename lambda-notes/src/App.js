@@ -72,18 +72,16 @@ class App extends Component {
                 exact
                 path="/"
                 render={props => (
-                  <DisplayNotes
-                    {...props}
-                    notes={this.state.notes}
-                    export={this.handleExport}
-                  />
+                  <DisplayNotes {...props} notes={this.state.notes} />
                 )}
               />
               <Route
+                exact
                 path="/createNewNote"
                 render={props => <NewNote {...props} addNote={this.addNote} />}
               />
               <Route
+                exact
                 path="/viewnote/:id"
                 render={props => (
                   <ViewNote
@@ -94,6 +92,7 @@ class App extends Component {
                 )}
               />
               <Route
+                exact
                 path="/editNote/:id"
                 render={props => (
                   <EditNote

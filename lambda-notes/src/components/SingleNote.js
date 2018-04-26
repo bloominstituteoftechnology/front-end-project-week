@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Markdown } from "react-showdown";
 
 class SingleNote extends React.Component {
   render() {
@@ -15,7 +16,9 @@ class SingleNote extends React.Component {
         >
           <h5>{this.props.note.title}</h5>
           <hr className="ruler" />
-          <p className="note__body">{trimText}</p>
+          <div className="note__body">
+            <Markdown markup={trimText} />
+          </div>
         </Link>
       </div>
     );
