@@ -27,8 +27,8 @@ class NoteList extends Component {
     let sortedNotes = this.props.notes;
     if (this.state.sortType === "alphabetical") {
       sortedNotes = sortedNotes.sort(function(a, b) {
-        var titleA = a.title.toLowerCase();
-        var titleB = b.title.toLowerCase();
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
         if (titleA < titleB) {
           return -1;
         }

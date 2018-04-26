@@ -30,3 +30,8 @@
 .note-view .note-content {
   word-break: break-word;
 }
+
+form .btn {
+  margin-bottom: 1em;
+  white-space: pre-wrap;
+}

@@ -80,7 +80,7 @@ class NoteView extends Component {
   render() {
     if (this.state.editing === false && this.state.note !== null) {
       return (
-        <div className="note-view mt-1">
+        <div className="note-view mt-1 mb-5">
           <div className="modify-links">
             <b onClick={this.editToggle}>edit</b>
             <b onClick={this.deleteToggle}>delete</b>
