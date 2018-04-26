@@ -39,11 +39,11 @@ class EditNote extends Component {
             <div
               className="save-button button"
               onClick={() =>
-                this.props.editNote({
-                  title: this.state.title,
-                  text: this.state.text,
-                  id: this.props.note.id
-                })
+                this.props.editNote(
+                  this.state.title,
+                  this.state.text,
+                  this.props.note.id
+                )
               }
             >
               SAVE
