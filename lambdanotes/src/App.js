@@ -15,12 +15,20 @@ const initialNotes = [
   {
     id: 1,
     title: "First Note NOTENOTENOTENOTENOTENOTENOTENOTE",
-    content: placeholderText + placeholderText
+    content: placeholderText
   },
   { id: 2, title: "Second Note", content: placeholderText },
-  { id: 3, title: "Third Note", content: placeholderText },
-  { id: 4, title: "Fourth Note", content: placeholderText },
-  { id: 5, title: "Fifth Note", content: placeholderText },
+  {
+    id: 3,
+    title: "Third Note (Bigger size)",
+    content: placeholderText + placeholderText + placeholderText
+  },
+  {
+    id: 4,
+    title: "Fourth Note (Second biggest)",
+    content: placeholderText + placeholderText
+  },
+  { id: 5, title: "ZZZ Fifth Note", content: placeholderText },
   { id: 6, title: "Sixth Note", content: placeholderText },
   { id: 7, title: "Seventh Note", content: placeholderText }
 ];
@@ -34,8 +42,13 @@ class App extends Component {
   }
 
   addNote = newNote => {
-    newNote.id = this.state.notes[this.state.notes.length - 1].id + 1;
-    this.setState({ notes: [...this.state.notes, newNote] });
+    const id = this.state.notes[this.state.notes.length - 1].id + 1;
+    const addedNote = {
+      id: id,
+      title: newNote.title,
+      content: newNote.content
+    };
+    this.setState({ notes: [...this.state.notes, addedNote] });
   };
 
   editNote = editedNote => {

@@ -5,7 +5,6 @@ import { Card, CardHeader, CardBody, CardText } from "reactstrap";
 import "./NoteCard.css";
 
 const NoteCard = props => {
-  console.log(props);
   return (
     <Card className="note-card">
       <CardHeader>
