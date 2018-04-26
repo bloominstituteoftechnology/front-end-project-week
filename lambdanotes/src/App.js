@@ -50,7 +50,7 @@ class App extends Component {
             });
             console.log(`Display notes: ${this.state.notes}`)
         } else {
-            const filteredPosts = this.state.notes.filter(note => note.title.includes(criterion));
+            const filteredPosts = this.state.notes.filter(note => note.title.toLowerCase().includes(criterion.toLowerCase()));
             this.setState({
                 displayNotes: filteredPosts
             });
