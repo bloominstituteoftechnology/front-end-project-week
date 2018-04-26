@@ -99,7 +99,7 @@ class App extends Component {
                             <Route exact path='/' render={() => <NoteList notes={this.state.displayNotes}/>}/>
                             <Route path='/createNewNote' render={() => <NoteForm onSubmit={this.addNote}/>}/>
                             <Route path='/editNote' render={() => <NoteEdit />}/>
-                            <Route path="/notedetail/" render={() => <NoteDetail/>}/>
+                            <Route path="/notedetail/:id" render={(props) => <NoteDetail {...props} notes={this.state.displayNotes}/>}/>
                         </Switch>
                     </div>
                 </div>
