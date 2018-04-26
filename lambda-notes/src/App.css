@@ -1,0 +1,232 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.App{
+  display:flex;
+}
+.home-styles{
+  width: 200px;
+  height: 650px;
+  background:rgb(215,215,215)
+}
+.hDiv-styles{
+    font-size: 30px;
+    display:flex;
+    flex-direction: column;
+    margin-right:65px;
+    
+ 
+}
+.h-styles{
+line-height: 28px;
+  color:rgb(74,73,74);
+  margin-left: 15px;
+  margin-top: 16px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-weight:bold;
+
+}
+.button-styles{
+display:flex;
+justify-content: center;
+flex-direction: column;
+margin: 10px;
+
+}
+.button{
+  background:rgb(42,192,196);
+border: 1px solid rgb(77, 74, 74);
+width: 180px;
+margin-bottom: 19px;
+}
+.container-styles{
+  display:flex;
+  flex-wrap: wrap;
+width:600px; 
+
+
+padding: 0px;
+background: rgb(243,243,243);
+
+
+}
+.body-styles{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 16px;
+}
+
+.card-title{
+  font-size:16px;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(219, 216, 216);
+}
+.card-styles{
+  width:150px;
+  height: 150px;
+  margin: 10px;
+  margin-top: 0px;
+  text-align: justify;
+  text-justify: inter-word;
+  color:black;
+  
+ 
+}
+
+
+.notesHeader-styles{
+  margin-top:50px;
+  font-weight:bold;
+  display: flex;
+  width: 500px;
+justify-content: baseline;
+ margin-bottom: 0px;
+  margin-left: 20px;
+ vertical-align: baseline;
+
+ 
+}
+.notesText-styles{
+
+  
+
+}
+.cardsContainer-styles{
+  display:flex;
+  flex-wrap: wrap;
+}
+.cardtext-styles{
+  text-align: left;
+  font-size: 9.3px;
+  
+}
+.link-styles{
+display: flex;
+justify-content: flex-end;
+
+color:black;
+text-decoration: underline black;
+}
+.title-styles{
+  display:flex;
+  justify-content: left ;
+  border-bottom: none;
+  font-size: 23px;
+
+}
+.link{
+  font-size: 12px;
+  color:black;
+  padding: 6px;
+
+}
+.text-styles{
+  text-align: left
+
+}
+.modal-button{ 
+  display:flex;
+  justify-content: space-around;
+  width:230px;
+  height:51px;
+  font-size:20px;
+}
+.danger-styles{
+  background: rgb(208,1,27);
+}
+.danger-styles:hover{
+  background:rgb(83, 83, 83);
+text-decoration: underline rgb(83, 83, 83);
+
+}
+.modal-dialog{
+  margin-top: 145px;
+  margin-left: 167px;
+}
+.modal-content{
+  display:flex;
+  padding:30px;
+  height: 190px;
+  width: 600px;
+}
+.modal-body{
+  display: flex;
+  justify-content: center;
+  border-bottom:0px solid pink;;
+}
+.modal-footer{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.label-styles{
+  border-top:none;
+  margin-top:50px;
+  margin-bottom: 25px;
+  margin-left:25px;
+  display:flex;
+  justify-content: left;
+  font-weight: bold;
+
+}
+.createInput-styles{
+  width: 380px;
+  height:45px;
+  margin-left:25px;
+  font-size: 13px;
+  
+}
+.createBody-styles{
+
+  margin-top: 10px;
+  width: 550px;
+  height: 350px;
+  margin-left:25px;
+  padding: 20px;
+  font-size: 13px;
+
+}
+.createButton-styles{
+  margin-top: 10px;
+  display:flex;
+  justify-content: center;
+  margin-left:25px;
+  
+}
+.link{
+  text-decoration: none
+}
+.editLabel-styles{
+  font-size:22px;
+}
+.deleteLink-styles{
+ 
+  text-decoration:underline white;
+}
