@@ -73,7 +73,7 @@ class EditNote extends Component {
             value={this.state.title}
             onChange={this.handleAddNote}
             /><br/> <br/>
-            <h1>{this.state.title}</h1>
+            {/* <h1>{this.state.title}</h1> */}
             <textarea
             type='text' 
             className='Create__note-body'
