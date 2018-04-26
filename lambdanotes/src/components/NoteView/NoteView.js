@@ -24,6 +24,7 @@ export default class NoteView extends Component {
     axios
       .get(`http://localhost:5000/notes`)
       .then(response => {
+          // fix this!!!!!!!!!!!!!!!
         if (id > response.data.length) {
           alert("Note not found");
         } else {
@@ -69,7 +70,10 @@ export default class NoteView extends Component {
             <Link
               to={{
                 pathname: "/edit",
-                state: { note: this.state.note.id }
+                state: {
+                  note: this.state.note.id,
+                  getNotes: this.props.getNotes
+                }
               }}
             >
               <button>edit</button>

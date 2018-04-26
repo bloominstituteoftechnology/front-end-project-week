@@ -37,6 +37,7 @@ export default class App extends Component {
       <div>
         <Sidebar />
         <Switch>
+          {/* _____NOTESLIST ROUTE_____ */}
           <Route
             exact
             path="/"
@@ -47,7 +48,11 @@ export default class App extends Component {
               />
             )}
           />
+
+          {/* _____NOTEVIEW ROUTE______ */}
           <Route path="/note/:id" component={NoteView} />
+
+          {/* _____CREATENOTE ROUTE______ */}
           <Route
             path="/create"
             render={() => (
@@ -57,7 +62,11 @@ export default class App extends Component {
               />
             )}
           />
+
+          {/* _____EDITNOTE ROUTE______ */}
           <Route path="/edit" component={EditNote} />
+
+          {/* ____DEFAULT ROUTE_____ */}
           <Route
             component={() => <h1>There are no notes here, turn back!</h1>}
           />

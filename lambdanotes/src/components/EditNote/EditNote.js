@@ -13,12 +13,17 @@ export default class EditNote extends Component {
     };
   }
 
+  componentDidMount() {
+    this.updateNote();
+  }
+
   handleNewInput = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   updateNote = id => {
     const note = {};
+    // check if there is anything to update
     if (this.state.title !== "") {
       note.title = this.state.title;
     }
@@ -40,7 +45,7 @@ export default class EditNote extends Component {
   };
 
   render() {
-    // console.log(this.props.location.state.note);
+    console.log(this.props.location.state.note);
     return (
       <div>
         <Row>
