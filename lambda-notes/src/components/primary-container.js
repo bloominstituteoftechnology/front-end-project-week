@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardTitle, CardBody, CardText, Col, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getNotes, saveNote, handleReverse, handleOrder } from '../REDUX/actions';
+import { getNotes, saveNote, handleReverse, handleOrder, sortTitle } from '../REDUX/actions';
 import { CardFactory } from './card-factory';
 
 class PrimaryContainer extends Component {
@@ -54,7 +54,10 @@ class PrimaryContainer extends Component {
         <DropdownToggle caret className="Nav__ButtonsContainer--navButton">Sort by</DropdownToggle>
         <DropdownMenu>
           <DropdownItem
-            onClick={() => {this.setState({ defaultSort: false, sortOldest: false, sortTitle: true })}}
+            onClick={() => {
+              this.setState({ defaultSort: false, sortOldest: false, sortTitle: true })
+              this.props.sortTitle();
+            }}
             className={!this.state.defaultSort && !this.state.sortOldest ? "active" : ""}
           >Title</DropdownItem>
           <DropdownItem 
@@ -98,4 +101,4 @@ class PrimaryContainer extends Component {
 
 const mapStateToProps = state => ({ notes: state.notes, night: state.night, listView: state.listView })
 
-export default connect(mapStateToProps, { getNotes, saveNote, handleReverse, handleOrder })(PrimaryContainer);
+export default connect(mapStateToProps, { getNotes, saveNote, handleReverse, handleOrder, sortTitle })(PrimaryContainer);

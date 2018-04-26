@@ -8,6 +8,7 @@ export const REORDER = "REORDER";
 export const OLDEST_NEWEST = "REVERSE";
 export const NEWEST_OLDEST = "ORDER";
 export const LIST = "LIST";
+export const SORT_TITLE = "SORT_TITLE";
 
 export const getNotes = () => {
   return dispatch => {
@@ -70,6 +71,10 @@ export const handleOrder = () => {
 
 export const listViews = () => {
   return dispatch => { dispatch({ type: LIST }) }
+}
+
+export const sortTitle = () => {
+  return dispatch => { dispatch({ type: SORT_TITLE }) }
 }
 
 export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }

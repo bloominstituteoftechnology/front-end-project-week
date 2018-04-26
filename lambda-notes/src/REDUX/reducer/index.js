@@ -1,5 +1,5 @@
 import {
-  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, NEWEST_OLDEST, LIST
+  FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, NEWEST_OLDEST, LIST, SORT_TITLE
 } from '../actions';
 
 const initialState = {
@@ -51,6 +51,15 @@ export default (state = initialState, action) => {
       return {
         ...state,
         listView: !state.listView
+      }
+
+    case SORT_TITLE:
+      return {
+        ...state,
+        notes: [...state.notes].sort((a, b) => { 
+          const nameA = a.title.toUpperCase(), nameB = b.title.toUpperCase(); // ignore upper and lowercase
+          return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+        })
       }
 
       case REORDER:
