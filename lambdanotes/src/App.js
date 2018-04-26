@@ -64,7 +64,12 @@ export default class App extends Component {
           />
 
           {/* _____EDITNOTE ROUTE______ */}
-          <Route path="/edit" component={EditNote} />
+          <Route
+            path="/edit"
+            render={({ history, match, location }) => (
+              <EditNote getNotes={this.getNotes} location={location} />
+            )}
+          />
 
           {/* ____DEFAULT ROUTE_____ */}
           <Route

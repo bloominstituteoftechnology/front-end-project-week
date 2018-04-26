@@ -17,6 +17,18 @@ export default class EditNote extends Component {
     this.updateNote();
   }
 
+//   getNotes = () => {
+//     axios
+//       .get(`http://localhost:5000/notes`)
+//       .then(response => {
+//         // console.log('response:', response);
+//         this.setState({ notes: response.data });
+//       })
+//       .catch(error => {
+//         console.error("Error getting notes!", error);
+//       });
+//   };
+
   handleNewInput = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -45,7 +57,7 @@ export default class EditNote extends Component {
   };
 
   render() {
-    console.log(this.props.location.state.note);
+    // console.log(this.props.location.state.note);
     return (
       <div>
         <Row>
