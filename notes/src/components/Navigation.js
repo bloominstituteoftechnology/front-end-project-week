@@ -8,8 +8,6 @@ const Navigation = () => {
     <div>
       <Nav className="Nav">
 
-        <h1>Am I doing this right?</h1>
-
         <NavItem>
           <Link to="/ListView" className="Nav-link">List View</Link>
         </NavItem>

@@ -26,8 +26,15 @@ class App extends Component {
   
       <Navigation />
       <Route path="/ListView" component={ ListView }/>
+      <Route exact path="/CreateNew"
+          render = {(props) => <CreateNew remove={this.handleRemoveNote} 
+          change={this.handleNoteChange} 
+          add={this.handleAddNote} 
+          notes={this.state.noteList} 
+          {...props} />} 
+          />
       {/* <Route exact path="/" component={ ListView }/> */}
-      <Route path="/CreateNew" component={ CreateNew }/>
+      {/* <Route path="/CreateNew" component={ CreateNew }/> */}
   
     </div>
   );

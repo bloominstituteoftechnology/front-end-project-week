@@ -4,8 +4,9 @@ const NoteList = props => {
   const remove = obj => {
     props.removeNote(obj.id);
   };
-
+  // console.log(props);
   return (
+    
     <div>
       {props.noteList.map(note => {
         return (

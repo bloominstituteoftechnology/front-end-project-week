@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Card, Button, CardBody, CardTitle, CardSubtitle, CardText, Row, Col } from 'reactstrap';
 
 // const ListView = () => <h1>List view</h1>;
 // <div>
@@ -11,14 +11,28 @@ const ListView = () => {
 
   
     return (
-  
-      <div className="note-card">
-        <h2>Lorem Ipsum</h2>
-        <div className="note-body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </div>
-   
-      </div>
+      <div className="note-container">
+          <Row>
+          <Col sm="4">
+            <CardBody>
+              <CardTitle>Lorem Ipsum</CardTitle>
+              <CardText>Lorem Ipsum Lorem Ipsum Lorem Ipsum.</CardText>
+            </CardBody>
+          </Col>
+          <Col sm="4">
+            <CardBody>
+              <CardTitle>Lorem Ipsum</CardTitle>
+              <CardText>Lorem Ipsum Lorem Ipsum Lorem Ipsum.</CardText>
+            </CardBody>
+          </Col>
+          <Col sm="4">
+            <CardBody>
+              <CardTitle>Lorem Ipsum</CardTitle>
+              <CardText>Lorem Ipsum Lorem Ipsum Lorem Ipsum.</CardText>
+            </CardBody>
+          </Col>
+        </Row>
+    </div>
     );
   };
 

@@ -3,21 +3,28 @@ import NoteList from './NoteList.js';
 
 // const CreateNew = () => <h1>Create New Note</h1>;
 
-const CreateNew = () => {
-
+const CreateNew = (props) => {
+    // console.log(props);
 return (
+    
     <div>
-<input
-type="text"
-value={this.note}
-onChange={this.handleNoteChange}
-/>
-<button onClick={this.handleAddNote}>Submit Note</button>
-<NoteList
-removeNote={this.handleRemoveNote}
-noteList={this.noteList}
-/>
-</div>
+        <input
+            type="title"
+            value={props.note}
+            onChange={props.change}
+        />
+        <br/>
+         <input
+            type="text"
+            value={props.note}
+            onChange={props.change}
+        />
+        <button onClick={props.add}>Submit Note</button>
+        <NoteList
+            removeNote={props.remove}
+            noteList={props.notes}
+         />
+    </div>
   );
 };
 
