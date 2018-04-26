@@ -4,7 +4,6 @@
     cursor: pointer;
     font-size: 25px;
     font-family: sans-serif;
-    margin-left: 50x;
     padding: 0 10px 0;
 }
 
@@ -25,6 +24,7 @@
     margin-top: 300px;
     width: 1000px;
     border: 2px black solid;
+    position: absolute;
 }
 .Delete-Modal {
     display: flex;

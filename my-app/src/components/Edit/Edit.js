@@ -11,7 +11,7 @@ class Edit extends Component {
                     <Link to= '/'> View Your Notes </Link>
                 </button>
                 <button className ='Note-buttons'>
-                    <Link to= '/newNote'> +Create New Notes </Link>
+                    <Link to= '/newNote'> +Create New Note </Link>
                 </button>
             </div>
             <div className='Note-content'>
