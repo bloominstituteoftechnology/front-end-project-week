@@ -10,6 +10,7 @@ export class ViewNote extends React.Component {
             <div className="row">
               <div className="col-4 edit">
                 <Link to="/editnote">Edit</Link>
+                <Route path="/editnote" render={EditNote}/>
               </div>
               <div className=" col-3 delete">
                 <Link to="/">Delete</Link>
@@ -42,9 +43,6 @@ export class ViewNote extends React.Component {
                 croix flannel put a bird on it meggings migas kombucha
                 microdosing vice chartreuse twee narwhal.
               </p>
-              <Switch>
-                <Route path="/editnote" component={EditNote} />
-              </Switch>
             </div>
           </div>;
     }
