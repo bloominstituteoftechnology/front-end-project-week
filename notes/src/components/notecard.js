@@ -17,7 +17,6 @@ function ellipsifyTitle(str) {
 }
 
 const NoteCard = props => {
-  console.log(props);
   return (
     <div className="notecard" onClick={() => props.viewNote(props.note.id)}>
       <h5 className="note-title">{ellipsifyTitle(props.note.title)}</h5>

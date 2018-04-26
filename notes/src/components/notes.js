@@ -13,7 +13,6 @@ export default class Notes extends Component {
     this.state = {
       notes: [],
       view: "list",
-      currID: 0,
       currentCard: 0
     };
   }
@@ -27,18 +26,16 @@ export default class Notes extends Component {
   }
 
   addNote = (title, text) => {
-    let id = this.state.currID;
+    let id = 0;
     this.state.notes.forEach(e => {
-      if(e.id > id)
-        id = e.id + 1;
-    })
+      if (e.id >= id) id = e.id + 1;
+    });
     // while (this.state.notes.some(e => e.id === id)) id++; //most inefficient piece of code ever written, replaced with above
     let note = { title, text, id };
     let noteState = this.state.notes;
     noteState.push(note);
     this.setState({
       view: "list",
-      currID: this.state.currID + 1,
       notes: noteState
     });
   };
