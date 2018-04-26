@@ -11,6 +11,7 @@ const NoteWrapper = Styled.div`
   background-color: white;
   color: rgb(68,68,68);
   border: 2px solid rgb(222,222,222);
+  grid-area: note;
 `
 
 const NoteTitle = Styled.h3`
@@ -38,11 +39,29 @@ Note.propTypes = {
   content: PropTypes.string
 }
 
-/** @type Link */
+/** @type React.StatelessComponent<{id,title,content}> */
 export const LinkedNote = props => (
   <Link to={`/notes/${props.id}`}>
     <Note {...props} />
   </Link>
+)
+
+LinkedNote.propTypes = {
+  id: PropTypes.number
+}
+
+const SNoteContainer = Styled.div`
+  background-color: rgb(68,68,68);
+  display: grid;
+  grid-template-areas: '. . .'
+  '. note .'
+  '. . .';
+`
+
+export const SingleNote = props => (
+  <SNoteContainer>
+    <Note {...props} />
+  </SNoteContainer>
 )
 
 export { Note, NoteTitle, NoteContent }

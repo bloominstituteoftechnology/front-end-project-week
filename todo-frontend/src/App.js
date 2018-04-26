@@ -7,6 +7,7 @@ import { get } from 'axios'
 import { NoteList } from 'components/NoteList'
 import { Sidebar } from 'components/Sidebar'
 import { AddNoteForm } from 'components/AddNoteForm'
+import { SingleNote } from 'components/Note'
 
 // import { base } from 'base'
 
@@ -30,7 +31,7 @@ class App extends Component {
     notes[note.id] = note
 
     this.setState({ notes })
-    this.createTodo.bind(this)
+    this.createNote.bind(this)
   }
   async componentDidMount() {
     // console.log(base)
@@ -46,10 +47,16 @@ class App extends Component {
     // base.removeBinding(this.notesRef)
   }
 
-  createTodo(note) {
+  createNote(note) {
     note.id = this.state.notes.length + 1
     this.setState(prevState =>
       Object.assign({}, prevState, { notes: [note, ...prevState.notes] })
+    )
+  }
+
+  getSingleNote(id) {
+    return (
+      <SingleNote {...this.state.notes.filter(note => +note.id === +id)[0]} />
     )
   }
 
@@ -73,9 +80,15 @@ class App extends Component {
             render={props => (
               <AddNoteForm
                 {...props}
-                addNote={nTodo => this.createTodo(nTodo)}
+                addNote={nNote => this.createNote(nNote)}
               />
             )}
+          />
+        </Switch>
+        <Switch>
+          <Route
+            path="/notes/:id"
+            render={props => this.getSingleNote(props.match.params.id)}
           />
         </Switch>
         <Switch>
