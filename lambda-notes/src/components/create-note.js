@@ -41,7 +41,7 @@ class NewNote extends Component {
             onChange={event => this.setState({ [event.target.name]: event.target.value })}
           />
           <div className="d-flex align-items-center justify-content-between">
-            <div className="mr-2">toggle markdown</div>
+            <div className="mr-2">markdown support</div>
             <div className="">
               <div className="onoffswitch">
                 <input 

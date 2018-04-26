@@ -27,29 +27,21 @@ class Markdown extends Component {
 
   render() {
     return (
-      <div className="PrimaryContainer MarkdownContainer">
-
-        <div className="input">
+      <div className="PrimaryContainer MarkdownContainer flex-wrap">
+        <div className="input col-md-12 col-lg-6">
           <h3>Input</h3>
-          <Break>
+          <Break className="h-100">
             <textarea
               className="input-text"
               onChange={event => this.setState({ value: event.target.value })}
               value={this.state.value}
-              // defaultValue={this.state.defaultValue}
             />
           </Break>
         </div>
-
-        <div className="output">
+        <div className="output col-md-12 col-lg-6">
           <h3>Markdown</h3>
-          <div 
-            dangerouslySetInnerHTML={this.getRawMarkup()}
-            className="output-text"
-          >
-          </div>
+          <div dangerouslySetInnerHTML={this.getRawMarkup()} className="output-text"></div>
         </div>
-
       </div>
     )
   }

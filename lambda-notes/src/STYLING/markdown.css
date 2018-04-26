@@ -1,10 +1,11 @@
 .MarkdownContainer {
-  display: flex;
+	display: flex;
+	height: 90%;
 }
 
 .input, .output {
 	width: 50%;
-	padding: 2rem 1rem;
+	padding: 1rem 1rem;
 	box-sizing: border-box;
 }
 
@@ -19,12 +20,10 @@
 	border: 2px solid #2AC1C5;
 	background-color: white;
 	color: black;
-	height: 400px;
-	/* max-height: 400px; */
+	height: 500px;
 	font-family: 'Inconsolata', monospace;
 	width: 100%;
 	box-sizing: border-box;
-	/* min-height: 400px; */
 	border-radius: 4px;
 	padding: 1em;
 }
