@@ -1,3 +1,8 @@
+.Link {
+  text-decoration: none;
+  color: black;
+}
+
 .NotesList {
   display: grid;
   grid-template-columns: 31% 31% 31%;

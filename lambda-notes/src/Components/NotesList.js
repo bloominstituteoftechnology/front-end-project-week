@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 import axios from 'axios';
 
 import './Content.css';
@@ -29,7 +30,6 @@ export class NotesList extends Component {
     .get('http://localhost:3333/notes')
     .then(response => {
       this.setState({ notes: response.data })
-      console.log('setting state');
     })
     .catch(err => {
       console.log('Error fetching notes', err);
@@ -43,10 +43,10 @@ export class NotesList extends Component {
         <div className='Content NotesList'>
           {this.state.notes.map(aNote => {
             return(
-              <div className='Note' key={aNote.id}>
+              <NavLink to={`/notes/${aNote.id}`} className='Link Note' key={aNote.id}><div>
                 <h4 className='Note__Heading'>{aNote.title}</h4>
                 <p className='Note__Content'>{aNote.content}</p>
-              </div>
+              </div></NavLink>
             );
           })}
         </div>
