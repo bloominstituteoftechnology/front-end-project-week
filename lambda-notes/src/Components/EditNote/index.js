@@ -8,16 +8,16 @@ export const EditNote = props => {
                     <div className="col-3">
                         <h4>Edit Note</h4>
                     </div>
-                    <div className="row">
+                </div>
+                    <div className="row col-4">
                         <form>
-                            <input type="text" placeholder="edit title" name="edit title" />
-                            <input type="textarea" placeholder="edit content" name="edit content" />
+                            <input className="note-title" type="text" placeholder="edit title" name="edit title" />
+                            <input className="note-body" type="textarea" placeholder="edit content" name="edit content" />
                             <Link to="/viewnote">
-                                <button>Update</button>
+                                <button className="save">Update</button>
                             </Link>
                         </form>
                     </div>
-                </div>
             </div>
         )
 }
