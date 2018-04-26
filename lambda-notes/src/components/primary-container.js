@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getNotes, saveNote, handleReverse, handleOrder, sortTitle } from '../REDUX/actions';
 import { CardFactory } from './card-factory';
 import { ShowAt, HideAt } from 'react-with-breakpoints';
+import Dragula from 'dragula';
 
 class PrimaryContainer extends Component {
   constructor() {
@@ -20,6 +21,13 @@ class PrimaryContainer extends Component {
   }
 
   componentDidMount() { this.props.getNotes() }
+
+  dragulaDecorator = (componentBackingInstance) => {
+    if (componentBackingInstance) {
+      let options = {};
+      Dragula([componentBackingInstance], options);
+    }
+  }
 
   cardFactory = note => {
     const contentLength = note.content.split(" ");
@@ -96,7 +104,7 @@ class PrimaryContainer extends Component {
           <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
           <div>{ this.viewOrder() }</div>
         </div> */}
-        <div className="PrimaryContainer__cardContainer">
+        <div className="PrimaryContainer__cardContainer mx-0" ref={this.dragulaDecorator}>
           {this.props.notes.map(note => this.cardFactory(note))}
         </div>
       </div>

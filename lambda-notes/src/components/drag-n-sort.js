@@ -5,21 +5,9 @@ import { getNotes } from '../REDUX/actions';
 import { Card, CardTitle, CardBody, CardText, Col, Button } from 'reactstrap';
 import { CardFactory } from './card-factory';
 // import { handleReorder } from '../REDUX/actions';
-import createAbsoluteGrid from 'react-absolute-grid';
+// import createAbsoluteGrid from 'react-absolute-grid';
+import Dragula from 'dragula';
 
-const Comp = props => {
-  const contentLength = props.item.content.split(" ");
-  return (
-    <Col 
-      // md="12" 
-      // lg="6"
-      // xl="4"
-      className="col-12" 
-    >
-      <div className="CardTitle">{props.item.title}</div>
-    </Col>
-  )
-}
 
 let notes = [
   {
@@ -89,10 +77,20 @@ let notes = [
 
 class DragSort extends Component {
 
+  componentDidMount() { this.props.getNotes() }
+
+  dragulaDecorator = (componentBackingInstance) => {
+    if (componentBackingInstance) {
+      let options = {};
+      Dragula([componentBackingInstance], options);
+    }
+  }
+
   render() {
-    const AbsoluteGrid = createAbsoluteGrid(Comp);
     return (
-      <AbsoluteGrid items={notes} dragEnabled={true} responsive={true} onMove={() => this.handleOnMove()} />
+      <div className="container PrimaryContainer__cardContainer" ref={this.dragulaDecorator}>
+        {this.props.notes.map(note => (<CardFactory key={note.id} note={note} />))}
+      </div>
     )
   }
 }
