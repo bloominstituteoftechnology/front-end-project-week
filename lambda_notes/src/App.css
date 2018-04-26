@@ -1,12 +1,13 @@
 .App.container-fluid {
-  /* min-height: 100vh; */
-  min-height: 100%;
+  min-height: 100vh;
 }
+
 .leftSideBar {
   background: #d8d8d8;
   border: 2px solid #979797;
   height: 100%;
 }
+
 .noteContainer {
   min-height: 100%;
 }
@@ -15,6 +16,7 @@
   height: 200px;
   margin: 1rem 0;
 }
+
 .card-body {
   overflow: hidden;
   font-size: 1rem;
@@ -24,11 +26,13 @@ a.card-link {
   text-decoration: none;
   color: black;
 }
+
 a.card-link:hover {
   color: black;
 }
+
 button.btn {
-  background: #2bc1c4;
+  color: white;
   font-weight: bold;
   border-radius: 0;
   font-size: 1.1rem;
@@ -36,8 +40,9 @@ button.btn {
 }
 
 button.btn.deleteBtn {
-  background: red;
+  color: white;
 }
+
 button.btn.deleteBtn:hover {
   background: darkred;
 }
@@ -53,6 +58,7 @@ button.btn.deleteBtn:hover {
   color: #4a4a4a;
   cursor: pointer;
 }
+
 .header-link:hover {
   color: black;
 }

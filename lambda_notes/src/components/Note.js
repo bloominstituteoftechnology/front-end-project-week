@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Row, Col, Container, Button } from "reactstrap";
 
 import { deleteNote } from "../actions";
+import DeleteModal from "../components/DeleteModal";
 
 function mapStateToProps(state) {
   return { notes: state.notes };
@@ -20,9 +21,7 @@ class Note extends Component {
           <Link className="header-link mr-3" to={`/editNote/${note.id}`}>
             edit
           </Link>{" "}
-          <Link className="header-link mr-3" to={`/`}>
-            delete
-          </Link>{" "}
+          <DeleteModal buttonLabel="delete" />
         </Row>
         <Row className="mt-5">
           <h3 className="header w-100">{note.title}</h3>
