@@ -6,12 +6,17 @@ export const EDIT_NOTE = 'EDIT_NOTE'
 const addNoteActionCreator = (obj)=>{
 console.log("obj",obj)
 
- return {
+// if(obj.title === "" || obj.text === ""){
+//     return ;
+// }
+
+
+  return {
      type: ADD_NOTES,
      payload:obj,
- }
-}
+  }
 
+}
 
 
 const editNoteActionCreator = (editedNote)=>{

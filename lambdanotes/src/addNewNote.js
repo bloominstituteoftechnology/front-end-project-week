@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { addNoteActionCreator } from "./allActions";
-import './addNewNote.css'
+
 import { notesReducer } from './notesReducer';
 
 class AddNewNote extends Component{
@@ -22,14 +22,15 @@ this.setState({[event.target.name]: event.target.value})
 }
 
  render(){
-
-const obj={
+     
+ const  obj={
     title: this.state.noteText,
     text: this.state.noteTitle
 }
-    return (
+
+      return (
   <div className='NewNote'> 
-          <h1>Create new Note:</h1>
+          <p>Create new Note:</p>
             <input className="Input"
                 placeholder="add new note"
                 name="noteTitle" 
@@ -44,7 +45,9 @@ const obj={
                 onChange={this.AddNewNoteHandler}
              />
             <button className='Button' onClick={()=>{
-                this.props.addNoteActionCreator(obj), this.setState({noteText:'', noteTitle:''})
+             
+                 
+                this.props.addNoteActionCreator(obj), this.setState({ noteText: '', noteTitle: '' })
             }} >Save</button>
        </div>
     )

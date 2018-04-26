@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux'
 import { editNoteActionCreator, addNoteActionCreator } from "./allActions";
-import './addNewNote.css'
+
 
 
 class EditNote extends Component{
@@ -12,10 +12,7 @@ class EditNote extends Component{
         noteTitle:'',
         noteText:''
     }
-    }
-    // componentDidMount=()=>{
-    //     this.props.addNoteActionCreator()
-    // }
+    }  
     AddNewNoteHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value })
     }
@@ -27,10 +24,18 @@ console.log('s',this.props.match.params)
      this.props.notes[this.props.match.params.index]= {
          title: this.state.noteTitle, text: this.state.noteText}
      }
+
+    //  if (this.state.noteText === "" && this.state.noteTitle === "") {
+    //      return (alert(" you can not send an empty note"))
+    //     //  this.props.notes[this.props.match.params.index] = {
+    //     //      title: this.state.noteTitle, text: this.state.noteText
+    //     //  }
+    //  }
+
      console.log('f', this.props.notes[this.props.match.params.index])
   return (
       <div className='NewNote'>
-          <h1>Edit a  Note:</h1>
+          <p>Edit Note:</p>
           <input className="Input"
               placeholder="add new note"
               name="noteTitle"
@@ -46,7 +51,7 @@ console.log('s',this.props.match.params)
           />
           <button className='Button' onClick={() => {
               
-              this.props.addNoteActionCreator(this.props.notes[this.props.match.params.index], this.setState({
+              this.props.editNoteActionCreator(this.props.notes[this.props.match.params.index], this.setState({
                   noteTitle: '',
                   noteText: ''})) 
           }} >Save</button>

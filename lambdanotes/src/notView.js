@@ -1,13 +1,13 @@
 import React,{Component} from 'react';
 import { Route, Link } from 'react-router-dom';
 import {connect} from 'react-redux'
-import './noteView.css'
+
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
   class NoteView extends Component{
     constructor(props){
         super(props)
-        console.log("hilo", this.props.notes) 
+        console.log("Hilo", this.props.notes) 
        this.state ={
            modal: false
        }
@@ -26,9 +26,6 @@ deleteAlert = (index)=>{
 //  alert('')
 
  }
-
-
-
 render(){
 return (
     <div > 
@@ -39,26 +36,15 @@ return (
             note.title === this.props.match.params.noteName ? 
           <div className='.NoteCard'>
                     <div className="Edit">
-                        <Link to={`/EditCurrentNote/${index}`} className='edit'>
-                            <div key={index} >Edit</div>
-                        </Link>
-                        {/* <Link to="/" className="delete">
-                                 <div>           
-                                     <div key={index} onClick={() => { this.deleteAlert(index) }}>Delete</div>
-                                     
-                                                                        
-                                 </div>
-                                
-
-
-                        </Link> */}
-
+                            <Link to={`/EditCurrentNote/${index}`} className='editButton'>
+                               <div key={index} >Edit</div>
+                           </Link>
                              <p onClick={this.toggle}>Delete</p>
                              <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} className={this.props.className}>                             
-                                     <ModalBody>
+                             <ModalBody>
                                       are you sure you want to delete?
-                                     </ModalBody>
-                                     <ModalFooter>
+                             </ModalBody>
+                            <ModalFooter>
                              <Link to="/">
                                      <Button color="primary" onClick={ ()=>this.deleteAlert(index)}>Delete</Button>
                              </Link>
@@ -67,18 +53,6 @@ return (
                                     </ModalFooter>
                              </Modal>
                     </div>
-
-                         
-
-                         
-
-
-
-
-
-
-
-
             <div className="noteViewCard">
                 < div className="noteViewCard_title">{note.title}</div>
                 <div>{note.text}</div>
