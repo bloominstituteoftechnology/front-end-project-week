@@ -46,6 +46,19 @@ server.post('/notes', (req, res) => {
   res.json(notes);
 });
 
+server.delete('/notes/:id', (req, res) => {
+  const { id } = req.params;
+  const foundNote = notes.find(note => note.id == id);
+
+  if(foundNote) {
+    const NoteRemoved = { ...foundNote };
+    notes = notes.filter(note => note.id != id);
+    res.status(200).json({ NoteRemoved });
+  } else {
+    sendUserError('No Note by that ID exists in the notes DB', res);
+  }
+})
+
 server.listen(port, err => {
   if (err) console.log(err);
   console.log(`Lambda Notes server is listening on port ${port}`);
