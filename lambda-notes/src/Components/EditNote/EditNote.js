@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
 import "../CreateNote/CreateNote.css"
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
-import {newNote} from "../../Actions"
+import {updateNote} from "../../Actions"
 class EditNote extends Component {
     constructor() {
         super();
@@ -22,7 +23,6 @@ class EditNote extends Component {
 
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
-        console.log(e.target.value, this.state)
         return e.target.value;
       }
 
@@ -44,7 +44,7 @@ class EditNote extends Component {
                             <textarea 
                             defaultValue={this.props.notes.notes[this.state.index].note}
                             onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
-                            <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
+                            <Link to="/"><button onClick={() => this.props.updateNote({title: this.state.title, note: this.state.note}, {index: this.state.index})}>Save</button></Link>
                         </div>
                     </div>
                 )}
@@ -59,4 +59,6 @@ const mapStateToProps = state => {
     }
   }
 
-export default connect(mapStateToProps)(EditNote);
+export default connect(mapStateToProps, {
+    updateNote
+})(EditNote);
