@@ -17,20 +17,20 @@ const initialNotes = [
     title: "First Note NOTENOTENOTENOTENOTENOTENOTENOTE",
     content: placeholderText
   },
-  { id: 2, title: "Second Note", content: placeholderText },
+  { id: 2, title: "AAA Second Note", content: placeholderText },
   {
     id: 3,
-    title: "Third Note (Bigger size)",
+    title: "Third Note (Biggest size)",
     content: placeholderText + placeholderText + placeholderText
   },
   {
     id: 4,
-    title: "Fourth Note (Second biggest)",
+    title: "Fourth Note (2nd biggest)",
     content: placeholderText + placeholderText
   },
   { id: 5, title: "ZZZ Fifth Note", content: placeholderText },
-  { id: 6, title: "Sixth Note", content: placeholderText },
-  { id: 7, title: "Seventh Note", content: placeholderText }
+  { id: 6, title: "Sixth Note", content: "shortest content" },
+  { id: 7, title: "Seventh Note", content: "2nd shortest content" }
 ];
 
 class App extends Component {
