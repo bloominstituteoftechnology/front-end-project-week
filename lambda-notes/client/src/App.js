@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './App.css';
-//import axios from 'axios';
 import { Link, Route } from 'react-router-dom';
 import NoteList from './components/Notes/NoteList';
 import CreateNote from './components/Notes/CreateNote';
-//import ViewNote from './components/Notes/ViewNote';
 import NoteNav from './components/Notes/NoteNav';
 
 
@@ -13,9 +10,6 @@ const defaultNotes = [{"id":0,"title":"Test note 1","body":"Test note body 1"},{
 
 
 class App extends Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount() {
     if (localStorage.getItem("names") === null) {

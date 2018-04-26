@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './index.css';
 //import { Link } from 'react-router-dom';
 
@@ -46,7 +45,9 @@ class EditNote extends Component {
 
       updateGo = () => {
           let num = this.state.note.id;
+          // eslint-disable-next-line
           this.state.tester[num].title = this.state.title;
+          // eslint-disable-next-line
           this.state.tester[num].body = this.state.body;
 
       };
@@ -60,7 +61,7 @@ class EditNote extends Component {
 
 
     render() {
-        console.log('edit notes', this.state)
+        //console.log('edit notes', this.state)
  //       const { title, body } = this.state.note;
       return (
         <div className='View__note'>

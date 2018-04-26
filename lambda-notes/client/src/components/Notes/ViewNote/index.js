@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './index.css';
-import { Link, Route } from 'react-router-dom';
-//import EditNote from '../EditNote';
+import { Link } from 'react-router-dom';
 
 
 class ViewNote extends Component {
@@ -42,7 +40,7 @@ class ViewNote extends Component {
     }
 
     render() {
-        console.log('state-notes', this.state)
+        //console.log('state-notes', this.state)
  //       const { title, body } = this.state.note;
       return (
         <div className='View__note'>

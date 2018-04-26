@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './index.css';
 
 
@@ -63,8 +62,8 @@ class CreateNote extends Component {
     };
 
     render() {
-      console.log('state', this.state)
-      console.log('idgen', this.idGen())
+      //console.log('state', this.state)
+     // console.log('idgen', this.idGen())
       return (
         <div className='Create__note'>
         <h1>Create New Note:</h1>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './index.css';
 import { Route } from 'react-router-dom';
 import ViewNote from '../ViewNote';
@@ -7,7 +6,7 @@ import EditNote from '../EditNote';
 
 
 const NoteRoutes = (props) => {
-    console.log('nav props', props)
+    //console.log('nav props', props)
     //console.log('ids', props.data[0])
     return (
       <div>
@@ -48,7 +47,7 @@ class NoteNav extends Component {
     }
   
     render() {
-      console.log('nav', this.state)
+      //console.log('nav', this.state)
       return (
           <div className='note__container-bg'>
             <NoteRoutes data={this.state} />

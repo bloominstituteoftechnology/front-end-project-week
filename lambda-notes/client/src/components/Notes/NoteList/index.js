@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
 import './index.css';
 import { Link } from 'react-router-dom';
-//import ViewNote from '../ViewNote';
+
 
 
 const NoteDisplay = (props) => {
-    console.log('display props', props)
+    //console.log('display props', props)
     return (
       <div className='note__container'>
         {props.data.map((u, index) => 
@@ -48,7 +47,7 @@ class NoteList extends Component {
     
   
     render() {
-      console.log('stateonlist', this.state)
+      //console.log('stateonlist', this.state)
       return (
           <div className='note__container-bg'>
             <h3 className='note__container-h3'>Notes:</h3>
