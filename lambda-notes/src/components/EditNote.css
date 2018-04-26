@@ -1,0 +1,47 @@
+.EditNoteContainer {
+    width: 750px;
+    background-color: #F3F3F3;
+}
+
+.EditHeader {
+    text-align: justify;
+    margin-left: 27px;
+    margin-top: 49px;
+    font-size: 1.3em;
+}
+
+.EditTitleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.editTitleIn {
+    margin-left: 27px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 35px;
+    width: 350px;
+}
+
+.EditDes {
+    margin-left: 27px;
+    padding-bottom: 340px;
+    width: 600px;
+    margin-top: -3px;
+    padding: -200px 200px -15px 0px;
+}
+
+.UpdateBtn {
+    width: 190px;
+    height: 44px;
+    margin-left: 27px;  
+    margin-top: 12px;
+    background-color: #2BC1C4;
+}
+
+h12 {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-left: 5px;
+    color: white;
+}
