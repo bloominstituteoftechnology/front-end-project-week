@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Delete from '../Delete/Delete';
@@ -33,5 +33,3 @@ export const Notes = props => {
         </div>
     );
 }
-
-export default Notes;
