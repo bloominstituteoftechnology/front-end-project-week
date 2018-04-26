@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Note from './Note';
+import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
 
 export default class NotesList extends Component{
     constructor(props) {
@@ -13,9 +14,21 @@ export default class NotesList extends Component{
         <div>
             {console.log(this.props)}
         {this.props.notes.map(note => {
-            return <Note note={note}/>;
+            console.log(note)   
+            return <NoteDetails key={note.title} note={note}/>;
         })}
         </div>
         )
     };
 };
+
+
+
+function NoteDetails({note}) {
+    return (
+        console.log(note.title),
+        <Link to={`/Note/:${note.title}`}>
+        <Note note={note}/>
+        </Link>
+    );
+}

@@ -60,13 +60,8 @@ class App extends Component {
                 {/* <Route path='/EditNote' component={EditNote}/>  */}
                 <Route path='/CreateNote'  render={(props) => <CreateNote {...props} addToNotesList={this.addToNotesList}/>} />
                  {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
-                 <Route path="/Note/{title}" render={(props) => { <Note {...props}/>
-                   return (
-                    <div className="jumbotron">
-                      <h1 className="display-3">Hello, world!</h1>
-                    </div>
-                   );
-                 }} />
+                 {/* <Route path="/Note/{title}" render={(props) => <Note {...props}/> */}
+                 } />
                 
                 {/* when none of the above match, <NoMatch> will be rendered */}
                 {/* <Route component={NoMatch}/> */}

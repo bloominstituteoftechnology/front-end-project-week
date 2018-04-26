@@ -13,11 +13,12 @@ export default class Note extends Component {
     }
     render(){
     return <div>
-        {console.log("this test is " + this.props)}
+        {console.log(this.props)}
                 <Link to='/EditNote' className ='editnote' type= 'text' placeholder='edit' name='editNote'/>
                 <Link to='/CreateNote' className ='deletenote' type= 'text' placeholder='delete' name='deleteNote'/>
         <Link to={`/Note/${this.props.note.title}`}>
             <Card body>
+                        {console.log(this.props)}
                         <CardTitle> Title: {this.props.note.title}</CardTitle>
                         <CardText>Body: {this.props.note.body}</CardText>   
             </Card>
