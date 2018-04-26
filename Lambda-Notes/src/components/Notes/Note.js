@@ -1,11 +1,21 @@
 import React from 'react';
+import { Card, CardText, CardBody, CardHeader, Col, Row } from 'reactstrap';
 
 const Note = props => {
-  const { id, title, content } = props.note;
+  const { title, content } = props.note;
   return (
+    // <div className="note">
     <div>
-      <h1>{title}</h1>
-      <p>{content}</p>
+      <Row>
+        <Col sm={{ size: 4, offset: 1 }}>
+          <Card>
+            <CardBody>
+              <CardHeader tag="h4">{title}</CardHeader>
+              <CardText>{content}</CardText>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -16,7 +16,12 @@ export default class App extends Component {
       <div>
         <Menu />
         <Switch>
-          <Route exact path="/" component={NoteList} />
+          <Route
+            exact
+            path="/"
+            component={NoteList}
+            noteList={this.state.noteList}
+          />
           {/* <Route path="/:id" component={Note} /> */}
           {/*<Route path="/update" component={EditView} /> */}
           <Route
