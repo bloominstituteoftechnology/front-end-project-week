@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
+import {Button} from 'reactstrap'
 import NoteList from './components/Notes/NoteList';
 import './App.css';
 import NoteForm from "./components/Notes/NoteForm";
@@ -41,6 +42,7 @@ class App extends Component {
         const newNote = { id: id,title: title, content: content };
         newNotes.push(newNote);
         this.setState({notes: newNotes});
+        this.setState({displayNotes: newNotes});
     };
 
     filterNotes(criterion) {
@@ -57,6 +59,26 @@ class App extends Component {
         }
 
     }
+
+    sortByTitle = (e) => {
+        e.preventDefault();
+        const newNotes = this.state.displayNotes;
+        console.log('Sort by:',newNotes);
+
+        newNotes.sort(function (a, b) {
+            let note1 = a.title.toUpperCase(); // ignore upper and lowercase
+            let note2 = b.title.toUpperCase(); // ignore upper and lowercase
+            if (note1 < note2) {
+                return -1;
+            }
+            if (note1 > note2) {
+                return 1;
+            }
+            return 0;
+        });
+        this.setState({displayNotes: newNotes});
+    };
+
     render() {
         return (
             <div className="App">
@@ -65,6 +87,7 @@ class App extends Component {
                         <div className="col-3 left__side">
                             <h2 className='sidebar__header'>Lambda Notes</h2>
                             <SearchBar filterNotes={this.filterNotes}/>
+                            <Button onClick={this.sortByTitle}>Sort By Title</Button>
                             <a href='/' className='sidebar__button'>
                                 View Notes
                             </a>
