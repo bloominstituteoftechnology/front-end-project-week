@@ -23,15 +23,17 @@ class NoteForm extends React.Component{
                     </div>
                 </div>
                 <div className="row">
-                    <Form>
-                        <FormGroup>
-                            <Input type="text" name="title" id="noteTitle" placeholder="Note Title" onChange={this.handleInputText}/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Input type="textarea" name="detail" id="noteDetail" placeholder="Note Detail" onChange={this.handleInputText}/>
-                        </FormGroup>
-                        <a href={'/'} onClick={this.props.addNote(this.state.title, this.state.content)}>Save</a>
-                    </Form>
+                    <div className='col-9'>
+                        <Form>
+                            <FormGroup>
+                                <Input  type="text" name="title" id="noteTitle" placeholder="Note Title" onChange={this.handleInputText}/>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input type="textarea" name="detail" id="noteDetail" placeholder="Note Detail" onChange={this.handleInputText}/>
+                            </FormGroup>
+                            <a href={'/'} onClick={this.props.addNote(this.state.title, this.state.content)}>Save</a>
+                        </Form>
+                    </div>
                 </div>
             </div>
         );
