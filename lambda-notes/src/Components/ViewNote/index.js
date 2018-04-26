@@ -1,28 +1,22 @@
 import React from 'react';
 import './view.css';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import { EditNote } from '../EditNote';
-import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+// import { Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 
 export class ViewNote extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return <div className="col-9 right__side">
             <div className="row">
-                <div className="col-4 edit">
-                    <Link to='/'>
-                        Edit
-                    </Link>
-                </div>
-                <div className=" col-3 delete">
-                    <Link to="/">Delete</Link>
-                </div>
+              <div className="col-4 edit">
+                <Link to="/editnote">Edit</Link>
+              </div>
+              <div className=" col-3 delete">
+                <Link to="/">Delete</Link>
+              </div>
             </div>
             <div className="row">
-                <h4>Note Title</h4>
+              <h4>Note Title</h4>
             </div>
             <div className="row">
               <p>
@@ -48,6 +42,9 @@ export class ViewNote extends React.Component {
                 croix flannel put a bird on it meggings migas kombucha
                 microdosing vice chartreuse twee narwhal.
               </p>
+              <Switch>
+                <Route path="/editnote" component={EditNote} />
+              </Switch>
             </div>
           </div>;
     }

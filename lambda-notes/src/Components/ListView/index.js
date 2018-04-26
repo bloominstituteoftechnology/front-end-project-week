@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
 import Note from './NoteCard';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const NoteList = props => {
     return (
@@ -11,7 +11,7 @@ export const NoteList = props => {
                 <div className="right">
                     {props.Notes.map(note => {
                         return (
-                            <div className="col-4">
+                            <div className="col-4" key={note.id}>
                                 <Link to={`/viewnote/${note.id}`}>
                                     <Note key={note.id} title={note.title} body={note.body} />
                                 </Link>

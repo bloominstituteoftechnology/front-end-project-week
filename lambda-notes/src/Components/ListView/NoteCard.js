@@ -3,10 +3,6 @@ import { Card, CardTitle, CardBody } from 'reactstrap';
 import './styles.css';
 
 class Note extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
