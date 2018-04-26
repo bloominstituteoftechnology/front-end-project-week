@@ -24,3 +24,7 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.NoteDetail__textarea {
+    height: 500px;
+}

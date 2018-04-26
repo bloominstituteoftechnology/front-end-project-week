@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../App.css';
+import './NoteCard.css'
 import {Form, Input, FormGroup, Button} from 'reactstrap'
 import {Link} from 'react-router-dom';
 class NoteForm extends React.Component{
@@ -33,7 +34,7 @@ class NoteForm extends React.Component{
                                 <Input  type="text" name="title" id="noteTitle" placeholder="Note Title" onChange={this.handleInputText}/>
                             </FormGroup>
                             <FormGroup>
-                                <Input type="textarea" name="content" id="noteDetail" placeholder="Note Detail" onChange={this.handleInputText}/>
+                                <Input className='NoteDetail__textarea' type="textarea" name="content" id="noteDetail" placeholder="Note Detail" col={60} onChange={this.handleInputText}/>
                             </FormGroup>
                             <Link to={'/'}>
                             <Button onClick={this.handleClick}>Save</Button>

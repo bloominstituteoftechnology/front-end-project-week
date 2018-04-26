@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../App.css';
+import './NoteCard.css'
 import {Form, Input, FormGroup} from 'reactstrap'
 
 class NoteEdit extends React.Component{
@@ -24,7 +25,7 @@ class NoteEdit extends React.Component{
                                 <Input type="text" name="title" id="noteTitle" placeholder="Lorem ipsum" onChange={this.handleInputText}/>
                             </FormGroup>
                             <FormGroup>
-                                <Input type="textarea" name="detail" id="noteDetail"
+                                <Input className='NoteDetail__textarea' type="textarea" name="detail" id="noteDetail"
                                        placeholder='Lorem ipsum dolor sit amet, et qui nonumes salutatus urbanitas, ei nec assentior quaerendum, mea at exerci consetetur appellantur. Vis velit nostrum ut. Est ei esse aliquam scribentur, nam quas nonumes et. An sea tantas propriae, esse dicta doctus cu his.
 
                      At saepe scripta contentiones eos, quem aliquam fabellas ius ei. Eam te prima discere. Debet dolorum sadipscing ex eos. Te mediocrem adversarium mel, ex mel causae accusata. Qui cu everti ceteros, id summo patrioque quaerendum usu.
