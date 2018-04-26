@@ -108,7 +108,8 @@ export const notesReducer = (state = startState, action) => {
 			console.log('UPDATE_NOTE REDUCER ...state.notes: ', ...state.notes);
 			return (
 				Object.assign({}, state, {
-					notes: [ state.notes[action.index] = action.payload],
+					notes: [ state.notes[action.index].note = action.payload, state.notes[action.index].title = action.title],
+					// notes: [ state.notes[action.index].title = action.title],
 					notes: [...state.notes]
 				})
 				

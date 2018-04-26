@@ -11,10 +11,11 @@ let titles = [];
          payload: note
      }
  };
- export const updateNote = (note, i) => {
+ export const updateNote = (noteTitle, noteContent, i) => {
     return {
         type: UPDATE_NOTE,
-        payload: note,
+        title: noteTitle,
+        payload: noteContent,
         index: i
     }
 };
