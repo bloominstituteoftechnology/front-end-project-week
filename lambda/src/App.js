@@ -1,63 +1,36 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+
 
 import './App.css';
 import { createNew, ListView, Navigation, NotesList } from './components';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
+export default class App extends Component {
+  constructor() {
+    super()
     this.state = {
-      notes: [],
-      formText: ""
+      notes: []
     }
   }
 
-  componentDidMount() {
-    console.log(this);
-    this.props.getTodos();
-  }
-
-  logTodos() {
-    console.log(this.props.todos);
-  }
-
-  handleTodoText = e => {
-    this.setState({
-      formText: e.target.value
-    });
-  }
-
-  render() {
-    let name = {
-      value: 'Default',
-      completed: false
-    }
-
-    return (
-      <div className="ToDoList">
-      <input onChange={e => this.handleTodoText(e)} value={this.state.formText} type="text" placeholder='Add your To Dos here!' />
-      <button onClick={() => this.props.submitTodo(this.state.formText)}>Submit</button>
-      </div>
-
-    );
-  }
+addToNotesList = (notes) => {
+  const notesList = this.state.notesList;
+  notesList.push(notes);
+  this.setState({ notesList });
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {
-    todos: state,
-  };
-};
+render() {
+  return (
+    <div>
+     <notesList list={this.state.notesList} />
+     <Route exact path="/" component={listView} />
+     <Route path="/notes/:id" render={ (props) => {
+       return(<Note {...props} addToNotesList={this.addToNotesList}/>)
+     }}/>
+     </div>
+      )    
+    }    
+  }  
+  
 
-const mapDispatchToProps = () => {
-  return {
-    getTodos,
-    submitTodo,
-    toggleTodo
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps())(App);
