@@ -63,7 +63,7 @@ class Content extends Component {
             <div className='col-12'>
                     <Route exact path="/" render={() => <NoteList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
                     <Route path='/AddNote' render={() => <AddNote addNewCard = {this.addNewCard} updateNewNote = {this.updateNewNote} />} />
-                    <Route path='/ViewNote' render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} />} />
+                    <Route path='/ViewNote' render={(props) => <ViewNote {...this.state} deleteNote={this.deleteNote} {...props} />} />
                     <Route path="/edit-note" render={() => <EditNote {...this.state} updateNote={this.updateNote} />} />
                     {/* <Route path='/NoteList' render={() => <NoteList updateSelectedNote={this.updateSelectedNote} {...this.state} />} /> */}
             </div> 

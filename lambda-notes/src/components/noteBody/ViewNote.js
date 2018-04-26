@@ -1,15 +1,28 @@
 //IMPORTS
 import React, { Component } from 'react';
 // import {Route, Link} from 'react-router-dom';
-// import { Modal, ModalBody } from 'reactstrap';
 import { withRouter, Link } from 'react-router-dom';
-import { Form, Input, Row, Col, Button } from 'reactstrap';
+import { Form, Input, Row, Col, Button, Modal, ModalBody } from 'reactstrap';
 
 //VIEW NOTE COMPONENT
 class ViewNote extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        modal: false
+    };
+}
 
     handleDelete = () => {
+        this.toggleModal();
         this.props.deleteNote(this.props.selectedNote.title);
+        this.props.history.push('/');
+    }
+
+    toggleModal = () => {
+        this.setState({
+            modal: !this.state.modal
+        });
     }
 
     render() {
@@ -18,7 +31,19 @@ class ViewNote extends Component {
                 <Row>
                     <Col className='col-3 ml-auto'>
                         <Link to='/edit-note'><Button className='mr-2' size='sm'>Edit</Button></Link>
-                        <Button onClick={this.handleDelete} size='sm'>Delete</Button>
+                        <Button onClick={ () => this.toggleModal()} size='sm'>Delete</Button>
+                        {this.state.modal ? <Modal isOpen={this.state.modal}>
+                        <ModalBody>
+                            Are you sure you want to delete?
+                            <Link to='/' onClick={() => this.handleDelete()}>
+                            <Button className='delete'>Delete</Button>
+                            </Link>
+                            <Button className='modeButton_no' onClick={() => this.toggleModal()}>
+                            Cancel
+                            </Button>
+                        </ModalBody>
+                        </Modal> : null}    
+
                     </Col>
                 </Row>
                 <Row className='mt-4'>
@@ -37,23 +62,14 @@ export default withRouter(ViewNote);
 
 
 // class ViewNote extends Component {
-//     state = {
-//         modal: false
-//     };
-
-//     toggle = this.toggle.bind(this);
-
-//     toggle() {
-//         this.setState({
-//             modal: !this.state.modal
-//         });
-//     }
+    
             {/* <Route path='/ViewNote'>
                 <div className='body'>
                     <div className='col-12 d-flex flex-row justify-content-end'>
 
                         <Link className='modalLink mr-3 font-weight-bold' to='/EditNote'>Edit</Link>
                         <button type='button' onClick={this.toggle} className='modalLink font-weight-bold'>Delete</button>
+                        
                         <Modal isOpen={this.state.modal} toggle={this.toggle}>
                             <ModalBody className='row d-flex flex-row justify-content-center flex-wrap'>
                                 <p className='modeTitle col-12'>Are you sure you want to delete this?</p>

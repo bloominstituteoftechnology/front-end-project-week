@@ -41,17 +41,11 @@ body {
 
 .contBody {
   background-color: #f3f3f3;
+  margin-bottom: 15px;
 }
 
 /* View Your Notes */
 .navButton1 {
-  /* width: 120%;
-  height: 35px;
-  background-color: #2AC0C4;
-  color: #ffffff;
-  border: 1px thin grey;
-  font-size: 12px;
-  font-weight: bold; */
   width: 100%;
   height: 50px;
   background-color: #2bc1c4;
@@ -65,13 +59,6 @@ body {
 
 /* +Create New Note */
 .navButton2 {
-  /* width: 105%;
-  height: 35px;
-  background-color: #2AC0C4;
-  color: #ffffff;
-  border: 1px thin grey;
-  font-size: 12px;
-  font-weight: bold; */
   width: 100%;
   height: 50px;
   background-color: #2bc1c4;
@@ -153,14 +140,33 @@ body {
   text-align: center;
 }
 
-.modeButton {
+.delete {
   width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
   border: 1px solid gray;
   width: 100%;
   height: 45px;
   background-color: red;
   color: white;
   font-weight: bold;
+  cursor: pointer;
+}
+
+button.delete.btn.btn-secondary {
+  background-color: red;
+}
+
+button.btn-info.btn.btn-secondary {
+  background-color: #2bc1c4;
+}
+
+.col-12 {
+  margin-bottom: 405px;
+}
+
+.col-3.ml-auto.col {
+  margin-top: 15px;
 }
 
 .modeButton_no {
@@ -170,10 +176,7 @@ body {
   height: 45px;
   color: white;
   font-weight: bold;
-}
-
-.deleteModal {
-  width: 80%;
+  cursor: pointer;
 }
 
 .cardtitle {

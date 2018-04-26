@@ -1,6 +1,6 @@
 // //IMPORTS
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Form, Input, Row, Col, Button } from 'reactstrap';
 
 class UpdateNote extends Component {
@@ -39,7 +39,9 @@ class UpdateNote extends Component {
             </Row>
             <Row>
               <Col>
-                <Button onClick={this.handleSubmit} className="btn-info">Update</Button>
+              <Link to='/' onClick={() => this.handleSubmit()}>
+                <Button className="btn-info">Update</Button>
+              </Link>  
               </Col>
             </Row>
           </Form>
