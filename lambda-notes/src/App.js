@@ -67,6 +67,17 @@ class App extends Component {
       ]
     }
   }
+
+  addNote = (title, body) => {
+    const newNotes = this.state.notes;
+    const id = newNotes.length + 1;
+    const newNote = {id: id, title: title, body: body};
+    newNotes.push(newNote);
+    this.setState({
+      notes: newNotes
+    })
+  }
+
   render() {
     return ( 
     <div className="App">
@@ -79,7 +90,7 @@ class App extends Component {
             </div>
             <Switch>
               <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
-              <Route path="/createNewNote" render={() => <CreateNote />}/>
+              <Route path="/createNewNote" render={() => <CreateNote onSubmit={this.addNote} />}/>
               <Route path="/viewnote" render={() => <ViewNote />}/>
               <Route path="/editnote" render={EditNote}/>
             </Switch>
