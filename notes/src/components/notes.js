@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { arrayMove } from "react-sortable-hoc";
 import base from "./rebase";
 import SideBar from "./sidebar";
 import ListView from "./listview";
@@ -74,6 +75,12 @@ export default class Notes extends Component {
     this.setState({ view: "list", notes: tempNotes });
   };
 
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    this.setState({
+      notes: arrayMove(this.state.notes, oldIndex, newIndex)
+    });
+  };
+
   render() {
     if (this.state.view === "list") {
       return (
@@ -83,7 +90,11 @@ export default class Notes extends Component {
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
           />
-          <ListView notes={this.state.notes} viewNote={this.viewNote} />
+          <ListView
+            notes={this.state.notes}
+            viewNote={this.viewNote}
+            onSortEnd={this.onSortEnd}
+          />
         </div>
       );
     }

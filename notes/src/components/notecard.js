@@ -1,4 +1,5 @@
 import React from "react";
+import { SortableElement } from "react-sortable-hoc";
 
 function ellipsify(str) {
   if (str.length > 200) {
@@ -16,13 +17,13 @@ function ellipsifyTitle(str) {
   }
 }
 
-const NoteCard = props => {
+const NoteCard = SortableElement(props => {
   return (
     <div className="notecard" onClick={() => props.viewNote(props.note.id)}>
       <h5 className="note-title">{ellipsifyTitle(props.note.title)}</h5>
       <div className="notes-text-div">{ellipsify(props.note.text)}</div>
     </div>
   );
-};
+});
 
 export default NoteCard;

@@ -55,7 +55,6 @@ h1 {
 .notes-div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .notecard {
@@ -65,7 +64,9 @@ h1 {
   margin-left: 0;
   padding: 10px;
   width: 240px;
+  height: 150px;
   cursor: pointer;
+  user-select: none;
 }
 
 .notes-text-div {
