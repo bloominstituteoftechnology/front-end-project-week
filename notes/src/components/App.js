@@ -9,10 +9,10 @@ import { ErrorPage } from './ErrorPage';
 
 
 export class App extends Component {
-  constructor(props) {
-    super(props);
-    // Calls to local storage
-    this.local = {
+  constructor() {
+    super();
+    
+    this.local = { // Calls to local storage
       get(target) { // Return parsed JSON
         return localStorage.getItem(target) ?
           JSON.parse(localStorage.getItem(target)) : undefined;
@@ -23,13 +23,13 @@ export class App extends Component {
     }
     // Ease of use function
     this.getNotes = () => this.local.get('notes');
-    // Use local storage as state upon page reload
-    this.state = this.getNotes() ? 
+    // Use local storage as state upon page load
+    this.state = this.getNotes() ?
     { notes: this.getNotes() } : { notes: [] };
   }
 
   syncLocalState = payload => {
-    this.local.set('notes', payload );
+    this.local.set( 'notes', payload );
     this.setState({ notes: payload });
   }
 

@@ -6,7 +6,6 @@ import { ErrorPage } from './ErrorPage';
 export class NoteForm extends Component {
   constructor(props) {
     super(props);
-
     // Change state and input depending on function of form
     const id = props.match.params.id;
     if (props.formUse === 'Create New Note') {
@@ -41,7 +40,7 @@ export class NoteForm extends Component {
   }
 
   resizeInputs() {
-    // Adjust height of text areas
+    // Adjust height of textareas
     const textareas = document.querySelectorAll('textarea');
     textareas.forEach(textarea => {
       textarea.style.height = "1px";
@@ -77,6 +76,7 @@ export class NoteForm extends Component {
             }); // Call function based on form use
             this.props.useFunction(newTodo, this.state.id);
         }}>Save</Link>
+      {/* Show ErrorPage if any of the constructor conditions are not met */}
       </div> : <ErrorPage />
     )
   }

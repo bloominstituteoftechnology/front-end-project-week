@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/ErrorPage.css';
 import logo from '../logo.svg';
 
-export const ErrorPage = props => {
+export const ErrorPage = () => {
   return (
     <div className="ErrorPage">
       <p className="ErrorPage_title">404</p>
