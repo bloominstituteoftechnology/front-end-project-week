@@ -50,7 +50,7 @@ export class AddNote extends Component {
             value={this.state.content}
             onChange={this.handleInput}
           />
-          <NavLink to='/notes' onClick={this.handleSubmit}><button className='AddNote__Save'>Save</button></NavLink>
+          <NavLink to='/notes' onClick={this.handleSubmit} className='AddNote__Link'><button className='AddNote__Save'>Save</button></NavLink>
         </div>
       </div>
     );

@@ -22,6 +22,12 @@
   resize: none;
 }
 
+.AddNote__Link{
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+}
+
 .AddNote__Save {
   background-color: rgb(36, 184, 189);
   border: 2px solid rgb(152, 174, 175);
