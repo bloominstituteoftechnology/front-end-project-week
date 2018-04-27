@@ -83,16 +83,7 @@ class App extends Component {
 //   this.setState({ notes: updatedNotes });
 // }
 
-componentDidMount() {
-    axios
-      .get(`http://localhost:5000/notes`)
-      .then(response => {
-        this.setState({ notes: response.data });
-      })  
-      .catch(err => {
-        console.log(err);
-      });
-    };
+
 // } Dont need it if I use a state considering it this way to simplify
 
 
@@ -104,7 +95,7 @@ componentDidMount() {
     //   <Route path="/editnote" render ={() => <Edit notes={this.state.notes} />}/>
       
       <div className="App">
-      <div className="leftSide">
+      <div className="leftSide col-3">
         <h1 className= "leftSideH1">Lambda Notes</h1>
         <Link to={"/"} className="leftButtons">
          View Your Notes

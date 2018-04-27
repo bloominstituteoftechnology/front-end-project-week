@@ -44,10 +44,9 @@
 .leftSide {
   display: flex;
   flex-direction: column;
-  width: 20%;
   height: 880px;
-  background-color: grey;
   float: left;
+  background-color: grey;
   text-align: left;
 }
 
@@ -72,20 +71,41 @@
   height: 880px;
 }
 
+.notesHeader {
+  text-align: center;
+  padding-left: 20px;
+  justify-content: flex-start;
+  padding-top: 4%;
+  display: flex;
+}
+
 .list {
   margin: 0 0 0 0;
 float: right;
 width: 80%;
 margin-top: 4%;
+position: relative;
 }
+
+.centerText {
+  height: 400px;
+}
+
+.titleCard {
+  border-bottom: solid black 1px;
+  padding-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
 
 .rightSide {
   margin-top: 4%;
-  width: 76%;
+  width: 20%;
   float: right;
-  height: 880px;
   margin-left: 2%;
   margin-right: 2%;
+  text-align: left;
 }
 
 .listh2 {
@@ -109,6 +129,15 @@ margin-top: 4%;
 .App-intro {
   font-size: large;
 }
+.tealButton {
+  background: teal;
+  color: white;
+}
+.redButton {
+  background: red;
+  color: white;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

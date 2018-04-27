@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import {connect } from 'react-redux';
 import {fetchStuff } from '../actions.js';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 
 class free extends Component {
@@ -32,14 +33,19 @@ class free extends Component {
     render() {
         const { note } = this.props;
         return (
-            <div>
+            <div><h2 className="notesHeader pl-5">Your Notes:</h2>
             {this.props.notes.map(note => {
                 return (
-                    <div>
-<Link to={{pathname: `/note/${note.id}`, state: { currentNote: note}}}>    <div key={note.id}>
-                         {note.title} <br />
-                        {note.text}
-                         </div> </Link>
+                    <div className="rightSide">
+                    
+<Link to={{pathname: `/note/${note.id}`, state: { currentNote: note}}}>    
+                    <Card key={note.id}>
+                            <CardBody>
+                        <CardTitle className="titleCard"> {note.title}</CardTitle>
+                       <CardText> {note.text}</CardText>
+                         </CardBody>
+                         </Card> 
+                         </Link>
                     </div>
                 )
             })}

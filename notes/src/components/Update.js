@@ -24,9 +24,10 @@ class Update extends Component {
     }
     render() {
         return (
-        <div>
-
+        <div className="col-9 float-right pt-5 d-flex flex-column">
+            <h3 className="titleNew d-flex"> Edit Note:  </h3>
   <input 
+  className="centerTitle mt-3 col-7"
   value={this.state.title}
 type='text'
 name="title"
@@ -36,6 +37,7 @@ onChange={this.handleTextInput}
 />
 
  <input 
+ className="centerText mt-3"
 value={this.state.text}
 type='text'
 name="text"
@@ -43,7 +45,7 @@ placeholder="Note Text Here"
 onChange={this.handleTextInput}
 
 />
-<Link to="/" onClick={() => this.newUpdate()}><button type="submit">Update Note</button></Link>
+<Link to="/" onClick={() => this.newUpdate()}><button className="d-flex mt-3 col-2 justify-content-center tealButton" type="submit">Update</button></Link>
 
     </div>
         )}

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { deleteNote } from '../actions.js';
 import { connect } from 'react-redux';
+import { Modal, ModalBody } from 'reactstrap';
 
 
 
@@ -14,6 +15,7 @@ class Here extends Component {
         notes: [],
      text: '',
      title: '',
+     modal: false
     }
   }
 //   componentDidMount() {
@@ -29,15 +31,35 @@ class Here extends Component {
 //         console.log(err);
 //       });
 //     }
+toggleModal = () => {
+    this.setState({
+        modal: !this.state.modal
+    });
+}
+
+
+
     render() {
         return(
-            <div className="rightSide">
+            <div className="col-9 float-right pt-5 text-left">
+            <div className="col-12 d-flex flex-row justify-content-end">
        <Link to={{pathname: `/editnote/${this.props.location.state.currentNote.id}`, state: { currentNote: this.props.location.state.currentNote}}}>
-Edit
+       <button >Edit</button>
        </Link>
-       <Link to={'/'} onClick={() => this.props.deleteNote(this.props.location.state.currentNote.id)}>Delete</Link>
-<div>
-<h4>{this.props.location.state.currentNote.title}</h4>
+       <button onClick={() => this.toggleModal()}>Delete</button>
+       </div>
+       {this.state.modal ? <Modal isOpen= {this.state.modal}>
+       <ModalBody>
+           Do you wish to delete this note?
+           <div className="d-flex mt-3">
+           <Link to='/' onClick={() => this.props.deleteNote(this.props.location.state.currentNote.id)}> 
+           <button className="redButton" > Yes </button></Link>
+            <button className="ml-3 tealButton" onClick={() => this.toggleModal()}> No</button>
+            </div>
+            </ModalBody>
+            </Modal> : null}
+<div >
+<h3>{this.props.location.state.currentNote.title}</h3>
 <br />
     <p>{this.props.location.state.currentNote.text}</p>
                          </div>
@@ -45,3 +67,4 @@ Edit
         )}
 }
 export default connect(null, { deleteNote })(Here);
+// onClick={() => this.props.deleteNote(this.props.location.state.currentNote.id)}
