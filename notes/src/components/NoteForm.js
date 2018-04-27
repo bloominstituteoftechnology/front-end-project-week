@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/NoteForm.css';
+import { ErrorPage } from './ErrorPage';
 
 export class NoteForm extends Component {
   constructor(props) {
@@ -9,15 +10,15 @@ export class NoteForm extends Component {
     // Change state and input depending on function of form
     if (props.formUse === 'Create New Note') {
       this.state = { title: '', body: '' , id: props.notes.length };
-    } else {
+    } else if (props.formUse === 'Edit Note' && props.notes.id) {
       const id = props.match.params.id;
       this.note = props.notes[id];
       this.state = {
         title: this.note.title,
         body: this.note.body,
         id: Number(id)
-      }
-    }
+      } // Show error page if there is no note with id specified
+    } else this.state = null;
   }
 
   componentDidMount() {
@@ -49,7 +50,7 @@ export class NoteForm extends Component {
   }
 
   render() {
-    return(
+    return( this.state ?
       <div className="NoteForm">
         <p className="NoteForm_header">{this.props.formUse}:</p>
         <form className="NoteForm_inputs">
@@ -76,7 +77,7 @@ export class NoteForm extends Component {
             }); // Call function based on form use
             this.props.useFunction(newTodo, this.state.id);
         }}>Save</Link>
-      </div>
+      </div> : <ErrorPage />
     )
   }
 }
