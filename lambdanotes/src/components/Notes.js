@@ -43,26 +43,67 @@ const StyledLink = styled(Link)`
     cursor: pointer;
 `;
 
+const Input = styled.input`
+    padding: 0.5em 0.5em 1em 0.5em;
+    margin: 0 0 0 5em;
+    border-radius: 3px;
+    width: 50%;
+`;
+
+const Container = styled.div`
+    display: flex;
+`
+
 class Notes extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchInput: ''
+        }
+    }
+
+    handleSearchInput = e => {
+        this.setState({ searchInput: e.target.value });
+    }
+
     render() {
         return <Wrapper>
-            <Heading>Your Notes:</Heading>
+            <Container>
+                <Heading>Your Notes:</Heading>
+                <Input type="text" value={this.state.searchInput} placeholder="Search Notes" onChange={this.handleSearchInput} />
+            </Container>
             <List>
-                {this.props.notes.map(note => {
-                    return (
-                        <IndividualNote key={note.id}>
-                            <StyledLink to={`/notes/${note.id}`}>
-                                <NoteHeading>{note.title}</NoteHeading>
-                                <hr />
-                                <Dotdotdot clamp={5}>
-                                    <NoteParagraph>{note.text}</NoteParagraph>
-                                </Dotdotdot>
-                            </StyledLink>
-                        </IndividualNote>
-                    )
-                })}
+              {this.props.notes.map(note => {
+                if (this.state.searchInput === '') {
+                  return <IndividualNote key={note.id}>
+                      <StyledLink to={`/notes/${note.id}`}>
+                        <NoteHeading>{note.title}</NoteHeading>
+                        <hr />
+                        <Dotdotdot clamp={5}>
+                          <NoteParagraph>{note.text}</NoteParagraph>
+                        </Dotdotdot>
+                      </StyledLink>
+                    </IndividualNote>;
+                } else if (note.title
+                    .toLowerCase()
+                    .includes(
+                      this.state.searchInput.toLowerCase(),
+                    ) || note.text
+                    .toLowerCase()
+                    .includes(this.state.searchInput.toLowerCase())) {
+                  return <IndividualNote key={note.id}>
+                      <StyledLink to={`/notes/${note.id}`}>
+                        <NoteHeading>{note.title}</NoteHeading>
+                        <hr />
+                        <Dotdotdot clamp={5}>
+                          <NoteParagraph>{note.text}</NoteParagraph>
+                        </Dotdotdot>
+                      </StyledLink>
+                    </IndividualNote>;
+                }
+              })}
             </List>
-            </Wrapper>;
+          </Wrapper>;
     }
 };
 
