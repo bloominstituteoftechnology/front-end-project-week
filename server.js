@@ -1,10 +1,13 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const port = 5000;
-const app = express();
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
+const app = express();
 let nextId = 10;
+
+function getNewId() {
+  return nextId++;
+}
 
 let notes = [
     {
@@ -54,63 +57,37 @@ let notes = [
     }
 ];
 
-app.use(bodyParser.json());
 
 app.use(cors());
+app.use(bodyParser.json());
 
-app.get('/api/notes', (req, res) => {
-  res.send(notes);
+app.get("/notes", (req, res) => {
+  res.status(200).json(notes);
 });
 
-app.get('/api/notes/:id', (req, res) => {
-  const note = notes.find(n => n.id == req.params.id);
-
-  if (note) {
-    res.status(200).json(note);
-  } else {
-    res.status(404).send({ msg: 'Note Not Found' });
-  }
-});
-
-app.post('/api/notes', (req, res) => {
-  const note = { id: getNextId(), ...req.body };
-
+app.post("/notes", (req, res) => {
+  const note = { id: getNewId(), ...req.body };
   notes = [...notes, note];
-
-  res.send(notes);
+  res.status(201).json(notes);
 });
 
-app.put('/api/notes/:id', (req, res) => {
+app.put("/notes/:id", (req, res) => {
   const { id } = req.params;
+  let noteIndex = notes.findIndex(note => note.id == id);
 
-  const NoteIndex = notes.findIndex(n => n.id == id);
-
-  if (NoteIndex > -1) {
-    const note = { ...notes[NoteIndex], ...req.body };
-
-    notes = [
-      ...notes.slice(0, NoteIndex),
-      note,
-      ...notes.slice(NoteIndex + 1),
-    ];
-    res.send(notes);
+  if (noteIndex >= 0) {
+    notes[noteIndex] = { ...notes[noteIndex], ...req.body };
+    res.status(200).json(notes);
   } else {
-    res.status(404).send({ msg: 'Note Not Found' });
+    res.status(404).json({ message: `The note with id ${id} does not exist.` });
   }
 });
 
-app.delete('/api/notes/:id', (req, res) => {
-  const { id } = req.params;
-
-  notes = notes.filter(n => n.id !== Number(id));
-
-  res.send(notes);
+app.delete("/notes/:id", (req, res) => {
+  notes = notes.filter(note => note.id != req.params.id);
+  res.status(200).json(notes);
 });
 
-function getNextId() {
-  return nextId++;
-}
-
-app.listen(port, () => {
-  console.log(`server listening on port ${port}`);
-}); 
+app.listen(5000, () => {
+  console.log("server listening on port 5000");
+});
