@@ -3,7 +3,8 @@ import {
 	ADDTODO,
 	DELETETODO,
 	UPDATETODO,
-	TOGGLETODO
+	TOGGLETODO,
+	ARCHIVETODO
 } from "../actions/index.js";
 
 let uuid = require("uuid-v4");
@@ -14,37 +15,43 @@ const initialState = {
 			title: "Do Dishes",
 			text: "do dishes before going to bed",
 			isComplete: false,
-			id: uuid()
+			id: uuid(),
+			archive: false
 		},
 		{
 			title: "Walk Dog",
 			text: "walk the dog after dinner",
 			isComplete: false,
-			id: uuid()
+			id: uuid(),
+			archive: false
 		},
 		{
 			title: "Clean Room",
 			text: "vacuum carpet and clean up toys",
 			isComplete: false,
-			id: uuid()
+			id: uuid(),
+			archive: false
 		},
 		{
 			title: "Groceries",
 			text: "get some milk and cereal",
 			isComplete: false,
-			id: uuid()
+			id: uuid(),
+			archive: false
 		},
 		{
 			title: "Dinner with Max",
 			text: "meet Max in downtown for dinner at 7",
 			isComplete: false,
-			id: uuid()
+			id: uuid(),
+			archive: false
 		},
 		{
 			title: "Fix bike",
 			text: "replace flat tire",
 			isComplete: false,
-			id: uuid()
+			id: uuid(),
+			archive: false
 		}
 	],
 	status: "",
@@ -61,10 +68,8 @@ const rootReducer = (state = initialState, action) => {
 			});
 		// edit new todo
 		case UPDATETODO:
-			state.todos[parseInt(action.payload.id, 10)].title =
-				action.payload.title;
-			state.todos[parseInt(action.payload.id, 10)].text =
-				action.payload.text;
+			state.todos[parseInt(action.payload.id, 10)].title = action.payload.title;
+			state.todos[parseInt(action.payload.id, 10)].text = action.payload.text;
 			return Object.assign({}, state, {
 				todos: state.todos,
 				status: "UPDATING A TODO"
@@ -90,6 +95,18 @@ const rootReducer = (state = initialState, action) => {
 					return todo;
 				}),
 				status: "TOGGLED A TODO"
+			});
+		case ARCHIVETODO:
+			return Object.assign({}, state, {
+				todos: state.todos.map(todo => {
+					if (todo.id === action.payload) {
+						return Object.assign({}, todo, {
+							archive: !todo.archive
+						});
+					}
+					return todo;
+				}),
+				status: "ARCHIVED A TODO"
 			});
 		// change filter status of the app
 		case "SET_VISIBILITY_FILTER":

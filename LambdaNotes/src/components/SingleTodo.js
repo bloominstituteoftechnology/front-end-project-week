@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 // actions
-import { toggleTodo, deleteTodo } from "../actions/index";
+import { toggleTodo, deleteTodo, archiveTodo } from "../actions/index";
 // material components
 import { Card, CardText } from "material-ui/Card";
 import IconMenu from "material-ui/IconMenu";
@@ -22,6 +22,10 @@ class SingleTodo extends React.Component {
 	// delete a todo
 	handleDeleteTodo = index => {
 		this.props.deleteTodo(index);
+	};
+	// archive a todo
+	handleArchiveTodo = id => {
+		this.props.archiveTodo(id);
 	};
 
 	render() {
@@ -60,7 +64,10 @@ class SingleTodo extends React.Component {
 								primaryText="Delete"
 								onClick={() => this.handleDeleteTodo(this.props.index)}
 							/>
-							<MenuItem primaryText="Archive" />
+							<MenuItem
+								primaryText="Archive"
+								onClick={() => this.handleArchiveTodo(id)}
+							/>
 						</IconMenu>
 					</div>
 				</CardText>
@@ -69,4 +76,6 @@ class SingleTodo extends React.Component {
 	}
 }
 
-export default connect(null, { toggleTodo, deleteTodo })(SingleTodo);
+export default connect(null, { toggleTodo, deleteTodo, archiveTodo })(
+	SingleTodo
+);
