@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { Container, Row, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 import NotesList from './components/notesList';
 import CreateNote from './components/createNote';
@@ -14,8 +14,6 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-
-    this.searchNotesArray = {...testNotes};
 
     this.state = {
       notes: testNotes,
@@ -38,7 +36,7 @@ class App extends Component {
   updateEditedNote = (updatedNoteData) => {
     const updatedNotes = this.state.notes.map(note => {
       if (note.id === this.state.clickedNote.id) {
-        return { title: updatedNoteData.title, content: updatedNoteData.content };
+        return { id: note.id, title: updatedNoteData.title, content: updatedNoteData.content };
       } else {
         return note;
       } 
@@ -50,13 +48,6 @@ class App extends Component {
   deleteNote = () => {
     const updatedNotes = this.state.notes.filter(note => note.id !== this.state.clickedNote.id);
     this.setState({ notes: updatedNotes });
-  }
-
-  searchNotes = searchString => {
-    this.searchNotesArray = this.state.notes;
-
-    const updatedSearchNotes = this.searchNotesArray.filter( note => note.title.includes(searchString));
-
   }
 
   updateClickedNote = (clickedNote) => {

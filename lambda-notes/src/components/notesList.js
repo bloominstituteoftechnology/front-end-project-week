@@ -8,13 +8,64 @@ export default class NotesList extends Component {
     super();
 
     this.state = {
-      searchString: ''
+      searchString: '',
+      sortBy: 'Id Asc'
+    };
+
+    this.sortByFunctions = {
+      'Id Asc': this.sortByIdAsc,
+      'Id Desc': this.sortByIdDesc,
+      'Title Asc': this.sortByTitleAsc,
+      'Title Desc': this.sortByTitleDesc
     };
   }
+
 
   handleSearchStringChange = e => {
     this.setState({ searchString: e.target.value });
   };
+
+  handleSortDropDown = e => {
+    this.setState({ sortBy: e.target.innerText });
+  }
+
+  notesToDisplay = () => {
+    return this.props.notes
+      .sort(this.getSortFunction())
+      .filter(note => note.title.match(this.state.searchString));
+  }
+
+  getSortFunction = () => {
+    return this.sortByFunctions[this.state.sortBy];
+  };
+
+  sortByIdAsc = (a, b) => {
+    return a.id - b.id;
+  }
+
+  sortByIdDesc = (a, b) => {
+    return b.id - a.id;
+  }
+
+  sortByTitleAsc = (a, b) => {
+    a = a.title.toUpperCase();
+    b = b.title.toUpperCase();
+
+    if (a < b) return -1;
+    if (a > b) return 1;
+
+    return 0;
+  }
+
+  sortByTitleDesc = (a, b) => {
+    a = a.title.toUpperCase();
+    b = b.title.toUpperCase();
+
+    if (a < b) return 1;
+    if (a > b) return -1;
+
+    return 0;
+  }
 
   dragulaDecorator = (componentBackingInstance) => {
     if (componentBackingInstance) {
@@ -24,21 +75,26 @@ export default class NotesList extends Component {
   };
 
   render() {
-    let notesToDisplay;
-
-    if (this.state.searchString.length > 0 ) {
-      notesToDisplay = this.props.notes.filter(note => note.title.toLowerCase().match(this.state.searchString));
-    } else {
-      notesToDisplay = this.props.notes
-    }
     return (
       <div>
         <br /><br />
         <h3>Your Notes:</h3><br />
         <Input className="search-bar" onChange={this.handleSearchStringChange} placeholder="Search Notes" /><br />
+        <div className="dropdown">
+          <button className="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            { `Sort by: ${this.state.sortBy}`} 
+          </button>
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a onClick={this.handleSortDropDown} className="dropdown-item">Id Asc</a>
+            <a onClick={this.handleSortDropDown} className="dropdown-item">Id Desc</a>
+            <a onClick={this.handleSortDropDown} className="dropdown-item">Title Asc</a>
+            <a onClick={this.handleSortDropDown} className="dropdown-item">Title Desc</a>
+          </div>
+        </div>
+        <br />
         <div className="note-list" ref={this.dragulaDecorator}>
         { 
-          notesToDisplay.map((note, i) => { 
+          this.notesToDisplay().map((note, i) => { 
             return ( 
               <Note key={i} { ...note } { ...this.props } />
             );

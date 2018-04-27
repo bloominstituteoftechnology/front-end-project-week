@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
-import { Form, Input, Row, Col, Button } from 'reactstrap';
+import { Input, Row, Col, Button } from 'reactstrap';
 
 class UpdateNote extends Component {
   constructor() {
