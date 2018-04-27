@@ -1,20 +1,30 @@
 .App {
-  /* text-align: center; */
-  max-width: 100%;
-  height: 1000px;
-  background-color: rgb(243, 244, 245);
+  max-width: 1300px;
+  background-color: rgb(242, 242, 243);
   display: flex;
+  font-family: 'PT Sans';
+  margin: auto;
+  position: fixed;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
 }
-
+.nhead {
+  margin-left: 10px;
+}
 .sideBar {
-  border: 1px solid rgb(160, 157, 157);
+  border: 1px solid rgba(88, 88, 88, 0.315);
+  border-right: 1.5px solid rgba(88, 88, 88, 0.315);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   padding: 20px;
   margin: 0px;
-  width: 245px;
-  background-color: rgb(209, 208, 208);
+  width: 240px;
+  color: rgba(0, 0, 0, 0.781);
+  background-color: rgb(216, 216, 216);
+  /* height: fit-content; */
 }
 
 .note_title {
@@ -33,13 +43,25 @@
    text-overflow: initial;
    border-radius: 5px;
  }
-.noteList {
+
+.note_list {
   padding: 0px;
-  margin: 50px 0px 0px 20px;
+  margin: 50px 0px 0px 0px;
+  width: max-content;
+  color: rgb(31, 31, 31);
+  margin: 50px 0 0 20px;
+}
+.note_list_body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: -20px;
+  padding: 0px;
 }
 
 .side_button {
-  background-color: rgb(65, 192, 192);
+  background-color: rgb(50, 201, 206);
   box-shadow: none;
   margin-top: 12px;
   height: 45px;
@@ -47,16 +69,114 @@
   color: white;
   border-radius: 2px;
   width: 190px;
+  font-size: 18px;
+  border: 1px solid rgba(88, 88, 88, 0.425);
+  /* font-weight: bold; */
 }
 
 .card_button {
-  width: 90%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  width: 100px;
+  align-self: center;
 }
 
 .note_card {
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
-  width: 80%;
-  height: 400px;
+  font-size: 12px;
+  max-width: 200px;
+  height: 210px;
+  box-shadow: 3px 2px 4px 2px rgba(0, 0, 0, 0.089);
+  border: 1px solid black;
+}
+
+.noteList {
+  margin: 70px 0px 0 20px;
+}
+
+.card_title {
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+
+.card_text {
+  padding: 10px;
+  border-top: 1px solid gray;
+  height: 180px;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit_button {
+  float: right;
+  margin-top: 10px;
+  text-decoration: underline;
+  color: black;
+}
+.modal_button{
+  float: right;
+  margin-left: -10px;
+  margin-right: 45px;
+  margin-top: 10px;
+  text-decoration: underline;
+  color: red;
+  background-color: red;
+
+}
+.modal_buttons {
+  height: 46px;
+  width: 180px;
+}
+.modal_button_two {
+  height: 46px;
+  width: 190px;
+  background-color: blue;
+  color: blue;
+  border-radius: 0px;
+}
+.modal_footer {
+  border-top: 2px solid red;
+  margin: auto;
+}
+.modul_body {
+  border: 2px solid white;
+  text-align: center;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.note_page {
+  padding: 10px;
+  margin: 40px 10px 10px 20px;
+}
+
+.note_page_title {
+  margin-bottom: 20px;
+}
+
+.note_content_body {
+  font-size: 16px;
+  font-weight: none;
+  font-family: 'Roboto';
+  margin-right: 50px;
+}
+.note_content {
+  border: 1px solid rgba(63, 63, 63, 0.411);
+  border-radius: 3px;
+  font-weight: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: rgb(0, 255, 106);
+  text-align: start;
+}
+.note_title {
+  border: 1px solid rgba(63, 63, 63, 0.411);
+  border-radius: 3px;
+  height: 48px;
+  font-weight: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: black;
 }

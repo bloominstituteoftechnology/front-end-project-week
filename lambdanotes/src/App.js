@@ -4,28 +4,27 @@ import SideBar from './Components/sideBar/sideBar';
 import NoteList from './Components/noteList/noteList';
 import { Route } from 'react-router-dom'
 import noteData from './noteData'
+import Notes from './Components/note/notes.js'
+import EditNote from './Components/newNote/editNote'
 import './App.css';
 
-
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      noteData: []
+      noteData
     };
   }
-
-componentDidMount () {
-  this.setState([noteData]);
-}
 
 
   render() {
     return (
       <div className="App">
-      <SideBar />
+      <Route exactpath='/' component={SideBar} />
       <Route path="/newnote" component={NewNote} />
       <Route path='/notelist' component={NoteList} />
+      <Route path='/note' component={Notes} />
+      <Route path="/editnote" component={EditNote} />
       </div>
     );
   }

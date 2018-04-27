@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 
-class NewNote extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
+class EditNote extends Component {
+    state = {
       noteTitle: '',
       noteText: '',
     };
-  }
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -19,13 +16,13 @@ class NewNote extends Component {
   render () {
     return (
       <div className= 'noteList'>
-          <h4> Create New Note: </h4>
+          <h4> Edit Note: </h4>
         <input className='note_title'
           name="noteTitle"
           value={this.state.noteTitle}
           type="text"
           onChange={this.handleInputChange}
-          placeholder="  Note Title"
+          placeholder="   Note Title"
         />
         <div>
            <input className='note_content'
@@ -33,10 +30,10 @@ class NewNote extends Component {
           value={this.state.noteText}
           type="text"
           onChange={this.handleInputChange}
-          placeholder="   Note Content"
+          placeholder=" Note Content"
         />
         </div>
-        <button className="side_button" onClick={() => this.handleAddNote()}>Save</button>
+        <button className="side_button" onClick={() => this.handleAddNote()}>Update</button>
       </div>
     );
   }
@@ -44,4 +41,4 @@ class NewNote extends Component {
 
 
 
-export default NewNote;
+export default EditNote;
