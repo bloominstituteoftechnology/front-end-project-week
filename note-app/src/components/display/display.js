@@ -36,9 +36,9 @@ class Display extends React.Component {
                         <div className='red' onClick={this.toggle}> No</div>
                     </div>
                 </Modal>
-                <div className='Display__content header'> props.header</div>
-                <div className='Display__content'>props.title</div>
-                <div className='Display__content'>props.body</div>
+                <div className='Display__content header'> Note Header</div>
+                <div className='Display__content'>Note title</div>
+                <div className='Display__content'>Note body</div>
 
 
             </div>

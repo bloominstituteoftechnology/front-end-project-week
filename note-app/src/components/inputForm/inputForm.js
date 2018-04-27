@@ -33,7 +33,7 @@ class InputForm extends React.Component {
     render() {
         return (
             <div className='InputForm'>
-                <div className='InputForm__Header'> props.header</div>
+                <div className='InputForm__Header'> Edit Note</div>
                 <textarea className='Input' type='text' placeholder='New Note Title'></textarea>
                 <textarea
                     className='Input InputBody'
@@ -44,14 +44,6 @@ class InputForm extends React.Component {
                     onChange={this.noteHandler}
                 ></textarea>
                 <div onClick={this.handleSubmitNote} className='save'> Save </div>
-
-                <div>
-                    {this.state.notes.map(note => {
-                        return (
-                        <div>{note}</div>
-                    )})}
-                </div>
-
             </div>
         )
     }

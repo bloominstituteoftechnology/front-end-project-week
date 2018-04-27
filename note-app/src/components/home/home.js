@@ -1,5 +1,7 @@
 import React from 'react';
 import './home.css';
+import { Link } from 'react-router-dom';
+
 
 class Home extends React.Component {
     constructor() {
@@ -60,10 +62,12 @@ class Home extends React.Component {
                     {this.state.notes.map(n => {
                         return (
                             <div className='container'>
-                                <div className='Note'>
+                                <Link 
+                                to='/note/:id'
+                                className='Note'>
                                     <div className='Note__title'>{n.title}</div>
                                     <div className='Note__body'>{n.body}</div>
-                                </div>
+                                </Link>
                             </div>
                         )
                     })}
