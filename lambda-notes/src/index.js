@@ -30,8 +30,9 @@ const store = createStore(
 // const history = syncHistoryWithStore(browserHistory, store)
 
 store.subscribe(() => {
-    console.log(store.getState());
-    saveState(store.getState());
+    let currentState = store.getState();
+    console.log('store.getstate here:',currentState.rootReducer.noteReducer);
+    saveState(currentState.rootReducer.noteReducer);
 })
 
 render(

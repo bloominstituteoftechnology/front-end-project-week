@@ -183,8 +183,9 @@ textarea {
 .button {
   border: none;
   color: white;
-  padding: 10px 50px;
-  width: 185px;;
+  padding: 10px 20px;
+  width: 185px;
+  height: 50px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -194,6 +195,14 @@ textarea {
 
 .button:hover {
   cursor: pointer;
+}
+
+.button--sort {
+  background-color: rgb(39, 167, 103)
+}
+
+.button--sort:hover {
+  background-color: rgb(34, 141, 87)
 }
 
 .button--delete {

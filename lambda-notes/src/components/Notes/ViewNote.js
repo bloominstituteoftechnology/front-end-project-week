@@ -31,7 +31,7 @@ class ViewNote extends Component {
     removeNote = () => {
         this.props.deleteNote(this.props.id);
         let route = window.location.pathname.split('/')
-        let newRoute = route.splice(0, route.length -2).join('/')
+        let newRoute = route.splice(0, route.length - 2).join('/')
         window.location.pathname = newRoute;
     }
 

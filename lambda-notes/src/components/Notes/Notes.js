@@ -11,34 +11,76 @@ const styled = {
 }
 
 class Notes extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            sorted: false,
+            sortedArray: []
+        }
+    }
     componentDidMount() {
         this.props.getNotes();
     }
 
+    orderByName = () => {
+        const compare = (a, b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        }
+        const byName = this.props.notes.sort(compare);
+        this.setState({ sortedArray: [...byName], sorted: true });
+    }
+
+    orberbyOlder = () => {
+        const compare = (a, b) => {
+            if (a.id < b.id) return -1;
+            if (a.id > b.id) return 1;
+            return 0;
+        }
+        const byOldest = this.props.notes.sort(compare);
+        console.log('sorting', byOldest)
+        this.setState({ sortedArray: [...byOldest], sorted: false });
+    }
+
     render() {
-        console.log('render', this.props)
         return (
             <div className="mainContent" >
                 <div className="directory__title mainContent__title" >
                     Your Notes:
-            </div>
-                <div className="mainContent__content" >
-                    {this.props.notes.map((note, index) => {
-                        return (
-                            <div key={note.id + index}>
-                                <Link to={`/notes/${note.id}`} style={styled} >
-                                    <Note title={note.name} body={note.body} id={note.id} key={note.id} />
-                                </Link>
-                            </div>)
-                    })}
                 </div>
+                <div className="sortingOptions" >
+                    <button className="button button--sort" onClick={this.orderByName} >Sort By Name </button>
+                    <button className="button button--sort" onClick={this.orberbyOlder} >Sort By Oldest Added </button>
+                </div>
+                {this.state.sorted ?
+                    <div className="mainContent__content" >
+                        {/* {this.state.sortedArray.map((note, index) => {
+                            return (
+                                <div key={note.id + index}>
+                                    <Link to={`/notes/${note.id}`} style={styled} >
+                                        <Note title={note.name} body={note.body} id={note.id} key={note.id} />
+                                    </Link>
+                                </div>)
+                        })} */}
+                    </div> :
+                    <div className="mainContent__content" >
+                        {this.props.notes.map((note, index) => {
+                            return (
+                                <div key={note.id + index}>
+                                    <Link to={`/notes/${note.id}`} style={styled} >
+                                        <Note title={note.name} body={note.body} id={note.id} key={note.id} />
+                                    </Link>
+                                </div>)
+                        })}
+                    </div>
+                }
             </div>
         )
     }
 };
 
 const stateProps = (state, ownProps) => {
-    console.log('state props notes', state, 'ownProps', ownProps)
     return {
         notes: state.rootReducer.noteReducer.notes
     }
