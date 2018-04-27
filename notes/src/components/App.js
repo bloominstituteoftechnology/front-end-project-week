@@ -24,8 +24,7 @@ export class App extends Component {
     // Ease of use function
     this.getNotes = () => this.local.get('notes');
     // Use local storage as state upon page load
-    this.state = this.getNotes() ?
-    { notes: this.getNotes() } : { notes: [] };
+    this.state = this.getNotes() ? { notes: this.getNotes() } : { notes: [] };
   }
 
   syncLocalState = payload => {
@@ -59,6 +58,8 @@ export class App extends Component {
     this.setState({ notes: [] });
   }
 
+  selectTheme() {}
+
   render() {
     return (
       <div className="App">
@@ -66,6 +67,7 @@ export class App extends Component {
           <h3>Lambda<br/>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
+          <button className="App_button" onClick={this.selectTheme}>Select Theme</button>
           <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>
         <div className="App_body">
