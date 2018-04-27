@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import "react-responsive-modal/lib/react-responsive-modal.css";
 import Modal from "react-responsive-modal/lib/css";
 
@@ -29,7 +30,7 @@ class ViewCard extends React.Component {
         </div>
         <div className="view-card">
           <h3 className="notes-h3 view-h3">{this.props.note.title}</h3>
-          <span className="notes-text-full">{this.props.note.text}</span>
+          <ReactMarkdown source={this.props.note.text} escapeHtml={false} />
         </div>
         <Modal
           modal="modal"

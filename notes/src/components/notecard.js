@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { SortableElement } from "react-sortable-hoc";
 
 function ellipsify(str) {
@@ -21,7 +22,7 @@ const NoteCard = SortableElement(props => {
   return (
     <div className="notecard" onClick={() => props.viewNote(props.note.id)}>
       <h5 className="note-title">{ellipsifyTitle(props.note.title)}</h5>
-      <div className="notes-text-div">{ellipsify(props.note.text)}</div>
+      <ReactMarkdown source={ellipsify(props.note.text)} escapeHtml={false} />
     </div>
   );
 });
