@@ -1,28 +1,15 @@
 import React from "react";
-import data from "./Data";
-import ShowNote from "./ShowNote";
-import LeftPanal from "./LeftPanal";
-import Myheader from "./Myheader";
 import { Link } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
-class SelectedNotes extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: data
-    };
-  }
+const ViewNote = props => {
+  // console.log("from viewNote...", props);
+  const id = props.match.params.id;
+  const note = props.notes.filter(el => el.id == id)[0];
+  // console.log("from viewNote...", note);
 
-  showSelected() {
-    const p = this.state.notes.filter(
-      el => this.props.match.params.id == el.id
-    );
-    return p[0];
-  }
-
-  handleDelete = () => {
+  const handleDelete = () => {
     confirmAlert({
       customUI: ({ onClose }) => {
         return (
@@ -31,21 +18,18 @@ class SelectedNotes extends React.Component {
             <div className="delete-btns">
               <button
                 onClick={() => {
+                  props.delete(id);
                   onClose();
                 }}
                 className="deleteBtn"
-              >
-                Delete
-              </button>
+              > Delete</button>
+
               <button
                 onClick={() => {
                   onClose();
                 }}
                 className="noBtn"
-              >
-                {" "}
-                No{" "}
-              </button>
+              >No</button>
             </div>
           </div>
         );
@@ -53,32 +37,29 @@ class SelectedNotes extends React.Component {
     });
   };
 
-  render() {
-    return (
+  return (
+    <div className="container1">
       <div>
         <div className="single-header">
           <div className="single-header-link">
-            <Link to={`/editNote`}>
+            <Link to={`/edit/${id}`}>
               <div>Edit</div>
             </Link>
           </div>
           <div className="single-header-link">
-            <Link to="/">
-              <div onClick={this.handleDelete}> Delete </div>{" "}
+            <Link to={"/"}>
+              <div onClick={handleDelete}> Delete </div>{" "}
             </Link>
           </div>
         </div>
-        <div className="container0">
-          <LeftPanal />
 
-          <div className="container1">
-            <Myheader p={this.showSelected()} c={"single-note-title"} />
-            <ShowNote p={this.showSelected()} c="single-note" />
-          </div>
+        <div className="single-note-title">
+          <h2>{note.title}</h2>
         </div>
+        <p>{note.content}</p>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default SelectedNotes;
+export default ViewNote;

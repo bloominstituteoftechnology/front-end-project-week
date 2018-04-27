@@ -1,31 +1,49 @@
 .container0 {
   display: flex;
-  justify-content: center;
-  max-width: 800px ; 
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.leftnav {
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  background: #d8d8d8;
-  border: 2px solid #979797;
-  
-}
-
 .container1 {
-  
   display: flex;
-  width: 80%;
+  width: 600px;
   flex-wrap: wrap;
   background: #f3f3f3;
   padding: 10px;
-  
+}
+
+
+.navbar-heading {
+  margin-left: 10px;
+}
+
+.navbar {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  color:#727171;
 
 }
 
+.button {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 22px;
+    width: 85%;
+    margin: 10px 10px;
+    background: #2bc1c2;
+    border: 1px solid grey;
+    text-align: justify;
+    padding-top: 7px;
+    color: white;
+}
+
+/* note List */
 .Note {
   height: 150px;
   width: 150px;
@@ -34,22 +52,31 @@
   overflow: hidden;
   border: 1px solid grey;
   font-size: 13px;
-  
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  height: 50px;
-  width: 80%;
-  margin: 10px 10px;
-  background: #2bc1c2;
-  border-radius: 0;
-  border: 1px solid grey;
-  text-align: justify;
+.note-content {
+    color: #534646;
+    padding-left: 5px;
 }
 
-.titlefornotes{
+.noteList-title {
+    margin: 20px 350px 20px 7px;
+    font-weight: 900;
+    color: #534646;
+}
+.note-title {
+  width: 90%;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  font-weight: 750;
+  margin-left: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+
+.titlefornotes {
   max-width: 800px;
   margin: 0 auto;
   display: flex;
@@ -58,29 +85,23 @@
   padding-left: 240px;
   padding-top: 10px;
 }
+/* single note */
 
-.single-note-title{
-  border-bottom:1px solid black;
+
+.single-note-title {
   padding: 5px 0;
 }
 
-.note-title {
-  width: 60%;
-  border-bottom: 1px solid gray;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-}
 
 .single-header {
   padding: 15px;
   max-width: 800px;
   margin: 0 auto;
-  display:flex;
+  display: flex;
   justify-content: flex-end;
-  
 }
 
-.single-header-link  {
+.single-header-link {
   padding: 5px;
 }
 
@@ -99,7 +120,7 @@
 }
 
 .noBtn {
-  background-color: #2BC1C5;
+  background-color: #2bc1c5;
   border: 1px solid grey;
   padding: 0.7rem 5rem;
   margin-left: 1.5rem;
@@ -108,52 +129,46 @@
 }
 
 .deleteBtn {
-   background-color: red;
-   border: 1px solid grey;
-   padding: 0.7rem 4rem;
-   color: white;
-   font-weight: bold;
-
- }
-
-
- .add-note{
-  display: flex;
-  flex-direction: column;
-  
+  background-color: red;
+  border: 1px solid grey;
+  padding: 0.7rem 4rem;
+  color: white;
+  font-weight: bold;
 }
 
 input {
   padding: 0.5rem;
-  width: 80%;
+  width: 50%;
   margin-bottom: 0.5rem;
-  border: 1px solid black;
-  border-radius: 0.3rem;
 }
 
 textarea {
-
-width: 80%;
- border: 1px solid black;
- border-radius: 0.3rem;
-
+  width: 100%;
 }
 
 .save-button {
   width: 20%;
   text-align: center;
-  background-color: #2BC1C5;
-  border: 1px grey solid;
+  background-color: #2bc1c5;
   padding: 0.5rem;
   margin-bottom: 1rem;
   text-decoration: none;
   color: white;
   font-weight: bold;
-  border-radius: 0.4rem;
-
 }
 
+.container1 a {
+  text-decoration: none !important ;
+}
+.container0 a {
+  text-decoration: none !important ;
+}
 
- .container1 a {
-   text-decoration: none !important ;
- }
+.form-container {
+  width: 95%;
+}
+
+.edit-heading-text {
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
