@@ -60,12 +60,14 @@ h1 {
 .notes-div {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .notecard {
   background: white;
   border: 1px solid lightgrey;
   margin: 10px;
+  margin-right: 0;
   margin-left: 0;
   padding: 10px;
   width: 240px;
@@ -153,4 +155,39 @@ h5 {
   margin-top: 30px;
   justify-content: space-between;
   width: 380px;
+}
+
+@media (max-width: 520px) {
+  .full-container {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+  .sidebar-div {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .notes-h3 {
+    padding: 0;
+  }
+  .right-div {
+    justify-content: center;
+    align-items: center;
+    margin: 0, auto;
+    padding: 0;
+    height: 100%;
+    text-align: center;
+  }
+  .notes-div {
+    justify-content: center;
+    text-align: left;
+  }
+  .notecard {
+    margin-right: 0;
+  }
 }

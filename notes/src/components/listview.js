@@ -34,7 +34,7 @@ const ListView = props => {
     <div className="right-div">
       <h3 className="notes-h3">Your Notes:</h3>
       <SortableList
-        distance={10}
+        distance="10"
         notes={props.notes}
         onSortEnd={props.onSortEnd}
         axis="xy"
