@@ -33,7 +33,6 @@ class CreateNewNote extends Component {
                             value={this.state.content}
                             onChange={this.handleNewNote}
                             className='form'
-                            style={{height: 390}}
                         />
                     </div>
                     <Link to='/' onClick={this.submitNewNote} className='link'>Save</Link>

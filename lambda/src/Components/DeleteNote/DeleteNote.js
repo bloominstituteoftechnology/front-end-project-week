@@ -22,7 +22,7 @@ class DeleteNote extends React.Component {
   render() {
     return (
       <div >
-        <button onClick={this.toggle} className='link'>delete</button>
+        <button onClick={this.toggle} className='link'>Delete</button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalBody>
             Are you sure you want to delete this?
