@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 export const SideBar = props => {
   return (
     <div className="col-3 left__side">
-      <h2 className="sidebar__head">Lambda Notes</h2>
+      <Link to="/">
+        <h2 className="sidebar__head">Lambda Notes</h2>
+      </Link>
       <Link to="/displayNotes" className="sidebar__button">
         View Your Notes
       </Link>
