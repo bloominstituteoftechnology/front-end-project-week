@@ -10,9 +10,6 @@ class App extends Component {
     this.state={
     };
   }
-  componentDidMount() {
-    this.props.getNotes();
-  }
   render() {
     return (
       <div className={classes.Container}>

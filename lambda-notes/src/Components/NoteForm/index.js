@@ -13,7 +13,7 @@ export class NoteForm extends Component {
     };
   }
   newNote = () => {
-    const note = {id: uuid(),header: this.state.header, body: this.state.body};
+    const note = {id: uuid(), username: store.getState().username,header: this.state.header, body: this.state.body};
     store.dispatch(addNote(note));
     this.setState({header: '', body: ''});
   }

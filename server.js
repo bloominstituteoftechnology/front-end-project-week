@@ -9,40 +9,65 @@ const file = './lambda-notes/src/Data/Notes.json';
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/api/notes', (req, res) => {
-    jsonfile.readFile(file, function(err, obj) {
-      res.send(obj.notes);
-    });
-});
-
+app.post('/api/login', (req, res) => {
+  const user = req.body;
+  jsonfile.readFile(file, function(err, obj) {
+    if(obj.profiles[user.username] !== undefined){
+      console.log('username exists');
+      if(obj.profiles[user.username].password === obj.profiles[user.username].password) {
+        console.log('correct password');
+        res.send({notes:[...obj.profiles[user.username].notes], loggedIn: true, username:user.username});
+      } else {
+        console.log('incorrect password')
+      }
+    } else {
+      console.log ('incorrrect username')
+    }
+  })
+})
+app.post('/api/register', (req, res) => {
+  const newUser = {[req.body.username]: {password:req.body.password, notes: []}};
+  jsonfile.readFile(file, function(err, obj) {
+    const newObj = Object.assign({}, obj.profiles, newUser);
+    jsonfile.writeFile(file, {profiles:newObj});
+  })
+})
 app.post('/api/notes', (req, res) => {
   jsonfile.readFile(file, function(err, obj) {
-    let updatedNotes = {notes:[...obj.notes,{...req.body}]};
-    jsonfile.writeFile(file, updatedNotes);
-    res.send(updatedNotes.notes);
+    const user = req.body.username;
+    const note = {id: req.body.id, header: req.body.header, body:  req.body.body};
+    obj.profiles[user].notes.push(note);
+    jsonfile.writeFile(file, obj);
+    res.send({loggedIn: true, notes: obj.profiles[user].notes, username: user});
   });
 });
 
 app.put('/api/notes/:id', (req, res) => {
+  const user = req.body.username;
+  const update = {header: req.body.header, body:req.body.body};
   const { id } = req.params;
   jsonfile.readFile(file, function(err, obj) {
-    obj.notes.map(note => {
-      if(note.id === id){
-        note.header = req.body.header;
-        note.body = req.body.body;
-      }})
+    obj.profiles[user].notes.map(note => {
+      if(note.id === id) {
+        note.header = update.header;
+        note.body = update.body;
+      }
+    });
     jsonfile.writeFile(file, obj);
-    res.send(obj.notes);
+    res.send({loggedIn: true, username: user, notes:obj.profiles[user].notes});
   });
 });
 
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/api/notes/:id/:user', (req, res) => {
   const { id } = req.params;
-  let updatedNotes;
+  const {user} = req.params;
+
   jsonfile.readFile(file, function(err, obj) {
-    updatedNotes = obj.notes.filter((note) => note.id !== id);
-    jsonfile.writeFile(file, {notes:updatedNotes})
-    res.send(updatedNotes);
+    console.log(obj);
+    obj.profiles[user].notes = obj.profiles[user].notes.filter((note) => note.id !== id);
+    console.log(obj);
+    jsonfile.writeFile(file, obj);
+    res.send({username:user, loggedIn: true, notes: obj.profiles[user].notes});
   });
 });
 

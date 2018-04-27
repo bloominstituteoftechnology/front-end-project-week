@@ -16,7 +16,7 @@ export class Note extends Component {
     };
   }
   updateNote = () => {
-    const update = {header: this.state.header, body: this.state.body};
+    const update = {username: store.getState().username,header: this.state.header, body: this.state.body};
     if (this.state.header === '') {
       update.header = this.props.header;
     } else if( this.state.body === '') {
@@ -26,7 +26,7 @@ export class Note extends Component {
     this.setState({header: '', body: ''});
   }
   deleteNote = () => {
-    store.dispatch(deleteNote(this.props.id));
+    store.dispatch(deleteNote(store.getState().username,this.props.id));
   }
   changeState =  (e) => this.setState({[e.target.name]: e.target.value});
   render() {
