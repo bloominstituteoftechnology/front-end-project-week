@@ -3,6 +3,7 @@
   flex-direction: column;
   text-align: left;
   padding: 0 15px 0 15px;
+  /* font-size: 1.6rem; */
 }
 
 .note-view .modify-links {
@@ -24,6 +25,7 @@
   margin: 0;
   padding: 5% 0 0 0;
   margin-bottom: 5%;
+  /* font-size: 2.25rem; */
   word-break: break-word;
 }
 
@@ -35,3 +37,7 @@ form .btn {
   margin-bottom: 1em;
   white-space: pre-wrap;
 }
+/* 
+form h3 {
+  font-size: 2.25rem;
+} */

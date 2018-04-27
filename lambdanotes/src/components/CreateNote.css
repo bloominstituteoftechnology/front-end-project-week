@@ -9,10 +9,12 @@ form h3 {
 form .title-input {
   width: 70%;
   vertical-align: center;
+  /* font-size: 1.6rem; */
 }
 
 form .content-input {
   height: 500px;
+  /* font-size: 1.6rem; */
 }
 
 form .btn {

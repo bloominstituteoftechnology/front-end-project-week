@@ -47,11 +47,19 @@ h3 {
   margin: 0 2px 1px 0;
   word-break: break-word;
   white-space: pre-wrap;
+  /* font-size: 1.6rem; */
 }
+
+/* button.btn.btn-info {
+  word-break: break-word;
+  white-space: pre-wrap;
+  font-size: 1.6rem;
+} */
 
 .modal-content {
   text-align: center;
   padding: 5% 8%;
+  /* font-size: 1.6rem; */
 }
 
 .modal-buttons {
@@ -60,7 +68,7 @@ h3 {
 }
 
 .modal-buttons .btn {
-  font-size: 20px;
+  font-size: 2rem;
   width: 45%;
 }
 
@@ -70,4 +78,5 @@ h3 {
   margin-top: 2%;
   margin-right: 2px;
   width: 40%;
+  /* font-size: 1.6rem; */
 }

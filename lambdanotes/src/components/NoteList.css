@@ -2,10 +2,12 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  /* font-size: 1.6rem; */
 }
 
 #your-notes {
   padding: 2% 15px 0 15px;
+  /* font-size: 2.25rem; */
 }
 
 .searchbar.form-control {
@@ -13,4 +15,9 @@
   margin-top: 2%;
   margin-right: 2px;
   width: 40%;
+  /* font-size: 1.6rem; */
 }
+/* 
+button.sort-button.btn.btn-info {
+  font-size: 1.6rem;
+} */

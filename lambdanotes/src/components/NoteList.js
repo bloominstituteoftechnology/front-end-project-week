@@ -57,16 +57,22 @@ class NoteList extends Component {
           onChange={this.handleSearchInput}
           value={this.state.searchInput}
         />
-        <Button color="info" onClick={() => this.changeSortType("default")}>
+        <Button
+          className="sort-button"
+          color="info"
+          onClick={() => this.changeSortType("default")}
+        >
           Sorty by Id (Default)
         </Button>
         <Button
+          className="sort-button"
           color="info"
           onClick={() => this.changeSortType("alphabetical")}
         >
           Sort by Alphabet
         </Button>
         <Button
+          className="sort-button"
           color="info"
           onClick={() => this.changeSortType("contentLength")}
         >
