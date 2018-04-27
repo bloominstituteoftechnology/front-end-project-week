@@ -37,7 +37,7 @@ export class ViewNote extends React.Component {
         return <div className="col-9 right__side">
             <div className="row">
               <div className="col-4 edit">
-                <Link to="/editnote">Edit</Link>
+                <Link to={`/editnote/${this.state.id}`}>Edit</Link>
               </div>
               <div className=" col-3 delete">
                 <Link to="#" onClick={this.toggle}>
