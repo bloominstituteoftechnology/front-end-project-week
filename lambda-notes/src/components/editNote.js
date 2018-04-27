@@ -9,6 +9,7 @@ class UpdateNote extends Component {
 
     this.state = {
       title: '',
+      tags: '',
       content: ''
     }
 
@@ -20,7 +21,7 @@ class UpdateNote extends Component {
   }
 
   componentDidMount() {
-    this.setState({ title: this.props.clickedNote.title, content: this.props.clickedNote.content });
+    this.setState(this.props.clickedNote);
   }
 
   handleInputChange = e => {

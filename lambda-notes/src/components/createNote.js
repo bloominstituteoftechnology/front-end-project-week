@@ -9,6 +9,7 @@ class CreateNote extends Component {
 
     this.state = {
       title: '',
+      tags: '',
       content: ''
     }
 

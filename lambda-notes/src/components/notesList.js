@@ -32,7 +32,11 @@ export default class NotesList extends Component {
   notesToDisplay = () => {
     return this.props.notes
       .sort(this.getSortFunction())
-      .filter(note => note.title.match(this.state.searchString));
+      .filter(note => note.title
+        .match(this.state.searchString) 
+        || note.tags.match(this.state.searchString)
+        || note.content.match(this.state.searchString)
+      );
   }
 
   getSortFunction = () => {
@@ -96,7 +100,7 @@ export default class NotesList extends Component {
         { 
           this.notesToDisplay().map((note, i) => { 
             return ( 
-              <Note key={i} { ...note } { ...this.props } />
+              <Note key={i} note={note} updateClickedNote={this.props.updateClickedNote} />
             );
           })
         }

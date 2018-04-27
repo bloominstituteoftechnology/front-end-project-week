@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 class Note extends Component {
 
   handleClickNote = () => {
-    this.props.updateClickedNote({ id: this.props.id, title: this.props.title, content: this.props.content });
+    this.props.updateClickedNote(this.props.note);
     this.props.history.push('/notes-view');
   }
 
@@ -14,9 +14,14 @@ class Note extends Component {
       // <div className="note-container">
         <Card onClick={this.handleClickNote}>
           <CardBody>
-            <CardTitle>{this.props.title}</CardTitle>
+            <CardTitle>{this.props.note.title}</CardTitle>
+            {
+              this.props.note.tags.split(' ').map(tag => {
+                return <span key={tag} className="mr-1 badge badge-pill badge-primary">{tag}</span>;
+              })
+            }
             <hr />
-            <CardText>{this.props.content}</CardText>
+            <CardText>{this.props.note.content}</CardText>
           </CardBody>
         </Card>
       // </div>

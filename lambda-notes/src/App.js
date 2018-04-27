@@ -19,10 +19,12 @@ class App extends Component {
       notes: testNotes,
       newNote: {
         title: '',
+        tags: '',
         content: ''
       },
       clickedNote: {
         title: '',
+        tags: '',
         content: ''
       }
     }
@@ -36,7 +38,7 @@ class App extends Component {
   updateEditedNote = (updatedNoteData) => {
     const updatedNotes = this.state.notes.map(note => {
       if (note.id === this.state.clickedNote.id) {
-        return { id: note.id, title: updatedNoteData.title, content: updatedNoteData.content };
+        return {...updatedNoteData, id: note.id};
       } else {
         return note;
       } 
@@ -71,10 +73,10 @@ class App extends Component {
           {/*   <Row> */}
           {/*     <div className="col-12"> */}
                 <Switch>
-                  <Route exact path="/" render={() => <NotesList updateClickedNote={this.updateClickedNote} {...this.state} />} />
-                  <Route path="/create-note" render={() => <CreateNote {...this.state} addNewNote={this.addNewNote} />} />
-                  <Route path="/notes-view" render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} />} />
-                  <Route path="/edit-note" render={() => <EditNote {...this.state} updateEditedNote={this.updateEditedNote} />} />
+                  <Route exact path="/" render={() => <NotesList notes={this.state.notes} updateClickedNote={this.updateClickedNote} />} />
+                  <Route path="/notes-view" render={() => <ViewNote clickedNote={this.state.clickedNote} deleteNote={this.deleteNote} />} />
+                  <Route path="/create-note" render={() => <CreateNote addNewNote={this.addNewNote} />} />
+                  <Route path="/edit-note" render={() => <EditNote clickedNote={this.state.clickedNote} updateEditedNote={this.updateEditedNote} />} />
                 </Switch>
           {/*     </div> */}
           {/*   </Row> */}

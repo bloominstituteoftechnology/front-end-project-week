@@ -40,7 +40,7 @@ class ViewNote extends Component {
             </Col>
           </Row>
         </div>
-        <Modal isOpen={this.state.showModal} toggle={this.toggleModal} className={this.props.className}>
+        <Modal isOpen={this.state.showModal} toggle={this.toggleModal}>
           <ModalHeader toggle={this.toggleModal}>Delete Note</ModalHeader>
           <ModalBody className="text-center">
             <p>Are you sure you want to delete <strong>Note: {this.props.clickedNote.title}</strong>?</p>

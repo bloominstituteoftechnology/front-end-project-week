@@ -70,6 +70,10 @@ h2, h3, h5 {
   font-weight: bold;
 }
 
+Label {
+  font-weight: bold;
+}
+
 /* these two are to decorate the anchor tag without href in viewNote.js */
 a:not([href]):not([tabindex]) {
   color: #007bff;
