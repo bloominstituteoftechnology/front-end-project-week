@@ -1,0 +1,20 @@
+.createNote__background {
+  background-color: #f3f3f3;
+}
+
+.createNote__title {
+  margin-left: 255px;
+  padding-top: 35px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #4a494a;
+}
+
+.createNote__form {
+  margin-left: 255px;
+  padding-top: 10px;
+}
+
+.createNote__form--title {
+    size:100;
+}
