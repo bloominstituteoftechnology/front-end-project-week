@@ -8,7 +8,7 @@ import './Note.css';
 export class Note extends Component {
   constructor(props) {
     super(props);
-    this.state = { note: {} };
+    this.state = { note: {}, modal: false };
   }
 
   _mounted = false;
@@ -36,6 +36,18 @@ export class Note extends Component {
       });
   }
 
+  OpenModal = () => {
+    this.setState({ modal: true });
+  }
+
+  CloseModal = event => {
+    var modal = document.getElementById('ModalOverlay');
+    var cancel = document.getElementById('CancelDelete');
+    if (event.target === modal || event.target === cancel) {
+      this.setState({ modal: false });
+    }
+  }
+
   handleDelete = () => {
     axios
       .delete(`http://localhost:3333/notes/${this.props.match.params.id}`)
@@ -58,11 +70,22 @@ export class Note extends Component {
             <NavLink to={`/note-editor/${this.state.note.id}`} className='ViewNote__Link'>
               <button className='ViewNote__Edit'>Edit</button>
             </NavLink>
-            <NavLink to='/notes' className='ViewNote__Link' onClick={this.handleDelete}>
-              <button className='ViewNote__Delete'>Delete</button>
-            </NavLink>
+            <button className='ViewNote__Delete' onClick={this.OpenModal}>Delete</button>
           </div>
         </div>
+
+        {this.state.modal === true ? 
+        <div id='ModalOverlay' className='Overlay' onClick={this.CloseModal}>
+          <div className='Modal'>
+            <div className='Modal__Message'><h5>Are you sure you want to delete this note?</h5></div>
+            <div className='Modal__Buttons'>
+              <NavLink to='/notes' className='ViewNote__Link' onClick={this.handleDelete}>
+                <button className='ViewNote__Delete'>Delete</button>
+              </NavLink>
+              <button id='CancelDelete' className='ViewNote__Edit' onClick={this.CloseModal}>No</button>
+            </div>
+          </div>
+        </div> : null }
       </div>
     );
   }

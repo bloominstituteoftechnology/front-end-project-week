@@ -38,7 +38,6 @@
 }
 
 .ViewNote__Link {
-  border: 2px solid rgb(152, 174, 175);
   width: 100%;
   max-width: 200px;
   height: 40px;
@@ -47,6 +46,8 @@
 .ViewNote__Edit,
 .ViewNote__Delete {
   background-color: rgb(36, 184, 189);
+  border: none;
+  border: 2px solid rgb(152, 174, 175);
   color: white;
   width: 100%;
   max-width: 200px;
@@ -59,4 +60,40 @@
 
 .NoMargin {
   margin: 0;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.Modal {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  top: 25%;
+  left: 40%;
+  width: 100%;
+  max-width: 525px;
+  height: 175px;
+  padding: 20px;
+  border: 2px solid rgb(152, 174, 175);
+  background-color: white;
+}
+
+.Modal__Message {
+  text-align: center;
+}
+
+.Modal__Buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.DisplayNone {
+  display: none;
 }
