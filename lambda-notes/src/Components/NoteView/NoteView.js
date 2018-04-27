@@ -47,7 +47,7 @@ class NoteView extends Component {
                             <div className="modalQuestion">Are you sure you want to delete this?
                             </div>
                             <div className="modalButtons">        
-                                <Link to="/"><button style={red} onClick={() => {
+                                <Link to="/home"><button style={red} onClick={() => {
                                     this.display();
                                     this.props.deleteNote(this.state.index)
                                 }}>Delete</button>

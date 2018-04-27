@@ -13,6 +13,16 @@ class CreateNote extends Component {
         return e.target.value;
       }
 
+      handleKeyPress = (e) => {
+        if(e.key == 'Enter' || e.charCode == 13 || e.keyCode == 13){
+            this.handleData()
+        }
+      }
+
+      handleData = () => {
+        this.props.newNote({title: this.state.title, note: this.state.note})
+      }
+
     render() {
         return (
             <div className="body">
@@ -21,7 +31,7 @@ class CreateNote extends Component {
                     <h1>Create New Note:</h1>
                     <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
                     <textarea onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
-                    <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
+                    <button onClick={this.handleData}>Save</button>
                 </div>
             </div>
         )
