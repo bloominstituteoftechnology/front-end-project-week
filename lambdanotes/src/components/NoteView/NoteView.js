@@ -25,10 +25,13 @@ export default class NoteView extends Component {
       .get(`http://localhost:5000/notes`)
       .then(response => {
         // fix this!!!!!!!!!!!!!!!
-        if (id > response.data.length) {
+        let data = response.data.find(function(element) {
+          return element.id === id;
+        });
+        if (data) {
           alert("Note not found");
         } else {
-          console.log("response", response.data[id]);
+        //   console.log("response", response.data[id]);
           this.setState({ note: response.data[id] });
         }
       })
