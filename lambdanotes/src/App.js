@@ -62,7 +62,10 @@ class App extends Component {
   };
 
   addNote = newNote => {
-    const id = this.state.notes[this.state.notes.length - 1].id + 1;
+    let id = 1;
+    if (this.state.notes.length > 0) {
+      id = this.state.notes[this.state.notes.length - 1].id + 1;
+    }
     const addedNote = {
       id: id,
       title: newNote.title,
