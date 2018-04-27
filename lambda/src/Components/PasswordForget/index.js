@@ -6,7 +6,7 @@ import * as routes from '../../Constants/routes.js';
 
 const PasswordForgetPage = () =>
   <div>
-    <h1>PasswordForget</h1>
+    <h1>Forget Password</h1>
     <PasswordForgetForm />
   </div>
 
@@ -68,7 +68,7 @@ class PasswordForgetForm extends Component {
 
 const PasswordForgetLink = () =>
   <p>
-    <Link to={routes.PASSWORD_FORGET}>Forgot Password?</Link>
+    <Link to={routes.PASSWORD_FORGET}>Forgot Password</Link>
   </p>
 
 export default PasswordForgetPage;
