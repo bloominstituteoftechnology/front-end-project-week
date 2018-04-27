@@ -28,6 +28,11 @@ export class App extends Component {
     this.state = this.getNotes() ? { notes: this.getNotes() } : { notes: [] };
   }
 
+  componentDidMount() {
+    const App = document.querySelector('.App');
+    if (this.local.get('inverted')) App.classList.add('inverted');
+  }
+
   syncLocalState = payload => {
     this.local.set( 'notes', payload );
     this.setState({ notes: payload });
@@ -59,9 +64,10 @@ export class App extends Component {
     this.setState({ notes: [] });
   }
 
-  selectTheme(theme) {
+  invert = () => {
     const App = document.querySelector('.App');
-    App.classList.toggle('invert-colors');
+    App.classList.toggle('inverted');
+    this.local.set('inverted', App.classList.contains('inverted'));
   }
 
   slideIn() {
@@ -78,7 +84,7 @@ export class App extends Component {
           <h3>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
-          <button className="App_button" onClick={this.selectTheme}>Invert Colors</button>
+          <button className="App_button" onClick={this.invert}>Invert Colors</button>
           <button className="App_button" onClick={this.slideIn}>Animation Demo</button>
           <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>

@@ -64,7 +64,7 @@
   margin: auto 0 50px;
 }
 
-.invert-colors {
+.inverted {
   filter: invert(100%);
 }
 
