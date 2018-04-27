@@ -21,9 +21,7 @@ class ControlPanel extends Component {
 					className="ControlPanel_button"
 					primary={true}
 					onClick={() => {
-						this.props.setVisibilityFilter(
-							VisibilityFilters.SHOW_ALL_TODOS
-						);
+						this.props.setVisibilityFilter(VisibilityFilters.SHOW_ALL_TODOS);
 					}}
 				>
 					View Your Notes
@@ -52,12 +50,23 @@ class ControlPanel extends Component {
 					className="ControlPanel_button"
 					primary={true}
 					onClick={() => {
-						this.props.setVisibilityFilter(
-							VisibilityFilters.SHOW_ACTIVE_TODOS
-						);
+						this.props.setVisibilityFilter(VisibilityFilters.SHOW_ACTIVE_TODOS);
 					}}
 				>
 					View Incomplete Tasks
+				</RaisedButton>
+			</Link>,
+			<Link to="/">
+				<RaisedButton
+					className="ControlPanel_button"
+					primary={true}
+					onClick={() => {
+						this.props.setVisibilityFilter(
+							VisibilityFilters.SHOW_ARCHIVED_TODOS
+						);
+					}}
+				>
+					View Archived Tasks
 				</RaisedButton>
 			</Link>
 		];

@@ -21,6 +21,10 @@ const getVisibleTodos = (todos, filter) => {
 			return todos.filter(todo => {
 				return !todo.isComplete;
 			});
+		case VisibilityFilters.SHOW_ARCHIVED_TODOS:
+			return todos.filter(todo => {
+				return todo.archive;
+			});
 		default:
 		// throw new Error("Unknown filter: " + filter);
 	}
