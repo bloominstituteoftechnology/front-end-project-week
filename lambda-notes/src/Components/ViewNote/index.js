@@ -7,7 +7,10 @@ export class ViewNote extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-          modal: false
+          modal: false,
+          notes: [],
+          id: 0,
+          currentNote: {}
         };
         this.toggle = this.toggle.bind(this);
     }
@@ -16,6 +19,18 @@ export class ViewNote extends React.Component {
         this.setState({
           modal: !this.state.modal
         });
+    }
+
+    componentDidMount() {
+      const newNotes = this.props.notes;
+      const newId = Number(this.props.match.params.id);
+      const newNote = newNotes.filter((note) => note.id === newId).pop();
+      console.log(newNote);
+      this.setState({
+        notes: newNotes,
+        id: newId,
+        currentNote: newNote
+      });
     }
 
     render() {
@@ -38,34 +53,12 @@ export class ViewNote extends React.Component {
                   </ModalFooter>
                 </Modal>
               </div>
-            </div>
-            <div className="row">
-              <h4>Note Title</h4>
-            </div>
-            <div className="row">
-              <p>
-                Yr ennui mlkshk heirloom vape fanny pack health goth.
-                Kinfolk biodiesel lo-fi synth live-edge bitters squid
-                skateboard. Tousled street art snackwave, readymade
-                occupy offal organic semiotics taiyaki master cleanse
-                yuccie intelligentsia cronut waistcoat bicycle rights.
-                Mixtape neutra blue bottle, art party offal live-edge
-                mustache marfa. Raw denim glossier green juice shabby
-                chic meh edison bulb, typewriter hashtag disrupt
-                kickstarter keytar mlkshk. Semiotics banjo flexitarian
-                williamsburg chartreuse. Snackwave etsy normcore,
-                fashion axe kitsch gastropub fixie pour-over enamel pin
-                keffiyeh.
-              </p>
-              <p>
-                Raclette tousled godard, yr bespoke leggings affogato
-                plaid hashtag pok pok enamel pin disrupt 3 wolf moon.
-                Kitsch meggings deep v, normcore mlkshk fingerstache
-                actually poutine kombucha microdosing aesthetic
-                chicharrones. Venmo 90's tumeric iPhone mumblecore. La
-                croix flannel put a bird on it meggings migas kombucha
-                microdosing vice chartreuse twee narwhal.
-              </p>
+              <div className="col-9">
+                <h4>{this.state.currentNote.title}</h4>
+              </div>
+              <div className="col-9">
+                <p>{this.state.currentNote.body}</p>
+              </div>
             </div>
           </div>;
     }
