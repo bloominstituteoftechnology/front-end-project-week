@@ -9,15 +9,31 @@ import ListNotes from './components/ListNotes.js';
   constructor() {
     super()
     this.state = {
+      addNote: '',
       notes: [{}]
     }
+  }
+
+  noteHandler = event => {
+    console.log(event.target.value);
+  }
+
+  handleSubmitNote = () => {
+    console.log('clicked', this);
   }
 
 render() {
   return (
     <div>
     <h2>Lambda Notes</h2>
-
+    <input
+    type="text"
+    placeholder="Add Note"
+    name="addNote"
+    value={this.state.addNote}
+    onChange={this.noteHandler}
+    />
+    <button onClick={this.handleSubmitNote} >Add Note</button>
      </div>
       );    
     }    
