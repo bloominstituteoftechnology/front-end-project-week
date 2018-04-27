@@ -24,7 +24,7 @@ class Display extends React.Component {
 
             <div className='Display'>
                 <div className='Display__buttons'>
-                    <Link to='/' className='edit'> edit</Link>
+                    <Link to='/note/:id/edit' className='edit'> edit</Link>
                     {/* button to open modal */}
                     <Button  onClick={this.toggle} className='delete' > delete</Button>
                 </div>

@@ -38,14 +38,14 @@ class App extends Component {
         <Route exact path='/new' component={InputForm} />
 
 
-        <Route exact path='/edit' component={Header} />
-        <Route exact path='/edit' component={InputForm} />
+        <Route exact path='/note/:id' component={Header} />
+        <Route exact path='/note/:id' component={Display} />
 
-        <Route exact path='view' component={Header} />
+        <Route exact path='/note/:id/edit' component={Header} />
+        <Route exact path='/note/:id/edit' component={InputForm} />
 
-        <Route path='/note' component={Header} />
-        <Route path='/note' component={Display} />
-
+        <Route exact path='/note' component={Header} />
+        <Route exact path='/note' component={Display} />
 
         <Route path='/' component={NavBar} />
       </div>
