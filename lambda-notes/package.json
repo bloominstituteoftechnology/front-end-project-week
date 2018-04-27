@@ -3,14 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.0",
-    "gridstack": "^0.3.0",
-    "jquery-ui": "^1.12.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-dragula": "^1.1.17",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "react-testing-library": "^2.1.1",
     "reactstrap": "^5.0.0"
   },
   "scripts": {
@@ -21,6 +18,7 @@
     "testit": "jest --verbose"
   },
   "devDependencies": {
+    "react-testing-library": "^2.1.1",
     "react-app-rewired": "^1.5.2"
   }
 }

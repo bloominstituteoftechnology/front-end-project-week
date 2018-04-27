@@ -19,18 +19,19 @@ html, body {height: 100%;}
 }
 
 .note-list {
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
 
 .note-container {
+  border: 1px solid;
+  margin: 0 auto;
   width: 33%;
 }
 
 .card {
   width: 15rem;
-  margin: 0 auto;
+  margin: 0 20px;
   margin-bottom: 2rem;
 }
 
