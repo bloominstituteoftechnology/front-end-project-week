@@ -13,3 +13,9 @@
   flex-direction: row-reverse;;
 }
 
+.links-container {
+  display: flex;
+  box-sizing: border-box;
+  margin-right: 36px;
+}
+
