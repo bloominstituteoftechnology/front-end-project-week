@@ -1,0 +1,75 @@
+.component-wrapper {
+    background: rgb(182, 182, 182);
+    margin-top: 200px;
+    margin-left: 130px;
+    border: 1px solid black;
+    height: 200px;
+    width: 800px;
+}
+
+.delete-button-deleter {
+    font-family: 'Russo One', sans-serif;
+    background: red;
+    border: 1px solid red;
+    width: 300px;
+    cursor: pointer;
+    height: 30px;
+    margin-right: 60px;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.delete-button-deleter:hover {
+    font-family: 'Russo One', sans-serif;
+    background: rgb(105, 1, 1);
+    border: 1px rgb(105, 1, 1);
+    width: 300px;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+    height: 30px;
+    margin-right: 60px;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.no-button {
+    font-family: 'Russo One', sans-serif;
+    background: #18b2af;
+    border: 1px solid #18b2af;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    margin-top: 60px;
+}
+
+.no-button:hover {
+    font-family: 'Russo One', sans-serif;
+    background: #0a5a59;
+    border: 1px #0a5a59;
+    box-shadow: 1px 2px #888888;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    margin-top: 60px;
+}
+
+.component-header {
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.component-full-wrapper {
+    background-color: rgb(212, 212, 212);
+    width: 100%;
+    height: 714px;
+    margin-top: 10px;
+}
+
+.my-delete-button-link {
+    text-decoration: none;
+}
+
+.my-no-button-link {
+    text-decoration: none;
+}
