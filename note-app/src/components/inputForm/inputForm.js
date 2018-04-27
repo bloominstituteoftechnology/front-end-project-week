@@ -6,7 +6,7 @@ class InputForm extends React.Component {
         super(props);
         this.state = {
             newNote: '',
-            todos: [
+            notes: [
                 'Note 1',
                 'Note 2',
                 'Note 3',
@@ -18,15 +18,18 @@ class InputForm extends React.Component {
 
     // manages the text input
     noteHandler = event => {
-        console.log('test')
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     // Manages the save button
     handleSubmitNote = event => {
-        console.log('test')
-     }
+        const { notes } = this.state;
+        const myNote = this.state.newNote;
+        notes.push(myNote);
+        this.setState({ notes });
+    }
 
-
+    // My notes are saving to inputform.props.match.notes
     render() {
         return (
             <div className='InputForm'>
@@ -42,7 +45,12 @@ class InputForm extends React.Component {
                 ></textarea>
                 <div onClick={this.handleSubmitNote} className='save'> Save </div>
 
-                <div>{this.state.todos}</div>
+                <div>
+                    {this.state.notes.map(note => {
+                        return (
+                        <div>{note}</div>
+                    )})}
+                </div>
 
             </div>
         )

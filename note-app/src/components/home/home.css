@@ -6,13 +6,6 @@
     float: right;
     background-color: rgb(235, 235, 235);
     margin-bottom: 1rem;
-    
-}
-
-.Home__content {
-    padding: 1rem;
-    margin: .5rem 1rem;
-
 }
 
 .Home__header {
@@ -20,12 +13,20 @@
     font-weight: bold;
 }
 
+.Home__content {
+    padding: 1rem;
+    margin: .5rem 1rem;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    
+}
+
 .Note {
-    display: inline-block;
+    display: block;
     border: 1px solid black;
-    width: 30%;
     margin: .5rem;
-    background-color: rgb(245, 245, 245)
+    background-color: rgb(245, 245, 245);
+
 }
 
 .Note__title {
@@ -35,6 +36,7 @@
 }
 
 .Note__body {
+    overflow: hidden;
     margin: 1rem;
 }
 

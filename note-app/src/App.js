@@ -24,14 +24,7 @@ class App extends Component {
         'Note 4'
       ]
     }
-    this.noteHandler = this.noteHandler.bind(this);
   }
-  
-  noteHandler = event => {
-
-  }
-
-  handleSubmitNote() {}
 
   render() {
     return (

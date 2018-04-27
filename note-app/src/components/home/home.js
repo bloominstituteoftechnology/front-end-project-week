@@ -2,49 +2,72 @@ import React from 'react';
 import './home.css';
 
 class Home extends React.Component {
-    
-    
-    
+    constructor() {
+        super();
+        this.state = {
+            notes: [
+                {
+                    title: 'NoteTitle1',
+                    body: 'akjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbdakjdhfakfhakbfakbd',
+                },
+                {
+                    title: 'NoteTitle2',
+                    body: 'NoteBody2',
+                },
+                {
+                    title: 'NoteTitle3',
+                    body: 'NoteBody3',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+                {
+                    title: 'NoteTitle4',
+                    body: 'NoteBody4',
+                },
+            ]
+        }
+    }
+
+
     render() {
         return (
             <div className='Home'>
                 <div className='Home__header'> Your Notes</div>
 
                 <div className='Home__content'>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
-                    <div className='Note'>
-                        <div className='Note__title'> Note Title </div>
-                        <div className='Note__body'> Note Body </div>
-                    </div>
+                    {this.state.notes.map(n => {
+                        return (
+                            <div className='container'>
+                                <div className='Note'>
+                                    <div className='Note__title'>{n.title}</div>
+                                    <div className='Note__body'>{n.body}</div>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
-
             </div>
         )
     }
