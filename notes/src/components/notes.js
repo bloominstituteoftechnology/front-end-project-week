@@ -8,6 +8,16 @@ import ViewCard from "./viewcard";
 import EditNote from "./editnote";
 import "./notes.css";
 
+function isSorted(arr) {
+  var len = arr.length - 1;
+  for (var i = 0; i < len; ++i) {
+    if (arr[i].title > arr[i + 1].title) {
+      return false;
+    }
+  }
+  return true;
+}
+
 export default class Notes extends Component {
   constructor(props) {
     super(props);
@@ -82,8 +92,13 @@ export default class Notes extends Component {
   };
 
   sortList = () => {
+    let baseList = this.state.notes;
+    let sortedList;
+    if (isSorted(baseList))
+      sortedList = this.state.notes.sort((a, b) => a.title < b.title);
+    else sortedList = this.state.notes.sort((a, b) => a.title > b.title);
     this.setState({
-      notes: this.state.notes.sort((a, b) => a.title > b.title)
+      notes: sortedList
     });
   };
 
