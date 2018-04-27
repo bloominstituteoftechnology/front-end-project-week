@@ -1,45 +1,64 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Switch from 'react-switch';
+import ReactMarkdown from 'react-markdown';
 
 const Wrapper = styled.div`
-    background-color: #f2f1f2; 
-    width: 75%;
-    padding: 60px 0 70px 2.4em;
+  background-color: #f2f1f2; 
+  width: 75%;
+  padding: 60px 0 70px 2.4em;
 `;
 
 const Heading = styled.h3`
-    font-size: 2em;
-    font-weight: bold;
-    line-height: 0.8;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 0.8;
 `;
 
 const Form = styled.form`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 
 const Input = styled.input`
-    padding: 0.5em 0.5em 1.3em 0.5em;
-    margin: 2.5em 0 0.5em 0;
-    border-radius: 3px;
-    width: 50%;
+  padding: 0.5em 0.5em 1.3em 0.5em;
+  margin: 2.5em 0 0.5em 0;
+  border-radius: 3px;
+  width: 50%;
 `;
 
 const TextArea = styled.textarea`
-    padding: 2em;
-    margin: 1em 2em 2em 0;
+  padding: 2em;
+  margin: 1em 2em 2em 0;
 `;
 
 const Button = styled.button`
-    background-color: #00b9bc;
-    color: #fff;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 18px;
-    padding: 14px 2.3em 8px 2.5em;
-    margin-left: 0.2em;
-    cursor: pointer;
-    width: 25%;
+  background-color: #00b9bc;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 18px;
+  padding: 14px 2.3em 8px 2.5em;
+  margin-left: 0.2em;
+  cursor: pointer;
+  width: 25%;
+`;
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const SwitchContainer = styled.div`
+  display: flex;
+  margin-left: 21em;
+`;
+
+const SwitchText = styled.h3`
+  margin-right: 1em;
+  margin-top: 2px;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 0.8;
 `;
 
 class EditNoteForm extends Component {
@@ -49,17 +68,18 @@ class EditNoteForm extends Component {
       id: '',
       title: '',
       text: '',
+      checked: false
     };
   }
 
   componentDidMount() {
     const NoteId = this.props.match.params.id;
     const note = this.props.notes.find(item => item.id === NoteId);
-    console.log('edit', note.id);
     this.setState({
-        id: note.id,
-        title: note.title,
-        text: note.text,
+      id: note.id,
+      title: note.title,
+      text: note.text,
+      checked: false,
     });
   }
 
@@ -69,14 +89,31 @@ class EditNoteForm extends Component {
 
   handleUpdateNote = e => {
     e.preventDefault();
-    this.props.updateNote(this.state, this.props.match.params.id);
-    this.props.history.push('/notes');
+    const { id, title, text } = this.state;
+    this.props.updateNote({ id, title, text }, this.props.match.params.id);
+    this.props.history.push(`/notes/${this.props.match.params.id}`);
+  };
+
+  handleToggle = checked => {
+    this.setState({ checked });
   };
 
   render() {
     return (
       <Wrapper>
-        <Heading>Edit Note:</Heading>
+        <Container>
+          <Heading>Edit Note:</Heading>
+          <SwitchContainer>
+            <SwitchText>Use Markdown:</SwitchText>
+            <Switch
+              onColor="#00b9bc"
+              className="react-switch"
+              onChange={this.handleToggle}
+              checked={this.state.checked}
+              aria-label="toggle for markdown"
+            />
+          </SwitchContainer>
+        </Container>
         <Form>
           <Input
             type="text"
@@ -92,6 +129,12 @@ class EditNoteForm extends Component {
             onChange={this.handleInputChange}
             name="text"
           />
+          {this.state.checked ? (
+            <div>
+              <h3>Markdown Output:</h3>
+              <ReactMarkdown source={this.state.text} />
+            </div>
+          ) : null}
           <Button type="submit" onClick={this.handleUpdateNote}>
             Update
           </Button>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Switch from 'react-switch';
+import ReactMarkdown from 'react-markdown';
 
 const Wrapper = styled.div`
     background-color: #f2f1f2; 
@@ -52,11 +53,12 @@ const SwitchContainer = styled.div`
     margin-left: 21em;
 `;
 
-const SwitchText = styled.p`
-    font-size: 1.9em;
-    font-weight: bold;
-    margin-right: 1em;
-    margin-top: 2px;
+const SwitchText = styled.h3`
+  margin-right: 1em;
+  margin-top: 2px;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 0.8;
 `;
 
 class CreateNoteForm extends Component {
@@ -91,12 +93,15 @@ class CreateNoteForm extends Component {
               <Heading>Create New Note:</Heading>
               <SwitchContainer>
                 <SwitchText>Use Markdown:</SwitchText>
-                <Switch className="react-switch" onChange={this.handleToggle} checked={this.state.checked} aria-label="toggle for markdown" />
+                <Switch onColor="#00b9bc" className="react-switch" onChange={this.handleToggle} checked={this.state.checked} aria-label="toggle for markdown" />
               </SwitchContainer>
             </Container>
             <Form>
               <Input type="text" placeholder="Note Title" onChange={this.handleInputChange} name="title" value={this.state.title} />
-              <TextArea rows="15" cols="30" value={this.state.text} onChange={this.handleInputChange} name="text" />
+              <TextArea rows="10" cols="10" value={this.state.text} onChange={this.handleInputChange} name="text" />
+              {this.state.checked ? <div><h3>Markdown Output:</h3>
+              <ReactMarkdown source={this.state.text} /></div> : null }
+              
               <Button type="submit" onClick={this.handleSaveNote}>
                 Save
               </Button>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Dotdotdot from 'react-dotdotdot';
+import ReactMarkdown from 'react-markdown';
 
 const Wrapper = styled.div`
   background-color: #f2f1f2;
@@ -23,16 +24,16 @@ const List = styled.div`
 const IndividualNote = styled.div`
     width: 30%;
     background-color: #FFF;
-    padding: 12px 2em 63px 2em;
+    padding: 12px 2em 33px 2em;
     margin: 1px 1.7em 27px 0.2em;
 `;
 
 const NoteHeading = styled.h3`
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.5em;
 `;
 
-const NoteParagraph = styled.p`
+const NoteParagraph = styled.div`
     font-size: 1.4em;
     margin-top: 10px;
 `;
@@ -80,7 +81,7 @@ class Notes extends Component {
                         <NoteHeading>{note.title}</NoteHeading>
                         <hr />
                         <Dotdotdot clamp={5}>
-                          <NoteParagraph>{note.text}</NoteParagraph>
+                          <ReactMarkdown source={note.text} />
                         </Dotdotdot>
                       </StyledLink>
                     </IndividualNote>;
