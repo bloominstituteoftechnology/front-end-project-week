@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Row, Col, Container, Button } from "reactstrap";
 
-import NotesList from './components/NotesList';
-import Note from "./components/Note";
+import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
-import './App.css';
+import Note from "./components/Note";
+import "./App.css";
 
 const routes = [
   {
@@ -15,15 +16,16 @@ const routes = [
     main: () => <NotesList />
   },
   {
-    path: "/CreateNote", 
+    path: "/createNote",
     sidebar: () => <Button>+ Create Note</Button>,
     main: () => <NoteForm />
   },
-  { path: "/ViewNotes/:id",
+  {
+    path: "/viewNotes/:id",
     main: Note
   },
   {
-    path: "/EditNote/:id",
+    path: "/editNote/:id",
     main: NoteForm
   }
 ];
@@ -31,33 +33,33 @@ const routes = [
 class App extends Component {
   render() {
     return (
-    <Router>
-      <Container fluid={true} className="App">
-        <Row className="app-area">
-          <Col sm={3} className="Sidebar position-fixed">
-            <h1 className="headline my-4">Lambda Notes</h1>
+      <Router>
+        <Container fluid={true} className="App">
+          <Row className="app-wrapper">
+            <Col sm={3} className="leftSideBar position-fixed">
+              <h1 className="header my-4">Lambda Notes</h1>
 
-            <Link to="/">
-              <Button className="w-100 my-2 p-2">View Your Notes</Button>
-            </Link>
-          
-            <Link to="/createNote">
-              <Button className="w-100 my-2 p-2">+ Create Note</Button>
-            </Link>
-          </Col>
-          <Col sm={9} className="NotesArea offset-3">
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.main}
-              />
-            ))}
-          </Col>
-        </Row>
-      </Container>
-    </Router>
+              <Link to="/">
+                <Button color="info" className="w-100 my-2 p-2">View Your Notes</Button>
+              </Link>
+
+              <Link to="/createNote">
+                <Button color="info" className="w-100 my-2 p-2">+ Create New Note</Button>
+              </Link>
+            </Col>
+            <Col sm={9} className="noteContainer offset-3">
+              {routes.map((route, index) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.main}
+                />
+              ))}
+            </Col>
+          </Row>
+        </Container>
+      </Router>
     );
   }
 }
