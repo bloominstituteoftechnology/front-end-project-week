@@ -1,6 +1,5 @@
-How do I make a new page?
+Don't know how to get ID to ++ --> CreateNote
 
-Link to without a server?
+Don't know how to link to Specific ID
 
-Call a function --undefined
-
+Editing/Deleting can't be done without a specified ID/Index linked

@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 // import { Button, Form, FormGroup, Input, Label, FormText } from 'reactstrap';
-
-function getNextId() {
-    let nextId = 6;
-     return nextId++;
- }
+let nextId = 6;
+// function getNextId() {
+//      return nextId++;
+//  }
  class Inputs extends Component {
      constructor(props) {
          super(props);
          this.state = {
             addContent: '',
             addTitle: '',
-            id: getNextId()
          }
      }
 
@@ -36,10 +34,12 @@ function getNextId() {
                     name='addContent'
                     onChange={this.handleChange} 
                 />
-                <button onClick={ () => this.props.handleAddNote(this.state.addContent, this.state.addTitle, this.state.id)} 
+                <button onClick={ () => this.props.handleAddNote(
+                    this.state.addContent, 
+                    this.state.addTitle, 
+                    nextId++)} 
                     type='button' 
-                    className='save_button btn btn-sm ml-3 mt-2'
-                > 
+                    className='save_button btn btn-sm ml-3 mt-2'> 
                     Save
                 </button>
             </div>

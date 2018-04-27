@@ -7,7 +7,6 @@ import EditNote from './Components/EditNote.js';
 import Navigation from './Components/Navigation.js';
 import { Route, Link } from 'react-router-dom';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -52,20 +51,15 @@ class App extends Component {
                   <Navigation view={this.handleViewNotes()} create={this.handleCreateNotes()} />
                 </div>
             </div>
-            <div className='column_right '>
-             
+            <div className='column_right '>     
               <div>
-                
                 <Route path={`/YourNotes`}  render ={ () => <Cards notes={this.state.Notes} />} />
-                
                 <Route path="/CreateNote" render = { () => 
                   <Input handleAddNote={this.handleAddNote}
                     Notes={this.Notes}  />} />
-
                 <Route path="/EditNote" render = { () =>
                   <EditNote handleAddNote={this.handleAddNote}
                     Notes={this.Notes}  />} />
-
                 <Route path={`/ViewNote`}  render ={ () => <ViewNote notes={this.state.Notes} />} />    
               </div>
             </div>

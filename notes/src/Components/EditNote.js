@@ -31,15 +31,12 @@ import React, { Component } from 'react';
                     onChange={this.handleChange} 
                 />
                 <button onClick={ () => this.props.handleAddNote(this.state.addContent, this.state.addTitle)} 
-                    type='button' 
-                    className='save_button btn btn-sm ml-3 mt-2'
-                > 
+                    type='button' className='save_button btn btn-sm ml-3 mt-2'> 
                     Update
                 </button>
             </div>
         );
     }
 }
-
 
 export default EditNote;
