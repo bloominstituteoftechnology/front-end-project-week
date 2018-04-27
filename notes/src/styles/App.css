@@ -19,14 +19,14 @@
 }
 
 .lambdaLogo {
-  filter: contrast(400%);
+  filter: contrast(250%);
   height: 75px;
   margin-top: 30px;
   width: 75px;
 }
 
 .App_sideBar h3 {
-  color: rgb(225, 0, 0);
+  color: rgb(215, 0, 0);
   font-size: 40px;
   margin: 5px auto;
   padding-bottom: 30px;
