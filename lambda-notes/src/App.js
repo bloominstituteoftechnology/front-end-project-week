@@ -15,6 +15,8 @@ class App extends Component {
   constructor() {
     super();
 
+    this.searchNotesArray = {...testNotes};
+
     this.state = {
       notes: testNotes,
       newNote: {
@@ -48,6 +50,13 @@ class App extends Component {
   deleteNote = () => {
     const updatedNotes = this.state.notes.filter(note => note.id !== this.state.clickedNote.id);
     this.setState({ notes: updatedNotes });
+  }
+
+  searchNotes = searchString => {
+    this.searchNotesArray = this.state.notes;
+
+    const updatedSearchNotes = this.searchNotesArray.filter( note => note.title.includes(searchString));
+
   }
 
   updateClickedNote = (clickedNote) => {
