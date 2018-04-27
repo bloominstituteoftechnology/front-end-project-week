@@ -1,0 +1,26 @@
+.noteView {
+    width: 80%;
+    padding-left: 25px;
+    padding-top: 35px;
+    background-color: #F2F1F2;
+    border-left: 1px solid gray;
+}
+
+.oneTitle {
+    font-size: 19px;
+    margin-top: 20px;
+    font-weight: bolder;
+    color: rgb(53, 54, 56);
+    margin-left: 10px;
+}
+
+.oneContent {
+    display: inline-block;
+    justify-content: flex-start;
+    font-size: 13px;
+    margin-top: 10px;
+    line-height: 25px;
+    margin-right: 25px;
+    color: rgb(53, 54, 56);
+    margin-left: 10px;
+}

@@ -1,11 +1,13 @@
-import { FETCH_NOTES, FETCHED_NOTES, ERROR_FETCHING, CREATE_NOTE, ERROR_CREATING } from '../actions';
+import { FETCH_NOTES, FETCHED_NOTES, ERROR_FETCHING, CREATE_NOTE, ERROR_CREATING, FETCH_NOTE } from '../actions';
 
 //   DELETE_NOTE, ERROR_DELETING
 
  const initialState = {
    notes: [],
+   note: {},
    fetchingNotes: false,
    creatingNote: false,
+   fetchNote: false,
 //  updatingNote: false,
 //    deletingNote: false,
    error: null
@@ -40,6 +42,11 @@ export const rootReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: action.payload,
     });
+
+    case FETCH_NOTE:
+      return Object.assign({}, state, {
+        note: action.payload , 
+        fetchNote: true });
     
     default:
       return state;

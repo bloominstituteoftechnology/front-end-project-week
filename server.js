@@ -1,9 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 3333;
 
 const server = express();
-server.use(express.json());
+server.use(bodyParser.json());
 server.use(cors());
 
 const sendUserError = (msg, res) => {
@@ -50,7 +51,7 @@ let notes = [
     },
     {
         id: 7,
-        title: "Eigth Note",
+        title: "Eighth Note",
         content: "Morbi pellentesque euismod venenatis, nulla ut nibh nunc. Phasselus diam metus, blandit ac purus a, efficitur mollis _",
     },
     {
@@ -63,6 +64,11 @@ server.get('/notes', (req, res) => {
   res.json(notes);
 });
 let noteId = 9;
+
+server.get('/notes/:id', (req, res) => {
+	const note = notes.filter(note => note.id.toString() === req.params.id)[0];
+	res.status(200).json(note);
+});
 
 server.post('/notes', (req, res) => {
   const { title, content } = req.body;

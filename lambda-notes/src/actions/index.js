@@ -4,6 +4,7 @@ export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const ERROR_FETCHING = 'ERROR_FETCHING';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const ERROR_CREATING = 'ERROR_CREATING';
+export const FETCH_NOTE = 'FETCH_NOTE';
 // export const DELETE_NOTE = 'DELETE_NOTE';
 // export const ERROR_DELETING = 'ERROR_DELETING';\\
 
@@ -42,4 +43,17 @@ export const getNotes = () => {
           });
         });
       };
+  };
+
+  export const getNote = id => {
+    const note = axios.get(`http://localhost:3333/notes/${id}`)
+    return dispatch => {
+      note
+      .then(response => {
+        dispatch({ type: FETCH_NOTE, payload: response.data });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    };
   };
