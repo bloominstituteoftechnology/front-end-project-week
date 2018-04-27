@@ -14,22 +14,22 @@ const ListView = () => {
       <div className="note-container">
           {/* <Row>
           <Col sm="4"> */}
-            <CardBody>
+            {/* <CardBody>
               <CardTitle>Lorem Ipsum</CardTitle>
               <CardText>Lorem Ipsum Lorem Ipsum Lorem Ipsum.</CardText>
-            </CardBody>
+            </CardBody> */}
           {/* </Col>
           <Col sm="4"> */}
-            <CardBody>
+            {/* <CardBody>
               <CardTitle>Lorem Ipsum</CardTitle>
               <CardText>Lorem Ipsum Lorem Ipsum Lorem Ipsum.</CardText>
-            </CardBody>
+            </CardBody> */}
           {/* </Col>
           <Col sm="4"> */}
-            <CardBody>
+            {/* <CardBody>
               <CardTitle>Lorem Ipsum</CardTitle>
               <CardText>Lorem Ipsum Lorem Ipsum Lorem Ipsum.</CardText>
-            </CardBody>
+            </CardBody> */}
           {/* </Col>
         </Row> */}
     </div>

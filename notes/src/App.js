@@ -5,6 +5,7 @@ import NoteList from './components/NoteList.js';
 import Navigation from './components/Navigation.js';
 import { ListView, CreateNew } from './components';
 import { Route } from 'react-router-dom';
+import { notes } from './NotesArray.js';
 
 class App extends Component {
   constructor() {
@@ -64,20 +65,9 @@ class App extends Component {
   render() {
     return (
 
-  //  { this.Navi() }
-
       <div>
           { this.Navi() }
-        {/* <input
-          type="text"
-          value={this.state.note}
-          onChange={this.handleNoteChange}
-        />
-        <button onClick={this.handleAddNote}>Submit Note</button>
-        <NoteList
-          removeNote={this.handleRemoveNote}
-          noteList={this.state.noteList}
-        /> */}
+          { this.ListView() }
       </div>
     );
   }
