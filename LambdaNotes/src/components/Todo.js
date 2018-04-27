@@ -89,7 +89,9 @@ class Todo extends Component {
 						<FlatButton className="Todo_button" onClick={this.handleOpen}>
 							Delete
 						</FlatButton>
-						<Toggle className="Todo_toggle" onToggle={this.handleToggle} />
+						<FlatButton className="Todo_button" onClick={this.handleToggle}>
+							<i class="material-icons md-24">list</i>
+						</FlatButton>
 					</div>
 				</div>
 				{/*	Note View */}
