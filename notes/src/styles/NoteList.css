@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: row wrap;
   padding: 40px 5%;
+  font-size: 20px;
 }
 
 .NoteList h4 {
@@ -16,6 +17,11 @@
   display: block;
   height: 10px;
   margin-left: -10px;
+}
+
+.notepad {
+  margin: 20px auto;
+  width: 200px;
 }
 
 @media (max-width: 545px) {

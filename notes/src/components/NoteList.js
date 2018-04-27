@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/NoteList.css';
-import logo from '../logo.svg';
+import notepad from '../notepadColor.png';
 import { NoteCard } from './NoteCard';
 
 export const NoteList = props => {
@@ -13,7 +13,7 @@ export const NoteList = props => {
       <div className="NoteList_noNotesMessage">
         <p style={{marginTop: 0}}>There are currently no notes in your app</p>
         <p>Please click the button to the left to create some</p>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={notepad} className="notepad" alt="logo" />
       </div>
     } </div>
   )
