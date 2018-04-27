@@ -64,7 +64,16 @@ class App extends Component {
   addNote = newNote => {
     let id = 1;
     if (this.state.notes.length > 0) {
-      id = this.state.notes[this.state.notes.length - 1].id + 1;
+      // old way of assigning the id which made duplicate ids if a new note was added when the sort order was not by id
+      // id = this.state.notes[this.state.notes.length - 1].id + 1;
+      let notes = this.state.notes;
+      // new forloop way that works with sorting options
+      for (let i = 0; i < notes.length; i++) {
+        if (id < notes[i].id) {
+          id = notes[i].id;
+        }
+      }
+      id = id + 1;
     }
     const addedNote = {
       id: id,
