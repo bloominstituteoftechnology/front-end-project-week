@@ -7,9 +7,14 @@
 
 .Notes__header {
 	display: block;
-	font-size: 3rem;
-	margin: 30px 7%;
+	font-size: 4rem;
+	margin: 30px 5%;
 	width: 100%;
+	text-shadow: 2px 2px #26c6da;
+}
+
+.SingleTodo_link {
+	text-decoration: none !important;
 }
 
 .SingleTodo {

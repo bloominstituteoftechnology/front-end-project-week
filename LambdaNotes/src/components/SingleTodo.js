@@ -33,7 +33,7 @@ class SingleTodo extends React.Component {
 		return [
 			<Card className="SingleTodo">
 				<CardText>
-					<Link to={`/todo/${this.props.index}`}>
+					<Link className="SingleTodo_link" to={`/todo/${this.props.index}`}>
 						<h3>{this.props.todo.title}</h3>
 					</Link>
 					<p

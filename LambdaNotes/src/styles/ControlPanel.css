@@ -11,6 +11,7 @@
 .ControlPanel_header {
 	font-size: 5rem;
 	text-align: left;
+	text-shadow: 2px 2px #26c6da;
 }
 
 .ControlPanel_button {
