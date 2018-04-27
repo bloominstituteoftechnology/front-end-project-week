@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteNote, setHome } from '../REDUX/actions';
+import { deleteNote, setHome, updateNote, handleTags } from '../REDUX/actions';
 import { Button, Modal, ModalBody } from 'reactstrap';
+import TagsInput from 'react-tagsinput';
 
 class ViewNote extends Component {
   constructor() {
@@ -10,13 +11,41 @@ class ViewNote extends Component {
     this.state = {
       title: "",
       content: "",
+      tags: [],
       deleteModal: false
     }
   }
 
-  componentDidMount() { this.props.setHome(false) }
+  componentDidMount() { 
+    const { note } = this.props.location.state.viewNote;
+    note.tags.length > 0 ? this.setState({ tags: note.tags }) : null;
+    this.props.setHome(false);
+  }
 
   toggleModal = () => { this.setState({ deleteModal: !this.state.deleteModal }) }
+
+  handleNewTag = (tags) => { 
+    // const { note } = this.props.location.state.viewNote;
+    this.setState({ tags });
+    // const taggedNote = { 
+    //   title: note.title,
+    //   id: note.id,
+    //   tags: tags,
+    //   content: note.content,
+    // };
+    // this.props.handleTags(taggedNote);
+  }
+
+  handleReduxTags = () => {
+    const { note } = this.props.location.state.viewNote;
+    const taggedNote = { 
+      title: note.title,
+      id: note.id,
+      tags: this.state.tags,
+      content: note.content,
+    };
+    this.props.handleTags(taggedNote);
+  }
 
   handleDelete = id => {
     this.toggleModal();
@@ -25,14 +54,21 @@ class ViewNote extends Component {
 
   render() {
     const { note } = this.props.location.state.viewNote;
+    const actual = this.props.notes.filter(n => { return n.id == note.id })
     return (
       <div className="PrimaryContainer__newNote"> 
+
         <div className="ViewNote__editOptions">
           <Link to={{ pathname: `/edit/${note.id}`, state: { note: note } }} className="ViewNote__editOptions--click">edit</Link>
           <button onClick={() => this.toggleModal()} className="ViewNote__editOptions--button">delete</button>
         </div>
         <h1 className="PrimaryContainer__header">{note.title}</h1>
-        <div className="ViewNote__content">{note.content}</div>
+        <div className="ViewNote__content mb-4">{note.content}</div>
+
+        <TagsInput value={this.state.tags} onChange={this.handleNewTag} />
+        {/* <Link to="" onClick={() => this.handleReduxTags()} className="Modal__button--link"> */}
+          <Button onClick={() => this.handleReduxTags()} className="Nav__ButtonsContainer--navButton col-2">Save Tags</Button>
+        {/* </Link> */}
 
         {this.state.deleteModal ? (
           <Modal isOpen={this.state.deleteModal}>
@@ -50,5 +86,5 @@ class ViewNote extends Component {
     )
   }
 }
-
-export default connect(null, { deleteNote, setHome })(ViewNote);
+const mapStateToProps = state => ({ notes: state.notes });
+export default connect(mapStateToProps, { deleteNote, setHome, updateNote, handleTags })(ViewNote);

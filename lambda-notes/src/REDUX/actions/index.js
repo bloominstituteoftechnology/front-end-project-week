@@ -11,6 +11,7 @@ export const LIST = "LIST";
 export const SORT_TITLE = "SORT_TITLE";
 export const NEW_USER = "NEW_USER";
 export const SET_HOME = "SET_HOME";
+export const HANDLE_TAGS = "HANDLE_TAGS";
 
 export const getNotes = () => {
   return dispatch => {
@@ -86,6 +87,10 @@ export const newUser = name => {
 
 export const setHome = bool => {
   return dispatch => { dispatch({ type: SET_HOME, payload: bool }) }
+}
+
+export const handleTags = note => {
+  return dispatch => { dispatch({ type: HANDLE_TAGS, payload: note }) }
 }
 
 export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }

@@ -2,7 +2,7 @@ import {
   FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, 
   TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, 
   NEWEST_OLDEST, LIST, SORT_TITLE, NEW_USER,
-  SET_HOME
+  SET_HOME, HANDLE_TAGS
 } from '../actions';
 
 const initialState = {
@@ -77,6 +77,22 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isHome: action.payload
+      }
+
+    case HANDLE_TAGS:
+      return {
+        ...state,
+        notes: [...state.notes].map(note => {
+          if (note.id == action.payload.id) {
+            note.tags = [...note.tags, ...action.payload.tags].reduce((acc, el, index) => {
+              if (!acc.includes(el)) acc.push(el);
+              return acc;
+            }, []);
+            return note;
+          } else {
+            return note;
+          }
+        })
       }
 
     default:

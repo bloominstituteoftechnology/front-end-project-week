@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { Card, CardTitle, CardBody, CardText, Col, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { 
+  Card, CardTitle, CardBody, CardFooter,
+  CardText, Col, Button, Dropdown, 
+  DropdownToggle, DropdownMenu, DropdownItem 
+} from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getNotes, saveNote, handleReverse, handleOrder, sortTitle, setHome } from '../REDUX/actions';
 import { CardFactory } from './card-factory';
 import { ShowAt, HideAt } from 'react-with-breakpoints';
 import Dragula from 'dragula';
+import TagsInput from 'react-tagsinput';
+// import CardFactory from './card-factory';
+
 
 class PrimaryContainer extends Component {
   constructor() {
@@ -21,10 +28,7 @@ class PrimaryContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.setHome(true)
-    this.props.getNotes() 
-  }
+  componentDidMount() { this.props.setHome(true) }
 
   dragulaDecorator = (componentBackingInstance) => {
     if (componentBackingInstance) {
@@ -44,16 +48,26 @@ class PrimaryContainer extends Component {
         className="NoteCard" 
         key={note.id}
       >
-        <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
-          <Card className="Card">
+        <Card className="Card">
+          <Link to={{ pathname: `/viewnote/${note.id}`, state: { viewNote: {note} } }} className="CardLink">
             <CardBody className="CardContent">
               <CardTitle className="CardTitle">{note.title}</CardTitle>
               <CardText className="CardText">
                 { contentLength.length >= 17 ? `${contentLength.slice(0, 17).join(" ")} ...` : note.content }
               </CardText>
             </CardBody>
-          </Card>
-        </Link>
+          </Link>
+          {note.tags.length > 0 ? (
+            <CardFooter>
+              <TagsInput 
+                value={note.tags} onChange={this.handleNewTag} 
+                disabled className="text-truncate primary-input" 
+                inputProps={{placeholder: ""}}
+                />
+            </CardFooter>
+          ) : (null)}
+          
+        </Card>
       </Col>
     )
   }
@@ -110,6 +124,7 @@ class PrimaryContainer extends Component {
 
         <div className="PrimaryContainer__cardContainer mx-0" ref={this.state.letsDrag ? this.dragulaDecorator : null}>
           {this.props.notes.map(note => this.cardFactory(note))}
+          {/* {this.props.notes.map(note => <CardFactory note={note} />)} */}
         </div>
 
       </div>

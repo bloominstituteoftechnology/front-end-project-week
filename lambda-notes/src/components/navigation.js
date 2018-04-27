@@ -5,7 +5,7 @@ import { Button, Nav, NavItem, Navbar, Tooltip,
   NavbarBrand, NavbarToggler, Collapse, NavLink,
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
-import { toggleNight, listViews } from '../REDUX/actions';
+import { toggleNight, listViews, getNotes } from '../REDUX/actions';
 import { ShowAt, HideAt } from 'react-with-breakpoints';
 import styled from 'styled-components';
 import { CSVLink } from 'react-csv';
@@ -23,6 +23,8 @@ class NavColumn extends Component {
       tooltipOpen: false
     }
   }
+
+  componentDidMount() { this.props.getNotes() }
 
   handleCSV = () => {
     const headers = [ { label: "Note ID", key: "id" }, { label: "Title", key: "title" }, { label: "Content", key: "content" } ];
@@ -121,4 +123,4 @@ const mapStateToProps = state => ({
   isHome: state.isHome
 });
 
-export default connect(mapStateToProps, { toggleNight, listViews })(NavColumn);
+export default connect(mapStateToProps, { toggleNight, listViews, getNotes })(NavColumn);
