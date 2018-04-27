@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Nav from './components/Nav/Nav';
-import CreateNewNote from './components/CreateNewNote/CreateNewNote';
-import ListView from './components/ListView/ListView';
-import NoteView from './components/NoteView/NoteView';
-import EditNote from './components/EditNote';
+import Nav from './Components/Nav/Nav';
+import CreateNewNote from './Components/CreateNewNote/CreateNewNote.js';
+import ListView from './Components/ViewNote/ViewNote.js';
+import NoteView from './Components/NoteView/NoteView.js';
+import EditNote from './Components/EditNote/EditNote.js';
 
 const App = () => {
   return (

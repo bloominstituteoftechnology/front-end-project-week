@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { edit_note } from '../actions';
+import { edit_note } from '../../Actions/index.js';
 import { Form, Input } from "reactstrap";
-import './EditNote.css';
 
 class EditNote extends Component {
     state = {

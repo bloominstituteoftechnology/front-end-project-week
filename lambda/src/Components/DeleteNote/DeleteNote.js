@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { delete_note } from '../actions';
+import { delete_note } from '../../Actions/index.js';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import './DeleteNote.css';
 

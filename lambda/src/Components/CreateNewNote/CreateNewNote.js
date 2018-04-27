@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { post_note } from '../../actions';
+import { post_note } from '../../Actions/index.js';
 import { Form, Input } from 'reactstrap';
 import './CreateNewNote.css';
 
