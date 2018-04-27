@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import Nav from './components/Nav/Nav';
+import CreateNewNote from './components/CreateNewNote/CreateNewNote';
+import ListView from './components/ListView/ListView';
+import NoteView from './components/NoteView/NoteView';
+import EditNote from './components/EditNote';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+const App = () => {
+  return (
+      <div style={{display: 'flex'}}>
+          <Route path='/' component={Nav} />
+          <div className='left-container'>
+            <Route exact path='/create-new-note' component={CreateNewNote} />
+            <Route exact path='/' component={ListView} />
+            <Route exact path='/notes/:id' component={NoteView} />
+            <Route exact path='/notes/edit/:id' component={EditNote} />
+          </div>
+       </div>
+     
+
+  );
 }
 
 export default App;
