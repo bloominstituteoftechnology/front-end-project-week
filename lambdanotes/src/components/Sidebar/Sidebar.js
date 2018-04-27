@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => (
   <div className="sidebar">
-    <ul
-      style={{
-        listStyleType: "none",
-        padding: 0
-      }}
-    >
+    <ul className="sidebar__ul">
       <li>
         <h1 className="sidebar__title">Lambda Notes</h1>
       </li>

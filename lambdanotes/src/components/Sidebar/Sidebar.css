@@ -3,10 +3,16 @@
   display: flex;
   flex-flow: column;
   position: absolute;
-  padding-left: 10px;
-  width: 30%;
+  align-items: center;
+  padding-left: 20px;
+  width: 220px;
   height: 100%;
   background-color: #d7d7d7;
+}
+
+.sidebar__ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 .sidebar__title {
@@ -21,7 +27,7 @@
   border: 1px grey solid;
   margin: 10px auto;
   height: 35px;
-  width: 200px;
+  width: 180px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
