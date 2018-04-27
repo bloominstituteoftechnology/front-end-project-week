@@ -9,8 +9,9 @@
 }
 
 .Modal_body {
-  background: white;
-  border: 2px solid rgb(82, 82, 82);
+  background: rgb(255, 255, 255);
+  border: 2px solid rgb(128, 128, 128);
+  font-size: 20px;
   margin: 50px auto;
   padding: 15px;
   width: 55%;
@@ -18,7 +19,7 @@
 
 .Modal_buttons * {
   background: rgb(138, 138, 138);
-  border-color: rgb(112, 112, 112);
+  border-color: rgb(128, 128, 128);
   display: inline-block;
   height: 30px;
   margin: 10px;

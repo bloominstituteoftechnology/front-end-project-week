@@ -1,9 +1,9 @@
 .NoteCard, .NoteCard:visited {
-  background: white;
+  background: rgb(255, 255, 255);
   border: 1px solid rgb(168, 168, 168);
   border-radius: 2px;
-  box-shadow: -1px 1px 2px rgb(128, 128, 128);
-  color: rgb(77, 77, 77);
+  box-shadow: -1px 1px 2px rgb(168, 168, 168);
+  color: rgb(82, 82, 82);
   cursor: pointer;
   height: 200px;
   margin-bottom: 20px;
@@ -20,7 +20,7 @@
 }
 
 .NoteCard_title {
-  border-bottom: 1px solid rgb(161, 161, 161);
+  border-bottom: 1px solid rgb(168, 168, 168);
   font-size: 18px;
   font-weight: bold;
   margin: 0;

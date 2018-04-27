@@ -12,7 +12,7 @@
 }
 
 .NoteList h4:after {
-  border-bottom: 1px solid rgb(161, 161, 161);
+  border-bottom: 1px solid rgb(151, 151, 151);
   content: '';
   display: block;
   height: 10px;

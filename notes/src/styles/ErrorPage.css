@@ -4,7 +4,7 @@
 }
 
 .ErrorPage_title {
-  color: rgb(77, 77, 77);
+  color: rgb(82, 82, 82);
   font-size: 50px;
   font-weight: bold;
   margin: 0;
@@ -12,7 +12,7 @@
 }
 
 .ErrorPage_title:after {
-  border-bottom: 1px solid rgb(161, 161, 161);
+  border-bottom: 1px solid rgb(168, 168, 168);
   content: '';
   display: block;
   margin: 10px auto;
