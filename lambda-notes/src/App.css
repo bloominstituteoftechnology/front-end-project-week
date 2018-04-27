@@ -122,6 +122,20 @@ Label {
   font-weight: bold;
 }
 
+.csv {
+  color: white;
+  font-weight: bold;
+}
+
+.csv:hover,
+.csv:focus,
+.csv:active,
+.csv.active {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 /* these two are to decorate the anchor tag without href in viewNote.js */
 a:not([href]):not([tabindex]) {
   color: #007bff;

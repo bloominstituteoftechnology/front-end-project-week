@@ -10,6 +10,7 @@ import EditNote from './components/editNote';
 import { testNotes } from './tests/testData';
 import LoginPage from './components/LoginPage';
 import { PropsRoute, PublicRoute, PrivateRoute } from 'react-router-with-props';
+import {CSVLink, CSVDownload} from 'react-csv';
 
 import './App.css';
 
@@ -73,6 +74,8 @@ class App extends Component {
           <Link to="/"><Button className="btn-custom btn-block">View Your Notes</Button></Link>
           <br />
           <Link to="create-note"><Button className="btn-custom btn-block">+ Create New Note</Button></Link>
+          <br />
+          <Button className="btn-custom btn-block"><CSVLink className="csv" data={this.state.notes} >Export Data</CSVLink></Button>
         </div>
         <div className="main-view">
           <div className="main-view-inner">

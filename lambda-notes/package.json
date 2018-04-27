@@ -10,6 +10,7 @@
     "markdown-it": "^8.4.1",
     "markdown-it-task-lists": "^2.1.1",
     "react": "^16.3.2",
+    "react-csv": "^1.0.14",
     "react-dom": "^16.3.2",
     "react-dragula": "^1.1.17",
     "react-router-dom": "^4.2.2",

@@ -62,7 +62,6 @@ class ViewNote extends Component {
       </div>
     );
   }
-
 }
 
 export default withRouter(ViewNote);

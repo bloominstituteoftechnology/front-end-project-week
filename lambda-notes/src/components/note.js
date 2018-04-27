@@ -22,7 +22,6 @@ class Note extends Component {
 
   render() {
     return (
-      // <div className="note-container">
         <Card className="hvr-curl-top-right hvr-rotate mr-4" onClick={this.handleClickNote}>
           <CardBody>
             <CardTitle>{this.props.note.title}</CardTitle>
@@ -35,7 +34,6 @@ class Note extends Component {
             <CardText dangerouslySetInnerHTML={{__html: this.parseContent()}} ></CardText>
           </CardBody>
         </Card>
-      // </div>
     );
   }
 
