@@ -13,6 +13,7 @@
     "react-dom": "^16.3.2",
     "react-dragula": "^1.1.17",
     "react-router-dom": "^4.2.2",
+    "react-router-with-props": "^0.1.1",
     "react-scripts": "1.1.4",
     "reactstrap": "^5.0.0"
   },

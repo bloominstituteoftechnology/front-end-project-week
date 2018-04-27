@@ -9,6 +9,7 @@ import ViewNote from './components/viewNote';
 import EditNote from './components/editNote';
 import { testNotes } from './tests/testData';
 import LoginPage from './components/LoginPage';
+import { PropsRoute, PublicRoute, PrivateRoute } from 'react-router-with-props';
 
 import './App.css';
 
@@ -70,19 +71,13 @@ class App extends Component {
         </div>
         <div className="main-view">
           <div className="main-view-inner">
-          {/* <Container className="mt-4"> */}
-          {/*   <Row> */}
-          {/*     <div className="col-12"> */}
                 <Switch>
-                  <Route exact path="/" render={() => <NotesList notes={this.state.notes} updateClickedNote={this.updateClickedNote} />} />
                   <Route path="/login" component={LoginPage}/>
-                  <Route path="/notes-view" render={() => <ViewNote clickedNote={this.state.clickedNote} deleteNote={this.deleteNote} />} />
-                  <Route path="/create-note" render={() => <CreateNote addNewNote={this.addNewNote} />} />
-                  <Route path="/edit-note" render={() => <EditNote clickedNote={this.state.clickedNote} updateEditedNote={this.updateEditedNote} />} />
+                  <PrivateRoute exact path="/" authed={true} redirectTo="/login" component={NotesList} notes={this.state.notes} updateClickedNote={this.updateClickedNote} />} />
+                  <PrivateRoute path="/notes-view" authed={true} redirectTo="/login" component={ViewNote} clickedNote={this.state.clickedNote} deleteNote={this.deleteNote} />} />
+                  <PrivateRoute path="/create-note" authed={true} redirectTo="/login" component={CreateNote} addNewNote={this.addNewNote} />} />
+                  <PrivateRoute path="/edit-note"  authed={true} redirectTo="/login" component={EditNote} clickedNote={this.state.clickedNote} updateEditedNote={this.updateEditedNote} />} />
                 </Switch>
-          {/*     </div> */}
-          {/*   </Row> */}
-          {/* </Container> */}
           </div>
         </div>
       </div>

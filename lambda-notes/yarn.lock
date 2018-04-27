@@ -5809,6 +5809,10 @@ react-router-dom@^4.2.2:
     react-router "^4.2.0"
     warning "^3.0.0"
 
+react-router-with-props@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-router-with-props/-/react-router-with-props-0.1.1.tgz#bee3b1b6029f82d9cd4e9568ea224b94303a5049"
+
 react-router@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-4.2.0.tgz#61f7b3e3770daeb24062dae3eedef1b054155986"
