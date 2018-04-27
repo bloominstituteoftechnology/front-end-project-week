@@ -25,3 +25,8 @@
   font-weight: bold;
 }
 
+.edit-delete:hover {
+  color: darkred;
+  cursor: pointer;
+}
+
