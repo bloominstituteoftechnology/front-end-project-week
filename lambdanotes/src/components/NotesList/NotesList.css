@@ -1,9 +1,16 @@
-/* .notesList {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-} */
-
 .notesList__title {
-    color:
+  margin-left: 20%;
+}
+
+.notesList__list {
+  border: 1px red solid;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+}
+
+.notesList__notes {
+  margin: 2%;
 }

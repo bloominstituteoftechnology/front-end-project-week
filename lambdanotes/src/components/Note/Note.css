@@ -1,8 +1,7 @@
-.card {
-  flex-direction: row;
-  margin: 5%;
+.note__card {
   height: 250px;
   width: 250px;
+  border: 2px black solid;
 }
 
 .card-header {

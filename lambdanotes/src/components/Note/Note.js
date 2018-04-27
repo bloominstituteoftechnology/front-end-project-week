@@ -5,10 +5,10 @@ import { Card, CardText, CardBody, CardHeader, Col, Row } from "reactstrap";
 const Note = props => {
   const { title, content } = props.note;
   return (
-    <div>
-      <Row>
-        <Col>
-          <Card>
+    <div className='note__card'>
+      {/* <Row>
+        <Col > */}
+          <Card >
             <CardBody>
               <CardHeader tag="h4">
                 <Link to={`/note/${props.note.id}`}>{title}</Link>
@@ -16,8 +16,8 @@ const Note = props => {
               <CardText>{content}</CardText>
             </CardBody>
           </Card>
-        </Col>
-      </Row>
+        {/* </Col>
+      </Row> */}
     </div>
   );
 };

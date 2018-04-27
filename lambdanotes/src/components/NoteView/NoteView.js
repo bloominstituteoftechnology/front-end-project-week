@@ -31,7 +31,7 @@ export default class NoteView extends Component {
         if (data) {
           alert("Note not found");
         } else {
-        //   console.log("response", response.data[id]);
+          //   console.log("response", response.data[id]);
           this.setState({ note: response.data[id] });
         }
       })

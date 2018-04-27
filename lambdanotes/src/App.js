@@ -71,7 +71,7 @@ export default class App extends Component {
           {/* _____EDITNOTE ROUTE______ */}
           <Route
             path="/edit"
-            render={({ history, match, location }) => (
+            render={({ location }) => (
               <EditNote getNotes={this.getNotes} location={location} />
             )}
           />
