@@ -19,7 +19,7 @@ class NewNote extends Component {
   componentDidMount() { this.props.setHome(false) }
 
   handleSaveNote = () => {
-    const newNote = { title: this.state.title, content: this.state.content };
+    const newNote = { title: this.state.title, content: this.state.content, tags: [] };
     this.props.saveNote(newNote);
     this.setState({ title: "", content: "" });
   }

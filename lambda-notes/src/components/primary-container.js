@@ -83,27 +83,27 @@ class PrimaryContainer extends Component {
         <DropdownMenu>
           <DropdownItem
             onClick={() => {
-              this.setState({ defaultSort: false, sortOldest: false, sortTitle: true })
+              this.setState({ defaultSort: false, sortOldest: false, sortTitle: true, letsDrag: false })
               this.props.sortTitle();
             }}
             className={!this.state.defaultSort && !this.state.sortOldest && !this.state.letsDrag ? "active" : ""}
           >Title A-Z</DropdownItem>
           <DropdownItem 
             onClick={() => {
-              this.setState({ defaultSort: false, sortOldest: true, sortTitle: false });
+              this.setState({ defaultSort: false, sortOldest: true, sortTitle: false, letsDrag: false });
               this.props.handleReverse();
             }}
             className={!this.state.defaultSort && !this.state.sortTitle && !this.state.letsDrag ? "active" : ""}  
           >Oldest - Newest</DropdownItem>
           <DropdownItem 
             onClick={() => {
-              this.setState({ defaultSort: true, sortOldest: false, sortTitle: false });
+              this.setState({ defaultSort: true, sortOldest: false, sortTitle: false, letsDrag: false });
               this.props.handleOrder();
             }}
             className={!this.state.sortTitle && !this.state.sortOldest && !this.state.letsDrag ? "active" : ""}
           >Newest - Oldest</DropdownItem>
           <DropdownItem
-            onClick={() => this.setState({ letsDrag: !this.state.letsDrag })}
+            onClick={() => this.setState({ letsDrag: true })}
             className={this.state.letsDrag ? "active" : ""}
           >Drag</DropdownItem>
         </DropdownMenu>

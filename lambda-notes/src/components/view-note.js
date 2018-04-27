@@ -25,17 +25,7 @@ class ViewNote extends Component {
 
   toggleModal = () => { this.setState({ deleteModal: !this.state.deleteModal }) }
 
-  handleNewTag = (tags) => { 
-    // const { note } = this.props.location.state.viewNote;
-    this.setState({ tags });
-    // const taggedNote = { 
-    //   title: note.title,
-    //   id: note.id,
-    //   tags: tags,
-    //   content: note.content,
-    // };
-    // this.props.handleTags(taggedNote);
-  }
+  handleNewTag = (tags) => { this.setState({ tags }) }
 
   handleReduxTags = () => {
     const { note } = this.props.location.state.viewNote;
@@ -69,18 +59,22 @@ class ViewNote extends Component {
         <HideAt breakpoint="medium" >
           <div className="d-flex justify-content-between tagEditContainer">
             <TagsInput value={this.state.tags} onChange={this.handleNewTag} />
-            <Button onClick={() => this.handleReduxTags()} className="Nav__ButtonsContainer--navButton col-2 my-0">Save Tags</Button>
+            <Link to="/home" onClick={() => this.handleReduxTags()}>
+              <Button className="Nav__ButtonsContainer--navButton col-12 my-0">Save Tags</Button>
+            </Link>
           </div>
         </HideAt>
-        <ShowAt breakpoint="medium" >
+        <ShowAt breakpoint="medium">
           <div className="d-flex flex-column">
             <TagsInput value={this.state.tags} onChange={this.handleNewTag} />
-            <Button onClick={() => this.handleReduxTags()} className="Nav__ButtonsContainer--navButton col-3 my-3 tagButton">Save Tags</Button>
+            <Link to="/home" onClick={() => this.handleReduxTags()} className="mt-5 w-25">
+              <Button className="Nav__ButtonsContainer--navButton col-3 my-3 tagButton">Save Tags</Button>
+            </Link>
           </div>
         </ShowAt>
 
         {this.state.deleteModal ? (
-          <Modal isOpen={this.state.deleteModal}>
+          <Modal isOpen={this.state.deleteModal} className="deleteModal">
             <ModalBody className="Modal__header">Are you sure you want to delete this?</ModalBody>
             <div className="Modal__ButtonsContainer">
               <Link to="/home" onClick={() => this.handleDelete(note.id)} className="Modal__button--link">

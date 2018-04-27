@@ -75,9 +75,9 @@ server.get('/notes', (request, response) => { response.json(notes) });
 let noteID = 101;
 
 server.post('/notes', (request, response) => {
-  const { title, content } = request.body;
-  const newNote = { title, content, id: noteID };
-  if (!title || !content) {
+  const { title, content, tags } = request.body;
+  const newNote = { title, content, tags, id: noteID };
+  if (!title || !content || !tags) {
     return sendUserError(
       'A title and content text are required.',
       response

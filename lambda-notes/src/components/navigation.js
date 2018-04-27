@@ -35,10 +35,13 @@ class NavColumn extends Component {
           Mozilla Firefox is recommended.
         </Tooltip>
         <Button className="Nav__ButtonsContainer--navButton px-0">Export Notes to CSV</Button>
-      </CSVLink>)
+      </CSVLink>
+    )
   }
 
   render() {
+    const headers = [ { label: "Note ID", key: "id" }, { label: "Title", key: "title" }, { label: "Content", key: "content" } ];
+    const data = this.props.notes.map(note => ({ id: note.id, title: note.title, content: note.content }));
     return (
       <div className="Nav__Container">
         <HideAt breakpoint="small" className="position-relative">
@@ -107,6 +110,10 @@ class NavColumn extends Component {
                 <Link to="/markdown" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}>
                   <NavItem>Markdown Editor</NavItem>
                 </Link>
+                {/* <Link to="/markdown" className="p-0 NavRow__Link" onClick={() => this.setState({ collapsed: !this.state.collapsed })}> */}
+                <CSVLink data={data} headers={headers} filename={"my-notes.csv"} id="CSV-Tooltip" className="p-0 NavRow__Link">
+                  <NavItem>Export Notes to CSV</NavItem>
+                </CSVLink>
               </Nav>
             </Collapse>
           </Navbar>

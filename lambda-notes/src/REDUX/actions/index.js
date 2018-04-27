@@ -63,13 +63,10 @@ export const updateNote = note => {
 }
 
 export const handleReverse = () => {
-  return dispatch => {
-    dispatch({ type: OLDEST_NEWEST })
-  }
+  return dispatch => { dispatch({ type: OLDEST_NEWEST }) }
 }
 
 export const handleOrder = () => {
-  debugger
   return dispatch => { dispatch({ type: NEWEST_OLDEST }) }
 }
 

@@ -5,7 +5,7 @@
 }
 
 @media (min-width: 744px) {
-  .Nav__Container { max-width: 325px; }
+  .Nav__Container { max-width: 350px; }
 }
 
 .NavRow {
