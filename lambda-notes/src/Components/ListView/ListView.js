@@ -9,12 +9,52 @@ import "./ListView.css";
 class ListView extends Component {
     constructor() {
         super();
+        this.state = {
+            display: false,
+            loginUser: {
+                Username: "Admin",
+                Password: "Password"
+            }
+        }
+    }
+
+    handleInputChange = e => {
+        this.setState({[e.target.name]: e.target.value});
+        return e.target.value;
+      }
+
+    display = () => {
+        this.setState({
+            display: !this.state.display
+        })
     }
 
     render() {
-        console.log('testing', this.props.notes)
+        console.log(this.state.loginUser.Username)
         return (
-            <div className = "body">
+        <div>
+            {this.state.display===false ? (
+                <div className="loginBody">
+                    <div className="loginCard">
+                        <h1>Sign in</h1>
+                        <div className="inputs">
+                            Username: <input onChange={this.handleInputChange} name="Username" type="text"></input>
+                            Password: <input onChange={this.handleInputChange} name="Password" type="text"></input>
+                        </div>
+                        <button onClick={() => {
+                            {this.state.Username === this.state.loginUser.Username
+                                 &&
+                            this.state.Password === this.state.loginUser.Password
+                            ? (
+                                this.display()
+                            ) : (
+                                alert('Incorrect username or password')
+                            )}
+                        }} style={login}>Login</button>
+                    </div>
+                </div>
+            ) : (
+                <div className = "body">
                 <SideBar/>
                 <div className = "sideBar_pop notes">
                     <div className = "list">
@@ -45,8 +85,19 @@ class ListView extends Component {
                     </div>
                 </div>
             </div>
+            )}
+        </div>
         )
     }
+}
+
+const login = {
+    textDecoration: "none",
+    backgroundColor: "rgb(110, 200, 200)",
+    border: "none",
+    width: "30%",
+    height: "10vh",
+    cursor: "pointer"
 }
 
 const mapStateToProps = state => {
