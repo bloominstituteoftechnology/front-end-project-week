@@ -1,0 +1,39 @@
+.updateButton {
+    background-color: rgb(58, 175, 184);
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 158.7px;
+    font-size: 15px;
+    margin: 10px 13px;
+    cursor: pointer;
+    border: 1px solid gray;
+    font-weight: bold;
+}
+
+.inputFields {
+    margin-left: 12px;
+}
+
+.editNoteTitle {
+    width: 55%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 2px;
+    box-shadow: inset .5px .5px lightgrey;
+    font-size: 10px;
+}
+
+.editNoteContent {
+    width: 90%;
+    height: 300px;
+    padding: 8px;
+    font-family: Arial;
+    resize: none;
+    border: 1px solid gray;
+    border-radius: 2px;
+    box-shadow: inset .5px .5px lightgrey;
+    font-size: 10px;
+}

@@ -1,0 +1,120 @@
+.noteView {
+    width: 80%;
+    padding-left: 20px;
+    padding-top: 15px;
+    background-color: #F2F1F2;
+    border-left: 1px solid gray;
+}
+
+.oneTitle {
+    font-size: 19px;
+    margin-top: 20px;
+    font-weight: bolder;
+    color: rgb(53, 54, 56);
+    margin-left: 10px;
+}
+
+.oneContent {
+    display: inline-block;
+    justify-content: flex-start;
+    font-size: 13px;
+    margin-top: 22px;
+    line-height: 25px;
+    margin-right: 25px;
+    color: rgb(53, 54, 56);
+    margin-left: 10px;
+}
+
+.deleteButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: rgb(53, 54, 56);
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 13px;
+    }
+
+.buttons {
+    margin-right: 20px;
+    text-align: end;
+}
+
+.modal-open {
+    display: flex;
+    width: 40%;
+    z-index: -1;
+    align-content: center;
+    align-items: center;
+    margin: 0px auto;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    margin-bottom: 150px;
+}
+
+.ModalContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: rgb(255,255,255, 0.8);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+
+  .ModalContainer__ContentContainer {
+    background: white;
+    padding: 25px 50px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .areYouSure {
+      font-size: 15px !important;
+  } 
+
+  .ModalContainer__ButtonsContainer {
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .ModalContainer__Button {
+    width: 45% ;
+    border-radius: 0;
+    background-color: rgb(58, 175, 184);
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 7px 13px 10px;
+    cursor: pointer;
+    border: 1px solid gray;
+    font-weight: bold;
+  }
+
+  .ModalContainer__WrappedButton{
+    width: 100%;
+  }
+
+  .red{
+    background-color: rgb(160, 0, 0);
+  }
+
+  .red:hover{
+    background-color: rgb(255,0,0);
+  }
+
+  .link {
+    width: 45%;
+  }
