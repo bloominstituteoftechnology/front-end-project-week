@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from "react-router-dom";
 
+import initialNotes from './components/dummy';
 import Navbar from "./components/Navbar";
 import NoteList from "./components/NoteList";
 import ViewNote from "./components/ViewNote";
@@ -9,25 +10,12 @@ import Create from "./components/Create";
 import './App.css';
 
 
-const initialNotes = [
- 
-  { id: 1, title: "Test Note 1", content: "Note content Note content Note content Note content Note content..."},
-  { id: 2, title: "Test Note 2", content: "Note content Note content Note content Note content Note content..."},
-  { id: 3, title: "Test Note 3", content: "Note content Note content Note content Note content Note content..."},
-  { id: 4, title: "Test Note 4", content: "Note content Note content Note content Note content Note content..."},
-  { id: 5, title: "Test Note 5", content: "Note content Note content Note content Note content Note content..."},
-  { id: 6, title: "Test Note 6", content: "Note content Note content Note content Note content Note content..."},
-  { id: 7, title: "Test Note 7", content: "Note content Note content Note content Note content Note content..."},
-  { id: 8, title: "Test Note 8", content: "Note content Note content Note content Note content Note content..."},
-  { id: 9, title: "Test Note 9", content: "Note content Note content Note content Note content Note content..."},
-
-]
 class App extends Component {
 
   constructor(props){
-    super(props); 
+    super(props);
     this.state = {
-      notes: initialNotes, 
+      notes: initialNotes,
     }
 
     this.editNote = this.editNote.bind(this)
@@ -38,23 +26,23 @@ class App extends Component {
     const newNotes = this.state.notes.filter(note => note.id !== Number(id));
     this.setState({notes: newNotes});
     console.log('from app -- delete', newNotes)
-    
+
   }
 
   editNote = newNote => {
     console.log(newNote);
     let {notes} = this.state;
-    const idx = notes.findIndex(el => el.id === newNote.id); 
+    const idx = notes.findIndex(el => el.id === newNote.id);
     notes.splice(idx,1, newNote);
     console.log('editNote state',notes)
     this.setState({notes: notes});
   }
 
   createNote = params => {
-    const addNote = this.state.notes.slice().concat(params); 
+    const addNote = this.state.notes.slice().concat(params);
     this.setState({notes: addNote});
 
-    
+
     console.log('from createNote params...', params);
     console.log('after created..state', this.state.notes)
   }

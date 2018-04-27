@@ -21,7 +21,7 @@
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  width: 480px;
+  max-width: 480px;
   background: #d8d8d8;
   border: 2px solid #979797;
   color:#727171;
