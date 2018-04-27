@@ -62,10 +62,10 @@ class App extends Component {
       <div className="App">
         <div className="side-nav">
           <br />
-          <h2>Lambda<br />Notes</h2>
-          <Link to="/"><Button className="btn-info btn-block">View Your Notes</Button></Link>
+          <h2>Lambda<br />Notes</h2><br />
+          <Link to="/"><Button className="btn-custom btn-block">View Your Notes</Button></Link>
           <br />
-          <Link to="create-note"><Button className="btn-info btn-block">+ Create New Note</Button></Link>
+          <Link to="create-note"><Button className="btn-custom btn-block">+ Create New Note</Button></Link>
         </div>
         <div className="main-view">
           <div className="main-view-inner">

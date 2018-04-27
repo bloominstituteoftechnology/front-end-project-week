@@ -33,18 +33,19 @@ class ViewNote extends Component {
     return (
       <div>
         <div>
-          <Row>
-            <Col className="col-3 ml-auto">
-              <Link to="/edit-note" className="m-3">edit</Link>
-              {/* this anchor cannot have href or else after delete, page will refresh and deleted card will reappear */}
-              <a onClick={this.toggleModal}>delete</a>
-              <a className="invisible" onClick={this.handleDelete}>for test only delete</a>
+          <Row className="mt-4 mb-5">
+            <Col>
+              <div className="view-note-content">
+                <h3>{this.props.clickedNote.title}</h3><br />
+                <p dangerouslySetInnerHTML={{__html: this.parseContent()}}></p>
+              </div>
             </Col>
           </Row>
-          <Row className="mt-4">
-            <Col>
-              <h3>{this.props.clickedNote.title}</h3><br />
-              <p dangerouslySetInnerHTML={{__html: this.parseContent()}}></p>
+          <Row>
+            <Col className="col-3">
+              <Link to="/edit-note" className="mr-2"><Button className="btn-size-small btn-info">Edit</Button></Link>
+              <a><Button onClick={this.toggleModal} className="btn-size-small btn-info">Delete</Button></a>
+              <a className="invisible" onClick={this.handleDelete}>for test only delete</a>
             </Col>
           </Row>
         </div>
