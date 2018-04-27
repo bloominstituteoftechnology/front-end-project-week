@@ -24,7 +24,7 @@ class UpdateNote extends Component {
     return (
       <div>
         <br /><br />
-        <h3>Edit Note:</h3><br />
+        <h3 className='h3-notename'>Edit Note:</h3><br />
         <div className="create-note">
           <Form>
             <Row>

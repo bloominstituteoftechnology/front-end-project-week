@@ -35,20 +35,20 @@ class ViewNote extends Component {
                         {this.state.modal ? <Modal isOpen={this.state.modal}>
                         <ModalBody>
                             Are you sure you want to delete this?
-                            <Link to='/' onClick={() => this.handleDelete()}>
+                        </ModalBody>
+                        <div className='d-flex justify-content-around align-items-center w-100'>
+                            <Link className='col-x' to='/' onClick={() => this.handleDelete()}>
                             <Button className='delete'>Delete</Button>
                             </Link>
-                            <Button className='modeButton_no' onClick={() => this.toggleModal()}>
-                            No
-                            </Button>
-                        </ModalBody>
+                            <Button className='modeButton_no col-4 w-100' onClick={() => this.toggleModal()}>No</Button>
+                        </div>
+                        {/* </ModalBody> */}
                         </Modal> : null}    
-
                     </Col>
                 </Row>
                 <Row className='mt-4'>
                     <Col>
-                        <h3>{this.props.selectedNote.title}</h3><br />
+                        <h3 className='font-weight-bold h3-notename'>{this.props.selectedNote.title}</h3><br />
                         <p>{this.props.selectedNote.content}</p>
                     </Col>
                 </Row>

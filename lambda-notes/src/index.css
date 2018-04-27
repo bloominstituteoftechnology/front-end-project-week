@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: arial;
   background-color: #D7D7D7!important;
 }
 
@@ -18,6 +18,7 @@ body {
   color: #4A494A;
   font-weight: bold;
   font-size: 42px;
+  font-family: arial;
 }
 
 /* Note Name when viewing notes */
@@ -25,12 +26,14 @@ body {
   color: #4a4a4a;
   font-weight: bold;
   font-size: 32px;
+  font-family: arial;
 }
 
 /* Your Notes: */
 .noteHeader {
   color: #4A494A;
   font-size: 25px;
+  font-family: arial;
 }
 
 /* Left Side Bar */
@@ -51,10 +54,13 @@ body {
   background-color: #2bc1c4;
   color: #ffffff;
   font-weight: bold;
-  font-size: 21px;
+  font-size: 20px;
   border: 1px solid rgb(133, 131, 131);
   border-radius:1%;
   cursor: pointer;
+  margin-left: 7px;
+  margin-bottom: 5px;
+  font-family: arial;
 }
 
 /* +Create New Note */
@@ -64,26 +70,32 @@ body {
   background-color: #2bc1c4;
   color: #ffffff;
   font-weight: bold;
-  font-size: 21px;
+  font-size: 20px;
   border: 1px solid rgb(133, 131, 131);
   border-radius:1%;
   cursor: pointer;
+  margin-left: 7px;
+  font-family: arial;
 }
 
+/* Save new note */
 .navButton_save {
   width: 30%;
   height: 50px;
   background-color: #2bc1c4;
   color: #ffffff;
   font-weight: bold;
-  font-size: 21px;
+  font-size: 20px;
   border: 1px solid rgb(133, 131, 131);
   border-radius: 1%;
   cursor: pointer;
+  font-family: arial;
 }
 
+/* area around buttons in nav bar */
 .navLink {
   width: 95%;
+  /* border: 1px solid red; */
 }
 
 .body {
@@ -91,81 +103,64 @@ body {
   margin-top: 7%;
 }
 
-.viewNote {
-  min-height: 100%;
-  margin-top: 7%;
-}
-
-.noteTitle {
-  max-width: 60%;
-  height: 50px;
-  border: 1px solid rgb(133, 131, 131);
-}
-
+/* text box for content under create new note */
 .noteContent {
-  height: 600px;
+  height: 300px;
 }
 
-.noteLink {
-  text-decoration: none;
-  color: black;
-}
-
-.noteLink:hover {
-  text-decoration: none;
-  color: black;
-}
-
-.modalLink {
-  text-decoration: underline;
-  color: gray;
-  border: none;
-}
-
-.modalLink:hover {
-  color: gray;
-  cursor: default;
-}
-
-.modal-footer {
-  width: 90%;
-}
-
-.delete-Link {
-  width: 90%;
-}
-
-.modeTitle {
-  width: 90%;
-  text-align: center;
-}
-
+/* Modal DELETE Button */
 .delete {
-  width: 100%;
   margin-bottom: 10px;
   margin-top: 10px;
   border: 1px solid gray;
-  width: 100%;
+  width: 40%;
   height: 45px;
-  background-color: red;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* delete modal button */
-button.delete.btn.btn-secondary {
-  background-color: red;
+/* Modal NO Button */
+.modeButton_no {
+  width: 40%;
+  background-color: #2bc1c4;
+  border: 1px solid gray;
+  height: 45px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* no modal button */
+.modal-body {
+  display: inline-block;
+  margin: auto;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+div.d-flex.justify-content-around.align-items-center.w-100 {
+  margin-bottom: 15px;
+}
+
+/* DELETE modal button */
+button.delete.btn.btn-secondary {
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  width: 250%;
+}
+
+/* NO modal button */
 button.modeButton_no.btn.btn-secondary {
   background-color: #2bc1c4;
 }
 
-/* update button */
+/* UPDATE button */
 button.btn-info.btn.btn-secondary {
   background-color: #2bc1c4;
+  font-family: arial;
+  font-weight: bold;
 }
 
 .col-12 {
@@ -176,30 +171,97 @@ button.btn-info.btn.btn-secondary {
   margin-top: 15px;
 }
 
-.modeButton_no {
-  width: 100%;
-  background-color: #2bc1c4;
-  border: 1px solid gray;
-  height: 45px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
+/* card title on main page */
 .cardtitle {
   font-weight: bold;
+  font-family: arial;
 }
 
-.noteBody {
-  width: 100%;
+/* text inside cards on main pg */
+.card-text {
+  font-family: arial;
 }
 
+/* color notes are inside card boxes on main pg */
 .link {
-  color: black;
+  color: #424141;
   text-decoration: none;
   cursor: pointer;
 }
 
-.h3 {
-  font-weight: bold;
+.link:hover {
+  color: #2bc1c4;
 }
+
+.h3-notename {
+  font-weight: bold;
+  font-family: arial;
+  color: #424141;
+  font-size: 25px;
+}
+
+/* Note text from viewing individual notes */
+.col {
+  font-family: arial;
+  color: #424141;
+  font-size: 15px;
+}
+
+/* Create New Note header */
+h1.sub-header {
+font-size: 25px;
+font-weight: bold;
+font-family: arial;
+color: #424141;
+}
+
+/* .viewNote {
+  min-height: 100%;
+  margin-top: 7%;
+}
+
+.noteTitle {
+  max-width: 60%;
+  height: 50px;
+  border: 1px solid rgb(133, 131, 131);
+  border: 1px solid red;
+} */
+
+/* .noteBody {
+  width: 100%;
+} */
+
+/* .noteLink {
+  text-decoration: none;
+  color: red;
+} */
+
+/* .noteLink:hover {
+  text-decoration: none;
+  color: red;
+} */
+
+/* .modalLink {
+  text-decoration: underline;
+  color: gray;
+  border: none;
+} */
+
+/* .modalLink:hover {
+  color: gray;
+  cursor: default;
+} */
+
+/* .modal-footer {
+  width: 90%;
+} */
+
+/* 
+.delete-Link {
+  width: 90%;
+}
+
+.modeTitle {
+  width: 90%;
+  text-align: center;
+} */
