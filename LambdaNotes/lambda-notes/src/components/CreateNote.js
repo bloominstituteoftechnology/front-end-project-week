@@ -1,6 +1,12 @@
+// REACT COMPONENTS
 import React, { Component } from 'react';
+
+// REDUX COMPONENTS
 import { connect } from 'react-redux';
 import { createNote } from '../actions';
+
+// ROUTER COMPONENTS
+import { Link } from 'react-router-dom'
 
 class CreateNote extends Component {
   constructor(props){
@@ -24,18 +30,18 @@ class CreateNote extends Component {
             value={this.state.note.title}
             onChange={e => this.setState({ [e.target.name]: e.target.value })}
             />
-          <input className="APP__CREATE-CONTENT"
+          <textarea className="APP__CREATE-CONTENT"
             type="text"
             placeholder="Note Content"
             name="text"
             value={this.state.note.text}
             onChange={e => this.setState({ [e.target.name]: e.target.value })}
             />
-          <button className="APP__CREATE-SAVE"
+          <Link to="/"><button className="APP__CREATE-SAVE"
             onClick={() => {
-              this.props.createNote(this.state)
+              this.props.createNote(this.state);
               this.setState({ note: [{ title: '', text: '' }]  });
-            }}>Save</button>
+            }}>Save</button></Link>
       </div>
     );
   }

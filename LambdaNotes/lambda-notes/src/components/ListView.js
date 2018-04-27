@@ -1,15 +1,14 @@
+// REACT COMPONENTS
 import React, { Component } from 'react';
+
+// ROUTER COMPONENTS
 import {Link} from 'react-router-dom';
+
+// STYLING COMPONENTS
 import '../Styles.css';
 
-// COMPONENTS
-import NOTEVIEW from './NoteView';
-
-// REDUX components
+// REDUX COMPONENTS
 import { connect } from 'react-redux';
-// import { fetchNotes } from '../actions';
-
-
 
 class ListView extends Component {
   constructor (props){
@@ -19,9 +18,6 @@ class ListView extends Component {
     }
   }
 
-  
-  
-
   render() {
     return (
       <div className="APP__LISTVIEW">
@@ -30,7 +26,7 @@ class ListView extends Component {
         {this.state.notes.map((note, index) => {
           return(
             <div key={`note${index}`}>
-              <Link to={`/note/${index}`}>
+              <Link to={`/note/${index}`} style={{ textDecoration: 'none' }}>
                 <ANote note={note} />
               </Link>
             </div>
@@ -46,8 +42,8 @@ function ANote(props) {
   const { title, text } = props.note;
   return (
     <div className="APP__NOTECARD">
-      <h5>{title}</h5>
-      <p>{text}</p>
+      <h5 className="APP__LIST-TITLE">{title}</h5>
+      <p className="APP__LIST-TEXT">{text}</p>
     </div>
   )
 };

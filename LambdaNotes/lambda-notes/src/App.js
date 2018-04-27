@@ -1,14 +1,9 @@
-// Styling Components
+// STYLING COMPONENTS
 import './Styles.css';
 
-// testing tools
-import testData from './components/TestData';
-
-// REDUX components
+// REDUX COMPONENTS
 import { connect } from 'react-redux';
 import { editNote, createNote, deleteNote } from './actions';
-
-// REACTSTRAP COMPONENTS
 
 // REACT COMPONENTS
 import React, { Component } from 'react';
@@ -28,21 +23,20 @@ class App extends Component {
   }
 
   render() {
-    console.log('App state: ' , this.state);
-    console.log('App props: ' , this.props);
     return (
       <Router>
         <div className="APP">
             <div className="APP__MENU">
-              <MENUBAR />
+              <Route path='/' render={( props) => <MENUBAR {...props} notes={this.props.notes} /> }
+              />
             </div>
             <div className="APP__BODY">
               <Switch>
                 <Route exact path='/' render={( props ) => <LISTVIEW {...props} notes={this.props.notes}/> }
                 />
-                <Route path='/note/:id' render={(props) => <NOTEVIEW {...props} /> }
+                <Route path='/note/:id' render={(props) => <NOTEVIEW {...props} notes={this.props.notes}/> }
                 />
-                <Route path='/edit/:id' render={( props ) => <EDITNOTE {...props} /> }
+                <Route path='/edit/:id' render={( props ) => <EDITNOTE {...props} notes={this.props.notes}/> }
                 />
                 <Route path='/create' component={CREATENOTE} />
               </Switch>
@@ -60,15 +54,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { editNote, createNote, deleteNote })(App);
-
-// console.log(store.getState());
-
-// const unsubscribe = store.subscribe(() =>
-//   console.log(store.getState())
-// )
-
-// store.dispatch(fetchNotes(store));
-// store.dispatch(createNote({title: 'new note title', text: 'New note text, new note text.'}));
-// store.dispatch(editNote({title: 'edited title', text: 'edited text.  edited text.'}, 4));
-
-// unsubscribe();

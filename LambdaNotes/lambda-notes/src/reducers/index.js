@@ -1,3 +1,4 @@
+// ------ REDUCERS ------
 import testData from '../components/TestData';
 import { EDIT_NOTE, CREATE_NOTE, DELETE_NOTE } from '../actions';
 
@@ -10,6 +11,7 @@ export default (state = initialState, action) => {
 
     // ------ EDIT NOTE ------
     case EDIT_NOTE:
+    console.log(state);
       return Object.assign({}, state, {
         notes: state.notes.map((note, index) => {
           if(index === action.index) {
@@ -36,7 +38,7 @@ export default (state = initialState, action) => {
     
     // ------ DELETE NOTE ------
     case DELETE_NOTE:
-      return state;
+      return Object.assign({}, state, state.notes.splice(action.payload, 1));
     
     // ------ DEFAULT CASE ------
     default:
