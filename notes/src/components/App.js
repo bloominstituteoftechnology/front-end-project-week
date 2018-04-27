@@ -71,10 +71,6 @@ export class App extends Component {
         <div className="App_body">
           <Switch>
             <Route exact path="/" render={() => <NoteList notes={this.state.notes}/> }/>
-            <Route path="/view/:id" render={props => 
-              <NoteView {...props}
-              notes={this.state.notes}/> 
-            }/>
             <Route path="/create" render={props => 
               <NoteForm {...props} 
               formUse="Create New Note"
@@ -86,19 +82,23 @@ export class App extends Component {
               useFunction={this.editNote} 
               notes={this.state.notes}/> 
             }/>
-            <Route path="/view/:id/delete" render={props => 
-              <Modal {...props}
-              useFunction={this.deleteNote}/> 
+            <Route path="/view/:id" render={props => 
+              <NoteView {...props}
+              notes={this.state.notes}/> 
             }/>
             <Route path="/delete/all" render={props => (
-              <div> {/* Make sure that modal is shown above note list */}
-                <NoteList notes={this.state.notes}/> 
-                <Modal {...props}
-                useFunction={this.clearNotes}/> 
-              </div>
+            <div> {/* Make sure that modal is shown above note list */}
+              <NoteList notes={this.state.notes}/> 
+              <Modal {...props}
+              useFunction={this.clearNotes}/> 
+            </div>
             )}/>
             <Route component={ErrorPage}/>
           </Switch>
+          <Route path="/view/:id/delete" render={props => 
+            <Modal {...props}
+            useFunction={this.deleteNote}/> 
+          }/>
         </div>
       </div>
     );
