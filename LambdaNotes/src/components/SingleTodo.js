@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 // actions
-import { toggleTodo } from "../actions/index";
+import { toggleTodo, deleteTodo } from "../actions/index";
 // material components
 import { Card, CardText } from "material-ui/Card";
 import IconMenu from "material-ui/IconMenu";
@@ -18,6 +18,10 @@ class SingleTodo extends React.Component {
 	// change a todo's completion status
 	handleToggleTodo = id => {
 		this.props.toggleTodo(id);
+	};
+	// delete a todo
+	handleDeleteTodo = index => {
+		this.props.deleteTodo(index);
 	};
 
 	render() {
@@ -49,11 +53,14 @@ class SingleTodo extends React.Component {
 							anchorOrigin={{ horizontal: "left", vertical: "top" }}
 							targetOrigin={{ horizontal: "left", vertical: "top" }}
 						>
-							<MenuItem primaryText="Refresh" />
-							<MenuItem primaryText="Send feedback" />
-							<MenuItem primaryText="Settings" />
-							<MenuItem primaryText="Help" />
-							<MenuItem primaryText="Sign out" />
+							<Link to={`/todo/${this.props.index}`}>
+								<MenuItem primaryText="Edit this note" />
+							</Link>
+							<MenuItem
+								primaryText="Delete"
+								onClick={() => this.handleDeleteTodo(this.props.index)}
+							/>
+							<MenuItem primaryText="Archive" />
 						</IconMenu>
 					</div>
 				</CardText>
@@ -62,4 +69,4 @@ class SingleTodo extends React.Component {
 	}
 }
 
-export default connect(null, { toggleTodo })(SingleTodo);
+export default connect(null, { toggleTodo, deleteTodo })(SingleTodo);

@@ -61,8 +61,10 @@ const rootReducer = (state = initialState, action) => {
 			});
 		// edit new todo
 		case UPDATETODO:
-			state.todos[parseInt(action.payload.id, 10)].title = action.payload.title;
-			state.todos[parseInt(action.payload.id, 10)].text = action.payload.text;
+			state.todos[parseInt(action.payload.id, 10)].title =
+				action.payload.title;
+			state.todos[parseInt(action.payload.id, 10)].text =
+				action.payload.text;
 			return Object.assign({}, state, {
 				todos: state.todos,
 				status: "UPDATING A TODO"
@@ -81,7 +83,9 @@ const rootReducer = (state = initialState, action) => {
 			return Object.assign({}, state, {
 				todos: state.todos.map(todo => {
 					if (todo.id === action.payload) {
-						return Object.assign({}, todo, { isComplete: !todo.isComplete });
+						return Object.assign({}, todo, {
+							isComplete: !todo.isComplete
+						});
 					}
 					return todo;
 				}),
