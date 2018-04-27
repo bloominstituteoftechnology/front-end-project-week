@@ -9,14 +9,20 @@ import { addNoteActionCreator } from "./allActions";
 import { connect } from 'react-redux';
 import NoteView from "./notView";
 import EditNote from "./editNote";
+import{persistStore}  from 'redux-persist'
+
+
 
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      notes:[]
     }
   }
+
+
   render() {
     return (
       <Router>

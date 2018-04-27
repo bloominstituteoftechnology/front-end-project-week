@@ -47,7 +47,7 @@ let filterNotesAction =()=>{
                 value={this.state.search}
                 onChange={this.searchHandler}
         />
-          <button className="SearchButton !important" onClick={ () =>{filterNotesAction(); this.setState({ search:''})}} >Save</button>             
+          <button className="SearchButton !important" onClick={ () =>{filterNotesAction(); this.setState({ search:''})}} >Back</button>             
        <p>Your Notes:</p>     
            {/* {this.props.notes.map((note, index) => {
                console.log('index',index)

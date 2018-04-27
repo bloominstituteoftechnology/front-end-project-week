@@ -38,15 +38,15 @@ this.setState({[event.target.name]: event.target.value})
           <p>Create new Note:</p>
             <input className="Input"
                 placeholder="add new note"
-                name="noteTitle" 
-                value={this.state.noteTitle} 
+                name="noteText" 
+                value={this.state.noteText} 
                 onChange={this.AddNewNoteHandler}
             />
             <textarea className="TextArea"
                  type="text"
                  placeholder="Note Content"
-                 name="noteText"
-                 value={this.state.noteText}
+                 name="noteTitle"
+                 value={this.state.noteTitle}
                 onChange={this.AddNewNoteHandler}
              />
             <button className='Button'            
