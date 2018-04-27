@@ -12,12 +12,12 @@ export default class NotesList extends Component {
 
   render() {
     return (
-      <div className='notesList__background'>
+      <div className="notesList__background">
         <h4 className="notesList__title">Your Notes:</h4>
 
         <div className="notesList__list">
-          {this.props.notes.map(note => (
-            <div className="notesList__notes">
+          {this.props.notes.map((note, index) => (
+            <div className="notesList__notes" key={index}>
               <Note key={note.id} note={note} />
             </div>
           ))}
