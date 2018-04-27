@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { post_note } from '../../actions';
 import { Form, Input } from 'reactstrap';
-import './AddNote.css';
+import './CreateNewNote.css';
 
-class AddNote extends Component {
+class CreateNewNote extends Component {
     state = {
         title: '',
         content: ''
@@ -59,4 +59,4 @@ class AddNote extends Component {
     }
 }
 
-export default connect(null, { post_note })( AddNote);
+export default connect(null, { post_note })(CreateNewNote);
