@@ -8,6 +8,7 @@
 }
   
 .header {
+    font-family: Sans-serif, Arial;
     font-size: 25px;
     color: #4a494a;
     font-weight: bold;
@@ -35,6 +36,7 @@
 }
 
 .noteTitle {
+    font-family: Sans-serif, Arial;
     font-size: 22px;
     font-weight: bold;
     color: black;
@@ -46,7 +48,8 @@
 }
 
 .noteBody {
-    font-size: 14px;
+    font-family: Sans-serif, Tahoma;
+    font-size: 15px;
     color: #4a494a;
     letter-spacing: 1px;
     line-height: 29px;
