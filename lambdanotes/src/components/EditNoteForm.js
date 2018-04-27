@@ -99,48 +99,26 @@ class EditNoteForm extends Component {
   };
 
   render() {
-    return (
-      <Wrapper>
+    return <Wrapper>
         <Container>
           <Heading>Edit Note:</Heading>
           <SwitchContainer>
             <SwitchText>Use Markdown:</SwitchText>
-            <Switch
-              onColor="#00b9bc"
-              className="react-switch"
-              onChange={this.handleToggle}
-              checked={this.state.checked}
-              aria-label="toggle for markdown"
-            />
+            <Switch onColor="#00b9bc" className="react-switch" onChange={this.handleToggle} checked={this.state.checked} aria-label="toggle for markdown" />
           </SwitchContainer>
         </Container>
         <Form>
-          <Input
-            type="text"
-            placeholder="Note Title"
-            onChange={this.handleInputChange}
-            name="title"
-            value={this.state.title}
-          />
-          <TextArea
-            rows="15"
-            cols="30"
-            value={this.state.text}
-            onChange={this.handleInputChange}
-            name="text"
-          />
-          {this.state.checked ? (
-            <div>
+          <Input type="text" placeholder="Note Title" onChange={this.handleInputChange} name="title" value={this.state.title} />
+          <TextArea rows="15" cols="30" value={this.state.text} onChange={this.handleInputChange} name="text" />
+          {this.state.checked ? <div>
               <h3>Markdown Output:</h3>
               <ReactMarkdown source={this.state.text} />
-            </div>
-          ) : null}
+            </div> : null}
           <Button type="submit" onClick={this.handleUpdateNote}>
             Update
           </Button>
         </Form>
-      </Wrapper>
-    );
+      </Wrapper>;
   }
 }
 
