@@ -68,6 +68,7 @@ body {
 .left__side .csv__btn {
   background-color: #444444;
   color: crimson;
+  cursor: pointer;
 }
 
 .right__side {
@@ -285,4 +286,10 @@ body {
   cursor: pointer;
   background-color: #444444;
   color: crimson;
+}
+
+.username {
+  color: crimson;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px #000;
 }

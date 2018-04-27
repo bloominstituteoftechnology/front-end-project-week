@@ -8,11 +8,15 @@ import { ViewNote } from "./components/ViewNote";
 import { EditNote } from "./components/EditNote";
 import { SideBar } from "./components/SideBar";
 import { Landing } from "./components/Landing";
-import base from "./base";
+import Login from "./components/Login";
+import base, { firebaseApp } from "./base";
+import firebase from "firebase";
 
 class App extends Component {
   state = {
-    notes: []
+    notes: [],
+    user: "",
+    isLoggedIn: false
   };
 
   // sync to firebase db and update changes live
@@ -62,12 +66,36 @@ class App extends Component {
     return encodeURI(csvExport);
   };
 
+  authHandler = authData => {
+    this.setState({ user: authData.user.displayName, isLoggedIn: true });
+  };
+
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseApp
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
+  };
+
+  logout = () => {
+    console.log("Logging out!");
+    firebase.auth().signOut();
+    this.setState({ user: null, isLoggedIn: false });
+  };
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <div className="row">
-            <SideBar export={this.handleExport} />
+            <SideBar
+              export={this.handleExport}
+              authenticate={this.authenticate}
+              user={this.state.user}
+              isLoggedIn={this.state.isLoggedIn}
+              logout={this.logout}
+            />
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route

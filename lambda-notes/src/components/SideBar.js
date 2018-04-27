@@ -2,6 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const SideBar = props => {
+  const isLoggedIn = props.isLoggedIn;
+  const button = isLoggedIn ? (
+    <a className="sidebar__button csv__btn" onClick={() => props.logout()}>
+      Logout
+    </a>
+  ) : (
+    <a
+      className="sidebar__button csv__btn"
+      onClick={() => props.authenticate("Github")}
+    >
+      Login with Github
+    </a>
+  );
   return (
     <div className="col-3 left__side">
       <Link to="/">
@@ -20,6 +33,8 @@ export const SideBar = props => {
       >
         Export to CSV
       </a>
+      {button}
+      <p className="username"> Welcome {props.user || null} </p>
     </div>
   );
 };
