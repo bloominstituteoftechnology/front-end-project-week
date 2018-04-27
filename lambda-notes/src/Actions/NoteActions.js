@@ -2,9 +2,6 @@ import axios from 'axios';
 
 export const LOGIN = 'LOGIN';
 export const GETNOTES = 'GETNOTES';
-export const ADDNOTE = 'ADDNOTE';
-export const UPDATENOTE = 'UPDATENOTE';
-export const DELETENOTE = 'DELETENOTE';
 
 export const logIn = (user) => {
   const promise = axios.post('http://localhost:5000/api/login', user);
@@ -23,18 +20,6 @@ export const registerUser = (newUser) => {
     promise
       .then(response => {
         console.log(response);
-      })
-  }
-}
-export const getNotes = () => {
-  const promise = axios.get('http://localhost:5000/api/notes');
-  return dispatch => {
-    promise
-      .then(response => {
-        dispatch({type: GETNOTES, payload: response.data})
-      })
-      .catch(err => {
-        console.log(err);
       })
   }
 }

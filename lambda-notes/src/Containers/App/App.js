@@ -3,7 +3,7 @@ import classes from './App.css';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Cockpit} from '../../Components/Cockpit';
-import {getNotes} from '../../Actions/NoteActions';
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
     ...state
   }
 }
-export default connect(mapStateToProps, {getNotes})(App);
+export default connect(mapStateToProps)(App);

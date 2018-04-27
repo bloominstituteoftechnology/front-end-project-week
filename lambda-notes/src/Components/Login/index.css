@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 200px;
+  min-height: 200px;
   padding: 30px;
 }
 .Container__Header {
@@ -37,13 +37,17 @@
   padding: 8px;
 }
 .Container__ButtonsContainer {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-evenly;
 }
 .Container__Button {
   width: 40%;
 }
+.Data{
+  text-decoration: line-through;
+}
 .Container__Margin_10 {
   margin-top: 10px;
+  margin-bottom: 10px;
 }

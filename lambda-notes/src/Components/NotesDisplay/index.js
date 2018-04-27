@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './index.css';
 import {store} from '../../index';
 import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router';
 
 export const NotesDisplay = () => {
   let notes = <h1 className={classes.emptyList}>Your list appears to be empty...</h1>;
@@ -27,6 +28,7 @@ export const NotesDisplay = () => {
   }
   return (
     <React.Fragment>
+      {store.getState().loggedIn ? null : <Redirect to='/'/>}
       {notes}
     </React.Fragment>
   );

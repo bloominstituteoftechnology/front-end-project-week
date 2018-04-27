@@ -3,6 +3,8 @@ import classes from './index.css';
 import {addNote} from '../../Actions/NoteActions';
 import {store} from '../../';
 import uuid from 'uuid/v4';
+import {Redirect} from 'react-router';
+
 export class NoteForm extends Component {
   constructor() {
     super();
@@ -32,6 +34,7 @@ export class NoteForm extends Component {
     };
     return (
       <div className={classes.Container}>
+        {store.getState().loggedIn ? null : <Redirect to='/'/>}
         <h2 className={classes.Container__Header}>Create new note:</h2>
         <input
           className={classes.Container__input}

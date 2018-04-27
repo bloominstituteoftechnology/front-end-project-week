@@ -11,17 +11,16 @@ app.use(cors());
 
 app.post('/api/login', (req, res) => {
   const user = req.body;
+  console.log(user);
   jsonfile.readFile(file, function(err, obj) {
     if(obj.profiles[user.username] !== undefined){
-      console.log('username exists');
-      if(obj.profiles[user.username].password === obj.profiles[user.username].password) {
-        console.log('correct password');
+      if(obj.profiles[user.username].password === user.password) {
         res.send({notes:[...obj.profiles[user.username].notes], loggedIn: true, username:user.username});
       } else {
-        console.log('incorrect password')
+        console.log('incorrect password');
       }
     } else {
-      console.log ('incorrrect username')
+      console.log('incorrect username');
     }
   })
 })
