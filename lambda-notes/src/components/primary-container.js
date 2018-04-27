@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardTitle, CardBody, CardText, Col, Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getNotes, saveNote, handleReverse, handleOrder, sortTitle } from '../REDUX/actions';
+import { getNotes, saveNote, handleReverse, handleOrder, sortTitle, setHome } from '../REDUX/actions';
 import { CardFactory } from './card-factory';
 import { ShowAt, HideAt } from 'react-with-breakpoints';
 import Dragula from 'dragula';
@@ -16,16 +16,21 @@ class PrimaryContainer extends Component {
       sortOptions: false,
       defaultSort: true,
       sortOldest: false,
-      sortTitle: false
+      sortTitle: false,
+      letsDrag: false
     }
   }
 
-  componentDidMount() { this.props.getNotes() }
+  componentDidMount() {
+    this.props.setHome(true)
+    this.props.getNotes() 
+  }
 
   dragulaDecorator = (componentBackingInstance) => {
     if (componentBackingInstance) {
-      let options = {};
-      Dragula([componentBackingInstance], options);
+      Dragula([componentBackingInstance], {
+        getImmediateChild: (dropT, t) => {console.log(dropT)}
+      })
     }
   }
 
@@ -67,46 +72,46 @@ class PrimaryContainer extends Component {
               this.setState({ defaultSort: false, sortOldest: false, sortTitle: true })
               this.props.sortTitle();
             }}
-            className={!this.state.defaultSort && !this.state.sortOldest ? "active" : ""}
+            className={!this.state.defaultSort && !this.state.sortOldest && !this.state.letsDrag ? "active" : ""}
           >Title A-Z</DropdownItem>
           <DropdownItem 
             onClick={() => {
               this.setState({ defaultSort: false, sortOldest: true, sortTitle: false });
               this.props.handleReverse();
             }}
-            className={!this.state.defaultSort && !this.state.sortTitle ? "active" : ""}  
+            className={!this.state.defaultSort && !this.state.sortTitle && !this.state.letsDrag ? "active" : ""}  
           >Oldest - Newest</DropdownItem>
           <DropdownItem 
             onClick={() => {
               this.setState({ defaultSort: true, sortOldest: false, sortTitle: false });
               this.props.handleOrder();
             }}
-            className={!this.state.sortTitle && !this.state.sortOldest ? "active" : ""}
+            className={!this.state.sortTitle && !this.state.sortOldest && !this.state.letsDrag ? "active" : ""}
           >Newest - Oldest</DropdownItem>
+          <DropdownItem
+            onClick={() => this.setState({ letsDrag: !this.state.letsDrag })}
+            className={this.state.letsDrag ? "active" : ""}
+          >Drag</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     )
   }
 
   render() {
-    const list = this.props.notes.map((note) => {
-      return {content: (<CardFactory note={note} />)};
-    });
     return (
       <div className="PrimaryContainer">
+
         <div className="d-flex justify-content-between align-items-center w-100 sticks">
           <h1 className="PrimaryContainer__header--notecards sticky">
             {this.props.username !== "" ? `${this.props.username}'s Notes:` : "Your Notes:"}
           </h1>
           <div className="sticky">{ this.viewOrder() }</div>
         </div>
-        {/* <div className="d-flex justify-content-between align-items-center w-100">
-          <h1 className="PrimaryContainer__header--notecards">Your Notes:</h1>
-          <div>{ this.viewOrder() }</div>
-        </div> */}
-        <div className="PrimaryContainer__cardContainer mx-0" ref={this.dragulaDecorator}>
+
+        <div className="PrimaryContainer__cardContainer mx-0" ref={this.state.letsDrag ? this.dragulaDecorator : null}>
           {this.props.notes.map(note => this.cardFactory(note))}
         </div>
+
       </div>
     )
   }
@@ -116,7 +121,15 @@ const mapStateToProps = state => ({
   notes: state.notes, 
   night: state.night, 
   listView: state.listView,
-  username: state.username
+  username: state.username,
+  isHome: state.isHome
 })
 
-export default connect(mapStateToProps, { getNotes, saveNote, handleReverse, handleOrder, sortTitle })(PrimaryContainer);
+export default connect(mapStateToProps, { 
+  getNotes, 
+  saveNote,
+  handleReverse, 
+  handleOrder, 
+  sortTitle ,
+  setHome
+})(PrimaryContainer);

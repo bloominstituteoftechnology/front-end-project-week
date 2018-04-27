@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { updateNote } from '../REDUX/actions';
+import { updateNote, setHome } from '../REDUX/actions';
 import { connect } from 'react-redux';
 
 class EditNote extends Component {
@@ -12,6 +12,8 @@ class EditNote extends Component {
       content: props.location.state.note.content
     };
   }
+
+  componentDidMount() { this.props.setHome(false) }
 
   stageUpdate = () => {
     const { note } = this.props.location.state;
@@ -53,5 +55,5 @@ class EditNote extends Component {
   }
 }
 
-export default connect(null, { updateNote })(EditNote);
+export default connect(null, { updateNote, setHome })(EditNote);
 // export default EditNote;

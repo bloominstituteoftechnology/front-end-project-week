@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { saveNote } from '../REDUX/actions';
+import { saveNote, setHome } from '../REDUX/actions';
 import { connect } from 'react-redux';
 import { Button, Collapse } from 'reactstrap';
 import Remarkable from 'remarkable';
@@ -15,6 +15,8 @@ class NewNote extends Component {
       toggleMarkdown: false
     };
   }
+
+  componentDidMount() { this.props.setHome(false) }
 
   handleSaveNote = () => {
     const newNote = { title: this.state.title, content: this.state.content };
@@ -41,7 +43,7 @@ class NewNote extends Component {
             onChange={event => this.setState({ [event.target.name]: event.target.value })}
           />
           <div className="d-flex align-items-center justify-content-between">
-            <div className="mr-2">markdown support</div>
+            <div className="mr-2 text-right">markdown support</div>
             <div className="">
               <div className="onoffswitch">
                 <input 
@@ -82,4 +84,4 @@ class NewNote extends Component {
   }
 }
 
-export default connect(null, { saveNote })(NewNote);
+export default connect(null, { saveNote, setHome })(NewNote);

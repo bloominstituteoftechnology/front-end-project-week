@@ -10,6 +10,7 @@ export const NEWEST_OLDEST = "ORDER";
 export const LIST = "LIST";
 export const SORT_TITLE = "SORT_TITLE";
 export const NEW_USER = "NEW_USER";
+export const SET_HOME = "SET_HOME";
 
 export const getNotes = () => {
   return dispatch => {
@@ -67,6 +68,7 @@ export const handleReverse = () => {
 }
 
 export const handleOrder = () => {
+  debugger
   return dispatch => { dispatch({ type: NEWEST_OLDEST }) }
 }
 
@@ -80,6 +82,10 @@ export const sortTitle = () => {
 
 export const newUser = name => {
   return dispatch => { dispatch({ type: NEW_USER, payload: name }) }
+}
+
+export const setHome = bool => {
+  return dispatch => { dispatch({ type: SET_HOME, payload: bool }) }
 }
 
 export const toggleNight = () => { return dispatch => dispatch({ type: TOGGLE_NIGHT }) }

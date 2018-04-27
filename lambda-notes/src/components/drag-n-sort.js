@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { getNotes } from '../REDUX/actions';
 import { Card, CardTitle, CardBody, CardText, Col, Button } from 'reactstrap';
 import { CardFactory } from './card-factory';
-// import { handleReorder } from '../REDUX/actions';
-// import createAbsoluteGrid from 'react-absolute-grid';
 import Dragula from 'dragula';
 
 
@@ -88,7 +86,7 @@ class DragSort extends Component {
 
   render() {
     return (
-      <div className="container PrimaryContainer__cardContainer" ref={this.dragulaDecorator}>
+      <div className="container PrimaryContainer__cardContainer" ref={() => this.dragulaDecorator}>
         {this.props.notes.map(note => (<CardFactory key={note.id} note={note} />))}
       </div>
     )

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Remarkable from 'remarkable';
 import styled from 'styled-components';
+import { setHome } from '../REDUX/actions';
+import { connect } from 'react-redux';
 
 const Break = styled.section`white-space: pre-line;`;
 
@@ -14,6 +16,7 @@ class Markdown extends Component {
   }
 
   componentDidMount() {
+    this.props.setHome(false);
     const sampleInput = `this can **convert** plain text to **markdown** 
       \n* create\n* bulleted\n* lists\n# header #1\n## header #2\n### header #3
       \n[ here's a link to nowhere! ]() \n *** \n**begin typing to try it yourself!**`;
@@ -47,4 +50,6 @@ class Markdown extends Component {
   }
 }
 
-export default Markdown;
+export default connect(null, { setHome })(Markdown);
+
+// export default Markdown;

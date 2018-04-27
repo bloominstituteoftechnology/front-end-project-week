@@ -87,10 +87,6 @@
   line-height: 180%;
 }
 
-.ContentInput {
-  height: 300px;
-}
-
 .sticks {
   background-color: rgba(243, 243, 243, 0.932);
   position: sticky;

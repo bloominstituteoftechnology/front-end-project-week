@@ -18,10 +18,10 @@ class NavColumn extends Component {
     this.state = { 
       collapsed: true,
       viewOpen: false,
-      notHome: false,
       isOpen: false
     }
   }
+
   render() {
     return (
       <div className="Nav__Container">
@@ -29,12 +29,9 @@ class NavColumn extends Component {
           <h1 className="Nav__Header pr-2">Lambda <br/> Notes</h1>
           <Nav vertical className="Nav__ButtonsContainer">
             <NavItem className="col-12 p-0">
-              {this.state.notHome ? (
+              {!this.props.isHome ? (
                 <Link to="/home">
-                  <Button 
-                    className="Nav__ButtonsContainer--navButton px-0"
-                    onClick={() => this.setState({ notHome: false })}
-                    >View Your Notes</Button>
+                  <Button className="Nav__ButtonsContainer--navButton px-0">View Your Notes</Button>
                 </Link>
               ) : (
                 <Link to="/home">
@@ -64,18 +61,12 @@ class NavColumn extends Component {
             </NavItem>
             <NavItem className="col-12 p-0">
               <Link to="/create">
-                <Button 
-                  className="Nav__ButtonsContainer--navButton px-0"
-                  onClick={() => this.setState({ notHome: true })}
-                  >+ Create New Note</Button>
+                <Button className="Nav__ButtonsContainer--navButton px-0">+ Create New Note</Button>
               </Link>
             </NavItem>
             <NavItem className="col-12 p-0">
               <Link to="/markdown">
-                <Button 
-                  className="Nav__ButtonsContainer--navButton px-0"
-                  onClick={() => this.setState({ notHome: true })}
-                  >Markdown Editor</Button>
+                <Button className="Nav__ButtonsContainer--navButton px-0">Markdown Editor</Button>
               </Link>
             </NavItem>
           </Nav>
@@ -104,6 +95,10 @@ class NavColumn extends Component {
   }
 }
 
-const mapStateToProps = state => ({ night: state.night, listView: state.listView });
+const mapStateToProps = state => ({ 
+  night: state.night, 
+  listView: state.listView,
+  isHome: state.isHome
+});
 
 export default connect(mapStateToProps, { toggleNight, listViews })(NavColumn);

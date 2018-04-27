@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteNote } from '../REDUX/actions';
+import { deleteNote, setHome } from '../REDUX/actions';
 import { Button, Modal, ModalBody } from 'reactstrap';
 
 class ViewNote extends Component {
@@ -10,11 +10,13 @@ class ViewNote extends Component {
     this.state = {
       title: "",
       content: "",
-      modal: false
+      deleteModal: false
     }
   }
 
-  toggleModal = () => { this.setState({ modal: !this.state.modal }) }
+  componentDidMount() { this.props.setHome(false) }
+
+  toggleModal = () => { this.setState({ deleteModal: !this.state.deleteModal }) }
 
   handleDelete = id => {
     this.toggleModal();
@@ -32,8 +34,8 @@ class ViewNote extends Component {
         <h1 className="PrimaryContainer__header">{note.title}</h1>
         <div className="ViewNote__content">{note.content}</div>
 
-        {this.state.modal ? (
-          <Modal isOpen={this.state.modal}>
+        {this.state.deleteModal ? (
+          <Modal isOpen={this.state.deleteModal}>
             <ModalBody className="Modal__header">Are you sure you want to delete this?</ModalBody>
             <div className="Modal__ButtonsContainer">
               <Link to="/home" onClick={() => this.handleDelete(note.id)} className="Modal__button--link">
@@ -49,4 +51,4 @@ class ViewNote extends Component {
   }
 }
 
-export default connect(null, { deleteNote })(ViewNote);
+export default connect(null, { deleteNote, setHome })(ViewNote);

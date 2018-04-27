@@ -1,7 +1,8 @@
 import {
   FETCH_NOTES, FETCHING_ERROR, DELETED_NOTE, 
   TOGGLE_NIGHT, REORDER, OLDEST_NEWEST, 
-  NEWEST_OLDEST, LIST, SORT_TITLE, NEW_USER
+  NEWEST_OLDEST, LIST, SORT_TITLE, NEW_USER,
+  SET_HOME
 } from '../actions';
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
   error: "",
   listView: false,
   username: "",
+  isHome: false,
   night: false
 };
 
@@ -69,6 +71,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         username: action.payload
+      }
+
+    case SET_HOME:
+      return {
+        ...state,
+        isHome: action.payload
       }
 
     default:
