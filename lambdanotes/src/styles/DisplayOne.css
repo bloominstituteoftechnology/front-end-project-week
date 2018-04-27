@@ -19,3 +19,9 @@
   margin-right: 36px;
 }
 
+.edit-delete {
+  margin: 14px 6px 0px 13px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
