@@ -31,6 +31,7 @@
 }
 
 .note-title {
+  font-family: Sans-serif, Arial;
   font-size: 26px;
   color: #4a494a;
   font-weight: 700;
@@ -38,6 +39,7 @@
 }
 
 .note-body {
+  font-family: Sans-serif, Verdana;
   font-size: 16px;
   font-weight: 600;
   color: #5f5f5f;
