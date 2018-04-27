@@ -45,7 +45,7 @@ export default class NoteDetail extends Component {
 
                 <div className="DeleteNoteButton">
                   <div>
-                    <Link to="/">
+                    <Link to="/"style={{ textDecoration: 'none' }}>
                       <Button
                         color="danger"
                         onClick={() => {

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import "./App.css";
 
-
 import SideMenu from "./components/SideMenu";
 import MainContent from "./components/MainContent";
 
@@ -12,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header sticky-top">
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <h1 className="ListView">Note.It</h1>
           </Link>
         </header>

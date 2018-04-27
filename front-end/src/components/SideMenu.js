@@ -12,12 +12,12 @@ export default class SideMenu extends Component {
         <div className="Seperator" />
         <ul className="nav flex-column">
           <li className="nav-item">
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: 'none' }}>
               <h5>View Notes</h5>
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/create">
+            <Link to="/create" style={{ textDecoration: 'none' }}>
               <h5>+ Create New Notes</h5>
             </Link>
           </li>

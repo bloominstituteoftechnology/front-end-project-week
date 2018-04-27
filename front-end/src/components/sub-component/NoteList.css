@@ -2,6 +2,12 @@
   height: 100vh;
 }
 
+.SearchBar {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px
+}
+
 .NoteListYN {
   color: white;
   padding-top: 20px;

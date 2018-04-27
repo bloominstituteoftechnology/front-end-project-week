@@ -41,9 +41,10 @@ class CreateNoteItem extends Component {
             />
           </div>
           <div className="createSaveButton">
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/">
               <Button
-                className="btn-warning btn-lg btn-block"
+                className="btn btn-lg btn-block"
+                color="primary"
                 onClick={() => {
                   this.props.mainProps.createNote({
                     title: this.state.title,

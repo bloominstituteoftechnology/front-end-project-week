@@ -1,3 +1,5 @@
+import "./EditNote.css";
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
@@ -22,7 +24,7 @@ class EditNote extends Component {
     // console.log("EditNote:", this.props.secondProps.mainProps);
     return (
       <div className="Note_Editor">
-        <h1>Note Editor</h1>
+        <h1 className="Note_Creator">Note Editor</h1>
         <div className="EditNoteContainer">
           <div className="EditInputTitle">
             <input
@@ -46,8 +48,9 @@ class EditNote extends Component {
             />
           </div>
           <div className="EditSaveButton">
-            <Link to="/">
+            <Link to="/" style={{ textDecoration: "none" }}>
               <button
+                className="btn-warning btn-lg btn-block"
                 onClick={() => {
                   this.props.secondProps.mainProps.editNote(
                     {
@@ -59,7 +62,7 @@ class EditNote extends Component {
                   this.setState({ title: "", content: "" });
                 }}
               >
-                Save
+                Update Note
               </button>
             </Link>
           </div>
