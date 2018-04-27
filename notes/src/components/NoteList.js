@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/NoteList.css';
-import notepad from '../notepadColor.png';
+import notepad from '../images/notepadColor.png';
 import { NoteCard } from './NoteCard';
 
 export const NoteList = props => {

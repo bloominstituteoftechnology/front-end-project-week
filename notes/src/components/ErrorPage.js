@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/ErrorPage.css';
-import logo from '../logo.svg';
+import logo from '../images/logo.svg';
 
 export const ErrorPage = () => {
   return (

@@ -9,9 +9,9 @@ import { ErrorPage } from './ErrorPage';
 
 
 export class App extends Component {
-  constructor() {
-    super();
-    
+  constructor(props) {
+    super(props);
+
     this.local = { // Calls to local storage
       get(target) { // Return parsed JSON
         return localStorage.getItem(target) ?
@@ -58,7 +58,15 @@ export class App extends Component {
     this.setState({ notes: [] });
   }
 
-  selectTheme() {}
+  selectTheme(theme) {
+
+  }
+
+  slideIn() {
+    const appBody = document.querySelector(".App_body");
+    appBody.classList.add('slide-in');
+    setTimeout(() => appBody.classList.remove('slide-in'), 750);
+  }
 
   render() {
     return (
@@ -67,12 +75,15 @@ export class App extends Component {
           <h3>Lambda<br/>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
-          <button className="App_button" onClick={this.selectTheme}>Select Theme</button>
+          <button className="App_button" onClick={this.selectTheme}>Change Theme</button>
+          <button className="App_button" onClick={this.slideIn}>Animation Demo</button>
           <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>
         <div className="App_body">
           <Switch>
-            <Route exact path="/" render={() => <NoteList notes={this.state.notes}/> }/>
+            <Route exact path="/" render={() => 
+              <NoteList notes={this.state.notes}/>
+            }/>
             <Route path="/create" render={props => 
               <NoteForm {...props} formUse="Create New Note"
               notes={this.state.notes} useFunction={this.createNote}/> 
