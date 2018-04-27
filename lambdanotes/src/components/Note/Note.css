@@ -6,6 +6,7 @@
   height: 250px;
   width: 250px;
   border: 2px black solid;
+  background-color: white !important;
 }
 
 .note__link {

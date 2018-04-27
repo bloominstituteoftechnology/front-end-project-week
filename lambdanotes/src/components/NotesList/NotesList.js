@@ -12,7 +12,7 @@ export default class NotesList extends Component {
 
   render() {
     return (
-      <div>
+      <div className='notesList__background'>
         <h4 className="notesList__title">Your Notes:</h4>
 
         <div className="notesList__list">

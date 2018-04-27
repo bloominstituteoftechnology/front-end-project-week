@@ -14,8 +14,13 @@
   justify-content: center;
   max-width: 900px;
   margin-left: 220px;
+  height: 100%;
 }
 
 .notesList__notes {
   margin: 2%;
+}
+
+.notesList__background {
+    background-color: #f3f3f3;
 }
