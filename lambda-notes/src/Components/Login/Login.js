@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import "./Login.css"
+
 
 class Login extends Component {
     constructor() {
         super();
         this.state = {
-            display: false,
             loginUser: {
                 Username: "Admin",
                 Password: "Password"
-            }
+            },
+            link: "#"
         }
     }
 
@@ -19,14 +21,22 @@ class Login extends Component {
         }
       }
 
+      linkChange = () => {
+        this.setState ({
+            link: "/home"
+        })
+      }
+
       check = () => {
         {this.state.Username === this.state.loginUser.Username
             &&
        this.state.Password === this.state.loginUser.Password
        ? (
-           this.display()
+           this.linkChange()
        ) : (
-           alert('Incorrect username or password')
+           this.setState({
+               link: '#'
+           })
        )}
       }
 
@@ -49,9 +59,9 @@ class Login extends Component {
                     <h1>Sign in</h1>
                     <div className="inputs">
                         Username: <input onChange={this.handleInputChange} name="Username" type="text"></input>
-                        Password: <input onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} name="Password" type="password"></input>
+                        Password: <input  onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} name="Password" type="password"></input>
                     </div>
-                    <button  onClick={this.check} style={login}>Login</button>
+                    <Link to={`${this.state.link}`}  onClick={this.check} style={login}>Login</Link>
                 </div>
             </div>
     </div>
@@ -64,7 +74,8 @@ const login = {
     backgroundColor: "rgb(110, 200, 200)",
     border: "none",
     width: "30%",
-    height: "10vh",
+    paddingTop: "1%",
+    height: "5vh",
     cursor: "pointer"
 }
 
