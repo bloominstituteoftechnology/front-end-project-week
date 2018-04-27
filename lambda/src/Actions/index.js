@@ -1,15 +1,15 @@
 import axios from 'axios';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
-export const GET_NOTES_ERROR = 'GET_NOTES_ERROR';
+export const GET_ERROR = 'GET_ERROR';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const PUTTING_NOTE = 'PUTTING_NOTE';
-export const PUT_NOTE_ERROR = 'PUT_NOTE_ERROR';
+export const PUT_ERROR = 'PUT_ERROR';
 export const PUT_NOTE = 'PUT_NOTE';
 export const POSTING_NOTE = 'POSTING_NOTE';
-export const POST_NOTE_ERROR = 'POST_NOTE_ERROR';
+export const POST_ERROR = 'POST_ERROR';
 export const POSTED_NOTE = 'POSTED_NOTE';
 export const DELETING_NOTE = 'DELETING_NOTE';
-export const DELETE_NOTE_ERROR = 'DELETE_NOTE_ERROR';
+export const DELETE_ERROR = 'DELETE_ERROR';
 export const DELETED_NOTE = 'DELETED_NOTE';
 
 export const get_notes = () => dispatch => {
@@ -20,7 +20,7 @@ export const get_notes = () => dispatch => {
             dispatch({ type: FETCHED_NOTES, notes: response.data });
         })
         .catch(err => {
-            dispatch({ type: GET_NOTES_ERROR, errorMessage: 'Error fetching notes'});
+            dispatch({ type: GET_ERROR, errorMessage: 'Error fetching notes'});
         });
 };
 
@@ -34,7 +34,7 @@ export const edit_note = (id, note) => dispatch => {
             dispatch({ type: PUT_NOTE, note: response.data });
         })
         .catch(err => {
-            dispatch({ type: PUT_NOTE_ERROR, errorMessage: 'Error putting note'});
+            dispatch({ type: PUT_ERROR, errorMessage: 'Error putting note'});
         });
 };
 
@@ -47,7 +47,7 @@ export const post_note = note => dispatch => {
             dispatch({ type: POSTED_NOTE, note });
         })
         .catch(err => {
-            dispatch({ type: POST_NOTE_ERROR, errorMessage: 'Error posting note'});
+            dispatch({ type: POST_ERROR, errorMessage: 'Error posting note'});
         });
 };
 
@@ -60,6 +60,6 @@ export const delete_note = (id) => dispatch => {
             dispatch({ type: DELETED_NOTE, notes: response.data });
         })
         .catch(err => {
-            dispatch({ type: DELETE_NOTE_ERROR, errorMessage: 'Error deleting note'});
+            dispatch({ type: DELETE_ERROR, errorMessage: 'Error deleting note'});
         });
 };

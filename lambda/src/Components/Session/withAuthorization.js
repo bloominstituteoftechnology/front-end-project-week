@@ -4,6 +4,7 @@ import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
 import { firebase } from '../../Firebase';
 import * as routes from '../../Constants/routes.js';
+import { authUser } from '../'
 
 const withAuthorization = (condition) => (Component) => {
   class WithAuthorization extends React.Component {
@@ -21,7 +22,7 @@ const withAuthorization = (condition) => (Component) => {
   }
 
   const mapStateToProps = (state) => ({
-    authUser: state.sessionState,
+    authUser: state.sessionState.authUser,
   });
 
   return compose(
