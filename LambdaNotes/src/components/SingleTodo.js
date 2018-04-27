@@ -12,7 +12,6 @@ import "../styles/SingleTodos.css";
 class SingleTodo extends React.Component {
 	// change a todo's completion status
 	handleToggleTodo = id => {
-		console.log("MADE IT TO handleToggleTodo: ", id);
 		this.props.toggleTodo(id);
 	};
 
@@ -20,11 +19,12 @@ class SingleTodo extends React.Component {
 		const { id } = this.props.todo;
 		return [
 			<Card className="SingleTodo">
-				<CardText onClick={() => this.handleToggleTodo(id)}>
+				<CardText>
 					<Link to={`/todo/${this.props.index}`}>
 						<h3>{this.props.todo.title}</h3>
 					</Link>
 					<p
+						onClick={() => this.handleToggleTodo(id)}
 						style={{
 							textDecoration: this.props.todo.isComplete
 								? "line-through"
