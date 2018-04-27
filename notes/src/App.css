@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: lightgray;
 }
 
 .App-logo {
@@ -98,6 +99,14 @@ position: relative;
   font-weight: bold;
 }
 
+.textarea {
+  padding-bottom: 350px;
+  padding-left: 3%;
+}
+
+.cardHeight {
+  height: 150px;
+}
 
 .rightSide {
   margin-top: 4%;
@@ -136,6 +145,9 @@ position: relative;
 .redButton {
   background: red;
   color: white;
+}
+html{
+  background: lightgray;
 }
 
 

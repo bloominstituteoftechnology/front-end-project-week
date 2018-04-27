@@ -37,7 +37,7 @@ class Poop extends Component {
         <div className="col-9 float-right pt-5 d-flex flex-column">
             <h3 className="titleNew d-flex"> Create New Note:  </h3>
               <input className="centerTitle mt-3 col-7" type="text" name="title" onChange={this.handleTextChange} placeholder="Title Here" />              
-              <input className="centerText mt-3" type="text" name="text" onChange={this.handleTextChange} placeholder="Text Here" />
+              <input className="centerText textarea mt-3" type="text" name="text" onChange={this.handleTextChange} placeholder="Text Here" />
             <Link to="/"><button className="d-flex mt-3 col-2 justify-content-center tealButton"type="submit" value="Submit" onClick={() => this.handleSave()}>Save</button></Link>
           </div>
           </form>

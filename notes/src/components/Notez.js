@@ -39,7 +39,7 @@ class free extends Component {
                     <div className="rightSide">
                     
 <Link to={{pathname: `/note/${note.id}`, state: { currentNote: note}}}>    
-                    <Card key={note.id}>
+                    <Card className="cardHeight border-dark" key={note.id}>
                             <CardBody>
                         <CardTitle className="titleCard"> {note.title}</CardTitle>
                        <CardText> {note.text}</CardText>

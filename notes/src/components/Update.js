@@ -37,7 +37,7 @@ onChange={this.handleTextInput}
 />
 
  <input 
- className="centerText mt-3"
+ className="centerText textarea mt-3"
 value={this.state.text}
 type='text'
 name="text"
