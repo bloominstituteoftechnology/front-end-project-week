@@ -1,18 +1,18 @@
-.Note-Wrapper {
-    width:100%; 
+.List__body {
+    width: 80%;
+}
+
+.List__header {
+    margin: 20px 20px;
+}
+.List__view { 
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.Body-Title {
-    width: 100%;
-    margin: 50px 0 50px;;
-    align-content: flex-start
-}
-
-.Note-Body {
+.List__notes {
     border: 2px solid gray;
     width: 30%;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }

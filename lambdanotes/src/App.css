@@ -8,28 +8,7 @@
   height: 80px;
 }
 
-.App-header {
-  background-color: lightgray;
-  height: 670px;
-  width: 20%;
-  padding: 20px;
-}
-
-.Name-header {
-  color: darkgrey;
-  font-size: 3.6em;
-  margin-bottom: 40px;
-}
-
-.Button-view {
-  background-color: turquoise;
-  height:50px;
-  width: 80%;
-  margin-bottom: 20px;
-}
-
-.Button-create {
-  background-color: turquoise;
-  height: 50px;
-  width: 80%;
+.Body__note {
+  display: flex;
+  width: 100%;
 }
