@@ -1,0 +1,70 @@
+.App.container-fluid {
+  min-height: 100vh;
+}
+
+.leftSideBar {
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  height: 100%;
+}
+
+.noteContainer {
+  min-height: 100%;
+}
+
+.note {
+  height: 200px;
+  margin: 1rem 0;
+}
+
+.card-body {
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+a.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+a.card-link:hover {
+  color: black;
+}
+
+button.btn {
+  color: white;
+  font-weight: bold;
+  border-radius: 0;
+  font-size: 1.1rem;
+  border: 1px solid grey;
+}
+
+button.btn.deleteBtn {
+  color: white;
+}
+
+button.btn.deleteBtn:hover {
+  background: darkred;
+}
+
+.header {
+  color: #4a4a4a;
+  font-weight: bold;
+  line-height: 85%;
+}
+
+.header-link {
+  text-decoration: underline;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+
+.header-link:hover {
+  color: black;
+}
+
+h5.card-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
