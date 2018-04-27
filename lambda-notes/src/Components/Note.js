@@ -11,18 +11,20 @@ export default class Note extends Component {
             
         // };
     }
+    
     render(){
     return <div>
-        {console.log(this.props)}
+        tis is adsfads a teste
+        {console.log(this.props.note)}
                 <Link to='/EditNote' className ='editnote' type= 'text' placeholder='edit' name='editNote'/>
                 <Link to='/CreateNote' className ='deletenote' type= 'text' placeholder='delete' name='deleteNote'/>
-        <Link to={`/Note/${this.props.note.title}`}>
+        
             <Card body>
-                        {console.log(this.props)}
-                        <CardTitle> Title: {this.props.note.title}</CardTitle>
+                        {console.log(this.props.note)}
+                        <CardTitle> Title: I should be a title {this.props.note.title}</CardTitle>
                         <CardText>Body: {this.props.note.body}</CardText>   
             </Card>
-        </Link>
+        
     </div>
     }
 }

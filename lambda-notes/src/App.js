@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
+import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import NotesList from '../src/Components/NotesList';
 import CreateNote from './Components/CreateNote';
 // import CreateNote from '../src/Components/CreateNote';
 import './App.css';
 import Note from './Components/Note';
+
+
+const User = ({match}) => {
+  return (<div>This is a test  {match.params.title} </div>)
+}  
 
 class App extends Component {
   constructor() {
@@ -21,7 +27,6 @@ class App extends Component {
   // componentDidMount() {
   //   this.setState({notes})
   // }
-
 
   addToNotesList = note => {
     //console.log(note);
@@ -60,8 +65,9 @@ class App extends Component {
                 {/* <Route path='/EditNote' component={EditNote}/>  */}
                 <Route path='/CreateNote'  render={(props) => <CreateNote {...props} addToNotesList={this.addToNotesList}/>} />
                  {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
-                 {/* <Route path="/Note/{title}" render={(props) => <Note {...props}/> */}
-                 } />
+                 {/* <Route path="/Note/:title" render={(props) => <Note {...props} note={this.state.notes}/>} /> */}
+                 {/* <Route path="/Note/" component={Note}/> */}
+                 {/* <Route path="/user/:title" component={User}/> */}
                 
                 {/* when none of the above match, <NoMatch> will be rendered */}
                 {/* <Route component={NoMatch}/> */}
