@@ -6,6 +6,8 @@ import CreateNote from './Components/CreateNote';
 // import CreateNote from '../src/Components/CreateNote';
 import './App.css';
 import Note from './Components/Note';
+import NoteCard from './NoteCard';
+
 
 
  
@@ -61,7 +63,8 @@ class App extends Component {
                 {/* <Route path='/' component={NotesList}/> */}
                 {/* <Route path='/EditNote' component={EditNote}/>  */}
                 {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
-                <Route path="/Note/:title" render={(props) => <Note {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
+                <Route path="/Note/" render={(props) => <Note {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
+                <Route path="/NoteCard/:title" render={(props) => <NoteCard {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
                  {/* <Route path="/Note/" component={Note}/> */}
                 {/* <Route path="/user/:title" component={User}/> */}
                 {/* when none of the above match, <NoMatch> will be rendered */}

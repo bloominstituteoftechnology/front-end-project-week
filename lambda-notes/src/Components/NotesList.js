@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Note from './Note';
+import NoteCard from './NoteCard';
 import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
 
 export default class NotesList extends Component{
@@ -12,9 +13,9 @@ export default class NotesList extends Component{
     render() {
         return(
         <div>
-            {console.log(this.props)}
+            {/* {console.log(this.props)} */}
         {this.props.notes.map(note => {
-            console.log(note)   
+            // console.log(note)   
             return <NoteDetails key={note.title} note={note}/>;
         })}
         </div>
@@ -26,9 +27,9 @@ export default class NotesList extends Component{
 
 function NoteDetails({note}) {
     return (
-        console.log(note.title),
+        // console.log(note.title),
         <Link to={`/Note/${note.title}`}>
-        <Note title={note.title} body={note.body}/>
+        <NoteCard note={note.title}/>
         </Link>
     );
 }
