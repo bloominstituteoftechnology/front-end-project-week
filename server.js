@@ -11,15 +11,15 @@ function getNewId() {
 }
 
 let notes = [
-  { id: 0, title: 'Note 7', content: 'some test' },
-  { id: 1, title: 'Note 1', content: 'some test' },
-  { id: 2, title: 'Note 3', content: 'some test' },
-  { id: 3, title: 'Note 4', content: 'some test' },
-  { id: 4, title: 'Note 5', content: 'some test' },
-  { id: 5, title: 'Note 6', content: 'some test' },
-  { id: 6, title: 'Note 7', content: 'some test' },
-  { id: 7, title: 'Note 8', content: 'some test' },
-  { id: 8, title: 'Note 9', content: 'some test' }
+  { id: 0, title: 'Note 7', content: 'this is my fight song' },
+  { id: 1, title: 'Note 1', content: 'this is my fight song' },
+  { id: 2, title: 'Note 3', content: 'this is my fight song' },
+  { id: 3, title: 'Note 4', content: 'this is my fight song' },
+  { id: 4, title: 'Note 5', content: 'this is my fight song' },
+  { id: 5, title: 'Note 6', content: 'this is my fight song' },
+  { id: 6, title: 'Note 7', content: 'this is my fight song' },
+  { id: 7, title: 'Note 8', content: 'this is my fight song' },
+  { id: 8, title: 'Note 9', content: 'this is my fight song' }
 ];
 
 app.use(cors());
@@ -53,7 +53,7 @@ app.put('/notes/:id', (req, res) => {
   }
 });
 
-app.delete('/notes/:id', (req, res) => {
+app.delete('/:id', (req, res) => {
   notes = notes.filter(note => note.id != req.params.id);
   res.status(200).json(notes);
 });
