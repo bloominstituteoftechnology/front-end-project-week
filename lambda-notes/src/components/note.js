@@ -23,7 +23,7 @@ class Note extends Component {
   render() {
     return (
       // <div className="note-container">
-        <Card onClick={this.handleClickNote}>
+        <Card className="hvr-curl-top-right hvr-rotate mr-4" onClick={this.handleClickNote}>
           <CardBody>
             <CardTitle>{this.props.note.title}</CardTitle>
             {

@@ -7,6 +7,7 @@ import './index.css';
 // import 'gridstack/dist/gridstack.jQueryUI.min.js';
 // import 'gridstack/dist/gridstack.min.js';
 import 'dragula/dist/dragula.min.css';
+import 'hover.css/css/hover-min.css';
 
 
 import App from './App';
