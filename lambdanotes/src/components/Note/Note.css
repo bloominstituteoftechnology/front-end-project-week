@@ -2,6 +2,10 @@
   background-color: white !important;
 }
 
+.card {
+  border: none;
+}
+
 .note__card {
   height: 250px;
   width: 250px;
