@@ -17,3 +17,17 @@
 	width: 200px;
 	margin: 15px 3%;
 }
+
+.SingleTodo_content {
+	display: block;
+	height: 50px;
+}
+
+.SingleTodo_footer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.SingleTodo__menu {
+	width: 20px !important;
+}
