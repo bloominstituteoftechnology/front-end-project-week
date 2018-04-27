@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  height: 100%;
+  background-color: gray;
+}
+
+.container {
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5rem;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.sidebar__head {
+  text-align: left;
+  margin-top: 30px;
+  color: #484848;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 0.8;
+}
+
+.left__side {
+  background-color: #d8d8d8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vmin;
+  color: white;
+}
+
+.left__side .sidebar__button {
+  background-color: #2eb8bc;
+  color: #fff;
+  border: 1px solid white;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 2px;
+}
+
+.left__side .csv__btn {
+  background-color: #444444;
+  color: crimson;
+  cursor: pointer;
+}
+
+.right__side {
+  background: #f3f3f3;
+  height: 100vmin;
+  height: 100%;
+  border: 1px solid gray;
+}
+
+.notes__head {
+  margin-top: 60px;
+  margin-left: 4%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.notes__head input {
+  padding: 8px;
+  background-color: #fff;
+  color: #444444;
+  border: 1px solid #2bc1c4;
+  margin-bottom: 20px;
+}
+
+.notes__head h4 {
+  color: #484848;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.notes__body {
+  margin: 20px 4%;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+.note__card {
+  background-color: white;
+  padding: 8px;
+  margin: 10px 14px;
+  min-height: 18vh;
+  max-height: 30vh;
+  border: 1px solid gray;
+  overflow: auto;
+}
+
+.note__card h5 {
+  text-align: left;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.ruler {
+  width: 90%;
+  border: 0.1rem solid gray;
+}
+
+.note__body {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.add__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input__title {
+  margin: 10px 4%;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px gray;
+}
+
+.input__text {
+  margin: 10px 4%;
+  padding: 8px;
+  border: 1px solid gray;
+  box-shadow: 1px 1px 1px gray;
+  width: 100%;
+  resize: none;
+}
+
+.save__button {
+  background-color: #2bc1c4;
+  border: 1px solid grey;
+  height: 45px;
+  width: 30%;
+  color: #fff;
+  margin: 10px 4%;
+  text-align: center;
+}
+
+.save__button:hover {
+  cursor: pointer;
+  background-color: #3db3b5;
+}
+
+.action__bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.action__link {
+  margin-left: 10px;
+  text-decoration: underline;
+  color: #484848;
+}
+.modal-dialog {
+  border: 1px solid #484848;
+}
+
+.modal-body {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #484848;
+}
+
+.modal__btn {
+  padding: 10px;
+  margin: 6px 10px 40px;
+  width: 40%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.modal__btn:hover {
+  cursor: pointer;
+}
+
+.del__btn {
+  background-color: crimson;
+}
+
+.cancel__btn {
+  background-color: #2eb8bc;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.intro {
+  height: 100vh;
+  background-color: #2bc1c4;
+}
+
+.intro__heading {
+  animation: 1.5s ease-out 0s 1 appear;
+}
+
+.intro h1 {
+  margin-top: 200px;
+  padding: 4%;
+  background-color: #2bc1c4;
+  color: #fff;
+  font-weight: bold;
+}
+
+.intro button {
+  background-color: rgba(255, 250, 255, 0.9);
+  color: #2eb8bc;
+  padding: 8px 6%;
+  box-shadow: 1px 1px 1px #000;
+  font-style: italic;
+  font-weight: bold;
+  border: 1px solid #000;
+  font-size: 1.2rem;
+  border-radius: 25px;
+}
+
+.intro button:hover {
+  cursor: pointer;
+  background-color: #444444;
+  color: crimson;
+}
+
+.username {
+  color: crimson;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px #000;
+}
