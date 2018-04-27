@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 
-import { Input, Row, Col, Button } from 'reactstrap';
+import NoteForm from './NoteForm';
 
 class CreateNote extends Component {
   constructor() {
@@ -10,6 +10,12 @@ class CreateNote extends Component {
     this.state = {
       title: '',
       content: ''
+    }
+
+    this.formAttributes = {
+      formHeading: 'Create New Note',
+      handleInputChange: this.handleInputChange,
+      handleSubmit: this.handleSubmit
     }
   }
 
@@ -23,31 +29,8 @@ class CreateNote extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <div className="container create-note">
-          <Row>
-            <Col className="col-4 mb-3">
-              <br /><br />
-              <h3>Create New Note:</h3><br />
-              <Input onChange={this.handleInputChange} type="text" name="title" value={this.state.title} placeholder="Note Title" />
-            </Col>
-          </Row>
-          <Row>
-            <Col className="col-10 mb-3">
-              <Input onChange={this.handleInputChange} type="textarea" name="content" value={this.state.content} placeholder="Note Content" />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <Button onClick={this.handleSubmit} className="btn-info">Save</Button>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    );
+    return <NoteForm {...this.formAttributes} {...this.state} />;
   }
-
 }
 
 export default withRouter(CreateNote);

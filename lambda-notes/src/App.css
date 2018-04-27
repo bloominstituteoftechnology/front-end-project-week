@@ -45,11 +45,11 @@ html, body {height: 100%;}
   margin-bottom: 2rem;
 }
 
-.create-note {
+.note-form {
   margin-left: 0;
 }
 
-.create-note textarea.form-control {
+.note-form textarea.form-control {
   height: 18rem;
 }
 
