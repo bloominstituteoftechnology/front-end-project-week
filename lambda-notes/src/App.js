@@ -8,9 +8,7 @@ import './App.css';
 import Note from './Components/Note';
 
 
-const User = ({match}) => {
-  return (<div>This is a test  {match.params.title} </div>)
-}  
+ 
 
 class App extends Component {
   constructor() {
@@ -56,19 +54,16 @@ class App extends Component {
           <div className="col-9">
             <div className="rightbox">
                 <h3>Your Notes:</h3>
-                
-                {/* <NotesList notes={this.state.notes}/> */}
               <Switch>
-                {/* <Route path='/' component={NotesList}/> */}
                 <Route exact path='/'  render={(props) => <NotesList {...this.state}/>} />
                 <Route path='/NotesList'  render={(props) => <NotesList {...this.state}/>} />
-                {/* <Route path='/EditNote' component={EditNote}/>  */}
                 <Route path='/CreateNote'  render={(props) => <CreateNote {...props} addToNotesList={this.addToNotesList}/>} />
-                 {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
-                 {/* <Route path="/Note/:title" render={(props) => <Note {...props} note={this.state.notes}/>} /> */}
+                {/* <Route path='/' component={NotesList}/> */}
+                {/* <Route path='/EditNote' component={EditNote}/>  */}
+                {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
+                <Route path="/Note/:title" render={(props) => <Note {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
                  {/* <Route path="/Note/" component={Note}/> */}
-                 {/* <Route path="/user/:title" component={User}/> */}
-                
+                {/* <Route path="/user/:title" component={User}/> */}
                 {/* when none of the above match, <NoMatch> will be rendered */}
                 {/* <Route component={NoMatch}/> */}
               </Switch>

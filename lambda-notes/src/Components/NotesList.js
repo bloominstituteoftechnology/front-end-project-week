@@ -27,8 +27,8 @@ export default class NotesList extends Component{
 function NoteDetails({note}) {
     return (
         console.log(note.title),
-        <Link to={`/Note/:${note.title}`}>
-        <Note note={note}/>
+        <Link to={`/Note/${note.title}`}>
+        <Note title={note.title} body={note.body}/>
         </Link>
     );
 }
