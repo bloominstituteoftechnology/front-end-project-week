@@ -1,14 +1,15 @@
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  Container,
-  Row,
   Col,
+  Row,
+  Container,
   Card,
   CardBody,
-  CardText,
-  CardTitle
+  CardTitle,
+  CardText
 } from "reactstrap";
 
 function mapStateToProps(state) {
@@ -19,18 +20,18 @@ function mapStateToProps(state) {
 
 class NotesList extends Component {
   render() {
+    console.log("Notes List: ", this.props.notes);
     return (
       <Container className="my-5">
         <Row>
-          <h2>className="section-head">Your Notes:</h2>
+          <h3 className="header">Your Notes:</h3>
         </Row>
         <Row>
-          {console.log this.props.notes}
           {this.props.notes.map(note => {
             return (
-              <Col sm="4">
+              <Col sm={4}>
                 <Link className="card-link" to={`/viewNotes/${note.id}`}>
-                  <Card className="note pb-2">
+                  <Card className="note pb-3">
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>
                       <hr />

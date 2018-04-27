@@ -38,7 +38,7 @@ class App extends Component {
             <h1 className="headline my-4">Lambda Notes</h1>
 
             <Link to="/">
-              <Button classname="w-100 my-2 p-2">View Your Notes</Button>
+              <Button className="w-100 my-2 p-2">View Your Notes</Button>
             </Link>
           
             <Link to="/createNote">
