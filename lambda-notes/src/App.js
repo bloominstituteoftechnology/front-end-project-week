@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
 import { Button } from 'reactstrap';
 
@@ -18,6 +18,7 @@ class App extends Component {
     super();
 
     this.state = {
+      user: null,
       notes: testNotes,
       newNote: {
         title: '',
@@ -58,6 +59,10 @@ class App extends Component {
     this.setState({ clickedNote: clickedNote });
   }
 
+  setUserState = updatedUserState => {
+    this.setState({ user: updatedUserState });
+  };
+
   render() {
     return (
       <Router>
@@ -72,11 +77,11 @@ class App extends Component {
         <div className="main-view">
           <div className="main-view-inner">
                 <Switch>
-                  <Route path="/login" component={LoginPage}/>
-                  <PrivateRoute exact path="/" authed={true} redirectTo="/login" component={NotesList} notes={this.state.notes} updateClickedNote={this.updateClickedNote} />} />
-                  <PrivateRoute path="/notes-view" authed={true} redirectTo="/login" component={ViewNote} clickedNote={this.state.clickedNote} deleteNote={this.deleteNote} />} />
-                  <PrivateRoute path="/create-note" authed={true} redirectTo="/login" component={CreateNote} addNewNote={this.addNewNote} />} />
-                  <PrivateRoute path="/edit-note"  authed={true} redirectTo="/login" component={EditNote} clickedNote={this.state.clickedNote} updateEditedNote={this.updateEditedNote} />} />
+                  <PropsRoute path="/login" component={LoginPage} setUserState={this.setUserState}/>
+                  <PrivateRoute exact path="/" authed={this.state.user} redirectTo="/login" component={NotesList} notes={this.state.notes} updateClickedNote={this.updateClickedNote} />} />
+                  <PrivateRoute path="/notes-view" authed={this.state.user} redirectTo="/login" component={ViewNote} clickedNote={this.state.clickedNote} deleteNote={this.deleteNote} />} />
+                  <PrivateRoute path="/create-note" authed={this.state.user} redirectTo="/login" component={CreateNote} addNewNote={this.addNewNote} />} />
+                  <PrivateRoute path="/edit-note"  authed={this.state.user} redirectTo="/login" component={EditNote} clickedNote={this.state.clickedNote} updateEditedNote={this.updateEditedNote} />} />
                 </Switch>
           </div>
         </div>

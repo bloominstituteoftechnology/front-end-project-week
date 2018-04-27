@@ -36,6 +36,7 @@ export default class LoginPage extends React.Component{
     this.widget.renderEl({el:'#okta-login-container'}, 
       (response) => {
         this.setState({user: response.claims.email});
+        this.props.setUserState(response.claims.email);
       },
       (err) => {
         console.log(err);
