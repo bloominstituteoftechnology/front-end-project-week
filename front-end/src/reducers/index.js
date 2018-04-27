@@ -16,11 +16,11 @@ const initialState = [
   },
   {
     title: "3rd Sample Title",
-    content: "SO WOW MUCH COOL"
+    content: "DOGE"
   },
   {
     title: "4th Sample Title",
-    content: "SO WOW MUCH COOL"
+    content: "I hated redux, but now I like it."
   }
 ];
 
@@ -28,22 +28,22 @@ const noteReducer = (state = initialState, action) => {
   switch (action.type) {
     case AT.CREATE_NOTE:
       return [...state, action.payload];
-    case AT.DELETE_NOTE:
-      state.splice(action.payload, 1);
-      return state;
-    case AT.EDIT_NOTE:
-      console.log("LOGGING state[id]:", state[action.noteID].title);
 
-      const index = action.noteID
-      if ( index !== -1) {
-        state[index] = action.payload
+    case AT.DELETE_NOTE:
+      const newState1 = Object.assign([], state);
+      const indexDel = action.payload;
+      newState1.splice(indexDel, 1);
+      return newState1;
+
+    case AT.EDIT_NOTE:
+      const indexEdit = action.noteID;
+      const newState2 = Object.assign([], state);
+      // (~index) means (index !== -1)
+      if (~indexEdit) {
+        newState2[indexEdit] = action.payload;
       }
-      // Object.assign({}, state, {
-      //   title: action.payload.title,
-      //   content: action.payload.content
-      // });
-      
-      return state;
+      return newState2;
+
     default:
       return state;
   }

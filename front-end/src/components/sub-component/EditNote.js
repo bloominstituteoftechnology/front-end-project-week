@@ -35,7 +35,7 @@ class EditNote extends Component {
           value={this.state.content}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
         />
-        <Link to="/note/:id">
+        <Link to="/">
           <button
             onClick={() => {
               this.props.secondProps.mainProps.editNote(
