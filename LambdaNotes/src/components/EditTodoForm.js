@@ -8,6 +8,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import { updateTodo } from "../actions/index";
 // styles
 import "../styles/CreateTodoForm.css";
+import "../styles/animation.css";
 
 class EditTodoForm extends Component {
 	constructor(props) {
@@ -30,48 +31,50 @@ class EditTodoForm extends Component {
 
 	render() {
 		const { id } = this.props.location.state;
-		return [
-			<div className="row">
-				<h3 className="CreateTodoForm_header">Edit Note:</h3>
-				<TextField
-					className="CreateTodoForm_title"
-					hintText={this.props.todos[parseInt(id, 10)].title}
-					floatingLabelText="Note Title"
-					underlineShow={false}
-					name="title"
-					value={this.state.title}
-					onChange={this.handleNewInput}
-				/>
-			</div>,
-			<div className="row">
-				<TextField
-					className="CreateTodoForm_content"
-					hintText={this.props.todos[parseInt(id, 10)].text}
-					hintStyle={{
-						top: 25
-					}}
-					underlineShow={false}
-					multiLine={true}
-					rows={10}
-					name="text"
-					value={this.state.text}
-					onChange={this.handleNewInput}
-				/>
-			</div>,
-			<div className="row">
-				<Link to="/">
-					<RaisedButton
-						className="CreateTodoForm_savebtn"
-						label="Update"
-						primary={true}
-						// style={style}
-						onClick={() => {
-							this.handleUpdateTodo(id);
-						}}
+		return (
+			<div className="fade">
+				<div className="row">
+					<h3 className="CreateTodoForm_header">Edit Note:</h3>
+					<TextField
+						className="CreateTodoForm_title"
+						hintText={this.props.todos[parseInt(id, 10)].title}
+						floatingLabelText="Note Title"
+						underlineShow={false}
+						name="title"
+						value={this.state.title}
+						onChange={this.handleNewInput}
 					/>
-				</Link>
+				</div>
+				<div className="row">
+					<TextField
+						className="CreateTodoForm_content"
+						hintText={this.props.todos[parseInt(id, 10)].text}
+						hintStyle={{
+							top: 25
+						}}
+						underlineShow={false}
+						multiLine={true}
+						rows={10}
+						name="text"
+						value={this.state.text}
+						onChange={this.handleNewInput}
+					/>
+				</div>
+				<div className="row">
+					<Link to="/">
+						<RaisedButton
+							className="CreateTodoForm_savebtn"
+							label="Update"
+							primary={true}
+							// style={style}
+							onClick={() => {
+								this.handleUpdateTodo(id);
+							}}
+						/>
+					</Link>
+				</div>
 			</div>
-		];
+		);
 	}
 }
 

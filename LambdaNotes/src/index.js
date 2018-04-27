@@ -10,6 +10,7 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import "./styles/index.css";
 // components
 import App from "./App";
+import "./styles/App.css";
 // reducer
 import rootReducer from "./reducers/index";
 import registerServiceWorker from "./registerServiceWorker";
@@ -34,7 +35,7 @@ const router = (
 	<Provider store={store}>
 		<Router>
 			<MuiThemeProvider>
-				<App />
+				<App className="style" />
 			</MuiThemeProvider>
 		</Router>
 	</Provider>

@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 // styles
 import "./styles/App.css";
 import "./bootstrap/css/bootstrap.css";
+import "./styles/animation.css";
 // components
 import CreateTodoForm from "./components/CreateTodoForm";
 import ControlPanel from "./components/ControlPanel";
@@ -13,7 +14,7 @@ import VisibilityTodos from "./components/VisibilityTodos";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App fade">
         <div className="row">
           <div className="col-md-4 ControlPanel">
             <ControlPanel />

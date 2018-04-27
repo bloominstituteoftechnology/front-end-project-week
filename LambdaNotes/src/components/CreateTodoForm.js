@@ -8,6 +8,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import { addTodo } from "../actions/index";
 // styles
 import "../styles/CreateTodoForm.css";
+import "../styles/animation.css";
 
 class CreateTodoForm extends Component {
 	constructor(props) {
@@ -30,45 +31,47 @@ class CreateTodoForm extends Component {
 	};
 
 	render() {
-		return [
-			<div className="row">
-				<h3 className="CreateTodoForm_header">Create New Note:</h3>
-				<TextField
-					className="CreateTodoForm_title"
-					hintText="Note Title"
-					floatingLabelText="Note Title"
-					underlineShow={false}
-					name="title"
-					value={this.state.title}
-					onChange={this.handleNewInput}
-				/>
-			</div>,
-			<div className="row">
-				<TextField
-					className="CreateTodoForm_content"
-					hintText="Note Content"
-					hintStyle={{
-						top: 25
-					}}
-					underlineShow={false}
-					multiLine={true}
-					rows={10}
-					name="text"
-					value={this.state.text}
-					onChange={this.handleNewInput}
-				/>
-			</div>,
-			<div className="row">
-				<Link to="/">
-					<RaisedButton
-						className="CreateTodoForm_savebtn"
-						label="Save"
-						primary={true}
-						onClick={this.handleAddTodo}
+		return (
+			<div className="fade">
+				<div className="row">
+					<h3 className="CreateTodoForm_header">Create New Note:</h3>
+					<TextField
+						className="CreateTodoForm_title"
+						hintText="Note Title"
+						floatingLabelText="Note Title"
+						underlineShow={false}
+						name="title"
+						value={this.state.title}
+						onChange={this.handleNewInput}
 					/>
-				</Link>
+				</div>
+				<div className="row">
+					<TextField
+						className="CreateTodoForm_content"
+						hintText="Note Content"
+						hintStyle={{
+							top: 25
+						}}
+						underlineShow={false}
+						multiLine={true}
+						rows={10}
+						name="text"
+						value={this.state.text}
+						onChange={this.handleNewInput}
+					/>
+				</div>
+				<div className="row">
+					<Link to="/">
+						<RaisedButton
+							className="CreateTodoForm_savebtn"
+							label="Save"
+							primary={true}
+							onClick={this.handleAddTodo}
+						/>
+					</Link>
+				</div>
 			</div>
-		];
+		);
 	}
 }
 

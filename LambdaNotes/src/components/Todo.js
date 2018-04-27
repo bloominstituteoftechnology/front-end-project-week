@@ -13,6 +13,7 @@ import Checkbox from "material-ui/Checkbox";
 // styles
 import "../bootstrap/css/bootstrap.css";
 import "../styles/Todo.css";
+import "../styles/animation.css";
 
 // toggle should toggle whether or not a list view of a card appears [onToggle]
 // default toggle status is false
@@ -63,7 +64,7 @@ class Todo extends Component {
 		];
 
 		return (
-			<div className="Todo">
+			<div className="Todo fade">
 				{/* Delete Modal */}
 				<Dialog
 					title="Dialog With Actions"
