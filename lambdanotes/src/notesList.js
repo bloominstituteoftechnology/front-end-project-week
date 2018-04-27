@@ -25,10 +25,17 @@ searchHandler = (event)=>{
     this.setState({[event.target.name]:event.target.value})
 }
  render(){
-   let   divStyle = {
-         display: !'none'
-     }      
+    //  let divStyle={
+    //      display:!'none'
+    //  }
+   
+// let filteredNotes = this.props.notes.filter((note)=>{
+// return note.title.toLowerCase().indexOf(this.state.search) !== -1;
+// })
+
 let filterNotesAction =()=>{
+
+    
     return this.state.search;
 }
   return ( 
@@ -40,9 +47,9 @@ let filterNotesAction =()=>{
                 value={this.state.search}
                 onChange={this.searchHandler}
         />
-          <button className="SearchButton !important" onClick={ () =>{filterNotesAction(); this.setState({ search: ''})}} >Back</button>             
+          <button className="SearchButton !important" onClick={ () =>{filterNotesAction(); this.setState({ search:''})}} >Save</button>             
        <p>Your Notes:</p>     
-           {this.props.notes.map((note, index) => {
+           {/* {this.props.notes.map((note, index) => {
                console.log('index',index)
                console.log('note',note)
               {
@@ -55,18 +62,16 @@ let filterNotesAction =()=>{
                               <div className=" NoteText" key={"index"} >{note.text}</div>
                           </div>
                       )
-
                    }
                 else {
                       
                 }
               } 
          
- })}                            
-          <div className="NotesSection" style={divStyle}>      
+ })}                             */}
+          {/* <div className="NotesSection" style={divStyle}>      
                 {this.props.notes.map((note,index) =>{ 
-    
-                    return(                   
+                 return(                   
                           <div className="Notes"key={index }> 
                           <Link to={`/${note.title}`} className="edit">
                           <div className="NoteTitle" key={note.title} >{note.title}</div>
@@ -74,7 +79,48 @@ let filterNotesAction =()=>{
                           <div  className=" NoteText" key={"note.text"} >{note.text}</div>
                           </div>                  
             )})} 
+           </div> */}
+
+
+          <div className="NotesSection" > 
+          {
+             this.state.search === "" &&
+              this.props.notes.map((note, index) => {
+                  return (
+                    <div className="Notes"key={index }> 
+                          <Link to={`/${note.title}`} className="edit">
+                          <div className="NoteTitle" key={note.title} >{note.title}</div>
+                          </Link>
+                          <div  className=" NoteText" key={"note.text"} >{note.text}</div>
+                    </div>   
+                  );
+              }) 
+          }
+        {
+            this.state.search !== "" &&
+            this.props.notes
+                      .filter((item, index) => item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
+            .map((note, index) => {
+                return (
+                    <div className="Notes" key={index}>
+                        <Link to={`/${note.title}`} className="edit">
+                            <div className="NoteTitle" key={note.title} >{note.title}</div>
+                        </Link>
+                        <div className=" NoteText" key={"note.text"} >{note.text}</div>
+                    </div>
+                );
+            })
+        }
+
+
+
+
+
+
+
            </div>
+
+
 
       </div>
   )
