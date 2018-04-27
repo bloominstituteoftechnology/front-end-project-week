@@ -33,6 +33,10 @@ export class ViewNote extends React.Component {
       });
     }
 
+     handleDelete = e => {
+        this.props.onDelete(this.state.id)
+    }
+
     render() {
         return <div className="col-9 right__side">
             <div className="row">
@@ -48,7 +52,7 @@ export class ViewNote extends React.Component {
                     Are you sure you want to delete?
                   </ModalBody>
                   <ModalFooter>
-                    <Link to={"/"} className="primary" onClick={this.toggle}>Delete</Link>
+                    <Link to={"/"} className="primary" onClick={this.handleDelete}>Delete</Link>
                     <button className="secondary" onClick={this.toggle}>No</button>
                   </ModalFooter>
                 </Modal>

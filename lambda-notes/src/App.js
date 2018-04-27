@@ -41,6 +41,12 @@ class App extends Component {
     this.setState({ notes: newNotes });
   };
 
+  delete = id => {
+    let newNotes = this.state.notes;
+    newNotes = newNotes.filter((note) => note.id !== id);
+    this.setState({ notes: newNotes });
+  }
+
   render() {
     return ( 
     <div className="App">
@@ -54,7 +60,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={() => <NoteList Notes={this.state.notes} />}/>
               <Route path="/createNewNote" render={() => <CreateNote onSubmit={this.addNote} />}/>
-              <Route path="/viewnote/:id" render={(props) => <ViewNote {...props} notes={this.state.notes} />}/>
+              <Route path="/viewnote/:id" render={(props) => <ViewNote {...props} notes={this.state.notes} onDelete={this.delete} />}/>
               <Route path="/editnote/:id" render={(props) => <EditNote {...props} onSubmit={this.addUpdate} notes={this.state.notes}/>}/>
             </Switch>
           </div>

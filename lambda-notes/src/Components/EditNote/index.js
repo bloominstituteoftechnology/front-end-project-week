@@ -28,6 +28,7 @@ export class EditNote extends React.Component {
     handleInputText = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
+
     handleClicked = e => {
         this.props.onSubmit(this.state.title, this.state.body, this.state.id);
     };
