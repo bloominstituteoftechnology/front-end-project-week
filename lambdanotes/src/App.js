@@ -14,18 +14,6 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 893px;
   max-width: 100%;
-`
-const Heading = styled.h1`
-  color: #000;
-  font-size: 2.2em;
-  margin-top: 9px;
-  line-height: 1.1;
-  margin-bottom: 10px;
-  font-weight: bold;
-`;
-
-const Rule = styled.hr`
-  margin-top: 0;
 `;
 
 const Main = styled.div`
@@ -93,8 +81,6 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Heading>List View</Heading>
-        <Rule />
         <Main>
           <Sidebar notes={this.state.notes}/>
           <Route
