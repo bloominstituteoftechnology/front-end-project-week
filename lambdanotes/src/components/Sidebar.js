@@ -14,19 +14,20 @@ const Title = styled.h1`
     font-weight: bold;
     line-height: 1;
     letter-spacing: 3px;
-    margin-bottom: 26px;
+    margin-bottom: 50px;
     padding: 1px 0 0 0.1em
+    margin-top: 30px;
 `
 
 const Button = styled.button`
   background-color: #00b9bc;
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.32em;
   font-weight: bold;
   margin-bottom: 18px;
   padding: 14px 2.3em 8px 2.5em;
-  margin-left: 0.2em;
   cursor: pointer;
+  width: 100%;
 `;
 
 const StyledLink = styled(Link)`
