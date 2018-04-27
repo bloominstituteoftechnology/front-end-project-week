@@ -12,6 +12,8 @@ import LoginPage from './components/LoginPage';
 import { PropsRoute, PublicRoute, PrivateRoute } from 'react-router-with-props';
 import {CSVLink, CSVDownload} from 'react-csv';
 
+import persist from 'react-localstorage-hoc'
+
 import './App.css';
 
 class App extends Component {
@@ -94,4 +96,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default persist(App);

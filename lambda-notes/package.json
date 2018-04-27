@@ -13,6 +13,7 @@
     "react-csv": "^1.0.14",
     "react-dom": "^16.3.2",
     "react-dragula": "^1.1.17",
+    "react-localstorage-hoc": "^0.0.2",
     "react-router-dom": "^4.2.2",
     "react-router-with-props": "^0.1.1",
     "react-scripts": "1.1.4",
