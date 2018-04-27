@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../styles/NoteView.css';
+import { ErrorPage } from './ErrorPage';
 
 export const NoteView = props => {
   const note = props.notes[props.match.params.id];
-  return (
+  console.log(note);
+  return ( note ?
     <div className="NoteView">
       <div className="NoteView_note">
         <p className="NoteView_noteTitle">{note.title}</p>
@@ -15,6 +17,6 @@ export const NoteView = props => {
         <Link to={`/edit/${note.id}`} className="App_button">Edit</Link>
         <Link to={`/view/${note.id}/delete`} className="App_button">Delete</Link>
       </div>
-    </div>
+    </div> : <ErrorPage />
   )
 }
