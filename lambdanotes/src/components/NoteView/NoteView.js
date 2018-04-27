@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button, Modal, ModalBody, ModalFooter, Col, Row } from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 export default class NoteView extends Component {
   constructor(props) {
@@ -67,9 +67,6 @@ export default class NoteView extends Component {
     // console.log('note:', this.state.note);
     return (
       <div className="noteView__background">
-        {/* <Row>
-          <Col sm={{ size: 8, offset: 4 }}> */}
-
         {/* ______DELETE NOTE MODAL HERE______ */}
         <button className="noteView__button" onClick={this.toggle}>
           delete
@@ -79,8 +76,10 @@ export default class NoteView extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalBody className='noteView__modalBody'>Are you sure you want to delete this?</ModalBody>
-          <ModalFooter className='noteView__modalFooter'>
+          <ModalBody className="noteView__modalBody">
+            Are you sure you want to delete this?
+          </ModalBody>
+          <ModalFooter className="noteView__modalFooter">
             <Link to="/">
               <button
                 className="noteView__modalButton--delete"
@@ -111,8 +110,6 @@ export default class NoteView extends Component {
         {/* ______ACTUAL NOTE TITLE+CONTENT______ */}
         <h4 className="noteView__title">{this.state.note.title}</h4>
         <p className="noteView__content">{this.state.note.content}</p>
-        {/* </Col>
-        </Row> */}
       </div>
     );
   }
