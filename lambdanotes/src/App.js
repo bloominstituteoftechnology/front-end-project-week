@@ -13,10 +13,12 @@ class App extends Component {
         super(props);
         this.state = {
             notes: [],
-            displayNotes:[]
+            displayNotes:[],
+
         };
 
         this.filterNotes = this.filterNotes.bind(this);
+
     }
 
     componentWillMount() {
@@ -26,8 +28,9 @@ class App extends Component {
 
     
     componentWillUpdate(nextProps, nextState) {
+        console.log('nextState', nextState);
         localStorage.setItem('notes', JSON.stringify(nextState.notes));
-        console.log('will update');
+        console.log('component will update');
     }
 
     addNote = (title, content) => {
@@ -48,7 +51,6 @@ class App extends Component {
         newNotes[id] = newNote;
         this.setState({notes: newNotes});
         this.setState({displayNotes: newNotes});
-        //x
 
     };
 
@@ -92,6 +94,7 @@ class App extends Component {
             }
             return 0;
         });
+        console.log(newNotes);
         this.setState({notes: newNotes});
         this.setState({displayNotes: newNotes});
     };
