@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Nav, NavItem, Navbar,
+import { Button, Nav, NavItem, Navbar, Tooltip,
   NavbarBrand, NavbarToggler, Collapse, NavLink,
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem
 } from 'reactstrap';
 import { toggleNight, listViews } from '../REDUX/actions';
 import { ShowAt, HideAt } from 'react-with-breakpoints';
 import styled from 'styled-components';
+import { CSVLink } from 'react-csv';
 
 const Wrapper = styled.section`text-decoration-line: none; width: 100%;`;
 
@@ -17,8 +18,22 @@ class NavColumn extends Component {
     this.state = { 
       collapsed: true,
       viewOpen: false,
-      isOpen: false
+      isOpen: false,
+      exportOpen: false,
+      tooltipOpen: false
     }
+  }
+
+  handleCSV = () => {
+    const headers = [ { label: "Note ID", key: "id" }, { label: "Title", key: "title" }, { label: "Content", key: "content" } ];
+    const data = this.props.notes.map(note => ({ id: note.id, title: note.title, content: note.content }));
+    return (
+      <CSVLink data={data} headers={headers} filename={"my-notes.csv"} id="CSV-Tooltip">
+        <Tooltip placement="right" isOpen={this.state.tooltipOpen} target="CSV-Tooltip" toggle={() => this.setState({ tooltipOpen: !this.state.tooltipOpen })}>
+          Mozilla Firefox is recommended.
+        </Tooltip>
+        <Button className="Nav__ButtonsContainer--navButton px-0">Export Notes to CSV</Button>
+      </CSVLink>)
   }
 
   render() {
@@ -34,7 +49,9 @@ class NavColumn extends Component {
                 </Link>
               ) : (
                 <Link to="/home">
-                  <ShowAt breakpoint="medium" breakpoints={{small: 744, medium: 992, large: Infinity}}><Button className="Nav__ButtonsContainer--navButton px-0">View Your Notes</Button></ShowAt>
+                  <ShowAt breakpoint="medium" breakpoints={{small: 744, medium: 992, large: Infinity}}>
+                    <Button className="Nav__ButtonsContainer--navButton px-0">View Your Notes</Button>
+                  </ShowAt>
                   <HideAt breakpoint="medium" breakpoints={{small: 744, medium: 992, large: Infinity}}>
                     <Dropdown group 
                       isOpen={this.state.viewOpen} 
@@ -43,7 +60,7 @@ class NavColumn extends Component {
                       <Wrapper>
                         <DropdownToggle caret className="Nav__ButtonsContainer--navButton">View Your Notes</DropdownToggle>
                       </Wrapper>
-                      <DropdownMenu className="w-100">
+                      <DropdownMenu className="w-100 text-center">
                         <DropdownItem 
                           className={this.props.listView ? "" : "active"}
                           onClick={() => this.props.listViews() }
@@ -67,6 +84,9 @@ class NavColumn extends Component {
               <Link to="/markdown">
                 <Button className="Nav__ButtonsContainer--navButton px-0">Markdown Editor</Button>
               </Link>
+            </NavItem>
+            <NavItem className="col-12 p-0">
+              {this.handleCSV()}
             </NavItem>
           </Nav>
         </HideAt>
@@ -95,6 +115,7 @@ class NavColumn extends Component {
 }
 
 const mapStateToProps = state => ({ 
+  notes: state.notes,
   night: state.night, 
   listView: state.listView,
   isHome: state.isHome
