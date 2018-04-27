@@ -17,7 +17,7 @@ export const NewNote = ({ history, addNote }) => {
           onSubmit={event => {
             event.preventDefault();
             addNote({ title: titleInput.value, text: textInput.value });
-            history.push("/");
+            history.push("/displayNotes");
           }}
         >
           <input

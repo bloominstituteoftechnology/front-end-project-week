@@ -10,7 +10,7 @@ export const ViewNote = ({ match, notes, history, deleteNote }) => {
   const handleDelete = event => {
     event.preventDefault();
     deleteNote(note.id);
-    history.push("/");
+    history.push("/displayNotes");
   };
   return (
     <div className="col-9 right__side">
