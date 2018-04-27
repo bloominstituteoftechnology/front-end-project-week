@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export const NoteList = props => {
     return (
         <div className="col-10">
-            <div className="row">
+            <div className="row col-3">
                 <h4>Your Notes:</h4>
                 <div className="right">
                     {props.Notes.map(note => {

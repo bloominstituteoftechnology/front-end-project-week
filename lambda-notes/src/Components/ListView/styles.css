@@ -20,9 +20,10 @@
 }
 
 .Card {
-    width: 70%;
-    height: 190px;
-    margin: 10px;
+    width: 216px;
+    height: 170px;
+    margin-right: 447px;
+    margin-bottom: 40px;
 }
 
 .title {
