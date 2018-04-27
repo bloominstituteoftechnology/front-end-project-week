@@ -4,6 +4,10 @@
   width: 32.5%;
 }
 
+@media (min-width: 744px) {
+  .Nav__Container { max-width: 325px; }
+}
+
 .NavRow {
   border-bottom: 2px solid #959595;
 }

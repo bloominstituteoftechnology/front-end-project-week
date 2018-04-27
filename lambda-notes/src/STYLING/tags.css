@@ -53,9 +53,20 @@ input.primary-input {
   opacity: 0;
 }
 
-/* input.react-tagsinput-input:enabled {
-  visibility: visible;
-} */
+.react-tagsinput {
+  width: 80%;
+}
+
+@media (max-width: 1128px) {
+  .react-tagsinput { width: 100%; }
+
+  .tagEditContainer { flex-direction: column !important; }
+
+  .tagButton { 
+    float: right !important; 
+    font-size: 0.8rem !important;
+  }
+}
 
 
 /* Styles for suggestions */

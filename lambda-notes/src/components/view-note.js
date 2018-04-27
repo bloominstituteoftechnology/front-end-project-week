@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { deleteNote, setHome, updateNote, handleTags } from '../REDUX/actions';
 import { Button, Modal, ModalBody } from 'reactstrap';
 import TagsInput from 'react-tagsinput';
+import { ShowAt, HideAt } from 'react-with-breakpoints';
 
 class ViewNote extends Component {
   constructor() {
@@ -65,10 +66,18 @@ class ViewNote extends Component {
         <h1 className="PrimaryContainer__header">{note.title}</h1>
         <div className="ViewNote__content mb-4">{note.content}</div>
 
-        <TagsInput value={this.state.tags} onChange={this.handleNewTag} />
-        {/* <Link to="" onClick={() => this.handleReduxTags()} className="Modal__button--link"> */}
-          <Button onClick={() => this.handleReduxTags()} className="Nav__ButtonsContainer--navButton col-2">Save Tags</Button>
-        {/* </Link> */}
+        <HideAt breakpoint="medium" >
+          <div className="d-flex justify-content-between tagEditContainer">
+            <TagsInput value={this.state.tags} onChange={this.handleNewTag} />
+            <Button onClick={() => this.handleReduxTags()} className="Nav__ButtonsContainer--navButton col-2 my-0">Save Tags</Button>
+          </div>
+        </HideAt>
+        <ShowAt breakpoint="medium" >
+          <div className="d-flex flex-column">
+            <TagsInput value={this.state.tags} onChange={this.handleNewTag} />
+            <Button onClick={() => this.handleReduxTags()} className="Nav__ButtonsContainer--navButton col-3 my-3 tagButton">Save Tags</Button>
+          </div>
+        </ShowAt>
 
         {this.state.deleteModal ? (
           <Modal isOpen={this.state.deleteModal}>
