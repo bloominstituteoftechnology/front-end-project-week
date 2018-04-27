@@ -1,0 +1,32 @@
+/* .container-fluid {
+  height: 100%;
+}
+
+.Nav {
+  background-color: #d7d7d7;
+  color: #4a494a;
+}
+
+.Main {
+  background-color: #f3f3f3;
+  color: #4a494a;
+  font-size: 1em;
+  font-weight: bold;
+  padding-top: 35px;
+}
+
+.notes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 158px 40px 0px 240px;
+} */
+
+/*  */
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 75px;
+  padding-bottom: 200px;
+}
