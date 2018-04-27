@@ -40,11 +40,7 @@ const notes =  [
         title: 'NoteTitle4',
         body: 'NoteBody4',
     },
-    {
-        id: 8,
-        title: 'NoteTitle4',
-        body: 'NoteBody4',
-    },
+
 ]
 
 export default notes;

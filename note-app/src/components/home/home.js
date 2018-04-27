@@ -13,7 +13,7 @@ class Home extends React.Component {
         return (
             <div className='Home'>
                 <div className='Home__header'> Your Notes</div>
-
+                <div className='container'>
                 {this.props.notes.map(n => {
                     return (
                         <div className='Home__content'>
@@ -24,7 +24,7 @@ class Home extends React.Component {
                         </div>
                     )
                 })}
-
+                </div>
             </div>
         )
     }
