@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
 import '../styles/App.css';
+import lambdaLogo from '../images/Lambda-Logo.png';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
 import { NoteForm } from './NoteForm';
@@ -59,7 +60,8 @@ export class App extends Component {
   }
 
   selectTheme(theme) {
-
+    const App = document.querySelector('.App');
+    App.classList.toggle('invert-colors');
   }
 
   slideIn() {
@@ -72,10 +74,11 @@ export class App extends Component {
     return (
       <div className="App">
         <div className="App_sideBar">
-          <h3>Lambda<br/>Notes</h3>
+          <img src={lambdaLogo} className="lambdaLogo" alt="Lambda School logo"/>
+          <h3>Notes</h3>
           <Link to="/" className="App_button">View Your Notes</Link>
           <Link to="/create" className="App_button">+Create New Note</Link>
-          <button className="App_button" onClick={this.selectTheme}>Change Theme</button>
+          <button className="App_button" onClick={this.selectTheme}>Invert Colors</button>
           <button className="App_button" onClick={this.slideIn}>Animation Demo</button>
           <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>

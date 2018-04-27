@@ -18,14 +18,19 @@
   z-index: 10;
 }
 
+.lambdaLogo {
+  filter: contrast(400%);
+  height: 75px;
+  margin-top: 30px;
+  width: 75px;
+}
+
 .App_sideBar h3 {
-  border-bottom: 1px solid rgb(128, 128, 128);
-  color: rgb(82, 82, 82);
-  font-size: 30px;
-  line-height: 30px;
-  margin: 20px 0 35px;
+  color: rgb(225, 0, 0);
+  font-size: 40px;
+  margin: 5px auto;
   padding-bottom: 30px;
-  width: 80%;
+  text-shadow: -1px 1px 2px rgb(151, 41, 63)
 }
 
 .App_button {
@@ -57,6 +62,10 @@
   background: rgb(231, 0, 0);
   border-color: rgb(184, 22, 54);
   margin: auto 0 50px;
+}
+
+.invert-colors {
+  filter: invert(100%);
 }
 
 .App-logo {
