@@ -64,7 +64,7 @@ export default class NoteView extends Component {
   }
 
   render() {
-    // console.log('note:', this.state.note);
+    console.log('note:', this.state.note);
     return (
       <div className="noteView__background">
         {/* ______DELETE NOTE MODAL HERE______ */}

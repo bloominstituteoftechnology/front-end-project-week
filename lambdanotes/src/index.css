@@ -3,6 +3,7 @@
 @import "./components/Note/Note.css";
 @import "./components/NoteView/NoteView.css";
 @import "./components/CreateNote/CreateNote.css";
+@import "./components/EditNote/EditNote.css";
 
 body {
   margin: 0;
@@ -13,4 +14,9 @@ body {
 
 html {
   background-color: #f3f3f3;
+}
+
+input,
+textarea {
+  border-radius: 5px;
 }

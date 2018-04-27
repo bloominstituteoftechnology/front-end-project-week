@@ -17,17 +17,17 @@ export default class EditNote extends Component {
     this.updateNote();
   }
 
-//   getNotes = () => {
-//     axios
-//       .get(`http://localhost:5000/notes`)
-//       .then(response => {
-//         // console.log('response:', response);
-//         this.setState({ notes: response.data });
-//       })
-//       .catch(error => {
-//         console.error("Error getting notes!", error);
-//       });
-//   };
+  //   getNotes = () => {
+  //     axios
+  //       .get(`http://localhost:5000/notes`)
+  //       .then(response => {
+  //         // console.log('response:', response);
+  //         this.setState({ notes: response.data });
+  //       })
+  //       .catch(error => {
+  //         console.error("Error getting notes!", error);
+  //       });
+  //   };
 
   handleNewInput = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -59,44 +59,46 @@ export default class EditNote extends Component {
   render() {
     // console.log(this.props.location.state.note);
     return (
-      <div>
-        <Row>
-          <Col sm={{ size: 8, offset: 4 }}>
-            <h1>Edit Note:</h1>
-            <form>
-              <label>
-                <input
-                  type="text"
-                  onChange={this.handleNewInput}
-                  name="title"
-                  value={this.state.title}
-                  placeholder="Note Title"
-                />
-              </label>
+      <div className="editNote__background">
+        <h4 className="editNote__title">Edit Note:</h4>
+        <form className="editNote__form">
+          <div>
+            <label>
+              <input
+                type="text"
+                onChange={this.handleNewInput}
+                name="title"
+                value={this.state.title}
+                placeholder="  Note Title"
+                size="50"
+              />
+            </label>
+          </div>
 
-              <label>
-                <input
-                  type="text"
-                  onChange={this.handleNewInput}
-                  name="content"
-                  value={this.state.content}
-                  placeholder="Note Content"
-                />
-              </label>
+          <div>
+            <label>
+              <textarea
+                type="text"
+                onChange={this.handleNewInput}
+                name="content"
+                value={this.state.content}
+                placeholder="  Note Content"
+                cols="100"
+                rows="20"
+              />
+            </label>
+          </div>
 
-              <Link to="/">
-                <button
-                  type="button"
-                  onClick={() =>
-                    this.updateNote(this.props.location.state.note)
-                  }
-                >
-                  Update
-                </button>
-              </Link>
-            </form>
-          </Col>
-        </Row>
+          <Link to="/">
+            <button
+            className='editNote__button'
+              type="button"
+              onClick={() => this.updateNote(this.props.location.state.note)}
+            >
+              Update
+            </button>
+          </Link>
+        </form>
       </div>
     );
   }
