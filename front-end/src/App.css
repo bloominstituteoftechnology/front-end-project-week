@@ -3,6 +3,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Open Sans", sans-serif;
   letter-spacing: -1px;
   font-weight: 550;
+  height: 100%;
 }
 
 .ListView {
@@ -34,12 +35,17 @@
   font-size: large;
 }
 
+.PageContainer {
+  height: 100%;
+}
 .MainContentContainer {
   display: flex;
+  height: 100%;
 }
 
 .SideMenu {
   min-width: 290px;
+  height: 100%;
 }
 
 .MainContent {

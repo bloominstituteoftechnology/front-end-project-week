@@ -3,9 +3,16 @@
 }
 
 .SearchBar {
-  width: 30%;
+  width: 40vw;
   margin: auto;
-  padding-top: 20px
+  padding-top: 20px;
+  letter-spacing: 0px;
+
+}
+
+.SearchBar_Input {
+  min-width: 100px;
+
 }
 
 .NoteListYN {

@@ -2,7 +2,7 @@
   background: rgb(128, 121, 121);
   /* min-width: 250px; */
   max-width: 100%;
-  min-height: 100vh;
+  height: 100%;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
