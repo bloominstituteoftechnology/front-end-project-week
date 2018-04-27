@@ -7,6 +7,7 @@ import { NewNote } from "./components/NewNote";
 import { ViewNote } from "./components/ViewNote";
 import { EditNote } from "./components/EditNote";
 import { SideBar } from "./components/SideBar";
+import { Landing } from "./components/Landing";
 import base from "./base";
 
 class App extends Component {
@@ -68,9 +69,10 @@ class App extends Component {
           <div className="row">
             <SideBar export={this.handleExport} />
             <Switch>
+              <Route exact path="/" component={Landing} />
               <Route
                 exact
-                path="/"
+                path="/displayNotes"
                 render={props => (
                   <DisplayNotes {...props} notes={this.state.notes} />
                 )}

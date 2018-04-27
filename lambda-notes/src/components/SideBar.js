@@ -5,7 +5,7 @@ export const SideBar = props => {
   return (
     <div className="col-3 left__side">
       <h2 className="sidebar__head">Lambda Notes</h2>
-      <Link to="/" className="sidebar__button">
+      <Link to="/displayNotes" className="sidebar__button">
         View Your Notes
       </Link>
       <Link to="/createNewNote" className="sidebar__button">

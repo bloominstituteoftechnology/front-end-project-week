@@ -91,6 +91,7 @@ body {
   background-color: #fff;
   color: #444444;
   border: 1px solid #2bc1c4;
+  margin-bottom: 20px;
 }
 
 .notes__head h4 {
@@ -207,4 +208,48 @@ body {
 
 .cancel__btn {
   background-color: #2eb8bc;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.intro {
+  height: 100vh;
+  background-color: #2bc1c4;
+}
+
+.intro__heading {
+  animation: 1.5s ease-out 0s 1 appear;
+}
+
+.intro h1 {
+  margin-top: 200px;
+  padding: 4%;
+  background-color: #2bc1c4;
+  color: #fff;
+  font-weight: bold;
+}
+
+.intro button {
+  background-color: rgba(255, 250, 255, 0.9);
+  color: #2eb8bc;
+  padding: 8px 6%;
+  box-shadow: 1px 1px 1px #000;
+  font-style: italic;
+  font-weight: bold;
+  border: 1px solid #000;
+  font-size: 1.2rem;
+  border-radius: 25px;
+}
+
+.intro button:hover {
+  cursor: pointer;
+  background-color: #444444;
+  color: crimson;
 }
