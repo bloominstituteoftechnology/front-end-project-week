@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
+import throttle from "lodash";
 // Material-UI
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import "./styles/index.css";
@@ -26,7 +27,7 @@ const store = createStore(
 // listen to any state changes - call saveState
 // only pass in application data not UI data
 store.subscribe(() => {
-	saveState(store.getState());
+	throttle(saveState(store.getState()), 1000);
 });
 
 const router = (

@@ -35,7 +35,6 @@ class EditTodoForm extends Component {
 				<h3 className="CreateTodoForm_header">Edit Note:</h3>
 				<TextField
 					className="CreateTodoForm_title"
-					hintText="Note Title"
 					hintText={this.props.todos[parseInt(id, 10)].title}
 					floatingLabelText="Note Title"
 					underlineShow={false}

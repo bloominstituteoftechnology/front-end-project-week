@@ -8,7 +8,6 @@ import { deleteTodo, toggleTodo } from "../actions/index";
 import Paper from "material-ui/Paper";
 import FlatButton from "material-ui/FlatButton";
 import Dialog from "material-ui/Dialog";
-import Toggle from "material-ui/Toggle";
 import { List, ListItem } from "material-ui/List";
 import Checkbox from "material-ui/Checkbox";
 // styles
@@ -90,7 +89,7 @@ class Todo extends Component {
 							Delete
 						</FlatButton>
 						<FlatButton className="Todo_button" onClick={this.handleToggle}>
-							<i class="material-icons md-24">list</i>
+							<i className="material-icons md-24">list</i>
 						</FlatButton>
 					</div>
 				</div>

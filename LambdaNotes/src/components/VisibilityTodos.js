@@ -22,7 +22,7 @@ const getVisibleTodos = (todos, filter) => {
 				return !todo.isComplete;
 			});
 		default:
-			throw new Error("Unknown filter: " + filter);
+		// throw new Error("Unknown filter: " + filter);
 	}
 };
 
