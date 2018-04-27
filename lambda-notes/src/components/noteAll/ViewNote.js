@@ -1,15 +1,22 @@
 import React, { Component } from 'react'; 
-import { Route, Link } from 'react-router-dom';
-import { Modal, ModalBody } from 'reactstrap';
+import { withRouter, Link } from 'react-router-dom';
+import { Form, Input, Row, Col, Button, Modal, ModalBody } from 'reactstrap';
 
 class ViewNote extends Component {
-    state = {
-        modal: false 
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            modal: false
+        };
+    }
     
-    toggle = this.toggle.bind(this);
+    handleDelete = () => {
+        this.toggleModal();
+        this.props.deleteNote(this.props.selectedNote.title);
+        this.props.history.push('/');
+    }
 
-    toggle() {
+    toggleModal = () => {
         this.setState({
             modal: !this.state.modal
         });
@@ -17,11 +24,28 @@ class ViewNote extends Component {
 
     render() {
         return (
-          <Route path='/ViewNote'>
-            <div className='body'>
-                <div className='col=12 d-flex flex-row justify-content-end'>
+            <div>
+                <Row>
+                    <Col className='col-3 ml-auto'>
+                        <Link to='/edit-note'><Button className='mr-2' size='sm'>Edit</Button></Link>
+                            <Button onClick={ () => this.toggleModal()} size='sm'>Delete</Button>
+                            {this.state.modal ? <Modal isOpen={this.state.modal}>
+                            <ModalBody>
+                                Delete?
+                                <Link to='/' onClick={() => this.handleDelete()}>
+                                    <Button className='modeButton_no' onClick={() => this.toggleModal()}>
+                                    Cancel
+                                    </Button>
+                            <ModalBody/>
+                            <Modal/> : null
+                    </Col>
+                </Row>
+            </div>
+                <Row className='mt-4'>
+                </Row>
+export default withRouter(ViewNote);
 
-                    <Link className='modalLink mr-3 font-weight-bold' to='/EditNote'>Edit</Link>
+                    /* <Link className='modalLink mr-3 font-weight-bold' to='/EditNote'>Edit</Link>
                         <button type='button' onClick={this.toggle} className='modalLink font-weight-bold'>Delete</button>
                             <Modal isOpen={this.state.modal} toggle={this.toggle}>
                                 <ModalBody className='row d-flex flex-row justify-content-center flex-wrap'>
@@ -43,13 +67,4 @@ class ViewNote extends Component {
                 </Route>
         )
     }
-}
-
-export default ViewNote;
-                            
-
-
-
-        )
-    }
-}
+} */

@@ -1,29 +1,51 @@
 import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 class EditNote extends Component {
+    constructor() {
+        super();
+        this.state = {
+            title: '',
+            content: ''
+        }
+    }
+
+    handleInputChange = (e) => {
+        this.props.updateNote(this.state);
+    }
+
     render() {
-        return(
-            <div className='body'>
-                <h1 className='sub_header'>Edit Note:</h1>
+        return (
+            <div className='create-note'>
                 <Form>
-                    <FormGroup>
-                        <Input type='text' className='noteTitle mt-4' name='editTitle' id='editTitle' placeholder='Note Title'/>
-                    </FormGroup>
-
-                    <FormGroup>
-                        <Input type='textarea' className='noteContent' name='editBody' id='editBody' placeholder='Note Content' />
-                    </FormGroup>
-
-                    <FormGroup>
-                        <Link className='' to='/'>
-                        <button className='navButton_save mt-2'>Update</button>
+                    <Row>
+                        <Col className='col-8 mb-3'>
+                            <Input onChange={this.handleInputChange}
+type='text' name='title' value={this.state.title} placeholder='Note Title' />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className='col-8 mb-3'>
+                            <Input onChange={this.handleInputChange}
+type='text-area' name='content' value={this.state.content} placeholder='Content' /> 
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Button onClick={this.handleSubmit} className='btn-info'>Update</Button>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        <Link to='/' onClick={() => this.handleSubmit()}>
+                            <Button className='btn-nfo'>Update</Button>
                         </Link>
-                    </FormGroup>
+                        </Col>
+                    </Row>
                 </Form>
             </div>
-        )
+        );
     }
 }
 

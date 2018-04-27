@@ -19,12 +19,37 @@ class NoteContent extends Component {
         this.setState({ cards: [...this.state.cards, newCard]});
     }
 
+    updateNote = (updatedNote) => {
+        const updatedNotes = this.state.cards.map(note => {
+            if (note.title === this.state.selectedNote.title) {
+                return { title: updatedNote.title, content: updatedNote.content };
+            } else {
+                return note;
+            }
+            });
+
+            this.setState({ cards: updatedNotes });
+    }
+
+    updatedSelectedNote = (selectedNote) => {
+        this.setState({ selectedNote: selectedNote });
+    }
+
+    deleteNote = title => {
+        const updatedNotes = this.state.cards.filter(card => card.title !== title);
+            this.setState({ cards: updatedNotes });
+    }
+
     render() {
         return(
-            <div className='col-12'>
-                <Route exact path='/' render={() => <NoteList {...this.state} />} />
-                <Route path='/addNote' render={() => <AddNote addNewCard = {this.addNewCard} />} />
-            </div>
+            <Row>
+                <div className='col-12'>
+                    <Route exact path='/' render={() => <NoteList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
+                    <Route path='/AddNote' render={() => <AddNote addNewCard={this.addNewCard} updateNewNote = {this.updateNewNote} />} />
+                    <Route path='/ViewNote' render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} {...props} />} />
+                    <Route path='/EditNote' render={() => <EditNote {...this.state} updateNote={this.updateNote} />} />
+                </div>
+            </Row>
         )
     }
 }
