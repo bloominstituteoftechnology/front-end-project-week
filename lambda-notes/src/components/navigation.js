@@ -11,7 +11,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`text-decoration-line: none; width: 100%;`;
 
-
 class NavColumn extends Component {
   constructor() {
     super();
@@ -26,7 +25,7 @@ class NavColumn extends Component {
     return (
       <div className="Nav__Container">
         <HideAt breakpoint="small" className="position-relative">
-          <h1 className="Nav__Header pr-2">Lambda <br/> Notes</h1>
+          <Link to="/home" className="Nav__Header--link"><h1 className="Nav__Header pr-2">Lambda <br/> Notes</h1></Link>
           <Nav vertical className="Nav__ButtonsContainer">
             <NavItem className="col-12 p-0">
               {!this.props.isHome ? (
