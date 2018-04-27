@@ -45,9 +45,6 @@ class App extends Component {
         this.setState({displayNotes: newNotes});
     };
 
-    updateNote = (title, content) => {
-        console.log(`Update Called`);
-    };
 
     filterNotes(criterion) {
         if (criterion.length === 0) {
@@ -56,9 +53,9 @@ class App extends Component {
             });
             console.log(`Display notes: ${this.state.notes}`)
         } else {
-            const filteredPosts = this.state.notes.filter(note => note.title.toLowerCase().includes(criterion.toLowerCase()));
+            const filteredNotes = this.state.notes.filter(note => note.title.toLowerCase().includes(criterion.toLowerCase()));
             this.setState({
-                displayNotes: filteredPosts
+                displayNotes: filteredNotes
             });
         }
 

@@ -31,8 +31,15 @@ class NoteEdit extends React.Component {
         this.setState({[e.target.name]: e.target.value});
     };
 
-    handleClick = (e) => {
-        this.props.onSubmit(this.state.title, this.state.content);
+
+    updateNote = (e) => {
+        e.preventDefault();
+        console.log('Updating Note From Edit Form');
+        // let updateNote = this.state.currentNote;
+        // console.log(updateNote);
+        // this.setState({currentNote: updateNote});
+
+
     };
 
     render() {
@@ -48,15 +55,20 @@ class NoteEdit extends React.Component {
                         <Form>
                             <FormGroup>
 
-                                <Input type="text" name="title" id="noteTitle" placeholder='title'
-                                       onChange={this.handleInputText} value={this.state.currentNote.title}/>
+                                <Input type="text"
+                                       name="title"
+                                       placeholder={this.state.currentNote.title}
+                                       onChange={this.handleInputText} />
                             </FormGroup>
                             <FormGroup>
-                                <Input className='NoteDetail__textarea' type="textarea" name="content" id="noteDetail"
-                                       onChange={this.handleInputText} value={this.state.currentNote.content}/>
+                                <Input className='NoteDetail__textarea'
+                                       type="textarea"
+                                       name="content"
+                                       placeholder={this.state.currentNote.content}
+                                       onChange={this.handleInputText} />
                             </FormGroup>
                             <Link to={'/'}>
-                                <Button onClick={this.handleClick}>Save</Button>
+                                <Button>Save</Button>
                             </Link>
                         </Form>
                     </div>
