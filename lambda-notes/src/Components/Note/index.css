@@ -41,6 +41,17 @@
 .marginOne{
   margin-right: 20px;
 }
+.buttonContainer__Button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: black;
+  padding: 0;
+}
+.buttonContainer__Button:hover {
+  background-color: transparent;
+  border-bottom: 3px solid black;
+}
 .ModalContainer{
   position: absolute;
   top: 0;
@@ -84,4 +95,106 @@
 }
 .link {
   width: 45%;
+}
+.clipBoardContainer {
+  border: 20px solid black;
+  border-radius: 5px;
+  background-color: white;
+  height: 400px;
+  width: 300px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px 10px;
+}
+.clipBoardContainer__Circle {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 14px solid rgb(207, 64, 60);
+  border-radius: 50%;
+  position: absolute;
+  top: -55px;
+  z-index: 2;
+}
+.clipBoardContainer__Clip {
+  width: 120px;
+  height: 50px;
+  background: rgb(207, 64, 60);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top: 1px solid rgb(237, 103, 100);
+  border-right: 1px solid rgb(237, 103, 100);
+  border-left: 1px solid rgb(237, 103, 100);
+  position: absolute;
+  top: -30px;
+}
+.clipBoardContainer__Header {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  text-align: center;
+}
+.clipBoardContainer__FormContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.clipBoardContainer__Input {
+  width: 80%;
+  border-radius: 0;
+  border: 1px solid black;
+  padding: 2px 5px;
+}
+.clipBoardContainer__Button {
+  width: 20%;
+  height: auto;
+  padding: 0;
+  background-color: rgb(207, 64, 60);
+  border-radius: 0;
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+}
+.clipBoardContainer__Button:hover {
+  background-color: rgb(237, 103, 100);
+}
+.clipBoardContainer__CheckListContainer {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 2rem;
+  overflow: auto;
+}
+.clipBoardContainer__CheckListItem {
+  width: 100%;
+  list-style-type: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.clipBoardContainer__CheckListItem:nth-child(2n+1) {
+  background: rgb(245, 245, 245);
+}
+.clipBoardContainer__CheckListItem:hover {
+  background-color: rgb(224, 224, 224);
+}
+.clipBoardContainer__DeleteCheckListItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  height: 100%;
+  width: 15%;
+}
+.clipBoardContainer__DeleteCheckListItem:hover {
+  background-color: rgb(175, 35, 31);
+  color: white;
+}
+.check {
+  text-decoration: line-through;
 }

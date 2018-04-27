@@ -19,7 +19,8 @@ export const registerUser = (newUser) => {
   return dispatch => {
     promise
       .then(response => {
-        console.log(response);
+      }).catch(err =>{
+        console.log(err);
       })
   }
 }

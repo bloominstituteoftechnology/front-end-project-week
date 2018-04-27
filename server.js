@@ -11,7 +11,6 @@ app.use(cors());
 
 app.post('/api/login', (req, res) => {
   const user = req.body;
-  console.log(user);
   jsonfile.readFile(file, function(err, obj) {
     if(obj.profiles[user.username] !== undefined){
       if(obj.profiles[user.username].password === user.password) {
@@ -25,7 +24,7 @@ app.post('/api/login', (req, res) => {
   })
 })
 app.post('/api/register', (req, res) => {
-  const newUser = {[req.body.username]: {password:req.body.password, notes: []}};
+  const newUser = {[req.body.username]: {password:req.body.password, notes: [{id: "0", header: "Hello!", body: "Welcome new user!"}]}};
   jsonfile.readFile(file, function(err, obj) {
     const newObj = Object.assign({}, obj.profiles, newUser);
     jsonfile.writeFile(file, {profiles:newObj});
@@ -60,11 +59,8 @@ app.put('/api/notes/:id', (req, res) => {
 app.delete('/api/notes/:id/:user', (req, res) => {
   const { id } = req.params;
   const {user} = req.params;
-
   jsonfile.readFile(file, function(err, obj) {
-    console.log(obj);
     obj.profiles[user].notes = obj.profiles[user].notes.filter((note) => note.id !== id);
-    console.log(obj);
     jsonfile.writeFile(file, obj);
     res.send({username:user, loggedIn: true, notes: obj.profiles[user].notes});
   });
