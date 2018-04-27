@@ -75,18 +75,20 @@ class App extends Component {
           <Link to="create-note"><Button className="btn-info btn-block">+ Create New Note</Button></Link>
         </div>
         <div className="main-view">
-          <Container className="mt-4">
-            <Row>
-              <div className="col-12">
+          <div className="main-view-inner">
+          {/* <Container className="mt-4"> */}
+          {/*   <Row> */}
+          {/*     <div className="col-12"> */}
                 <Switch>
                   <Route exact path="/" render={() => <NotesList updateClickedNote={this.updateClickedNote} {...this.state} />} />
                   <Route path="/create-note" render={() => <CreateNote {...this.state} addNewNote={this.addNewNote} />} />
                   <Route path="/notes-view" render={() => <ViewNote {...this.state} deleteNote={this.deleteNote} />} />
                   <Route path="/edit-note" render={() => <EditNote {...this.state} updateEditedNote={this.updateEditedNote} />} />
                 </Switch>
-              </div>
-            </Row>
-          </Container>
+          {/*     </div> */}
+          {/*   </Row> */}
+          {/* </Container> */}
+          </div>
         </div>
       </div>
       </Router>

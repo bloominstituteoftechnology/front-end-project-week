@@ -2,20 +2,30 @@ html, body {height: 100%;}
 
 .App {
   display: flex;
-  justify-content: center;
   height: 100%;
+  width: 100%;
 }
 
 .side-nav {
   background-color: #cecece;
   height: 100vh;
-  padding: 0 10px;
+  padding: 0 18px;
 }
 
 .main-view {
-  width: 900px;
+  display: flex;
+  width: 100%;
   background-color: #f0f0f0;
   height: 100vh;
+}
+
+.main-view-inner {
+  width: 100%;
+  margin-left: 1.5rem;
+}
+
+.search-bar {
+  width: 25rem;
 }
 
 .note-list {
@@ -31,12 +41,12 @@ html, body {height: 100%;}
 
 .card {
   width: 15rem;
-  margin: 0 20px;
+  margin-right: 20px;
   margin-bottom: 2rem;
 }
 
 .create-note {
-
+  margin-left: 0;
 }
 
 .create-note textarea.form-control {

@@ -35,8 +35,8 @@ export default class NotesList extends Component {
       <div>
         <br /><br />
         <h3>Your Notes:</h3><br />
-        <Input onChange={this.handleSearchStringChange} placeholder="Search Notes" /><br />
-        <div className="note-list container" ref={this.dragulaDecorator}>
+        <Input className="search-bar" onChange={this.handleSearchStringChange} placeholder="Search Notes" /><br />
+        <div className="note-list" ref={this.dragulaDecorator}>
         { 
           notesToDisplay.map((note, i) => { 
             return ( 
