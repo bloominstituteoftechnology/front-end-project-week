@@ -237,6 +237,17 @@ textarea {
   bottom: 200px;
 }
 
+.modal__backdrop {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  opacity: .5;
+  background-color: #444;
+  height: 920px;
+}
+
 .modal-test {
   position: absolute;
   top: 200px;
