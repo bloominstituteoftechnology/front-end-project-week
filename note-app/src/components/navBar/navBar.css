@@ -15,9 +15,8 @@
     text-decoration: none;
     margin-top: 1rem;
     color: inherit;
-
-
 }
+
 .NavBar > .button {
     display: flex;
     justify-content: center;

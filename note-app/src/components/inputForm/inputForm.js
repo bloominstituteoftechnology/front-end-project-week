@@ -5,14 +5,11 @@ class InputForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            newNote: '',
-            notes: [
-                'Note 1',
-                'Note 2',
-                'Note 3',
-                'Note 4'
-            ]
+            id: '',
+            body: '',
+            title: '',
         }
+
         this.noteHandler = this.noteHandler.bind(this);
     }
 
@@ -24,9 +21,11 @@ class InputForm extends React.Component {
     // Manages the save button
     handleSubmitNote = event => {
         const { notes } = this.state;
-        const myNote = this.state.newNote;
-        notes.push(myNote);
-        this.setState({ notes });
+        const myNote = this.state.body;
+        const id = this.props.notes.length;
+         this.state.id = id;
+        this.props.notes.push(this.state);
+        this.setState({ body: '', id: '' });
     }
 
     // My notes are saving to inputform.props.match.notes
@@ -34,16 +33,24 @@ class InputForm extends React.Component {
         return (
             <div className='InputForm'>
                 <div className='InputForm__Header'> Edit Note</div>
-                <textarea className='Input' type='text' placeholder='New Note Title'></textarea>
+                <textarea 
+                className='Input' 
+                type='text' 
+                placeholder='New Note Title'
+                name='title'
+                value={this.state.title}
+                onChange={this.noteHandler}>
+                </textarea>
                 <textarea
                     className='Input InputBody'
                     type='text'
                     placeholder='New Note Body'
-                    name='newNote'
-                    value={this.state.newNote}
+                    name='body'
+                    value={this.state.body}
                     onChange={this.noteHandler}
                 ></textarea>
                 <div onClick={this.handleSubmitNote} className='save'> Save </div>
+            <div> {this.state.notes}</div>
             </div>
         )
     }

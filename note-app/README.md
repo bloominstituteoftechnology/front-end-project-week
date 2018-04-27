@@ -32,3 +32,6 @@ Trello URL: https://trello.com/b/Hrk9cf8X/front-end-board
 
 
 (2) how can i better organize my routes?
+
+(3) persistent?
+(4) difference b/n servers
