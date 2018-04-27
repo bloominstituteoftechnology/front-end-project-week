@@ -1,0 +1,18 @@
+.SideNav {
+    width: 20%;
+    height: 672px;
+    background-color: lightgray;
+    padding: 20px;
+}
+
+.sideNav__title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.sideNav__Button {
+    background-color: teal;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 50px;
+}
