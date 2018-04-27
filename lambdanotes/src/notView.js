@@ -22,7 +22,7 @@ toggle =()=>{
 
 deleteAlert = (index)=>{
    
-    delete this.props.notes[index]
+      delete this.props.notes[index]
 //  alert('')
 
  }
@@ -32,6 +32,9 @@ return (
         
         { this.props.notes.map((note,index) =>{
             console.log('index',index)
+            if(note=== null || note ===undefined){
+                return 
+            }
              return(
             note.title === this.props.match.params.noteName ? 
           <div className='.NoteCard'>
@@ -68,6 +71,7 @@ const mapStateToProps = (state)=>{
    console.log("filo", state.notesReducer)
     return {
         notes: state.notesReducer
+        
     }
 }
 export default connect (mapStateToProps,{})(NoteView)

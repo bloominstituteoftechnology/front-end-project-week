@@ -28,7 +28,7 @@ const notesReducer = (state = initialState, action)=>{
         case EDIT_NOTE :
             return state = [...state,...action.payload] 
         case FILTERED_NOTE:
-            return state = [action.payload]
+            return state = [...state,...action.payload]
             
         default:
          return state

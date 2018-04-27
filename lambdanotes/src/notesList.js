@@ -86,6 +86,9 @@ let filterNotesAction =()=>{
           {
              this.state.search === "" &&
               this.props.notes.map((note, index) => {
+                if (note  === null || note === undefined){
+                      return 
+                }
                   return (
                     <div className="Notes"key={index }> 
                           <Link to={`/${note.title}`} className="edit">
@@ -94,12 +97,21 @@ let filterNotesAction =()=>{
                           <div  className=" NoteText" key={"note.text"} >{note.text}</div>
                     </div>   
                   );
-              }) 
+              }
+            ) 
           }
         {
             this.state.search !== "" &&
             this.props.notes
-                      .filter((item, index) => item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1)
+                      .filter((item, index) => {
+                           
+                              if (item === undefined || item  === null) {
+                                  return false
+                              } else {
+                              return item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+                              }
+                          })
+                          
             .map((note, index) => {
                 return (
                     <div className="Notes" key={index}>
@@ -112,15 +124,7 @@ let filterNotesAction =()=>{
             })
         }
 
-
-
-
-
-
-
            </div>
-
-
 
       </div>
   )
