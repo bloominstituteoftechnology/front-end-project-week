@@ -1,9 +1,11 @@
 @import "./components/Sidebar/Sidebar.css";
 @import "./components/NotesList/NotesList.css";
 @import "./components/Note/Note.css";
+@import "./components/NoteView/NoteView.css";
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #f3f3f3;
 }

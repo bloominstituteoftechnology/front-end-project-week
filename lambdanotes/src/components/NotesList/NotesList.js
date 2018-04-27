@@ -13,7 +13,7 @@ export default class NotesList extends Component {
   render() {
     return (
       <div>
-        <h3 className="notesList__title">Your Notes:</h3>
+        <h4 className="notesList__title">Your Notes:</h4>
 
         <div className="notesList__list">
           {this.props.notes.map(note => (

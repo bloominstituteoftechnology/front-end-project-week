@@ -67,51 +67,51 @@ export default class NoteView extends Component {
     // console.log('note:', this.state.note);
     return (
       <div>
-        <Row>
-          <Col sm={{ size: 8, offset: 4 }}>
-            {/* ______EDIT NOTE LINK/BUTTON HERE______ */}
-            <Link
-              to={{
-                pathname: "/edit",
-                state: {
-                  note: this.state.note.id,
-                  getNotes: this.props.getNotes
-                }
-              }}
-            >
-              <button>edit</button>
-            </Link>
+        {/* <Row>
+          <Col sm={{ size: 8, offset: 4 }}> */}
+        {/* ______EDIT NOTE LINK/BUTTON HERE______ */}
+        <Link
+          to={{
+            pathname: "/edit",
+            state: {
+              note: this.state.note.id,
+              getNotes: this.props.getNotes
+            }
+          }}
+        >
+          <button className="noteView__button">edit</button>
+        </Link>
 
-            {/* ______DELETE NOTE MODAL HERE______ */}
-            <Button color="danger" onClick={this.toggle}>
-              delete
+        {/* ______DELETE NOTE MODAL HERE______ */}
+        <button className="noteView__button" onClick={this.toggle}>
+          delete
+        </button>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
+          <ModalBody>Are you sure you want to delete this?</ModalBody>
+          <ModalFooter>
+            <Link to="/">
+              <Button
+                color="danger"
+                onClick={() => this.deleteNote(this.state.note.id)}
+              >
+                Delete
+              </Button>
+            </Link>{" "}
+            <Button color="info" onClick={this.toggle}>
+              No
             </Button>
-            <Modal
-              isOpen={this.state.modal}
-              toggle={this.toggle}
-              className={this.props.className}
-            >
-              <ModalBody>Are you sure you want to delete this?</ModalBody>
-              <ModalFooter>
-                <Link to="/">
-                  <Button
-                    color="danger"
-                    onClick={() => this.deleteNote(this.state.note.id)}
-                  >
-                    Delete
-                  </Button>
-                </Link>{" "}
-                <Button color="info" onClick={this.toggle}>
-                  No
-                </Button>
-              </ModalFooter>
-            </Modal>
+          </ModalFooter>
+        </Modal>
 
-            {/* ______ACTUAL NOTE TITLE+CONTENT______ */}
-            <h3>{this.state.note.title}</h3>
-            <p>{this.state.note.content}</p>
-          </Col>
-        </Row>
+        {/* ______ACTUAL NOTE TITLE+CONTENT______ */}
+        <h4 className="noteView__title">{this.state.note.title}</h4>
+        <p className="noteView__content">{this.state.note.content}</p>
+        {/* </Col>
+        </Row> */}
       </div>
     );
   }
