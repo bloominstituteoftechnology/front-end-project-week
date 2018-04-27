@@ -31,9 +31,19 @@ const noteReducer = (state = initialState, action) => {
     case AT.DELETE_NOTE:
       state.splice(action.payload, 1);
       return state;
-
     case AT.EDIT_NOTE:
-      return null;
+      console.log("LOGGING state[id]:", state[action.noteID].title);
+
+      const index = action.noteID
+      if ( index !== -1) {
+        state[index] = action.payload
+      }
+      // Object.assign({}, state, {
+      //   title: action.payload.title,
+      //   content: action.payload.content
+      // });
+      
+      return state;
     default:
       return state;
   }

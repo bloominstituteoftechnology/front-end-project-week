@@ -49,5 +49,5 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(
-  connect(mapStateToProps, { createNote, deleteNote })(MainPageContainer)
+  connect(mapStateToProps, { createNote, deleteNote, editNote })(MainPageContainer)
 );

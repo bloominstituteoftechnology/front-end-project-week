@@ -19,7 +19,7 @@ class EditNote extends Component {
   }
 
   render() {
-    console.log("EditNote:", this.state.note.title);
+    // console.log("EditNote:", this.props.secondProps.mainProps);
     return (
       <div>
         <h1>Note Editor</h1>
@@ -35,13 +35,16 @@ class EditNote extends Component {
           value={this.state.content}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
         />
-        <Link to="/">
+        <Link to="/note/:id">
           <button
             onClick={() => {
-              this.props.mainProps.editNote({
-                title: this.state.title,
-                content: this.state.content
-              });
+              this.props.secondProps.mainProps.editNote(
+                {
+                  title: this.state.title,
+                  content: this.state.content
+                },
+                this.props.secondProps.match.params.id
+              );
               this.setState({ title: "", content: "" });
             }}
           >
