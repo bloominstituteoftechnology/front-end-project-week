@@ -54,19 +54,31 @@ class SingleTodo extends React.Component {
 									<MoreVertIcon className="SingleTodo__menu" />
 								</IconButton>
 							}
-							anchorOrigin={{ horizontal: "left", vertical: "top" }}
-							targetOrigin={{ horizontal: "left", vertical: "top" }}
+							anchorOrigin={{
+								horizontal: "left",
+								vertical: "top"
+							}}
+							targetOrigin={{
+								horizontal: "left",
+								vertical: "top"
+							}}
 						>
 							<Link to={`/todo/${this.props.index}`}>
 								<MenuItem primaryText="Edit this note" />
 							</Link>
 							<MenuItem
 								primaryText="Delete"
-								onClick={() => this.handleDeleteTodo(this.props.index)}
+								onClick={() => {
+									this.handleDeleteTodo(this.props.index);
+									this.props.handleClick("Item removed from list");
+								}}
 							/>
 							<MenuItem
 								primaryText="Archive"
-								onClick={() => this.handleArchiveTodo(id)}
+								onClick={() => {
+									this.handleArchiveTodo(id);
+									this.props.handleClick("Archived item");
+								}}
 							/>
 						</IconMenu>
 					</div>
