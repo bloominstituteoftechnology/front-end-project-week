@@ -42,8 +42,8 @@ class App extends Component {
         let id = newNotes.length;
         const newNote = { id: id,title: title, content: content };
         newNotes.push(newNote);
-        // this.setState({notes: newNotes});
-        // this.setState({displayNotes: newNotes});
+        this.setState({notes: newNotes});
+        this.setState({displayNotes: newNotes});
     };
 
     updateNote = (title, content, id) => {

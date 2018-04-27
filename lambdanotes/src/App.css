@@ -32,7 +32,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: auto;
+    height: 200vh;
     color: white;
 }
 
@@ -57,7 +57,7 @@
 
 .right__side {
     background: #f3f3f3;
-    height: auto;
+    height: 200vh;
     border: 1px solid gray;
 }
 
