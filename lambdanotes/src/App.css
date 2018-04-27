@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.Body__note {
+  display: flex;
+  width: 100%;
+}

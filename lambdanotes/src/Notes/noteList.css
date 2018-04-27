@@ -1,0 +1,18 @@
+.List__body {
+    width: 80%;
+}
+
+.List__header {
+    margin: 20px 20px;
+}
+.List__view { 
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.List__notes {
+    border: 2px solid gray;
+    width: 30%;
+    margin-bottom: 40px;
+}
