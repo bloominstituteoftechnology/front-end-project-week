@@ -39,7 +39,7 @@ class ListView extends Component {
                         <h1>Sign in</h1>
                         <div className="inputs">
                             Username: <input onChange={this.handleInputChange} name="Username" type="text"></input>
-                            Password: <input onChange={this.handleInputChange} name="Password" type="text"></input>
+                            Password: <input onChange={this.handleInputChange} name="Password" type="password"></input>
                         </div>
                         <button onClick={() => {
                             {this.state.Username === this.state.loginUser.Username
