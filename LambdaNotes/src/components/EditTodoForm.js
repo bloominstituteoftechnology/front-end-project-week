@@ -22,20 +22,21 @@ class EditTodoForm extends Component {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 	// update an existing todo
-	handleUpdateTodo = () => {
+	handleUpdateTodo = id => {
 		const { title, text } = this.state;
-		const { id } = this.props.location.state;
 		this.props.updateTodo(id, title, text);
 		this.setState({ title: "", text: "" });
 	};
 
 	render() {
+		const { id } = this.props.location.state;
 		return [
 			<div className="row">
 				<h3 className="CreateTodoForm_header">Edit Note:</h3>
 				<TextField
 					className="CreateTodoForm_title"
 					hintText="Note Title"
+					hintText={this.props.todos[parseInt(id, 10)].title}
 					floatingLabelText="Note Title"
 					underlineShow={false}
 					name="title"
@@ -46,7 +47,7 @@ class EditTodoForm extends Component {
 			<div className="row">
 				<TextField
 					className="CreateTodoForm_content"
-					hintText="Note Content"
+					hintText={this.props.todos[parseInt(id, 10)].text}
 					hintStyle={{
 						top: 25
 					}}
@@ -65,7 +66,9 @@ class EditTodoForm extends Component {
 						label="Update"
 						primary={true}
 						// style={style}
-						onClick={this.handleUpdateTodo}
+						onClick={() => {
+							this.handleUpdateTodo(id);
+						}}
 					/>
 				</Link>
 			</div>
