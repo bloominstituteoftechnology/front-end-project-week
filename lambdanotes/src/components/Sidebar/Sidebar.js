@@ -5,7 +5,7 @@ const Sidebar = () => (
   <div className="sidebar">
     <ul className="sidebar__ul">
       <li>
-        <h1 className="sidebar__title">Lambda Notes</h1>
+        <h2 className="sidebar__title">Lambda Notes</h2>
       </li>
       <li>
         <Link to="/">

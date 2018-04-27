@@ -8,6 +8,7 @@
   width: 220px;
   height: 100%;
   background-color: #d7d7d7;
+  border: 1px #BEBEBE solid;
 }
 
 .sidebar__ul {
@@ -17,6 +18,10 @@
 
 .sidebar__title {
   color: #414242;
+  line-height: 90%;
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 .sidebar__button {
