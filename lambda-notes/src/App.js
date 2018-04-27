@@ -8,6 +8,7 @@ import CreateNote from './components/createNote';
 import ViewNote from './components/viewNote';
 import EditNote from './components/editNote';
 import { testNotes } from './tests/testData';
+import LoginPage from './components/LoginPage';
 
 import './App.css';
 
@@ -74,6 +75,7 @@ class App extends Component {
           {/*     <div className="col-12"> */}
                 <Switch>
                   <Route exact path="/" render={() => <NotesList notes={this.state.notes} updateClickedNote={this.updateClickedNote} />} />
+                  <Route path="/login" component={LoginPage}/>
                   <Route path="/notes-view" render={() => <ViewNote clickedNote={this.state.clickedNote} deleteNote={this.deleteNote} />} />
                   <Route path="/create-note" render={() => <CreateNote addNewNote={this.addNewNote} />} />
                   <Route path="/edit-note" render={() => <EditNote clickedNote={this.state.clickedNote} updateEditedNote={this.updateEditedNote} />} />
