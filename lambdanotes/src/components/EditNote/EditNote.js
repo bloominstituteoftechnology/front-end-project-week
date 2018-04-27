@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Col, Row } from "reactstrap";
 import axios from "axios";
 
 export default class EditNote extends Component {
@@ -91,7 +90,7 @@ export default class EditNote extends Component {
 
           <Link to="/">
             <button
-            className='editNote__button'
+              className="editNote__button"
               type="button"
               onClick={() => this.updateNote(this.props.location.state.note)}
             >

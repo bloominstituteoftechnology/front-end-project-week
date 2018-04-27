@@ -64,7 +64,7 @@ export default class NoteView extends Component {
   }
 
   render() {
-    console.log('note:', this.state.note);
+    console.log("note:", this.state.note);
     return (
       <div className="noteView__background">
         {/* ______DELETE NOTE MODAL HERE______ */}
@@ -98,10 +98,7 @@ export default class NoteView extends Component {
         <Link
           to={{
             pathname: "/edit",
-            state: {
-              note: this.state.note.id,
-              getNotes: this.props.getNotes
-            }
+            state: { note: this.state.note.id }
           }}
         >
           <button className="noteView__button">edit</button>
