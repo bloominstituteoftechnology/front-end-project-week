@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
-
 import '../styles/App.css';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
