@@ -10,7 +10,9 @@ class NoteEdit extends React.Component {
         this.state = {
             notes: [],
             id: 0,
-            currentNote: {}
+            currentNote: {},
+            title: '',
+            content: ''
         };
     }
 
@@ -32,15 +34,21 @@ class NoteEdit extends React.Component {
     };
 
 
-    updateNote = (e) => {
-        e.preventDefault();
-        console.log('Updating Note From Edit Form');
-        // let updateNote = this.state.currentNote;
-        // console.log(updateNote);
-        // this.setState({currentNote: updateNote});
-
-
+    handleUpdate = (e) => {
+        this.props.onSubmit(this.state.title, this.state.content, this.state.id);
     };
+
+    // updateNote = (e) => {
+    //     console.log('Updating Note From Edit Form');
+    //     let updateNote = this.state.currentNote;
+    //     console.log('Before change', updateNote);
+    //     const newNotes = this.props.notes;
+    //     updateNote = { id: this.state.currentNote.id ,title: this.state.title, content: this.state.content };
+    //     newNotes[this.state.currentNote.id] = updateNote;
+    //     console.log('After',updateNote);
+    //     this.setState({notes: newNotes});
+    //
+    // };
 
     render() {
         return (
@@ -68,7 +76,7 @@ class NoteEdit extends React.Component {
                                        onChange={this.handleInputText} />
                             </FormGroup>
                             <Link to={'/'}>
-                                <Button>Save</Button>
+                                <Button onClick={this.handleUpdate}>Save</Button>
                             </Link>
                         </Form>
                     </div>

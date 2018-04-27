@@ -32,20 +32,23 @@ class NoteDetail extends React.Component {
         this.setState({notes: newNotes, id: newId, currentNote: newNote});
     }
 
+    handleDetate = (e) => {
+        this.props.onDelete(this.state.id);
+    };
     render() {
         return (
             <div className='col-9 right__side'>
                 <div className="row">
                     <div className="col-9 NoteDetail__menu">
                         <Link to={`/editNote/${this.state.currentNote.id}`}>Edit</Link>
-                        <Link to='#' onClick={this.toggle}>{this.props.buttonLabel}Delete</Link>
+                        <Button  onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                             <ModalBody toggle={this.toggle}>
                                 Are you want to delete this?
                             </ModalBody>
                             <ModalFooter>
                                 <Link to={'/'}>
-                                <Button color="primary" onClick={this.toggle}>Delete</Button>
+                                <Button color="primary" onClick={this.handleDetate}>Delete</Button>
                                 </Link>
                                 <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                             </ModalFooter>

@@ -23,15 +23,16 @@ class App extends Component {
         localStorage.getItem('notes') && this.setState({notes: JSON.parse(localStorage.getItem('notes'))});
         localStorage.getItem('notes') && this.setState({displayNotes: JSON.parse(localStorage.getItem('notes'))});
     }
-    componentDidMount() {
-        this.getData();
-    }
-
-    getData() {
-    }
+    // componentDidMount() {
+    //     this.getData();
+    // }
+    //
+    // getData() {
+    // }
     
     componentWillUpdate(nextProps, nextState) {
         localStorage.setItem('notes', JSON.stringify(nextState.notes));
+        console.log('will update');
     }
 
     addNote = (title, content) => {
@@ -41,10 +42,29 @@ class App extends Component {
         let id = newNotes.length;
         const newNote = { id: id,title: title, content: content };
         newNotes.push(newNote);
-        this.setState({notes: newNotes});
-        this.setState({displayNotes: newNotes});
+        // this.setState({notes: newNotes});
+        // this.setState({displayNotes: newNotes});
     };
 
+    updateNote = (title, content, id) => {
+        console.log('Updating Note From App');
+        const newNote = { id: id,title: title, content: content };
+        const newNotes = this.state.notes;
+        newNotes[id] = newNote;
+        this.setState({notes: newNotes});
+        this.setState({displayNotes: newNotes});
+        //x
+
+    };
+
+    delete = (id) => {
+        let newNotes = this.state.notes;
+        newNotes = newNotes.filter((note) => note.id !== id);
+
+        this.setState({notes: newNotes});
+        this.setState({displayNotes: newNotes});
+
+    };
 
     filterNotes(criterion) {
         if (criterion.length === 0) {
@@ -98,9 +118,9 @@ class App extends Component {
                         </div>
                         <Switch>
                             <Route exact path='/' render={() => <NoteList notes={this.state.displayNotes}/>}/>
-                            <Route path='/createNewNote' render={() => <NoteForm onSubmit={this.addNote}/>}/>
-                            <Route path='/editNote/:id' render={(props) => <NoteEdit {...props} notes={this.state.displayNotes} onSubmit={this.updateNote}/>}/>
-                            <Route path="/notedetail/:id" render={(props) => <NoteDetail {...props} notes={this.state.displayNotes}/>}/>
+                            <Route path='/createNewNote' render={() => <NoteForm onSubmit={this.addNote} />}/>
+                            <Route path='/editNote/:id' render={(props) => <NoteEdit {...props} onSubmit={this.updateNote} notes={this.state.displayNotes}/>}/>
+                            <Route path="/notedetail/:id" render={(props) => <NoteDetail {...props} notes={this.state.displayNotes} onDelete={this.delete}/>}/>
                         </Switch>
                     </div>
                 </div>
