@@ -8,6 +8,7 @@ import logger from 'redux-logger';
 import App from './App';
 import './index.css';
 import rootReducer from "./Reducers/rootReducer";
+import Nav from './Components/Nav/Nav.js'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middleware = composeEnhancers(applyMiddleware(logger, thunk));
