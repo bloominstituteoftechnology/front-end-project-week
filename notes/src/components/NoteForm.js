@@ -8,10 +8,10 @@ export class NoteForm extends Component {
     super(props);
 
     // Change state and input depending on function of form
+    const id = props.match.params.id;
     if (props.formUse === 'Create New Note') {
       this.state = { title: '', body: '' , id: props.notes.length };
-    } else if (props.formUse === 'Edit Note' && props.notes.id) {
-      const id = props.match.params.id;
+    } else if (props.formUse === 'Edit Note' && props.notes[id]) {
       this.note = props.notes[id];
       this.state = {
         title: this.note.title,

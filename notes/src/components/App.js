@@ -47,7 +47,7 @@ export class App extends Component {
   }
 
   deleteNote = id => {
-    // Make new state without target note
+    // Remove note from state
     const local = this.getNotes().filter(note => note.id !== id);
     // Adjust id's of notes that still remain
     for (let note in local) local[note].id = Number(note);
@@ -72,32 +72,27 @@ export class App extends Component {
           <Switch>
             <Route exact path="/" render={() => <NoteList notes={this.state.notes}/> }/>
             <Route path="/create" render={props => 
-              <NoteForm {...props} 
-              formUse="Create New Note"
-              notes={this.state.notes}
-              useFunction={this.createNote}/> 
+              <NoteForm {...props} formUse="Create New Note"
+              notes={this.state.notes} useFunction={this.createNote}/> 
             }/>
             <Route path="/edit/:id" render={props => 
               <NoteForm {...props} formUse="Edit Note" 
-              useFunction={this.editNote} 
-              notes={this.state.notes}/> 
+              useFunction={this.editNote} notes={this.state.notes}/>
             }/>
             <Route path="/view/:id" render={props => 
-              <NoteView {...props}
-              notes={this.state.notes}/> 
+              <NoteView {...props} notes={this.state.notes}/>
             }/>
-            <Route path="/delete/all" render={props => (
-            <div> {/* Make sure that modal is shown above note list */}
-              <NoteList notes={this.state.notes}/> 
-              <Modal {...props}
-              useFunction={this.clearNotes}/> 
-            </div>
-            )}/>
+            <Route path="/delete/all" render={props =>
+              <div> {/* Make sure that modal is shown above note list */}
+                <NoteList notes={this.state.notes}/>
+                <Modal {...props} useFunction={this.clearNotes}/>
+              </div>
+            }/>
             <Route component={ErrorPage}/>
           </Switch>
-          <Route path="/view/:id/delete" render={props => 
-            <Modal {...props}
-            useFunction={this.deleteNote}/> 
+          {/* Exclude view delete modal from switch so that it overlays properly */}
+          <Route path="/view/:id/delete" render={props =>
+            <Modal {...props} useFunction={this.deleteNote}/>
           }/>
         </div>
       </div>
