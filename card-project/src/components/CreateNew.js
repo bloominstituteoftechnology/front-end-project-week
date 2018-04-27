@@ -43,7 +43,8 @@ class CreateNew extends React.Component {
 		super(props);
 		this.state = {
 			title: '',
-			note: ''
+            note: '',
+            tag: ''
 		};
     }
     refresh = () => {
@@ -62,7 +63,7 @@ class CreateNew extends React.Component {
         // e.preventDefault();
         // this.props.addNote(this.state.note);
         // this.props.addTitle(this.state.title);
-        const noteObject = { title: this.state.title, note: this.state.note, check: false };
+        const noteObject = { title: this.state.title, note: this.state.note, check: false, tag: this.state.tag };
         this.props.addNote(noteObject);
         this.refresh();
         this.setState({
