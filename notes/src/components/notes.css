@@ -24,6 +24,8 @@ h1 {
 }
 
 .right-div {
+  display: flex;
+  flex-direction: column;
   overflow: ellipsis;
   overflow-y: auto;
   overflow-x: ellipsis;
@@ -50,6 +52,14 @@ h1 {
   color: white;
   cursor: pointer;
   user-select: none;
+}
+
+.sort-button {
+  min-height: 30px;
+  height: 30px;
+  width: 80px;
+  align-self: flex-end;
+  margin-right: 40px;
 }
 
 .delete-notes-button {

@@ -81,6 +81,12 @@ export default class Notes extends Component {
     });
   };
 
+  sortList = () => {
+    this.setState({
+      notes: this.state.notes.sort((a, b) => a.title > b.title)
+    });
+  };
+
   render() {
     if (this.state.view === "list") {
       return (
@@ -95,6 +101,7 @@ export default class Notes extends Component {
             notes={this.state.notes}
             viewNote={this.viewNote}
             onSortEnd={this.onSortEnd}
+            sortList={this.sortList}
           />
         </div>
       );

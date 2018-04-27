@@ -33,8 +33,11 @@ const ListView = props => {
   return (
     <div className="right-div">
       <h3 className="notes-h3">Your Notes:</h3>
+      <div className="sort-button button" onClick={() => props.sortList()}>
+        Sort List
+      </div>
       <SortableList
-        distance="10"
+        distance={10}
         notes={props.notes}
         onSortEnd={props.onSortEnd}
         axis="xy"
