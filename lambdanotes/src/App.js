@@ -23,12 +23,7 @@ class App extends Component {
         localStorage.getItem('notes') && this.setState({notes: JSON.parse(localStorage.getItem('notes'))});
         localStorage.getItem('notes') && this.setState({displayNotes: JSON.parse(localStorage.getItem('notes'))});
     }
-    // componentDidMount() {
-    //     this.getData();
-    // }
-    //
-    // getData() {
-    // }
+
     
     componentWillUpdate(nextProps, nextState) {
         localStorage.setItem('notes', JSON.stringify(nextState.notes));
