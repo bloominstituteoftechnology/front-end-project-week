@@ -17,7 +17,7 @@ class CreateNote extends Component {
   render() {
     return (
       <div className="right-div">
-        <div>
+        <div className="create-full-div">
           <h3 className="notes-h3">Create New Note:</h3>
           <form className="create-form">
             <input

@@ -71,7 +71,7 @@ h1 {
   margin-left: 0;
   padding: 10px;
   width: 240px;
-  height: 150px;
+  height: 160px;
   cursor: pointer;
   user-select: none;
   overflow: hidden;
@@ -160,34 +160,64 @@ h5 {
 @media (max-width: 520px) {
   .full-container {
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
+    min-width: 221px;
   }
+
   .sidebar-div {
-    width: 100%;
-    justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%;
     width: 100%;
+    height: 260px;
     padding: 0;
   }
+
   .notes-h3 {
     padding: 0;
+    margin-top: 0;
   }
+
   .right-div {
-    justify-content: center;
-    align-items: center;
-    margin: 0, auto;
     padding: 0;
-    height: 100%;
+    padding-top: 20px;
     text-align: center;
+    height: 100%;
   }
+
   .notes-div {
     justify-content: center;
     text-align: left;
   }
+
   .notecard {
     margin-right: 0;
+  }
+
+  .create-full-div {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .view-card {
+    padding: 20px;
+  }
+
+  .text-box {
+    height: 100%;
+  }
+
+  .react-responsive-modal-modal {
+    margin-bottom: 60%;
+    width: 90%;
+  }
+
+  .modal-content-div {
+    width: 100%;
+  }
+
+  .modal-button-div {
+    flex-direction: column;
+    align-items: center;
   }
 }
