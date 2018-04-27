@@ -45,6 +45,10 @@ class App extends Component {
         this.setState({displayNotes: newNotes});
     };
 
+    updateNote = (title, content) => {
+        console.log(`Update Called`);
+    };
+
     filterNotes(criterion) {
         if (criterion.length === 0) {
             this.setState({
@@ -98,7 +102,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path='/' render={() => <NoteList notes={this.state.displayNotes}/>}/>
                             <Route path='/createNewNote' render={() => <NoteForm onSubmit={this.addNote}/>}/>
-                            <Route path='/editNote' render={() => <NoteEdit />}/>
+                            <Route path='/editNote/:id' render={(props) => <NoteEdit {...props} notes={this.state.displayNotes} onSubmit={this.updateNote}/>}/>
                             <Route path="/notedetail/:id" render={(props) => <NoteDetail {...props} notes={this.state.displayNotes}/>}/>
                         </Switch>
                     </div>
