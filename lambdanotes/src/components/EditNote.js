@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { editNote } from '../actions';
 import SideBar from './SideBar';
+import '../styles/CreateNote.css';
 
 class EditNote extends Component {
   state = {
@@ -39,7 +40,7 @@ class EditNote extends Component {
               <div className="titleContainer">
                 <input
                   type="text"
-                  className="textField"
+                  className="titleField"
                   value={this.state.note.title}
                   name="title"
                   onChange={this.updateState}

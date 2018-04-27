@@ -37,7 +37,7 @@ class CreateNote extends Component {
                 <input
                   type="text"
                   className="titleField"
-                  placeholder="Title"
+                  placeholder="Note Title"
                   name="title"
                   onChange={this.handleFormChange}
                   value={this.state.title}
@@ -47,7 +47,7 @@ class CreateNote extends Component {
                 <textarea
                   type="text"
                   className="bodyField"
-                  placeholder="Content"
+                  placeholder="Note Content"
                   name="body"
                   onChange={this.handleFormChange}
                   value={this.state.body}
