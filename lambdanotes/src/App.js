@@ -12,15 +12,12 @@ import EditNoteForm from './components/EditNoteForm.js';
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  width: 893px;
+  width: 100%;
   max-width: 100%;
 `;
 
 const Main = styled.div`
   display: flex;
-  width: 99.5%;
-  margin-top: 13px;
-  border: 1px solid;
 `;
 
 class App extends Component {
