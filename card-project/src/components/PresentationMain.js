@@ -145,19 +145,33 @@ export class PresentationMain extends React.Component {
 		}
 	}
 	handleOrder = () => {
+
+
 		let norder;
 		if (this.state.showAscending === true) {
 			norder = (this.state.list.slice(0).reverse().map((note, i) => {return  note} ));
+			this.setState({
+				showAscending: !this.state.showAscending
+			});
+			this.setState({
+				list: norder 
+			})
+			this.props.reorderState(norder);
+			this.setState({
+				list: norder 
+			});
 		} else {
 			norder = (this.state.list.slice(0).reverse().map((note, i) => {return  note} ));
+			this.setState({
+				showAscending: !this.state.showAscending
+			});
+			this.props.reorderState(norder);
+			this.setState({
+				list: norder 
+			});
 		}
-		this.props.reorderState(norder);
-		this.setState({
-			showAscending: !this.state.showAscending
-		});
-		this.setState({
-			list: norder 
-		})
+
+
 		
 		
 		
@@ -220,7 +234,7 @@ export class PresentationMain extends React.Component {
 
 				{this.state.showAscending ? (
 					<div>
-						{this.state.list.map((note, i) => {
+						{this.props.notes.map((note, i) => {
 							tempVal = i;
 							{
 								note.check === false ? (dcolor = 'red') : (dcolor = 'blue');
@@ -249,7 +263,7 @@ export class PresentationMain extends React.Component {
 					</div>
 				) : (
 					<div>
-						{this.state.list.slice(0).reverse().map((note, i) => {
+						{this.props.notes.map((note, i) => {
 							tempVal = i;
 							{
 								note.check === false ? (dcolor = 'red') : (dcolor = 'blue');
