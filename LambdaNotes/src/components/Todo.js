@@ -15,10 +15,6 @@ import "../bootstrap/css/bootstrap.css";
 import "../styles/Todo.css";
 import "../styles/animation.css";
 
-// toggle should toggle whether or not a list view of a card appears [onToggle]
-// default toggle status is false
-// new tasks should autogenerate another list field
-
 class Todo extends Component {
 	constructor(props) {
 		super(props);
@@ -55,24 +51,21 @@ class Todo extends Component {
 					this.handleDeleteTodo(id);
 				}}
 			/>,
-			<FlatButton
-				label="No"
-				primary={true}
-				keyboardFocused={true}
-				onClick={this.handleClose}
-			/>
+			<FlatButton label="No" primary={true} onClick={this.handleClose} />
 		];
 
 		return (
 			<div className="Todo fade">
 				{/* Delete Modal */}
 				<Dialog
-					title="Dialog With Actions"
+					className="Todo__Dialog"
 					actions={actions}
 					modal={false}
 					open={this.state.open}
 					onRequestClose={this.handleClose}
-				/>
+				>
+					Are you sure you want to delete this?
+				</Dialog>
 				{/* Note/List View Toggle, Edit Delete Buttons */}
 				<div className="row">
 					<div className="col-md-12 Todo_button_container">
@@ -124,7 +117,6 @@ class Todo extends Component {
 												? "line-through"
 												: "none"
 										}}
-										// onClick={this.handleComplete(id)}
 										className="Todo_text"
 									>
 										{this.props.todos[id].text}

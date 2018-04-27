@@ -1,6 +1,9 @@
 .Todo {
-	/*border: 1px solid black;*/
 	margin: 0 3%;
+}
+
+.Todo__Dialog {
+	text-align: center;
 }
 
 .Todo_button_container {
@@ -9,7 +12,6 @@
 }
 
 .Todo_button {
-	/*border: 1px solid black !important;*/
 	float: right;
 	margin: 20px 1% !important;
 }
@@ -27,7 +29,6 @@
 }
 
 .Todo_content {
-	/*border: 1px solid black;*/
 	padding: 10px;
 }
 
@@ -41,6 +42,5 @@
 }
 
 .Todo_text {
-	/*border: 1px solid black;*/
 	line-height: 2;
 }
