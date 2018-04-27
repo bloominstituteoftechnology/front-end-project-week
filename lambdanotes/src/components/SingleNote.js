@@ -30,7 +30,6 @@ const StyledLink = styled(Link)`
 
 const StyledModalBody = styled(ModalBody)`
     padding: 4em 3em 4em 6em;
-    // font-size: 2.1em;
 `;
 
 const StyledModal = styled(Modal)`

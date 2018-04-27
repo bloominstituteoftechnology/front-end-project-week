@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Dotdotdot from 'react-dotdotdot';
 import ReactMarkdown from 'react-markdown';
+import Dragula from 'react-dragula';
+import { Button, ButtonGroup } from 'reactstrap';
 
 const Wrapper = styled.div`
   background-color: #f2f1f2;
@@ -45,36 +47,101 @@ const StyledLink = styled(Link)`
 `;
 
 const Input = styled.input`
-    padding: 0.5em 0.5em 1em 0.5em;
+    padding: 0 1.5em 0 3.5em;
     margin: 0 0 0 5em;
     border-radius: 3px;
-    width: 50%;
+    width: 25%;
 `;
 
 const Container = styled.div`
     display: flex;
-`
+`;
+
+const StyledButtonGroup = styled(ButtonGroup)`
+    margin-bottom: 20px;
+    margin-left: 2em;
+`;
+
+const StyledButton = styled(Button)`
+    background-color: #55babc;
+`;
 
 class Notes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchInput: ''
+            searchInput: '',
+            sortKey: ''
+        }
+        this.filters = {
+            'Title_ASC': this.sortByTitleAscending,
+            'Title_DESC': this.sortByTitleDescending
         }
     }
+
 
     handleSearchInput = e => {
         this.setState({ searchInput: e.target.value });
     }
 
+    sortByTitleAscending = (a, b) => {
+        a = a.title.toUpperCase();
+        b = b.title.toUpperCase();
+
+        if(a < b) {
+            return -1;
+        }
+        if(a > b) {
+            return 1;
+        }
+        return 0;
+    }
+
+    sortByTitleDescending = (a, b) => {
+        a = a.title.toUpperCase();
+        b = b.title.toUpperCase();
+
+        if (a < b) {
+          return 1;
+        }
+        if (a > b) {
+          return -1;
+        }
+        return 0;
+    }
+
+    dragulaDecorator = (componentBackingInstance) => {
+        if(componentBackingInstance) {
+            let options = { };
+            Dragula([componentBackingInstance], options);
+        }
+    }
+
     render() {
+        const sortedList = this.props.notes.sort(this.filters[this.state.sortKey]);
         return <Wrapper>
             <Container>
-                <Heading>Your Notes:</Heading>
-                <Input type="text" value={this.state.searchInput} placeholder="Search Notes" onChange={this.handleSearchInput} />
+              <Heading>Your Notes:</Heading>
+              <StyledButtonGroup>
+                <StyledButton
+                  onClick={() =>
+                    this.setState({ sortKey: 'Title_ASC' })
+                  }
+                >
+                  Sort By Title Ascending
+                </StyledButton>
+                <StyledButton
+                  onClick={() =>
+                    this.setState({ sortKey: 'Title_DESC' })
+                  }
+                >
+                  Sort By Title Descending
+                </StyledButton>
+              </StyledButtonGroup>
+              <Input type="text" value={this.state.searchInput} placeholder="Search Notes" onChange={this.handleSearchInput} />
             </Container>
-            <List>
-              {this.props.notes.map(note => {
+            <List ref={this.dragulaDecorator}>
+              {sortedList.map(note => {
                 if (this.state.searchInput === '') {
                   return <IndividualNote key={note.id}>
                       <StyledLink to={`/notes/${note.id}`}>
