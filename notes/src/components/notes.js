@@ -72,7 +72,7 @@ export default class Notes extends Component {
     let currNoteIndex = this.state.notes.findIndex(e => e.id === id);
     let tempNotes = this.state.notes;
     tempNotes[currNoteIndex] = { title: title, text: text, id: id };
-    this.setState({ view: "list", notes: tempNotes });
+    this.setState({ view: "view", notes: tempNotes });
   };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
@@ -89,6 +89,7 @@ export default class Notes extends Component {
             changeToList={this.changeToList}
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
+            notes={this.state.notes}
           />
           <ListView
             notes={this.state.notes}
@@ -105,6 +106,7 @@ export default class Notes extends Component {
             changeToList={this.changeToList}
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
+            notes={this.state.notes}
           />
           <CreateNote addNote={this.addNote} />
         </div>
@@ -117,6 +119,7 @@ export default class Notes extends Component {
             changeToList={this.changeToList}
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
+            notes={this.state.notes}
           />
           <ViewCard
             note={this.state.notes.find(e => e.id === this.state.currentCard)}
@@ -133,6 +136,7 @@ export default class Notes extends Component {
             changeToList={this.changeToList}
             changeToCreate={this.changeToCreate}
             removeAllNotes={this.removeAllNotes}
+            notes={this.state.notes}
           />
           <EditNote
             note={this.state.notes.find(e => e.id === this.state.currentCard)}

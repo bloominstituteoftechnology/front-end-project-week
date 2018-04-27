@@ -1,4 +1,5 @@
 import React from "react";
+import { CSVLink } from "react-csv";
 
 const SideBar = props => {
   return (
@@ -16,6 +17,9 @@ const SideBar = props => {
       >
         + Create New Note
       </div>
+      <CSVLink data={props.notes} className="csv-button button">
+        Download CSV
+      </CSVLink>
       {/* <div
         className="delete-notes-button button"
         onClick={() => props.removeAllNotes()}
