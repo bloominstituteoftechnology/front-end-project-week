@@ -1,3 +1,18 @@
+.noteView__background {
+  background-color: #f3f3f3;
+}
+
+.noteView__button {
+  float: right;
+  border: none;
+  background: none;
+  text-decoration: underline;
+  font-weight: 500;
+  margin-top: 10px;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
 .noteView__title {
   margin-left: 255px;
   padding-top: 35px;
@@ -9,21 +24,4 @@
 .noteView__content {
   margin-left: 255px;
   padding-top: 10px;
-}
-
-.notesView__list {
-  /* border: 1px red solid; */
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 900px;
-  margin-left: 220px;
-}
-
-.noteView__button {
-  float: right;
-  border: none;
-  background: none;
-  text-decoration: underline;
 }

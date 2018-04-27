@@ -1,9 +1,13 @@
+.notesList__background {
+  background-color: #f3f3f3;
+}
+
 .notesList__title {
   margin-left: 255px;
   padding-top: 35px;
   font-family: sans-serif;
   font-weight: bold;
-  color: #4A494A;
+  color: #4a494a;
 }
 
 .notesList__list {
@@ -19,8 +23,4 @@
 
 .notesList__notes {
   margin: 2%;
-}
-
-.notesList__background {
-    background-color: #f3f3f3;
 }

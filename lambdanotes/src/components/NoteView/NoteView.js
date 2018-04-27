@@ -66,21 +66,9 @@ export default class NoteView extends Component {
   render() {
     // console.log('note:', this.state.note);
     return (
-      <div>
+      <div className="noteView__background">
         {/* <Row>
           <Col sm={{ size: 8, offset: 4 }}> */}
-        {/* ______EDIT NOTE LINK/BUTTON HERE______ */}
-        <Link
-          to={{
-            pathname: "/edit",
-            state: {
-              note: this.state.note.id,
-              getNotes: this.props.getNotes
-            }
-          }}
-        >
-          <button className="noteView__button">edit</button>
-        </Link>
 
         {/* ______DELETE NOTE MODAL HERE______ */}
         <button className="noteView__button" onClick={this.toggle}>
@@ -106,6 +94,19 @@ export default class NoteView extends Component {
             </Button>
           </ModalFooter>
         </Modal>
+
+        {/* ______EDIT NOTE LINK/BUTTON HERE______ */}
+        <Link
+          to={{
+            pathname: "/edit",
+            state: {
+              note: this.state.note.id,
+              getNotes: this.props.getNotes
+            }
+          }}
+        >
+          <button className="noteView__button">edit</button>
+        </Link>
 
         {/* ______ACTUAL NOTE TITLE+CONTENT______ */}
         <h4 className="noteView__title">{this.state.note.title}</h4>
