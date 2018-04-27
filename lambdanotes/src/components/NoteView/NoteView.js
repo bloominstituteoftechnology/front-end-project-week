@@ -79,19 +79,19 @@ export default class NoteView extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalBody>Are you sure you want to delete this?</ModalBody>
-          <ModalFooter>
+          <ModalBody className='noteView__modalBody'>Are you sure you want to delete this?</ModalBody>
+          <ModalFooter className='noteView__modalFooter'>
             <Link to="/">
-              <Button
-                color="danger"
+              <button
+                className="noteView__modalButton--delete"
                 onClick={() => this.deleteNote(this.state.note.id)}
               >
                 Delete
-              </Button>
+              </button>
             </Link>{" "}
-            <Button color="info" onClick={this.toggle}>
+            <button className="noteView__modalButton--no" onClick={this.toggle}>
               No
-            </Button>
+            </button>
           </ModalFooter>
         </Modal>
 

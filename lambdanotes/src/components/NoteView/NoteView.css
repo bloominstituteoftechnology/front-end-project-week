@@ -13,6 +13,42 @@
   cursor: pointer;
 }
 
+.noteView__modalBody {
+  text-align: center;
+}
+
+.noteView__modalFooter {
+  margin: 0 auto;
+}
+
+.noteView__modalButton--delete {
+  background-color: red;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: 1px grey solid;
+  margin: 10px auto;
+  height: 35px;
+  width: 180px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.noteView__modalButton--no {
+  background-color: #24b8bd;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: 1px grey solid;
+  margin: 10px auto;
+  height: 35px;
+  width: 180px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .noteView__title {
   margin-left: 255px;
   padding-top: 35px;
@@ -25,3 +61,5 @@
   margin-left: 255px;
   padding-top: 10px;
 }
+
+/* #24b8bd */
