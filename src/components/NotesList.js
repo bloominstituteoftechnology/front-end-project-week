@@ -93,21 +93,26 @@ class NotesList extends Component {
     const orderBy = e.target.value
     this.setState({ 
       orderBy, 
-      notes: this.props.notes[orderBy] 
+      notes: this.notes(orderBy, this.state.filter)
     })
   }
 
   handleFilter = (e) => {
-    const { notes } = this.state
     const filter = e.target.value.toLowerCase()
     this.setState({ 
       filter,
-      notes: notes.filter(({ value: { title, content } }) => (
-          title.toLowerCase().includes(filter) ||
-          content.toLowerCase().includes(filter)
-      ))
+      notes: this.notes(this.state.orderBy, filter)
     })
   }
+
+  notes = (orderBy, filter) => (
+    this.props.notes
+      [orderBy]
+      .filter(({ value: { title, content } }) => (
+        title.toLowerCase().includes(filter) ||
+        content.toLowerCase().includes(filter)
+      ))
+  )
 
   render() {
     return (
