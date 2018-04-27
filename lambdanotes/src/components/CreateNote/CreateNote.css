@@ -18,3 +18,18 @@
 .createNote__form--title {
     size:100;
 }
+
+.createNote__button {
+    background-color: #24b8bd;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border: 1px grey solid;
+    margin: 10px auto;
+    height: 35px;
+    width: 180px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  

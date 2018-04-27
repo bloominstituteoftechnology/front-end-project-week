@@ -47,7 +47,7 @@ export default class CreateNote extends Component {
                 onChange={this.handleNewInput}
                 name="title"
                 value={this.state.title}
-                placeholder="Note Title"
+                placeholder="  Note Title"
                 size="50"
               />
             </label>
@@ -60,7 +60,7 @@ export default class CreateNote extends Component {
                 onChange={this.handleNewInput}
                 name="content"
                 value={this.state.content}
-                placeholder="Note Content"
+                placeholder="  Note Content"
                 cols="100"
                 rows="20"
               />
@@ -68,7 +68,11 @@ export default class CreateNote extends Component {
           </div>
 
           <Link to="/">
-            <button type="button" onClick={this.handleCreateNote}>
+            <button
+              className="createNote__button"
+              type="button"
+              onClick={this.handleCreateNote}
+            >
               Save
             </button>
           </Link>
