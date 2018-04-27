@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NoteList from "./sub-component/NoteList";
 import CreateNoteItem from "./sub-component/CreateNoteItem";
 import EditNote from "./sub-component/EditNote";
-import "./MainContent.css"
+import "./MainContent.css";
 
 import { createNote, deleteNote, editNote } from "../actions";
 import { connect } from "react-redux";
@@ -36,10 +36,6 @@ class MainPageContainer extends Component {
         <Route
           path="/note/:id"
           render={props => <NoteDetail {...props} mainProps={this.props} />}
-        />
-        <Route
-          path="/edit/:id"
-          render={props => <EditNote {...props} mainProps={this.props} />}
         />
       </div>
     );

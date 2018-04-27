@@ -4,27 +4,33 @@ import { Link } from "react-router-dom";
 class EditNote extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      title: "",
-      content: ""
+      note: this.props.secondProps.mainProps.noteArray[
+        this.props.secondProps.match.params.id
+      ],
+      title: this.props.secondProps.mainProps.noteArray[
+        this.props.secondProps.match.params.id
+      ].title,
+      content: this.props.secondProps.mainProps.noteArray[
+        this.props.secondProps.match.params.id
+      ].content
     };
   }
 
   render() {
-    console.log("EditNote:", this.props);
+    console.log("EditNote:", this.state.note.title);
     return (
       <div>
         <h1>Note Editor</h1>
         <input
           type="text"
-          placeholder="Title"
           name="title"
           value={this.state.title}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
         />
         <input
           type="text"
-          placeholder="Content"
           name="content"
           value={this.state.content}
           onChange={e => this.setState({ [e.target.name]: e.target.value })}
@@ -42,7 +48,6 @@ class EditNote extends Component {
             Save
           </button>
         </Link>
-        {/* <input type="text" value={props.mainProps.noteArray[props.match.params.id].title} /> */}
       </div>
     );
   }

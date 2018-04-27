@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./App.css";
+
 
 import SideMenu from "./components/SideMenu";
 import MainContent from "./components/MainContent";
@@ -9,8 +11,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>List View</h1>
+        <header className="App-header sticky-top">
+          <Link to="/">
+            <h1 className="ListView">Note.It</h1>
+          </Link>
         </header>
 
         <div className="PageContainer">

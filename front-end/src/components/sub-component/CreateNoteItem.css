@@ -15,14 +15,17 @@
 .createInputTitle {
   margin: 10px 0;
   width: 80%;
+  min-width: 50vw;
 }
 
 .createInputContent {
   width: 80%;
   margin: 10px 0;
+  min-width: 50vw;
 }
 
 .createSaveButton {
   margin-top: 50px;
   width: 80%;
+  min-width: 50vw;
 }

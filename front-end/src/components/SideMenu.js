@@ -8,15 +8,15 @@ export default class SideMenu extends Component {
     return (
       <div className="SideBar">
         <br />
-        <h1>Lambda Notes</h1>
-        <hr />
-        <ul class="nav flex-column">
-          <li class="nav-item">
+        <h1>My Notes</h1>
+        <div className="Seperator" />
+        <ul className="nav flex-column">
+          <li className="nav-item">
             <Link to="/">
               <h5>View Notes</h5>
             </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link to="/create">
               <h5>+ Create New Notes</h5>
             </Link>
