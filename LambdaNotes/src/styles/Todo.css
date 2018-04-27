@@ -9,6 +9,18 @@
 	margin: 20px 1% !important;
 }
 
+.Todo_button_container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.Todo_toggle {
+	display: inline-block !important;
+	width: 100px !important;
+	padding-top: 25px;
+	padding: 25px 0 0 10px;
+}
+
 .Todo_content {
 	/*border: 1px solid black;*/
 	padding: 10px;
