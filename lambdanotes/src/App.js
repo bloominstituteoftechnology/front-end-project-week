@@ -28,7 +28,8 @@ class App extends Component {
 
     
     componentWillUpdate(nextProps, nextState) {
-        console.log('nextState', nextState);
+        console.log('nextState notes', nextState.notes);
+        console.log('nextState display notes', nextState.displayNotes);
         localStorage.setItem('notes', JSON.stringify(nextState.notes));
         console.log('component will update');
     }
@@ -45,7 +46,7 @@ class App extends Component {
     };
 
     updateNote = (title, content, id) => {
-        console.log('Updating Note From App');
+        console.log(`id from updating note APP.js ${id}`);
         const newNote = { id: id,title: title, content: content };
         const newNotes = this.state.notes;
         newNotes[id] = newNote;
