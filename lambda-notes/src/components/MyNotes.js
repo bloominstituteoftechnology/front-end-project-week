@@ -33,6 +33,6 @@ export const lambdaNotes = [{
     "body": "Lorem ipsum dolor sit amet, et vide iudico mei, eos no integre nusquam. Cu sea novum tation consectetuer, et meliore lobortis nec. Malis expetendis in eum, eum novum lobortis ea. Sed mutat detracto ad, cu mazim detraxit molestiae cum, vix eu mandamus indoctum. No nam senserit vituperata posidonium."
 },
 {
-    "title": "God luck out there!",
+    "title": "Good luck out there!",
     "body": "Lorem ipsum dolor sit amet, et vide iudico mei, eos no integre nusquam. Cu sea novum tation consectetuer, et meliore lobortis nec. Malis expetendis in eum, eum novum lobortis ea. Sed mutat detracto ad, cu mazim detraxit molestiae cum, vix eu mandamus indoctum. No nam senserit vituperata posidonium."
 }];

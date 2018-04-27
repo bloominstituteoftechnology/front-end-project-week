@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PageNavigator from './components/PageNavigator';
 import NewNoteForm from './components/NewNoteForm';
 import NoteItem from './components/NoteItem';
+import EditNoteForm from './components/EditNoteForm';
 import { lambdaNotes } from './components/MyNotes';
 import { NoteList } from './components/NoteList';
 import { Route, Switch } from 'react-router-dom';
@@ -33,6 +34,9 @@ class App extends Component {
             <NewNoteForm {...props} {...this.state} parent={self}/> }  />
           <Route path="/note/:id" render={props => 
           <NoteItem {...props} {...this.state} /> } />
+              <Route 
+          path="/edit" render={props => 
+            <EditNoteForm {...props} {...this.state} parent={self}/> }  />
       </div>
     );
   }

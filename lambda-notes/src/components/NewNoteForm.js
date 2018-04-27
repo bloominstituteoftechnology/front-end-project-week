@@ -20,7 +20,6 @@ class NewNoteForm extends Component {
       }
 
       handleSubmit() {
-          console.log(this.props.lambdaNotes);
           this.props.parent.state.Notes.push(this.state);
           this.setState({
             title: '',

@@ -1,4 +1,4 @@
-.new-note-container {
+.edit-note-container {
     display: flex;
     flex-direction: column;
     background-color: rgb(212, 212, 212);
@@ -21,11 +21,11 @@
     border: none;
 }
 
-.new-note-wrapper {
+.edit-note-wrapper {
     margin: 20px;
 }
 
-.new-note-header {
+.edit-note-header {
     font-family: 'Russo One', sans-serif;
     color: #606060;
 }
