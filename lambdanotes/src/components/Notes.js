@@ -16,6 +16,7 @@ const Heading = styled.h3`
     font-size: 2em;
     font-weight: bold;
     line-height: 0.8;
+    margin-top: 25px;
 `;
 
 const List = styled.div`
@@ -58,13 +59,21 @@ const Container = styled.div`
 `;
 
 const StyledButtonGroup = styled(ButtonGroup)`
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     margin-left: 2em;
 `;
 
 const StyledButton = styled(Button)`
     background-color: #55babc;
 `;
+
+const StyledButtonBottom = styled(StyledButton)`
+    padding-left: 1.61em;
+`;
+
+const ButtonContainer = styled.div`
+    width: 45%;
+`
 
 class Notes extends Component {
     constructor(props) {
@@ -75,7 +84,9 @@ class Notes extends Component {
         }
         this.filters = {
             'Title_ASC': this.sortByTitleAscending,
-            'Title_DESC': this.sortByTitleDescending
+            'Title_DESC': this.sortByTitleDescending,
+            'ID_ASC': this.sortByIdAscending,
+            'ID_DESC': this.sortByIdDescending
         }
     }
 
@@ -110,6 +121,32 @@ class Notes extends Component {
         return 0;
     }
 
+    sortByIdAscending = (a, b) => {
+        a = a.title.toUpperCase();
+        b = b.title.toUpperCase();
+
+        if (a < b) {
+          return -1;
+        }
+        if (a > b) {
+          return 1;
+        }
+        return 0;
+    }
+
+    sortByIdDescending = (a, b) => {
+        a = a.title.toUpperCase();
+        b = b.title.toUpperCase();
+
+        if (a < b) {
+          return 1;
+        }
+        if (a > b) {
+          return -1;
+        }
+        return 0;
+    }
+
     dragulaDecorator = (componentBackingInstance) => {
         if(componentBackingInstance) {
             let options = { };
@@ -122,22 +159,38 @@ class Notes extends Component {
         return <Wrapper>
             <Container>
               <Heading>Your Notes:</Heading>
-              <StyledButtonGroup>
-                <StyledButton
-                  onClick={() =>
-                    this.setState({ sortKey: 'Title_ASC' })
-                  }
-                >
-                  Sort By Title Ascending
-                </StyledButton>
-                <StyledButton
-                  onClick={() =>
-                    this.setState({ sortKey: 'Title_DESC' })
-                  }
-                >
-                  Sort By Title Descending
-                </StyledButton>
-              </StyledButtonGroup>
+              <ButtonContainer>
+                <StyledButtonGroup>
+                  <StyledButton
+                    onClick={() =>
+                      this.setState({ sortKey: 'Title_ASC' })
+                    }
+                  >
+                    Sort By Title Ascending
+                  </StyledButton>
+                  <StyledButton
+                    onClick={() =>
+                      this.setState({ sortKey: 'Title_DESC' })
+                    }
+                  >
+                    Sort By Title Descending
+                  </StyledButton>
+                </StyledButtonGroup>
+                <StyledButtonGroup>
+                  <StyledButtonBottom
+                    onClick={() => this.setState({ sortKey: 'ID_ASC' })}
+                  >
+                    Sort By ID Ascending
+                  </StyledButtonBottom>
+                  <StyledButtonBottom
+                    onClick={() =>
+                      this.setState({ sortKey: 'ID_DESC' })
+                    }
+                  >
+                    Sort By ID Descending
+                  </StyledButtonBottom>
+                </StyledButtonGroup>
+              </ButtonContainer>
               <Input type="text" value={this.state.searchInput} placeholder="Search Notes" onChange={this.handleSearchInput} />
             </Container>
             <List ref={this.dragulaDecorator}>
