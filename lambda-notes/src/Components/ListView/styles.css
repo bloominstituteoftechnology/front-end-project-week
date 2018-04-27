@@ -1,0 +1,37 @@
+.col-10 {
+    background: #F3F3F3;
+    margin-top: 1%;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.right a {
+    text-decoration: none;
+    color: #4A494A;
+}
+
+.row h4 {
+    color: #4A494A;
+    margin-left: 2%;
+}
+
+.Card {
+    width: 216px;
+    height: 170px;
+    margin-right: 447px;
+    margin-bottom: 40px;
+}
+
+.title {
+    border-bottom: 1px solid #BEBEBE;
+    padding-bottom: 4%;
+    padding-left: 8%;
+}
+
+.body {
+    overflow: hidden;
+}

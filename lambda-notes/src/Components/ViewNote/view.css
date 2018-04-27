@@ -1,0 +1,42 @@
+.right__side h4 {
+    color: #4A494A;
+}
+
+.right__side a {
+    text-decoration: none;
+    color: #4A494A;
+}
+
+.edit a {
+    margin-left: 280%;
+}
+
+.delete a {
+    margin-left: 260%;
+}
+
+.modalBody {
+    background: #FBFBFB;
+}
+
+.primary {
+    background: #D0011B;
+    width: 30%;
+    text-align: center;
+    padding: 1%;
+    color: #FBFBFB;
+}
+
+.primary:hover {
+    color: #FBFBFB;
+    text-decoration: none;
+}
+
+.secondary {
+    background: #2AC0C4;
+    border: none;
+    width: 30%;
+    padding: 1%;
+    color: #FBFBFB;
+    margin-right: 20%;
+}
