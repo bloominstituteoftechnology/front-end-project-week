@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE, UPDATE_NOTE, CHECK_UPDATE, ADD_TAG } from '../actions/actions';
+import { ADD_NOTE, DELETE_NOTE, UPDATE_NOTE, CHECK_UPDATE, ADD_TAG, REORDER_STATE } from '../actions/actions';
 
 
 const startState = {
@@ -95,6 +95,15 @@ export const notesReducer = (state = startState, action) => {
 					notes: [ state.notes[action.index].tag = action.payload],
 					notes: [...state.notes]
 				})
+			)
+			case REORDER_STATE: 
+			// console.log()
+			return (
+				Object.assign({},state, {
+					// notes: [],
+					notes: [...action.payload]
+				})
+			
 			)
 		default:
 			return state;

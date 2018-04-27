@@ -40,6 +40,7 @@ const noteSt = {
 const linkSte = {
 	justifyContent: 'center',
 	marginLeft: '87%',
+	marginRight: '2%',
 	textAlign: 'center'
 };
 
@@ -49,6 +50,9 @@ const hide = {
 const inpSt = {
 	width:50,
 	 height:50
+}
+const lst = {
+	fontSize: 24
 }
 let noteI = [];
 let titleI = [];
@@ -105,11 +109,11 @@ class PresentationView extends React.Component {
 			<div>
 				<div>
 					<Link to={`/notes/edit/${this.props.id}`} style={linkSte}>
-						Edit
+						<span style={lst} >edit</span>
 					</Link>
 
-					<Link to={`#`} onClick={this.toggle}>
-						Delete
+					<Link to={`#`} onClick={this.toggle} >
+						<span style={lst} >delete</span>
 					</Link>
 
 					{this.props.notes.map((note, i) => {

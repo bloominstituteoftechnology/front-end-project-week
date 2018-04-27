@@ -32,28 +32,34 @@ const ntSt = {
 	display: 'inline-flex',
 	width: '100%',
 	paddingBottom: 8,
-	borderBottom: '1px solid gray',
-	fontWeight: 'bold',
-	fontSize: 20
+	borderBottom: '1px solid gray'
+	// fontWeight: 'bold',
+	// fontSize: 20
 };
-const tagSt = {
-    cursor: 'context-menu',
-    display: 'inline-flex',
-	// marginLeft: '2%',
-	paddingLeft: 10,
-	paddingRight: 10,
-	backgroundColor: 'beige',
-	border: '2px solid yellow'
-};
-let dval = 'none';
-let tagSt2 = {
+let dval = 'beige';
+
+let tagSt = {
 	cursor: 'context-menu',
+	// display: 'inline-flex',
+	color: 'black',
+	// hover: {backgroundColor: 'red'},
+	// marginLeft: '2%',
+	// paddingLeft: 4,
+	// paddingRight: 4,
+	backgroundColor: dval,
+	// border: '2px solid yellow'
+};
+let tagSt2 = {
+	cursor: 'crosshair',
 	display: 'inline-flex',
+	fontWeight: 'bold',
+	fontSize: 18,
 	// display: dval,
-    marginLeft: 20,
-    color: 'black',
-	paddingLeft: 2,
-	paddingRight: 2,
+	marginLeft: 20,
+	// color: 'black',
+	// color: this.props.color,
+	paddingLeft: 15,
+	paddingRight: 15,
 	backgroundColor: 'beige',
 	border: '2px solid yellow'
 };
@@ -66,6 +72,17 @@ const iStyle = {
 	marginTop: 10
 };
 let tempVal;
+let linkStyle = {
+	cursor: 'context-menu',
+	display: 'inline-flex',
+	color: 'black',
+	// hover: {backgroundColor: 'red'},
+	// marginLeft: '2%',
+	paddingLeft: 2,
+	paddingRight: 2,
+	backgroundColor: 'beige',
+	border: '2px solid yellow'
+};
 let dcolor = 'red';
 let dcomplete = 'NOT COMPLETE';
 class ModalComponent extends Component {
@@ -75,7 +92,8 @@ class ModalComponent extends Component {
 			modal: false,
 			list: this.props.notes,
 			tag: '',
-			isGoing: true
+			isGoing: true,
+			hover: false
 		};
 	}
 	componentDidMount() {
@@ -89,41 +107,68 @@ class ModalComponent extends Component {
 		console.log(e.target.value);
 	};
 	handleTag = (tname, index) => {
-        
 		this.setState({ tag: tname });
-		this.props.addTag( tname , index);
+		this.props.addTag(tname, index);
 		this.setState({
 			modal: !this.state.modal
-        });
-        {
-			this.props.notes[this.props.index].tag === "" ? dval = 'none' : dval = 'inline-flex';
+		});
+		{
+			// this.props.notes[this.props.index].tag === '' ? (dval = 'none') : (dval = 'inline-flex');
 		}
 	};
 	toggle = () => {
 		this.setState({
 			modal: !this.state.modal
 		});
+		
+		if (this.state.hover) {
+			dval =  'red' ;
+		} else {
+			(' ');
+		}
+		{
+			dval =  'beige' ;
+		}
 	};
 	render() {
+		// tagSt = {
+		// 	cursor: 'context-menu',
+		// 	display: 'inline-flex',
+		// 	color: 'black',
+		// 	// hover: {backgroundColor: 'red'},
+		// 	// marginLeft: '2%',
+		// 	paddingLeft: 2,
+		// 	paddingRight: 2,
+		// 	backgroundColor: dval,
+		// 	border: '2px solid yellow'
+		// };
 
-		
 		return (
 			<div>
-                {console.log('display, dval: ', dval)}
-                 {/* {
+				{console.log('display, dval: ', dval)}
+
+				{/* {
 			this.props.notes[this.props.index].tag === "" ? dval = 'none' : dval = 'inline-flex'
         } */}
-        {/* {console.log('THIS IS THE CURRENT TAG, this.props.notes.tag: ', this.props.notes[this.props.index].tag)} */}
+				{/* {console.log('THIS IS THE CURRENT TAG, this.props.notes.tag: ', this.props.notes[this.props.index].tag)} */}
 				<span style={ntSt}>
 					{' '}
 					<span style={{ color: dcolor }}>
-						<Link to={`#`} onClick={this.toggle} style={tagSt}>
-							...Tag
+						<Link
+							to={`#`}
+							onClick={this.toggle}
+							
+							// style={linkStyle}
+							onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}
+						>
+							<button style={tagSt}>Tag:</button>
 							{/* {console.log('any clues: ', this.props)} */}
 						</Link>
-                        {/* <div style={tagSt2}> */}
-                        {/* <h6 style={tagSt2}> */}
-							<span style={tagSt2}>{this.props.notes[this.props.index].tag}</span>
+						{/* <div style={tagSt2}> */}
+						{/* <h6 style={tagSt2}> */}
+						<span style={tagSt2}>
+							<span style={{ color: this.props.color }}> {this.props.notes[this.props.index].tag}</span>
+						</span>
 						{/* </div> */}
 					</span>
 				</span>
