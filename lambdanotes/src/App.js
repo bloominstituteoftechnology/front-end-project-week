@@ -78,7 +78,7 @@ export default class App extends Component {
 
           {/* ____DEFAULT ROUTE_____ */}
           <Route
-            component={() => <h1>There are no notes here, turn back!</h1>}
+            component={() => <h1 className='App_default'>There are no notes here, turn back!</h1>}
           />
         </Switch>
       </div>

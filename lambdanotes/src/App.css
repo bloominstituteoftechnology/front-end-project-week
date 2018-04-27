@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App_default {
+  background-color: #f3f3f3;  
+  padding-top: 35px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #4a494a;
+  text-align: center;
+}
