@@ -1,7 +1,7 @@
 .noteView {
     width: 80%;
-    padding-left: 25px;
-    padding-top: 35px;
+    padding-left: 20px;
+    padding-top: 15px;
     background-color: #F2F1F2;
     border-left: 1px solid gray;
 }
@@ -18,9 +18,25 @@
     display: inline-block;
     justify-content: flex-start;
     font-size: 13px;
-    margin-top: 10px;
+    margin-top: 22px;
     line-height: 25px;
     margin-right: 25px;
     color: rgb(53, 54, 56);
     margin-left: 10px;
+}
+
+.deleteButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: rgb(53, 54, 56);
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 13px;
+    }
+
+.buttons {
+    margin-right: 20px;
+    text-align: end;
+    
 }
