@@ -48,14 +48,16 @@
 
 .container {
   border: 1px solid black;
-
+  height: 600px;
+  background-color: lightgray;
 }
 
 .leftbox{
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 600px;
+  background-color: gray;
 }
 .title{
   display: flex;
@@ -66,10 +68,12 @@
 
 .Buttons{
   width: 70%;
-  border: 1px solid red;
+  height: 50px;
   margin: 15%;
   margin-top: 5px;
   margin-bottom: 5px;
+  background-color: teal;
+  color: white;
   
 }
 

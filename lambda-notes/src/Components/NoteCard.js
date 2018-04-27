@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Card, Button, CardTitle, CardText, Row, Col, CardLink, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link,Switch } from "react-router-dom";
+import Note from './Note';
 // import {notesdata} from './App';
 
 // this holds the edit and delete buttons 
@@ -22,11 +23,10 @@ export default class NoteCard extends Component {
     
     render(){
     return <div>
-        {console.log(this.props)}
             <Card body>
                         {/* <Link to='/EditNote' className ='editnote' type= 'text' placeholder='edit' name='editNote'/> */}
-                        <CardLink><Link to='/EditNote'>edit</Link></CardLink>
-                        <CardLink><Link to='' onClick={this.toggle}>delete</Link></CardLink>
+                        <CardLink><Link to={`/EditNote/`}>edit</Link></CardLink>
+                        <CardLink><Link to='NoteCard' onClick={this.toggle}>delete</Link></CardLink>
                         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalBody>
                             Are you sure you want to delete this?
