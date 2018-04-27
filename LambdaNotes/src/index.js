@@ -35,7 +35,7 @@ const router = (
 	<Provider store={store}>
 		<Router>
 			<MuiThemeProvider>
-				<App className="style" />
+				<App className="App" />
 			</MuiThemeProvider>
 		</Router>
 	</Provider>

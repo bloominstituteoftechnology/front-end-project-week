@@ -15,8 +15,8 @@ class App extends Component {
   render() {
     return (
       <div className="App fade">
-        <div className="row">
-          <div className="col-md-4 ControlPanel">
+        <div className="row App__container">
+          <div className="col-sm-12 col-md-12 col-lg-4 ControlPanel">
             <ControlPanel />
           </div>
           <div className="col-md-8">
