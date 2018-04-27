@@ -61,14 +61,14 @@ class App extends Component {
 
     };
 
-    filterNotes(criterion) {
-        if (criterion.length === 0) {
+    filterNotes(noteTitle) {
+        if (noteTitle.length === 0) {
             this.setState({
                 displayNotes: this.state.notes
             });
             console.log(`Display notes: ${this.state.notes}`)
         } else {
-            const filteredNotes = this.state.notes.filter(note => note.title.toLowerCase().includes(criterion.toLowerCase()));
+            const filteredNotes = this.state.notes.filter(note => note.title.toLowerCase().includes(noteTitle.toLowerCase()));
             this.setState({
                 displayNotes: filteredNotes
             });
@@ -76,7 +76,7 @@ class App extends Component {
 
     }
 
-    sortByTitle = (e) => {
+    sortByTitleAse = (e) => {
         e.preventDefault();
         const newNotes = this.state.displayNotes;
         console.log('Sort by:',newNotes);
@@ -92,8 +92,10 @@ class App extends Component {
             }
             return 0;
         });
+        this.setState({notes: newNotes});
         this.setState({displayNotes: newNotes});
     };
+
 
     render() {
         return (
@@ -103,7 +105,7 @@ class App extends Component {
                         <div className="col-3 left__side">
                             <h2 className='sidebar__header'>Lambda Notes</h2>
                             <SearchBar filterNotes={this.filterNotes}/>
-                            <Button onClick={this.sortByTitle}>Sort By Title</Button>
+                            <Button className='sidebar__button' onClick={this.sortByTitleAse}>Sort By Title (ASE)</Button>
                             <a href='/' className='sidebar__button'>
                                 View Notes
                             </a>

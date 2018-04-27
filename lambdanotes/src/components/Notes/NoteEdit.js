@@ -66,7 +66,9 @@ class NoteEdit extends React.Component {
                                 <Input type="text"
                                        name="title"
                                        placeholder={this.state.currentNote.title}
-                                       onChange={this.handleInputText} />
+                                       onChange={this.handleInputText}
+                                       text={this.state.currentNote.title}
+                                />
                             </FormGroup>
                             <FormGroup>
                                 <Input className='NoteDetail__textarea'
