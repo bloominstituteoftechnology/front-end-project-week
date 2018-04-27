@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { withRouter } from "react-router-dom";
+import md from 'markdown-it';
+import taskLists from 'markdown-it-task-lists';
 
 class Note extends Component {
+  constructor() {
+    super();
+
+    this.parser = md().use(taskLists, {enabled: true, label: true});
+  }
+
+  parseContent = () => {
+    return this.parser.render(this.props.note.content);
+  }
 
   handleClickNote = () => {
     this.props.updateClickedNote(this.props.note);
@@ -21,7 +32,7 @@ class Note extends Component {
               })
             }
             <hr />
-            <CardText>{this.props.note.content}</CardText>
+            <CardText dangerouslySetInnerHTML={{__html: this.parseContent()}} ></CardText>
           </CardBody>
         </Card>
       // </div>

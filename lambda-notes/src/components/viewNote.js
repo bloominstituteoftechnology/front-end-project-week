@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from "react-router-dom";
-
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import md from 'markdown-it';
+import taskLists from 'markdown-it-task-lists';
 
 class ViewNote extends Component {
   constructor() {
     super();
+
     this.state = {
       showModal: false
     };
+
+    this.parser = md().use(taskLists, {enabled: true, label: true});
   }
 
   handleDelete = () => {
@@ -19,6 +23,10 @@ class ViewNote extends Component {
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
+  }
+
+  parseContent = () => {
+    return this.parser.render(this.props.clickedNote.content);
   }
 
   render() {
@@ -36,7 +44,7 @@ class ViewNote extends Component {
           <Row className="mt-4">
             <Col>
               <h3>{this.props.clickedNote.title}</h3><br />
-              <p>{this.props.clickedNote.content}</p>
+              <p dangerouslySetInnerHTML={{__html: this.parseContent()}}></p>
             </Col>
           </Row>
         </div>
