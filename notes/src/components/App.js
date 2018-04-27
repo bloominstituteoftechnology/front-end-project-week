@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 
 import '../styles/App.css';
 import { NoteList } from './NoteList';
 import { NoteView } from './NoteView';
 import { NoteForm } from './NoteForm';
 import { Modal } from './Modal';
+import { ErrorPage } from './ErrorPage';
 
 
 export class App extends Component {
@@ -69,33 +70,36 @@ export class App extends Component {
           <Link to="/delete/all" className="App_button App_button-red">Clear Notes</Link>
         </div>
         <div className="App_body">
-          <Route exact path="/" render={() => <NoteList notes={this.state.notes}/> }/>
-          <Route path="/view/:id" render={props => 
-            <NoteView {...props}
-            notes={this.state.notes}/> 
-          }/>
-          <Route path="/create" render={props => 
-            <NoteForm {...props} 
-            formUse="Create New Note"
-            notes={this.state.notes}
-            useFunction={this.createNote}/> 
-          }/>
-          <Route path="/edit/:id" render={props => 
-            <NoteForm {...props} formUse="Edit Note" 
-            useFunction={this.editNote} 
-            notes={this.state.notes}/> 
-          }/>
-          <Route path="/view/:id/delete" render={props => 
-            <Modal {...props}
-            useFunction={this.deleteNote}/> 
-          }/>
-          <Route path="/delete/all" render={props => (
-            <div> {/* Make sure that modal is shown above note list */}
-              <NoteList notes={this.state.notes}/> 
+          <Switch>
+            <Route exact path="/" render={() => <NoteList notes={this.state.notes}/> }/>
+            <Route path="/view/:id" render={props => 
+              <NoteView {...props}
+              notes={this.state.notes}/> 
+            }/>
+            <Route path="/create" render={props => 
+              <NoteForm {...props} 
+              formUse="Create New Note"
+              notes={this.state.notes}
+              useFunction={this.createNote}/> 
+            }/>
+            <Route path="/edit/:id" render={props => 
+              <NoteForm {...props} formUse="Edit Note" 
+              useFunction={this.editNote} 
+              notes={this.state.notes}/> 
+            }/>
+            <Route path="/view/:id/delete" render={props => 
               <Modal {...props}
-              useFunction={this.clearNotes}/> 
-            </div>
-          )}/>
+              useFunction={this.deleteNote}/> 
+            }/>
+            <Route path="/delete/all" render={props => (
+              <div> {/* Make sure that modal is shown above note list */}
+                <NoteList notes={this.state.notes}/> 
+                <Modal {...props}
+                useFunction={this.clearNotes}/> 
+              </div>
+            )}/>
+            <Route component={ErrorPage}/>
+          </Switch>
         </div>
       </div>
     );
