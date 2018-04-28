@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import  Notes from './Notes';
-import OneNote from './OneNote';
+import Note from './OneNote';
 // import CreateNote from './components/CreateNote';
 import './App.css';
 import {getNotes} from './defaultNotes'
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: []   
   }
@@ -22,9 +22,9 @@ componentDidMount() {
     return (
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={Notes} notes={this.state.notes}/>
-          {/* <Route path="/create-new-note" component={CreateNote} /> */}
-          <Route path="/view-note/:id" component={OneNote} notes={this.state.notes} />
+          <Route exact path="/" render={props => (
+            <Notes {...props} notes={[this.state.notes]} />)}/>
+          <Route path="/view-note/:id" component={Note} notes={this.state.notes} />
         </div>
       </BrowserRouter>
     );
@@ -32,6 +32,8 @@ componentDidMount() {
 }
 
 export default App;
+
+ // <Route path="/create-new-note" component={CreateNote} /> 
 
 // import React, { Component } from 'react';
 // import './App.css';
