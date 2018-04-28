@@ -1,0 +1,29 @@
+.Container__SideBar{
+  border-right: 1px solid gray;
+  width: 30%;
+  min-width: 200px;
+  padding: 20px;
+  background: rgb(190, 190, 190);
+}
+.Container__SideBar button{
+  width: 100%;
+}
+.Container__SideBar button{
+  margin-top: 20px;
+}
+.Container__SideBar button:active{
+  font-size: 18px;
+}
+.Container__Header{
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(54, 54, 54);
+}
+.Container__MainContainer{
+  padding: 0 30px;
+  width: 100%;
+  background: rgb(229, 229, 229);
+}
+.Container__MainContainer h1{
+  color: rgb(54, 54, 54);
+}

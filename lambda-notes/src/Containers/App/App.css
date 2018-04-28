@@ -1,0 +1,8 @@
+.Container{
+  min-height: 100vh;
+  max-width: 1000px;
+  min-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,26 @@
+:global(html) {
+  font-size: 62.5%;
+  color: rgb(54, 54, 54);
+}
+:global(*) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+:global(button) {
+  border-radius: 2px;
+  background: #1c808e;
+  color: white;
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+:global(button:hover) {
+  background: #09abc2;
+}
+:global(a) {
+  text-decoration: none;
+  color: rgb(54, 54, 54);
+  cursor: pointer;
+}

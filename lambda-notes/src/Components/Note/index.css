@@ -1,0 +1,200 @@
+.buttonContainer{
+  margin: 10px 0 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+.header{
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+.body{
+  font-size: 1.8rem;
+}
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 40px;
+}
+.Container__Header{
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+.Container__input{
+  padding: 10px;
+  width: 60%;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+.Container__inputBody {
+  border-radius: 3px;
+  padding: 20px;
+  border: 1px solid lightgray;
+  height: 300px;
+  margin-bottom: 20px;
+}
+.submitButton {
+  width: 25%;
+}
+.marginOne{
+  margin-right: 20px;
+}
+.buttonContainer__Button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: black;
+  padding: 0;
+}
+.buttonContainer__Button:hover {
+  background-color: transparent;
+  border-bottom: 3px solid black;
+}
+.ModalContainer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: rgb(255,255,255, 0.8);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.ModalContainer__ContentContainer {
+  background: white;
+  padding: 50px 100px;
+  border-radius: 3px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ModalContainer__ButtonsContainer {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.ModalContainer__Button {
+  width: 45% ;
+  border-radius: 0;
+}
+.ModalContainer__WrappedButton{
+  width: 100% !important;
+}
+.red{
+  background-color: rgb(160, 0, 0);
+}
+.red:hover{
+  background-color: rgb(255,0,0);
+}
+.link {
+  width: 45%;
+}
+.clipBoardContainer {
+  border: 20px solid black;
+  border-radius: 5px;
+  background-color: white;
+  height: 400px;
+  width: 300px;
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px 10px;
+}
+.clipBoardContainer__Circle {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 14px solid rgb(207, 64, 60);
+  border-radius: 50%;
+  position: absolute;
+  top: -55px;
+  z-index: 2;
+}
+.clipBoardContainer__Clip {
+  width: 120px;
+  height: 50px;
+  background: rgb(207, 64, 60);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top: 1px solid rgb(237, 103, 100);
+  border-right: 1px solid rgb(237, 103, 100);
+  border-left: 1px solid rgb(237, 103, 100);
+  position: absolute;
+  top: -30px;
+}
+.clipBoardContainer__Header {
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  text-align: center;
+}
+.clipBoardContainer__FormContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.clipBoardContainer__Input {
+  width: 80%;
+  border-radius: 0;
+  border: 1px solid black;
+  padding: 2px 5px;
+}
+.clipBoardContainer__Button {
+  width: 20%;
+  height: auto;
+  padding: 0;
+  background-color: rgb(207, 64, 60);
+  border-radius: 0;
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+}
+.clipBoardContainer__Button:hover {
+  background-color: rgb(237, 103, 100);
+}
+.clipBoardContainer__CheckListContainer {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 2rem;
+  overflow: auto;
+}
+.clipBoardContainer__CheckListItem {
+  width: 100%;
+  list-style-type: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.clipBoardContainer__CheckListItem:nth-child(2n+1) {
+  background: rgb(245, 245, 245);
+}
+.clipBoardContainer__CheckListItem:hover {
+  background-color: rgb(224, 224, 224);
+}
+.clipBoardContainer__DeleteCheckListItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  height: 100%;
+  width: 15%;
+}
+.clipBoardContainer__DeleteCheckListItem:hover {
+  background-color: rgb(175, 35, 31);
+  color: white;
+}
+.check {
+  text-decoration: line-through;
+}

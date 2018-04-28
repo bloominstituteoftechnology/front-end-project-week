@@ -1,0 +1,32 @@
+.NotesContainer{
+  padding: 30px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  justify-content: center;
+
+}
+.Note{
+  height: 200px;
+  border: 1px solid gray;
+  padding: 5px 10px 0;
+  background: white;
+  overflow: hidden;
+}
+.Note:hover{
+  border-left: 2px solid #1c808e;
+}
+.noteHeader{
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+  margin: 10px 0;
+  white-space: nowrap;
+}
+.header{
+  font-size: 2rem;
+  margin: 40px 0 0;
+}
+.emptyList {
+  margin-top: 40px;
+}
