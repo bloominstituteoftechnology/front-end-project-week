@@ -1,0 +1,11 @@
+var testData = [
+    { title: 'Matthew 11:28', text: 'Come unto me, all ye that labour and are heavy laden, and I will give you rest.' },
+    { title: 'Proverbs 3:5,6', text: 'Trust in the LORD with all thine heart; and lean not unto thine own understanding.  In all thy ways acknowledge him, and he shall direct thy paths.' },
+    { title: 'Psalm 23', text: "The LORD is my shepherd; I shall not want.  He maketh me to lie down in green pastures: he leadeth me beside the still waters.  He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake.  Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me.  Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.  Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever." },
+    { title: 'John 1:1-5', text: 'In the beginning was the Word, and the Word was with God, and the Word was God. The same was in the beginning with God. All things were made by him; and without him was not any thing made that was made. In him was life; and the life was the light of men. And the light shineth in darkness; and the darkness comprehended it not.' },
+    { title: 'Romans 1:16,17', text: 'For I am not ashamed of the gospel of Christ: for it is the power of God unto salvation to every one that believeth; to the Jew first, and also to the Greek. For therein is the righteousness of God revealed from faith to faith: as it is written, The just shall live by faith.' },
+    { title: 'Romans 5:1-5', text: 'Therefore being justified by faith, we have peace with God through our Lord Jesus Christ: By whom also we have access by faith into this grace wherein we stand, and rejoice in hope of the glory of God. And not only so, but we glory in tribulations also: knowing that tribulation worketh patience; And patience, experience; and experience, hope: And hope maketh not ashamed; because the love of God is shed abroad in our hearts by the Holy Ghost which is given unto us.' },
+    { title: '1 Corinthians 10:23', text: 'All things are lawful for me, but all things are not expedient: all things are lawful for me, but all things edify not.' },
+  ]
+
+export default testData;

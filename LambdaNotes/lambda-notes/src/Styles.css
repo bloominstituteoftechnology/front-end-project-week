@@ -1,0 +1,159 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.APP {
+  display: flex;
+  text-align: center;
+}
+
+/* MENU STYLING */
+.APP__MENU {
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background-color: lightgray;
+  border: 1px solid gray;
+}
+
+.APP__MENUBAR h1 {
+  text-align: left;
+  margin: 5%;
+  font-size: 2em;
+}
+
+.APP__MENUBUTTON {
+  margin: 5%;
+  width: 90%;
+  background-color: #18A8B4;
+  color: white;
+  text-align: center;
+  font-size: .77em;
+  font-weight: bold;
+}
+
+/* APP MAIN WINDOW */
+.APP__BODY {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  padding: 2%;
+  margin-left: 250px;
+}
+
+/* LIST VIEW */
+.APP__LISTVIEW {
+  margin: 10px;
+  width: 100%;
+}
+
+.APP__LISTHEADER {
+  text-align: left;
+}
+.APP__NOTELIST {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+}
+
+.APP__NOTECARD {
+  display: flex;
+  margin: 10px;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid gray;
+  border-radius: 2%;
+  color: black;
+}
+
+/* CREATE VIEW */
+.APP__CREATE-NOTE {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.APP__CREATE-FORM {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.APP__CREATE-TITLE {
+  margin-top: 15px;
+  width: 50%;
+}
+
+.APP__CREATE-CONTENT {
+  margin-top: 15px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+}
+
+.APP__CREATE-SAVE {
+  width: 225px;
+  font-size: .77em;
+  margin-top: 15px;
+}
+
+/* NOTE VIEW */
+.APP__NOTEVIEW {
+  width: 100%;
+}
+.APP__NOTE-HEADER {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.APP__NOTE-EDIT, .APP__NOTE-DELETE {
+  padding-left: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.APP__NOTE-FULL {
+  width: 100%;
+  text-align: left;
+}
+
+/* EDIT VIEW */
+.APP__EDIT-NOTE {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.APP__EDIT-TITLE {
+  margin-top: 15px;
+  width: 50%;
+}
+
+.APP__EDIT-CONTENT {
+  margin-top: 15px;
+  width: 100%;
+  height: 400px;
+  display: flex;
+}
+
+.APP__EDIT-SAVE {
+  width: 225px;
+  font-size: .77em;
+  margin-top: 15px;
+}
