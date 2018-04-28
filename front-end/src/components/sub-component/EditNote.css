@@ -1,0 +1,33 @@
+.Note_Editor {
+  padding: 20px 50px;
+  color: white;
+  text-align: left;
+}
+
+.EditNoteText {
+  color: white;
+  text-align: left;
+}
+
+.EditNoteContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.EditInputTitle {
+  margin: 10px 0;
+  width: 80%;
+  min-width: 50vw;
+}
+
+.EditInputContent {
+  width: 80%;
+  margin: 10px 0;
+  min-width: 50vw;
+}
+
+.EditSaveButton {
+  margin-top: 50px;
+  width: 80%;
+  min-width: 50vw;
+}

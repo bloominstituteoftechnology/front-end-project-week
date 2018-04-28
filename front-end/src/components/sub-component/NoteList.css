@@ -1,0 +1,39 @@
+.NoteListContainer {
+  height: 100vh;
+}
+
+.SearchBar {
+  width: 40vw;
+  margin: auto;
+  padding-top: 20px;
+  letter-spacing: 0px;
+
+}
+
+.SearchBar_Input {
+  min-width: 100px;
+
+}
+
+.NoteListYN {
+  color: white;
+  padding-top: 20px;
+}
+
+.NoteListCol {
+  /* border: 2px solid red; */
+  width: 100%;
+}
+
+.NoteCardContainer {
+  border-radius: 10px;
+}
+
+.NoteCard {
+  height: 250px;
+  margin: 10%;
+  border-radius: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

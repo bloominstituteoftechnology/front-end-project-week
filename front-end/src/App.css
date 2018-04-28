@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Open Sans", sans-serif;
+  letter-spacing: -1px;
+  font-weight: 550;
+  height: 100%;
+}
+
+.ListView {
+  color: white;
+  display: inline;
+  padding: 2px 5px;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.ListView a:hover {
+  text-decoration: none;
+}
+
+.App-header {
+  color: white;
+  background-color: #29292d;
+  padding: 15px 10px 15px 20px;
+
+  text-align: left;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.PageContainer {
+  height: 100%;
+}
+.MainContentContainer {
+  display: flex;
+  height: 100%;
+}
+
+.SideMenu {
+  min-width: 290px;
+  height: 100%;
+}
+
+.MainContent {
+  width: 100%;
+}
