@@ -11,20 +11,20 @@ The main objective of this week is to develop the MVP feature set listed below u
 * You are required to showcase progress with at least 1 commit a day.  This will let your project manager know where you are and if you need help.  This also allows the client to get progress reports from the company in a real world setting.  
 
 ## Trello Set Up:
-* [ ] Create a Trello account
-* [ ] Create a new board called "Lambda Notes - {Your Name}"
-* [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-* [ ] Fill in the `To Do` list with the MVP features listed below
-* [ ] Fill in the `backlog` list with all the extra features listed below
-* [ ] Share your board with the project manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file.  Commit the change, push it to your repository & submit a pull request
+* [x] Create a Trello account
+* [x] Create a new board called "Lambda Notes - {Your Name}"
+* [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+* [x] Fill in the `To Do` list with the MVP features listed below
+* [x] Fill in the `backlog` list with all the extra features listed below
+* [x] Share your board with the project manager that has been assigned to you.  If you have not been assigned yet, reach out to your lead TA for guidance
+* [x] Add your Trello URL to your project's README.md file.  Commit the change, push it to your repository & submit a pull request
 
 ## MVP Features:
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
-* [ ] Edit an existing note
-* [ ] Delete an existing note
+* [x] Display a list of notes
+* [x] Create a note with a title and content
+* [x] View an existing note
+* [x] Edit an existing note
+* [x] Delete an existing note
 
 Upon your first commit, please submit a Pull Request and add _both_ the **Trello Set Up** and **MVP Features** Task lists to your first Pull Request comment:
 
@@ -51,14 +51,14 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 Once your MVP has been approved, you have been given a feature list that the client would love to have completed.  Your goal would be to finish MVP as soon as you can and get working the list of features.
 
 ## Extra Features:
-* [ ] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
+* [x] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
 * [ ] Search functionality
-* [ ] Markdown support in notes
-* [ ] Sorting options in the list view
-* [ ] Create and display tags that can be added to notes
-* [ ] Drag sorting in the list view
+* [x] Markdown support in notes
+* [x] Sorting options in the list view
+* [x] Create and display tags that can be added to notes
+* [x] Drag sorting in the list view
 * [ ] Add the ability to have checklists within the note view
-* [ ] Export all notes to a CSV
-* [ ] Create a login system around the MVP
+* [x] Export all notes to a CSV
+* [x] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code.  This is on purpose.  You are to start from scratch using any files you have built throughout your time here at Lambda School.  
