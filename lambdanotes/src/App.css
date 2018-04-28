@@ -1,0 +1,156 @@
+.App {
+ display: flex;
+ margin:0px;
+ padding:0px;
+}
+.Buttons{
+  display: flex;
+  flex-direction:column;
+  padding-left:20px; 
+}
+.LambdaNotes_p{
+  display:flex;
+  flex-direction: column;
+  align-content: flex-start;
+  padding-left:20px; 
+  font-weight: bold;
+  font-size: 30px;
+}
+.ButtonLink{
+  margin-bottom: 20px;
+}
+ button {
+  margin-bottom: 10px; 
+  width:260px; 
+  border:1.2px solid grey;
+  background: lightseagreen;
+  font-size:1.2em;
+  font-weight: bold;
+  color:white;
+  height: 60px;
+  
+}
+.LambdaNotes{
+  
+  margin-right: 0px;
+  padding:10px;
+  background: lightgrey;
+  width: 300px;
+  border-right:1.2px solid grey;
+  height: 1500px;
+}
+
+
+.NoteTitle{
+  font-size:23px;
+  color:black;
+  font-weight: bold;
+  text-align: start;
+  margin-bottom: 8px;
+  text-decoration: none;
+ 
+  
+
+}
+.NoteText{
+text-align: start;
+border-top: 2px solid grey;
+padding-top: 10px;
+line-height: 40px;
+}
+.SearchButton{
+  width:100px;
+  height: 30px; 
+  background:grey;
+  margin-left:10px;
+}
+.Notes{
+  border: 1.3px solid grey;
+  padding:20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  width: 30%;
+  height: 280px;
+  text-align: center;
+ 
+}
+
+.AllNotes{
+  margin-left:30px;
+  padding-top:60px;
+  /* background: lavenderblush; */
+}
+
+ .AllNotes p {
+   font-size: 30px;
+   font-weight: bold; 
+   margin-left:0px;
+ } 
+
+.NotesSection{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  margin:0px;  
+}
+.NewNote{
+
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  margin-left:30px;
+  padding-top: 60px;
+
+
+}
+.NewNote p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.Input{
+  border: 1.2px solid grey;
+  height: 50px;
+  width: 500px;
+  margin-bottom: 20px;
+
+}
+.TextArea{
+  height: 450px;
+  border: 1.2px solid grey;
+  width: 770px;
+  margin-bottom: 20px;
+}
+
+.Edit{
+ 
+  display : flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color:grey;
+  padding-right: 30px;
+  
+}
+.editButton{
+  color: grey;
+  padding-right:20px;
+  text-decoration: none;
+
+}
+.noteViewCard{
+
+width: 700px;
+margin-left: 20px;
+height: 600px;
+}
+.noteViewCard_title{
+  font-size: 30px;
+  font-weight: bold;
+  color: grey;
+}
+.NewNote p{
+font-size: 30px;
+font-weight: bold; 
+
+}
