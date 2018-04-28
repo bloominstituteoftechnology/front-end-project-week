@@ -81,17 +81,17 @@ const desBtn = {
 	color: 'black',
 	fontWeight: 'bold',
 	// border: '1px solid yellow',
-	
+
 	marginRight: 0
 };
 const desBtn2 = {
 	marginLeft: '3%',
 	cursor: 'pointer'
-}
+};
 const desBtn3 = {
 	marginLeft: '4%',
 	cursor: 'pointer'
-}
+};
 let tempVal;
 const hide = {
 	display: 'none'
@@ -135,60 +135,66 @@ export class PresentationMain extends React.Component {
 	};
 	dynamicSort = (property) => {
 		var sortOrder = 1;
-		if(property[0] === "-") {
+		if (property[0] === '-') {
 			sortOrder = -1;
 			property = property.substr(1);
 		}
-		return function (a,b) {
-			var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+		return function(a, b) {
+			var result = a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
 			return result * sortOrder;
-		}
-	}
+		};
+	};
 	handleOrder = () => {
-
-
 		let norder;
 		if (this.state.showAscending === true) {
-			norder = (this.state.list.slice(0).reverse().map((note, i) => {return  note} ));
+			norder = this.state.list.slice(0).reverse().map((note, i) => {
+				return note;
+			});
 			this.setState({
 				showAscending: !this.state.showAscending
 			});
 			this.setState({
-				list: norder 
-			})
+				list: norder
+			});
 			this.props.reorderState(norder);
 			this.setState({
-				list: norder 
+				list: norder
 			});
 		} else {
-			norder = (this.state.list.slice(0).reverse().map((note, i) => {return  note} ));
+			norder = this.state.list.slice(0).reverse().map((note, i) => {
+				return note;
+			});
 			this.setState({
 				showAscending: !this.state.showAscending
 			});
 			this.props.reorderState(norder);
 			this.setState({
-				list: norder 
+				list: norder
 			});
 		}
 
-
-		
-		
-		
-		console.log('norder: ',norder)
+		console.log('norder: ', norder);
 	};
 	handleTag = () => {
+		if (originalNotes === undefined) {
+			originalNotes = this.state.list.map((note) => {
+				return note;
+			});	
+		} 
 		if (this.state.orderTag === false) {
-			originalNotes = (this.state.list.map((note) => {return note}));
 			this.setState({
 				orderTag: !this.state.orderTag
 			});
-			let tagArr = this.state.list.sort(this.dynamicSort("tag"));
-			console.log('New ARrray is: ',tagArr);
+			console.log('original notes value: ', originalNotes)
+		
+			
+
+			let tagArr = this.state.list.sort(this.dynamicSort('tag'));
+			console.log('New ARrray is: ', tagArr);
 			this.setState({
-				list: tagArr 
+				list: tagArr
 			});
-			this.props.reorderState(tagArr)
+			this.props.reorderState(tagArr);
 		} else {
 			this.setState({
 				orderTag: !this.state.orderTag
@@ -198,14 +204,11 @@ export class PresentationMain extends React.Component {
 			});
 			this.props.reorderState(originalNotes);
 		}
-
-			
-		
-	}
+	};
 	render() {
 		let tempVal;
 		console.log('notes length: ', this.props.notes.length);
-		console.log('list is: ', this.state.list)
+		console.log('list is: ', this.state.list);
 		let descI = this.props.notes.length;
 		return (
 			<div style={mainSt}>
@@ -217,7 +220,7 @@ export class PresentationMain extends React.Component {
 					<span>
 						<h5 style={desBtn}>
 							Change Order
-							<button style={desBtn2}  onClick={this.handleOrder}>
+							<button style={desBtn2} onClick={this.handleOrder}>
 								{changeOrder}
 							</button>
 						</h5>
@@ -225,7 +228,7 @@ export class PresentationMain extends React.Component {
 					<span>
 						<h5 style={desBtn}>
 							Order by Tag
-							<button style={desBtn3}  onClick={this.handleTag}>
+							<button style={desBtn3} onClick={this.handleTag}>
 								Enable/Disable
 							</button>
 						</h5>

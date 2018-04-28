@@ -92,8 +92,8 @@ export const notesReducer = (state = startState, action) => {
 			case ADD_TAG:
 			return (
 				Object.assign({}, state, {
-					notes: [ state.notes[action.index].tag = action.payload],
-					notes: [...state.notes]
+					notes: [...state.notes, state.notes[action.index].tag = action.payload],
+					// notes: [...state.notes]
 				})
 			)
 			case REORDER_STATE: 
