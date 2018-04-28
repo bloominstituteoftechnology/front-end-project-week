@@ -1,0 +1,91 @@
+.App {
+  background: rgb(245, 245, 245);
+  display: flex;
+  min-height: 100vh;
+  max-height: 100%;
+  min-width: 400px;
+  width: 100%;
+}
+
+.App_sideBar {
+  align-items: center;
+  background: rgb(209, 209, 209);
+  border-right: 1px solid rgb(128, 128, 128);
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+  width: 25%;
+  z-index: 10;
+}
+
+.lambdaLogo {
+  filter: contrast(250%);
+  height: 75px;
+  margin-top: 30px;
+  width: 75px;
+}
+
+.App_sideBar h3 {
+  color: rgb(215, 0, 0);
+  font-size: 40px;
+  margin: 5px auto;
+  padding-bottom: 30px;
+  text-shadow: -1px 1px 2px rgb(151, 41, 63)
+}
+
+.App_button {
+  align-items: center;
+  display: flex;
+  background: rgb(0, 200, 207);
+  border: 2px solid rgb(72, 182, 182);
+  border-radius: 5px;
+  box-shadow: -2px 1px 3px rgb(128, 128, 128);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  justify-content: center;
+  margin-bottom: 20px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: -1px 1px 2px rgb(128, 128, 128);
+  width: 80%;
+}
+
+.App_body {
+  width: 75%;
+}
+
+.App_button-red {
+  background: rgb(231, 0, 0);
+  border-color: rgb(184, 22, 54);
+  margin: auto 0 50px;
+}
+
+.inverted {
+  filter: invert(100%);
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 200px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.slide-in {
+  animation: slide-in .75s ease-out;
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(-500px); }
+  50% { transform: translateX(50px); }
+  70% { transform: translateX(-50px); }
+  85% { transform: translateX(25px); }
+  100% { transform: translateX(0px); }
+}

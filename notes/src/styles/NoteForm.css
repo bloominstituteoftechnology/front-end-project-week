@@ -1,0 +1,57 @@
+.NoteForm {
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-direction: column;
+  padding: 35px 5%;
+}
+
+.NoteForm * {
+  text-decoration: none;
+}
+
+.NoteForm_header {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 13px;
+}
+
+.NoteForm_header:after {
+  border-bottom: 1px solid rgb(168, 168, 168);
+  content: '';
+  display: block;
+  height: 10px;
+  margin-left: -10px;
+}
+
+.NoteForm_inputs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.NoteForm_inputTitle, .NoteForm_inputBody, .NoteForm_heightAdjust {
+  border: 1px solid rgb(168, 168, 168);
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 2px rgb(168, 168, 168);
+  font-size: 14px;
+  height: 40px;
+  margin-bottom: 15px;
+  outline: none;
+  padding: 10px;
+  resize: none;
+}
+
+.NoteForm_inputTitle {
+  width: 40%;
+}
+
+.NoteForm_inputBody {
+  overflow: hidden;
+  width: 90%;
+}
+
+.NoteForm_button {
+  background: rgb(0, 200, 207);
+  margin: 0 10px;
+  width: 30%;
+}

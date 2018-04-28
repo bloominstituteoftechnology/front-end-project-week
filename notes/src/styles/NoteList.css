@@ -1,0 +1,31 @@
+.NoteList {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 40px 5%;
+  font-size: 20px;
+}
+
+.NoteList h4 {
+  color: rgb(82, 82, 82);
+  font-size: 24px;
+  width: 100%;
+}
+
+.NoteList h4:after {
+  border-bottom: 1px solid rgb(151, 151, 151);
+  content: '';
+  display: block;
+  height: 10px;
+  margin-left: -10px;
+}
+
+.notepad {
+  margin: 20px auto;
+  width: 200px;
+}
+
+@media (max-width: 545px) {
+  .NoteList {
+    justify-content: flex-start;
+  }
+}

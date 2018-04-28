@@ -1,0 +1,48 @@
+.NoteCard, .NoteCard:visited {
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(168, 168, 168);
+  border-radius: 2px;
+  box-shadow: -1px 1px 2px rgb(168, 168, 168);
+  color: rgb(82, 82, 82);
+  cursor: pointer;
+  height: 200px;
+  margin-bottom: 20px;
+  margin-right: 3%;
+  overflow: scroll;
+  padding: 0 10px;
+  text-decoration: none;
+  width: 30%;
+}
+
+.NoteCard p {
+  overflow-wrap: break-word;
+  white-space: pre-wrap; 
+}
+
+.NoteCard_title {
+  border-bottom: 1px solid rgb(168, 168, 168);
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 5px 0;
+}
+
+.NoteCard_body {
+  font-size: 14px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .NoteCard {
+    margin-right: 5%;
+    width: 45%;
+  }
+}
+
+@media (max-width: 545px) {
+  .NoteCard {
+    margin-left: 10px;
+    width: 90%;
+  }
+}

@@ -1,0 +1,55 @@
+.NoteView {
+  color: rgb(77, 77, 77);
+  display: flex;
+  flex-direction: column;
+  padding: 38px 5%;
+}
+
+.NoteView p {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.NoteView_links {
+  display: flex;
+}
+
+.NoteView_links * {
+  background: rgb(0, 200, 207);
+  height: 30px;
+  margin: 0 0 0 15px;
+  width: 100px
+}
+
+.NoteView_links *:nth-child(2) {
+  background: rgb(231, 0, 0);
+  border-color: rgb(184, 22, 54);
+}
+
+.NoteView_noteTitle {
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.NoteView_noteTitle:after {
+  border-bottom: 1px solid rgb(168, 168, 168);
+  content: '';
+  display: block;
+  height: 10px;
+  margin-left: -10px;
+}
+
+.NoteView_noteBody {
+  background: white;
+  border: 1px solid rgb(168, 168, 168);
+  box-shadow: -1px 1px 2px rgb(168, 168, 168);
+  padding: 10px;
+  margin-top: 25px;
+}
+
+@media (max-width: 545px) {
+  .NoteView {
+    padding: 13px 20px;
+  }
+}

@@ -1,0 +1,28 @@
+.ErrorPage {
+  text-align: center;
+  font-weight: bold;
+}
+
+.ErrorPage_title {
+  color: rgb(82, 82, 82);
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 41px;
+}
+
+.ErrorPage_title:after {
+  border-bottom: 1px solid rgb(168, 168, 168);
+  content: '';
+  display: block;
+  margin: 10px auto;
+  width: 70%;
+}
+
+.ErrorPage_body {
+  color: rgb(255, 88, 88);
+  font-size: 18px;
+  line-height: 30px;
+  margin: 20px auto;
+  width: 50%;
+}
