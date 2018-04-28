@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []   
+      notes: [] 
   }
 } 
 
@@ -18,10 +18,12 @@ componentDidMount() {
   this.setState({notes: getNotes()})
 }
 
-  render() {
+  render() { 
+    console.log(`${notes}`)
     return (
       <BrowserRouter>
         <div>
+          
           <Route exact path="/" render={props => (
             <Notes {...props} notes={[this.state.notes]} />)}/>
           <Route path="/view-note/:id" component={Note} notes={this.state.notes} />

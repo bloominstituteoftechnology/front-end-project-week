@@ -52,7 +52,7 @@ const notes = [
 
   },
   {
-    id: 9,
+    id: 8,
     title: "Note Title",
     text:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a. efficitur mollis ...",
