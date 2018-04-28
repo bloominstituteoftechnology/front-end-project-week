@@ -5,25 +5,24 @@ import LeftBox from './components/LeftBox';
 import CreateNote from './components/CreateNote';
 import ViewNote from './components/ViewNote';
 import EditNote from './components/EditNote';
-import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render(props) {
     return (
       <div className="AppContainer">
-      <div className="App">
-        <LeftBox />
-        <TodoList cardinfo={this.props.cardinfo}/>
-      </div>
+        <div className="App">
+          <LeftBox />
+          <Route exact path="/" component={TodoList} />
+          <Route path="/create" component={CreateNote} />
+          <Route 
+          path="/view/:id"
+          render={(props) => <ViewNote {...props} />}/>
+          <Route path="/edit" component={EditNote} />
+        </div>
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    cardinfo: state
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
