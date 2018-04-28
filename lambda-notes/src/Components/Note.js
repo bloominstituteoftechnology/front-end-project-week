@@ -10,7 +10,7 @@ export default class Note extends Component {
     }
     
     render(){
-    return <div>
+    return <div class='notecard'>
         {console.log(this.props)}
             <Card body>
                         {/* <Link to='/CreateNote' className ='deletenote' type= 'text' placeholder='delete' name='deleteNote'/> */}
