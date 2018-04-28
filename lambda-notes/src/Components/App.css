@@ -245,10 +245,13 @@ textarea {
   top: 0;
   opacity: .5;
   background-color: #444;
-  height: 920px;
+  /* height: 920px; */
+  height: 100vh;
+  width: 100vw;
 }
 
 .modal-test {
+  border: 1px solid black;
   position: absolute;
   top: 200px;
   right: 0;
@@ -272,4 +275,15 @@ textarea {
   display: flex;
   justify-content: center;
   
+}
+
+.tag {
+  color: black;
+  padding: 0;
+  margin: 0;
+  width: 100px;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  display: inline-block;
+  overflow: hidden;
 }

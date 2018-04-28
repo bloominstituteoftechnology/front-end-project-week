@@ -22,26 +22,26 @@ class Notes extends React.Component {
         this.props.getNotes();
     }
 
-    orderByName = () => {
-        const compare = (a, b) => {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-        }
-        const byName = this.props.notes.sort(compare);
-        this.setState({ sortedArray: [...byName], sorted: true });
-    }
+    // orderByName = () => {
+    //     const compare = (a, b) => {
+    //         if (a.name < b.name) return -1;
+    //         if (a.name > b.name) return 1;
+    //         return 0;
+    //     }
+    //     const byName = this.props.notes.sort(compare);
+    //     this.setState({ sortedArray: [...byName], sorted: true });
+    // }
 
-    orberbyOlder = () => {
-        const compare = (a, b) => {
-            if (a.id < b.id) return -1;
-            if (a.id > b.id) return 1;
-            return 0;
-        }
-        const byOldest = this.props.notes.sort(compare);
-        console.log('sorting', byOldest)
-        this.setState({ sortedArray: [...byOldest], sorted: false });
-    }
+    // orberbyOlder = () => {
+    //     const compare = (a, b) => {
+    //         if (a.id < b.id) return -1;
+    //         if (a.id > b.id) return 1;
+    //         return 0;
+    //     }
+    //     const byOldest = this.props.notes.sort(compare);
+    //     console.log('sorting', byOldest)
+    //     this.setState({ sortedArray: [...byOldest], sorted: false });
+    // }
 
     render() {
         return (
@@ -50,14 +50,15 @@ class Notes extends React.Component {
                     Your Notes:
                 </div>
                 <div className="sortingOptions" >
-                    <button className="button button--sort" onClick={this.orderByName} >Sort By Name </button>
-                    <button className="button button--sort" onClick={this.orberbyOlder} >Sort By Oldest Added </button>
+                    {/* <button className="button button--sort" onClick={this.orderByName} >Sort By Name </button> */}
+                    {/* <button className="button button--sort" onClick={this.orberbyOlder} >Sort By Oldest Added </button> */}
                 </div>
                 {this.state.sorted ?
                     <div className="mainContent__content" >
+                        {/* {console.log('sorted should be false', this.state.sorted, 'state:', this.state, 'props', this.props)} */}
                         {/* {this.state.sortedArray.map((note, index) => {
                             return (
-                                <div key={note.id + index}>
+                                <div key={note.id + index * 2}>
                                     <Link to={`/notes/${note.id}`} style={styled} >
                                         <Note title={note.name} body={note.body} id={note.id} key={note.id} />
                                     </Link>
@@ -65,6 +66,7 @@ class Notes extends React.Component {
                         })} */}
                     </div> :
                     <div className="mainContent__content" >
+                        {/* {console.log('sorted should be false', this.state.sorted, 'state:', this.state, 'props', this.props)} */}
                         {this.props.notes.map((note, index) => {
                             return (
                                 <div key={note.id + index}>

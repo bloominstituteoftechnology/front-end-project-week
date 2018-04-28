@@ -12,27 +12,55 @@ const styled = {  //this is for the link to not look like an anchor tag
     color: 'black'
 }
 
+const Counter = () => {
+
+}
+
 class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            tags: [],
+            tagInput: '',
+            id: 0
         };
+    }
+
+    inc = () => {
+        this.setState({ id: 1 + this.state.id })
     }
 
     componentDidMount() {
         this.props.getNote(this.props.id);
     }
 
-    handleOpen = name => () => {
-        this.props.show(name, { message: `This is a ${name} modal` })
-    };
-
     removeNote = () => {
         this.props.deleteNote(this.props.id);
         let route = window.location.pathname.split('/')
         let newRoute = route.splice(0, route.length - 2).join('/')
         window.location.pathname = newRoute;
+    }
+
+    removeTag = id => {
+        const { tags } = this.state;
+        const newTags = tags.filter(tag => tag.id !== id);
+        this.setState({ tags: newTags });
+    }
+
+    createTag = event => {
+        event.preventDefault();
+        const { tags, id, tagInput } = this.state;
+        const newTag = {
+            id: id,
+            tag: `#${tagInput}`
+        }
+        this.inc();
+        this.setState({ tags: tags.concat([newTag]), tagInput: '' });
+    }
+
+    handleInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     // componentWillReceiveProps(newProps) {   //this was where i tested for my EditNote component
@@ -72,6 +100,25 @@ class ViewNote extends Component {
                             </div>
                         </div>)
                 })}
+                {this.state.tags ?
+                    <div>
+                        {this.state.tags.map((tag, index) => {
+                            return (
+                                <div key={`tag${tag.id}`} className="button tag" onClick={()=>this.removeTag(tag.id)} >
+                                    {tag.tag}
+                                </div>)
+                        })}
+                    </div> : null}
+                <form className="mainContent__Form" onSubmit={this.createTag} >
+                    <input
+                        className="form__input form__input--title"
+                        onChange={this.handleInputChange}
+                        placeholder="Add a Tag"
+                        value={this.state.tagInput}
+                        name="tagInput"
+                    />
+                    <button className={"link__button"} type="submit">Add</button>
+                </form>
             </div>
         )
     }

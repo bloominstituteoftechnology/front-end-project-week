@@ -9,7 +9,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import rootReducer from './reducers';
-import { routerReducer } from 'react-router-redux'
+import { ConnectedRouter, routerReducer } from 'react-router-redux'
 import { localState, saveState } from './Persistence'
 
 const load = localState();
@@ -32,7 +32,7 @@ const store = createStore(
 store.subscribe(() => {
     let currentState = store.getState();
     console.log('store.getstate here:',currentState.rootReducer.noteReducer);
-    saveState(currentState.rootReducer.noteReducer);
+    saveState(currentState);
 })
 
 render(
