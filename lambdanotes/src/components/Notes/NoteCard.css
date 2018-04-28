@@ -1,0 +1,30 @@
+.NoteCard {
+    width: 216px;
+    height: 216px;
+    margin-top: 15px;
+    margin-right: 25px;
+    overflow: hidden;
+}
+
+.NoteCardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #F3F3F3;
+}
+
+.NoteCardList__holder {
+
+    width: 800px;
+    padding: 0 0;
+}
+
+.NoteDetail__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.NoteDetail__textarea {
+    height: 500px;
+}
