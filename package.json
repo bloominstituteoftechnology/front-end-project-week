@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@okta/okta-signin-widget": "^2.3.0",
     "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
     "react": "^16.2.0",
@@ -14,9 +15,6 @@
     "reactstrap": "^5.0.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
-  },
-  "engines": {
-    "npm":"6.0"
   },
   "scripts": {
     "start": "react-scripts start",
