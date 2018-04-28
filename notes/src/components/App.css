@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  border: 1px solid #979797;
+}
+
+.App-sidebar {
+  width: 20%;
+  background-color: #d8d8d8;
+  border-right: 1px solid #979797;
+}
+
+.App-content {
+  width: 80%;
+  background-color: #f3f3f3;
+  display: flex;
+}

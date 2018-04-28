@@ -1,0 +1,32 @@
+.Sidebar-header {
+  margin-left: 30px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version */
+}
+
+.Sidebar-link {
+  text-decoration: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version */
+}
+
+.Sidebar-button {
+  width: 80%;
+  min-height: 50px;
+  margin: 20px auto;
+  text-align: center;
+  color: white;
+  background-color: #2bc1c4;
+  border: 1px solid #979797;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 12px;
+}

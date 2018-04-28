@@ -1,0 +1,32 @@
+.NoteCard-area {
+  padding: 3%;
+}
+
+.NoteCard-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #cecdce;
+  padding: 10px 20px;
+  height: 290px;
+}
+
+.NoteCard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.NoteCard-tags {
+  color: grey;
+}
+
+.NoteCard-divider {
+  height: 1px;
+  background-color: #cecdce;
+}
+
+.NoteCard-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

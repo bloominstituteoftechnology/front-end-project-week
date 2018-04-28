@@ -1,0 +1,103 @@
+.NoteView-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.NoteView-link-container {
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  width: 100px;
+}
+
+.NoteView-edit-link {
+  color: black;
+}
+
+.NoteView-delete-link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.NoteView-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.NoteView-title {
+  margin-left: 20px;
+}
+
+.NoteView-content {
+  padding: 10px;
+}
+
+.NoteView-delete-modal-background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: grey;
+  opacity: 0.9;
+  width: 100%;
+  height: 100%;
+}
+
+.NoteView-delete-modal-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  left: calc(50% - 300px);
+  top: calc(50% - 100px);
+  width: 600px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #8c8c8c;
+  opacity: 1;
+}
+
+.NoteView-delete-modal-btn-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.NoteView-delete-modal-confirm {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 2.6;
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: 1px solid #8c8c8c;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.NoteView-delete-modal-reject {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  line-height: 2.6;
+  font-size: 18px;
+  background-color: #24b8bd;
+  color: white;
+  border: 1px solid #8c8c8c;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.NoteView-delete-modal-link {
+  text-decoration: none;
+}
+
+.NoteView-delete-modal-toggle {
+  display: none;
+}
