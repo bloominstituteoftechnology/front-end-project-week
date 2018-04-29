@@ -1,0 +1,22 @@
+.ViewNote__content {
+  letter-spacing: 1px;
+  line-height: 180%;
+}
+
+.ViewNote__editOptions--click {
+  color: black;
+}
+
+.ViewNote__editOptions--click:hover {
+  color: black;
+}
+
+.ViewNote__editOptions--button {
+  border: none;
+  background-color: transparent;
+}
+
+.ViewNote__editOptions--button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

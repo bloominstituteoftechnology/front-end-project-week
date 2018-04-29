@@ -1,0 +1,45 @@
+.MarkdownContainer {
+	display: flex;
+	height: 90%;
+}
+
+.input, .output {
+	width: 50%;
+	padding: 1rem 1rem;
+	box-sizing: border-box;
+}
+
+.input-text {
+	
+	transition: border 0.3s;
+	font-family: 'Inconsolata', monospace;
+	font-size: 1rem;
+}
+
+.input-text, .output-text {
+	border: 2px solid #2AC1C5;
+	background-color: white;
+	color: black;
+	height: 500px;
+	font-family: 'Inconsolata', monospace;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 1em;
+}
+
+.output-text {
+	overflow-y: scroll;
+	word-wrap: break-word;
+	/* overflow-wrap: break-word; */
+	/* word-wrap: break-word; */
+	hyphens: auto;
+}
+
+.input-text:focus {
+	border: 2px solid black;
+}
+
+h3 {
+	font-weight: normal;
+}

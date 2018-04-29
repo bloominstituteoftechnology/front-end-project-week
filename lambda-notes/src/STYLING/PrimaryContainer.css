@@ -1,0 +1,101 @@
+.PrimaryContainer {
+  margin: 0 3.33% 3.33%;
+}
+
+.PrimaryContainer__newNote {
+  margin: 3.33%;
+}
+
+.PrimaryContainer__header {
+  margin: 4% 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4A484A;
+}
+
+.PrimaryContainer__header--notecards {
+  margin: 4% 15px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #4A484A;
+}
+
+.PrimaryContainer__header--dark {
+  margin: 4% 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: turquoise;
+  text-shadow: 1px 1px snow;
+}
+
+.PrimaryContainer__cardContainer {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.CardLink {
+  color: black;
+}
+
+.CardLink:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.CardLink--dark {
+  color: black;
+}
+.CardLink--dark:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.Card--dark {
+  background-color: slategray !important;
+}
+
+.NoteCard {
+  margin-bottom: 3%;
+}
+
+.NoteCard:hover {
+  transform: scale(1.05);
+  z-index: 3;
+}
+
+.CardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #959595;
+}
+
+.CardTitle--dark {
+  font-size: 2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid white;
+}
+
+.CardText--dark {
+  color: black;
+}
+
+.CardContent {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 180%;
+}
+
+.sticks {
+  background-color: rgba(243, 243, 243, 0.932);
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+@media (max-width: 744px) {
+  .sticks {
+    position: relative;
+  }
+}

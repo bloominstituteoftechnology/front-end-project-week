@@ -1,0 +1,33 @@
+.modal-dialog {
+  margin-top: 200px !important;
+}
+
+.Modal__header {
+  margin-top: 3%;
+  text-align: center;
+}
+
+.Modal__ButtonsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 6%;
+}
+
+.Modal__button--link {
+  width: 35%;
+  margin-right: 3%;
+}
+
+.Modal__button--link--reg {
+  width: 100%;
+  font-weight: bold !important;
+}
+
+.Modal__button--reg {
+  width: 35%;
+  margin-left: 3%;
+  font-weight: bold !important;
+}
+

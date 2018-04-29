@@ -1,0 +1,38 @@
+@import "./STYLING/index.css";
+/* @import 'node_modules/dragula/dragula.styl'; */
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+/* dragula */
+.gu-mirror {
+  position: fixed !important;
+  margin: 0 !important;
+  z-index: 9999 !important;
+  opacity: 0.85;
+}
+
+.gu-hide {
+  display: none !important;
+}
+
+.gu-unselectable {
+  user-select: none !important;
+}
+
+.gu-transit {
+  opacity: 0.25;
+}
