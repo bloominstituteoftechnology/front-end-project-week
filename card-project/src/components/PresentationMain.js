@@ -176,12 +176,15 @@ export class PresentationMain extends React.Component {
 		console.log('norder: ', norder);
 	};
 	handleTag = () => {
-		if (originalNotes === undefined) {
+		// if (originalNotes === undefined) {
+		// 	originalNotes = this.state.list.map((note) => {
+		// 		return note;
+		// 	});	
+		// } 
+		if (this.state.orderTag === false) {
 			originalNotes = this.state.list.map((note) => {
 				return note;
 			});	
-		} 
-		if (this.state.orderTag === false) {
 			this.setState({
 				orderTag: !this.state.orderTag
 			});
@@ -237,7 +240,7 @@ export class PresentationMain extends React.Component {
 
 				{this.state.showAscending ? (
 					<div>
-						{this.props.notes.map((note, i) => {
+						{this.state.list.map((note, i) => {
 							tempVal = i;
 							{
 								note.check === false ? (dcolor = 'red') : (dcolor = 'blue');
@@ -266,7 +269,7 @@ export class PresentationMain extends React.Component {
 					</div>
 				) : (
 					<div>
-						{this.props.notes.map((note, i) => {
+						{this.state.list.map((note, i) => {
 							tempVal = i;
 							{
 								note.check === false ? (dcolor = 'red') : (dcolor = 'blue');
