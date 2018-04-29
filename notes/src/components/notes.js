@@ -23,6 +23,8 @@ export default class Notes extends Component {
     super(props);
     this.state = {
       notes: [],
+      filteredNotes: [],
+      search: "",
       view: "list",
       currentCard: 0
     };

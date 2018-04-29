@@ -30,7 +30,11 @@ class ViewCard extends React.Component {
         </div>
         <div className="view-card">
           <h3 className="notes-h3 view-h3">{this.props.note.title}</h3>
-          <ReactMarkdown source={this.props.note.text} escapeHtml={false} />
+          <ReactMarkdown
+            source={this.props.note.text}
+            className="notes-text-full"
+            escapeHtml={false}
+          />
         </div>
         <Modal
           modal="modal"

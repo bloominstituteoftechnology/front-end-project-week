@@ -54,12 +54,25 @@ h1 {
   user-select: none;
 }
 
+.search-field {
+  width: 40%;
+  max-width: 200px;
+  height: 25px;
+  font-size: 1.25rem;
+}
+
 .sort-button {
   min-height: 30px;
   height: 30px;
   width: 80px;
   align-self: flex-end;
-  margin-right: 40px;
+  margin-bottom: 0;
+}
+
+.search-sort {
+  justify-content: space-between;
+  display: flex;
+  align-items: flex-end;
 }
 
 .delete-notes-button {
