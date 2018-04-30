@@ -21,7 +21,8 @@ class List extends Component {
         componentDidMount() {
             axios.get('http://localhost:3000/list')
             .then (res => {
-                this.setState(() => ({ getNotes }));
+                //this.setState(() => ({ getNotes }));
+                console.log(res);
             })
             .catch((error) => {
                 alert('Server error: Please try again later.');

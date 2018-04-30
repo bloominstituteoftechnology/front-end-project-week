@@ -5109,7 +5109,6 @@ prop-types@^15.5.4:
     object-assign "^4.1.1"
 
 proxy-addr@~2.0.2, proxy-addr@~2.0.3:
-
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.3.tgz#355f262505a621646b3130a728eb647e22055341"
   dependencies:
@@ -6481,11 +6480,7 @@ value-equal@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/value-equal/-/value-equal-0.4.0.tgz#c5bdd2f54ee093c04839d71ce2e4758a6890abc7"
 
-<<<<<<< HEAD
 vary@^1, vary@~1.1.2:
-=======
-vary@~1.1.2:
->>>>>>> 40d54a23ba376676252507199cc13991573f23de
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 

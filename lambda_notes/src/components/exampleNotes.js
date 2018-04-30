@@ -69,15 +69,19 @@ let notes = [
 
 server.get('/notes', (req, res) => {
     res.json(notes);
+    // res.set('Content-type', 'application/json');
+    // res.type('')
+    // res.send(JSON.stringify(notes));
+    //JSON.parse() to turn back into an object
 
-    server.post('/notes', (req, res) => {
-        const { id, title, text } = req.body;
-        const newNote = { title, text, id: nextId };
-         if (!id || !title || !text) {
-            return sendUserError(
-                'No Notes.',
-                res
-            )
-        };
-    });
+    // server.post('/notes', (req, res) => {
+    //     const { id, title, text } = req.body;
+    //     const newNote = { title, text, id: nextId };
+    //      if (!id || !title || !text) {
+    //         return sendUserError(
+    //             'No Notes.',
+    //             res
+    //         )
+    //     };
+    // });
 });
