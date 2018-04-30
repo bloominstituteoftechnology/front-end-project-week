@@ -231,12 +231,6 @@ a:hover {
   overflow-wrap: break-word;
 }
 
-.Tags {
-  display: flex;
-  flex-wrap: wrap;
-  width: 50%;
-}
-
 .Tag {
   min-width: 60px;
   padding: 1%;

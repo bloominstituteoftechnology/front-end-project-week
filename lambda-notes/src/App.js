@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import AddNote from './components/AddNote';
 import EditNote from './components/EditNote';
 import Note from './components/Note';
-//import Login from './components/Login';
 import { Route, Redirect } from "react-router-dom";
 
 class App extends Component {
@@ -68,6 +67,14 @@ class App extends Component {
     }, 500);
   }
 
+  handleSignup(user, pass) {
+    setTimeout(() => {
+      console.log("Authenticating...")
+      //GET request on user, if (response === pass)
+      this.setState({isAuthenticated: true});
+    }, 500);
+  }
+
   handleSignout(cb) {
     this.setState({isAuthenticated: false});
     setTimeout(cb, 100);
@@ -85,17 +92,17 @@ class App extends Component {
     this.setState({ notes: memoryNotes, id: memoryID })
     }
   }
-// I don't know what it is but this component will mount isn't working for me. I will look into it a bit more
 
   render() {
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
     const PrivateRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={props => this.state.isAuthenticated ? ( <Component {...props} {...rest} /> ) : ( <Redirect to="/" /> ) }/>
     );
     return (
       <div className="App">
-        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signout={this.handleSignout} isAuth={this.state.isAuthenticated} />} />
+        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signup={this.handleSignup} signout={this.handleSignout} isAuth={this.state.isAuthenticated} />} />
         <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
         <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
         <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />

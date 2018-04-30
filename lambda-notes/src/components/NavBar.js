@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class NavBar extends React.Component {
 
@@ -10,8 +10,8 @@ export default class NavBar extends React.Component {
     };
             
     handleLogin = (e) => {
-        const username = e.target.parentNode.getElementsByTagName("input")[0].value;
-        const password = e.target.parentNode.getElementsByTagName("input")[1].value;
+        const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
+        const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
         if (username && password) {
             this.props.login(username, password);
             this.setState({ modal: false, username: username });
@@ -21,8 +21,25 @@ export default class NavBar extends React.Component {
             }, 501)
         }
         else { 
-            if (!username) e.target.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
-            if (!password) e.target.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
+            if (!username) e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
+            if (!password) e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
+        }
+    };
+
+    handleCreate = (e) => {
+        const username = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value;
+        const password = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].value;
+        if (username && password) {
+            this.props.signup(username, password);
+            this.setState({ modal: false, username: username });
+            setTimeout (() => { 
+                console.log("Success!")
+                this.props.history.push('/notes');
+            }, 501)
+        }
+        else { 
+            if (!username) e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
+            if (!password) e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
         }
     };
 
@@ -50,12 +67,18 @@ export default class NavBar extends React.Component {
                             <ModalHeader toggle={this.toggle}>
                                 Enter your username and password
                             </ModalHeader>
-                            <ModalFooter>
-                                <div className="Tags">
+                            <ModalBody className="d-flex justify-content-center">
+                                <div>
                                 <div><div>Username:</div><input name="username"></input></div>
                                 <div><div>Password:</div><input name="password"></input></div>
                                 </div>
-                                <Button className="Button" onClick={this.handleLogin}>Log In</Button>
+                            </ModalBody>
+                            <ModalFooter className="justify-content-around">
+                            <Button className="Button" onClick={this.handleLogin}>Log In</Button>
+                            <div>
+                            <div style={ { fontSize: "12px" } }>Don't have an account?</div>
+                            <Button onClick={this.handleCreate}>Create Account</Button>
+                            </div>
                             </ModalFooter>
                             </Modal>
                 </div>

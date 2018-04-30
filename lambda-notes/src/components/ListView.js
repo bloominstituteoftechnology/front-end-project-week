@@ -26,11 +26,11 @@ handleFilter = (e) => {
 }
 
 sortA = () => {
-    const currentState = this.state.notes;
+    // const currentState = this.state.notes;
 }
 
 sortZ = () => {
-    const currentState = this.state.notes;
+    // const currentState = this.state.notes;
 }
 
 handleDrag = (e) => {
