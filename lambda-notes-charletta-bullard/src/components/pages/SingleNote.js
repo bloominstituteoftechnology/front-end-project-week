@@ -18,21 +18,6 @@ class SingleNote extends Component {
       <div>
         <h3 className="heading">{this.props.notes[id].title}</h3>
         <p className="notetext">{this.props.notes[id].text}</p>
-
-        <NavLink
-          to={`/delete/${id}`}
-          render={
-            this.state.deleting ? (
-              <DeleteNote
-                deleteNote={this.deleteNote}
-                cancelDelete={this.cancelDelete}
-              />
-            ) : null
-          }
-        >
-          {' '}
-          delete
-        </NavLink>
         <NavLink
           to={'/edit'}
           render={
@@ -42,13 +27,27 @@ class SingleNote extends Component {
           {' '}
           edit
         </NavLink>
+        <NavLink
+          to={`/delete/${id}`}
+          render={
+            this.state.deleting ? (
+              <DeleteNote
+                deleteNote={this.deleteNote}
+                // cancelDelete={this.cancelDelete}
+              />
+            ) : null
+          }
+        >
+          {' '}
+          delete
+        </NavLink>
       </div>
     );
   }
 
-  cancelDelete = () => {
+  deleteNote = () => {
     this.props.history.push('/noteslist');
-    this.setState({ deleting: false });
+    this.setState({ deleting: true });
   };
 }
 

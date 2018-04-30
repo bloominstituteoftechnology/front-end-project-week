@@ -11,20 +11,20 @@ export default class CreateANote extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSubmit = _ => {
+  handleSubmit = event => {
     const { title, body } = this.state;
-    this.props.createNote({ title, body });
+    this.props.createANote({ title, body });
     this.setState({ title: '', body: '' });
   };
 
   render() {
     const { title, body } = this.state;
     return (
-      <div className="CreateANote">
-        <h2 className="SectionTitle">Create New Note:</h2>
+      <div className="createanote">
+        <h2 className="section-title">Create New Note:</h2>
         <form onSubmit={this.handleSubmit}>
           <input
-            className="CreateNote-TitleBox"
+            className="createnote-titlebox"
             value={title}
             name="title"
             type="text"
@@ -33,7 +33,7 @@ export default class CreateANote extends React.Component {
           />
           <br />
           <textarea
-            className="CreateNote-BodyBox"
+            className="createnote-bodybox"
             value={body}
             name="body"
             type="text"
