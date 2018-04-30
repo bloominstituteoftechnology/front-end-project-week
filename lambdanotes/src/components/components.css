@@ -1,0 +1,210 @@
+/* Left Side */
+
+.LeftBox {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-left: 16px;
+    width: 10%;
+    min-width: 140px;
+}
+
+.LeftBox__Button1 {
+    min-width: 100%;
+    height: 50px;
+    background-color: teal;
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    
+}
+
+.LeftBox__Button2 {
+    min-width: 100%;
+    background-color: teal;
+    margin-top: 10px;
+    color: white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.LeftBox__Title {
+    /* border: 1px blue solid; */
+    width: 10%;
+    font-size: 26px;
+}
+
+.LeftBox__TitleContainer {
+  /* border: red 1px solid; */
+  width: 80%;
+}
+
+/* Your Notes */
+/* List__Container --> Todo__Container --> Todo__Title & Todo__CardsWrapper --> Todo__Card */
+.ListContainer {
+    width: 100%;
+    border: 1px red solid;
+}
+
+.Todo__Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px blue solid;
+}
+
+.Todo__Title {
+    font-size: 20px;
+    width: 13%;
+    margin-top: 16px;
+    border: 1px solid green;
+}
+
+.Todo__CardsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: grey 2px dashed;
+    border: 1px solid pink;
+}
+
+.Todo__Card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px grey solid;
+    width: 100%;
+    height: 100px;
+    border: 1px solid orange;
+}
+
+.Todo__Link {
+    border: 2px black dashed;
+    width: 30%;
+}
+
+/* CreateNote */
+/* CreateNote__Container --> 
+CreateNote__Title & CreateNote__NoteTitle 
+& CreateNote__NoteContent & CreateNote__SaveButton*/
+
+/*input fields --> CreateNote__NoteTitleFormInput 
+& CreateNote__NoteContentFormInput */
+
+.CreateNote__Container {
+    width: 100%;
+    display: flex;
+
+}
+
+.CreateNote__Title {
+    max-width: 20%;
+    margin-top: 20px;
+    margin-left: 12px;
+    
+}
+
+.CreateNote__Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.CreateNote__NoteTitleFormInput {
+    width: 50%;
+    margin: 20px
+}
+
+.CreateNote__NoteContentFormInput {
+    width: 90%;
+    margin: 20px;
+    margin-top: 0px;
+    height: 350px;
+}
+
+.CreateNote__SaveButton {
+    width: 20%;
+    background-color: teal;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* ViewNote */
+
+.ViewNote__Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px green solid;
+
+}
+
+.ViewNote__Title {
+    margin-top: 82px;
+    margin-left: 28px;  
+}
+
+.ViewNote__Content{
+    margin: 28px;
+}
+
+/* Edit Note */
+
+.EditNote__Container {
+    width: 100%;
+    display: flex;
+}
+
+.EditNote__Title {
+    max-width: 20%;
+    margin-top: 20px;
+    margin-left: 12px;
+    
+}
+
+.EditNote__Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.EditNote__NoteTitleFormInput {
+    width: 50%;
+    margin: 20px
+}
+
+.EditNote__NoteContentFormInput {
+    width: 90%;
+    margin: 20px;
+    margin-top: 0px;
+    height: 350px;
+}
+
+.EditNote__SaveButton {
+    width: 20%;
+    background-color: teal;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 20px;
+}
