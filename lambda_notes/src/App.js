@@ -18,11 +18,11 @@ class App extends Component {
   }
 }*/
 
-import Navigation from '../Navigation/Navigation';
-import ListNotes from '../ListNotes/ListNotes';
-import CreateNewNote from '../CreateNewNote/CreateNewNote';
-import NoteView from '../NoteView/NoteView';
-import EditNote from '../EditNote/EditNote';
+import Navigation from './Components/Navigation';
+import ListNotes from './Components/ListNotes';
+import CreateNewNote from './Components/CreateNewNote';
+import NoteView from './Components/NoteView';
+import EditNote from './Components/EditNote';
 import { Route } from 'react-router-dom';
  
 class App extends Component {
@@ -80,7 +80,6 @@ class App extends Component {
 }
    render() {
     return (
-      <Fragment>
        <div className="appContainer">
           <div className="navCol">
            <Navigation />
@@ -96,7 +95,6 @@ class App extends Component {
              <Route exact path="/notes/:id/EditNote" component={EditNote} />
            </div>
          </div>
-      </Fragment>
     );
    }
   }
