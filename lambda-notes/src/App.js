@@ -85,6 +85,7 @@ class App extends Component {
     this.setState({ notes: memoryNotes, id: memoryID })
     }
   }
+// I don't know what it is but this component will mount isn't working for me. I will look into it a bit more
 
   render() {
     this.handleLogin = this.handleLogin.bind(this);
