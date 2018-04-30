@@ -14,9 +14,10 @@ export default class NotesList extends Component{
         return(
         <div>
             {/* {console.log(this.props)} */}
-        {this.props.notes.map(note => {
-             console.log(note)   
-            return <NoteDetails key={note.title} note={note}/>;
+        {this.props.notes.map((note, index) => { // THIS IS OUR LOOP!
+            //  console.log(notes[note])   
+            console.log(note + index);
+            return <NoteDetails key={note.title} note={note} index={index}/>
         })}
         </div>
         )
@@ -25,11 +26,13 @@ export default class NotesList extends Component{
 
 
 
-function NoteDetails({note}) {
+function NoteDetails({note, index}) {
     return (
-        // console.log(note.title),
-        <Link to={`/NoteCard/${note.title}`}>
-        <Note note={note}/>
-        </Link>
+         
+       // <Link to={`/NoteCard/${note.title}`}>
+       console.log(note + index),
+        <Note note={note} index={index}/> 
+       // </Link>
+       
     );
 }

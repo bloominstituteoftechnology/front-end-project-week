@@ -59,16 +59,17 @@ class App extends Component {
             <div className="rightbox">
                 <h3>Your Notes:</h3>
               <Switch>
+
+                {/* What does the route mean and how does it work? What is the difference between routes and link */}
                 <Route exact path='/'  render={(props) => <NotesList {...this.state}/>} />
                 <Route path='/NotesList'  render={(props) => <NotesList {...this.state}/>} />
                 <Route path='/CreateNote'  render={(props) => <CreateNote {...props} addToNotesList={this.addToNotesList}/>} />
                 {/* <Route path='/' component={NotesList}/> */}
                 {/* <Route path='/EditNote' component={EditNote}/>  */}
                 {/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}
-                <Route path="/NoteCard/:title" render={(props) => <NoteCard {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
+                <Route path="/NoteCard/:title" render={(props) => <NoteCard {...this.state} title={this.state.notes.title} body={this.state.notes.body}/>} />
                 <Route path="/Note/" render={(props) => <Note {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
                 <Route path="/EditNote/:title" render={(props) => <EditNote {...props} title={this.state.notes.title} body={this.state.notes.body}/>} />
-                
                  {/* <Route path="/Note/" component={Note}/> */}
                 {/* <Route path="/user/:title" component={User}/> */}
                 {/* when none of the above match, <NoMatch> will be rendered */}
