@@ -7,6 +7,11 @@ export const ViewNote = props => {
   console.log(props);
   const btn = document.getElementsByClassName("modalButton");
   const confirmModal = document.getElementsByClassName("confirmModal");
+  window.onclick = function(event) {
+    if (event.target === confirmModal[0]) {
+      confirmModal[0].style.display = "none";
+    }
+  };
   console.log(confirmModal);
   return (
     <div>
@@ -14,15 +19,33 @@ export const ViewNote = props => {
         <Link to={`/editnote/${props.notes.id}`}>
           <button> Edit Note </button>
         </Link>
-        <button onClick={() => confirmModal[0].style.display = "flex"} className="modalButton"> Delete Note </button>
+        <button
+          onClick={() => (confirmModal[0].style.display = "flex")}
+          className="modalButton"
+        >
+          {" "}
+          Delete Note{" "}
+        </button>
       </div>
       <div className="confirmModal">
         <div className="modal-content">
           <h4> Are you sure you want to delete this note? </h4>
           <Link to="/">
-          <button className="sideButton" onClick={() => props.deleteNote(props.notes.id)}> Delete </button>
+            <button
+              className="sideButton"
+              onClick={() => props.deleteNote(props.notes.id)}
+            >
+              {" "}
+              Delete{" "}
+            </button>
           </Link>
-            <button className="sideButton" onClick={() => confirmModal[0].style.display = "none"}> Cancel </button>
+          <button
+            className="sideButton"
+            onClick={() => (confirmModal[0].style.display = "none")}
+          >
+            {" "}
+            Cancel{" "}
+          </button>
         </div>
       </div>
       <h1> {props.notes.title} </h1>
@@ -30,6 +53,3 @@ export const ViewNote = props => {
     </div>
   );
 };
-
-
-// onClick = {() => props.deleteNote(props.notes.id)}

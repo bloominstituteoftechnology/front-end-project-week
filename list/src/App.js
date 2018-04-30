@@ -28,7 +28,7 @@ class App extends Component {
           "Lorem ipsum dolor sit amet, ut eum novum rationibus mediocritatemLorem ipsum dolor sit amet, ut eum novum rationibus mediocritatemLorem ipsum dolor sit amet, ut eum novum rationibus mediocritatem"
       }
     ],
-
+    
     newNote: { id: 0, title: "", content: "" },
 
   };
