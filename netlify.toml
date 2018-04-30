@@ -7,5 +7,3 @@
 
 [build]
   base    = "lambda-notes"
-  publish = "lambda-notes"
-  command = "npm run build"
