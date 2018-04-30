@@ -9,6 +9,7 @@
     "react-confirm-alert": "^2.0.2",
     "react-csv": "^1.0.14",
     "react-dom": "^16.2.0",
+    "react-draggable-component": "^4.4.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "reactstrap": "^5.0.0-beta.3"

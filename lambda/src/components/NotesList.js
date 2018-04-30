@@ -20,14 +20,15 @@ class NotesList extends Component {
       })
 
     return (
+
       <div className = 'notes'>
         <div className = 'search'>
           <h3>Your notes:</h3>
           <input onChange = {this.onChange} name = 'search' type = 'text' placeholder = 'Search notes by title...' />
         </div>
-        {filteredNotes.map((note, index) =>{
-            return <Note key = {index} note = {note} id = { index }/>
-        })}
+          {filteredNotes.map((note, index) =>{
+              return <Note key = {index} note = {note} id = { index }/>
+          })}
       </div>
     );
   }
