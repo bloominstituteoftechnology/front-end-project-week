@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 
-import './UpdateNote.css';
+import './UpdateNote.css'
 
 class UpdateNote extends Component {
-
   handleUpdate(event) {
-    event.preventDefault();
-    this.props.updateNote(this.props.note.id);
-    this.props.history.push('/');
+    event.preventDefault()
+    this.props.updateNote(this.props.note.id)
+    this.props.history.push('/')
   }
 
   render() {
@@ -18,27 +17,29 @@ class UpdateNote extends Component {
           <label className="input-label">
             <h2 className="label-h2">Edit Note:</h2>
           </label>
-          <input 
-            required 
+          <input
+            required
             className="input-title"
-            type="text" 
-            placeholder="Note Title" 
-            value={this.props.title} 
+            type="text"
+            placeholder="Note Title"
+            value={this.props.title}
             onChange={this.props.newTitle}
           />
-          <textarea 
-            required 
+          <textarea
+            required
             className="input-body"
-            type="text" 
-            placeholder="Note Content" 
-            value={this.props.content} 
+            type="text"
+            placeholder="Note Content"
+            value={this.props.content}
             onChange={this.props.newContent}
           />
-          <button className="sav-btn" type="submit">Update</button>
+          <button className="sav-btn" type="submit">
+            Update
+          </button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(UpdateNote);
+export default withRouter(UpdateNote)
