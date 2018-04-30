@@ -1,6 +1,8 @@
 export const ADD_NOTE = "ADD_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 export const EDIT_NOTE = "EDIT_NOTE";
+export const GETTING = "GETTING";
+export const GOT = "GOT";
 
 let noteId = 10;
 
@@ -26,3 +28,12 @@ export function editNote(note, id) {
     id
   };
 }
+
+export const getNotes = () => {
+  dispatch({ type: GETTING });
+  axios
+    .get("https://floating-mesa-40947.herokuapp.com/api/notes")
+    .then(response => {
+      dispatch({ type: GOT, notes: response.data });
+    });
+};

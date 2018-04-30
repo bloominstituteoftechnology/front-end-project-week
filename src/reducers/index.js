@@ -1,4 +1,4 @@
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE } from "../actions";
+import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, GETTING, GOT } from "../actions";
 
 const initialState = {
   notes: [
@@ -77,6 +77,15 @@ export default function notes(state = initialState, action) {
       return {
         ...state,
         notes: copy
+      };
+    case GETTING:
+      return { ...state, getting: true };
+    case GOT:
+      return {
+        ...state,
+        getting: false,
+        notes: action.notes,
+        error: null
       };
     default:
       return state;
