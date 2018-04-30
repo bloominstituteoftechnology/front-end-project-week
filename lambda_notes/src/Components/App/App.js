@@ -6,6 +6,7 @@ import ListNotes from '../ListNotes/ListNotes';
 import CreateNewNote from '../CreateNewNote/CreateNewNote';
 import NoteView from '../NoteView/NoteView';
 import EditNote from '../EditNote/EditNote';
+import Login from '../Login/Login';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -16,49 +17,49 @@ class App extends Component {
         {
           title: 'The Phantom Menace',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 0
+          id: 0,
         },
         {
           title: 'Attack of the Clones',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 1
+          id: 1,
         },
         {
           title: 'Revenge of the Sith',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 2
+          id: 2,
         },
         {
           title: 'A New Hope',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 3
+          id: 3,
         },
         {
           title: 'The Empire Strikes Back',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 4
+          id: 4,
         },
         {
           title: 'Return of the Jedi',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 5
+          id: 5,
         },
         {
           title: 'The Force Awakens',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 6
+          id: 6,
         },
         {
           title: 'The Last Jedi',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 7
+          id: 7,
         },
         {
           title: 'Episode IX',
           text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-          id: 8
-        }
-      ]
+          id: 8,
+        },
+      ],
     };
   }
   render() {
@@ -66,12 +67,13 @@ class App extends Component {
       <Fragment>
         <div className="appContainer">
           <div className="navCol">
-            <Navigation />
+            <Navigation notes={this.state.notes} />
           </div>
           <div className="listCol">
+            <Route exact path="/" component={Login} />
             <Route
               exact
-              path="/"
+              path="/list"
               render={() => <ListNotes notes={this.state.notes} />}
             />
             <Route exact path="/add" component={CreateNewNote} />
