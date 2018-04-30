@@ -18,7 +18,8 @@ export default class AddNote extends Component {
   };
 
   handleSubmit = () => {
-    this.props.addNewCard(this.state);
+    this.props.createNote(this.state);
+    this.setState({ title: '', content: '' })
   }
 
   
@@ -48,7 +49,7 @@ export default class AddNote extends Component {
               value={ this.state.content }
             />
           </FormGroup>
-            <Button onClick={() => this.handleSubmit()} color="info" className='addNote__button mb-3'>Save</Button>
+          <Link to={"/"}><Button onClick={() => this.handleSubmit()} color="info" className='addNote__button mb-3'>Save</Button></Link>
         </Form>
       </Col>
     )

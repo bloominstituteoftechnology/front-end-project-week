@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input, Button, Col } from 'reactstrap';
 
 
@@ -6,42 +7,56 @@ export default class EditNote extends Component {
   state = {
     title: '',
     content: '',
-    id: this.props.match.params.id,
+    id: 0,
   };
+
+  componentDidMount() {
+    this.setState({
+      id: this.props.note.id,
+      title: this.props.note.title,
+      content: this.props.note.content,
+    });
+  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value})
   };
 
+  handleSubmit = _ => {
+    const { id, title, content } = this.state;
+    this.props.EditNote({ id, title, content });
+    this.setState({ id: 0, title: '', content: '', });
+  };
+
   render() {
+    const { title, content } = this.state;
     return (
-      <Col className='editNote'>
-        <Form 
-        
+      <Col className='addNote px-4'>
+        <Form
         >
-          <h4 className='editNote__title text-left mt-5 mb-4'>Edit Note:</h4>
+          <h4 className='addNote__title text-left mt-5 mb-4'>Create New Note:</h4>
           <FormGroup>
             <Input
               type='text'
               name='title'
               placeholder='Note Title'
               onChange={ this.handleChange }
-              value={ this.state.title }
+              value={ title }
             />
           </FormGroup>
           <FormGroup>
             <Input
               type='textarea'
-              rows='10'
+              rows='16'
               name='content'
               placeholder='Note Content'
               onChange={ this.handleChange }
-              value={ this.state.content }
+              value={ content }
             />
           </FormGroup>
-          <Button className='newNote__button'>Save</Button>
+          <Link to={"/"}><Button onClick={() => this.handleSubmit()} color="info" className='addNote__button mb-3'>Update</Button></Link>
         </Form>
       </Col>
-    )
-  }
+    );
+  };
 }

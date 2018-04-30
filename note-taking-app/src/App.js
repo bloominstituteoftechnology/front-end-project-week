@@ -3,7 +3,7 @@ import './App.css';
 import Sidebar from './component/Sidebar'
 import NoteList from './component/NoteList';
 import AddNote from './component/AddNotes';
-import NoteView from './component/NoteView';
+import  NoteView from './component/NoteView';
 import EditNote from './component/EditNote';
 import DeleteNote from './component/DeleteNote';
 import { Route } from 'react-router-dom';
@@ -11,6 +11,8 @@ import { Row, Container } from 'reactstrap';
 
 
 export default class App extends Component {
+  nextId = 0;
+  noteIndex = 0;
   state = {
     notes: [
       {
@@ -61,31 +63,53 @@ export default class App extends Component {
     ]
   }
 
-  componentDidMount() {
-    this.setState({ notes: this.state.notes })
-  }
+  handleNoteViewIndex = inputId => {
+    for (let i = 0; i < this.state.notes.length; i++) {
+      if (this.state.notes[i].id === inputId) this.noteIndex = i;
+    };
+  };
 
-  addNewCard = (newCard) => {
+  AddNote = inputNote => {
+    const newNote = {
+      id: this.nextId++,
+      title: inputNote.title,
+      content: inputNote.content,
+    };
+    const newNotes = [...this.state.notes, newNote];
     this.setState({
-      notes: [
-        ...this.state.notes, newCard
-      ]
-    })
-  }
+      notes: newNotes,
+    });
+  };
+
+  EditNote = inputNote => {
+    const editedNote = {
+      id: inputNote.id,
+      title: inputNote.title,
+      content: inputNote.content,
+    };
+    const editedNotes = [...this.state.notes];
+    editedNotes.splice(this.noteIndex, 1, editedNote);
+    this.setState({
+      notes: editedNotes,
+    });
+  };
+
+  DeleteNote = inputId => {
+    const lessNotes = this.state.notes.filter(note => note.id !== inputId);
+    this.setState({
+      notes: lessNotes,
+    });
+  };
 
   render() {
     return (
       <Container className="App">
         <Row>
           <Sidebar />
-          <Route 
-            exact path='/' 
-            render={() => <NoteList notes={ this.state.notes }/> }/>
-          <Route path='/add' render={() => <AddNote addNewCard={this.addNewCard}  />}/>
-          <Route
-            path='/notes/:id' component={ NoteView }/>
-          <Route
-            path='/notes/edit/:id' component={ EditNote }/>
+          <Route exact path={'/'} render={() => <NoteList notes={ this.state.notes } handleNoteViewIndex={this.handleNoteViewIndex}/> }/>
+          <Route path={'/add'} render={() => <AddNote createNote={this.AddNote}  />}/>
+          <Route path={'/notes/:id'} render={() => <NoteView note={this.state.notes[this.noteIndex]} toggleModal={this.toggleModal} DeleteNote={this.DeleteNote} />} />
+          <Route path={'/notes/edit/:id'} render={() => <EditNote note={this.state.notes[this.noteIndex]} EditNote={this.EditNote} />} />
         </Row>
       </Container>
     );
