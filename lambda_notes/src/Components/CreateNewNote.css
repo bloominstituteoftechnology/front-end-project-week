@@ -1,0 +1,33 @@
+.newNoteMainDiv {
+    background-color: #f2f1f2;
+    min-width: 100%;
+    height: 100%;
+    }
+    
+.newNoteHeader {
+      /* margin */
+    font-weight: 650;
+    padding: 50px 20px 20px;
+    }
+    
+.newNoteFormDiv {
+    margin: 80px 20px 0 20px;
+    }
+    
+.titleDiv {
+    margin-bottom: 10px;
+    max-width: 350px;
+    }
+    
+.contentDiv {
+    margin-bottom: 10px;
+    height: 300px;
+    }
+    
+.saveNewNoteBtn {
+    background-color: #30b8bc;
+    color: white;
+    font-size: 10px;
+    width: 140px;
+    height: 40px;
+    }
