@@ -6,6 +6,6 @@
 #    that is where we will look for package.json/.nvmrc/etc not repo root!
 
 [build]
-  base    = "site"
+  command = "make"
   publish = "public"
-  command = "lambda-notes"
+  base = "lambda-notes"
