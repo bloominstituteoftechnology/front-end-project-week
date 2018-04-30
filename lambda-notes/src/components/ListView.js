@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
-
 import 'bootstrap/dist/css/bootstrap.css';
 import './ListView.css';
 
