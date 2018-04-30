@@ -1,0 +1,42 @@
+.notebox {
+  display: flex;
+  background: #f2f1f2;
+  flex-direction: column;
+  padding: 25px;
+  font-size: 1.7rem;
+  width: 100%;
+  height: 700px;
+}
+
+.notebox__ele--header {
+  padding: 0 0 25px 0;
+}
+
+.notebox__ele--bold {
+  font-weight: bold;
+}
+
+.notebox__ele--content {
+  width: 700px;
+  height: 500px;
+}
+
+.notebox__ele {
+  font-size: 1.7rem;
+}
+
+.notebox__ele--row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
+.notebox_ele--padding {
+  padding: 25px;
+}
+
+.notebox__ele--links {
+  color: black;
+  text-decoration: underline;
+}

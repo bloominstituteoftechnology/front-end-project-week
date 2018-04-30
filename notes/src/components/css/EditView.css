@@ -1,0 +1,23 @@
+.editbox {
+  background: #f2f1f2;
+  width: 100%;
+  font-size: 1.7rem;
+  padding: 25px;
+  height: 700px;
+}
+
+.editbox__ele--content {
+  width: 700px;
+  height: 500px;
+}
+
+.editbox__ele--title {
+  width: 300px;
+}
+
+.editbox__ele--button {
+  background: #24b8bd;
+  color: white;
+  padding: 10px 50px;
+  font: Roboto Bold;
+}

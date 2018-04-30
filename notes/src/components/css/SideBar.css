@@ -1,0 +1,19 @@
+.sideBar {
+  background-color: #d3d2d3;
+}
+
+.sideNav {
+  flex-direction: column;
+  font: Roboto Bold;
+}
+
+.sideNav__ele {
+  width: 200px;
+  background: #24b8bd;
+  margin: 8px;
+}
+
+.sideNav__ele a:link {
+  text-decoration: none;
+  color: white;
+}

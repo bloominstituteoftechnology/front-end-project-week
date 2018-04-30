@@ -1,0 +1,19 @@
+.viewbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  background: #f1f1f1;
+  padding: 25px;
+}
+
+.viewbox__ele--header {
+  font-weight: bold;
+  color: #414141;
+  padding: 0 0 10px 10px;
+}
+
+.viewbox__ele--wrap {
+  display: flex;
+  flex-wrap: wrap;
+}

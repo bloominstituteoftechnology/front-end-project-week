@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavItem, Nav } from "reactstrap";
+import "./css/SideBar.css";
 
-const Left = () => {
+const SideBar = () => {
   return (
-    <div>
-      <Nav>
+    <div className="sideBar">
+      <Nav className="sideNav">
         <h1>Lambda Notes</h1>
-        <NavItem>
+        <NavItem className="sideNav__ele">
           <Link to="/">
             <h1>View Your Notes</h1>
           </Link>
         </NavItem>
-        <NavItem>
+        <NavItem className="sideNav__ele">
           <Link to="/createnewview">
             <h1>+Create New Note</h1>
           </Link>
@@ -22,7 +23,7 @@ const Left = () => {
   );
 };
 
-export default Left;
+export default SideBar;
 
 // Link to view list of notes
 
