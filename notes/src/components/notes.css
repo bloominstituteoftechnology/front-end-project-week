@@ -1,0 +1,254 @@
+h1 {
+  font-size: 1.5 rem;
+}
+
+.full-container {
+  display: flex;
+  background: #f0eff0;
+  background-size: cover;
+  color: #3b3b3b;
+  height: 100vh;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sidebar-div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px;
+  width: 250px;
+  background: #cecdce;
+  background-size: cover;
+}
+
+.right-div {
+  display: flex;
+  flex-direction: column;
+  overflow: ellipsis;
+  overflow-y: auto;
+  overflow-x: ellipsis;
+  padding: 20px;
+  padding-right: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.notes-h3 {
+  padding-top: 40px;
+}
+
+.button {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ababab;
+  margin-bottom: 20px;
+  background: #25b1b5;
+  height: 40px;
+  width: 180px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-field {
+  width: 40%;
+  max-width: 200px;
+  height: 25px;
+  font-size: 1.25rem;
+}
+
+.sort-button {
+  min-height: 30px;
+  height: 30px;
+  width: 80px;
+  align-self: flex-end;
+  margin-bottom: 0;
+}
+
+.search-sort {
+  justify-content: space-between;
+  display: flex;
+  align-items: flex-end;
+}
+
+.delete-notes-button {
+  background: #c30020;
+  justify-self: end;
+}
+
+.csv-button {
+  text-decoration: none;
+}
+
+.notes-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.notecard {
+  background: white;
+  border: 1px solid lightgrey;
+  margin: 10px;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 10px;
+  width: 240px;
+  height: 160px;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+}
+
+.notes-text-div {
+  border-top: 1px solid lightgrey;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.notes-text-full {
+  white-space: pre-wrap;
+}
+
+h5 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.create-form {
+  display: inline-block;
+}
+
+.title-box {
+  width: 50%;
+  height: 40px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.text-box {
+  height: 350px;
+  width: 80%;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  padding: 15px;
+  resize: none;
+}
+
+.view-card {
+  text-align: left;
+}
+
+.link-text {
+  margin-left: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.link-text-div {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.view-h3 {
+  margin-top: 0;
+}
+
+.react-responsive-modal-overlay {
+  background: rgb(211, 211, 211, 0.8);
+}
+
+.react-responsive-modal-modal {
+  margin-bottom: 400px;
+  border: 1px solid black;
+  box-shadow: none;
+}
+
+.modal-content-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 500px;
+}
+.modal-button-div {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+  width: 380px;
+}
+
+@media (max-width: 520px) {
+  .full-container {
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    min-width: 221px;
+  }
+
+  .sidebar-div {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 260px;
+    padding: 0;
+  }
+
+  .button {
+    margin: 2px;
+  }
+
+  .notes-h3 {
+    padding: 0;
+    margin-top: 0;
+  }
+
+  .right-div {
+    padding: 0;
+    padding-top: 20px;
+    text-align: center;
+    height: 100%;
+  }
+
+  .notes-div {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .notecard {
+    margin-right: 0;
+  }
+
+  .create-full-div {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  .view-card {
+    padding: 20px;
+  }
+
+  .text-box {
+    height: 100%;
+  }
+
+  .react-responsive-modal-modal {
+    margin-bottom: 60%;
+    width: 90%;
+  }
+
+  .modal-content-div {
+    width: 100%;
+  }
+
+  .modal-button-div {
+    flex-direction: column;
+    align-items: center;
+  }
+}
