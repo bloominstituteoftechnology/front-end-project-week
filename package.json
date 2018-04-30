@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "build": "cd lambda_notes/ && npm run build"
+  }
+}
