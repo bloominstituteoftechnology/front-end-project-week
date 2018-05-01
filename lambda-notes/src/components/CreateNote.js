@@ -16,18 +16,15 @@ export default class CreateNote extends Component {
   };
 
   handleSubmit = e => {
+    const PATH =
+      process.env.PRODUCTION_SERVER || 'http://localhost:5050/api/notes';
     e.preventDefault();
     this.setState({ title: '', content: '' });
     axios
-      .post(
-        'http://localhost:5050/api/notes' ||
-          'https://lambda-notes-backend-server.herokuapp.com/api/notes',
-
-        {
-          title: this.state.title,
-          content: this.state.content
-        }
-      )
+      .post(PATH, {
+        title: this.state.title,
+        content: this.state.content
+      })
       .then(response => {
         this.setState({ title: '', content: '' });
         this.setState({ fireRedirect: true });
