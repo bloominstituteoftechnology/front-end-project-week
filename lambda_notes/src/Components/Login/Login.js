@@ -36,6 +36,7 @@ class Login extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
+    this.props.history.push('/');
     axios
       .post('https://peaceful-gorge-48893.herokuapp.com/api/signup', {
         username,
