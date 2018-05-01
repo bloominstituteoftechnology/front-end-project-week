@@ -1,0 +1,29 @@
+a { 
+    color: black;
+    text-decoration: none;
+}
+
+.Note-holder {
+    width: 70%;
+    padding: 0 0 0 20px;
+    background: rgb(245, 244, 244);
+}
+
+.Note-links {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.Note-body {
+    margin-top: 60px;
+    padding-right: 30px;
+
+}
+
+.Note-text {
+    margin-top: 45px;
+    font-size: 25px;
+}
