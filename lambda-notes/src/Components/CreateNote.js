@@ -17,7 +17,7 @@ class CreateNote extends Component {
     submit = e => {
         const newNote = { title: this.state.title, content: this.state.content};
         this.props.addNote(newNote);
-        this.state({ title: '', content: ''})
+        this.setState({ title: '', content: ''})
     }
     render() {
         return (
@@ -28,7 +28,7 @@ class CreateNote extends Component {
 
                 <textarea name='content' rows='25' cols='50' value={this.state.content} onChange={this.updateInput}/>
 
-                <button onClick={this.addNote}>save</button>
+                <button onClick={this.submit}>save</button>
             </div>
         )
     }

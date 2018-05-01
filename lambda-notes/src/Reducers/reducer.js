@@ -7,9 +7,10 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+    console.log(initialState)
     switch(action.type) {
-        case ADD_NOTE: 
-            return state;
+        case ADD_NOTE:  
+            return Object.assign({}, state, { notes: action.data });
         default:
             return state
     }
