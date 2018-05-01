@@ -1,21 +1,20 @@
 .App.container-fluid {
-  min-height: 100vh;
+  height: 100%;
 }
-body {
-  background-color: #f3f3f3;
+.row.app-wrapper {
+  min-height: 100vh;
 }
 .leftSide {
   background: #d8d8d8;
   border: 2px solid #979797;
-  height: 100%;
+  min-height: 100%;
 }
 .rightSide {
   min-height: 100%;
 }
 
 .note {
-  height: 200px;
-  margin: 1rem 0;
+  height: 250px;
 }
 .card-body {
   overflow: hidden;
