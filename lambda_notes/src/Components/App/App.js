@@ -15,55 +15,8 @@ class App extends Component {
     this.state = {
       notes: [],
     };
-    //   notes: [
-    //     {
-    //       title: 'The Phantom Menace',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 0,
-    //     },
-    //     {
-    //       title: 'Attack of the Clones',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 1,
-    //     },
-    //     {
-    //       title: 'Revenge of the Sith',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 2,
-    //     },
-    //     {
-    //       title: 'A New Hope',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 3,
-    //     },
-    //     {
-    //       title: 'The Empire Strikes Back',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 4,
-    //     },
-    //     {
-    //       title: 'Return of the Jedi',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 5,
-    //     },
-    //     {
-    //       title: 'The Force Awakens',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 6,
-    //     },
-    //     {
-    //       title: 'The Last Jedi',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 7,
-    //     },
-    //     {
-    //       title: 'Episode IX',
-    //       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
-    //       id: 8,
-    //     },
-    //   ],
-    // };
   }
+
   render() {
     return (
       <Fragment>
