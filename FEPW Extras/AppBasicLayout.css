@@ -1,0 +1,74 @@
+#flexcanvas{
+  width: 100%;
+  height: 600px !important;
+}
+
+.rowParent, .columnParent{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: stretch;
+    
+  border-style: solid !important;
+  border-width: 2px !important;
+}
+
+.columnParent{
+  flex-direction: column;
+      border-style: solid;
+  border-width: 2px;
+      border-color: red;
+}
+
+.flexChild{
+  flex: 1;
+  align-self: auto;
+}
+
+#columnChild98911{
+ flex: 0 0 auto; height: 10%;
+      border-style: solid;
+  border-width: 2px;
+      border-color: green;
+}
+
+#columnChild2858{
+ flex: 0 0 auto; height: 20%;
+      border-color: blueviolet;
+}
+
+#columnChild85373{
+ flex: 0 0 auto; height: 80%;
+      border-style: solid;
+  border-width: 2px;
+      border-color: firebrick;
+}
+
+#columnChild8122{
+ flex: 0 0 auto; height: 10%;
+      border-style: solid;
+  border-width: 2px;
+      border-color: darkorange;
+}
+
+#columnChild94464{
+ flex: 0 0 auto; height: 20%;
+      border-style: solid;
+  border-width: 2px;
+      border-color: yellow;
+}
+
+#rowChildNotePanel{
+ flex: 0 0 auto; width: 80%;
+      border-style: solid;
+  border-width: 2px;
+  border-color: darkviolet;
+}
+
+#rowChildNavPanel{
+ flex: 0 0 auto; width: 20%;
+      border-style: solid;
+  border-width: 2px;
+  border-color: burlywood;
+}
