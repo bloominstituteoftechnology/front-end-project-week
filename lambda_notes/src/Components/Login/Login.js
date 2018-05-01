@@ -86,12 +86,14 @@ class Login extends Component {
                 name="username"
                 placeholder="Username"
                 onChange={this.handleChange}
+                value={this.state.username}
               />
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
                 onChange={this.handleChange}
+                value={this.state.password}
               />
               <button onClick={this.toggle}>Log In</button>
             </form>
@@ -103,14 +105,16 @@ class Login extends Component {
                 name="username"
                 placeholder="Create a Username"
                 onChange={this.handleChange}
+                value={this.state.username}
               />
               <input
                 type="password"
                 name="password"
                 placeholder="Create a Password"
                 onChange={this.handleChange}
+                value={this.state.password}
               />
-              <button>Sign Up</button>
+              <button onClick={this.clearState}>Sign Up</button>
             </form>
           </div>
         </Modal>
