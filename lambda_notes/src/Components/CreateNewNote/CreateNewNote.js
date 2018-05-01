@@ -21,10 +21,14 @@ class CreateNewNote extends Component {
     const title = this.state.title;
     const content = this.state.content;
     axios
-      .post('https://peaceful-gorge-48893.herokuapp.com/api/notes', {
-        title,
-        content,
-      })
+      .post(
+        'https://peaceful-gorge-48893.herokuapp.com/api/notes',
+        {
+          title,
+          content,
+        },
+        { headers: { Authorization: `Bearer ${localStorage.token}` } }
+      )
       .then()
       .catch(err => {
         console.log({ Error: `Unable to create note: ${err}` });

@@ -56,14 +56,10 @@ class Login extends Component {
     const username = this.state.username;
     const password = this.state.password;
     axios
-      .post(
-        'https://peaceful-gorge-48893.herokuapp.com/api/login',
-        {
-          username,
-          password,
-        },
-        { headers: { Authorization: localStorage.token } }
-      )
+      .post('https://peaceful-gorge-48893.herokuapp.com/api/login', {
+        username,
+        password,
+      })
       .then(response => {
         console.log({ Message: `Successful login: ${response}`, response });
         localStorage.setItem('token', response.data.token);
