@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
-const NewNote = props => {
-    return <div>NeweNote</div>; 
+export default class NewNote extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render = () => {
+        
+    }
+}
 };
 
 export default NewNote; 
