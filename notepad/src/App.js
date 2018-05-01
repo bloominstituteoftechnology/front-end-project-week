@@ -4,7 +4,7 @@ import './App.css';
 import { getNotes } from './actions';
 import { connect } from 'react-redux';
 import Note from './components/Note';
-// import NewNote from './NewNote';
+import NewNote from './components/NewNote';
 
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Lambda Notes</h1>
-        <div>Welcome to Your Notes</div>
-        {/* <NewNote /> */}
+        <div>Your Notes</div>
+        <NewNote />
         <div>
           {this.props.notes.map(note => {
             return <Note note={note} key={note.id} />

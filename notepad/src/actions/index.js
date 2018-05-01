@@ -17,3 +17,17 @@ export const getNotes = () => {
             })
     }
 }
+export const createNote = (note) => {
+    return dispatch => {
+        dispatch({ type: PENDING });
+        console.log(note);
+        axios
+            .post('http://localhost:5000/notes', note)
+            .then(response => {
+                dispatch({ type: SUCCESS, notes: response.data })
+            })
+            .catch(() => {
+                dispatch({ type: ERROR, error: 'ERROR CREATING NOTE' })
+            })
+    }
+}

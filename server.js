@@ -9,34 +9,29 @@ let nextId = 6;
 let notes = [
     {
         id: 1,
-        name: 'Ben',
-        age: 30,
-        email: 'ben@lambdaschool.com',
+        title: 'Raps',
+        content: 'lyrics to a song',
     },
     {
         id: 2,
-        name: 'Austen',
-        age: 45,
-        email: 'austen@lambdaschool.com',
+        title: 'Affirmanion',
+        content: 'Daily Affirmantion: I am going to win ',
     },
     {
         id: 3,
-        name: 'Ryan',
-        age: 15,
-        email: 'ryan@lambdaschool.com',
+        title: 'No Title',
+        content: 'Stevie owes me 2 BTC',
     },
     {
         id: 4,
-        name: 'Sean',
-        age: 35,
-        email: 'sean@lambdaschool.com',
+        title: 'Poems',
+        content: 'Today starting out slow',
     },
     {
         id: 5,
-        name: 'Michelle',
-        age: 67,
-        email: 'michelle@gmail.com',
-    },
+        title: 'The Place to Be',
+        content: 'this ish the place to be',
+    }
 ];
 
 app.use(bodyParser.json());

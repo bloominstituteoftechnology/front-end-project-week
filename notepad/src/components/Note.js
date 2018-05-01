@@ -18,9 +18,8 @@ const Note = (props) => {
     return (
 
         <div className={'smurf'}>
-            <p>Name: {note.name}</p>
-            <p>Age: {note.age}</p>
-            <p>Email: {note.email}</p>
+            <p>Title: {note.title}</p>
+            <p>{note.content}</p>
             <button onClick={editNote}>Edit</button>
             <button onClick={deleteNote}>Delete</button>
         </div>
