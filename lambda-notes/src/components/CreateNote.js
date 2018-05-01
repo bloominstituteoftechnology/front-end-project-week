@@ -19,10 +19,15 @@ export default class CreateNote extends Component {
     e.preventDefault();
     this.setState({ title: '', content: '' });
     axios
-      .post('https://lambda-notes-backend-server.herokuapp.com/api/notes', {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .post(
+        'http://localhost:5050/api/notes' ||
+          'https://lambda-notes-backend-server.herokuapp.com/api/notes',
+
+        {
+          title: this.state.title,
+          content: this.state.content
+        }
+      )
       .then(response => {
         this.setState({ title: '', content: '' });
         this.setState({ fireRedirect: true });
