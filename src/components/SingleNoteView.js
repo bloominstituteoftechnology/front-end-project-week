@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { CardText } from "reactstrap";
-import { connect } from "react-redux";
-import HomeLeftPanel from "./HomeLeftPanel";
-import { deleteNote } from "../actions";
-import Delete from "./Delete";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { CardText } from 'reactstrap';
+import { connect } from 'react-redux';
+import HomeLeftPanel from './HomeLeftPanel';
+import { deleteNote } from '../actions';
+import Delete from './Delete';
 
 const StyledNote = styled.div`
     display: flex;
@@ -14,7 +14,7 @@ const StyledNote = styled.div`
 
     .links {
         float: right;
-        margin-right: 40px
+        margin-right: 40px;
         display: flex;
         position: static;
         font-size: 16px;
@@ -57,9 +57,9 @@ class SingleNoteView extends React.Component {
   };
 
   render() {
-    console.log("this.props", this.props);
-    console.log("this.props.history", this.props.history);
-    console.log("this is this.props.notes", this.props.notes);
+    console.log('this.props', this.props);
+    console.log('this.props.history', this.props.history);
+    console.log('this is this.props.notes', this.props.notes);
     // console.log('BubbleGum', this.props.notes[this.props.match.params.id].title)
 
     return (
