@@ -38,7 +38,7 @@ export default class ListView extends Component {
 
   getNotes = () => {
     axios
-      .get('http://localhost:5050/api/notes')
+      .get('https://lambda-notes-backend-server.herokuapp.com/')
       .then(response => {
         this.setState({ notes: response.data });
       })
