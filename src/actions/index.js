@@ -32,20 +32,26 @@ export function addTag(tag, id) {
   };
 }
 
-export function deleteNote(id) {
-  return {
-    type: DELETE_NOTE,
-    id
-  };
-}
-
-export function editNote(note, id) {
-  return {
-    type: EDIT_NOTE,
-    note,
-    id
-  };
-}
+export const editNote = (note, id) => dispatch => {
+  axios
+    .put(`https://floating-mesa-40947.herokuapp.com/api/notes/${id}`, note)
+    .then(response => {
+      dispatch({
+        type: EDIT_NOTE,
+        note: response,
+        id: id
+      });
+    });
+};
+export const deleteNote = id => dispatch => {
+  axios
+    .put(`https://floating-mesa-40947.herokuapp.com/api/notes/${id}`)
+    .then(response => {
+      dispatch({
+        type: DELETE_NOTE
+      });
+    });
+};
 
 export const getNotes = () => dispatch => {
   dispatch({ type: GETTING });
@@ -84,11 +90,9 @@ export const errorHandler = response => {
 };
 
 export const signIn = (username, pw) => dispatch => {
-  console.log(username, pw);
   axios
     .get(`https://floating-mesa-40947.herokuapp.com/api/user/name/${username}`)
     .then(response => {
-      console.log(response);
       if (response.data.password === pw) {
         dispatch({ type: SIGN_IN, user: response });
       } else {

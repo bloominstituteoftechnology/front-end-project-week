@@ -105,7 +105,4 @@ class App extends Component {
   }
 }
 
-Container.propTypes = {
-  fluid: PropTypes.bool
-};
 export default connect(mapStateToProps)(App);
