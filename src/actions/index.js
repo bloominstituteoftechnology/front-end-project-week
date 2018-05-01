@@ -82,19 +82,20 @@ export const errorHandler = response => {
   };
 };
 
-export const signIn = (email, pw) => dispatch => {
-  // login(email, pw)
-  //   .then(response => {
-  //     console.log("Sign in function response: ", response);
-  //     return dispatch(signInSuccess(response));
-  //   })
-  //   .catch(e => console.log(e.message));
+export const signIn = (username, pw) => dispatch => {
+  axios
+    .get(`https://floating-mesa-40947.herokuapp.com/api/user/name/${username}`)
+    .then(response => {
+      if (response.password === pw) {
+        dispatch({ type: SIGN_IN, user: response.username });
+      } else {
+        dispatch({ type: ERROR, error: "Incorrect credentials" });
+      }
+    });
 };
 
 export const signOut = () => dispatch => {
-  // logout().then(() => {
-  //   dispatch({
-  //     type: SIGN_OUT
-  //   });
-  // });
+  dispatch({
+    type: SIGN_OUT
+  });
 };

@@ -120,11 +120,11 @@ export default function notes(state = initialState, action) {
       };
     case SIGN_IN:
       console.log("Sign In Reducer Fired");
-      return { ...state, authed: true, user: action.user.email };
+      return { ...state, authed: true, user: action.user.username };
     case SIGN_OUT:
       return { ...state, authed: false };
     case CREATE_USER:
-      return { ...state, authed: true, user: action.user.email };
+      return { ...state, authed: true, user: action.user.username };
     case ERROR:
       console.log("Error reducer fired: ", action.error);
       return { ...state, authed: false, error: action.error };
