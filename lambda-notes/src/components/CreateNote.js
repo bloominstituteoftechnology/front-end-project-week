@@ -17,7 +17,10 @@ export default class CreateNote extends Component {
 
   handleSubmit = e => {
     const PATH =
-      process.env.PRODUCTION_SERVER || 'http://localhost:5050/api/notes';
+      // production server
+      process.env.PRODUCTION_SERVER ||
+      // dev server
+      'http://localhost:5050/api/notes';
     e.preventDefault();
     this.setState({ title: '', content: '' });
     axios

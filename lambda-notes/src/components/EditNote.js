@@ -18,16 +18,16 @@ export default class EditNote extends Component {
 
   updateNotes = () => {
     const id = this.props.match.params.id;
+    const PATH =
+      // production server
+      process.env.PRODUCTION_SERVER ||
+      // dev server
+      `http://localhost:5050/api/notes/${id}`;
     axios
-      .put(
-        `http://localhost:5050/api/notes/${id}` ||
-          `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`,
-
-        {
-          title: this.state.title,
-          content: this.state.content
-        }
-      )
+      .put(PATH, {
+        title: this.state.title,
+        content: this.state.content
+      })
       .then(response => {
         console.log(response);
         this.setState({ title: '', content: '' });
