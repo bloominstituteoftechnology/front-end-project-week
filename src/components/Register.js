@@ -18,10 +18,12 @@ class Login extends Component {
   };
   handleOnSubmit(event) {
     event.preventDefault();
-    login(this.username.value, this.password.value).catch(error => {
-      this.setState(setErrorMsg("Invalid Login Stuff!"));
+    this.props.createUser({
+      username: this.state.username,
+      password: this.state.password
     });
   }
+
   render() {
     return (
       <div>

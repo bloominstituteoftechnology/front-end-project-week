@@ -43,7 +43,7 @@ class Login extends Component {
           onChange={this.handleOnChange.bind(this)}
         >
           <FormGroup>
-            <Label for="username">Email</Label>
+            <Label for="username">Username</Label>
             <Input
               type="username"
               name="username"
@@ -65,7 +65,11 @@ class Login extends Component {
           <h3>{this.state.loginError}</h3>
           <Button type="submit">Log In</Button>
           <span> OR </span>
-          <Button onClick={this.handleRegister.bind(this)}>
+          <Button
+            onClick={() => {
+              this.props.history.push("/register");
+            }}
+          >
             Register New Account
           </Button>
           {this.props.error}

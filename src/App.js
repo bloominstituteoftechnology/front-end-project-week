@@ -5,6 +5,7 @@ import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
 import Login from "./components/Login";
 import User from "./components/User";
+import Register from "./components/Register";
 import { Row, Col, Container, Button } from "reactstrap";
 import PropTypes from "prop-types";
 import {
@@ -90,6 +91,7 @@ class App extends Component {
                   return this.props.authed ? <Redirect to="/" /> : <Login />;
                 }}
               />
+              <Route path="/register" component={<Register />} />
             </Col>
           </Row>
         </Container>
