@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { withRouter } from "react-router-dom";
 import { createUser } from "../actions/index";
 
 function mapStateToProps(state) {
@@ -25,6 +26,7 @@ class Register extends Component {
       username: this.state.username,
       password: this.state.password
     });
+    this.props.history.push("/");
   }
   handleOnChange(event) {
     event.preventDefault();
@@ -71,4 +73,4 @@ class Register extends Component {
   }
 }
 
-export default connect(mapStateToProps, { createUser })(Register);
+export default withRouter(connect(mapStateToProps, { createUser })(Register));

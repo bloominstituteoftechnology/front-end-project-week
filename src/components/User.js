@@ -9,6 +9,7 @@ function mapStateToProps(state) {
 
 class User extends Component {
   render() {
+    console.log("User: ", this.props.user);
     return (
       <Row className="d-flex justify-content-end">
         {this.props.authed ? (

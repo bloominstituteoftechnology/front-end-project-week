@@ -5,7 +5,7 @@ import { addNote, editNote } from "../actions";
 import { withRouter } from "react-router-dom";
 
 function mapStateToProps(state) {
-  return { notes: state.notes };
+  return { notes: state.notes, user: state.user };
 }
 
 class NoteForm extends Component {
@@ -29,7 +29,7 @@ class NoteForm extends Component {
   handleOnSubmit(event) {
     event.preventDefault();
     if (this.state.newNote._id === undefined) {
-      this.props.addNote(this.state.newNote);
+      this.props.addNote({ ...this.state.newNote, user: this.props.user });
     } else {
       this.props.editNote(this.state.newNote._id, this.state.newNote);
     }

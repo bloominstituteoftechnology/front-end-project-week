@@ -54,10 +54,10 @@ export const deleteNote = id => dispatch => {
     });
 };
 
-export const getNotes = () => dispatch => {
+export const getNotes = user => dispatch => {
   dispatch({ type: GETTING });
   axios
-    .get("https://floating-mesa-40947.herokuapp.com/api/notes")
+    .get("https://floating-mesa-40947.herokuapp.com/api/notes", user)
     .then(response => {
       console.log(response);
       dispatch({ type: GOT, notes: response.data });
@@ -95,7 +95,7 @@ export const signIn = (username, pw) => dispatch => {
     .get(`https://floating-mesa-40947.herokuapp.com/api/user/name/${username}`)
     .then(response => {
       if (response.data.password === pw) {
-        dispatch({ type: SIGN_IN, user: response });
+        dispatch({ type: SIGN_IN, user: response.data });
       } else {
         dispatch({ type: ERROR, error: "Incorrect credentials" });
       }

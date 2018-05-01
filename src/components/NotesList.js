@@ -15,14 +15,15 @@ import { getNotes } from "../actions/index";
 
 function mapStateToProps(state) {
   return {
-    notes: state.notes
+    notes: state.notes,
+    user: state.user
   };
 }
 
 class NotesList extends Component {
   componentDidMount() {
     setTimeout(() => {
-      this.props.getNotes();
+      this.props.getNotes(this.props.user);
     }, 100);
   }
   render() {
