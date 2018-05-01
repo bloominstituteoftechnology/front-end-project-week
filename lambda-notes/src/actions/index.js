@@ -6,6 +6,10 @@ export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const GET_NOTES_ERROR = 'GET_NOTES_ERROR';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
 
+export const FETCHING_NOTE_BY_ID = 'FETCHING_NOTE_BY_ID';
+export const FETCHED_NOTE_BY_ID_ERROR = 'GET_NOTE_BY_ID_ERROR';
+export const FETCHED_NOTE_BY_ID = 'FETCHED_NOTE_BY_ID';
+
 export const PUTTING_NOTE = 'PUTTING_NOTE';
 export const PUT_NOTE_ERROR = 'PUT_NOTE_ERROR';
 export const PUT_NOTE = 'PUT_NOTE';
@@ -29,6 +33,23 @@ export const get_notes = () => dispatch => {
     })
     .catch(err => {
       dispatch({ type: GET_NOTES_ERROR, errorMessage: 'Error fetching notes' });
+    });
+};
+
+// Get by ID request
+export const get_note = id => dispatch => {
+  dispatch({ type: FETCHING_NOTE_BY_ID });
+
+  axios
+    .get(`https://immense-plateau-90586.herokuapp.com/api/notes/${id}`)
+    .then(response => {
+      dispatch({ type: FETCHED_NOTE_BY_ID, note: response.data });
+    })
+    .catch(err => {
+      dispatch({
+        type: FETCHED_NOTE_BY_ID_ERROR,
+        errorMessage: 'Error fetching note by ID',
+      });
     });
 };
 

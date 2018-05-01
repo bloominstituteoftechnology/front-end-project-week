@@ -41,11 +41,10 @@ class ListView extends Component {
         <h2 className="my-3 ml-2">Your Notes:</h2>
         <div className="list-view-notes">
           {noteSearch.map(note => {
-            console.log('============================');
             return (
               <Link
-                to={`/notes/${note.id}`}
-                key={`${note.id} ${note.title}`}
+                to={`/notes/${note._id}`}
+                key={`${note._id} ${note.title}`}
                 className="mx-2 my-3"
               >
                 <div className="note p-3">
