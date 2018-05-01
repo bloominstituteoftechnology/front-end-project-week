@@ -21,7 +21,7 @@ class NoteView extends Component {
   getNoteById = () => {
     const id = this.props.match.params.id;
     axios
-      .get(`http://localhost:5000/notes/${id}`)
+      .get(`http://localhost:5050/api/notes/${id}`)
       .then(response => {
         this.setState({ note: response.data });
       })
@@ -42,7 +42,10 @@ class NoteView extends Component {
 
   handleDelete = id => {
     axios
-      .delete(`http://localhost:5000/notes/${id}`)
+      .delete(`http://localhost:5050/api/notes/${id}`, {
+        title: this.state.title,
+        content: this.state.content
+      })
       .then(response => {
         this.setState({ fireRedirect: true });
         this.setState({ note: response.data });
@@ -59,7 +62,7 @@ class NoteView extends Component {
     return (
       <div className="container">
         <div className="modify-buttons">
-          <Link to={`/editnote/${this.state.note.id}`}>
+          <Link to={`/editnote/${this.state.note._id}`}>
             <h5 className="edit-button">edit</h5>
           </Link>
           <div>
@@ -78,7 +81,7 @@ class NoteView extends Component {
                 <div className="modal-button-left">
                   <Button
                     className="btn-lg modal-delete"
-                    onClick={() => this.handleDelete(this.state.note.id)}
+                    onClick={() => this.handleDelete(this.state.note._id)}
                   >
                     Delete
                   </Button>

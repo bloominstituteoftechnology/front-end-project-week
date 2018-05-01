@@ -38,7 +38,7 @@ export default class ListView extends Component {
 
   getNotes = () => {
     axios
-      .get('http://localhost:5000/notes')
+      .get('http://localhost:5050/api/notes')
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -75,9 +75,9 @@ export default class ListView extends Component {
         <div className="row">
           {this.state.notes.map(note => {
             return (
-              <div className="col-lg-4 col-md-8 col-sm-12" key={note.id}>
+              <div className="col-lg-4 col-md-8 col-sm-12" key={note._id}>
                 <Link
-                  to={`/noteview/${note.id}`}
+                  to={`/noteview/${note._id}`}
                   style={{ textDecoration: 'none' }}
                   className="card"
                 >
