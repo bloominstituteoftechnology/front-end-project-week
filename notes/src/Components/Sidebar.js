@@ -9,7 +9,7 @@ class Sidebar extends Component {
   render() {
     return(
       <div className="sidebar">
-        <h1>Lambda Notes</h1>
+        <h1 className="brand">Lambda Notes</h1>
         {this.state.buttons.map(button => {
           return <Button text={button} />
         })}
