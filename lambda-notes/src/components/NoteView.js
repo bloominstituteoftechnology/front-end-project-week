@@ -42,10 +42,13 @@ class NoteView extends Component {
 
   handleDelete = id => {
     axios
-      .delete(`http://localhost:5050/api/notes/${id}`, {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .delete(
+        `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`,
+        {
+          title: this.state.title,
+          content: this.state.content
+        }
+      )
       .then(response => {
         this.setState({ fireRedirect: true });
         this.setState({ note: response.data });

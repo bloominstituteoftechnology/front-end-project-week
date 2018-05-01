@@ -19,10 +19,13 @@ export default class EditNote extends Component {
   updateNotes = () => {
     const id = this.props.match.params.id;
     axios
-      .put(`http://localhost:5050/api/notes/${id}`, {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .put(
+        `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`,
+        {
+          title: this.state.title,
+          content: this.state.content
+        }
+      )
       .then(response => {
         console.log(response);
         this.setState({ title: '', content: '' });
