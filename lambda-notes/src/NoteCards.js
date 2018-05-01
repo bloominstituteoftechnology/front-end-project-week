@@ -3,7 +3,7 @@ import './NoteCard.css';
 import { Link } from 'react-router-dom';
 
 export const NoteCards = (props) => {  
-  console.log('this is props',props); 
+  console.log('this is Notecards props',props); 
     return (
       <div className="NoteSection">        
         <div className="row">

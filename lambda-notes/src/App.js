@@ -5,8 +5,8 @@ import Buttons  from './Buttons';
 import Notes from './Notes';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       notes: [],
     };
@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount() {
     this.setState({ notes: Notes });
   }
-
+  
   render() {
     return (
       <div className="">        
@@ -26,7 +26,7 @@ class App extends Component {
           </div>
             <div className="noteSection col-md-10">
             <span className="yourNotes">Your Notes:</span>            
-              <NoteCards notes={this.state.notes} />            
+              <NoteCards note={this.state.note} notes={this.state.notes} />            
             </div>  
         </div>
       </div>

@@ -34,7 +34,6 @@ class NewNote extends React.Component {
     this.setState({
       title: '',
       text: '',
-      id: 0
     }        
     )
   }
