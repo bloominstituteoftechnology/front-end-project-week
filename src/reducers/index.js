@@ -85,7 +85,7 @@ export default function notes(state = initialState, action) {
     case ADD_NOTE:
       return {
         ...state,
-        notes: [...state.notes, { ...action.note, id: action.id }]
+        notes: [...state.notes, { ...action.note }]
       };
     case DELETE_NOTE:
       return {

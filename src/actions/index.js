@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const ADD_NOTE = "ADD_NOTE";
+export const ADDING = "ADDING";
 export const DELETE_NOTE = "DELETE_NOTE";
 export const EDIT_NOTE = "EDIT_NOTE";
 export const GETTING = "GETTING";
@@ -13,12 +14,14 @@ export const ERROR = "ERROR";
 
 let noteId = 10;
 
-export function addNote(note) {
-  return {
-    type: ADD_NOTE,
-    id: noteId++,
-    note
+export const addNote = (note)=> dispatch=> {
+  dispatch {
+    type: ADDING
+    
   };
+  axios.post("https://floating-mesa-40947.herokuapp.com/api/notes").then(newNote=>{
+    dispatch({type: ADD_NOTE, note: response.data})
+  })
 }
 export function addTag(tag, id) {
   return {
@@ -51,6 +54,7 @@ export const getNotes = () => dispatch => {
       console.log(response);
       dispatch({ type: GOT, notes: response.data });
     });
+};
 export const createUserSuccess = response => {
   return {
     type: CREATE_USER_SUCCESS,
@@ -72,9 +76,7 @@ export const errorHandler = response => {
   };
 };
 
-export const createUser = (email, pw) => dispatch => {
-  
-};
+export const createUser = (email, pw) => dispatch => {};
 
 export const signIn = (email, pw) => dispatch => {
   login(email, pw)
