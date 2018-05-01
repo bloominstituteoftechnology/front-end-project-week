@@ -21,7 +21,9 @@ function mapStateToProps(state) {
 
 class NotesList extends Component {
   componentDidMount() {
-    this.props.getNotes();
+    setTimeout(() => {
+      this.props.getNotes();
+    }, 100);
   }
   render() {
     console.log("Notes List: ", this.props.notes);

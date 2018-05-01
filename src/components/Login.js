@@ -30,6 +30,7 @@ class Login extends Component {
   }
 
   render() {
+    this.props.signIn("test", "test");
     return (
       <Container className="mt-5">
         <h1>Login</h1>

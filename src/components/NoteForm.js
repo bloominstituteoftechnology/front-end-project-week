@@ -28,10 +28,10 @@ class NoteForm extends Component {
   }
   handleOnSubmit(event) {
     event.preventDefault();
-    if (this.state.newNote.id === undefined) {
+    if (this.state.newNote._id === undefined) {
       this.props.addNote(this.state.newNote);
     } else {
-      this.props.editNote(this.state.newNote.id, this.state.newNote);
+      this.props.editNote(this.state.newNote._id, this.state.newNote);
     }
     this.setState({ newNote: { title: "", note: "" } });
     this.props.history.push("/");
@@ -40,7 +40,7 @@ class NoteForm extends Component {
     if (this.props.match.params.id !== undefined) {
       this.setState({
         newNote: this.props.notes.filter(
-          note => parseInt(this.props.match.params.id, 10) === note.id
+          note => this.props.match.params.id === note._id
         )[0]
       });
     }
