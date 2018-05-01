@@ -1,0 +1,14 @@
+.Side-Bar {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: flex-start;
+    border: 2px solid grey;
+    background-color: gainsboro;
+}
+
+Button {
+    margin-bottom: 7%;
+    border: 2px solid grey;
+    background-color: rgb(6, 187, 187);
+}
