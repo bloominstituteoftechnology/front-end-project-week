@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { createUser } from "../actions/index";
 
 function mapStateToProps(state) {
   return {};
@@ -27,8 +28,8 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Login</h1>
-        <Form onSubmit={this.handleOnSubmit}>
+        <h1>Register</h1>
+        <Form onSubmit={this.handleOnSubmit.bind(this)}>
           <FormGroup>
             <Label for="username">Username</Label>
             <Input
@@ -58,4 +59,4 @@ class Login extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps, { createUser })(Login);
