@@ -20,13 +20,14 @@ class NoteView extends Component {
 
   getNoteById = () => {
     const id = this.props.match.params.id;
-    const PATH =
+    const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
+    const path =
       // production server
-      `process.env.PRODUCTION_SERVER/${id}` ||
+      PRODUCTION_SERVER_ID ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
-      .get(PATH)
+      .get(path)
       .then(response => {
         this.setState({ note: response.data });
       })
@@ -46,9 +47,10 @@ class NoteView extends Component {
   }
 
   handleDelete = id => {
+    const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
     const path =
       // production server
-      `process.env.PRODUCTION_SERVER/${id}` ||
+      PRODUCTION_SERVER_ID ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios

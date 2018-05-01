@@ -18,9 +18,10 @@ export default class EditNote extends Component {
 
   updateNotes = () => {
     const id = this.props.match.params.id;
+    const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
     const path =
       // production server
-      `process.env.PRODUCTION_SERVER/${id}` ||
+      PRODUCTION_SERVER_ID ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
