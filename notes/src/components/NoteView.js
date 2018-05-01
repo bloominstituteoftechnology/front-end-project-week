@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import DeleteModal from "./DeleteModal";
-import "./css/NoteView.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
+import './css/NoteView.css';
 
 const NoteView = props => {
   return (
     <div className="notebox">
       <div className="notebox__ele notebox__ele--row">
-        <div className="notebox__ele">
+        <div className="notebox__ele--linksHeader">
           <Link className="notebox__ele--links" to="/editview">
             Edit
           </Link>
@@ -16,9 +16,11 @@ const NoteView = props => {
           <DeleteModal />
         </div>
       </div>
+
       <div className="notebox__ele--header">
         <h1 className="notebox__ele--bold">Note Name</h1>
       </div>
+
       <div className="notebox__ele--content">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
