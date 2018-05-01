@@ -7,7 +7,7 @@ import {
   ADD_TAG,
   SIGN_IN,
   SIGN_OUT,
-  CREATE_USER_SUCCESS,
+  CREATE_USER,
   ERROR
 } from "../actions";
 
@@ -123,7 +123,7 @@ export default function notes(state = initialState, action) {
       return { ...state, authed: true, user: action.user.email };
     case SIGN_OUT:
       return { ...state, authed: false };
-    case CREATE_USER_SUCCESS:
+    case CREATE_USER:
       return { ...state, authed: true, user: action.user.email };
     case ERROR:
       console.log("Error reducer fired: ", action.error);

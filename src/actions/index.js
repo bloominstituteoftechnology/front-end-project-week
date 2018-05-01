@@ -9,7 +9,7 @@ export const GOT = "GOT";
 export const ADD_TAG = "ADD_TAG";
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
-export const CREATE_USER_SUCCESS = "CREATE_USER_SUCCESS";
+export const CREATE_USER = "CREATE_USER";
 export const ERROR = "ERROR";
 
 let noteId = 10;
@@ -56,11 +56,16 @@ export const getNotes = () => dispatch => {
       dispatch({ type: GOT, notes: response.data });
     });
 };
-export const createUserSuccess = response => {
-  return {
-    type: CREATE_USER_SUCCESS,
-    user: response
-  };
+export const createUser = user => dispatch => {
+  dispatch({ type: ADDING });
+  axios
+    .post("https://floating-mesa-40947.herokuapp.com/api/user", user)
+    .then(response => {
+      dispatch({
+        type: CREATE_USER,
+        user: response
+      });
+    });
 };
 
 export const signInSuccess = response => {
@@ -76,8 +81,6 @@ export const errorHandler = response => {
     error: response
   };
 };
-
-export const createUser = (email, pw) => dispatch => {};
 
 export const signIn = (email, pw) => dispatch => {
   // login(email, pw)
