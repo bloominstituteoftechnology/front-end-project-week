@@ -28,12 +28,7 @@ class Login extends Component {
     copy[event.target.name] = event.target.value;
     this.setState(copy);
   }
-  handleRegister() {
-    this.props.createUser({
-      username: this.state.username,
-      password: this.state.password
-    });
-  }
+
   render() {
     return (
       <Container className="mt-5">
