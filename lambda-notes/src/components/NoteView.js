@@ -20,11 +20,13 @@ class NoteView extends Component {
 
   getNoteById = () => {
     const id = this.props.match.params.id;
+    const PATH =
+      // production server
+      process.env.PRODUCTION_SERVER ||
+      // dev server
+      `http://localhost:5050/api/notes/${id}`;
     axios
-      .get(
-        `http://localhost:5050/api/notes/${id}` ||
-          `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`
-      )
+      .get(PATH)
       .then(response => {
         this.setState({ note: response.data });
       })
@@ -44,15 +46,16 @@ class NoteView extends Component {
   }
 
   handleDelete = id => {
+    const PATH =
+      // production server
+      process.env.PRODUCTION_SERVER ||
+      // dev server
+      `http://localhost:5050/api/notes/${id}`;
     axios
-      .delete(
-        `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}` ||
-          `http://localhost:5050/api/notes/${id}`,
-        {
-          title: this.state.title,
-          content: this.state.content
-        }
-      )
+      .delete(PATH, {
+        title: this.state.title,
+        content: this.state.content
+      })
       .then(response => {
         this.setState({ fireRedirect: true });
         this.setState({ note: response.data });
