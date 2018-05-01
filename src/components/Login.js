@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Container, Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { login, resetPassword, auth } from "../utilities/auth";
 import { withRouter } from "react-router-dom";
 import { signIn, createUser } from "../actions";
 
