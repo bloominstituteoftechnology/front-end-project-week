@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { getNotes } from './actions';
+import { connect } from 'react-redux';
+import Note from './components/Note';
+// import NewNote from './NewNote';
+
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getNotes();
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>Lambda Notes</h1>
+        <div>Welcome to Your Notes</div>
+        {/* <NewNote /> */}
+        <div>
+          {this.props.notes.map(note => {
+            return <Note note={note} key={note.id} />
+          })}
+          {this.props.pending ? <h1>LOADING</h1> : null}
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    error: state.error,
+    pending: state.fetchingNotes,
+
+  }
+}
+
+export default connect(mapStateToProps, { getNotes })(App);

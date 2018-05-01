@@ -43,13 +43,13 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.get('/api/notes', (req, res) => {
+app.get('/notes', (req, res) => {
     setTimeout(() => {
         res.send(notes);
     }, 1000);
 });
 
-app.get('/api/notes/:id', (req, res) => {
+app.get('/notes/:id', (req, res) => {
     const note = notes.find(n => n.id == req.params.id);
 
     if (note) {
@@ -59,7 +59,7 @@ app.get('/api/notes/:id', (req, res) => {
     }
 });
 
-app.post('/api/notes', (req, res) => {
+app.post('/notes', (req, res) => {
     const note = { id: getNextId(), ...req.body };
 
     notes = [...notes, note];
@@ -67,7 +67,7 @@ app.post('/api/notes', (req, res) => {
     res.send(notes);
 });
 
-app.put('/api/notes/:id', (req, res) => {
+app.put('/notes/:id', (req, res) => {
     const { id } = req.params;
 
     const noteIndex = notes.findIndex(f => f.id == id);
@@ -86,7 +86,7 @@ app.put('/api/notes/:id', (req, res) => {
     }
 });
 
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/notes/:id', (req, res) => {
     const { id } = req.params;
 
     notes = notes.filter(f => f.id !== Number(id));
