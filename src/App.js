@@ -13,7 +13,6 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import { firebaseAuth } from "./utilities/auth";
 import { connect } from "react-redux";
 
 function mapStateToProps(state) {
