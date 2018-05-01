@@ -4,15 +4,15 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "bootstrap": "^4.1.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-markdown": "^3.3.0",
     "react-router": "^4.2.0",
-    "react-router-dom": "^4.3.0-rc.1",
+    "react-router-dom": "^4.3.0-rc.3",
     "react-scripts": "1.1.1",
     "react-sortable-hoc": "^0.6.8",
-    "reactstrap": "^5.0.0-beta.3",
+    "reactstrap": "^5.0.0",
     "webpack": "^4.6.0"
   },
   "scripts": {
