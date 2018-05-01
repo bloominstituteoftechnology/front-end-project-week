@@ -62,7 +62,7 @@ class Login extends Component {
       })
       .then(response => {
         console.log({ Message: `Successful login: ${response}`, response });
-        localStorage.setItem(response.token);
+        localStorage.setItem('token', response.data.token);
         this.clearState();
       })
       .catch(err => {
