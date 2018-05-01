@@ -28,7 +28,12 @@ class CreateNewNote extends Component {
           title,
           content,
         },
-        { headers: { Authorization: localStorage.token } }
+        {
+          headers: {
+            Authorization: localStorage.token,
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
       )
       .then()
       .catch(err => {
