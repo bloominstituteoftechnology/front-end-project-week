@@ -29,7 +29,10 @@ class Login extends Component {
     this.setState(copy);
   }
   handleRegister() {
-    this.props.createUser(this.state.username, this.state.password);
+    this.props.createUser({
+      username: this.state.username,
+      password: this.state.password
+    });
   }
   render() {
     return (
