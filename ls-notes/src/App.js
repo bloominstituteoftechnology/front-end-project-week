@@ -12,10 +12,11 @@ class App extends Component {
     return (
       <div className="Container">
         {/* Navigation controls go here */}
-          <div className="Nav-panel"><h2>LAMBDA NOTES</h2>
+          <div className="Nav-panel">
+          <h2>LAMBDA NOTES</h2>
 
-<div><button class="btn-NavButton">View Your Notes</button></div>
-<div><button class="btn-NavButton">+ Create New Note</button></div>
+          <div><button class="btn-NavButton">View Your Notes</button></div>
+          <div><button class="btn-NavButton">+ Create New Note</button></div>
           </div>
           {/* <ul>
             <li>Button - View Your Notes</li>
