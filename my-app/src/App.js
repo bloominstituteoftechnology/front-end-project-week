@@ -12,12 +12,13 @@ class App extends Component {
     super(props);
     this.state = {
       note: [],
-      id: 0
+
     }
   }
   
   componentDidMount() {
     const note = ['Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut deserunt consequuntur autem, deleniti perspiciatis placeat commodi inventore ducimus'];
+
     this.setState ({ note });
 }
 
@@ -25,13 +26,18 @@ class App extends Component {
     return (
       <div>
         <Route exact path = '/' render={(props) => (
-          <NotesDisplay {...props} note={this.state.note} /> 
+          <NotesDisplay {...props} 
+          note={this.state.note} 
+          /> 
           )}/>
-        />
+
         <Route path = '/newNote' component={ NewNote } />
+          
         <Route path = '/noteView' render={(props) => (
-          <Notes {...props} note={this.state.note} /> )}/>
-          />
+          <Notes {...props} 
+          note={this.state.note} 
+          /> )}/>
+
         <Route path = '/edit' component= { Edit } />
       </div>
     );

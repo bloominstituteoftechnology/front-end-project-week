@@ -22,64 +22,64 @@ export const NotesDisplay = (props) => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                     {props.note.map(note => {
                         return [<div className = 'Note-notes'> 
                         <Link to = '/noteView' >
                         <h3>Note Title</h3> <p>{ note }</p>
-                    </Link>
-                    </div>];
+                        </Link>
+                        </div>];
                         })}
                 </div>
             </div>
