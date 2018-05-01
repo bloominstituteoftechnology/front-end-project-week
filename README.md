@@ -5,6 +5,8 @@ You are to treat this week as if you are working at a company and the instructor
 
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School.  There are design files in this repository you should use as a creative guide.  
 
+### Trello link for JP Emery's Project ###https://trello.com/b/AOhDK73H/project-board
+
 ## Git Commits
 * You are required to showcase progress with at least 1 commit a day.  This will let your project manager know where you are and if you need help.  This also allows the client to get progress reports from the company in a real world setting.  
 
