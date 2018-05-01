@@ -1,8 +1,8 @@
-export const CREATE_NOTE = 'CREATE_NOTE';
+export const ADD_NOTE = 'ADD_NOTE';
 
-export const createNote = (data) => {
+export const addNote = (data) => {
     return {
-        type: CREATE_NOTE,
+        type: ADD_NOTE,
         payload: data
     }
 }

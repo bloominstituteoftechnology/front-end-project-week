@@ -1,4 +1,4 @@
-import { CREATE_NOTE } from '../Actions/index'
+import { ADD_NOTE } from '../Actions/index'
 
 const initialState = {
     notes: [],
@@ -8,9 +8,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
+        case ADD_NOTE: 
+            return state;
         default:
             return state
     }
 }
+
 
 export default reducer;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { addNote } from '../Actions/index';
+import { connect } from 'react-redux';
 
 class CreateNote extends Component {
     constructor() {
@@ -12,9 +14,9 @@ class CreateNote extends Component {
         this.setState({ [e.target.name]: e.target.value });
         console.log('UPDATE', this.state)
     }
-    addNote = e => {
+    submit = e => {
         const newNote = { title: this.state.title, content: this.state.content};
-        this.props.makeNote(newNote);
+        this.props.addNote(newNote);
         this.state({ title: '', content: ''})
     }
     render() {
@@ -32,4 +34,9 @@ class CreateNote extends Component {
     }
 }
 
-export default CreateNote;
+const mapStateToProps = state => {
+    return {
+        notes: state.notes,
+    }
+}
+export default connect(mapStateToProps, { addNote })(CreateNote);
