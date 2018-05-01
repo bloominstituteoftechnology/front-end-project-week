@@ -14,15 +14,16 @@ export const ERROR = "ERROR";
 
 let noteId = 10;
 
-export const addNote = (note)=> dispatch=> {
-  dispatch {
+export const addNote = note => dispatch => {
+  dispatch({
     type: ADDING
-    
-  };
-  axios.post("https://floating-mesa-40947.herokuapp.com/api/notes").then(newNote=>{
-    dispatch({type: ADD_NOTE, note: response.data})
-  })
-}
+  });
+  axios
+    .post("https://floating-mesa-40947.herokuapp.com/api/notes")
+    .then(newNote => {
+      dispatch({ type: ADD_NOTE, note: response.data });
+    });
+};
 export function addTag(tag, id) {
   return {
     type: ADD_TAG,
