@@ -8,6 +8,8 @@ class Login extends Component {
     super(props);
     this.state = {
       modal: true,
+      username: '',
+      password: '',
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -33,11 +35,12 @@ class Login extends Component {
               <input type="text" placeholder="Username" />
               <input type="password" placeholder="Password" />
               <button onClick={this.toggle}>Log In</button>
-              <hr />
-              <p>No Account? Sign Up Below:</p>
+            </form>
+            <hr />
+            <p>No Account? Sign Up Below:</p>
+            <form>
               <input type="text" placeholder="Create a Username" />
               <input type="password" placeholder="Create a Password" />
-              <input type="password" placeholder="Re-enter Password" />
               <button onClick={this.toggle}>Sign Up</button>
             </form>
           </div>
