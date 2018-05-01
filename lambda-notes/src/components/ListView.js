@@ -37,13 +37,13 @@ export default class ListView extends Component {
   };
 
   getNotes = () => {
-    const PATH =
+    const path =
       // production server
       process.env.PRODUCTION_SERVER ||
       // dev server
       'http://localhost:5050/api/notes/';
     axios
-      .get(PATH)
+      .get(path)
       .then(response => {
         this.setState({ notes: response.data });
       })

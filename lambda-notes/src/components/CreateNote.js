@@ -16,7 +16,7 @@ export default class CreateNote extends Component {
   };
 
   handleSubmit = e => {
-    const PATH =
+    const path =
       // production server
       process.env.PRODUCTION_SERVER ||
       // dev server
@@ -24,7 +24,7 @@ export default class CreateNote extends Component {
     e.preventDefault();
     this.setState({ title: '', content: '' });
     axios
-      .post(PATH, {
+      .post(path, {
         title: this.state.title,
         content: this.state.content
       })

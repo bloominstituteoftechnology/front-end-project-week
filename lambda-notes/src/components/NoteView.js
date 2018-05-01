@@ -22,7 +22,7 @@ class NoteView extends Component {
     const id = this.props.match.params.id;
     const PATH =
       // production server
-      process.env.PRODUCTION_SERVER ||
+      `process.env.PRODUCTION_SERVER/${id}` ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
@@ -46,13 +46,13 @@ class NoteView extends Component {
   }
 
   handleDelete = id => {
-    const PATH =
+    const path =
       // production server
-      process.env.PRODUCTION_SERVER ||
+      `process.env.PRODUCTION_SERVER/${id}` ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
-      .delete(PATH, {
+      .delete(path, {
         title: this.state.title,
         content: this.state.content
       })
