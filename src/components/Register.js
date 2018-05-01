@@ -8,14 +8,16 @@ function mapStateToProps(state) {
 }
 function setErrorMsg(msg) {
   return {
-    loginError: msg
+    registerError: msg
   };
 }
 
-class Login extends Component {
+class Register extends Component {
   state = {
     redirect: true,
-    loginError: null
+    registerError: null,
+    username: "",
+    password: ""
   };
   handleOnSubmit(event) {
     event.preventDefault();
@@ -24,12 +26,22 @@ class Login extends Component {
       password: this.state.password
     });
   }
+  handleOnChange(event) {
+    event.preventDefault();
+    console.log(event.target.name);
+    let copy = this.state;
+    copy[event.target.name] = event.target.value;
+    this.setState(copy);
+  }
 
   render() {
     return (
       <div>
         <h1>Register</h1>
-        <Form onSubmit={this.handleOnSubmit.bind(this)}>
+        <Form
+          onSubmit={this.handleOnSubmit.bind(this)}
+          onChange={this.handleOnChange.bind(this)}
+        >
           <FormGroup>
             <Label for="username">Username</Label>
             <Input
@@ -50,7 +62,7 @@ class Login extends Component {
               ref={password => (this.password = password)}
             />
           </FormGroup>
-          <h3>{this.state.loginError}</h3>
+          <h3>{this.state.registerError}</h3>
 
           <Button type="submit">Submit</Button>
         </Form>
@@ -59,4 +71,4 @@ class Login extends Component {
   }
 }
 
-export default connect(mapStateToProps, { createUser })(Login);
+export default connect(mapStateToProps, { createUser })(Register);

@@ -58,6 +58,7 @@ export const getNotes = () => dispatch => {
 };
 export const createUser = user => dispatch => {
   dispatch({ type: ADDING });
+  console.log(user);
   axios
     .post("https://floating-mesa-40947.herokuapp.com/api/user", user)
     .then(response => {
@@ -83,11 +84,13 @@ export const errorHandler = response => {
 };
 
 export const signIn = (username, pw) => dispatch => {
+  console.log(username, pw);
   axios
     .get(`https://floating-mesa-40947.herokuapp.com/api/user/name/${username}`)
     .then(response => {
-      if (response.password === pw) {
-        dispatch({ type: SIGN_IN, user: response.username });
+      console.log(response);
+      if (response.data.password === pw) {
+        dispatch({ type: SIGN_IN, user: response });
       } else {
         dispatch({ type: ERROR, error: "Incorrect credentials" });
       }

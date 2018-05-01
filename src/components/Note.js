@@ -4,7 +4,7 @@ import { Row, Container } from "reactstrap";
 import { Link } from "react-router-dom";
 import { deleteNote } from "../actions";
 import DeleteModal from "../components/DeleteModal";
-import TagModal from "../components/TagModal";
+// import TagModal from "../components/TagModal";
 
 function mapStateToProps(state) {
   return { notes: state.notes };
@@ -18,12 +18,12 @@ class Note extends Component {
     return (
       <Container>
         <Row className="d-flex justify-content-between mt-3 mr-3">
-          <div>
+          {/* <div>
             {note.tags.map(tag => (
               <span className="badge badge-warning m-1 text-white">{tag}</span>
             ))}
             <TagModal tags={note.tags} id={note.id} />
-          </div>
+          </div> */}
           <div className="d-flex">
             <Link className="header-link mr-3" to={`/editNote/${note.id}`}>
               edit

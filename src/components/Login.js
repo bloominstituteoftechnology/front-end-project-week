@@ -16,7 +16,7 @@ class Login extends Component {
     password: ""
   };
   handleOnSubmit(event) {
-    // event.preventDefault();
+    event.preventDefault();
     this.props.signIn(this.state.username, this.state.password);
 
     this.props.history.push("/");
@@ -56,17 +56,17 @@ class Login extends Component {
               id="password"
               value={this.state.password}
             />
+            <h3>{this.state.loginError}</h3>
+            <Button type="submit">Log In</Button>
+            <span> OR </span>
+            <Button
+              onClick={() => {
+                this.props.history.push("/register");
+              }}
+            >
+              Register New Account
+            </Button>
           </FormGroup>
-          <h3>{this.state.loginError}</h3>
-          <Button type="submit">Log In</Button>
-          <span> OR </span>
-          <Button
-            onClick={() => {
-              this.props.history.push("/register");
-            }}
-          >
-            Register New Account
-          </Button>
           {this.props.error}
         </Form>
       </Container>

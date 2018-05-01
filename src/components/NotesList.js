@@ -41,13 +41,13 @@ class NotesList extends Component {
                       <hr />
                       <CardText>{note.note}</CardText>
                     </CardBody>
-                    <CardFooter className=" p-0">
+                    {/* <CardFooter className=" p-0">
                       {note.tags.map(tag => (
                         <span className="badge badge-warning m-1 text-white">
                           {tag}
                         </span>
                       ))}
-                    </CardFooter>
+                    </CardFooter> */}
                   </Card>
                 </Link>
               </Col>
