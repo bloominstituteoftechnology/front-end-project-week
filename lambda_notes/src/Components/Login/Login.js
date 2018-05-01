@@ -110,7 +110,7 @@ class Login extends Component {
                 placeholder="Create a Password"
                 onChange={this.handleChange}
               />
-              <button onClick={this.toggle}>Sign Up</button>
+              <button>Sign Up</button>
             </form>
           </div>
         </Modal>
