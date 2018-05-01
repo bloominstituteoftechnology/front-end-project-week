@@ -1,8 +1,9 @@
-import { ADD_NOTE, DELETE_NOTE, EDIT_NOTE, GETTING, GOT } from "../actions";
 import {
   ADD_NOTE,
   DELETE_NOTE,
   EDIT_NOTE,
+  GETTING,
+  GOT,
   ADD_TAG,
   SIGN_IN,
   SIGN_OUT,
