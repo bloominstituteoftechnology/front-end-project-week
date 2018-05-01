@@ -61,7 +61,8 @@ class Login extends Component {
         password,
       })
       .then(response => {
-        console.log({ Message: `Successful login: ${response}` });
+        console.log({ Message: `Successful login: ${response}`, response });
+        localStorage.setItem(response.token);
         this.clearState();
       })
       .catch(err => {
