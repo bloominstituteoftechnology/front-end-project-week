@@ -57,7 +57,7 @@ export const deleteNote = id => dispatch => {
 export const getNotes = user => dispatch => {
   dispatch({ type: GETTING });
   axios
-    .get("https://floating-mesa-40947.herokuapp.com/api/notes", user)
+    .get(`https://floating-mesa-40947.herokuapp.com/api/notes/user/${user}`)
     .then(response => {
       console.log(response);
       dispatch({ type: GOT, notes: response.data });
