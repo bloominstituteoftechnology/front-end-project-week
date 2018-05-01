@@ -27,7 +27,7 @@ class CreateNewNote extends Component {
           title,
           content,
         },
-        { headers: { Authorization: `Bearer ${localStorage.token}` } }
+        { headers: { Authorization: localStorage.token } }
       )
       .then()
       .catch(err => {
