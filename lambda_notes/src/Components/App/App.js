@@ -12,7 +12,9 @@ import { Route } from 'react-router-dom';
 class App extends Component {
   constructor() {
     super();
-    // this.state = {
+    this.state = {
+      notes: [],
+    };
     //   notes: [
     //     {
     //       title: 'The Phantom Menace',
