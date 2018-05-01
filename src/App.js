@@ -91,7 +91,7 @@ class App extends Component {
                   return this.props.authed ? <Redirect to="/" /> : <Login />;
                 }}
               />
-              <Route path="/register" component={<Register />} />
+              <Route path="/register" render={<Register />} />
             </Col>
           </Row>
         </Container>
