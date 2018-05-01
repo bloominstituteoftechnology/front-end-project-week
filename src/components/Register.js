@@ -18,7 +18,7 @@ class Login extends Component {
   };
   handleOnSubmit(event) {
     event.preventDefault();
-    login(this.email.value, this.password.value).catch(error => {
+    login(this.username.value, this.password.value).catch(error => {
       this.setState(setErrorMsg("Invalid Login Stuff!"));
     });
   }
@@ -28,13 +28,13 @@ class Login extends Component {
         <h1>Login</h1>
         <Form onSubmit={this.handleOnSubmit}>
           <FormGroup>
-            <Label for="email">Email</Label>
+            <Label for="username">Username</Label>
             <Input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter Your Email, Please"
-              ref={email => (this.email = email)}
+              type="username"
+              name="username"
+              id="username"
+              placeholder="Enter Your Username, Please"
+              ref={username => (this.username = username)}
             />
           </FormGroup>
           <FormGroup>

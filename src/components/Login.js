@@ -12,12 +12,12 @@ class Login extends Component {
   state = {
     redirect: true,
     loginError: null,
-    email: "",
+    username: "",
     password: ""
   };
   handleOnSubmit(event) {
     // event.preventDefault();
-    this.props.signIn(this.state.email, this.state.password);
+    this.props.signIn(this.state.username, this.state.password);
 
     this.props.history.push("/");
   }
@@ -29,7 +29,7 @@ class Login extends Component {
     this.setState(copy);
   }
   handleRegister() {
-    this.props.createUser(this.state.email, this.state.password);
+    this.props.createUser(this.state.username, this.state.password);
   }
   render() {
     return (
@@ -40,13 +40,13 @@ class Login extends Component {
           onChange={this.handleOnChange.bind(this)}
         >
           <FormGroup>
-            <Label for="email">Email</Label>
+            <Label for="username">Email</Label>
             <Input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter Your Email, Please"
-              value={this.state.email}
+              type="username"
+              name="username"
+              id="username"
+              placeholder="Enter Your Username, Please"
+              value={this.state.username}
             />
           </FormGroup>
           <FormGroup>
