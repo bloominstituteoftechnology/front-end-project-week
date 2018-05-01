@@ -20,7 +20,7 @@ export const addNote = note => dispatch => {
   });
   axios
     .post("https://floating-mesa-40947.herokuapp.com/api/notes")
-    .then(newNote => {
+    .then(response => {
       dispatch({ type: ADD_NOTE, note: response.data });
     });
 };
@@ -80,18 +80,18 @@ export const errorHandler = response => {
 export const createUser = (email, pw) => dispatch => {};
 
 export const signIn = (email, pw) => dispatch => {
-  login(email, pw)
-    .then(response => {
-      console.log("Sign in function response: ", response);
-      return dispatch(signInSuccess(response));
-    })
-    .catch(e => console.log(e.message));
+  // login(email, pw)
+  //   .then(response => {
+  //     console.log("Sign in function response: ", response);
+  //     return dispatch(signInSuccess(response));
+  //   })
+  //   .catch(e => console.log(e.message));
 };
 
 export const signOut = () => dispatch => {
-  logout().then(() => {
-    dispatch({
-      type: SIGN_OUT
-    });
-  });
+  // logout().then(() => {
+  //   dispatch({
+  //     type: SIGN_OUT
+  //   });
+  // });
 };
