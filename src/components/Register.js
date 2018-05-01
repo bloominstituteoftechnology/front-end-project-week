@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import { login, resetPassword } from "../utilities/auth";
 
 function mapStateToProps(state) {
   return {};
