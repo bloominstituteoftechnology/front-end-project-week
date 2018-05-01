@@ -35,7 +35,9 @@ class CreateNewNote extends Component {
           },
         }
       )
-      .then()
+      .then(response => {
+        console.log(response);
+      })
       .catch(err => {
         console.log({ Error: `Unable to create note: ${err}` });
       });
