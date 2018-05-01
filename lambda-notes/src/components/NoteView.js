@@ -21,7 +21,7 @@ class NoteView extends Component {
   getNoteById = () => {
     const id = this.props.match.params.id;
     axios
-      .get(`https://lambda-notes-backend-server.herokuapp.com/api/notes${id}`)
+      .get(`https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`)
       .then(response => {
         this.setState({ note: response.data });
       })
