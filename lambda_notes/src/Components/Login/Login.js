@@ -114,7 +114,7 @@ class Login extends Component {
                 onChange={this.handleChange}
                 value={this.state.password}
               />
-              <button onClick={this.clearState}>Sign Up</button>
+              <button>Sign Up</button>
             </form>
           </div>
         </Modal>
