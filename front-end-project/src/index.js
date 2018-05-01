@@ -6,9 +6,9 @@ import App from './App';
 import { BrowserRouter as Router, Route, NavLink, HashRouter } from 'react-router-dom'
 
 ReactDOM.render(
-        <div>
+        <NavLink>
             <App />
-        </div>,
+        </NavLink>,
     
     document.getElementById('root')
 );
