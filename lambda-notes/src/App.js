@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NoteList from './components/noteList'
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Lambda Notes</h1>
         </header>
+        <NoteList />
       </div>
     );
   }
