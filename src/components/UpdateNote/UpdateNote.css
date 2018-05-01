@@ -1,0 +1,36 @@
+
+.UpdateNote {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #F3F3F3;
+}
+
+.label-h2 {
+  font-weight: bolder;
+  font-family: Roboto;
+  color: RGB(74, 74, 74);
+  margin-top: 50px;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin-left: 40px;
+}
+
+.input-title {
+  margin-bottom: 30px;
+  height: 50px;
+  width: 400px;
+  padding-left: 20px;
+  border: 2px solid RGB(174, 174, 174);
+}
+
+.input-body {
+  height: 400px;
+  width: 600px;
+  border: 2px solid RGB(174, 174, 174);
+  padding: 20px;
+}

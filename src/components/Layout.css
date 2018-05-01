@@ -1,0 +1,5 @@
+.Layout {
+  display: flex;
+  border: 1px solid RGB(194, 194, 194);
+  min-height:  100vh;
+}
