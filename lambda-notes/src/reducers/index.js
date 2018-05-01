@@ -48,9 +48,6 @@ export const noteReducer = (state = initialState, action) => {
         notes: state.notes.filter(note => note.id !== action.id)
       };
     case REORDER_NOTES:
-      if ( action.searching ) {
-        return { ...state, searchResults: action.payload };
-      }
       return { ...state, notes: action.payload };
     default:
       return state;

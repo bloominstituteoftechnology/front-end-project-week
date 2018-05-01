@@ -25,10 +25,9 @@ export const deleteNote = data => ({
     id: Number(data),
 })
 
-export const reorderNotes = (newNotes, searching) => {
+export const reorderNotes = (newNotes) => {
     return {
       type: 'REORDER_NOTES',
       payload: newNotes,
-      searching: searching,
     }
   }

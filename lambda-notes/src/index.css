@@ -2,10 +2,11 @@ html {
   width: 100%;
   font-family: 'Roboto';
   height: 100%;
+  background: grey;
 }
 
 body {
   padding: 0;
   width: 100%;
+  max-width: 1200px;
 }
-

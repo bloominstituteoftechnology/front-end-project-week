@@ -28,7 +28,7 @@ class ListItem extends Component {
         <Link
           className="link"
           to={`/single-note-view/${this.props.note.id}`}
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: "none", color: "black" }}
           >
           <Card>
             <CardBody className="card" key={this.props.note.id}>

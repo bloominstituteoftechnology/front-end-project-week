@@ -37,6 +37,7 @@ const StyledNoteList = styled.div`
 
   .note-list-header {
     margin: 4%;
+    width: 110px;
   }
 
   .row {
@@ -51,23 +52,20 @@ const StyledNoteList = styled.div`
     margin-left: 60%;
     margin-top: 85%;
   }
-
 `;
 
-const SortableItem = SortableElement(({ note }) => (
-    <ListItem note={note} />
-));
+const SortableItem = SortableElement(({ note }) => 
+  <ListItem 
+    note={note} 
+  />
+);
 
 const SortableList = SortableContainer(({ notes }) => {
   return (
-   <Row className="row d-flex flex-wrap">
+    <Row className="row d-flex flex-wrap">
       {notes.map((note, index) => {
         return (
-          <SortableItem
-            key={`item-${note.id}`}
-            index={index}
-            note={note}
-          />
+          <SortableItem key={`item-${note.id}`} index={index} note={note} />
         );
       })}
     </Row>
@@ -75,17 +73,8 @@ const SortableList = SortableContainer(({ notes }) => {
 });
 
 class NoteList extends Component {
-  state = {
-    id: "",
-    deleting: false,
-    selectingLabel: false
-  };
-
   onSortEnd = ({ oldIndex, newIndex }) => {
-    this.props.reorderNotes(
-      arrayMove(this.props.notes, oldIndex, newIndex),
-      this.state.searching
-    );
+    this.props.reorderNotes(arrayMove(this.props.notes, oldIndex, newIndex));
   };
 
   render() {
@@ -97,14 +86,13 @@ class NoteList extends Component {
           </div>
         ) : (
           <div className="note-list">
-          <div className="note-list-header">
-            Your Notes:
-            </div>
+            <div className="note-list-header">Your Notes:</div>
             <SortableList
               notes={this.props.notes}
               pressDelay={25}
               onSortEnd={this.onSortEnd}
               axis="xy"
+              pressThreshold={10}
             />
           </div>
         )}
