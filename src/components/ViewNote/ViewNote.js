@@ -15,7 +15,7 @@ class ViewNote extends Component {
   }
 
   handleDelete (event) {
-    this.props.deleteNote(this.props.note.id)
+    this.props.deleteNote(this.props.note.todoId)
     this.props.history.push('/')
   }
 
@@ -29,7 +29,7 @@ class ViewNote extends Component {
     return (
       <div className='ViewNote'>
         <div className='note-form'>
-          <Link className='note-edit' to={`/update/${this.props.note.id}`}>
+          <Link className='note-edit' to={`/update/${this.props.note.todoId}`}>
             edit
           </Link>
           <button className='note-delete' onClick={this.toggle}>

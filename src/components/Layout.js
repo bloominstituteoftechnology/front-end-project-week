@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+import axios from 'axios'
 
 import NavBar from './NavBar/NavBar'
 import ListNotes from './ListNotes/ListNotes'
 import CreateNote from './CreateNote/CreateNote'
 import ViewNote from './ViewNote/ViewNote'
 import UpdateNote from './UpdateNote/UpdateNote'
-
-import dummyNotes from '../dummydata'
 
 import './Layout.css'
 
@@ -18,8 +17,7 @@ class Layout extends Component {
       notes: [],
       title: '',
       content: '',
-      id: Number(''),
-      count: 9
+      id: Number('')
     }
 
     // # Refactoring to use ES6 binding
@@ -31,7 +29,17 @@ class Layout extends Component {
   }
 
   componentDidMount () {
-    this.setState({ notes: dummyNotes })
+    this.getNotes()
+  }
+
+  getNotes = () => {
+    const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    axios
+      .get(`${serverURL}/api/todos`)
+      .then(res => {
+        this.setState({ notes: res.data })
+      })
+      .catch(err => console.log(err))
   }
 
   createNote = event => {
@@ -40,19 +48,31 @@ class Layout extends Component {
     const note = {}
     note.title = this.state.title
     note.content = this.state.content
-    note.id = this.state.count
-
-    this.setState({
-      notes: [...this.state.notes, note],
-      title: '',
-      content: '',
-      id: Number(''),
-      count: this.state.count + 1
-    })
+    const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    axios
+      .post(`${serverURL}/api/todos`)
+      .then(res => {
+        this.setState({
+          notes: res.data,
+          title: '',
+          content: '',
+          id: Number('')
+        })
+      })
+      .catch(err => console.log(err))
   }
 
   deleteNote = id => {
-    const newNotes = this.state.notes.filter(note => note.id !== Number(id))
+    const newNotes = this.state.notes.filter(note => note.todoId !== Number(id))
+
+    const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    axios
+      .delete(`${serverURL}/api/todos`)
+      .then(res => {
+        this.setState({ notes: res.data })
+      })
+      .catch(err => console.log(err))
+
     this.setState({
       notes: newNotes,
       title: '',
@@ -119,7 +139,7 @@ class Layout extends Component {
             <ViewNote
               note={
                 this.state.notes.filter(
-                  note => note.id == props.match.params.id
+                  note => note.todoId == props.match.params.id
                 )[0]
               }
               deleteNote={this.deleteNote}
