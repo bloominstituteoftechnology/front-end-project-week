@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // Actions
-import { get_notes } from '../../actions';
+import { get_notes, query_notes } from '../../actions';
 
 // Styling
 import { Form, Input } from 'reactstrap';
@@ -20,13 +20,30 @@ class ListView extends Component {
   componentDidMount() {
     this.props.get_notes();
   }
-  render(props) {
-    const noteSearch = this.props.notes.filter(note => {
+  renderNotes = () => {
+    const { filtered, notes } = this.props;
+    const notesToRender = this.state.query.length > 0 ? filtered : notes;
+    return notesToRender.map(note => {
       return (
-        note.title.indexOf(this.state.query) !== -1 ||
-        note.content.indexOf(this.state.query) !== -1
+        <Link
+          to={`/notes/${note._id}`}
+          key={`${note._id} ${note.title}`}
+          className="mx-2 my-3"
+        >
+          <div className="note p-3">
+            <h3>{note.title}</h3>
+            <p className="pt-2">
+              {note.content.length > 125
+                ? `${note.content.slice(0, 125)}…`
+                : note.content}
+            </p>
+          </div>
+        </Link>
       );
     });
+  };
+
+  render(props) {
     return (
       <div className="list-view pl-4 pt-5">
         <Form className="search">
@@ -39,26 +56,8 @@ class ListView extends Component {
           />
         </Form>
         <h2 className="my-3 ml-2">Your Notes:</h2>
-        <div className="list-view-notes">
-          {noteSearch.map(note => {
-            return (
-              <Link
-                to={`/notes/${note._id}`}
-                key={`${note._id} ${note.title}`}
-                className="mx-2 my-3"
-              >
-                <div className="note p-3">
-                  <h3>{note.title}</h3>
-                  <p className="pt-2">
-                    {note.content.length > 125
-                      ? `${note.content.slice(0, 125)}…`
-                      : note.content}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        <div className="list-view-notes" />
+        {this.renderNotes()}
       </div>
     );
   } // end of render()
@@ -66,13 +65,24 @@ class ListView extends Component {
   handleSearch = event => {
     event.preventDefault();
     this.setState({ query: event.target.value });
+    const banan = this.props.query_notes(event.target.value);
+    console.log(
+      'this.props.filtered',
+      this.props.filtered,
+      'event',
+      event.target.value,
+      'state',
+      this.state.query,
+      banan
+    );
   };
 } // end of ListView
 
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    filtered: state.filtered,
   };
 };
 
-export default connect(mapStateToProps, { get_notes })(ListView);
+export default connect(mapStateToProps, { get_notes, query_notes })(ListView);

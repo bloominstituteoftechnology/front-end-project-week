@@ -1,4 +1,5 @@
 import {
+  QUERY_NOTES,
   FETCHING_NOTES,
   GET_NOTES_ERROR,
   FETCHED_NOTES,
@@ -24,7 +25,7 @@ const initialState = {
   deletingNote: false,
   puttingNote: false,
   notes: [],
-  note: {},
+  filtered: [],
   error: null,
 };
 
@@ -40,6 +41,17 @@ export default (state = initialState, action) => {
         notes: action.notes,
         gettingNotes: false,
         error: false,
+      };
+
+    case QUERY_NOTES:
+      console.log('state.notes', state.notes);
+      return {
+        ...state,
+        filtered: state.notes.filter(
+          note =>
+            note.title.includes(action.query) ||
+            note.content.includes(action.query)
+        ),
       };
 
     case FETCHING_NOTE_BY_ID:
@@ -59,7 +71,7 @@ export default (state = initialState, action) => {
     case PUT_NOTE_ERROR:
       return { ...state, error: action.errorMessage };
     case PUT_NOTE:
-      return { ...state, notes: action.note, puttingNote: false };
+      return { ...state, notes: [...action.note], puttingNote: false };
 
     case POSTING_NOTE:
       return { ...state, postingNote: true };
