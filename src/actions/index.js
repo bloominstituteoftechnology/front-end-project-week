@@ -73,14 +73,7 @@ export const errorHandler = response => {
 };
 
 export const createUser = (email, pw) => dispatch => {
-  firebaseAuth
-    .createUserWithEmailAndPassword(email, pw)
-    .then(response => {
-      return dispatch(createUserSuccess(response));
-    })
-    .catch(error => {
-      return dispatch(errorHandler(error));
-    });
+  
 };
 
 export const signIn = (email, pw) => dispatch => {
