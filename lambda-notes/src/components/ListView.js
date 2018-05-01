@@ -70,11 +70,11 @@ handleDrop = (e) => {
                 <div className="ListCards" onDragOver={this.handleDragOver} onDrop={this.handleDrop}>
                     {this.state.notes.map(((note, index) => {
                         return (
-                            <div className="ListCard" key={note.id} id={note.id} draggable="true" onDragStart={this.handleDrag} style={{order: `${index}`}}>
-                                <Link to={{pathname: `/notes/${ note.id }`, state: { currentNote: note }}}>
+                            <div className="ListCard" key={note._id} id={note._id} draggable="true" onDragStart={this.handleDrag} style={{order: `${index}`}}>
+                                <Link to={{pathname: `/notes/${ note._id }`, state: { currentNote: note }}}>
                                     <Card>
                                         <header className="ListCard__Header">{note.title} {note.tags.map(((tag, index) => { return(<span key={index} style={{background: `${tag.color}`, color: "white", borderRadius: "12%", padding: "1%"}}>{tag.name}</span>)}))}</header>
-                                        <div className="ListCard__Body"><Markdown markup={note.text.length > 120 ? (note.text.substr(0, 124) + " ...") : (note.text)} strikethrough="true" tasklists="true" /></div>
+                                        <div className="ListCard__Body"><Markdown markup={note.content.length > 120 ? (note.content.substr(0, 124) + " ...") : (note.content)} strikethrough="true" tasklists="true" /></div>
                                     </Card>
                                 </Link>
                             </div>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class AddNote extends Component {
     state = {
         title: '',
-        text: '',
+        content: '',
         tagName: '',
         tagColor: '',
         tags: [],
@@ -17,12 +17,12 @@ class AddNote extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const currentState = { 
-            title: this.state.title,
-            text: this.state.text,
-            tags: this.state.tags
+            "title": this.state.title,
+            "content": this.state.content,
+            "tags": this.state.tags
         }
         this.props.add( currentState );
-        this.setState({ title: '', text: ''})
+        this.setState({ title: '', content: ''})
         this.props.history.push('/notes');
     }
 
@@ -43,13 +43,8 @@ class AddNote extends Component {
     }
 
     render() {
-        const display = this.state.showTag ? {} : { visibility: "hidden" };
-        /**
-         * if you don't want to render something intead of putting an
-         * empty string or empty object just use null
-         * so line 46 should be 
-         * const display = this.state.showTag ? null : { visibility: "hidden" };
-         */
+        const display = this.state.showTag ? null : { visibility: "hidden" };
+
         return (
             <div className="AddNote">
                 <h4 className="Title">Create New Note:</h4>
@@ -67,7 +62,7 @@ class AddNote extends Component {
                             : <div></div> }
                         </div>
                     </div>
-                    <textarea className="Inputfield" type='textarea' name='text' placeholder='Note Content' onChange={this.handleChange} value={this.state.text}></textarea>
+                    <textarea className="Inputfield" type='textarea' name='content' placeholder='Note Content' onChange={this.handleChange} value={this.state.content}></textarea>
                     <div className="AddNote__Buttons">
                         <button className="Button" onClick={this.handleSubmit}>Save</button>
                         <button className="AddTag" onClick={this.handleReveal}>Add Tag</button>

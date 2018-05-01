@@ -13,12 +13,17 @@ export default class NavBar extends React.Component {
         const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
         const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
         if (username && password) {
-            this.props.login(username, password);
-            this.setState({ modal: false, username: username });
-            setTimeout (() => { 
-                console.log("Success!")
+            //start animation
+            this.props.login(username, password, (success) => {
+                if (success) {
+                this.setState({ modal: false, username: username });
                 this.props.history.push('/notes');
-            }, 501)
+                }
+                else {
+                    console.log('e')
+                    //change colors on incorrect form
+                }
+            })
         }
         else { 
             if (!username) e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
@@ -30,12 +35,10 @@ export default class NavBar extends React.Component {
         const username = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value;
         const password = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].value;
         if (username && password) {
-            this.props.signup(username, password);
-            this.setState({ modal: false, username: username });
-            setTimeout (() => { 
-                console.log("Success!")
+            this.props.signup(username, password, () => {
+                this.setState({ modal: false, username: username });
                 this.props.history.push('/notes');
-            }, 501)
+            });
         }
         else { 
             if (!username) e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
@@ -70,7 +73,7 @@ export default class NavBar extends React.Component {
                             <ModalBody className="d-flex justify-content-center">
                                 <div>
                                 <div><div>Username:</div><input name="username"></input></div>
-                                <div><div>Password:</div><input name="password"></input></div>
+                                <div><div>Password:</div><input type="password" name="password"></input></div>
                                 </div>
                             </ModalBody>
                             <ModalFooter className="justify-content-around">

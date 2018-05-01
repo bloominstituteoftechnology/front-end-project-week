@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class EditNote extends Component {
     state = {
         title: this.props.location.state.default.title,
-        text: this.props.location.state.default.text,
+        content: this.props.location.state.default.content,
         tags: this.props.location.state.default.tags,
         tagName: '',
         tagColor: '',
@@ -18,11 +18,11 @@ class EditNote extends Component {
         e.preventDefault();
         const currentState = { 
             title: this.state.title,
-            text: this.state.text,
+            content: this.state.content,
             tags: this.state.tags
         }
         this.props.edit(currentState, this.props.match.params.id);
-        this.setState({ title: '', text: ''})
+        this.setState({ title: '', content: ''})
         this.props.history.push('/notes');
     }
 
@@ -59,7 +59,7 @@ class EditNote extends Component {
                             })) 
                             : <div></div> }
                     </div>
-                    <textarea className="Inputfield" type="textarea" name="text" value={this.state.text} onChange={this.handleChange}></textarea>
+                    <textarea className="Inputfield" type="textarea" name="content" value={this.state.content} onChange={this.handleChange}></textarea>
                     <div className="AddNote__Buttons">
                         <button className="Button" onClick={this.handleSubmit}>Update</button>
                         <button className="AddTag" onClick={this.handleReveal}>Add Tag</button>
