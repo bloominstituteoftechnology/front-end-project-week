@@ -1,45 +1,32 @@
-import React, { Component } from "react";
-import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
-import { deleteNote } from "../actions";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
+import { deleteNote, updateSelected } from '../actions';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class DeleteNotes extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      note: {
-        id: "",
-        title: "",
-        text: ""
-      },
-      modal: false
-    };
+  state = {
+    modal: false,
+    fireRedirect: false
+  };
 
-    this.toggle = this.toggle.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      note: this.props.notes.find(note => {
-        return note.id === parseInt(this.props.match.params.id, 10);
-      })
-    });
-  }
-
-  toggle() {
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
 
-  handleDelete(id) {
-    this.props.deleteNote(id);
-    this.props.history.push("/");
-  }
+  handleDelete = event => {
+    this.props.deleteNote(this.props.id);
+    this.setState({ fireRedirect: true });
+  };
+
+  componentWillMount = () => {
+    this.props.updateSelected(this.props.id);
+  };
 
   render() {
+    const note = this.props.notes.find(each => each._id === this.props.id);
     return (
       <div>
         <Modal
@@ -51,10 +38,7 @@ class DeleteNotes extends Component {
             Are you sure you want to delete this?
           </ModalHeader>
           <ModalFooter>
-            <Button
-              color="danger"
-              onClick={() => this.handleDelete(this.state.note)}
-            >
+            <Button color="danger" onClick={this.handleDelete}>
               Delete
             </Button>
             <Button color="secondary" onClick={this.toggle}>
@@ -64,15 +48,20 @@ class DeleteNotes extends Component {
         </Modal>
         <div className="noteView">
           <div className="note">
-            <Link to={`/edit/${this.props.match.params.id}`} className="edit">
+            <Link to={`/edit/${this.props.id}`} className="edit">
               edit
             </Link>
             <a className="delete" onClick={this.toggle}>
               delete
             </a>
           </div>
-          <h5 className="noteTitle">{this.state.note.title}</h5>
-          <h5 className="noteContent">{this.state.note.text}</h5>
+          {this.state.fireRedirect && <Redirect to="/home" />}
+          <h5 className="noteTitle">
+            {!this.state.fireRedirect ? note.title : null}
+          </h5>
+          <h5 className="noteContent">
+            {!this.state.fireRedirect ? note.text : null}
+          </h5>
         </div>
       </div>
     );
@@ -84,4 +73,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { deleteNote })(DeleteNotes);
+export default connect(mapStateToProps, { deleteNote, updateSelected })(
+  DeleteNotes
+);

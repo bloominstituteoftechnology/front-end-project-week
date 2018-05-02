@@ -1,77 +1,61 @@
-import React, { Component } from "react";
-import { editNote } from "../actions";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { editNote } from '../actions';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class EditNotes extends Component {
   state = {
-    note: {
-      title: "",
-      text: "",
-      id: ""
-    },
-    redirect: false
+    title: this.props.notes.title,
+    text: this.props.notes.text,
+    id: this.props.id,
+    fireRedirect: false
   };
 
-  componentDidMount() {
-    const item = this.props.notes.filter(
-      item => Number(item.id) === Number(this.props.match.params.id)
-    )[0];
-    console.log(this.state.note);
-    this.setState({
-      note: {
-        title: "",
-        text: "",
-        id: 0
-      }
-    });
+  componentWillMount() {
+    const noteToEdit = this.props.notes.find(
+      each => each._id === this.props.id
+    );
+    this.setState({ title: noteToEdit.title, text: noteToEdit.text });
   }
 
-  updateNote = event => {
+  handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state.note);
-    this.props.editNote(this.state.note);
-    this.setState({ redirect: true });
+    this.props.editNote(this.state);
+    this.setState({ fireRedirect: true });
   };
 
-  handleTitleChange = event => {
-    const id = this.state.note.id;
-    const text = this.state.note.text;
-    this.setState({ note: { title: event.target.value, text, id } });
-  };
-
-  handleTextChange = event => {
-    const id = this.state.note.id;
-    const title = this.state.note.title;
-    this.setState({ note: { text: event.target.value, title, id } });
+  handleChange = event => {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
-    if (this.state.redirect) return <Redirect to="/" />;
+    if (this.state.redirect) return <Redirect to="/home" />;
     return (
       <div className="editNotes">
         <h4 className="title">Edit Note:</h4>
-        <form onSubmit={this.updateNote}>
+        <form onSubmit={this.handleSubmit}>
           <input
             className="newTitle"
             type="text"
             name="title"
             placeholder="New Title"
-            value={this.state.note.title}
-            onChange={this.handleTitleChange}
+            value={this.state.title}
+            onChange={this.handleChange}
           />
           <input
             className="newContent"
             type="text"
             name="text"
             placeholder="New Content"
-            value={this.state.note.text}
-            onChange={this.handleTextChange}
+            value={this.state.text}
+            onChange={this.handleChange}
           />
           <button className="save" type="submit">
             Update
           </button>
         </form>
+        {this.state.fireRedirect && <Redirect to="/home" />}
       </div>
     );
   }

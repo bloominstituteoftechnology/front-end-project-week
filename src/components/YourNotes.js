@@ -1,9 +1,15 @@
-import React, { Component } from "react";
-import { Card, CardTitle, CardText, Container, Row, Col } from "reactstrap";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Container } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getNotes, updateSelected } from '../actions';
+import Notes from './Notes';
 
 class YourNotes extends Component {
+  componentDidMount() {
+    this.props.getNotes(this.props.users);
+  }
+
   render() {
     return (
       <Container>
@@ -11,16 +17,14 @@ class YourNotes extends Component {
         <div className="cardsList">
           {this.props.notes.map(note => {
             return (
-              <div className="cardList" key={note.id} note={note}>
-                <Link to={`/notes/${note.id}}`}>
-                  <Row>
-                    <Card body>
-                      <CardTitle>{note.title}</CardTitle>
-                      <CardText>{note.text}</CardText>
-                    </Card>
-                  </Row>
-                </Link>
-              </div>
+              <form>
+                <Notes key={note._id} note={note} />
+                {note.selected ? (
+                  <Redirect to={`/note/${note._id}`} />
+                ) : (
+                  console.log('redirect ')
+                )}
+              </form>
             );
           })}
         </div>
@@ -30,8 +34,11 @@ class YourNotes extends Component {
 }
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    user: state.auth.user
   };
 };
 
-export default connect(mapStateToProps)(YourNotes);
+export default connect(mapStateToProps, { getNotes, updateSelected })(
+  YourNotes
+);
