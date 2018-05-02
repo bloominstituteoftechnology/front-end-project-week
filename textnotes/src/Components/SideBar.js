@@ -5,9 +5,13 @@ class SideBar extends Component {
     render() {
         return (
             <div className="sidebar">
-                <h2 className="Lambda-Logo"> Lambda Notes </h2>
-                <button className="button1">View Your Notes</button>
-                <button className="button2">+ Create New Note</button>
+                <h1 className="Lambda-Logo"> Lambda Notes </h1>
+
+                {/* link to routing */}
+                {/* add onClick features that re-direct */}
+                
+                <button className="button">View Your Notes</button>
+                <button className="button">+ Create New Note</button>
             </div>
         );
     }

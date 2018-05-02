@@ -9,33 +9,42 @@
 }
 
 .sidebar {
-  border: 2px solid black;
-  background-color: grey;
+  border: 2px solid grey;
+  background-color: rgb(212, 209, 209);
   width: 30%;
 }
 
-.button1 {
-  background-color: darkcyan;
+.button {
+  background-color: rgb(103, 197, 197);
   color: white;
-  border: 1px white;
-  font-size: 20px;
+  border: 1px grey;
+  font-size: 16px;
   width: 150px;
   height: 50px;
-}
-
-.button2 {
-  background-color: darkcyan;
-  color: white;
-  border: 1px white;
-  font-size: 20px;
-  width: 150px;
-  height: 50px;
+  margin: 10px;
 }
 
 .Lambda-Logo {
+  text-align: left;
+  margin-left: 23px;
   color: black;
 }
 
 /* need css for the box of all the notes, each individual note, and for the list of notes */
 
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+nav li {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+  list-style-type: none;
+  margin: 5px 5px 5px 5px;
+}
+
+li hr {
+  width: 80%;
+}

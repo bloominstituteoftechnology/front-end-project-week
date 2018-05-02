@@ -7,7 +7,15 @@ const app = express();
 
 let nextId = 1;
 
-let notes = [];
+let notes = [
+	{id : 1, title: 'Note', content: 'placeholder text'},
+	{id : 2,title: 'Note', content: 'placeholder text'},
+	{id : 3,title: 'Note', content: 'placeholder text'},
+	{id : 4,title: 'Note', content: 'placeholder text'},
+	{id : 5,title: 'Note', content: 'placeholder text'},
+	{id : 6,title: 'Note', content: 'placeholder text'},
+	{id : 7,title: 'Note', content: 'placeholder text'},
+];
 
 app.use(bodyParser.json());
 
