@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 
-class CreateNote extends Component {
+class EditNote extends Component {
   state = {
     title: '',
     content: '',
@@ -13,7 +13,7 @@ class CreateNote extends Component {
     return(
       <div className="create-note">
         <div className="form-block">
-        <h2>Create New Note:</h2>
+        <h2>Edit Note:</h2>
         <input 
           name="title"
           className="form-title"
@@ -28,11 +28,11 @@ class CreateNote extends Component {
           placeholder="Note Content"
           onChange={this.handleChange}>
         </textarea>
-        <Button button={{text: 'Save', route: '/save'}} />
+        <Button button={{text: 'Update', route: '/update'}} />
         </div>
       </div>
     );
   }
 }
 
-export default CreateNote;
+export default EditNote;

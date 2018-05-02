@@ -51,6 +51,7 @@ body {
 .note {
   border: 1px solid black;
   background-color: white;
+  text-decoration: none;
   list-style-type: none;
   margin: 2% 1.5%;
   width: 250px;
@@ -63,6 +64,12 @@ body {
   align-items: center;
   width: 100%;
   background-color: whitesmoke;
+}
+
+.note-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .form-block {

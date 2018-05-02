@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Note from './Note';
+import { Link } from 'react-router-dom';
 
-class NoteContainer extends Component {
+
+class NoteList extends Component {
   state = {
     notes: [
       {title: 'Note', content: 'placeholder text'},
@@ -21,12 +22,20 @@ class NoteContainer extends Component {
         <h2>Your Notes:</h2>
         <ul className="notes-list">
           {this.state.notes.map((note, i) => {
-            return <Note note={note} key={i}/>
+            return(
+              <Link to={`note/${i}`} className="note">
+                <li>
+                  <p>{note.title}</p>
+                  <hr/>
+                  <p>{note.content}</p>
+                </li>
+            </Link>
+            );
           })}
-        </ul>
+        </ul>      
       </div>
     );
   }
 }
 
-export default NoteContainer;
+export default NoteList;

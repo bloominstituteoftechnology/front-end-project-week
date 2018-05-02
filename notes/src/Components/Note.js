@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+// import axios from 'axios';
 
-export default props => {
-  return(
-    <li className="note">
-      <p>{props.note.title}</p>
-      <hr/>
-      <p>{props.note.content}</p>
-    </li>
-  );
+
+class Note extends Component {
+  state = {
+    note: null,
+  }
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    // axios.get('server')
+    //   .then(response => {
+    //     this.setState({ note: response.data })
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+  }
+  render() {
+    const { note} = this.state;
+    return (
+      <div>
+        <h2>{note.title}</h2>
+        <p>{note.content}</p>
+      </div>
+    );
+  }
 }
+
+export default Note;
