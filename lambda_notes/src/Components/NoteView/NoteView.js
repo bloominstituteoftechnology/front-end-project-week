@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Modal } from 'reactstrap';
 import './NoteView.css';
@@ -16,6 +17,18 @@ class NoteView extends Component {
     this.setState({
       modal: !this.state.modal,
     });
+  }
+
+  deleteNote() {
+    const id = this.props.location.state.currentNote._id;
+    axios.delete('https://peaceful-gorge-48893.herokuapp.com/api/notes/' + id, {
+      headers: {
+        Authorization: localStorage.token,
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
+    this.toggle;
+    this.props.history.push('/list');
   }
 
   render() {
@@ -49,7 +62,7 @@ class NoteView extends Component {
               <div className="modalFooterBtns">
                 <button
                   className="modalBtnDelete btn-danger modalBtn"
-                  onClick={this.toggle}
+                  onClick={this.deleteNote} //add deleteNote() here
                 >
                   Delete
                 </button>{' '}
