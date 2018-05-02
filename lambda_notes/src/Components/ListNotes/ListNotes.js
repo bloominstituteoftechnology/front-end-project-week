@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './ListNotes.css';
 // import NoteView from '../NoteView/NoteView';
 import { Link } from 'react-router-dom';
@@ -7,12 +8,23 @@ class ListNotes extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
     };
   }
 
   componentDidMount() {
-    this.setState({ notes: this.props.notes });
+    // this.setState({ notes: this.props.notes });
+    axios
+      .get('https://peaceful-gorge-48893.herokuapp.com/api/notes', {
+        username: localStorage.username,
+      })
+      .then(response => {
+        console.log(response);
+        // this.setState({notes: response})
+      })
+      .catch(err => {
+        console.log({ Error: `Unable to get notes`, err });
+      });
   }
 
   render() {
@@ -26,7 +38,7 @@ class ListNotes extends Component {
                 <Link
                   to={{
                     pathname: `/notes/${note.id}}`,
-                    state: { currentNote: note }
+                    state: { currentNote: note },
                   }}
                 >
                   <div>
