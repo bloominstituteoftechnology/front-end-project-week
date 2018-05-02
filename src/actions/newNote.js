@@ -8,7 +8,9 @@ export const newNote = data => dispatch => {
   if (data.title) {
     axios
       .post(`${host}/newnote`, data, {
-        headers: { Authorization: localStorage.getItem('Dragons!') },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('Dragons!')}`,
+        },
       })
       .then(response => {
         console.log(response.data);

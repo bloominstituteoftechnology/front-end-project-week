@@ -103,7 +103,7 @@ class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem('Dragons!');
     const headers = {
-      headers: { Authorization: token },
+      headers: { Authorization: `Bearer ${token}` },
     };
     if (token) {
       console.log(token);
