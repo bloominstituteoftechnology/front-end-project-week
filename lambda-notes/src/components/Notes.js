@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
 
 import { getNotes } from '../actions'
 
@@ -10,8 +8,8 @@ class Notes extends Component {
         return (
             <div>
                 <h1> My Notes </h1>
-                {console.log('props', this.props)}
-                    {!this.props.gettingNotes ?
+                {console.log('props', this.props.notes)}
+                    {!this.props.notes ?
                         <h2> loading notes</h2>: null}
                     <ul>
                         {this.props.notes.map((note) =>{
@@ -36,3 +34,4 @@ class Notes extends Component {
     }
     
   export default connect(mapStateToProps, {getNotes})(Notes);
+

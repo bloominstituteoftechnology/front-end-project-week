@@ -30,9 +30,10 @@ export const createNote = (note) => {
     return (dispatch) => {
         axios.post('http://localhost:2005/notes', note)
         .then((response) => {
+            console.log("response", response)
             dispatch({
                 type : CREATE_NOTE,
-                payload: response
+                payload: response.data
             })
         })
         .catch((error) => {
