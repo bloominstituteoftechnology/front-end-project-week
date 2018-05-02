@@ -31,6 +31,8 @@ class Login extends Component {
     this.setState({
       username: '',
       password: '',
+      usernameSignup: '',
+      passwordSignup: '',
     });
   };
 
@@ -106,14 +108,14 @@ class Login extends Component {
               <p>No Account? Sign Up Below:</p>
               <input
                 type="text"
-                name="username"
+                name="usernameSignup"
                 placeholder="Create a Username"
                 onChange={this.handleChange}
                 value={this.state.usernameSignup}
               />
               <input
                 type="password"
-                name="password"
+                name="passwordSignup"
                 placeholder="Create a Password"
                 onChange={this.handleChange}
                 value={this.state.passwordSignup}
