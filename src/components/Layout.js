@@ -11,7 +11,7 @@ import UpdateNote from './UpdateNote/UpdateNote'
 import './Layout.css'
 
 class Layout extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       notes: [],
@@ -28,14 +28,15 @@ class Layout extends Component {
     // this.updateNote = this.updateNote.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getNotes()
   }
 
   getNotes = () => {
-    const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    const serverURL = 'http://localhost:5000'
     axios
-      .get(`${serverURL}/api/todos`)
+      .get(`${serverURL}/api/notes`)
       .then(res => {
         this.setState({ notes: res.data })
       })
@@ -48,9 +49,10 @@ class Layout extends Component {
     const note = {}
     note.title = this.state.title
     note.content = this.state.content
-    const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    const serverURL = 'http://localhost:5000'
     axios
-      .post(`${serverURL}/api/todos`)
+      .post(`${serverURL}/api/notes`, note)
       .then(res => {
         this.setState({
           notes: res.data,
@@ -63,40 +65,48 @@ class Layout extends Component {
   }
 
   deleteNote = id => {
-    const newNotes = this.state.notes.filter(note => note.todoId !== Number(id))
+    // const newNotes = this.state.notes.filter(note => note._id !== Number(id))
+    // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
+    const serverURL = 'http://localhost:5000'
 
-    const serverURL = 'https://calm-citadel-70095.herokuapp.com'
     axios
-      .delete(`${serverURL}/api/todos`)
+      .delete(`${serverURL}/api/notes/${id}`)
       .then(res => {
         this.setState({ notes: res.data })
       })
       .catch(err => console.log(err))
-
-    this.setState({
-      notes: newNotes,
-      title: '',
-      content: '',
-      id: Number('')
-    })
   }
 
   updateNote = id => {
     const updateNote = {}
-    updateNote.id = id
     updateNote.title = this.state.title
     updateNote.content = this.state.content
 
-    let copyNotes = this.state.notes
-    let updateIndex = copyNotes.findIndex(note => note.id == updateNote.id)
-    copyNotes.splice(updateIndex, 1, updateNote)
+    const serverURL = 'http://localhost:5000'
 
-    this.setState({
-      notes: copyNotes,
-      title: '',
-      content: '',
-      id: Number('')
-    })
+    axios
+      .put(`${serverURL}/api/notes/${id}`, updateNote)
+      .then(res => {
+        this.setState({
+          notes: res.data,
+          title: '',
+          content: ''
+        })
+      })
+      .catch(err => console.log(err))
+
+    // let copyNotes = this.state.notes
+    // let updateIndex = copyNotes.findIndex(
+    //   note => note.noteId == updateNote.noteId
+    // )
+    // copyNotes.splice(updateIndex, 1, updateNote)
+
+    // this.setState({
+    //   notes: copyNotes,
+    //   title: '',
+    //   content: '',
+    //   id: Number('')
+    // })
   }
 
   newTitle = event => {
@@ -111,18 +121,18 @@ class Layout extends Component {
     })
   }
 
-  render () {
+  render() {
     return (
-      <div className='Layout'>
+      <div className="Layout">
         <NavBar />
         <Route
           exact
-          path='/'
+          path="/"
           render={() => <ListNotes notes={this.state.notes} />}
         />
 
         <Route
-          path='/create'
+          path="/create"
           render={() =>
             <CreateNote
               newTitle={this.newTitle}
@@ -134,12 +144,12 @@ class Layout extends Component {
         />
 
         <Route
-          path='/view/:id'
+          path="/view/:id"
           render={props =>
             <ViewNote
               note={
                 this.state.notes.filter(
-                  note => note.todoId == props.match.params.id
+                  note => note.noteId == props.match.params.id
                 )[0]
               }
               deleteNote={this.deleteNote}
@@ -147,12 +157,12 @@ class Layout extends Component {
         />
 
         <Route
-          path='/update/:id'
+          path="/update/:id"
           render={props =>
             <UpdateNote
               note={
                 this.state.notes.filter(
-                  note => note.id == props.match.params.id
+                  note => note.noteId == props.match.params.id
                 )[0]
               }
               newTitle={this.newTitle}

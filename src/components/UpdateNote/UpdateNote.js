@@ -4,36 +4,36 @@ import { withRouter } from 'react-router-dom'
 import './UpdateNote.css'
 
 class UpdateNote extends Component {
-  handleUpdate (event) {
+  handleUpdate(event) {
     event.preventDefault()
-    this.props.updateNote(this.props.note.id)
+    this.props.updateNote(this.props.note._id)
     this.props.history.push('/')
   }
 
-  render () {
+  render() {
     return (
-      <div className='UpdateNote'>
-        <form className='update-form' onSubmit={this.handleUpdate.bind(this)}>
-          <label className='input-label'>
-            <h2 className='label-h2'>Edit Note:</h2>
+      <div className="UpdateNote">
+        <form className="update-form" onSubmit={this.handleUpdate.bind(this)}>
+          <label className="input-label">
+            <h2 className="label-h2">Edit Note:</h2>
           </label>
           <input
             required
-            className='input-title'
-            type='text'
-            placeholder='Note Title'
+            className="input-title"
+            type="text"
+            placeholder="Note Title"
             value={this.props.title}
             onChange={this.props.newTitle}
           />
           <textarea
             required
-            className='input-body'
-            type='text'
-            placeholder='Note Content'
+            className="input-body"
+            type="text"
+            placeholder="Note Content"
             value={this.props.content}
             onChange={this.props.newContent}
           />
-          <button className='sav-btn' type='submit'>
+          <button className="sav-btn" type="submit">
             Update
           </button>
         </form>
