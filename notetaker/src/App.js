@@ -16,10 +16,10 @@ class App extends Component {
       <div className="App">
         <Container>
           <Row>
-            <Col sm='4'>
-              Lambda NoteTaker
+            <Col className='Toolbar-left-container' sm='4'>
+              <h1>Lambda NoteTaker</h1>
             </Col>
-            <Col md='8'>
+            <Col className='Notes-col-container' md='8'>
               <Notes {...this.props} />
             </Col>
           </Row>

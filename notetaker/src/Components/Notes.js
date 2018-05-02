@@ -4,22 +4,23 @@ import { Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from '
 
 const Notes = props => {
   return(
-    <div>
-      <Col sm="8">
+    <div className='Notes-container'>
+    <h2 className='Notes-your-notes'>Your Notes:</h2>
       {props.notes.length === 0 ? <p>Fetching Notes...</p> : null }
+      <div className='Notes-card-container'>
         {props.notes.map(note => {
           return (
-            <Card>
-              <CardBody>
-                <CardTitle>{note.title}</CardTitle>
-                <CardSubtitle>{note.content}</CardSubtitle>
-                <CardText>Other Text!?</CardText>
-                {/* <Button onClick={() => props.deleteFriend(friend.id)} >Delete Friend</Button> */}
-              </CardBody>
-            </Card>
+              <Card className='Notes-card' body outline color="secondary">
+                <CardBody>
+                  <CardTitle>{note.title}</CardTitle>
+                  <CardSubtitle>{note.content}</CardSubtitle>
+                  <CardText>Other Text!?</CardText>
+                  {/* <Button onClick={() => props.deleteFriend(friend.id)} >Delete Friend</Button> */}
+                </CardBody>
+              </Card>
           )
         })}
-        </Col>          
+      </div>
     </div>
     )
 }
