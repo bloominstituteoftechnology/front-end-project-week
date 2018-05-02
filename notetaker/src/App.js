@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './App.css';
+import Toolbar from './Components/Toolbar'; 
 import Notes from './Components/Notes';
 import { getNotes } from './Actions';
 import { Container, Row, Col } from 'reactstrap';
@@ -17,7 +18,7 @@ class App extends Component {
         <Container>
           <Row>
             <Col className='Toolbar-left-container' sm='4'>
-              <h1>Lambda NoteTaker</h1>
+              <Toolbar />
             </Col>
             <Col className='Notes-col-container' md='8'>
               <Notes {...this.props} />
