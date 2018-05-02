@@ -42,6 +42,7 @@ export default class EditNote extends Component {
       note.content = this.state.content;
     }
 
+    console.log("EDITNOTE" + {id});
     axios
       .put(`http://localhost:5000/notes/${id}`, note)
       .then(response => {
