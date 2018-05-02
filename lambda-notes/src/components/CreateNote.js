@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import {createNote} from '../actions';
 
@@ -32,6 +33,7 @@ class CreateNote extends Component {
               <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder='Body' />
               <Button onClick={ this.handleSubmit }>Create Note</Button>
             </Form>
+            <Button><Link to='/'>Home</Link></Button>
           </div>
       );
     }

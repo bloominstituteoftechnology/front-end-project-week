@@ -6,7 +6,6 @@ import {
 import Home from './Home';
 import Note from './Note';
 import CreateNote from './CreateNote';
-import Edit from './Edit';
 
 import '../css/App.css';
 
@@ -17,7 +16,7 @@ class App extends Component {
         <div>
           <Route exact path='/' component={ Home }/>
           <Route path='/note' component={ Note } />
-          <Route path='/note/create' component={ CreateNote } />
+          <Route path='/create' component={ CreateNote } />
         </div>
       </Router>
     );

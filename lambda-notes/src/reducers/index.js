@@ -18,11 +18,11 @@ const initialState = {
 const rootReducer = ( intialState, action) => {
     switch(action.type) {
         case( GET_NOTES ):
-            return
+            return Object.assign({}, intialState, { notes: action.payload, gettingNotes: true })
         case( GET_NOTE ):
             return
         case( CREATE_NOTE ):
-            return Object.assign({}, intialState, { notes: action.payload, noteSaved: true, error: null })
+            return Object.assign({}, intialState, { notes: action.payload, })
         case( EDIT_NOTE ):
             return
         case( DELETE_NOTE ):

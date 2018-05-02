@@ -14,7 +14,16 @@ export const getNotes = () => {
 }
 export const getNote = () => {
     return (dispatch) => {
-        
+        axios.get('http://localhost:2005/notes')
+        .then((response) => {
+            dispatch({
+                type: GET_NOTES,
+                payload: response.data
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 export const createNote = (note) => {
@@ -23,13 +32,12 @@ export const createNote = (note) => {
         .then((response) => {
             dispatch({
                 type : CREATE_NOTE,
-                payload: note
+                payload: response
             })
-                })
+        })
         .catch((error) => {
             console.log(error)
         })
-        
     }
 }
 export const editNote = () => {
