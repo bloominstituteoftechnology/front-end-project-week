@@ -19,7 +19,7 @@ class NoteView extends Component {
     });
   }
 
-  deleteNote() {
+  deleteNote = () => {
     const id = this.props.location.state.currentNote._id;
     axios.delete('https://peaceful-gorge-48893.herokuapp.com/api/notes/' + id, {
       headers: {
@@ -29,7 +29,7 @@ class NoteView extends Component {
     });
     this.toggle;
     this.props.history.push('/list');
-  }
+  };
 
   render() {
     return (
