@@ -14,30 +14,18 @@ class SideMenu extends Component {
             Logout
           </Link>
         ) : (
-          <Link
-            to="https://lambdanotes-frontend.herokuapp.com/login"
-            className="create"
-          >
+          <Link to="/login" className="create">
             login
           </Link>
         )}
-        <Link
-          to="https://lambdanotes-frontend.herokuapp.com/signup"
-          className="create"
-        >
+        <Link to="/signup" className="create">
           {' '}
           Register{' '}
         </Link>
-        <Link
-          to="https://lambdanotes-frontend.herokuapp.com/Create"
-          className="create"
-        >
+        <Link to="/Create" className="create">
           + Create New Note
         </Link>
-        <Link
-          to="https://lambdanotes-frontend.herokuapp.com/home"
-          className="create"
-        >
+        <Link to="/home" className="create">
           View Your Notes
         </Link>
       </div>

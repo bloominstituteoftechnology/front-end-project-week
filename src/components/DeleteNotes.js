@@ -55,9 +55,7 @@ class DeleteNotes extends Component {
               delete
             </a>
           </div>
-          {this.state.fireRedirect && (
-            <Redirect to="https://lambdanotes-frontend.herokuapp.com/home" />
-          )}
+          {this.state.fireRedirect && <Redirect to="/home" />}
           <h5 className="noteTitle">
             {!this.state.fireRedirect ? note.title : null}
           </h5>

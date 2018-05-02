@@ -20,11 +20,7 @@ class YourNotes extends Component {
               <form>
                 <Notes key={note._id} note={note} />
                 {note.selected ? (
-                  <Redirect
-                    to={`https://lambdanotes-frontend.herokuapp.com/note/${
-                      note._id
-                    }`}
-                  />
+                  <Redirect to={`/note/${note._id}`} />
                 ) : (
                   console.log('redirect ')
                 )}

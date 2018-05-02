@@ -47,9 +47,7 @@ class CreateNote extends Component {
             Save
           </button>
         </form>
-        {this.state.fireRedirect && (
-          <Redirect to="https://lambdanotes-frontend.herokuapp.com/home" />
-        )}
+        {this.state.fireRedirect && <Redirect to="/home" />}
       </div>
     );
   }
