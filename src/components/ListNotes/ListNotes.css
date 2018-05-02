@@ -1,14 +1,48 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .ListNotes {
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   font-family: Roboto;
+}
+
+.RegLog {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.reg-link {
+  text-decoration: none;
+  color: RGB(74, 74, 74);
+  font-weight: bolder;
+  font-size: 18px;
+  margin-right: 50px;
+}
+
+.reg-link:hover {
+  text-decoration: none;
+  color: RGB(54, 192, 195);
+  font-weight: bolder;
+}
+
+.login-link {
+  text-decoration: none;
+  color: RGB(74, 74, 74);
+  font-weight: bolder;
+  font-size: 18px;
+  margin-right: 50px;
+}
+
+.login-link:hover {
+  text-decoration: none;
+  color: RGB(54, 192, 195);
+  font-weight: bolder;
 }
 
 .list_h2 {
   font-weight: bolder;
   font-family: Roboto;
-  color: RGB(74,74,74);
+  color: RGB(74, 74, 74);
   margin-top: 50px;
   margin-left: 60px;
 }
@@ -34,7 +68,7 @@
   font-weight: bold;
   font-family: Roboto;
   padding-bottom: 5px;
-  border-bottom: 2px solid  gray;
+  border-bottom: 2px solid gray;
 }
 
 .card-link {
@@ -45,6 +79,5 @@
 
 .card-link:hover {
   text-decoration: none;
-  color:  RGB(54, 192, 195);
+  color: RGB(54, 192, 195);
 }
-

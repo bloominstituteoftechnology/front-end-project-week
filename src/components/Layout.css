@@ -1,5 +1,12 @@
 .Layout {
   display: flex;
   border: 1px solid RGB(194, 194, 194);
-  min-height:  100vh;
+  min-height: 100vh;
+}
+
+@media (max-width: 580px) {
+  .Layout {
+    flex-direction: column;
+    min-height: 0;
+  }
 }

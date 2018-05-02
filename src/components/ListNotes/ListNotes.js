@@ -7,6 +7,14 @@ class ListNotes extends Component {
   render(props) {
     return (
       <div className="ListNotes">
+        <section className="RegLog">
+          <Link className="reg-link" to={`/api/register`}>
+            Register
+          </Link>
+          <Link className="login-link" to={`/api/login`}>
+            Login
+          </Link>
+        </section>
         <h2 className="list_h2">Your Notes:</h2>
         <div className="notes">
           {this.props.notes.map(note =>
