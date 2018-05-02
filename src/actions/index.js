@@ -37,7 +37,11 @@ export function addTag(tag, id) {
 
 export const editNote = (id, note) => dispatch => {
   axios
-    .put(`https://floating-mesa-40947.herokuapp.com/api/notes/${id}`, note)
+    .put(
+      `https://floating-mesa-40947.herokuapp.com/api/notes/${id}`,
+      note,
+      config
+    )
     .then(response => {
       dispatch({
         type: EDIT_NOTE,
@@ -48,7 +52,7 @@ export const editNote = (id, note) => dispatch => {
 };
 export const deleteNote = id => dispatch => {
   axios
-    .delete(`https://floating-mesa-40947.herokuapp.com/api/notes/${id}`)
+    .delete(`https://floating-mesa-40947.herokuapp.com/api/notes/${id}`, config)
     .then(response => {
       dispatch({
         type: DELETE_NOTE,
@@ -73,7 +77,7 @@ export const createUser = user => dispatch => {
   dispatch({ type: ADDING });
   console.log(user);
   axios
-    .post("https://floating-mesa-40947.herokuapp.com/api/user", user)
+    .post("https://floating-mesa-40947.herokuapp.com/api/user", user, config)
     .then(response => {
       dispatch({
         type: CREATE_USER,
@@ -98,7 +102,11 @@ export const errorHandler = response => {
 
 export const signIn = user => dispatch => {
   axios
-    .post(`https://floating-mesa-40947.herokuapp.com/api/user/login`, user)
+    .post(
+      `https://floating-mesa-40947.herokuapp.com/api/user/login`,
+      user,
+      config
+    )
     .then(response => {
       if (response.data.success) {
         dispatch({ type: SIGN_IN, user: response.data.user });
