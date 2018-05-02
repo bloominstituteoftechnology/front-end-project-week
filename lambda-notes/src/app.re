@@ -1,3 +1,6 @@
+/* TODO figure out if Add needs to take a tuple? */
+/* TODO rework ToggleVisibility to work with a filter */
+/* TODO break Input into its own file */
 type note = {
   id: int,
   title: string,
@@ -7,8 +10,6 @@ type note = {
 
 type state = {notes: list(note)};
 
-/* TODO figure out if Add needs to take a tuple? */
-/* TODO rework ToggleVisibility to work with a filter */
 type action =
   | Add(string)
   | ToggleVisibility(int)
@@ -24,9 +25,9 @@ let newNote = text => {
 };
 
 let toggleVisibility = (id, notes) =>
-  List.map(n => n.id == id ? {...n, visible: ! n.visible} : n, notes);
+  List.map(n => n.id === id ? {...n, visible: ! n.visible} : n, notes);
 
-let delete = (id, notes) => List.filter(n => n.id != id, notes);
+let delete = (id, notes) => List.filter(n => n.id !== id, notes);
 
 let valueFromEvent = e : string => (
                                      e
@@ -34,19 +35,46 @@ let valueFromEvent = e : string => (
                                      |> ReactDOMRe.domElementToObj
                                    )##value;
 
+module Input = {
+  type state = string;
+  let component = ReasonReact.reducerComponent("Input");
+  let make = (~onSubmit, _children) => {
+    ...component,
+    initialState: () => "",
+    reducer: (newNote, _) => ReasonReact.Update(newNote),
+    render: ({state: note, send}) =>
+      <input
+        className="newNoteContent"
+        value=note
+        _type="text"
+        placeholder="Note Content"
+        onChange=(e => send(valueFromEvent(e)))
+        onKeyDown=(
+          e =>
+            if (ReactEventRe.Keyboard.key(e) == "Enter") {
+              onSubmit(note);
+              send("");
+            }
+        )
+      />,
+  };
+};
+
 let component = ReasonReact.reducerComponent("App");
 
 let make = _children => {
   ...component,
   initialState: () => {notes: []},
-  reducer: (action, state) =>
+  reducer: (action, {notes}) =>
     switch (action) {
-    | Add(text) =>
-      ReasonReact.Update({notes: [newNote(text), ...state.notes]})
+    | Add(text) => ReasonReact.Update({notes: [newNote(text), ...notes]})
     | ToggleVisibility(id) =>
-      ReasonReact.Update({notes: toggleVisibility(id, state.notes)})
-    | Delete(id) => ReasonReact.Update({notes: delete(id, state.notes)})
+      ReasonReact.Update({notes: toggleVisibility(id, notes)})
+    | Delete(id) => ReasonReact.Update({notes: delete(id, notes)})
     },
   render: ({state: {notes}, send}) =>
-    <div className="App"> <h3> (toString("Lambda Notes")) </h3> </div>,
+    <div className="App">
+      <h3> (toString("Lambda Notes")) </h3>
+      <Input onSubmit=(note => send(Add(note))) />
+    </div>,
 };
