@@ -19,10 +19,13 @@ export const getNote = () => {
 }
 export const createNote = (note) => {
     return (dispatch) => {
-        axios.post('http://localhost:2005/note', note)
+        axios.post('http://localhost:2005/notes', note)
         .then((response) => {
-            console.log(response)
-        })
+            dispatch({
+                type : CREATE_NOTE,
+                payload: note
+            })
+                })
         .catch((error) => {
             console.log(error)
         })

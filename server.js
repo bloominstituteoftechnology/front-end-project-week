@@ -27,16 +27,17 @@ server.post('/notes', (req, res) => {
       res
     );
   }
-  const findNoteById = note => {
-    return note.id === id;
-  };
-  if (notes
-.find(findNoteById)) {
-    return sendUserError(
-      `find error`,
-      res
-    );
-  }
+  // const findNoteById = notes => {
+  //   return notes.id == id;
+  // };
+  // console.log(notes.id)
+//   if (notes
+// .find(findNoteById)) {
+//     return sendUserError(
+//       `find error`,
+//       res
+//     );
+//   }
 
   notes
 .push(newNote);
