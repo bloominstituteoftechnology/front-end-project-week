@@ -67,6 +67,7 @@ class Login extends Component {
       .then(response => {
         console.log({ Message: `Successful login: ${response}`, response });
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('id', response.data.id);
         localStorage.setItem('username', username);
         this.clearState();
       })
