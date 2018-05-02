@@ -28,6 +28,23 @@ class ListNotes extends Component {
       .then(response => {
         console.log(response);
         this.setState({ notes: response.data });
+        // const noteArr = response.data;
+        // noteArr.map(note => {
+        //   axios
+        //     .get(
+        //       'https://peaceful-gorge-48893.herokuapp.com/api/note/' + note,
+        //       {
+        //         headers: {
+        //           Authorization: localStorage.token,
+        //           'Access-Control-Allow-Origin': '*',
+        //         },
+        //       }
+        //     )
+        //     .then(this.setState({ ...this.state, notes: response.data }))
+        //     .catch(err => {
+        //       console.log('crazy nested callback hell error', err);
+        //     });
+        // });
       })
       .catch(err => {
         console.log({ Error: `Unable to get notes`, err });
@@ -51,7 +68,7 @@ class ListNotes extends Component {
                   <div>
                     <div className="noteTitle">{note.title}</div>
                     <hr />
-                    <div className="noteContent">{note.text}</div>
+                    <div className="noteContent">{note.content}</div>
                   </div>
                 </Link>
               </div>
