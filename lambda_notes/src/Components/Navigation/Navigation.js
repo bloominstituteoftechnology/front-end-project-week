@@ -15,6 +15,10 @@ class Navigation extends Component {
     this.setState({ notes: this.props.notes });
   }
 
+  logout() {
+    localStorage.clear();
+  }
+
   render() {
     return (
       <div className="navDiv">
@@ -36,7 +40,7 @@ class Navigation extends Component {
             Download CSV
           </Link>
 
-          <Link to="/" className="addNavLinks">
+          <Link to="/" className="addNavLinks" onClick={this.logout}>
             Log Out
           </Link>
         </Nav>
