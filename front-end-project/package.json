@@ -2,6 +2,7 @@
   "name": "front-end-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/csstone12/front-end-project-week",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
@@ -19,6 +20,8 @@
     "start": "react-scripts start",
     "build": "webpack",
     "test": "react-scripts test --env=jsdom",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
