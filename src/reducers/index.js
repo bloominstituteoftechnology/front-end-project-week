@@ -13,7 +13,7 @@ import {
 
 const initialState = {
   user: {},
-  authed: false,
+  authed: localStorage.getItem("notesAuthToken") ? true : false,
   notes: []
 };
 

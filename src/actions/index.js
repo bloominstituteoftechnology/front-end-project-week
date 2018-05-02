@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { sendToken } from "../middleware/sendToken";
+
 export const ADD_NOTE = "ADD_NOTE";
 export const ADDING = "ADDING";
 export const DELETE_NOTE = "DELETE_NOTE";
@@ -12,14 +14,15 @@ export const SIGN_OUT = "SIGN_OUT";
 export const CREATE_USER = "CREATE_USER";
 export const ERROR = "ERROR";
 
-let noteId = 10;
+let token = localStorage.getItem("notesAuthToken");
+let config = { headers: { Authorization: token } };
 
 export const addNote = note => dispatch => {
   dispatch({
     type: ADDING
   });
   axios
-    .post("https://floating-mesa-40947.herokuapp.com/api/notes", note)
+    .post("https://floating-mesa-40947.herokuapp.com/api/notes", config, note)
     .then(response => {
       dispatch({ type: ADD_NOTE, note: response.data });
     });
@@ -57,7 +60,10 @@ export const deleteNote = id => dispatch => {
 export const getNotes = user => dispatch => {
   dispatch({ type: GETTING });
   axios
-    .get(`https://floating-mesa-40947.herokuapp.com/api/notes/user/${user}`)
+    .get(
+      `https://floating-mesa-40947.herokuapp.com/api/notes/user/${user}`,
+      config
+    )
     .then(response => {
       console.log(response);
       dispatch({ type: GOT, notes: response.data });
@@ -96,6 +102,7 @@ export const signIn = user => dispatch => {
     .then(response => {
       if (response.data.success) {
         dispatch({ type: SIGN_IN, user: response.data.user });
+        localStorage.setItem("notesAuthToken", response.data.token);
       } else {
         dispatch({ type: ERROR, error: "Incorrect credentials" });
       }
@@ -103,6 +110,7 @@ export const signIn = user => dispatch => {
 };
 
 export const signOut = () => dispatch => {
+  localStorage.removeItem("notesAuthToken");
   dispatch({
     type: SIGN_OUT
   });
