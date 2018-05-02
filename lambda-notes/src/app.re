@@ -60,6 +60,28 @@ module Input = {
   };
 };
 
+module NoteItem = {
+  let component = ReasonReact.statelessComponent("NoteItem");
+  let make = (~note: note, ~changeVisibility, ~clickDelete, _children) => {
+    ...component,
+    render: _self =>
+      <div className="noteItem" onClick=(_e => changeVisibility())>
+        <input
+          className="checkbox"
+          _type="checkbox"
+          checked=(Js.Boolean.to_js_boolean(note.visible))
+        />
+        <label> (toString(note.text)) </label>
+        <input
+          _type="button"
+          className="deleteNote"
+          value="x"
+          onClick=(_e => clickDelete())
+        />
+      </div>,
+  };
+};
+
 let component = ReasonReact.reducerComponent("App");
 
 let make = _children => {
@@ -76,5 +98,21 @@ let make = _children => {
     <div className="App">
       <h3> (toString("Lambda Notes")) </h3>
       <Input onSubmit=(note => send(Add(note))) />
+      <div className="notesList">
+        (
+          List.map(
+            note =>
+              <NoteItem
+                key=(string_of_int(note.id))
+                note
+                changeVisibility=(() => send(ToggleVisibility(note.id)))
+                clickDelete=(() => send(Delete(note.id)))
+              />,
+            notes,
+          )
+          |> Array.of_list
+          |> ReasonReact.array
+        )
+      </div>
     </div>,
 };
