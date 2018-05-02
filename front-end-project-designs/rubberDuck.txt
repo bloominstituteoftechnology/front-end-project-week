@@ -1,0 +1,12 @@
+I'm obviously going to use a class component
+In my component state I will have an array of objects 
+Each object will be a different note. 
+I will store all of these nodes in redux store.
+I'm going to try to keep everything as simple as possible to make this doable for me 
+Just trying to get it to work.
+
+The default beginning view will be an empty screen with menu options at the top of the screen
+The menu options will be createNew, deleteExisting, and editExisting.
+As new notes are added, they will each display on the view, in expandable list form.
+The view should scroll when multiple notes begin to overflow 
+
