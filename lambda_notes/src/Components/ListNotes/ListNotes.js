@@ -27,7 +27,7 @@ class ListNotes extends Component {
       )
       .then(response => {
         console.log(response);
-        // this.setState({notes: response})
+        this.setState({ notes: response.data });
       })
       .catch(err => {
         console.log({ Error: `Unable to get notes`, err });
