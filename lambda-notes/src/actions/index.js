@@ -9,7 +9,7 @@ export const DELETENOTE = 'DELETENOTE';
 export const NOTE_SAVED = 'NOTE_SAVED';
 export const SAVING_NOTE = 'SAVING_NOTE';
 
-export const addNoteToState = () => {
+export const getNotes = () => {
   return dispatch => {
     dispatch({ type: FETCHING })
     axios.get('http://localhost:5000/api/notes/')
@@ -20,6 +20,20 @@ export const addNoteToState = () => {
       .catch(err => {
         dispatch({ type: ERROR, error: 'ERROR GETTING NOTES'})
       });
+  }
+}
+
+export const createNote = (note) => {
+  return dispatch => {
+      dispatch({ type: SAVING_NOTE });
+      axios
+        .post('http://localhost:5000/api/notes/', note)
+        .then( response => {
+          dispatch({ type: NOTE_SAVED, notes: response.data})
+        })
+        .catch( () => {
+          dispatch({ type: ERROR, error: 'ERROR ADDING NOTE'})
+        })
   }
 }
 

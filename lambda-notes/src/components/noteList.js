@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import {addNoteToState, editNoteOnState, deleteNoteOnState} from '../actions/index';
+import {getNotes, createNote, editNoteOnState, deleteNoteOnState} from '../actions/index';
 // import Note from './note';
 // import axios from 'axios';
 
@@ -12,7 +12,7 @@ class NoteList extends Component {
   }
 
   componentDidMount(){
-    this.props.addNoteToState();
+    this.props.getNotes();
     console.log('notes',this.props.notes);
   }
 
@@ -27,7 +27,7 @@ class NoteList extends Component {
         content: this.state.content,
         id: this.props.notes.length,
     }
-    this.props.addNoteToState(newNote);
+    this.props.createNote(newNote);
     this.setState({title: '', content: ''});
   }
 
@@ -66,4 +66,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps, {addNoteToState, editNoteOnState, deleteNoteOnState})(NoteList);
+export default connect(mapStateToProps, {getNotes, createNote, editNoteOnState, deleteNoteOnState})(NoteList);
