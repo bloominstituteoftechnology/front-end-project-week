@@ -3,7 +3,7 @@ import React from 'react';
 const Notes = props => {
   return(
     <div>
-      {props.fetchingFriends ? <p>Fetching Notes...</p> : null }
+      {props.notes.length === 0 ? <p>Fetching Notes...</p> : null }
       <ul>
         {props.notes.map(note => {
           return (

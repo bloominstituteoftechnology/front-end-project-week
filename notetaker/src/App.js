@@ -21,7 +21,11 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    notes: [{
+      title: 'Note Title',
+      content: 'Note Content',
+      id: 0
+    }]
   }
 } 
 export default connect(mapStateToProps, { getNotes })(App);
