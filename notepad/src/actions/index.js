@@ -31,3 +31,17 @@ export const createNote = (note) => {
             })
     }
 }
+
+export const deleteNote = noteId => {
+    return dispatch => {
+        dispatch({ type: PENDING });
+        axios
+            .delete(`http://localhost:5000/notes/${noteId}`)
+            .then(response => {
+                dispatch({ type: SUCCESS, notes: response.data })
+            })
+            .catch(err =>
+                dispatch({ type: ERROR, error: 'ERROR DELETING FRIEND' })
+            );
+    }
+}

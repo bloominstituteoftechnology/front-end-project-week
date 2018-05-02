@@ -1,6 +1,6 @@
 import React from 'react';
-import { deleteSmurf } from '../actions';
-// import { connect } from 'react-redux';
+import { deleteNote } from '../actions';
+import { connect } from 'react-redux';
 
 
 const Note = (props) => {
@@ -17,7 +17,7 @@ const Note = (props) => {
 
     return (
 
-        <div className={'smurf'}>
+        <div className={'note'}>
             <p>Title: {note.title}</p>
             <p>{note.content}</p>
             <button onClick={editNote}>Edit</button>
@@ -28,4 +28,4 @@ const Note = (props) => {
 }
 
 
-export default Note;
+export default connect(null, { deleteNote })(Note);
