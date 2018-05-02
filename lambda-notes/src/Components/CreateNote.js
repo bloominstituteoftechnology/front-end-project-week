@@ -5,8 +5,8 @@ import Sidebar from './Sidebar';
 import "../Styles/CreateNote.css";
 
 class CreateNote extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: '',
             content: ''

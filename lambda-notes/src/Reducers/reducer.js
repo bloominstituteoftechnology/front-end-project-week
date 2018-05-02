@@ -1,7 +1,12 @@
 import { ADD_NOTE } from '../Actions/index'
 
 const initialState = {
-    notes: [{ title: 'todo1', content: 'jfdlsajads' }, { title: 'todo2', content: 'klfjeiujoisd' }, { title: 'todo3', content: 'dfsdareee' }],
+    notes: [
+        { title: 'Todo 1', content: 'Lorem ipsum dolor sit amet.' }, 
+        { title: 'Todo 2', content: 'consectetur adipiscing elit.' }, 
+        { title: 'Todo 3', content: 'dfsdareee' }
+    ],
+    id: 0,
     edited: false,
     deleted: false
 }

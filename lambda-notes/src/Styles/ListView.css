@@ -1,0 +1,18 @@
+.title {
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+    margin-bottom: -10px;
+}
+
+.post {
+    /* padding: 2%; */
+    background: white;
+    width: 200px;
+    height: 200px;
+    margin: 1%;
+    display: inline-block;
+}
+.title {
+    padding: 1%;
+}

@@ -11,11 +11,11 @@ h4 {
   margin-bottom: 25px;
 }
 .create input {
-  /* display: block;
+  display: block;
   width: 300px;
   padding: 1%;
   margin-bottom: 15px;
-  border: 2px solid #C8C8C8; */
+  border: 2px solid #C8C8C8;
 }
 input:focus {
   outline: none;
