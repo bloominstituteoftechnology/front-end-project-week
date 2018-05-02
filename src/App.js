@@ -107,10 +107,12 @@ class App extends Component {
     };
     if (token) {
       console.log(token);
-      axios.get('http://localhost:5000/api/login', headers).then(response => {
-        console.log(response);
-        // this.props.authorize(user);
-      });
+      axios
+        .get('https://ajlnbe.herokuapp.com/api/login', headers)
+        .then(response => {
+          console.log(response);
+          // this.props.authorize(user);
+        });
     } else {
       console.log('no token');
     }
