@@ -41,10 +41,10 @@ class ListNotes extends Component {
         <div className="notesGrid">
           {this.state.notes.map(note => {
             return (
-              <div className="noteThumbnail" key={note.id}>
+              <div className="noteThumbnail" key={note._id}>
                 <Link
                   to={{
-                    pathname: `/notes/${note.id}}`,
+                    pathname: `/notes/${note._id}}`,
                     state: { currentNote: note },
                   }}
                 >

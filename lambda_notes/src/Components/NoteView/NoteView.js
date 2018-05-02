@@ -7,14 +7,14 @@ class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
     };
     this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
     });
   }
 
@@ -59,7 +59,7 @@ class NoteView extends Component {
           {this.props.location.state.currentNote.title}
         </h3>
         <p className="noteContentView">
-          {this.props.location.state.currentNote.text}
+          {this.props.location.state.currentNote.content}
         </p>
       </div>
     );
