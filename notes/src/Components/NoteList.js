@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 class NoteList extends Component {
   state = {
-    notes: [
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-      {title: 'Note', content: 'placeholder text'},
-    ]
+    notes: [],
+  }
+  componentDidMount() {
+      axios.get('http://localhost:5005/notes')
+      .then(response => {
+        this.setState({ notes: response.data })
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
   render() {
     return (
@@ -23,7 +23,7 @@ class NoteList extends Component {
         <ul className="notes-list">
           {this.state.notes.map((note, i) => {
             return(
-              <Link to={`note/${i}`} className="note">
+              <Link to={`note/${note.id}`} className="note">
                 <li>
                   <p>{note.title}</p>
                   <hr/>
