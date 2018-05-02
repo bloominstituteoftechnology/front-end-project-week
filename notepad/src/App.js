@@ -5,6 +5,7 @@ import { getNotes } from './actions';
 import { connect } from 'react-redux';
 import Notes from './components/Notes';
 import NewNote from './components/NewNote';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
 
 
 
@@ -23,8 +24,7 @@ class App extends Component {
           <button className="Button1">+ Create New Note</button>
         </div>
       </div>
-        <div>Your Notes</div>
-        <Notes />
+        < Route exact path='/notes' component={Notes}/>
       </div>
     );
   }
