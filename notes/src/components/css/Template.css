@@ -1,0 +1,25 @@
+.card {
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.card__ele {
+  border-bottom: 1px solid black;
+}
+
+.card__ele--decore {
+  text-decoration: none;
+  color: black;
+}
+
+.card__ele--title {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.card__ele--content {
+  font-size: 1.5rem;
+  text-overflow: ellipsis;
+}
