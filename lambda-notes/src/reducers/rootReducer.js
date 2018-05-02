@@ -26,6 +26,7 @@ const initialState = {
   puttingNote: false,
   notes: [],
   filtered: [],
+  redirect: false,
   error: null,
 };
 
@@ -41,6 +42,7 @@ export default (state = initialState, action) => {
         notes: action.notes,
         gettingNotes: false,
         error: false,
+        redirect: false,
       };
 
     case QUERY_NOTES:
@@ -54,24 +56,19 @@ export default (state = initialState, action) => {
         ),
       };
 
-    case FETCHING_NOTE_BY_ID:
-      return { ...state, gettingNote: true };
-    case FETCHED_NOTE_BY_ID_ERROR:
-      return { ...state, error: action.errorMessage };
-    case FETCHED_NOTE_BY_ID:
-      return {
-        ...state,
-        note: { ...action.note },
-        gettingNote: false,
-        error: false,
-      };
-
     case PUTTING_NOTE:
-      return { ...state, puttingNote: true };
+      return { ...state, puttingNote: true, redirect: false };
     case PUT_NOTE_ERROR:
       return { ...state, error: action.errorMessage };
     case PUT_NOTE:
-      return { ...state, notes: [...action.note], puttingNote: false };
+      return {
+        ...state,
+        notes: state.notes.map(note => {
+          return note._id === action.id ? action.note : note;
+        }),
+        puttingNote: false,
+        redirect: true,
+      };
 
     case POSTING_NOTE:
       return { ...state, postingNote: true };

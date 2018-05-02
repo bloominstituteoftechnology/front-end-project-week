@@ -25,7 +25,7 @@ class EditNote extends Component {
   render() {
     return (
       <div className="editNote">
-        {this.state.Redirect ? <Redirect to="/" /> : ''}
+        {this.props.redirect ? <Redirect to="/" /> : ''}
         <h2 className="my-3 py-3">Edit Note:</h2>
         <Form className="form">
           <div>
@@ -103,6 +103,7 @@ class EditNote extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    redirect: state.redirect,
   };
 };
 

@@ -48,7 +48,7 @@ export const edit_note = (id, note) => dispatch => {
   axios
     .put(`https://immense-plateau-90586.herokuapp.com/api/notes/${id}`, note)
     .then(response => {
-      dispatch({ type: PUT_NOTE, note: response.data });
+      dispatch({ type: PUT_NOTE, note: response.data, id });
     })
     .catch(err => {
       dispatch({ type: PUT_NOTE_ERROR, errorMessage: 'Error putting note' });

@@ -44,6 +44,7 @@ class ListView extends Component {
   };
 
   render(props) {
+    console.log('notes', this.props.notes);
     return (
       <div className="list-view pl-4 pt-5">
         <Form className="search">
@@ -56,8 +57,7 @@ class ListView extends Component {
           />
         </Form>
         <h2 className="my-3 ml-2">Your Notes:</h2>
-        <div className="list-view-notes" />
-        {this.renderNotes()}
+        <div className="list-view-notes">{this.renderNotes()}</div>
       </div>
     );
   } // end of render()
