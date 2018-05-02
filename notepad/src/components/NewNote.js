@@ -32,21 +32,23 @@ class NewNote extends Component {
     render() {
         return (
             <div>
-
-                <input
-                    placeholder="Title"
-                    onChange={this.handleChange}
-                    value={this.state.title}
-                    name="title"
-                />
-                <input
-                    placeholder="Your Dreams Begin Here"
-                    onChange={this.handleChange}
-                    value={this.state.content}
-                    name="content"
-                />
-
-                <button onClick={this.handleSubmit}>Submit</button>
+                <div>
+                    <input
+                        placeholder="Title"
+                        onChange={this.handleChange}
+                        value={this.state.title}
+                        name="title"
+                    />
+                </div>
+                <div>
+                    <input
+                        placeholder="Your Dreams Begin Here"
+                        onChange={this.handleChange}
+                        value={this.state.content}
+                        name="content"
+                    />
+                </div>
+                <button onClick={this.handleSubmit}>Save</button>
             </div>
 
         )

@@ -20,7 +20,6 @@ render() {
                 <h3>Lambda Notes</h3>
             </div>
             <div>Your Notes</div>
-            <NewNote />
             <div>
                 {this.props.notes.map(note => {
                     return <Note note={note} key={note.id} />

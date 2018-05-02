@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// The Header creates links that can be used to navigate
-// between routes.
+
 const SideBar = () => (
     <header>
         <nav>
@@ -13,8 +12,7 @@ const SideBar = () => (
             </div>
             <div>
                 <button className="Button1">
-                    <Link to='/new'>+ Create New Note
-           </Link>
+                    <Link to='/new'>+ Create New Note</Link>
                 </button>
             </div>
         </nav>

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { getNotes } from './actions';
 import { connect } from 'react-redux';
+import Main from './components/Main';
 import Notes from './components/Notes';
 import NewNote from './components/NewNote';
 import SideBar from './components/SideBar';
@@ -22,10 +23,7 @@ class App extends Component {
           <SideBar/>
         </div>
       </div>
-        < Route exact path='/notes' component={Notes}/>
-        < Route path='/new' component={NewNote} />
-
-        
+          <Main/>
       </div>
     );
   }
