@@ -17,9 +17,9 @@ class EditNote extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const currentState = { 
-            title: this.state.title,
-            content: this.state.content,
-            tags: this.state.tags
+            "title": this.state.title,
+            "content": this.state.content,
+            "tags": this.state.tags
         }
         this.props.edit(currentState, this.props.match.params.id);
         this.setState({ title: '', content: ''})

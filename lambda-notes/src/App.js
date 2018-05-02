@@ -16,7 +16,7 @@ class App extends Component {
 }
 
   handleAdd = (note) => {
-    axios.post('https://dry-brushlands-44600.herokuapp.com/api/notes/5ae89a20b285c6487b112267', note)
+    axios.post(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}`, note)
     .then(response => {
       const newState = this.state.notes
       newState.push(response.data);
@@ -32,7 +32,7 @@ class App extends Component {
     newState[currentIndex] = updatedNote;
     this.setState({ notes: newState })
 
-    axios.put(`https://dry-brushlands-44600.herokuapp.com/api/notes/5ae89a20b285c6487b112267/${num}`, note)
+    axios.put(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}/${num}`, note)
     .then(response => {
       console.log('Updated note saved!');
       })
@@ -45,7 +45,7 @@ class App extends Component {
     newState.splice(currentIndex, 1)
     this.setState({ notes: newState })
 
-    axios.delete(`https://dry-brushlands-44600.herokuapp.com/api/notes/5ae89a20b285c6487b112267/${num}`)
+    axios.delete(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}/${num}`)
     .then(response => {
       console.log('Deleted note');
       })
@@ -65,13 +65,10 @@ class App extends Component {
 
   handleLogin(user, pass, cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/login', { "username": user, "password": pass })
-    .then(success => {
-      axios.get('https://dry-brushlands-44600.herokuapp.com/api/notes/5ae89a20b285c6487b112267')
-      .then(res => {
-        this.setState({ isAuthenticated: true, notes: res.data.notes})
-        cb(success.data.success);
-      })
-      .catch(err => cb(err));
+    .then(response => {
+        this.setState({ isAuthenticated: true, notes: response.data.user.notes, id: response.data.user._id})
+        localStorage.setItem("isAuthenticated", "true")
+        cb(response.data.success);
     })
     .catch(err => console.log(err));
   }
@@ -79,41 +76,35 @@ class App extends Component {
   handleSignup(user, pass, cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users', { "username": user, "password": pass })
     .then(success => {
-        this.setState({ isAuthenticated: true })
+        this.setState({ isAuthenticated: true, id: res.data._id })
+        localStorage.setItem("isAuthenticated", "true")
         cb();
       })
     .catch(err => console.log(err));
   }
 
   handleSignout(cb) {
-    this.setState({isAuthenticated: false});
-    //clear localstorage
-    cb();
+    axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/logout')
+      .then(res => {
+        this.setState({ notes: [], id: 0, isAuthenticated: false })
+        localStorage.clear();
+        cb();
+      })
+      .catch(err => console.log(err));
   }
 
   componentWillMount() {
-    // const memory = Array.from(Object.values(localStorage));
-    // if (memory.length > 0) {
-    // const last = memory.length - 1;
-    // const memoryID = Number(JSON.parse(memory[last]).id) + 1;
-    // const memoryNotes = [];
-    // for (let i = 0; i < memory.length; i++) {
-    //   memoryNotes.push(JSON.parse(memory[i]))
-    // }
-    // console.log(memoryNotes)
-    // this.setState({ notes: memoryNotes, id: memoryID })
-    // }
-
-    // check if saved login in localstorage
-    // if so this.setState authenticated:true
+    if(localStorage.isAuthenticated === "true") {
     //play animation
-
-    if (this.state.isAuthenticated) {
-      axios.get('https://dry-brushlands-44600.herokuapp.com/api/notes/5ae89a20b285c6487b112267')
-      .then(res => {
-        //route to /notes
-        this.setState({ notes: res.data.notes})
-      })
+      axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
+      .then(resp => {
+        console.log(res)
+        axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp}`)
+          .then(res => {
+            this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id})
+          })
+          .catch(err => console.log(err));
+        })
       .catch(err => console.log(err));
     }
   }
