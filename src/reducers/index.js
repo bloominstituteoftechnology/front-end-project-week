@@ -12,8 +12,8 @@ import {
 } from "../actions";
 
 const initialState = {
-  user: {},
-  authed: localStorage.getItem("notesAuthToken") ? true : false,
+  user: "",
+  authed: false,
   notes: []
 };
 

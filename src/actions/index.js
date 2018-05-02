@@ -22,7 +22,7 @@ export const addNote = note => dispatch => {
     type: ADDING
   });
   axios
-    .post("https://floating-mesa-40947.herokuapp.com/api/notes", config, note)
+    .post("https://floating-mesa-40947.herokuapp.com/api/notes", note, config)
     .then(response => {
       dispatch({ type: ADD_NOTE, note: response.data });
     });

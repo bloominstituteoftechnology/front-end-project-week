@@ -9,13 +9,13 @@ function mapStateToProps(state) {
 
 class User extends Component {
   render() {
-    console.log("User: ", this.props.user);
+    console.log("User: ", this.props);
     return (
       <Row className="d-flex justify-content-end">
         {this.props.authed ? (
           <Fragment>
             {/* You are signed in. as: {this.props.user.email} */}
-            You are signed in as {this.props.user}
+            You are signed in as {this.props.user}.
             <Button className="ml-3" onClick={this.props.signOut}>
               LogOut
             </Button>
