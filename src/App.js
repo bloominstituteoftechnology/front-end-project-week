@@ -12,6 +12,8 @@ import {
 } from 'reactstrap';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+// import axios from 'axios';
+
 import { createUser } from './actions/createUser';
 import { login } from './actions/login';
 
@@ -96,6 +98,31 @@ class App extends Component {
         </div>
       </Route>
     );
+  }
+
+  componentDidMount() {
+    // const token = localStorage.getItem('Dragons!');
+    // const headers = {
+    //   headers: { authorization: token },
+    // };
+    // if (token) {
+    //   console.log(token);
+    //   axios
+    //     .get('https://ajlnbe.herokuapp.com/api/login', headers)
+    //     .then(response => {
+    //       console.log(response);
+    //       // this.props.authorize(user);
+    //     });
+    // } else {
+    //   console.log('no token');
+    // }
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.loggedIn && this.props.loggedIn !== props.loggedIn) {
+      console.log('in if');
+      props.history.push('/notelist');
+    }
   }
 
   signInClicked = event => {
