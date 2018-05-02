@@ -53,7 +53,7 @@ render(){
         <div class='container'>
   <div class = 'button3'>
      <h1>Lambda Notes</h1>
-   <button><Link to='/Data:id'> View Your Notes</Link></button><br/>
+   <button><Link to='/Data'> View Your Notes</Link></button><br/>
    <button><Link to='/CreateNote'> +Create your Notes</Link></button>
    </div>
         <div className='view'>

@@ -6,11 +6,12 @@ import EditNote from './EditNote';
 import { Route} from 'react-router-dom';
 import Data from './Data'
 class App extends Component {
+    
   render() {
     return (
      
       <div>
-      <Route path="/Data" component={Data}/>
+      <Route path="/Data" render={(props) =><Data {...props} />}/>
       <Route path="/CreateNote" component={CreateNote}/>
       <EditNote />
       </div>
