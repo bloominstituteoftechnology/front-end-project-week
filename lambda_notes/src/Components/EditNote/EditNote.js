@@ -23,12 +23,16 @@ class EditNote extends Component {
     const content = this.state.noteContent;
     const id = this.props.location.state.currentNote._id;
     axios
-      .put('https://peaceful-gorge-48893.herokuapp.com/api/notes/' + id, {
-        headers: {
-          Authorization: localStorage.token,
-          'Access-Control-Allow-Origin': '*',
-        },
-      })
+      .put(
+        'https://peaceful-gorge-48893.herokuapp.com/api/notes/' + id,
+        { title, content },
+        {
+          headers: {
+            Authorization: localStorage.token,
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      )
       .then(response => {
         console.log({
           Message: `Do you feel the need? The need for speed!?`,
