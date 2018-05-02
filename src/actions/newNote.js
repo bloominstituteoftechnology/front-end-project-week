@@ -17,7 +17,10 @@ export const newNote = data => dispatch => {
           payload: response.data.notes,
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        dispatch({ type: 'ERROR', payload: err });
+      });
   } else {
     alert('Title required to add a new note!');
   }

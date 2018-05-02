@@ -77,7 +77,7 @@ class NewNote extends Component {
       },
       // redirect: true
     });
-    // this.props.history.push('/notelist');
+    this.props.history.push('/notelist');
   };
 }
 

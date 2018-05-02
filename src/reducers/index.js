@@ -89,9 +89,9 @@ export default (state = initState, action) => {
     case ADD_NEW_NOTE:
       return { ...state, notes: action.payload };
     case EDIT_NOTE:
-      let notes = state.notes.filter(item => item.id !== action.payload.id);
-      notes.unshift(action.payload);
-      return { ...state, notes };
+      // let notes = state.notes.filter(item => item.id !== action.payload.id);
+      // notes.unshift(action.payload);
+      return { ...state, notes: action.payload };
     case DELETE_NOTE:
       let newNotes = state.notes.filter(item => item.id !== action.payload);
       return { ...state, notes: newNotes };
