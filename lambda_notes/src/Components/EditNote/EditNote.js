@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input } from 'reactstrap';
+import axios from 'axios';
 import './EditNote.css';
 
 class EditNote extends Component {
@@ -7,7 +8,7 @@ class EditNote extends Component {
     super();
     this.state = {
       noteTitle: '',
-      noteContent: ''
+      noteContent: '',
     };
   }
 
@@ -17,7 +18,29 @@ class EditNote extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({ noteTitle: '', noteContent: '' });
+    // this.setState({ noteTitle: '', noteContent: '' });
+    const title = this.state.noteTitle;
+    const content = this.state.noteContent;
+    axios
+      .put(
+        'https://peaceful-gorge-48893.herokuapp.com/api/notes/' +
+          { currentNote: this.props.location.state.currentNote._id },
+        {
+          headers: {
+            Authorization: localStorage.token,
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      )
+      .then(response => {
+        console.log({
+          Message: `Do you feel the need? The need for speed!?`,
+          response,
+        });
+      })
+      .catch(err => {
+        console.log({ Error: `Highway to the Danger Zone`, err });
+      });
     this.props.history.push('/');
   };
 
@@ -29,14 +52,14 @@ class EditNote extends Component {
           <Input
             type="text"
             name="noteTitle"
-            placeholder="Note Title"
+            placeholder={this.props.location.state.currentNote.title}
             className="titleDiv"
             onChange={this.handleChange}
           />
           <Input
             type="textarea"
             name="noteContent"
-            placeholder="Note Content"
+            placeholder={this.props.location.state.currentNote.content}
             className="contentDiv"
             onChange={this.handleChange}
           />

@@ -44,7 +44,7 @@ class ListNotes extends Component {
               <div className="noteThumbnail" key={note._id}>
                 <Link
                   to={{
-                    pathname: `/notes/${note._id}}`,
+                    pathname: `/notes/${note._id}`,
                     state: { currentNote: note },
                   }}
                 >

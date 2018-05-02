@@ -23,7 +23,12 @@ class NoteView extends Component {
       <div className="noteDiv">
         <div className="noteViewNav">
           <Link
-            to={`/notes/${this.props.location.state.currentNote.id}/EditNote`}
+            to={{
+              pathname: `/notes/${
+                this.props.location.state.currentNote._id
+              }/EditNote`,
+              state: { currentNote: this.props.location.state.currentNote },
+            }}
             className="editLink"
           >
             edit
