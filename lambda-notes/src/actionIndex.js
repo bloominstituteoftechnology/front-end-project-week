@@ -27,6 +27,6 @@ export const markComplete = index => {
 export const deleteNote = index => {
     return {
         type: DELETE_NOTE,
-        note
+        index
     }
 }
