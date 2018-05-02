@@ -1,6 +1,6 @@
 import  React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Row, Col} from 'reactstrap';
+import { Container, Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { deleteNote } from '../actions';
 import DeleteNote from './deleteNote'

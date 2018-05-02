@@ -37,7 +37,7 @@ class NoteForm extends Component {
         this.setState({
             newNote:{title:'',note:'',}
         });
-        this.props.history.push('/');
+        this.props.history.push('/displayNotes');
     };
 
     componentDidMount() {

@@ -31,7 +31,7 @@ class DeleteNote extends Component {
           <ModalFooter className='d-flex justify-content-center'>
             <Button className='w-50' color="danger" onClick={() => {
                 this.props.deleteNote(this.props.id);
-                this.props.history.push("/");
+                this.props.history.push("/displayNotes");
             }}>Delete</Button>{' '}
             <Button className='w-50' color="primary" onClick={this.toggle}>No</Button>
           </ModalFooter>
