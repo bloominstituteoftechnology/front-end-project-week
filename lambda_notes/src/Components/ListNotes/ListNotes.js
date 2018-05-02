@@ -15,9 +15,18 @@ class ListNotes extends Component {
   componentDidMount() {
     // this.setState({ notes: this.props.notes });
     axios
-      .get('https://peaceful-gorge-48893.herokuapp.com/api/notes', {
-        id: localStorage.id,
-      })
+      .get(
+        'https://peaceful-gorge-48893.herokuapp.com/api/notes',
+        {
+          id: localStorage.id,
+        },
+        {
+          headers: {
+            Authorization: localStorage.token,
+            'Access-Control-Allow-Origin': '*',
+          },
+        }
+      )
       .then(response => {
         console.log(response);
         // this.setState({notes: response})
