@@ -1,19 +1,25 @@
 import React from 'react';
+import "../App.css";
+import { Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 const Notes = props => {
   return(
     <div>
+      <Col sm="8">
       {props.notes.length === 0 ? <p>Fetching Notes...</p> : null }
-      <ul>
         {props.notes.map(note => {
           return (
-            <li>
-              {note.title}: EMAIL: {note.content}, ID: {note.id}
-              {/* <button onClick={() => props.deleteFriend(friend.id)}>Delete</button> */}
-            </li>
+            <Card>
+              <CardBody>
+                <CardTitle>{note.title}</CardTitle>
+                <CardSubtitle>{note.content}</CardSubtitle>
+                <CardText>Other Text!?</CardText>
+                {/* <Button onClick={() => props.deleteFriend(friend.id)} >Delete Friend</Button> */}
+              </CardBody>
+            </Card>
           )
-        })}           
-      </ul>
+        })}
+        </Col>          
     </div>
     )
 }

@@ -8,6 +8,7 @@ import logger from 'redux-logger';
 import './index.css';
 import { notesReducer } from './Reducers'
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const middleware = applyMiddleware(thunk, logger) 
 const store = createStore(notesReducer, middleware)
