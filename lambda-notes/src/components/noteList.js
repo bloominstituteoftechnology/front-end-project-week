@@ -6,31 +6,40 @@ import {addNoteToState, editNoteOnState, deleteNoteOnState} from '../actions/ind
 
 class NoteList extends Component {
   state = {
-    value: '',
     title: '',
     content: '',
-    id: '',
+    id: 0,
   }
 
   handleChange = (event) => {
-    this.setState( {[event.target.value]: event.target.value} )
+    this.setState( {[event.target.name]: event.target.value} )
   }
 
-  handleSubmit = () => {
-    const note = { 
-        value: this.state.value,
-        id: this.props.todos.length,
+  addNote = (e) => {
+    e.preventDefault();
+    const newNote = { 
+        title: this.state.title,
+        content: this.state.content,
+        id: this.props.notes.length,
     }
-    this.props.addtodo(note);
-    this.setState({value: ''});
+    this.props.addNoteToState(newNote);
+    this.setState({title: '', content: ''});
   }
 
   render() {
     return (
       <div>
+        {console.log(this.state)}
+        {console.log(this.props.notes)}
         {this.props.notes.map( (note, index) => {
-          return <div key={index}>{note}</div>
+          return<div key={index}>{note.title}</div>
         })}
+
+        <form>
+          <input type='text' name='title' placeholder='Title' onChange={this.handleChange} value={this.state.title}/>
+          <textarea name='content' rows="10" cols="30" placeholder='Content' onChange={this.handleChange} value={this.state.content}/>
+          <button onClick={this.addNote}>Save</button>
+        </form>
       </div>
     )
   }
