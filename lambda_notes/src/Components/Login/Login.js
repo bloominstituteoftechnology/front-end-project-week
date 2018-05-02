@@ -11,6 +11,8 @@ class Login extends Component {
       modal: true,
       username: '',
       password: '',
+      usernameSignup: '',
+      passwordSignup: '',
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -34,8 +36,8 @@ class Login extends Component {
 
   signupUser = event => {
     event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
+    const username = this.state.usernameSignup;
+    const password = this.state.passwordSignup;
     this.props.history.push('/');
     axios
       .post('https://peaceful-gorge-48893.herokuapp.com/api/signup', {
@@ -107,14 +109,14 @@ class Login extends Component {
                 name="username"
                 placeholder="Create a Username"
                 onChange={this.handleChange}
-                value={this.state.username}
+                value={this.state.usernameSignup}
               />
               <input
                 type="password"
                 name="password"
                 placeholder="Create a Password"
                 onChange={this.handleChange}
-                value={this.state.password}
+                value={this.state.passwordSignup}
               />
               <button>Sign Up</button>
             </form>
