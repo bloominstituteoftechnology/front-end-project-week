@@ -1,7 +1,6 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
-const ROOT_URL =
-  'mongodb://test:test@ds163769.mlab.com:63769/lambda-notes-project';
+const ROOT_URL = 'http://localhost:5000';
 
 export const NOTE_ERROR = 'NOTE_ERROR';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
