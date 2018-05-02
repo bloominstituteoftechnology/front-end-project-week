@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import CreateNote from './Components/CreateNote';
 
 class App extends Component {

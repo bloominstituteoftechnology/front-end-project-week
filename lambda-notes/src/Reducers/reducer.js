@@ -1,20 +1,20 @@
 import { ADD_NOTE } from '../Actions/index'
 
 const initialState = {
-    notes: [],
+    notes: [{ title: 'todo1', content: 'jfdlsajads' }, { title: 'todo2', content: 'klfjeiujoisd' }, { title: 'todo3', content: 'dfsdareee' }],
     edited: false,
     deleted: false
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(initialState)
+   
     switch(action.type) {
         case ADD_NOTE:  
-            return Object.assign({}, state, { notes: action.data });
+        console.log("STATE", state);
+        return Object.assign({}, state, { notes: state.notes.concat(action.notes) });
         default:
             return state
     }
 }
-
 
 export default reducer;

@@ -1,0 +1,37 @@
+body {
+  background: #DFDFDF;
+}
+.create {
+  margin: 3%;
+  display: flex;
+}
+h4 {
+  font-weight: bold;
+  color: #504f4f;
+  margin-bottom: 25px;
+}
+.create input {
+  /* display: block;
+  width: 300px;
+  padding: 1%;
+  margin-bottom: 15px;
+  border: 2px solid #C8C8C8; */
+}
+input:focus {
+  outline: none;
+}
+textarea:focus {
+  outline: none;
+}
+textarea {
+  border: 2px solid #C8C8C8;
+  padding: 1%;
+}
+.submit {
+  display: block;
+  background: #27b8c4;
+  padding: 1%;
+  width: 200px;
+  color: white;
+  font-weight: bold;
+}
