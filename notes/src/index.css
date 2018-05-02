@@ -56,3 +56,29 @@ body {
   width: 250px;
   height: 250px;
 }
+
+.create-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.form-title {
+  margin-bottom: 20px;
+  height: 30px;
+  width: 70%;
+}
+
+.form-content {
+  margin-bottom: 10px;
+  width: 100%;
+}
