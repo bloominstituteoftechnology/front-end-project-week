@@ -67,7 +67,7 @@ class App extends Component {
         <Route exact path="/CreateNote" render={props => <CreateNote {...props} add={this.handleAdd} />} />
         <Route exact path="/notes/:id" render={props => <Note {...props} delete={this.handleDelete} />} />
         <Route exact path="/notes/:id/EditNote" render={props => <EditNote {...props} edit={this.handleEdit} />} />
-        <Route exact path="/Registration" render={props => <Registration />} />
+        <Route exact path="/Register" render={props => <Registration />} />
       </div>
     );
   }
