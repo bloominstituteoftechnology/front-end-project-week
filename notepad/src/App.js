@@ -5,6 +5,7 @@ import { getNotes } from './actions';
 import { connect } from 'react-redux';
 import Notes from './components/Notes';
 import NewNote from './components/NewNote';
+import SideBar from './components/SideBar';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
 
 
@@ -18,13 +19,13 @@ class App extends Component {
       <div>
         <h3>Lambda Notes</h3>
         <div>
-          <button className="Button1">View Your Notes</button>
-        </div>
-        <div>
-          <button className="Button1">+ Create New Note</button>
+          <SideBar/>
         </div>
       </div>
         < Route exact path='/notes' component={Notes}/>
+        < Route path='/new' component={NewNote} />
+
+        
       </div>
     );
   }

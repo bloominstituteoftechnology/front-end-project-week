@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { createNote } from '../actions';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
+
 
 
 
@@ -30,6 +32,7 @@ class NewNote extends Component {
     render() {
         return (
             <div>
+
                 <input
                     placeholder="Title"
                     onChange={this.handleChange}
