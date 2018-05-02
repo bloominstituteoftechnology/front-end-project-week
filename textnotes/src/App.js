@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from "react-router-dom";
 
+import CreateContainer from './Components/CreateContainer';
 import './App.css';
 import NotesContainer from './Components/NotesContainer';
-import SideBar from './Components/SideBar';
 import { getNotes } from './Action';
 
 class App extends Component {
@@ -15,12 +16,15 @@ class App extends Component {
     console.log("state", this.props.notes);
     return (
       <div className="container">
-        <SideBar />
-
+        <h1>Your Notes: </h1>
         <nav>
           <ul>
             {this.props.notes.map(note => {
-                return <NotesContainer key={note.id} note={note}/>;
+                return(
+                  <Link to={`/Note/${note.id}`}> 
+                    <NotesContainer key={note.id} note={note}/>
+                  </Link>
+                ); 
             })}
           </ul>
         </nav>

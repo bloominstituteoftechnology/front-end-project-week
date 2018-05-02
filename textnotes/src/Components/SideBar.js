@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import '../App.css';
 
 class SideBar extends Component {
+
     render() {
         return (
             <div className="sidebar">
@@ -9,9 +12,14 @@ class SideBar extends Component {
 
                 {/* link to routing */}
                 {/* add onClick features that re-direct */}
-                
-                <button className="button">View Your Notes</button>
-                <button className="button">+ Create New Note</button>
+
+                <Link to="/">
+                    <button className="button">View Your Notes</button>
+                </Link>
+
+                <Link to="/CreateNote">
+                    <button className="button">+ Create New Note</button>
+                </Link>
             </div>
         );
     }
