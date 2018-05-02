@@ -53,14 +53,14 @@ class EditNote extends Component {
           <Input
             type="text"
             name="noteTitle"
-            placeholder={this.props.location.state.currentNote.title}
+            value={this.props.location.state.currentNote.title}
             className="titleDiv"
             onChange={this.handleChange}
           />
           <Input
             type="textarea"
             name="noteContent"
-            placeholder={this.props.location.state.currentNote.content}
+            value={this.props.location.state.currentNote.content}
             className="contentDiv"
             onChange={this.handleChange}
           />
