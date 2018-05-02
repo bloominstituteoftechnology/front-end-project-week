@@ -23,11 +23,11 @@ class NoteView extends Component {
     const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
     const path =
       // production server
-      PRODUCTION_SERVER_ID ||
+      // PRODUCTION_SERVER_ID ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
-      .get(path)
+      .get(path, { withCredentials: false })
       .then(response => {
         this.setState({ note: response.data });
       })
@@ -50,14 +50,18 @@ class NoteView extends Component {
     const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
     const path =
       // production server
-      PRODUCTION_SERVER_ID ||
+      // PRODUCTION_SERVER_ID ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
-      .delete(path, {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .delete(
+        path,
+        { withCredentials: false },
+        {
+          title: this.state.title,
+          content: this.state.content
+        }
+      )
       .then(response => {
         this.setState({ fireRedirect: true });
         this.setState({ note: response.data });
@@ -74,7 +78,7 @@ class NoteView extends Component {
     return (
       <div className="container">
         <div className="modify-buttons">
-          <Link to={`/editnote/${this.state.note._id}`}>
+          <Link to={`/users/editnote/${this.state.note._id}`}>
             <h5 className="edit-button">edit</h5>
           </Link>
           <div>
@@ -110,7 +114,7 @@ class NoteView extends Component {
           <h4 className="heading">{this.state.note.title}</h4>
           <p className="content">{this.state.note.content}</p>
         </div>
-        {fireRedirect && <Redirect to={from || '/'} />}
+        {fireRedirect && <Redirect to={from || '/users/listview'} />}
       </div>
     );
   }

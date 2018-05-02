@@ -13,3 +13,7 @@ h5,
 h6 {
   font-family: 'Roboto', sans-serif;
 }
+
+ul {
+  padding: 0;
+}

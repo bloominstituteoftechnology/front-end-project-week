@@ -14,10 +14,10 @@ const LeftColumn = () => {
           <strong>Notes</strong>
         </h1>
       </div>
-      <Link to="/" className="btn btn-block">
+      <Link to="/users/listview" className="btn btn-block">
         View Your Notes
       </Link>
-      <Link to="/createnote" className="btn btn-block">
+      <Link to="/users/createnote" className="btn btn-block">
         + Create New Note
       </Link>
     </div>

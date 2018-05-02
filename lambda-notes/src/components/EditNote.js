@@ -21,14 +21,18 @@ export default class EditNote extends Component {
     const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
     const path =
       // production server
-      PRODUCTION_SERVER_ID ||
+      // PRODUCTION_SERVER_ID ||
       // dev server
       `http://localhost:5050/api/notes/${id}`;
     axios
-      .put(path, {
-        title: this.state.title,
-        content: this.state.content
-      })
+      .put(
+        path,
+        {
+          title: this.state.title,
+          content: this.state.content
+        },
+        { withCredentials: false }
+      )
       .then(response => {
         console.log(response);
         this.setState({ title: '', content: '' });
@@ -78,7 +82,7 @@ export default class EditNote extends Component {
             Update
           </Button>
         </Form>
-        {fireRedirect && <Redirect to={from || '/'} />}
+        {fireRedirect && <Redirect to={from || '/users/listview'} />}
       </div>
     );
   }

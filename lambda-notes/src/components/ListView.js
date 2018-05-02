@@ -41,11 +41,11 @@ export default class ListView extends Component {
       'https://lambda-notes-backend-server.herokuapp.com/api/notes';
     const path =
       // production server
-      PRODUCTION_SERVER ||
+      // PRODUCTION_SERVER ||
       // dev server
       'http://localhost:5050/api/notes';
     axios
-      .get(path)
+      .get(path, { withCredentials: false })
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -64,7 +64,7 @@ export default class ListView extends Component {
         <div className="d-flex align-items-baseline mb-3">
           <h4>Your Notes:</h4>
           <nav className="navbar navbar-light">
-            <form className="form-inline">
+            <div className="form-inline">
               <input
                 className="form-control mr-sm-2"
                 type="search"
@@ -76,7 +76,7 @@ export default class ListView extends Component {
               <button className="btn my-2 my-sm-0 search-button" type="submit">
                 Search
               </button>
-            </form>
+            </div>
           </nav>
         </div>
         <div className="row">
@@ -84,7 +84,7 @@ export default class ListView extends Component {
             return (
               <div className="col-lg-4 col-md-8 col-sm-12" key={note._id}>
                 <Link
-                  to={`/noteview/${note._id}`}
+                  to={`/users/noteview/${note._id}`}
                   style={{ textDecoration: 'none' }}
                   className="card"
                 >

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Redirect } from 'react-router';
 import './CreateNote.css';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default class CreateNote extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class CreateNote extends Component {
       'https://lambda-notes-backend-server.herokuapp.com/api/notes';
     const path =
       // production server
-      PRODUCTION_SERVER ||
+      // PRODUCTION_SERVER ||
       // dev server
       'http://localhost:5050/api/notes';
     e.preventDefault();
@@ -57,7 +58,7 @@ export default class CreateNote extends Component {
               value={this.state.title}
             />
             <Input
-              className="input-content"
+              className="input-content mr-5"
               type="textarea"
               name="content"
               placeholder="Note Content"
@@ -72,7 +73,7 @@ export default class CreateNote extends Component {
             Save
           </Button>
         </Form>
-        {fireRedirect && <Redirect to={from || '/'} />}
+        {fireRedirect && <Redirect to={from || '/users/listview'} />}
       </div>
     );
   }
