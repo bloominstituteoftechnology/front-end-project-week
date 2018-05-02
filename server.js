@@ -10,27 +10,27 @@ let notes = [
   {
     id: 1,
     title: 'Jorge',
-    content: 32,
+    content: 'Hello, Having fun yet?',
   },
   {
     id: 2,
     title: 'Neto',
-    content: 45,
+    content: 'The brother',
   },
   {
     id: 3,
-    title: 'Ryan',
-    content: 15,
+    title: 'Nancy',
+    content: 'The lady friend',
   },
   {
     id: 4,
-    title: 'Sean',
-    content: 35,
+    title: 'Hilda',
+    content: 'My mama',
   },
   {
     id: 5,
-    title: 'Michelle',
-    content: 67,
+    title: 'Jorge',
+    content: 'The O.G.',
   },
 ];
 

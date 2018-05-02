@@ -1,11 +1,34 @@
 // import actions
-import {ADDNOTE, EDITNOTE, DELETENOTE} from '../actions/index';
+import {ADDNOTE, EDITNOTE, DELETENOTE, FETCHING, FETCHED, ERROR, SAVING_NOTE, NOTE_SAVED,} from '../actions/index';
 
-export default (notes = [], action) => {
+const initialState = {
+  fetchingNotes: false,
+  notesFetched: false,
+  notesSaved: false,
+  savingNotes: false,
+  // updatingNote: false,
+  // noteUpdated: false,
+  // deletingNote: false,
+  // noteDeleted: false,
+  notes: [],
+  error: null
+}
+
+export default (state = initialState, action) => {
   switch(action.type) {
-    case ADDNOTE:
-      return notes.concat(action.payload);
+    case FETCHING:
+      return Object.assign({}, state, {fetchingNotes: true});
+    case FETCHED:
+      return Object.assign({}, state, {fetchingNotes: false, notesFetched: true,
+        notes: state.notes.concat(action.notes)});
+    case SAVING_NOTE:
+      return Object.assign({}, state, {savingNotes: true});
+    case NOTE_SAVED:    
+      return Object.assign({}, state, {savingnotes: false, notesSaved: true,
+        notesFetched: true, notes: action.notes});
+    case ERROR:
+      return Object.assign({}, state, { fetchingNotes: false, error: action.error});
     default:
-      return notes;
+      return state;
   }
 }

@@ -11,6 +11,11 @@ class NoteList extends Component {
     id: 0,
   }
 
+  componentDidMount(){
+    this.props.addNoteToState();
+    console.log('notes',this.props.notes);
+  }
+
   handleChange = (event) => {
     this.setState( {[event.target.name]: event.target.value} )
   }
@@ -31,8 +36,16 @@ class NoteList extends Component {
       <div>
         {console.log(this.state)}
         {console.log(this.props.notes)}
+        <h1>{}</h1>
         {this.props.notes.map( (note, index) => {
-          return<div key={index}>{note.title}</div>
+          return(
+            <div key={index}>
+              <ul>
+                <li>{note.title}</li>
+                <li>{note.content}</li>
+              </ul>
+            </div>
+          )
         })}
 
         <form>
@@ -45,8 +58,12 @@ class NoteList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {notes: state};
+const mapStateToProps = state => {
+  return {
+    fetchingNotes: state.fetchingNotes,
+    notesFetched: state.notesFetched,
+    notes: state.notes,
+  };
 }
 
 export default connect(mapStateToProps, {addNoteToState, editNoteOnState, deleteNoteOnState})(NoteList);
