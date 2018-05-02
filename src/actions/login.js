@@ -3,7 +3,7 @@ import axios from 'axios';
 export const LOGIN = 'LOGIN';
 export const ERROR = 'ERROR';
 
-const host = 'https://ajlnbe.herokuapp.com/api/login';
+const host = 'http://localhost:5000/api/login';
 
 export const login = data => dispatch => {
   axios

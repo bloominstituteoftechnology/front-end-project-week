@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import axios from 'axios';
+import axios from 'axios';
 
 import { createUser } from './actions/createUser';
 import { login } from './actions/login';
@@ -101,21 +101,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // const token = localStorage.getItem('Dragons!');
-    // const headers = {
-    //   headers: { authorization: token },
-    // };
-    // if (token) {
-    //   console.log(token);
-    //   axios
-    //     .get('https://ajlnbe.herokuapp.com/api/login', headers)
-    //     .then(response => {
-    //       console.log(response);
-    //       // this.props.authorize(user);
-    //     });
-    // } else {
-    //   console.log('no token');
-    // }
+    const token = localStorage.getItem('Dragons!');
+    const headers = {
+      headers: { Authorization: token },
+    };
+    if (token) {
+      console.log(token);
+      axios.get('http://localhost:5000/api/login', headers).then(response => {
+        console.log(response);
+        // this.props.authorize(user);
+      });
+    } else {
+      console.log('no token');
+    }
   }
 
   componentWillReceiveProps(props) {
@@ -133,7 +131,10 @@ class App extends Component {
       username: this.state.username,
       password: this.state.password,
     });
-
+    this.setState({
+      username: '',
+      password: '',
+    });
     // let attempted = false;
     // this.props.users.forEach(user => {
     //   if (
@@ -163,6 +164,10 @@ class App extends Component {
     event.preventDefault();
 
     this.props.createUser(this.state);
+    this.setState({
+      username: '',
+      password: '',
+    });
 
     // let userExists = false;
     // console.log('create clicked', this.props);
