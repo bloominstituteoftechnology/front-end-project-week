@@ -100,29 +100,36 @@ class App extends Component {
 
   signInClicked = event => {
     event.preventDefault();
-    let attempted = false;
-    this.props.users.forEach(user => {
-      if (
-        user.username === this.state.username &&
-        user.password === this.state.password
-      ) {
-        alert('Login successful');
-        this.props.login(user);
-        this.setState({
-          username: '',
-          password: '',
-        });
-        attempted = true;
-        this.props.history.push('/notelist');
-      } else if (
-        user.username === this.state.username &&
-        user.password !== this.state.password
-      ) {
-        alert('incorrect Password');
-        attempted = true;
-      }
+    console.log('signin clicked');
+
+    this.props.login({
+      username: this.state.username,
+      password: this.state.password,
     });
-    if (!attempted) alert('User does not exist.');
+
+    // let attempted = false;
+    // this.props.users.forEach(user => {
+    //   if (
+    //     user.username === this.state.username &&
+    //     user.password === this.state.password
+    //   ) {
+    //     alert('Login successful');
+    //     this.props.login(user);
+    //     this.setState({
+    //       username: '',
+    //       password: '',
+    //     });
+    //     attempted = true;
+    //     this.props.history.push('/notelist');
+    //   } else if (
+    //     user.username === this.state.username &&
+    //     user.password !== this.state.password
+    //   ) {
+    //     alert('incorrect Password');
+    //     attempted = true;
+    //   }
+    // });
+    // if (!attempted) alert('User does not exist.');
   };
 
   createUserClicked = event => {

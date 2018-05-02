@@ -2,8 +2,7 @@
 
 export const SIGN_OUT = 'SIGN_OUT';
 
-export const signOut = () => {
-  return {
-    type: SIGN_OUT,
-  };
+export const signOut = () => dispatch => {
+  localStorage.clear();
+  dispatch({ type: SIGN_OUT });
 };
