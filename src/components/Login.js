@@ -17,7 +17,10 @@ class Login extends Component {
   };
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.signIn(this.state.username, this.state.password);
+    this.props.signIn({
+      username: this.state.username,
+      password: this.state.password
+    });
 
     this.props.history.push("/");
   }

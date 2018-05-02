@@ -92,7 +92,7 @@ export const errorHandler = response => {
 
 export const signIn = (username, pw) => dispatch => {
   axios
-    .get(`https://floating-mesa-40947.herokuapp.com/api/user/name/${username}`)
+    .post(`https://floating-mesa-40947.herokuapp.com/api/user/login`, user)
     .then(response => {
       if (response.data.password === pw) {
         dispatch({ type: SIGN_IN, user: response.data });
