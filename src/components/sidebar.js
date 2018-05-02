@@ -14,6 +14,10 @@ const SideBar = props => {
       <Link to="/CreateNote">
         <div className="sidebar-buttons">+ Create New Note</div>
       </Link>
+
+      <Link to="/Registration">
+        <div className="sidebar-buttons">Register</div>
+      </Link>
     </div>
   );
 };
