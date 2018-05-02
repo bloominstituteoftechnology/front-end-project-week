@@ -90,12 +90,12 @@ export const errorHandler = response => {
   };
 };
 
-export const signIn = (username, pw) => dispatch => {
+export const signIn = user => dispatch => {
   axios
     .post(`https://floating-mesa-40947.herokuapp.com/api/user/login`, user)
     .then(response => {
-      if (response.data.password === pw) {
-        dispatch({ type: SIGN_IN, user: response.data });
+      if (response.data.success) {
+        dispatch({ type: SIGN_IN, user: response.data.user });
       } else {
         dispatch({ type: ERROR, error: "Incorrect credentials" });
       }
