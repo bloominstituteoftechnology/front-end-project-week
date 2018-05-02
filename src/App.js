@@ -134,29 +134,32 @@ class App extends Component {
 
   createUserClicked = event => {
     event.preventDefault();
-    let userExists = false;
-    console.log('create clicked', this.props);
-    this.props.users.forEach(user => {
-      if (user.username === this.state.username) {
-        userExists = true;
-        console.log(userExists);
-      }
-    });
-    if (userExists === false) {
-      if (this.state.password.length < 8) {
-        alert('Password must be at least 8 characters.');
-      } else {
-        alert('Account created successfully!');
-        this.props.createUser(this.state);
-        this.setState({
-          username: '',
-          password: '',
-        });
-        this.props.history.push('/notelist');
-      }
-    } else {
-      alert('UserName already exists!  Please use another UserName');
-    }
+
+    this.props.createUser(this.state);
+
+    // let userExists = false;
+    // console.log('create clicked', this.props);
+    // this.props.users.forEach(user => {
+    //   if (user.username === this.state.username) {
+    //     userExists = true;
+    //     console.log(userExists);
+    //   }
+    // });
+    // if (userExists === false) {
+    //   if (this.state.password.length < 8) {
+    //     alert('Password must be at least 8 characters.');
+    //   } else {
+    //     alert('Account created successfully!');
+    //     this.props.createUser(this.state);
+    //     this.setState({
+    //       username: '',
+    //       password: '',
+    //     });
+    //     this.props.history.push('/notelist');
+    //   }
+    // } else {
+    //   alert('UserName already exists!  Please use another UserName');
+    // }
   };
 
   handleUsernameChange = event => {

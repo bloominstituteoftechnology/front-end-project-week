@@ -6,7 +6,6 @@ import { SIGN_OUT } from '../actions/signOut';
 import { CREATE_USER } from '../actions/createUser';
 import { LOGIN } from '../actions/login';
 import { ERROR } from '../actions/login';
-import axios from 'axios';
 
 const initState = {
   notes: [],
@@ -122,12 +121,10 @@ export default (state = initState, action) => {
         // users: newUsersToSave,
       };
     case CREATE_USER:
-      const existingUsers = state.users;
-      existingUsers.push(action.payload);
       return {
         ...state,
         activeUser: action.payload,
-        users: existingUsers,
+        notes: action.payload.notes,
         loggedIn: true,
       };
     case ERROR:

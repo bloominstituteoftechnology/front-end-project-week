@@ -17,13 +17,13 @@ class NotesList extends Component {
           className="d-flex justify-content-between"
         >
           <Search search={this.filterTheNotes} />
-          {/* <CSVLink
+          <CSVLink
             data={this.props.notes}
             filename={'user_notes_csv'}
             target="_self"
           >
             Download notes as CSV File
-          </CSVLink> */}
+          </CSVLink>
         </div>
         <h3 className="mt-5 ml-3">Your Notes:</h3>
         <div className="d-flex flex-wrap justify-content-around">
@@ -38,7 +38,7 @@ class NotesList extends Component {
   }
   componentDidMount() {
     this.setState({ filteredNotes: this.props.notes });
-    this.filterTheNotes('');
+    // this.filterTheNotes('');
   }
   componen;
 
