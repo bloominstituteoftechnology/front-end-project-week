@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 // import axios from 'axios';
 import { connect } from 'react-redux';
 
 import './App.css';
-import Toolbar from './Components/Toolbar'; 
+import Toolbar from './Components/Toolbar';
+import CreateNote from './Components/CreateNote';
 import Notes from './Components/Notes';
 import { getNotes } from './Actions';
+
 import { Container, Row, Col } from 'reactstrap';
 
 class App extends Component { 
@@ -18,11 +21,15 @@ class App extends Component {
         <Container>
           <Row>
             <Col className='Toolbar-left-container' sm='4'>
-              <Toolbar />
+              <Route to='/' component={Toolbar} />
             </Col>
             <Col className='Notes-col-container' md='8'>
-              <Notes {...this.props} />
+              <Route to='/notes' render={ () =>
+                <Notes {...this.props} /> } />
             </Col>
+          </Row>
+          <Row>
+            <CreateNote />
           </Row>
         </Container>
       </div>

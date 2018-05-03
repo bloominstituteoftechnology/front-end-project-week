@@ -24,7 +24,7 @@
 
 .Toolbar-left-container {
   border: solid 1px rgb(34, 34, 34);
-  height: 1000px;
+  height: 750px;
   padding: 2% 2%;
   background-color: gray;
 } 
@@ -32,18 +32,19 @@
 .Notes-col-container {
   border: solid 1px rgb(34, 34, 34);
   text-align: left;
-  height: 1000px;
+  height: 750px;
   padding: 7% 2%;
   background-color: lightgray;
 }
 
 .Notes-card-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .Notes-card {
-  width: 33%;
-  margin: 2% 2%;
+  width: 25%;
+  margin: 1% 1%;
 }
 
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import "../App.css";
 import { Col, Row, Button } from 'reactstrap';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import CreateNote from './CreateNote';
 
 const Toolbar = props => {
   return(
@@ -14,7 +15,7 @@ const Toolbar = props => {
       </Row>
       <Row>
         <Button>
-          +Add New Note
+          <Link to="/add" component={CreateNote}>+Add New Note</Link>
         </Button>
       </Row>
 

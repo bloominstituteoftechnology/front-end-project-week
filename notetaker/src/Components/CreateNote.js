@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { addFriend } from '../Actions';
+import { addNote } from '../Actions';
 import { connect } from 'react-redux';
 
-class CreateFriendForm extends Component {
+class CreateNote extends Component {
     state = {
-        name: '',
-        age: '',
-        email: ''
+        title: '',
+        content: ''
     }
 
     handleChange = (e) => {
@@ -14,24 +13,22 @@ class CreateFriendForm extends Component {
     }
 
     handleAdd = () => {
-        this.props.addFriend(this.state);
+        this.props.addNote(this.state);
         this.setState({
-            name: '',
-            age: '',
-            email: ''
+            title: '',
+            content: ''
         })
     }
 
     render() {
         return (
             <div>
-                <input placeholder='Name' value={this.state.name} onChange={this.handleChange} name='name' />
-                <input placeholder='Age' value={this.state.age} onChange={this.handleChange} name='age' />
-                <input placeholder='Email' value={this.state.email} onChange={this.handleChange} name='email' />
-                <button onClick={this.handleAdd}>Add Friend</button>
+                <input placeholder='Title' value={this.state.title} onChange={this.handleChange} name='title' />
+                <input placeholder='Content' value={this.state.content} onChange={this.handleChange} name='content' />
+                <button onClick={this.handleAdd}>Add Note</button>
             </div>
         )
     }
 }
 
-export default connect(null, { addFriend })(CreateFriendForm);
+export default connect(null, { addNote })(CreateNote);
