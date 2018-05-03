@@ -22,9 +22,9 @@ function mapStateToProps(state) {
 
 class NotesList extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.getNotes(this.props.user);
-    }, 100);
+    // setTimeout(() => {
+    this.props.getNotes(this.props.user);
+    // }, 100);
   }
   render() {
     console.log("Notes List: ", this.props.notes);

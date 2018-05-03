@@ -10,6 +10,7 @@ import thunk from "redux-thunk";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
+import jwtDecode from "jwt-decode";
 
 const persistConfig = {
   key: "root",
@@ -18,7 +19,21 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducer);
 
-let store = createStore(persistedReducer, applyMiddleware(thunk));
+const checkTokenExpiration = store => next => action => {
+  const token = localStorage.getItem("notesAuthToken");
+  if (token) {
+    console.log("TOKEN: ", jwtDecode(token));
+    if (jwtDecode(token).exp < Date.now() / 1000) {
+      localStorage.clear();
+      next(action);
+    }
+  }
+  next(action);
+};
+let store = createStore(
+  persistedReducer,
+  applyMiddleware(thunk, checkTokenExpiration)
+);
 let persistor = persistStore(store);
 
 ReactDOM.render(
