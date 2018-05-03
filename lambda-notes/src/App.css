@@ -1,7 +1,7 @@
 .App {
   width: 99.8%;
   max-width: 1640px;
-  height: 780px;
+  height: 740px;
   display: flex;
   text-align: center;
   margin: 0.1%;
@@ -255,4 +255,8 @@ a:hover {
   align-content: center;
   flex-direction: column;
   min-height: 700px;
+}
+
+.Tags {
+  display: flex;
 }
