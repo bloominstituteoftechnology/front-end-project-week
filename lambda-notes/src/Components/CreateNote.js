@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import { addNote } from '../Actions/index';
 import { connect } from 'react-redux';
+
 import Sidebar from './Sidebar';
+import { addNote } from '../Actions/index';
 import "../Styles/CreateNote.css";
 
 class CreateNote extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+   
+        state = {
             title: '',
             content: '',
-            id: '',
-            edited: false,
-            deleted: false
+            // id: '',
+            // edited: false,
+            // deleted: false
         }
-    }
+    
     componentDidMount() {
         // this.props.getNotes();
     }
@@ -26,7 +26,7 @@ class CreateNote extends Component {
         const newNote = { 
             title: this.state.title,
             content: this.state.content,
-            id: this.state.id,
+            id: this.props.notes.length,
             edited: false,
             deleted: false
         };
@@ -52,12 +52,12 @@ class CreateNote extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        notes: state.notes,
+        notes: state
         // id: state.id,
         // deleted: state.deleted,
         // edited: state.edited
-    }
+    };
 }
 export default connect(mapStateToProps, { addNote })(CreateNote);

@@ -13,16 +13,16 @@ const initialState = {
 
 }
 
-const reducer = (state = initialState, action) => {
+const reducer = (notes = [], action) => {
 
     switch (action.type) {
         case GET_NOTES:
             return action.payload;
         case ADD_NOTE:
-            console.log("STATE", state);
-            return initialState.notes.concat(action.payload);
+            // console.log("STATE", notes);
+            return notes.concat(action.payload);
         default:
-            return state
+            return notes
     }
 }
 
