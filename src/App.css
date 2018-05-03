@@ -1,0 +1,64 @@
+.App.container-fluid {
+  height: 100%;
+}
+.row.app-wrapper {
+  min-height: 100vh;
+}
+.leftSide {
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  min-height: 100%;
+}
+.rightSide {
+  min-height: 100%;
+}
+
+.note {
+  height: 250px;
+}
+.card-body {
+  overflow: hidden;
+}
+
+a.card-link {
+  text-decoration: none;
+  color: black;
+}
+a.card-link:hover {
+  color: black;
+}
+button.btn {
+  background: #2bc1c4;
+  font-weight: bold;
+  border-radius: 0;
+  font-size: 1.1rem;
+  border: 1px solid grey;
+}
+
+button.btn.deleteBtn {
+  background: red;
+}
+button.btn.deleteBtn:hover {
+  background: darkred;
+}
+/* Header text color: 4a4a4a */
+.header {
+  color: #4a4a4a;
+  font-weight: bold;
+  line-height: 85%;
+}
+/* Button Color: 2bc1c4 */
+.header-link {
+  text-decoration: underline;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+.header-link:hover {
+  color: black;
+}
+
+h5.card-title {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
