@@ -42,10 +42,16 @@ class Login extends Component {
     const password = this.state.passwordSignup;
     this.props.history.push('/');
     axios
-      .post('https://peaceful-gorge-48893.herokuapp.com/api/signup', {
-        username,
-        password,
-      })
+      .post(
+        'https://peaceful-gorge-48893.herokuapp.com/api/signup',
+        {
+          username,
+          password,
+        },
+        {
+          'Access-Control-Allow-Origin': '*',
+        }
+      )
       .then(response => {
         console.log({ Message: `Successful signup: ${response}` });
         this.clearState();
