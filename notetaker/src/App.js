@@ -32,18 +32,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: [
-    {
-      title: 'Note Title',
-      content: 'Note Content',
-      id: 0
-    },
-    {
-      title: 'Note Title',
-      content: 'Note Content',
-      id: 1
-    },
-  ]
+    notes: state.notes,
   }
 } 
 export default connect(mapStateToProps, { getNotes })(App);
