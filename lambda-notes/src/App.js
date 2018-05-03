@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import ListView from './components/ListView';
 import NavBar from './components/NavBar';
+import Login from './components/Login';
 import AddNote from './components/AddNote';
 import EditNote from './components/EditNote';
 import Note from './components/Note';
@@ -15,7 +16,7 @@ class App extends Component {
     notes: [],
     id: 0,
     username: false,
-    isAuthenticated: false
+    isAuthenticated: true
 }
 
   handleAdd = (note) => {
@@ -91,12 +92,12 @@ class App extends Component {
       .then(res => {
         this.setState({ notes: [], id: 0, isAuthenticated: false, username: false })
         localStorage.clear();
-        //cb();
+        cb();
       })
       .catch(err => console.log(err));
   }
 
-  componentWillMount() {
+  isLoggedIn() {
     if(localStorage.isAuthenticated === "true") {
     //play animation
       axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
@@ -125,7 +126,9 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signup={this.handleSignup} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />} />
+        <PrivateRoute path="/notes"  component={NavBar} export={this.handleExport} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />
+        <PrivateRoute path="/AddNote"  component={NavBar} export={this.handleExport} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />
+        <Route exact path="/"  render={(props) => <Login {...props} isLoggedIn={this.isLoggedIn} login={this.handleLogin} signup={this.handleSignup} />} />
         <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
         <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
         <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />
