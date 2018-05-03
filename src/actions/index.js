@@ -1,6 +1,6 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
-const ROOT_URL = 'http://localhost:5000';
+const ROOT_URL = 'https://lambda-notes-backend.herokuapp.com';
 
 export const NOTE_ERROR = 'NOTE_ERROR';
 export const UPDATE_SELECTED = 'UPDATE_SELECTED';
