@@ -25,7 +25,7 @@ const addUser ={
     password: event.target.value
 }
 
-axios.post('https://backend-project-week.herokuapp.com', {
+axios.post('https://backend-project-week.herokuapp.com/api/user', {
   email:this.state.email,
   password:this.state.password,
 })
