@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import './App.css';
 import Toolbar from './Components/Toolbar';
 import CreateNote from './Components/CreateNote';
+import ViewNote from './Components/ViewNote';
 import Notes from './Components/Notes';
 import { getNotes, addNote } from './Actions';
 
@@ -27,6 +28,8 @@ class App extends Component {
               <Route exact path='/' render={ () =>
                 <Notes {...this.props} /> } />
               <Route path='/add' component={CreateNote} />
+              <Route path={`/notes/:id`} render={ () =>
+                <ViewNote {...this.props} /> } />
             </Col>
           </Row>
         </Container>

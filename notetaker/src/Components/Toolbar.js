@@ -10,7 +10,7 @@ const Toolbar = props => {
       <h1>Lambda NoteTaker</h1>
       <Row>
         <Button>
-          View Your Notes
+        <Link to="/" >View Your Notes</Link>
         </Button>
       </Row>
       <Row>
