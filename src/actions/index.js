@@ -1,6 +1,6 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
-const ROOT_URL = "http://localhost:5000/";
+const ROOT_URL = "https://agile-chamber-48093.herokuapp.com/";
 
 export const CHECK_IF_AUTHENTICATED = 'CHECK_IF_AUTHENTICATED';
 
