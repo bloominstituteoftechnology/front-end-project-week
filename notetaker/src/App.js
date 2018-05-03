@@ -7,7 +7,7 @@ import './App.css';
 import Toolbar from './Components/Toolbar';
 import CreateNote from './Components/CreateNote';
 import Notes from './Components/Notes';
-import { getNotes } from './Actions';
+import { getNotes, addNote } from './Actions';
 
 import { Container, Row, Col } from 'reactstrap';
 
@@ -24,12 +24,10 @@ class App extends Component {
               <Route to='/' component={Toolbar} />
             </Col>
             <Col className='Notes-col-container' md='8'>
-              <Route to='/notes' render={ () =>
+              <Route exact path='/' render={ () =>
                 <Notes {...this.props} /> } />
+              <Route path='/add' component={CreateNote} />
             </Col>
-          </Row>
-          <Row>
-            <CreateNote />
           </Row>
         </Container>
       </div>
