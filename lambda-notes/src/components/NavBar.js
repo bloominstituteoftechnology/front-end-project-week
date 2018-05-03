@@ -8,7 +8,8 @@ export default class NavBar extends React.Component {
         modal: false,
         username: '',
     };
-            
+
+    
     handleLogin = (e) => {
         const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
         const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
@@ -16,8 +17,9 @@ export default class NavBar extends React.Component {
             //start animation
             this.props.login(username, password, (success) => {
                 if (success) {
-                this.setState({ modal: false, username: username });
-                this.props.history.push('/notes');
+                    const name = username.charAt(0).toUpperCase() + username.slice(1);
+                    this.setState({ modal: false, username: name });
+                    this.props.history.push('/notes');
                 }
                 else {
                     console.log('e')
@@ -30,13 +32,14 @@ export default class NavBar extends React.Component {
             if (!password) e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
         }
     };
-
+    
     handleCreate = (e) => {
         const username = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value;
         const password = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].value;
         if (username && password) {
             this.props.signup(username, password, () => {
-                this.setState({ modal: false, username: username });
+                const name = username.charAt(0).toUpperCase() + username.slice(1);
+                this.setState({ modal: false, username: name });
                 this.props.history.push('/notes');
             });
         }
@@ -45,26 +48,26 @@ export default class NavBar extends React.Component {
             if (!password) e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
         }
     };
-
+    
     toggle = () => {
         this.setState({ modal: !this.state.modal });
     }
-
+    
     handleSignout = () => {
         this.props.signout(() => this.props.history.push("/"));
     }
-
+    
     render() {
         this.toggle = this.toggle.bind(this);
         const AuthButton = withRouter(
             ({ history }) =>
-                this.props.isAuth ? (
+            this.props.isAuth ? (
                 <div>
-                    Welcome {this.state.username}{" "}
+                    Welcome {this.state.username || this.props.username}{" "}
                     <button onClick={this.handleSignout} className="ExtraButton"> Sign out </button>
                 </div>
                 ) : (
-                <div>
+                    <div>
                     <button onClick={this.toggle} className="ExtraButton">Log in</button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} centered>
                             <ModalHeader toggle={this.toggle}>
@@ -87,9 +90,9 @@ export default class NavBar extends React.Component {
                 </div>
                 )
             );
-
-        return (
-            <div className="NavBar">
+            
+            return (
+                <div className="NavBar">
                 <AuthButton />
                 <h1 className="NavBar__Title">Lambda Notes</h1>
                 <Link to="/notes"><div className="NavBar__Button">View Your Notes</div></Link>
@@ -98,4 +101,5 @@ export default class NavBar extends React.Component {
             </div>
         )
     };
+
 }

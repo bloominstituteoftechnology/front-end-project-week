@@ -8,10 +8,13 @@ import EditNote from './components/EditNote';
 import Note from './components/Note';
 import { Route, Redirect } from "react-router-dom";
 
+axios.defaults.withCredentials = true;
+
 class App extends Component {
   state = {
     notes: [],
     id: 0,
+    username: false,
     isAuthenticated: false
 }
 
@@ -66,8 +69,8 @@ class App extends Component {
   handleLogin(user, pass, cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/login', { "username": user, "password": pass })
     .then(response => {
-        this.setState({ isAuthenticated: true, notes: response.data.user.notes, id: response.data.user._id})
         localStorage.setItem("isAuthenticated", "true")
+        this.setState({ isAuthenticated: true, notes: response.data.user.notes, id: response.data.user._id})
         cb(response.data.success);
     })
     .catch(err => console.log(err));
@@ -75,8 +78,8 @@ class App extends Component {
 
   handleSignup(user, pass, cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users', { "username": user, "password": pass })
-    .then(success => {
-        this.setState({ isAuthenticated: true, id: res.data._id })
+    .then(response => {
+        this.setState({ isAuthenticated: true, id: response.data._id })
         localStorage.setItem("isAuthenticated", "true")
         cb();
       })
@@ -86,9 +89,9 @@ class App extends Component {
   handleSignout(cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/logout')
       .then(res => {
-        this.setState({ notes: [], id: 0, isAuthenticated: false })
+        this.setState({ notes: [], id: 0, isAuthenticated: false, username: false })
         localStorage.clear();
-        cb();
+        //cb();
       })
       .catch(err => console.log(err));
   }
@@ -98,10 +101,10 @@ class App extends Component {
     //play animation
       axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
       .then(resp => {
-        console.log(res)
-        axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp}`)
+        axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data.id}`)
           .then(res => {
-            this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id})
+            const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
+            this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
           })
           .catch(err => console.log(err));
         })
@@ -118,7 +121,7 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signup={this.handleSignup} signout={this.handleSignout} isAuth={this.state.isAuthenticated} />} />
+        <Route path="/"  render={(props) => <NavBar {...props} export={this.handleExport} login={this.handleLogin} signup={this.handleSignup} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />} />
         <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
         <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
         <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />
