@@ -24,7 +24,7 @@ const addNote ={
     Title: event.target.value,
     Body: event.target.value
 }
-axios.post('https://backend-project-week.herokuapp.com', {
+axios.post('https://backend-project-week.herokuapp.com/api/note', {
   Title:this.state.Title,
   Body:this.state.Body,
 })
@@ -60,7 +60,7 @@ axios.post('https://backend-project-week.herokuapp.com', {
             value = {this.state.Title} onChange ={this.handleChangeTitle} /><br />
               <textarea value={this.state.Body} placeholder = 'Enter your notes'
               onChange={this.handleChange} cols={60} rows={30} />
-            <button onClick={this.onClick}>Save </button>
+            <button onClick={this.handleSubmit}>Save </button>
           </form>
           
           </div>
