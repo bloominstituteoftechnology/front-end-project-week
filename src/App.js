@@ -28,7 +28,7 @@ const routes = [
     main: () => <SignOut />
   },
   {
-    path: "/createNote",
+    path: "/:uid/createNote",
     sidebar: () => <Button>+ Create New Note</Button>,
     main: () => (
       <Container>
@@ -63,10 +63,10 @@ class App extends Component {
               <Col sm={3} className="leftSide position-fixed">
                 <Fragment>
                   <h1 className="header my-4">Lambda Notes</h1>
-                  <Link to="/:id/displayNotes">
+                  <Link to="/:uid/displayNotes">
                     <Button className="w-100 my-2 p-2">View Your Notes</Button>
                   </Link>
-                  <Link to="/createNote">
+                  <Link to="/:uid/createNote">
                     <Button className="w-100 my-2 p-2">
                       + Create New Note
                     </Button>

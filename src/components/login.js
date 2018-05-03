@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { login } from "../actions/index.js";
+import { withRouter } from "react-router-dom";
 
 class SignIn extends Component {
   state = {
@@ -68,4 +69,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { login })(SignIn);
+export default withRouter(connect(mapStateToProps, { login })(SignIn));
