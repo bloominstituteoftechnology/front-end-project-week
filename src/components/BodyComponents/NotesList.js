@@ -41,7 +41,12 @@ class NotesList extends Component {
     this.setState({ filteredNotes: this.props.notes });
     // this.filterTheNotes('');
   }
-  componen;
+
+  componentWillReceiveProps(props) {
+    if (props.notes && this.state.filteredNotes !== props.notes) {
+      this.setState({ filteredNotes: props.notes });
+    }
+  }
 
   filterTheNotes = searchFor => {
     const filteredNotes = this.props.notes.filter(
