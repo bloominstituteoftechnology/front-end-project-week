@@ -1,4 +1,11 @@
-.App {
+.NoteTitle {
+  text-align: left
+}
+.NoteText {
+  text-align: left
+}
+  
+  .App {
   text-align: center;
 }
 

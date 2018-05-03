@@ -4,18 +4,19 @@ import { Link } from 'react-router-dom'
 
 
 
+
 export default class noteListView extends React.Component {
     render() {
       return (
-        <Container fluid>
+        <div>
+        <Container className='SideNavBar'fluid>
           <Row>
-            <Col lg="3">Lambda Notes</Col>
 
-            <Col lg="9">Your Notes</Col>
           </Row>  
           
           
         </Container>
+        </div>
       );
     }
   }
