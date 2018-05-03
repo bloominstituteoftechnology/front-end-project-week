@@ -9,6 +9,9 @@ const buttonStyles = {
   backgroundColor: '#2BC1C5',
   marginTop: '15px',
 };
+const userStyles = {
+  marginTop: '25px',
+};
 
 class NavPannel extends Component {
   render() {
@@ -16,6 +19,7 @@ class NavPannel extends Component {
       <Col>
         <h1 className="text-justify">Lambda</h1>
         <h1 className="text-justify">Notes</h1>
+
         <Nav vertical>
           <NavItem>
             <Link to="/notelist">
@@ -40,6 +44,12 @@ class NavPannel extends Component {
             </Button>
           </NavItem>
         </Nav>
+        {this.props.activeUser && this.props.activeUser.username ? (
+          <div style={userStyles}>
+            <h3>User:</h3>
+            <h5>{this.props.activeUser.username}</h5>
+          </div>
+        ) : null}
       </Col>
     );
   }
@@ -48,6 +58,7 @@ class NavPannel extends Component {
 const mapStateToProps = state => {
   return {
     loggedIn: state.loggedIn,
+    activeUser: state.activeUser,
   };
 };
 
