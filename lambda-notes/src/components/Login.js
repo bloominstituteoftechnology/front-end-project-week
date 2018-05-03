@@ -81,7 +81,7 @@ class Login extends Component {
         <div>
           <Button className="Button" onClick={this.handleLogin}>Log In</Button>
         </div>
-        <div style={{position: "relative", top: "168px"}}>
+        <div style={{position: "relative", top: "108px"}}>
             <div style={ { fontSize: "12px" } }>Don't have an account?</div>
             <Button onClick={this.handleCreate}>Create Account</Button>
           </div>

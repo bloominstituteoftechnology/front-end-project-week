@@ -16,7 +16,7 @@ class App extends Component {
     notes: [],
     id: 0,
     username: false,
-    isAuthenticated: false,
+    isAuthenticated: true,
 }
 
   handleAdd = (note) => {
@@ -105,8 +105,7 @@ class App extends Component {
         if (resp.data._id) {
         axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data._id}`)
           .then(res => {
-            const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
-            this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
+            cb(res);
             //redirect
           })
           .catch(err => console.log(err));
@@ -115,6 +114,11 @@ class App extends Component {
         })
       .catch(err => console.log(err));
     }
+  }
+
+  cb(res) {
+    const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
+    this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
   }
 
   render() {
