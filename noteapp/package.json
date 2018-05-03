@@ -5,8 +5,8 @@
   "dependencies": {
     "build-create-react-app-netlify": "^1.1.2",
     "netlify-cli": "^1.2.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
