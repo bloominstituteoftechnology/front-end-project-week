@@ -53,7 +53,7 @@ class EditNote extends Component {
           <Input
             type="text"
             name="noteTitle"
-            value={this.props.location.state.currentNote.title}
+            value="this is a test"
             className="titleDiv"
             onChange={this.handleChange}
           />
