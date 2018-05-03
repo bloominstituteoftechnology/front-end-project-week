@@ -6,7 +6,7 @@ import { Col, Row, Form, FormGroup, Input } from "reactstrap";
 
 import styled from "styled-components";
 
-import { addNote } from "../actions/notesActions";
+import { addUser } from "../actions";
 
 const H3 = styled.h3`
     margin-top: 50px;
@@ -20,14 +20,17 @@ const Btn = styled.button`
     width: 33%;
 `;
 
-class NewNote extends React.Component {
+class Register extends React.Component {
     state = {
         Redirect: false,
         Fields: {
-            title: "",
-            content: "",
+            username: "",
+            password: "",
+            firstname: "",
+            lastname: "",
         },
     };
+
     render() {
         return (
             <Col xs="9">
@@ -35,26 +38,45 @@ class NewNote extends React.Component {
                 <Row>
                     <Col>
                         <Form className="mr-4 ml-3" onSubmit={this.handleSubmit}>
-                            <H3>Create New Note:</H3>
+                            <H3>Create New User</H3>
                             <FormGroup>
                                 <Input
                                     onChange={this.handleInputChange}
-                                    value={this.state.Fields.title}
-                                    name="title"
+                                    value={this.state.Fields.username}
+                                    name="username"
                                     type="text"
                                     className="form-control"
-                                    placeholder="Note Title"
+                                    placeholder="User Name"
                                 />
                             </FormGroup>
                             <FormGroup>
                                 <Input
                                     onChange={this.handleInputChange}
-                                    value={this.state.Fields.content}
-                                    name="content"
-                                    type="textarea"
+                                    value={this.state.Fields.password}
+                                    name="password"
+                                    type="password"
                                     className="form-control"
-                                    placeholder="Note Content"
-                                    rows="15"
+                                    placeholder="Password"
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input
+                                    onChange={this.handleInputChange}
+                                    value={this.state.Fields.firstname}
+                                    name="firstname"
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="First Name"
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Input
+                                    onChange={this.handleInputChange}
+                                    value={this.state.Fields.lastname}
+                                    name="lastname"
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Last Name"
                                 />
                             </FormGroup>
                             <Btn className="Button btn btn-primary btn-block" type="submit">
@@ -76,8 +98,8 @@ class NewNote extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        if (this.state.Fields.title && this.state.Fields.content) {
-            this.props.addNote(this.state.Fields);
+        if (this.state.Fields.username && this.state.Fields.password && this.state.Fields.firstname && this.state.Fields.lastname) {
+            this.props.addUser(this.state.Fields);
             this.setState({ Redirect: true });
         }
     };
@@ -86,4 +108,4 @@ class NewNote extends React.Component {
 const mapStateToProps = state => {
     return state;
 };
-export default withRouter(connect(mapStateToProps, { addNote })(NewNote));
+export default withRouter(connect(mapStateToProps, { addUser })(Register));
