@@ -1,0 +1,180 @@
+App {
+ height: 100%;
+ width: 100%; 
+ display: flex;
+ text-align: center;
+ margin: 0.1%;
+ border: 1px solid rgb(150, 150, 150)
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.NavBar {
+  width: 100%;
+  max-width: 270px;
+  min-height: 700px;
+  background-color: #D8D8D8;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  border-right: 1px solid rgb(150, 150, 150);
+}
+
+.NavBar__Title {
+  text-align: left;
+  padding: 6% 2% 2% 6%;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.NavBar__Button {
+  background-color: #2BC1C4;
+  min-width: 170px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  padding-top: 4%;
+  margin: 4% 6%;
+  border: 1px solid rgb(150, 150, 150);
+  height: 50px;
+}
+
+.Note, .ListView, .AddNote, .EditNote {
+  width: 100%;
+  background-color: #F4F4F4;
+  min-height: 700px;
+}
+
+
+.Title {
+  text-align: left;
+  margin: 8.8% 3% 2% 3%;
+  font-size: 26px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.Inputtext {
+  padding-bottom: 10px;
+ padding-top: 10px;
+  padding-left: 10px;
+  border-radius: 0.5%;
+  -moz-box-shadow:     inset 0 0 1px gray;
+  -webkit-box-shawdow: inset 0 0 1px gray;
+  box-shadow:          inset 0 0 1px gray;
+  min-width: 100px;
+  margin: 2% 3%;
+  width: 40%;
+  white-space: wrap;
+}
+
+.Inputfield {
+  padding-bottom: 300px;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 90%;
+  text-align: start;
+  margin: 1% 3%;
+  border-radius: 0.5%;
+  -moz-box-shadow:    inset 0 0 1px gray;
+  -webkit-box-shadow: inset 0 0 1px gray;
+  box-shadow:         inset 0 0 1 px gray;
+}
+
+.ListCards {
+  width: 100%;
+  padding: 0 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ListCard {
+  flex: 3 0 100%;
+  max-width: 220px;
+  margin: 1%;
+  border: 1px solid rgb(150, 150, 150);
+}
+a.LinkList {
+  text-decoration: none;
+}
+.ListCard__Header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  border-bottom: 1px solid rgb(150, 150, 150);
+  text-align: left;
+  margin: 4% 8%;
+  padding-bottom: 1%;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.ListCard__Body {
+  height: 160px;
+  overflow: hidden;
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+  padding: 0 8%;
+}
+
+.Button, Button__delete {
+  font-weight: 500;
+  border: 1px solid rgb(150, 150, 150);
+  color: white;
+  margin: 5%;
+  height: 50px;
+}
+
+.Button {
+  background-color: #2BC1C4;
+  height: 50px;
+  width: 20%;
+}
+
+.Button__delete {
+  background-color: #D0021B;
+  height: 50px;
+  width: 20%;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Note__nav {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration-line: none;
+  font-weight: 700;
+  margin: 3% 5% 1% 1%;
+}
+
+.Nav__item {
+  margin: 0 1%;
+  color: #4A4A4A;
+}
+
+.Note__title {
+  text-align: left;
+  margin: 3.8% 3% 2% 3%;
+  font-size: 26px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.Content {
+  padding: 3%;
+  text-align: left;
+  font-size: 15px;
+}

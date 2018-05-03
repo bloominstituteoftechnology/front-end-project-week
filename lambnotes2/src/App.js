@@ -12,7 +12,7 @@ class App extends Component {
 <div className="App">
      <h1 className= "App-columnl">Lambda Notes</h1>
 
-     <h1 className= "App-columnr">Your Notes</h1>
+     <h1 className= "App-columnr"> Your Notes</h1>
 
 
 <ul class = "navbar">
