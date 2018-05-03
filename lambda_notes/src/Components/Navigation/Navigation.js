@@ -16,6 +16,7 @@ class Navigation extends Component {
   }
 
   logout() {
+    localStorage.removeItem('token');
     localStorage.clear();
   }
 
