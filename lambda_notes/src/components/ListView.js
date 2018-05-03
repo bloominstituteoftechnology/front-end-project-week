@@ -1,31 +1,35 @@
-import React, { Component } from "react";
-import "./ListView.css";
-import { Link, BrowserRouter as Router, Route } from "react-router-dom";
+import React, { Component } from 'react'
+import './ListView.css'
+import { Link } from 'react-router-dom'
 
 class ListView extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    // eslint-disable-line
+    super(props)
   }
-  render() {
+  render () {
+    console.log('I am in ListView')
     return (
-      <div className="NoteList">
-        <div className="headerBody"><h1 className="HeaderText">Your Notes:</h1></div>
-        <div className="Notes">
+      <div className='NoteList'>
+        <div className='headerBody'>
+          <h1 className='HeaderText'>Your Notes:</h1>
+        </div>
+        <div className='Notes'>
           {this.props.notes.map(note =>
-            <div className="Note" key={note.id}>
-              <Link className="noteLink" to={`/ViewNote/${note.id}`}>
-                <div className="noteTitle">
+            <div className='Note' key={note._id}>
+              <Link className='noteLink' to={`/ViewNote/${note._id}`}>
+                <div className='noteTitle'>
                   {note.title}
                 </div>
               </Link>
-              <div className="noteContent">
+              <div className='noteContent'>
                 {note.content}
               </div>
             </div>
           )}
         </div>
       </div>
-    );
+    )
   }
 }
-export default ListView;
+export default ListView
