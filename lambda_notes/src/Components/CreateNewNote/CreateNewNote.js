@@ -42,6 +42,7 @@ class CreateNewNote extends Component {
       .catch(err => {
         console.log({ Error: `Unable to create note:`, err });
       });
+    this.props.history.push('/list');
   };
 
   render() {
