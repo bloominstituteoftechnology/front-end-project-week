@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.5);
+  background: #f3f3f3;
+  width: 1200px;
+  min-height: 800px;
+}

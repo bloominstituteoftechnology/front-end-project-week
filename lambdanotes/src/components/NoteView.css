@@ -1,0 +1,26 @@
+.NoteView {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 20px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: clip;
+  font-family: 'Raleway', sans-serif;
+}
+
+.NoteView-Links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: flex-end;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: 'Roboto', sans-serif;
+}
+
+.NoteView-Links-Link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgba(0,0,0,0.8);
+  margin-right: 15px;
+}
