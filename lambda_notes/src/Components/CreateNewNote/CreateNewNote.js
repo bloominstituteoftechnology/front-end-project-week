@@ -25,6 +25,7 @@ class CreateNewNote extends Component {
         'https://peaceful-gorge-48893.herokuapp.com/api/notes',
         {
           username: localStorage.username,
+          userId: localStorage.id,
           title,
           content,
         },
