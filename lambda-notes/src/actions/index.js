@@ -9,16 +9,25 @@ export const ERROR = 'ERROR';
 
 export const getNotes = () => {
     return (dispatch) => {
-
-    }
-}
-export const getNote = () => {
-    return (dispatch) => {
         axios.get('http://localhost:2005/notes')
         .then((response) => {
             dispatch({
                 type: GET_NOTES,
                 payload: response.data
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+}
+export const getNote = (id) => {
+    return (dispatch) => {
+        axios.get(`http://localhost:2005/notes/${id}`)
+        .then((response) => {
+            dispatch({
+                type: GET_NOTE,
+                paylod: response.data
             })
         })
         .catch((error) => {

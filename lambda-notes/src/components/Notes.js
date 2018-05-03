@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 import { getNotes } from '../actions'
 
@@ -15,7 +16,7 @@ class Notes extends Component {
                         {this.props.notes.map((note) =>{
                             return(
                             <li key={note.id}>
-                                <h3>{note.title} </h3>
+                                <h3><Link to={`/notes/${note.id}`}>{note.title}</Link></h3>
                             </li>
                         )})}
                     </ul>

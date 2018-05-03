@@ -20,7 +20,7 @@ const rootReducer = ( intialState, action) => {
         case( GET_NOTES ):
             return Object.assign({}, intialState, { notes: action.payload, gettingNotes: true })
         case( GET_NOTE ):
-            return
+            return Object.assign({}, initialState, { note: action.payload, })
         case( CREATE_NOTE ):
             return Object.assign({}, intialState, { notes: action.payload, })
         case( EDIT_NOTE ):
