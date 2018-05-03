@@ -76,7 +76,7 @@ class App extends Component {
   }
   handleLogin = () => {
 
-    axios.post(`http://localhost:5000/api/login`, {username: this.state.usernameInput, password: this.state.passwordInput})
+    axios.post(`https://frozen-inlet-93885.herokuapp.com/api/login`, {username: this.state.usernameInput, password: this.state.passwordInput})
     .then(response => {
       console.log(response);
       if(!response.data.error)
@@ -105,7 +105,11 @@ class App extends Component {
   }
 
   logout = () => {
-    console.log('logginout');
+    axios.get('https://frozen-inlet-93885.herokuapp.com/api/logout')
+    .then(response => {
+      console.log('logged out');
+    })
+    .catch(err => console.log(err) );
     document.getElementById('logout_btn').disabled = true;
     document.getElementById('login_btn').disabled = false;
     document.getElementById('current_user').style.display = 'none';
@@ -119,7 +123,7 @@ class App extends Component {
 
   updateServer = () => {
 
-    axios.put('http://localhost:5000/api/update', { notes: this.state.notes, username: this.state.username })
+    axios.put('https://frozen-inlet-93885.herokuapp.com/api/update', { notes: this.state.notes, username: this.state.username })
     .then(response => {
       console.log('sever updated');
     })
