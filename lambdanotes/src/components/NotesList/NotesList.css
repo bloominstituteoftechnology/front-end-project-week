@@ -1,0 +1,25 @@
+.notesList__background {
+  background-color: #f3f3f3;
+}
+
+.notesList__title {
+  margin-left: 255px;
+  padding-top: 35px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #4a494a;
+}
+
+.notesList__list {
+  /* border: 1px red solid; */
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin-left: 240px;
+  height: 100%;
+}
+
+.notesList__notes {
+  margin: 2%;
+}

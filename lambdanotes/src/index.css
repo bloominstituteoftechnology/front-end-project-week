@@ -1,0 +1,23 @@
+@import "./components/Sidebar/Sidebar.css";
+@import "./components/NotesList/NotesList.css";
+@import "./components/Note/Note.css";
+@import "./components/NoteView/NoteView.css";
+@import "./components/CreateNote/CreateNote.css";
+@import "./components/EditNote/EditNote.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f3f3f3 !important;
+  height: 100%;
+}
+
+html {
+  background-color: #f3f3f3;
+}
+
+input,
+textarea {
+  border-radius: 5px;
+}
