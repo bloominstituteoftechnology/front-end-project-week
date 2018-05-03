@@ -8,7 +8,6 @@ class Form extends Component {
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state);
   }
   handleButton = () => {
     this.props.action(this.state);
@@ -34,7 +33,7 @@ class Form extends Component {
           placeholder='Note Title'
           onChange={this.handleChange}
         />
-        <textarea rows="30" cols="30"
+        <textarea rows="30"
           name="content"
           className="form-content"
           value={this.state.content}

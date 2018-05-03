@@ -36,7 +36,7 @@ class NoteList extends Component {
               </Link>
             );
           })}
-        </ul>      
+        </ul>  
       </div>
     );
   }
