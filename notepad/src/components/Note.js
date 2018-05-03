@@ -1,31 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { deleteNote } from '../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Jumbotron, Button } from "react-bootstrap";
 
 
-const Note = (props) => {
-    const { note } = props;
 
-    const editNote = () => {
+class Note extends Component {
+    state = {
+        note: null
+    }
+   
+
+     editNote = () => {
 
     }
-    const deleteNote = () => {
-        console.log('ID', note.id)
-        props.deleteNote(note.id);
+     deleteNote = () => {
+        console.log('ID', this.props.id)
+        this.props.deleteNote(this.props.id);
+        console.log('TITLE', this.props.title);
 
     }
 
+    // const { title, content} = props;
+    // const { title, content, notes, id } = props;
+    // function NoteCard({ note }) {
+render(){
     return (
-
+        
         <div className={'note'}>
-            <p>Title: {note.title}</p>
-            <p>{note.content}</p>
-            <button onClick={editNote}>Edit</button>
-            <button onClick={deleteNote}>Delete</button>
-        </div>
-    )
+            <Link to={`/notes/${this.props.id}`}>
 
+                <h2>{this.props.title}</h2>
+                <p>{this.props.content}</p>
+                <Button onClick={this.editNote}>Edit</Button>
+                <Button onClick={this.deleteNote}>Delete</Button>
+            </Link>
+
+        </div>
+    );
 }
 
+
+  
+}
 
 export default connect(null, { deleteNote })(Note);

@@ -1,19 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap';
 
 
 const SideBar = () => (
     <header>
         <nav>
             <div>
-                <button className="Button1">
+                <Button color="info" >
                     <Link to='/notes'>View Your Notes</Link>
-                </button>
+                </Button>
             </div>
             <div>
-                <button className="Button1">
+                <Button color="info">
                     <Link to='/new'>+ Create New Note</Link>
-                </button>
+                </Button>
             </div>
         </nav>
     </header>

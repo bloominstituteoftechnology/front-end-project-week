@@ -9,6 +9,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import noteReducer from './reducers';
 import { BrowserRouter as Router } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const store = createStore(noteReducer, applyMiddleware(logger, thunk));
 

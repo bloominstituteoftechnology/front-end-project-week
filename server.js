@@ -10,27 +10,33 @@ let notes = [
     {
         id: 1,
         title: 'Raps',
-        content: 'lyrics to a song',
+        subcontent: 'lyrics to a song',
+        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
+
     },
     {
         id: 2,
         title: 'Affirmanion',
-        content: 'Daily Affirmantion: I am going to win ',
+        subcontent: 'Daily Affirmantion: I am going to win ',
+        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
     },
     {
         id: 3,
         title: 'No Title',
-        content: 'Stevie owes me 2 BTC',
+        subcontent: 'Stevie owes me 2 BTC',
+        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
     },
     {
         id: 4,
         title: 'Poems',
-        content: 'Today starting out slow',
+        subcontent: 'Today starting out slow',
+        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
     },
     {
         id: 5,
         title: 'The Place to Be',
-        content: 'this ish the place to be',
+        subcontent: 'this ish the place to be',
+        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
     }
 ];
 

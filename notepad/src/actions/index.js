@@ -32,16 +32,16 @@ export const createNote = (note) => {
     }
 }
 
-export const deleteNote = noteId => {
+export const deleteNote = id => {
     return dispatch => {
         dispatch({ type: PENDING });
         axios
-            .delete(`http://localhost:5000/notes/${noteId}`)
+            .delete(`http://localhost:5000/notes/${id}`)
             .then(response => {
                 dispatch({ type: SUCCESS, notes: response.data })
             })
             .catch(err =>
-                dispatch({ type: ERROR, error: 'ERROR DELETING FRIEND' })
+                dispatch({ type: ERROR, error: 'ERROR DELETING NOTE' })
             );
     }
 }

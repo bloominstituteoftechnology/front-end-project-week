@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { getNotes } from './actions';
-import { connect } from 'react-redux';
 import Main from './components/Main';
-import Notes from './components/Notes';
-import NewNote from './components/NewNote';
 import SideBar from './components/SideBar';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
 
 
 

@@ -5,6 +5,10 @@ import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 import Note from './Note';
 import NewNote from './NewNote';
+import { Link } from 'react-router-dom';
+import {  Jumbotron, Button } from "react-bootstrap";
+import NoteCard from './NoteCard';
+
 
 class Notes extends Component{
 
@@ -15,17 +19,13 @@ componentDidMount() {
 
 render() {
     return (
-        <div className="NotesList">
-            <div>
-                <h3>Lambda Notes</h3>
-            </div>
+        <div className="notes">
             <div>Your Notes</div>
-            <div>
+               
                 {this.props.notes.map(note => {
-                    return <Note note={note} key={note.id} />
+                    return <NoteCard note={note} key={note.id} />
                 })}
                 {this.props.pending ? <h1>LOADING</h1> : null}
-            </div>
         </div>
     ); 
 }
@@ -39,5 +39,21 @@ const mapStateToProps = state => {
 
     }
 }
+
+// function NoteCard({ note }) {
+//     const { title, content, notes } = note;
+//     return (
+//         <Link to={`/notes/${note.id}`}>
+
+           
+
+//                 {/* {notes.map(note => (
+//                     <div key={note} className="note-star">
+//                         {note}
+//                     </div>
+//                 ))} */}
+//         </Link>
+//     );
+// }
 
 export default connect(mapStateToProps, { getNotes })(Notes);
