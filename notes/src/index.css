@@ -35,15 +35,17 @@ body {
   border: none;
 }
 
-.notes-container {
-  width: 100%;
-  background-color: #ebebeb;
+.title {
+  text-align: left;
+  position: relative;
+  top: 40px;
+  width: 88%;
+  align-self: center;;
 }
 
 
 .notes-list {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
 }
 
@@ -57,6 +59,7 @@ body {
   height: 250px;
   display: flex;
   justify-content: center;
+  color: black;
 }
 
 .note-item {
@@ -81,6 +84,7 @@ body {
   background-color: #ebebeb;
 }
 
+
 .note-view {
   display: flex;
   flex-direction: column;
@@ -88,10 +92,12 @@ body {
 }
 
 .form-block {
+  position: relative;
+  top: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 90%;
+  width: 88%;
 }
 
 .form-title {

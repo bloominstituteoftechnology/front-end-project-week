@@ -32,7 +32,7 @@ class Note extends Component {
       delete: this.handleDelete,
     }
     return (
-      <div className="notes-container">
+      <div className="flex-container">
         {toggleModal ? <Modal {...props}/> : null}
         <Link to={{pathname: '/edit', state: note }}>
           Edit

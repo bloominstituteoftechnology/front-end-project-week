@@ -18,8 +18,10 @@ class NoteList extends Component {
   }
   render() {
     return (
-      <div className="notes-container">
-        <h2>Your Notes:</h2>
+      <div className="flex-container">
+        <div className="title">
+          <h2>Your Notes:</h2>
+        </div>
         <ul className="notes-list">
           {this.state.notes.map((note, i) => {
             return(

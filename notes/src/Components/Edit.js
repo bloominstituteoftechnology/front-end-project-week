@@ -11,7 +11,9 @@ const Edit = props => {
   }
   return(
     <div className="flex-container">
-      <h2>Edit Note:</h2>
+      <div className="title">
+        <h2>Edit Note:</h2>
+      </div>
       <Form {...items} />
     </div>
   );
