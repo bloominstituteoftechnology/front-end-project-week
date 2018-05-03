@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
+import '../App.css';
 import { getNote } from '../Action';
 
 // const id=this.props.match.params.id;
@@ -15,7 +15,10 @@ class Note extends Component {
 
     render() {
         return (
-            <div> {this.props.note.title} </div>
+            <div className="note-container">
+                <h2 className="note-title"> {this.props.note.title} </h2>
+                <p className="note-content"> {this.props.note.content} </p>
+            </div>
         );
     }
 }

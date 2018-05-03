@@ -5,7 +5,7 @@ import '../App.css';
 
 const NoteContainer = (props) => {
         return(
-            <li className="note">
+            <li>
                 <p>{props.note.title}</p>
                 <hr/>
                 <p>{props.note.content}</p>

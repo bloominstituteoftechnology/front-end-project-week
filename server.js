@@ -9,7 +9,7 @@ let nextId = 4;
 
 let notes = [
 	{id : 1, title: 'Note', content: 'placeholder'},
-	{id : 2, title: 'Note2', content: 'asejfeashfjehfefejfe'},
+	{id : 2, title: 'Note2', content: 'asejfeasrgergegegergregregegegregergregreglierhgforsejfgwqikgvfikyewvfiykewhvfykhjewvfjykwevfjykewvfykjwehvfyjikewvfyjwvefyuijwvyuijfveyiwjfvwyiefvyiewvfyiwevfyiewvyifvwiyefvyiwefvyiwevyifwyevfiwevfywevfiwevyifvlgfukewrgfkuwgfkuywkjyfgwkjyfgwykjfgyjwqgfeykjuwgefykijghfjehfefejrewrtgege4geggegrgrgergreerregegergegfgerg'},
 	{id : 3, title: 'Note3', content: 'more random text'},
 ];
 

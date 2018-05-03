@@ -8,6 +8,8 @@
   margin: 0 auto;
 }
 
+/* sidebar css */
+
 .sidebar {
   border: 2px solid grey;
   background-color: rgb(212, 209, 209);
@@ -30,14 +32,15 @@
   color: black;
 }
 
-/* need css for the box of all the notes, each individual note, and for the list of notes */
+/* app.js/ notesContainer css */
 
-h1 {
+.home-logo {
   display: flex;
   margin: 50px 0px 30px 30px;
   color: rgb(54, 54, 54);
   font-weight: bold;
 }
+
 
 nav ul {
   display: flex;
@@ -53,13 +56,19 @@ nav li {
   margin: 5px 5px 5px 5px;
 }
 
-p {
+li p {
+  text-decoration: none;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: black;
 }
 
 li hr {
   width: 80%;
 }
+
+/* createContainer css */
 
 .createPage {
   width: 100%;
@@ -102,4 +111,27 @@ li hr {
   font-size: 16px;
   width: 150px;
   height: 40px;
+}
+
+/* Note.js css */
+
+.note-container {
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.note-title {
+  display: flex;
+  margin: 50px 0px 30px 30px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+.note-content {
+  display: flex;
+  padding: 5px;
+  margin: 50px 0px 30px 30px;
+  text-align: justify;
+  word-break: break-word;
+  color: black;
 }

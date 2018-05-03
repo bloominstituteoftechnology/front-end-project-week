@@ -15,7 +15,7 @@ class App extends Component {
     console.log("state", this.props.notes);
     return (
       <div className="createPage">
-        <h3> Your Notes: </h3>
+        <h3 className="home-logo"> Your Notes: </h3>
         <nav>
           <ul>
             {this.props.notes.map(note => {
