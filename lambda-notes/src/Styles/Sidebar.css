@@ -1,24 +1,30 @@
 
 .sidebar {
-  width: 33%;
-  min-width: 200px;
-  height: 1000px;
+  max-width: 250px;
+  height: 100%;
+  min-height: 750px;
   background: #cfcccc; 
   border: 2px solid #BAB7B7;
 }
 
-h2 {
-  padding: 5%;
+p {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #504F4F; 
+  padding: 5%;
+}
+@media (min-width: 768px) {
+  p {
+    font-size: 2rem;
+  }
 }
 
 .sidebar-button {
   display: block;
   background: #27B8C4;
   padding: 4%;
-  max-height: 50px;
-  width: 200px;
+  max-height: 100%;
+  width: 90%;
   color: white;
   font-weight: bold;
   margin: 0 auto;

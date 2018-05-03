@@ -1,5 +1,5 @@
 body {
-  background: #DFDFDF;
+  background: #EDEDED;
 }
 .create {
   margin: 3%;
@@ -15,7 +15,7 @@ h4 {
   width: 300px;
   padding: 1%;
   margin-bottom: 15px;
-  border: 2px solid #C8C8C8;
+  border: 1px solid #C8C8C8;
 }
 input:focus {
   outline: none;

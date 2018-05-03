@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import "../Styles/Sidebar.css";
+import CreateNote from './CreateNote';
 
 const Sidebar = () => {
     return (
         <div className='sidebar'>
-            <h2>Lambda Notes</h2>
+            <p>Lambda Notes</p>
 
-            <button className='sidebar-button'>View Your Notes</button>
+            <Link to={'/'}><button className='sidebar-button'>View Your Notes</button></Link>
             <button className='sidebar-button'>+ Create New Note</button>
         </div>
     )
