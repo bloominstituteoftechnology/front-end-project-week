@@ -7,6 +7,7 @@ class Data extends Component{
 constructor(props){
     super(props);
     this.state = {
+        note: '',
     }
 }
 componentDidMount() {
