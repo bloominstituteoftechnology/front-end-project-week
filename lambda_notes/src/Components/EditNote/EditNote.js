@@ -49,15 +49,15 @@ class EditNote extends Component {
     return (
       <div className="newNoteMainDiv">
         <h6 className="newNoteHeader">Edit Note:</h6>
-        <Form className="newNoteFormDiv">
-          <Input
+        <form className="newNoteFormDiv">
+          <input
             type="text"
             name="noteTitle"
-            value="this is a test"
+            value={this.props.location.state.currentNote.title}
             className="titleDiv"
             onChange={this.handleChange}
           />
-          <Input
+          <input
             type="textarea"
             name="noteContent"
             value={this.props.location.state.currentNote.content}
@@ -67,7 +67,7 @@ class EditNote extends Component {
           <button className="saveNewNoteBtn" onClick={this.handleSubmit}>
             Update
           </button>
-        </Form>
+        </form>
       </div>
     );
   }
