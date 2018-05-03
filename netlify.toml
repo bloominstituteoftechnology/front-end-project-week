@@ -1,4 +1,4 @@
 [build]
   base  = "noteapp"
-  publish = "build"
+  publish = "noteapp/build"
   command = "npm run build"
