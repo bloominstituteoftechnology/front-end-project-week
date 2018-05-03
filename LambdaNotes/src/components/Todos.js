@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 // material components
 import Snackbar from "material-ui/Snackbar";
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
 // components
 import SingleTodo from "./SingleTodo";
 // styles

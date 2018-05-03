@@ -26,7 +26,7 @@ const getVisibleTodos = (todos, filter) => {
 				return todo.archive;
 			});
 		default:
-		// throw new Error("Unknown filter: " + filter);
+			return todos;
 	}
 };
 
