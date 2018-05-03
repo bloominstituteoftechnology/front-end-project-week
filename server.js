@@ -5,7 +5,7 @@ const port = 5000;
 
 const app = express();
 
-let nextId = 1;
+let nextId = 4;
 
 let notes = [
 	{id : 1, title: 'Note', content: 'placeholder'},

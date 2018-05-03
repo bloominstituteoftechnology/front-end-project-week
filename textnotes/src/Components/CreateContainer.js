@@ -5,6 +5,10 @@ import '../App.css';
 class CreateContainer extends Component {
     render() {
         return(
+
+            // input fields for content and title
+            // being passed through a save button that starts an onClick event to axios.post.
+            
             <div className="createPage">
                 <h3 className="create-logo"> Create New Note: </h3>
                 <input className="title-text-box"

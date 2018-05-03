@@ -32,6 +32,13 @@
 
 /* need css for the box of all the notes, each individual note, and for the list of notes */
 
+h1 {
+  display: flex;
+  margin: 50px 0px 30px 30px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -40,9 +47,14 @@ nav ul {
 nav li {
   height: 200px;
   width: 200px;
+  background-color: white;
   border: 1px solid black;
   list-style-type: none;
   margin: 5px 5px 5px 5px;
+}
+
+p {
+  color: black;
 }
 
 li hr {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import CreateContainer from './Components/CreateContainer';
 import './App.css';
 import NotesContainer from './Components/NotesContainer';
 import { getNotes } from './Action';
@@ -15,8 +14,8 @@ class App extends Component {
   render() {
     console.log("state", this.props.notes);
     return (
-      <div className="container">
-        <h1>Your Notes: </h1>
+      <div className="createPage">
+        <h3> Your Notes: </h3>
         <nav>
           <ul>
             {this.props.notes.map(note => {
@@ -28,7 +27,7 @@ class App extends Component {
             })}
           </ul>
         </nav>
-    </div>
+      </div>
     );
   }
 }

@@ -1,4 +1,4 @@
-import { LOADING, SUCCESS } from '../Action';
+import { LOADING, SUCCESS, GET_NOTE } from '../Action';
 
 // defaultState = { notes = [], fetching = false, }
 
@@ -16,6 +16,9 @@ export default (state = defaultState, action) => {
         
         case SUCCESS:
             return Object.assign({}, state, { notes: action.notes, LOADING: false })
+
+        case GET_NOTE:
+            return { ...state, note: state.notes.find(note => note.id == action.id ) }
 
         default:
             return state;
