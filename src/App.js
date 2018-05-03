@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Route } from 'react-router-dom';
-import {CSVLink} from 'react-csv';
+import { CSVLink } from 'react-csv';
 import { Link } from 'react-router-dom';
 
 import NotesList from './components/NotesList';
@@ -10,120 +11,121 @@ import AddNote from './components/AddNote';
 import ViewNote from './components/ViewNote';
 import EditeNote from './components/EditeNote';
 import Login from './components/Login';
+//import Signup from './components/Signup';
+
+axios.defaults.withCredentials = true;
+
 
 class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
       longinFlag: false,
-      notes: [
-        {
-            title: 'A Title',
-            text: 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-
-        {
-            title: 'Some title',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-
-        {
-            title: 'Our title',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-
-        {
-            title: 'Title',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-        {
-            title: 'Read it',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-        {
-            title: 'Note title',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-        {
-            title: 'Rundom Text',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-        {
-            title: 'A title',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-        {
-            title: 'Different Title',
-            text: 'This is a note. This is a note. This is a note. This is a noe. This is a note. This is a note. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham..',
-        },
-      ]
+      notes: []
     }
-}
-
-addNote = (title, text) => {
-  const newNotes = this.state.notes;
-  console.log(newNotes, 'our notes from state')
-  const newNote = {title: title, text: text}
-  newNotes.push(newNote);
-  this.setState({
-    notes: newNotes,
-  })
-}
-
-deleteNote = (index) => {
-  const newNotes = this.state.notes;
-  if (index !== -1) {
-  newNotes.splice(index, 1);
   }
-  this.setState({
-    notes: newNotes,
-  })
-};
 
-login = () =>{
-  this.setState({
-    longinFlag: true,
-  })
-}
+  addNote = (title, text) => {
+    axios.post(`https://shrouded-shelf-42770.herokuapp.com/`, {
+      title: title,
+      text: text,
+    })
+      .then(response => {
+      })
+      .catch(error => { console.log('Error: could not save data to db') });
 
-logout = () =>{
-  this.setState({
-    longinFlag: false,
-  })
-}
+    const newNotes = this.state.notes;
+    const newNote = { title: title, text: text }
+    newNotes.push(newNote);
+    this.setState({
+      notes: newNotes,
+    })
+  }
+
+  deleteNote = (id) => {
+    axios.delete(`https://shrouded-shelf-42770.herokuapp.com/${id}`)
+      .then(response => {
+        this.setState({ notes: response.data });
+        //console.log('data: ', response.data);
+      })
+      .catch(error => {
+        console.log("error: could not delete the item");
+      })
+
+
+    /* const newNotes = this.state.notes;
+    if (index !== -1) {
+      newNotes.splice(index, 1);
+    }
+    this.setState({
+      notes: newNotes,
+    }) */
+  };
+
+  updateNote = (id, obj) => {
+    axios.put(`https://shrouded-shelf-42770.herokuapp.com/${id}`, obj)
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(error => {
+        console.log("error: updating note failed");
+      });
+  };
+
+
+  login = () => {
+    this.setState({
+      longinFlag: true,
+    });
+  }
+
+  logout = () => {
+    this.setState({
+      longinFlag: false,
+    })
+  }
 
   render() {
     return (
-     
       <div className='container'>
         {this.state.longinFlag ? (
-           <React.Fragment>
-              <div className = 'notes-menu'>
+          <React.Fragment>
+            <div className='notes-menu'>
               <h2> Lambda Notes </h2>
-                <Navigation />
-                <div className = 'nav-bar'>
-                  <CSVLink data={this.state.notes}
-                    filename={"My-notes.csv"}
-                    className = 'link download'>
-                      Download Notes
+              <Navigation />
+              <div className='nav-bar'>
+                <CSVLink data={this.state.notes}
+                  filename={"My-notes.csv"}
+                  className='link download'>
+                  Download Notes
                   </CSVLink>
-                  <Link to = '/' className = 'link signOut' onClick = {this.logout}> Sign Out </Link>
-                </div>
+                <Link to='/' className='link signOut' onClick={this.logout}> Sign Out </Link>
               </div>
+            </div>
 
-              <div className = 'notes-list'>
-                <Route  path = '/NotesList' render = {() => <NotesList notes = {this.state.notes} /> } />
-                <Route  path = '/AddNote' render = {() => <AddNote onSubmit = {this.addNote} /> } />
-                <Route  path = '/ViewNote/:id' render={(props) => <ViewNote {...props} notes = {this.state.notes} deleteNote = {this.deleteNote} /> } />
-                <Route  path = '/EditeNote' render = {() => <EditeNote/> } /> 
-              </div>
+            <div className='notes-list'>
+              <Route path='/NotesList' render={() => <NotesList notes={this.state.notes} />} />
+              <Route path='/AddNote' render={() => <AddNote onSubmit={this.addNote} />} />
+              <Route path='/ViewNote/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} deleteNote={this.deleteNote} />} />
+              <Route path='/EditeNote/:id' render={(props) => <EditeNote {...props} updatenote={this.updateNote} notes={this.state.notes} />} />
+            </div>
           </React.Fragment>
         ) : (
-            <Route  exact path = '/' render = {() => <Login changeLoginFlag = {this.login} />} />
-        )}
+            <React.Fragment>
+              <Route exact path='/' render={() => <Login changeLoginFlag={this.login} />} />
+            </React.Fragment>
+          )}
       </div>
     );
+  }
+  componentDidMount() {
+    axios.get(`https://shrouded-shelf-42770.herokuapp.com/`)
+      .then(response => {
+        this.setState({ notes: response.data })
+        //console.log(response.data);
+      })
+      .catch(error => { console.log('Error: could not fetch data from server') });
   }
 }
 
