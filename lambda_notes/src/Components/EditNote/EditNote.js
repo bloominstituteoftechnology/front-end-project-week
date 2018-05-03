@@ -12,6 +12,13 @@ class EditNote extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      noteTitle: this.props.location.state.currentNote.title,
+      noteContent: this.props.location.state.currentNote.content,
+    });
+  }
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -53,14 +60,14 @@ class EditNote extends Component {
           <Input
             type="text"
             name="noteTitle"
-            value={this.props.location.state.currentNote.title}
+            value={this.state.noteTitle}
             className="titleDiv"
             onChange={this.handleChange}
           />
           <Input
             type="textarea"
             name="noteContent"
-            value={this.props.location.state.currentNote.content}
+            value={this.state.noteContent}
             className="contentDiv"
             onChange={this.handleChange}
           />
