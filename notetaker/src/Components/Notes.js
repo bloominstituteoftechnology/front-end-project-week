@@ -1,6 +1,6 @@
 import React from 'react';
 import "../App.css";
-import { Col, Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 
 const Notes = props => {
   return(
@@ -15,7 +15,6 @@ const Notes = props => {
                   <CardTitle>{note.title}</CardTitle>
                   <CardSubtitle>{note.content}</CardSubtitle>
                   <CardText>Other Text!?</CardText>
-                  {/* <Button onClick={() => props.deleteFriend(friend.id)} >Delete Friend</Button> */}
                 </CardBody>
               </Card>
           )

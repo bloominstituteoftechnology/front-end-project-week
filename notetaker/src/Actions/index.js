@@ -33,7 +33,7 @@ export const addNote = (newNote) => {
   }
 }
 
-export const deletenote = (id) => {
+export const deleteNote = (id) => {
   return dispatch => {
       axios.delete(`http://localhost:5000/api/notes/${id}`)
       .then(response => {
