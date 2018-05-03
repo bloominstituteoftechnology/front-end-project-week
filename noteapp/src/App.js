@@ -7,7 +7,6 @@ import FullNote from './components/FullNote';
 import EditNote from './components/EditNote';
 import DeleteModal from './components/DeleteModal';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   render() {
