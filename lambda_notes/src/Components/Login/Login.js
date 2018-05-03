@@ -85,7 +85,7 @@ class Login extends Component {
         this.clearState();
       })
       .catch(err => {
-        console.log({ Error: `Unable to login: ${err}` });
+        console.log({ Error: `Unable to login:`, err });
       });
   };
 
