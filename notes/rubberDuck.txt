@@ -10,16 +10,20 @@ The menu options will be createNew, deleteExisting, editExisting, viewExisting, 
 
 The default state of the application has no notes.
 
-invoking createNew will place a medium-sized text box on the screen, with two input fields, title, and body
+I am going to use four main methods in my class to access the notes:
 
-invoking searchExisting will allow user to look up existing note using title as the key.
-This will not be case sensitive as I will use .toLowerCase()
+createNew(), deleteExisting(), viewExisting(), and editExisting()
+
+Search functionality in all four methods will not be case sensitive as I'll be using string.toLowerCase()
+
+invoking createNew will place a medium-sized text box on the screen, with two input fields, title, and body
 
 invoking deleteExisting will search for a note by key and delete it if it exists.
 
 invoking viewExisting will search for a note and display it note as a rectangle box on the screen with the note inside of it
+
+invoking editExisting will search for the note and open it up for editing. // how do I implement this--can I bring up an input field with deletable text inside of it?????
+
 The view inside of rectangle box should scroll if needed
 
-invoking ... wait what da fuq?
-
-I think I only need 4 methods...I'm repeating myself here...
+Okay, let's try to start building my class...
