@@ -10,7 +10,7 @@ const Edit = props => {
     note: props.location.state,
   }
   return(
-    <div className="create-note">
+    <div className="flex-container">
       <h2>Edit Note:</h2>
       <Form {...items} />
     </div>

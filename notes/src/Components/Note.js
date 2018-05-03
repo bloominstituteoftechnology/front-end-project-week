@@ -21,12 +21,14 @@ class Note extends Component {
     const { note } = this.state;
     note.id = this.props.match.params.id;
     return (
-      <div>
-        <h2>{note.title}</h2>
-        <p>{note.content}</p>
+      <div className="notes-container">
         <Link to={{pathname: '/edit', state: note }}>
           Edit
         </Link>
+        <div className="flex-container">
+          <h2>{note.title}</h2>
+          <p>{note.content}</p>
+        </div>
       </div>
     );
   }

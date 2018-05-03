@@ -9,7 +9,7 @@ const Create = () => {
     action: addNewNote,
   }
   return(
-    <div className="create-note">
+    <div className="flex-container">
       <h2>Create New Note:</h2>
       <Form {...props}/>
     </div>
