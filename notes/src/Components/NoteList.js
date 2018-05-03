@@ -23,13 +23,13 @@ class NoteList extends Component {
         <ul className="notes-list">
           {this.state.notes.map((note, i) => {
             return(
-              <Link to={`note/${note.id}`} className="note">
+              <Link key={i} to={`note/${note.id}`} className="note">
                 <li>
                   <p>{note.title}</p>
                   <hr/>
                   <p>{note.content}</p>
                 </li>
-            </Link>
+              </Link>
             );
           })}
         </ul>      

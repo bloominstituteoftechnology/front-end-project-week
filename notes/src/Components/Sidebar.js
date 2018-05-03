@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from './Button';
+
 
 class Sidebar extends Component {
   state = {
@@ -13,8 +15,12 @@ class Sidebar extends Component {
     return(
       <div className="sidebar">
         <h1 className="brand">Lambda Notes</h1>
-        {this.state.buttons.map(button => {
-          return <Button button={button} />
+        {this.state.buttons.map((button, i) => {
+          return (
+            <Link to={button.route} key={i}>
+              <Button text={button.text} key={i}/>
+            </Link>
+          )
         })}
       </div>
     );
