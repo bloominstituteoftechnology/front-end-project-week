@@ -4,7 +4,8 @@ import {
 	DELETETODO,
 	UPDATETODO,
 	TOGGLETODO,
-	ARCHIVETODO
+	ARCHIVETODO,
+	LISTIFYTODO
 } from "../actions/index.js";
 
 let uuid = require("uuid-v4");
@@ -16,42 +17,48 @@ const initialState = {
 			text: "do dishes before going to bed",
 			isComplete: false,
 			id: uuid(),
-			archive: false
+			archive: false,
+			listify: false
 		},
 		{
 			title: "Walk Dog",
 			text: "walk the dog after dinner",
 			isComplete: false,
 			id: uuid(),
-			archive: false
+			archive: false,
+			listify: false
 		},
 		{
 			title: "Clean Room",
 			text: "vacuum carpet and clean up toys",
 			isComplete: false,
 			id: uuid(),
-			archive: false
+			archive: false,
+			listify: false
 		},
 		{
 			title: "Groceries",
 			text: "get some milk and cereal",
 			isComplete: false,
 			id: uuid(),
-			archive: false
+			archive: false,
+			listify: false
 		},
 		{
 			title: "Dinner with Max",
 			text: "meet Max in downtown for dinner at 7",
 			isComplete: false,
 			id: uuid(),
-			archive: false
+			archive: false,
+			listify: false
 		},
 		{
 			title: "Fix bike",
 			text: "replace flat tire",
 			isComplete: false,
 			id: uuid(),
-			archive: false
+			archive: false,
+			listify: false
 		}
 	],
 	status: "",
@@ -107,6 +114,22 @@ const rootReducer = (state = initialState, action) => {
 					return todo;
 				}),
 				status: "ARCHIVED A TODO"
+			});
+		case LISTIFYTODO:
+			return Object.assign({}, state, {
+				// change text to an array of strings
+				// each string represents one line of text in a todo
+				// strings are split by newline chars /n
+				todos: state.todos.map(todo => {
+					if (todo.id === action.payload.id) {
+						return Object.assign({}, todo, {
+							listify: !todo.listify,
+							text: todo.text.split("\n")
+						});
+					}
+					return todo;
+				}),
+				status: "LISTIFIED A TODO"
 			});
 		// change filter status of the app
 		case "SET_VISIBILITY_FILTER":

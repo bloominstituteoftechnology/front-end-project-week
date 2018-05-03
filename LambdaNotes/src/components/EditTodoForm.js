@@ -30,6 +30,7 @@ class EditTodoForm extends Component {
 	};
 
 	render() {
+		// console.log("text: ", this.state.text.split());
 		const { id } = this.props.location.state;
 		return (
 			<div className="fade">
