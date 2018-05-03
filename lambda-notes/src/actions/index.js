@@ -8,6 +8,7 @@ export const EDITNOTE = 'EDITNOTE';
 export const DELETENOTE = 'DELETENOTE';
 export const NOTE_SAVED = 'NOTE_SAVED';
 export const SAVING_NOTE = 'SAVING_NOTE';
+export const UPDATING = 'UPDATING';
 
 export const getNotes = () => {
   return dispatch => {
@@ -37,16 +38,38 @@ export const createNote = (note) => {
   }
 }
 
-export const editNoteOnState = noteData => {
-  return {
-    type: EDITNOTE,
-    payload: noteData,
+export const updateNote = note => {
+  return dispatch => {
+    const {title, content, id} = note;
+
+    dispatch({type: UPDATING})
+    axios.put(`http://localhost:5000/api/notes/${id}`, {title, content})
+    .then(response => {
+      dispatch({type: UPDATED, getNotes()})
+    })
+    .catch(err => {
+      dispatch({ type: ERROR, error: 'ERROR UPDATING NOTE'})
+    })
   }
 }
 
-export const deleteNoteOnState = noteData => {
+export const startUpdating = note => {
   return {
-    type: DELETENOTE,
-    payload: noteData
+    type: UPDATING,
+    note
+  };
+};
+
+export const deleteNoteOnState = id => {
+  return dispatch => {
+    dispatch({ type: FETCHING})
+    axios.delete(`http://localhost:5000/api/notes/${id}`)
+      .then(response => {
+        console.log('DELETE',response);
+        dispatch({ type: FETCHED, notes: response.data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, error: "ERROR DELETING NOTE"});
+      })
   }
 }

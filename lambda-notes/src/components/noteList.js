@@ -5,18 +5,24 @@ import {getNotes, createNote, editNoteOnState, deleteNoteOnState} from '../actio
 // import axios from 'axios';
 
 class NoteList extends Component {
-  state = {
-    title: '',
-    content: '',
-    id: 0,
-  }
+  // constructor(props){
+  //   super(props)
+    state = {
+      title: '',
+      content: '',
+      id: '',
+      editing: false,
+    }
+  // }
+  
 
   componentDidMount(){
     this.props.getNotes();
-    console.log('notes',this.props.notes);
+    console.log('notes',this.props.match);
   }
 
   handleChange = (event) => {
+    console.log('event!!!',event.target);
     this.setState( {[event.target.name]: event.target.value} )
   }
 
@@ -31,18 +37,31 @@ class NoteList extends Component {
     this.setState({title: '', content: ''});
   }
 
+  deleteNote = (id) => {
+    console.log('something', this.props.notes);
+    this.props.deleteNoteOnState(id);
+  }
+
+  editNote = ({title, content, id}) => {
+    this.setState(
+      () => ({title, content, id, editing: true})
+    )
+  };
+
   render() {
     return (
       <div>
-        {console.log(this.state)}
-        {console.log(this.props.notes)}
+        {console.log('state',this.state)}
+        {console.log('props notes',this.props.notes)}
         <h1>{}</h1>
-        {this.props.notes.map( (note, index) => {
+        {this.props.notes.map( (note) => {
+          console.log('JOOOR',note);
           return(
-            <div key={index}>
+            <div key={note.id}>
               <ul>
                 <li>{note.title}</li>
                 <li>{note.content}</li>
+                <button onClick={() => this.deleteNote(note.id)}>Delete</button>
               </ul>
             </div>
           )
