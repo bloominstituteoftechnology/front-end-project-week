@@ -7,19 +7,19 @@ import './SignUp.css';
 
 class SignUp extends Component {
   handleFormSubmit({
-    username,
-    password,
     firstName,
     lastName,
+    username,
     email,
+    password,
     confirmPassword
   }) {
     this.props.register(
-      username,
-      password,
       firstName,
       lastName,
       email,
+      username,
+      password,
       confirmPassword,
       this.props.history
     );

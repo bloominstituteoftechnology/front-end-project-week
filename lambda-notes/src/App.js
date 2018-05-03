@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import LeftColumn from './components/LeftColumn';
 import ListView from './components/ListView';
 import LandingPage from './components/LandingPage';
@@ -10,11 +11,15 @@ import SignIn from './components/SignIn';
 import Users from './components/Users';
 import SignOut from './components/SignOut';
 import SignUp from './components/SignUp';
+
 import RequireAuth from './components/HOC/RequireAuth';
+
 import { Provider } from 'react-redux';
+
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
+
 import './App.css';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);

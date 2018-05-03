@@ -32,11 +32,11 @@ export const register = (
     }
     axios
       .post(`${ROOT_URL}/api/register`, {
-        username,
-        password,
         firstName,
         lastName,
-        email
+        email,
+        username,
+        password
       })
       .then(() => {
         dispatch({
