@@ -10,10 +10,11 @@ export const Register = ({history, login, notes, loggedInAs}) => {
 
         event.preventDefault();
         console.log(usernameInput.value);
+        const username = usernameInput.value;
         //we're asking the server if the username already exists. It will return true or false
-        axios.get(`http://localhost:5000/api/users/${usernameInput.value}`)
+        axios.post(`http://localhost:5000/api/username`, {username})
             .then(response => {
-                
+                console.log(response);
                 if(response.data) {
                     document.getElementById('usernamealreadyexists').style.display = 'block';
                 } else {
@@ -27,7 +28,7 @@ export const Register = ({history, login, notes, loggedInAs}) => {
                             password: passwordInput.value,
                             notes: notes 
                         }
-                        axios.post('http://localhost:5000/api/users', newUser)
+                        axios.post('http://localhost:5000/api/register', newUser)
                             .then(response => {
                                 if (loggedInAs !== '')
                                     newUser.notes = [];
@@ -39,7 +40,7 @@ export const Register = ({history, login, notes, loggedInAs}) => {
                 }
             }
             )
-            .catch(error => console.log(error));
+            .catch(error => console.log('error'));
     }
 
     return (

@@ -8,6 +8,7 @@ import { NoteView } from './components/NoteView';
 import { Register } from './components/Register';
 import NoteListTest from './components/NoteListTest';
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 class App extends Component {
 
@@ -25,6 +26,7 @@ class App extends Component {
     const tempNotes = this.state.notes;
     tempNotes.push(note);
     this.setState({notes: tempNotes, nextId: (this.state.nextId + 1)});
+    this.updateServer();
   };
 
   updateNote = (note) => {
@@ -39,6 +41,7 @@ class App extends Component {
       }
     }
     this.setState({tempNotes});
+    this.updateServer();
   };
 
   deleteNote = (note) => {
@@ -50,6 +53,7 @@ class App extends Component {
     }
     tempNotes.splice(index, 1);
     this.setState({tempNotes});
+    this.updateServer();
 
   };
 
@@ -72,9 +76,10 @@ class App extends Component {
   }
   handleLogin = () => {
 
-    axios.put(`http://localhost:5000/api/users/${this.state.usernameInput}`, {username: this.state.usernameInput, password: this.state.passwordInput})
+    axios.post(`http://localhost:5000/api/login`, {username: this.state.usernameInput, password: this.state.passwordInput})
     .then(response => {
-      if(response.data !== 'ERROR')
+      console.log(response);
+      if(!response.data.error)
         this.setState({notes: response.data.notes, loggedInAs: response.data.username, password: response.data.password });
         document.getElementById('password_warning').style.display = 'none';
         document.getElementById('current_user').style.display = 'block';
@@ -114,18 +119,14 @@ class App extends Component {
 
   updateServer = () => {
 
-    const userdata = {
-      username: this.state.loggedInAs,
-      password: this.state.password,
-      notes: this.state.notes
-    }
-    
-    axios.delete(`http://localhost:5000/api/users/${userdata.username}`)
-      .then(
-        axios.post(`http://localhost:5000/api/users`, userdata)
-      )
-      .catch(error => {console.error(error)})     
-  }
+    axios.put('http://localhost:5000/api/update', { notes: this.state.notes, username: this.state.username })
+    .then(response => {
+      console.log('sever updated');
+    })
+    .catch(err => {
+      console.log('There was an error:', err);
+    });
+  };
 
   setNextId = () => {
     
@@ -139,7 +140,7 @@ class App extends Component {
   }
   
   componentWillUnmount() {
-    this.updateServer();  
+    // this.updateServer();  
   }
 
   render() {
