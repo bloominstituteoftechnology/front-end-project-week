@@ -18,7 +18,9 @@ p {
     font-size: 2rem;
   }
 }
-
+a:hover {
+  text-decoration: none;
+}
 .sidebar-button {
   display: block;
   background: #27B8C4;
@@ -29,5 +31,7 @@ p {
   font-weight: bold;
   margin: 0 auto;
   margin-bottom: 25px;
- 
+}
+.sidebar-button:hover {
+  background: #1F939C;
 }

@@ -9,23 +9,28 @@ class CreateNote extends Component {
         super(props);
         this.state = {
             title: '',
-            content: ''
+            content: '',
+            id: '',
+            edited: false,
+            deleted: false
         }
     }
     componentDidMount() {
-        //maybe something here
+        // this.props.getNotes();
     }
     updateInput = e => {
         this.setState({ [e.target.name]: e.target.value });
-        // console.log('UPDATE', this.state)
+        console.log('UPDATE', this.state)
     }
-    submit = e => {
-        // e.preventDefault();
+    createNewNote = () => {
         const newNote = { 
-            title: this.state.title, 
-            content: this.state.content
+            title: this.state.title,
+            content: this.state.content,
+            id: this.state.id,
+            edited: false,
+            deleted: false
         };
-        console.log("NEWNOTE", newNote)
+        console.log('NEWNOTE', newNote);
         this.props.addNote(newNote);
         this.setState({ title: '', content: ''})
     }
@@ -40,7 +45,7 @@ class CreateNote extends Component {
 
                 <textarea name='content' rows='20' cols='90' placeholder='Note Content' value={this.state.content} onChange={this.updateInput}/>
 
-                <button className='submit' onClick={this.submit}>save</button>
+                <button className='submit' onClick={this.createNewNote}>save</button>
                 </div>
             </div>
         )
@@ -50,7 +55,9 @@ class CreateNote extends Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
-        
+        // id: state.id,
+        // deleted: state.deleted,
+        // edited: state.edited
     }
 }
 export default connect(mapStateToProps, { addNote })(CreateNote);

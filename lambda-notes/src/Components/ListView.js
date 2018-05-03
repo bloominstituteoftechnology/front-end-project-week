@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import '../Styles/ListView.css'
 import Sidebar from './Sidebar';

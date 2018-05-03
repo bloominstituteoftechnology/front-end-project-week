@@ -1,22 +1,26 @@
-import { ADD_NOTE } from '../Actions/index'
+import { ADD_NOTE, GET_NOTES } from '../Actions/index'
 
 const initialState = {
-    notes: [
-        { title: 'Todo 1', content: 'Lorem ipsum dolor sit amet.' }, 
-        { title: 'Todo 2', content: 'consectetur adipiscing elit.' }, 
-        { title: 'Todo 3', content: 'dfsdareee' }
-    ],
-    id: 0,
-    edited: false,
-    deleted: false
+    notes : []
+
+    //each note object
+
+    // { title: '',
+    // content: '',
+    // id: 0,
+    // edited: false,
+    // deleted: false }
+
 }
 
 const reducer = (state = initialState, action) => {
-   
-    switch(action.type) {
-        case ADD_NOTE:  
-        console.log("STATE", state);
-        return Object.assign({}, state, { notes: state.notes.concat(action.notes) });
+
+    switch (action.type) {
+        case GET_NOTES:
+            return action.payload;
+        case ADD_NOTE:
+            console.log("STATE", state);
+            return initialState.notes.concat(action.payload);
         default:
             return state
     }
