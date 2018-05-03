@@ -44,7 +44,7 @@ class NoteForm extends Component {
         if (this.props.match.params.id !== undefined) {
           this.setState({
             newNote: this.props.notes.filter(
-              note => this.props.match.params.id, 10 === note._id
+              note => (this.props.match.params.id, 10 === note.id)
             )[0]
           });
         }
