@@ -1,0 +1,26 @@
+
+.modal-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 150px;
+    right: 100px;
+    width: 583px;
+    height: 195px;
+    border-radius: 0;
+}
+
+.Button-Danger {
+    background-color: red;
+}
+
+
+.Link__Note {
+    color: black;
+    text-decoration: underline;
+}
+
+.P__Content {
+    line-height: 1.8;
+}

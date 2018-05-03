@@ -1,0 +1,21 @@
+.Background-Grey {
+    background-color: #D8D8D8;
+}
+
+.Button {
+    border-radius: 0;
+    margin-bottom: 20px;
+    background-color: #2BC1C4;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: Raleway Regular;
+}
+
+.Button:hover {
+    background-color: rgb(77, 154, 158);
+}
+
+.Link:hover {
+    text-decoration: none;
+}
+
