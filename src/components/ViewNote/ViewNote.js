@@ -29,7 +29,7 @@ class ViewNote extends Component {
     return (
       <div className="ViewNote">
         <div className="note-form">
-          <Link className="note-edit" to={`/update/${this.props.note.noteId}`}>
+          <Link className="note-edit" to={`/update/${this.props.note._id}`}>
             edit
           </Link>
           <button className="note-delete" onClick={this.toggle}>

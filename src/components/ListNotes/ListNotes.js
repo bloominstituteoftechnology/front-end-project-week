@@ -18,9 +18,9 @@ class ListNotes extends Component {
         <h2 className="list_h2">Your Notes:</h2>
         <div className="notes">
           {this.props.notes.map(note =>
-            <div className="card-body" key={note.noteId}>
+            <div className="card-body" key={note._id}>
               <h4 className="card-title">
-                <Link className="card-link" to={`/view/${note.noteId}`}>
+                <Link className="card-link" to={`/view/${note._id}`}>
                   {note.title}
                 </Link>
               </h4>

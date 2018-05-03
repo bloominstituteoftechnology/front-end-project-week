@@ -16,8 +16,7 @@ class Layout extends Component {
     this.state = {
       notes: [],
       title: '',
-      content: '',
-      id: Number('')
+      content: ''
     }
 
     // # Refactoring to use ES6 binding
@@ -57,8 +56,7 @@ class Layout extends Component {
         this.setState({
           notes: res.data,
           title: '',
-          content: '',
-          id: Number('')
+          content: ''
         })
       })
       .catch(err => console.log(err))
@@ -149,7 +147,7 @@ class Layout extends Component {
             <ViewNote
               note={
                 this.state.notes.filter(
-                  note => note.noteId == props.match.params.id
+                  note => note._id == props.match.params.id
                 )[0]
               }
               deleteNote={this.deleteNote}
@@ -162,7 +160,7 @@ class Layout extends Component {
             <UpdateNote
               note={
                 this.state.notes.filter(
-                  note => note.noteId == props.match.params.id
+                  note => note._id == props.match.params.id
                 )[0]
               }
               newTitle={this.newTitle}
