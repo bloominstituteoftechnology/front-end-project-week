@@ -1,23 +1,8 @@
-/*
-  Be sure to import in all of the action types from `../actions`
-*/
-
-/*
- Your initial/default state for this project could look a lot like this
- {
-   
-*/
-
-/*
-  You'll only need one smurf reducer for this project.
-  Feel free to export it as a default and import as rootReducer. 
-  This will guard your namespacing issues.
-  Components can read your store as, `state` and not `state.fooReducer`.
-*/
-import {LOADING, ERROR, LOADED, CREATE } from '../actions';
+import {LOADING, LOADED, CREATE, SINGLE_NOTE } from '../actions';
 
 const initialState = {
   notes: [],
+  singleNote: {},
   loadingNotes: false,
   addingNote: false,
   updatingNote: false,
@@ -33,6 +18,8 @@ export default (state = initialState, action) => {
       return {...state, loadingNotes: false, addingNote: false, notes: action.payload, error: null};
     case CREATE:
       return {...state, addingNote: true};
+      case SINGLE_NOTE:
+      return { ...state, singleNote: action.payload, showUpdate: false };
     default:
       return state; 
   }
