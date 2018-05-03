@@ -29,3 +29,10 @@ hr {
   .Link a:hover {
     background: peru;
 }
+
+.faded {
+    color: #38C1C3;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px !important;
+}

@@ -22,8 +22,8 @@ class App extends Component {
         <div className="row no-gutters">
           <div className="sideBar col-2">
           <span className="lambdaNotes">Lambda <br /> Notes</span>
-          <span className="buttons"><Buttons /></span>
-          </div>
+          <span className="buttons"><Buttons /></span>          
+          </div>            
             <div className="noteSection col-md-10">
             <span className="yourNotes">Your Notes:</span>            
               <NoteCards note={this.state.note} notes={this.state.notes} />            
