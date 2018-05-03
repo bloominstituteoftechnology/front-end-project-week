@@ -4,8 +4,8 @@ class CreateNote extends Component {
     constructor(props) {
       super(props);
       this.state = {
-       Title:'',
-       Body:''
+       title:'',
+       body:''
       };
       this.handleChangeTitle=this.handleChangeTitle.bind(this);
     this.handleChange=this.handleChange.bind(this);
@@ -13,20 +13,20 @@ class CreateNote extends Component {
     }
   
     handleChangeTitle = (event) => {
-      this.setState({Title: event.target.value});
+      this.setState({title: event.target.value});
     }
     handleChange = (event) => {
-        this.setState({Body: event.target.value});
+        this.setState({body: event.target.value});
       }
      handleSubmit = (event) =>{
 event.preventDefault();
 const addNote ={
-    Title: event.target.value,
-    Body: event.target.value
+    title: event.target.value,
+    body: event.target.value
 }
 axios.post('https://backend-project-week.herokuapp.com/api/note', {
-  Title:this.state.Title,
-  Body:this.state.Body,
+  title:this.state.title,
+  body:this.state.body,
 })
 .then(response => {
   console.log(response, ' note saved' )
@@ -36,8 +36,8 @@ axios.post('https://backend-project-week.herokuapp.com/api/note', {
 });
           this.state.notes.push(addNote);
           this.setState({
-            Title:'',
-            Body:'' 
+            title:'',
+            body:'' 
           })
       }
  
@@ -57,8 +57,8 @@ axios.post('https://backend-project-week.herokuapp.com/api/note', {
           <form>
           <h2>Create New Notes:</h2>
             <input class = 'kin' type ='text' placeholder ='Enter your title' 
-            value = {this.state.Title} onChange ={this.handleChangeTitle} /><br />
-              <textarea value={this.state.Body} placeholder = 'Enter your notes'
+            value = {this.state.title} onChange ={this.handleChangeTitle} /><br />
+              <textarea value={this.state.body} placeholder = 'Enter your notes'
               onChange={this.handleChange} cols={60} rows={30} />
             <button onClick={this.handleSubmit}>Save </button>
           </form>
