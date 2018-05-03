@@ -5,12 +5,12 @@ export default ComposedComponent => {
   class RequireAuthentication extends Component {
     componentWillMount() {
       if(this.props.authenticated){
-        this.props.history.push('/');
+        this.props.history.push('/displayNotes');
       }
     }
 
     render() {
-      if(this.props.authenticated) {
+      if(!this.props.authenticated) {
         return ( 
           <ComposedComponent />
         )}

@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 function mapStateToProps(state) {
   return {
-    notes: state.notes
+    notes: state.notes.notes
   };
 }
 
@@ -30,7 +30,7 @@ class NotesList extends Component {
           {this.props.notes.map((note, key) => {
             return (
               <Col sm={4}>
-                <Link className="card-link" to={`/viewNote/${note.id}`}>
+                <Link className="card-link" to={`/:uid/displayNotes/${note.id}`}>
                   <Card className="note pb-3">
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>

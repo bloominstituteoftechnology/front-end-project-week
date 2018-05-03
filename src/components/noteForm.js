@@ -32,12 +32,12 @@ class NoteForm extends Component {
             this.props.addNote(this.state.newNote);
         }
         else {
-            this.props.editNote(this.state.newNote,this.state.newNote.id);
+            this.props.editNote(this.state.newNote,this.state.newNote._id);
         }
         this.setState({
             newNote:{title:'',note:'',}
         });
-        this.props.history.push('/displayNotes');
+        this.props.history.push('/:uid/displayNotes');
     };
 
     componentDidMount() {

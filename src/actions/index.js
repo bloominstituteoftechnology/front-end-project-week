@@ -49,12 +49,12 @@ export const USER_AUTHENTICATED = "USER_AUTHENTICATED";
 export const login = (username, password, history) => {
   return dispatch => {
     axios
-      .post(`${ROOT_URL}`, { username, password })
+      .post(`${ROOT_URL}login`, { username, password })
       .then(response => {
         console.log("data:",response.data, "response:", response);
         const token = response.data.token;
+        const uid = response.data.uid;
         window.localStorage.setItem("token", token);
-        //const uid = response.id;
         window.localStorage.setItem("uid", uid);
         dispatch({
           type: USER_AUTHENTICATED
@@ -83,10 +83,13 @@ export const ADD_NOTE = "ADD_NOTE";
 //let noteId = 10;
 
 export const addNote = note => {
+  const token = window.localStorage.getItem("token");
+  const uid = window.localStorage.getItem("uid");
   return dispatch => {
-    const uid = localStorage.getItem("uid");
     axios
-      .post(`${ROOT_URL}${uid}/createNote`, uid, note)
+      .post(`${ROOT_URL}createNote`, note, {
+        headers: {Authorization: token}
+      })
       .then(({ note }) => {
         dispatch({
           type: ADD_NOTE,
@@ -102,11 +105,11 @@ export const addNote = note => {
 export const GET_NOTES = "GET_NOTES";
 
 export const getNotes = () => {
-  const uid = localStorage.getItem("uid");
   const token = window.localStorage.getItem("token");
+  const uid = window.localStorage.getItem("uid");
   return dispatch => {
     axios
-      .get(`${ROOT_URL}${uid}/displayNotes`, {
+      .post(`${ROOT_URL}${uid}/displayNotes`, {
         headers: { Authorization: token }
       })
       .then(({ data }) => {
@@ -124,12 +127,14 @@ export const getNotes = () => {
 export const EDIT_NOTE = "EDIT_NOTE";
 
 export const editNote = note => {
+  const token = window.localStorage.getItem("token");
+  const uid = window.localStorage.getItem("uid");
   return dispatch => {
     const id = note.data._id;
-    const uid = localStorage.getItem("uid");
-    console.log(uid);
     axios
-      .post(`${ROOT_URL}${uid}/editNote/${id}`, note)
+      .post(`${ROOT_URL}${uid}/editNote/${id}`, note, {
+        headers: {Authorization: token}
+      })
       .then(({ data }) => {
         dispatch({
           type: DELETE_NOTE,
@@ -145,11 +150,13 @@ export const editNote = note => {
 export const DELETE_NOTE = "DELETE_NOTE";
 
 export const deleteNote = id => {
+  const token = window.localStorage.getItem("token");
   console.log("note id to be deleted: ", id);
-  const uid = localStorage.getItem("uid");
   return dispatch => {
     axios
-      .delete(`${ROOT_URL}/${uid}/deleteNote/${id}`)
+      .delete(`${ROOT_URL}deleteNote/${id}`, {
+        headers: {Authorization:token}
+      })
       .then(({ data }) =>
         dispatch({
           type: DELETE_NOTE,

@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input
-} from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { login } from "../actions/index.js";
 
 class SignIn extends Component {
@@ -19,11 +13,15 @@ class SignIn extends Component {
   loginSubmitHandler = event => {
     event.preventDefault();
     //console.log("history in the props:", this.props.history)
-    this.props.login(this.state.username, this.state.password, this.props.history);
+    this.props.login(
+      this.state.username,
+      this.state.password,
+      this.props.history
+    );
     this.setState({ password: "" });
-    if (this.props.authed) {
-      this.props.history.push("/${uid}/displayNotes");
-    }
+    // if (this.props.authed) {
+    //   this.props.history.push("/displayNotes");
+    // }
   };
 
   loginInputHandler = ({ target }) => {
@@ -61,13 +59,13 @@ class SignIn extends Component {
         <Button>Sign In</Button>
       </Form>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    authed: state.authed
   };
 };
 
-const mapStateToProps = state => {
-    return {
-        authed: state.authed
-    };
-};
-
-export default connect(mapStateToProps, {login})(SignIn);
+export default connect(mapStateToProps, { login })(SignIn);
