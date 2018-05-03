@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const NavBar = (props) => {
 
@@ -28,7 +29,7 @@ const NavBar = (props) => {
     return (
         <div className="NavBar">
             <AuthButton />
-            <h1 className="NavBar__Title">Lambda Notes</h1>
+            <img src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "10% auto 50% auto"}} />
             <Link to="/notes"><div className="NavBar__Button">View Your Notes</div></Link>
             <Link to="/AddNote"><div className="NavBar__Button">+ Create New Note</div></Link>
             <a href={props.export()} download="LambdaNotesExport.csv"><div className="NavBar__Button">Export Notes CSV</div></a>

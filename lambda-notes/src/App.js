@@ -16,7 +16,7 @@ class App extends Component {
     notes: [],
     id: 0,
     username: false,
-    isAuthenticated: true
+    isAuthenticated: false,
 }
 
   handleAdd = (note) => {
@@ -90,8 +90,8 @@ class App extends Component {
   handleSignout(cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/logout')
       .then(res => {
-        this.setState({ notes: [], id: 0, isAuthenticated: false, username: false })
         localStorage.clear();
+        this.setState({ notes: [], id: 0, isAuthenticated: false, username: false })
         cb();
       })
       .catch(err => console.log(err));

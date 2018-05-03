@@ -60,7 +60,7 @@ handleDrop = (e) => {
             <div className="ListView">
                 <div className="ListView__nav">
                     <input className="ListView__input" type="text" placeholder="Find Note" onChange={this.handleFilter}></input>
-                    <div>
+                    <div style={{margin: "0 3%"}}>
                         Sort:
                         <button onClick={this.sortA} className="ExtraButton">A-z</button>
                         <button onClick={this.sortZ} className="ExtraButton">Z-a</button>

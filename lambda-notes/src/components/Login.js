@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import logo from '../assets/logo.png';
 
 class Login extends Component {
+  state = {
+    message: "Enter your username and password"
+  }
 
   handleLogin = (e) => {
     const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
         //start animation
-        this.props.login(username, password, (success) => {
-            if (success) {
+        this.props.login(username, password, (returnMessage) => {
+            if (returnMessage) {
                 const name = username.charAt(0).toUpperCase() + username.slice(1);
                 this.setState({ modal: false, username: name });
                 this.props.history.push('/notes');
             }
             else {
-                console.log('e')
+                console.log(returnMessage)
                 //change colors on incorrect form
             }
         })
     }
     else { 
-        if (!username) e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
-        if (!password) e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
+        if (!username) {
+          e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
+          this.setState({ message: "Hey! You left these empty!"})
+      }
+        if (!password) {
+          e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
+          this.setState({ message: "Hey! You left these empty!"})
+      }
     }
 };
 
@@ -30,24 +40,37 @@ class Login extends Component {
     const username = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
-        this.props.signup(username, password, () => {
+        this.props.signup(username, password, (returnMessage) => {
+          if (returnMessage) {
             const name = username.charAt(0).toUpperCase() + username.slice(1);
             this.setState({ modal: false, username: name });
             this.props.history.push('/notes');
+          }
+          else {
+            console.log(returnMessage)
+            //change colors on incorrect form
+        }
         });
     }
     else { 
-        if (!username) e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "1px solid red";
-        if (!password) e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "1px solid red";
+      if (!username) {
+        e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
+        this.setState({ message: "Hey! You left these empty!"})
     }
+      if (!password) {
+        e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
+        this.setState({ message: "Hey! You left these empty!"})
+    }
+  }
 };
 
 
   render() {
     return (
-      <div>
-        <div>
-            Enter your username and password
+      <div className="LoginPage">
+      <img src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "4% auto"}} />
+        <div style={{margin: "1% 0"}}>
+          {this.state.message}
         </div>
         <div>
             <div>
@@ -57,11 +80,11 @@ class Login extends Component {
         </div>
         <div>
           <Button className="Button" onClick={this.handleLogin}>Log In</Button>
-          <div>
+        </div>
+        <div style={{position: "relative", top: "168px"}}>
             <div style={ { fontSize: "12px" } }>Don't have an account?</div>
             <Button onClick={this.handleCreate}>Create Account</Button>
           </div>
-        </div>
       </div>
     );
   }

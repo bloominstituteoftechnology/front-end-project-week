@@ -1,11 +1,10 @@
 .App {
   width: 99.8%;
-  max-width: 1024px;
-  height: 100%;
+  max-width: 1640px;
+  height: 780px;
   display: flex;
   text-align: center;
   margin: 0.1%;
-  border: 1px solid rgb(150, 150, 150);
 }
 
 @media (min-width: 1024px) { 
@@ -31,7 +30,7 @@ a:hover {
   display: flex;
   align-content: center;
   flex-direction: column;
-  border-right: 1px solid rgb(150, 150, 150);
+  padding-top: 1%;
 }
 
 .NavBar__Title {
@@ -42,14 +41,15 @@ a:hover {
 }
 
 .NavBar__Button {
-  background-color: #2BC1C4;
+  background-color: rgb(136, 136, 136);
   min-width: 166px;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 680;
+  font-size: 17px;
   color: white;
   padding-top: 5%;
   margin: 4% 6%;
   border: 1px solid rgb(150, 150, 150);
+  border-radius: 6%;
   min-height: 50px;
 }
 
@@ -118,8 +118,9 @@ a:hover {
 }
 
 .ListView__input {
-  width: 64%;
+  width: 34%;
   font-size: 18px;
+  min-width: 200px;
   text-align: center;
 }
 
@@ -127,6 +128,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 1%;
 }
 
 .ListCards {
@@ -175,7 +177,8 @@ a:hover {
 }
 
 .Button, .AddTag {
-  background-color: #2BC1C4;
+  background-color: #A0001E;
+  border-radius: 6%;
   height: 50px;
   width: 20%;
   min-width: 80px;
@@ -189,7 +192,8 @@ a:hover {
 }
 
 .ExtraButton {
-  background-color: #2BC1C4;
+  background-color: rgb(136, 136, 136);
+  border-radius: 6%;
   border: 1px solid rgb(150, 150, 150);
   color: white;
 }
@@ -243,4 +247,12 @@ a:hover {
 .Login {
   position: absolute;
   right: 12%;
+}
+
+.LoginPage {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  min-height: 700px;
 }
