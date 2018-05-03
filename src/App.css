@@ -1,0 +1,181 @@
+.App {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+}
+
+.background {
+  min-width: 288px;
+  min-height: 1015px;
+  background-color: rgb(214, 214, 213);
+  display: flex;
+  flex-direction: column;
+}
+
+.lambda {
+  margin-right: 37%;
+  margin-top: 7%;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+
+.notes {
+  margin: -8% 51% 8% 0%;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+
+.view {
+  background-color: #2bc1c4;
+  width: 84%;
+  height: 5%;
+  padding: 4% 10% 12% 0%;
+  margin: 0% 0% 0% 4%;
+  color: white;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+
+.view:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.create {
+  background-color: #2bc1c4;
+  width: 84%;
+  height: 5%;
+  padding: 4% 10% 12% 0%;
+  margin: 6% 0% 0% 4%;
+  color: white;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+
+.create:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.card-body {
+  max-width: 95%;
+}
+
+.card-title {
+  padding: 0% 0% 3% 0%;
+  margin: 0% 3% 0% 5%;
+  border-bottom: 1px solid gray;
+  text-align: start;
+  color: black;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+.card-text {
+  margin: 4% 0% 0% 0%;
+  font-style: 'Raleway';
+  font-weight: normal;
+  color: black;
+  overflow: hidden;
+}
+.row {
+  margin-top: 8%;
+  margin-right: -5px;
+  margin-left: 10px;
+  height: 111%;
+}
+.yourNotes {
+  margin: 5% 77% -5% 0%;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+.container {
+  margin-right: 22%;
+}
+.cardsList {
+  width: 100%;
+  padding: 5% 0% 0% 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardList {
+  flex: 1 0 23%;
+  height: 232px;
+  margin: 3% 3% 1% 1%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  text-align: left;
+  padding: 11% 0% 6% 13%;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+.newTitle {
+  width: 100%;
+  margin-bottom: 5%;
+  padding-left: 3%;
+  padding: 3%;
+  margin-right: -24%;
+  font-style: 'Raleway';
+  font-weight: normal;
+}
+.newContent {
+  width: 160%;
+  height: 150%;
+  margin-bottom: 5%;
+  padding: 6% 15% 83% 3%;
+  margin-right: -84%;
+  font-style: 'Raleway';
+  font-weight: normal;
+}
+.save {
+  padding: 2% 20% 2% 18%;
+  margin-right: 30%;
+  background-color: #2bc1c4;
+  color: white;
+}
+.edit {
+  margin-left: 65%;
+  text-decoration: underline;
+  color: black;
+}
+.edit:hover {
+  color: black;
+  text-decoration: underline;
+}
+.note {
+  padding: 1% 0% 0% 73%;
+  display: flex;
+  justify-content: space-around;
+}
+.delete {
+  border-bottom: 1px solid black;
+}
+.delete:hover {
+  cursor: pointer;
+  color: black;
+}
+.noteView {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  max-width: 67%;
+}
+.noteTitle {
+  margin: 2% 0% 3% 4%;
+  font-style: 'Roboto';
+  font-weight: bold;
+}
+.noteContent {
+  margin: 0% 0% 0% 4%;
+  font-style: 'Raleway';
+  font-weight: normal;
+}
+a:hover {
+  text-decoration: none;
+}
