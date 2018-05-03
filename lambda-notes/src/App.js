@@ -101,12 +101,16 @@ class App extends Component {
     //play animation
       axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
       .then(resp => {
-        axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data.id}`)
+        if (resp.data._id) {
+        axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data._id}`)
           .then(res => {
             const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
             this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
+            //redirect
           })
           .catch(err => console.log(err));
+        }
+        localStorage.clear();
         })
       .catch(err => console.log(err));
     }
