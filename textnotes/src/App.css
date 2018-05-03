@@ -48,3 +48,46 @@ nav li {
 li hr {
   width: 80%;
 }
+
+.createPage {
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.create-logo {
+  display: flex;
+  margin: 50px 0px 30px 30px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+.content-box {
+  display: flex;
+  font-weight: bold;
+  border: 2px solid grey;
+  margin: 20px 30px;
+  width: 465px;
+  height: 300px;
+}
+
+.title-text-box {
+  display: flex;
+  padding: 2px;
+  margin-left: 30px;
+  width: 250px;
+  height: 30px;
+  font-weight: bold;
+  border: 2px solid grey;
+}
+
+.save-button {
+  display: flex;
+  margin: 0 30px 200px;
+  padding: 10px;
+  background-color: rgb(103, 197, 197);
+  color: white;
+  border: 1px grey;
+  font-size: 16px;
+  width: 150px;
+  height: 40px;
+}
