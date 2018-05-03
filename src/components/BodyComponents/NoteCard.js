@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default props => {
   return (
-    <Link to={`/noteview/${props.note.id}`}>
+    <Link to={`/noteview/${props.note._id}`}>
       <Card
         body
         className="m-3"

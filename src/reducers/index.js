@@ -93,8 +93,8 @@ export default (state = initState, action) => {
       // notes.unshift(action.payload);
       return { ...state, notes: action.payload };
     case DELETE_NOTE:
-      let newNotes = state.notes.filter(item => item.id !== action.payload);
-      return { ...state, notes: newNotes };
+      // let newNotes = state.notes.filter(item => item.id !== action.payload);
+      return { ...state, notes: action.payload };
     case LOGIN:
       return {
         ...state,

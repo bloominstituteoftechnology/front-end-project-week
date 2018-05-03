@@ -9,21 +9,20 @@ class EditNote extends Component {
     note: {
       title: '',
       body: '',
-      id: '',
+      _id: '',
     },
     redirect: false,
   };
 
   componentDidMount() {
     const item = this.props.notes.filter(
-      item => Number(item.id) === Number(this.props.match.params.id)
+      note => note._id === this.props.match.params.id
     )[0];
-    console.log(this.state.note);
     this.setState({
       note: {
         title: item.title,
         body: item.body,
-        id: item.id,
+        _id: item._id,
       },
     });
   }
@@ -67,21 +66,20 @@ class EditNote extends Component {
 
   updateNote = event => {
     event.preventDefault();
-    console.log(this.state.note);
     this.props.editNote(this.state.note);
     this.setState({ redirect: true });
   };
 
   handleTitleChange = event => {
-    const id = this.state.note.id;
+    const _id = this.state.note._id;
     const body = this.state.note.body;
-    this.setState({ note: { title: event.target.value, body, id } });
+    this.setState({ note: { title: event.target.value, body, _id } });
   };
 
   handleBodyChange = event => {
-    const id = this.state.note.id;
+    const _id = this.state.note._id;
     const title = this.state.note.title;
-    this.setState({ note: { body: event.target.value, title, id } });
+    this.setState({ note: { body: event.target.value, title, _id } });
   };
 }
 

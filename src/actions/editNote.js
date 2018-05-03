@@ -6,7 +6,7 @@ const host = 'https://ajlnbe.herokuapp.com/api';
 
 export const editNote = data => dispatch => {
   axios
-    .post(`${host}/updatenote`, data, {
+    .put(`${host}/updatenote`, data, {
       headers: { Authorization: `Bearer ${localStorage.getItem('Dragons!')}` },
     })
     .then(response => {

@@ -58,17 +58,11 @@ class NewNote extends Component {
     this.setState({
       note: { body: event.target.value, title },
     });
-    console.log(event.target.value.replace(/\n/g, '<br>').split('<br>'));
   };
 
   addNewNote = event => {
     event.preventDefault();
-    console.log(this.state.note);
-    const postNewNote = {
-      title: this.state.note.title,
-      body: this.state.note.body.replace(/\n/g, '<br>'),
-    };
-    this.props.newNote(postNewNote);
+    this.props.newNote(this.state.note);
 
     this.setState({
       note: {

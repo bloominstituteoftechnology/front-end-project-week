@@ -15,20 +15,21 @@ class NoteView extends Component {
 
   render() {
     let currentNote = this.props.notes.filter(
-      item => Number(item.id) === Number(this.props.match.params.id)
+      item => item._id === this.props.match.params.id
     )[0];
 
     if (currentNote === undefined) {
       currentNote = {
-        id: -10,
+        _id: 0,
         title: '',
         body: '',
       };
     }
 
     if (this.state.redirectToHome === true) return <Redirect to="/notelist" />;
-    if (this.state.redirectToEdit === true)
-      return <Redirect to={`/editnote/${currentNote.id}`} />;
+    if (this.state.redirectToEdit === true) {
+      return <Redirect to={`/editnote/${currentNote._id}`} />;
+    }
 
     return (
       <div>
@@ -65,7 +66,7 @@ class NoteView extends Component {
               color="danger"
               style={{ width: '175px', margin: '10px 10px 20px 10px' }}
               onClick={() => {
-                this.props.deleteNote(currentNote.id);
+                this.props.deleteNote(currentNote._id);
                 this.setState({ redirectToHome: true });
               }}
             >

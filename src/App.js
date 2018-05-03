@@ -12,10 +12,10 @@ import {
 } from 'reactstrap';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 import { createUser } from './actions/createUser';
 import { login } from './actions/login';
+import { authorize } from './actions/authorize';
 
 import './App.css';
 import Body from './components/Body';
@@ -106,28 +106,18 @@ class App extends Component {
       headers: { Authorization: `Bearer ${token}` },
     };
     if (token) {
-      console.log(token);
-      axios
-        .get('https://ajlnbe.herokuapp.com/api/login', headers)
-        .then(response => {
-          console.log(response);
-          // this.props.authorize(user);
-        });
-    } else {
-      console.log('no token');
+      this.props.authorize(headers);
     }
   }
 
   componentWillReceiveProps(props) {
     if (props.loggedIn && this.props.loggedIn !== props.loggedIn) {
-      console.log('in if');
       props.history.push('/notelist');
     }
   }
 
   signInClicked = event => {
     event.preventDefault();
-    console.log('signin clicked');
 
     this.props.login({
       username: this.state.username,
@@ -211,4 +201,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, { createUser, login })(App));
+export default withRouter(
+  connect(mapStateToProps, { createUser, login, authorize })(App)
+);

@@ -11,7 +11,6 @@ export const createUser = data => dispatch => {
       const token = response.data.token;
       const user = response.data.user;
       localStorage.setItem('Dragons!', token);
-      console.log(response, 'response');
       dispatch({
         type: CREATE_USER,
         payload: user,
