@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import {getNotes, createNote, editNoteOnState, deleteNoteOnState} from '../actions/index';
+import {getNotes, createNote, updateNote, deleteNoteOnState} from '../actions/index';
 // import Note from './note';
 // import axios from 'axios';
 
@@ -48,6 +48,13 @@ class NoteList extends Component {
     )
   };
 
+  handleEdit = () => {
+    const { title, content, id} = this.state;
+    console.log('Editing', {title,content,id})
+    this.props.updateNote({title, content, id});
+    this.setState({title: '', content: '', id: '', editing: false})
+  }
+
   render() {
     return (
       <div>
@@ -61,16 +68,20 @@ class NoteList extends Component {
               <ul>
                 <li>{note.title}</li>
                 <li>{note.content}</li>
-                <button onClick={() => this.deleteNote(note.id)}>Delete</button>
+                <button onClick={() => this.deleteNote(note.id)}>Delete Note</button>
+                <button onClick={() => this.editNote(note)}>Edit Note</button>
               </ul>
             </div>
           )
         })}
-
+          
         <form>
           <input type='text' name='title' placeholder='Title' onChange={this.handleChange} value={this.state.title}/>
           <textarea name='content' rows="10" cols="30" placeholder='Content' onChange={this.handleChange} value={this.state.content}/>
-          <button onClick={this.addNote}>Save</button>
+          {this.state.editing 
+            ? <button onClick={this.handleEdit}>Edit Note</button>
+            : <button onClick={this.addNote}>Save</button>
+          }
         </form>
       </div>
     )
@@ -81,8 +92,12 @@ const mapStateToProps = state => {
   return {
     fetchingNotes: state.fetchingNotes,
     notesFetched: state.notesFetched,
+    notesSaved: state.notesSaved,
+    savingNotes: state.savingNotes,
+    updatingNote: state.updatingNote,
+    noteUpdated: state.noteUpdated,
     notes: state.notes,
   };
 }
 
-export default connect(mapStateToProps, {getNotes, createNote, editNoteOnState, deleteNoteOnState})(NoteList);
+export default connect(mapStateToProps, {getNotes, createNote, updateNote, deleteNoteOnState})(NoteList);

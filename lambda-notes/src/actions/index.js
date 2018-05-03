@@ -9,6 +9,7 @@ export const DELETENOTE = 'DELETENOTE';
 export const NOTE_SAVED = 'NOTE_SAVED';
 export const SAVING_NOTE = 'SAVING_NOTE';
 export const UPDATING = 'UPDATING';
+export const UPDATED = 'UPDATED';
 
 export const getNotes = () => {
   return dispatch => {
@@ -45,7 +46,7 @@ export const updateNote = note => {
     dispatch({type: UPDATING})
     axios.put(`http://localhost:5000/api/notes/${id}`, {title, content})
     .then(response => {
-      dispatch({type: UPDATED, getNotes()})
+      dispatch({type: UPDATED, notes: response.data})
     })
     .catch(err => {
       dispatch({ type: ERROR, error: 'ERROR UPDATING NOTE'})
@@ -53,12 +54,12 @@ export const updateNote = note => {
   }
 }
 
-export const startUpdating = note => {
-  return {
-    type: UPDATING,
-    note
-  };
-};
+// export const startUpdating = note => {
+//   return {
+//     type: UPDATING,
+//     note
+//   };
+// };
 
 export const deleteNoteOnState = id => {
   return dispatch => {

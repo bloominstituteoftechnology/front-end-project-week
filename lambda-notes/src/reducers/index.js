@@ -1,15 +1,15 @@
 // import actions
-import {ADDNOTE, EDITNOTE, DELETENOTE, FETCHING, FETCHED, ERROR, SAVING_NOTE, NOTE_SAVED,} from '../actions/index';
+import {ADDNOTE, EDITNOTE, DELETENOTE, FETCHING, FETCHED, ERROR, SAVING_NOTE, NOTE_SAVED, UPDATING, UPDATED,} from '../actions/index';
 
 const initialState = {
   fetchingNotes: false,
   notesFetched: false,
   notesSaved: false,
   savingNotes: false,
-  // updatingNote: false,
-  // noteUpdated: false,
+  updatingNote: false,
+  noteUpdated: false,
   // deletingNote: false,
-  noteDeleted: false,
+  // noteDeleted: false,
   notes: [],
   error: null
 }
@@ -26,9 +26,10 @@ export default (state = initialState, action) => {
     case NOTE_SAVED:    
       return Object.assign({}, state, {savingnotes: false, notesSaved: true,
         notesFetched: true, notes: action.notes});
-    // case NOTEDELETED:
-    //     return Object.assign({}, state, {noteDeleted: true,
-    //       notesFetched: true, notes: action.notes});
+    case UPDATING:
+      return Object.assign({}, state, {updatingNote: true});
+    case UPDATED:
+      return Object.assign({}, state, {updatingNote: false, NoteUpdated: true})
     case ERROR:
       return Object.assign({}, state, { fetchingNotes: false, error: action.error});
     default:
