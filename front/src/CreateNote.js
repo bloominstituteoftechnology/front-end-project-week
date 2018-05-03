@@ -24,6 +24,16 @@ const addNote ={
     Title: event.target.value,
     Body: event.target.value
 }
+axios.post('https://backend-project-week.herokuapp.com', {
+  Title:this.state.Title,
+  Body:this.state.Body,
+})
+.then(response => {
+  console.log(response, ' note saved' )
+})
+.catch(err => {
+  console.log(err, 'sorry, note not saved, try again ');
+});
           this.state.notes.push(addNote);
           this.setState({
             Title:'',

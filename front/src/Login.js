@@ -24,6 +24,19 @@ const addUser ={
     email: event.target.value,
     password: event.target.value
 }
+
+axios.post('https://backend-project-week.herokuapp.com', {
+  email:this.state.email,
+  password:this.state.password,
+})
+.then(response => {
+  console.log(response, 'email and password saved' )
+})
+.catch(err => {
+  console.log(err, 'sorry, email and password not saved, try again ');
+});
+
+
           this.state.user.push(addUser);
           this.setState({
             email:'',
