@@ -110,7 +110,7 @@ class App extends Component {
           })
           .catch(err => console.log(err));
         }
-        localStorage.clear();
+        else localStorage.clear();
         })
       .catch(err => console.log(err));
     }
