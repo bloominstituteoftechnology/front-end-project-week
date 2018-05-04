@@ -13,22 +13,40 @@ const Wrapper = styled.div`
 `;
 
 const Heading = styled.h3`
-    font-size: 2em;
-    font-weight: bold;
-    line-height: 0.8;
-    margin-top: 25px;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 0.8;
+  margin-top: 25px;
+  text-align: center;
+  margin-bottom: 1em;
+
+  @media (max-width: 751px) {
+    margin-top: 0;
+  }
 `;
 
 const List = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+  @media (max-width: 751px) {
+    justify-content: center;
+  }
+`;
 const IndividualNote = styled.div`
-    width: 30%;
-    background-color: #FFF;
-    padding: 12px 2em 33px 2em;
-    margin: 1px 1.7em 27px 0.2em;
+  width: 29%;
+  background-color: #fff;
+  padding: 12px 2em 33px 2em;
+  margin: 1px 1.7em 27px 0.2em;
+
+  @media (max-width: 1010px) {
+    width: 44%;
+  }
+
+  @media (max-width: 751px) {
+    width: 90%;
+  }
 `;
 
 const NoteHeading = styled.h3`
@@ -48,32 +66,68 @@ const StyledLink = styled(Link)`
 `;
 
 const Input = styled.input`
-    padding: 0 1.5em 0 3.5em;
-    margin: 0 0 0 5em;
-    border-radius: 3px;
-    width: 25%;
+  padding: 0 1.5em 0 3.5em;
+  margin: 0 0 0 5em;
+  border-radius: 3px;
+  width: 25%;
+
+  @media (max-width: 1080px) {
+    width: inherit;
+  }
+
+  @media (max-width: 751px) {
+    padding: 0.5em 1.5em 0.5em 3.5em;
+    margin: 1em 0 0 0;
+    width: 50%;
+    align-self: center;
+  }
+
+  @media (max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 const Container = styled.div`
-    display: flex;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const StyledButtonGroup = styled(ButtonGroup)`
-    // margin-bottom: 20px;
-    margin-left: 2em;
+  margin-left: 2em;
+
+  @media (max-width: 751px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 600px) {
+    display:flex;
+    flex-direction: column;
+  }
 `;
 
 const StyledButton = styled(Button)`
-    background-color: #55babc;
+  background-color: #55babc;
 `;
 
-const StyledButtonBottom = styled(StyledButton)`
-    padding-left: 1.61em;
-`;
+// const StyledButtonBottom = styled(StyledButton)`
+//     padding-left: 1.61em;
+// `;
 
 const ButtonContainer = styled.div`
-    width: 45%;
-`
+  @media (max-width: 1080px) {
+    margin-bottom: 0.5em;
+  }
+
+  @media (max-width: 751px) {
+    align-self: center;
+    margin-top: 0.5em;
+  }
+`;
 
 class Notes extends Component {
     constructor(props) {
@@ -85,8 +139,8 @@ class Notes extends Component {
         this.filters = {
             'Title_ASC': this.sortByTitleAscending,
             'Title_DESC': this.sortByTitleDescending,
-            'ID_ASC': this.sortByIdAscending,
-            'ID_DESC': this.sortByIdDescending
+            // 'ID_ASC': this.sortByIdAscending,
+            // 'ID_DESC': this.sortByIdDescending
         }
     }
 
@@ -121,31 +175,31 @@ class Notes extends Component {
         return 0;
     }
 
-    sortByIdAscending = (a, b) => {
-        a = a.title.toUpperCase();
-        b = b.title.toUpperCase();
+    // sortByIdAscending = (a, b) => {
+    //     a = a.title.toUpperCase();
+    //     b = b.title.toUpperCase();
 
-        if (a < b) {
-          return -1;
-        }
-        if (a > b) {
-          return 1;
-        }
-        return 0;
-    }
+    //     if (a < b) {
+    //       return -1;
+    //     }
+    //     if (a > b) {
+    //       return 1;
+    //     }
+    //     return 0;
+    // }
 
-    sortByIdDescending = (a, b) => {
-        a = a.title.toUpperCase();
-        b = b.title.toUpperCase();
+    // sortByIdDescending = (a, b) => {
+    //     a = a.title.toUpperCase();
+    //     b = b.title.toUpperCase();
 
-        if (a < b) {
-          return 1;
-        }
-        if (a > b) {
-          return -1;
-        }
-        return 0;
-    }
+    //     if (a < b) {
+    //       return 1;
+    //     }
+    //     if (a > b) {
+    //       return -1;
+    //     }
+    //     return 0;
+    // }
 
     dragulaDecorator = (componentBackingInstance) => {
         if(componentBackingInstance) {
@@ -157,8 +211,8 @@ class Notes extends Component {
     render() {
         const sortedList = this.props.notes.sort(this.filters[this.state.sortKey]);
         return <Wrapper>
+            <Heading>Your Notes:</Heading>
             <Container>
-              <Heading>Your Notes:</Heading>
               <ButtonContainer>
                 <StyledButtonGroup>
                   <StyledButton
@@ -176,7 +230,7 @@ class Notes extends Component {
                     Sort By Title Descending
                   </StyledButton>
                 </StyledButtonGroup>
-                <StyledButtonGroup>
+                {/* <StyledButtonGroup>
                   <StyledButtonBottom
                     onClick={() => this.setState({ sortKey: 'ID_ASC' })}
                   >
@@ -189,7 +243,7 @@ class Notes extends Component {
                   >
                     Sort By ID Descending
                   </StyledButtonBottom>
-                </StyledButtonGroup>
+                </StyledButtonGroup> */}
               </ButtonContainer>
               <Input type="text" value={this.state.searchInput} placeholder="Search Notes" onChange={this.handleSearchInput} />
             </Container>
