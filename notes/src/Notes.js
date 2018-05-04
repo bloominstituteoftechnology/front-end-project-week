@@ -31,14 +31,16 @@ class Notes extends Component {
 
     render() {
         return (
-            <div className="ButtonColumn">
-              <h1 className="LambdaNotes">Lambda Notes</h1>
+            <div className="MainView">
+              <div className="ButtonColumn">
+                <h1 className="LambdaNotes">Lambda Notes</h1>
+              </div>
+              <div className="NoteSpace">
+              </div>
             </div>
-            <div className="NoteSpace">
-            </div>
-        )
+        );
     }
 
 }
 
-export default Note;
+export default Notes;
