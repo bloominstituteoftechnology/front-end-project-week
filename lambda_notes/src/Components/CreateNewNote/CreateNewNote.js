@@ -64,7 +64,9 @@ class CreateNewNote extends Component {
             className="contentDiv"
             onChange={this.handleChange}
           />
-          <button className="saveNewNoteBtn">Save</button>
+          <button className="saveNewNoteBtn" onClick={this.createNote}>
+            Save
+          </button>
         </Form>
       </div>
     );
