@@ -25,6 +25,8 @@ class Note extends Component {
     }
 
     deleteExisting = () => {
-        
+
     }
 }
+
+export default Note;
