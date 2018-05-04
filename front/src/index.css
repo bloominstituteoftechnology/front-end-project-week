@@ -1,0 +1,71 @@
+/* Heading Font: Roboto Bold
+Heading color: 4A4A4A
+Content Font: Raleway Regular
+Content color: black
+Button background: 2BC1C4
+Sidebar background: D8D8D8
+Main background: F3F3F3
+Delete background: D0021B */
+
+p{background-color:white; }
+
+body {
+  margin:0  200px 0 200px;
+  padding: 0;
+  font-family: sans-serif;
+}
+.view{
+  max-width:950px;
+  width:70%;
+  font-family: Raleway Regular;
+  display:flex;
+  flex-wrap: wrap;
+}
+
+  .note{
+  width:200px;
+  height: 250px;
+  border:solid #F3F3F3;
+}
+  
+  
+.container{
+max-width: 950px;
+width:100%;
+  display: flex;
+  flex-wrap: wrap;
+  
+  border:solid grey;
+  max-height: 900px;
+  background-color:#F3F3F3;
+}
+.button3{
+  width:250px;
+  height:800px;
+  border:solid grey;
+  font-family: Roboto Bold;
+  color:#4A4A4A;
+  background-color:#D8D8D8;
+}
+button{
+  width:200px;
+  display: block;
+ margin:10px;
+  Height:50px;
+  font-size: 19px;
+  background-color: #2BC1C4;
+  text-decoration: none;
+}
+form{
+  margin:10px;
+}
+.kin{
+  width:200px;
+  height:40px;
+  margin: 10px;
+}
+.don{
+  margin-right: 0px; 
+  margin:2px;
+}
+
