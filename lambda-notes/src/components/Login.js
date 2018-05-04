@@ -11,7 +11,11 @@ class Login extends Component {
     const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
-        //start animation
+
+              //animation
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
+
         this.props.login(username, password, (returnMessage) => {
             if (returnMessage) {
                 const name = username.charAt(0).toUpperCase() + username.slice(1);
@@ -21,6 +25,7 @@ class Login extends Component {
             else {
                 console.log(returnMessage)
                 //change colors on incorrect form
+                logo.classList.toggle("spin");
             }
         })
     }
@@ -40,17 +45,23 @@ class Login extends Component {
     const username = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
-        this.props.signup(username, password, (returnMessage) => {
-          if (returnMessage) {
-            const name = username.charAt(0).toUpperCase() + username.slice(1);
-            this.setState({ modal: false, username: name });
-            this.props.history.push('/notes');
-          }
-          else {
-            console.log(returnMessage)
-            //change colors on incorrect form
+
+      //animation
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
+
+      this.props.signup(username, password, (returnMessage) => {
+        if (returnMessage) {
+          const name = username.charAt(0).toUpperCase() + username.slice(1);
+          this.setState({ modal: false, username: name });
+          this.props.history.push('/notes');
         }
-        });
+        else {
+          console.log(returnMessage)
+          //change colors on incorrect form
+          logo.classList.toggle("spin");
+        }
+      });
     }
     else { 
       if (!username) {
@@ -68,14 +79,14 @@ class Login extends Component {
   render() {
     return (
       <div className="LoginPage">
-      <img src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "4% auto"}} />
+      <img id="lnlogo" src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "4% auto"}} />
         <div style={{margin: "1% 0"}}>
           {this.state.message}
         </div>
         <div>
             <div>
-            <div><div>Username:</div><input name="username"></input></div>
-            <div><div>Password:</div><input type="password" name="password"></input></div>
+            <div id="usernamefield"><div>Username:</div><input name="username"></input></div>
+            <div id="passwordfield"><div>Password:</div><input type="password" name="password"></input></div>
             </div>
         </div>
         <div>

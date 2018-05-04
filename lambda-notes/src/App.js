@@ -74,7 +74,10 @@ class App extends Component {
         this.setState({ isAuthenticated: true, notes: response.data.user.notes, id: response.data.user._id})
         cb(response.data.success);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+      cb();
+    });
   }
 
   handleSignup(user, pass, cb) {
@@ -84,7 +87,10 @@ class App extends Component {
         localStorage.setItem("isAuthenticated", "true")
         cb();
       })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err)
+      cb();
+    });
   }
 
   handleSignout(cb) {
@@ -94,12 +100,19 @@ class App extends Component {
         this.setState({ notes: [], id: 0, isAuthenticated: false, username: false })
         cb();
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err)
+        cb();
+      });
   }
 
   isLoggedIn() {
     if(localStorage.isAuthenticated === "true") {
-    //play animation
+
+      //animation
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
+
       axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
       .then(resp => {
         console.log(resp.data);
@@ -112,7 +125,10 @@ class App extends Component {
           })
           .catch(err => console.log(err));
         }
-        else localStorage.clear();
+        else {
+          logo.classList.toggle("spin");
+          localStorage.clear();
+        }
         })
       .catch(err => console.log(err));
     }
