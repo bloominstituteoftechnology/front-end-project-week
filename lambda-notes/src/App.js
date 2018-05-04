@@ -19,6 +19,12 @@ class App extends Component {
     isAuthenticated: true,
 }
 
+  cb(res) {
+    console.log(this)
+    const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
+    this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
+  }
+  
   handleAdd = (note) => {
     axios.post(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}`, note)
     .then(response => {
@@ -39,7 +45,7 @@ class App extends Component {
     axios.put(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}/${num}`, note)
     .then(response => {
       console.log('Updated note saved!');
-      })
+    })
     .catch(err => console.log(err));
   }
 
@@ -116,11 +122,6 @@ class App extends Component {
     }
   }
 
-  cb(res) {
-    console.log(this)
-    const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
-    this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
-  }
 
   render() {
     this.handleLogin = this.handleLogin.bind(this);
