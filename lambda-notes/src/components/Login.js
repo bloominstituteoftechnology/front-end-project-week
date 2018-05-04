@@ -61,6 +61,7 @@ class Login extends Component {
       logo.classList.toggle("spin");
 
       this.props.signup(username, password, (returnMessage) => {
+        console.log(returnMessage)
         if (returnMessage) {
           const name = username.charAt(0).toUpperCase() + username.slice(1);
           this.setState({ modal: false, username: name });
