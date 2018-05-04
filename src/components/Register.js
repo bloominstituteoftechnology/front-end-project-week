@@ -12,7 +12,7 @@
          console.log(usernameInput.value);
         const username = usernameInput.value;
          //we're asking the server if the username already exists. It will return true or false
-            axios.post(`http://localhost:5000/api/username`, {username})
+            axios.post(`https://arcane-bastion-12409.herokuapp.com/api/username`, {username})
              .then(response => {
 
                 console.log(response);
@@ -29,7 +29,7 @@
                              password: passwordInput.value,
                              notes: notes 
                          }
-                        axios.post('http://localhost:5000/api/register', newUser)
+                        axios.post('https://arcane-bastion-12409.herokuapp.com/api/register', newUser)
                              .then(response => {
                                  if (loggedInAs !== '')
                                      newUser.notes = [];
