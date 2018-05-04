@@ -19,17 +19,23 @@ class Login extends Component {
       logo.classList.toggle("spin");
 
         this.props.login(username, password, (returnMessage) => {
+          console.log(returnMessage)
             if (returnMessage) {
+              console.log(1)
                 const name = username.charAt(0).toUpperCase() + username.slice(1);
                 this.setState({ modal: false, username: name });
                 this.props.history.push('/notes');
             }
             else {
                 if(returnMessage.toString() === "Request failed with status code 404") {
+                  console.log(2)
+
                   this.setState({ message: "Couldn't find that user.. try making a new one"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
                 }
                 else if(returnMessage.toString() === "Request failed with status code 422") {
+                  console.log(3)
+
                   this.setState({ message: "Incorrect password!"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
                 }
@@ -60,13 +66,17 @@ class Login extends Component {
       logo.classList.toggle("spin");
 
       this.props.signup(username, password, (returnMessage) => {
+        console.log(returnMessage)
+
         if (returnMessage) {
           const name = username.charAt(0).toUpperCase() + username.slice(1);
           this.setState({ modal: false, username: name });
           this.props.history.push('/notes');
         }
         else {
-          if(returnMessage.toString() === "Request failed with status code 422") {
+          if(returnMessage.toString() === "Request failed with status code 422") {    
+                      console.log(1)
+
             this.setState({ message: "A user with that name already exists!"})
             e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
           }
