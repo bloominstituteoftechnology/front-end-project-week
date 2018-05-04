@@ -4,23 +4,28 @@ import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import Sidebar from './Sidebar';
+import '../Styles/NoteView.css';
 
 
 const NoteView = (props) => {
-console.log("NOTE", props)
+    console.log("NOTE", props)
     return (
         <div>
-            
+
             <Container>
                 <Row>
                     <Col xs='3'>
                         <Sidebar />
                     </Col>
                     <Col xs='9'>
-                        <a href='#_'>edit</a>
-                        <a href='#_'>delete</a>
-                        <h4>{props.notes[0].title}</h4>
-                        <p>{props.notes[0].content}</p>
+                        <div className='noteView'>
+                            <div className='viewLinks'>
+                            <a href='#_'>edit</a>
+                            <a href='#_'>delete</a>
+                            </div>
+                            <h4>{ props.notes[0].title }</h4>
+                            <p>{ props.notes[0].content }</p>
+                        </div>
                     </Col>
                 </Row>
             </Container>

@@ -13,6 +13,12 @@ class ListView extends Component {
     // constructor(props) {
     //     super(props);
     // }
+    shorten(str) {
+        if (str.length >= 110) {
+           return str.slice(0, 110) + '...'; 
+        }
+        
+    }
     
     render() {
         // <Route path={ `${this.props.match.path}/view:note.id` } component={ NoteView } />
@@ -34,8 +40,7 @@ class ListView extends Component {
                                     {/* <Link to={`${this.props.match.path}/${note.id}`}> */}
                                         <span className='title'>{ note.title }</span>
                                         <hr className='line' />
-                                        <span className='content'>{ note.content }</span> 
-                                        }
+                                        <span className='content'>{ this.shorten(note.content) }</span> 
                                         {/* </Link> */}
                                     </div>
                                 )}
