@@ -1,5 +1,6 @@
 import axios from "axios";
-axios.defaults.withCredentials = false;
+axios.defaults.withCredentials = true;
+axios.defaults.crossDomain = true;
 
 export const CHECK_IF_AUTHENTICATED = 'CHECK_IF_AUTHENTICATED';
 
@@ -28,7 +29,7 @@ export const register = (
       return;
     }
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com`, { username, password, firstName, lastName })
+      .post('https://agile-chamber-48093.herokuapp.com', { username, password, firstName, lastName })
       .then(() => {
         dispatch({ type: USER_REGISTERED });
         history.push("/");
@@ -48,7 +49,7 @@ export const USER_AUTHENTICATED = "USER_AUTHENTICATED";
 export const login = (username, password, history) => {
   return dispatch => {
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com/login`, { username, password })
+      .post('https://agile-chamber-48093.herokuapp.com/login', { username, password })
       .then(response => {
         console.log("data:",response.data, "response:", response);
         const token = response.data.token;
