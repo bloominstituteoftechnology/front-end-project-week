@@ -1,5 +1,6 @@
-export const FETCHING = 'FETCHING';
+export const EDIT_NOTE = 'EDIT_NOTE';
 export const ADD_NOTE = 'ADD_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
 export const ERROR = 'ERROR';
 
 
@@ -15,6 +16,20 @@ export const addNote = (title, body, index) => {
         id: index,
     }
 }
+
+export const editNote = (id, newTitle, newBody) => {
+    return {
+        type: editNote,
+        payload: {
+            title: newTitle,
+            body: newBody,
+        }
+        
+    }
+    //need to add the values this needs to pass to the reducer 
+}
+
+
 
 export const getNotes = () => {
     return (dispatch) => {
