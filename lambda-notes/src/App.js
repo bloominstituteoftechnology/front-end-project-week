@@ -82,13 +82,13 @@ class App extends Component {
     })
     .catch(err => {
       if (err.message) {
-        console.log(err.message)
-        if(err.status == 404) {
+        console.log(err, err.message, err.status, err.message.status)
+        if(err.message.status == 404) {
           const field = document.querySelectorAll("#usernamefield")[0];
           field.style.border = "2px solid #A0001E";
           this.setState({ message: "Couldn't find that user.. try making a new one"})
         }
-        if(err.status == 422) {
+        if(err.message.status == 422) {
           const field = document.querySelectorAll("#passwordfield")[0];
           field.style.border = "2px solid #A0001E";
           this.setState({ message: "Incorrect password!"})
