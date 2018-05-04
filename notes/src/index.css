@@ -35,6 +35,13 @@ body {
   border: none;
 }
 
+.search-box {
+  position: relative;
+  bottom: 44px;
+  left: 78%;
+  width: 21.5%;
+}
+
 .title {
   text-align: left;
   position: relative;

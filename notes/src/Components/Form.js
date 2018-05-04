@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from './Button';
 
-class Form extends Component {
+export default class Form extends Component {
   state = {
     title: '',
     content: '',
@@ -45,5 +45,3 @@ class Form extends Component {
     );
   }
 }
-
-export default Form;

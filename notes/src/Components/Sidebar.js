@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from './Button';
 
 
-class Sidebar extends Component {
+export default class Sidebar extends Component {
   state = {
     buttons: [
       { text: 'View Your Notes', route: '/',},
@@ -26,5 +26,3 @@ class Sidebar extends Component {
     );
   }
 }
-
-export default Sidebar;

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Modal from './Modal';
 
 
-class Note extends Component {
+export default class Note extends Component {
   state = {
     note: {},
     toggleModal: false,
@@ -50,5 +50,3 @@ class Note extends Component {
     );
   }
 }
-
-export default Note;

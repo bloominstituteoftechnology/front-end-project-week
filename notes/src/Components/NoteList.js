@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import Search from './Search';
 
-class NoteList extends Component {
+
+export default class NoteList extends Component {
   state = {
     notes: [],
+    query: '',
   }
   componentDidMount() {
       axios.get('http://localhost:5005/notes')
@@ -16,14 +19,21 @@ class NoteList extends Component {
         console.log(error);
       });
   }
+  handleSearch = query => {
+    this.setState({ query });
+  }
   render() {
+    const {notes, query } = this.state;
     return (
       <div className="flex-container">
         <div className="title">
           <h2>Your Notes:</h2>
+          <Search search={this.handleSearch} />
         </div>
         <ul className="notes-list">
-          {this.state.notes.map((note, i) => {
+          {notes.filter(note => {
+            return note.title.toLowerCase().indexOf(query) > -1;
+          }).map((note, i) => {
             return(
               <Link key={i} to={`note/${note.id}`} className="note-card">
                 <li className="note-item">
@@ -43,5 +53,3 @@ class NoteList extends Component {
     );
   }
 }
-
-export default NoteList;
