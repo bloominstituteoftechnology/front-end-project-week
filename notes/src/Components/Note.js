@@ -32,19 +32,21 @@ class Note extends Component {
       delete: this.handleDelete,
     }
     return (
-      <div className="flex-container">
-        {toggleModal ? <Modal {...props}/> : null}
-        <Link to={{pathname: '/edit', state: note }}>
-          Edit
-        </Link>
-        <div onClick={this.handleToggle}>
-          Delete
-        </div>
         <div className="flex-container">
-          <h2>{note.title}</h2>
-          <p>{note.content}</p>
+          {toggleModal ? <Modal {...props}/> : null}
+          <div className="title">
+            <h2>{note.title}</h2>
+          </div>
+          <div className="content">{note.content}</div>
+          <div className="icons">
+            <Link to={{pathname: '/edit', state: note }}>
+              <i class="far fa-edit fa-lg icon"></i>
+            </Link>
+            <div onClick={this.handleToggle}>
+              <i className="far fa-trash-alt fa-lg icon"></i>
+            </div>
+          </div>
         </div>
-      </div>
     );
   }
 }
