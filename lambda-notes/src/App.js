@@ -78,8 +78,7 @@ class App extends Component {
         cb(response.data.success);
     })
     .catch(err => {
-      console.log(err)
-      cb(err);
+      cb(err.response);
     });
   }
 
@@ -92,8 +91,7 @@ class App extends Component {
         cb(true);
       })
     .catch(err => {
-      console.log(err)
-      cb(err);
+      cb(err.reponse);
     });
   }
 
