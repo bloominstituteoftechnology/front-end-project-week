@@ -16,11 +16,9 @@ import LoginRegister from "./components/loginRegister";
 import SignOut from "./components/logout";
 import RequireAuth from "../src/components/HOC/RequireAuth";
 
-const uid = window.localStorage.getItem("uid");
-
 const routes = [
   {
-    path: `/${uid}/displayNotes`,
+    path: "/:uid/displayNotes",
     sidebar: () => <Button>View Notes</Button>,
     main: () => <DisplayNotesList />
   },
@@ -30,7 +28,7 @@ const routes = [
     main: () => <SignOut />
   },
   {
-    path: `/${uid}/createNote`,
+    path: "/:uid/createNote",
     sidebar: () => <Button>+ Create New Note</Button>,
     main: () => (
       <Container>
