@@ -21,12 +21,19 @@ class NoteView extends Component {
 
   deleteNote = () => {
     const id = this.props.location.state.currentNote._id;
-    axios.delete('https://peaceful-gorge-48893.herokuapp.com/api/notes/' + id, {
-      headers: {
-        Authorization: localStorage.token,
-        'Access-Control-Allow-Origin': '*',
-      },
-    });
+    axios
+      .delete('https://peaceful-gorge-48893.herokuapp.com/api/notes/' + id, {
+        headers: {
+          Authorization: localStorage.token,
+          'Access-Control-Allow-Origin': '*',
+        },
+      })
+      .then(response => {
+        console.log({ Message: `Note Successfully Deleted!` });
+      })
+      .catch(err => {
+        console.log({ Error: `Unable to Delete Note` });
+      });
     this.toggle;
     this.props.history.push('/list');
   };

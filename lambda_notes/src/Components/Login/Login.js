@@ -53,11 +53,11 @@ class Login extends Component {
         }
       )
       .then(response => {
-        console.log({ Message: `Successful signup: ${response}` });
+        console.log({ Message: `Successful signup!` });
         this.clearState();
       })
       .catch(err => {
-        console.log({ Error: `Unable to post new user: ${err}` });
+        console.log({ Error: `Unable to post new user`, err });
       });
   };
 
@@ -65,7 +65,6 @@ class Login extends Component {
     event.preventDefault();
     const username = this.state.username;
     const password = this.state.password;
-    console.log('LOG IN INFO', username, password);
     axios
       .post(
         'https://peaceful-gorge-48893.herokuapp.com/api/login',
@@ -78,7 +77,7 @@ class Login extends Component {
         }
       )
       .then(response => {
-        console.log({ Message: `Successful login: ${response}`, response });
+        console.log({ Message: `Successful login!` });
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('id', response.data.id);
         localStorage.setItem('username', username);

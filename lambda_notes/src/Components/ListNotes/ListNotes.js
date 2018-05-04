@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './ListNotes.css';
-// import NoteView from '../NoteView/NoteView';
 import { Link } from 'react-router-dom';
 
 class ListNotes extends Component {
@@ -13,7 +12,6 @@ class ListNotes extends Component {
   }
 
   componentDidMount() {
-    // this.setState({ notes: this.props.notes });
     axios
       .get(
         'https://peaceful-gorge-48893.herokuapp.com/api/notes/' +
