@@ -14,7 +14,7 @@ class Notes extends Component {
     }
     
     createNew = () => {
-
+      
     }
 
     viewExisting = () => {
@@ -28,6 +28,17 @@ class Notes extends Component {
     deleteExisting = () => {
 
     }
+
+    render() {
+        return (
+            <div className="ButtonColumn">
+              <h1 className="LambdaNotes">Lambda Notes</h1>
+            </div>
+            <div className="NoteSpace">
+            </div>
+        )
+    }
+
 }
 
 export default Note;
