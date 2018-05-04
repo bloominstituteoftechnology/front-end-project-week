@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Form from './Form';
 
-const Create = () => {
+export default () => {
   let props = {
     button: 'Add Note',
     action: addNewNote,
@@ -23,5 +23,3 @@ const addNewNote = note => {
     .catch(error => console.log(error));
 }
 
-
-export default Create;

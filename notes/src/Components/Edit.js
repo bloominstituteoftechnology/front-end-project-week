@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Form from './Form';
 
-const Edit = props => {
+export default props => {
   let items = {
     button: 'Update Note',
     action: updateNote,
@@ -23,5 +23,3 @@ const updateNote = note => {
   .then(() => window.location = '/')
   .catch(error => console.log(error))
 }
-
-export default Edit;
