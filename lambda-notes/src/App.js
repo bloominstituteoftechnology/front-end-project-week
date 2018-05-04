@@ -78,7 +78,8 @@ class App extends Component {
         cb(response.data.success);
     })
     .catch(err => {
-      cb(err.response);
+      const errStatus = err.response.status;
+      cb(errStatus);
     });
   }
 
@@ -91,7 +92,8 @@ class App extends Component {
         cb(true);
       })
     .catch(err => {
-      cb(err.reponse);
+      const errStatus = err.response.status;
+      cb(errStatus);
     });
   }
 
