@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 export const CHECK_IF_AUTHENTICATED = 'CHECK_IF_AUTHENTICATED';
 
