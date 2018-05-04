@@ -115,7 +115,6 @@ class App extends Component {
 
       axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
       .then(resp => {
-        console.log(resp.data);
         if (resp.data._id) {
         axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data._id}`)
           .then(res => {
@@ -146,7 +145,7 @@ class App extends Component {
       <div className="App">
         <PrivateRoute path="/notes"  component={NavBar} export={this.handleExport} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />
         <PrivateRoute path="/AddNote"  component={NavBar} export={this.handleExport} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />
-        <Route exact path="/"  render={(props) => <Login {...props} isLoggedIn={this.isLoggedIn} login={this.handleLogin} signup={this.handleSignup} />} />
+        <Route exact path="/"  render={(props) => <Login {...props} isLoggedIn={this.isLoggedIn} login={this.handleLogin} signup={this.handleSignup} isAuth={this.state.isAuthenticated} />} />
         <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
         <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
         <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />

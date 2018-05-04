@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import logo from '../assets/logo.png';
+import { Redirect } from "react-router-dom";
+
 
 class Login extends Component {
   state = {
@@ -77,8 +79,10 @@ class Login extends Component {
 
 
   render() {
+    const redirect = this.props.isAuth ? <Redirect to="/notes" /> : null;
     return (
       <div className="LoginPage">
+      <div> {redirect} </div>
       <img id="lnlogo" src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "4% auto"}} />
         <div style={{margin: "1% 0"}}>
           {this.state.message}
