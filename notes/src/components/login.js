@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { withRouter, Redirect } from "react-router-dom";
+import { Link, withRouter, Redirect } from "react-router-dom";
 import { Col, Row, Form, FormGroup, Input } from "reactstrap";
 
 import styled from "styled-components";
@@ -57,9 +57,11 @@ class Login extends React.Component {
                                     placeholder="Password"
                                 />
                             </FormGroup>
+                            {/* <Link to={`/note/`}> */}
                             <Btn className="Button btn btn-primary btn-block" type="submit">
                                 Login
                             </Btn>
+                            {/* </Link> */}
                         </Form>
                     </Col>
                 </Row>

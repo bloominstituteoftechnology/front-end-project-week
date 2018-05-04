@@ -79,7 +79,7 @@ class EditNote extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         if (this.state.Fields.title && this.state.Fields.content) {
-            this.props.editNote(this.state.id, this.state.Fields);
+            this.props.editNote(this.props.user.id, this.state.id, this.state.Fields);
             this.setState({
                 Redirect: true,
                 Fields: {
@@ -93,7 +93,9 @@ class EditNote extends React.Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         const notes = this.props.notes;
-        const note = notes.find(note => note.id.toString() === id.toString());
+        console.log("notes", this.props);
+        const note = notes.find(note => note._id.toString() === id.toString());
+        console.log("the note", note);
         const fields = {
             title: note.title,
             content: note.content,

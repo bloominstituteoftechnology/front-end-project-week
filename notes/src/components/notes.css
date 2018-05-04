@@ -1,9 +1,9 @@
 .Note__Content {
     max-height: 100px;
-    white-space: wrap; 
+    white-space: wrap;
     overflow: hidden;
     /* text-overflow: ellipsis; */
-} 
+}
 .Notes__Note {
     font-family: Raleway Regular;
 }
@@ -12,7 +12,7 @@
     font-weight: bold;
 }
 
-a.Card__Link  {
+a.Card__Link {
     text-decoration: none;
     color: #212529;
 }

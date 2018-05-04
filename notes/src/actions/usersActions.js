@@ -23,7 +23,6 @@ export const login = user => dispatch => {
     axios
         .post(`${URL}/login`, user)
         .then(response => {
-            console.log("+++26", response.data);
             dispatch({
                 type: LOGGED_IN,
                 user: response.data,
@@ -74,7 +73,6 @@ export const addUser = newUser => dispatch => {
     axios
         .post(URL, newUser)
         .then(response => {
-            console.log("+++77", response.data);
             dispatch({
                 type: USERS_ADDED,
                 user: response.data,

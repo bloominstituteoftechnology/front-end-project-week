@@ -12,6 +12,12 @@ export const NOTES_FETCHING = "NOTES_FETCHING",
     URL = "https://lambdabackendproject.herokuapp.com/api/users",
     TEST_URL = "http://localhost:5000/api";
 
+const token = localStorage.getItem("token");
+
+const requestOptions = {
+    Authorization: token,
+};
+
 export const getNotes = userId => dispatch => {
     dispatch({
         type: NOTES_FETCHING,
@@ -19,11 +25,12 @@ export const getNotes = userId => dispatch => {
     });
 
     axios
-        .get(`${URL}/${userId}/notes`)
+        .get(`${URL}/${userId}/notes`, { headers: requestOptions })
         .then(response => {
+            console.log(response);
             dispatch({
                 type: NOTES_FETCHED,
-                notes: response.data,
+                notes: response.data.notes,
             });
         })
         .catch(err => {
@@ -38,11 +45,11 @@ export const addNote = (userId, newNote) => dispatch => {
     dispatch({ type: NOTES_ADDING });
 
     axios
-        .post(`${URL}/${userId}/notes`, newNote)
+        .post(`${URL}/${userId}/notes`, newNote, { headers: requestOptions })
         .then(response => {
             dispatch({
                 type: NOTES_ADDED,
-                notes: response.data,
+                notes: response.data.notes,
             });
         })
         .catch(err => {
@@ -57,7 +64,7 @@ export const deleteNote = (userId, noteId) => dispatch => {
     dispatch({ type: NOTES_DELETING });
 
     axios
-        .delete(`${URL}/${userId}/notes/${noteId}`)
+        .delete(`${URL}/${userId}/notes/${noteId}`, { headers: requestOptions })
         .then(response => {
             dispatch({
                 type: NOTES_DELETED,
@@ -76,12 +83,11 @@ export const editNote = (userId, noteId, note) => dispatch => {
     dispatch({ type: NOTES_UPDATING });
 
     axios
-        .put(`${URL}/${userId}/notes/${noteId}`, note)
+        .put(`${URL}/${userId}/notes/${noteId}`, note, { headers: requestOptions })
         .then(response => {
-            console.log("action", response);
             dispatch({
                 type: NOTES_UPDATED,
-                notes: response.data,
+                notes: response.data.notes,
             });
         })
         .catch(err => {

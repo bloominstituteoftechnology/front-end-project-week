@@ -77,7 +77,7 @@ class NewNote extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         if (this.state.Fields.title && this.state.Fields.content) {
-            this.props.addNote(this.state.Fields);
+            this.props.addNote(this.props.user.id, this.state.Fields);
             this.setState({ Redirect: true });
         }
     };

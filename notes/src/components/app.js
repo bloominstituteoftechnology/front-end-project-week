@@ -5,7 +5,6 @@ import { Route, withRouter } from "react-router-dom";
 
 import { Container, Row } from "reactstrap";
 
-import { getNotes } from "../actions";
 import Login from "./login";
 import Register from "./register";
 import NewNote from "./newnote";
@@ -32,16 +31,12 @@ class App extends Component {
             </Container>
         );
     }
-
-    componentDidMount() {
-        this.props.getNotes();
-    }
 }
 
-const mapStateToProps = ({ notes }) => {
+const mapStateToProps = state => {
     return {
-        notes,
+        state,
     };
 };
 
-export default withRouter(connect(mapStateToProps, { getNotes })(App));
+export default withRouter(connect(mapStateToProps, {})(App));

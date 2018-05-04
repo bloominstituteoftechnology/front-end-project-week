@@ -5,6 +5,8 @@ import DragSortableList from "react-drag-sortable";
 
 import { Row, Col, Card, CardTitle, CardText } from "reactstrap";
 
+import { getNotes } from "../actions";
+
 import styled from "styled-components";
 
 import "./notes.css";
@@ -34,12 +36,19 @@ class Notes extends React.Component {
         searchQuery: "",
     };
 
+    componentDidMount() {
+        this.props.getNotes(this.props.user.id);
+    }
+
     handleSearch = event => {
         this.setState({ searchQuery: event.target.value });
     };
     render() {
         const noteSearch = this.props.notes.filter(note => {
-            return note.title.indexOf(this.state.searchQuery) !== -1 || note.content.indexOf(this.state.searchQuery) !== -1;
+            return (
+                note.title.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1 ||
+                note.content.toLowerCase().indexOf(this.state.searchQuery.toLowerCase()) !== -1
+            );
         });
         return (
             <Col xs="9" className="mb-5 pb-5 pl-5 pr-5 ">
@@ -56,8 +65,8 @@ class Notes extends React.Component {
 
                 <Row className="mb-5">
                     {noteSearch.map(note => (
-                        <Col className="mb-4 pl-2 pr-2" xs="4" key={`${note.id} ${note.title}`}>
-                            <Link className="Card__Link" to={`/note/${note.id}`}>
+                        <Col className="mb-4 pl-2 pr-2" xs="4" key={`${note._id} ${note.title}`}>
+                            <Link className="Card__Link" to={`/note/${note._id}`}>
                                 <Card className="Notes__Note" body>
                                     <CardTitle className=" Note_Title pb-2 border-bottom border-secondary">{note.title}</CardTitle>
                                     <CardText className="Note__Content">{note.content}</CardText>
@@ -75,4 +84,4 @@ const mapStateToProps = state => {
     return state;
 };
 
-export default withRouter(connect(mapStateToProps, {})(Notes));
+export default withRouter(connect(mapStateToProps, { getNotes })(Notes));

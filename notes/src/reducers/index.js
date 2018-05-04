@@ -82,6 +82,7 @@ export default function noteReducer(state = initState, action) {
             return { ...state, isloggingIn: true, loadingMsgNotes: action.msg };
         case LOGGED_IN:
             localStorage.setItem("token", action.user.token);
+
             return { ...state, user: action.user, loginPage: false, isloggedIn: true, isloggingIn: false, loadingMsgUsers: null };
         case LOG_OUT:
             localStorage.removeItem("token");

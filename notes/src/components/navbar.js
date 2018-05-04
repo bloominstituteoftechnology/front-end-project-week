@@ -39,7 +39,7 @@ const NavBar = props => {
                 </React.Fragment>
             ) : (
                 <React.Fragment>
-                    <Link className="Link" to="/">
+                    <Link className="Link" to="/notes">
                         <Button className="Button" size="lg" block>
                             View Your Notes
                         </Button>
