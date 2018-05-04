@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown'
 import axios from 'axios';
 
 import Modal from './Modal';
@@ -35,9 +36,11 @@ export default class Note extends Component {
         <div className="flex-container">
           {toggleModal ? <Modal {...props}/> : null}
           <div className="title">
-            <h2>{note.title}</h2>
+            <ReactMarkdown source={note.title} />
           </div>
-          <div className="content">{note.content}</div>
+          <div className="content">
+            <ReactMarkdown source={note.content}/>
+          </div>
           <div className="icons">
             <Link to={{pathname: '/edit', state: note }}>
               <i class="far fa-edit fa-lg icon"></i>

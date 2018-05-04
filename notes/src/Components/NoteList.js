@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown'
 import axios from 'axios';
 
 import Search from './Search';
@@ -40,11 +41,11 @@ export default class NoteList extends Component {
               <Link key={i} to={`note/${note.id}`} className="note-card">
                 <li className="note-item">
                   <h3 className="note-card-title">
-                    {note.title.substring(0, 19)}
+                    <ReactMarkdown source={'##'+note.title.substring(0, 19)}/>
                   </h3>
                   <hr/>
                   <p className="note-card-content">
-                    {note.content.substring(0, 120)} ...
+                    <ReactMarkdown source={note.content.substring(0, 120)}/> ...
                   </p>
                 </li>
               </Link>
