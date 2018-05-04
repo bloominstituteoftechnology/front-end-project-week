@@ -14,8 +14,8 @@ export const AddNoteView = props => {
         <input
           onChange={props.handleChange}
           type="text"
-          name="content"
-          value={props.note.content}
+          name="body"
+          value={props.note.body}
         />
         <Link to="/">
           <button type="submit" onClick={() => props.addNote()} />
