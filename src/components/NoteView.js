@@ -12,17 +12,18 @@ export const NoteView = ({match, history, notes, deleteNote}) => {
     }
     return (
         <div className='col-8 right_side'>
-            <div className='row title_bar'>
-                <div className='col-3 header_font'>
-                    <h4>{note.title}</h4>
-                </div>
-                <div className='col-9 mini_nav'>
+            <div className='row d-flex title_bar justify-content-end'>
+                
+                <div className='mini_nav'>
                     <Link to={`/EditNote/${match.params.id}`} >edit</Link>
                     <a href='/' data-toggle="modal" data-target="#deleteModal" >delete</a>
                 </div>
             </div>    
             <div className='row'>
-                <div className='col note_box'>
+            <div className='col-12 header_font'>
+                    <h4>{note.title}</h4>
+                </div>
+                <div className='col-12 note_box'>
                     {note.text}
                 </div>
             </div>
