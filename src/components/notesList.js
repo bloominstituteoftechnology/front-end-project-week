@@ -30,7 +30,7 @@ class NotesList extends Component {
           {this.props.notes.map((note, key) => {
             return (
               <Col sm={4}>
-                <Link className="card-link" to={`/viewNote/${note._id}`}>
+                <Link className="card-link" to={`/:uid/displayNotes/${note._id}`}>
                   <Card className="note pb-3">
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>

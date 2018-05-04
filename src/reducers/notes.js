@@ -29,7 +29,7 @@ export default function notes(state = initialState, action) {
         notes: action.payload.data.map(note => {
           return {
             title: note.title,
-            body: note.body,
+            note: note.note,
             id: note._id
           };
         })
