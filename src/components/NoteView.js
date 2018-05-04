@@ -19,7 +19,7 @@ export const NoteView = ({match, history, notes, deleteNote}) => {
                     <a href='/' data-toggle="modal" data-target="#deleteModal" >delete</a>
                 </div>
             </div>    
-            <div className='row'>
+            <div className='row d-flex justify-content-center'>
             <div className='col-12 header_font'>
                     <h4>{note.title}</h4>
                 </div>
