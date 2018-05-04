@@ -156,7 +156,7 @@ class App extends Component {
             <div className='col-3 left_side'>
               <h2 className='nav_head'>Lambda <br/>Notes</h2>
               <Link to='/' className='nav_button'>View Your Notes</Link>
-              <Link to='/addNewNote' className='nav_button'>+Create New Notes</Link>
+              <Link to='/addNewNote' className='nav_button'>Create New Notes</Link>
               <Link to='/Register' className='nav_button'>Register for an Account</Link>
               <br/>
               <button id='login_btn' data-toggle="modal" data-target="#loginModal">Log In</button>
