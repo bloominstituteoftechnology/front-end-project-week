@@ -82,6 +82,7 @@ class App extends Component {
     })
     .catch(err => {
       if (err.message) {
+        console.log(err.message.slice(err.message.length - 3));
         if(err.message.slice(err.message.length - 3) == 404) {
           const field = document.querySelectorAll("#usernamefield")[0];
           field.style.border = "2px solid #A0001E";
