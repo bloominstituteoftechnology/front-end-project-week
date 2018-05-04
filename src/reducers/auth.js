@@ -5,7 +5,7 @@ import {
   CHECK_IF_AUTHENTICATED
 } from "../actions";
 
-export default (state = { authed: false }, action) => {
+export default (state = { authed: false, user: {} }, action) => {
   switch (action.type) {
     case USER_AUTHENTICATED:
       return { ...state, authed: true };
@@ -13,6 +13,8 @@ export default (state = { authed: false }, action) => {
       return { ...state, authed: false };
     case AUTHENTICATION_ERROR:
       return { ...state, error: action.payload };
+      case USER_REGISTERED:
+      return {...state, authed: true, user:action.user}
     case CHECK_IF_AUTHENTICATED:
       return { ...state };
     default:

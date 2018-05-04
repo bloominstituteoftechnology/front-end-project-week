@@ -42,7 +42,7 @@ export const register = (
       .catch(() => {
         dispatch(
           authError(
-            "Failed to register the user. The user passed the racist test. =D"
+            "Failed to register the user."
           )
         );
       });
