@@ -117,6 +117,7 @@ class App extends Component {
   }
 
   cb(res) {
+    console.log(this)
     const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
     this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
   }
@@ -124,6 +125,7 @@ class App extends Component {
   render() {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
+    this.cb = this.cb.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
     const PrivateRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={props => this.state.isAuthenticated ? ( <Component {...props} {...rest} /> ) : ( <Redirect to="/" /> ) }/>
