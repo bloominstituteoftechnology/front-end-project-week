@@ -100,17 +100,18 @@
   }
 
   #login_btn {
-    border: 0 0 5px 0;
-    height: 15px;
-    width: 35px;
+    border: 0;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 150px;
     background: #2bc1c4;
     color: white;
   }
 
   #logout_btn {
     border: 0;
-    height: 15px;
-    width: 35px;
+    height: 50px;
+    width: 150px;
     background: #2bc1c4;
     color: white;
   }
