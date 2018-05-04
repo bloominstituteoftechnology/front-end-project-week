@@ -133,6 +133,7 @@ export const EDIT_NOTE = "EDIT_NOTE";
 
 export const editNote = note => {
   const token = window.localStorage.getItem("token");
+  const uid = window.localStorage.getItem("uid");
   return dispatch => {
     const id = note.data._id;
     axios
@@ -155,6 +156,7 @@ export const DELETE_NOTE = "DELETE_NOTE";
 
 export const deleteNote = id => {
   const token = window.localStorage.getItem("token");
+  const uid = window.localStorage.getItem("uid");
   console.log("note id to be deleted: ", id);
   return dispatch => {
     axios
