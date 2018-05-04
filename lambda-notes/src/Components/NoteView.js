@@ -8,7 +8,9 @@ import '../Styles/NoteView.css';
 
 
 const NoteView = (props) => {
-    console.log("NOTE", props)
+    console.log('PROPS', props)
+    const note = parseInt(props.match.params.id);
+    console.log("NOTEID", note)
     return (
         <div>
 
@@ -23,8 +25,8 @@ const NoteView = (props) => {
                             <a href='#_'>edit</a>
                             <a href='#_'>delete</a>
                             </div>
-                            <h4>{ props.notes[props.notes.id].title }</h4>
-                            <p>{ props.notes[props.notes.id].content }</p>
+                            <h4>{ props.notes[note].title }</h4>
+                            <p>{ props.notes[note].content }</p>
                         </div>
                     </Col>
                 </Row>

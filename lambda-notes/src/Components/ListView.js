@@ -17,7 +17,7 @@ class ListView extends Component {
         if (str.length >= 110) {
            return str.slice(0, 110) + '...'; 
         }
-        
+        return str;
     }
     
     render() {
