@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
+import Note from './Note'
 import { getNotes } from '../actions'
 
 class Notes extends Component {
@@ -19,6 +20,7 @@ class Notes extends Component {
                                 <h3><Link to={`/notes/${note.id}`}>{note.title}</Link></h3>
                             </li>
                         )})}
+                        <Note />
                     </ul>
             </div>
       );

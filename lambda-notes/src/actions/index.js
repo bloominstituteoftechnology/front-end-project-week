@@ -25,10 +25,11 @@ export const getNote = (id) => {
     return (dispatch) => {
         axios.get(`http://localhost:2005/notes/${id}`)
         .then((response) => {
-            dispatch({
-                type: GET_NOTE,
-                paylod: response.data
-            })
+            console.log('response',response)
+            // dispatch({
+            //     type: GET_NOTE,
+            //     paylod: response.data
+            // })
         })
         .catch((error) => {
             console.log(error)
