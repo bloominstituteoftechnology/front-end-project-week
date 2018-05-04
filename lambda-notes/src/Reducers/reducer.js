@@ -8,7 +8,7 @@ const reducer = (notes = [{ title: 'Title', content: 'Lorem ipsum dolor sit amet
         case ADD_NOTE:
             return notes.concat(action.payload);
         case DELETE_NOTE:
-        // console.log(action.payload)
+        console.log(action.payload)
             return notes.filter(note => note.id !== action.payload.id)    
         default:
             return notes

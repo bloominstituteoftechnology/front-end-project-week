@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
+// import { deleteNote } from '../Actions'
 import '../Styles/ListView.css'
 import Sidebar from './Sidebar';
 // import NoteView from './NoteView';
@@ -36,7 +37,7 @@ class ListView extends Component {
                             
                                 { this.props.notes.map((note, id) => 
                                     <div className='postIt'
-                                        key={ id }>
+                                        key={ note.id }>
                                     <Link to={`/view/${note.id}`}>
                                         <span className='title'>{ note.title }</span>
                                         <hr className='line' />

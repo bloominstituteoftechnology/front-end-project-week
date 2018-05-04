@@ -1,3 +1,10 @@
+.noteTitle {
+    font-weight: bold;
+    color: #504f4f;
+    margin-bottom: 25px;
+    margin-top: 1.5rem;
+}
+
 .noteView {
     width: 100%;
     min-height: 800px;

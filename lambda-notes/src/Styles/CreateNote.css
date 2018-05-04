@@ -1,21 +1,20 @@
 body {
   background: #EDEDED;
 }
-/* .container {
-  margin: 3%;
-  display: flex;
-} */
-h4 {
+
+.createNote {
   font-weight: bold;
   color: #504f4f;
   margin-bottom: 25px;
+  margin-top: 4.5rem;
 }
-.create input {
+input {
   display: block;
   width: 300px;
-  padding: 1%;
+  padding: 1.5%;
   margin-bottom: 15px;
-  border: 1px solid #C8C8C8;
+  border-radius: 2%;
+  border: 1.5px solid #a7a2a2;
 }
 input:focus {
   outline: none;
@@ -24,8 +23,8 @@ textarea:focus {
   outline: none;
 }
 textarea {
-  border: 2px solid #C8C8C8;
-  padding: 1%;
+  border: 1.5px solid #a7a2a2;
+  padding: 2%;
 }
 .submit {
   display: block;

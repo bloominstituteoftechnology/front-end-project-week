@@ -1,11 +1,14 @@
-/* .title {
+.title {
     font-weight: bold;
     display: block;
     font-size: 20px;
     margin-bottom: -10px;
-    padding: 1%;
+    /* padding: 3%;
+    margin-left: 2%; */
+}
+/* .content {
+    margin-left: 4%;
 } */
-
 .postIt {
     width: 200px;
     height: 200px;
@@ -13,9 +16,9 @@
     display: inline-block;
     margin: 2%;
     background: white;
-    padding: 1%;
+    padding: 1% 2% 0 2%;
 }
-/*
+
 a {
     color: black;
 }
@@ -27,9 +30,11 @@ a {
 .yourNotes {
     margin-top: 30px;
     margin-left: 2%;
+    color: #504f4f;
+    font-weight: bold; 
 }
 
 hr {
     border: 0.6px solid lightgrey;
     margin: 10px;
-} */
+}
