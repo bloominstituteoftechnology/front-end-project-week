@@ -98,6 +98,22 @@
     align-items: flex-end;
     padding-bottom: 20px;  
   }
+
+  #login_btn {
+    border: 0 0 5px 0;
+    height: 15px;
+    width: 35px;
+    background: #2bc1c4;
+    color: white;
+  }
+
+  #logout_btn {
+    border: 0;
+    height: 15px;
+    width: 35px;
+    background: #2bc1c4;
+    color: white;
+  }
   
   .mini_nav {
     display: flex;
