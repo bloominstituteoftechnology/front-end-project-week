@@ -31,8 +31,8 @@ class App extends Component {
               <Route exact path='/' render={ () =>
                 <Notes {...this.props} /> } />
               <Route path='/add' component={CreateNote} />
-              <Route path={`/notes/:id`} component={ViewNote} />
-              <Route path='/edit' component={Edit} />
+              <Route exact path={`/notes/:id`} component={ViewNote} />
+              <Route path={`/notes/:id/edit`} component={Edit} />
             </Col>
           </Row>
         </Container>

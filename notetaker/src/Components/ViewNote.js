@@ -18,7 +18,7 @@ const ViewNote = props => {
 
     return(
         <div className='ViewNote-container'>
-            <Link to={'/edit'}>Edit</Link>
+            <Link to={{pathname: `${note.id}/edit`, state: note}}>Edit</Link>
             <h2 className='ViewNote-title'>{note.title}</h2>
             <p className='ViewNote-content'>{note.content}</p>
         </div>
