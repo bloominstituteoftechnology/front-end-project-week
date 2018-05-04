@@ -3,12 +3,12 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class Note extends Component {
+class Notes extends Component {
     constructor(props) {
         super(props) 
         this.state = {
           notes: [],
-          newNotes: {}
+          newNote: {}
         }
     }
     

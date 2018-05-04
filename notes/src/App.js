@@ -17,5 +17,7 @@ class App extends Component {
     );
   }
 }
-
+// should I render my main default view in here?
+// where to really start...
+// this stuff is hard
 export default App;
