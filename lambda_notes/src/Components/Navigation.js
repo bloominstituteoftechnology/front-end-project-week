@@ -13,7 +13,10 @@ const Navigation = () => {
         </Link>
 
         <Link to="/add" className="addNavLinks">
-          + Create New Note
+          Create New Note
+        </Link>
+        <Link to="/register" className="addNavLinks">
+          Register or Sign In
         </Link>
 
         <Link

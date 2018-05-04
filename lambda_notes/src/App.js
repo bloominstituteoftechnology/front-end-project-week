@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 /*
 class App extends Component {
@@ -23,6 +22,7 @@ import ListNotes from './Components/ListNotes';
 import CreateNewNote from './Components/CreateNewNote';
 import NoteView from './Components/NoteView';
 import EditNote from './Components/EditNote';
+import RegisterUser from './Components/RegisterUser';
 import { Route } from 'react-router-dom';
  
 class App extends Component {
@@ -31,47 +31,47 @@ class App extends Component {
     this.state = {
        notes: [
        {
-        title: 'The Phantom Menace',
+        title: 'Note 1',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 0
        },
        {
-        title: 'Attack of the Clones',
+        title: 'Note 2',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 1
        },
        {
-        title: 'Revenge of the Sith',
+        title: 'Note 3',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 2
        },
        {
-        title: 'A New Hope',
+        title: 'Note 4',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 3
        },
        {
-        title: 'The Empire Strikes Back',
+        title: 'Note 5',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 4
        },
        {
-        title: 'Return of the Jedi',
+        title: 'Note 6',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 5
        },
        {
-        title: 'The Force Awakens',
+        title: 'Note 7',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 6
        },
        {
-        title: 'The Last Jedi',
+        title: 'Note 8',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 7
        },
        {
-        title: 'Episode IX',
+        title: 'Note 9',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed.',
         id: 8
        }
@@ -93,6 +93,7 @@ class App extends Component {
              <Route exact path="/add" component={CreateNewNote} />
              <Route exact path="/notes/:id" component={NoteView} />
              <Route exact path="/notes/:id/EditNote" component={EditNote} />
+             <Route exact path="/register" component={RegisterUser} />
            </div>
          </div>
     );

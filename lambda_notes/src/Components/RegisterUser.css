@@ -1,17 +1,17 @@
-.newNoteMainDiv {
+.newRegisterMainDiv {
     background-color: #f2f1f2;
     min-width: 100%;
     height: 100%;
     }
     
-.newNoteHeader {
+.newRegisterHeader {
       /* margin */
-    font-weight: 650;
+    font-weight: 800;
     padding: 50px 20px 20px;
     }
     
-.newNoteFormDiv {
-    margin: 80px 20px 0 20px;
+.newRegisterFormDiv {
+    margin: 40px 20px 0 20px;
     }
     
 .titleDiv {
@@ -19,15 +19,17 @@
     max-width: 350px;
     }
     
-.contentDiv {
+.passwordDiv {
     margin-bottom: 10px;
-    height: 300px;
-    }
-    
-.saveNewNoteBtn {
+    height: 40px;
+    max-width: 350px;
+
+}
+
+.saveNewRegisterBtn {
     background-color: #00cd00;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     width: 140px;
     height: 40px;
     }
