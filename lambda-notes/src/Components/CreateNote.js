@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import { addNote } from '../Actions/index';
 import "../Styles/CreateNote.css";
+import ListView from './ListView';
 
 class CreateNote extends Component {
     state = {
@@ -45,7 +47,9 @@ class CreateNote extends Component {
 
                             <textarea name='content' rows='20' cols='90' placeholder='Note Content' value={ this.state.content } onChange={ this.updateInput } />
 
+                            <Link to={'/'}>
                             <button className='submit' onClick={ this.createNewNote }>save</button>
+                            </Link>
                         </div>
                     </Col>
                     
