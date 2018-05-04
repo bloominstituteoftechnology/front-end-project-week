@@ -1,3 +1,5 @@
+[%bs.raw {|require('./App.css')|}];
+
 type noteContent = {
   title: string,
   body: string,
@@ -8,24 +10,7 @@ type note = {
   content: noteContent,
 };
 
-type state = {notes: list(note)};
-
-type action =
-  | Add(noteContent)
-  | Delete(int);
-
 let toString = ReasonReact.string;
-
-let newNote =
-  (
-    () => {
-      let lastId = ref(-1);
-      noteContent => {
-        lastId := lastId^ + 1;
-        {id: lastId^, content: noteContent};
-      };
-    }
-  )();
 
 let delete = (id, notes) => List.filter(n => n.id !== id, notes);
 
@@ -35,21 +20,46 @@ let valueFromEvent = e => (
                             |> ReactDOMRe.domElementToObj
                           )##value;
 
+module Sidebar = {
+  let component = ReasonReact.statelessComponent("Sidebar");
+  let make = (~message, ~onView, ~onCreate, _children) => {
+    ...component,
+    render: _self =>
+      <div className="Sidebar">
+        <h3> (toString(message)) </h3>
+        <button onClick=(_e => onView())>
+          (toString("View Your Notes"))
+        </button>
+        <button onClick=(_e => onCreate())>
+          (toString("+ Create New Note"))
+        </button>
+      </div>,
+  };
+};
+
 module NoteItem = {
   let component = ReasonReact.statelessComponent("NoteItem");
   let make = (~note: note, ~clickDelete, _children) => {
     ...component,
-    render: _self =>
-      <div className="noteTitle">
-        <label> (toString(note.content.title)) </label>
-        <label> (toString(note.content.body)) </label>
+    render: _self => {
+      let {id, content} = note;
+      let {title, body} = content;
+      <div
+        className="noteTitle"
+        onClick=(
+          _e => ReasonReact.Router.push("notes/" ++ string_of_int(id))
+        )>
+        <div> (toString(title)) </div>
+        <hr />
+        <div> (toString(body)) </div>
         <input
           _type="button"
           className="deleteNote"
           value="x"
           onClick=(_e => clickDelete())
         />
-      </div>,
+      </div>;
+    },
   };
 };
 
@@ -61,7 +71,7 @@ module Form = {
   let component = ReasonReact.reducerComponent("Form");
   let make = (~onSubmit, _children) => {
     ...component,
-    initialState: () => {title: "First note", body: "First note body"},
+    initialState: () => {title: "", body: ""},
     reducer: (action, state) =>
       switch (action) {
       | NewTitle(newTitle) => ReasonReact.Update({...state, title: newTitle})
@@ -90,35 +100,51 @@ module Form = {
   };
 };
 
-let component = ReasonReact.reducerComponent("App");
-
-let make = (~message, _children) => {
-  ...component,
-  initialState: () => {notes: []},
-  reducer: (action, {notes}) =>
-    switch (action) {
-    | Add(noteContent) =>
-      ReasonReact.Update({notes: [newNote(noteContent), ...notes]})
-    | Delete(id) => ReasonReact.Update({notes: delete(id, notes)})
-    },
-  render: ({state: {notes}, send}) =>
-    <div className="App">
-      <h3> (toString(message)) </h3>
-      <Form onSubmit=(noteContent => send(Add(noteContent))) />
-      <div className="notesList">
-        (
-          List.map(
-            note =>
-              <NoteItem
-                key=(string_of_int(note.id))
-                note
-                clickDelete=(() => send(Delete(note.id)))
-              />,
-            notes,
+module Top = {
+  /* let urlToShownPage =  */
+  type state = {notes: list(note)};
+  type action =
+    | Add(noteContent)
+    | Delete(int);
+  let newNote =
+    (
+      () => {
+        let lastId = ref(-1);
+        noteContent => {
+          lastId := lastId^ + 1;
+          {id: lastId^, content: noteContent};
+        };
+      }
+    )();
+  let component = ReasonReact.reducerComponent("App");
+  let make = (~message, _children) => {
+    ...component,
+    initialState: () => {notes: []},
+    reducer: (action, {notes}) =>
+      switch (action) {
+      | Add(noteContent) =>
+        ReasonReact.Update({notes: [newNote(noteContent), ...notes]})
+      | Delete(id) => ReasonReact.Update({notes: delete(id, notes)})
+      },
+    render: ({state: {notes}, send}) =>
+      <div className="App">
+        <Sidebar message onView=(e => Js.log(e)) onCreate=(e => Js.log(e)) />
+        <Form onSubmit=(noteContent => send(Add(noteContent))) />
+        <div className="notesList">
+          (
+            List.map(
+              note =>
+                <NoteItem
+                  key=(string_of_int(note.id))
+                  note
+                  clickDelete=(() => send(Delete(note.id)))
+                />,
+              notes,
+            )
+            |> Array.of_list
+            |> ReasonReact.array
           )
-          |> Array.of_list
-          |> ReasonReact.array
-        )
-      </div>
-    </div>,
+        </div>
+      </div>,
+  };
 };
