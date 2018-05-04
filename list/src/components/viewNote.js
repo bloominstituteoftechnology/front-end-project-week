@@ -15,7 +15,7 @@ export const ViewNote = props => {
   console.log(confirmModal);
   return (
     <div>
-      {/* <div className="updateButtons">
+      <div className="updateButtons">
         <Link to={`/editnote/${props._id}`}>
           <button> Edit Note </button>
         </Link>
@@ -33,7 +33,7 @@ export const ViewNote = props => {
           <Link to="/">
             <button
               className="sideButton"
-              onClick={() => props.deleteNote(props.notes._id)}
+              onClick={() => props.deleteNote(props._id)}
             >
               {" "}
               Delete{" "}
@@ -47,9 +47,9 @@ export const ViewNote = props => {
             Cancel{" "}
           </button>
         </div>
-      </div> */}
-      <h1> {props.notes.title} </h1>
-      <div>{props.notes.body}</div>
+      </div>
+      <h1> {props.title} </h1>
+      <div>{props.body}</div>
     </div>
   );
 };
