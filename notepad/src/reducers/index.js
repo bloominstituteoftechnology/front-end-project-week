@@ -1,4 +1,4 @@
-import { PENDING, ERROR, SUCCESS, UPDATING } from '../actions';
+import { PENDING, ERROR, SUCCESS_NOTES, SUCCESS_NOTE, UPDATING } from '../actions';
 
 const initialState = {
     notes: [],
@@ -7,16 +7,25 @@ const initialState = {
     updatingNote: false,
     deletingNote: false,
     error: null,
-    note: {}
+    note: {
+        id: 0,
+        title: '',
+        content: ''
+    }
 }
 
 const noteReducer = (state = initialState, action) => {
     switch (action.type) {
         case PENDING:
             return Object.assign({}, state, { fetchingNotes: true });
-        case SUCCESS:
+        case SUCCESS_NOTES:
             return Object.assign({}, state, {
                 notes: action.notes,
+                fetchingNotes: false
+            });
+        case SUCCESS_NOTE:
+            return Object.assign({}, state, {
+                note: action.note,
                 fetchingNotes: false
             });
         case ERROR:

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Main from './components/Main';
 import SideBar from './components/SideBar';
+import { Container, Row, Col } from 'reactstrap';
+
 
 
 
@@ -11,13 +13,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <div>
-        <h3>Lambda Notes</h3>
+      <Container>
         <div>
-          <SideBar/>
+          <Row>
+            <Col xs="6" sm="4">
+              <h2>Lambda Notes</h2>
+              <SideBar />
+            </Col>
+            <Col xs="6" sm="8">
+              <h5>Your Notes:</h5>
+              <Main/>
+            </Col>
+          </Row>
         </div>
-      </div>
-          <Main/>
+    </Container>
+
       </div>
     );
   }

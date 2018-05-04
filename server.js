@@ -6,31 +6,37 @@ const app = express();
 
 let nextId = 6;
 
+const dummyText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`;
+
 let notes = [
     {
         id: 1,
         title: 'Raps',
         subcontent: 'lyrics to a song',
-        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
-
+        content: dummyText
     },
     {
         id: 2,
         title: 'Affirmanion',
         subcontent: 'Daily Affirmantion: I am going to win ',
-        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
+        content: 'A ka dua, Tuf ur biu, Bi aa chefu, Sude ner af, an nuteru.'
     },
     {
         id: 3,
-        title: 'No Title',
-        subcontent: 'Stevie owes me 2 BTC',
-        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
+        title: 'Stevie owes me 2 BTC',
+        content: dummyText
     },
     {
         id: 4,
         title: 'Poems',
-        subcontent: 'Today starting out slow',
-        content: 'lyrics to a song Some quick example text to build on the card title and make up the bulk of the card'
+        content: dummyText
     },
     {
         id: 5,
@@ -51,7 +57,7 @@ app.get('/notes', (req, res) => {
 });
 
 app.get('/notes/:id', (req, res) => {
-    const note = notes.find(n => n.id == req.params.id);
+    const note = notes.filter(n => n.id.toString() == req.params.id)[0];
 
     if (note) {
         res.status(200).json(note);

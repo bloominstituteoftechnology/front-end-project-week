@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Notes from './Notes'
 import NewNote from './NewNote'
 import Note from './Note'
+import NoteEdit from './NoteEdit'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -14,7 +15,8 @@ const Main = () => (
         <Switch>
             <Route exact path='/notes' component={Notes} />
             <Route path='/new' component={NewNote} />
-            <Route path='/notes/:id' component={Note} />
+            <Route exact path='/notes/:id' component={Note} />
+            <Route path='/notes/edit/:id' component={NoteEdit} />
         </Switch>
     </main>
 )

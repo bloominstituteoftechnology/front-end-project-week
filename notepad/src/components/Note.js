@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
-import { deleteNote } from '../actions';
+import { deleteNote, getNote } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Jumbotron, Button } from "react-bootstrap";
+import { Button } from "reactstrap";
 
 
 
 class Note extends Component {
-    state = {
-        note: null
+    
+
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        this.props.getNote(id);
     }
    
 
      editNote = () => {
+         this.props.editNote(this.props.note.id);
+         this.props.history.push(`/notes/edit/${this.props.note.id}`)
 
     }
      deleteNote = () => {
-        console.log('ID', this.props.id)
-        this.props.deleteNote(this.props.id);
+        console.log('ID', this.props.note.id)
+        this.props.deleteNote(this.props.note.id);
         console.log('TITLE', this.props.title);
+         this.props.history.push(`/notes/`)
 
     }
 
@@ -26,23 +32,30 @@ class Note extends Component {
     // const { title, content, notes, id } = props;
     // function NoteCard({ note }) {
 render(){
+// console.log(this.props.note)
     return (
-        
-        <div className={'note'}>
-            <Link to={`/notes/${this.props.id}`}>
-
-                <h2>{this.props.title}</h2>
-                <p>{this.props.content}</p>
-                <Button onClick={this.editNote}>Edit</Button>
-                <Button onClick={this.deleteNote}>Delete</Button>
-            </Link>
-
+        <div key={this.props.note.id}> 
+            <div className={'note'}>
+                    <h2>{this.props.note.title}</h2>
+                    <p>{this.props.note.content}</p>
+                    <Button onClick={this.editNote}>Edit</Button>
+                    <Button onClick={this.deleteNote}>Delete</Button>
+            </div>
         </div>
     );
 }
-
-
-  
+ 
 }
 
-export default connect(null, { deleteNote })(Note);
+const mapStateToProps = state => {
+    return {
+        note: state.note,
+        error: state.error,
+        pending: state.fetchingNotes,
+
+    }
+}
+
+export default connect(mapStateToProps, { getNote, deleteNote })(Note);
+
+// export default Note

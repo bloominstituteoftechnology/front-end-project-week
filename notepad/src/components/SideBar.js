@@ -1,23 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap';
+import './SideBar.css'
 
 
 const SideBar = () => (
-    <header>
-        <nav>
+    <div>
             <div>
-                <Button color="info" >
+                <Button color="info" className="button" >
                     <Link to='/notes'>View Your Notes</Link>
                 </Button>
             </div>
             <div>
-                <Button color="info">
+                <Button color="info" className="button">
                     <Link to='/new'>+ Create New Note</Link>
                 </Button>
             </div>
-        </nav>
-    </header>
+    </div>
 )
 
 export default SideBar

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
 
 
-
+//add push to refresh state after the note is added. push it to
 
 class NewNote extends Component {
     constructor(props) {
