@@ -78,7 +78,7 @@ class App extends Component {
         cb(response.data.success);
     })
     .catch(err => {
-      cb(err.message.toString().slice(err.length - 3));
+      cb(err);
     });
   }
 
@@ -91,7 +91,7 @@ class App extends Component {
         cb(true);
       })
     .catch(err => {
-      cb(err.message.toString().slice(err.length - 3));
+      cb(err);
     });
   }
 
