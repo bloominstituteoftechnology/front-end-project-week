@@ -1,0 +1,26 @@
+.left-column {
+  width: 350px;
+  padding: 15px;
+  max-height: 100%;
+  background-color: #d8d8d8;
+  border-right: 1.5px solid gray;
+  height: 100vh;
+}
+
+.title {
+  margin: 20px 0 35px 0;
+}
+
+h1 {
+  text-align: left;
+  line-height: 35px;
+  opacity: 0.75;
+}
+
+.btn {
+  background-color: #2bc1c4;
+  color: white;
+  font-weight: bold;
+  border: 1px solid gray;
+  margin: 20px 0;
+}

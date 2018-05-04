@@ -1,0 +1,43 @@
+.modify-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 20px 0 0;
+}
+
+.edit-button {
+  color: black;
+  text-decoration: underline;
+}
+
+.delete-button {
+  padding-left: 25px;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-button-left {
+  padding-right: 50px;
+}
+.modal-delete {
+  background: #cc0000;
+}
+
+.modal-lg {
+  margin-top: 300px;
+}
+
+.btn-lg {
+  width: 250px;
+}
+
+.heading {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.content {
+  text-align: left;
+  margin-left: 40px;
+  font-size: 1.3rem;
+}

@@ -1,0 +1,32 @@
+.landing-page-container {
+  margin: auto;
+  margin-top: 50px;
+  height: 100vh;
+}
+
+.landing-page-btns {
+  margin: auto;
+  margin-top: 15px;
+  width: 250px;
+}
+
+.btn-styling {
+  background-color: #2bc1c4;
+  color: white;
+  font-weight: bold;
+  border: 1px solid gray;
+  margin: 20px 0;
+  border: 2px solid #9d0122;
+}
+
+.box {
+  margin-top: 50px;
+  padding: 50px;
+  text-align: center;
+  border: 6px solid #9d0122;
+}
+
+.title-color {
+  color: #9d0122;
+  text-shadow: 1.2px 1.2px black;
+}
