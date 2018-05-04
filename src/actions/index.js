@@ -28,7 +28,7 @@ export const register = (
       return;
     }
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com/`, { username, password, firstName, lastName })
+      .post(`http://agile-chamber-48093.herokuapp.com`, { username, password, firstName, lastName })
       .then(() => {
         dispatch({ type: USER_REGISTERED });
         history.push("/");
@@ -48,7 +48,12 @@ export const USER_AUTHENTICATED = "USER_AUTHENTICATED";
 export const login = (username, password, history) => {
   return dispatch => {
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com/login`, { username, password })
+      .post(`http://agile-chamber-48093.herokuapp.com/login`, { username, password }, {
+        headers :{
+          
+          Authorization:token,
+        }
+      })
       .then(response => {
         console.log("data:",response.data, "response:", response);
         const token = response.data.token;
@@ -86,7 +91,7 @@ export const addNote = note => {
   const uid = window.localStorage.getItem("uid");
   return dispatch => {
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com/createNote`, note, {
+      .post(`http://agile-chamber-48093.herokuapp.com/createNote`, note, {
         headers: {Authorization: token}
       })
       .then(({ note }) => {
@@ -108,7 +113,7 @@ export const getNotes = () => {
   const uid = window.localStorage.getItem("uid");
   return dispatch => {
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com/${uid}/displayNotes`, {
+      .post(`http://agile-chamber-48093.herokuapp.com/${uid}/displayNotes`, {
         headers: { Authorization: token }
       })
       .then(({ data }) => {
@@ -131,7 +136,7 @@ export const editNote = note => {
   return dispatch => {
     const id = note.data._id;
     axios
-      .post(`https://agile-chamber-48093.herokuapp.com/${uid}/editNote/${id}`, note, {
+      .post(`http://agile-chamber-48093.herokuapp.com/${uid}/editNote/${id}`, note, {
         headers: {Authorization: token}
       })
       .then(({ data }) => {
@@ -154,7 +159,7 @@ export const deleteNote = id => {
   console.log("note id to be deleted: ", id);
   return dispatch => {
     axios
-      .delete(`https://agile-chamber-48093.herokuapp.com/${uid}/deleteNote/${id}`, {
+      .delete(`http://agile-chamber-48093.herokuapp.com/${uid}/deleteNote/${id}`, {
         headers: {Authorization:token}
       })
       .then(({ data }) =>
