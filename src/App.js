@@ -6,15 +6,13 @@ import { Container, Row, Col, Button } from "reactstrap";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Redirect
+  Link
 } from "react-router-dom";
 import NoteForm from "./components/noteForm";
 import Note from "./components/note";
 import DisplayNotesList from "./components/displayNotesList";
 import LoginRegister from "./components/loginRegister";
 import SignOut from "./components/logout";
-import RequireAuth from "../src/components/HOC/RequireAuth";
 
 const routes = [
   {
