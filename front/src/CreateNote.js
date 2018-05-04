@@ -26,7 +26,7 @@ class CreateNote extends Component {
       body: this.state.body
     };
     axios
-      .post("https://backend-project-week.herokuapp.com/api/note", {
+      .post("https://backend-project-week.herokuapp.com/api/notes", {
         title: this.state.title,
         body: this.state.body
       })
@@ -43,6 +43,8 @@ class CreateNote extends Component {
       body: ""
     });
   };
+ 
+    
 
   render() {
     return (
