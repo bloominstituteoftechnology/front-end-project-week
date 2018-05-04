@@ -27,13 +27,13 @@ class Login extends Component {
                 this.props.history.push('/notes');
             }
             else {
-                if(returnMessage.toString() === "Request failed with status code 404") {
+                if(returnMessage.error.toString() === "Request failed with status code 404") {
                   console.log(2)
 
                   this.setState({ message: "Couldn't find that user.. try making a new one"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
                 }
-                else if(returnMessage.toString() === "Request failed with status code 422") {
+                else if(returnMessage.error.toString() === "Request failed with status code 422") {
                   console.log(3)
 
                   this.setState({ message: "Incorrect password!"})
@@ -74,7 +74,7 @@ class Login extends Component {
           this.props.history.push('/notes');
         }
         else {
-          if(returnMessage.toString() === "Request failed with status code 422") {    
+          if(returnMessage.error.toString() === "Request failed with status code 422") {    
                       console.log(1)
 
             this.setState({ message: "A user with that name already exists!"})
