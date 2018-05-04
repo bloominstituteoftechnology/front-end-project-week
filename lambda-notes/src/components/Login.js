@@ -25,12 +25,14 @@ class Login extends Component {
                 this.props.history.push('/notes');
             }
             if(returnMessage== 404) {
+              const field = document.querySelectorAll("#usernamefield")[0];
+              field.style.border = "2px solid #A0001E";
               this.setState({ message: "Couldn't find that user.. try making a new one"})
-              e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
             }
             if(returnMessage == 422) {
+              const field = document.querySelectorAll("#passwordfield")[0];
+              field.style.border = "2px solid #A0001E";
               this.setState({ message: "Incorrect password!"})
-              e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
             }
             else {
             this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
@@ -65,9 +67,10 @@ class Login extends Component {
           this.setState({ modal: false, username: name });
           this.props.history.push('/notes');
         }
-        if(returnMessage == 422) {    
+        if(returnMessage == 422) {
+          const field = document.querySelectorAll("#usernamefield")[0];
+          field.style.border = "2px solid #A0001E";
           this.setState({ message: "A user with that name already exists!"})
-          e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
         }
         else {
           this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
