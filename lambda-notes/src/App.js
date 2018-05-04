@@ -19,7 +19,7 @@ class App extends Component {
     id: 0,
     message: "Enter your username and password",
     username: false,
-    isAuthenticated: true,
+    isAuthenticated: false,
 }
 
   handleAdd = (note) => {
