@@ -8,14 +8,17 @@ import Toolbar from './Components/Toolbar';
 import CreateNote from './Components/CreateNote';
 import ViewNote from './Components/ViewNote';
 import Notes from './Components/Notes';
-import { getNotes, addNote } from './Actions';
+import Edit from './Components/Edit';
+import { getNotes } from './Actions';
 
 import { Container, Row, Col } from 'reactstrap';
 
 class App extends Component { 
-  componentDidMount(){
+  componentDidMount() {
     this.props.getNotes();
   }
+
+
   render() {
     return (
       <div className="App">
@@ -28,8 +31,8 @@ class App extends Component {
               <Route exact path='/' render={ () =>
                 <Notes {...this.props} /> } />
               <Route path='/add' component={CreateNote} />
-              <Route path={`/notes/:id`} render={ () =>
-                <ViewNote {...this.props} /> } />
+              <Route path={`/notes/:id`} component={ViewNote} />
+              <Route path='/edit' component={Edit} />
             </Col>
           </Row>
         </Container>
@@ -41,6 +44,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+    note: state.note
   }
 } 
 export default connect(mapStateToProps, { getNotes })(App);

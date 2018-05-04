@@ -9,9 +9,9 @@ const Notes = props => {
     <h2 className='Notes-your-notes'>Your Notes:</h2>
       {props.notes.length === 0 ? <p>Fetching Notes...</p> : null }
       <div className='Notes-card-container'>
-        {props.notes.map(note => {
+        {props.notes.map((note, i) => {
           return (
-              <Card className='Notes-card' body outline color="secondary">
+              <Card key={i} className='Notes-card' body outline color="secondary">
                 <CardBody>
                   <Link to={`notes/${note.id}`}>
                     <CardTitle>{note.title}</CardTitle>
