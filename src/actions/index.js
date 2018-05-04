@@ -2,7 +2,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 axios.defaults.crossDomain = true;
 
-export const CHECK_IF_AUTHENTICATED = 'CHECK_IF_AUTHENTICATED';
+export const CHECK_IF_AUTHENTICATED = "CHECK_IF_AUTHENTICATED";
 
 export const AUTHENTICATION_ERROR = "AUTHENTICATION_ERROR";
 
@@ -29,7 +29,12 @@ export const register = (
       return;
     }
     axios
-      .post('https://serverlambda.herokuapp.com/', { username, password, firstName, lastName })
+      .post("https://serverlambda.herokuapp.com/", {
+        username,
+        password,
+        firstName,
+        lastName
+      })
       .then(() => {
         dispatch({ type: USER_REGISTERED });
         history.push("/");
@@ -49,9 +54,9 @@ export const USER_AUTHENTICATED = "USER_AUTHENTICATED";
 export const login = (username, password, history) => {
   return dispatch => {
     axios
-      .post('https://serverlambda.herokuapp.com/login', { username, password })
+      .post("https://serverlambda.herokuapp.com/login", { username, password })
       .then(response => {
-        console.log("data:",response.data, "response:", response);
+        console.log("data:", response.data, "response:", response);
         const token = response.data.token;
         const uid = response.data.uid;
         window.localStorage.setItem("token", token);
@@ -88,13 +93,14 @@ export const addNote = note => {
   return dispatch => {
     axios
       .post(`https://serverlambda.herokuapp.com/${uid}/createNote`, note, {
-        headers: {Authorization: token}
+        headers: { Authorization: token }
       })
       .then(({ note }) => {
         dispatch({
           type: ADD_NOTE,
           payload: note
         });
+        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error creating the note"));
@@ -117,6 +123,7 @@ export const getNotes = () => {
           type: GET_NOTES,
           payload: data
         });
+        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error getting the notes"));
@@ -133,13 +140,14 @@ export const editNote = note => {
     const id = note.data._id;
     axios
       .post(`https://serverlambda.herokuapp.com/editNote/${id}`, note, {
-        headers: {Authorization: token}
+        headers: { Authorization: token }
       })
       .then(({ data }) => {
         dispatch({
-          type: DELETE_NOTE,
+          type: EDIT_NOTE,
           payload: data
         });
+        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error editing/updating the note"));
@@ -156,14 +164,15 @@ export const deleteNote = id => {
   return dispatch => {
     axios
       .delete(`https://serverlambda.herokuapp.com/deleteNote/${id}`, {
-        headers: {Authorization:token}
+        headers: { Authorization: token }
       })
-      .then(({ data }) =>
+      .then(({ data }) => {
         dispatch({
           type: DELETE_NOTE,
           payload: data
-        })
-      )
+        });
+        history.push(`${uid}/displayNotes`);
+      })
       .catch(error => {
         dispatch(authError("There was an error deleting the note"));
       });
