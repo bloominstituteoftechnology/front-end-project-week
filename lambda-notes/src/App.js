@@ -17,6 +17,7 @@ class App extends Component {
   state = {
     notes: [],
     id: 0,
+    message: "Enter your username and password",
     username: false,
     isAuthenticated: false,
 }
@@ -70,38 +71,59 @@ class App extends Component {
   }
 
   handleLogin(user, pass, cb) {
+    this.setState({ message: "The server gnomes are working.."})
+
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/login', { "username": user, "password": pass })
     .then(response => {
         localStorage.setItem("isAuthenticated", "true")
         const name = user.charAt(0).toUpperCase() + user.slice(1);
         this.setState({ isAuthenticated: true, notes: response.data.user.notes, id: response.data.user._id, username: name})
-        cb(response.data.success);
+        cb();
     })
     .catch(err => {
-      let errStatus = null;
-      if (err.response) {
-        errStatus = err.response.status;
+      if (err.message) {
+        if(err.message.status === 404) {
+          const field = document.querySelectorAll("#usernamefield")[0];
+          field.style.border = "2px solid #A0001E";
+          this.setState({ message: "Couldn't find that user.. try making a new one"})
+        }
+        if(err.message.status === 422) {
+          const field = document.querySelectorAll("#passwordfield")[0];
+          field.style.border = "2px solid #A0001E";
+          this.setState({ message: "Incorrect password!"})
+        }
+        else {
+          this.setState({ message: "Error 500: Server gnomes drank too much last night"})
+        }
       }
-      const name = user.charAt(0).toUpperCase() + user.slice(1);
-        cb(name, errStatus);
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
     });
   }
 
   handleSignup(user, pass, cb) {
+    this.setState({ message: "The server gnomes are creating you an account.."})
+
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users', { "username": user, "password": pass })
     .then(response => {
         const name = user.charAt(0).toUpperCase() + user.slice(1);
         this.setState({ isAuthenticated: true, id: response.data._id, username: name })
         localStorage.setItem("isAuthenticated", "true")
-        cb(true);
+        cb();
       })
     .catch(err => {
-      let errStatus = null;
-      if (err.response) {
-        errStatus = err.response.status;
+      if (err.message) {
+        if (err.message.status === 422) {
+          const field = document.querySelectorAll("#usernamefield")[0];
+          field.style.border = "2px solid #A0001E";
+          this.setState({ message: "A user with that name already exists!"})
+        }
+        else {
+          this.setState({ message: "Error 500: Server gnomes drank too much last night"})
+        }
       }
-      const name = user.charAt(0).toUpperCase() + user.slice(1);
-        cb(name, errStatus);
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
     });
   }
 
@@ -113,6 +135,7 @@ class App extends Component {
         cb();
       })
       .catch(err => {
+        console.log(err);
         cb();
       });
   }
@@ -164,7 +187,7 @@ class App extends Component {
       <div className="App">
         <PrivateRoute path="/notes"  component={NavBar} export={this.handleExport} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />
         <PrivateRoute path="/AddNote"  component={NavBar} export={this.handleExport} signout={this.handleSignout} isAuth={this.state.isAuthenticated} username={this.state.username} />
-        <Route exact path="/"  render={(props) => <Login {...props} isLoggedIn={this.isLoggedIn} login={this.handleLogin} signup={this.handleSignup} isAuth={this.state.isAuthenticated} />} />
+        <Route exact path="/"  render={(props) => <Login {...props} isLoggedIn={this.isLoggedIn} login={this.handleLogin} signup={this.handleSignup} isAuth={this.state.isAuthenticated} message={this.state.message} />} />
         <PrivateRoute exact path="/notes" component={ListView} notes={this.state.notes} />
         <PrivateRoute exact path="/AddNote" component={AddNote} add={this.handleAdd} />
         <PrivateRoute exact path="/notes/:id" component={Note} delete={this.handleDelete} />
