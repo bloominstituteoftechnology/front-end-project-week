@@ -16,7 +16,7 @@ class App extends Component {
     notes: [],
     id: 0,
     username: false,
-    isAuthenticated: true,
+    isAuthenticated: false,
 }
 
   handleAdd = (note) => {
@@ -76,7 +76,7 @@ class App extends Component {
     })
     .catch(err => {
       console.log(err)
-      cb();
+      cb(err);
     });
   }
 
@@ -89,7 +89,7 @@ class App extends Component {
       })
     .catch(err => {
       console.log(err)
-      cb();
+      cb(err);
     });
   }
 
@@ -102,7 +102,7 @@ class App extends Component {
       })
       .catch(err => {
         console.log(err)
-        cb();
+        cb(err);
       });
   }
 
