@@ -1,6 +1,6 @@
 /* TODO Figure out if Add needs to take a tuple? */
 /* TODO Rework ToggleVisibility to work with a filter */
-/* TODO Break NoteItem into its own file */
+/* DONE Break NoteItem into its own file */
 /* DONE Break Input into its own file */
 open Types;
 open Helpers;
@@ -8,7 +8,7 @@ open Helpers;
 type state = {notes: list(note)};
 
 type action =
-  | Add(string)
+  | Add(noteContent)
   | ToggleVisibility(int)
   | Delete(int);
 
@@ -16,7 +16,7 @@ let noteId = ref(0);
 
 let newNote = text => {
   noteId := noteId^ + 1;
-  {id: noteId^, title: "Note title", visible: true, text}
+  {id: noteId^, title: "test", visible: true, text}
 };
 
 let toggleVisibility = (id, notes) =>
