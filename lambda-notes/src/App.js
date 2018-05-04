@@ -18,7 +18,7 @@ class App extends Component {
     notes: [],
     id: 0,
     username: false,
-    isAuthenticated: true,
+    isAuthenticated: false,
 }
 
   handleAdd = (note) => {
@@ -88,7 +88,7 @@ class App extends Component {
         const name = user.charAt(0).toUpperCase() + user.slice(1);
         this.setState({ isAuthenticated: true, id: response.data._id, username: name })
         localStorage.setItem("isAuthenticated", "true")
-        cb();
+        cb(true);
       })
     .catch(err => {
       cb(err.message.toString().slice(err.length - 3));
