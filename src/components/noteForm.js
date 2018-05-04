@@ -16,7 +16,7 @@ class NoteForm extends Component {
         this.state= {
             newNote:{
                 title: '',
-                note: ''
+                body: ''
             }
         }
     }
@@ -37,7 +37,7 @@ class NoteForm extends Component {
             this.props.editNote(this.state.newNote,this.state.newNote._id);
         }
         this.setState({
-            newNote:{title:'',note:''}
+            newNote:{title:'',body:''}
         });
         this.props.history.push(`/${uid}/displayNotes`);
     };
@@ -46,7 +46,7 @@ class NoteForm extends Component {
         if (this.props.match.params.id !== undefined) {
           this.setState({
             newNote: this.props.notes.filter(
-              note => (this.props.match.params.id, 10 === note.id)
+              body => (this.props.match.params.id, 10 === note.id)
             )[0]
           });
         }
@@ -81,10 +81,10 @@ class NoteForm extends Component {
             <textarea
               className="form-control"
               placeholder="Note"
-              name="note"
+              name="body"
               rows="10"
               cols="50"
-              value={this.state.newNote.note}
+              value={this.state.newNote.body}
             />
           </FormGroup>
             {createNote ? (

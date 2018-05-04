@@ -35,7 +35,7 @@ class NotesList extends Component {
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>
                       <hr />
-                      <CardText>{note.note}</CardText>
+                      <CardText>{note.body}</CardText>
                     </CardBody>
                   </Card>
                 </Link>
