@@ -24,7 +24,7 @@ class App extends Component {
     const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
     this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
   }
-  
+
   handleAdd = (note) => {
     axios.post(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}`, note)
     .then(response => {
@@ -111,7 +111,8 @@ class App extends Component {
         if (resp.data._id) {
         axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data._id}`)
           .then(res => {
-            cb(res);
+            console.log(this)
+            this.cb(res);
             //redirect
           })
           .catch(err => console.log(err));
