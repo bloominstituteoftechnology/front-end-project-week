@@ -36,8 +36,9 @@ class CreateNote extends Component {
       .catch(err => {
         console.log(err, "sorry, note not saved, try again ");
       });
-    this.setState({
-     notes:[...this.state.notes,{title,body}],
+    
+      this.setState({
+      notes:[...this.state.notes,({title: this.state.title, body: this.state.body})],
       title: "",
       body: ""
     });
