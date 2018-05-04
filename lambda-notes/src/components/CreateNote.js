@@ -26,8 +26,10 @@ export default class CreateNote extends Component {
       'http://localhost:5050/api/notes';
     e.preventDefault();
     this.setState({ title: '', content: '' });
+
     axios
       .post(path, {
+        // withCredentials: true,
         title: this.state.title,
         content: this.state.content
       })

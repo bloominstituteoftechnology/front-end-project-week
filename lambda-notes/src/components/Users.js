@@ -10,9 +10,9 @@ class Users extends Component {
   render() {
     return (
       <ul>
-        {this.props.users.map((user, i) => {
+        {/* {this.props.users.map((user, i) => {
           return <li key={i}>{user.username}</li>;
-        })}
+        })} */}
       </ul>
     );
   }

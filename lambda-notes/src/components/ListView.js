@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CSVLink } from 'react-csv';
 import 'bootstrap/dist/css/bootstrap.css';
 import './ListView.css';
 
-export default class ListView extends Component {
+class ListView extends Component {
   state = {
     notes: [],
     search: ''
@@ -44,8 +45,11 @@ export default class ListView extends Component {
       // PRODUCTION_SERVER ||
       // dev server
       'http://localhost:5050/api/notes';
+
+    // axios.defaults.withCredentials = true;
+
     axios
-      .get(path, { withCredentials: false })
+      .get(path, { username: this.props.username })
       .then(response => {
         this.setState({ notes: response.data });
       })
@@ -106,3 +110,11 @@ export default class ListView extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    username: state.auth.username
+  };
+};
+
+export default connect(mapStateToProps, {})(ListView);

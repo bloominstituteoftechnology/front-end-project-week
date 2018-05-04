@@ -6,14 +6,15 @@ import { Button, Form } from 'reactstrap';
 import './SignUp.css';
 
 class SignUp extends Component {
-  handleFormSubmit({
+  handleFormSubmit(
     firstName,
     lastName,
     username,
     email,
     password,
     confirmPassword
-  }) {
+  ) {
+    console.log(firstName, lastName, username, 'form');
     this.props.register(
       firstName,
       lastName,
@@ -114,10 +115,10 @@ SignUp = connect(mapStateToProps, { register })(SignUp);
 export default reduxForm({
   form: 'signup',
   fields: [
+    'username',
     'firstName',
     'lastName',
     'email',
-    'username',
     'password',
     'confirmPassword'
   ]

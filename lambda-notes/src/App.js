@@ -34,8 +34,8 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signin" component={SignIn} />
             <Route path="/users/signout" component={SignOut} />
-            <Route path="/users" component={RequireAuth(Users)} />
-            <Route path="/users" component={LeftColumn} />
+            {/* <Route path="/users" component={RequireAuth(Users)} /> */}
+            <Route path="/users" component={RequireAuth(LeftColumn)} />
             <Route exact path="/users/listview" component={ListView} />
             <Route exact path="/users/createnote" component={CreateNote} />
             <Route exact path="/users/noteview/:id" component={NoteView} />
