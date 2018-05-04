@@ -1,4 +1,5 @@
 # Trello Account: https://trello.com/b/8vqcdVrW/lambda-notes-sean-valdivia
+# Color Scheme: http://colrd.com/palette/23719/?download=css
 
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
