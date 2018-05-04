@@ -1,6 +1,9 @@
 import axios from 'axios';
 axios.defaults.withCredentials = false;
-const ROOT_URL = 'http://localhost:5050';
+// dev
+// const ROOT_URL = 'http://localhost:5050';
+// production
+const ROOT_URL = 'https://lambda-notes-backend-server.herokuapp.com';
 
 export const USER_REGISTERED = 'USER_REGISTERED';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';

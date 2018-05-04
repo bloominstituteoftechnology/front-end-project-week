@@ -21,9 +21,9 @@ export default class CreateNote extends Component {
       'https://lambda-notes-backend-server.herokuapp.com/api/notes';
     const path =
       // production server
-      // PRODUCTION_SERVER ||
-      // dev server
-      'http://localhost:5050/api/notes';
+      PRODUCTION_SERVER;
+    // dev server
+    // 'http://localhost:5050/api/notes';
     e.preventDefault();
     this.setState({ title: '', content: '' });
     axios

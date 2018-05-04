@@ -21,9 +21,9 @@ export default class EditNote extends Component {
     const PRODUCTION_SERVER_ID = `https://lambda-notes-backend-server.herokuapp.com/api/notes/${id}`;
     const path =
       // production server
-      // PRODUCTION_SERVER_ID ||
-      // dev server
-      `http://localhost:5050/api/notes/${id}`;
+      PRODUCTION_SERVER_ID;
+    // dev server
+    // `http://localhost:5050/api/notes/${id}`;
     axios
       .put(
         path,

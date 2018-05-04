@@ -42,9 +42,9 @@ class ListView extends Component {
       'https://lambda-notes-backend-server.herokuapp.com/api/notes';
     const path =
       // production server
-      // PRODUCTION_SERVER ||
-      // dev server
-      'http://localhost:5050/api/notes';
+      PRODUCTION_SERVER;
+    // dev server
+    // 'http://localhost:5050/api/notes';
 
     // axios.defaults.withCredentials = true;
 
