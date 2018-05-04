@@ -30,12 +30,12 @@ class NotesList extends Component {
           {this.props.notes.map((note, key) => {
             return (
               <Col sm={4}>
-                <Link className="card-link" to={`/:uid/displayNotes/${note._id}`}>
+                <Link className="card-link" to={`/:uid/displayNotes/${note.id}`}>
                   <Card className="note pb-3">
                     <CardBody>
                       <CardTitle>{note.title}</CardTitle>
                       <hr />
-                      <CardText>{note.body}</CardText>
+                      <CardText>{note.note}</CardText>
                     </CardBody>
                   </Card>
                 </Link>
