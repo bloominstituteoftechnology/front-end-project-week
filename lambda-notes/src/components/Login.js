@@ -13,7 +13,7 @@ class Login extends Component {
     const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
-
+      this.setState({ message: "The server gnomes are working.."})
               //animation
       const logo = document.querySelectorAll("#lnlogo")[0];
       logo.classList.toggle("spin");
@@ -25,8 +25,15 @@ class Login extends Component {
                 this.props.history.push('/notes');
             }
             else {
-                console.log(returnMessage)
-                //change colors on incorrect form
+                if(returnMessage === 404) {
+                  this.setState({ message: "Couldn't find that user.. try making a new one"})
+                  e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
+                }
+                else if(returnMessage === 422) {
+                  this.setState({ message: "Incorrect password!"})
+                  e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
+                }
+                else this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
                 logo.classList.toggle("spin");
             }
         })
@@ -47,7 +54,7 @@ class Login extends Component {
     const username = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
-
+      this.setState({ message: "The server gnomes are creating you an account.."})
       //animation
       const logo = document.querySelectorAll("#lnlogo")[0];
       logo.classList.toggle("spin");
@@ -59,8 +66,11 @@ class Login extends Component {
           this.props.history.push('/notes');
         }
         else {
-          console.log(returnMessage)
-          //change colors on incorrect form
+          if(returnMessage === 422) {
+            this.setState({ message: "A user with that name already exists!"})
+            e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
+          }
+          else this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
           logo.classList.toggle("spin");
         }
       });

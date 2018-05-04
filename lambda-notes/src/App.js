@@ -20,11 +20,10 @@ class App extends Component {
     username: false,
     isAuthenticated: false,
 }
-//
+
   handleAdd = (note) => {
     axios.post(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}`, note)
     .then(response => {
-      console.log(response.data);
       const newState = this.state.notes
       newState.push(response.data);
       this.setState({ notes: newState })
@@ -61,15 +60,15 @@ class App extends Component {
 
   handleExport = () => {
     if(this.state.isAuthenticated) {
-      let csvContent = "data:text/csv;charset=utf-8, Title,Text\r\n";
+      let csvContent = "data:text/csv;charset=utf-8, Note Title, Note Contents, Tags\r\n";
       const notesExported = this.state.notes;
       notesExported.forEach(function(rowArray){
-          csvContent += `${rowArray.title},${rowArray.content},${rowArray.tags}\r\n`;
+          csvContent += `${rowArray.title} ,${rowArray.content} ,${rowArray.tags}\r\n`;
       }); 
       return encodeURI(csvContent);
     }
   }
-//
+
   handleLogin(user, pass, cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users/login', { "username": user, "password": pass })
     .then(response => {
@@ -79,11 +78,10 @@ class App extends Component {
         cb(response.data.success);
     })
     .catch(err => {
-      console.log(err)
-      cb(err);
+      cb(err.message.slice(err.length - 3));
     });
   }
-//
+
   handleSignup(user, pass, cb) {
     axios.post('https://dry-brushlands-44600.herokuapp.com/api/users', { "username": user, "password": pass })
     .then(response => {
@@ -93,8 +91,7 @@ class App extends Component {
         cb();
       })
     .catch(err => {
-      console.log(err)
-      cb(err);
+      cb(err.message.slice(err.length - 3));
     });
   }
 
@@ -135,9 +132,12 @@ class App extends Component {
           localStorage.clear();
         }
         })
-      .catch(err => console.log(err));
-    }
+      .catch(err => {
+        logo.classList.toggle("spin");
+        console.log(err);
+    })
   }
+}
 
   render() {
 

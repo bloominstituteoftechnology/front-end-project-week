@@ -15,8 +15,8 @@ const NavBar = (props) => {
     const AuthButton = withRouter(
         ({ history }) =>
         props.isAuth ? (
-            <div>
-                Welcome {props.username}{" "}
+            <div style={{fontSize: "10px"}}>
+                Welcome <span style={{fontWeight: '600px'}}>{props.username}</span>{" "}
                 <button onClick={handleSignout} className="ExtraButton"> Sign out </button>
             </div>
             ) : (

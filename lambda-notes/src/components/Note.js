@@ -58,6 +58,7 @@ class Note extends Component {
             <div className="Content">
             <Markdown markup={ this.props.location.state.currentNote.content } strikethrough="true" tasklists="true" />
             </div>
+            <span>Created {this.props.location.state.currentNote.timestamp}</span>
         </div>
     );
 };

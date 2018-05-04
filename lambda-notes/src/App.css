@@ -228,6 +228,7 @@ a:hover {
   padding: 3%;
   text-align: left;
   font-size: 15px;
+  height: 500px;
 }
 
 .Content > * {
