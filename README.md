@@ -8,7 +8,7 @@
 # font color buttons: white
 # borders: rgb(189,188,189)
 # delete button: red
-# thats it
+
 
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."

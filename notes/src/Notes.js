@@ -7,8 +7,9 @@ class Notes extends Component {
     constructor(props) {
         super(props) 
         this.state = {
-          notes: [],
-          newNote: {}
+          notes: [
+              { id: 0, title: "Example Note", body: "here is an example note" }
+          ],
         }
     }
     
