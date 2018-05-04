@@ -79,7 +79,6 @@ class App extends Component {
     })
     .catch(err => {
       const errStatus = err.response.status;
-      console.log(errStatus, err.response);
       cb(errStatus);
     });
   }
@@ -94,7 +93,6 @@ class App extends Component {
       })
     .catch(err => {
       const errStatus = err.response.status;
-      console.log(errStatus, err.response);
       cb(errStatus);
     });
   }

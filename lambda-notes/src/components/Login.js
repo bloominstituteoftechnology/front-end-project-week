@@ -25,12 +25,11 @@ class Login extends Component {
                 this.props.history.push('/notes');
             }
             else {
-              console.log(returnMessage)
-                if(returnMessage === 404) {
+                if(Number(returnMessage) === 404) {
                   this.setState({ message: "Couldn't find that user.. try making a new one"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
                 }
-                else if(returnMessage === 422) {
+                else if(Number(returnMessage) === 422) {
                   this.setState({ message: "Incorrect password!"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
                 }
@@ -68,9 +67,7 @@ class Login extends Component {
           this.props.history.push('/notes');
         }
         else {
-          console.log(returnMessage)
-
-          if(returnMessage === 422) {    
+          if(Number(returnMessage) === 422) {    
             this.setState({ message: "A user with that name already exists!"})
             e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
           }
