@@ -132,7 +132,7 @@ export const editNote = note => {
   return dispatch => {
     const id = note.data._id;
     axios
-      .post(`https://serverlambda.herokuapp.com/${uid}/editNote/${id}`, note, {
+      .post(`https://serverlambda.herokuapp.com/editNote/${id}`, note, {
         headers: {Authorization: token}
       })
       .then(({ data }) => {
@@ -155,7 +155,7 @@ export const deleteNote = id => {
   console.log("note id to be deleted: ", id);
   return dispatch => {
     axios
-      .delete(`https://serverlambda.herokuapp.com/${uid}/deleteNote/${id}`, {
+      .delete(`https://serverlambda.herokuapp.com/deleteNote/${id}`, {
         headers: {Authorization:token}
       })
       .then(({ data }) =>

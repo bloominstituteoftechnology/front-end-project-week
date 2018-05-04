@@ -17,7 +17,7 @@ class Note extends Component {
         return(
             <Container>
                 <Row className='d-flex justify-content-end mt-3 mr-3'>
-                    <Link className='header-link mr-3' to ={`/:uid/editNote/${note.id}`}>Edit</Link>{' '}
+                    <Link className='header-link mr-3' to ={`/editNote/${note.id}`}>Edit</Link>{' '}
                     <DeleteNote buttonLabel='Delete' id={note.id}/>
                 </Row>
                 <Row className='mt-5'>

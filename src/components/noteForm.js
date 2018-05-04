@@ -4,6 +4,8 @@ import { addNote, editNote } from '../actions';
 import { Form, FormGroup, Input, Button, Container } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 
+const uid = window.localStorage.getItem("uid");
+
 const mapStateToProps = state => {
     return {notes: state.notes}
 };
@@ -37,7 +39,7 @@ class NoteForm extends Component {
         this.setState({
             newNote:{title:'',note:'',}
         });
-        this.props.history.push('/:uid/displayNotes');
+        this.props.history.push(`/${uid}/displayNotes`);
     };
 
     componentDidMount() {
