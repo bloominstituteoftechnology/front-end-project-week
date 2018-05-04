@@ -39,7 +39,7 @@ const StyledDelete = styled.div`
 
 class Delete extends React.Component {
   render() {
-    console.log("this.props.id sent to deleteNote", this.props.id);
+    console.log("this.props._id sent to deleteNote", this.props._id);
     return (
       <StyledDelete>
         <div className="delete-modal">
@@ -49,7 +49,7 @@ class Delete extends React.Component {
               className="delete-button"
               type="button"
               onClick={() => {
-                this.props.deleteNote(this.props.id);
+                this.props.deleteNote(this.props._id);
               }}
             >
               Delete

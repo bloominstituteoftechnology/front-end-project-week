@@ -1,0 +1,29 @@
+{
+  "name": "front-end-project-week",
+  "version": "1.0.0",
+  "description": "https://trello.com/invite/b/mJSHdAhJ/5f11b134794eb401093f8ef6a0c18793/lambda-notes-walter-s-woodward",
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "axios": "^0.18.0",
+    "is-buffer": "^1.1.6",
+    "follow-redirects": "^1.4.1",
+    "ms": "^2.0.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WalterSWoodward/front-end-project-week.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WalterSWoodward/front-end-project-week/issues"
+  },
+  "homepage": "https://github.com/WalterSWoodward/front-end-project-week#readme"
+}

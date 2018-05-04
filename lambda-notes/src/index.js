@@ -7,8 +7,9 @@ import { createStore, applyMiddleware } from 'redux';
 import { noteReducer } from './reducers'
 import logger from 'redux-logger';
 import 'bootstrap/dist/css/bootstrap.css';
+import thunk from 'redux-thunk';
 
-const store = createStore(noteReducer, applyMiddleware(logger));
+const store = createStore(noteReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -10,18 +10,20 @@ const StyledList = styled.div`
 `;
 
 class List extends Component {
+  
   render() {
+    console.log('List render this.props', this.props)
     return (
       <StyledList>
         <HomeLeftPanel />
-        <NoteList id={this.props.match.params.id} />
+        <NoteList _id={this.props.match.params._id} notes={this.props.notes.dummyData}/>
       </StyledList>
     );
   }
 }
 
 const mapStateToProp = state => {
-  console.log(this.props)
+  console.log('List mapStateToProp this.props', this.props)
   return {
     notes: state.notes
   };

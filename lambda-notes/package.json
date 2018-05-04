@@ -1,8 +1,10 @@
 {
   "name": "lambda-notes",
   "version": "0.1.0",
+  "license": "ISC",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "4.0.0",
     "react": "^16.0.0",
     "react-csv": "^1.0.14",

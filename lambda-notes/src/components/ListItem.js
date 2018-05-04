@@ -22,6 +22,7 @@ const StyledListItem = styled.div`
 
 class ListItem extends Component {
   render() {
+    console.log('ListItem render this.props:', this.props)
     return (
         <Col sm="4" className="mb-3" key={this.props.note.id}>
         <StyledListItem>
@@ -42,9 +43,9 @@ class ListItem extends Component {
                 </b>
               </CardTitle>
               <CardText className="card-text">
-                {this.props.note.text.length > 100
-                  ? `${this.props.note.text.substring(0, 100)}...`
-                  : this.props.note.text}
+                {this.props.note.body.length > 100
+                  ? `${this.props.note.body.substring(0, 100)}...`
+                  : this.props.note.body}
               </CardText>
             </CardBody>
           </Card>
@@ -56,7 +57,6 @@ class ListItem extends Component {
 }
 
 const mapStateToProp = state => {
-  console.log(this.props);
   return {
     notes: state.notes
   };

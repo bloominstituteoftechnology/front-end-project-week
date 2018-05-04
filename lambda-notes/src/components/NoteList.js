@@ -1,15 +1,9 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { connect } from "react-redux";
-import {} from "../actions";
-import { deleteNote, reorderNotes } from "../actions";
-import {
-  SortableContainer,
-  SortableElement,
-  arrayMove
-} from "react-sortable-hoc";
-import ListItem from "./ListItem";
-import { Row } from "reactstrap";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
+import {} from '../actions';
+import { deleteNote, reorderNotes, getNotes } from '../actions';
+import ListItem from './ListItem';
 
 const StyledNoteList = styled.div`
   width: 73%;
@@ -40,6 +34,11 @@ const StyledNoteList = styled.div`
     width: 110px;
   }
 
+  .notes {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .row {
     margin-left: 1.8%;
     margin-right: 1.8%;
@@ -54,30 +53,14 @@ const StyledNoteList = styled.div`
   }
 `;
 
-const SortableItem = SortableElement(({ note }) => 
-  <ListItem 
-    note={note} 
-  />
-);
-
-const SortableList = SortableContainer(({ notes }) => {
-  return (
-    <Row className="row d-flex flex-wrap">
-      {notes.map((note, index) => {
-        return (
-          <SortableItem key={`item-${note.id}`} index={index} note={note} />
-        );
-      })}
-    </Row>
-  );
-});
-
 class NoteList extends Component {
-  onSortEnd = ({ oldIndex, newIndex }) => {
-    this.props.reorderNotes(arrayMove(this.props.notes, oldIndex, newIndex));
-  };
+  componentDidMount() {
+    this.props.getNotes();
+    console.log('NoteList this.state', this.state);
+  }
 
   render() {
+    console.log('NoteList render this.props', this.props);
     return (
       <StyledNoteList>
         {this.props.notes.length === 0 ? (
@@ -87,13 +70,13 @@ class NoteList extends Component {
         ) : (
           <div className="note-list">
             <div className="note-list-header">Your Notes:</div>
-            <SortableList
-              notes={this.props.notes}
-              pressDelay={25}
-              onSortEnd={this.onSortEnd}
-              axis="xy"
-              pressThreshold={10}
-            />
+            <ul className="notes">
+              {this.props.notes.map(note => {
+                return (
+                  <ListItem notes={this.props.api} note={note} />
+                );
+              })}
+            </ul>
           </div>
         )}
       </StyledNoteList>
@@ -107,4 +90,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { reorderNotes, deleteNote })(NoteList);
+export default connect(mapStateToProps, { reorderNotes, deleteNote, getNotes })(
+  NoteList
+);

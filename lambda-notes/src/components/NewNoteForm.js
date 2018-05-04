@@ -52,7 +52,7 @@ class NewNoteForm extends React.Component {
   state = {
     title: "",
     text: "",
-    id: this.props.notes.length + 1
+    _id: this.props.notes.length + 1
   };
 
   handleSubmit = event => {

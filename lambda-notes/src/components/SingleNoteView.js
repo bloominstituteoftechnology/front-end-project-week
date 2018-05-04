@@ -57,49 +57,49 @@ class SingleNoteView extends React.Component {
   };
 
   render() {
-    console.log('this.props', this.props);
-    console.log('this.props.history', this.props.history);
-    console.log('this is this.props.notes', this.props.notes);
-    // console.log('BubbleGum', this.props.notes[this.props.match.params.id].title)
+    console.log('SNV this.props', this.props);
+    console.log('SNV this.props.history', this.props.history);
+    console.log('SNV this is this.props.notes', this.props.notes);
+    // console.log('BubbleGum', this.props.notes[this.props.match.params._id].title)
 
     return (
-      <StyledNote key={this.props.match.params.id}>
+      <StyledNote key={this.props.match.params._id}>
         <HomeLeftPanel />
         {this.modal ? (
           <div>
             <Delete
-              id={this.props.match.params.id}
+              _id={this.props.match.params._id}
               toggleModal={this.toggleModal}
               handleDelete={this.props.deleteNote}
             />
           </div>
         ) : null}
 
-        <div className="card-body" key={this.props.match.params.id}>
+        <div className="card-body" key={this.props.match.params._id}>
           <div className="links">
-            <Link to={`/edit-note/${this.props.match.params.id}`}>edit</Link>
+            <Link to={`/edit-note/${this.props.match.params._id}`}>edit</Link>
             <a className="delete-link" onClick={() => this.toggleModal()}>
               delete
             </a>
           </div>
-          {/* Since you made the SingleNoteView's functionality dependent on a sequential id
+          {/* Since you made the SingleNoteView's functionality dependent on a sequential _id
                     system, using v4 will break the single note view unless this is changed.  Regardless,
                     getting the notes data in this way presents a lot of problems when trying to implement
                     delete functionality */}
-          {/* <h2 className="card-title">{this.props.notes[this.props.match.params.id - 1].title}</h2>
-                    <CardText className="card-text">{this.props.notes[this.props.match.params.id - 1].text}</CardText> */}
+          {/* <h2 className="card-title">{this.props.notes[this.props.match.params._id - 1].title}</h2>
+                    <CardText className="card-text">{this.props.notes[this.props.match.params._id - 1].text}</CardText> */}
 
           <h2 className="card-title">
             {
               this.props.notes.find(
-                note => note.id === Number(this.props.match.params.id)
+                note => note._id === Number(this.props.match.params._id)
               ).title
             }
           </h2>
           <CardText className="card-text">
             {
               this.props.notes.find(
-                note => note.id === Number(this.props.match.params.id)
+                note => note._id === Number(this.props.match.params._id)
               ).text
             }
           </CardText>
