@@ -11,6 +11,7 @@ class Login extends Component {
   }
 
   newMessage2 = (username, returnMessage) => {
+    console.log(returnMessage);
     if (returnMessage) {
       this.setState({ username: username });
       this.props.history.push('/notes');
@@ -19,6 +20,7 @@ class Login extends Component {
       const field = document.querySelectorAll("#usernamefield")[0];
       field.style.border = "2px solid #A0001E";
       this.setState({ message: "A user with that name already exists!"})
+      console.log(this.state.message);
     }
     else {
       const logo = document.querySelectorAll("#lnlogo")[0];
@@ -45,7 +47,7 @@ class Login extends Component {
     else {
       const logo = document.querySelectorAll("#lnlogo")[0];
       logo.classList.toggle("spin");
-    this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
+      this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
     }
   }
 
@@ -54,7 +56,7 @@ class Login extends Component {
     const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
     if (username && password) {
       this.setState({ message: "The server gnomes are working.."})
-              //animation
+      //animation
       const logo = document.querySelectorAll("#lnlogo")[0];
       logo.classList.toggle("spin");
 
