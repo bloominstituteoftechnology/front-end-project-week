@@ -1,0 +1,12 @@
+.newNote {
+    background-color: #f3f3f3;
+    width: 100%;
+    padding: 2rem;
+}
+
+.form a:hover {
+    text-decoration: none;
+    border: 1px solid #2BC1C4;
+    background-color: white;
+    color: #2BC1C4;
+}

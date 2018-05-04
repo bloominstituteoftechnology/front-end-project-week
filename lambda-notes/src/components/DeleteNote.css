@@ -1,0 +1,27 @@
+.link-secondary {
+        background: none;
+        margin: 0;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        text-decoration: underline;
+}
+
+.link-secondary:hover {
+    color: #2BC1C4;
+}
+
+.modal-content {
+    width: 595px;
+    height: 205px;
+    border-radius: 0;
+    margin: 190px auto 0;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-footer {
+    border-top: 0;
+}

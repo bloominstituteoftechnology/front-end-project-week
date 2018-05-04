@@ -1,0 +1,115 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+/* end reset */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    display: inline-block;
+    height:100%;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    color: black;
+}
+
+h1, h2, h3, h4, h5, a, button {
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+    letter-spacing: 0.5px;   
+}
+
+/* !! better way? mixins or styled components? */
+h1 {
+    font-size: 2.5rem;
+    line-height: 2rem;
+}
+
+h2 {
+    font-size: 21px;
+    letter-spacing: 1.5px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.link {
+    display: block;
+    width: 215px;
+    height: 50px;
+    margin: 0 auto 20px;
+    padding-top: 15px;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+    background-color: #2BC1C4;
+    border: 1px solid gray;
+  }
+
+.left-container {
+    width: 100vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: #f3f3f3;
+}
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-input {
+    min-width: 250px;
+}

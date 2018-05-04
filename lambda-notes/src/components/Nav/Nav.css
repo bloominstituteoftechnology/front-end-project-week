@@ -1,0 +1,31 @@
+.navigation {
+  display: inline-block;
+  min-width: 250px;
+  background-color: #D8D8D8;
+  border: 1px solid gray;
+  padding: 15px;
+}
+
+.navigation h1 {
+  margin: 10px 0 30px;
+}
+
+.navigation .link {
+  display: block;
+  width: 215px;
+  height: 50px;
+  margin: 0 auto 20px;
+  padding-top: 15px;
+  font-size: 17px;
+  text-align: center;
+  color: white;
+  background-color: #2BC1C4;
+  border: 1px solid gray;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+  border: 1px solid #2BC1C4;
+  background-color: white;
+  color: #2BC1C4;
+}

@@ -1,0 +1,36 @@
+.list-view {
+    background-color: #f2f1f2;
+    height: 100vh;
+}
+
+.list-view h2 {
+    letter-spacing: 1px;
+}
+
+.list-view-notes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-view-notes a {
+    color: black;
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.note {
+    width: 213px;
+    height: 217px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.note h3 {
+    border-bottom: 1px solid lightgray;
+}
+
+.note p {
+    line-height: 2;
+}
