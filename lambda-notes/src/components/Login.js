@@ -84,7 +84,7 @@ class Login extends Component {
       <div className="LoginPage">
       <div> {redirect} </div>
       <img id="lnlogo" src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "4% auto"}} />
-        <div style={{margin: "1% 0"}}>
+        <div style={{margin: "1% 0", fontSize: "18px", fontWeight: "500"}}>
           {this.state.message}
         </div>
         <div>
