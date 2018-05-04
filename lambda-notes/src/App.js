@@ -19,13 +19,19 @@ class App extends Component {
     id: 0,
     message: "Enter your username and password",
     username: false,
-    isAuthenticated: false,
+    isAuthenticated: true,
 }
 
   handleAdd = (note) => {
+    let newState = this.state.notes
+    newState.push({title: `Building Note..`, content: "", tags: [], _id: 1000000})
+    this.setState({ notes: newState })
+
     axios.post(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}`, note)
     .then(response => {
+      console.log("Note added!");
       const newState = this.state.notes
+      newState.pop();
       newState.push(response.data);
       this.setState({ notes: newState })
       })

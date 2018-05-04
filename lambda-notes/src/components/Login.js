@@ -5,10 +5,6 @@ import { Redirect } from "react-router-dom";
 
 class Login extends Component {
 
-  newMessage = (username, returnMessage) => {
-    
-  }
-
   handleLogin = (e) => {
     const username = e.target.parentNode.parentNode.getElementsByTagName("input")[0].value;
     const password = e.target.parentNode.parentNode.getElementsByTagName("input")[1].value;
@@ -23,11 +19,9 @@ class Login extends Component {
     else { 
         if (!username) {
           e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
-          this.setState({ message: "Hey! You left these empty!"})
       }
         if (!password) {
           e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
-          this.setState({ message: "Hey! You left these empty!"})
       }
     }
 };
@@ -46,11 +40,9 @@ class Login extends Component {
     else { 
       if (!username) {
         e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
-        this.setState({ message: "Hey! You left these empty!"})
     }
       if (!password) {
         e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
-        this.setState({ message: "Hey! You left these empty!"})
     }
   }
 };
