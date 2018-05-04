@@ -60,7 +60,7 @@ class NoteList extends Component {
       <div>
         {console.log('state',this.state)}
         {console.log('props notes',this.props.notes)}
-        <h1>{}</h1>
+        {/* List view */}
         {this.props.notes.map( (note) => {
           console.log('JOOOR',note);
           return(
@@ -74,7 +74,7 @@ class NoteList extends Component {
             </div>
           )
         })}
-          
+          {/*creates form and edits form */}
         <form>
           <input type='text' name='title' placeholder='Title' onChange={this.handleChange} value={this.state.title}/>
           <textarea name='content' rows="10" cols="30" placeholder='Content' onChange={this.handleChange} value={this.state.content}/>
