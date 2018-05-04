@@ -11,7 +11,8 @@ class App extends Component {
       <div className='app'>
         <Route exact path='/' component={ListView} />
         <Route path='/create' component={CreateNote} />
-        <Route path='/view' component={NoteView} />
+        {/* <Route exact path='/view' component={NoteView} /> */}
+        <Route path='/view/:id' component={NoteView} />
       </div> 
     );
   }

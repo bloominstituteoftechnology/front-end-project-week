@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-// import { Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 import '../Styles/ListView.css'
 import Sidebar from './Sidebar';
@@ -21,7 +21,7 @@ class ListView extends Component {
     }
     
     render() {
-        // <Route path={ `${this.props.match.path}/view:note.id` } component={ NoteView } />
+
         console.log("LIST", this.props)
         return (
             <Container className='container'>
@@ -32,16 +32,16 @@ class ListView extends Component {
 
                     <Col xs='9'>
                         <div className='note'>
-                            <h4>Your Notes:</h4>
+                            <h4 className='yourNotes'>Your Notes:</h4>
                             
                                 { this.props.notes.map((note, id) => 
                                     <div className='postIt'
-                                        key={ id }>
-                                    {/* <Link to={`${this.props.match.path}/${note.id}`}> */}
+                                        key={ note.id }>
+                                    <Link to={`/view/${note.id}`}>
                                         <span className='title'>{ note.title }</span>
                                         <hr className='line' />
                                         <span className='content'>{ this.shorten(note.content) }</span> 
-                                        {/* </Link> */}
+                                        </Link>
                                     </div>
                                 )}
                            

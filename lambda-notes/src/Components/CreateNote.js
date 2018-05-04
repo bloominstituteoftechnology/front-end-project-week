@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Container, Row, Col } from 'reactstrap';
 
 import Sidebar from './Sidebar';
 import { addNote } from '../Actions/index';
@@ -29,18 +30,27 @@ class CreateNote extends Component {
     }
     render() {
         return (
-            <div className='create'>
-                <Sidebar />
-                <div className='newNote'>
-                    <h4>Create New Note:</h4>
+            <Container className='container'>
+                <Row>
 
-                    <input type='text' name='title' placeholder='Note Title' value={ this.state.title } onChange={ this.updateInput } />
+                    <Col xs='3'>
+                        <Sidebar />
+                    </Col>
 
-                    <textarea name='content' rows='20' cols='90' placeholder='Note Content' value={ this.state.content } onChange={ this.updateInput } />
+                    <Col xs='9'>
+                        <div className='newNote'>
+                            <h4>Create New Note:</h4>
 
-                    <button className='submit' onClick={ this.createNewNote }>save</button>
-                </div>
-            </div>
+                            <input type='text' name='title' placeholder='Note Title' value={ this.state.title } onChange={ this.updateInput } />
+
+                            <textarea name='content' rows='20' cols='90' placeholder='Note Content' value={ this.state.content } onChange={ this.updateInput } />
+
+                            <button className='submit' onClick={ this.createNewNote }>save</button>
+                        </div>
+                    </Col>
+                    
+                </Row>
+            </Container>
         )
     }
 }

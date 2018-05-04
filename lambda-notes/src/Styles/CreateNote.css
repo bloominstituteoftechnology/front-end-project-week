@@ -1,7 +1,7 @@
 body {
   background: #EDEDED;
 }
-.create {
+.container {
   margin: 3%;
   display: flex;
 }

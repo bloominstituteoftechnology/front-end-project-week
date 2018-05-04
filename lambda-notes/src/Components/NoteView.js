@@ -23,8 +23,8 @@ const NoteView = (props) => {
                             <a href='#_'>edit</a>
                             <a href='#_'>delete</a>
                             </div>
-                            <h4>{ props.notes[0].title }</h4>
-                            <p>{ props.notes[0].content }</p>
+                            <h4>{ props.notes[props.notes.id].title }</h4>
+                            <p>{ props.notes[props.notes.id].content }</p>
                         </div>
                     </Col>
                 </Row>
