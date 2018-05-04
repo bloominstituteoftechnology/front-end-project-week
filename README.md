@@ -1,7 +1,7 @@
 # Trello Account: https://trello.com/b/8vqcdVrW/lambda-notes-sean-valdivia
 # Color Scheme: 
 # Left side background: rgb(211,210,211)
-# ride side background: rgb(242,241,242)
+# right side background: rgb(242,241,242)
 # greenish buttons rgb(88,181,187)
 # notecards background: white
 # font color titles: rgb(65,65,65)

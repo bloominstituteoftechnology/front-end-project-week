@@ -1,8 +1,5 @@
 .App {
-  display: flex;
-  background-color: blue;
+  width: 100 vw;
+  height: 100vh;
 }
 
-.Notes {
-  background-color: orange;
-}

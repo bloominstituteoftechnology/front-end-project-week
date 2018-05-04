@@ -1,4 +1,21 @@
+.MainView {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
 
+.ButtonColumn {
+    border: 1px solid black;
+    background-color: rgb(211,210,211);
+    width: 25vw;
+    height: 100vh;
+}
+
+.NoteSpace {
+    border: 1px solid black;
+    background-color: rgb(242,241,242)
+}
 
 
 
