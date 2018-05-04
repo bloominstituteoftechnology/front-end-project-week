@@ -59,7 +59,7 @@ handleDrop = (e) => {
         return (
             <div className="ListView">
                 <div className="ListView__nav">
-                    <input className="ListView__input" type="text" placeholder="Find Note" onChange={this.handleFilter}></input>
+                    <input className="ListView__input" type="text" placeholder="Search Note Title/Tags" onChange={this.handleFilter}></input>
                     <div style={{margin: "0 3%", width: '140px', display: 'flex', justifyContent: "space-between", alignItems: "center"}}>
                         Sort:
                         <button onClick={this.sortA} className="ExtraButton">A-z</button>
