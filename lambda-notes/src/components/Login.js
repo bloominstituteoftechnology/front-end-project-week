@@ -25,11 +25,11 @@ class Login extends Component {
                 this.props.history.push('/notes');
             }
             else {
-                if(returnMessage === 404) {
+                if(returnMessage === "404") {
                   this.setState({ message: "Couldn't find that user.. try making a new one"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[0].style.border = "2px solid #A0001E";
                 }
-                else if(returnMessage === 422) {
+                else if(returnMessage === "422") {
                   this.setState({ message: "Incorrect password!"})
                   e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
                 }
@@ -66,7 +66,7 @@ class Login extends Component {
           this.props.history.push('/notes');
         }
         else {
-          if(returnMessage === 422) {
+          if(returnMessage === "422") {
             this.setState({ message: "A user with that name already exists!"})
             e.target.parentNode.parentNode.getElementsByTagName("input")[1].style.border = "2px solid #A0001E";
           }
@@ -94,7 +94,7 @@ class Login extends Component {
       <div className="LoginPage">
       <div> {redirect} </div>
       <img id="lnlogo" src={logo} alt="logo" style={{width: "120px", height: "120px", margin: "4% auto"}} />
-        <div style={{margin: "1% 0", fontSize: "18px", fontWeight: "500"}}>
+        <div style={{margin: "1% 0", fontSize: "20px", fontWeight: "500"}}>
           {this.state.message}
         </div>
         <div>

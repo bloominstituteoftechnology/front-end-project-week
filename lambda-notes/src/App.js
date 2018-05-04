@@ -18,7 +18,7 @@ class App extends Component {
     notes: [],
     id: 0,
     username: false,
-    isAuthenticated: false,
+    isAuthenticated: true,
 }
 
   handleAdd = (note) => {
