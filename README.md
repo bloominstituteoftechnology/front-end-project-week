@@ -1,5 +1,15 @@
 # Trello Account: https://trello.com/b/8vqcdVrW/lambda-notes-sean-valdivia
-# Color Scheme: http://colrd.com/palette/23719/?download=css
+# Color Scheme: 
+# Left side background: rgb(211,210,211)
+# ride side background: rgb(242,241,242)
+# greenish buttons rgb(88,181,187)
+# notecards background: white
+# font color titles: rgb(65,65,65)
+# font color buttons: white
+
+borders: rgb(189,188,189)
+delete button: red
+thats it
 
 # Front End Project Week
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
