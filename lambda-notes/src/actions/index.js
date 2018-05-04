@@ -16,11 +16,25 @@ export const getNotes = () => {
     dispatch({ type: FETCHING })
     axios.get('http://localhost:5000/api/notes/')
       .then( (response) => {
-        console.log('RESP',response.data);
+        // console.log('RESP',response.data);
         dispatch({type: FETCHED, notes: response.data})
       })
       .catch(err => {
         dispatch({ type: ERROR, error: 'ERROR GETTING NOTES'})
+      });
+  }
+}
+
+export const getNote = (id) => {
+  return dispatch => {
+    dispatch({ type: FETCHING })
+    axios.get(`http://localhost:5000/api/notes/${id}`)
+      .then( (response) => {
+        // console.log('RESP',response.data);
+        dispatch({type: FETCHED, notes: response.data})
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, error: 'ERROR GETTING NOTE'})
       });
   }
 }
@@ -66,7 +80,7 @@ export const deleteNoteOnState = id => {
     dispatch({ type: FETCHING})
     axios.delete(`http://localhost:5000/api/notes/${id}`)
       .then(response => {
-        console.log('DELETE',response);
+        // console.log('DELETE',response);
         dispatch({ type: FETCHED, notes: response.data });
       })
       .catch(err => {
