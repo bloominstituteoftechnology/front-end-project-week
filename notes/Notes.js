@@ -11,6 +11,20 @@ class Note extends Component {
           newNotes: {}
         }
     }
+    
+    createNew = () => {
 
+    }
 
+    viewExisting = () => {
+
+    }
+
+    editExisting = () => {
+
+    }
+
+    deleteExisting = () => {
+        
+    }
 }
