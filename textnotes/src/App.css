@@ -48,7 +48,6 @@ nav ul {
 }
 
 nav li {
-  height: 200px;
   width: 200px;
   background-color: white;
   border: 1px solid black;
@@ -59,8 +58,7 @@ nav li {
 li p {
   text-decoration: none;
   word-wrap: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal; 
   color: black;
 }
 
@@ -134,4 +132,15 @@ li hr {
   text-align: justify;
   word-break: break-word;
   color: black;
+}
+
+.feature-button {
+  float: right;
+  margin: 5px;
+  margin-right: 15px;
+  text-decoration: underline;
+  font-weight: bold;
+  border: none;
+  padding: 3px;
+  background: none;
 }

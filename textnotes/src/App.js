@@ -12,7 +12,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("state", this.props.notes);
     return (
       <div className="createPage">
         <h3 className="home-logo"> Your Notes: </h3>

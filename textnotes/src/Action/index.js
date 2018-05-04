@@ -21,3 +21,26 @@ export const getNotes = () => {
             .then(response => dispatch({ type: SUCCESS, notes: response.data }))
     }
 }
+
+// axios.post config
+
+export const postNote = (newNoteObj) => {
+    return dispatch => {
+        dispatch({ type: LOADING });
+        axios
+            .post('http://localhost:5000/homeNotes', newNoteObj)
+            .then(response => { dispatch({ type: SUCCESS, note: response.data })
+            })
+    }
+}
+
+//axios.delete config
+
+export const deleteNote = (id) => {
+    return dispatch => {
+        dispatch({ type: LOADING });
+        axios
+            .delete(`http://localhost:5000/Note/${id}`)
+            .then(response => dispatch({ type: SUCCESS, note: response.data }))
+    }
+}

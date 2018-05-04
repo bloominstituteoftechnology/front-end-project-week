@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
             return Object.assign({}, state, { notes: action.notes, LOADING: false })
 
         case GET_NOTE:
-            return { ...state, note: state.notes.find(note => note.id == action.id ) }
+            return { ...state, note: state.notes.find(note => note.id == action.id )}
 
         default:
             return state;

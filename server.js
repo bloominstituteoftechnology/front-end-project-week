@@ -42,6 +42,13 @@ app.post('/homeNotes', (req, res) => {
 	return nextId++;
   }
 
+  app.delete('/Note/:id', (req, res) => {
+	const { id } = req.params;
+  
+	notes = notes.filter(n => n.id !== Number(id));
+  
+	res.send(notes);
+  });
 
 app.listen(port, () => {
 	// should listen to "http://localhost:5000/homeNotes"
