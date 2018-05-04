@@ -22,11 +22,21 @@ componentDidMount() {
 render(){
     return(
         <div class='container'>
-  <div class = 'button3'>
-     <h1>Lambda Notes</h1>
-   <button><Link to='/Data'> View Your Notes</Link></button><br/>
-   <button><Link to='/CreateNote'> +Create your Notes</Link></button>
-   </div>
+        <div className="button3">
+          <h1>Lambda Notes</h1>
+          <button>
+            {" "}
+            <Link to="Data"> View Your Notes</Link>
+          </button>
+          <br />
+          <button>
+            {" "}
+            <Link to="CreateNote"> + Create Your Notes</Link>
+          </button>
+        </div>
+
+
+     
         <div className='view'>
         {this.state.notes.map((note) =>{
 return (
