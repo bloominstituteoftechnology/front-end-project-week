@@ -16,7 +16,7 @@ class NoteForm extends Component {
         this.state= {
             newNote:{
                 title: '',
-                note: '',
+                note: ''
             }
         }
     }
@@ -37,7 +37,7 @@ class NoteForm extends Component {
             this.props.editNote(this.state.newNote,this.state.newNote._id);
         }
         this.setState({
-            newNote:{title:'',note:'',}
+            newNote:{title:'',note:''}
         });
         this.props.history.push(`/${uid}/displayNotes`);
     };
