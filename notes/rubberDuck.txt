@@ -5,8 +5,8 @@ I will store this array of objects in redux store.
 I'm going to try to keep everything as simple as possible to make this doable for me 
 Just trying to get it to work.
 
-The default beginning view will be an empty screen with menu options at the top of the screen
-The menu options will be createNew, deleteExisting, editExisting, viewExisting, and searchExisting
+The default beginning view will be an empty screen with menu options on the left side of the screen
+The menu options will be Create New, View Notes, Edit Notes, and Delete Notes
 
 The default state of the application has no notes.
 
