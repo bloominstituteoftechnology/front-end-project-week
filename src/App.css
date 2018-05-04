@@ -1,0 +1,263 @@
+h4 {
+  margin: 0;
+  padding: 5% 0 2% 0;
+  border-bottom: 1px solid gray;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #2BC1C5;
+  border: none;
+}
+
+h3 {
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+p {
+  text-align: justify;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgb(240, 232, 232);
+}
+
+.notes-menu {
+  border-right: 1px grey solid;
+  width: 22%;
+  padding: 2%;
+  background-color: #D8D8D8;
+}
+
+.notes-list {
+  width: 75%;
+  padding: 2rem 1.5rem;
+  background-color: #F3F3F3;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search input {
+  width: 40%;
+  padding: 0.5rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+
+.notes-items {
+  width: 27%;
+  padding: 1% 2% 2% 2%;
+  margin-bottom: 1.5rem;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 2%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.notes-items p {
+  margin-top: 3%;
+  text-align: justify;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 grey;
+  transition: 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.nav-bar {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
+}
+
+.link {
+  background-color: #2BC1C5;
+  border: 1px grey solid;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.4rem;
+}
+
+.add-note {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.5rem;
+  width: 60%;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+
+textarea {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  resize: none;
+}
+
+.save-button {
+  width: 20%;
+  text-align: center;
+  background-color: #2BC1C5;
+  border: 1px grey solid;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 0.4rem;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+}
+
+.editeDelete {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -10px;
+}
+
+.editeDelete .link {
+  background-color: #2BC1C5;
+  border: 1px grey solid;
+  padding: 0.3rem;
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  font-weight: lighter;
+  margin-left: 1rem;
+}
+
+.delete {
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+}
+
+.delete-btns {
+  display: flex;
+  padding: 0.3rem;
+}
+
+.noBtn {
+  background-color: #2BC1C5;
+  border: 1px solid grey;
+  padding: 0.7rem 5rem;
+  margin-left: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.deleteBtn {
+  background-color: red;
+  border: 1px solid grey;
+  padding: 0.7rem 4rem;
+  color: white;
+  font-weight: bold;
+}
+
+.download {
+  display: flex;
+  justify-content: space-around;
+  background-color: green;
+}
+
+.signOut {
+  background-color: red;
+}
+
+.login {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 grey;
+  transition: 0.2s;
+  width: 140%;
+  background-color: black;
+  color: white;
+  padding: 5%;
+  border-radius: 1rem;
+  opacity: 0.8;
+}
+
+.signup {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110%;
+  background-color: black;
+  color: white;
+  border-radius: 1rem;
+}
+
+.login:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.login form {
+  display: flex;
+  margin-top: 2rem;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  height: 20rem;
+  border: 1px black dotted;
+  padding: 4rem;
+}
+
+.login form:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.login input {
+  margin-bottom: 2rem;
+}
+
+.login button {
+  width: 12.4rem;
+  color: white;
+  font-weight: bold;
+}
