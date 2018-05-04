@@ -26,7 +26,7 @@ render(){
           <h1>Lambda Notes</h1>
           <button>
             {" "}
-            <Link to="Data"> View Your Notes</Link>
+            <Link to={`${match.url}/Data`}> View Your Notes</Link>
           </button>
           <br />
           <button>

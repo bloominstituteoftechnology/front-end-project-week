@@ -5,7 +5,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      emails: "",
       password: ""
     };
     this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -22,15 +22,12 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const addUser = {
-      email: event.target.value,
-      password: event.target.value
+      email: this.state.email,
+      password: this.state.password
     };
 
     axios
-      .post("https://backend-project-week.herokuapp.com/api/users", {
-        email: this.state.email,
-        password: this.state.password
-      })
+      .post("https://backend-project-week.herokuapp.com/api/users", addUser)
       .then(response => {
         console.log(response, "email and password saved");
       })
@@ -38,12 +35,15 @@ class Login extends Component {
         console.log(err, "sorry, email and password not saved, try again ");
       });
 
-    this.state.user.push(addUser);
-    this.setState({
-      email: "",
-      password: ""
-    });
-  };
+    
+      this.setState({
+        email: "",
+        password: ""
+      });
+    };
+   
+      
+  
 
   render() {
     return (
