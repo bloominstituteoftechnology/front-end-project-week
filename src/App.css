@@ -207,6 +207,8 @@
   
   #current_user{
     display:none;
+    font-size: 50px;
+    color: #2bc1c4;
   }
   
   #passwordsdontmatch {
