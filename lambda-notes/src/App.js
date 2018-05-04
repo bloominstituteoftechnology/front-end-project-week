@@ -19,12 +19,6 @@ class App extends Component {
     isAuthenticated: true,
 }
 
-  cb(res) {
-    console.log(this)
-    const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
-    this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
-  }
-
   handleAdd = (note) => {
     axios.post(`https://dry-brushlands-44600.herokuapp.com/api/notes/${this.state.id}`, note)
     .then(response => {
@@ -108,11 +102,12 @@ class App extends Component {
     //play animation
       axios.get('https://dry-brushlands-44600.herokuapp.com/api/users')
       .then(resp => {
+        console.log(resp.data);
         if (resp.data._id) {
         axios.get(`https://dry-brushlands-44600.herokuapp.com/api/notes/${resp.data._id}`)
           .then(res => {
-            console.log(this)
-            this.cb(res);
+            const name = res.data.username.charAt(0).toUpperCase() + res.data.username.slice(1);
+            this.setState({ isAuthenticated: true, notes: res.data.notes, id: res.data._id, username: name})
             //redirect
           })
           .catch(err => console.log(err));
@@ -123,11 +118,10 @@ class App extends Component {
     }
   }
 
-
   render() {
+    this.isLoggedIn = this.isLoggedIn.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
-    this.cb = this.cb.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
     const PrivateRoute = ({ component: Component, ...rest }) => (
       <Route {...rest} render={props => this.state.isAuthenticated ? ( <Component {...props} {...rest} /> ) : ( <Redirect to="/" /> ) }/>
