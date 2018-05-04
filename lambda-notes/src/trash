@@ -1,0 +1,105 @@
+[%bs.raw {|require('./App.css')|}];
+
+[@bs.module] external logo : string = "./logo.svg";
+
+let toString = ReasonReact.string;
+
+type noteContent = { title: string, body: string };
+
+type note = {
+  id: int,
+  content: noteContent,
+};
+
+type state = {notes: list(note)};
+
+type action = 
+  | Add(noteContent)
+  | Delete(int);
+
+
+let newNote = (
+  () => {
+    let lastId = ref(-1);
+    noteContent => {
+      lastId := lastId^ + 1;
+      {id: lastId^, content: noteContent};
+    }
+  }
+)();
+
+let valueFromEvent = e : string => (
+  e
+  |> ReactEventRe.Form.target
+  |> ReactDOMRe.domElementToObj
+)##value;
+
+module Form = {
+  type action =
+    | NewTitle(string)
+    | NewBody(string);
+
+ type state = noteContent;
+
+  let component = ReasonReact.reducerComponent("Form");
+
+  let make = (~onSubmit, _children) => {
+    ...component,
+    initialState: () => {
+      title: "",
+      body: "",
+    },
+    reducer: (action, state) => {
+      let { title, body } = state;
+      switch action {
+      | NewTitle(newTitle) => ReasonReact.Update({ ...state, state.title: newTitle })
+      | NewBody(newBody) => ReasonReact.Update({ ...state, state.body: newBody })
+      }
+    },
+    render: (self) => {
+      <form>
+        <input
+          _type="text"
+          placeholder="New Title"
+          onChange=(evt => self.send(valueFromEvent(evt)))
+          value=self.state.title
+        />
+        <input
+          _type="text"
+          placeholder="New Body"
+          onChange=(evt => self.send(valueFromEvent(evt)))
+          value=self.state.body
+        />
+        <input
+          _type="button"
+          onClick=(e => onSubmit(self.state))
+          value="Add Note"
+        />
+      </form>
+    },
+  };
+};
+
+let component = ReasonReact.reducerComponent("App");
+
+let make = (~message, _children) => {
+  ...component,
+  initialState: () => {notes: []},
+  reducer: (action, {notes}) =>
+    switch action {
+    | Add(noteContent) => ReasonReact.Update({notes: [newNote(noteContent), ...notes]})
+    | Delete(id) => ReasonReact.NoUpdate
+    },
+  render: self => {
+    let { notes } = self.state;
+    <div className="App">
+      <div className="App-header">
+        <img src=logo className="App-logo" alt="logo" />
+        <h2> (ReasonReact.string(message)) </h2>
+      </div>
+      <div>
+        <Form onSubmit=(newNote => self.send(Add(newNote))) />
+      </div>
+    </div>;
+  }
+};
