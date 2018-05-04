@@ -3,10 +3,50 @@ import { Button } from 'reactstrap';
 import logo from '../assets/logo.png';
 import { Redirect } from "react-router-dom";
 
+///problem is this is bound to app.js when it needs to set the state of this component
 
 class Login extends Component {
   state = {
     message: "Enter your username and password"
+  }
+
+  newMessage2 = (username, returnMessage) => {
+    if (returnMessage) {
+      this.setState({ username: username });
+      this.props.history.push('/notes');
+    }
+    if(returnMessage === 422) {
+      const field = document.querySelectorAll("#usernamefield")[0];
+      field.style.border = "2px solid #A0001E";
+      this.setState({ message: "A user with that name already exists!"})
+    }
+    else {
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
+      this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
+    }
+  }
+
+  newMessage = (username, returnMessage) => {
+    if (returnMessage) {
+      this.setState({ username: username });
+      this.props.history.push('/notes');
+    }
+    if(returnMessage === 404) {
+      const field = document.querySelectorAll("#usernamefield")[0];
+      field.style.border = "2px solid #A0001E";
+      this.setState({ message: "Couldn't find that user.. try making a new one"})
+    }
+    if(returnMessage === 422) {
+      const field = document.querySelectorAll("#passwordfield")[0];
+      field.style.border = "2px solid #A0001E";
+      this.setState({ message: "Incorrect password!"})
+    }
+    else {
+      const logo = document.querySelectorAll("#lnlogo")[0];
+      logo.classList.toggle("spin");
+    this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
+    }
   }
 
   handleLogin = (e) => {
@@ -18,27 +58,7 @@ class Login extends Component {
       const logo = document.querySelectorAll("#lnlogo")[0];
       logo.classList.toggle("spin");
 
-        this.props.login(username, password, (returnMessage) => {
-            if (returnMessage) {
-                const name = username.charAt(0).toUpperCase() + username.slice(1);
-                this.setState({ modal: false, username: name });
-                this.props.history.push('/notes');
-            }
-            if(returnMessage== 404) {
-              const field = document.querySelectorAll("#usernamefield")[0];
-              field.style.border = "2px solid #A0001E";
-              this.setState({ message: "Couldn't find that user.. try making a new one"})
-            }
-            if(returnMessage == 422) {
-              const field = document.querySelectorAll("#passwordfield")[0];
-              field.style.border = "2px solid #A0001E";
-              this.setState({ message: "Incorrect password!"})
-            }
-            else {
-            this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
-            logo.classList.toggle("spin");
-            }
-        })
+      this.props.login(username, password, this.newMessage);
     }
     else { 
         if (!username) {
@@ -61,22 +81,7 @@ class Login extends Component {
       const logo = document.querySelectorAll("#lnlogo")[0];
       logo.classList.toggle("spin");
 
-      this.props.signup(username, password, (returnMessage) => {
-        if (returnMessage) {
-          const name = username.charAt(0).toUpperCase() + username.slice(1);
-          this.setState({ modal: false, username: name });
-          this.props.history.push('/notes');
-        }
-        if(returnMessage == 422) {
-          const field = document.querySelectorAll("#usernamefield")[0];
-          field.style.border = "2px solid #A0001E";
-          this.setState({ message: "A user with that name already exists!"})
-        }
-        else {
-          this.setState({ message: "Something went wrong: Server Gnomes drank too much last night"})
-          logo.classList.toggle("spin");
-        }
-      });
+      this.props.signup(username, password, this.newMessage2);
     }
     else { 
       if (!username) {
@@ -92,7 +97,12 @@ class Login extends Component {
 
 
   render() {
+
+    this.newMessage = this.newMessage.bind(this);
+    this.newMessage2 = this.newMessage2.bind(this);
+
     const redirect = this.props.isAuth ? <Redirect to="/notes" /> : null;
+
     return (
       <div className="LoginPage">
       <div> {redirect} </div>
@@ -102,8 +112,8 @@ class Login extends Component {
         </div>
         <div>
             <div>
-            <div id="usernamefield"><div>Username:</div><input name="username"></input></div>
-            <div id="passwordfield"><div>Password:</div><input type="password" name="password"></input></div>
+            <div><div>Username:</div><input name="username" id="usernamefield"></input></div>
+            <div><div>Password:</div><input type="password" name="password" id="passwordfield"></input></div>
             </div>
         </div>
         <div>

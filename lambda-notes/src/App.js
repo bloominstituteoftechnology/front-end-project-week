@@ -78,8 +78,12 @@ class App extends Component {
         cb(response.data.success);
     })
     .catch(err => {
-      const errStatus = err.response.status;
-      cb(errStatus);
+      let errStatus = null;
+      if (err.response) {
+        errStatus = err.response.status;
+      }
+      const name = user.charAt(0).toUpperCase() + user.slice(1);
+        cb(name, errStatus);
     });
   }
 
@@ -92,8 +96,12 @@ class App extends Component {
         cb(true);
       })
     .catch(err => {
-      const errStatus = err.response.status;
-      cb(errStatus);
+      let errStatus = null;
+      if (err.response) {
+        errStatus = err.response.status;
+      }
+      const name = user.charAt(0).toUpperCase() + user.slice(1);
+        cb(name, errStatus);
     });
   }
 
