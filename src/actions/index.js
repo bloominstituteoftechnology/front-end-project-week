@@ -100,7 +100,6 @@ export const addNote = note => {
           type: ADD_NOTE,
           payload: note
         });
-        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error creating the note"));
@@ -123,7 +122,6 @@ export const getNotes = () => {
           type: GET_NOTES,
           payload: data
         });
-        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error getting the notes"));
@@ -147,7 +145,6 @@ export const editNote = note => {
           type: EDIT_NOTE,
           payload: data
         });
-        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error editing/updating the note"));
@@ -171,7 +168,6 @@ export const deleteNote = id => {
           type: DELETE_NOTE,
           payload: data
         });
-        history.push(`${uid}/displayNotes`);
       })
       .catch(error => {
         dispatch(authError("There was an error deleting the note"));
