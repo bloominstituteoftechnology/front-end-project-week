@@ -4,9 +4,9 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
-import { addNote } from '../Actions/index';
+import { addNote, deleteNote } from '../Actions/index';
 import "../Styles/CreateNote.css";
-import ListView from './ListView';
+// import ListView from './ListView';
 
 class CreateNote extends Component {
     state = {
@@ -64,4 +64,4 @@ const mapStateToProps = (state) => {
         notes: state
     };
 }
-export default connect(mapStateToProps, { addNote })(CreateNote);
+export default connect(mapStateToProps, { addNote, deleteNote })(CreateNote);

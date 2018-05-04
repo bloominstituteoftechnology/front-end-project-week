@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import '../Styles/ListView.css'
 import Sidebar from './Sidebar';
@@ -22,7 +22,7 @@ class ListView extends Component {
     
     render() {
 
-        console.log("LIST", this.props)
+        // console.log("LIST", this.props)
         return (
             <Container className='container'>
                 <Row>
@@ -36,7 +36,7 @@ class ListView extends Component {
                             
                                 { this.props.notes.map((note, id) => 
                                     <div className='postIt'
-                                        key={ note.id }>
+                                        key={ id }>
                                     <Link to={`/view/${note.id}`}>
                                         <span className='title'>{ note.title }</span>
                                         <hr className='line' />
