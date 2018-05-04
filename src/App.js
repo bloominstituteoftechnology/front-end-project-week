@@ -63,10 +63,10 @@ class App extends Component {
               <Col sm={3} className="leftSide position-fixed">
                 <Fragment>
                   <h1 className="header my-4">Lambda Notes</h1>
-                  <Link to="/:uid/displayNotes">
+                  <Link to={`/${window.localStorage.getItem('uid')}/displayNotes`}>
                     <Button className="w-100 my-2 p-2">View Your Notes</Button>
                   </Link>
-                  <Link to="/:uid/createNote">
+                  <Link to={`/${window.localStorage.getItem('uid')}/createNote`}>
                     <Button className="w-100 my-2 p-2">
                       + Create New Note
                     </Button>

@@ -8,7 +8,8 @@ class SignIn extends Component {
   state = {
     authed: false,
     username: "",
-    password: ""
+    password: "",
+    uid:{$this.}
   };
 
   loginSubmitHandler = event => {
