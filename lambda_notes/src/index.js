@@ -8,13 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import noteListView from './Components/noteListView'
+import NoteListView from './Components/NoteListView'
 
 ReactDOM.render(
 <Router>
     <div>
-    <App />,
-      <Route exact path="/" component={noteListView} />
+    <App />
+    
     </div>
     </Router>,
      document.getElementById('root'));

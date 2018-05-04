@@ -2,25 +2,40 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
-import SideNav from './Components/sideNav';
-import CreateNewNote from './Components/createNewNote';
+import SideNav from './Components/SideNav';
+import CreateNewNote from './Components/CreateNewNote';
+import NoteListView from './Components/NoteListView';
+import SingleNoteView from './Components/SingleNoteView';
 
-class App extends Component {
+
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state= {
+      noteList: [
+        { noteTitle:'',
+        noteText:''
+    }
+      ]
+    }
+  }
+
+  addNewNote = (note) => {
+    let noteList =[];
+    const newNote = this.state.noteList;
+    noteList.push(note);
+    this.setState({noteList});
+  }
   render() {
     return (
-      <div className="App">
-      <SideNav />
-      <CreateNewNote />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <SideNav />
+      <NoteListView list={this.state.noteList} />
+      <Route exact path='/' component={NoteListView} />"
+      
       </div>
     );
   }
 }
 
-export default App;
+
