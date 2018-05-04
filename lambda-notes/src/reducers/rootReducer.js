@@ -12,9 +12,6 @@ import {
   DELETING_NOTE,
   DELETE_NOTE_ERROR,
   DELETED_NOTE,
-  FETCHING_NOTE_BY_ID,
-  FETCHED_NOTE_BY_ID_ERROR,
-  FETCHED_NOTE_BY_ID,
 } from '../actions';
 
 // initial app state
@@ -28,6 +25,7 @@ const initialState = {
   filtered: [],
   redirect: false,
   error: null,
+  message: null,
 };
 
 export default (state = initialState, action) => {
@@ -84,9 +82,10 @@ export default (state = initialState, action) => {
     case DELETED_NOTE:
       return {
         ...state,
-        notes: action.notes,
+        notes: initialState.notes,
         deletingNote: false,
         error: null,
+        // message: action.message,
       };
     default:
       return state;

@@ -15,6 +15,7 @@ import './ListView.css';
 class ListView extends Component {
   state = {
     query: '',
+    notes: [],
   };
 
   componentDidMount() {
@@ -22,8 +23,12 @@ class ListView extends Component {
   }
   renderNotes = () => {
     const { filtered, notes } = this.props;
+    console.log('filtered by query', filtered);
+    console.log('unfiltered notes', notes);
     const notesToRender = this.state.query.length > 0 ? filtered : notes;
+    console.log('notestorender', notesToRender);
     return notesToRender.map(note => {
+      console.log('note', note.content);
       return (
         <Link
           to={`/notes/${note._id}`}
@@ -44,7 +49,6 @@ class ListView extends Component {
   };
 
   render(props) {
-    console.log('notes', this.props.notes);
     return (
       <div className="list-view pl-4 pt-5">
         <Form className="search">
@@ -65,16 +69,6 @@ class ListView extends Component {
   handleSearch = event => {
     event.preventDefault();
     this.setState({ query: event.target.value });
-    const banan = this.props.query_notes(event.target.value);
-    console.log(
-      'this.props.filtered',
-      this.props.filtered,
-      'event',
-      event.target.value,
-      'state',
-      this.state.query,
-      banan
-    );
   };
 } // end of ListView
 

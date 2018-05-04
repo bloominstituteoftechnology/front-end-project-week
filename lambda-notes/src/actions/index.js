@@ -22,12 +22,21 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const DELETE_NOTE_ERROR = 'DELETE_NOTE_ERROR';
 export const DELETED_NOTE = 'DELETED_NOTE';
 
+const heroku = 'https://immense-plateau-90586.herokuapp.com/api/notes';
+const dev = 'http://localhost:5000';
+const token = localStorage.getItem('authtoken');
+const requestOptions = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
+
 // Get request
 export const get_notes = () => dispatch => {
   dispatch({ type: FETCHING_NOTES });
 
   axios
-    .get('https://immense-plateau-90586.herokuapp.com/api/notes')
+    .get(`${heroku}/api/notes`, requestOptions)
     .then(response => {
       dispatch({ type: FETCHED_NOTES, notes: response.data });
     })
@@ -37,7 +46,6 @@ export const get_notes = () => dispatch => {
 };
 
 export const query_notes = query => {
-  console.log('query', query);
   return { type: QUERY_NOTES, query };
 };
 
@@ -46,8 +54,9 @@ export const edit_note = (id, note) => dispatch => {
   dispatch({ type: PUTTING_NOTE });
 
   axios
-    .put(`https://immense-plateau-90586.herokuapp.com/api/notes/${id}`, note)
+    .put(`${heroku}/api/notes/${id}`, note, requestOptions)
     .then(response => {
+      console.log('response from server====', response);
       dispatch({ type: PUT_NOTE, note: response.data, id });
     })
     .catch(err => {
@@ -60,12 +69,12 @@ export const post_note = note => dispatch => {
   dispatch({ type: POSTING_NOTE });
 
   axios
-    .post('https://immense-plateau-90586.herokuapp.com/api/notes', note)
+    .post(`${heroku}/api/notes`, note, requestOptions)
     .then(response => {
       dispatch({ type: POSTED_NOTE, note });
     })
     .catch(err => {
-      dispatch({ type: POST_NOTE_ERROR, errorMessage: 'Error posting note' });
+      dispatch({ type: POST_NOTE_ERROR, errorMessage: err });
     });
 };
 
@@ -74,9 +83,10 @@ export const delete_note = id => dispatch => {
   dispatch({ type: DELETING_NOTE });
 
   axios
-    .delete(`https://immense-plateau-90586.herokuapp.com/api/notes/${id}`)
+    .delete(`${heroku}/api/notes/${id}`, requestOptions)
     .then(response => {
-      dispatch({ type: DELETED_NOTE, notes: response.data });
+      console.log('response from server if success', response);
+      dispatch({ type: DELETED_NOTE, message: 'Note deleted successfully' });
     })
     .catch(err => {
       dispatch({

@@ -13,10 +13,12 @@ import './NoteView.css';
 
 const NoteView = props => {
   const { id } = props.match.params;
+  console.log(id, props);
   const getNote = id => {
     return props.notes.find(obj => obj._id === id);
   };
   const Note = getNote(id);
+  console.log('notes', Note);
   return (
     <div className="note-view p-4">
       <div className="note-actions">
