@@ -8,11 +8,11 @@ class Data extends Component{
 constructor(props){
     super(props);
     this.state = {
-        note: '',
+        notes: '',
     }
 }
 componentDidMount() {
-    axios.get('https://backend-project-week.herokuapp.com').then(data=>
+    axios.get('https://backend-project-week.herokuapp.com/api/notes').then(data=>
      this.setState({note: data.results}))
      .catch(err =>{
          errorMessage: 'error fetching data'

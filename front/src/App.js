@@ -13,7 +13,7 @@ class App extends Component {
      
       <div>
         <Route path="/Login" component={Login}/>
-      <Route path="/Data" render={(props) =><Data {...props} />}/>
+      <Route path="/Data"  component = {Data}/>
       <Route path="/CreateNote" component={CreateNote}/>
      
       </div>
