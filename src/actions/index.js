@@ -48,12 +48,7 @@ export const USER_AUTHENTICATED = "USER_AUTHENTICATED";
 export const login = (username, password, history) => {
   return dispatch => {
     axios
-      .post(`http://agile-chamber-48093.herokuapp.com/login`, { username, password }, {
-        headers :{
-          
-          Authorization:token,
-        }
-      })
+      .post(`http://agile-chamber-48093.herokuapp.com/login`, { username, password })
       .then(response => {
         console.log("data:",response.data, "response:", response);
         const token = response.data.token;
