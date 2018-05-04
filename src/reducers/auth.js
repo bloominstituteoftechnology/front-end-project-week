@@ -2,7 +2,8 @@ import {
   USER_AUTHENTICATED,
   USER_UNAUTHENTICATED,
   AUTHENTICATION_ERROR,
-  CHECK_IF_AUTHENTICATED
+  CHECK_IF_AUTHENTICATED,
+  USER_REGISTERED
 } from "../actions";
 
 export default (state = { authed: false, user: {} }, action) => {
