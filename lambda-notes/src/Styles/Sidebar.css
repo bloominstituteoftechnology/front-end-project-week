@@ -1,26 +1,28 @@
-
 .sidebar {
   max-width: 250px;
   height: 100%;
-  min-height: 750px;
+  min-height: 715px;
   background: #cfcccc; 
-  border: 2px solid #BAB7B7;
+  border: 1.5px solid #BAB7B7;
 }
 
-p {
+h6 {
+  margin: 20px 0 25px 5%;
   font-size: 1.5rem;
   font-weight: bold;
   color: #504F4F; 
-  padding: 5%;
 }
+
 @media (min-width: 768px) {
   p {
     font-size: 2rem;
   }
 }
+
 a:hover {
   text-decoration: none;
 }
+
 .sidebar-button {
   display: block;
   background: #27B8C4;
@@ -30,8 +32,9 @@ a:hover {
   color: white;
   font-weight: bold;
   margin: 0 auto;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
+
 .sidebar-button:hover {
   background: #1F939C;
 }

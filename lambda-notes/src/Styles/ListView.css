@@ -5,11 +5,32 @@
     margin-bottom: -10px;
     padding: 1%;
 }
-
+.content {
+    padding-top: -50px;
+}
 .postIt {
     width: 200px;
     height: 200px;
-    border: 1px solid teal;
+    border: 1.25px solid lightgrey;
     display: inline-block;
     margin: 2%;
+    background: white;
+    padding: 2%;
+}
+
+a {
+    color: black;
+}
+
+.container {
+    margin-left: -10px;
+}
+
+h4 {
+    margin-top: 50px;
+    margin-left: 2%;
+}
+
+hr {
+    border: 0.6px solid lightgrey;
 }
