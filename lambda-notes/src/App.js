@@ -8,7 +8,6 @@ import CreateNote from './components/CreateNote';
 import NoteView from './components/NoteView';
 import EditNote from './components/EditNote';
 import SignIn from './components/SignIn';
-import Users from './components/Users';
 import SignOut from './components/SignOut';
 import SignUp from './components/SignUp';
 
@@ -34,7 +33,6 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/signin" component={SignIn} />
             <Route path="/users/signout" component={SignOut} />
-            {/* <Route path="/users" component={RequireAuth(Users)} /> */}
             <Route path="/users" component={RequireAuth(LeftColumn)} />
             <Route exact path="/users/listview" component={ListView} />
             <Route exact path="/users/createnote" component={CreateNote} />

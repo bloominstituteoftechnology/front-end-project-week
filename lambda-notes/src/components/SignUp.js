@@ -14,14 +14,23 @@ class SignUp extends Component {
     password,
     confirmPassword
   ) {
-    console.log(firstName, lastName, username, 'form');
+    // console.log('form', firstName, lastName, username, 'form');
+    console.log(
+      firstName.firstName,
+      firstName.lastName,
+      firstName.email,
+      firstName.username,
+      firstName.password,
+      firstName.confirmPassword
+    );
+
     this.props.register(
-      firstName,
-      lastName,
-      email,
-      username,
-      password,
-      confirmPassword,
+      firstName.firstName,
+      firstName.lastName,
+      firstName.email,
+      firstName.username,
+      firstName.password,
+      firstName.confirmPassword,
       this.props.history
     );
   }

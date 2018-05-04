@@ -1,5 +1,5 @@
 import axios from 'axios';
-// axios.defaults.withCredentials = false;
+axios.defaults.withCredentials = false;
 const ROOT_URL = 'http://localhost:5050';
 
 export const USER_REGISTERED = 'USER_REGISTERED';
@@ -17,11 +17,12 @@ export const authError = error => {
 };
 
 export const register = (
-  username,
-  password,
   firstName,
   lastName,
   email,
+  username,
+  password,
+  confirmPassword,
   history
 ) => {
   return dispatch => {
@@ -29,7 +30,15 @@ export const register = (
       dispatch(authError('Passwords do not match'));
       return;
     }
-    console.log(username, firstName, lastName, password, email, 'action');
+    console.log(
+      username,
+      firstName,
+      lastName,
+      password,
+      email,
+      history,
+      'action'
+    );
     axios
       .post(`${ROOT_URL}/api/register`, {
         firstName,
@@ -42,7 +51,8 @@ export const register = (
         dispatch({
           type: USER_REGISTERED
         });
-        history.push('/signin');
+        console.log(history);
+        history.push(`/signin`);
       })
       .catch(() => {
         dispatch(authError('Failed to register user'));
@@ -52,6 +62,8 @@ export const register = (
 
 export const login = (username, password, history) => {
   return dispatch => {
+    console.log(username, password, 'login');
+
     axios
       .post(`${ROOT_URL}/api/login`, {
         // withCredentials: false,
@@ -63,6 +75,8 @@ export const login = (username, password, history) => {
           type: USER_AUTHENTICATED,
           payload: username
         });
+        console.log(history);
+
         history.push(`/users/listview`);
       })
       .catch(() => {
