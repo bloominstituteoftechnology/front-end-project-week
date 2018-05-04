@@ -30,7 +30,7 @@ class CreateContainer extends Component {
         this.props.postNote({ title, content });
         // reset state to default empty string
 
-        this.setState({ title: '', content: '' })
+        this.setState({ id: '', title: '', content: '' })
     }
 
     render() {

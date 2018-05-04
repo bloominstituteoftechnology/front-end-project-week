@@ -66,7 +66,7 @@ class Note extends Component {
 
             {/* function call to axios.delete/ axios.put in actions */}
 
-            <button onClick={this.handleModal} className="feature-button">delete</button>
+            <button onClick={this.showModal} className="feature-button">delete</button>
 
             {/* Modal component */}
 
