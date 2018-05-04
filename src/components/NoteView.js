@@ -23,7 +23,7 @@ export const NoteView = ({match, history, notes, deleteNote}) => {
             <div className='col-12 header_font d-flex justify-content-center'>
                     <h4>{note.title}</h4>
                 </div>
-                <div className='col-12 note_box d-flex justify-content-center'>
+                <div className='col-12 note_box'>
                     {note.text}
                 </div>
             </div>
