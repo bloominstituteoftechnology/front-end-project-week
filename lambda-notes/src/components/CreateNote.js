@@ -14,16 +14,19 @@ class CreateNote extends Component {
       body: '',
     }
   }
+
   handleChange = (event) => {
     this.setState({ [event.target.name] : event.target.value })
   }
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.props.createNote(this.state);
     this.setState({ title: '', body: ''});
-    console.log('after State', this.state)
   }
+
   render() {
+    console.log(this.props)
       return (
           <div>
             <Form>

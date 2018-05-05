@@ -49,14 +49,15 @@ server.put('/notes/:id', (req, res) => {
   const { id } = req.params;
   const { title, body } = req.body;
   const findNoteById = note => {
-    return note.id === id;
+    return note.id == id;
   };
   const foundNote = notes
 .find(findNoteById);
   if (!foundNote) {
     return sendUserError('No note found by the provided ID', res);
   } else {
-    if (Title) foundNote.title = title;
+    if (title) foundNote.title = title;
+    if (body) foundNote.body = body;
     res.json(foundNote);
   }
 });

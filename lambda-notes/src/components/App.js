@@ -6,6 +6,7 @@ import {
 import Home from './Home';
 import Note from './Note';
 import CreateNote from './CreateNote';
+import UpdateNote  from './UpdateNote';
 
 import '../css/App.css';
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path='/' component={ Home }/>
           <Route path='/notes/:id' component={ Note } />
           <Route path='/create' component={ CreateNote } />
+          <Route path='/notes/update/:id' component={ UpdateNote } />
         </div>
       </Router>
     );

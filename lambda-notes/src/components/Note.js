@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
-import { getNote } from '../actions'
+import { getNote } from '../actions';
 
 class Note extends Component {
     render() {
@@ -11,12 +12,9 @@ class Note extends Component {
                     <h1> My Note </h1>
                         {!this.props.note ?
                             <h2> loading notes</h2>: null}
-                        <ul>
-                            <li key={this.props.note.id}>
                                 <h2> {this.props.note.title} </h2>
                                 <p> {this.props.note.body} </p>
-                            </li>
-                        </ul>
+                                <Button><Link to={`/notes/update/${this.props.note.id}`}> Update Note </Link></Button>
                 </div>
             );
         }   
