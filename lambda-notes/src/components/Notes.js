@@ -20,7 +20,6 @@ class Notes extends Component {
                                 <h3><Link to={`/notes/${note.id}`}>{note.title}</Link></h3>
                             </li>
                         )})}
-                        <Note />
                     </ul>
             </div>
       );

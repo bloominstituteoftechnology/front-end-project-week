@@ -27,23 +27,22 @@ server.post('/notes', (req, res) => {
       res
     );
   }
-  // const findNoteById = notes => {
-  //   return notes.id == id;
-  // };
-  // console.log(notes.id)
-//   if (notes
-// .find(findNoteById)) {
-//     return sendUserError(
-//       `find error`,
-//       res
-//     );
-//   }
 
-  notes
-.push(newNote);
-  noteId++;
-  res.json(notes);
-});
+  notes.push(newNote);
+    noteId++;
+    res.json(notes);
+  });
+
+ server.get('/notes/:id', (req, res) => {
+    const note = notes.find(note => note.id == req.params.id);
+  
+    if (note) {
+      res.status(200).json(note);
+    } else {
+      res.status(404).send({ msg: 'note not found' });
+    }
+  });
+
 
 server.put('/notes/:id', (req, res) => {
   const { id } = req.params;

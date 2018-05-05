@@ -25,11 +25,10 @@ export const getNote = (id) => {
     return (dispatch) => {
         axios.get(`http://localhost:2005/notes/${id}`)
         .then((response) => {
-            console.log('response',response)
-            // dispatch({
-            //     type: GET_NOTE,
-            //     paylod: response.data
-            // })
+            dispatch({
+                type: GET_NOTE,
+                payload: response.data
+            })
         })
         .catch((error) => {
             console.log(error)
@@ -40,7 +39,6 @@ export const createNote = (note) => {
     return (dispatch) => {
         axios.post('http://localhost:2005/notes', note)
         .then((response) => {
-            console.log("response", response)
             dispatch({
                 type : CREATE_NOTE,
                 payload: response.data
