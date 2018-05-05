@@ -26,7 +26,7 @@ const rootReducer = ( intialState, action) => {
         case( UPDATE_NOTE ):
             return Object.assign({}, intialState, { note: action.payload })
         case( DELETE_NOTE ):
-            return
+            return Object.assign({}, intialState)
         case( ERROR ):
             return
         default:

@@ -63,9 +63,19 @@ export const updateNote = (note, id) => {
         })
     }
 }
-export const deleteNote = () => {
+export const deleteNote = (id) => {
     return (dispatch) => {
-        
+        axios.delete(`http://localhost:2005/notes/${id}`)
+        .then((response) => {
+            console.log('delete res', response)
+            // dispatch({
+            //     type : DELETE_NOTE,
+            //     payload: response
+            // })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
     }
 }
 export const error = () => {

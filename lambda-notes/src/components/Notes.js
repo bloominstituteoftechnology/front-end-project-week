@@ -10,7 +10,6 @@ class Notes extends Component {
         return (
             <div>
                 <h1> My Notes </h1>
-                {console.log('props', this.props.notes)}
                     {!this.props.notes ?
                         <h2> loading notes</h2>: null}
                     <ul>

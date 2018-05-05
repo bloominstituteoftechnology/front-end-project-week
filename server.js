@@ -65,14 +65,10 @@ server.put('/notes/:id', (req, res) => {
 server.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
   const foundNote = notes
-.find(note => note.id == id);
 
   if (foundNote) {
-    const NoteRemoved = { ...foundNote };
-    notes
- = notes
-.filter(note => note.id != id);
-    res.status(200).json({ NoteRemoved });
+  notes = notes.filter(note => note.id !== id);
+    res.status(200).json({ notes });
   } else {
     sendUserError('No note found by provided ID', res);
   }
