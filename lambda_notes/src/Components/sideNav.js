@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 
 
 const SideNav = props => {
@@ -7,7 +7,7 @@ const SideNav = props => {
         <div>
             <Nav className='viewNotes'>
             <NavItem>
-                <NavLink href='#'>Notes List</NavLink>
+                <NavLink href='#'>View Your </NavLink>
             </NavItem>
             <NavItem>
                 <NavLink href='#'>Notes List</NavLink>

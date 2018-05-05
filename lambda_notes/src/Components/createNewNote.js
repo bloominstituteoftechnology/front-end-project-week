@@ -15,4 +15,4 @@ import { Card, CardText, CardBody,
   
 
 
-
+export default CreateNewNote;

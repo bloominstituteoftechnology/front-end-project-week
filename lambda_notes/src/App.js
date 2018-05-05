@@ -31,7 +31,10 @@ export default class App extends Component {
       <div>
         <SideNav />
       <NoteListView list={this.state.noteList} />
-      <Route exact path='/' component={NoteListView} />"
+      <Route exact path='/' render={NoteListView} />
+      <Route path='/' render={CreateNewNote} />
+      <Route path='/' render={SingleNoteView} />
+      
       
       </div>
     );
