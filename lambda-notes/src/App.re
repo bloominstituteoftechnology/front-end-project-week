@@ -132,7 +132,7 @@ module Top = {
         <Sidebar
           message
           onView=(_e => ReasonReact.Router.push("/"))
-          onCreate=(_e => ReasonReact.Router.push("/create"))
+          onCreate=(_e => ReasonReact.Router.push("/notes/create"))
         />
         <Form onSubmit=(noteContent => send(Add(noteContent))) />
         <div className="NotesList">
