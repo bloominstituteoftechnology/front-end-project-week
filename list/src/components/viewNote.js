@@ -4,7 +4,7 @@ import "./viewNote.css";
 
 export const ViewNote = props => {
   // display a maximized version of the title and content of note clicked
-  console.log(props.notes);
+  console.log(props._id);
   const btn = document.getElementsByClassName("modalButton");
   const confirmModal = document.getElementsByClassName("confirmModal");
   window.onclick = function(event) {

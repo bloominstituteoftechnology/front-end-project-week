@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import logo from "./logo.svg";
+import mongoose from "mongoose";
 import { Route, NavLink, Redirect } from "react-router-dom";
 import {
   SideBar,
@@ -26,20 +27,6 @@ class App extends Component {
   componentDidMount() {
     this.setState();
   }
-
-  // noteFetcher = async () => {
-  //   try {
-  //     let idRoute = localStorage.getItem("user._id");
-  //     const response = await axios.get(
-  //       `https://frozen-hamlet-56840.herokuapp.com/notes/${idRoute}`
-  //     );
-  //     console.log(response);
-  //     this.setState({ notes: response.data.notes });
-  //     return
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // };
 
   handleChange = event => {
     console.log(this.state);
@@ -107,8 +94,10 @@ class App extends Component {
   };
 
   deleteNote = id => {
+    console.log(id)
     const { notes, newNote } = this.state;
     const delArr = notes.filter(note => note.id !== id);
+    axios.delete(`https://frozen-hamlet-56840.herokuapp.com/notes/${idRoute}`, delArr.id )
     this.setState({ notes: delArr });
     console.log(delArr);
   };
