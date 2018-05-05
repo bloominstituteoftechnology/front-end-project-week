@@ -15,19 +15,19 @@ class Notes extends Component {
     }
     
     createNew = () => {
-      
+      // create new note
     }
 
     viewExisting = () => {
-
+      // search for note
     }
 
     editExisting = () => {
-
+      // edit note
     }
 
     deleteExisting = () => {
-
+      // delete note
     }
 
     render() {
