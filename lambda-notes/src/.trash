@@ -1,3 +1,28 @@
+module Router = {
+  let component = ReasonReact.statelessComponent("Router");
+  let make = children => {
+    ...component,
+    render: self => {
+      ReasonReact.Router.watchUrl(url =>
+        switch (url.path) {
+        | ["notes", id, "edit"] => Js.log("editing note with id: " ++ id)
+        | ["notes", id] => Js.log("viewing note with id: " ++ id)
+        | ["create"] => Js.log("create")
+        | [] => Js.log("home")
+        | _ => ReasonReact.Router.push("/")
+        }
+      );
+      children;
+    },
+  };
+};
+
+
+
+
+
+
+
 [%bs.raw {|require('./App.css')|}];
 
 [@bs.module] external logo : string = "./logo.svg";

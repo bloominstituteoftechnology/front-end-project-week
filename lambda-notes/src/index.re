@@ -3,25 +3,74 @@
 [@bs.module "./registerServiceWorker"]
 external register_service_worker : unit => unit = "default";
 
-module Router = {
-  let component = ReasonReact.statelessComponent("Router");
-  let make = _children => {
-    ...component,
-    render: self => {
-      ReasonReact.Router.watchUrl(url =>
-        switch (url.path) {
-        | ["notes", id, "edit"] => Js.log("editing note with id: " ++ id)
-        | ["notes", id] => Js.log("viewing note with id: " ++ id)
-        | ["create"] => Js.log("create")
-        | [] => Js.log("home")
-        | _ => ReasonReact.Router.push("/")
-        }
-      );
-      <App.Top message="Lambda Notes" />;
-    },
-  };
+module Config = {
+  type routes =
+    | NotesList
+    | NoteCreate
+    | NoteEdit(string)
+    | NoteDelete(string)
+    | NoteDetail(string)
+    | NotFound;
+  let urlToRoute: ReasonReact.Router.url => routes =
+    url =>
+      switch (url.path) {
+      | [] => NotesList
+      | ["notes", "create"] => NoteCreate
+      | ["notes", id, "edit"] => NoteEdit(id)
+      | ["notes", id, "delete"] => NoteDelete(id)
+      | ["notes", id] => NoteDetail(id)
+      | _ => NotFound
+      };
 };
 
-ReactDOMRe.renderToElementWithId(<Router />, "root");
+module Router = {
+  type state = {currentRoute: Config.routes};
+  type action =
+    | ChangeUrl(Config.routes);
+  let component = ReasonReact.reducerComponent("Router");
+  let make:
+    ((~currentRoute: Config.routes) => ReasonReact.reactElement) =>
+    ReasonReact.component(state, _, action) =
+    children => {
+      ...component,
+      initialState: () => {
+        currentRoute:
+          ReasonReact.Router.dangerouslyGetInitialUrl() |> Config.urlToRoute,
+      },
+      reducer: (action, _state) =>
+        switch (action) {
+        | ChangeUrl(route) => ReasonReact.Update({currentRoute: route})
+        },
+      subscriptions: self => [
+        Sub(
+          () =>
+            ReasonReact.Router.watchUrl(url =>
+              self.send(ChangeUrl(url |> Config.urlToRoute))
+            ),
+          ReasonReact.Router.unwatchUrl,
+        ),
+      ],
+      render: ({state}) => children(~currentRoute=state.currentRoute),
+    };
+};
+
+ReactDOMRe.renderToElementWithId(
+  <Router>
+    ...(
+         (~currentRoute) =>
+           switch (currentRoute) {
+           | NotesList => <App.Top message="Lambda Notes List" />
+           | NoteCreate => <App.Top message="Lambda Notes Create" />
+           | NoteEdit(id) => <App.Top message=("Lambda Notes Edit" ++ id) />
+           | NoteDelete(id) =>
+             <App.Top message=("Lambda Notes Delete" ++ id) />
+           | NoteDetail(id) =>
+             <App.Top message=("Lambda Notes Detail" ++ id) />
+           | NotFound => "Not Found" |> ReasonReact.string
+           }
+       )
+  </Router>,
+  "root",
+);
 
 register_service_worker();
