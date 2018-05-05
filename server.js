@@ -35,13 +35,14 @@ server.post('/notes', (req, res) => {
 
  server.get('/notes/:id', (req, res) => {
     const note = notes.find(note => note.id == req.params.id);
-  
     if (note) {
       res.status(200).json(note);
     } else {
       res.status(404).send({ msg: 'note not found' });
     }
   });
+
+
 
 
 server.put('/notes/:id', (req, res) => {
