@@ -10,6 +10,8 @@ class Notes extends Component {
         this.state = {
           notes: [
               { id: 0, title: "Example Note", body: "here is an example note" }
+              // begin initial state in redux store
+              // this.props.id += 1;
           ],
         }
     }
