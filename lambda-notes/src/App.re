@@ -39,7 +39,7 @@ module Sidebar = {
 
 module NoteItem = {
   let component = ReasonReact.statelessComponent("NoteItem");
-  let make = (~note: note, ~clickDelete, _children) => {
+  let make = (~note, ~clickDelete, _children) => {
     ...component,
     render: _self => {
       let {id, content} = note;
@@ -47,7 +47,7 @@ module NoteItem = {
       <div
         className="noteTitle"
         onClick=(
-          _e => ReasonReact.Router.push("notes/" ++ string_of_int(id))
+          _e => ReasonReact.Router.push("/notes/" ++ string_of_int(id))
         )>
         <div> (toString(title)) </div>
         <hr />
@@ -78,14 +78,16 @@ module Form = {
       | NewBody(newBody) => ReasonReact.Update({...state, body: newBody})
       },
     render: ({state, send}) =>
-      <div>
+      <div className="Form">
         <input
+          name="title"
           value=state.title
           _type="text"
           placeholder="Note Title"
           onChange=(e => send(NewTitle(valueFromEvent(e))))
         />
         <input
+          name="body"
           value=state.body
           _type="text"
           placeholder="Note Body"
@@ -101,7 +103,6 @@ module Form = {
 };
 
 module Top = {
-  /* let urlToShownPage =  */
   type state = {notes: list(note)};
   type action =
     | Add(noteContent)
@@ -128,9 +129,13 @@ module Top = {
       },
     render: ({state: {notes}, send}) =>
       <div className="App">
-        <Sidebar message onView=(e => Js.log(e)) onCreate=(e => Js.log(e)) />
+        <Sidebar
+          message
+          onView=(_e => ReasonReact.Router.push("/"))
+          onCreate=(_e => ReasonReact.Router.push("/create"))
+        />
         <Form onSubmit=(noteContent => send(Add(noteContent))) />
-        <div className="notesList">
+        <div className="NotesList">
           (
             List.map(
               note =>
