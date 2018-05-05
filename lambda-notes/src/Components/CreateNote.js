@@ -6,29 +6,30 @@ import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import { addNote, deleteNote } from '../Actions/index';
 import "../Styles/CreateNote.css";
-// import ListView from './ListView';
 
 class CreateNote extends Component {
     state = {
         title: '',
         content: '',
-
     }
 
-    updateInput = e => {
+    updateInput = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
 
     createNewNote = () => {
+
         const newNote = {
             title: this.state.title,
             content: this.state.content,
-            id: this.props.notes.length,
+            id: this.state.notes.length,
             edited: false,
             deleted: false
         };
         this.props.addNote(newNote);
-        this.setState({ title: '', content: '' })
+        console.log(newNote)
+        this.setState({ title: '', content: ''});
+
     }
     render() {
         return (

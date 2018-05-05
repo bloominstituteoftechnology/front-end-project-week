@@ -4,6 +4,7 @@ import CreateNote from './Components/CreateNote';
 import { Route } from 'react-router-dom';
 import ListView from './Components/ListView';
 import NoteView from './Components/NoteView';
+import DeleteModal from './Components/DeleteModal';
 
 class App extends Component {
   render() {
@@ -11,8 +12,8 @@ class App extends Component {
       <div className='app'>
         <Route exact path='/' component={ListView} />
         <Route path='/create' component={CreateNote} />
-        {/* <Route exact path='/view' component={NoteView} /> */}
         <Route path='/view/:id' component={NoteView} />
+        <Route path='/view/:id/delete' component={DeleteModal} />
       </div> 
     );
   }

@@ -1,14 +1,14 @@
-.title {
+/* .title {
     font-weight: bold;
     display: block;
     font-size: 20px;
     margin-bottom: -10px;
-    /* padding: 3%;
-    margin-left: 2%; */
+    padding: 3%;
+    margin-left: 2%;
 }
-/* .content {
+.content {
     margin-left: 4%;
-} */
+}
 .postIt {
     width: 200px;
     height: 200px;
@@ -37,4 +37,4 @@ a {
 hr {
     border: 0.6px solid lightgrey;
     margin: 10px;
-}
+} */
