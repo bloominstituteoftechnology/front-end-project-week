@@ -8,6 +8,8 @@
 
 .loginName {
   margin-right: 15px;
+  margin-top: 4px;
+  font-weight: bolder;
 }
 .RegLog {
   display: flex;
