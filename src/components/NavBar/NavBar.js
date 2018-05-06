@@ -18,9 +18,23 @@ class NavBar extends Component {
         <Link className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`} to='/create'>
           <div>+ Create New Note</div>
         </Link>
-        <CSVLink data={this.props.notes} className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}>
+        <CSVLink
+          data={this.props.notes}
+          className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}
+          filename={`${this.props.username}-lambda-notes.csv`}
+        >
           Download Notes
         </CSVLink>
+        <Link
+          className={`nav-btn logout-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}
+          to={`/`}
+          onClick={() => {
+            localStorage.clear()
+            this.props.clearNotes()
+          }}
+        >
+          Logout
+        </Link>
       </div>
     )
   }

@@ -22,7 +22,7 @@ class UpdateNote extends Component {
             className='input-title'
             type='text'
             placeholder='Note Title'
-            value={this.props.title}
+            value={this.props.title || this.props.note.title}
             onChange={this.props.newTitle}
           />
           <textarea
@@ -30,7 +30,7 @@ class UpdateNote extends Component {
             className='input-body'
             type='text'
             placeholder='Note Content'
-            value={this.props.content}
+            value={this.props.content || this.props.note.content}
             onChange={this.props.newContent}
           />
           <button className='sav-btn' type='submit'>

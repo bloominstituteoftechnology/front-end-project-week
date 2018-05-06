@@ -8,7 +8,8 @@ class ListNotes extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      loggedIn: false
+      loggedIn: false,
+      search: ''
     }
   }
 
@@ -22,27 +23,35 @@ class ListNotes extends Component {
     })
   }
 
+  onSearch = (event) => {
+    this.setState({
+      search: event.target.value
+    })
+  }
+
+  submitSearch = (event) => {
+    event.preventDefault()
+  }
   render (props) {
+    let filteredNotes = this.props.notes
+
     return (
-      <div className='ListNotes'>
-        {localStorage.getItem('authorization')
-          ? <section className='RegLog'>
-            <h6 className='loginName'>
+      <div className='ListNotes' >
+        <input
+          type='text'
+          placeholder='search'
+          onChange={this.onSearch}
+          onSubmit={this.submitSearch}
+        />
+        {
+          localStorage.getItem('authorization')
+            ? <section className='RegLog'>
+              <h6 className='loginName'>
                 Logged in as: {this.props.username}
-            </h6>
-            <Link
-              className='logout-link'
-              to={`/`}
-              onClick={() => {
-                localStorage.clear()
-                this.props.clearNotes()
-                this.toggle()
-              }}
-            >
-                Logout
-            </Link>
-          </section>
-          : <div />}
+              </h6>
+            </section>
+            : <div />
+        }
 
         <Modal
           className='modal-modal'
@@ -73,7 +82,7 @@ class ListNotes extends Component {
 
         <h2 className='list_h2'>Your Notes:</h2>
         <div className='notes'>
-          {this.props.notes.map(note =>
+          {filteredNotes.map(note =>
             <div className='card-body' key={note._id}>
               <h4 className='card-title'>
                 <Link className='card-link' to={`/view/${note._id}`}>
@@ -86,7 +95,7 @@ class ListNotes extends Component {
             </div>
           )}
         </div>
-      </div>
+      </div >
     )
   }
 }

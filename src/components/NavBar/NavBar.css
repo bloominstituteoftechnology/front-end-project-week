@@ -65,3 +65,11 @@ header h1:hover {
   color: RGB(54, 192, 195);
   background-color: white;
 }
+
+.logout-btn {
+  background-color: darkred;
+}
+
+.logout-btn:hover{
+  color: darkred;
+}
