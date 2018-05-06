@@ -146,7 +146,7 @@ class Layout extends Component {
   render () {
     return (
       <div className='Layout'>
-        <NavBar />
+        <NavBar notes={this.state.notes} />
         <Route
           exact
           path='/'
