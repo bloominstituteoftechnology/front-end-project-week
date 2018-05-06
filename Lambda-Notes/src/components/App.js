@@ -20,31 +20,50 @@ const routes = [
     exact: true,
     sidebar: () => <div></div>,
     main: () => <h2 style={{
-      paddingTop:'50px',
+      paddingTop:'36px',
     }}>Your Notes:</h2>,
   },
   {
     path: '/create',
     sidebar: () => <div></div>,
     main: () => <h2 style={{
-      paddingTop:'50px',
+      paddingTop:'36px',
     }}>Create New Note:</h2>,
   },
   {
     path: '/note',
     sidebar: () => <div></div>,
-    main: () => <h2>Note Name:</h2>,
+    main: () => 
+    <div>
+      <div style={{display: 'flex'}}>
+        <h5 style={{
+          paddingLeft: '85%',
+          paddingTop: 0,
+        }}>edit
+        </h5>
+        <h5 style={{
+          paddingLeft: '87%',
+          paddingTop: 0,
+        }}>delete
+        </h5>
+      </div>
+      <h2 style={{
+      paddingTop:'36px',
+    }}>Note Name //placeholder
+    </h2> 
+    </div>, 
   },
-  {
+  /* {
     path: '/edit',
     sidebar: () => <div></div>,
-    main: () => <h2>Edit Note:</h2>,
   },
   {
+    main: () => <h5> style={{
+    paddingLeft: '95%',
+    }}delete</h5>,
     path: '/delete',
     sidebar: () => <div></div>,
-    main: () => <h2>Delete Note:</h2>,
-  }
+  } */
 ]
 
 class App extends Component {
@@ -57,12 +76,14 @@ class App extends Component {
         {
           title: '',
           note: '',
+          id: '',
         }
       ],
       edit: [
         {
           title: '',
           note: '',
+          id: '',
         }
       ],
 
@@ -71,13 +92,13 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div style ={{display: 'flex'}}>
+        <div style={{display: 'flex'}}>
           
           <div style={{
             paddingLeft:'10px',
             paddingRight:'10px',
             paddingBottom:'100%',
-            width:'25%',
+            width:'19%',
             background:'#d3d2d3',
             }}>
 
