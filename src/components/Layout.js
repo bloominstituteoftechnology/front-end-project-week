@@ -60,7 +60,7 @@ class Layout extends Component {
     note.title = this.state.title
     note.content = this.state.content
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
-    const serverURL = 'http://localhost:5000'
+    // const serverURL = 'http://localhost:5000'
     axios
       .post(`${serverURL}/api/notes`, note, {
         headers: { authorization: token }
@@ -78,7 +78,7 @@ class Layout extends Component {
   deleteNote = id => {
     // const newNotes = this.state.notes.filter(note => note._id !== Number(id))
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
-    const serverURL = 'http://localhost:5000'
+    // const serverURL = 'http://localhost:5000'
 
     axios
       .delete(`${serverURL}/api/notes/${id}`, {
@@ -97,7 +97,7 @@ class Layout extends Component {
     updateNote.title = this.state.title
     updateNote.content = this.state.content
 
-    const serverURL = 'http://localhost:5000'
+    // const serverURL = 'http://localhost:5000'
 
     axios
       .put(`${serverURL}/api/notes/${id}`, updateNote, {
