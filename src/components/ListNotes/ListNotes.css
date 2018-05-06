@@ -9,7 +9,11 @@
 .loginName {
   margin-right: 15px;
   margin-top: 4px;
+  text-decoration: none;
+  color: RGB(74, 74, 74);
   font-weight: bolder;
+  font-size: 18px;
+  margin-right: 50px;
 }
 .RegLog {
   display: flex;
@@ -31,7 +35,7 @@
   font-weight: bolder;
 }
 
-.login-link {
+.logout-link {
   text-decoration: none;
   color: RGB(74, 74, 74);
   font-weight: bolder;
