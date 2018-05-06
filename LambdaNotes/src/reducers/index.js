@@ -117,14 +117,10 @@ const rootReducer = (state = initialState, action) => {
 			});
 		case LISTIFYTODO:
 			return Object.assign({}, state, {
-				// change text to an array of strings
-				// each string represents one line of text in a todo
-				// strings are split by newline chars /n
 				todos: state.todos.map(todo => {
 					if (todo.id === action.payload.id) {
 						return Object.assign({}, todo, {
-							listify: !todo.listify,
-							text: todo.text.split("\n")
+							listify: !todo.listify
 						});
 					}
 					return todo;

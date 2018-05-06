@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 // actions
-import { updateTodo } from "../actions/index";
+import { updateTodo, listifyTodo } from "../actions/index";
 // styles
 import "../styles/CreateTodoForm.css";
 import "../styles/animation.css";
@@ -28,9 +28,14 @@ class EditTodoForm extends Component {
 		this.props.updateTodo(id, title, text);
 		this.setState({ title: "", text: "" });
 	};
+	// listify a todos text content
+	handleListifyTodo = id => {
+		const { text } = this.state;
+		const idHash = this.props.todos[id].id;
+		this.props.listifyTodo(idHash, text);
+	};
 
 	render() {
-		// console.log("text: ", this.state.text.split());
 		const { id } = this.props.location.state;
 		return (
 			<div className="fade">
@@ -67,11 +72,23 @@ class EditTodoForm extends Component {
 							className="CreateTodoForm_savebtn"
 							label="Update"
 							primary={true}
-							// style={style}
 							onClick={() => {
 								this.handleUpdateTodo(id);
 							}}
 						/>
+					</Link>
+					<Link to="/">
+						<RaisedButton
+							className="CreateTodoForm_savebtn"
+							label="Listify"
+							primary={true}
+							onClick={() => {
+								this.handleListifyTodo(id, this.state.text);
+								this.handleUpdateTodo(id);
+							}}
+						>
+							<i className="material-icons md-24">list</i>
+						</RaisedButton>
 					</Link>
 				</div>
 			</div>
@@ -86,5 +103,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-	updateTodo
+	updateTodo,
+	listifyTodo
 })(EditTodoForm);
