@@ -7,14 +7,18 @@ import './SideBar.css'
 const SideBar = () => (
     <div>
             <div>
+            <Link to='/notes'>
                 <Button color="info" className="button" >
-                    <Link to='/notes'>View Your Notes</Link>
+                    View Your Notes
                 </Button>
+            </Link>
             </div>
             <div>
+            <Link to='/new'>
                 <Button color="info" className="button">
-                    <Link to='/new'>+ Create New Note</Link>
+                    + Create New Note
                 </Button>
+            </Link>
             </div>
     </div>
 )

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { createNote } from '../actions';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
+import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 
 //add push to refresh state after the note is added. push it to
@@ -27,28 +29,45 @@ class NewNote extends Component {
             title: '',
             content: ''        
         });
+        this.props.history.push(`/notes/`)
     }
 
     render() {
         return (
             <div>
-                <div>
-                    <input
-                        placeholder="Title"
-                        onChange={this.handleChange}
-                        value={this.state.title}
-                        name="title"
-                    />
-                </div>
-                <div>
-                    <input
-                        placeholder="Your Dreams Begin Here"
-                        onChange={this.handleChange}
-                        value={this.state.content}
-                        name="content"
-                    />
-                </div>
-                <button onClick={this.handleSubmit}>Save</button>
+            <h5>Create New Note:</h5>
+            <Form>
+                <FormGroup row>
+                    <Col sm={10}>
+                        <Input 
+                            type="text" 
+                            name="title" 
+                            placeholder="Title"
+                            onChange={this.handleChange}
+                            value={this.state.title} 
+                        />
+                    </Col>
+                </FormGroup>
+                <FormGroup row>
+                    <Col sm={10}>
+                        <Input rows="15"
+                            type="textarea"
+                            placeholder="Your Dreams Begin Here"
+                            onChange={this.handleChange}
+                            value={this.state.content}
+                            name="content" 
+                        />
+                    </Col>
+                </FormGroup>
+                <FormGroup row>
+                    <Col sm="1">
+                        <Button color="info"onClick={this.handleSubmit}>Save</Button>
+                    </Col>
+                </FormGroup>
+
+                </Form>
+
+
             </div>
 
         )

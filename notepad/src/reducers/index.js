@@ -7,11 +7,7 @@ const initialState = {
     updatingNote: false,
     deletingNote: false,
     error: null,
-    note: {
-        id: 0,
-        title: '',
-        content: ''
-    }
+    note: {}
 }
 
 const noteReducer = (state = initialState, action) => {

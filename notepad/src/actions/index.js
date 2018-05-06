@@ -41,11 +41,11 @@ export const startEditing = note => {
     };
 };
 
-export const editNote = (id) => {
+export const editNote = (note) => {
     return (dispatch) => {
         dispatch({ type: PENDING });
         axios
-            .post(`http://localhost:5000/notes/${id}`)
+            .put(`http://localhost:5000/notes/${note.id}`, note)
             .then(response => {
                 console.log('RES', response)
                 dispatch({ type: SUCCESS_NOTE, note: response.data })
@@ -54,21 +54,7 @@ export const editNote = (id) => {
                 dispatch({ type: ERROR, error: 'ERROR FETCHING NOTE' })
             })
     }
-}
-
-
-
-export const updateNote = not => {
-    return dispatch => {
-        dispatch({ type: PENDING })
-        axios.put(`http://localhost:5000/notes/${this.props.note.id}`, friend)
-            .then(response => dispatch({ type: SUCCESS, friends: response.data }))
-            .catch(err => dispatch({
-                type: ERROR, error: "ERROR UPDATING FRIEND"
-            }))
-    }
-
-}
+};
 
 export const createNote = (note) => {
     return dispatch => {

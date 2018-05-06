@@ -21,7 +21,6 @@ class App extends Component {
               <SideBar />
             </Col>
             <Col xs="6" sm="8">
-              <h5>Your Notes:</h5>
               <Main/>
             </Col>
           </Row>

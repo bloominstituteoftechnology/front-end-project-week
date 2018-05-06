@@ -77,7 +77,7 @@ app.post('/notes', (req, res) => {
 app.put('/notes/:id', (req, res) => {
     const { id } = req.params;
 
-    const noteIndex = notes.findIndex(f => f.id == id);
+    const noteIndex = notes.findIndex(n => n.id == id);
 
     if (noteIndex > -1) {
         const note = { ...notes[noteIndex], ...req.body };

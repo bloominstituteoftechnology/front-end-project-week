@@ -1,46 +1,54 @@
 import React, { Component } from 'react';
-import { deleteNote, getNote } from '../actions';
+import { deleteNote, getNote, startEditing } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Button } from "reactstrap";
+import { Row, Col } from 'reactstrap';
+
 
 
 
 class Note extends Component {
-    
-
+    constructor(props){
+        super(props);
+       const { note } = props;
+    }
     componentDidMount() {
         const id = this.props.match.params.id;
         this.props.getNote(id);
     }
-   
-
      editNote = () => {
-         this.props.editNote(this.props.note.id);
+         this.props.startEditing(this.props.note);
          this.props.history.push(`/notes/edit/${this.props.note.id}`)
-
     }
      deleteNote = () => {
-        console.log('ID', this.props.note.id)
         this.props.deleteNote(this.props.note.id);
-        console.log('TITLE', this.props.title);
          this.props.history.push(`/notes/`)
 
     }
-
-    // const { title, content} = props;
-    // const { title, content, notes, id } = props;
-    // function NoteCard({ note }) {
 render(){
-// console.log(this.props.note)
     return (
-        <div key={this.props.note.id}> 
+        <div key={this.props.note.id}>
+        <Row className="editDelete" > 
+            <Col>
+                <Link
+                    to={`/notes/edit/${this.props.note.id}`}
+                    onClick={this.editNote}>
+                    edit
+                </Link>
+                <Link to={`/notes/edit/${this.props.note.id}`} onClick={this.deleteNote}>delete</Link>
+            </Col>
+            </Row> 
+            <Row> 
+
             <div className={'note'}>
+
                     <h2>{this.props.note.title}</h2>
                     <p>{this.props.note.content}</p>
-                    <Button onClick={this.editNote}>Edit</Button>
-                    <Button onClick={this.deleteNote}>Delete</Button>
+ 
             </div>
+                </Row> 
+
         </div>
     );
 }
@@ -56,6 +64,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNote, deleteNote })(Note);
+export default connect(mapStateToProps, { getNote, deleteNote, startEditing })(Note);
 
-// export default Note

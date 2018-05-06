@@ -21,6 +21,7 @@ componentDidMount() {
 render() {
     return (
         <div className="notes">
+            <h5>Your Notes:</h5>
                 {this.props.notes.map(note => {
                 return (
                 <Link to={`/notes/${note.id}`} 
