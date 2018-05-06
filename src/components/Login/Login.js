@@ -10,31 +10,31 @@ class Login extends React.Component {
     password: ''
   }
 
-  render() {
+  render () {
     return (
-      <div className="Login">
+      <div className='Login'>
         <h2>Login: </h2>
         <form onSubmit={this.submitHandler}>
-          <div className="form-row">
+          <div className='form-row'>
             <label>Username:</label>
             <input
-              name="username"
+              name='username'
               value={this.state.username}
               onChange={this.inputHandler}
-              type="text"
+              type='text'
             />
           </div>
-          <div className="form-row">
+          <div className='form-row'>
             <label>Password:</label>
             <input
-              name="password"
+              name='password'
               value={this.state.password}
               onChange={this.inputHandler}
-              type="password"
+              type='password'
             />
           </div>
-          <div className="form-row">
-            <Button color="primary">Login</Button>
+          <div className='form-row'>
+            <Button color='primary'>Login</Button>
           </div>
         </form>
       </div>

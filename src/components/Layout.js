@@ -15,7 +15,7 @@ import './Layout.css'
 
 const serverURL = 'https://lambda-notes-server.herokuapp.com/'
 class Layout extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       notes: [],
@@ -32,7 +32,7 @@ class Layout extends Component {
     // this.updateNote = this.updateNote.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getNotes()
   }
 
@@ -143,13 +143,13 @@ class Layout extends Component {
     this.getNotes()
   }
 
-  render() {
+  render () {
     return (
-      <div className="Layout">
+      <div className='Layout'>
         <NavBar />
         <Route
           exact
-          path="/"
+          path='/'
           render={props =>
             <ListNotes
               notes={this.state.notes}
@@ -159,7 +159,7 @@ class Layout extends Component {
         />
 
         <Route
-          path="/create"
+          path='/create'
           render={props =>
             <CreateNote
               newTitle={this.newTitle}
@@ -171,7 +171,7 @@ class Layout extends Component {
         />
 
         <Route
-          path="/view/:id"
+          path='/view/:id'
           render={props =>
             <ViewNote
               note={
@@ -184,7 +184,7 @@ class Layout extends Component {
         />
 
         <Route
-          path="/update/:id"
+          path='/update/:id'
           render={props =>
             <UpdateNote
               note={
@@ -200,11 +200,11 @@ class Layout extends Component {
             />}
         />
         <Route
-          path="/register"
+          path='/register'
           render={props => <Register onRegister={this.registerSuccess} />}
         />
         <Route
-          path="/login"
+          path='/login'
           render={props => <Login onLogin={this.registerSuccess} />}
         />
       </div>

@@ -6,6 +6,9 @@
   width: 100vw;
 }
 
+.loginName {
+  margin-right: 15px;
+}
 .RegLog {
   display: flex;
   justify-content: flex-end;
