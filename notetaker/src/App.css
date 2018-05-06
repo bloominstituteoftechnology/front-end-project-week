@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.Toolbar-left-container {
+  border: solid 1px rgb(34, 34, 34);
+  height: 750px;
+  padding: 2% 2%;
+  background-color: gray;
+} 
+
+.Notes-col-container {
+  border: solid 1px rgb(34, 34, 34);
+  text-align: left;
+  height: 750px;
+  padding: 7% 2%;
+  background-color: lightgray;
+}
+
+.Notes-card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Notes-card {
+  text-decoration: none;
+  width: 25%;
+  margin: 1% 1%;
+}
+
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
