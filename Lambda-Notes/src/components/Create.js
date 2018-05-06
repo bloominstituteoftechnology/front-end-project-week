@@ -16,7 +16,7 @@ class Create extends Component {
                 <FormGroup>
                     <Label for='noteTitle'>Note Title</Label>
                     <Input type='text' id='noteTitle' placeholder='Note Title' />
-                    }
+                    
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleText">Text Area</Label>

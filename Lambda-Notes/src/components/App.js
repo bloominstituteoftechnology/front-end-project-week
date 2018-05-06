@@ -20,15 +20,20 @@ const routes = [
     exact: true,
     sidebar: () => <div></div>,
     main: () => <h2 style={{
-      paddingTop:'36px',
+      paddingTop:'55px',
     }}>Your Notes:</h2>,
   },
   {
     path: '/create',
     sidebar: () => <div></div>,
-    main: () => <h2 style={{
-      paddingTop:'36px',
-    }}>Create New Note:</h2>,
+    main: () => 
+    <div>
+      <h2 style={{
+        paddingTop:'55px',
+        }}>Create New Note:
+      </h2>,
+      <Create />
+    </div>
   },
   {
     path: '/note',
@@ -48,7 +53,7 @@ const routes = [
         </h5>
       </div>
       <h2 style={{
-      paddingTop:'36px',
+      paddingTop:'25px',
     }}>Note Name //placeholder
     </h2> 
     </div>, 
@@ -112,7 +117,6 @@ class App extends Component {
             <div style={{
               listStyleType:'none', 
               padding: '0',
-              
               }}>
               <div>
                 <Button color='info' size='lg' block><Link to='/'>List</Link></Button>
@@ -121,6 +125,7 @@ class App extends Component {
               <div>
                 <Button color='info' size='lg' block><Link to='/create'>Create</Link></Button>
               </div>
+
             </div>
 
             {routes.map((route) => (
