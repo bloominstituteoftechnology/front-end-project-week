@@ -11,26 +11,25 @@ class CreateNote extends Component {
     state = {
         title: '',
         content: '',
+        id: ''
     }
 
+    
     updateInput = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
-
+  
     createNewNote = () => {
-
         const newNote = {
             title: this.state.title,
             content: this.state.content,
-            id: this.state.notes.length,
-            edited: false,
-            deleted: false
-        };
+            id: this.props.notes.length || 0,
+        }
         this.props.addNote(newNote);
         console.log(newNote)
         this.setState({ title: '', content: ''});
-
     }
+
     render() {
         return (
             <Container className='container'>
@@ -66,3 +65,4 @@ const mapStateToProps = (state) => {
     };
 }
 export default connect(mapStateToProps, { addNote, deleteNote })(CreateNote);
+

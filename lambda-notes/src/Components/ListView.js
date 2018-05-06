@@ -7,7 +7,9 @@ import '../Styles/ListView.css'
 import Sidebar from './Sidebar';
 
 class ListView extends Component {
-
+    constructor(props) {
+        super(props)
+    }
     shortenNote(str) {
         if (str.length >= 110) {
            return str.slice(0, 110) + '...'; 

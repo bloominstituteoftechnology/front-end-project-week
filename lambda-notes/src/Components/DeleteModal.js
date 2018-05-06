@@ -21,6 +21,9 @@ class DeleteModal extends Component {
             modal: !this.state.modal
         });
     }
+    deleteIt(note) {
+       console.log('deleted');
+    }
 
     render() {
         return (
@@ -31,9 +34,9 @@ class DeleteModal extends Component {
                     <ModalBody>
                         <p>Are you sure you want to delete this?</p>
 
-                        <Link to={'/'}>
-                            <Button onClick={(notes) => this.props.deleteNote(this.props.notes[this.props.noteId]) }>Delete</Button>
-                        </Link>
+                        {/* <Link to={'/'}> */}
+                            <Button onClick={this.deleteIt}>Delete</Button>
+                        {/* </Link> */}
                         <Button>No</Button>
                     </ModalBody>
 

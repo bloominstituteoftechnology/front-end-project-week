@@ -1,5 +1,5 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
 
@@ -11,7 +11,7 @@ import '../Styles/NoteView.css';
 const NoteView = (props) => {
     const noteId = parseInt(props.match.params.id, 10);
     
-    return (
+       return (
         <div>
 
             <Container>
@@ -23,12 +23,12 @@ const NoteView = (props) => {
                         <div className='noteView'>
                             <div className='viewLinks'>
                            
-                                <a>edit</a>
+                                <button onClick={console.log('note')}>edit</button>
 
-                               
+                               {/* <Link to={'/'} > */}
                                 <DeleteModal />
-                                    {/* <button onClick={ (notes) => props.deleteNote(props.notes[noteId]) }>delete</button> */}
-                             
+                                    {/* <button onClick={ (notes) => this.props.deleteNote(this.props.notes[this.props.notes.id]) }>delete</button> */}
+                             {/* </Link> */}
 
                             </div>
                             <h4 className='noteTitle'>{ props.notes[noteId].title }</h4>
@@ -39,7 +39,9 @@ const NoteView = (props) => {
             </Container>
         </div>
     )
-}
+   }
+    
+
 
 const mapStateToProps = state => {
     return {
