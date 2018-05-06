@@ -43,7 +43,7 @@
   margin-right: 50px;
 }
 
-.login-link:hover {
+.logout-link:hover {
   text-decoration: none;
   color: RGB(54, 192, 195);
   font-weight: bolder;
