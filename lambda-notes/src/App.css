@@ -1,0 +1,50 @@
+.App {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;  
+}
+
+.sideBar {
+  background: #D8D8D8;
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.noteSection {
+  background: #F3F3F3;
+  display: flex;
+  flex-direction: column;  
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;  
+}
+
+.yourNotes {
+  margin-left: 70px;
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.lambdaNotes {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 30px;
+  text-align: left;
+  color: #4A4A4A;
+}
+
+hr {
+  background: rgb(135, 135, 136);
+}

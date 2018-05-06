@@ -1,0 +1,37 @@
+.edit {
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;    
+}
+
+.spanEdit {
+    margin-top: 10px;
+    margin-right: 20px;
+    color: black;
+}
+
+.spanDelete {
+    margin-top: 10px;
+    margin-right: 40px;
+    color: black;
+}
+
+.ModalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ModalFooter {
+    margin-right: 60px;    
+}
+
+.ModalDelete {
+    background: #C70A22 !important;
+}
+
+.noteName{
+    margin-top: 40px;
+    margin-left: 70px;
+    line-height: 40px;
+}

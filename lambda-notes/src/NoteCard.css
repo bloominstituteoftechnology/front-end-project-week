@@ -1,0 +1,38 @@
+.NoteSection {
+    margin-top: 40px;
+}
+
+.note1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 80px;
+    padding-top: 7px;
+    margin-bottom: 40px;
+    background: #fff;
+}
+
+hr {
+    width: 100%;               
+    background:#000;
+  }
+
+  .title {
+      margin-top: 15px;
+  }
+
+  .Link {
+      text-decoration: none !important;
+      color: black !important;
+  }
+
+  .Link a:hover {
+    background: peru;
+}
+
+.faded {
+    color: #38C1C3;
+    font-size: 16px;
+    text-align: center;
+    padding: 20px !important;
+}

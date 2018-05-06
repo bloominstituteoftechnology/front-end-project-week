@@ -1,0 +1,13 @@
+.Form {
+    margin-left: 70px;
+}
+
+.noteTitle {
+    width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.faded {
+    color: #38C1C3;
+}
