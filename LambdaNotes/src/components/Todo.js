@@ -20,7 +20,7 @@ class Todo extends Component {
 		super(props);
 		this.state = {
 			open: false,
-			toggled: true
+			toggled: false
 		};
 	}
 	handleOpen = () => {
@@ -87,8 +87,28 @@ class Todo extends Component {
 						</FlatButton>
 					</div>
 				</div>
-				{/*	Note View */}
+				{/*	NOTE VIEWS */}
 				{this.props.todos.includes(this.props.todos[id]) ? (
+					// LIST VIEW - todos with sub tasks [read only]
+					this.props.todos[id].listify ? (
+						<Paper className="Todo_content">
+							<List>
+								{this.props.todos[id].text.split("\n").map(line => {
+									return (
+										<ListItem
+											primaryText={line}
+											secondaryText={this.props.todos[id].title}
+											style={{
+												textDecoration: this.props.todos[id].isComplete
+													? "line-through"
+													: "none"
+											}}
+										/>
+									);
+								})}
+							</List>
+						</Paper>
+					) : // TOGGLE VIEW - adds a checkbox with a todo to mark for completion
 					this.state.toggled ? (
 						<Paper className="Todo_content">
 							<List>
@@ -107,6 +127,7 @@ class Todo extends Component {
 							</List>
 						</Paper>
 					) : (
+						// NORMAL VIEW - read a todo with no checkboxes
 						<div className="row">
 							<div className="col-md-12">
 								<Paper className="Todo_content">
@@ -118,6 +139,7 @@ class Todo extends Component {
 												: "none"
 										}}
 										className="Todo_text"
+										onClick={() => this.handleComplete(id)}
 									>
 										{this.props.todos[id].text}
 									</p>
