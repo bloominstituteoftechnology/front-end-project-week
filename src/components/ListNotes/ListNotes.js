@@ -4,27 +4,27 @@ import { Link } from 'react-router-dom'
 import './ListNotes.css'
 
 class ListNotes extends Component {
-  render(props) {
+  render (props) {
     return (
-      <div className="ListNotes">
-        <section className="RegLog">
-          <Link className="reg-link" to={`/api/register`}>
+      <div className='ListNotes'>
+        <section className='RegLog'>
+          <Link className='reg-link' to={`/register`}>
             Register
           </Link>
-          <Link className="login-link" to={`/api/login`}>
+          <Link className='login-link' to={`/login`}>
             Login
           </Link>
         </section>
-        <h2 className="list_h2">Your Notes:</h2>
-        <div className="notes">
+        <h2 className='list_h2'>Your Notes:</h2>
+        <div className='notes'>
           {this.props.notes.map(note =>
-            <div className="card-body" key={note._id}>
-              <h4 className="card-title">
-                <Link className="card-link" to={`/view/${note._id}`}>
+            <div className='card-body' key={note._id}>
+              <h4 className='card-title'>
+                <Link className='card-link' to={`/view/${note._id}`}>
                   {note.title}
                 </Link>
               </h4>
-              <span className="card-text">
+              <span className='card-text'>
                 {note.content}
               </span>
             </div>

@@ -8,10 +8,13 @@ import CreateNote from './CreateNote/CreateNote'
 import ViewNote from './ViewNote/ViewNote'
 import UpdateNote from './UpdateNote/UpdateNote'
 
+import Register from './Register/Register'
+import Login from './Login/Login'
+
 import './Layout.css'
 
 class Layout extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       notes: [],
@@ -27,15 +30,16 @@ class Layout extends Component {
     // this.updateNote = this.updateNote.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getNotes()
   }
 
   getNotes = () => {
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
     const serverURL = 'http://localhost:5000'
+    const token = localStorage.getItem('authtoken')
     axios
-      .get(`${serverURL}/api/notes`)
+      .get(`${serverURL}/api/notes`, token)
       .then(res => {
         this.setState({ notes: res.data })
       })
@@ -44,6 +48,7 @@ class Layout extends Component {
 
   createNote = event => {
     event.preventDefault()
+    const token = localStorage.getItem('authtoken')
 
     const note = {}
     note.title = this.state.title
@@ -118,19 +123,24 @@ class Layout extends Component {
       content: event.target.value
     })
   }
+  registerSuccess = data => {
+    // console.log(data);
+    localStorage.setItem('authtoken', data.token)
+    console.log('data token', data.token)
+  }
 
-  render() {
+  render () {
     return (
-      <div className="Layout">
+      <div className='Layout'>
         <NavBar />
         <Route
           exact
-          path="/"
+          path='/'
           render={() => <ListNotes notes={this.state.notes} />}
         />
 
         <Route
-          path="/create"
+          path='/create'
           render={() =>
             <CreateNote
               newTitle={this.newTitle}
@@ -142,12 +152,12 @@ class Layout extends Component {
         />
 
         <Route
-          path="/view/:id"
+          path='/view/:id'
           render={props =>
             <ViewNote
               note={
                 this.state.notes.filter(
-                  note => note._id == props.match.params.id
+                  note => note._id == props.match.params.id // eslint-disable-line
                 )[0]
               }
               deleteNote={this.deleteNote}
@@ -155,7 +165,7 @@ class Layout extends Component {
         />
 
         <Route
-          path="/update/:id"
+          path='/update/:id'
           render={props =>
             <UpdateNote
               note={
@@ -169,6 +179,14 @@ class Layout extends Component {
               title={this.state.title}
               content={this.state.content}
             />}
+        />
+        <Route
+          path='/register'
+          render={props => <Register onRegister={this.registerSuccess} />}
+        />
+        <Route
+          path='/login'
+          render={props => <Login onLogin={this.loginSuccess} />}
         />
       </div>
     )
