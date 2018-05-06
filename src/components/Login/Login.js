@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import './Login.css'
 
+const serverURL = 'https://lambda-notes-server.herokuapp.com'
+
 class Login extends React.Component {
   state = {
     username: '',
@@ -50,7 +52,7 @@ class Login extends React.Component {
     event.preventDefault()
 
     axios
-      .post('http://localhost:5000/api/login', this.state)
+      .post(`${serverURL}/api/login`, this.state)
       .then(response => {
         console.log('response', response.data)
         this.props.onLogin(response.data)

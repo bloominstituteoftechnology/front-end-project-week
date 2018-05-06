@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import './Register.css'
 
+const serverURL = 'https://lambda-notes-server.herokuapp.com'
+
 class Register extends React.Component {
   state = {
     username: '',
@@ -50,7 +52,7 @@ class Register extends React.Component {
     event.preventDefault()
 
     axios
-      .post('http://localhost:5000/api/register', this.state)
+      .post(`${serverURL}/api/register`, this.state)
       .then(response => {
         console.log('response', response.data)
         this.props.onRegister(response.data)
