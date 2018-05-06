@@ -189,7 +189,7 @@ class Layout extends Component {
             <UpdateNote
               note={
                 this.state.notes.filter(
-                  note => note._id == props.match.params.id
+                  note => note._id == props.match.params.id // eslint-disable-line
                 )[0]
               }
               newTitle={this.newTitle}
