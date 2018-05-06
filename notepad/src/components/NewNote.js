@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { createNote } from '../actions';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
-
-
-//add push to refresh state after the note is added. push it to
+import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
 
 class NewNote extends Component {
     constructor(props) {
@@ -64,12 +59,8 @@ class NewNote extends Component {
                         <Button color="info"onClick={this.handleSubmit}>Save</Button>
                     </Col>
                 </FormGroup>
-
                 </Form>
-
-
             </div>
-
         )
     }
 }

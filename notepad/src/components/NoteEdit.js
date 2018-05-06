@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { editNote, getNote } from '../actions';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 class NoteEdit extends Component {
     constructor(props){
         super(props);
-        const { note } = props;
         this.state = {
             id: this.props.note.id,
             title: props.note.title,
@@ -26,22 +24,13 @@ class NoteEdit extends Component {
     };
 
 saveNote = e => {
-    const { id, title, content} = this.state;
-    // e.preventDefault();
     console.log("SAVING", this.state);
     this.props.editNote(this.state);
     this.props.history.push(`/notes/`)
 }
 
-// renderTextField() {
-//     // if (this.props.mode != 'edit') return null;
-//     return (
-//         <TextField type='text' floatingLabelText='Image URL' onChange={this.onImageUrlChange}></TextField>
-//     )
-// }
 
     render(){
-        // const { value } = this.state;
         return (
             < div key={this.props.note.id} className={'noteform'} >
                 <div>

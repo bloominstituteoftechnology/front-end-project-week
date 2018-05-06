@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { deleteNote, getNote, startEditing } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button } from "reactstrap";
 import { Row, Col } from 'reactstrap';
-
-
-
+import DeleteModal from './Modal';
 
 class Note extends Component {
     constructor(props){
         super(props);
-       const { note } = props;
+        this.state = {
+            note: {},
+            modal: false
+        }
+
     }
     componentDidMount() {
         const id = this.props.match.params.id;
@@ -21,34 +22,36 @@ class Note extends Component {
          this.props.startEditing(this.props.note);
          this.props.history.push(`/notes/edit/${this.props.note.id}`)
     }
-     deleteNote = () => {
+    deleteNote = () => {
         this.props.deleteNote(this.props.note.id);
-         this.props.history.push(`/notes/`)
-
+        this.props.history.push(`/notes/`)
     }
+
 render(){
+    const { note } = this.state;
+    const props = {
+        note: this.state
+    }
     return (
         <div key={this.props.note.id}>
         <Row className="editDelete" > 
-            <Col>
                 <Link
                     to={`/notes/edit/${this.props.note.id}`}
-                    onClick={this.editNote}>
+                    onClick={this.editNote} >
                     edit
                 </Link>
-                <Link to={`/notes/edit/${this.props.note.id}`} onClick={this.deleteNote}>delete</Link>
-            </Col>
-            </Row> 
-            <Row> 
-
+                <DeleteModal show={this.props.modal}
+                    onClose={this.toggle} 
+                    deleteNote={this.deleteNote} 
+                    {...props} 
+                />
+        </Row> 
+        <Row> 
             <div className={'note'}>
-
-                    <h2>{this.props.note.title}</h2>
-                    <p>{this.props.note.content}</p>
- 
+                <h2>{this.props.note.title}</h2>
+                <p>{this.props.note.content}</p>
             </div>
-                </Row> 
-
+        </Row> 
         </div>
     );
 }

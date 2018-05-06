@@ -7,7 +7,10 @@ const initialState = {
     updatingNote: false,
     deletingNote: false,
     error: null,
-    note: {}
+    note: {
+        modal: false,
+
+    }
 }
 
 const noteReducer = (state = initialState, action) => {

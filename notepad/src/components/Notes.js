@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 import '../App.css';
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
-import Note from './Note';
-import NewNote from './NewNote';
 import { Link } from 'react-router-dom';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    Card, CardText, CardBody,
+    CardTitle
 } from 'reactstrap';
 
 class Notes extends Component{
