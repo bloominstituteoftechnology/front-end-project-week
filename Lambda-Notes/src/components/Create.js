@@ -22,7 +22,7 @@ class Create extends Component {
                     <Label for="exampleText">Text Area</Label>
                     <Input type="textarea" name="text" id="exampleText" placeholder='Note Content' />
                 </FormGroup>
-                <Button>Save</Button>
+                <Button color='info' size='lg'>Save</Button>
             </Form>
         )
     }
