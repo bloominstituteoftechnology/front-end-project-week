@@ -14,12 +14,13 @@ import Login from './Login/Login'
 import './Layout.css'
 
 class Layout extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       notes: [],
       title: '',
-      content: ''
+      content: '',
+      username: ''
     }
 
     // # Refactoring to use ES6 binding
@@ -30,33 +31,39 @@ class Layout extends Component {
     // this.updateNote = this.updateNote.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getNotes()
   }
 
   getNotes = () => {
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
     const serverURL = 'http://localhost:5000'
-    const token = localStorage.getItem('authtoken')
+    const token = localStorage.getItem('authorization')
     axios
-      .get(`${serverURL}/api/notes`, token)
+      .get(`${serverURL}/api/notes`, { headers: { authorization: token } })
       .then(res => {
-        this.setState({ notes: res.data })
+        this.setState({ notes: res.data.notes, username: res.data.username })
       })
       .catch(err => console.log(err))
   }
 
+  clearNotes = () => {
+    this.setState({ notes: [] })
+  }
+
   createNote = event => {
     event.preventDefault()
-    const token = localStorage.getItem('authtoken')
-
+    const token = localStorage.getItem('authorization')
+    console.log('post token', token)
     const note = {}
     note.title = this.state.title
     note.content = this.state.content
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
     const serverURL = 'http://localhost:5000'
     axios
-      .post(`${serverURL}/api/notes`, note)
+      .post(`${serverURL}/api/notes`, note, {
+        headers: { authorization: token }
+      })
       .then(res => {
         this.setState({
           notes: res.data,
@@ -73,7 +80,11 @@ class Layout extends Component {
     const serverURL = 'http://localhost:5000'
 
     axios
-      .delete(`${serverURL}/api/notes/${id}`)
+      .delete(`${serverURL}/api/notes/${id}`, {
+        headers: {
+          authorization: localStorage.getItem('authorization')
+        }
+      })
       .then(res => {
         this.setState({ notes: res.data })
       })
@@ -88,7 +99,9 @@ class Layout extends Component {
     const serverURL = 'http://localhost:5000'
 
     axios
-      .put(`${serverURL}/api/notes/${id}`, updateNote)
+      .put(`${serverURL}/api/notes/${id}`, updateNote, {
+        headers: { authorization: localStorage.getItem('authorization') }
+      })
       .then(res => {
         this.setState({
           notes: res.data,
@@ -125,23 +138,28 @@ class Layout extends Component {
   }
   registerSuccess = data => {
     // console.log(data);
-    localStorage.setItem('authtoken', data.token)
-    console.log('data token', data.token)
+    localStorage.setItem('authorization', `Bearer ${data.token}`)
+    this.getNotes()
   }
 
-  render () {
+  render() {
     return (
-      <div className='Layout'>
+      <div className="Layout">
         <NavBar />
         <Route
           exact
-          path='/'
-          render={() => <ListNotes notes={this.state.notes} />}
+          path="/"
+          render={props =>
+            <ListNotes
+              notes={this.state.notes}
+              username={this.state.username}
+              clearNotes={this.clearNotes}
+            />}
         />
 
         <Route
-          path='/create'
-          render={() =>
+          path="/create"
+          render={props =>
             <CreateNote
               newTitle={this.newTitle}
               newContent={this.newContent}
@@ -152,7 +170,7 @@ class Layout extends Component {
         />
 
         <Route
-          path='/view/:id'
+          path="/view/:id"
           render={props =>
             <ViewNote
               note={
@@ -165,7 +183,7 @@ class Layout extends Component {
         />
 
         <Route
-          path='/update/:id'
+          path="/update/:id"
           render={props =>
             <UpdateNote
               note={
@@ -181,12 +199,12 @@ class Layout extends Component {
             />}
         />
         <Route
-          path='/register'
+          path="/register"
           render={props => <Register onRegister={this.registerSuccess} />}
         />
         <Route
-          path='/login'
-          render={props => <Login onLogin={this.loginSuccess} />}
+          path="/login"
+          render={props => <Login onLogin={this.registerSuccess} />}
         />
       </div>
     )

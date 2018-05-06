@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import { Button } from 'reactstrap'
 import './Register.css'
 
 class Register extends React.Component {
@@ -9,31 +10,34 @@ class Register extends React.Component {
     password: ''
   }
 
-  render () {
+  render() {
     return (
-      <form onSubmit={this.submitHandler} className='Register'>
-        <div className='form-row'>
-          <label>Username</label>
-          <input
-            name='username'
-            value={this.state.username}
-            onChange={this.inputHandler}
-            type='text'
-          />
-        </div>
-        <div className='form-row'>
-          <label>Password</label>
-          <input
-            name='password'
-            value={this.state.password}
-            onChange={this.inputHandler}
-            type='password'
-          />
-        </div>
-        <div className='form-row'>
-          <button>Register</button>
-        </div>
-      </form>
+      <div className="Register">
+        <h2>Register:</h2>
+        <form onSubmit={this.submitHandler}>
+          <div className="form-row">
+            <label>Username</label>
+            <input
+              name="username"
+              value={this.state.username}
+              onChange={this.inputHandler}
+              type="text"
+            />
+          </div>
+          <div className="form-row">
+            <label>Password</label>
+            <input
+              name="password"
+              value={this.state.password}
+              onChange={this.inputHandler}
+              type="password"
+            />
+          </div>
+          <div className="form-row">
+            <Button color="success">Register</Button>
+          </div>
+        </form>
+      </div>
     )
   }
 
