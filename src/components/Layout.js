@@ -13,6 +13,7 @@ import Login from './Login/Login'
 
 import './Layout.css'
 
+const serverURL = 'https://lambda-notes-server.herokuapp.com/'
 class Layout extends Component {
   constructor() {
     super()
@@ -37,7 +38,7 @@ class Layout extends Component {
 
   getNotes = () => {
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
-    const serverURL = 'http://localhost:5000'
+    // const serverURL = 'http://localhost:5000'
     const token = localStorage.getItem('authorization')
     axios
       .get(`${serverURL}/api/notes`, { headers: { authorization: token } })

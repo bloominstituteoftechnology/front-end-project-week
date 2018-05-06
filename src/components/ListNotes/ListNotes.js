@@ -27,7 +27,13 @@ class ListNotes extends Component {
       <div className="ListNotes">
         {localStorage.getItem('authorization')
           ? <section className="RegLog">
-              <h6>
+              <h6
+                style={{
+                  marginRight: '20px',
+                  marginTop: '4px',
+                  fontWeight: 'bolder'
+                }}
+              >
                 {this.props.username}
               </h6>
               <Link
