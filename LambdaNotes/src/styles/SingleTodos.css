@@ -17,6 +17,10 @@
 	text-decoration: none !important;
 }
 
+.SingleTodo_link h3 {
+	margin: 0;
+}
+
 .SingleTodo {
 	height: 200px;
 	width: 200px;
@@ -25,7 +29,9 @@
 
 .SingleTodo_content {
 	display: block;
-	height: 50px;
+	height: 110px;
+	overflow: hidden;
+	margin: 0;
 }
 
 .SingleTodo_footer {

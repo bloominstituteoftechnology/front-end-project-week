@@ -86,9 +86,8 @@ class EditTodoForm extends Component {
 								this.handleListifyTodo(id, this.state.text);
 								this.handleUpdateTodo(id);
 							}}
-						>
-							<i className="material-icons md-24">list</i>
-						</RaisedButton>
+							style={{ marginLeft: "10px" }}
+						/>
 					</Link>
 				</div>
 			</div>
