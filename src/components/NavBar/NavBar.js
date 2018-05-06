@@ -4,7 +4,7 @@ import { CSVLink } from 'react-csv'
 import './NavBar.css'
 
 class NavBar extends Component {
-  render () {
+  render() {
     return (
       <div className='NavBar'>
         <header className='nav-header'>
@@ -12,13 +12,15 @@ class NavBar extends Component {
             <h1>Lambda Notes</h1>
           </Link>
         </header>
-        <Link className='nav-btn' to='/'>
+        <Link className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`} to='/'>
           <div>View Your Notes</div>
         </Link>
-        <Link className='nav-btn' to='/create'>
+        <Link className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`} to='/create'>
           <div>+ Create New Note</div>
         </Link>
-        <CSVLink data={this.props.notes}>Download Notes</CSVLink>
+        <CSVLink data={this.props.notes} className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}>
+          Download Notes
+        </CSVLink>
       </div>
     )
   }

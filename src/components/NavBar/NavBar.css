@@ -55,6 +55,10 @@ header h1:hover {
   margin: 20px 15px 0px 15px;
 }
 
+.nav-btn-invis {
+  display: none !important;
+}
+
 .nav-btn:hover {
   cursor: pointer;
   text-decoration: none;

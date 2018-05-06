@@ -49,7 +49,12 @@ class Layout extends Component {
   }
 
   clearNotes = () => {
-    this.setState({ notes: [] })
+    this.setState({
+      notes: [],
+      title: '',
+      content: '',
+      username: ''
+    })
   }
 
   createNote = event => {
@@ -146,7 +151,7 @@ class Layout extends Component {
   render () {
     return (
       <div className='Layout'>
-        <NavBar notes={this.state.notes} />
+        <NavBar notes={this.state.notes} username={this.state.username} />
         <Route
           exact
           path='/'

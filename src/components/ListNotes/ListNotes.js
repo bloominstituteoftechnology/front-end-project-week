@@ -48,6 +48,7 @@ class ListNotes extends Component {
           className='modal-modal'
           isOpen={!this.state.loggedIn}
           toggle={this.toggle}
+          backdrop='static'
         >
           <ModalBody className='modal-body'>
             Please Register/Login to access Lambda Notes.
