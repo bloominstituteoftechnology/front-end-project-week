@@ -4,6 +4,8 @@
   background-color: #f3f3f3;
   font-family: Roboto;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .loginName {
@@ -90,4 +92,15 @@
 .card-link:hover {
   text-decoration: none;
   color: RGB(54, 192, 195);
+}
+
+.submit-form {
+  align-self: center;
+  width: 30%;
+}
+.search-bar {
+  border: 2px solid RGB(54, 192, 195);
+  margin-top: 15px;
+  border-radius: 15px;
+  text-align: center;
 }
