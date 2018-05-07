@@ -11,6 +11,7 @@
 }
 
 .List-item{
+    border: 1px solid gray;
     margin-right:25px;
     width:250px;
     height:250px;

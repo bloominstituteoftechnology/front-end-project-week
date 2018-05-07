@@ -14,11 +14,10 @@ import {createNote} from '../actions/createAction'
        }
    }
 
-
-   //TODO add redirect to '/' with updated list view
    handleSubmit = (e) => {
        e.preventDefault()
        this.props.createNote(this.state.note)
+       this.props.history.push("/")
    }
    titleChange = e => {
        this.setState({note:{...this.state.note,title:e.target.value}})
