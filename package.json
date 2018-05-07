@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/jnandez0586/front-end-project-week.git",
+  "author": "jnandez0586 <jnandez0586@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}
