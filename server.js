@@ -9,18 +9,18 @@ function getNewId() {
   return nextId++;
 }
 
-let notess = [
+let notes = [
   {
     id: 1,
     title: "Note 1",
     content:
-      "wdhuaodwhwiaodhawoidhwaohdoawuhdoawu hddhawoudhawoudhawodhawouhduawwd"
+      "Ipsum dolor dolorem consectetur est velit fugiat. Dolorem provident corporis fuga saepe distinctio ipsam? Et quos harum excepturi dolorum molestias?"
   },
   {
     id: 2,
-    title: "Note 1",
+    title: "Note 2",
     content:
-      "wdhuaodwhwiaodhawoidhwaohdoawuhdoawu hddhawoudhawoudhawodhawouhduawwd"
+      "Ipsum dolor dolorem consectetur est velit fugiat. Dolorem provident corporis fuga saepe distinctio ipsam? Et quos harum excepturi dolorum molestias?"
   }
 ];
 
@@ -28,22 +28,22 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/notes", (req, res) => {
-  res.status(200).json(notess);
+  res.status(200).json(notes);
 });
 
-app.post("/notess", (req, res) => {
+app.post("/notes", (req, res) => {
   const note = { id: getNewId(), ...req.body };
-  notess = [...notess, note];
-  res.status(201).json(notess);
+  notes = [...notes, note];
+  res.status(201).json(notes);
 });
 
-app.put("/notess/:id", (req, res) => {
+app.put("/notes/:id", (req, res) => {
   const { id } = req.params;
-  let noteIndex = notess.findIndex(note => note.id == id);
+  let noteIndex = notes.findIndex(note => note.id == id);
 
   if (noteIndex >= 0) {
-    notess[noteIndex] = { ...notess[noteIndex], ...req.body };
-    res.status(200).json(notess);
+    notes[noteIndex] = { ...notes[noteIndex], ...req.body };
+    res.status(200).json(notes);
   } else {
     res
       .status(404)
@@ -51,9 +51,9 @@ app.put("/notess/:id", (req, res) => {
   }
 });
 
-app.delete("/notess/:id", (req, res) => {
-  notess = notess.filter(note => note.id != req.params.id);
-  res.status(200).json(notess);
+app.delete("/notes/:id", (req, res) => {
+  notes = notes.filter(note => note.id != req.params.id);
+  res.status(200).json(notes);
 });
 
 app.listen(5000, () => {
