@@ -31,6 +31,7 @@
  // export default Home; 
 
  import React, { Component } from "react";
+ import "./ListView.css";
  import axios from "axios";
  import { Link } from "react-router-dom";
  import Notes from "./Notes.js";
@@ -53,11 +54,11 @@
    }
 
     render() {
-     return <div>
-         <div className="note-title">Notes</div>
+     return <div className="listView">
+         <div className="note-title"> Your Notes:</div>
          <ul className="note-grid">
            {this.state.notes.map(note => {
-             return <div>
+             return <div className="note-box">
                  <Notes key={note.id} note={note} />
               </div>;
            })}

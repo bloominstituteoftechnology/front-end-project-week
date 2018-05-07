@@ -1,5 +1,6 @@
  nav {
     width: 30%;
+    max-width: 260px;
     background-color: rgba(31, 29, 29, 0.212);
     align-self: flex-start;
     border-right: 1px solid black;
