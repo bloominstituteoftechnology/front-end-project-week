@@ -35,7 +35,6 @@ let notes = [
 ];
 
 app.use(bodyParser.json());
-
 app.use(cors());
 
 app.get('/api/notes', (req, res) => {
