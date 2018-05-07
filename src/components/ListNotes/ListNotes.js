@@ -40,6 +40,13 @@ class ListNotes extends Component {
 
     return (
       <div className="ListNotes">
+        {localStorage.getItem('authorization')
+          ? <section className="RegLog">
+              <h6 className="loginName">
+                Account: {this.props.username}
+              </h6>
+            </section>
+          : <div />}
         <input
           type="text"
           className="search-bar"
@@ -47,13 +54,6 @@ class ListNotes extends Component {
           value={this.state.search}
           onChange={this.onSearch}
         />
-        {localStorage.getItem('authorization')
-          ? <section className="RegLog">
-              <h6 className="loginName">
-                Logged in as: {this.props.username}
-              </h6>
-            </section>
-          : <div />}
 
         <Modal
           className="modal-modal"
@@ -86,13 +86,17 @@ class ListNotes extends Component {
         <div className="notes">
           {filteredNotes.map(note =>
             <div className="card-body" key={note._id}>
-              <h4 className="card-title">
-                <Link className="card-link" to={`/view/${note._id}`}>
-                  {note.title}
-                </Link>
-              </h4>
+              <Link className="card-link" to={`/view/${note._id}`}>
+                <h4 className="card-title">
+                  {note.title.length >= 16
+                    ? note.title.substr(0, 16) + ' ...'
+                    : note.title}
+                </h4>
+              </Link>
               <span className="card-text">
-                {note.content}
+                {note.content.length >= 300
+                  ? note.content.substr(0, 290) + ' ...'
+                  : note.content}
               </span>
             </div>
           )}

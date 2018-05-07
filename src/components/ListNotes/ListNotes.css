@@ -37,20 +37,6 @@
   font-weight: bolder;
 }
 
-.logout-link {
-  text-decoration: none;
-  color: RGB(74, 74, 74);
-  font-weight: bolder;
-  font-size: 18px;
-  margin-right: 50px;
-}
-
-.logout-link:hover {
-  text-decoration: none;
-  color: RGB(54, 192, 195);
-  font-weight: bolder;
-}
-
 .list_h2 {
   font-weight: bolder;
   font-family: Roboto;
@@ -81,17 +67,16 @@
   font-family: Roboto;
   padding-bottom: 5px;
   border-bottom: 2px solid gray;
+  color: RGB(74, 74, 74);
 }
-
+.card-title:hover {
+  text-decoration: none;
+  color: RGB(54, 192, 195);
+}
 .card-link {
   text-decoration: none;
   color: black;
   font-family: Roboto;
-}
-
-.card-link:hover {
-  text-decoration: none;
-  color: RGB(54, 192, 195);
 }
 
 .search-bar {
@@ -101,4 +86,9 @@
   text-align: center;
   align-self: center;
   width: 50%;
+}
+
+.card-text {
+  color: RGB(74, 74, 74);
+  font-family: Roboto;
 }
