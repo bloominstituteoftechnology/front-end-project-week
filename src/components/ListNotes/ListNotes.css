@@ -94,13 +94,11 @@
   color: RGB(54, 192, 195);
 }
 
-.submit-form {
-  align-self: center;
-  width: 30%;
-}
 .search-bar {
   border: 2px solid RGB(54, 192, 195);
   margin-top: 15px;
   border-radius: 15px;
   text-align: center;
+  align-self: center;
+  width: 50%;
 }

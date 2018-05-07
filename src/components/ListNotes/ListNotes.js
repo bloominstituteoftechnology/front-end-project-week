@@ -40,15 +40,13 @@ class ListNotes extends Component {
 
     return (
       <div className="ListNotes">
-        <form type="submit" className="submit-form">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="search"
-            value={this.state.search}
-            onChange={this.onSearch}
-          />
-        </form>
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="search"
+          value={this.state.search}
+          onChange={this.onSearch}
+        />
         {localStorage.getItem('authorization')
           ? <section className="RegLog">
               <h6 className="loginName">
