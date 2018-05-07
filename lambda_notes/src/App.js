@@ -1,44 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom';
-import SideNav from './Components/SideNav';
-import CreateNewNote from './Components/CreateNewNote';
-import NoteListView from './Components/NoteListView';
-import SingleNoteView from './Components/SingleNoteView';
+import ListItems from './ListItems';
+import CreateNewNote from './CreateNewNote';
+import SideNav from './SideNav';
+import SingleNoteView from './SingleNoteView'
 
+import { Container, Row, Col } from 'reactstrap';
 
 export default class App extends Component {
-  constructor() {
-    super();
-    this.state= {
-      noteList: [
-        { noteTitle:'',
-        noteText:''
-    }
-      ]
-    }
-  }
-
-  addNewNote = (note) => {
-    let noteList =[];
-    const newNote = this.state.noteList;
-    noteList.push(note);
-    this.setState({noteList});
-  }
   render() {
-    return (
-      <div>
-        <SideNav />
-      <NoteListView list={this.state.noteList} />
-      <Route exact path='/' render={NoteListView} />
-      <Route path='/' render={CreateNewNote} />
-      <Route path='/' render={SingleNoteView} />
-      
-      
+    return(
+      <div className="App">
+        <Container className='notesContainer'>
+          <div>
+            <Row>
+              <Col m="4">
+                <h3> Lambda Notes</h3>
+                  <SideNav />
+               </Col>
+               <Col m="8">
+                  <ListItems />>
+              </Col>
+            </Row>
+          </div>
+        </Container>
       </div>
-    );
+    )
   }
 }
+
+
+
+
+
 
 
