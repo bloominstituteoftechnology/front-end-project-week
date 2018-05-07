@@ -13,8 +13,9 @@ class ViewNotes extends Component {
         { this.props.notes.map((note, index) => {
           return (
             <Col key={index} sm={4} md={4} xs={3}>
-                <p>{note.title}</p>
-                {note.content}
+              <h4>{note.title}</h4>
+              <hr />
+              {note.content.slice(0, 99) + '...'}
             </Col>
           )
         })}

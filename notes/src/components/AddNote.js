@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormControl, FormGroup, Button } from 'react-bootstrap';
 
-
 class AddNote extends Component {
   constructor(props) {
     super(props);
@@ -27,11 +26,13 @@ class AddNote extends Component {
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
           <FormControl type="text" placeholder="Note Title"
-                       name="title" onChange={this.handleChange} />
+                       name="title" onChange={this.handleChange}
+                       value={this.state.title} />
         </FormGroup>
         <FormGroup>
           <FormControl componentClass="textarea" placeholder="Note Content"
-                       name="content" onChange={this.handleChange} />
+                       name="content" onChange={this.handleChange}
+                       value={this.state.content} />
         </FormGroup>
         <Button type="submit">Save</Button>
       </Form>
