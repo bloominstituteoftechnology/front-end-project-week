@@ -1,0 +1,125 @@
+.NavBar {
+    width: 20%;
+    background: #D8D8D8;
+  }
+  .NavBar__title { 
+    opacity: .8;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  
+  #bootstrap-overrides .navButton {
+    width: 210px;
+    height: 40px;
+    background: #2BC1C4;
+    border: none;
+  }
+
+.addNote {
+    background: #F3F3F3;
+  }
+  
+  .addNote__title {
+    font-weight: bold;
+    opacity: .8;
+  }
+  
+  #bootstrap-overrides .addNote__button {
+    width: 210px;
+    height: 40px;
+    background: #2BC1C4;
+    border: none;
+  }
+
+  .list {
+    background: #F3F3F3;
+  }
+  
+  .list__title {
+    opacity: .8;
+  }
+  
+  .link {
+    color: black;
+    
+  }
+  .link:hover {
+    text-decoration: none;
+  }
+  
+  .card__title {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .card__content {
+    max-height: 144px;
+    overflow: hidden;
+    font-family: 'Raleway';
+  }
+
+  .NoteView {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin: 20px;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: clip;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .NoteView-Links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-self: flex-end;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .NoteView-Links-Link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgba(0,0,0,0.8);
+    margin-right: 15px;
+  }
+
+  .DeleteModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(25,25,25, 0.5);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .DeleteModal-Box {
+    text-align: center;
+    background: white;
+    border: 2px solid black;
+    height: 150px;
+    padding: 10px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+  }
+  
+  .DeleteModal-Box-Delete {
+    background: #d0021b;
+    border-radius: 12px;
+  }
+
+  .DeleteModal-Box-No {
+    background: lightblue;
+    border-radius: 12px;
+  }
+  
+  .DeleteModal-Box-Delete:hover {
+    background: #83000f
+  }
