@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Switch, Route } from "react-router-dom";
+import { NavLink, Switch, Link, Route } from "react-router-dom";
 
 
 const ListView = () => (
@@ -11,7 +11,7 @@ const ListView = () => (
 
 const Home = () => (
   <div className="home">
-    <h1>Notes to display</h1>
+    <h1>Notes</h1>
     <p> Blah Blah blah Notes</p>
   </div>
 );
