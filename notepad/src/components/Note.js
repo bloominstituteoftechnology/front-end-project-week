@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
 import DeleteModal from './Modal';
+import "./Note.css";
 
 class Note extends Component {
     constructor(props){
@@ -33,25 +34,33 @@ render(){
         note: this.state
     }
     return (
-        <div key={this.props.note.id}>
-        <Row className="editDelete" > 
-                <Link
+        <div key={this.props.note.id} >
+            <div className={"textLink"}> 
+                <Link 
                     to={`/notes/edit/${this.props.note.id}`}
                     onClick={this.editNote} >
-                    edit
+                    <a>edit</a>
                 </Link>
-                <DeleteModal show={this.props.modal}
+                <Link to={`/notes/delete/`}>
+                <DeleteModal  show={this.props.modal}
                     onClose={this.toggle} 
                     deleteNote={this.deleteNote} 
                     {...props} 
                 />
-        </Row> 
-        <Row> 
-            <div className={'note'}>
-                <h2>{this.props.note.title}</h2>
+            </Link>
+
+            </div> 
+            <div> 
+                <div className={"note-title"}>
+                    <p>{this.props.note.title}</p>
+                </div>
+            </div> 
+            <div> 
+                <div className={"note-content"}>
                 <p>{this.props.note.content}</p>
             </div>
-        </Row> 
+
+            </div> 
         </div>
     );
 }

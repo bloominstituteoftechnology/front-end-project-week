@@ -36,8 +36,8 @@ saveNote = e => {
                 <div>
                     <h5>Edit Note:</h5>
                     <Form>
-                        <FormGroup row>
-                            <Col sm={10}>
+                        <FormGroup >
+                            <div>
                                 <Input 
                                     defaultValue={this.state.title}
                                     type="text"
@@ -49,13 +49,13 @@ saveNote = e => {
                                     // ref={(input) => this.input = input}
 
                                 />
-                            </Col>
+                            </div>
                         </FormGroup>
-                        <FormGroup row>
-                            <Col sm={10}>
+                        <FormGroup >
+                            <div>
                                 <Input rows="15"
                                     type="textarea"
-                                    placeholder="Your Dreams Begin Here"
+                                    placeholder="Your Dreams Continue Here"
                                     onChange={this.handleChange}
                                     value={this.state.content}
                                     name="content"
@@ -63,12 +63,12 @@ saveNote = e => {
 
                                     // placeholder={this.props.location.state.content}
                                 />
-                            </Col>
+                            </div>
                         </FormGroup>
-                        <FormGroup row>
-                            <Col sm="1">
+                        <FormGroup >
+                            <div >
                                 <Button color="info" onClick={this.saveNote}>Update</Button>
-                            </Col>
+                            </div>
                         </FormGroup>
                     </Form>
                 </div>

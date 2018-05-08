@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 // import logo from '../logo.svg';
-import '../App.css';
+import './Notes.css';
+import '../components/Notes.css';
+import { Container, Row, Col } from 'reactstrap';
+
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -18,19 +21,20 @@ componentDidMount() {
 
 render() {
     return (
-        <div className="notes">
+        <div>
             <h5>Your Notes:</h5>
-                {this.props.notes.map(note => {
+               {this.props.notes.map(note => {
                 return (
+                <Card>
                 <Link to={`/notes/${note.id}`} 
                 className="note-card" key={note.id} note={note}>
-                    <Card>
-                        <CardBody>
+                    <CardBody>
                             <CardTitle>{note.title.substring(0, 21)}</CardTitle>
-                            <CardText>{note.content.substring(0, 93)}</CardText>
-                        </CardBody>
-                    </Card>
+                               <hr className="my-2" />
+                            <CardText>{note.content.substring(0, 150)}</CardText>
+                    </CardBody>
                 </Link>
+                </Card>
                 )})}
                 {this.props.pending ? <h1>LOADING</h1> : null}
         </div>

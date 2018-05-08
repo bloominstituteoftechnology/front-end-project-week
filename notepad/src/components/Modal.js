@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import './Note.css'
 
 class DeleteModal extends React.Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class DeleteModal extends React.Component {
 
         this.toggle = this.toggle.bind(this);
     }
+
     toggle() {
         this.setState({
             modal: !this.state.modal
@@ -24,7 +26,7 @@ class DeleteModal extends React.Component {
     render() {
         return (
             <div>
-                <a color="danger" onClick={this.toggle}>{this.props.buttonLabel}delete</a>
+                <a className={"textLink"} onClick={this.toggle}>{this.props.buttonLabel}delete</a>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalBody>
                     Are you sure you want to delete this?          

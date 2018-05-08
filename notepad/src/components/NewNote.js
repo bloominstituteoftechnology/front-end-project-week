@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { createNote } from '../actions';
 import { connect } from 'react-redux';
 import { Col, Button, Form, FormGroup, Input } from 'reactstrap';
+import './NewNote.css';
 
 class NewNote extends Component {
     constructor(props) {
@@ -32,8 +33,8 @@ class NewNote extends Component {
             <div>
             <h5>Create New Note:</h5>
             <Form>
-                <FormGroup row>
-                    <Col sm={10}>
+                <FormGroup>
+                    <div>
                         <Input 
                             type="text" 
                             name="title" 
@@ -41,10 +42,10 @@ class NewNote extends Component {
                             onChange={this.handleChange}
                             value={this.state.title} 
                         />
-                    </Col>
+                    </div>
                 </FormGroup>
-                <FormGroup row>
-                    <Col sm={10}>
+                <FormGroup>
+                    <div>
                         <Input rows="15"
                             type="textarea"
                             placeholder="Your Dreams Begin Here"
@@ -52,12 +53,12 @@ class NewNote extends Component {
                             value={this.state.content}
                             name="content" 
                         />
-                    </Col>
+                    </div>
                 </FormGroup>
-                <FormGroup row>
-                    <Col sm="1">
+                <FormGroup >
+                        <div>
                         <Button color="info"onClick={this.handleSubmit}>Save</Button>
-                    </Col>
+                    </div>
                 </FormGroup>
                 </Form>
             </div>

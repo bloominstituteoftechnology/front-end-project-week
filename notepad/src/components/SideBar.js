@@ -6,20 +6,18 @@ import './SideBar.css'
 
 const SideBar = () => (
     <div>
-            <div>
+        <h2>Lambda Notes</h2>
+
             <Link to='/notes'>
-                <Button color="info" className="button" >
+            <button className={"button"} pathto='/notes' >
                     View Your Notes
-                </Button>
+                </button>
             </Link>
-            </div>
-            <div>
             <Link to='/new'>
-                <Button color="info" className="button">
+            <button className={"button"}>
                     + Create New Note
-                </Button>
+                </button>
             </Link>
-            </div>
     </div>
 )
 
