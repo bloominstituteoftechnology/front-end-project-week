@@ -41,26 +41,38 @@
      super(props);
      this.state = { notes: [] };
    }
-  
+
+   //  componentDidMount() {
+   //    axios
+   //      .get("http://localhost:5000/notes")
+   //      .then(response => {
+   //        this.setState(() => ({ notes: response.data }));
+   //      })
+   //      .catch(error => {
+   //        console.error("error", error);
+   //      });
+   //  }
    componentDidMount() {
+     this.fetchNotes();
+   }
+   fetchNotes = () => {
      axios
        .get("http://localhost:5000/notes")
        .then(response => {
-         this.setState(() => ({ notes: response.data }));
+         this.setState({ notes: response.data });
        })
        .catch(error => {
          console.error("error", error);
        });
-   }
-
-    render() {
+   };
+   render() {
      return <div className="listView">
          <div className="note-title"> Your Notes:</div>
          <ul className="note-grid">
            {this.state.notes.map(note => {
              return <div className="note-box">
                  <Notes key={note.id} note={note} />
-              </div>;
+               </div>;
            })}
          </ul>
        </div>;
