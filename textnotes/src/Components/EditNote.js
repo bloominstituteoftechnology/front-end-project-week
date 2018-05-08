@@ -22,6 +22,7 @@ class EditNote extends Component {
 
         this.props.updateNote({ id, title, content });
         this.setState({name: '', age: '', email: '', id: '',});
+        this.props.history.push('/');
     }
 
 

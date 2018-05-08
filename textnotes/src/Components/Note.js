@@ -55,11 +55,13 @@ class Note extends Component {
     handleDelete = (id) => {
         this.setState({ viewModal: false })
         this.props.deleteNote(id);
+        this.props.history.push('/');
     }
 
     
 
     render() {
+        console.log('props', this.props);
         return (
             <div className="note-container">
 

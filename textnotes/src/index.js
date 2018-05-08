@@ -27,7 +27,7 @@ ReactDOM.render(
                 <Route exact path="/" component={App}/>
                 <Route path="/CreateNote" component={CreateContainer}/>
                 <Route path="/Note/:id" component={Note}/>
-                <Route path="/EditNote/" component={EditNote}/>
+                <Route path="/EditNote" component={EditNote}/>
             </div>
         </Router>
     </Provider>

@@ -23,6 +23,7 @@ class CreateContainer extends Component {
         e.preventDefault()
         this.props.postNote({ title, content });
         this.setState({ id: '', title: '', content: '' })
+        this.props.history.push('/');
     }
 
     render() {
