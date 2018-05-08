@@ -6,13 +6,13 @@ export default props => {
   const { note } = props;
   return (
     <li className="note-item">
-      <h3 className="note-card-title">
-        <ReactMarkdown source={'##' + note.title.substring(0, 19)}/>
-      </h3>
+      <ReactMarkdown
+        className="note-card-title"
+        source={'#' + note.title.substring(0, 19)}/>
       <hr/>
-      <p className="note-card-content">
-        <ReactMarkdown source={note.content.substring(0, 120) + '...'}/>
-      </p>
+      <ReactMarkdown
+        className="note-card-content"
+        source={note.content.substring(0, 120) + '...'}/>
     </li>
   );
 }
