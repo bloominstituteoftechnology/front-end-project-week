@@ -3,13 +3,10 @@ import axios from 'axios';
 import Notes from "./Notes.js";
 
 export default class NoteView extends Component {
-      state = {
-       note: null,
-   }
-//  constructor(props) {
-//      super(props);
-//      this.state = { note: [] }
-//  }
+      
+    state ={
+     note: null
+ };
 
    componentDidMount(){
        const id = this.props.match.params.id;
@@ -32,7 +29,7 @@ render() {
         <ul className="note-grid">
           {this.state.notes.map(note => {
             return <div className="note-box">
-                <Notes key={note.id} note={note} />         
+                <Notes key={note.id} note={note} />
               </div>;
           })}
       

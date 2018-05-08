@@ -12,17 +12,24 @@ import { Switch, Route } from "react-router-dom";
 
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = { notes: [] };
+  // }
+
   render() {
-    return <div className="AppContainer">
+    return (
+      <div className="AppContainer">
         <Nav />
         {/* <ListView/> */}
         <Switch>
           <Route exact path="/" component={ListView} />
-          <Route exact path= "/create" component={CreateNote}/>
-          <Route path = "/noteView/:id" component={NoteView}/>
+          <Route exact path="/create" component={CreateNote} />
+          <Route path="/noteView/:id" component={NoteView} />
           {/* <Route exact path="/create" component={Create} /> */}
         </Switch>
-      </div>;
+      </div>
+    );
   }
 }
 

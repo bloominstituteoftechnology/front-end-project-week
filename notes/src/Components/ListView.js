@@ -70,8 +70,6 @@ const linkStyles = {
        });
    };
 
-
-   
    render() {
      return <div className="listView">
          <div className="note-title"> Your Notes:</div>
