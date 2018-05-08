@@ -5,7 +5,7 @@ import  { CSVLink } from 'react-csv';
 export default props => {
   return (
     <CSVLink data={props.notes} className="export-csv">
-      <i class="fas fa-download fa-lg"></i>
+      <i className="fas fa-download fa-lg"></i>
     </CSVLink>
   );
 }

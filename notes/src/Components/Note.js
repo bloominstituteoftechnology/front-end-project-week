@@ -43,7 +43,7 @@ export default class Note extends Component {
           </div>
           <div className="icons">
             <Link to={{pathname: '/edit', state: note }}>
-              <i class="far fa-edit fa-lg icon"></i>
+              <i className="far fa-edit fa-lg icon"></i>
             </Link>
             <div onClick={this.handleToggle}>
               <i className="far fa-trash-alt fa-lg icon"></i>
