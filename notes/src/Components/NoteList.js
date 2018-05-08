@@ -22,21 +22,20 @@ export default class NoteList extends Component {
   }
   handleSearch = query => {
     this.setState({ query });
-    this.setState({
-      notes: this.state.notes.filter(note => {
-        return note.title.toLowerCase().indexOf(this.state.query) > -1;
-      })
-    })
   }
   render() {
+    let { notes, query } = this.state;
+    notes = notes.filter(note => {
+      return note.title.toLowerCase().indexOf(query) > -1;
+    });
     return (
       <div className="flex-container">
         <div className="title">
           <h2>Your Notes:</h2>
-          <Search search={this.handleSearch} />
+          <Search search={this.handleSearch}/>
         </div>
         <ul className="notes-list">
-          {this.state.notes.map((note, i) => {
+          {notes.map((note, i) => {
             return(
               <Link key={i} to={`note/${note.id}`} className="note-card">
                 <li className="note-item">
@@ -45,7 +44,7 @@ export default class NoteList extends Component {
                   </h3>
                   <hr/>
                   <p className="note-card-content">
-                    <ReactMarkdown source={note.content.substring(0, 120)}/> ...
+                    <ReactMarkdown source={note.content.substring(0, 120)+'...'}/>
                   </p>
                 </li>
               </Link>
