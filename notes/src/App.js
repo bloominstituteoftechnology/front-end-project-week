@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Router>
         <Sidebar addNote={this.props.addNote}
-                 viewNote={this.props.viewNotes}
+                 viewNotes={this.props.viewNotes}
                  notes={this.props.notes} />
       </Router>
     );

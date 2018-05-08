@@ -5,71 +5,68 @@ import { Route } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import AddNote from './AddNote';
 import ViewNotes from './ViewNotes';
+import ViewNote from './ViewNote';
 
 class Sidebar extends Component {
-    constructor(props) {
-      super(props);
-      this.state ={
-        routes: [
-          {
-            path: '/view',
-            exact: true,
-            sidebar: () => <div>View Your Notes</div>,
-            main: () => this.viewNotes()
-          },
-          {
-            path: '/add',
-            exact: false,
-            sidebar: () => <AddNote />,
-            main: () => <AddNote addNote={this.props.addNote} />
-          }
-        ]
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      routes: [
+        {
+          path: '/view',
+          exact: true,
+          sidebar: "View Your Notes",
+          main: () => this.viewNotes()
+        },
+        {
+          path: '/add',
+          exact: false,
+          sidebar: "+ Create New Note",
+          main: () => <AddNote addNote={this.props.addNote} />
+        }
+      ]
     }
+  }
 
-    viewNotes = () => {
-      return (
-        <ViewNotes notes={this.props.notes} />
-      )
-    }
+  viewNotes = () => {
+    return (
+      <ViewNotes notes={this.props.notes} />
+    )
+  }
 
-    render() {
-      return (
-        <div>
+  render() {
+    return (
+      <div>
+        <Navbar inverse>
+          <Nav>
+            { this.state.routes.map((route, index) => {
+              return (
+                <LinkContainer to={route.path} key={index}>
+                  <NavItem>
+                    {route.sidebar}
+                  </NavItem>
+                </LinkContainer>
+            )})}
+          </Nav>
+        </Navbar>
+        <Grid>
           {/* <Row> */}
             {/* <Col> */}
-            <Navbar inverse>
-              <Nav>
-                <LinkContainer to="/view">
-                  <NavItem>
-                    View Your Notes
-                  </NavItem>
-                </LinkContainer>
-                <LinkContainer to="/add">
-                  <NavItem>
-                    + Create New Note
-                  </NavItem>
-                </LinkContainer>
-              </Nav>
-            </Navbar>
-            {/* </Col> */}
-            {/* </Row> */}
-        <Grid>
-        <Row>
-            <Col>
+              <Route path="/view/:id"
+                  component={() => <ViewNote notes={this.props.notes} />} />
               {this.state.routes.map((route, index) => (
                 <Route key={index}
-                      path={route.path}
-                      exact={route.exact}
-                      component={route.main}
+                       path={route.path}
+                       exact={route.exact}
+                       component={route.main}
                 />
               ))}
-            </Col>
-          </Row>
+            {/* </Col> */}
+          {/* </Row> */}
         </Grid>
-        </div>
-      )
-    }
+      </div>
+    )
+  }
 }
 
 export default Sidebar;
