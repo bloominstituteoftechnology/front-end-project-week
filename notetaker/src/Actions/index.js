@@ -63,6 +63,7 @@ export const deleteNote = (id) => {
 
 export const editNote = (id, noteInfo) => {
   return dispatch => {
+      console.log('EDIT NOTE', id, noteInfo);
       axios.put(`http://localhost:5000/api/notes/${id}`, noteInfo)
       .then(response => {
         dispatch({type: UPDATED, notes: response.data})

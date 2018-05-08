@@ -5,6 +5,8 @@ import { Button, Form, Input, FormText, Label, FormGroup } from 'reactstrap';
 
 import "../App.css";
 import { editNote } from '../Actions';
+import ViewNote from './ViewNote';
+import Notes from './Notes';
 
 
 
@@ -18,13 +20,25 @@ class Edit extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.location.state.title,
-            content: this.props.location.state.content,
+            title: '',
+            content: '',
         }
     }
 
-    handleSubmit() {
+    handleSubmit = (e) => {
+        // e.preventDefault();
+        console.log('THIS PROPS', this.props);
+        // console.log('ID', this.props.match.params.id);
+        const { title, content } = this.state;
+        this.props.editNote(this.props.match.params.id, {title, content});
+        this.setState({
+            title: '',  
+            content: ''
+        })
+    }
 
+    handleChange = (e) => {
+        this.setState({[e.target.name]: e.target.value});
     }
 
     render() {
@@ -32,13 +46,29 @@ class Edit extends Component {
             <Form>
                 <FormGroup>
                     <Label>Title</Label>
-                    <Input type="title" value={this.state.title} name="title" id="title" placeholder={this.props.location.state.title} />
+                    <Input type="title"
+                        onChange={this.handleChange}
+                        value={this.state.title}
+                        name="title"
+                        id="title"
+                        placeholder='Title'
+                    />
                 </FormGroup>
                 <FormGroup>
                     <Label>Content</Label>
-                    <Input type="content" value={this.state.content} name="content" id="content" placeholder={this.props.location.state.content} />
+                    <Input type="content"
+                        onChange={this.handleChange}
+                        value={this.state.content}
+                        name="content"
+                        id="content"
+                        placeholder='Content'
+                    />
                 </FormGroup>
-                <Button>Submit</Button>
+                <Link exact to='/' component={Notes}>
+                    <button type='submit'
+                        onClick={this.handleSubmit}>Submit
+                    </button>
+                </ Link>
             </Form>
         )
     }
@@ -47,3 +77,5 @@ class Edit extends Component {
 }
 
 export default connect(mapStateToProps, { editNote })(Edit);
+
+// this.props.location.state.title
