@@ -7,6 +7,7 @@ import NotesContainer from './Components/NotesContainer';
 import { getNotes } from './Action';
 
 class App extends Component {
+  
   componentDidMount() {
     this.props.getNotes();
   }

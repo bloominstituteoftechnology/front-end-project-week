@@ -44,3 +44,14 @@ export const deleteNote = (id) => {
             .then(response => dispatch({ type: SUCCESS, note: response.data }))
     }
 }
+
+//axios.put config
+
+export const updateNote = (updatedNoteObj) => {
+    return dispatch => {
+        dispatch({ type: LOADING });
+        axios
+            .put(`http://localhost:5000/Note/${updatedNoteObj.id}`, updatedNoteObj)
+            .then(response => dispatch({ type: SUCCESS, note: response.data }))
+    }
+}

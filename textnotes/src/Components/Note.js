@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import '../App.css';
 import { getNote, deleteNote } from '../Action';
@@ -34,10 +35,8 @@ const modalStyle = {
 
 class Note extends Component {
 
-    // const id=this.props.match.params.id;
-
     state = {
-        showModal: false,
+        viewModal: false,
     }
 
     componentDidMount() {
@@ -46,16 +45,16 @@ class Note extends Component {
     }
 
     showModal = e => {
-        this.setState({ showModal: true })
-    }
-
-    handleDelete = (id) => {
-        this.setState({ showModal: false })
-        this.props.deleteNote(id);
+        this.setState({ viewModal: true })
     }
 
     hideModal = e => {
-        this.setState({ showModal: false })
+        this.setState({ viewModal: false })
+    }
+
+    handleDelete = (id) => {
+        this.setState({ viewModal: false })
+        this.props.deleteNote(id);
     }
 
     
@@ -64,25 +63,25 @@ class Note extends Component {
         return (
             <div className="note-container">
 
-            {/* function call to axios.delete/ axios.put in actions */}
+                <button onClick={this.showModal} className="feature-button">delete</button>
 
-            <button onClick={this.showModal} className="feature-button">delete</button>
-
-            {/* Modal component */}
-
-            { this.state.showModal ?
-                 <div style={backgroundStyle}>
-                    <div style={modalStyle}>
-                        <p>Are you sure you want to delete this?</p>
-                        <button onClick={() => {this.handleDelete(this.props.note.id) }} className="delete-button">Delete</button>
-                        <button onClick={this.hideModal} className="button">Exit</button>
-                     </div>
-                 </div> : null }
-
-            <button className="feature-button">edit</button>
-            
+                <Link to={'/EditNote'}>
+                    <button className="feature-button">edit</button>
+                </Link>
+                
                 <h2 className="note-title"> {this.props.note.title} </h2>
                 <p className="note-content"> {this.props.note.content} </p>
+
+                {/* Modal component */}
+
+                { this.state.viewModal ?
+                    <div style={backgroundStyle}>
+                        <div style={modalStyle}>
+                            <p>Are you sure you want to delete this?</p>
+                            <button onClick={() => {this.handleDelete(this.props.note.id) }} className="delete-button">Delete</button>
+                            <button onClick={this.hideModal} className="button">Exit</button>
+                        </div>
+                    </div> : null }
             </div>
         );
     }

@@ -10,9 +10,6 @@ class SideBar extends Component {
             <div className="sidebar">
                 <h1 className="Lambda-Logo"> Lambda Notes </h1>
 
-                {/* link to routing */}
-                {/* add onClick features that re-direct */}
-
                 <Link to="/">
                     <button className="button">View Your Notes</button>
                 </Link>

@@ -27,8 +27,6 @@ app.get('/homeNotes', (req, res) => {
 
 app.post('/homeNotes', (req, res) => {
 	const note = { id: grabNextId(), ...req.body };
-
-	// creates, a new note obj and then adds all the content to notes state.
   
 	notes = [...notes, note];
   
@@ -39,7 +37,9 @@ app.post('/homeNotes', (req, res) => {
   // create a function that will increment note ID + 1 when something new is added.
 
   function grabNextId() {
+
 	return nextId++;
+
   }
 
   app.delete('/Note/:id', (req, res) => {
@@ -48,7 +48,28 @@ app.post('/homeNotes', (req, res) => {
 	notes = notes.filter(n => n.id !== Number(id));
   
 	res.send(notes);
-  });
+	});
+
+	
+	app.put('/Note/:id', (req, res) => {
+		const { id } = req.params;
+	
+		const noteIndex = notes.findIndex(nID => nID.id == id);
+	
+		if (noteIndex > -1) {
+			const note = { ...notes[noteIndex], ...req.body };
+	
+			notes = [
+				...notes.slice(0, noteIndex),
+				note,
+				...notes.slice(noteIndex + 1),
+			];
+			res.send(notes);
+		} else {
+			res.status(404).send({ msg: 'blarg' });
+		}
+	});
+
 
 app.listen(port, () => {
 	// should listen to "http://localhost:5000/homeNotes"

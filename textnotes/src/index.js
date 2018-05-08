@@ -15,6 +15,7 @@ import CreateContainer from './Components/CreateContainer';
 import SideBar from './Components/SideBar';
 import NotesContainer from './Components/NotesContainer';
 import Note from './Components/Note';
+import EditNote from './Components/EditNote';
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger))
 
@@ -26,6 +27,7 @@ ReactDOM.render(
                 <Route exact path="/" component={App}/>
                 <Route path="/CreateNote" component={CreateContainer}/>
                 <Route path="/Note/:id" component={Note}/>
+                <Route path="/EditNote/" component={EditNote}/>
             </div>
         </Router>
     </Provider>
