@@ -9,13 +9,6 @@ import ViewNote from './ViewNote';
 import Notes from './Notes';
 
 
-
-const mapStateToProps = (state) => {
-    return ({
-        notes: state.notes
-    })     
-}
-
 class Edit extends Component {
     constructor(props) {
         super(props);
@@ -26,9 +19,6 @@ class Edit extends Component {
     }
 
     handleSubmit = (e) => {
-        // e.preventDefault();
-        console.log('THIS PROPS', this.props);
-        // console.log('ID', this.props.match.params.id);
         const { title, content } = this.state;
         this.props.editNote(this.props.match.params.id, {title, content});
         this.setState({
@@ -73,7 +63,12 @@ class Edit extends Component {
         )
     }
 
+}
 
+const mapStateToProps = (state) => {
+    return ({
+        notes: state.notes
+    })     
 }
 
 export default connect(mapStateToProps, { editNote })(Edit);

@@ -32,6 +32,21 @@ let notes = [
     title: 'Note 5',
     content: 'Example Content'
   },
+  {
+    id: 6,
+    title: 'Note 6',
+    content: 'Example Content'
+  },
+  {
+    id: 7,
+    title: 'Note 7',
+    content: 'Example Content'
+  },
+  {
+    id: 8,
+    title: 'Note 8',
+    content: 'Example Content'
+  }
 ];
 
 app.use(bodyParser.json());
