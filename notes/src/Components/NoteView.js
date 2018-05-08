@@ -6,7 +6,10 @@ export default class NoteView extends Component {
       state = {
        note: null,
    }
- 
+//  constructor(props) {
+//      super(props);
+//      this.state = { note: [] }
+//  }
 
    componentDidMount(){
        const id = this.props.match.params.id;
@@ -24,6 +27,7 @@ render() {
     if(!this.state.note) {
       return <div>Loading note information...</div>
     } 
+  
     return <div>
         <ul className="note-grid">
           {this.state.notes.map(note => {
@@ -31,6 +35,7 @@ render() {
                 <Notes key={note.id} note={note} />         
               </div>;
           })}
+      
         </ul>
       </div>;
   }
