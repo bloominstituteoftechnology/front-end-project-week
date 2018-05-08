@@ -88,7 +88,8 @@ app.put('/note/:id', (req, res) => {
 	const { title, content, id } = req.body;
 	let note = notes.filter(note => note.id === id);
 	notes.splice(id, 1, {id: Number(id), title, content});
-	res.status(201).json(note);
+	// res.status(201).json(note);
+	res.status(201).json(notes);
 });
 
 app.delete('/note/:id', (req, res) => {
