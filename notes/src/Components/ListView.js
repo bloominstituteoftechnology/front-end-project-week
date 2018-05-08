@@ -36,6 +36,10 @@
  import { Link } from "react-router-dom";
  import Notes from "./Notes.js";
 
+const linkStyles = {
+  textDecoration: "none"
+};
+
  class ListView extends Component {
    constructor(props) {
      super(props);
@@ -65,13 +69,18 @@
          console.error("error", error);
        });
    };
+
+
+   
    render() {
      return <div className="listView">
          <div className="note-title"> Your Notes:</div>
          <ul className="note-grid">
            {this.state.notes.map(note => {
              return <div className="note-box">
-                 <Notes key={note.id} note={note} />
+                 <Link style={linkStyles} to={`/noteView/${note.id}`}>
+                   <Notes key={note.id} note={note} />
+                 </Link>
                </div>;
            })}
          </ul>

@@ -4,7 +4,8 @@ import './App.css';
 import Nav from "./Nav/Nav.js";
 import ListView from "./Components/ListView.js";
 import CreateNote from "./Components/CreateNote.js";
-import { NavLink, Switch, Link, Route } from "react-router-dom";
+import NoteView from "./Components/NoteView.js";
+import { Switch, Route } from "react-router-dom";
 
 
 
@@ -18,6 +19,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={ListView} />
           <Route exact path= "/create" component={CreateNote}/>
+          <Route path = "/noteView/:id" component={NoteView}/>
           {/* <Route exact path="/create" component={Create} /> */}
         </Switch>
       </div>;

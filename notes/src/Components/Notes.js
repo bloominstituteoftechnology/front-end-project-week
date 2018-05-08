@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+
 
 export default class Notes extends Component{
     constructor(props){
