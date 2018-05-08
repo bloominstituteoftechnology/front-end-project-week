@@ -33,23 +33,23 @@ export default class Note extends Component {
       delete: this.handleDelete,
     }
     return (
-        <div className="flex-container">
-          {toggleModal ? <Modal {...props}/> : null}
-          <div className="title">
-            <ReactMarkdown source={note.title} />
-          </div>
-          <div className="content">
-            <ReactMarkdown source={note.content}/>
-          </div>
-          <div className="icons">
-            <Link to={{pathname: '/edit', state: note }}>
-              <i className="far fa-edit fa-lg icon"></i>
-            </Link>
-            <div onClick={this.handleToggle}>
-              <i className="far fa-trash-alt fa-lg icon"></i>
-            </div>
+      <div className="flex-container">
+        {toggleModal ? <Modal {...props}/> : null}
+        <div className="title">
+          <ReactMarkdown source={note.title} />
+        </div>
+        <div className="content">
+          <ReactMarkdown source={note.content}/>
+        </div>
+        <div className="icons">
+          <Link to={{pathname: '/edit', state: note }}>
+            <i className="far fa-edit fa-lg icon"></i>
+          </Link>
+          <div onClick={this.handleToggle}>
+            <i className="far fa-trash-alt fa-lg icon"></i>
           </div>
         </div>
+      </div>
     );
   }
 }
