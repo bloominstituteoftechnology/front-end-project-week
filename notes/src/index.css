@@ -35,10 +35,18 @@ body {
   border: none;
 }
 
+.export-csv {
+  position: relative;
+  bottom: 64px;
+  left: 97%;
+  cursor: pointer;
+  color: black;
+}
+
 .search-box {
   position: relative;
   bottom: 44px;
-  left: 78%;
+  left: 70%;
   width: 21.5%;
 }
 
