@@ -67,7 +67,7 @@ server.delete('/notes/:id', (req, res) => {
   const foundNote = notes
 
   if (foundNote) {
-  notes = notes.filter(note => note.id !== id);
+  notes = notes.filter(note => note.id != id);
     res.status(200).json({ notes });
   } else {
     sendUserError('No note found by provided ID', res);

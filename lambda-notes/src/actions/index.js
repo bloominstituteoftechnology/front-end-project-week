@@ -68,10 +68,10 @@ export const deleteNote = (id) => {
         axios.delete(`http://localhost:2005/notes/${id}`)
         .then((response) => {
             console.log('delete res', response)
-            // dispatch({
-            //     type : DELETE_NOTE,
-            //     payload: response
-            // })
+            dispatch({
+                type : DELETE_NOTE,
+                payload: response.data.notes
+            })
         })
         .catch((error) => {
             console.log(error)

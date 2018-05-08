@@ -7,6 +7,7 @@ import Home from './Home';
 import Note from './Note';
 import CreateNote from './CreateNote';
 import UpdateNote  from './UpdateNote';
+// import DeleteNote from './DeleteNote'
 
 import '../css/App.css';
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path='/notes/:id' component={ Note } />
           <Route path='/create' component={ CreateNote } />
           <Route path='/notes/update/:id' component={ UpdateNote } />
+          {/* <Route path='/notes/delete/:id' component={ DeleteNote } /> */}
         </div>
       </Router>
     );
