@@ -9,7 +9,8 @@ app.use(CORS());
 
 const dummyText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -20,47 +21,47 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 let notes = [
 	{
 		id: 0,
-		title: 'App maintenece',
+		title: '## App maintenece',
 		content: dummyText,
 	},
 	{
 		id: 1,
-		title: 'Blah blah',
+		title: '## Blah blah',
         content: dummyText,
 	},
 	{
 		id: 2,
-		title: 'Does this work?',
+		title: '## Does this work?',
         content: dummyText,
     },
     {
 		id: 3,
-		title: 'Make lunch',
+		title: '## Make lunch',
         content: dummyText,
     },
     {
 		id: 4,
-		title: 'React tips',
+		title: '## React tips',
         content: dummyText,
     },
     {
 		id: 5,
-		title: 'Redux sucks',
+		title: '## Redux sucks',
         content: dummyText,
     },
     {
 		id: 6,
-		title: 'The perfect grilled cheese',
+		title: '## The perfect grilled cheese',
         content: dummyText,
     },
     {
 		id: 7,
-		title: 'yadda yadda',
+		title: '## yadda yadda',
         content: dummyText,
     },
     {
 		id: 8,
-		title: 'Code everyday',
+		title: '## Code everyday',
         content: dummyText,
     },
 ];
