@@ -24,7 +24,7 @@ export const notesReducer = (state=initialState, action) => {
     case FETCHNOTE:
       return {...state, fetchingNote: true }
     case NOTEFETCHED:
-      return {...state, noteFetched: true, fetchingNote: false, note: action.note }
+      return {...state, noteFetched: true, fetchingNote: false, note: action.note}
     case ADDED:
       return {...state, notes: [...action.notes]}
     case DELETED:

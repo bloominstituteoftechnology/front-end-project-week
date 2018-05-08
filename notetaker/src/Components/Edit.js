@@ -54,7 +54,7 @@ class Edit extends Component {
                         placeholder='Content'
                     />
                 </FormGroup>
-                <Link exact to='/' component={Notes}>
+                <Link exact='true' to='/' component={Notes}>
                     <button type='submit'
                         onClick={this.handleSubmit}>Submit
                     </button>
