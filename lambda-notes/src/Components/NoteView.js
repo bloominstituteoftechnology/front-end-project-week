@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -10,8 +10,13 @@ import '../Styles/NoteView.css';
 
 const NoteView = (props) => {
     const noteId = parseInt(props.match.params.id, 10);
-    
-       return (
+
+    const getNote = (id) => {
+        return props.notes.find(note => note.id === id);
+    }
+    const note = getNote(noteId);
+    // console.log('NOTE', note)
+    return (
         <div>
 
             <Container>
@@ -22,25 +27,22 @@ const NoteView = (props) => {
                     <Col xs='9'>
                         <div className='noteView'>
                             <div className='viewLinks'>
-                           
-                                <button onClick={console.log('note')}>edit</button>
 
-                               {/* <Link to={'/'} > */}
-                                <DeleteModal />
-                                    {/* <button onClick={ (notes) => this.props.deleteNote(this.props.notes[this.props.notes.id]) }>delete</button> */}
-                             {/* </Link> */}
+                                <button onClick={ console.log('editEvent') }>edit</button>
+
+                                <DeleteModal id={ noteId }/>
 
                             </div>
-                            <h4 className='noteTitle'>{ props.notes[noteId].title }</h4>
-                            <p>{ props.notes[noteId].content }</p>
+                            <h4 className='noteTitle'>{ note.title }</h4>
+                            <p>{ note.content }</p>
                         </div>
                     </Col>
                 </Row>
             </Container>
         </div>
     )
-   }
-    
+}
+
 
 
 const mapStateToProps = state => {
@@ -48,4 +50,4 @@ const mapStateToProps = state => {
         notes: state,
     }
 }
-export default connect(mapStateToProps, {deleteNote})(NoteView);
+export default connect(mapStateToProps, { deleteNote })(NoteView);

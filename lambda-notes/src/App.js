@@ -4,16 +4,16 @@ import CreateNote from './Components/CreateNote';
 import { Route } from 'react-router-dom';
 import ListView from './Components/ListView';
 import NoteView from './Components/NoteView';
-import DeleteModal from './Components/DeleteModal';
+
 
 class App extends Component {
+
   render() {
     return (
       <div className='app'>
         <Route exact path='/' component={ListView} />
         <Route path='/create' component={CreateNote} />
         <Route path='/view/:id' component={NoteView} />
-        <Route path='/view/:id/delete' component={DeleteModal} />
       </div> 
     );
   }

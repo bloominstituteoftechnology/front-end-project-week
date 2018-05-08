@@ -12,20 +12,19 @@ class DeleteModal extends Component {
         this.state = {
             modal: false
         };
-        
+
         this.toggle = this.toggle.bind(this);
     }
-    
+
     toggle() {
         this.setState({
             modal: !this.state.modal
         });
     }
-    deleteIt(note) {
-       console.log('deleted');
-    }
+
 
     render() {
+        console.log('PROPS', this.props)
         return (
             <div>
                 <a onClick={ this.toggle }>Delete</a>
@@ -34,10 +33,14 @@ class DeleteModal extends Component {
                     <ModalBody>
                         <p>Are you sure you want to delete this?</p>
 
-                        {/* <Link to={'/'}> */}
-                            <Button onClick={this.deleteIt}>Delete</Button>
-                        {/* </Link> */}
+                   
+                            <Button onClick={ () => this.props.deleteNote(this.props.id) }>
+                                Delete
+                            </Button>
+                      
+
                         <Button>No</Button>
+
                     </ModalBody>
 
                 </Modal>
@@ -51,4 +54,4 @@ const mapStateToProps = state => {
         notes: state,
     }
 }
-export default connect(mapStateToProps, {deleteNote})(DeleteModal);
+export default connect(mapStateToProps, { deleteNote })(DeleteModal);
