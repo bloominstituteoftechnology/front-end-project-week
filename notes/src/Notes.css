@@ -17,17 +17,20 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .LambdaNotes {
     width: 13vw;
     font-size: 40px;
-    border: 1px solid black;
 }
 
 .Button {
     background-color: rgb(88,181,187);
-    height: 10vh;
+    height: 4vh;
     width: 10vw;
     margin: 1em;
     padding: 1em;
