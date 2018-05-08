@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
 import axios from 'axios';
 
-import Search from './Search';
+import SearchBar from './SearchBar';
 
 
 export default class NoteList extends Component {
@@ -20,7 +20,7 @@ export default class NoteList extends Component {
         console.log(error);
       });
   }
-  handleSearch = query => {
+  retrieveQuery = query => {
     this.setState({ query });
   }
   render() {
@@ -32,7 +32,7 @@ export default class NoteList extends Component {
       <div className="flex-container">
         <div className="title">
           <h2>Your Notes:</h2>
-          <Search search={this.handleSearch}/>
+          <SearchBar retrieve={this.retrieveQuery}/>
         </div>
         <ul className="notes-list">
           {notes.map((note, i) => {
@@ -40,11 +40,11 @@ export default class NoteList extends Component {
               <Link key={i} to={`note/${note.id}`} className="note-card">
                 <li className="note-item">
                   <h3 className="note-card-title">
-                    <ReactMarkdown source={'##'+note.title.substring(0, 19)}/>
+                    <ReactMarkdown source={'##' + note.title.substring(0, 19)}/>
                   </h3>
                   <hr/>
                   <p className="note-card-content">
-                    <ReactMarkdown source={note.content.substring(0, 120)+'...'}/>
+                    <ReactMarkdown source={note.content.substring(0, 120) + '...'}/>
                   </p>
                 </li>
               </Link>

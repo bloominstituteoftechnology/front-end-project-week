@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-export default class Search extends Component {
+export default class SearchBar extends Component {
   state = {
     query: '',
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    this.props.search(this.state.query.toLowerCase());
+    this.props.retrieve(this.state.query.toLowerCase());
   }
   render() {
     return (
