@@ -29,7 +29,9 @@ export const postNote = (newNoteObj) => {
         dispatch({ type: LOADING });
         axios
             .post('http://localhost:5000/homeNotes', newNoteObj)
-            .then(response => { dispatch({ type: SUCCESS, note: response.data })
+            .then(response => { 
+                dispatch({ type: SUCCESS, note: response.data })
+                dispatch( getNotes());
             })
     }
 }
@@ -41,7 +43,10 @@ export const deleteNote = (id) => {
         dispatch({ type: LOADING });
         axios
             .delete(`http://localhost:5000/Note/${id}`)
-            .then(response => dispatch({ type: SUCCESS, note: response.data }))
+            .then(response => { 
+                dispatch({ type: SUCCESS, note: response.data })
+                dispatch( getNotes());
+            })
     }
 }
 
@@ -52,6 +57,9 @@ export const updateNote = (updatedNoteObj) => {
         dispatch({ type: LOADING });
         axios
             .put(`http://localhost:5000/Note/${updatedNoteObj.id}`, updatedNoteObj)
-            .then(response => dispatch({ type: SUCCESS, note: response.data }))
+            .then(response => {
+                dispatch({ type: SUCCESS, note: response.data })
+                dispatch( getNotes());
+            })
     }
 }

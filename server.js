@@ -24,7 +24,6 @@ app.get('/homeNotes', (req, res) => {
 	res.send(notes);
 });
 
-
 app.post('/homeNotes', (req, res) => {
 	const note = { id: grabNextId(), ...req.body };
   
