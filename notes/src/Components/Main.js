@@ -7,7 +7,7 @@ import ExportCSV from './ExportCSV';
 import Card from './Card';
 
 
-export default class NoteList extends Component {
+export default class Main extends Component {
   state = {
     notes: [],
     query: '',
