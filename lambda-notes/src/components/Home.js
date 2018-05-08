@@ -4,12 +4,13 @@ import { Button } from 'reactstrap';
 
 import Notes from './Notes';
 
+import '../css/App.css';
+
+
 class Home extends Component {
     render() {
       return (
           <div>
-              <Button><Link to={`/create`}>Create Note</Link></Button>
-              <h1> Home </h1>
               <Notes />
           </div>
       );

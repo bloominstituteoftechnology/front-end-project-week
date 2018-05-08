@@ -29,13 +29,10 @@ class CreateNote extends Component {
       return (
           <div>
             <Form>
-              <Label for ='Title'>Title</Label>
-              <Input type='text' name='title' value={this.state.title} onChange={this.handleChange}  placeholder='Title' />
-              <Label for ='Body'>Title</Label>
-              <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder='Body' />
-              <Button onClick={ this.handleSubmit }>Create Note</Button>
+              <Input type='text' name='title' value={this.state.title} onChange={this.handleChange}  placeholder='Note Title' />
+              <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder='Note Content' />
+              <Button color='info' onClick={ this.handleSubmit }>Save</Button>
             </Form>
-            <Button><Link to='/'>Home</Link></Button>
           </div>
       );
     }

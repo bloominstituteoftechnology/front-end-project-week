@@ -35,7 +35,6 @@
                 <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder='Body' />
                 <Button onClick={ this.handleUpdate }>Update Note</Button>
               </Form>
-              <Button><Link to='/'>Home</Link></Button>
             </div>
         );
       }
