@@ -1,7 +1,7 @@
 
 
 import React, { Component } from 'react';
-
+import SideNav from './SideNav';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
@@ -11,8 +11,8 @@ export default class CreateNewNote extends Component {
   constructor(props){
     super(props);
     this.state = {
-      note_title:'',
-      note_content: ''
+      noteTitle:'',
+      noteContent: ''
     }
   };
 
@@ -24,8 +24,8 @@ export default class CreateNewNote extends Component {
     e.preventDefault();
     this.props.CreateNewNote(this.state);
     this.setState({
-      note_title: '',
-      note_content: ''
+      noteTitle: '',
+      noteContent: ''
     });
 
 
@@ -53,7 +53,7 @@ export default class CreateNewNote extends Component {
         value={this.state.noteContent} />
         </FormGroup>
 
-        <Button onClick={this.handleNewNoteInput}>Submit Note</Button>
+        <Button onClick={this.handleSubmit}>Submit Note</Button>
     </Form>
     </div>
     )

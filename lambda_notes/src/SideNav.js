@@ -1,22 +1,25 @@
 import React from 'react';
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { Link } from'react-router-dom';
 
 
-const SideNav = props => {
+const SideNav = ()  =>  {
     return (
-        <div>
-            <Nav className='viewNotes'>
-            <NavItem>
-                <NavLink href='#'>View Your </NavLink>
-            </NavItem>
-            <NavItem>
-                <NavLink href='#'>Notes List</NavLink>
-            </NavItem>
-            </Nav>
+        <div className="sideNav">
+        <div className="nav-header">Lambda Notes</div>
+        <div className="nav-buttons">
+        <Link to="/">
+        <Button className="sideNav-button">View Your Notes</Button>
+        </Link>
 
+        <Link to="create-new-note">
+        <Button className="sideNav-button">+ Create New Note</Button>
+        </Link>
         </div>
-
+        </div>
     )
 }
 
 export default SideNav;
+
+
