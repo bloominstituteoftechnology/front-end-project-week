@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { deleteNote } from '../Actions';
+import { deleteNote, editNote } from '../Actions';
 import DeleteModal from './DeleteModal';
 import Sidebar from './Sidebar';
 import '../Styles/NoteView.css';
@@ -16,7 +17,7 @@ class NoteView extends Component {
         },
         modal: false,
     };
-    
+
     toggle = () => {
         this.setState({ modal: !this.state.modal });
     }
@@ -29,9 +30,9 @@ class NoteView extends Component {
     delete = (id) => {
         this.props.deleteNote(id);
         this.props.history.push('/');
-    }    
+    }
 
-    render () {
+    render() {
         return (
             <div>
                 <Container>
@@ -41,20 +42,21 @@ class NoteView extends Component {
                         </Col>
                         <Col xs='9'>
 
-                                <div className='viewLinks'>
-                                    <a className='noteViewLink' onClick={()=> alert('Work In Progress')}>edit</a>
-
-                                    <a className='noteViewLink' onClick={this.toggle}>delete</a>
-                                    {this.state.modal && (
-                                        <DeleteModal
-                                            toggle={this.toggle}
-                                            delete={this.delete}
-                                            {...this.state}
-                                        />
-                                    )}
-                                </div>
-                                <h4 className='noteTitle'>{ this.state.note.title }</h4>
-                                <p>{ this.state.note.content }</p>
+                            <div className='viewLinks'>
+                                <Link to={ '/edit' }>
+                                    <a className='noteViewLink'>edit</a>
+                                </Link>
+                                <a className='noteViewLink' onClick={ this.toggle }>delete</a>
+                                { this.state.modal && (
+                                    <DeleteModal
+                                        toggle={ this.toggle }
+                                        delete={ this.delete }
+                                        { ...this.state }
+                                    />
+                                ) }
+                            </div>
+                            <h4 className='noteTitle'>{ this.state.note.title }</h4>
+                            <p>{ this.state.note.content }</p>
 
                         </Col>
                     </Row>
@@ -69,4 +71,4 @@ const mapStateToProps = state => {
         notes: state,
     };
 };
-export default connect(mapStateToProps, { deleteNote })(NoteView);
+export default connect(mapStateToProps, { deleteNote, editNote })(NoteView);

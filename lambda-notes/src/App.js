@@ -4,6 +4,7 @@ import CreateNote from './Components/CreateNote';
 import { Route } from 'react-router-dom';
 import ListView from './Components/ListView';
 import NoteView from './Components/NoteView';
+import EditView from './Components/EditView';
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
         <Route exact path='/' component={ListView} />
         <Route path='/create' component={CreateNote} />
         <Route path='/view/:id' component={NoteView} />
+        <Route path='/edit' component={EditView} />
       </div> 
     );
   }
