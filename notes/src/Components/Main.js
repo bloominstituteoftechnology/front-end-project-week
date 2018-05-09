@@ -26,9 +26,7 @@ export default class Main extends Component {
   }
   render() {
     let { notes, query } = this.state;
-    notes = notes.filter(note => {
-      return note.title.toLowerCase().indexOf(query) > -1;
-    });
+    notes = notes.filter(note => note.title.toLowerCase().indexOf(query) !== -1);
     return (
       <div className="flex-container">
         <div className="title">
