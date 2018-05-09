@@ -98,7 +98,7 @@ app.delete('/note/:id', (req, res) => {
   if (foundNote) {
 	const noteRemoved = {...foundNote}
 	notes = notes.filter(note => note.id != id);
-	res.status(200).json({ noteRemoved });
+	res.status(200).json(notes);
   }
 });
 
