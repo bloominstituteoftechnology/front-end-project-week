@@ -1,0 +1,51 @@
+.MainView {
+    display: flex;
+    flex-direction: row;
+    /*width: 100vw;
+    height: 100vh;
+    why is this stuff
+    so freaking hard?
+    */
+}
+
+.ButtonColumn {
+    border: 1px solid black;
+    background-color: rgb(211,210,211);
+    width: 25vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    /*align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0; 
+    */
+}
+
+.LambdaNotes {
+    width: 13vw;
+    font-size: 40px;
+}
+
+.Button {
+    background-color: rgb(88,181,187);
+    height: 4vh;
+    width: 10vw;
+    margin: 1em;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+
+
+
+
+
+
