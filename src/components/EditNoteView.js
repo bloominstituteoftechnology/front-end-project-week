@@ -42,8 +42,8 @@ class CreateNote extends React.Component {
       <div className='create-note'>
         <form onSubmit={this.onSubmit}>
           <h2>Edit Note:</h2>
-          <input onChange={this.onChange} value={this.state.title} name='title' placeholder='Note Title' required='true' maxlength='300'/>
-          <div className='area-container'><textarea onChange={this.onChange} value={this.state.entry} name="entry" placeholder='Note Content' required='true' maxlength='80000'></textarea></div>
+          <input onChange={this.onChange} value={this.state.title} name='title' placeholder='Note Title' required='true' maxLength='300'/>
+          <div className='area-container'><textarea onChange={this.onChange} value={this.state.entry} name="entry" placeholder='Note Content' required='true' maxLength='80000'></textarea></div>
           {this.props.loading ? <Loading /> : <button type='submit'>Save</button>}
         </form>
         {this.state.redirect ? <Redirect to='/404' /> : null }
