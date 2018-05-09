@@ -23,8 +23,7 @@ class App extends Component {
         // this.props.id += 1;
       ],
       title: "",
-      content: "",
-      idTracker: 0
+      content: ""
     }
   }
 
@@ -36,13 +35,15 @@ class App extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const noteList = this.state.notes;
-    noteList.push({ id: this.state.idTracker, title: this.state.title, body: this.state.content });
+    noteList.push({ id: this.state.notes.length, title: this.state.title, body: this.state.content });
 
     this.setState({
+      notes: noteList,
       title: "",
-      content: "",
-      idTracker: this.state.idTracker + 1
+      content: ""
     })
+
+    console.log(this.state);
   }
 
   createNew = () => {
@@ -70,7 +71,7 @@ class App extends Component {
           {/* only way to pass down props to child component in react-router */}
           <Switch>
             <Route exact path="/" render={() => <Notes notes={this.state.notes} blah={this.state.title} />} />
-            <Route path="/createNew" render={() => <CreateNote content={this.state.content} title={this.state.title} handleChange={this.handleChange} /> }  />
+            <Route path="/createNew" render={() => <CreateNote content={this.state.content} title={this.state.title} handleChange={this.handleChange} handleSubmit={this.handleSubmit} /> }  />
           </Switch>
         </div>
       </Router>
