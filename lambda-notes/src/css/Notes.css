@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    list-style: none;
+    border: 5px solid orange;
+    flex-direction: column;
+}
+
+.notes {
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    border: 5px solid pink;
+    width: 100%;
+
+}

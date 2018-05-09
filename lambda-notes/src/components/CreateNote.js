@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Form, Label, Input } from 'reactstrap';
+import { Button, Form, Label, Input, FormGroup } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import {createNote} from '../actions';
+import '../css/CreateNote.css';
+
 
 
 class CreateNote extends Component {
@@ -27,11 +29,13 @@ class CreateNote extends Component {
 
   render() {
       return (
-          <div>
+          <div className='createNote'>
             <Form>
-              <Input type='text' name='title' value={this.state.title} onChange={this.handleChange}  placeholder='Note Title' />
-              <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder='Note Content' />
-              <Button color='info' onClick={ this.handleSubmit }>Save</Button>
+              <FormGroup className='form'>
+                <Input type='text' name='title' value={this.state.title} onChange={this.handleChange}  placeholder='Note Title' />
+                <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder='Note Content' />
+                <Button color='info' onClick={ this.handleSubmit }>Save</Button>
+              </FormGroup>
             </Form>
           </div>
       );

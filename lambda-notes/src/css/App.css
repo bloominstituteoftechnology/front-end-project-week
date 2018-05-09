@@ -1,3 +1,38 @@
 .link {
   color: white;
 }
+
+.home {
+  display: flex;
+  border: 5px solid red;
+}
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 30px;
+
+}
+
+.home-nav-banner {
+  display: flex;
+  margin: 25px 35px;
+  justify-content: center;
+  border: 5px solid yellow;
+}
+
+.home-nav-link {
+  width: 50%;
+  margin: 15px 25%;
+
+}
+
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-grow: 10;
+  border: 5px solid blue;
+}
