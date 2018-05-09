@@ -17,15 +17,14 @@ class App extends Component {
     super()
     this.state = {
       notes: [
-        { id: 0, title: "Example Note", body: "here is an example note" },
-        { id: 1, title: "superman", body: "here is another piece of text" },
-        { id: 2, title: "batman", body: "here is another piece of text for batman" }
+        { id: 0, title: "Example Note", body: "here is an example note" }
 
         // begin initial state in redux store
         // this.props.id += 1;
       ],
       title: "",
-      content: ""
+      content: "",
+      idTracker: 0
     }
   }
 
@@ -37,7 +36,13 @@ class App extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const noteList = this.state.notes;
-     
+    noteList.push({ id: this.state.idTracker, title: this.state.title, body: this.state.content });
+
+    this.setState({
+      title: "",
+      content: "",
+      idTracker: this.state.idTracker + 1
+    })
   }
 
   createNew = () => {
