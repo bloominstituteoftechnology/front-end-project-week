@@ -36,7 +36,8 @@ class App extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    
+    const noteList = this.state.notes;
+     
   }
 
   createNew = () => {
