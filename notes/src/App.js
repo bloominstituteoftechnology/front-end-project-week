@@ -70,7 +70,7 @@ class App extends Component {
           <NavBar />
           {/* only way to pass down props to child component in react-router */}
           <Switch>
-            <Route exact path="/" render={() => <Notes notes={this.state.notes} blah={this.state.title} />} />
+            <Route exact path="/" render={() => <Notes notes={this.state.notes} title={this.state.title} />} />
             <Route path="/createNew" render={() => <CreateNote content={this.state.content} title={this.state.title} handleChange={this.handleChange} handleSubmit={this.handleSubmit} /> }  />
           </Switch>
         </div>
