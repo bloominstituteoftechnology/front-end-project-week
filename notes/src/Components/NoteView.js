@@ -16,8 +16,10 @@ render() {
         <div className="HeaderBox">
           <ul>
             <li>
-              
-              <Link to='/editView/:id'> Edit </Link> 
+              {/* <Link to={`/editView/${this.props.match.path.params}`}> Edit </Link>  */}
+              <Link to={`/editView/${this.props.location.state.id}`}>
+                Edit
+              </Link>
             </li>
             <li>Delete</li>
           </ul>
