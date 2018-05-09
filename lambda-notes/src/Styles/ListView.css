@@ -13,7 +13,7 @@
     width: 200px;
     height: 200px;
     border: 1.25px solid lightgrey;
-    display: inline-block;
+    display: inline-flex;
     margin: 2%;
     background: white;
     padding: 1% 2% 0 2%;

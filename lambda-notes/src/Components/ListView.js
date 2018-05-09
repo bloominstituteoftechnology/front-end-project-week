@@ -26,7 +26,7 @@ const ListView = (props) => {
                     { props.notes.map((note, id) =>
                         <div className='thumbnail'
                             key={ note.title }>
-                            <Link to={ `/view/${note.id}` }>
+                            <Link to={ `/view/${ note.id }` }>
                                 <div className='title'>{ note.title }</div>
                                 <hr className='line' />
                                 <div className='content'>{ shortenNote(note.content) }</div>

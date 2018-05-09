@@ -34,6 +34,7 @@ a:hover {
   font-weight: bold;
   margin: 0 auto;
   margin-bottom: 20px;
+  border: 1.5px solid lightgray;
 }
 
 .sidebar-button:hover {

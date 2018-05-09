@@ -8,6 +8,7 @@ body {
   margin-bottom: 25px;
   margin-top: 4.5rem;
 }
+
 input {
   display: block;
   width: 300px;
@@ -16,16 +17,20 @@ input {
   border-radius: 2%;
   border: 1.5px solid #a7a2a2;
 }
+
 input:focus {
   outline: none;
 }
+
 textarea:focus {
   outline: none;
 }
+
 textarea {
   border: 1.5px solid #a7a2a2;
   padding: 2%;
 }
+
 .submit {
   display: block;
   background: #27b8c4;
