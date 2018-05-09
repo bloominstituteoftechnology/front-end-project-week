@@ -35,6 +35,7 @@ class App extends Component {
   }
 
   handleSubmit = (event) => {
+    event.preventDefault();
     
   }
 
