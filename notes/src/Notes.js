@@ -9,7 +9,6 @@ class Notes extends Component {
         return (
 
             <div className="YourNotes" >
-                {this.props.blah}
                 {this.props.notes.map((note) => {
                     return (
                         <div>
