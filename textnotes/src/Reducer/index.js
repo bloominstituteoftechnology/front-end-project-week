@@ -1,7 +1,5 @@
 import { LOADING, SUCCESS, GET_NOTE } from '../Action';
 
-// defaultState = { notes = [], fetching = false, }
-
 const defaultState = {
     notes: [],
     fetching: false,

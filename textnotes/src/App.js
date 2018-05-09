@@ -32,8 +32,6 @@ class App extends Component {
   }
 }
 
-// mapStateToProps
-
 const mapStateToProps = state => {
   return {
     loading: state.loading,
