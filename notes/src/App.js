@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Switch
 } from 'react-router-dom';
 import './App.css';
 import Notes from './Notes.js';
@@ -24,12 +24,23 @@ class App extends Component {
         // begin initial state in redux store
         // this.props.id += 1;
       ],
-      title: "whatevs"
+      title: "",
+      content: ""
     }
+  }
+
+  handleChange = (event) => {
+   this.setState({ [event.target.name]:event.target.value })
+   console.log(this.state);
+  }
+
+  handleSubmit = (event) => {
+    this.setState({  })
   }
 
   createNew = () => {
     // create new note
+    
   }
 
   viewExisting = () => {
@@ -43,14 +54,17 @@ class App extends Component {
   deleteExisting = () => {
     // delete note
   }
-  
+
   render() {
     return (
       <Router>
         <div className="MainView">
           <NavBar />
-          <Notes notes={this.state.notes} blah={this.state.title} />
-          <CreateNote />
+          {/* only way to pass down props to child component in react-router */}
+          <Switch>
+            <Route exact path="/" render={() => <Notes notes={this.state.notes} blah={this.state.title} />} />
+            <Route path="/createNew" render={() => <CreateNote content={this.state.content} title={this.state.title} handleChange={this.handleChange} /> }  />
+          </Switch>
         </div>
       </Router>
     );
