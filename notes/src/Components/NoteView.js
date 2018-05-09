@@ -1,43 +1,36 @@
 import React, { Component } from "react";
-import axios from 'axios';
-import Notes from "./Notes.js";
+// import axios from 'axios';
+import { Link } from "react-router-dom";
+// import 
 
 export default class NoteView extends Component {
       
     state ={
      note: null
  };
-
-   componentDidMount(){
-       const id = this.props.match.params.id;
-        axios
-          .get(`http://localhost:5000/notes/${id}`)
-          .then(response =>
-            this.setState(() => ({ note: response.data }))
-          )
-          .catch(error => {
-            console.error(error);
-          });
-   }
   
 render() {
-    if(!this.state.note) {
-      return <div>Loading note information...</div>
-    } 
-  
+  console.log( "props", this.props);
+   
     return <div>
-        <ul className="note-grid">
-          {this.state.notes.map(note => {
-            return <div className="note-box">
-                <Notes key={note.id} note={note} />
-              </div>;
-          })}
-      
-        </ul>
-      </div>;
-  }
+        <div className="HeaderBox">
+          <ul>
+            <li>
+              
+              <Link to='/editView/:id'> Edit </Link> 
+            </li>
+            <li>Delete</li>
+          </ul>
+        </div>
+        <div className="contentBox">
+          {console.log(this.state)}
 
+          <h1> Title: {this.props.location.state.title} </h1>
+          <h3> Content: {this.props.location.state.content} </h3>
+        </div>
+      </div>;
+ 
  
 
-
-};
+}
+}

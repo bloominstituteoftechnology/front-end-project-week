@@ -74,10 +74,10 @@ const linkStyles = {
      return <div className="listView">
          <div className="note-title"> Your Notes:</div>
          <ul className="note-grid">
-           {this.state.notes.map(note => {
-             return <div className="note-box">
-                 <Link style={linkStyles} to={`/noteView/${note.id}`}>
-                   <Notes key={note.id} note={note} />
+           {this.state.notes.map(note => { console.log("note", note);
+             return <div key={note.id} className="note-box">
+                 <Link style={linkStyles} to={{pathname:`/noteView/${note.id}`, state: note}}>
+                   <Notes note={note} />
                  </Link>
                </div>;
            })}
