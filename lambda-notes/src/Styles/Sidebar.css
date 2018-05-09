@@ -2,20 +2,21 @@
   max-width: 350px;
   height: 100%;
   min-height: 715px;
-  background: #cfcccc; 
+  background: #cfcccc;
   border: 1.5px solid #BAB7B7;
 }
 
 h6 {
-  margin: 20px 0 25px 5%;
-  font-size: 1.5rem;
+  margin: 20px 0 20px 5%;
+  font-size: 1.25rem;
   font-weight: bold;
-  color: #504F4F; 
+  color: #504F4F;
 }
 
 @media (min-width: 768px) {
   h6 {
     font-size: 2rem;
+    padding-right: 50%;
   }
 }
 

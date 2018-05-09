@@ -5,6 +5,16 @@
 }
 
 .viewLinks {
-    margin-left: 85%;
+    margin-top: 10px;
+    margin-left: 90%;
     text-decoration: underline;
+    color: #504f4f;
+    font-weight: bolder;
+}
+
+.noteTitle {
+    font-weight: bold;
+    color: #504f4f;
+    margin-bottom: 25px;
+    margin-top: 2rem;
 }

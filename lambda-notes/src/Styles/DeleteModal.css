@@ -6,7 +6,7 @@
     margin: 10px;
     border: none;
     border-radius: 0%;
-    width: 20%;
+    width: 150px;
 }
 
 .dismissModal:hover {
@@ -17,11 +17,22 @@
     background: #DB2222;
     border: none;
     border-radius: 0%;
-    width: 20%;
+    width: 150px;
     color: white;
     font-weight: bold;
 }
 
 .deleteButton:hover {
     background: #AF1B1B;
+}
+
+div .modal-content {
+    border-radius: 0;
+    border: 1.5px solid #504f4f;
+}
+
+div .modal-body {
+    padding: 8%;
+    color: #504f4f;
+    margin: 0 auto;
 }
