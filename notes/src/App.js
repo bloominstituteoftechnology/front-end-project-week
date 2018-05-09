@@ -30,12 +30,13 @@ class App extends Component {
   }
 
   handleChange = (event) => {
+   // why is the [event.target.name] in square brackets?
    this.setState({ [event.target.name]:event.target.value })
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-
+    
   }
 
   createNew = () => {
