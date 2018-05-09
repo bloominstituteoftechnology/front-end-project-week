@@ -1,24 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
 import '../Styles/ListView.css'
 import Sidebar from './Sidebar';
-import { getNotes } from '../Actions'
 
 const shortenNote = (str) => {
-    if (str.length >= 110) {
-        return str.slice(0, 110) + '...';
+    if (str.length >= 100) {
+        return str.slice(0, 90) + '...';
     }
     return str;
 }
 
-class ListView extends Component {
-    componentDidMount() {
-        this.props.getNotes()
-    }
-    render() {
+const ListView = (props) => {
         return (
             <Container className='container'>
                 <Row>
@@ -29,7 +24,7 @@ class ListView extends Component {
                         <div className='note'>
                             <h4 className='yourNotes'>Your Notes:</h4>
 
-                            { this.props.notes.map((note, id) =>
+                            { props.notes.map((note, id) =>
                                 <div className='postIt'
                                     key={ note.title }>
                                     <Link to={ `/view/${note.id}` }>
@@ -47,12 +42,10 @@ class ListView extends Component {
         )
     }
 
-}
-
 const mapStateToProps = state => {
     return {
         notes: state,
     }
 }
-export default connect(mapStateToProps, { getNotes })(ListView);
+export default connect(mapStateToProps)(ListView);
 

@@ -1,0 +1,31 @@
+.noButton {
+    background: #27b8c4;
+    max-height: 100%;
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+    border: none;
+    border-radius: 0%;
+    width: 20%;
+}
+
+.noButton:hover {
+    background: #1f939c;
+}
+
+.dismissModal {
+    background: #DB2222;
+    border: none;
+    border-radius: 0%;
+    width: 20%;
+    color: white;
+    font-weight: bold;
+}
+
+.dismissModal:hover {
+    background: #AF1B1B;
+}
+
+Modal p {
+    margin: 0 auto;
+}
