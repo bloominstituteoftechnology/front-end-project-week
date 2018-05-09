@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNote, viewNotes } from './actions';
+import { addNote, viewNotes, editNote, deleteNote } from './actions';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 
 class App extends Component {
   render() {
-    console.log(this.props);
     return (
       <Router>
         <Sidebar addNote={this.props.addNote}
                  viewNotes={this.props.viewNotes}
+                 editNote={this.props.editNote}
+                 deleteNote={this.props.deleteNote}
                  notes={this.props.notes} />
       </Router>
     );
@@ -23,4 +24,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { addNote, viewNotes })(App);
+export default connect(mapStateToProps, { addNote, viewNotes, editNote, deleteNote })(App);

@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Form, FormControl, FormGroup, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-class AddNote extends Component {
+class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      content: ""
+      title: this.props.notes[this.props.match.params.id].title,
+      content: this.props.notes[this.props.match.params.id].content
     }
   }
 
@@ -18,22 +18,22 @@ class AddNote extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addNote(this.state);
+    this.props.editNote(this.state, this.props.match.params.id);
     this.setState({title: "", content: ""});
-    this.props.history.push("/view");
+    this.props.history.push(`/view/${this.props.match.params.id}`);
   }
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
         <FormGroup>
-          <FormControl type="text" placeholder="Note Title"
-                       name="title" onChange={this.handleChange}
+          <FormControl type="text" name="title"
+                       onChange={this.handleChange}
                        value={this.state.title} />
         </FormGroup>
         <FormGroup>
-          <FormControl componentClass="textarea" placeholder="Note Content"
-                       name="content" onChange={this.handleChange}
+          <FormControl componentClass="textarea" name="content"
+                       onChange={this.handleChange}
                        value={this.state.content} />
         </FormGroup>
         <Button type="submit">Save</Button>
@@ -42,4 +42,4 @@ class AddNote extends Component {
   }
 }
 
-export default withRouter(AddNote);
+export default withRouter(EditNote);
