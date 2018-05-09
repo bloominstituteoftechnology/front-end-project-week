@@ -27,6 +27,7 @@ class CreateNote extends React.Component {
 
   onSubmit = (event) => {
     event.preventDefault();
+    console.log(this.state);
     const { username, password } = this.state;
     this.props.login(username, password, this.props.history);
   }
@@ -37,8 +38,8 @@ class CreateNote extends React.Component {
         <form onSubmit={this.onSubmit}>
           <h2>Login:</h2>
           {this.props.error ? <div className='error'>{this.props.error.response.data.error}</div> : null}
-          <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true' maxlength='100'/>
-          <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' maxlength='100'/>
+          <input onChange={this.onChange} value={this.state.title} name='username' placeholder='username' required='true' maxLength='100'/>
+          <input onChange={this.onChange} value={this.state.entry} name="password" placeholder='password' type='password' required='true' maxLength='100'/>
           {this.props.loading ? <Loading /> : <button type='submit'>Log In</button>}
         </form>
         <div className='prompt-cont'><div className='register-prompt'>Don't have an account? <Link to='/register' >Create one here.</Link></div></div>

@@ -16,7 +16,7 @@ const initialTestState = {};
 const persistState = sessionStorage.getItem('reduxState') ? JSON.parse(sessionStorage.getItem('reduxState')) : initialTestState;
 
 // const store = createStore(notesReducer, persistState, composeEnhancers(applyMiddleware(logger)));
-const store = createStore(rootReducer, persistState, composeEnhancers(applyMiddleware(logger, thunk)));
+const store = createStore(rootReducer, persistState, composeEnhancers(applyMiddleware(thunk, logger)));
 
 store.subscribe(()=>{
   sessionStorage.setItem('reduxState', JSON.stringify(store.getState()));

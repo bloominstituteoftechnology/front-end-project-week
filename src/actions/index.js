@@ -117,7 +117,7 @@ export const getNotes = () => {
                 dispatch({ type: 'GOT_NOTES', payload: response.data });
             })
             .catch(err => {
-                dispatch({ type: 'ERROR_GETTING_NOTES', payload: err });
+                dispatch({ type: 'ERROR_GETTING_NOTES', payload: err.response });
             });
     };
 };
