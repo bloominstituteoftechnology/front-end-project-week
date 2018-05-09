@@ -20,7 +20,7 @@ class SideBar extends React.Component {
     return (
       <div className='sidebar'>
         <div className='top'>
-          <h1>Lambda Notes</h1>
+          <h1>Dry Notes</h1>
           <NavLink to='/' className='button'><button>View Your Notes</button></NavLink>
           <NavLink to='/new' className='button'><button>+ Create New Node</button></NavLink>
           <button className='export' onClick={this.exportCSV}>Export Notes</button>
