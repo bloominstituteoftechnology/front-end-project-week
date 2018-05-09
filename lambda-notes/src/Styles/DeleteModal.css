@@ -36,3 +36,7 @@ div .modal-body {
     color: #504f4f;
     margin: 0 auto;
 }
+
+div .modal-body p {
+    margin-left: 20px;
+}

@@ -9,12 +9,13 @@ import "../Styles/CreateNote.css";
 
 class CreateNote extends Component {
     state = {
+        type: 'Create New Note', //Edit Note:
         title: '',
         content: '',
-        id: ''
+        id: '',
+        button: 'save' //Update
     }
 
-    
     updateInput = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -41,14 +42,14 @@ class CreateNote extends Component {
 
                     <Col xs='9'>
                         <div className='newNote'>
-                            <h4 className='createNoteHeading'>Create New Note:</h4>
+                            <h4 className='createNoteHeading'>{this.state.type}</h4>
 
                             <input type='text' name='title' placeholder='Note Title' value={ this.state.title } onChange={ this.updateInput } />
 
                             <textarea name='content' rows='15' cols='90' placeholder='Note Content' value={ this.state.content } onChange={ this.updateInput } />
 
                             <Link to={'/'}>
-                            <button className='submit' onClick={ this.createNewNote }>save</button>
+                            <button className='submit' onClick={ this.createNewNote }>{ this.state.button }</button>
                             </Link>
                         </div>
                     </Col>
