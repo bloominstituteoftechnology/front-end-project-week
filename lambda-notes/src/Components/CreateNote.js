@@ -41,7 +41,7 @@ class CreateNote extends Component {
 
                     <Col xs='9'>
                         <div className='newNote'>
-                            <h4 className='createNote'>Create New Note:</h4>
+                            <h4 className='createNoteHeading'>Create New Note:</h4>
 
                             <input type='text' name='title' placeholder='Note Title' value={ this.state.title } onChange={ this.updateInput } />
 

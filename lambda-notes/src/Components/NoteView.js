@@ -40,9 +40,10 @@ class NoteView extends Component {
                             <Sidebar />
                         </Col>
                         <Col xs='9'>
-                            <div className='noteView'>
+
                                 <div className='viewLinks'>
-                                    <a className='noteViewLink'>edit</a>
+                                    <a className='noteViewLink' onClick={()=> alert('Work In Progress')}>edit</a>
+
                                     <a className='noteViewLink' onClick={this.toggle}>delete</a>
                                     {this.state.modal && (
                                         <DeleteModal
@@ -54,7 +55,7 @@ class NoteView extends Component {
                                 </div>
                                 <h4 className='noteTitle'>{ this.state.note.title }</h4>
                                 <p>{ this.state.note.content }</p>
-                            </div>
+
                         </Col>
                     </Row>
                 </Container>

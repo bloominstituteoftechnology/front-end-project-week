@@ -1,14 +1,10 @@
-.noteTitle {
-    font-weight: bold;
-    color: #504f4f;
-    margin-bottom: 25px;
-    margin-top: 1.5rem;
+.noteViewLink {
+    padding: 3%;
+    margin: 10px;
+    text-decoration: default;
 }
 
-.noteView {
-    width: 100%;
-    min-height: 800px;
-    max-width: 800px;
-    margin-left: -30px;
-    padding: 3%;
+.viewLinks {
+    margin-left: 85%;
+    text-decoration: underline;
 }

@@ -14,33 +14,30 @@ const shortenNote = (str) => {
 }
 
 const ListView = (props) => {
-        return (
-            <Container className='container'>
-                <Row>
-                    <Col xs='3'>
-                        <Sidebar />
-                    </Col>
-                    <Col xs='9'>
-                        <div className='note'>
-                            <h4 className='yourNotes'>Your Notes:</h4>
+    return (
+        <Container className='container'>
+            <Row>
+                <Col xs='3'>
+                    <Sidebar />
+                </Col>
+                <Col xs='9'>
+                    <h4 className='yourNotes'>Your Notes:</h4>
 
-                            { props.notes.map((note, id) =>
-                                <div className='postIt'
-                                    key={ note.title }>
-                                    <Link to={ `/view/${note.id}` }>
-                                        <span className='title'>{ note.title }</span>
-                                        <hr className='line' />
-                                        <span className='content'>{ shortenNote(note.content) }</span>
-                                    </Link>
-                                </div>
-                            ) }
-
+                    { props.notes.map((note, id) =>
+                        <div className='thumbnail'
+                            key={ note.title }>
+                            <Link to={ `/view/${note.id}` }>
+                                <div className='title'>{ note.title }</div>
+                                <hr className='line' />
+                                <div className='content'>{ shortenNote(note.content) }</div>
+                            </Link>
                         </div>
-                    </Col>
-                </Row>
-            </Container>
-        )
-    }
+                    ) }
+                </Col>
+            </Row>
+        </Container>
+    )
+}
 
 const mapStateToProps = state => {
     return {
