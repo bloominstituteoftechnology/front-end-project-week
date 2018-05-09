@@ -12,10 +12,10 @@ class Notes extends Component {
             <div className="notes">
                     {!this.props.notes ?
                         <h2> loading notes</h2>: null}
-                    <div >
+                    <div className='notes-container'>
                         {this.props.notes.map((note) =>{
                             return(
-                            <div className='list' key={note.id}>
+                            <div className='notes-list' key={note.id}>
                                 <h3><Link to={`/notes/${note.id}`}>{note.title}</Link></h3>
                                 <p> { note.body } </p>
                             </div>
