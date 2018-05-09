@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import SearchBar from './SearchBar';
-import ExportCSV from './ExportCSV';
+import Export from './Export';
 import Card from './Card';
 
 
@@ -34,7 +34,7 @@ export default class Main extends Component {
         <div className="title">
           <h2>Your Notes:</h2>
           <SearchBar retrieve={this.retrieveQuery}/>
-          <ExportCSV notes={notes} />
+          <Export notes={notes} />
         </div>
         <ul className="notes-list">
           {notes.map((note, i) => {
