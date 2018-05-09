@@ -18,15 +18,17 @@ export default class Create extends Component {
       button: 'Add Note',
       action: this.addNewNote,
     }
-    if (this.state.redirect) {
-      return <Redirect to="/" />
-    }
     return(
       <div className="flex-container">
-        <div className="title">
-          <h2>Create New Note:</h2>
-        </div>
-        <Form {...items}/>
+        {this.state.redirect 
+          ? <Redirect to="/" />
+          : <div className="flex-container">
+              <div className="title">
+                <h2>Create New Note:</h2>
+              </div>
+              <Form {...items} />
+            </div>
+        }
       </div>
     );
   }

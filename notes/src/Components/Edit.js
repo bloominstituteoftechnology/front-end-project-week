@@ -19,17 +19,17 @@ export default class Edit extends Component {
       action: this.updateNote,
       note: this.props.location.state,
     }
-    if (this.state.redirect) {
-      return (
-        <Redirect to='/' />
-      )
-    }
     return (
       <div className="flex-container">
-        <div className="title">
-          <h2>Edit Note:</h2>
-        </div>
-        <Form {...items} />
+        {this.state.redirect 
+          ? <Redirect to='/'/>
+          : <div className="flex-container">
+              <div className="title">
+                <h2>Edit Note:</h2>
+              </div>
+              <Form {...items} />
+            </div>
+        }
       </div>
     );
   }
