@@ -34,24 +34,33 @@ class ViewNote extends Component {
             <div className='ViewNote-container'>
             {this.props.note ? 
                 <div>
-                    <Link to={{pathname: `${this.props.note.id}/edit`, state: this.props.note}}>Edit</Link>
-                    <div>
-                        <Button color="danger" onClick={this.toggleModal}>Delete</Button>
-                        <Modal isOpen={this.state.modal} toggle={this.toggleModal} className={this.props.className}>
-                        <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-                        <ModalBody>
-                            Are you sure you want to delete?
-                        </ModalBody>
-                        <ModalFooter>
-                            <Link exact to="/">
-                                <Button color="primary" onClick={this.handleDelete}>Delete</Button>
-                            </Link>
-                            <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
-                        </ModalFooter>
-                        </Modal>
+                    <div className='ViewNote-buttons'>
+                        <Link to={{
+                            pathname: `${this.props.note.id}/edit`,
+                            state: this.props.note}}>
+                                <Button className='ViewNote-edit'>Edit</Button>
+                        </Link>
+                        <p> </p>
+                        <Button className='ViewNote-delete' color="danger" onClick={this.toggleModal}>Delete</Button>
+                            <Modal isOpen={this.state.modal}
+                                    toggle={this.toggleModal}
+                                    className={this.props.className}>
+                                <ModalHeader toggle={this.toggle}>Delete {this.props.note.title}?</ModalHeader>
+                                <ModalBody>
+                                    Are you sure you want to delete {this.props.note.title}?
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Link exact to="/">
+                                        <Button color="danger" onClick={this.handleDelete}>Delete</Button>
+                                    </Link>
+                                    <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+                                </ModalFooter>
+                            </Modal>
                     </div>
-                    <h2 className='ViewNote-title'>{this.props.note.title}</h2>
-                    <p className='ViewNote-content'>{this.props.note.content}</p>
+                    <div className='ViewNote-content'>
+                        <h2 className='ViewNote-title'>{this.props.note.title}</h2>
+                        <p>{this.props.note.content}</p>
+                    </div>
                 </div> : <h2>Loading Note</h2>}
             </div>
             )
@@ -63,7 +72,6 @@ const mapStateToProps = (state) => {
     return ({
         notes: state.notes,
         note: state.note,
-        // modal: state.modal
     })     
 }
 

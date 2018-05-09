@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { addNote } from '../Actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button, Form, Input, FormText, Label, FormGroup } from 'reactstrap';
 
 class CreateNote extends Component {
     state = {
@@ -24,13 +25,33 @@ class CreateNote extends Component {
     render() {
         return (
             <div>
-                <input placeholder='Title' value={this.state.title} onChange={this.handleChange} name='title' />
-                <input placeholder='Content' value={this.state.content} onChange={this.handleChange} name='content' />
-                <button onClick={this.handleAdd}>
-                    <Link to="/">
-                        Add Note
-                    </Link>
-                </button>
+                <Form>
+                    <FormGroup>
+                        <Label>Title</Label>
+                        <Input type="title"
+                            onChange={this.handleChange}
+                            value={this.state.title}
+                            name="title"
+                            id="title"
+                            placeholder='Title'
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Content</Label>
+                        <Input type="content"
+                            onChange={this.handleChange}
+                            value={this.state.content}
+                            name="content"
+                            id="content"
+                            placeholder='Content'
+                        />
+                    </FormGroup>
+                    <Link exact='true' to='/'>
+                        <Button type='submit'
+                            onClick={this.handleAdd}>Submit
+                        </Button>
+                    </ Link>
+                </Form>
             </div>
         )
     }

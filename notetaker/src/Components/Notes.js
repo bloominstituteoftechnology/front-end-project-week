@@ -17,7 +17,6 @@ const Notes = props => {
                     <CardTitle>{note.title}</CardTitle>
                   </Link>
                   <CardSubtitle>{note.content}</CardSubtitle>
-                  <CardText>Other Text!?</CardText>
                 </CardBody>
               </Card>
           )

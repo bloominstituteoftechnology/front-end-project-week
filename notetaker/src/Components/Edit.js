@@ -33,33 +33,36 @@ class Edit extends Component {
 
     render() {
         return (
-            <Form>
-                <FormGroup>
-                    <Label>Title</Label>
-                    <Input type="title"
-                        onChange={this.handleChange}
-                        value={this.state.title}
-                        name="title"
-                        id="title"
-                        placeholder='Title'
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label>Content</Label>
-                    <Input type="content"
-                        onChange={this.handleChange}
-                        value={this.state.content}
-                        name="content"
-                        id="content"
-                        placeholder='Content'
-                    />
-                </FormGroup>
-                <Link exact='true' to='/' component={Notes}>
-                    <button type='submit'
-                        onClick={this.handleSubmit}>Submit
-                    </button>
-                </ Link>
-            </Form>
+            <div>
+            <h3>Edit Note</h3>
+                <Form>
+                    <FormGroup>
+                        <Label>Title</Label>
+                        <Input type="title"
+                            onChange={this.handleChange}
+                            value={this.state.title}
+                            name="title"
+                            id="title"
+                            placeholder='Title'
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Content</Label>
+                        <Input type="content"
+                            onChange={this.handleChange}
+                            value={this.state.content}
+                            name="content"
+                            id="content"
+                            placeholder='Content'
+                        />
+                    </FormGroup>
+                    <Link exact='true' to='/' component={Notes}>
+                        <button type='submit'
+                            onClick={this.handleSubmit}>Submit
+                        </button>
+                    </ Link>
+                </Form>
+            </div>
         )
     }
 
@@ -72,5 +75,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, { editNote })(Edit);
-
-// this.props.location.state.title

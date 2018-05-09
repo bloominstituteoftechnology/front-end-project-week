@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  height: 100%;
 }
 
 .App-logo {
@@ -22,17 +24,24 @@
   font-size: large;
 }
 
-.Toolbar-left-container {
+.Toolbar {
   border: solid 1px rgb(34, 34, 34);
-  height: 750px;
+  height: 1000px;
+  width: 20%;
   padding: 2% 2%;
   background-color: gray;
-} 
+}
 
-.Notes-col-container {
+.Toolbar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Notes {
   border: solid 1px rgb(34, 34, 34);
   text-align: left;
-  height: 750px;
+  height: 1000px;
+  width: 80%;
   padding: 7% 2%;
   background-color: lightgray;
 }
@@ -48,6 +57,10 @@
   margin: 1% 1%;
 }
 
+.ViewNote-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
 
 
 @keyframes App-logo-spin {

@@ -7,18 +7,19 @@ import CreateNote from './CreateNote';
 const Toolbar = props => {
   return(
     <div className='Toolbar-container'>
-      <h1>Lambda NoteTaker</h1>
-      <Row>
-        <Button>
-        <Link to="/">View Your Notes</Link>
-        </Button>
-      </Row>
-      <Row>
-        <Button>
-          <Link to="/add" component={CreateNote}>+Add New Note</Link>
-        </Button>
-      </Row>
-
+      <h3>Lambda Notes</h3>
+        <p></p>
+          <Link to='/'>
+            <Button className='' color='primary'>
+              View Your Notes
+            </Button>
+          </Link>
+        <p></p>
+          <Link to='/add'>
+            <Button color='primary'>
+              +Add New Note
+            </Button>
+          </Link>
     </div>
     )
 }

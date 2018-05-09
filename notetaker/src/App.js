@@ -22,20 +22,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
-          <Row>
-            <Col className='Toolbar-left-container' sm='4'>
-              <Route to='/' component={Toolbar} />
-            </Col>
-            <Col className='Notes-col-container' md='8'>
-              <Route exact path='/' render={ () =>
-                <Notes {...this.props} /> } />
-              <Route path='/add' component={CreateNote} />
-              <Route exact path={`/notes/:id`} component={ViewNote} />
-              <Route path={`/notes/:id/edit`} component={Edit} />
-            </Col>
-          </Row>
-        </Container>
+        <div className='Toolbar'>
+          <Route to='/' component={Toolbar} />
+        </div>
+        <div className='Notes'>
+          <Route exact path='/' render={ () =>
+            <Notes {...this.props} /> } />
+          <Route path='/add' component={CreateNote} />
+          <Route exact path={`/notes/:id`} component={ViewNote} />
+          <Route path={`/notes/:id/edit`} component={Edit} />
+        </div>
       </div>
     );
   }
