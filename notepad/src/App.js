@@ -4,7 +4,7 @@ import './index.css';
 import Main from './components/Main';
 import SideBar from './components/SideBar';
 import { Container, Row, Col } from 'reactstrap';
-
+import 'regenerator-runtime/runtime';
 
 
 
@@ -23,7 +23,6 @@ class App extends Component {
           <Main />
         </Col>
       </Row> 
-
       </Container>
     );
   }

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Row, Col } from 'reactstrap';
 import DeleteModal from './Modal';
 import "./Note.css";
+import Export from './ToPDF';
+
 
 class Note extends Component {
     constructor(props){
@@ -28,13 +30,17 @@ class Note extends Component {
         this.props.history.push(`/notes/`)
     }
 
+    handleprintDocument = () => {
+        this.props.printDocument(this.props.note)
+    }
+
 render(){
     const { note } = this.state;
     const props = {
         note: this.state
     }
     return (
-        <div key={this.props.note.id} >
+        <div key={this.props.note.id}>
             <div className={"textLink"}> 
                 <Link 
                     to={`/notes/edit/${this.props.note.id}`}
@@ -48,7 +54,7 @@ render(){
                     {...props} 
                 />
             </Link>
-
+                {/* <Export key={this.props.note.id} {...props} handleprintDocument={this.printDocument} id="divToPrint"/> */}
             </div> 
             <div> 
                 <div className={"note-title"}>

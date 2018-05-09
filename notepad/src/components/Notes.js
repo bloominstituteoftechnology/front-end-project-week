@@ -36,6 +36,8 @@ render() {
                 </Link>
                 </Card>
                 )})}
+            {/* <ExportCSV notes={notes} /> */}
+
                 {this.props.pending ? <h1>LOADING</h1> : null}
         </div>
     ); 
