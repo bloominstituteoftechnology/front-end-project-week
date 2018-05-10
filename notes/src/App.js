@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/edit/:id" component={EditNote} />
           <Route path="/delete/:id" component={DeleteNote} />
           <Route path="/add" component={AddNote} />
-          <Route path="/view" component={ViewNotes} />
+          <Route exact path="/view" component={ViewNotes} />
         </Grid>
       </Fragment>
     </Router>
