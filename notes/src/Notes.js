@@ -7,11 +7,11 @@ import './Notes.css';
 class Notes extends Component {
     render() {
         return (
-
             <div className="YourNotes" >
                 {this.props.notes.map((note) => {
                     return (
                         <div>
+                            <div>Your Notes</div>
                             <div>{note.title}</div>
                             <div>{note.body}</div>
                         </div>
@@ -21,6 +21,11 @@ class Notes extends Component {
         )
     }
 
+    expandNote = () => {
+        // I want to make this method expand the note to fill the notescreen 
+        // but how in the hell do I do that?
+        // this stuff is hard...
+    }
 }
 
 export default Notes;
