@@ -28,7 +28,6 @@ class EditNote extends Component {
 
     render() {
         return(
-
             <div className="createPage">
                 <h3 className="create-logo"> Edit Note: </h3>
                 <input className="title-text-box"

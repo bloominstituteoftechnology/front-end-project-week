@@ -18,8 +18,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/homeNotes', (req, res) => {
-	// send "notes" response
-	// should be empty array
 
 	res.send(notes);
 });

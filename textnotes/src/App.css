@@ -154,3 +154,10 @@ li hr {
   height: 50px;
   margin: 10px;
 }
+
+/* SearchBar css */
+
+.bar {
+  width: 20%;
+  display: block;
+}

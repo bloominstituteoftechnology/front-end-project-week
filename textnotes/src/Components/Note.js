@@ -25,7 +25,7 @@ const modalStyle = {
     border: '5 black',
     maxWidth: 500,
     mindHeight: 300,
-    marginLeft: 350,
+    marginLeft: 450,
     padding: 30,
     fontSize: 20,
     border: '3px solid grey'

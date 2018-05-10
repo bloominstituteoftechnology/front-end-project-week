@@ -4,6 +4,7 @@ export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const GET_NOTE = 'GET_NOTE';
 
+
 // axios.get config
 
 export const getNote = (id) => {
