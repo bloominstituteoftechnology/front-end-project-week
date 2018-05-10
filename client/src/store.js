@@ -4,7 +4,8 @@ import createHistory from 'history/createBrowserHistory'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-import { notesReducer } from './reducers'
+import { notesReducer } from './reducers/notesReducer'
+import { speechReducer } from './reducers/speechReducer'
 import { reducer as formReducer } from 'redux-form'
 
 export const history = createHistory()
@@ -14,6 +15,7 @@ const middleware = [logger, thunk, routerMiddleware(history)]
 
 const reducer = combineReducers({
   notesReducer,
+  speech: speechReducer,
   form: formReducer,
   router: routerReducer
 })

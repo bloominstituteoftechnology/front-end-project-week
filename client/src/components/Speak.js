@@ -1,70 +1,77 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import FA from 'react-fontawesome'
+import { startListening, stopListening, addToRegister, clearRegister } from '../actions/speech'
+import Mic from './Mic'
+
+const head = arr => arr[0]
+
+// const defaultOptions = {
+//   interim: true,
+
+// }
 
 class Speak extends Component {
-  state = { isListening: false, transcript: [] }
-
   componentDidMount = () => {
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
     this.recognition = new window.SpeechRecognition()
     this.recognition.interimResults = true
   }
 
-  listen = () => {
-    this.setState({ isListening: true })
+  componentWillUnmount = () => {
+    this.recognition.removeEventListener('result', this.accumulateTranscript)
+  }
 
-    this.recognition.addEventListener('result', this.accumulateTranscriptOnState)
-    this.recognition.addEventListener('end', () => {
-      if (this.state.isListening)
-        this.recognition.start()
-    })
-
+  startListening = () => {
+    this.props.startListening()
+    this.recognition.addEventListener('result', this.accumulateTranscript)
     this.recognition.start()
   }
 
   stopListening = () => {
-    this.setState({ isListening: false })
-
-    this.recognition.removeEventListener('result', this.accumulateTranscriptOnState)
-    this.recognition.removeEventListener('end', this.accumulateTranscriptOnState)
+    this.props.stopListening()
     this.recognition.stop()
   }
 
-  accumulateTranscriptOnState = e => {
+  accumulateTranscript = e => {
     const transcript = Array.from(e.results)
-      .map(result => result[0])
-      .map(result => result.transcript)
+      .map(head)
+      .map(({ transcript }) => transcript)
       .join('')
 
     if (e.results[0].isFinal)
-      this.setState(prevState => ({ transcript: prevState.transcript.concat(transcript) }))
+      this.props.addToRegister(transcript)
   }
-
-  componentWillUnmount = () => { }
 
   render() {
     const { onSave } = this.props
     return (
       <div className="Speak">
-
-        {this.state.isListening
-          ? (
-            <button onClick={this.stopListening}><FA
-              name="microphone-slash"
-            /></button>
-          ) : (
-            <button onClick={this.listen}><FA
-              name="microphone"
-            /></button>
-          )
-        }
-        <button onClick={() => onSave(this.state.transcript)}>Looks good?</button>
+        <Mic
+          startListening={this.startListening}
+          stopListening={this.stopListening}
+        />
+        <button onClick={() => onSave(this.props.register)}>Looks good?</button>
         <div className="transcript">
-          {this.state.transcript.map(t => <p key={t}>{t}</p>)}
+          {this.props.register.map(t => <p key={t}>{t}</p>)}
         </div>
       </div>
     )
   }
 }
 
-export default Speak
+const mapStateToProps = ({
+  speech: { isListening, register }
+}) => ({ isListening, register })
+
+const mapDispatchToProps = {
+  startListening,
+  stopListening,
+  addToRegister,
+  clearRegister,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Speak)
