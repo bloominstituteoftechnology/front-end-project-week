@@ -1,37 +1,108 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './App.css';
+import "./App.css";
 import Nav from "./Nav/Nav.js";
 import ListView from "./Components/ListView.js";
 import CreateNote from "./Components/CreateNote.js";
 import NoteView from "./Components/NoteView.js";
 import EditView from "./Components/EditView.js";
 import { Switch, Route } from "react-router-dom";
-
-
-
-
+import axios from "axios";
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { notes: [] };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+      title: "",
+      content: ""
+    };
+  }
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/notes")
+      .then(response => {
+        this.setState({ notes: response.data });
+      })
+      .catch(error => {
+        console.error("error", error);
+      });
+  }
+  inputChange = type => {
+    return e => {
+      this.setState({ [type]: e.target.value });
+    };
+  };
+
+  buttonSubmitAdd = () => {
+    const { title, content } = this.state;
+    this.buttonSubmit({ title, content });
+  };
+
+  buttonSubmit = note => {
+    axios
+      .post("http://localhost:5000/notes", note)
+      // .then(response => console.log(response))
+      .then(response => {
+        this.setState({ title: "", content: "", notes: response.data });
+      });
+  
+  };
+  handleEditSubmit = id => {
+    axios
+      .put(
+        `http://localhost:5000/notes/${id}`,
+        {title: this.state.title, content: this.state.content}
+      )
+      .then(response =>  {
+        this.setState({ title: "", content: "", notes: response.data})
+      })
+    
+      .catch(error => console.log(error));
+  };
 
   render() {
-    return <div className="AppContainer">
+    return (
+      <div className="AppContainer">
         <Nav />
-        {/* <ListView/> */}
-        <Switch>
-          <Route exact path="/" component={ListView} />
-          <Route exact path="/create" component={CreateNote} />
+       <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <ListView notes={this.state.notes} />}
+            //passing down to child components 
+            //this way makes stuff connected to everything
+          />
+          <Route
+            exact
+            path="/create"
+            render={props => (
+              <CreateNote
+                {...props}
+                //making the whole props available to CreateNote
+                title={this.state.tile}
+                content={this.state.content}
+                inputChange={this.inputChange}
+                buttonSubmitAdd={this.buttonSubmitAdd}
+              />
+            )}
+          />
           <Route path="/noteView/:id" component={NoteView} />
-          <Route path="/editView/:id" component={EditView} />
+          <Route
+            path="/editView/:id"
+            render={props => (
+              <EditView
+                {...props}
+                {...this.state}
+                inputChange={this.inputChange}
+                handleEditSubmit={this.handleEditSubmit}
+              />
+            )}
+          />
         </Switch>
-      </div>;
+      </div>
+    );
   }
 }
-
-
 
 export default App;

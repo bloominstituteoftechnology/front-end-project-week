@@ -1,7 +1,6 @@
 // import React from "react";
 // import { NavLink, Switch, Link, Route } from "react-router-dom";
 
-
 // const ListView = () => (
 //   <Switch>
 //     <Route exact path="/" component={Home} />
@@ -28,62 +27,39 @@
 //   </div>
 // );
 
- // export default Home; 
+// export default Home;
 
- import React, { Component } from "react";
- import "./ListView.css";
- import axios from "axios";
- import { Link } from "react-router-dom";
- import Notes from "./Notes.js";
+import React, { Component } from "react";
+import "./ListView.css";
+// import axios from "axios";
+import { Link } from "react-router-dom";
+import Notes from "./Notes.js";
 
 const linkStyles = {
   textDecoration: "none"
 };
 
- class ListView extends Component {
-   constructor(props) {
-     super(props);
-     this.state = { notes: [] };
-   }
+const ListView = props => {
+  return (
+    <div className="listView">
+      <div className="note-title"> Your Notes:</div>
+      <ul className="note-grid">
+        {props.notes.map(note => {
+          //  console.log("note", note);
+          return (
+            <div key={note.id} className="note-box">
+              <Link
+                style={linkStyles}
+                to={{ pathname: `/noteView/${note.id}`, state: note }}
+              >
+                <Notes note={note} />
+              </Link>
+            </div>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
-   //  componentDidMount() {
-   //    axios
-   //      .get("http://localhost:5000/notes")
-   //      .then(response => {
-   //        this.setState(() => ({ notes: response.data }));
-   //      })
-   //      .catch(error => {
-   //        console.error("error", error);
-   //      });
-   //  }
-   componentDidMount() {
-     this.fetchNotes();
-   }
-   fetchNotes = () => {
-     axios
-       .get("http://localhost:5000/notes")
-       .then(response => {
-         this.setState({ notes: response.data });
-       })
-       .catch(error => {
-         console.error("error", error);
-       });
-   };
-
-   render() {
-     return <div className="listView">
-         <div className="note-title"> Your Notes:</div>
-         <ul className="note-grid">
-           {this.state.notes.map(note => { console.log("note", note);
-             return <div key={note.id} className="note-box">
-                 <Link style={linkStyles} to={{pathname:`/noteView/${note.id}`, state: note}}>
-                   <Notes note={note} />
-                 </Link>
-               </div>;
-           })}
-         </ul>
-       </div>;
-   }
- }
-
- export default ListView;
+export default ListView;

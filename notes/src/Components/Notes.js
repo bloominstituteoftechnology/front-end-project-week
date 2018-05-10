@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
 
 
-export default class Notes extends Component{
-    constructor(props){
-        super(props);
-    }
+const Notes = (props) => {
    
-    render(){
-        return <li key={this.props.note.id} className="note">
-            <div className="note-name">{this.props.note.title}</div>
-            <div className="note-content">{this.props.note.content}</div>
+        return <li key={props.note.id} className="note">
+            <div className="note-name">{props.note.title}</div>
+            <div className="note-content">{props.note.content}</div>
             </li>;
     }
-}
+
+
+export default Notes;
