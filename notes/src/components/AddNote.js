@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, FormControl, FormGroup, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import { addNote } from '../actions';
+import { connect } from 'react-redux';
 
 class AddNote extends Component {
   constructor(props) {
@@ -42,4 +44,4 @@ class AddNote extends Component {
   }
 }
 
-export default withRouter(AddNote);
+export default withRouter(connect(null, { addNote })(AddNote));

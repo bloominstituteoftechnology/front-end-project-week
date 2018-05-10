@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { addNote, viewNotes, editNote, deleteNote } from './actions';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Grid } from 'react-bootstrap'
+import Sidebar from './components/Sidebar'
+import AddNote from './components/AddNote'
+import ViewNotes from './components/ViewNotes'
+import ViewNote from './components/ViewNote'
+import EditNote from './components/EditNote'
+import DeleteNote from './components/DeleteNote'
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Sidebar addNote={this.props.addNote}
-                 viewNotes={this.props.viewNotes}
-                 editNote={this.props.editNote}
-                 deleteNote={this.props.deleteNote}
-                 notes={this.props.notes} />
-      </Router>
-    );
-  }
+const App = () => {
+  return (
+    <Router>
+      <Fragment>
+        <Sidebar />
+        <Grid>
+          <Route path="/view/:id" component={ViewNote} />
+          <Route path="/edit/:id" component={EditNote} />
+          <Route path="/delete/:id" component={DeleteNote} />
+          <Route path="/add" component={AddNote} />
+          <Route path="/view" component={ViewNotes} />
+        </Grid>
+      </Fragment>
+    </Router>
+  )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    notes: state.notes
-  }
-}
-
-export default connect(mapStateToProps, { addNote, viewNotes, editNote, deleteNote })(App);
+export default App
