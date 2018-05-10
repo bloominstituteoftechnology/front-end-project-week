@@ -2,15 +2,18 @@
   "name": "front-end-project-week",
   "version": "1.0.0",
   "description": "This week you will be building a minimum viable product (MVP) for a note taking app called \"Lambda Notes.\"",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "create-react-app": "^1.5.2",
     "notes": "^0.0.4",
-    "react-app": "^1.1.2"
+    "react-app": "^1.1.2",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

@@ -3,3 +3,37 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.note-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #ebebeb;
+  border: 1px solid black;
+}
+.noteslist {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Note_Body {
+  width:200px;
+  height: 100px;
+}
+.card {
+  border: 3px solid;
+  border-color:black;
+  background-color: white;
+  color: BLUE;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+ 
+  background-color: white;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 2% 1.5%;
+}
+.Note {
+  padding: 5%;
+}
