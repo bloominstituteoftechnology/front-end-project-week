@@ -43,8 +43,8 @@ class NoteView extends Component {
                         <Col xs='9'>
 
                             <div className='viewLinks'>
-                                <Link to={ '/edit' }>
-                                    <a className='noteViewLink'>edit</a>
+                                <Link to={ `/edit/${this.props.match.params.id}` }>
+                                    edit
                                 </Link>
                                 <a className='noteViewLink' onClick={ this.toggle }>delete</a>
                                 { this.state.modal && (

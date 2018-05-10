@@ -8,28 +8,30 @@ import { addNote, deleteNote, editNote } from '../Actions/index';
 import "../Styles/CreateNote.css";
 
 class EditView extends Component {
-    state = {
-        type: 'Edit Note', //Edit Note:
-        title: '',
-        content: '',
-        id: '',
-        button: 'update' //Update
+    constructor(props) {
+        super(props);
+        this.state = {
+            type: 'Edit Note', //Edit Note:
+            title: this.props.notes[this.props.match.params.id].title,
+            content: this.props.notes[this.props.match.params.id].content,
+            id: this.props.match.params.id,
+            button: 'update' //Update
+        }
     }
 
     updateInput = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    createNewNote = () => {
-        const newNote = {
+    editCurrentNote = () => {
+        const updatedNote = {
             title: this.state.title,
             content: this.state.content,
-            id: this.props.notes.length || 0,
-        }
-        this.props.addNote(newNote);
-        console.log(newNote)
-        this.setState({ title: '', content: '' });
-    }
+            id: this.props.match.params.id,
+        };
+        this.props.editNote(updatedNote);
+        console.log('UPDATEDNOTE', updatedNote);
+    };
 
     render() {
         return (
@@ -44,12 +46,25 @@ class EditView extends Component {
                         <div className='newNote'>
                             <h4 className='createNoteHeading'>{ this.state.type }</h4>
 
-                            <input type='text' name='title' placeholder='Note Title' value={ this.state.title } onChange={ this.updateInput } />
+                            <input 
+                                type='text' 
+                                name='title' 
+                                placeholder='Note Title' 
+                                value={ this.state.title } 
+                                onChange={ this.updateInput } 
+                                />
 
-                            <textarea name='content' rows='15' cols='90' placeholder='Note Content' value={ this.state.content } onChange={ this.updateInput } />
+                            <textarea 
+                                name='content' 
+                                rows='15' 
+                                cols='90' 
+                                placeholder='Note Content' 
+                                value={ this.state.content } 
+                                onChange={ this.updateInput } 
+                                />
 
                             <Link to={ '/' }>
-                                <button className='submit' onClick={ this.createNewNote }>{ this.state.button }</button>
+                                <button className='submit' onClick={ this.editCurrentNote }>{ this.state.button }</button>
                             </Link>
                         </div>
                     </Col>

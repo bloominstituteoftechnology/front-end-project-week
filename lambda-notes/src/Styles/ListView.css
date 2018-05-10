@@ -35,6 +35,7 @@ a {
 }
 
 hr {
-    border: 0.6px solid lightgrey;
-    margin: 10px;
+    border: 0.5px solid lightgrey;
+    margin: 5px 5px 5px 0px;
+    width: 150px;
 }
