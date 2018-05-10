@@ -1,0 +1,163 @@
+/* this is the base styling of the entire container of the page */
+
+.container {
+  max-width: 1000px;
+  display: flex;
+  text-align: center;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+/* sidebar css */
+
+.sidebar {
+  border: 2px solid grey;
+  background-color: rgb(212, 209, 209);
+  width: 30%;
+}
+
+.button {
+  background-color: rgb(103, 197, 197);
+  color: white;
+  border: 1px grey;
+  font-size: 16px;
+  width: 150px;
+  height: 50px;
+  margin: 10px;
+}
+
+.Lambda-Logo {
+  text-align: left;
+  margin-left: 23px;
+  color: black;
+}
+
+/* app.js/ notesContainer css */
+
+.home-logo {
+  display: flex;
+  margin: 50px 0px 30px 30px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav li {
+  width: 200px;
+  background-color: white;
+  border: 1px solid black;
+  list-style-type: none;
+  margin: 5px 5px 5px 5px;
+}
+
+li p {
+  text-decoration: none;
+  word-wrap: break-word;
+  white-space: normal; 
+  color: black;
+}
+
+li hr {
+  width: 80%;
+}
+
+/* createContainer css */
+
+.createPage {
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.create-logo {
+  display: flex;
+  margin: 50px 0px 30px 30px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+.content-box {
+  display: flex;
+  font-weight: bold;
+  border: 2px solid grey;
+  margin: 20px 30px;
+  width: 465px;
+  height: 300px;
+}
+
+.title-text-box {
+  display: flex;
+  padding: 2px;
+  margin-left: 30px;
+  width: 250px;
+  height: 30px;
+  font-weight: bold;
+  border: 2px solid grey;
+}
+
+.save-button {
+  display: flex;
+  margin: 0 30px 200px;
+  padding: 10px;
+  background-color: rgb(103, 197, 197);
+  color: white;
+  border: 1px grey;
+  font-size: 16px;
+  width: 150px;
+  height: 40px;
+}
+
+/* Note.js css */
+
+.note-container {
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+}
+
+.note-title {
+  display: flex;
+  margin: 50px 0px 30px 30px;
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+.note-content {
+  display: flex;
+  padding: 5px;
+  margin: 50px 0px 30px 30px;
+  text-align: justify;
+  word-break: break-word;
+  color: black;
+}
+
+.feature-button {
+  float: right;
+  margin: 5px;
+  margin-right: 15px;
+  text-decoration: underline;
+  font-weight: bold;
+  border: none;
+  padding: 3px;
+  background: none;
+}
+
+.delete-button {
+  background-color: rgb(212, 0, 0);
+  color: white;
+  border: 1px grey;
+  font-size: 16px;
+  width: 150px;
+  height: 50px;
+  margin: 10px;
+}
+
+/* SearchBar css */
+
+.bar {
+  width: 20%;
+  display: block;
+}
