@@ -4,19 +4,30 @@ import { CSVLink } from 'react-csv'
 import './NavBar.css'
 
 class NavBar extends Component {
-  render() {
+  render () {
     return (
-      <div className='NavBar'>
+      <div className='NavBar mb-0'>
         <header className='nav-header'>
           <Link className='nav-link-header' to='/'>
             <h1>Lambda Notes</h1>
           </Link>
         </header>
-        <Link className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`} to='/'>
-          <div>View Your Notes</div>
+        <div
+          className={`nav-btn  ${!this.props.username ? 'nav-btn-invis' : ''}`}
+        >
+          Account: {this.props.username}
+        </div>
+        <Link
+          className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}
+          to='/'
+        >
+          <div className='m-0 p-0'>View Your Notes</div>
         </Link>
-        <Link className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`} to='/create'>
-          <div>+ Create New Note</div>
+        <Link
+          className={`nav-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}
+          to='/create'
+        >
+          <div className='m-0 p-0'>+ Create New Note</div>
         </Link>
         <CSVLink
           data={this.props.notes}
@@ -26,7 +37,9 @@ class NavBar extends Component {
           Download Notes
         </CSVLink>
         <Link
-          className={`nav-btn logout-btn ${!this.props.username ? 'nav-btn-invis' : ''}`}
+          className={`nav-btn logout-btn ${!this.props.username
+            ? 'nav-btn-invis'
+            : ''}`}
           to={`/`}
           onClick={() => {
             localStorage.clear()

@@ -9,10 +9,9 @@
   border-right: 1px solid RGB(174, 174, 174);
 }
 
-@media (max-width: 580px) {
+@media (max-width: 530px) {
   .NavBar {
     flex-direction: column;
-    min-height: 0;
     padding-bottom: 20px;
     width: 100%;
   }
@@ -31,7 +30,8 @@ header h1 {
   color: #4a4a4a;
   font-family: Roboto;
   font-weight: 900;
-  margin-bottom: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 header h1:hover {
@@ -70,6 +70,6 @@ header h1:hover {
   background-color: darkred;
 }
 
-.logout-btn:hover{
+.logout-btn:hover {
   color: darkred;
 }

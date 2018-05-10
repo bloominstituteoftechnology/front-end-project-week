@@ -2,11 +2,11 @@
   display: flex;
   border: 1px solid RGB(194, 194, 194);
   min-height: 100vh;
+  width: 100%;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 530px) {
   .Layout {
     flex-direction: column;
-    min-height: 0;
   }
 }

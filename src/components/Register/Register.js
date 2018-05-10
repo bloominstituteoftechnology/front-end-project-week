@@ -4,7 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import './Register.css'
 
-const serverURL = 'https://lambda-notes-server.herokuapp.com'
+// const serverURL = 'https://lambda-notes-server.herokuapp.com'
+const serverURL = 'http://localhost:5000'
 
 class Register extends React.Component {
   state = {
@@ -12,31 +13,33 @@ class Register extends React.Component {
     password: ''
   }
 
-  render () {
+  render() {
     return (
-      <div className='Register'>
+      <div className="Register">
         <h2>Register:</h2>
-        <form onSubmit={this.submitHandler}>
-          <div className='form-row'>
+        <form>
+          <div className="form-row">
             <label>Username</label>
             <input
-              name='username'
+              name="username"
               value={this.state.username}
               onChange={this.inputHandler}
-              type='text'
+              type="text"
             />
           </div>
-          <div className='form-row'>
+          <div className="form-row">
             <label>Password</label>
             <input
-              name='password'
+              name="password"
               value={this.state.password}
               onChange={this.inputHandler}
-              type='password'
+              type="password"
             />
           </div>
-          <div className='form-row'>
-            <Button color='success'>Register</Button>
+          <div className="form-row">
+            <Button color="success" onClick={this.submitHandler}>
+              Register
+            </Button>
           </div>
         </form>
       </div>
@@ -50,7 +53,7 @@ class Register extends React.Component {
 
   submitHandler = event => {
     event.preventDefault()
-
+    console.log('im here')
     axios
       .post(`${serverURL}/api/register`, this.state)
       .then(response => {

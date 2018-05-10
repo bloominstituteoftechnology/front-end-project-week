@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Modal, ModalBody, ModalFooter, Button } from 'reactstrap'
+import {
+  Modal,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Container,
+  Row,
+  Badge
+} from 'reactstrap'
 
 import './ListNotes.css'
 
@@ -34,19 +42,13 @@ class ListNotes extends Component {
     const filteredNotes = this.props.notes.filter(note => {
       return (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        note.content.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        note.content.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
       )
     })
 
     return (
-      <div className="ListNotes">
-        {localStorage.getItem('authorization')
-          ? <section className="RegLog">
-              <h6 className="loginName">
-                Account: {this.props.username}
-              </h6>
-            </section>
-          : <div />}
+      <div className="ListNotes mb-0">
         <input
           type="text"
           className="search-bar"
@@ -82,25 +84,58 @@ class ListNotes extends Component {
           </ModalFooter>
         </Modal>
 
-        <h2 className="list_h2">Your Notes:</h2>
-        <div className="notes">
-          {filteredNotes.map(note =>
-            <div className="card-body" key={note._id}>
-              <Link className="card-link" to={`/view/${note._id}`}>
-                <h4 className="card-title">
-                  {note.title.length >= 16
-                    ? note.title.substr(0, 16) + ' ...'
-                    : note.title}
-                </h4>
-              </Link>
-              <span className="card-text">
-                {note.content.length >= 300
-                  ? note.content.substr(0, 290) + ' ...'
-                  : note.content}
-              </span>
-            </div>
-          )}
-        </div>
+        <h2 className="list_h2 ">
+          {this.props.username.charAt(0).toUpperCase() +
+            this.props.username.substr(1).toLowerCase()}'s Notes:
+        </h2>
+        <Container fluid className="notes p-0">
+          <Row className="col-12 row-notes">
+            {filteredNotes.map(note =>
+              <div className="card mx-auto my-3" key={note._id}>
+                <div className="card-body">
+                  <Link className="card-link" to={`/view/${note._id}`}>
+                    <h4 className="card-title">
+                      {note.title.length >= 13
+                        ? note.title.substr(0, 13) + ' ...'
+                        : note.title}
+                    </h4>
+                  </Link>
+                  <span className="card-text">
+                    {note.content.length >= 175
+                      ? note.content.substr(0, 175) + ' ...'
+                      : note.content}
+                  </span>
+                </div>
+                <div className="card-footer m-0 px-0 py-1">
+                  {note.tags.length < 5
+                    ? note.tags.map((tag, index) =>
+                        <Badge
+                          pill
+                          color="primary"
+                          className="ml-1 badge-tag"
+                          key={tag + index}
+                          onClick={() => {
+                            this.setState({ search: tag })
+                          }}
+                        >
+                          {tag}
+                        </Badge>
+                      )
+                    : note.tags.reverse().slice(0, 4).map((tag, index) =>
+                        <Badge
+                          pill
+                          color="primary"
+                          className="ml-1 badge-tag"
+                          key={tag + index}
+                        >
+                          {tag}
+                        </Badge>
+                      )}
+                </div>
+              </div>
+            )}
+          </Row>
+        </Container>
       </div>
     )
   }

@@ -3,7 +3,8 @@
 .ListNotes {
   background-color: #f3f3f3;
   font-family: Roboto;
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -17,6 +18,7 @@
   font-size: 18px;
   margin-right: 50px;
 }
+
 .RegLog {
   display: flex;
   justify-content: flex-end;
@@ -41,25 +43,36 @@
   font-weight: bolder;
   font-family: Roboto;
   color: RGB(74, 74, 74);
-  margin-top: 50px;
-  margin-left: 60px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+@media (max-width: 530px) {
+  .list_h2 {
+    display: none;
+  }
 }
 
 .notes {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
-.card-body {
-  max-width: 300px;
-  min-width: 300px;
+.row-notes {
+  display: flex;
+}
+
+.card {
+  max-width: 250px !important;
+  min-width: 250px !important;
+  margin: 0px 10px;
   height: 300px;
   border: 1px solid RGB(174, 174, 174);
-  margin: 15px;
+  background-color: white;
+}
+.card-body {
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: white;
 }
 
 .card-title {
@@ -86,9 +99,17 @@
   text-align: center;
   align-self: center;
   width: 50%;
+  min-width: 260px;
 }
 
 .card-text {
   color: RGB(74, 74, 74);
   font-family: Roboto;
+}
+
+.card-footer {
+  max-height: 3 0px !important;
+  min-height: 30px !important;
+  display: flex;
+  overflow-x: auto;
 }

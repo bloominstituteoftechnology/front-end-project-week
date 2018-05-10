@@ -3,10 +3,10 @@
 .ViewNote {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   padding: 30px;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 .note-form {
@@ -25,10 +25,10 @@
   color: RGB(54, 192, 195);
 }
 
-.note-delete  {
+.note-delete {
   margin-left: 20px;
   border: none;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   color: RGB(74, 74, 74);
   font-weight: bolder;
   text-decoration: underline;
@@ -57,20 +57,19 @@
   font-family: Roboto;
   color: RGB(74, 74, 74);
   margin-left: 25px;
-  margin-top:  25px;
+  margin-top: 25px;
 }
 
 .note-content {
   color: RGB(74, 74, 74);
   margin-left: 25px;
-  margin-top:  25px;
+  margin-top: 25px;
 }
 
 .modal-modal {
   border-radius: 0px !important;
   border: 1px solid RGB(74, 74, 74);
   margin-top: 200px !important;
-  
 }
 
 .modal-content {
@@ -88,16 +87,16 @@
 .modal-footer {
   display: flex !important;
   justify-content: center !important;
-    font-weight: bolder;
-    border-top: none !important;
-    margin-bottom: 30px !important;
-    font-weight: bold !important;
+  font-weight: bolder;
+  border-top: none !important;
+  margin-bottom: 30px !important;
+  font-weight: bold !important;
 }
 
 .delete-button {
   border: 1px solid RGB(174, 174, 174) !important;
   width: 10em;
-  border-radius: 0! important;
+  border-radius: 0 !important;
   font-weight: bold !important;
 }
 

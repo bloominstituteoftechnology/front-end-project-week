@@ -1,9 +1,8 @@
-
 .UpdateNote {
   display: flex;
   height: 100vh;
   width: 100%;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 .label-h2 {
@@ -16,21 +15,24 @@
 .update-form {
   display: flex;
   flex-direction: column;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   margin-left: 40px;
 }
 
 .input-title {
   margin-bottom: 30px;
   height: 50px;
-  width: 400px;
+  max-width: 300px;
+  width: 100%;
   padding-left: 20px;
   border: 2px solid RGB(174, 174, 174);
 }
 
 .input-body {
   height: 400px;
-  width: 600px;
+  max-width: 600px;
+  width: 100%;
   border: 2px solid RGB(174, 174, 174);
   padding: 20px;
 }

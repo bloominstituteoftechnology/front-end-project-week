@@ -13,7 +13,9 @@ import Login from './Login/Login'
 
 import './Layout.css'
 
-const serverURL = 'https://lambda-notes-server.herokuapp.com'
+const serverURL = 'http://localhost:5000'
+
+// const serverURL = 'https://lambda-notes-server.herokuapp.com'
 class Layout extends Component {
   constructor() {
     super()
@@ -21,7 +23,8 @@ class Layout extends Component {
       notes: [],
       title: '',
       content: '',
-      username: ''
+      username: '',
+      loading: false
     }
 
     // # Refactoring to use ES6 binding
@@ -43,7 +46,10 @@ class Layout extends Component {
     axios
       .get(`${serverURL}/api/notes`, { headers: { authorization: token } })
       .then(res => {
-        this.setState({ notes: res.data.notes, username: res.data.username })
+        this.setState({
+          notes: res.data.notes,
+          username: res.data.username
+        })
       })
       .catch(err => console.log(err))
   }
@@ -57,13 +63,13 @@ class Layout extends Component {
     })
   }
 
-  createNote = event => {
+  createNote = (event, tags) => {
     event.preventDefault()
     const token = localStorage.getItem('authorization')
-    console.log('post token', token)
     const note = {}
     note.title = this.state.title
     note.content = this.state.content
+    note.tags = tags
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
     // const serverURL = 'http://localhost:5000'
     axios
@@ -97,11 +103,11 @@ class Layout extends Component {
       .catch(err => console.log(err))
   }
 
-  updateNote = note => {
+  updateNote = (note, tags) => {
     const updateNote = {}
     updateNote.title = this.state.title || note.title
     updateNote.content = this.state.content || note.content
-
+    updateNote.tags = tags
     // const serverURL = 'http://localhost:5000'
 
     axios

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap'
+import { Button, Modal, ModalBody, ModalFooter, Badge } from 'reactstrap'
 import './ViewNote.css'
 
 class ViewNote extends Component {
@@ -67,6 +67,14 @@ class ViewNote extends Component {
         <p className='note-content'>
           {this.props.note.content}
         </p>
+        <hr />
+        <section>
+          {this.props.note.tags.map((tag, index) =>
+            <Badge pill color='primary' className='ml-1' key={tag + index}>
+              {tag}
+            </Badge>
+          )}
+        </section>
       </div>
     )
   }

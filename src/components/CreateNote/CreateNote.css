@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 
 .CreateNote {
-  display: flex;
   height: 100vh;
   width: 100%;
   background-color: #f3f3f3;
@@ -14,24 +13,39 @@
   margin-top: 50px;
 }
 
+@media (max-width: 530px) {
+  .label-h2 {
+    margin-top: 20px !important;
+  }
+}
+
+.label-tag {
+  font-weight: bold;
+}
+
+.input-tag {
+  margin-left: 10px;
+  padding-left: 10px;
+  max-width: 170px;
+}
+
 .create-form {
   display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin-left: 40px;
 }
 
 .input-title {
   margin-bottom: 30px;
   height: 50px;
-  max-width: 400px;
+  width: 100%;
+  max-width: 300px;
   padding-left: 20px;
   border: 2px solid RGB(174, 174, 174);
 }
 
 .input-body {
   height: 400px;
-  width: 600px;
+  width: 100% !important;
+  max-width: 600px;
   border: 2px solid RGB(174, 174, 174);
   padding: 20px;
 }
@@ -47,4 +61,12 @@
   width: 200px;
   height: 50px;
   margin: 20px 15px 0px 0px;
+}
+
+.badge-tag {
+  border: 1.5px solid RGB(54, 192, 195);
+}
+.badge-tag:hover {
+  border: 1.5px solid red;
+  box-sizing: border-box;
 }
