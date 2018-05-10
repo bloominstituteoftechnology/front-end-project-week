@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { Card, CardTitle, CardText, CardBody, Row, Col } from 'reactstrap';
 
 import { getNotes } from '../actions'
 import '../css/Notes.css';
@@ -12,14 +13,22 @@ class Notes extends Component {
             <div className="notes">
                     {!this.props.notes ?
                         <h2> loading notes</h2>: null}
-                    <div className='notes-container'>
+                    <div style={{display:'flex', flexWrap:'wrap'}}>
+                    <Row >
                         {this.props.notes.map((note) =>{
                             return(
-                            <div className='notes-list' key={note.id}>
-                                <h3><Link to={`/notes/${note.id}`}>{note.title}</Link></h3>
-                                <p> { note.body } </p>
-                            </div>
+                                <Col xs='auto'>
+                                    <NavLink to={`/notes/${note.id}`} style={{textDecoration:'none', color:'black'}}>
+                                        <Card style={{display: 'flex'}}>
+                                            <CardBody style={{border:'1px solid black'}} >
+                                                <CardTitle style={{display: 'flex', justifyContent:'center'}}>{note.title}</CardTitle>
+                                                <CardText style={{display:'flex', flexWrap:'wrap'}}>{note.body}</CardText>
+                                            </CardBody>
+                                        </Card>
+                                    </NavLink>
+                                </Col>
                         )})}
+                        </Row>
                         </div>
             </div>
       );

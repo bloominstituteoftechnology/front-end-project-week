@@ -12,20 +12,23 @@ import UpdateNote  from './UpdateNote';
 import '../css/App.css';
 
 class App extends Component {
+  notes = () => {
+    return <NavLink className='link' to={'/'}>View Your Notes</NavLink>
+  }
   render() {
     return (
       <Router>
         <div className='home'>
               <div className='home-nav'>
                 <h1 className='home-nav-banner'> Lambda Notes </h1>
-                <Button color="info" className='home-nav-link'><NavLink className='link' to={'/'}>View Your Notes</NavLink></Button>
-                <Button color="info" className='home-nav-link'><NavLink className='link' to={'/create'}>+ Create New Note</NavLink></Button>
+                <NavLink to='/'><Button color="info" className='home-nav-link'>View Your Notes</Button></NavLink>
+                <NavLink to='/create'><Button color="info" className='home-nav-link'>+ Create New Note</Button></NavLink>
               </div>
               <div className='content'>
                 <Route exact path='/' component={ Notes }/>
                 <Route path='/notes/:id' component={ Note } />
                 <Route path='/create' component={ CreateNote } />
-                <Route path='/notes/update/:id' component={ UpdateNote } />
+                <Route exact path='/update/:id' component={ UpdateNote } />
               </div> 
         </div>
       </Router>

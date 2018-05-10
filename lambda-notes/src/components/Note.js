@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Card, CardTitle, CardText, CardBody, Row, Col } from 'reactstrap';
 
 import { getNote, deleteNote } from '../actions'; 
 
 import '../css/App.css';
+import '../css/Note.css';
 
 
 class Note extends Component {
@@ -21,17 +22,21 @@ class Note extends Component {
             <div>
                         {!this.props.note ?
                             <h2> loading notes</h2>: null}
-                                <h2> {this.props.note.title} </h2>
-                                <p> {this.props.note.body} </p>
-                                <Button color='info'><Link to={`/notes/update/${this.props.note.id}`} className='link'> Update Note </Link></Button>
+                                        <Card style={{display: 'flex'}}>
+                                            <CardBody style={{border:'1px solid black'}} >
+                                                <CardTitle style={{display: 'flex', justifyContent:'center'}}>{this.props.note.title}</CardTitle>
+                                                <CardText style={{display: 'flex', justifyContent:'center'}}>{this.props.note.body}</CardText>
+                                <Link to={`/update/${this.props.note.id}`}><Button color='info' className='button'> Update Note </Button></Link>
                                 <Button color='danger' onClick={this.toggle}>Delete</Button>
+                                            </CardBody>
+                                        </Card>
                                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                                     <ModalHeader toggle={this.toggle}>Confirm Delete</ModalHeader>
                                     <ModalBody>
                                         Are you sure you want to delete?
                                     </ModalBody>
                                     <ModalFooter>
-                                        <Button color='danger' type='submit' onClick={ () => this.toggleDelete()}><Link to={`/`} className='link'>Yes</Link></Button>
+                                        <Link to={`/`} className='button' onClick={ () => this.toggleDelete()}><Button color='danger'>Yes</Button></Link>
                                         <Button color='success' onClick={this.toggle}>No</Button>
                                     </ModalFooter>
                                 </Modal>
