@@ -7,10 +7,10 @@ export default class Leftnav extends Component {
 
     render() {
         return(
-            <div>
+            <div className="leftNav">
             <h1>Lambda Notes</h1>
-            <Link to={'/'} > <button text="View Notes" /> </Link>
-            <Link to={'/create'} > <button text="+ Create New Note" /> </Link>
+            <Link to={'/'} > <button className="button" text="View Notes"> View Notes </button> </Link>
+            <Link to={'/create'} > <button className="button" text="+ Create New Note">+ Create New Note</button> </Link>
 
             </div>
         )
