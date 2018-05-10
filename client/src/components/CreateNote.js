@@ -32,7 +32,6 @@ class CreateNote extends Component {
         />
         <Speak
           onSave={this.onSpeakSave}
-        // options={}
         />
       </div>
 
