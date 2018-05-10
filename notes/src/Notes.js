@@ -23,6 +23,7 @@ class Notes extends Component {
 
     expandNote = () => {
         // I want to make this method expand the note to fill the notescreen 
+        // when the user clicks on that note
         // but how in the hell do I do that?
         // this stuff is hard...
     }
