@@ -13,7 +13,6 @@ const reducer = (notes = initialState, action) => {
         case EDIT_NOTE:
         console.log(action.id.id)
             notes.splice(action.id.id, 1);
-            console.log('NOTES', notes.concat(action.id))
             return notes.concat(action.id);
         default:
             return notes

@@ -27,10 +27,10 @@ class EditView extends Component {
         const updatedNote = {
             title: this.state.title,
             content: this.state.content,
-            id: this.props.match.params.id,
+            id: parseInt(this.props.match.params.id, 10),
         };
         this.props.editNote(updatedNote);
-        console.log('UPDATEDNOTE', updatedNote);
+        this.props.history.push('/');
     };
 
     render() {
