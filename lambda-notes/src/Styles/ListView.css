@@ -17,6 +17,7 @@
     margin: 2%;
     background: white;
     padding: 1% 2% 0 2%;
+    overflow: hidden;
 }
 
 a {
