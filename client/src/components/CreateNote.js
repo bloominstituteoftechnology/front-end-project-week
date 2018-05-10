@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { addNote } from '../actions'
 import Form from './Form'
+import Speak from './Speak'
 
 class CreateNote extends Component {
   submitNote = values => {
@@ -15,6 +16,7 @@ class CreateNote extends Component {
       <div className="CreateNote">
         <div>Create New Note:</div>
         <Form onSubmit={this.submitNote} />
+        <Speak />
       </div>
 
     )
