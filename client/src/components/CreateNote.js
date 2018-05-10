@@ -4,7 +4,9 @@ import { push } from 'react-router-redux'
 import { addNote } from '../actions'
 import { clearRegister } from '../actions/speech'
 import CreateForm from './CreateForm'
+
 import Speak from './Speak'
+// import Speak from './hoc/withSpeech'
 
 class CreateNote extends Component {
   state = { body: [] }
