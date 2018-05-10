@@ -80,14 +80,19 @@ class App extends Component {
               <CreateNote
                 {...props}
                 //making the whole props available to CreateNote
-                title={this.state.tile}
+                title={this.state.title}
                 content={this.state.content}
                 inputChange={this.inputChange}
                 buttonSubmitAdd={this.buttonSubmitAdd}
               />
             )}
           />
-          <Route path="/noteView/:id" component={NoteView} />
+          <Route path="/noteView/:id" render={props => (
+              <NoteView
+                {...props}
+                title={this.state.title}
+                content={this.state.content} />)}
+                />
           <Route
             path="/editView/:id"
             render={props => (
