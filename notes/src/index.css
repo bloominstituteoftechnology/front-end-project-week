@@ -1,0 +1,168 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  max-width: 1100px;
+  min-height: 1250px;
+  border: 1px solid black;
+}
+
+.sidebar {
+  background-color: #d3d2d3;
+  width: 20%;
+}
+
+.brand {
+  text-align: left;
+  color: #6d6b6a;
+  margin-left: 22px;
+}
+
+.button {
+  background-color: darkturquoise;
+  margin: 5px 0;
+  width: 140px;
+  height: 35px;
+  color: white;
+  font-size: 16px;
+  padding: 0;
+  border: none;
+}
+
+.export-csv {
+  position: relative;
+  bottom: 64px;
+  left: 97%;
+  cursor: pointer;
+  color: black;
+}
+
+.search-box {
+  position: relative;
+  bottom: 44px;
+  left: 70%;
+  width: 21.5%;
+}
+
+.title {
+  text-align: left;
+  position: relative;
+  top: 40px;
+  width: 88%;
+  align-self: center;
+}
+
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-card {
+  border: 1px solid black;
+  background-color: white;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 2% 1.5%;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+.note-item {
+  width: 90%;
+}
+
+.note-card-title {
+  text-align: left;
+  text-decoration: none;
+}
+.note-card-content {
+  text-align: left;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #ebebeb;
+}
+
+.content {
+  text-align: left;
+  width: 88%;
+  margin-top: 40px;
+}
+
+.icons {
+  display: flex;
+  margin-top: 30px;
+  width: 80%;
+  justify-content: flex-end;
+}
+
+.icon {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+
+.note-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-block {
+  position: relative;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 88%;
+}
+
+.form-title {
+  margin-bottom: 20px;
+  height: 30px;
+  width: 70%;
+}
+
+.form-content {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.modal {
+  position: fixed;
+  left: 40%;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  height: 150px;
+  width: 700px;
+  background-color: white;
+}
+
+.modal-container {
+  display: flex;
+}
+
+.modal-button {
+  margin: 2% 2%;
+}
