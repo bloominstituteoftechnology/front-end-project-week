@@ -1,84 +1,126 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import {getNotes, createNote, updateNote,} from '../actions/index';
-
+import React, { Component } from 'react';
+import { createNote, updateNote } from '../actions';
+import { connect } from 'react-redux';
+import './CreateNote.css';
 
 class EditNote extends Component {
-  // constructor(){
-  //   super()
-  //   this.ids = 0;
-  // }
-  state = {
-    title: '',
-    content: '',
-    id: '',
-    editing: false,
+  constructor(props){
+    super(props);
+    this.state = {
+      title: '',
+      content: '',
+      id: ''
+    };
+  }
+  
+
+  componentDidMount() {
+    this.state.id = this.props.match.params.id;
+    console.log('eeee', this.props.match)
+    // this.props.getNote(id);
   }
 
-  componentDidMount(){
-    // console.log('notes',this.props.match);
-    this.props.getNotes();
-  }
+  // editNote = ({title, content, id}) => {
+  //   this.setState(
+  //     () => ({title, content, id, editing: true})
+  //   )
+  // }; 
 
-  handleChange = (event) => {
-    // console.log('event!!!',event.target);
-    this.setState( {[event.target.name]: event.target.value} )
-  }
+  // handleEdit = () => {
+  //   const { title, content, id} = this.state;
+  //   console.log('Editing', {title,content,id})
+  //   this.props.updateNote({title, content, id});
+  //   this.setState({title: '', content: '', id: '', editing: false})
+  // } 
 
-  handleEdit = () => {
-    const { title, content, id} = this.state;
-    console.log('Editing', {title,content,id})
-    this.props.updateNote({title, content, id});
-    this.setState({title: '', content: '', id: '', editing: false})
-  }
-
-  addNote = (e) => {
-    e.preventDefault();
-    console.log('ADDingnote!!!!!', this.state)
-    const newNote = { 
-        title: this.state.title,
-        content: this.state.content,
-        id: this.props.ids,
-    }
-    this.props.createNote(newNote);
-    this.setState({title: '', content: ''});
-  }
-
-  editNote = ({title, content, id}) => {
-    this.setState(
-      () => ({title, content, id, editing: true})
-    )
-  };
-
-  render(){
+  render() {
     return (
-      <div>
-        <form>
-          <input type='text' name='title' placeholder='Title' onChange={this.handleChange} value={this.state.title}/>
-          <textarea name='content' rows="10" cols="30" placeholder='Content' onChange={this.handleChange} value={this.state.content}/>
-          {this.state.editing 
-            ? <button onClick={this.handleEdit}>Edit Note</button>
-            : <button onClick={this.addNote}>Save</button>
-          }
-          
-          {/* <button onClick={this.handleEdit}>Save Edit</button> */}
-        </form>
-      </div>
-    )
+         
+        <div className="createNoteContainer">
+        <h3 className="headerNotes">Edit Note:</h3>
+        <div className="inputFields">
+        <div className="inputTitle">
+            <input
+                type="text"
+                className="title"
+                name="title"
+                value={this.state.title}
+                placeholder="Note Title"
+                onChange={e => this.setState({ [e.target.name]: e.target.value })}
+            />
+        </div>
+        <div className="inputContent">
+            <textarea
+                type="text"
+                className="content"
+                name="content"
+                value={this.state.content}
+                placeholder="Note Content" 
+                onChange={e => this.setState({ [e.target.name]: e.target.value })} >
+            </textarea>
+        </div>
+        </div>
+        <div>
+        <button className="saveButton"
+          onClick={() => {
+            console.log('EditNote',{title: this.state.title, content: this.state.content, id: this.state.id});
+            this.props.updateNote({ title: this.state.title, content: this.state.content, id: this.state.id});
+            this.setState({ title: '', content: '' });
+          }}>Update</button>
+        </div>
+   </div>);
   }
 }
 
 const mapStateToProps = state => {
   return {
-    fetchingNotes: state.fetchingNotes,
-    notesFetched: state.notesFetched,
-    notesSaved: state.notesSaved,
-    savingNotes: state.savingNotes,
     updatingNote: state.updatingNote,
     noteUpdated: state.noteUpdated,
-    notes: state.notes,
+    error: state.error
   };
-}
+};
 
-export default connect(mapStateToProps, {getNotes, createNote, updateNote,})(EditNote);
+export default connect(mapStateToProps, { createNote, updateNote })(EditNote);
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import './EditNote.css';
+
+// export const EditNote = props => {
+//     return (
+//       <div className="container">
+//         <h3 className="headerNotes">Edit Note:</h3>
+//         <div className="inputFields">
+//           <div className="editTitle">
+//             <input
+//                 type="text"
+//                 className="editNoteTitle"
+//                 name="editNoteTitle"
+//                 // value={this.state.newTitle}
+//                 placeholder="Note Title"
+//             />
+//           </div>
+//           <div className="editContent">
+//             <textarea
+//                 type="text"
+//                 className="editNoteContent"
+//                 name="editNoteContent"
+//                 // value={this.state.newContent}
+//                 placeholder="Note Content" >
+//             </textarea>
+//           </div>
+//         </div>
+//         <div>
+//           <button className="updateButton">Update</button>
+//         </div>
+//       </div>
+//     )
+// };

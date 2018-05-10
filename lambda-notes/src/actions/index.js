@@ -1,92 +1,94 @@
 import axios from 'axios';
-
-export const FETCHING = 'FETCHING';
-export const FETCHED = 'FETCHED';
-export const ERROR = 'ERROR';
-export const ADDNOTE = 'ADDNOTE';
-export const EDITNOTE = 'EDITNOTE';
-export const DELETENOTE = 'DELETENOTE';
-export const NOTE_SAVED = 'NOTE_SAVED';
-export const SAVING_NOTE = 'SAVING_NOTE';
+export const FETCH_NOTES = 'FETCH_NOTES';
+export const FETCHED_NOTES = 'FETCHED_NOTES';
+export const ERROR_FETCHING = 'ERROR_FETCHING';
+export const CREATE_NOTE = 'CREATE_NOTE';
+export const ERROR_CREATING = 'ERROR_CREATING';
+export const FETCH_NOTE = 'FETCH_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
+export const ERROR_DELETING = 'ERROR_DELETING';
 export const UPDATING = 'UPDATING';
 export const UPDATED = 'UPDATED';
+export const ERROR_UPDATING = 'ERROR_UPDATING';
 
 export const getNotes = () => {
-  
+  const notes = axios.get(`http://localhost:3333/notes`);
   return dispatch => {
-    dispatch({ type: FETCHING })
-    axios.get('http://localhost:5000/api/notes/')
-      .then( (response) => {
-        
-        dispatch({type: FETCHED, notes: response.data})
+    dispatch({ type: FETCH_NOTES });
+    notes
+      .then(response => {
+        console.log( response.data );
+        dispatch({
+          type: FETCHED_NOTES,
+          payload: response.data
+        });
       })
       .catch(err => {
-        dispatch({ type: ERROR, error: 'ERROR GETTING NOTES'})
+        dispatch({
+          type: ERROR_FETCHING,
+          payload: 'ERROR Fetching Notes'
+        });
       });
-  }
-}
+  };
+};
 
-// export const getNote = () => {
-   
-//   return dispatch => {
-//     dispatch({ type: FETCHING })
-//     axios.get(`http://localhost:5000/api/notes/${id}`)
-//       .then( (response) => {
-//         console.log('RESP',response.data);
-//         dispatch({type: FETCHED, note: response.data})
-//       })
-//       .catch(err => {
-//         dispatch({ type: ERROR, error: 'ERROR GETTING NOTES'})
-//       });
-//   }
-// }
-
-export const createNote = (note) => {
+export const getNote = id => {
+  const note = axios.get(`http://localhost:3333/notes/${id}`)
   return dispatch => {
-      dispatch({ type: SAVING_NOTE });
-      axios
-        .post('http://localhost:5000/api/notes/', note)
-        .then( response => {
-          dispatch({ type: NOTE_SAVED, notes: response.data})
-        })
-        .catch( () => {
-          dispatch({ type: ERROR, error: 'ERROR ADDING NOTE'})
-        })
-  }
-}
+    note
+    .then(response => {
+      dispatch({ type: FETCH_NOTE, payload: response.data });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  };
+};
+
+export const deleteNote = id => {
+  const note = axios.delete(`http://localhost:3333/notes/${id}`);
+    return dispatch => {
+      dispatch({ type: DELETE_NOTE });
+      note
+      .then(response=> {
+        dispatch(getNotes());
+      })
+      .catch(err => {
+        dispatch({
+          type: ERROR_DELETING,
+          payload: 'ERROR deleting Note'
+        });
+      });
+    };
+};
 
 export const updateNote = note => {
   return dispatch => {
     const {title, content, id} = note;
-
+    console.log('UPDATENote', title, content, id)
     dispatch({type: UPDATING})
-    axios.put(`http://localhost:5000/api/notes/${id}`, {title, content})
+    axios.put(`http://localhost:3333/notes/${id}`, {title, content})
     .then(response => {
       dispatch({type: UPDATED, notes: response.data})
     })
     .catch(err => {
-      dispatch({ type: ERROR, error: 'ERROR UPDATING NOTE'})
+      dispatch({ type: ERROR_UPDATING, error: 'ERROR UPDATING NOTE'})
     })
   }
 }
 
-// export const startUpdating = note => {
-//   return {
-//     type: UPDATING,
-//     note
-//   };
-// };
-
-export const deleteNoteOnState = id => {
-  return dispatch => {
-    dispatch({ type: FETCHING})
-    axios.delete(`http://localhost:5000/api/notes/${id}`)
-      .then(response => {
-        console.log('DELETE',response);
-        dispatch({ type: FETCHED, notes: response.data });
+export const createNote = data => {
+  const notes = axios.post(`http://localhost:3333/notes`, data);
+    return dispatch => {
+      notes
+      .then(response=> {
+        dispatch({ type: CREATE_NOTE, payload: response.data })
       })
       .catch(err => {
-        dispatch({ type: ERROR, error: "ERROR DELETING NOTE"});
-      })
-  }
+        dispatch({
+          type: ERROR_CREATING,
+          payload: 'ERROR creating note'
+        });
+      });
+    };
 }

@@ -1,0 +1,49 @@
+.saveButton {
+  background-color: rgb(58, 175, 184);
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 158.7px;
+  font-size: 15px;
+  margin: 10px 13px;
+  cursor: pointer;
+  border: 1px solid gray;
+  font-weight: bold;
+}
+
+.createNoteContainer {
+  width: 80%;
+  padding-left: 25px;
+  padding-top: 35px;
+  background-color: #F2F1F2;
+  border-left: 1px solid gray;
+  }
+
+.inputFields {
+  margin-left: 12px;
+}
+
+.title {
+  width: 55%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  box-shadow: inset .5px 1px lightgrey;
+  font-size: 10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.content {
+  width: 90%;
+  height: 300px;
+  padding: 10px;
+  font-family: Arial;
+  resize: none;
+  border: 1px solid gray;
+  border-radius: 2px;
+  box-shadow: inset .5px 1px lightgrey;
+  font-size: 10px;
+}

@@ -1,5 +1,9 @@
 .App {
-  text-align: center;
+  display: flex;
+  max-width: 800px;
+  min-height: 880px;
+  margin: 10px auto;
+  border: 1px solid gray;
 }
 
 .App-logo {
@@ -21,6 +25,13 @@
 .App-intro {
   font-size: large;
 }
+
+.sideBar {
+  display: flex;
+  border: 1px solid gray;
+}
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

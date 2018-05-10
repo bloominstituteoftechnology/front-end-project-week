@@ -1,49 +1,57 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 5000;
+const port = 3333;
 const app = express();
-
-let nextId = 6;
-
-let notes = [
-  {
-    id: 1,
-    title: 'Jorge',
-    content: 'Hello, Having fun yet?',
-  },
-  {
-    id: 2,
-    title: 'Neto',
-    content: 'The brother',
-  },
-  {
-    id: 3,
-    title: 'Nancy',
-    content: 'The lady friend',
-  },
-  {
-    id: 4,
-    title: 'Hilda',
-    content: 'My mama',
-  },
-  {
-    id: 5,
-    title: 'Jorge',
-    content: 'The O.G.',
-  },
-];
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/api/notes', (req, res) => {
-  setTimeout(() => {
-    res.send(notes);
-  }, 1000);
+const sendUserError = (msg, res) => {
+  res.status(422);
+  res.json({ Error: msg });
+  return;
+};
+
+let nextId = 6;
+
+let notes = [
+    {
+        id: 0,
+        title: "Bruce",
+        content: "Hello, my name is Bruce!",
+    },
+    {
+        id: 1,
+        title: "Bruce",
+        content: "Hello, my name is Bruce!",
+    },
+    {
+        id: 2,
+        title: "Bruce",
+        content: "Hello, my name is Bruce!",
+    },
+    {
+        id: 3,
+        title: "Bruce",
+        content: "Hello, my name is Bruce!",
+    },
+    {
+        id: 4,
+        title: "Bruce",
+        content: "Hello, my name is Bruce!",
+    },
+    {
+        id: 5,
+        title: "Bruce",
+        content: "Hello, my name is Bruce!",
+    },
+];
+app.get('/notes', (req, res) => {
+  res.json(notes);
 });
 
-app.get('/api/notes/:id', (req, res) => {
+app.get('/notes/:id', (req, res) => {
   const note = notes.find(f => f.id == req.params.id);
 
   if (note) {
@@ -53,7 +61,7 @@ app.get('/api/notes/:id', (req, res) => {
   }
 });
 
-app.post('/api/notes', (req, res) => {
+app.post('/notes', (req, res) => {
   const note = { id: getNextId(), ...req.body };
 
   notes = [...notes, note];
@@ -61,7 +69,7 @@ app.post('/api/notes', (req, res) => {
   res.send(notes);
 });
 
-app.put('/api/notes/:id', (req, res) => {
+app.put('/notes/:id', (req, res) => {
   const { id } = req.params;
 
   const noteIndex = notes.findIndex(f => f.id == id);
@@ -80,7 +88,7 @@ app.put('/api/notes/:id', (req, res) => {
   }
 });
 
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
 
   notes = notes.filter(f => f.id !== Number(id));
