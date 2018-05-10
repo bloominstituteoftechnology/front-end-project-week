@@ -9,76 +9,77 @@ import {
     Link,
 } from 'react-router-dom'
 
+const routes= [
+    {
+        path: '/noteslist',
+        exact: true,
+        main: () => 
+        <div>
+            <h2 style={{
+                paddingLeft:'55px',
+                }}>Your Notes:
+            </h2>,
+            <NotesList notes={this.state.notes}/>
+        </div>
+    },
+    {
+        path: '/createnewnote',
+        main: () => 
+        <div>
+            <h2 style={{
+                paddingLeft:'55px',
+                }}>Create New Note:
+            </h2>,
+            <CreateNewNote/>
+        </div>
+    },
+    {
+        path: '/viewnote',
+        main: () => 
+        <div>
+            <div style={{display: 'flex'}}>
+                <h5 style={{
+                    paddingLeft: '295%',
+                    paddingTop: 0,
+                    }}>edit
+                </h5>
+
+                <h5 style={{
+                    paddingLeft: '299%',
+                    paddingTop: 0,
+                    }}>delete
+                </h5>
+            </div>
+            <h2 style={{
+                paddingTop:'25px',
+                }}>Note Name //placeholder
+            </h2> 
+        </div>, 
+    },
+]
+
 class SideBar extends Component {
     constructor(props) {
         super(props)
     }
-
-    const routes = [
-        {
-            path: '/noteslist',
-            exact: true,
-            main: () => 
-            <div>
-                <h2 style={{
-                    paddingTop:'55px',
-                    }}>Your Notes:
-                </h2>,
-                <NotesList data={this.state}/>
-            </div>
-        },
-        {
-            path: '/createnewnote',
-            main: () => 
-            <div>
-                <h2 style={{
-                    paddingTop:'55px',
-                    }}>Create New Note:
-                </h2>,
-                <CreateNewNote/>
-            </div>
-        },
-        {
-            path: '/viewnote',
-            main: () => 
-            <div>
-                <div style={{display: 'flex'}}>
-                    <h5 style={{
-                        paddingLeft: '85%',
-                        paddingTop: 0,
-                        }}>edit
-                    </h5>
-
-                    <h5 style={{
-                        paddingLeft: '87%',
-                        paddingTop: 0,
-                        }}>delete
-                    </h5>
-                </div>
-                <h2 style={{
-                    paddingTop:'25px',
-                    }}>Note Name //placeholder
-                </h2> 
-            </div>, 
-        },
-    ]
-
+    
+    
     render() {
         return (
             <Router>
-                <div style={{
+                <div style={{ //sidebar container
                     display: 'flex',
                     }}>  
 
-                    <div style={{ 
+                    <div style={{ //grey sidebar and buttons
                         paddingLeft:'10px', 
                         paddingRight:'10px', 
                         paddingBottom:'100%', 
-                        width:'19%', 
+                        width:'55%', 
                         background:'#d3d2d3',
                         }}>
 
-                        <div style={{
+                        <div style={{ //sidebar title
                             paddingBottom: '20px',
                             paddingTop: '20px',
                             }}>
@@ -96,23 +97,28 @@ class SideBar extends Component {
                             <div>
                             <Button color='info' size='lg' block><Link to='/createnewnote'>+Create New Note</Link></Button>
                             </div>
-                        </div>             
-
-                        <div style={{flex: 1, padding: '10px'}}>
-                            {routes.map((route) => (
-                                <Route
-                                    key={route.path}
-                                    path={route.path}
-                                    exact={route.exact}
-                                    component={route.main}
-                                />
-                            ))}
-                        </div>
-
+                        </div>            
                     </div>
+
+                    <div style={{ //routes 
+                        flex: 1, padding: '10px'
+                        }}> 
+                        {routes.map((route) => (
+                            <Route
+                                key={route.path}
+                                path={route.path}
+                                exact={route.exact}
+                                component={route.main}
+                            />
+                        ))}
+                    </div>
+
                 </div>
             </Router>
         )
     }
 }
+
+
+
 export default SideBar
