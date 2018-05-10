@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import FA from 'react-fontawesome'
 import { startListening, stopListening, addToRegister, clearRegister } from '../actions/speech'
 import Mic from './Mic'
 

@@ -10,7 +10,7 @@ import NoteView from './NoteView'
 import EditNote from './EditNote'
 import DeleteNote from './DeleteNote'
 
-import './App.css'
+import './styles/App.css'
 
 const App = props => (
   <ConnectedRouter history={history}>
