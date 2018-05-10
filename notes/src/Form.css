@@ -2,3 +2,8 @@ form {
     display: flex;
     flex-direction: column;
 }
+
+.NoteSpace {
+    display: flex;
+    flex-direction: column;
+}
