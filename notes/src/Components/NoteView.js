@@ -10,42 +10,36 @@
 //   render() {
 //     console.log("props", this.props);
   
-  // handleDelete = (event, id) => {
-  //   event.preventDefault();
-  //   let notesOriginal = this.state.notes;
-  //   console.log(id);
-  //   axios
-  //     .delete(`http://localhost:5000/notes/${id}`)
-  //     .then(response => {
-  //       this.setState(() => ({
-  //         notes: notesOriginal.filter(note => note.id !== id)
-  //       }));
-  //     })
-  //     .catch(error => {
-  //       console.error("error", error);
-  //     });
-  // };
+ 
  import React from "react";
  import {Link} from "react-router-dom";
  
  const NoteView = (props) => {
+
+     const enterDelete = e => {
+       e.preventDefault();
+       props.handleDelete(e, props.location.state.id);
+       props.history.push("/");
+       console.log("props", props);
+     };
   return <div>
-        <div className="HeaderBox">
-          <ul>
-            <li>
-              <Link to={`/editView/${props.location.state.id}`}>
-                Edit
-              </Link>
-            </li>
-            <li>
-            </li>
-          </ul>
-        </div>
-        <div className="contentBox">
-          <h1> Title: {props.location.state.title} </h1>
-          <h3> Content: {props.location.state.content} </h3>
-        </div>
-      </div>;
+      <div className="HeaderBox">
+        <ul>
+          <li>
+            <Link to={`/editView/${props.location.state.id}`}>Edit</Link>
+          </li>
+          <button onClick={enterDelete} >
+          {/* <button onClick={e => props.handleDelete(e, props.location.state.id)}> */}
+            Delete
+          </button>
+          <li />
+        </ul>
+      </div>
+      <div className="contentBox">
+        <h1> Title: {props.location.state.title} </h1>
+        <h3> Content: {props.location.state.content} </h3>
+      </div>
+    </div>;
 
  }
 

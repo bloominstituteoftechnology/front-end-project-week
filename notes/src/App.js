@@ -42,35 +42,49 @@ class App extends Component {
   buttonSubmit = note => {
     axios
       .post("http://localhost:5000/notes", note)
-      // .then(response => console.log(response))
       .then(response => {
         this.setState({ title: "", content: "", notes: response.data });
       });
-  
   };
   handleEditSubmit = id => {
     axios
-      .put(
-        `http://localhost:5000/notes/${id}`,
-        {title: this.state.title, content: this.state.content}
-      )
-      .then(response =>  {
-        this.setState({ title: "", content: "", notes: response.data})
+      .put(`http://localhost:5000/notes/${id}`, {
+        title: this.state.title,
+        content: this.state.content
       })
-    
+      .then(response => {
+        this.setState({ title: "", content: "", notes: response.data });
+      })
+
       .catch(error => console.log(error));
+  };
+
+  handleDelete = (event, id) => {
+    event.preventDefault();
+    let notesOriginal = this.state.notes;
+    console.log(id);
+    axios
+      .delete(`http://localhost:5000/notes/${id}`)
+      .then(response => {
+        this.setState(() => ({
+          notes: notesOriginal.filter(note => note.id !== id)
+        }));
+      })
+      .catch(error => {
+        console.error("error", error);
+      });
   };
 
   render() {
     return (
       <div className="AppContainer">
         <Nav />
-       <Switch>
+        <Switch>
           <Route
             exact
             path="/"
             render={() => <ListView notes={this.state.notes} />}
-            //passing down to child components 
+            //passing down to child components
             //this way makes stuff connected to everything
           />
           <Route
@@ -87,12 +101,17 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/noteView/:id" render={props => (
+          <Route
+            path="/noteView/:id"
+            render={props => (
               <NoteView
                 {...props}
                 title={this.state.title}
-                content={this.state.content} />)}
-                />
+                content={this.state.content}
+                handleDelete={this.handleDelete}
+              />
+            )}
+          />
           <Route
             path="/editView/:id"
             render={props => (
