@@ -49,7 +49,7 @@ const withSpeech = Comp => {
         .join('')
 
       if (e.results[0].isFinal)
-        this.props.addToRegister(transcript)
+        // this.props.addToRegister(transcript)
     }
 
     render() {
@@ -68,8 +68,6 @@ const Speak = props => {
       <Mic
         startListening={props.startListening}
         stopListening={props.stopListening}
-      // startListening={this.startListening}
-      // stopListening={this.stopListening}
       />
       <button onClick={() => onSave(props.register)}>Looks good?</button>
       <div className="transcript">

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { CustomInput } from './fields'
+import { required } from './validation'
 
 let CreateForm = ({
   handleSubmit
@@ -8,16 +10,19 @@ let CreateForm = ({
       <div>
         <Field
           name="title"
-          component="input"
+          component={CustomInput}
           type="text"
           placeholder="Note Title"
+          validate={[required]}
         />
       </div>
       <div>
         <Field
           name="body"
-          component="textarea"
+          component={CustomInput}
+          type="textarea"
           placeholder="Note Content"
+          validate={[required]}
         />
       </div>
       <div><button>Save</button></div>
@@ -25,7 +30,7 @@ let CreateForm = ({
   )
 
 CreateForm = reduxForm({
-  form: 'create'
+  form: 'create',
 })(CreateForm)
 
 export default CreateForm

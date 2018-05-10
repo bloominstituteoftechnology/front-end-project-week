@@ -28,7 +28,6 @@ class CreateNote extends Component {
           onSubmit={this.submitNote}
           enableReinitialize
           initialValues={{
-            title: '',
             body: this.state.body.reduce((acc, curr) => acc.concat(curr + '\n\n'), '')
           }}
         />
