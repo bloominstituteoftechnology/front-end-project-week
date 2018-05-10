@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+}
+
+/* Refactor into own file: */
+.NoteThumb {
+  margin-bottom: 20px;
+}
+
+.NoteThumb a {
+  text-decoration: none;
+}
