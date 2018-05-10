@@ -43,6 +43,7 @@ class Speak extends Component {
   componentWillUnmount = () => { }
 
   render() {
+    const { onSave } = this.props
     return (
       <div className="Speak">
 
@@ -50,16 +51,14 @@ class Speak extends Component {
           ? (
             <button onClick={this.stopListening}><FA
               name="microphone-slash"
-              size="1x"
             /></button>
           ) : (
             <button onClick={this.listen}><FA
               name="microphone"
-              size="1x"
             /></button>
           )
-
         }
+        <button onClick={() => onSave(this.state.transcript)}>Looks good?</button>
         <div className="transcript">
           {this.state.transcript.map(t => <p key={t}>{t}</p>)}
         </div>

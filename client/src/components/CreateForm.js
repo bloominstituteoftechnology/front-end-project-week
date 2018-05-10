@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 
-let Form = ({
+let CreateForm = ({
   handleSubmit
 }) => (
     <form onSubmit={handleSubmit}>
@@ -24,8 +24,8 @@ let Form = ({
     </form>
   )
 
-Form = reduxForm({
+CreateForm = reduxForm({
   form: 'create'
-})(Form)
+})(CreateForm)
 
-export default Form
+export default CreateForm
