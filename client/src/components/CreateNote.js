@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { addNote } from '../actions'
-import { clearRegister } from '../actions/speech'
+import { startListening, stopListening, addToRegister, clearRegister } from '../actions/speech'
 import CreateForm from './CreateForm'
 import './styles/CreateNote.css'
 
-import CreateNoteWithSpeech from './hoc/withSpeech'
+// import CreateNoteWithSpeech from './hoc/withSpeech'
+import CreateNoteWithSpeech from './CreateNoteWithSpeech'
 
 class CreateNote extends Component {
   state = { body: [] }
@@ -33,6 +34,9 @@ class CreateNote extends Component {
         />
         <CreateNoteWithSpeech
           onSave={this.onSpeakSave}
+          startListening={this.props.startListening}
+          stopListening={this.props.stopListening}
+          addToRegister={this.props.addToRegister}
         />
       </div>
 
@@ -42,6 +46,9 @@ class CreateNote extends Component {
 
 const mapDispatchToProps = {
   addNote,
+  startListening,
+  stopListening,
+  addToRegister,
   clearRegister,
   navigateHome: () => push('/')
 }
