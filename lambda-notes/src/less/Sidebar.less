@@ -1,0 +1,40 @@
+.sidebar {
+	max-width: 350px;
+	height: 100%;
+	min-height: 715px;
+	background: #cfcccc;
+	border: 1.5px solid @lightGreyBorder;
+}
+h6 {
+	margin: 20px 0 20px 5%;
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: @darkGreyHeading;
+	line-height: 1;
+}
+a {
+	&:hover {
+		text-decoration: none;
+	}
+}
+.sidebar-button {
+	display: block;
+	background: @buttonBlue;
+	padding: 4%;
+	max-height: 100%;
+	width: 90%;
+	color: white;
+	font-weight: bold;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border: 1.5px solid @lightGreyBorder;
+	&:hover {
+		background: @buttonBlueHover;
+	}
+}
+@media (min-width: 768px) {
+	h6 {
+		font-size: 2rem;
+		padding-right: 50%;
+	}
+}

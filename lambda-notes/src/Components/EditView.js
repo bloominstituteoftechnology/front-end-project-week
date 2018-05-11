@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import { addNote, deleteNote, editNote } from '../Actions/index';
-import "../Styles/CreateNote.css";
+import "../css/CreateNote.css";
 
 class EditView extends Component {
     constructor(props) {

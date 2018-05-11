@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import { addNote, deleteNote } from '../Actions/index';
-import "../Styles/CreateNote.css";
+import "../css/CreateNote.css";
 
 class CreateNote extends Component {
     state = {

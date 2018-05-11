@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalBody } from 'reactstrap';
 
-import '../Styles/DeleteModal.css';
+import '../css/DeleteModal.css';
 
 const DeleteModal = (props) => {
     return (

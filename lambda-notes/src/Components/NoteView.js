@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { deleteNote, editNote } from '../Actions';
 import DeleteModal from './DeleteModal';
 import Sidebar from './Sidebar';
-import '../Styles/NoteView.css';
+import '../css/NoteView.css';
 
 class NoteView extends Component {
     state = {

@@ -1,0 +1,173 @@
+.title {
+  font-weight: bold;
+  display: block;
+  font-size: 20px;
+  padding: 3%;
+  margin-left: 2%;
+}
+.content {
+  margin-left: 2%;
+}
+.thumbnail {
+  position: block;
+  width: 200px;
+  height: 200px;
+  border: 1.25px solid #a7a2a2;
+  display: inline-flex;
+  margin: 2%;
+  background: white;
+  padding: 1% 2% 0 2%;
+  overflow: hidden;
+}
+a {
+  color: black;
+}
+.container {
+  margin-left: -10px;
+}
+.yourNotes {
+  margin-top: 3.75rem;
+  margin-left: 2%;
+  color: #504f4f;
+  font-weight: bold;
+}
+.line {
+  border: 0.5px solid #a7a2a2;
+  margin: 5px 5px 5px 0px;
+  width: 150px;
+}
+.sidebar {
+  max-width: 350px;
+  height: 100%;
+  min-height: 715px;
+  background: #cfcccc;
+  border: 1.5px solid #a7a2a2;
+}
+h6 {
+  margin: 20px 0 20px 5%;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #504f4f;
+  line-height: 1;
+}
+a:hover {
+  text-decoration: none;
+}
+.sidebar-button {
+  display: block;
+  background: #18b2bdfd fd;
+  padding: 4%;
+  max-height: 100%;
+  width: 90%;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 1.5px solid #a7a2a2;
+}
+.sidebar-button:hover {
+  background: #1F939C;
+}
+@media (min-width: 768px) {
+  h6 {
+    font-size: 2rem;
+    padding-right: 50%;
+  }
+}
+body {
+  background: #EDEDED;
+}
+.createNoteHeading {
+  font-weight: bold;
+  color: #504f4f;
+  margin-bottom: 25px;
+  margin-top: 3.75rem;
+}
+input {
+  display: block;
+  width: 300px;
+  padding: 1.5%;
+  margin-bottom: 15px;
+  border-radius: 2%;
+  border: 1.5px solid #a7a2a2;
+}
+input:focus {
+  outline: none;
+}
+textarea {
+  border: 1.5px solid #a7a2a2;
+  padding: 2%;
+}
+textarea:focus {
+  outline: none;
+}
+.submit {
+  display: block;
+  background: #18b2bdfd fd;
+  padding: 1%;
+  width: 200px;
+  color: white;
+  font-weight: bold;
+  border: 1.5px solid #a7a2a2;
+}
+.submit:hover {
+  background: #1F939C;
+}
+.dismissModal {
+  background: #18b2bdfd fd;
+  max-height: 100%;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+  border: none;
+  border-radius: 0%;
+  width: 150px;
+}
+.dismissModal:hover {
+  background: #1F939C;
+}
+.deleteButton {
+  background: #DB2222;
+  border: none;
+  border-radius: 0%;
+  width: 150px;
+  color: white;
+  font-weight: bold;
+}
+.deleteButton:hover {
+  background: #AF1B1B;
+}
+div .modal-content {
+  border-radius: 0;
+  border: 1.5px solid #504f4f;
+}
+div .modal-body {
+  padding: 8%;
+  color: #504f4f;
+  margin: 0 auto;
+}
+div .modal-body p {
+  margin-left: 20px;
+}
+.noteViewLink {
+  padding: 3%;
+  margin: 15px;
+  text-decoration: default;
+}
+.viewLinks {
+  margin-top: 10px;
+  margin-left: 90%;
+  text-decoration: underline;
+  color: #504f4f;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.viewLinks a {
+  color: #504f4f;
+}
+.noteTitle {
+  font-weight: bold;
+  color: #504f4f;
+  margin-bottom: 25px;
+  margin-top: 1.5rem;
+}

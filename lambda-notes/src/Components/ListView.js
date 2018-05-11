@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom'
 
-import '../Styles/ListView.css'
+import '../css/ListView.css'
 import Sidebar from './Sidebar';
 
 const shortenNote = (str) => {
