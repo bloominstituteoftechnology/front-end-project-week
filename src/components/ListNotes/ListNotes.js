@@ -31,7 +31,7 @@ class ListNotes extends Component {
     })
   }
 
-  onSearch = event => {
+  onSearch = (event) => {
     this.setState({
       search: event.target.value
     })
@@ -39,7 +39,7 @@ class ListNotes extends Component {
 
   render (props) {
     const { search } = this.state
-    const filteredNotes = this.props.notes.filter(note => {
+    const filteredNotes = this.props.notes.filter((note) => {
       return (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         note.content.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
@@ -90,25 +90,29 @@ class ListNotes extends Component {
         </h2>
         <Container fluid className='notes p-0'>
           <Row className='col-12 row-notes'>
-            {filteredNotes.map(note =>
+            {filteredNotes.map((note) => (
               <div className='card mx-auto my-3' key={note._id}>
                 <div className='card-body'>
                   <Link className='card-link' to={`/view/${note._id}`}>
                     <h4 className='card-title'>
-                      {note.title.length >= 13
-                        ? note.title.substr(0, 13) + ' ...'
-                        : note.title}
+                      {note.title.length >= 13 ? (
+                        note.title.substr(0, 13) + ' ...'
+                      ) : (
+                        note.title
+                      )}
                     </h4>
                   </Link>
                   <span className='card-text'>
-                    {note.content.length >= 175
-                      ? note.content.substr(0, 175) + ' ...'
-                      : note.content}
+                    {note.content.length >= 175 ? (
+                      note.content.substr(0, 175) + ' ...'
+                    ) : (
+                      note.content
+                    )}
                   </span>
                 </div>
                 <div className='card-footer m-0 px-0 py-1'>
-                  {note.tags.length < 5
-                    ? note.tags.map((tag, index) =>
+                  {note.tags.length < 5 ? (
+                    note.tags.map((tag, index) => (
                       <Badge
                         pill
                         color='primary'
@@ -120,8 +124,9 @@ class ListNotes extends Component {
                       >
                         {tag}
                       </Badge>
-                    )
-                    : note.tags.reverse().slice(0, 4).map((tag, index) =>
+                    ))
+                  ) : (
+                    note.tags.reverse().slice(0, 4).map((tag, index) => (
                       <Badge
                         pill
                         color='primary'
@@ -130,10 +135,11 @@ class ListNotes extends Component {
                       >
                         {tag}
                       </Badge>
-                    )}
+                    ))
+                  )}
                 </div>
               </div>
-            )}
+            ))}
           </Row>
         </Container>
       </div>
