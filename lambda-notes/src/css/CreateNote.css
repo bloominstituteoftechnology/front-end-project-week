@@ -1,10 +1,8 @@
 .createNote {
     display:flex;
-    border: 5px solid green;
     width: 60%;
     
 }
 
 .form {
-    border: 5px solid purple;
 }

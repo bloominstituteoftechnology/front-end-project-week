@@ -4,7 +4,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    border: 5px solid pink;
     width: 100%;
 
 }
@@ -12,12 +11,10 @@
 .notes-container {
     display:flex;
     flex-wrap: wrap;
-    border: 5px solid black;
 }
 
 .notes-list {
     display: flex;
     list-style: none;
-    border: 5px solid orange;
     flex-direction: column;
 }

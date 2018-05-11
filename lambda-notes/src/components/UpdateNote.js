@@ -32,7 +32,7 @@
               <Form>
                 <Label for ='Title'>Title</Label>
                 <Input type='text' name='title' value={this.state.title} onChange={this.handleChange}  placeholder={this.props.state.note.title} />
-                <Label for ='Body'>Title</Label>
+                <Label for ='Body'>Body</Label>
                 <Input type='textarea' name='body' value={this.state.body} onChange={this.handleChange} placeholder={this.props.state.note.body} />
                 <Button onClick={this.handleUpdate}>Update Note</Button>
               </Form>
