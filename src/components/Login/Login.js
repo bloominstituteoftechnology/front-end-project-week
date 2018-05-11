@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { Button } from 'reactstrap'
 import './Login.css'
 
-// const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:5000'
+const serverURL = 'https://lambda-notes-server.herokuapp.com'
+// const serverURL = 'http://localhost:5000'
 
 class Login extends React.Component {
   state = {
@@ -13,31 +13,31 @@ class Login extends React.Component {
     password: ''
   }
 
-  render() {
+  render () {
     return (
-      <div className="Login">
+      <div className='Login'>
         <h2>Login: </h2>
         <form onSubmit={this.submitHandler}>
-          <div className="form-row">
+          <div className='form-row'>
             <label>Username:</label>
             <input
-              name="username"
+              name='username'
               value={this.state.username}
               onChange={this.inputHandler}
-              type="text"
+              type='text'
             />
           </div>
-          <div className="form-row">
+          <div className='form-row'>
             <label>Password:</label>
             <input
-              name="password"
+              name='password'
               value={this.state.password}
               onChange={this.inputHandler}
-              type="password"
+              type='password'
             />
           </div>
-          <div className="form-row">
-            <Button color="primary">Login</Button>
+          <div className='form-row'>
+            <Button color='primary'>Login</Button>
           </div>
         </form>
       </div>
@@ -49,17 +49,17 @@ class Login extends React.Component {
     this.setState({ [name]: value })
   }
 
-  submitHandler = event => {
+  submitHandler = (event) => {
     event.preventDefault()
 
     axios
       .post(`${serverURL}/api/login`, this.state)
-      .then(response => {
+      .then((response) => {
         console.log('response', response.data)
         this.props.onLogin(response.data)
         this.props.history.push('/')
       })
-      .catch(err => {
+      .catch((err) => {
         console.log('ERROR You are not authorized', err)
       })
   }

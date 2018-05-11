@@ -13,11 +13,9 @@ import Login from './Login/Login'
 
 import './Layout.css'
 
-const serverURL = 'http://localhost:5000'
-
-// const serverURL = 'https://lambda-notes-server.herokuapp.com'
+const serverURL = 'https://lambda-notes-server.herokuapp.com'
 class Layout extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {
       notes: [],
@@ -26,32 +24,23 @@ class Layout extends Component {
       username: '',
       loading: false
     }
-
-    // # Refactoring to use ES6 binding
-    // this.createNote = this.createNote.bind(this)
-    // this.newTitle = this.newTitle.bind(this)
-    // this.newContent = this.newContent.bind(this)
-    // this.deleteNote = this.deleteNote.bind(this)
-    // this.updateNote = this.updateNote.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.getNotes()
   }
 
   getNotes = () => {
-    // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
-    // const serverURL = 'http://localhost:5000'
     const token = localStorage.getItem('authorization')
     axios
       .get(`${serverURL}/api/notes`, { headers: { authorization: token } })
-      .then(res => {
+      .then((res) => {
         this.setState({
           notes: res.data.notes,
           username: res.data.username
         })
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   }
 
   clearNotes = () => {
@@ -76,17 +65,17 @@ class Layout extends Component {
       .post(`${serverURL}/api/notes`, note, {
         headers: { authorization: token }
       })
-      .then(res => {
+      .then((res) => {
         this.setState({
           notes: res.data,
           title: '',
           content: ''
         })
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   }
 
-  deleteNote = id => {
+  deleteNote = (id) => {
     // const newNotes = this.state.notes.filter(note => note._id !== Number(id))
     // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
     // const serverURL = 'http://localhost:5000'
@@ -97,10 +86,10 @@ class Layout extends Component {
           authorization: localStorage.getItem('authorization')
         }
       })
-      .then(res => {
+      .then((res) => {
         this.setState({ notes: res.data })
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   }
 
   updateNote = (note, tags) => {
@@ -114,14 +103,14 @@ class Layout extends Component {
       .put(`${serverURL}/api/notes/${note._id}`, updateNote, {
         headers: { authorization: localStorage.getItem('authorization') }
       })
-      .then(res => {
+      .then((res) => {
         this.setState({
           notes: res.data,
           title: '',
           content: ''
         })
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
 
     // let copyNotes = this.state.notes
     // let updateIndex = copyNotes.findIndex(
@@ -137,70 +126,73 @@ class Layout extends Component {
     // })
   }
 
-  newTitle = event => {
+  newTitle = (event) => {
     this.setState({
       title: event.target.value
     })
   }
 
-  newContent = event => {
+  newContent = (event) => {
     this.setState({
       content: event.target.value
     })
   }
-  registerSuccess = data => {
+  registerSuccess = (data) => {
     // console.log(data);
     localStorage.setItem('authorization', `Bearer ${data.token}`)
     this.getNotes()
   }
 
-  render() {
+  render () {
     return (
-      <div className="Layout">
+      <div className='Layout'>
         <NavBar notes={this.state.notes} username={this.state.username} />
         <Route
           exact
-          path="/"
-          render={props =>
+          path='/'
+          render={(props) => (
             <ListNotes
               notes={this.state.notes}
               username={this.state.username}
               clearNotes={this.clearNotes}
-            />}
+            />
+          )}
         />
 
         <Route
-          path="/create"
-          render={props =>
+          path='/create'
+          render={(props) => (
             <CreateNote
               newTitle={this.newTitle}
               newContent={this.newContent}
               createNote={this.createNote}
               title={this.state.title}
               content={this.state.content}
-            />}
+            />
+          )}
         />
 
         <Route
-          path="/view/:id"
-          render={props =>
+          path='/view/:id'
+          render={(props) => (
             <ViewNote
               note={
                 this.state.notes.filter(
-                  note => note._id == props.match.params.id // eslint-disable-line
+                  (note) => note._id == props.match.params.id // eslint-disable-line
                 )[0]
               }
               deleteNote={this.deleteNote}
-            />}
+            />
+          )}
         />
 
         <Route
-          path="/update/:id"
-          render={props =>
+          path='/update/:id'
+          render={(props) => (
             <UpdateNote
               note={
                 this.state.notes.filter(
-                  note => note._id == props.match.params.id // eslint-disable-line
+                  (note) => note._id == props.match.params.id // eslint-disable-line
                 )[0]
               }
               newTitle={this.newTitle}
@@ -208,15 +200,16 @@ class Layout extends Component {
               updateNote={this.updateNote}
               title={this.state.title}
               content={this.state.content}
-            />}
+            />
+          )}
         />
         <Route
-          path="/register"
-          render={props => <Register onRegister={this.registerSuccess} />}
+          path='/register'
+          render={(props) => <Register onRegister={this.registerSuccess} />}
         />
         <Route
-          path="/login"
-          render={props => <Login onLogin={this.registerSuccess} />}
+          path='/login'
+          render={(props) => <Login onLogin={this.registerSuccess} />}
         />
       </div>
     )
