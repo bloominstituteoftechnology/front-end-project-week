@@ -5,7 +5,9 @@ import './App.css';
 import NotesList from './components/noteslist.js';
 import Leftnav from './components/leftnav';
 import Frontpage from './components/frontpage';
-import Create from './components/create'
+import CreateNote from './components/createnote';
+import Note from './components/note';
+import Edit from './components/edit';
 class App extends Component {
   render() {
     return (
@@ -15,9 +17,9 @@ class App extends Component {
 
         <Leftnav />
          <Route exact path='/' component={Frontpage} />
-         <Route path='/create' component={Create} />
-        {/* <Route path='/note/:id' component={Note} />
-        <Route path="/edit" component={Edit} />  */}
+         <Route path='/createnote' component={CreateNote} />
+        <Route path='/note/:id' component={Note} />
+        <Route path="/edit/:id" component={Edit} /> 
       </div>
     );
   }

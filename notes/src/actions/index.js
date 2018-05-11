@@ -10,13 +10,12 @@ export const FETCHING = 'FETCHING';
 
 export const getNotes = () => {
     return (dispatch) => {
-        axios.get('http://localhost:3333/notelist')
+        axios.get('http://localhost:3333/noteslist')
         .then((response) => {
             console.log(response.data)
-            dispatch({type:SUCCESS,notes:response.data})
-        
+            dispatch({type:SUCCESS, notes:response.data})
         })
-        
+        .catch(error => {console.log(error)})
     }
 }
 
@@ -29,18 +28,19 @@ export const addNote = (note) => {
     
             dispatch({type:FETCHING})
             axios.post('http://localhost:3333/noteslist', note)
-            .then(() => {return window.location = 'http://localhost:3000/noteslist'});
-               
+            .then((response) => {
+                dispatch({type:ADD_NOTE, notes:response.data})
             
-    }
+            })
+            .catch(error => {console.log(error)});
 }
-
+}
 export const editNote = (note) => {
     return (dispatch) => {
         dispatch({type: FETCHING})
         axios.put(`http://localhost:3333/note/${note.id}`, note)
         .then((response) => {
-            dispatch({type:SUCCESS, note: response.data})
+            dispatch({type:SUCCESS, notes: response.data})
         })
     }
 }

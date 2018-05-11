@@ -6,29 +6,29 @@ import { getNotes } from '../actions';
 import thunk from 'redux-thunk';
 import {logger} from 'redux-logger';
 import { SUCCESS } from '../actions';
+import {connect} from 'react-redux';
 
 
-
-export default class Frontpage extends Component {
+ class Frontpage extends Component {
     state = {
         notes: []
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3333/noteslist')
-        .then((response) => {
-            console.log(response.data)
-            this.setState({notes:response.data})
-           
-        
-        })
+        this.props.getNotes();
+        // axios.get('http://localhost:3333/noteslist')
+        // .then((response) => {
+        //     console.log(response.data)
+        //     this.setState({notes:response.data})
+        // })
     }
 
     render() {
-        let { notes } = this.state;
+        let { notes } = this.props;
         // notes = notes.filter(note => {
         //     re
         // })
+        console.log(this.props)
         return (
             <div className="note-container">
             <ul className="noteslist">
@@ -57,3 +57,12 @@ export default class Frontpage extends Component {
 
 
 }
+const mapStateToProps = (state) => {
+    console.log(state.notesReducer)
+    return {
+        
+        notes: state.notesReducer.notes,
+    }
+}
+
+export default connect(mapStateToProps, { getNotes })(Frontpage);

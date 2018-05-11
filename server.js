@@ -49,7 +49,7 @@ let notes = [
 ];
 let noteId = notes.length;
 
-app.get('/notesList', (req, res) => {
+app.get('/noteslist', (req, res) => {
 	res.send(notes);
 });
 
@@ -58,18 +58,20 @@ app.get('/note/:id', (req, res) => {
 	res.status(200).json(note);
 });
 
-app.post('/notesList', (req, res) => {
-	const { title, content } = req.body;
-	const newNote = {id: noteId, title, content};
+app.post('/noteslist', (req, res) => {
+	const { title, body } = req.body;
+	const newNote = {id: noteId, title, body};
 	notes.push(newNote);
 	noteId++;
 	res.status(201).json(notes);
 });
 
 app.put('/note/:id', (req, res) => {
-	const { title, content, id } = req.body;
-	let note = notes.filter(note => note.id === id);
-	notes.splice(id, 1, {id: Number(id), title, content});
+	//not getting id from params getting it from body
+	const { title, body } = req.body;
+	const { id } = req.params;
+	let note = notes.filter(note => note.id === +id);
+	notes.splice(id, 1, {id: Number(id), title, body});
 	res.status(201).json(notes);
 });
 

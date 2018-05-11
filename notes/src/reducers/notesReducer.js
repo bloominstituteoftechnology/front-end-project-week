@@ -9,33 +9,25 @@ const initialState = {
     
 }
 //do not need to use
-export const notesReducer = (notes = [], action) => {
+export const notesReducer = (state = initialState, action) => {
     switch(action.type) {
         //do these need to be more literal
         case FETCHING:
-            return {...notes, fetching:true, friends:[]};
+            return {...state, fetching:true};
             // do these need to require
         case SUCCESS:
-            return {...notes, notes:action.notes, fetching:false} 
+            return {...state, notes:action.notes, fetching:false} 
         case ADD_NOTE:
-            return {...notes, title: action.title, body: action.body}
-        
+            return {...state, notes:action.notes, fetching:false}
 
-        let id = action.payload.id;
-            return notes.map((note) => {
-                if (note.id === id) {
-                    note.title = action.note.title;
-                    note.body = action.note.body; 
-                }
-            })
 
         case DELETE_NOTE:
-            return notes.filter(note => note.id !== action.payload.id);
+            return state.notes.filter(note => note.id !== action.payload.id);
 
         case ERROR:
-            return {...notes, error:action.error}
+            return {...state, error:action.error}
             // will this be useful without axios?
         default:
-            return notes
+            return state
     }
 }

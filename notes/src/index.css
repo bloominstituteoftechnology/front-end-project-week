@@ -75,3 +75,13 @@ body {
   margin-bottom: 10px;
   width: 80%;
 }
+.submit {
+  background-color: darkturquoise;
+  margin: 5px 0;
+  width: 140px;
+  height: 35px;
+  color: white;
+  font-size: 14px;
+  padding: 0;
+  border: none;
+}

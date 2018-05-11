@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import {addNote} from '../actions';
+import {connect} from 'react-redux';
 
-export default class Create extends Component {
+class CreateNote extends Component {
     state = {
         redirect: false,
         title: '',
         body: '',
 
     }
-    addNote = note => {
-        axios.post("http://localhost:3333/noteslist", note)
-          .then(() => this.setState({ redirect: true }))
-          .catch(error => console.log(error));
-      }
+    // addNote = note => {
+    //     console.log(note);
+    //     axios.post("http://localhost:3333/noteslist", note)
+    //     .then(response => {console.log(response)})
+    //     //   .then(() => this.setState({ redirect: true }))
+    //       .catch(error => console.log(error));
+    // }
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value});
     }
-    handleButton = () => {
-        //wah?
+    handleButton = (e) => {
+        e.preventDefault();
+        console.log('testing');
         this.props.addNote(this.state)
         this.setState({title: '', body:'', id: ''});
+        this.props.history.push('/');
     }
 
     componentDidMount() {
@@ -36,15 +42,22 @@ export default class Create extends Component {
             return <Redirect to="/" />
         }
         return (
-            <div className="form">
+            <form className="form" onSubmit={this.handleButton} >
             <input className="form-title" name="title" value={this.state.title} onChange={this.handleChange} />
             <textarea className="form-body" rows="25" name="body" value={this.state.body} onChange={this.handleChange}></textarea>
-            <button onClick={() => this.state.handleButton}  ></button>
+            <button type="submit" className="submit"   >Create</button>
             
-            </div>
+            </form>
 
 
         )
     }
 
 }
+// const mapStateToProps = (state) => {
+//     return {
+//         notes: state.notes,
+//     }
+// }
+
+export default connect(null, { addNote })(CreateNote);
