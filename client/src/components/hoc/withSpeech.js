@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { startListening, stopListening, addToRegister, clearRegister } from '../../actions/speech'
 import Mic from '../Mic'
+import '../styles/Speak.css'
 
 const head = arr => arr[0]
 
@@ -18,9 +19,8 @@ const mapDispatchToProps = {
   clearRegister,
 }
 
-const withSpeech = ({ component: Comp }) => {
-  class WithSpeech extends Component {
-
+const withSpeech = Comp => {
+  return class WithSpeech extends Component {
     componentDidMount = () => {
       window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
       this.recognition = new window.SpeechRecognition()
@@ -31,13 +31,13 @@ const withSpeech = ({ component: Comp }) => {
       this.recognition.removeEventListener('result', this.accumulateTranscript)
     }
 
-    startListening = () => {
+    start = () => {
       this.props.startListening()
       this.recognition.addEventListener('result', this.accumulateTranscript)
       this.recognition.start()
     }
 
-    stopListening = () => {
+    stop = () => {
       this.props.stopListening()
       this.recognition.stop()
     }
@@ -48,33 +48,51 @@ const withSpeech = ({ component: Comp }) => {
         .map(({ transcript }) => transcript)
         .join('')
 
-      if (e.results[0].isFinal)
+      if (head(e.results).isFinal)
         this.props.addToRegister(transcript)
     }
 
     render() {
-      return <Comp {...this.props} />
+      return <Comp
+        {...this.props}
+        start={this.start}
+        stop={this.stop}
+      />
     }
   }
-
-  return connect(mapStateToProps, mapDispatchToProps)(WithSpeech)
 }
 
-export const Speak = props => {
-  const { onSave } = props
-
+const CreateNoteWithSpeech = ({
+  isListening,
+  register,
+  start,
+  stop,
+  onSave
+}) => {
   return (
     <div className="Speak">
       <Mic
-        startListening={props.startListening}
-        stopListening={props.stopListening}
+        startListening={start}
+        stopListening={stop}
       />
-      <button onClick={() => onSave(props.register)}>Looks good?</button>
+      {isListening
+        ? null : (
+          <button
+            onClick={() => onSave(register)}
+            className="saveSpeechBtn mainBtn"
+          >
+            Looks good?
+          </button>
+        )
+      }
       <div className="transcript">
-        {props.register.map(t => <p key={t}>{t}</p>)}
+        {register.map(t => <p key={t}>{t}</p>)}
       </div>
     </div>
   )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WithSpeech)
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withSpeech,
+)(CreateNoteWithSpeech)

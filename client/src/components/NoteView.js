@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { getOne } from '../actions'
 import Note from './Note'
+import './styles/NoteView.css'
 
 class NoteView extends Component {
   componentDidMount = () => {

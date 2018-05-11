@@ -6,8 +6,7 @@ import { clearRegister } from '../actions/speech'
 import CreateForm from './CreateForm'
 import './styles/CreateNote.css'
 
-import Speak from './Speak'
-// import withSpeech, { Speak } from './hoc/withSpeech'
+import CreateNoteWithSpeech from './hoc/withSpeech'
 
 class CreateNote extends Component {
   state = { body: [] }
@@ -32,9 +31,8 @@ class CreateNote extends Component {
             body: this.state.body.reduce((acc, curr) => acc.concat(curr + '\n\n'), '')
           }}
         />
-        <Speak
+        <CreateNoteWithSpeech
           onSave={this.onSpeakSave}
-          component={Speak}
         />
       </div>
 
