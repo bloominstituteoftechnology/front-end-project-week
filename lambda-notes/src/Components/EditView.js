@@ -11,11 +11,11 @@ class EditView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type: 'Edit Note', //Edit Note:
+            type: 'Edit Note:', //Edit Note:
             title: this.props.notes[this.props.match.params.id].title,
             content: this.props.notes[this.props.match.params.id].content,
             id: this.props.match.params.id,
-            button: 'update' //Update
+            button: 'Update' //Update
         }
     }
 
@@ -37,11 +37,9 @@ class EditView extends Component {
         return (
             <Container className='container'>
                 <Row>
-
                     <Col xs='3'>
                         <Sidebar />
                     </Col>
-
                     <Col xs='9'>
                         <div className='newNote'>
                             <h4 className='createNoteHeading'>{ this.state.type }</h4>

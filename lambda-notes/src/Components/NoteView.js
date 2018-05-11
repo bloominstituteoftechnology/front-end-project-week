@@ -41,7 +41,6 @@ class NoteView extends Component {
                             <Sidebar />
                         </Col>
                         <Col xs='9'>
-
                             <div className='viewLinks'>
                                 <Link to={ `/edit/${this.props.match.params.id}` }>
                                     edit
@@ -57,7 +56,6 @@ class NoteView extends Component {
                             </div>
                             <h4 className='noteTitle'>{ this.state.note.title }</h4>
                             <p>{ this.state.note.content }</p>
-
                         </Col>
                     </Row>
                 </Container>

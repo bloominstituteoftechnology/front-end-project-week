@@ -13,7 +13,7 @@ class CreateNote extends Component {
         title: '',
         content: '',
         id: '',
-        button: 'save' //Update
+        button: 'Save' //Update
     }
 
     updateInput = (e) => {
@@ -27,7 +27,6 @@ class CreateNote extends Component {
             id: this.props.notes.length || 0,
         }
         this.props.addNote(newNote);
-        console.log(newNote)
         this.setState({ title: '', content: ''});
     }
 
@@ -35,11 +34,9 @@ class CreateNote extends Component {
         return (
             <Container className='container'>
                 <Row>
-
                     <Col xs='3'>
                         <Sidebar />
                     </Col>
-
                     <Col xs='9'>
                         <div className='newNote'>
                             <h4 className='createNoteHeading'>{this.state.type}</h4>
@@ -53,7 +50,6 @@ class CreateNote extends Component {
                             </Link>
                         </div>
                     </Col>
-                    
                 </Row>
             </Container>
         )
