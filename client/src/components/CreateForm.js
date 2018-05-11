@@ -25,7 +25,7 @@ let CreateForm = ({
           validate={[required]}
         />
       </div>
-      <div><button>Save</button></div>
+      <button className="mainBtn mainContentBtn">Save</button>
     </form>
   )
 

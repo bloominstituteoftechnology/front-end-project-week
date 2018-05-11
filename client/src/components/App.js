@@ -20,10 +20,10 @@ const App = props => (
       <Route exact path="/create" component={CreateNote} />
       <Route exact path="/notes/:id" render={({ match: { params } }) =>
         <NoteView id={params.id} />} />
+      <Route path="/notes/:id/delete" render={({ match: { params } }) =>
+        <DeleteNote id={params.id} />} />
       <Route exact path="/notes/:id/edit" render={({ match: { params } }) =>
         <EditNote id={params.id} />} />
-      <Route exact path="/notes/:id/delete" render={({ match: { params } }) =>
-        <DeleteNote id={params.id} />} />
     </div>
   </ConnectedRouter>
 )

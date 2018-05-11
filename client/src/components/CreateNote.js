@@ -4,9 +4,10 @@ import { push } from 'react-router-redux'
 import { addNote } from '../actions'
 import { clearRegister } from '../actions/speech'
 import CreateForm from './CreateForm'
+import './styles/CreateNote.css'
 
 import Speak from './Speak'
-// import Speak from './hoc/withSpeech'
+// import withSpeech, { Speak } from './hoc/withSpeech'
 
 class CreateNote extends Component {
   state = { body: [] }
@@ -22,8 +23,8 @@ class CreateNote extends Component {
 
   render() {
     return (
-      <div className="CreateNote">
-        <div>Create New Note:</div>
+      <div className="CreateNote mainContent">
+        <h3>Create New Note:</h3>
         <CreateForm
           onSubmit={this.submitNote}
           enableReinitialize
@@ -33,6 +34,7 @@ class CreateNote extends Component {
         />
         <Speak
           onSave={this.onSpeakSave}
+          component={Speak}
         />
       </div>
 

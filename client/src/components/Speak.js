@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { startListening, stopListening, addToRegister, clearRegister } from '../actions/speech'
 import Mic from './Mic'
+import './styles/Speak.css'
 
 const head = arr => arr[0]
 
@@ -45,7 +46,16 @@ class Speak extends Component {
           startListening={this.startListening}
           stopListening={this.stopListening}
         />
-        <button onClick={() => onSave(this.props.register)}>Looks good?</button>
+        {this.props.isListening
+          ? null : (
+            <button
+              onClick={() => onSave(this.props.register)}
+              className="saveSpeechBtn mainBtn"
+            >
+              Looks good?
+            </button>
+          )
+        }
         <div className="transcript">
           {this.props.register.map(t => <p key={t}>{t}</p>)}
         </div>

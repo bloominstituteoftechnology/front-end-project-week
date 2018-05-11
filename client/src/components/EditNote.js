@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import EditForm from './EditForm'
 import { getOne, updateNote } from '../actions'
+import './styles/EditNote.css'
 
 class EditNote extends Component {
   componentDidMount = () => {
@@ -23,7 +24,7 @@ class EditNote extends Component {
   render() {
     const { note } = this.props
     return (
-      <div className="EditNote">
+      <div className="EditNote mainContent">
         <h3>Edit Note:</h3>
         <div className="editNoteForm">
           {!note.content ? "Loading" :

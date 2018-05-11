@@ -25,7 +25,7 @@ let EditForm = ({
           validate={[required]}
         />
       </div>
-      <div><button>Update</button></div>
+      <div><button className="mainBtn mainContentBtn">Update</button></div>
     </form>
   )
 

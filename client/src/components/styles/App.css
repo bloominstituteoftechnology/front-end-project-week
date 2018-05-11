@@ -10,3 +10,35 @@
 .NoteThumb a {
   text-decoration: none;
 }
+
+.mainContent {
+  padding: 40px 25px;
+}
+
+.mainContent h3 {
+  color: #636365;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.mainBtn {
+  background-color: #20afb5;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mainContentBtn {
+  width: 250px;
+}
+
+.micBtn {
+  width: 44px;
+  margin-right: 5px;
+}
+
+.saveSpeechBtn {
+  width: 201px;
+}

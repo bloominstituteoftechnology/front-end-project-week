@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { deleteNote } from '../actions'
+import './styles/DeleteNote.css'
 
 class DeleteNote extends Component {
   deleteNote = () => {
@@ -18,8 +19,8 @@ class DeleteNote extends Component {
     return (
       <div className="DeleteNote">
         <p>Are you sure you want to delete this?</p>
-        <button onClick={this.deleteNote}>Delete</button>
-        <button onClick={this.cancelDelete}>No</button>
+        <button onClick={this.deleteNote} className="mainBtn mainContentBtn">Delete</button>
+        <button onClick={this.cancelDelete} className="mainBtn mainContentBtn mainNoBtn">No</button>
       </div>
     )
   }

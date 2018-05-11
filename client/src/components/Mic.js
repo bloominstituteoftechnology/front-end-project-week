@@ -10,13 +10,13 @@ const Mic = ({
     <span className="Mic">
       {isListening
         ? (
-          <button onClick={stopListening}><FA
-            name="microphone-slash"
-          /></button>
+          <button onClick={stopListening} className="mainBtn micBtn">
+            <FA name="microphone-slash" />
+          </button>
         ) : (
-          <button onClick={startListening}><FA
-            name="microphone"
-          /></button>
+          <button onClick={startListening} className="mainBtn micBtn">
+            <FA name="microphone" />
+          </button>
         )
       }
     </span>

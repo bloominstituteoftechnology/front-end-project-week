@@ -1,5 +1,5 @@
 .Sidebar {
-  width: 20%;
+  min-width: 20%;
   background: lightgray;
   min-height: 100vh;
   padding: 20px 15px;
@@ -9,6 +9,7 @@
 .Sidebar h3 {
   font-size: 32px;
   line-height: 1;
+  color: #393939;
 }
 
 .sidebarLinks {
@@ -16,11 +17,6 @@
 }
 
 .sidebarLinks button {
-  background-color: #20afb5;
-  color: white;
   width: 100%;
-  padding: 10px;
   margin-bottom: 10px;
-  font-size: 16px;
-  cursor: pointer;
 }

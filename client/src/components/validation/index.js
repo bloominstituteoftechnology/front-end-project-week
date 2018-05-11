@@ -1,4 +1,4 @@
-export const required = value => value ? undefined : 'Required Field'
+export const required = value => value ? undefined : '* Required Field'
 
 export const validate = values => {
   const errors = {}
