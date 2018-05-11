@@ -6,30 +6,60 @@ import { Card, CardText, CardBody,
 
 
 export default class ListItems extends Component {
+  constructor() {
+    super();
 
+    this.state = {
+      notes: [
+        { id: 0,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 1,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 2,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 3,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 4,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 5,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 6,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 7,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 8,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this."
+    },
+      { id: 9,
+        noteTitle: "Note Title",
+      noteContent: "Note Content about the 10 try with this." 
+    },
 
-render() {
-  return (
-    <div className="notesContainer">
-    <SideNav />
-    <div className="listNotes">
-    <div className="notesHeader">Your Notes:</div>
-    <div className="listAllNotes">
-    {this.props.notes.map((note, i) => {
-      return (
-        <div className="notesCard" key={note.id}>
-        <Link to={`/list-view/${note.id}`}>
-        <div className="noteTitle">{note.noteTitle}></div>
-        <div className="noteContent">{note.noteContent}</div>
-        </Link>
-        </div>
-      );
-    })}
-    </div>
-    </div>
-    </div>
-  )
-}
+      ]
+    };
+  }
+  render() {
+    return (
+
+  
+    )
 }
 
 
