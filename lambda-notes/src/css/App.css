@@ -1,0 +1,36 @@
+
+
+.home {
+  display: flex;
+  border-bottom: 1px solid black;
+}
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 30px;
+
+}
+
+.home-nav-banner {
+  display: flex;
+  margin: 25px 35px;
+  justify-content: center;
+}
+
+.home-nav-link {
+  width: 50%;
+  margin: 15px 25%;
+
+}
+
+
+.content {
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-grow: 10;
+}

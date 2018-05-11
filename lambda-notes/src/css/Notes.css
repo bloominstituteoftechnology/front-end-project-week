@@ -1,0 +1,20 @@
+
+
+.notes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+}
+
+.notes-container {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.notes-list {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+}
