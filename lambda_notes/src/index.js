@@ -16,7 +16,7 @@ ReactDOM.render(
     <div>
     <Route exact path="/" component={ListItems} />
     <Route path="/create" component={CreateNewNote} />
-    <Route path="single_note" component={SingleNoteView} />
+    <Route path="single" component={SingleNoteView} />
     <App />
     
     </div>

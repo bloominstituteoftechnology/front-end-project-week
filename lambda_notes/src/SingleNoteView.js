@@ -1,5 +1,9 @@
-import React, { Component } from'react';
-import SideNav from'./SideNav';
+import React, { Component } from 'react';
+import { Card, CardText, CardSubtitle, CardBody,
+  CardTitle, Button } from 'reactstrap';
+  import { Container, Row, Col } from 'reactstrap';
+  import { Link } from 'react-router-dom';
+  import SideNav from'./SideNav';
 
 
 export default class SingleNoteView extends Component {
@@ -15,11 +19,18 @@ export default class SingleNoteView extends Component {
         this.setState({note: SingleNoteView });
     };
 
-render() {
-    return (
-        <div>
-        Hello
-        </div>
-    )
-}
+    render () {
+        return (
+          <Row>
+              <SideNav Col md="4" />
+          <Col md="8">
+            <Card body>
+              <CardTitle>Note Title</CardTitle>
+              <CardText>Note Content</CardText>
+              <Button>Button</Button>
+              </Card>
+          </Col>
+        </Row>
+      )
+      }
 }

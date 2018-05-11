@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardText, CardBody,
+import { Card, CardText, CardSubtitle, CardBody,
   CardTitle, Button } from 'reactstrap';
+  import { Container, Row, Col } from 'reactstrap';
   import { Link } from 'react-router-dom';
   import SideNav from'./SideNav';
 
@@ -8,59 +9,26 @@ import { Card, CardText, CardBody,
 export default class ListItems extends Component {
   constructor() {
     super();
-
-    this.state = {
-      notes: [
-        { id: 0,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 1,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 2,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 3,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 4,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 5,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 6,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 7,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 8,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this."
-    },
-      { id: 9,
-        noteTitle: "Note Title",
-      noteContent: "Note Content about the 10 try with this." 
-    },
-
-      ]
-    };
   }
-  render() {
-    return (
 
-  
-    )
+  render () {
+    return (
+      <Row>
+      <Col>
+        <Card body>
+          <CardTitle>Note Title</CardTitle>
+          <CardText>Note Content</CardText>
+          <Button>Button</Button>
+          </Card>
+      </Col>
+    </Row>
+  )
+  }
 }
+
+
+
+
 
 
 

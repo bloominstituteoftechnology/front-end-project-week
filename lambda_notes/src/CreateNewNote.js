@@ -16,14 +16,12 @@ export default class CreateNewNote extends Component {
     }
   };
 
-  handleChange = e =>{
-    this.setstate({ [e.target.name]: e.target.value});
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value});
   }
 
-  handleSubmit = e =>{
-    e.preventDefault();
-    this.props.CreateNewNote(this.state);
-    this.setState({
+  handleSubmit = (e) => {
+      this.setState({
       noteTitle: '',
       noteContent: ''
     });
@@ -39,7 +37,7 @@ export default class CreateNewNote extends Component {
           <Input 
           type="text" 
           name="noteTitle" 
-          placeholder="Note Title"
+          placeholder="New Note Title"
           onChange={this.handleChange}
           value={this.state.noteTitle} />
         </FormGroup>
@@ -49,7 +47,7 @@ export default class CreateNewNote extends Component {
         type="textarea"
         name="noteContent"
         placeholder="New Note Content"
-        onchange={this.handlechange}
+        onChange={this.handleChange}
         value={this.state.noteContent} />
         </FormGroup>
 

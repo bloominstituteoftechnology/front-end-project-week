@@ -19,7 +19,7 @@ export default class App extends Component {
                   <SideNav />
                </Col>
                <Col m="8">
-                  <ListItems />>
+                  <ListItems />
               </Col>
             </Row>
           </div>

@@ -12,8 +12,8 @@ const SideNav = ()  =>  {
         <Button className="sideNav-button">View Your Notes</Button>
         </Link>
 
-        <Link to="create-new-note">
-        <Button className="sideNav-button">+ Create New Note</Button>
+        <Link to="create">
+        <Button className="sideNav-button">+Create New Note</Button>
         </Link>
         </div>
         </div>
