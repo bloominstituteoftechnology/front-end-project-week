@@ -100,12 +100,8 @@ class ListNotes extends Component {
               <Row key={index} className='row-notes p-0 m-0'>
                 {miniNoteArray.map((note) => (
                   <Col className='card col-notes p-0 mx-auto' key={note._id}>
-                    <div className='card-body'>
-                      <h4
-                        className='card-title'
-                        as={Link}
-                        to={`/view/${note._id}`}
-                      >
+                    <div className='card-body m-0 p-1'>
+                      <h4 className='card-title'>
                         {note.title.length >= 13 ? (
                           note.title.substr(0, 13) + ' ...'
                         ) : (
@@ -154,9 +150,6 @@ class ListNotes extends Component {
             )
           })}
         </Container>
-      </div>
-    )
-  }
-}
+      </div>)}
 
 export default withRouter(ListNotes)
