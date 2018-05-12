@@ -7,7 +7,6 @@ import ListNotes from './ListNotes/ListNotes'
 import CreateNote from './CreateNote/CreateNote'
 import ViewNote from './ViewNote/ViewNote'
 import UpdateNote from './UpdateNote/UpdateNote'
-
 import Register from './Register/Register'
 import Login from './Login/Login'
 
