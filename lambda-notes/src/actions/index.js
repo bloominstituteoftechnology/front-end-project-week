@@ -14,6 +14,7 @@ export const ERROR_UPDATING = 'ERROR_UPDATING';
 export const getNotes = () => {
   const notes = axios.get(`http://localhost:3333/notes`);
   return dispatch => {
+<<<<<<< HEAD
     dispatch({ type: FETCH_NOTES });
     notes
       .then(response => {
@@ -22,6 +23,13 @@ export const getNotes = () => {
           type: FETCHED_NOTES,
           payload: response.data
         });
+=======
+    dispatch({ type: FETCHING })
+    axios.get('http://localhost:5000/api/notes/')
+      .then( (response) => {
+        // console.log('RESP',response.data);
+        dispatch({type: FETCHED, notes: response.data})
+>>>>>>> ca13fdc6ef270479d87affa1e3c68c4831bc3a40
       })
       .catch(err => {
         dispatch({
@@ -32,8 +40,26 @@ export const getNotes = () => {
   };
 };
 
+<<<<<<< HEAD
 export const getNote = id => {
   const note = axios.get(`http://localhost:3333/notes/${id}`)
+=======
+export const getNote = (id) => {
+  return dispatch => {
+    dispatch({ type: FETCHING })
+    axios.get(`http://localhost:5000/api/notes/${id}`)
+      .then( (response) => {
+        // console.log('RESP',response.data);
+        dispatch({type: FETCHED, notes: response.data})
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, error: 'ERROR GETTING NOTE'})
+      });
+  }
+}
+
+export const createNote = (note) => {
+>>>>>>> ca13fdc6ef270479d87affa1e3c68c4831bc3a40
   return dispatch => {
     note
     .then(response => {
@@ -77,12 +103,29 @@ export const updateNote = note => {
   }
 }
 
+<<<<<<< HEAD
 export const createNote = data => {
   const notes = axios.post(`http://localhost:3333/notes`, data);
     return dispatch => {
       notes
       .then(response=> {
         dispatch({ type: CREATE_NOTE, payload: response.data })
+=======
+// export const startUpdating = note => {
+//   return {
+//     type: UPDATING,
+//     note
+//   };
+// };
+
+export const deleteNoteOnState = id => {
+  return dispatch => {
+    dispatch({ type: FETCHING})
+    axios.delete(`http://localhost:5000/api/notes/${id}`)
+      .then(response => {
+        // console.log('DELETE',response);
+        dispatch({ type: FETCHED, notes: response.data });
+>>>>>>> ca13fdc6ef270479d87affa1e3c68c4831bc3a40
       })
       .catch(err => {
         dispatch({
