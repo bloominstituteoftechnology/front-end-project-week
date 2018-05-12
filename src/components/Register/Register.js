@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import axios from 'axios'
 import { Button } from 'reactstrap'
 import './Register.css'
 
@@ -46,6 +46,8 @@ class Register extends React.Component {
   }
 
   inputHandler = ({ target }) => {
+    // #inputHandler receives event object by default
+    // #line48 destructures target from event
     const { name, value } = target
     this.setState({ [name]: value })
   }

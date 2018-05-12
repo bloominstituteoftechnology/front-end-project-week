@@ -7,6 +7,7 @@ import {
   Button,
   Container,
   Row,
+  Col,
   Badge
 } from 'reactstrap'
 
@@ -46,6 +47,11 @@ class ListNotes extends Component {
         note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
       )
     })
+    const filteredNoteGrid = filteredNotes
+      .map((note, index) => {
+        return index % 4 === 0 ? filteredNotes.slice(index, index + 4) : null
+      })
+      .filter((x) => x != null)
 
     return (
       <div className='ListNotes mb-0'>
@@ -88,59 +94,65 @@ class ListNotes extends Component {
           {this.props.username.charAt(0).toUpperCase() +
             this.props.username.substr(1).toLowerCase()}'s Notes:
         </h2>
-        <Container fluid className='notes p-0'>
-          <Row className='col-12 row-notes'>
-            {filteredNotes.map((note) => (
-              <div className='card mx-auto my-3' key={note._id}>
-                <div className='card-body'>
-                  <Link className='card-link' to={`/view/${note._id}`}>
-                    <h4 className='card-title'>
-                      {note.title.length >= 13 ? (
-                        note.title.substr(0, 13) + ' ...'
+        <Container fluid className='row-notes p-0'>
+          {filteredNoteGrid.map((miniNoteArray, index) => {
+            return (
+              <Row key={index}>
+                {miniNoteArray.map((note) => (
+                  <Col className='card mx-auto' key={note._id}>
+                    <div className='card-body'>
+                      <h4
+                        className='card-title'
+                        as={Link}
+                        to={`/view/${note._id}`}
+                      >
+                        {note.title.length >= 13 ? (
+                          note.title.substr(0, 13) + ' ...'
+                        ) : (
+                          note.title
+                        )}
+                      </h4>
+                      <span className='card-text'>
+                        {note.content.length >= 175 ? (
+                          note.content.substr(0, 175) + ' ...'
+                        ) : (
+                          note.content
+                        )}
+                      </span>
+                    </div>
+                    <div className='card-footer m-0 px-0 py-1'>
+                      {note.tags.length < 5 ? (
+                        note.tags.map((tag, index) => (
+                          <Badge
+                            pill
+                            color='primary'
+                            className='ml-1 badge-tag'
+                            key={tag + index}
+                            onClick={() => {
+                              this.setState({ search: tag })
+                            }}
+                          >
+                            {tag}
+                          </Badge>
+                        ))
                       ) : (
-                        note.title
+                        note.tags.reverse().slice(0, 4).map((tag, index) => (
+                          <Badge
+                            pill
+                            color='primary'
+                            className='ml-1 badge-tag'
+                            key={tag + index}
+                          >
+                            {tag}
+                          </Badge>
+                        ))
                       )}
-                    </h4>
-                  </Link>
-                  <span className='card-text'>
-                    {note.content.length >= 175 ? (
-                      note.content.substr(0, 175) + ' ...'
-                    ) : (
-                      note.content
-                    )}
-                  </span>
-                </div>
-                <div className='card-footer m-0 px-0 py-1'>
-                  {note.tags.length < 5 ? (
-                    note.tags.map((tag, index) => (
-                      <Badge
-                        pill
-                        color='primary'
-                        className='ml-1 badge-tag'
-                        key={tag + index}
-                        onClick={() => {
-                          this.setState({ search: tag })
-                        }}
-                      >
-                        {tag}
-                      </Badge>
-                    ))
-                  ) : (
-                    note.tags.reverse().slice(0, 4).map((tag, index) => (
-                      <Badge
-                        pill
-                        color='primary'
-                        className='ml-1 badge-tag'
-                        key={tag + index}
-                      >
-                        {tag}
-                      </Badge>
-                    ))
-                  )}
-                </div>
-              </div>
-            ))}
-          </Row>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            )
+          })}
         </Container>
       </div>
     )
