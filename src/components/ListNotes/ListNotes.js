@@ -92,8 +92,8 @@ class ListNotes extends Component {
         </Modal>
 
         <h2 className='list_h2 '>
-          {`this.props.username.charAt(0).toUpperCase() +
-            this.props.username.substr(1).toLowerCase()'s Notes:`}
+          {this.props.username.charAt(0).toUpperCase() +
+            this.props.username.substr(1).toLowerCase()}'s Notes:
         </h2>
         <Container fluid className='notes p-0 m-0'>
           {filteredNoteGrid.map((miniNoteArray, index) => {
@@ -101,11 +101,10 @@ class ListNotes extends Component {
               <Row key={index} className='row-notes p-0 m-0'>
                 {miniNoteArray.map((note) => (
                   <Col
-                    className='card col-notes my-2 mx-auto'
+                    className='card col-notes my-2 mx-auto px-0'
                     key={note._id}
-                    onClick={() => this.props.history.push(`/view/${note_id}`)}
                   >
-                    <div className='card-body m-0 px-1'>
+                    <div className='card-body m-0 px-3'>
                       <h4 className='card-title'>
                         {note.title.length >= 13 ? (
                           note.title.substr(0, 13) + ' ...'
