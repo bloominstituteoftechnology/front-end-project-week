@@ -13,20 +13,7 @@
   font-weight: bold;
 }
 
-.inputFields {
-  margin-left: 12px;
-}
-
-.editNoteTitle {
-  width: 55%;
-  padding: 10px;
-  border: 1px solid gray;
-  border-radius: 2px;
-  box-shadow: inset .5px .5px lightgrey;
-  font-size: 10px;
-}
-
-.editNoteContent {
+.editContent {
   width: 90%;
   height: 300px;
   padding: 8px;
@@ -36,4 +23,27 @@
   border-radius: 2px;
   box-shadow: inset .5px .5px lightgrey;
   font-size: 10px;
+}
+
+.editNoteContainer {
+  width: 80%;
+  padding-left: 25px;
+  padding-top: 35px;
+  background-color: #F2F1F2;
+  border-left: 1px solid gray;
+}
+
+.editTitle {
+  width: 55%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 2px;
+  box-shadow: inset .5px .5px lightgrey;
+  font-size: 10px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.inputFields {
+  margin-left: 12px;
 }

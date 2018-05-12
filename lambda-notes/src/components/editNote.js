@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createNote, updateNote } from '../actions';
 import { connect } from 'react-redux';
-import './CreateNote.css';
+import './EditNote.css';
 
 class EditNote extends Component {
   constructor(props){
@@ -36,13 +36,13 @@ class EditNote extends Component {
   render() {
     return (
          
-        <div className="createNoteContainer">
+        <div className="editNoteContainer">
         <h3 className="headerNotes">Edit Note:</h3>
         <div className="inputFields">
         <div className="inputTitle">
             <input
                 type="text"
-                className="title"
+                className="editTitle"
                 name="title"
                 value={this.state.title}
                 placeholder="Note Title"
@@ -52,7 +52,7 @@ class EditNote extends Component {
         <div className="inputContent">
             <textarea
                 type="text"
-                className="content"
+                className="editContent"
                 name="content"
                 value={this.state.content}
                 placeholder="Note Content" 
@@ -61,7 +61,7 @@ class EditNote extends Component {
         </div>
         </div>
         <div>
-        <button className="saveButton"
+        <button className="updateButton"
           onClick={() => {
             console.log('EditNote',{title: this.state.title, content: this.state.content, id: this.state.id});
             this.props.updateNote({ title: this.state.title, content: this.state.content, id: this.state.id});

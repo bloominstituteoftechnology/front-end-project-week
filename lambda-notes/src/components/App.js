@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { SideBar } from './SideBar';
-// import HomePage from './HomePage';
 import NotesList from './NotesList';
 import CreateNote from './CreateNote';
 import NoteView from './NoteView';
