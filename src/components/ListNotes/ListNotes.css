@@ -54,12 +54,15 @@
 }
 
 .notes {
-  display: flex;
-  justify-content: center;
+  border: 1px solid red;
 }
 
 .row-notes {
-  display: flex;
+  border: 1px solid blue;
+}
+
+.col-notes {
+  border: 1px solid green;
 }
 
 .card {
