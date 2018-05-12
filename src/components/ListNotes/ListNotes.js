@@ -32,9 +32,9 @@ class ListNotes extends Component {
     })
   }
 
-  onSearch = (event) => {
+  onSearch = ({ target }) => {
     this.setState({
-      search: event.target.value
+      search: target.value
     })
   }
 
@@ -59,6 +59,7 @@ class ListNotes extends Component {
           type='text'
           className='search-bar'
           placeholder='search'
+          name='search'
           value={this.state.search}
           onChange={this.onSearch}
         />
@@ -99,7 +100,11 @@ class ListNotes extends Component {
             return (
               <Row key={index} className='row-notes p-0 m-0'>
                 {miniNoteArray.map((note) => (
-                  <Col className='card col-notes p-0 mx-auto' key={note._id} onClick={() => { this.props.history.push('/') }}>
+                  <Col
+                    className='card col-notes p-0 mx-auto'
+                    key={note._id}
+                    onClick={() => this.props.history.push(`/view/note_id`)}
+                  >
                     <div className='card-body m-0 p-1'>
                       <h4 className='card-title'>
                         {note.title.length >= 13 ? (
@@ -150,6 +155,9 @@ class ListNotes extends Component {
             )
           })}
         </Container>
-      </div>)}
+      </div>
+    )
+  }
+}
 
 export default withRouter(ListNotes)

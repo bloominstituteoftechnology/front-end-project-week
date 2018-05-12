@@ -4,8 +4,8 @@ import axios from 'axios'
 import { Button } from 'reactstrap'
 import './Register.css'
 
-// const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:300'
+const serverURL = 'https://lambda-notes-server.herokuapp.com'
+// const serverURL = 'http://localhost:3000'
 
 class Register extends React.Component {
   state = {
@@ -55,11 +55,9 @@ class Register extends React.Component {
 
   submitHandler = (event) => {
     event.preventDefault()
-    console.log('im here')
     axios
       .post(`${serverURL}/api/register`, this.state)
       .then((response) => {
-        console.log('response', response.data)
         this.props.onRegister(response.data)
         this.props.history.push('/')
       })

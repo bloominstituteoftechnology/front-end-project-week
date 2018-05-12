@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 .ListNotes {
   background-color: #f3f3f3;
   font-family: Roboto;
@@ -7,36 +5,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.loginName {
-  margin-right: 15px;
-  margin-top: 4px;
-  text-decoration: none;
-  color: RGB(74, 74, 74);
-  font-weight: bolder;
-  font-size: 18px;
-  margin-right: 50px;
-}
-
-.RegLog {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 15px;
-}
-
-.reg-link {
-  text-decoration: none;
-  color: RGB(74, 74, 74);
-  font-weight: bolder;
-  font-size: 18px;
-  margin-right: 50px;
-}
-
-.reg-link:hover {
-  text-decoration: none;
-  color: RGB(54, 192, 195);
-  font-weight: bolder;
 }
 
 .list_h2 {
@@ -63,8 +31,8 @@
 } */
 
 .card {
-  max-width: 250px !important;
-  min-width: 250px !important;
+  max-width: 300px !important;
+  min-width: 200px !important;
   height: 300px;
   border: 1px solid RGB(174, 174, 174);
   background-color: white;
@@ -93,11 +61,12 @@
 
 .search-bar {
   border: 2px solid RGB(54, 192, 195);
-  margin-top: 15px;
+  margin-top: 20px;
   border-radius: 15px;
   text-align: center;
   align-self: center;
   width: 50%;
+  max-width: 600px;
   min-width: 260px;
 }
 
@@ -107,7 +76,7 @@
 }
 
 .card-footer {
-  max-height: 3 0px !important;
+  max-height: 30px !important;
   min-height: 30px !important;
   display: flex;
   overflow-x: auto;
