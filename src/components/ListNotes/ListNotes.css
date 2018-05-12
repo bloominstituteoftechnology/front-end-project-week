@@ -43,7 +43,7 @@
 }
 
 .card-title {
-  font-weight: bold;
+  font-weight: 500;
   font-family: Roboto;
   padding-bottom: 5px;
   border-bottom: 2px solid gray;

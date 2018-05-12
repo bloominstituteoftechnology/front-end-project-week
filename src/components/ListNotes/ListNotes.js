@@ -101,7 +101,7 @@ class ListNotes extends Component {
               <Row key={index} className='row-notes p-0 m-0'>
                 {miniNoteArray.map((note) => (
                   <Col
-                    className='card col-notes p-0 mx-auto'
+                    className='card col-notes p-2 my-3 mx-auto'
                     key={note._id}
                     onClick={() => this.props.history.push(`/view/note_id`)}
                   >
