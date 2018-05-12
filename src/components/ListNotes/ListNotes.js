@@ -94,12 +94,12 @@ class ListNotes extends Component {
           {this.props.username.charAt(0).toUpperCase() +
             this.props.username.substr(1).toLowerCase()}'s Notes:
         </h2>
-        <Container fluid className='notes p-0'>
+        <Container fluid className='notes p-0 m-0'>
           {filteredNoteGrid.map((miniNoteArray, index) => {
             return (
-              <Row key={index} className='row-notes'>
+              <Row key={index} className='row-notes p-0 m-0'>
                 {miniNoteArray.map((note) => (
-                  <Col className='card col-notes mx-auto' key={note._id}>
+                  <Col className='card col-notes p-0 mx-auto' key={note._id}>
                     <div className='card-body'>
                       <h4
                         className='card-title'
