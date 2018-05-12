@@ -21,7 +21,7 @@ class Layout extends Component {
       title: '',
       content: '',
       username: '',
-      loading: true
+      loading: false
     }
   }
 
