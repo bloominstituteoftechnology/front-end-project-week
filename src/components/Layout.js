@@ -12,7 +12,8 @@ import Login from './Login/Login'
 
 import './Layout.css'
 
-const serverURL = 'https://lambda-notes-server.herokuapp.com'
+// const serverURL = 'https://lambda-notes-server.herokuapp.com'
+const serverURL = 'http://localhost:3000'
 class Layout extends Component {
   constructor () {
     super()
@@ -110,19 +111,6 @@ class Layout extends Component {
         })
       })
       .catch((err) => console.log(err))
-
-    // let copyNotes = this.state.notes
-    // let updateIndex = copyNotes.findIndex(
-    //   note => note.noteId == updateNote.noteId
-    // )
-    // copyNotes.splice(updateIndex, 1, updateNote)
-
-    // this.setState({
-    //   notes: copyNotes,
-    //   title: '',
-    //   content: '',
-    //   id: Number('')
-    // })
   }
 
   newTitle = (event) => {

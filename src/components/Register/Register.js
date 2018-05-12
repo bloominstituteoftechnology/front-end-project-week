@@ -4,7 +4,8 @@ import axios from 'axios'
 import { Button } from 'reactstrap'
 import './Register.css'
 
-const serverURL = 'https://lambda-notes-server.herokuapp.com'
+// const serverURL = 'https://lambda-notes-server.herokuapp.com'
+const serverURL = 'http://localhost:300'
 
 class Register extends React.Component {
   state = {

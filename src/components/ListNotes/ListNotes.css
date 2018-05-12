@@ -53,17 +53,14 @@
   }
 }
 
-.notes {
-  border: 1px solid red;
+/* .notes {
 }
 
 .row-notes {
-  border: 1px solid blue;
 }
 
 .col-notes {
-  border: 1px solid green;
-}
+} */
 
 .card {
   max-width: 250px !important;

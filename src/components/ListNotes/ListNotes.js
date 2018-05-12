@@ -99,7 +99,7 @@ class ListNotes extends Component {
             return (
               <Row key={index} className='row-notes p-0 m-0'>
                 {miniNoteArray.map((note) => (
-                  <Col className='card col-notes p-0 mx-auto' key={note._id}>
+                  <Col className='card col-notes p-0 mx-auto' key={note._id} onClick={() => { this.props.history.push('/') }}>
                     <div className='card-body m-0 p-1'>
                       <h4 className='card-title'>
                         {note.title.length >= 13 ? (
