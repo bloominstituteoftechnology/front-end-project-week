@@ -47,9 +47,12 @@ class ListNotes extends Component {
         note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
       )
     })
+    const numOfCols = 4
     const filteredNoteGrid = filteredNotes
       .map((note, index) => {
-        return index % numOfCols === 0 ? filteredNotes.slice(index, index + ) : null
+        return index % numOfCols === 0
+          ? filteredNotes.slice(index, index + numOfCols)
+          : null
       })
       .filter((x) => x != null)
 
@@ -72,8 +75,10 @@ class ListNotes extends Component {
             Please Register/Login to access Lambda Notes
           </ModalBody>
           <ModalFooter>
-            <Button color='success' className='register-button'
-              onClick={() => this.props.history.push
+            <Button
+              color='success'
+              className='register-button'
+              onClick={() => this.props.history.push('/register')}
             >
               Register
             </Button>
@@ -86,25 +91,32 @@ class ListNotes extends Component {
             </Button>
           </ModalFooter>
         </Modal>
-
-        <h2 className='list_h2 '>
+        <h2 className='list_h2'>
           {this.props.username.charAt(0).toUpperCase() +
             this.props.username.substr(1).toLowerCase()}'s Notes:
         </h2>
         <Container fluid className='notes p-0 m-0'>
           {filteredNoteGrid.map((miniNoteArray, index) => {
             return (
-              <Row key={index} className='row-notes p-0 m-0'>
+              <Row key={index} className='row-notes p-0 m-0 mb-2'>
                 {miniNoteArray.map((note) => (
-                  <Col className='card col-notes p-0 mx-auto' key={note._id} onClick={() => { this.props.history.push('/') }}>
+                  <Col
+                    className='card col-notes p-0 mx-auto'
+                    key={note._id}
+                    onClick={() => {
+                      this.props.history.push('/')
+                    }}
+                  >
                     <div className='card-body m-0 p-1'>
-                      <h4 className='card-title'>
-                        {note.title.length >= 13 ? (
-                          note.title.substr(0, 13) + ' ...'
-                        ) : (
-                          note.title
-                        )}
-                      </h4>
+                      <Link className='card-title' to={`/view/${note._id}`}>
+                        <h4 className='card-title'>
+                          {note.title.length >= 13 ? (
+                            note.title.substr(0, 13) + ' ...'
+                          ) : (
+                            note.title
+                          )}
+                        </h4>
+                      </Link>
                       <span className='card-text'>
                         {note.content.length >= 175 ? (
                           note.content.substr(0, 175) + ' ...'
@@ -147,6 +159,8 @@ class ListNotes extends Component {
             )
           })}
         </Container>
-      </div>)}
-
+      </section>
+    )
+  }
+}
 export default withRouter(ListNotes)

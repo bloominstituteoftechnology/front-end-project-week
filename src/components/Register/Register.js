@@ -5,7 +5,7 @@ import { Button } from 'reactstrap'
 import './Register.css'
 
 // const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:300'
+const serverURL = 'http://localhost:3000'
 
 class Register extends React.Component {
   state = {
