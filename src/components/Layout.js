@@ -12,8 +12,8 @@ import Login from './Login/Login'
 
 import './Layout.css'
 
-const serverURL = 'https://lambda-notes-server.herokuapp.com'
-// const serverURL = 'http://localhost:3000'
+// const serverURL = 'https://lambda-notes-server.herokuapp.com'
+const serverURL = 'http://localhost:3000'
 class Layout extends Component {
   constructor () {
     super()
