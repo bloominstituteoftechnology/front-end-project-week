@@ -38,7 +38,7 @@ class ListNotes extends Component {
     })
   }
 
-  render (props) {
+  render () {
     const { search } = this.state
     const filteredNotes = this.props.notes.filter((note) => {
       return (
@@ -49,12 +49,12 @@ class ListNotes extends Component {
     })
     const filteredNoteGrid = filteredNotes
       .map((note, index) => {
-        return index % 4 === 0 ? filteredNotes.slice(index, index + 4) : null
+        return index % numOfCols === 0 ? filteredNotes.slice(index, index + ) : null
       })
       .filter((x) => x != null)
 
     return (
-      <div className='ListNotes mb-0'>
+      <section className='ListNotes m-0 p-0'>
         <input
           type='text'
           className='search-bar'
@@ -62,7 +62,6 @@ class ListNotes extends Component {
           value={this.state.search}
           onChange={this.onSearch}
         />
-
         <Modal
           className='modal-modal'
           isOpen={!this.state.loggedIn}
@@ -70,13 +69,11 @@ class ListNotes extends Component {
           backdrop='static'
         >
           <ModalBody className='modal-body'>
-            Please Register/Login to access Lambda Notes.
+            Please Register/Login to access Lambda Notes
           </ModalBody>
           <ModalFooter>
-            <Button
-              color='success'
-              className='register-button'
-              onClick={() => this.props.history.push('/register')}
+            <Button color='success' className='register-button'
+              onClick={() => this.props.history.push
             >
               Register
             </Button>
