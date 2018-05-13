@@ -106,7 +106,7 @@ class ListNotes extends Component {
                     key={note._id}
                   >
                     <div className='card-body m-0 px-3'>
-                      <Link to={`/view/${note.id}`}>
+                      <Link to={`/view/${note._id}`}>
                         <h4 className='card-title'>
                           {note.title.length >= 13 ? (
                             note.title.substr(0, 13) + ' ...'
