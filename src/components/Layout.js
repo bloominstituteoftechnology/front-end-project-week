@@ -12,8 +12,8 @@ import Login from './Login/Login'
 
 import './Layout.css'
 
-// const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:3000'
+const serverURL = 'https://lambda-notes-server.herokuapp.com'
+// const serverURL = 'http://localhost:3000'
 class Layout extends Component {
   constructor () {
     super()
@@ -59,8 +59,7 @@ class Layout extends Component {
     note.title = this.state.title
     note.content = this.state.content
     note.tags = tags
-    // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
-    // const serverURL = 'http://localhost:5000'
+
     axios
       .post(`${serverURL}/api/notes`, note, {
         headers: { authorization: token }
@@ -76,10 +75,6 @@ class Layout extends Component {
   }
 
   deleteNote = (id) => {
-    // const newNotes = this.state.notes.filter(note => note._id !== Number(id))
-    // const serverURL = 'https://calm-citadel-70095.herokuapp.com'
-    // const serverURL = 'http://localhost:5000'
-
     axios
       .delete(`${serverURL}/api/notes/${id}`, {
         headers: {
@@ -97,8 +92,6 @@ class Layout extends Component {
     updateNote.title = this.state.title || note.title
     updateNote.content = this.state.content || note.content
     updateNote.tags = tags
-    // const serverURL = 'http://localhost:5000'
-
     axios
       .put(`${serverURL}/api/notes/${note._id}`, updateNote, {
         headers: { authorization: localStorage.getItem('authorization') }
@@ -125,7 +118,6 @@ class Layout extends Component {
     })
   }
   registerSuccess = (data) => {
-    // console.log(data);
     localStorage.setItem('authorization', `Bearer ${data.token}`)
     this.getNotes()
   }

@@ -18,7 +18,8 @@ class ListNotes extends Component {
     super(props)
     this.state = {
       loggedIn: false,
-      search: ''
+      search: '',
+      loading: false
     }
   }
 
@@ -32,9 +33,9 @@ class ListNotes extends Component {
     })
   }
 
-  onSearch = (event) => {
+  onSearch = ({ target }) => {
     this.setState({
-      search: event.target.value
+      search: target.value
     })
   }
 
@@ -62,6 +63,7 @@ class ListNotes extends Component {
           type='text'
           className='search-bar'
           placeholder='search'
+          name='search'
           value={this.state.search}
           onChange={this.onSearch}
         />
@@ -103,9 +105,6 @@ class ListNotes extends Component {
                   <Col
                     className='card col-notes p-0 mx-auto'
                     key={note._id}
-                    onClick={() => {
-                      this.props.history.push('/')
-                    }}
                   >
                     <div className='card-body m-0 p-1'>
                       <Link className='card-title' to={`/view/${note._id}`}>
@@ -159,8 +158,16 @@ class ListNotes extends Component {
             )
           })}
         </Container>
+<<<<<<< HEAD
       </section>
     )
   }
 }
+=======
+      </div>
+    )
+  }
+}
+
+>>>>>>> ecca9a8cbf872feef082bf8407da770b8ce05a15
 export default withRouter(ListNotes)
