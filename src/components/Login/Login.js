@@ -55,7 +55,6 @@ class Login extends React.Component {
     axios
       .post(`${serverURL}/api/login`, this.state)
       .then((response) => {
-        console.log('response', response.data)
         this.props.onLogin(response.data)
         this.props.history.push('/')
       })
