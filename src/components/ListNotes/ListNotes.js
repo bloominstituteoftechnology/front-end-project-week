@@ -18,7 +18,8 @@ class ListNotes extends Component {
     super(props)
     this.state = {
       loggedIn: false,
-      search: ''
+      search: '',
+      loading: false
     }
   }
 
@@ -105,13 +106,15 @@ class ListNotes extends Component {
                     key={note._id}
                   >
                     <div className='card-body m-0 px-3'>
-                      <h4 className='card-title'>
-                        {note.title.length >= 13 ? (
-                          note.title.substr(0, 13) + ' ...'
-                        ) : (
-                          note.title
-                        )}
-                      </h4>
+                      <Link to={`/view/${note.id}`}>
+                        <h4 className='card-title'>
+                          {note.title.length >= 13 ? (
+                            note.title.substr(0, 13) + ' ...'
+                          ) : (
+                            note.title
+                          )}
+                        </h4>
+                      </Link>
                       <span className='card-text'>
                         {note.content.length >= 175 ? (
                           note.content.substr(0, 175) + ' ...'

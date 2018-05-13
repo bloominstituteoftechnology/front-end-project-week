@@ -32,7 +32,6 @@
 
 .card {
   max-width: 300px !important;
-  min-width: 200px !important;
   height: 300px;
   border: 1px solid RGB(174, 174, 174);
   background-color: white;
