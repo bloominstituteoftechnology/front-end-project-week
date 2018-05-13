@@ -46,5 +46,4 @@ const withSpeech = Comp => {
   }
 }
 
-
 export default withSpeech
