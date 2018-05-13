@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import './CreateNote.css'
 // const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:3000gti'
+const serverURL = 'http://localhost:3000'
 
 class CreateNote extends Component {
   constructor (props) {
