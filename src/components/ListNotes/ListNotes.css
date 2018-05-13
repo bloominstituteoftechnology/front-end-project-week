@@ -31,11 +31,7 @@
 } */
 
 .card {
-<<<<<<< HEAD
-  max-width: 250px !important;
-=======
   max-width: 300px !important;
->>>>>>> ecca9a8cbf872feef082bf8407da770b8ce05a15
   height: 300px;
   border: 1px solid RGB(174, 174, 174);
   background-color: white;
