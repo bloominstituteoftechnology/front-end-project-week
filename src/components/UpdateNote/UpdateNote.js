@@ -18,17 +18,16 @@ class UpdateNote extends Component {
     this.props.history.push('/')
   }
 
-  handleTag = e => {
+  handleTag = (e) => {
     e.preventDefault()
     const value = this.state.tag
-    console.log(value)
     this.setState({
-      tags: [value, ...this.state.tags],
+      tags: [ value, ...this.state.tags ],
       tag: ''
     })
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       tag: event.target.value
     })
@@ -69,7 +68,7 @@ class UpdateNote extends Component {
             >
               Add Tag
             </button>
-            {this.state.tags.map((tag, index) =>
+            {this.state.tags.map((tag, index) => (
               <Badge
                 pill
                 className='badge-tag ml-2'
@@ -77,13 +76,13 @@ class UpdateNote extends Component {
                 key={tag + index}
                 onClick={() => {
                   this.setState({
-                    tags: this.state.tags.filter(curTag => tag !== curTag)
+                    tags: this.state.tags.filter((curTag) => tag !== curTag)
                   })
                 }}
               >
                 {tag} x
               </Badge>
-            )}
+            ))}
           </section>
           <textarea
             required
