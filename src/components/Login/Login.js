@@ -5,7 +5,7 @@ import { Button } from 'reactstrap'
 import './Login.css'
 
 // const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:3000'
+const serverURL = 'http://localhost:5000'
 
 class Login extends React.Component {
   state = {

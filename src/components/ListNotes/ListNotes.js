@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import jwtDecode from 'jwt-decode'
 import { Link, withRouter } from 'react-router-dom'
 import {
   Modal,
@@ -18,13 +19,30 @@ class ListNotes extends Component {
     super(props)
     this.state = {
       loggedIn: false,
-      search: '',
-      loading: false
+      loading: false,
+      search: ''
     }
   }
 
   componentWillMount () {
-    if (localStorage.getItem('authorization')) this.setState({ loggedIn: true })
+    const token = localStorage.getItem('authorization')
+    if (!token) {
+      this.props.clearState()
+      console.log('clear state should have launched')
+      return this.setState({ loggedIn: false })
+    }
+    const decoded = jwtDecode(token)
+    const now = new Date().getTime()
+    const expiredToken = now >= decoded.exp
+    console.log('decodedJWT: ', decoded)
+    console.log('now: ', now, 'exp: ', decoded.exp, 'expired?: ', expiredToken)
+    if (expiredToken) {
+      this.props.clearState()
+      console.log('clear state should have launched')
+      this.setState({ loggedIn: false })
+    } else {
+      this.setState({ loggedIn: true })
+    }
   }
 
   toggle = () => {
@@ -59,14 +77,16 @@ class ListNotes extends Component {
 
     return (
       <section className='ListNotes m-0 p-0'>
-        <input
-          type='text'
-          className='search-bar'
-          placeholder='search'
-          name='search'
-          value={this.state.search}
-          onChange={this.onSearch}
-        />
+        {this.props.username ? (
+          <input
+            type='text'
+            className='search-bar'
+            placeholder='search'
+            name='search'
+            value={this.state.search}
+            onChange={this.onSearch}
+          />
+        ) : null}
         <Modal
           className='modal-modal'
           isOpen={!this.state.loggedIn}
@@ -93,10 +113,13 @@ class ListNotes extends Component {
             </Button>
           </ModalFooter>
         </Modal>
-        <h2 className='list_h2'>
-          {this.props.username.charAt(0).toUpperCase() +
-            this.props.username.substr(1).toLowerCase()}'s Notes:
-        </h2>
+        {this.props.username ? (
+          <h2 className='list_h2'>
+            {this.props.username.charAt(0).toUpperCase() +
+              this.props.username.substr(1).toLowerCase()}'s Notes:{' '}
+          </h2>
+        ) : null}
+
         <Container fluid className='notes p-0 m-0'>
           {filteredNoteGrid.map((miniNoteArray, index) => {
             return (

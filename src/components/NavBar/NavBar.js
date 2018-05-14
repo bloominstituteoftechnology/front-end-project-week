@@ -40,10 +40,10 @@ class NavBar extends Component {
           className={`nav-btn logout-btn ${!this.props.username
             ? 'nav-btn-invis'
             : ''}`}
-          to={`/`}
+          to={`/login`}
           onClick={() => {
             localStorage.clear()
-            this.props.clearNotes()
+            this.props.clearState()
           }}
         >
           Logout

@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import './CreateNote.css'
 // const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:3000'
+const serverURL = 'http://localhost:5000'
 
 class CreateNote extends Component {
   constructor (props) {
@@ -18,6 +18,7 @@ class CreateNote extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log('in handle submit')
     this.props.createNote(event, this.state.tags)
     this.props.history.push('/')
   }

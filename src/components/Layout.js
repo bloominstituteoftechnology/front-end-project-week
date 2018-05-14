@@ -13,7 +13,7 @@ import Login from './Login/Login'
 import './Layout.css'
 
 // const serverURL = 'https://lambda-notes-server.herokuapp.com'
-const serverURL = 'http://localhost:3000'
+const serverURL = 'http://localhost:5000'
 class Layout extends Component {
   constructor () {
     super()
@@ -43,7 +43,7 @@ class Layout extends Component {
       .catch((err) => console.log(err))
   }
 
-  clearNotes = () => {
+  clearState = () => {
     this.setState({
       notes: [],
       title: '',
@@ -59,12 +59,13 @@ class Layout extends Component {
     note.title = this.state.title
     note.content = this.state.content
     note.tags = tags
-
+    console.log(note)
     axios
       .post(`${serverURL}/api/notes`, note, {
         headers: { authorization: token }
       })
       .then((res) => {
+        console.log('res', res.data)
         this.setState({
           notes: res.data,
           title: '',
@@ -118,14 +119,24 @@ class Layout extends Component {
     })
   }
   registerSuccess = (data) => {
+    console.log(data)
     localStorage.setItem('authorization', `Bearer ${data.token}`)
     this.getNotes()
+  }
+
+  componentWillMount () {
+    this.clearState()
+    localStorage.clear()
   }
 
   render () {
     return (
       <div className='Layout'>
-        <NavBar notes={this.state.notes} username={this.state.username} />
+        <NavBar
+          notes={this.state.notes}
+          username={this.state.username}
+          clearState={this.clearState}
+        />
         <Route
           exact
           path='/'
@@ -133,7 +144,7 @@ class Layout extends Component {
             <ListNotes
               notes={this.state.notes}
               username={this.state.username}
-              clearNotes={this.clearNotes}
+              clearState={this.clearState}
             />
           )}
         />
