@@ -1,0 +1,25 @@
+.CreateNote {
+  width: 100%;
+}
+
+.CustomInput {
+  padding-bottom: 15px;
+}
+
+.CustomInput input, .CustomInput textarea {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 3px;
+  border-style: solid;
+  border: 2px solid lightgrey;
+}
+
+.CustomInput input {
+  width: 60%;
+}
+
+.CustomInput textarea {
+  width: 95%;
+  height: 300px;
+  line-height: 1.5;
+}

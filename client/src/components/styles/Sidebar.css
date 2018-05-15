@@ -1,0 +1,22 @@
+.Sidebar {
+  min-width: 20%;
+  background: lightgray;
+  min-height: 100vh;
+  padding: 20px 15px;
+  border: 1px solid #b7b6b7;
+}
+
+.Sidebar h3 {
+  font-size: 32px;
+  line-height: 1;
+  color: #393939;
+}
+
+.sidebarLinks {
+  margin-top: 20px;
+}
+
+.sidebarLinks button {
+  width: 100%;
+  margin-bottom: 10px;
+}

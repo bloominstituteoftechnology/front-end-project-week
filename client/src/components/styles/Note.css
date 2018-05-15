@@ -1,0 +1,15 @@
+.noteLoaded {
+}
+
+.noteActionLinks {
+  text-align: right;
+}
+.noteActionLinks a {
+  color: #393939;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.noteFullBody {
+  line-height: 1.65;
+}

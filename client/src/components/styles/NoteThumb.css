@@ -1,0 +1,30 @@
+.NoteThumb {
+  width: 29%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  margin: 0 5px 20px;
+}
+
+.NoteThumb hr {
+  color: lightgray;
+}
+
+.noteThumbTitle {
+  color: #393939;
+  font-size: 20px;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+.noteThumbBody {
+  line-height: 1.5;
+}
+
+.NoteThumb a {
+  color: #1c1c1f;
+}
+
+.NoteThumb:hover .noteThumbBody {
+  color: grey;
+}
+
