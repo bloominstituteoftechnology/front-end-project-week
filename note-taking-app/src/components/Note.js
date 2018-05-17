@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 
-class Note extends Component {
-  render() {
-    return (
-      <div>
-        <h4>Note Title</h4>
-        <p>Note Content</p>
-      </div>
-    );
-  }
-}
+const Note = ({title, content}) =>
+  <div>
+    <h4>{title}</h4>
+    <p>{content}</p>
+  </div>
 
 export default Note;
