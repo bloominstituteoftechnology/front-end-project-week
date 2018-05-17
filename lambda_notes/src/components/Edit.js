@@ -1,41 +1,36 @@
 import React, { Fragment } from 'react'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
+import { Field, reduxForm } from 'redux-form'
 
-export const Edit = ({ db, history, id, submit, text, title }) => {
-  let inputText
-  let inputTitle
+import Speech from './Speech'
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    const note = {
-      db,
-      id,
-      text: inputText.value,
-      title: inputTitle.value,
-    }
-    submit(note)
-    history.push('/')
-  }
+const NoteForm = (props) => {
+  const { handleSubmit } = props
+  console.log(props)
 
-  return (
-    <Fragment>
-      <h2>Edit Note:</h2>
-      <form className="Form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Note Title"
-          defaultValue={title}
-          ref={node => inputTitle = node}
-        />
-        <textarea
-          type="text"
-          placeholder="Note Content"
-          defaultValue={text}
-          ref={node => inputText = node}
-        />
-        <button className="button" type="submit">
-          Save
-        </button>
-      </form>
-    </Fragment>
-  )
+  return <Fragment>
+    <h2>Edit Note:</h2>
+    <form className="Form" onSubmit={handleSubmit}>
+      <Field
+        component='input'
+        name="title"
+        placeholder="Note Title"
+        type="text"
+      />
+      <Field
+        component='textarea'
+        name='content'
+        placeholder="Note Content"
+        type="text"
+      />
+      <button className="button">Save</button>
+    </form>
+    <Speech />
+  </Fragment>
 }
+
+export const Edit = compose(
+  connect(({ notes: { transcript } }) => ({ initialValues: { content: transcript } })),
+  reduxForm({ form: 'Note' }),
+)(NoteForm)
