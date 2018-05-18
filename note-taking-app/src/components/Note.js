@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
 const Note = ({title, content}) =>
   <div>
@@ -6,4 +7,9 @@ const Note = ({title, content}) =>
     <p>{content}</p>
   </div>
 
-export default Note;
+const mapStateToProps = (state) => {
+  const { note } = state.toolbarReducer
+  return note
+}
+
+export default connect(mapStateToProps, {  })(Note);

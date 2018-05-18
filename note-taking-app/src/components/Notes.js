@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getNotes } from '../actions';
-
-import Note from './Note';
+import { getNotes, selectNote } from '../actions';
 
 class Notes extends Component {
   render() {
+    const { notes, selectNote } = this.props
     return (
       <div>
-        { this.props.notes.map(({id, title, content}) => 
-          <Note key={id} title={title} content={content}/>
+        { notes.map(({id, title, content}) => 
+          <div key={id} onClick={() => selectNote({id, title, content})}>
+            <div> {title} </div>
+            <div>{content} </div>
+          </div>
         )}
       </div>
     );
@@ -21,4 +23,4 @@ const mapStateToProps = (state) => {
   return state.notesReducer
 }
 
-export default connect(mapStateToProps, { getNotes })(Notes);
+export default connect(mapStateToProps, { getNotes, selectNote })(Notes);
