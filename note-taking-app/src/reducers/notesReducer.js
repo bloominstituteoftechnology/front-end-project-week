@@ -2,6 +2,7 @@ import {
     GET_NOTES,
     SAVE_NOTE,
     UPDATE_NOTE,
+    DELETE_NOTE
 } from '../actions';
 
 const initialState = {
@@ -23,12 +24,20 @@ export const notesReducer = (state=initialState, action) => {
                 ] 
             }
         case UPDATE_NOTE:
-            const index = state.notes.findIndex(note => note.id === action.note.id) 
+            let updateIndex = state.notes.findIndex(note => note.id === action.note.id) 
             return { 
                 notes: [
-                    ...state.notes.slice(0,index),
-                    state.notes[index] = action.note,
-                    ...state.notes.slice(index+1)
+                    ...state.notes.slice(0,updateIndex),
+                    state.notes[updateIndex] = action.note,
+                    ...state.notes.slice(updateIndex+1)
+                ] 
+            }
+        case DELETE_NOTE:
+            let deleteIndex = state.notes.findIndex(note => note.id === action.id) 
+            return { 
+                notes: [
+                    ...state.notes.slice(0,deleteIndex),
+                    ...state.notes.slice(deleteIndex+1)
                 ] 
             }
         default:

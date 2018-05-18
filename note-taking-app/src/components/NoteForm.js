@@ -11,7 +11,7 @@ class NoteForm extends Component {
   }
   componentDidMount = () => {
     const { id, title, content } = this.props
-    if (id && title && content) {      
+    if (id && title && content) {
       this.setState({
         id, title, content
       })
@@ -26,7 +26,6 @@ class NoteForm extends Component {
   render() {    
     const { saveNote } = this.props
     const { id, title, content } = this.state
-    console.log("here")
     return (
       <div>
         <input name='title' value={title} onChange={e => this.handleChange(e)}/>
@@ -39,7 +38,6 @@ class NoteForm extends Component {
 
 const mapStateToProps = (state) => {
   const { note } = state.toolbarReducer
-  
   return note
 }
 

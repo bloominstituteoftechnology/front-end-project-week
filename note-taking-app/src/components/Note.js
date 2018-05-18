@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getEditNoteForm } from '../actions';
+import { getEditNoteForm, deleteNote} from '../actions';
 
-const Note = ({id, title, content, getEditNoteForm}) =>
+const Note = ({id, title, content, getEditNoteForm, deleteNote}) =>
   <div>
     <h4>{title}</h4>
     <p>{content}</p>
     <button onClick={() => getEditNoteForm({id, title, content})}>Edit</button>
+    <button onClick={() => deleteNote(id)}>Delete</button>
   </div>
 
 const mapStateToProps = (state) => {
@@ -15,4 +16,4 @@ const mapStateToProps = (state) => {
   return note
 }
 
-export default connect(mapStateToProps, { getEditNoteForm })(Note);
+export default connect(mapStateToProps, { getEditNoteForm, deleteNote })(Note);

@@ -4,6 +4,7 @@ import {
     UPDATE_NOTE,
     SAVE_NOTE,
     SELECT_NOTE,
+    DELETE_NOTE
 } from '../actions';
 
 const noteFormState = {
@@ -17,14 +18,16 @@ const noteFormState = {
 }
 
 export const toolbarReducer = (state=noteFormState, action) => {
-    console.log(action)
     switch (action.type) {
         case GET_CREATE_NOTE_FORM:
             return {
-                ...state,
                 isCreating: true,
                 isEditing: false,
-                isSelecting: false
+                isSelecting: false,
+                note: {
+                    title:'',
+                    content: ''
+                }
             }
         case UPDATE_NOTE: 
             return {
@@ -34,6 +37,16 @@ export const toolbarReducer = (state=noteFormState, action) => {
                 note: action.note
             }
         case SAVE_NOTE: 
+            return {
+                isCreating: false,
+                isEditing: false,
+                isSelecting: false,
+                note: {
+                    title:'',
+                    content: ''
+                }
+            }
+        case DELETE_NOTE: 
             return {
                 isCreating: false,
                 isEditing: false,

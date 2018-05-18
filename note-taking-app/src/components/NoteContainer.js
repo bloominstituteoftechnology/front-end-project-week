@@ -16,6 +16,7 @@ const NoteContainer = ({ isCreating, isEditing, isSelecting }) => {
 
 const mapStateToProps = (state) => {
   const { toolbarReducer } = state
+  console.log(toolbarReducer)
   return toolbarReducer
 }
 
