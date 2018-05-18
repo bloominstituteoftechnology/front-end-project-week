@@ -28,10 +28,6 @@ class ListView extends Component {
     };
   }
 
-  maybeFilteredNotes = () => {
-    return this.state.searchFlag ? this.state.filteredNotes : this.props.notes;
-  };
-
   searchList = e => {
     this.setState({
       filteredNotes: this.props.notes.filter(p => {
@@ -77,7 +73,7 @@ class ListView extends Component {
         </div>
         <SortableList
           distance={10}
-          notes={this.maybeFilteredNotes()}
+          notes={this.state.searchFlag ? this.state.filteredNotes : this.props.notes}
           onSortEnd={this.props.onSortEnd}
           axis="xy"
           viewNote={this.props.viewNote}
