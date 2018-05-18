@@ -1,46 +1,90 @@
-import {
-    GET_NOTES,
-    SAVE_NOTE,
-    UPDATE_NOTE,
-    DELETE_NOTE
-} from '../actions';
+import { 
+    FETCHING_NOTES, 
+    FETCHED_NOTES,
+    SELECTING_NOTE,
+    ADDING_NOTE,
+    UPDATING_NOTE,
+    DELETING_NOTE
+} from '../actions'
 
 const initialState = {
     notes: [],
+    isFetching: false,
+    isSelecting: false,
+    isAdding: false,
+    isUpdating: false,
+    isDeleting: false
 }
 
-export const notesReducer = (state=initialState, action) => {
+export const notesReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
-        case GET_NOTES:
-            return { notes: action.notes }
-        case SAVE_NOTE:
-            return { 
+        case FETCHED_NOTES:
+            return {
+                ...state,
+                isFetching: false,
+                isSelecting: false,
+                isAdding: false,
+                isUpdating: false,
+                isDeleting: false,
+                notes: action.notes
+            }
+        case FETCHING_NOTES:
+            return {
+                ...state,
+                isFetching:true
+            }
+        case SELECTING_NOTE:
+            const selectedIndex = state.notes.findIndex(note => note.id === action.note.id)
+            return {
+                ...state,
+                isSelecting: true,
                 notes: [
-                    ...state.notes,
+                    ...state.notes.slice(0,selectedIndex),
                     {
-                        ...action.note,
-                        id: action.note.title //to-do: generate id when connecting to db
-                    }
-                ] 
+                        ...state.notes[selectedIndex],
+                        selected: true 
+                    },
+                    ...state.notes.slice(selectedIndex+1)
+                ]
             }
-        case UPDATE_NOTE:
-            let updateIndex = state.notes.findIndex(note => note.id === action.note.id) 
-            return { 
+        case ADDING_NOTE:
+            return {
+                ...state,
+                isFetching: false,
+                isSelecting: false,
+                isUpdating: false,
+                isDeleting: false,
+                isAdding: true
+            }
+        case UPDATING_NOTE:
+            const updatingIndex = state.notes.findIndex(note => note.id === action.note.id)
+            return {
+                ...state,
+                isFetching: false,
+                isSelecting: false,
+                isDeleting: false,
+                isAdding: false,
+                isUpdating: true,
                 notes: [
-                    ...state.notes.slice(0,updateIndex),
-                    state.notes[updateIndex] = action.note,
-                    ...state.notes.slice(updateIndex+1)
-                ] 
+                    ...state.notes.slice(0,updatingIndex),
+                    {
+                        ...state.notes[updatingIndex],
+                        updating: true 
+                    },
+                    ...state.notes.slice(updatingIndex+1)
+                ]
             }
-        case DELETE_NOTE:
-            let deleteIndex = state.notes.findIndex(note => note.id === action.id) 
-            return { 
-                notes: [
-                    ...state.notes.slice(0,deleteIndex),
-                    ...state.notes.slice(deleteIndex+1)
-                ] 
+        case DELETING_NOTE:
+            return {
+                ...state,
+                isFetching: false,
+                isSelecting: false,
+                isAdding: false,
+                isUpdating: false,
+                isDeleting: true
             }
-        default:
+        default: 
             return state
     }
 }

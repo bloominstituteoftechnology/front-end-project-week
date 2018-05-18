@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getCreateNoteForm } from '../actions';
+import { getNotes, addNote } from '../actions';
 
 import {
   PrimaryButton, IButtonProps
@@ -9,7 +9,7 @@ import {
 class Toolbar extends Component {
 
   render() {
-    const { getCreateNoteForm } = this.props
+    const { getNotes, addNote } = this.props
     return (
       <div>
         <h3>Lambda Note</h3>
@@ -20,7 +20,7 @@ class Toolbar extends Component {
               primary={ true }
               iconProps={ { iconName: 'Stack' } }
               text='View Your Notes'
-              onClick={console.log('')}
+              onClick={ getNotes }
               />
           </div>
           <div style={style.button}>
@@ -29,7 +29,7 @@ class Toolbar extends Component {
               primary={ true }
               iconProps={ { iconName: 'CirclePlus' } }
               text='Create New Note'
-              onClick={getCreateNoteForm }
+              onClick={ addNote }
               />
           </div>
         </div>
@@ -51,4 +51,4 @@ const style = {
   }
 }
 
-export default connect(null, { getCreateNoteForm })(Toolbar);
+export default connect(null, { getNotes, addNote })(Toolbar);

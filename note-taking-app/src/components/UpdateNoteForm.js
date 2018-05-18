@@ -6,7 +6,7 @@ import { saveNote } from '../actions';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 
-class NoteForm extends Component {
+class UpdateNoteForm extends Component {
   state = {
     id: '',
     title: '',
@@ -14,12 +14,9 @@ class NoteForm extends Component {
   }
   componentDidMount = () => {
     const { id, title, content } = this.props
-    if (id && title && content) {
-      this.setState({
-        id, title, content
-      })
-    }
-    
+    this.setState({
+      id, title, content
+    })
   }
   handleChange = (key, val) => {
     this.setState({
@@ -57,8 +54,8 @@ class NoteForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { note } = state.toolbarReducer
-  return note
+  const { notes } = state.notesReducer
+  return notes.filter(note => note.updating)[0]
 }
 
 const style = {
@@ -73,4 +70,4 @@ const style = {
   }
 }
 
-export default connect(mapStateToProps, { saveNote })(NoteForm);
+export default connect(mapStateToProps, { saveNote })(UpdateNoteForm);

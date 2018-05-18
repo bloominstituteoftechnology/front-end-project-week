@@ -10,6 +10,9 @@ import {
 } from 'office-ui-fabric-react/lib/DocumentCard';
 
 class Notes extends Component {
+  componentDidMount = () => {
+    this.props.getNotes()
+  }
   render() {
     const { notes, selectNote } = this.props
     return (
@@ -46,6 +49,7 @@ class Notes extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return state.notesReducer
 }
 

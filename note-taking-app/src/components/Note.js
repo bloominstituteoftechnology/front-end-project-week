@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getEditNoteForm, deleteNote} from '../actions';
+import { updateNote, deleteNote} from '../actions';
 
 import { DefaultButton, PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
 
-const Note = ({id, title, content, getEditNoteForm, deleteNote}) =>
+const Note = ({id, title, content, updateNote, deleteNote}) =>
   <div style={style.root}>
     <h3>{title}</h3>
     <p>{content}</p>
@@ -14,7 +14,7 @@ const Note = ({id, title, content, getEditNoteForm, deleteNote}) =>
         primary={ true }
         iconProps={ { iconName: 'Edit' } }
         text='Edit'
-        onClick={() => getEditNoteForm({id, title, content})}
+        onClick={() => updateNote({id, title, content})}
         />
       <DefaultButton
         iconProps={ { iconName: 'Delete' } }
@@ -25,8 +25,8 @@ const Note = ({id, title, content, getEditNoteForm, deleteNote}) =>
   </div>
 
 const mapStateToProps = (state) => {
-  const { note } = state.toolbarReducer
-  return note
+  const { notes } = state.notesReducer
+  return notes.filter(note => note.selected)[0]
 }
 
 const style = {
@@ -40,4 +40,4 @@ const style = {
   }
 }
 
-export default connect(mapStateToProps, { getEditNoteForm, deleteNote })(Note);
+export default connect(mapStateToProps, { updateNote, deleteNote })(Note);
