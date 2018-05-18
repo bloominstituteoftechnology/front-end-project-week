@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getNoteForm } from '../actions';
 
-class Toolbar extends Component {
-  render() {
-    return (
-      <div>
-          <h3>Lambda Note</h3>
-          <button onClick={console.log('')}>View Your Notes</button>
-          <button onClick={console.log('')}>+ Create New Note</button>
-      </div>
-    );
-  }
-}
+const Toolbar = ({ getNoteForm }) => 
+  <div>
+      <h3>Lambda Note</h3>
+      <button onClick={console.log('')}>View Your Notes</button>
+      <button onClick={() => getNoteForm() }>+ Create New Note</button>
+  </div>
 
-export default Toolbar;
+export default connect(null, { getNoteForm })(Toolbar);

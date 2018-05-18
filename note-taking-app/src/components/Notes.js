@@ -6,9 +6,6 @@ import { getNotes } from '../actions';
 import Note from './Note';
 
 class Notes extends Component {
-  componentDidMount = () => {
-    this.props.getNotes()
-  }
   render() {
     return (
       <div>

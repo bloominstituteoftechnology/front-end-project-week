@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Notes from './Notes';
 import NoteForm from './NoteForm';
 import Note from './Note';
 
-class NoteContainer extends Component {
-  render() {
-    return (
-      <div>
-          <Notes />
-          <NoteForm />
-          <Note />
-      </div>
-    );
-  }
+const NoteContainer = ({ isCreating, isEditing, isSelecting }) => {
+  
+  if (isCreating || isEditing) return <NoteForm />
+
+  if (isSelecting) return <Note />
+
+  return <Notes />
 }
 
-export default NoteContainer;
+const mapStateToProps = (state) => {
+  const { toolbarReducer } = state
+  return toolbarReducer
+}
+
+export default connect(mapStateToProps, {})(NoteContainer);
