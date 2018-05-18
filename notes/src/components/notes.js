@@ -9,8 +9,8 @@ import EditNote from "./editnote";
 import "./notes.css";
 
 function isSorted(arr) {
-  var len = arr.length - 1;
-  for (var i = 0; i < len; ++i) {
+  let len = arr.length - 1;
+  for (let i = 0; i < len; ++i) {
     if (arr[i].title > arr[i + 1].title) {
       return false;
     }
@@ -97,8 +97,27 @@ export default class Notes extends Component {
     let baseList = this.state.notes;
     let sortedList;
     if (isSorted(baseList))
-      sortedList = this.state.notes.sort((a, b) => a.title < b.title);
-    else sortedList = this.state.notes.sort((a, b) => a.title > b.title);
+      sortedList = this.state.notes.sort(function(a, b) {
+        var titleA = a.title.toLowerCase(); // ignore upper and lowercase
+        var titleB = b.title.toLowerCase(); // ignore upper and lowercase
+        if (titleA < titleB) {
+          return 1;
+        }
+        if (titleA > titleB) {
+          return -1;
+        }
+      });
+    else
+      sortedList = this.state.notes.sort(function(a, b) {
+        var titleA = a.title.toLowerCase(); // ignore upper and lowercase
+        var titleB = b.title.toLowerCase(); // ignore upper and lowercase
+        if (titleA < titleB) {
+          return -1;
+        }
+        if (titleA > titleB) {
+          return 1;
+        }
+      });
     this.setState({
       notes: sortedList
     });

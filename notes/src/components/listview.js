@@ -7,7 +7,7 @@ const SortableList = SortableContainer(props => {
     <div className="notes-div">
       {props.notes.map((note, index) => (
         <NoteCard
-          key={`note-${index}`}
+          key={note.id}
           note={note}
           index={index}
           viewNote={props.viewNote}
