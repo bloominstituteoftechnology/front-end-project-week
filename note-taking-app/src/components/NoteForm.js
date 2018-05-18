@@ -5,23 +5,42 @@ import { saveNote } from '../actions';
 
 class NoteForm extends Component {
   state = {
+    id: '',
     title: '',
     content: ''
   }
-  handleChange = (e) => {
-    this.setState({ [e.target.name] : e.target.value })
+  componentDidMount = () => {
+    const { id, title, content } = this.props
+    if (id && title && content) {      
+      this.setState({
+        id, title, content
+      })
+    }
+    
   }
-  render() {
-    const { title, content } = this.state
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+  render() {    
     const { saveNote } = this.props
+    const { id, title, content } = this.state
+    console.log("here")
     return (
       <div>
-        <input name='title' value={title} onChange={this.handleChange}/>
-        <input name='content' value={content} onChange={this.handleChange}/>
-        <button onClick={() => saveNote({title, content})}>Save</button>
+        <input name='title' value={title} onChange={e => this.handleChange(e)}/>
+        <input name='content' value={content} onChange={e => this.handleChange(e)}/>
+        <button onClick={() => saveNote({id, title, content})}>Save</button>
       </div>
     );
   }
 }
 
-export default connect(null, { saveNote })(NoteForm);
+const mapStateToProps = (state) => {
+  const { note } = state.toolbarReducer
+  
+  return note
+}
+
+export default connect(mapStateToProps, { saveNote })(NoteForm);
