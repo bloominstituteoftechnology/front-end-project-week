@@ -125,10 +125,10 @@ class ListNotes extends Component {
             return (
               <Row key={index} className='row-notes p-0 m-0 mb-2'>
                 {miniNoteArray.map((note) => (
-                  <Col className='card col-notes p-0 mx-auto' key={note._id}>
+                  <Col className='card col-notes p-0 mx-2' key={note._id}>
                     <div className='card-body m-0 p-1'>
                       <Link className='card-title' to={`/view/${note._id}`}>
-                        <h4 className='card-title'>
+                        <h4 className='card-title px-2'>
                           {note.title.length >= 13 ? (
                             note.title.substr(0, 13) + ' ...'
                           ) : (
@@ -136,7 +136,7 @@ class ListNotes extends Component {
                           )}
                         </h4>
                       </Link>
-                      <span className='card-text'>
+                      <span className='card-text px-2'>
                         {note.content.length >= 175 ? (
                           note.content.substr(0, 175) + ' ...'
                         ) : (
