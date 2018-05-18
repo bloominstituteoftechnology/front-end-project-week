@@ -23,8 +23,7 @@ class ListView extends Component {
 
     this.state = {
       search: "",
-      searchFlag: false,
-      filteredNotes: this.props.notes
+      filteredNotes: []
     };
   }
 
@@ -40,8 +39,6 @@ class ListView extends Component {
       }),
       [e.target.title]: e.target.value
     });
-    if (e.target.value === "") this.setState({ searchFlag: false });
-    else this.setState({ searchFlag: true });
   };
 
   render() {
@@ -73,7 +70,11 @@ class ListView extends Component {
         </div>
         <SortableList
           distance={10}
-          notes={this.state.searchFlag ? this.state.filteredNotes : this.props.notes}
+          notes={
+            this.state.search !== ""
+              ? this.state.filteredNotes
+              : this.props.notes
+          }
           onSortEnd={this.props.onSortEnd}
           axis="xy"
           viewNote={this.props.viewNote}
