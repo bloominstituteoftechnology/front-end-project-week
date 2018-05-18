@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 import { saveNote } from '../actions';
 
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
+import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
+
 class NoteForm extends Component {
   state = {
     id: '',
@@ -18,19 +21,36 @@ class NoteForm extends Component {
     }
     
   }
-  handleChange = (e) => {
+  handleChange = (key, val) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [key]: val
     })
   }
   render() {    
     const { saveNote } = this.props
     const { id, title, content } = this.state
     return (
-      <div>
-        <input name='title' value={title} onChange={e => this.handleChange(e)}/>
-        <input name='content' value={content} onChange={e => this.handleChange(e)}/>
-        <button onClick={() => saveNote({id, title, content})}>Save</button>
+      <div style={style.root}>
+        <TextField
+          placeholder='Tomorrow meetings'
+          underlined
+          name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
+        />
+        <TextField
+          style={style.expand}
+          borderless
+          placeholder='8am Standup, 1pm Engineer Team Meeting, ...'
+          multiline
+          autoAdjustHeight
+          name='content' value={content} onBeforeChange={val => this.handleChange('content', val)}
+        />
+        <PrimaryButton
+          style={style.displayBottomCorner}
+          primary={ true }
+          iconProps={ { iconName: 'Save' } }
+          text='Save'
+          onClick={() => saveNote({id, title, content})}
+          />
       </div>
     );
   }
@@ -39,6 +59,18 @@ class NoteForm extends Component {
 const mapStateToProps = (state) => {
   const { note } = state.toolbarReducer
   return note
+}
+
+const style = {
+  root: {
+    height: '100%',
+    position: 'relative'
+  },
+  displayBottomCorner: {
+    position: 'absolute',
+    right: 10,
+    bottom: 10
+  }
 }
 
 export default connect(mapStateToProps, { saveNote })(NoteForm);
