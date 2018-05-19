@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateNote, deleteNote} from '../actions';
+import { updateNote, deleteNote, removeNote} from '../actions';
 
-import { DefaultButton, PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
+import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
-const Note = ({id, title, content, updateNote, deleteNote}) =>
+const Note = ({id, title, content, updateNote, deleteNote, removeNote}) =>
   <div style={style.root}>
     <h3>{title}</h3>
     <p>{content}</p>
@@ -19,14 +19,19 @@ const Note = ({id, title, content, updateNote, deleteNote}) =>
       <DefaultButton
         iconProps={ { iconName: 'Delete' } }
         text='Delete'
-        onClick={() => deleteNote(id)}
+        onClick={() => removeNote(id)}
         />
     </div>
   </div>
 
 const mapStateToProps = (state) => {
   const { notes } = state.notesReducer
-  return notes.filter(note => note.selected)[0]
+  
+  return {
+    id: Object.keys(notes)[0],
+    title: notes[Object.keys(notes)[0]].title,
+    content: notes[Object.keys(notes)[0]].content
+  }
 }
 
 const style = {
@@ -40,4 +45,4 @@ const style = {
   }
 }
 
-export default connect(mapStateToProps, { updateNote, deleteNote })(Note);
+export default connect(mapStateToProps, { updateNote, deleteNote, removeNote })(Note);

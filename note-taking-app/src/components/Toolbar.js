@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getNotes, addNote } from '../actions';
 
 import {
-  PrimaryButton, IButtonProps
+  PrimaryButton
 } from 'office-ui-fabric-react/lib/Button';
 
 class Toolbar extends Component {

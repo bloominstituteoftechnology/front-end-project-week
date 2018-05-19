@@ -6,24 +6,32 @@ import AddNoteForm from './AddNoteForm';
 import UpdateNoteForm from './UpdateNoteForm';
 import Note from './Note';
 
+import { getNotes } from '../actions';
+
 const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isDeleting }) => {
   if (!isFetching) {
     if (isAdding) return <AddNoteForm />
-    if (isUpdating) return <UpdateNoteForm />
     if (isSelecting) return <Note />
+    if (isUpdating) return <UpdateNoteForm />
     return <Notes />
   } 
-  return 'Loading...'  
+  return 'Loading...'
 }
 
-const NoteContainer = (props) => 
-  <NoteContainerChild {...props}/>
+class NoteContainer extends React.Component {
+  componentDidMount = () => {
+    this.props.getNotes()
+  }
+  render () {
+    return (
+      <NoteContainerChild {...this.props}/>
+    )
+  }
+}
 
 const mapStateToProps = (state) => {
-  console.log(state)
   const { notesReducer } = state
   return notesReducer
 }
 
-export default connect(mapStateToProps, {})(NoteContainer);
-// export default NoteContainer;
+export default connect(mapStateToProps, { getNotes })(NoteContainer);

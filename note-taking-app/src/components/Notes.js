@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import { getNotes, selectNote } from '../actions';
+import { selectNote } from '../actions';
 
 import {
   DocumentCard,
@@ -9,47 +9,39 @@ import {
   DocumentCardActions
 } from 'office-ui-fabric-react/lib/DocumentCard';
 
-class Notes extends Component {
-  componentDidMount = () => {
-    this.props.getNotes()
-  }
-  render() {
-    const { notes, selectNote } = this.props
-    return (
-      <div>
-        <h3>Your Notes:</h3>
-        { notes.map(({id, title, content}) => 
+const NotesChild = ({notes, selectNote }) => {
+  return (
+    Object.keys(notes).map((id) => {
+      const { title, content } = notes[id]
+      return (
         <div key={id} className='ms-Grid-col ms-sm12 ms-lg4' style={style.extraMargin}>
-          <DocumentCard  onClick={() => selectNote({id, title, content})}>
-            <DocumentCardTitle title={title} />
-            <div className='ms-ConversationTile-TitlePreviewArea' >
-              <DocumentCardTitle title={content} shouldTruncate={ true } showAsSecondaryTitle={ true } />
-            </div>
-            <DocumentCardActions
-              actions={
-                [
-                  {
-                    iconProps: { iconName: 'Share' },
-                  },
-                  {
-                    iconProps: { iconName: 'Pin' },
-                  },
-                  {
-                    iconProps: { iconName: 'Ringer' },
-                  },
-                ]
-              }
-            />
-          </DocumentCard>
+        <DocumentCard  onClick={() => selectNote({id, title, content})}>
+          <DocumentCardTitle title={title} />
+          <div className='ms-ConversationTile-TitlePreviewArea' >
+            <DocumentCardTitle title={content} shouldTruncate={ true } showAsSecondaryTitle={ true } />
           </div>
-        )}
+          <DocumentCardActions
+            actions={
+              [ {iconProps: { iconName: 'Share' }},
+                {iconProps: { iconName: 'Pin' },},
+                {iconProps: { iconName: 'Ringer' },},
+              ]
+            }
+          />
+        </DocumentCard>
       </div>
-    );
-  }
+      )
+    })
+  )
 }
 
+const Notes = (props) => 
+  <div>
+    <h3>Your Notes:</h3>
+      <NotesChild {...props} />
+  </div>
+
 const mapStateToProps = (state) => {
-  console.log(state)
   return state.notesReducer
 }
 
@@ -59,4 +51,4 @@ const style = {
   }
 }
 
-export default connect(mapStateToProps, { getNotes, selectNote })(Notes);
+export default connect(mapStateToProps, { selectNote })(Notes);

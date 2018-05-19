@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import { saveNote } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 class NoteForm extends Component {
   state = {
-    id: '',
     title: '',
     content: ''
   }
@@ -19,7 +18,7 @@ class NoteForm extends Component {
   }
   render() {    
     const { saveNote } = this.props
-    const { id, title, content } = this.state
+    const { title, content } = this.state
     return (
       <div style={style.root}>
         <TextField
@@ -40,7 +39,7 @@ class NoteForm extends Component {
           primary={ true }
           iconProps={ { iconName: 'Save' } }
           text='Save'
-          onClick={() => saveNote({id, title, content})}
+          onClick={() => saveNote({ title, content })}
           />
       </div>
     );

@@ -1,44 +1,119 @@
-import axios from 'axios';
-import response from './dummyData';
+import db from '../firebase';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES'
 export const FETCHED_NOTES = 'FETCHED_NOTES'
 export const SELECTING_NOTE = 'SELECTING_NOTE'
 export const ADDING_NOTE = 'ADDING_NOTE'
+export const SAVE_NOTE = 'SAVE_NOTE'
 export const UPDATING_NOTE = 'UPDATING_NOTE'
 export const DELETING_NOTE = 'DELETING_NOTE'
+export const ERROR = 'ERROR'
 
 export const getNotes = () => {
-    // FETCHING NOTES
-    return { type: FETCHED_NOTES, notes: response.data}
+    let ref = db.database().ref('/notes')
+
+    return (dispatch) => {
+        dispatch({ type: FETCHING_NOTES })
+        
+        ref.on("value", 
+        response => {
+            dispatch({ type: FETCHED_NOTES, notes: response.val()})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        });
+    }
 }
 
 export const selectNote = (note) => {
-    // FETCHING ONE NOTE
-    return { type: SELECTING_NOTE, note }
+    let ref = db.database().ref(`/notes/${note.id}`);
+    return (dispatch) => {
+        dispatch({ type: SELECTING_NOTE })
+        
+        ref.on("value", 
+        response => {
+            dispatch({ type: FETCHED_NOTES, notes: { [note.id] : response.val()}})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        });
+    }
 }
 
+// addNote will display AddNoteForm
 export const addNote = () => {
     return { type: ADDING_NOTE }
 }
 
+// updateNote will display UpdateNoteForm
 export const updateNote = (note) => {
-    // return { type: UPDATING_NOTE, notes: response.data}
-    return { type: UPDATING_NOTE, note }
+    return { type: UPDATING_NOTE }
 }
 
-export const deleteNote = (id) => {
-    // return { type: DELETING_NOTE, notes: response.data}
-    let noteList = response.data
-    let notes = noteList.filter(note => note.id !== id)
-    console.log(notes)
-    return { type: FETCHED_NOTES, notes }
-}
-
+// saveNote will save note to db and return current db
 export const saveNote = (note) => {
-    // return { type: FETCHED_NOTES, notes: response.data}
-    note.id = note.title // todo: create database for fetching return
-    let noteList = response.data
-    noteList.push(note)
-    return { type: FETCHED_NOTES, notes: noteList }
+    let ref = db.database().ref('/notes')
+    let targetRef = db.database().ref(`/notes/${note.id}`)
+
+    return (dispatch) => {
+        dispatch({ type: FETCHING_NOTES })
+        
+        targetRef.on('value', 
+        response => {
+            if (response.val()) {
+                // note exists, update
+                targetRef.set({
+                    ...note
+                })
+            } else {
+                // note does not exist, add new
+                ref.push(note)
+            }
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+
+        ref.on('value', 
+        response => {
+            dispatch({ type: FETCHED_NOTES, notes: response.val()})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        });
+    }
+}
+
+// deleteNote will display popups
+export const deleteNote = (id) => { 
+}
+
+// removeNote will delete a note from db and return current db
+export const removeNote = (id) => {
+    let ref = db.database().ref('/notes')
+    let targetRef = db.database().ref(`/notes/${id}`)
+
+    return (dispatch) => {
+        dispatch({ type: FETCHING_NOTES })
+        
+        targetRef.on('value', 
+        response => {
+            if (response.val()) {
+                // note exists, update
+                targetRef.remove()
+            }
+                // note does not exist, someone already deleted recently
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+
+        ref.on('value', 
+        response => {
+            dispatch({ type: FETCHED_NOTES, notes: response.val()})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        });
+    }
 }

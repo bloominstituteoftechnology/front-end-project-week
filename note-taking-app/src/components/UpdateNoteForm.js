@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { saveNote } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { PrimaryButton, IButtonProps } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 class UpdateNoteForm extends Component {
   state = {
@@ -55,7 +55,11 @@ class UpdateNoteForm extends Component {
 
 const mapStateToProps = (state) => {
   const { notes } = state.notesReducer
-  return notes.filter(note => note.updating)[0]
+  return {
+    id: Object.keys(notes)[0],
+    title: notes[Object.keys(notes)[0]].title,
+    content: notes[Object.keys(notes)[0]].content
+  }
 }
 
 const style = {
