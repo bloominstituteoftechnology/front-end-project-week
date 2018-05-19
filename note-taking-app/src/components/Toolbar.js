@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getNotes, addNote } from '../actions';
+import { getNotes, addNote, searchNote } from '../actions';
 
+import NoteSearchBox from './SearchBox';
 import {
   PrimaryButton
 } from 'office-ui-fabric-react/lib/Button';
@@ -9,7 +10,7 @@ import {
 class Toolbar extends Component {
 
   render() {
-    const { getNotes, addNote } = this.props
+    const { openSearchBox, getNotes, addNote, searchNote } = this.props
     return (
       <div>
         <h3>Lambda Note</h3>
@@ -19,7 +20,7 @@ class Toolbar extends Component {
               style={style.PrimaryButton}
               primary={ true }
               iconProps={ { iconName: 'Stack' } }
-              text='View Your Notes'
+              text='Notes'
               onClick={ getNotes }
               />
           </div>
@@ -28,9 +29,21 @@ class Toolbar extends Component {
               style={style.PrimaryButton}
               primary={ true }
               iconProps={ { iconName: 'CirclePlus' } }
-              text='Create New Note'
+              text='New'
               onClick={ addNote }
               />
+          </div>
+          <div style={style.button}>
+            <PrimaryButton
+              style={style.PrimaryButton}
+              primary={ true }
+              iconProps={ { iconName: 'Search' } }
+              text='Search'
+              onClick={ searchNote }
+              />
+              {openSearchBox && (
+                <NoteSearchBox />
+              )}
           </div>
         </div>
       </div>
@@ -44,11 +57,18 @@ const style = {
   },
   button: {
     width: '100%',
-    marginBottom: '10px'
+    marginBottom: '10px',
   },
   PrimaryButton: {
-    width: '100%'
+    width: '100%',
+    textAlign: 'left'
   }
 }
 
-export default connect(null, { getNotes, addNote })(Toolbar);
+const mapStateToProps = (state) => {
+  const { toolsReducer } = state
+  console.log(state)
+  return toolsReducer
+}
+
+export default connect(mapStateToProps, { getNotes, addNote, searchNote })(Toolbar);

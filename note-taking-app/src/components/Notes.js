@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import NoteCard from './NoteCard';
+import NoteSearchBox from './SearchBox';
 
 const Notes = ({notes}) => 
   <div>
@@ -10,7 +11,7 @@ const Notes = ({notes}) =>
       Object.keys(notes).map((id) => {
         const { title, content } = notes[id]
         return (          
-          <NoteCard key={id} {...notes[id]} />
+          <NoteCard key={id} id={id} {...notes[id]} />
         )
       })
     }

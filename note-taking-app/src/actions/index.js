@@ -7,6 +7,7 @@ export const ADDING_NOTE = 'ADDING_NOTE'
 export const SAVE_NOTE = 'SAVE_NOTE'
 export const UPDATING_NOTE = 'UPDATING_NOTE'
 export const DELETING_NOTE = 'DELETING_NOTE'
+export const SEARCH_NOTE = 'SEARCH_NOTE'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -116,4 +117,8 @@ export const removeNote = (id) => {
             dispatch({ type: ERROR, error: error.code })
         });
     }
+}
+
+export const searchNote = () => {
+    return { type: SEARCH_NOTE }
 }
