@@ -1,0 +1,157 @@
+.App {
+  text-align: center;
+  background: lightgray;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.listthing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.leftSideH1 {
+  padding-left: 10%;
+}
+
+.deleteButton {
+ margin-top: 2%;
+ width: 72%;
+ float: right; 
+ text-align: right;
+ margin-right: 4%;
+ 
+}
+
+.spaces {
+  padding: 20px;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  height: 880px;
+  float: left;
+  background-color: grey;
+  text-align: left;
+}
+
+.borderGore {
+  padding: 20px;
+  margin: 6%;
+  border: solid black 1px;
+  font-size: 0.7rem;
+}
+
+.yourNotes {
+  text-align: left;
+}
+
+.rightSideCurrent {
+  width:76%;
+  float: right;
+  text-align: left;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 3%;
+  height: 880px;
+}
+
+.notesHeader {
+  text-align: center;
+  padding-left: 20px;
+  justify-content: flex-start;
+  padding-top: 4%;
+  display: flex;
+}
+
+.list {
+  margin: 0 0 0 0;
+float: right;
+width: 80%;
+margin-top: 4%;
+position: relative;
+}
+
+.centerText {
+  height: 400px;
+}
+
+.titleCard {
+  border-bottom: solid black 1px;
+  padding-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.textarea {
+  padding-bottom: 350px;
+  padding-left: 3%;
+}
+
+.cardHeight {
+  height: 150px;
+}
+
+.rightSide {
+  margin-top: 4%;
+  width: 20%;
+  float: right;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: left;
+}
+
+.listh2 {
+  text-align: left;
+  margin-left: 2%;
+}
+
+.leftButtons {
+ margin-bottom: 25px;
+ height: 50px;
+ width: 80%;
+ display: flex;
+ align-self: center;
+ text-align: center;
+ justify-content: center;
+ background: teal;
+ color: white;
+ align-items: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+.tealButton {
+  background: teal;
+  color: white;
+}
+.redButton {
+  background: red;
+  color: white;
+}
+html{
+  background: lightgray;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
