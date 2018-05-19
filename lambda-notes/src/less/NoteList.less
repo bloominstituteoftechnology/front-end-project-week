@@ -1,0 +1,49 @@
+.NoteList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 56px;
+
+  .NoteList__header {
+    font-weight: bold;
+    font-size: 37px;
+
+  }
+
+  .NoteList__card-container {
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    padding-top: 52px;
+    
+    .NoteList__card {
+      width: 365px;
+      height: 374px;
+      margin-bottom: 22px;
+      padding: 33px;
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 48px;
+      border: black 1px solid;
+      background: rgb(224, 224, 224);
+      text-decoration: none;
+      color: black;
+      overflow: hidden;
+
+      .NoteList__card-header {
+        font-weight: bold;
+        font-size: 24px;
+        padding-bottom: 12px;
+        border-bottom: black 1px solid;
+      }
+
+      .NoteList__card-content {
+        padding-top: 12px;
+        font-size: 20px;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

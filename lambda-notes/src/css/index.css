@@ -1,0 +1,154 @@
+.App {
+  display: flex;
+  border: solid 1px #4e4e4e;
+  box-sizing: border-box;
+  height: 1500px;
+}
+.App .Sidebar {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  width: 25%;
+  background: #9b9b9b;
+  border-right: 1px #4e4e4e solid;
+}
+.App .Sidebar .Sidebar__header {
+  font-size: 60px;
+  margin: 20px;
+}
+.App .Sidebar .Sidebar__button {
+  background: #00d1d1;
+  border: 1px solid gray;
+  font-size: 30px;
+  text-align: center;
+  margin: 29px;
+  margin-bottom: 0px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-decoration: none;
+  color: white;
+}
+.App .View {
+  width: 75%;
+  background: silver;
+  padding: 52px;
+}
+.Note {
+  display: flex;
+  flex-direction: column;
+  padding-top: 56px;
+}
+.Note .Note__title {
+  font-size: 37px;
+  font-weight: bold;
+}
+.EditView {
+  display: flex;
+  flex-direction: column;
+  padding-top: 56px;
+}
+.EditView .EditView__header {
+  font-size: 37px;
+  font-weight: bold;
+}
+.EditView .Form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.EditView .Form .Form__title {
+  font-size: 30px;
+  margin-bottom: 30px;
+  height: 80px;
+}
+.EditView .Form .Form__text {
+  font-size: 30px;
+  height: 650px;
+  margin-bottom: 30px;
+}
+.EditView .Form .Form__submit {
+  font-size: 40px;
+  color: white;
+  width: 32%;
+  background: #00d1d1;
+  border: gray 1px solid;
+  padding: 8px;
+}
+.NoteList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 56px;
+}
+.NoteList .NoteList__header {
+  font-weight: bold;
+  font-size: 37px;
+}
+.NoteList .NoteList__card-container {
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  padding-top: 52px;
+}
+.NoteList .NoteList__card-container .NoteList__card {
+  width: 365px;
+  height: 374px;
+  margin-bottom: 22px;
+  padding: 33px;
+  padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+  border: black 1px solid;
+  background: #e0e0e0;
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+.NoteList .NoteList__card-container .NoteList__card .NoteList__card-header {
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 12px;
+  border-bottom: black 1px solid;
+}
+.NoteList .NoteList__card-container .NoteList__card .NoteList__card-content {
+  padding-top: 12px;
+  font-size: 20px;
+  text-overflow: ellipsis;
+}
+.EditView {
+  display: flex;
+  flex-direction: column;
+  padding-top: 56px;
+}
+.EditView .EditView__header {
+  font-size: 37px;
+  font-weight: bold;
+}
+.EditView .Form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+.EditView .Form .Form__title {
+  font-size: 30px;
+  margin-bottom: 30px;
+  height: 80px;
+}
+.EditView .Form .Form__text {
+  font-size: 30px;
+  height: 650px;
+  margin-bottom: 30px;
+}
+.EditView .Form .Form__submit {
+  font-size: 40px;
+  color: white;
+  width: 32%;
+  background: #00d1d1;
+  border: gray 1px solid;
+  padding: 8px;
+}
+* {
+  box-sizing: border-box;
+}
