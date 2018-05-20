@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { getNotes, addNote, showSearchBox, hideSearchBox } from '../actions';
+import { getNotes, addNote, showSearchBox, hideSearchBox, showSortBox, hideSortBox } from '../actions';
 
 import NoteSearchBox from './NoteSearchBox';
+import NoteSortBox from './NoteSortBox';
 
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
-import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 
 class Toolbar extends Component {
   render() {
-    const { searchBoxOpen } = this.props;
-    const { getNotes, addNote, showSearchBox, hideSearchBox } = this.props
+    const { searchBoxOpen, sortBoxOpen } = this.props;
+    const { getNotes, addNote, showSearchBox, hideSearchBox, showSortBox, hideSortBox } = this.props
     return (
       <div style={style.displayFlex}>
         <h3>Lambda Note</h3>
@@ -36,15 +35,33 @@ class Toolbar extends Component {
             </div>
           </div>
           <div>
-            <div style={style.button}>
+          {/**SORT BUTTON AND CALLOUT**/}
+          <div className='ms-CalloutCoverExample-buttonArea' ref={sortButton => this.sortButtonElement = sortButton } style={style.button}>
               <PrimaryButton
                 style={style.PrimaryButton}
-                iconProps={ { iconName: 'SortLines' } }
+                onClick={ showSortBox }
                 text='Sort'
-                onClick={ getNotes }
-                />
+                iconProps={ { iconName: 'SortLines' } }
+              />
             </div>
-            <div className='ms-CalloutCoverExample-buttonArea' ref={(menuButton) => this._menuButtonElement = menuButton } style={style.button}>
+            <Callout
+              className='ms-CalloutExample-callout'
+              target={ this.sortButtonElement }
+              onDismiss={ hideSortBox }
+              setInitialFocus={ true }
+              hidden={ !sortBoxOpen }
+              directionalHint={DirectionalHint.leftTopEdge}
+              coverTarget={ true }
+              isBeakVisible={ false }
+              gapSpace={0}
+            >
+              <div className='ms-CalloutExample-inner'>
+                <NoteSortBox />
+              </div>
+            </Callout>
+
+            {/**SEARCH BUTTON AND CALLOUT**/}
+            <div className='ms-CalloutCoverExample-buttonArea' ref={searchButton => this.searchButtonElement = searchButton } style={style.button}>
               <PrimaryButton
                 style={style.PrimaryButton}
                 onClick={ showSearchBox }
@@ -54,7 +71,7 @@ class Toolbar extends Component {
             </div>
             <Callout
               className='ms-CalloutExample-callout'
-              target={ this._menuButtonElement }
+              target={ this.searchButtonElement }
               onDismiss={ hideSearchBox }
               setInitialFocus={ true }
               hidden={ !searchBoxOpen }
@@ -103,4 +120,4 @@ const mapStateToProps = (state) => {
   return toolsReducer
 }
 
-export default connect(mapStateToProps, { getNotes, addNote, showSearchBox, hideSearchBox })(Toolbar);
+export default connect(mapStateToProps, { getNotes, addNote, showSearchBox, hideSearchBox, showSortBox, hideSortBox })(Toolbar);

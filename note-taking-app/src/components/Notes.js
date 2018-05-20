@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { makeSearchNoteByText } from '../selectors';
+import { makeSearchNoteByText, makeSortNoteBy } from '../selectors';
 
 import NoteCard from './NoteCard';
 
@@ -10,7 +10,6 @@ const Notes = ({notes}) =>
     <h3>Your Notes:</h3>
     {
       notes && Object.keys(notes).map((id) => {
-        const { title, content } = notes[id]
         return (          
           <NoteCard key={id} id={id} {...notes[id]} />
         )
@@ -20,7 +19,13 @@ const Notes = ({notes}) =>
 
 const mapStateToProps = () => {
   const searchNoteByText = makeSearchNoteByText()
-  return (state) => searchNoteByText(state.notesReducer.notes, state.toolsReducer.searchText)
+  const sortNoteBy = makeSortNoteBy()
+  return (state) => {
+    if (state.toolsReducer.searchBoxOpen) {
+      return searchNoteByText(state.notesReducer.notes, state.toolsReducer.searchText)
+    }
+    return sortNoteBy(state.notesReducer.notes, state.toolsReducer.sortType)
+  }
 }
 
 export default connect(mapStateToProps, {})(Notes);

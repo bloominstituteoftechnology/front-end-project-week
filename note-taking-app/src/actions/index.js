@@ -10,6 +10,9 @@ export const DELETING_NOTE = 'DELETING_NOTE'
 export const SEARCHING_NOTE = 'SEARCHING_NOTE'
 export const SHOW_SEARCH_BOX = 'SHOW_SEARCH_BOX'
 export const HIDE_SEARCH_BOX = 'HIDE_SEARCH_BOX'
+export const SORTING_NOTE = 'SORTING_NOTE'
+export const SHOW_SORT_BOX = 'SHOW_SORT_BOX'
+export const HIDE_SORT_BOX = 'HIDE_SORT_BOX'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -120,9 +123,9 @@ export const removeNote = (id) => {
         });
     }
 }
-
-export const searchNote = (text) => {
-    return { type: SEARCHING_NOTE, text }
+// Searching Actions
+export const searchNote = (searchText) => {
+    return { type: SEARCHING_NOTE, searchText }
 }
 
 export const showSearchBox = () => {
@@ -131,4 +134,16 @@ export const showSearchBox = () => {
 
 export const hideSearchBox = () => {
     return { type: HIDE_SEARCH_BOX }
+}
+// Sorting Actions
+export const sortNote = (sortType) => {
+    return { type: SORTING_NOTE, sortType }
+}
+
+export const showSortBox = () => {
+    return { type: SHOW_SORT_BOX }
+}
+
+export const hideSortBox = () => {
+    return { type: HIDE_SORT_BOX }
 }
