@@ -4,6 +4,7 @@ import { getNotes, addNote, showSearchBox, hideSearchBox, showSortBox, hideSortB
 
 import NoteSearchBox from './NoteSearchBox';
 import NoteSortBox from './NoteSortBox';
+import ExportSetup from './ExportSetup';
 
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
@@ -17,6 +18,7 @@ class Toolbar extends Component {
         <h3>Lambda Note</h3>
         <div className='ms-textAlignLeft' style={style.displayFlexSplit}>
           <div>
+            {/**GET ALL NOTES BUTTON**/}
             <div style={style.button}>
               <PrimaryButton
                 style={style.PrimaryButton}
@@ -25,6 +27,7 @@ class Toolbar extends Component {
                 onClick={ getNotes }
                 />
             </div>
+            {/**CREATE NEW NOTE BUTTON**/}
             <div style={style.button}>
               <PrimaryButton
                 style={style.PrimaryButton}
@@ -32,6 +35,10 @@ class Toolbar extends Component {
                 text='New'
                 onClick={ addNote }
                 />
+            </div>
+            {/**EXPORT NOTES BUTTON**/}
+            <div style={style.button}>
+              <ExportSetup />
             </div>
           </div>
           <div>

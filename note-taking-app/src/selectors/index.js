@@ -70,6 +70,17 @@ function alphabetical_sort_object_of_objects(data, attr, sortType) {
   return result;
 }
 
+const convertObjectToArray = (notesObj) => {
+  return Object.keys(notesObj)
+  .map(id => {
+    return {
+      id: id,
+      title: notesObj[id].title,
+      content: notesObj[id].content
+    }
+  })
+}
+
 export const makeSearchNoteByText = () => createSelector(
   searchNoteByText,
   (notes) => ({ notes })
@@ -77,6 +88,11 @@ export const makeSearchNoteByText = () => createSelector(
 
 export const makeSortNoteBy = () => createSelector(
   sortNoteBy,
+  (notes) => ({ notes })
+)
+
+export const makeConvertObjectToArray = () => createSelector(
+  convertObjectToArray,
   (notes) => ({ notes })
 )
 
