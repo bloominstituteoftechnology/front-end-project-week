@@ -1,0 +1,45 @@
+.NoteList {
+    background-color: #f2f1f3;
+    width: 33%;
+    height: 666px;
+    color: #424141;
+}
+
+.Notes {
+    display: flex;
+    flex-wrap: wrap;
+    text-overflow: clip;
+}
+
+.yourNotes {
+    margin-top: 66px;
+    margin-left: 3%;
+    font-size: 1.4em;
+}
+.NoteId {
+    width: 111px;
+    height: 111px;
+    padding: 7%;
+    margin: 1.5rem;
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 2%;
+    overflow: hidden;
+}
+
+.noteTitle {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+.noteBody {
+    font-size: 0.7em;
+}
+
+.noteLink{
+    text-decoration: none;
+    color: black;
+}

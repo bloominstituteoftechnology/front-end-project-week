@@ -1,0 +1,43 @@
+.createNote {
+    background-color: #f2f1f3;
+    width: 33%;
+    height: 666px;
+    color: #424141;
+}
+
+
+.cNoteBody{
+    display:block;    
+    font-size: 0.7em;
+    height:333px;
+    width: 88%;
+}
+
+.cNoteContainer {
+    margin-top: 66px;
+    margin-left: 3%;
+    font-size: 1.4em;
+}
+
+.cNoteHeader {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 11px;
+}
+
+.cNoteTitle {
+    width: 777px;
+    display: block
+}
+
+.cNoteButton {
+    padding: 2% 11% 2% 11%;
+    margin-top : 1%;
+    background-color: #24b8bd;
+    border: 1px solid #a3b2b3;
+}
+
+.cLink {
+    text-decoration: none;
+    color: white; 
+}

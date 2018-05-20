@@ -1,0 +1,47 @@
+.App {
+  display: flex;
+}
+
+.SideBar {
+  display: flex;
+  flex-direction: column;
+  background-color: #d3d2d3;
+  min-width:11em;
+  max-width: 11em;
+  height: 666px
+}
+
+.title {
+  font-size: 2em;
+  color: gray;
+  margin-left: 6%;
+}
+
+.titleText {
+  text-decoration: none;
+  color: #414141;
+}
+
+.buttonText {
+  text-decoration: none;
+  color: white;
+}
+
+.viewNotes {
+  padding: 6%;
+  margin : 6%;
+  background-color: #24b8bd;
+  border: 1px solid #a3b2b3;
+}
+
+.createNotes {
+  padding: 6%;
+  margin : 6%;
+  background-color: #24b8bd;
+  border: 1px solid #a3b2b3;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
