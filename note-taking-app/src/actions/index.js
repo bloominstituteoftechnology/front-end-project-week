@@ -7,6 +7,7 @@ export const ADDING_NOTE = 'ADDING_NOTE'
 export const SAVE_NOTE = 'SAVE_NOTE'
 export const UPDATING_NOTE = 'UPDATING_NOTE'
 export const DELETING_NOTE = 'DELETING_NOTE'
+export const SEARCHING_NOTE = 'SEARCHING_NOTE'
 export const SHOW_SEARCH_BOX = 'SHOW_SEARCH_BOX'
 export const HIDE_SEARCH_BOX = 'HIDE_SEARCH_BOX'
 export const ERROR = 'ERROR'
@@ -121,7 +122,7 @@ export const removeNote = (id) => {
 }
 
 export const searchNote = (text) => {
-    return { type: '', text }
+    return { type: SEARCHING_NOTE, text }
 }
 
 export const showSearchBox = () => {

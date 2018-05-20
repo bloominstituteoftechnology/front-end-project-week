@@ -13,7 +13,7 @@ class NoteSearchBox extends React.Component {
         placeholder='Search'
         onFocus={ () => console.log('onFocus called') }
         onBlur={ () => console.log('onBlur called') }
-        onChange={() => searchNote() }
+        onChange={(text) => searchNote(text) }
       />
     )
   }
