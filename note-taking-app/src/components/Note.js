@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Markdown from 'markdown-react-js';
 
 import { updateNote, deleteNote, removeNote} from '../actions';
 
@@ -7,9 +8,13 @@ import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button'
 
 const Note = ({id, title, content, updateNote, deleteNote, removeNote}) =>
   <div style={style.root}>
-    <h3>{title}</h3>
-    <p>{content}</p>
-    <div style={style.displayTopCorner}>
+    <div>
+      <h2 style={style.removeMargin}>{title}</h2>
+      <div style={style.topLine}>
+        <Markdown text={content} />
+      </div>
+    </div>
+    <div style={style.displayBottomCorner}>
       <PrimaryButton      
         primary={ true }
         iconProps={ { iconName: 'Edit' } }
@@ -36,12 +41,19 @@ const mapStateToProps = (state) => {
 
 const style = {
   root: {
-    position: 'relative'
+    position: 'relative',
+    height: '100%'
   },
-  displayTopCorner: {
+  topLine: {
+    borderTop: '1px solid #eaeaea'
+  },
+  removeMargin: {
+    margin: 0
+  },
+  displayBottomCorner: {
     position: 'absolute',
     right: 10,
-    top: 10
+    bottom: 10
   }
 }
 

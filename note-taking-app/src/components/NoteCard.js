@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Markdown from 'markdown-react-js';
 
 import { selectNote } from '../actions';
 
@@ -14,7 +15,7 @@ const NoteCard = ({id, title, content, selectNote }) =>
     <DocumentCard  onClick={() => selectNote({id, title, content})}>
       <DocumentCardTitle title={title} />
       <div className='ms-ConversationTile-TitlePreviewArea' >
-        <DocumentCardTitle title={content} shouldTruncate={ true } showAsSecondaryTitle={ true } />
+        <DocumentCardTitle title={<Markdown text={content} />} shouldTruncate={ true } showAsSecondaryTitle={ true } />
       </div>
       <DocumentCardActions
         actions={

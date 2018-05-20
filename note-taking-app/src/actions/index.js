@@ -13,6 +13,7 @@ export const HIDE_SEARCH_BOX = 'HIDE_SEARCH_BOX'
 export const SORTING_NOTE = 'SORTING_NOTE'
 export const SHOW_SORT_BOX = 'SHOW_SORT_BOX'
 export const HIDE_SORT_BOX = 'HIDE_SORT_BOX'
+export const TOGGLE_MARKDOWN= 'TOGGLE_MARKDOWN'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -87,6 +88,8 @@ export const saveNote = (note) => {
         error => {
             dispatch({ type: ERROR, error: error.code })
         });
+
+        dispatch({ type: TOGGLE_MARKDOWN, checked: true})
     }
 }
 
@@ -146,4 +149,9 @@ export const showSortBox = () => {
 
 export const hideSortBox = () => {
     return { type: HIDE_SORT_BOX }
+}
+
+// Toggle Markdown
+export const toggleMarkdown = (checked) => {
+    return { type: TOGGLE_MARKDOWN, checked }
 }
