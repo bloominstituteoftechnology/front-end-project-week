@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import NoteCard from './NoteCard';
-import NoteSearchBox from './SearchBox';
 
 const Notes = ({notes}) => 
   <div>

@@ -1,18 +1,24 @@
 import { 
-    SEARCH_NOTE
+    SHOW_SEARCH_BOX,
+    HIDE_SEARCH_BOX
 } from '../actions'
 
 const initialState = {
-    openSearchBox: false,
-    openSortBox: false
+    searchBoxOpen: false,
+    sortBoxOpen: false
 }
 
 export const toolsReducer = (state=initialState, action) => {
     switch (action.type) {
-        case SEARCH_NOTE:
+        case SHOW_SEARCH_BOX:
             return {
                 ...state,
-                openSearchBox: true
+                searchBoxOpen: true
+            }
+        case HIDE_SEARCH_BOX:
+            return {
+                ...state,
+                searchBoxOpen: false
             }
         default:
             return state
