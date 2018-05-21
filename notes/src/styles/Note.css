@@ -1,0 +1,46 @@
+.note__container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.note {
+  margin-top: -18px;
+  margin-left: 1px;
+}
+
+.note__title {
+  font-size: 25px;
+  word-spacing: -3px;
+  letter-spacing: 0.6px;
+  font-weight: bold;
+  margin-bottom: 33px;
+}
+
+.note__content {
+  line-height: 30px;
+  font-family: 'Raleway';
+  font-weight: 400;
+  font-size: 16px;
+  white-space: pre-line;
+  letter-spacing: 0.6px;
+  word-spacing: -1px;
+  padding-right: 33px;
+}
+
+.note__options {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -47px;
+  margin-right: 41px;
+  margin-bottom: 47px;
+}
+
+.note__option-item {
+  margin-left: 19px;
+  text-decoration: underline;
+  color: rgb(74, 74, 74);
+  letter-spacing: 0.1px;
+  cursor: pointer;
+}

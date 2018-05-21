@@ -1,0 +1,51 @@
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  width: 265px;
+  height: 100%;
+  padding: 25px 15px;
+  background: rgb(215, 215, 215);
+  border-right: 1px solid rgb(151, 151, 151);
+}
+
+.sidebar__title {
+  font-size: 41px;
+  color: rgb(74, 74, 74);
+  letter-spacing: 1.6px;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.sidebar__buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-left: 3px;
+}
+
+.sidebar__button {
+  width: 230px;
+  height: 51px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 3px;
+  margin-left: -1.5px;
+  padding: 17px 12px 10px 11px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  background: rgb(40, 193, 197);
+  border: 1px rgb(151, 151, 151) solid;
+  color: white;
+  font-size: 18px;
+  cursor: default;
+}
+
+.sidebar__button:active {
+  background: rgb(32, 159, 163);
+}
+
+.sidebar__button:focus {
+  outline: 0;
+}

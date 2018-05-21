@@ -1,0 +1,63 @@
+.newNote__container {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.newNote__header {
+  font-size: 24px;
+  margin-bottom: 35px;
+  font-weight: bold;
+}
+
+.newNote__form {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 2px;
+}
+
+.newNote__title-field {
+  max-width: 500px;
+  width: 411px;
+  height: 30px;
+  font-size: 14px;
+  font-family: 'Raleway';
+  font-weight: 300;
+  border-radius: 3px;
+  border: 1px solid rgb(153, 153, 153);
+  box-shadow: inset 1px 1px 1px rgb(153, 153, 153);
+  padding: 9px 0px 11px 15px;
+  margin-bottom: 15px;
+}
+
+.newNote__title-field:focus {
+  outline: 0;
+}
+
+.newNote__content-field {
+  width: 690px;
+  padding: 25px 10px 10px 25px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-family: 'Raleway';
+  font-weight: 300;
+  height: 380px;
+  border: 1px rgb(153, 153, 153) solid;
+  box-shadow: inset 1px 1px 1px rgb(153, 153, 153);
+  margin-bottom: 18px;
+}
+
+.newNote__content-field:focus {
+  outline: 0;
+}
+
+.newNote__submit {
+  padding: 13px;
+  text-align: center;
+  background: rgb(42, 192, 196);
+  border: 1px solid rgb(151, 151, 151);
+  width: 230px;
+  color: white;
+  font-size: 20px;
+  cursor: default;
+}
