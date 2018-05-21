@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavigationBar from './Navigation-bar';
+import loremipsem from './loremipsem';
+import NoteComponent from './components/noteComponent';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notesMadeByUser: []
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      notesMadeByUser: loremipsem
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div className= "Notes">
+        {this.state.notesMadeByUser.map((note, index)=> {
+          return <NoteComponent key={index} note= {note}/>
+        })}
+        </div>
+        
       </div>
     );
   }
