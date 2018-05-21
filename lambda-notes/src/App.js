@@ -3,8 +3,8 @@ import './App.css';
 import { Route, Switch} from 'react-router';
 import { BrowserRouter as Router } from 'react-router-dom';
 import List from './Components/List/List';
-import NoteView from './Components/NoteView';
-import EditNote from './Components/EditNote';
+import NoteView from './Components/NoteView/NoteView';
+import EditNote from './Components/EditNote/EditNote';
 
 class App extends Component {
   render() {
@@ -13,9 +13,9 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path = '/' component = {List}/>
-            <Route path = '/list' component = {List} />
-            <Route path = '/list/:id' component = {NoteView} />
-            <Route path = '/list/:id/edit' component = {EditNote} />
+            <Route exact path='/list' component={List}/>
+            <Route path='/list/:number' component={NoteView}/>
+            <Route path = '/list/:number/edit' component ={EditNote}/>
           </Switch>
         </Router>
         </div>

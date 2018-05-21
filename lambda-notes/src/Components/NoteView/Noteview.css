@@ -1,0 +1,32 @@
+.note-wrapper{
+    display:flex;
+    max-width: 1200px;
+    width:1200px;
+    margin: 0 auto;
+    border: 1px solid #979797
+}
+.noteview-header{
+    margin: 15px;
+    margin-top: 80px;
+    font-size: .7rem;
+    display: block;
+    width: 700px;
+    text-align: right;
+}
+.header-link{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 30px;
+    
+}
+.header-wrapper{
+    width: 100%;
+}
+
+h1{
+    text-align: left;
+}
+
+.note-body{
+    margin: 15px;
+}
