@@ -4,7 +4,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 
 import Dashboard from './components/dashboard/Dashboard';
-import NewNote from './components/NewNote';
+import NewNote from './components/newnote/NewNote';
 import Note from './components/Note';
 import EditNote from './components/EditNote';
 import DeleteNote from './components/DeleteNote'
