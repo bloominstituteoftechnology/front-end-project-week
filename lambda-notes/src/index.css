@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+  background-color: gainsboro;
+  border-right: solid 1px rgb(145, 140, 140);
+  flex-wrap: wrap;
+}
+
+ .title {
+  display: flex;
+  width: 15px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: rgb(70, 68, 68);
+  padding: 10px;
+}
+
+.button {
+  font-size: 15px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  height:50px;
+  color: white;
+  margin: 10px;
+  border: solid 1px rgb(145, 140, 140);
+}
+
+.topBar {
+  margin: 0px 400px 0px 0px;
+}
+
+.container {
+  margin-top: 0px;
+  background-color: whitesmoke;
+  border: 1px solid whitesmoke;
+}
+
+.note-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  flex-wrap: wrap;
+  margin-left: 20%;
+}
+
+.note-card {
+  margin: 10px;
+}
+
+.noteContainer1 {
+  margin-top: 100px;
+  background-color:  whitesmoke;
+  display: flex;
+  margin-left: 245px;
+  justify-content: space-around;
+}
+.noteContainer2 {
+  margin-top: 25px;
+  background-color: whitesmoke;
+  display: flex;
+  margin-left: 245px;
+  justify-content: space-around;
+}
+.noteContainer3 {
+  margin-top: 25px;
+  margin-bottom: 200px;
+  background-color:  whitesmoke;
+  display: flex;
+  margin-left: 245px;
+  justify-content: space-around;
+}
+
+.NoteCard {
+  border: solid 1px rgb(145, 140, 140);
+  margin: 0px 10px;
+  text-align: left;
+  padding: 0 15px;
+  width: 200px;
+  height: 200px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  background-color: white;
+}
