@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { NoteCard } from './components/NoteCard.js';
 
 class App extends Component {
-  render() {
+ constructor(props) {
+	 super(props)
+ }
+	
+	
+render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -12,7 +18,8 @@ class App extends Component {
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+	</p>
+        <NoteCard />
       </div>
     );
   }
