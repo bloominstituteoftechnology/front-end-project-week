@@ -1,5 +1,5 @@
 body {
-    font: Raleway-Medium;
+    font: Roboto-Bold;
     color: #4A4A4A;
     background: #F3F3F3;
 }
@@ -10,7 +10,7 @@ h3,
 h4,
 h5,
 h6 {
-    font: Roboto-Bold;
+    font: Roboto;
 }
 
 button {
@@ -21,7 +21,7 @@ button {
     background: #D8D8D8;
     height: 100vh;
     border-right: 1px solid #979797;
-    width: 200px;
+    min-width: 200px;
     padding: 15px;
 }
 
@@ -38,6 +38,16 @@ button {
     margin-top: 20px;
 }
 
+.notelist {
+    padding: 25px 15px;
+}
+
+.nlist-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .delete-button {
     background: #D0021B;
 }
@@ -48,4 +58,33 @@ button {
 
 #root {
     padding: 0px;
+}
+
+.card {
+    border: 1.5px solid lightgray;
+    border-radius: 1px;
+    width: 200px;
+    margin: 5px;
+    height: 200px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.noDecoration,
+a:link,
+a:visited {
+    text-decoration: none !important;
+}
+
+.card-text {
+    border-top: 1.5px solid lightgray;
+    padding-top: 5px;
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+}
+
+.card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

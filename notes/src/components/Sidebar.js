@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from './Button'
 
+// SideBar component, using the previously created Btn Component
+
 const SideBar = () => {
     return (
         <div className="sidebar">

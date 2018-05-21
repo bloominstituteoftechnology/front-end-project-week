@@ -1,0 +1,18 @@
+const notes = [
+    { id: 0, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 1, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 2, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 3, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 4, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 5, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 6, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 7, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 8, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 9, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 10, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" },
+    { id: 11, title: "Example", text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam dignissimos soluta ratione nam ullam id facere, laborum assumenda modi similique, earum, nisi minima mollitia accusamus voluptas! Blanditiis esse reprehenderit delectus?" }
+]
+
+export default notes;
+
+// Some example Data to visualize the NoteList
