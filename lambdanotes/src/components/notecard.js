@@ -2,7 +2,7 @@ import React from 'react';
 import './notecard.css';
 
 const NoteCard = (props) => {
-  const previewLength = 100;
+  const previewLength = 150;
   let preview = "";
   if (props.note.content.length > previewLength) preview = props.note.content.substr(0, previewLength - 4) + " ...";
   else preview = props.note.content
