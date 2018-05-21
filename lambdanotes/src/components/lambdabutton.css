@@ -1,0 +1,19 @@
+.lambda-button {
+  background: #2BC1C4;
+  border: solid #979797 1px;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding: 8px;
+  margin: 16px 0;
+}
+
+.lambda-button-red {
+  background: #D0021B;
+  border: solid #979797 1px;
+  text-align: center;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding: 8px;
+  margin: 16px 0;
+}
