@@ -1,0 +1,27 @@
+.Link {
+  text-decoration: none;
+}
+
+.Navigation {
+  box-sizing: border-box;
+  width: 25%;
+  height: 100%;
+  padding: 15px;
+  border-right: 2px solid rgb(152, 174, 175);
+  background-color: rgb(211, 210, 211);
+}
+
+.Navigation__Heading {
+  margin: 0;
+  margin-bottom: 10px;
+  color: rgb(65, 65, 65);
+}
+
+.Navigation__Button {
+  background-color: rgb(36, 184, 189);
+  border: 2px solid rgb(152, 174, 175);
+  color: white;
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+}

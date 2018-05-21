@@ -1,0 +1,15 @@
+.Content__Wrapper {
+  box-sizing: border-box;
+  width: 75%;
+  padding: 30px;
+}
+
+.Content__Heading {
+  margin: 0;
+  margin-top: 37px;
+  color: rgb(65, 65, 65);
+}
+
+.Content {
+  margin-top: 20px;
+}

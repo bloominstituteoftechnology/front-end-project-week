@@ -1,0 +1,37 @@
+.Link {
+  text-decoration: none;
+  color: black;
+}
+
+.NotesList {
+  max-height: 750px;
+  display: grid;
+  grid-template-columns: 31% 31% 31%;
+  grid-column-gap: 3%;
+  grid-auto-rows: 200px;
+  grid-row-gap: 20px; 
+  overflow: auto;
+}
+
+.Note {
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid rgb(152, 174, 175);
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.Note__Heading {
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(152, 174, 175);
+}
+
+.Note__Content {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
