@@ -1,0 +1,15 @@
+.container{
+    background-color: #F3F3F3;
+}
+.sidebar {
+    background-color: #D8D8D8;
+}
+.heading {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    letter-spacing: 2px;
+}
+.btn {
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+}
