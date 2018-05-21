@@ -14,7 +14,6 @@ class Speech extends Component {
   start = () => {
     this.props.speechToggle()
     this.recognition.onresult = event => {
-      // console.log('>>>', event.results[0][0].transcript)
       this.props.addTranscript(event.results[0][0].transcript)
     }
     this.recognition.start()
@@ -23,11 +22,9 @@ class Speech extends Component {
   stop = () => {
     this.props.speechToggle()
     this.recognition.stop()
-    // console.log(this.props.speechTranscript)
   }
 
   render() {
-    // console.log(this.props.transcript, this.props.isListening)
     return <div className='Speech'>
       {this.props.isListening
         ? <button className='button' onClick={this.stop}>Stop</button>

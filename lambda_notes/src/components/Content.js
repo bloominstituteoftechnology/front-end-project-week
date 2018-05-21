@@ -24,6 +24,6 @@ const NoteContainer = ({ notes }) =>
   ))
 
 export const Content = connect(
-  ({ notes: { notes, isLoading }, }) => ({ notes, isLoading }),
+  ({ notes: { notes, isLoading } }) => ({ notes, isLoading }),
   { getNotes }
 )(Notes)

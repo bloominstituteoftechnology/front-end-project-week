@@ -30,7 +30,13 @@ const NoteForm = (props) => {
   </Fragment>
 }
 
+const stateToProps = (state) => {
+  console.log(state)
+  const { notes: { transcript } } = state
+  return ({ initialValues: { content: transcript } })
+}
+
 export const Edit = compose(
-  connect(({ notes: { transcript } }) => ({ initialValues: { content: transcript } })),
+  connect(stateToProps),
   reduxForm({ form: 'Note' }),
 )(NoteForm)

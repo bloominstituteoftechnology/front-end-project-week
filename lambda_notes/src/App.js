@@ -31,7 +31,10 @@ class App extends Component {
 
   Create = () => <Create onSubmit={this.handleSubmit} enableReinitialize />
 
-  Edit = () => <Edit onSubmit={this.handleEdit} enableReinitialize />
+  Edit = props => {
+    console.log(props)
+    return <Edit {...props} onSubmit={this.handleEdit} enableReinitialize />
+  }
   // Edit = props => {
   //   const note = this.getNote(+props.match.params.id)
   //   return <Edit {...props} {...note} submit={this.handleEdit} />
