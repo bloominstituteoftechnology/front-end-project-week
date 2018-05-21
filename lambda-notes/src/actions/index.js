@@ -14,10 +14,12 @@ export const DELETED_ITEM = "DELETED_ITEM";
 export const ERROR = "ERROR";
 
 const URL = "http://localhost:7777/data";
-const errorAction = {
-  type: ERROR,
-  message: error.message
-}
+const errorAction = error => {
+  return {
+    type: ERROR,
+    message: error.message
+  };
+};
 
 export const fetchingItems = () => {
   const fetch = axios.get(URL);
@@ -35,7 +37,7 @@ export const fetchingItems = () => {
       })
       .catch(e => {
         // console.log("error", e);
-        dispatch( errorAction );
+        dispatch(errorAction(e));
       });
   };
 };
@@ -49,59 +51,65 @@ export const addingItem = newItem => {
     });
     addItem
       .then(response => {
-        console.log("POST response.data", response.data);
-        console.log("newItem",newItem);
+        // console.log("POST response.data", response.data);
+        // console.log("newItem", newItem);
         dispatch({
           type: ADDED_ITEM,
-          newItem: response.data
+          allItems: response.data,
+          newItem: newItem //TO REVIEW WITH REAL EXAMPLES
         });
       })
       .catch(e => {
         console.log("error", e);
-        dispatch({ type: ERROR });
+        dispatch(errorAction(e));
       });
   };
 };
-export const updatingItem = id => {
-  const updateItem = axios.put(`${URL}/${id}`);
+export const updatingItem = (index, id, content) => {
+  const updateItem = axios.put(`${URL}/${id}`, content);
   return dispatch => {
     dispatch({
       type: UPDATING_ITEM,
-      toUpdate: toUpdate
+      toUpdate: id,
+      content
     });
     updateItem
       .then(response => {
-        console.log("response.data", response.data);
+        // console.log("response.data", response.data);
         dispatch({
           type: UPDATED_ITEM,
-          toUpdate: toUpdate
+          toUpdate: index,
+          content,  // TO REVIEW WITH REAL DATA
+          allItems: response.data // TO REVIEW WITH REAL DATA
         });
       })
       .catch(e => {
         console.log("error", e);
-        dispatch({ type: ERROR });
+        dispatch(errorAction(e));
       });
   };
 };
-export const deletingItem = id => {
+export const deletingItem = (index, id) => {
   const deleteItem = axios.delete(`${URL}/${id}`);
   return dispatch => {
     dispatch({
       type: DELETING_ITEM,
-      toDelete: toDelete
+      index,
+      id
     });
     deleteItem
       .then(response => {
-        console.log("DELETE response.data", response.data);
+        // console.log("DELETE response.data", response.data);
         dispatch({
           type: DELETED_ITEM,
-          toDelete: response.data
+          allItems: response.data,
+          index,
+          id
         });
-        fetchingItems();
       })
       .catch(e => {
         console.log("error", e);
-        dispatch({ type: ERROR });
+        dispatch(errorAction(e));
       });
   };
 };

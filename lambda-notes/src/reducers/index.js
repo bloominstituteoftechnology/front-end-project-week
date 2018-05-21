@@ -53,7 +53,10 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         adding_Item: false,
         added_Item: true,
-        data: action.newItem
+        //OPTION-1
+        data: [...state.data, action.allItems[action.allItems.length - 1]] // TO REVIEW WITH REAL EXAMPLES
+        //OPTION-2
+        // data: action.allItems
       };
     case UPDATING_ITEM:
       return {
@@ -63,7 +66,15 @@ const mainReducer = (state = initialState, action) => {
         error: null
       };
     case UPDATED_ITEM:
-      return { ...state, updating_Item: false, updated_Item: true };
+      return {
+        ...state,
+        updating_Item: false,
+        updated_Item: true,
+        //OPTION-1
+        // data: action.allItems
+        //OPTION-2  => to review with real data
+        data: [...state.data.slice(0,action.index), state.dta[action.index] = action. content, ...state.data.slice(action.index + 1) ]
+      };
     case DELETING_ITEM:
       return {
         ...state,
@@ -77,7 +88,10 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         deleting_Item: false,
         deleted_Item: true,
-        data: action.toDelete
+        //OPTION-1
+        // data: action.allItems
+        //OPTION-2  => to review with real data
+        data: [...state.data.slice(0,action.index), ...state.data(action.index + 1) ]
       };
     case ERROR:
       return {
