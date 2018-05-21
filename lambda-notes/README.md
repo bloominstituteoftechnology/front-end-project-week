@@ -1,3 +1,7 @@
+Link to my Trello Board for this project:
+
+https://trello.com/b/938vfnSJ
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
