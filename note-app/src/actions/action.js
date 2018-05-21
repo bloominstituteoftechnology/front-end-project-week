@@ -2,7 +2,7 @@ export const ADDNOTE = "ADDNOTE";
 export const DELETENOTE = "DELETENOTE";
 export const UPDATENOTE = "UPDATENOTE";
 export const CHECKUPDATE = "CHECKUPDATE";
-export const ADDTAG = "ADDTAG";
+// export const ADDTAG = "ADDTAG";
 export const REORDERSTATE = "REORDERSTATE";
 
 let notes = [];
@@ -24,13 +24,13 @@ export const updateNote = (noteTitle, noteBody, i) => {
   };
 };
 
-export const addTag = (tag, i) => {
-  return {
-    type: ADDTAG,
-    payload: tag,
-    index: i
-  };
-};
+// export const addTag = (tag, i) => {
+//   return {
+//     type: ADDTAG,
+//     payload: tag,
+//     index: i
+//   };
+// };
 
 export const deleteNote = note => {
   return {
