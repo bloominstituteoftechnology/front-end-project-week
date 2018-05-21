@@ -11,21 +11,22 @@ html{
 .sidebar{
   display: flex;
   flex-direction: column;
+  min-width: 200px;
   max-width: 25%;
   min-height: 100%;
   background-color: #D8D8D8;
 }
 
 .sidebar h1{
-  font-family: Roboto;
+  /* font-family: 'Roboto Bold'; */
   font-weight: bold;
   color: #4A4A4A;
-  margin: 20px;
+  margin: 15px;
 }
 
 .sidebar button{
   color: #FFF;
   background-color: #2BC1C4;
-  margin: 10px;
+  margin: 10px 15px;
   padding: 10px;
 }
