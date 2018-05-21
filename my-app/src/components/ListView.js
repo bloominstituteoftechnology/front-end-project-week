@@ -6,6 +6,7 @@ class ListView extends Component {
         return (
             <div>
                 {/* ListView - list of all notes */}
+                <h2>Your Notes</h2>
                 <Notes /> 
             </div>
         );

@@ -1,5 +1,6 @@
 import React from 'react';
-// import './navig.css';
+import './navig.css';
+import { Route, Link } from 'react-router-dom';
 
 const Navigation = () => {
     
@@ -12,9 +13,9 @@ const Navigation = () => {
             <h3>Lambda Notes</h3>
         </div>
         <ul className="list-unstyled components">
-            <li className="active"><button>View Your Notes</button></li>
+            <li className="active"><button><Link to="/">View Your Notes</Link></button></li>
             <br />
-            <li><button>+ Create new Note</button></li>
+            <li><button><Link to="/createNote">+ Create new Note</Link></button></li>
         </ul>
       </nav>
 
