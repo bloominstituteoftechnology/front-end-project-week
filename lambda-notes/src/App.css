@@ -1,3 +1,13 @@
+.App {
+  max-width: 900px;
+  height: 100%;
+  /* border: 1px solid black; */
+}
+
+.App .row {
+  height: 100%;
+  align-content: flex-start;
+}
 
 /* Keeping this stuff around for reference or later use
 .App-logo {

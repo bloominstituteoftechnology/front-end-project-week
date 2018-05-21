@@ -1,0 +1,6 @@
+.navbar {
+  height: 100%;
+  align-content: flex-start;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-bg--side);
+}

@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:500|Roboto:700');
 /* Import design fonts from Google Fonts */
 
+:root {
+  --color--main: #4A4A4A;
+  --color--button: #FFFFFF;
+  --color-bg--side: #D8D8D8;
+  --color-bg--main:  #F3F3F3;
+  --color-bg--button-main: #2bc1c4;
+  --color-bg--button-del: #D0021b;
+  --color-border: #979797; 
+}
+
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }

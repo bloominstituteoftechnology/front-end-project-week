@@ -1,0 +1,8 @@
+button {
+  width: 90%;
+  height: 36px;
+  margin: 12px;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bg--button-main);
+}
