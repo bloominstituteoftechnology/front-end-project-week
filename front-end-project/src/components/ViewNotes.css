@@ -1,0 +1,159 @@
+.ViewNotes__Text {
+    font-family: "Roboto Bold";
+    font-size: 28px;
+    color: #434243;
+    font-weight: bold;
+    margin-top: 65px;
+  }
+  
+  .ViewNotes__Note {
+    text-decoration: none;
+    color: black;
+    border-style: solid;
+    text-align: left;
+    margin-top: 30px;
+    margin-right: 25px;
+    border-width: 1px;
+    background-color: white;
+    border-color: #c9c9c9;
+    width: 240px;
+    height: 250px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    font-size: 12px;
+    word-wrap: break-word;
+  }
+  
+  .ViewNotes__Note__Title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 44px;
+    border-bottom-color: #c5c5c5;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+  }
+  
+  .ViewNotes__Note__Meat {
+    font-family: "Raleway";
+    font-weight: lighter;
+    font-size: 8px;
+    padding-top: 3px;
+  }
+  
+  .ViewNotes__Actions {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    width: 0px;
+    position: absolute;
+    margin-top: 25px;
+    font-size: 20px;
+    right: 200px;
+    font-weight: lighter;
+  }
+  
+  .ViewNotes__Delete {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+  }
+  .ViewNotes__Delete:hover{
+    cursor: pointer;
+  }
+  
+  .ViewNotes__Edit {
+    padding: 0px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  
+  
+  /* The Modal (background) */
+  .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+      font-family: "Raleway";
+      font-weight: lighter;
+      text-align: center;
+      font-size: 30px;
+      background-color: #fefefe;
+      margin: 15% auto; /* 15% from the top and centered */
+      padding: 20px;
+      border:2px solid #515151;
+      width: 50%; /* Could be more or less, depending on screen size */
+      height: 300px;
+  }
+  
+  .modal-actions {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    padding: 0px;
+    top: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .modal-actions-delete {
+    color: white;
+    border: 2px solid #b3bdbd;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    background-color: #cf0621;
+    width: 270px;
+    height: 90px;
+    font-weight: bold;
+  }
+  
+  .modal-actions-no {
+    color: white;
+    border: 2px solid #b3bdbd;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #2ebfc3;
+    width: 270px;
+    height: 90px;
+    font-weight: bold;
+  }
+  .modal-actions-delete:hover {
+      cursor: pointer;
+  }
+  .modal-actions-no:hover {
+      cursor: pointer;
+  }
+  /* The Close Button */
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+  }

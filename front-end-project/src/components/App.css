@@ -1,0 +1,121 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  min-height: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+}
+
+.Home__Left {
+  min-width: 200px;
+  width: 200px;
+  background-color: #d2d2d2;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #b7b7b7;
+  font-family: "Roboto Bold";
+  font-size: 40px;
+  font-weight: bold;
+  padding: 15px;
+  color: #434243;
+}
+
+.Home_Left_Text {
+  font-family: "Roboto Bold";
+  font-size: 40px;
+}
+
+.Home__Right {
+  positive: relative;
+  flex: 1;
+  background-color: #f1f1f1;
+  border-style: solid;
+  border-width: 2px;
+  border-left-width: 1px;
+  border-color: #b7b7b7;
+}
+
+.Right_Containers {
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.button {
+    background-color: #3cbbbd;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Roboto Bold";
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+.Home__NoteButton {
+  background-color: #3cbbbd;
+  color: white;
+  border: 1px solid #859393;
+  text-decoration: none;
+  width: 100%;
+  margin-top: 28px;
+}
+
+/*.App {
+  display: flex;
+	text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.LeftColumnPanel {
+  background: #d7d7d7;
+  height: 100vh;						
+  text-align: center;
+}
+.columnpanel-title {
+	text-align: left;
+}*/
+
+/*h2 {
+	text-align: center-left;
+  left: calc(50vw - 150px);
+	position: absolute;			
+  button {
+  text-align: center-left;
+  position: absolute; 
+  } 
+}*/
