@@ -1,33 +1,4 @@
 .App {
-  text-align: center;
   height: 100%;
-  background: #F3F3F3;
-}
-
-.sidebarOfApp {
-  background: #D8D8D8;
-  width: 25%;
-  height: 100vh;
-  border-right: 1px solid #979797;
-
-}
-.sidebarHeading {
-  color: #4A4A4A;
-  font: Raleway Medium
-
-}
-.sidebarButton {
-  color: #FFFFFF;
-  background: #2BC1C4;
-  width: 85%;
-  height: 110%;
-  margin: auto;
-}
-.listview {
-  width: 75%;
-  margin: auto
-}
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  background: #F3F3F3
 }

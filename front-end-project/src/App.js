@@ -7,19 +7,16 @@ import { SideNav, ListView, NoteView, Edit, Delete, Create } from './components'
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>  */}
+      <div className="container-fluid lambdaNotes" style={{padding: '0'}}>          
+        <Route path="/" component={SideNav}/>
         <Switch>
-          <Route exact path="/" render={props => <div className="row no-gutters"><SideNav/> <ListView /></div>} />
-          <Route path="/note/:id" render={props => <div className="row no-gutters"><SideNav /> <NoteView /></div>}/>
-          <Route path="/create" render={props => <div className="row no-gutters"><SideNav /> <Create/></div>}/>
-          <Route path="/edit" render={props => <div className="row no-gutters"><SideNav /> <Edit /></div>}/>
-          <Route path="/delete" render={props => <div className="row no-gutters"><SideNav /> <Delete/></div>}/>
+          <Route exact path="/" component={ListView}/>
+          <Route path="/note/:id" componet={NoteView}/>
+          <Route path="/create" component={Create}/>
+          <Route path="/edit" component={Edit}/>
+          <Route path="/delete" component={Delete}/>
         </Switch>
-      </div>
+        </div>
     );
   }
 }

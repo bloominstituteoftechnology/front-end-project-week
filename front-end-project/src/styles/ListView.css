@@ -1,0 +1,21 @@
+.listView {
+    width: 75%;
+    margin-left: 25%;
+    margin-top: -100vh;
+    color: #4A4A4A;
+    font: Raleway Medium;
+}
+
+.mein-row {
+    justify-content: space-evenly;
+    margin: 2rem;
+}
+
+.mein-card {
+    width: 15rem;
+}
+
+h5 {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #979797;
+}
