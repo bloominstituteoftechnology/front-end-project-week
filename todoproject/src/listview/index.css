@@ -14,8 +14,8 @@ h2 {
     font-weight: bold;
     color: #4A4A4A;
     margin-left: 38px;
-    margin-top: 83px;
-    font-size: 22px;
+    margin-top: 80px;
+    font-size: 25px;
 }
 .card {
     display: inline-block;
@@ -30,7 +30,7 @@ h2 {
 }
 .cardtitle {
     font-weight: bold;
-    font-size: 20px
+    font-size: 19px
 }
 .cardtext {
     font-size: 15px;

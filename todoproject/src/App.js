@@ -18,16 +18,16 @@ class App extends Component {
     return (
       <div className="App">
       
-      <ListView />
-      <Sidebar />
 
       <Switch>
-            <Route exact path="/" component={Sidebar}></Route>
+            <Route exact path="/" component={ListView}></Route>
             <Route path="/ViewYourNotes" component={ViewNote}></Route>
             <Route path="/CreateNewNote" component={CreateNote}></Route>
             <Route component={NoMatch}></Route>
       </Switch>
-    
+
+            <Route path="/" component={Sidebar}></Route>
+
       </div>
     );
   }
