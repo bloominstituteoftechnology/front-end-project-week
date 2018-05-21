@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListNotes from './ListNotes';
 import './Note.css';
+import { Link } from 'react-router-dom';
 
 class Note extends Component {
     constructor(props) {
@@ -38,8 +39,8 @@ class Note extends Component {
         return (
             <div className='note-container'> 
                 <div className="note-links">
-                    <a>edit</a>
-                    <a>delete</a>
+                    <Link to="/notes/create"><a>edit</a></Link>
+                    <Link to='/notes/delete'><a>delete</a></Link>
                 </div>
                 <div className="view-note">
                     <h2> {title} </h2>

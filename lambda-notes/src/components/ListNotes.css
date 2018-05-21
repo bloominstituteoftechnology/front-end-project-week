@@ -4,6 +4,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    align-content: space-between;
+    margin: 15px 30px;
 }
 
 .note-card{
@@ -11,9 +13,9 @@
     height: 200px;
     border: 1px solid #979797;
     padding: 10px;
-    margin: 15px;
     background-color: white;
     overflow: hidden;
+    margin-top: 20px;
 }
 
 .note-card h2{

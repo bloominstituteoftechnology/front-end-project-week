@@ -20,7 +20,6 @@ html{
 }
 
 .sidebar h1{
-  /* font-family: 'Roboto Bold'; */
   font-weight: bold;
   color: #4A4A4A;
   margin: 15px;
@@ -32,4 +31,10 @@ html{
   margin: 10px 15px;
   padding: 10px;
   font-weight: 700;
+}
+
+.main-header{
+  margin: 30px 40px;
+  font-weight: bold;
+  color: #4A4A4A;
 }

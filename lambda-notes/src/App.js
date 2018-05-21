@@ -10,15 +10,18 @@ class App extends Component {
       <div className="app-container">
         <div className="sidebar">
           <h1>Lambda Notes</h1>
-          <button>View Your Notes</button>
-          <button>+ Create New Note</button>
+          <Link to="/">
+            <button>View Your Notes</button>
+          </Link>
+          <Link to="/notes/create">
+            <button>+ Create New Note</button>
+          </Link>
         </div>
         <div>
-          {/* <Switch> */}
-            <Route exact path="/" component={ListNotes} ></Route>
-            <Route path="/notes/:id" component={Note} ></Route>
-            {/* <Route path="/notes/create" component={CreateNote} ></Route> */}
-          {/* </Switch> */}
+          <h2 className="main-header">Your Notes:</h2>
+          <Route exact path="/" component={ListNotes} ></Route>
+          <Route path="/notes/:id" component={Note} ></Route>
+          {/* <Route path="/notes/create" component={CreateNote} ></Route> */}
         </div>
       </div>
     );
