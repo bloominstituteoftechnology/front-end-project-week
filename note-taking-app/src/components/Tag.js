@@ -14,12 +14,12 @@ const Tag = ({ id, name, showEditTagBox }) =>
     <div style={style.root}>
         <div style={style.tag}>
             <div style={style.hole}></div>
-            {name}
+            <div style={style.tagName}>{name}</div>
         </div>
         <div className='ms-buttonArea'>
             <IconButton
             iconProps={ { iconName: 'Edit' } }
-            onClick={ showEditTagBox }
+            onClick={() => showEditTagBox({id, name}) }
             />
         </div>
     </div>
@@ -35,7 +35,13 @@ const style = {
         border: '1px solid #eaeaea',
         display: 'flex',
         color: '#666',
-        flexGrow: 1
+        flexGrow: 1,
+        width: '70%',
+    },
+    tagName: {
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
     },
     hole: {
         width: 20,

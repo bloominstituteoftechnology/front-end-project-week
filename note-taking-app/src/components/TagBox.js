@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Tag from './Tag';
 import AddTagForm from './AddTagForm';
+import UpdateTagForm from './UpdateTagForm';
 import NoteSearchBox from './NoteSearchBox';
 
 import { getTags, hideEditTagBox } from '../actions';
@@ -17,36 +18,34 @@ class TagBox extends React.Component {
   render() {
     const { tags, getTags, isFetching, showEditTagBox, hideEditTagBox, editTagBoxOpen } = this.props
     return(
-      <div style={style.root}>
+      <div style={style.root} ref={editTagButton => this.editTagButtonElement = editTagButton }>
         { 
           isFetching? 
           ('Loading...')
           :
           (
             <div>
-            <div ref={editTagButton => this.editTagButtonElement = editTagButton } className='ms-CalloutCoverExample-buttonArea'>
-              <AddTagForm />
-              {tags && Object.keys(tags).map((id) => {
-                return (
-                  <Tag key={id} {...tags[id]} id={id}/>
-                )
-              })}
-            </div>
-            <Callout
-              className='ms-CalloutExample-callout'
-              target={ this.editTagButtonElement }
-              onDismiss={ hideEditTagBox }
-              setInitialFocus={ true }
-              hidden={ !editTagBoxOpen }
-              directionalHint={DirectionalHint.rightTopEdge}
-              isBeakVisible={ false }
-              gapSpace={0}
-          >
-              <div className='ms-CalloutExample-inner' style={style.extraHeight}>
-              <NoteSearchBox />
+              <div className='ms-CalloutCoverExample-buttonArea'>
+                <AddTagForm />
+                {tags && Object.keys(tags).map((id) => {
+                  return (
+                    <Tag key={id} {...tags[id]} id={id}/>
+                  )
+                })}
               </div>
-          </Callout>
-          </div>
+              <Callout
+                className='ms-CalloutExample-callout'
+                target={ this.editTagButtonElement }
+                onDismiss={ hideEditTagBox }
+                setInitialFocus={ true }
+                hidden={ !editTagBoxOpen }
+                directionalHint={DirectionalHint.rightTopEdge}
+                isBeakVisible={ false }
+                gapSpace={10}
+              >              
+                <UpdateTagForm />
+              </Callout>
+            </div>
           )
           
         }
@@ -62,7 +61,7 @@ const mapStateToProps = (state) => {
 const style = {
   root: {
     padding: 10,
-    width: 200
+    width: 300
   },
 }
 

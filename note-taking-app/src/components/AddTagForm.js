@@ -6,7 +6,7 @@ import { saveTag } from '../actions';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 
-class NoteForm extends Component {
+class AddTagForm extends Component {
   state = {
     name: ''
   }
@@ -23,10 +23,7 @@ class NoteForm extends Component {
         <TextField
           placeholder='Create New Tag...'
           onBeforeChange={val => this.handleChange('name',val)}
-        />
-        <IconButton
-          iconProps={ { iconName: 'CirclePlus' } }
-          onClick={() => saveTag({name}) }
+          onKeyPress={(e) => { e.key === 'Enter'? saveTag({name}): null}}
         />
       </div>
     )
@@ -36,8 +33,12 @@ class NoteForm extends Component {
 const style = {
   newTagInput: {
     marginBottom: 7,
-    display: 'flex'
+    display: 'inline-block',
+    paddingBottom: 10,
+    marginBottom: 13,
+    borderBottom: '1px solid #eaeaea',
+    width: '100%'
   }
 }
 
-export default connect( null, { saveTag })(NoteForm);
+export default connect( null, { saveTag })(AddTagForm);

@@ -14,7 +14,11 @@ const initialState = {
     tags: {},
     isFetching: false,
     error: null,
-    editTagBoxOpen: false
+    editTagBoxOpen: false,
+    updatingTag: {
+        id: '',
+        name: ''
+    }
 }
 
 export const tagsReducer = (state = initialState, action) => {
@@ -23,7 +27,8 @@ export const tagsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                tags: action.tags
+                tags: action.tags,
+                editTagBoxOpen: false
             }
         case FETCHING_TAGS:
             return {
@@ -55,11 +60,21 @@ export const tagsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 editTagBoxOpen: true,
+                updatingTag: {
+                    ...state.updatingTags,
+                    id: action.id,
+                    name: action.name
+                }
             }
         case HIDE_EDIT_TAG_BOX:
             return {
                 ...state,
                 editTagBoxOpen: false,
+                updatingTag: {
+                    ...state.updatingTags,
+                    id: '',
+                    name: ''
+                }
             }
         case ERROR:
             return {

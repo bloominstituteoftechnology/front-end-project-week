@@ -117,7 +117,7 @@ export const removeNote = (id) => {
                 // note exists, update
                 targetRef.remove()
             }
-                // note does not exist, someone already deleted recently
+                // note does not exist, someone already deleted recently, notify user
         },
         error => {
             dispatch({ type: ERROR, error: error.code })
@@ -190,7 +190,6 @@ export const getTags = () => {
 
 // saveTag will save note to db and return current db
 export const saveTag = (tag) => {
-    console.log(tag)
     let ref = db.database().ref('/tags')
     let targetRef = db.database().ref(`/tags/${tag.id}`)
 
@@ -221,15 +220,45 @@ export const saveTag = (tag) => {
     }
 }
 
-export const showEditTagBox = () => {
+export const showEditTagBox = ({id, name}) => {
     return (dispatch) => { 
         dispatch({type: HIDE_EDIT_TAG_BOX })
         setTimeout(() => {
-            dispatch({type: SHOW_EDIT_TAG_BOX })
-        }, 1000)
+            dispatch({type: SHOW_EDIT_TAG_BOX, id, name })
+        }, 500)
     }
 }
 
 export const hideEditTagBox = () => {
     return { type: HIDE_EDIT_TAG_BOX }
+}
+
+// removeTag will delete a tag from db and return current db
+export const removeTag = (id) => {
+    let ref = db.database().ref('/tags')
+    let targetRef = db.database().ref(`/tags/${id}`)
+
+    return (dispatch) => {
+        dispatch({ type: FETCHING_TAGS })
+        
+        targetRef.on('value', 
+        response => {
+            if (response.val()) {
+                // tag exists, update
+                targetRef.remove()
+            }
+                // tag does not exist, someone already deleted recently, notify user
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+
+        ref.on('value', 
+        response => {
+            dispatch({ type: FETCHED_TAGS, tags: response.val()})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        });
+    }
 }
