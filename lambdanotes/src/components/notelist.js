@@ -8,13 +8,15 @@ const NoteList = (props) => {
       <div className="heading">
         <h5>Your Notes:</h5>
       </div>
-      {
-        props.notes.map((note, index) => {
-          return (
-            <NoteCard key={index} note={note} />
-          );
-        })
-      }
+      <div className="note-cards">
+        {
+          props.notes.map((note, index) => {
+            return (
+              <NoteCard key={index} note={note} />
+            );
+          })
+        }
+      </div>
     </div>
   );
 }

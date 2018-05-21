@@ -1,8 +1,14 @@
 .notes-view {
   display: flex;
   padding: 50px 10px;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .heading {
   font-family: 'Roboto', sans-serif;
+}
+
+.note-cards {
+
 }
