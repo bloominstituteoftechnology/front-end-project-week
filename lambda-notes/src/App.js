@@ -16,8 +16,8 @@ class App extends Component {
         <div>
           {/* <Switch> */}
             <Route exact path="/" component={ListNotes} ></Route>
-            {/* <Route path="/notes/:id" component={Note} ></Route>
-            <Route path="/notes/create" component={CreateNote} ></Route> */}
+            <Route path="/notes/:id" component={Note} ></Route>
+            {/* <Route path="/notes/create" component={CreateNote} ></Route> */}
           {/* </Switch> */}
         </div>
       </div>

@@ -19,7 +19,7 @@ export default class ListNotes extends Component {
                     body: 'I love taking notes!!'
                 },
                 {
-                    id: 3,
+                    id: 2,
                     title: 'Bill of Rights',
                     body: '1) Freedom of Speech 2) The Right to Bear Arms 3) The Housing of Soldiers 4) Protection from Unreasonable Search and Seizure 5) Protection of Rights to Life, Liberty and Property 6) Rights of Accused Persons in Criminal Cases 7) Rights in Civil Cases 8) Excessive Bail, Fines and Punishments Forbidden 9) Other Rights Kept by the People 10) Undelegated Powers Kept by the States and the People'
                 }

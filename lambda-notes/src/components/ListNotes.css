@@ -2,6 +2,8 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .note-card{
@@ -9,7 +11,7 @@
     height: 200px;
     border: 1px solid #979797;
     padding: 10px;
-    margin: 20px;
+    margin: 15px;
     background-color: white;
     overflow: hidden;
 }
