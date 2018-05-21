@@ -1,0 +1,295 @@
+.App {
+  width: 99.8%;
+  max-width: 1640px;
+  height: 700px;
+  display: flex;
+  text-align: center;
+  margin: 0.1%;
+}
+
+@media (min-width: 1024px) { 
+  .App { 
+    margin: auto;
+  }
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.NavBar {
+  min-width: 224px;
+  max-width: 224px;
+  min-height: 700px;
+  background-color: #D8D8D8;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  padding-top: 1%;
+}
+
+.NavBar__Title {
+  text-align: left;
+  padding: 6% 2% 2% 6%;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.NavBar__Button {
+  background-color: rgb(136, 136, 136);
+  min-width: 166px;
+  font-weight: 680;
+  font-size: 17px;
+  color: white;
+  padding-top: 5%;
+  margin: 4% 6%;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 6%;
+  min-height: 50px;
+}
+
+.Note, .ListView, .AddNote, .EditNote {
+  width: 100%;
+  background-color: #F4F4F4;
+  min-height: 700px;
+}
+
+.AddTag__Input {
+  display: flex;
+  margin: auto;
+  border: 2px solid rgb(150, 150, 150);
+  flex-wrap: wrap;
+}
+
+.AddNote__Buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.AddNote__Tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding-right: 1%;
+}
+
+.Title {
+  text-align: left;
+  margin: 8.8% 3% 2% 3%;
+  font-size: 26px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.Inputtext {
+  padding-bottom: 10px;
+  min-width: 100px;
+  margin: 2% 3%;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 40%;
+  text-align: start;
+  border-radius: 0.5%;
+  border: none;
+  -moz-box-shadow:    inset 0 0 12px rgb(150, 150, 150);
+  -webkit-box-shadow: inset 0 0 12px rgb(150, 150, 150);
+  box-shadow:         inset 0 0 12px rgb(150, 150, 150);
+  white-space: wrap;
+}
+
+.Inputfield {
+  width: 80%;
+  padding-bottom: 260px;
+  padding-top: 10px;
+  padding-left: 10px;
+  text-align: start;
+  margin: 1% 3%;
+  border-radius: 0.5%;
+  border: none;
+  -moz-box-shadow:    inset 0 0 12px rgb(150, 150, 150);
+  -webkit-box-shadow: inset 0 0 12px rgb(150, 150, 150);
+  box-shadow:         inset 0 0 12px rgb(150, 150, 150);
+  white-space: wrap;
+}
+
+.ListView__input {
+  width: 34%;
+  font-size: 18px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.ListView__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.ListCards {
+  width: 100%; 
+  padding: 0 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ListCard {
+  flex: 3 0 100%;
+  max-width: 220px;
+  margin: 1%;
+  border: 1px solid rgb(150, 150, 150);
+}
+
+.ListCard__Header {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  border-bottom: 1px solid rgb(150, 150, 150);
+  text-align: left;
+  margin: 4% 8%;
+  padding-bottom: 1%;
+  font-size: 22px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.ListCard__Body {
+  height: 160px;
+  overflow: hidden;
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+  padding: 0 8%;
+}
+
+.Button, Button__Delete, .AddTag {
+  font-weight: 500;
+  color: white;
+  margin: 3%;
+  border: 1px solid rgb(150, 150, 150);
+  height: 50px;
+}
+
+.Button, .AddTag {
+  background-color: #A0001E;
+  border-radius: 6%;
+  height: 50px;
+  width: 20%;
+  min-width: 80px;
+}
+
+.Button__Delete {
+  background-color: #D0021B;
+  height: 50px;
+  width: 20%;
+  min-width: 80px;
+}
+
+.ExtraButton {
+  background-color: rgb(136, 136, 136);
+  border-radius: 6%;
+  border: 1px solid rgb(150, 150, 150);
+  color: white;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Note__nav {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration-line: underline;
+  font-weight: 700;
+  margin: 3% 5% 1% 1%;
+}
+
+.Nav__item {
+  margin: 0 1%;
+  color: #4A4A4A;
+}
+
+.Note__title {
+  text-align: left;
+  margin: 3.8% 3% 2% 3%;
+  font-size: 26px;
+  font-weight: 700;
+  color: #4A4A4A;
+}
+
+.Content {
+  padding: 3%;
+  text-align: left;
+  font-size: 15px;
+  height: 500px;
+}
+
+.Content > * {
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.Tag {
+  min-width: 60px;
+  padding: 1%;
+  border-radius: 10%;
+  margin: 1%; 
+  color: white;
+  border: 1px solid rgb(150, 150, 150);
+}
+
+.Login {
+  position: absolute;
+  right: 12%;
+}
+
+.LoginPage {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  min-height: 700px;
+}
+
+.Tags {
+  display: flex;
+}
+
+@keyframes spin {
+  0%   { -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  100% { -ms-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);}
+}
+
+@keyframes shake {
+  0%   { -ms-transform: translate(10px, 0); /* IE 9 */
+    -webkit-transform: translate(10px, 0); /* Safari */
+    transform: translate(10px, 0);}
+  100% { -ms-transform: translate(-10px, 0); /* IE 9 */
+    -webkit-transform: translate(-10px, 0); /* Safari */
+    transform: translate(-10px, 0);}
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.shake {
+  animation-name: shake;
+  animation-duration: 0.1s;
+  animation-iteration-count: 5;
+  animation-direction: alternate-reverse;
+}
