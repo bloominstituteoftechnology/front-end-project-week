@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteList from './notelist.js';
 import NoteView from './noteview.js';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 
 const ContentArea = (props) => {
   let myNote;

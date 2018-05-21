@@ -1,6 +1,6 @@
 import React from 'react';
 import './noteview.css';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalBody } from 'reactstrap';
 
 
 const NoteView = (props) => {
