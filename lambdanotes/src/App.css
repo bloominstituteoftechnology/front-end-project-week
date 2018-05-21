@@ -17,4 +17,5 @@
 .content {
   background: #F3F3F3;
   border: solid #979797 1px;
+  padding: 0 !important;
 }
