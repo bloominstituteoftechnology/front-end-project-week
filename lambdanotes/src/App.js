@@ -28,7 +28,7 @@ class App extends Component {
               PLACEHOLDER
             </Col>
             <Col className="content" xs="9">
-              <ContentArea />
+              <ContentArea appState={this.state.appState} />
             </Col>
           </Row>
         </Container>
