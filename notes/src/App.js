@@ -27,7 +27,8 @@ class App extends Component {
     this.setState({
       notes: newNotes,
       title: '',
-      text: ''
+      text: '',
+      id: ''
     })
   }
   delete = (id) => {
@@ -36,24 +37,50 @@ class App extends Component {
       notes: newNotes,
     })
   }
+  edit = (id) => {
+    // Filter for the intended element
+    console.log(id)
+    let element = this.state.notes.filter(e => id === e.id)
+    // Load text and title into state
+    console.log(element)
+    this.setState({
+      title: element[0].title,
+      text: element[0].text,
+      id: element[0].id
+    })
+  }
+
+  handleEdit = () => {
+    let element = this.state.notes.filter(e => this.state.id !== e.id)
+    element.unshift({ title: this.state.title, text: this.state.text, id: this.state.id })
+    this.setState({
+      notes: element,
+      text: '',
+      id: '',
+      title: ''
+    })
+  }
   render() {
     // console.log("state", this.state)
     return (
       <div className="wrapper">
         <Route path="/" component={SideBar} />
         <Route exact path="/" render={(props) => (<NoteList notes={this.state} />)} />
+
+        {/* Render Note component with the note we are filtering for:  */}
         <Route exact path="/notes/:id" render={(props) => {
           let newNote = []
           newNote = this.state.notes.filter(e => {
-            console.log("element", e, "id", e.id, "params", props.match.params.id)
-            console.log(newNote)
             if (e.id == props.match.params.id) {
               return e
             }
           })
-          return <Note note={newNote[0]} delete={this.delete} />
+          return <Note note={newNote[0]} delete={this.delete} edit={this.edit} />
         }} />
-        <Route exact path="/create" render={(props) => (<CreateNote onSubmit={this.handleSubmit} onChange={this.onChange} name={this.state.name} title={this.state.title} />)} />
+
+
+        <Route exact path="/create" render={(props) => (<CreateNote pageTitle="Create New Note:" onSubmit={this.handleSubmit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
+        <Route exact path="/edit" render={(props) => (<CreateNote pageTitle="Edit Your Note:"onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
       </div>
     );
   }
