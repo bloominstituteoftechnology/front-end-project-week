@@ -9,10 +9,12 @@ const Note = props => {
       })
         .map(note => {
           return (
-            <div key={ Date.now() }>
-              <h2>{ note.title }</h2>
-              <p>{ note.content }</p>
-            </div>
+            <Link to={ `note/edit/${ note.id }` } key={ Date.now() }>
+              <div>
+                <h2>{ note.title }</h2>
+                <p>{ note.content }</p>
+              </div>
+            </Link>
           )
         })
     )
