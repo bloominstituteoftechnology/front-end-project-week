@@ -4,6 +4,7 @@
   margin: auto;
   width: 95%;
   max-width: 900px;
+  margin-top: 32px;
 
 }
 
@@ -12,6 +13,7 @@
   border-top: solid #979797 1px;
   border-left: solid #979797 1px;
   border-bottom: solid #979797 1px;
+  min-height: 900px !important;
 }
 
 .content {
