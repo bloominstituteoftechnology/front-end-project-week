@@ -1,36 +1,28 @@
 import React, { Component } from 'react';
+import dummyData from '../dummyData';
 import Note from './Note';
 
 class NoteList extends Component {
     constructor() {
         super();
         this.state = {
-            notes: [
-                { title: 'Title #1',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #2',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #3',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #4',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #5',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #6',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #7',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #8',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'},
-                  { title: 'Title #9',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}
-            ]
+            notes: []
         };
     }
+
+    componentDidMount() {
+        this.setState({ notes: dummyData })
+    }
+    
     render () {
         return (
             <div>
+                <div className='note-container'>
+                <h2>Your Notes:</h2>
+                <div>
                 {this.state.notes.map(note => <Note note={note} />)}
+                </div>
+                </div>
             </div>
         )
     }
