@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  border: 1px solid #979797;
+  max-width: 979px;
+  width: 100%;
 }
 
 .App-logo {
