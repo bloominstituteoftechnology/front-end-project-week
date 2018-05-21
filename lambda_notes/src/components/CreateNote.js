@@ -4,17 +4,28 @@ class CreateNote extends Component{
     constructor(){
         super()
         this.state = {
-
+            title: "",
+            content: ""
         }
+    }
+
+    handleInputChnage = (e) => {
+        e.preventDefault();
+        this.setState({ [e.target.name]:e.target.value})
     }
 
     render() {
         return(
             <div>
                 <form>
-                    <Label>
-                        <Input name="" value={this.state.} onChange={}/>
-                    </Label>
+                    <label>
+                        Title:
+                        <input name="name" value={this.state.title} onChange={this.handleInputChange}/>
+                    </label>
+                    <label>
+                        Content:
+                        <input name="name" value={this.state.content} onChange={this.handleInputChange} />
+                    </label>
                 </form>
             </div>
         )

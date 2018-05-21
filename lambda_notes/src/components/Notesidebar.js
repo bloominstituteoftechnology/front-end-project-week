@@ -6,8 +6,8 @@ class Notesidebar extends Component{
     render(){
         return(
             <React.Fragment>
-                <CreateNote />
-                <NoteList />
+                <button> <CreateNote /></button>
+                <button> <NoteList /></button>
             </React.Fragment>
                 
         )
