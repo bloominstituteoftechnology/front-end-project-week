@@ -4,16 +4,41 @@ import './App.css';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      savedNoteList: [],
+      noteInList: null
+    };
+  }
+
+  addToSavedList = note => {
+    const savedNoteList = this.state.savedNoteList;
+    const findNote = savedNoteList.find(el => note.id === el.id);
+    if (findNote) {
+      this.setState({ noteInList: `This note already exists.` });
+      setTimeout(() => this.setState({ noteInList: null }), 2000);
+  } else {
+    savedNoteList.push(note);
+  }
+  this.setState({ savedNoteList });
+};
+
   render() {
+    const { noteInList } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        { noteInList !== null ? (
+          <h3 className="note-warning">{noteInList}</h3>
+        ) : null }
+         <SavedNoteList list={this.state.noteList} />
+         <Route exact path="/" component={NoteList} />
+         <Route
+          path="/notes/:id"
+          render={props => (
+            <Note {...props} addToSavedList={this.addToSavedList} />
+          )}
+          />
       </div>
     );
   }
