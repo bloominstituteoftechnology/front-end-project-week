@@ -7,14 +7,21 @@ export const getNotes = () => dispatch => {
     .on('value', snapshot => {
       const notes = Object
         .entries(snapshot.val())
-        .map(([key, val]) => ({ ...val, fbId: key }))
+        .map(([key, val]) => ({ ...val, id: key }))
       dispatch({ type: 'GET_NOTES', notes })
     })
 }
 
-export const addNote = (note, id) => async dispatch => {
-  await database.ref('notes').push({ ...note, id })
+export const addNote = note => async dispatch => {
+  dispatch({ type: 'LOADING '})
+  await database.ref('notes').push(note)
   dispatch({ type: 'ADD_NOTE' })
+}
+
+export const editNote = (note, id) => async dispatch => {
+  dispatch({ type: 'LOADING '})
+  await database.ref(`/notes/${id}`).set(note)
+  dispatch({ type: 'EDIT_NOTE' })
 }
 
 export const deleteNote = id => async dispatch => {

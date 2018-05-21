@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom'
 import { getNotes } from '../actions'
 
 const Notes = ({ notes, isLoading }) => isLoading
-  ? <div className="loader" />
+  ? <div className='loader' />
   : <Fragment>
       <h2>Your Notes:</h2>
-      <div className="Content">
+      <div className='Content'>
         <NoteContainer notes={notes} />
       </div>
     </Fragment>
 
 const NoteContainer = ({ notes }) =>
-  notes.map(({ fbId, id, title, text }) => (
-    <Link to={{ pathname: `/note/${id}`, fbId, title, text }} key={id}>
-      <div className="Note__container">
+  notes.map(({ id, title, text }) => (
+    <Link to={{ pathname: `/note/${id}`, title, text }} key={id}>
+      <div className='Note__container'>
         <h2>{title}</h2>
         <p>{text.length > 264 ? `${text.slice(0, 260)}…` : text}</p>
       </div>
