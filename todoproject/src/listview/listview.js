@@ -4,7 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
   
 
-class Home extends Component {
+class ListView extends Component {
     render() {
         return (
             <div>
@@ -88,4 +88,4 @@ class Home extends Component {
     }
 };
 
-export default Home;
+export default ListView;
