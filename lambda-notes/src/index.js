@@ -7,9 +7,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import reducers from './reducers';
+
+const store = createStore(reducers);
 
 ReactDOM.render(
-    <Provider>
+    <Provider store={store}>
         <Router>
             <App />
         </Router>
