@@ -3,7 +3,7 @@ import { updateNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class EditNote extends Component {
+class EditNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
