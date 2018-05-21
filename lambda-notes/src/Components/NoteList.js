@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TempNote from './TempNoteStore'
+import NoteCard from './NoteCard';
 
 class NoteList extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class NoteList extends Component {
   }
   render() {
     return <div> 
-        <TempNote />
+        <NoteCard/>
     </div>;
   }
 }
