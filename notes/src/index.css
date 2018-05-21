@@ -2,6 +2,7 @@ body {
     font: Roboto-Bold;
     color: #4A4A4A;
     background: #F3F3F3;
+    border: 1px solid #979797;
 }
 
 h1,
@@ -74,7 +75,7 @@ button {
 .noDecoration,
 a:link,
 a:visited {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 .card-text {
@@ -87,4 +88,27 @@ a:visited {
 .card-body {
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.note-view {
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nview {
+    color: black;
+    text-decoration: underline !important;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.navL {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 7px;
+}
+
+.note-body {
+    margin-top: 15px;
 }

@@ -14,7 +14,7 @@ export default (props) => {
 
                 {props.notes.map((e, i) => {
                     return (
-                        <Link to="/notes/:id" key={e.i} className="noDecoration">
+                        <Link to={`/notes/${e.id}`} key={e.i} className="noDecoration">
                             <Card key={e.i}>
                                 <CardBody>
                                     <CardTitle>{e.title}</CardTitle>
