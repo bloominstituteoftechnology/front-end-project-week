@@ -4,20 +4,21 @@ import React,  { Component } from 'react';
 
 
 class CreateNote extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
-        noteList: [
-            {
-                noteTitle: 'noteContent'
-            }
-        ],
+        noteList: [],
+        fields:{
+          noteTitle: '',
+          noteContent: ''
+        },
+
         note: "",
         error: false
       };
     }
   
-    handleRemoveNote = noteId => {
+    /*handleRemoveNote = noteId => {
       const noteList = this.state.noteList.map(note => {
         if (noteId === note.id) {
           note.completed = !note.completed;
@@ -25,11 +26,28 @@ class CreateNote extends Component {
         return note;
       });
       this.setState({ noteList });
-    };
-  
+    };*/
     handleNoteChange = event => {
       this.setState({ [event.target.name]: event.target.value });
     };
+  
+    /*handleNoteChange = event => {
+      const fields = Object.assign({}, this.state.fields);
+    fields[event.target.name] = event.target.value;
+    this.setState({fields});
+    };*/
+
+   /* handleAddNote = event => {
+      const noteList = [...this.state.noteList, this.state.fields];
+      this.setState({
+        noteList,
+        fields: {
+          noteTitle: '',
+          noteContent: ''
+        }
+      });
+      event.preventDefault();
+    };*/
   
     handleAddNote = () => {
       if (this.state.note === "") {
@@ -39,13 +57,14 @@ class CreateNote extends Component {
         }, 2400);
       } else {
         const noteList = this.state.noteList.slice(); //reference note array
-        const note = {
+        const fields = {
           // build  note object
           id: this.state.noteList.length + this.state.note,
-          title: this.state.note,
+          noteTitle: this.state.fields.noteTitle,
+          noteContent: this.state.fields.noteContent,
           completed: false
         };
-        noteList.push(note); // add note to note list
+        noteList.push(fields); // add note to note list
         this.setState({ noteList, note: "" });
       }
     };
@@ -53,14 +72,29 @@ class CreateNote extends Component {
     render() {
       return (
         <div>
-          <input
+        <div>
+          <h4>Create New Note</h4>
+          <input 
+            placeholder="Note Title"
             type="text"
-            value={this.state.note}
+            value={this.state.fields.noteTitle}
+            name="note title"
+            onChange={this.handleNoteChange}
+          />
+          </div>
+          <div>
+          <input
+            placeholder="Create New Note"
+            type="text"
+            value={this.state.fields.noteContent}
             name="note"
             onChange={this.handleNoteChange}
           />
+          <div>
           {this.state.error ? <div>Error note must not be empty text</div> : null}
           <button onClick={this.handleAddNote}>Save</button>
+          </div>
+        </div>
         </div>
       );
     }
