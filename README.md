@@ -1,4 +1,4 @@
-https://github.com/ari7946/front-end-project-week
+https://trello.com/b/fHWqtOPo/lambda-notes-ari-mercado
 
 # Front End Project Week
 
