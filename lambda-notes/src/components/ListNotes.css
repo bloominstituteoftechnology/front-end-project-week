@@ -1,0 +1,24 @@
+.note-list{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.note-card{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #979797;
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.note-card h2{
+    color: #4A4A4A;
+    border-bottom: 1px solid #979797;
+}
+
+.note-card p{
+    color: #4A4A4A;
+}
