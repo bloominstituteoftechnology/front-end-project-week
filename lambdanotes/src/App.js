@@ -44,10 +44,12 @@ class App extends Component {
   }
 
   tempView(id) {
-    console.log(id);
     this.setState({appState: "view", viewId: id});
   }
 
+  tempDelete() {
+    this.setState({appState: "deleting"});
+  }
 
   render() {
     return (
@@ -61,7 +63,8 @@ class App extends Component {
                 viewMethod={this.tempView.bind(this)}
                 appState={this.state.appState}
                 notes={this.state.notes}
-                viewId={this.state.viewId} />
+                viewId={this.state.viewId}
+                deleteMethod={this.tempDelete.bind(this)} />
             </Col>
           </Row>
       </div>
