@@ -1,6 +1,18 @@
 <!-- Trello Link -->
 https://trello.com/b/uwTGQGXM/lambda-notes-andrew-kolumbic
 
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."

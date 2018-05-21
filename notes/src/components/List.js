@@ -6,12 +6,7 @@ export default class List extends Component {
     return (
       <Container>
         <Row>
-          <Col xs="3" className="sidebar1">
-            <h1>Lambda Notes</h1>
-            <button>View Your Notes</button>
-            <button>+ Create New Note</button>
-          </Col>
-          <Col xs="9" className="note-list">
+          <Col className="note-list">
             <h3>Your Notes:</h3>
                 <Row>
                     <Col xs="4">
