@@ -1,0 +1,44 @@
+h1 {
+    display: block;
+    font: Roboto Bold;
+    font-weight: bold;
+    color: #4A4A4A;
+    border: 1px solid darkgray;
+    text-align: left;
+    height: 750px;
+    width: 250px;
+    background-color: #D8D8D8;
+    margin-left: 40px;
+    padding-top: 15px;
+    padding-left: 30px;
+    position:relative;
+
+}
+.button1 {
+    display: block;
+    background-color:#2BC1C4;
+    color: #FFFF;
+    border: 1px solid darkgray;
+    font: Raleway Medium;
+    font-size: 15px;
+    margin-top: -600px;
+    margin-left: 70px;
+    padding: 10px;
+    position: absolute;
+    width: 190px;
+}
+.button2 {
+    display: block;
+    position: absolute;
+    background-color:#2BC1C4; 
+    color: #FFFF;
+    border: 1px solid darkgray;
+    font-size: 15px;
+    font: Raleway Medium;
+    margin-top: -530px;
+    margin-left: 70px;
+    padding: 10px;
+    position: absolute;
+    width: 190px;
+
+}
