@@ -7,7 +7,10 @@ const config = {
   projectId: "lambda-notes-6a67e",
   storageBucket: "",
   messagingSenderId: "922564230331"
-};
+}
+
 firebase.initializeApp(config)
 
-export default firebase
+const database = firebase.database()
+
+export default database

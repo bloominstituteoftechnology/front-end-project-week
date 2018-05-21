@@ -137,3 +137,30 @@ textarea {
   flex-flow: column nowrap;
   padding: 10px;
 }
+
+/* Speech */
+.Speech button {
+  margin: 10px;
+}
+
+/* Spinng Loader */
+.loader {
+  position: absolute;
+  top: calc(40%);
+  left: calc(55%);
+  width: 6em;
+  height: 6em;
+  border: 1.1em solid #d1d1d1;
+  border-left: 1.1em solid #ffffff;
+  border-radius: 50%;
+  animation: load8 1.1s infinite linear;
+}
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
