@@ -1,0 +1,51 @@
+import React, { Component } from 'react';
+import { Button, Form, FormGroup, Input, } from 'reactstrap';
+
+class NoteEdit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {  
+      title:"",
+      body:""
+    } 
+
+  }
+
+  handleInput = e => {
+    this.setState({ [e.target.name]: e.target.value})
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const newNote = Object.assign({}, this.state, {id: Date.now()});
+    if(newNote.title !== "" && newNote.body !== ""){
+      this.props.add(newNote);
+    }
+    
+
+    this.setState({
+      title: "",
+      body: ""
+    })
+  }
+  
+  render() { 
+    console.log(this.props)
+    return (
+      <React.Fragment>
+        <h3>Create New Note:</h3>  
+        <Form>
+        <FormGroup>
+            <Input type="text" name="title" value={this.state.title} onChange={this.handleInput} placeholder="Note Title"/>
+          </FormGroup>        
+          <FormGroup>
+            <Input type="textarea" name="body" value={this.state.body} onChange={this.handleInput} rows="15" placeholder="Note Content"/>
+          </FormGroup>
+          <Button onClick={this.handleSubmit} className="side-button col-4">Save</Button>
+        </Form>  
+      </React.Fragment>
+    );
+  }
+}
+ 
+export default NoteEdit;

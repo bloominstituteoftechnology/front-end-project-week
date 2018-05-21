@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NoteCards from './NoteCards';
+import NoteEdit from './NoteEdit';
 
 class AllNotes extends Component {
   constructor(props) {
@@ -30,17 +31,28 @@ class AllNotes extends Component {
           id: 4,
           title: 'dummy note 5 title',
           body: 'Spicy jalapeno bacon ipsum dolor amet ut exercitation jowl, voluptate swine chuck ex. Cupim jowl nostrud strip steak ut. Jerky sirloin pork belly magna. Velit leberkas ball tip filet mignon non corned beef ut tongue fugiat minim spare ribs pork turducken picanha.'
+        },
+        {
+          id: 5,
+          title: 'dummy note 6 title',
+          body: 'Spicy jalapeno bacon ipsum dolor amet ut exercitation jowl, voluptate swine chuck ex. Cupim jowl nostrud strip steak ut. Jerky sirloin pork belly magna. Velit leberkas ball tip filet mignon non corned beef ut tongue fugiat minim spare ribs pork turducken picanha.'
         }
       ]
     }
   }
 
+  addNote = (note) => {
+    const newNotes = this.state.notes.concat(note)
+    this.setState({ notes: newNotes })
+  }
+
 
   render() { 
     return (  
-      <div className="col-9">
-        <h2>Your Notes:</h2>
-        <NoteCards notes={this.state.notes}/>
+      <div className="col-9 mt-5">
+        
+        <NoteCards notes={this.state.notes} />
+        <NoteEdit add={this.addNote}/>
       </div>
     )
   }

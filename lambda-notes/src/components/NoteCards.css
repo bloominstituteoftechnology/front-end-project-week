@@ -1,0 +1,13 @@
+
+.card {
+  height: 200px;
+  overflow: hidden;
+  font-size: 12px;
+  padding: 5px;
+  border: solid thin #979797;
+}
+
+.card-body {  
+  border-top: solid thin #979797;
+  padding: 5px 0;
+}
