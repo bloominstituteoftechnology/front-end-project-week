@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  background-color: #F3F3F3; 
 }
 
 .App-logo {
@@ -25,9 +25,7 @@
   to { transform: rotate(360deg); }
 }
 
-.Notes {
-  display: flex;
-  flex-direction: row;
+.side-bar {
+  border: 2px solid red;
+  height: 100vh;
 }
-
-

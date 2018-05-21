@@ -5,6 +5,7 @@ import dummyData from './dummyData';
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col, CardColumns, Container } from 'reactstrap';
 import NotesContainer from './components/NotesContainer';
+import SideBar from './components/SideBar';
 
 class App extends Component {
   constructor (props) {
@@ -26,18 +27,19 @@ componentDidMount () {
     
     return (
       <div className="App">
-        <Container fluid>
-          <h5 className="App-header">Your Notes:</h5>
-        </Container>
+        <h5 className="App-header">Your Notes:</h5>
         <Container fluid>
           <Row>
+            <Col sm="3" >
+               <SideBar />
+            </Col>
             {this.state.userNotes.map((note, index) => {
-              return (
-                <Col sm="4" >
+              return ( 
+                <Col sm="3" >
                     <NotesContainer key={index} note = {note}/>
-                </Col>
+                </Col> 
               )
-            })};
+            })}
           </Row>
         </Container>
       </div>
