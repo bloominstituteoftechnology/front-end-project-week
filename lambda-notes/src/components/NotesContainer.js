@@ -1,17 +1,22 @@
 import React from 'react';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button, Row, Col, CardColumns } from 'reactstrap';
+import './NotesContainer.css'
 
 const NotesContainer = (props) => {
     return (
-        <div key={props.note.id}>
-            <div className = "note-container">
-                <div className="note-header"> 
-                    <h4>{props.note.noteTitle}</h4>
+            <Card className = "note-container" key={props.note.id}>
+                <CardBody className="text-left">
+                    <CardTitle>
+                    {props.note.noteTitle}
+                    </CardTitle>
                     <hr/>
-                </div>
-                
-                <p>{props.note.noteText}</p>
-            </div>
-        </div>
+                    <CardText>
+                    {props.note.noteText}
+                    </CardText>
+                </CardBody>
+            </Card>
+      
     )
 }
 

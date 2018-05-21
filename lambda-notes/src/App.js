@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import dummyData from './dummyData';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button, Row, Col, CardColumns, Container } from 'reactstrap';
 import NotesContainer from './components/NotesContainer';
 
 class App extends Component {
@@ -20,22 +22,24 @@ componentDidMount () {
 
 
   render() {
+
     
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React Lambda Notes App</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div className = "Notes">
-          {this.state.userNotes.map((note, index) => {
-            return <NotesContainer key={index} note = {note}/>
-          })}
-        
-        </div>
+        <Container fluid>
+          <h5 className="App-header">Your Notes:</h5>
+        </Container>
+        <Container fluid>
+          <Row>
+            {this.state.userNotes.map((note, index) => {
+              return (
+                <Col sm="4" >
+                    <NotesContainer key={index} note = {note}/>
+                </Col>
+              )
+            })};
+          </Row>
+        </Container>
       </div>
     );
   }
