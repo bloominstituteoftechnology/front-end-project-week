@@ -1,0 +1,23 @@
+.ControlPanel {
+	/*border: 1px solid red;*/
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	margin: 0;
+	padding: 0 3%;
+	width: 30%;
+}
+
+.ControlPanel_header {
+	font-size: 5rem;
+	text-align: left;
+	text-shadow: 2px 2px #26c6da;
+}
+
+.ControlPanel_button {
+	font-size: 2rem;
+	font-weight: 600 !important;
+	color: white !important;
+	margin: 0 0 20px 0;
+	width: 100%;
+}

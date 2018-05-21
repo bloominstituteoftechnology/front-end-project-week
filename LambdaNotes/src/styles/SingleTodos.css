@@ -1,0 +1,44 @@
+.container {
+	display: flex;
+	flex-flow: row wrap;
+	max-width: 800px;
+	justify-content: center;
+}
+
+.Notes__header {
+	display: block;
+	font-size: 4rem;
+	margin: 30px 5%;
+	width: 100%;
+	text-shadow: 2px 2px #26c6da;
+}
+
+.SingleTodo_link {
+	text-decoration: none !important;
+}
+
+.SingleTodo_link h3 {
+	margin: 0;
+}
+
+.SingleTodo {
+	height: 200px;
+	width: 200px;
+	margin: 15px 3%;
+}
+
+.SingleTodo_content {
+	display: block;
+	height: 110px;
+	overflow: hidden;
+	margin: 0;
+}
+
+.SingleTodo_footer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.SingleTodo__menu {
+	width: 20px !important;
+}

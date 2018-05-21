@@ -1,0 +1,46 @@
+.Todo {
+	margin: 0 3%;
+}
+
+.Todo__Dialog {
+	text-align: center;
+}
+
+.Todo_button_container {
+	display: flex;
+	justify-content: center;
+}
+
+.Todo_button {
+	float: right;
+	margin: 20px 1% !important;
+}
+
+.material-icons.md-24 {
+	font-size: 24px;
+	padding-top: 5px;
+}
+
+.Todo_toggle {
+	display: inline-block !important;
+	width: 100px !important;
+	padding-top: 25px;
+	padding: 25px 0 0 10px;
+}
+
+.Todo_content {
+	padding: 10px;
+}
+
+.Todo_header,
+.Todo_text {
+	text-align: left;
+}
+
+.Todo_header {
+	font-size: 3rem;
+}
+
+.Todo_text {
+	line-height: 2;
+}

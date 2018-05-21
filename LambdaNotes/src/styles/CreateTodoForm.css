@@ -1,0 +1,39 @@
+.CreateTodoForm {
+	/*border: 1px solid black;*/
+	padding: 0 3%;
+	width: 70%;
+}
+
+.CreateTodoForm_header {
+	font-size: 4rem;
+	text-align: left;
+	margin: 30px 0 20px 0;
+	text-shadow: 2px 2px #26c6da;
+}
+
+.CreateTodoForm_title,
+.CreateTodoForm_content {
+	border: 1px solid #e0e0e0 !important;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.CreateTodoForm_title {
+	float: left;
+	width: 60% !important;
+	margin-bottom: 20px;
+}
+
+.CreateTodoForm_content {
+	float: left;
+	width: 90% !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-bottom: 20px;
+}
+
+.CreateTodoForm_savebtn {
+	float: left;
+	width: 40%;
+	margin-bottom: 20px;
+}
