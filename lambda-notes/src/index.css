@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:500|Roboto:700');
+/* Import design fonts from Google Fonts */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
