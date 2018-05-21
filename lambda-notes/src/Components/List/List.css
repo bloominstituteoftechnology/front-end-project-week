@@ -1,0 +1,9 @@
+.list-wrapper{
+    display:flex;
+    max-width: 1200px;
+    width:100%;
+}
+.card-container-header{
+    margin: 50px;
+    margin-top: 110px;
+}
