@@ -4,10 +4,6 @@ import './App.css';
 import { NoteCard } from './components/NoteCard.js';
 
 class App extends Component {
- constructor(props) {
-	 super(props)
- }
-	
 	
 render() {
     return (
