@@ -1,4 +1,4 @@
-container1 {
+.container1 {
     display: inline-block;
     position: absolute;
     background-color: #F3F3F3;
@@ -21,7 +21,6 @@ h2 {
     display: inline-block;
     width: 250px;
     height: 260px;
-    margin-top: 15px;
     border: 1px solid darkgrey;
     font: Raleway Medium;
     color: #4A4A4A;
@@ -29,8 +28,9 @@ h2 {
     border-radius: 0;
 }
 .cardtitle {
+    padding-top: 0;
     font-weight: bold;
-    font-size: 19px
+    font-size: 19px;
 }
 .cardtext {
     font-size: 15px;

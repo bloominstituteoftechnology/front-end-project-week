@@ -7,8 +7,7 @@ import { Card, CardImg, CardText, CardBody,
 class ListView extends Component {
     render() {
         return (
-            <div>
-            <container1>
+            <div className ="container1">
             <h2>Your Notes:</h2>
 
 
@@ -77,12 +76,6 @@ class ListView extends Component {
                 </CardBody>
             </Card>
 
-
-
-
-
-
-            </container1>
             </div>
         )
     }

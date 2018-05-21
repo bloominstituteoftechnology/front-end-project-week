@@ -27,6 +27,10 @@ h1 {
     position: absolute;
     width: 200px;
 }
+.button1:hover {
+    background-color: #26acaf;
+}
+
 .button2 {
     display: block;
     position: absolute;
@@ -40,5 +44,7 @@ h1 {
     padding: 10px;
     position: absolute;
     width: 200px;
-
+}
+.button2:hover {
+    background-color: #26acaf;
 }
