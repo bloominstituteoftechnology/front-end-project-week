@@ -6,8 +6,8 @@ const SideMenu = (props) => {
   return (
     <div className="side-menu">
       <h1 className="lambda-title">Lambda Notes</h1>
-      <LambdaButton text="View Your Notes" color="green" />
-      <LambdaButton text="+ Create New Note" color="green" />
+      <LambdaButton text="View Your Notes" color="green" myFunc={props.listMethod} />
+      <LambdaButton text="+ Create New Note" color="green" myFunc={props.createMethod} />
     </div>
   );
 }

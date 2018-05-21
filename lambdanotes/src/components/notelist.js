@@ -11,7 +11,7 @@ const NoteList = (props) => {
     for (let j = 0; j < 3 && i + j < props.notes.length; j++) {
       subArr.push(
         <Col className="my-column" xs="4" key={j}>
-          <NoteCard note={props.notes[i+j]} />
+          <NoteCard viewMethod={props.viewMethod} note={props.notes[i+j]} />
         </Col>
       );
     }

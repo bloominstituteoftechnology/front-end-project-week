@@ -31,8 +31,21 @@ class App extends Component {
       },
     ],
       appState: "list",
-      editId: null
+      viewId: null
     };
+  }
+
+  tempCreate() {
+    this.setState({appState: "create", viewId: null});
+  }
+
+  tempList() {
+    this.setState({appState: "list", viewId: null});
+  }
+
+  tempView(id) {
+    console.log(id);
+    this.setState({appState: "view", viewId: id});
   }
 
 
@@ -41,10 +54,14 @@ class App extends Component {
       <div className="App">
           <Row>
             <Col className="left-side" xs="3">
-              <SideMenu />
+              <SideMenu listMethod={this.tempList.bind(this)} createMethod={this.tempCreate.bind(this)} />
             </Col>
             <Col className="content" xs="9">
-              <ContentArea appState={this.state.appState} notes={this.state.notes} />
+              <ContentArea
+                viewMethod={this.tempView.bind(this)}
+                appState={this.state.appState}
+                notes={this.state.notes}
+                viewId={this.state.viewId} />
             </Col>
           </Row>
       </div>
