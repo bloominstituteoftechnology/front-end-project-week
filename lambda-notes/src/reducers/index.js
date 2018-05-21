@@ -1,4 +1,4 @@
-import { SHOW_ALL_NOTES, ADD_NOTE } from "../actions";
+import { SHOW_ALL_NOTES, ADD_NOTE, DELETE_NOTE } from "../actions";
 
 const initialState = {
   notes: [
@@ -13,6 +13,8 @@ export default (state = initialState, action) => {
       return {...state, notes: [...state.notes]}
     case ADD_NOTE:
       return {...state, notes: [...state.notes, action.payload]};
+    case DELETE_NOTE:
+      return {...state, notes: state.notes.filter(note => {return note.title !== action.payload.title })}
     default:
       return state;
   }

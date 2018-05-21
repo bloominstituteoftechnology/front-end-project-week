@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchNotes } from "../actions";
+import { fetchNotes, deleteNote } from "../actions";
 
 class NotesList extends Component {
 
@@ -17,6 +17,11 @@ class NotesList extends Component {
               <div>
                 <h2>{note.title}</h2>
                 <p>{note.content}</p>
+                <button
+                  onClick={() => this.props.deleteNote(note)}
+                  >
+                  Delete Note
+                </button>
               </div>
             )
           })}
@@ -31,4 +36,4 @@ const mapStateToProps = state => {
     };
   };
 
-export default connect(mapStateToProps, { fetchNotes })(NotesList);
+export default connect(mapStateToProps, { fetchNotes, deleteNote })(NotesList);
