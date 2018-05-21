@@ -1,6 +1,8 @@
 <!-- Trello Link -->
 https://trello.com/b/uwTGQGXM/lambda-notes-andrew-kolumbic
 
+########## Fonts & Colors ############
+
 Heading font: Roboto Bold
 Everything else font: Raleway Medium
 
@@ -12,6 +14,8 @@ Main background: #F3F3F3
 Main button background: #2BC1C4
 Delete button background: #D0021B
 Border color used throughout: #979797
+
+########## Fonts & Colors ############
 
 # Front End Project Week
 
