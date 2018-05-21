@@ -6,7 +6,6 @@ import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import SideBar from './components/SideBar';
 import './App.css';
-import { EDIT_NOTE } from './actions';
 
 class App extends Component {
   render() {
