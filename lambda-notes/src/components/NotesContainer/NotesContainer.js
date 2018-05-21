@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchNotes } from '../../actions';
-
+import Note from '../Note/Note';
+import './NotesContainer.css';
 
 class NotesContainer extends Component {
 
-    // componentDidMount() {
-    //     this.props.fetchNotes();
-    // }
   
  render() {
      console.log(this.props)
      return (
-         <div>
-        {this.props.notes.map(note => { return <div>{note.title}</div>})}
+         <div className="notes-container">
+            {this.props.notes.map(note => <Note key={note.id} note={note}/>)}
         </div>
      )
  }
@@ -29,4 +26,4 @@ const mapStateToProps = state => {
    
 }
 
-export default connect(mapStateToProps, { fetchNotes })(NotesContainer);
+export default connect(mapStateToProps)(NotesContainer);

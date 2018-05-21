@@ -2,15 +2,15 @@ import { FETCH_NOTES } from '../actions';
 
 const initialState = {
     notes: [ 
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test',id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()},
-        {title: 'test', body: 'test', id: Date.now()}
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test',id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()},
+        {title: 'Note Title', body: 'test', id: Date.now()}
      ],
     pending: false,
     error: null

@@ -1,0 +1,12 @@
+.notes-container {
+    max-width: 735px;
+    width: 100%;
+    background-color:  #F3F3F3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 120px;
+    padding-left: 32px;
+    padding-right: 32px;
+    box-sizing: border-box;
+}
