@@ -1,0 +1,148 @@
+html, body {
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+}
+
+.App {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.side-nav {
+  background-color: #dcd6c1;
+  height: 100vh;
+  padding: 0 18px;
+}
+
+.main-view {
+  display: flex;
+  width: 100%;
+  background-color: #fffff6;
+  height: 100vh;
+}
+
+.main-view-inner {
+  width: 100%;
+  margin-left: 1.5rem;
+}
+
+.search-bar {
+  width: 25rem;
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-container {
+  border: 1px solid;
+  margin: 0 auto;
+  width: 33%;
+}
+
+.card {
+  width: 15rem;
+  margin-right: 20px;
+  margin-bottom: 2rem;
+  background-color: #f3e87a;
+  /* background-image: url('/postit.png'); */
+}
+
+img.card-img {
+  width: 100%;
+  height: auto;
+  border: 2px solid red;
+}
+
+.note-form {
+  margin-left: 0;
+}
+
+.note-form textarea.form-control {
+  height: 18rem;
+}
+
+.view-note-content {
+}
+
+.btn-custom {
+  background-color: #8c887b;
+  border-color: #8c887b;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #7f7b6f;
+  border-color: #716e63;
+}
+.btn-custom.disabled:hover,
+.btn-custom.disabled:focus,
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+.btn-custom[disabled]:focus,
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+fieldset[disabled] .btn-custom:focus,
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #8c887b;
+  border-color: #8c887b;
+}
+
+
+.btn {
+  font-weight: bold;
+  /* background-image: none; */
+}
+
+.btn-size {
+  width: 10rem;
+}
+
+.btn-size-small {
+  width: 6rem;
+}
+
+.btn-info {
+  /* background-color: #40b9bb; */
+  /* background-color: red; */
+}
+
+h2, h3, h5 {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+Label {
+  font-weight: bold;
+}
+
+.csv {
+  color: white;
+  font-weight: bold;
+}
+
+.csv:hover,
+.csv:focus,
+.csv:active,
+.csv.active {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* these two are to decorate the anchor tag without href in viewNote.js */
+a:not([href]):not([tabindex]) {
+  color: #007bff;
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+
