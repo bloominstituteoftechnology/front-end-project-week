@@ -1,3 +1,6 @@
+# William VanDolah's Trello URL
+* https://trello.com/b/avRboFXi/lambda-notes-william-vandolah
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
