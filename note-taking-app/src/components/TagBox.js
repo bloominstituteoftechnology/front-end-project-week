@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Tag from './Tag';
+import AddTagForm from './AddTagForm';
 
 import { getTags } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { IconButton } from 'office-ui-fabric-react/lib/Button';
 
 class TagBox extends React.Component {
   componentDidMount = () => {
@@ -22,17 +22,8 @@ class TagBox extends React.Component {
           :
           (
             <div>
-              <div style={style.newTagInput}>
-                <TextField
-                  placeholder='Create New Tag...'
-                  onChanged={() => console.log('typing on tag textfield')}
-                />
-                <IconButton
-                  iconProps={ { iconName: 'CirclePlus' } }
-                  onClick={() => console.log('save tag')}
-                />
-              </div>
-              {Object.keys(tags).map((id) => {
+              <AddTagForm />
+              {tags && Object.keys(tags).map((id) => {
                 return (
                   <Tag key={id} {...tags[id]}/>
                 )
@@ -55,10 +46,6 @@ const style = {
     padding: 10,
     width: 200
   },
-  newTagInput: {
-    marginBottom: 7,
-    display: 'flex'
-  }
 }
 
 export default connect(mapStateToProps, { getTags })(TagBox);

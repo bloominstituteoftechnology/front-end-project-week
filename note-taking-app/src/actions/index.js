@@ -185,3 +185,36 @@ export const getTags = () => {
         });
     }
 }
+
+// saveTag will save note to db and return current db
+export const saveTag = (tag) => {
+    console.log(tag)
+    let ref = db.database().ref('/tags')
+    let targetRef = db.database().ref(`/tags/${tag.id}`)
+
+    return (dispatch) => {        
+        targetRef.on('value', 
+        response => {
+            if (response.val()) {
+                // tag exists, update
+                targetRef.set({
+                    ...tag
+                })
+            } else {
+                // tag does not exist, add new
+                ref.push(tag)
+            }
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+
+        ref.on('value', 
+        response => {
+            dispatch({ type: FETCHED_TAGS, tags: response.val()})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+    }
+}
