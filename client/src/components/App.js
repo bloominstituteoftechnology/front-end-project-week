@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router';
 
 // components
 import Sidebar from './sidebar/Sidebar';
@@ -13,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Sidebar/>
-        <NoteView/>
+        <Route exact path='/' component={ NoteView }/>
       </div>
     );
   }
