@@ -1,0 +1,37 @@
+.create {
+    padding: 50px 25px;
+    width: 100%;
+    max-width: 880px;
+}
+
+#note-text {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid #979797;
+    height: 50vh;
+    padding: 5px;
+    font-size: 0.7rem;
+    text-align: start;
+}
+
+#note-title {
+    margin-top: 15px;
+    width: 60%;
+    border-radius: 2px;
+    border: 1px solid #979797;
+    height: 30px;
+    padding: 5px;
+    font-size: 0.7rem;
+    min-width: 150px;
+}
+
+.save-button {
+    background: #2BC1C4;
+    border: 1px solid #979797;
+    height: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    width: 30%;
+    min-width: 100px;
+}

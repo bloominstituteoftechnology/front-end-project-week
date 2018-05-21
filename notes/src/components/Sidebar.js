@@ -10,7 +10,7 @@ const SideBar = () => {
             <h1>Lambda</h1>
             <h1>Notes</h1>
             <Link to="/"><Button text="View Your Notes" id="top-button" class="main-button" /></Link>
-            <Button text="+ Create New Note" class="main-button" />
+            <Link to="/create"><Button text="+ Create New Note" class="main-button" /></Link>
         </div>
     );
 }
