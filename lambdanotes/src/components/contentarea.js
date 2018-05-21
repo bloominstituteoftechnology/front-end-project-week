@@ -1,19 +1,17 @@
 import React from 'react';
+import NoteList from './notelist.js';
 
 const ContentArea = (props) => {
   switch (props.appState) {
     case "list":
       return (
-        <div>I'm a list!</div>
+        <NoteList />
       );
     default:
       return (
         <div />
       );
   }
-  return (
-    <div>{props.appState}</div>
-  );
 }
 
 export default ContentArea;
