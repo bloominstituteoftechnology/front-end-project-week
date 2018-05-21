@@ -9,22 +9,22 @@ class App extends Component {
     super(props);
     this.state = {
       notes: [{
-        title: "Placeholder Note Title",
+        title: "Note Title",
         content: "Placeholder note content",
         id: 0
       },
       {
-        title: "Placeholder Note Title2",
+        title: "Note Title2",
         content: "Placeholder note content2",
         id: 1
       },
       {
-        title: "Placeholder Note Title3",
+        title: "Note Title3",
         content: "Placeholder note content3",
         id: 2
       },
       {
-        title: "Placeholder Note Title4",
+        title: "Note Title4",
         content: "Placeholder note content4",
         id: 3
       },

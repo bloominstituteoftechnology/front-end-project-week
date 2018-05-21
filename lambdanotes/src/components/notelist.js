@@ -10,13 +10,13 @@ const NoteList = (props) => {
     let subArr = [];
     for (let j = 0; j < 3 && i + j < props.notes.length; j++) {
       subArr.push(
-        <Col xs="4">
+        <Col xs="4" key={j}>
           <NoteCard note={props.notes[i+j]} />
         </Col>
       );
     }
     cardArr.push(
-      <Row>
+      <Row key={i}>
         {subArr}
       </Row>
     );
