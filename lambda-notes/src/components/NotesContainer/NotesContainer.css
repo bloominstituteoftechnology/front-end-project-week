@@ -5,8 +5,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 120px;
+    padding-top: 73px; /*initially was 120*/
     padding-left: 32px;
     padding-right: 32px;
     box-sizing: border-box;
+}
+
+.your-notes {
+    display: block;
+    font-size: 22px;
+    width: 100%;
+    text-align: start;
+    font-family: "Roboto";
+    color: #4A494A;
+    margin-bottom: 34px;
 }

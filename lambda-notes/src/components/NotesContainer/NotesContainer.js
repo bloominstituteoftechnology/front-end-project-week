@@ -11,6 +11,7 @@ class NotesContainer extends Component {
      console.log(this.props)
      return (
          <div className="notes-container">
+            <div className="your-notes">Your Notes:</div>
             {this.props.notes.map(note => <Note key={note.id} note={note}/>)}
         </div>
      )
