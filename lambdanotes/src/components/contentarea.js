@@ -14,7 +14,7 @@ const ContentArea = (props) => {
     case "view":
       myNote = props.notes.filter((note) => note.id === props.viewId)[0];
       return (
-        <NoteView note={myNote} deleteMethod={props.deleteMethod} />
+        <NoteView appState={props.appState} note={myNote} deleteMethod={props.deleteMethod} />
       );
     case "create":
       return (
