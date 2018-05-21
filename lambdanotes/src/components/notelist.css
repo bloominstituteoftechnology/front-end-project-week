@@ -1,0 +1,8 @@
+.notes-view {
+  display: flex;
+  padding: 50px 10px;
+}
+
+.heading {
+  font-family: 'Roboto', sans-serif;
+}
