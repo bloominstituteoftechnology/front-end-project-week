@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notes from './Note';
 
+
 class ListView extends Component {
     render() {
         return (

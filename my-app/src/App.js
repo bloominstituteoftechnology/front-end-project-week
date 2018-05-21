@@ -10,11 +10,10 @@ import CreateNote from './components/CreateNote';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
-      <Route exact path="/" component={ListView}></Route>
-      <Route exact path="/createNote" component={CreateNote}></Route>
+      <div className="container App">
         <Navigation />
+        <Route exact path="/" component={ListView}></Route>
+        <Route exact path="/createNote" component={CreateNote}></Route>
       </div>
     );
   }
