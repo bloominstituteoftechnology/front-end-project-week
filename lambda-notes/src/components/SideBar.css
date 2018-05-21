@@ -1,0 +1,17 @@
+.side-bar{
+  background-color: #D8D8D8;
+  text-align: start;
+  padding: 0 3%;
+  border-right: solid thin #979797;
+}
+
+.side-button{
+  color: #FFFFFF;
+  background-color: #2bc1c4;
+  width: 100%;
+  margin: 5px auto;
+  font-size: 14px;
+  border: solid thin #979797;
+  /* margin-top: 50px; */
+  
+}
