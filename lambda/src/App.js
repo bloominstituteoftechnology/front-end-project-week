@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-//importing NavBar component
-import NavBar from './components/Nav';
 //importing  Router
 import { Route } from 'react-router-dom';
+
 //importing Listview and NewNote from LambdaPages
 import ListView from './LambdaPages/ListView';
 import NewNote from './LambdaPages/NewNote';
+//importing NavBar component
+import NavBar from './components/Nav';
+import Form from './components/Form';
 import './App.css';
 
 
