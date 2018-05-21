@@ -1,0 +1,36 @@
+.dismissModal {
+  background: #18b2bdfd;
+  max-height: 100%;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+  border: none;
+  border-radius: 0%;
+  width: 150px;
+}
+.dismissModal:hover {
+  background: #1f939c;
+}
+.deleteButton {
+  background: #DB2222;
+  border: none;
+  border-radius: 0%;
+  width: 150px;
+  color: white;
+  font-weight: bold;
+}
+.deleteButton:hover {
+  background: #AF1B1B;
+}
+div .modal-content {
+  border-radius: 0;
+  border: 1.5px solid #504f4f;
+}
+div .modal-body {
+  padding: 8%;
+  color: #504f4f;
+  margin: 0 auto;
+}
+div .modal-body p {
+  margin-left: 20px;
+}

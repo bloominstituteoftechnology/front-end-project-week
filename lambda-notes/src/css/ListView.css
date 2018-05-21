@@ -1,0 +1,38 @@
+.title {
+  font-weight: bold;
+  display: block;
+  font-size: 20px;
+  padding: 3%;
+  margin-left: 2%;
+}
+.content {
+  margin-left: 2%;
+}
+.thumbnail {
+  position: block;
+  width: 200px;
+  height: 200px;
+  border: 1.25px solid lightgrey;
+  display: inline-flex;
+  margin: 2%;
+  background: white;
+  padding: 1% 2% 0 2%;
+  overflow: hidden;
+}
+a {
+  color: black;
+}
+.container {
+  margin-left: -10px;
+}
+.yourNotes {
+  margin-top: 3.75rem;
+  margin-left: 2%;
+  color: #504f4f;
+  font-weight: bold;
+}
+.line {
+  border: 0.5px solid lightgrey;
+  margin: 5px 5px 5px 0px;
+  width: 150px;
+}

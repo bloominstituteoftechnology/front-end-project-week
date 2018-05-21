@@ -1,0 +1,39 @@
+body {
+  background: #EDEDED;
+}
+.createNoteHeading {
+  font-weight: bold;
+  color: #504f4f;
+  margin-bottom: 25px;
+  margin-top: 3.75rem;
+}
+input {
+  display: block;
+  width: 300px;
+  padding: 1.5%;
+  margin-bottom: 15px;
+  border-radius: 2%;
+  border: 1.5px solid #a7a2a2;
+}
+input:focus {
+  outline: none;
+}
+textarea {
+  border: 1.5px solid #a7a2a2;
+  padding: 2%;
+}
+textarea:focus {
+  outline: none;
+}
+.submit {
+  display: block;
+  background: #18b2bdfd;
+  padding: 1%;
+  width: 200px;
+  color: white;
+  font-weight: bold;
+  border: 1.5px solid lightgray;
+}
+.submit:hover {
+  background: #1F939C;
+}

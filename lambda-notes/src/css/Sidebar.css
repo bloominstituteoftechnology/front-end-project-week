@@ -1,0 +1,38 @@
+.sidebar {
+  max-width: 350px;
+  height: 100%;
+  min-height: 715px;
+  background: #cfcccc;
+  border: 1.5px solid #BAB7B7;
+}
+h6 {
+  margin: 20px 0 20px 5%;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #504F4F;
+  line-height: 1;
+}
+a:hover {
+  text-decoration: none;
+}
+.sidebar-button {
+  display: block;
+  background: #18b2bdfd;
+  padding: 4%;
+  max-height: 100%;
+  width: 90%;
+  color: white;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 1.5px solid lightgray;
+}
+.sidebar-button:hover {
+  background: #1F939C;
+}
+@media (min-width: 768px) {
+  h6 {
+    font-size: 2rem;
+    padding-right: 50%;
+  }
+}
