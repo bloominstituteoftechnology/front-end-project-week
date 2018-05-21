@@ -3,6 +3,7 @@ import logo from '../../img/logo.svg';
 import './App.css';
 import Nav from '../Nav/Nav';
 import NotesList from '../Note/NotesList';
+import NoteForm from '../Note/NoteForm';
 
 class App extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ class App extends Component {
         </header>
         <Nav />
         <NotesList notes={this.state.notes} />
+        <NoteForm header="Create New Note" button="Save" />
       </div>
     );
   }
