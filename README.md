@@ -1,4 +1,4 @@
-[Kelly Manahan's Trello:](https://trello.com/b/OwH8Olz5)
+[Link to my Trello Lambda Board](https://trello.com/b/OwH8Olz5)
 
 # Front End Project Week
 
