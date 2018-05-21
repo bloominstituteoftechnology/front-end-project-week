@@ -1,0 +1,8 @@
+{
+  "name": "front-end-project-week",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/FireInjun/front-end-project-week.git",
+  "author": "FireInjun <Fireinjun291@gmail.com>",
+  "license": "MIT"
+}
