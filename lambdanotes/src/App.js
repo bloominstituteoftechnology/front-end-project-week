@@ -12,7 +12,23 @@ class App extends Component {
         title: "Placeholder Note Title",
         content: "Placeholder note content",
         id: 0
-      }],
+      },
+      {
+        title: "Placeholder Note Title2",
+        content: "Placeholder note content2",
+        id: 1
+      },
+      {
+        title: "Placeholder Note Title3",
+        content: "Placeholder note content3",
+        id: 2
+      },
+      {
+        title: "Placeholder Note Title4",
+        content: "Placeholder note content4",
+        id: 3
+      },
+    ],
       appState: "list",
       editId: null
     };

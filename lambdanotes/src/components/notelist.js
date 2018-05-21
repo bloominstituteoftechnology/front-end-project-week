@@ -1,21 +1,33 @@
 import React from 'react';
 import './notelist.css';
 import NoteCard from './notecard.js';
+import { Row, Col } from 'reactstrap';
+
 
 const NoteList = (props) => {
+  let cardArr = [];
+  for (let i = 0; i < props.notes.length; i = i + 3) {
+    let subArr = [];
+    for (let j = 0; j < 3 && i + j < props.notes.length; j++) {
+      subArr.push(
+        <Col xs="4">
+          <NoteCard note={props.notes[i+j]} />
+        </Col>
+      );
+    }
+    cardArr.push(
+      <Row>
+        {subArr}
+      </Row>
+    );
+  }
   return (
     <div className="notes-view">
       <div className="heading">
         <h5>Your Notes:</h5>
       </div>
       <div className="note-cards">
-        {
-          props.notes.map((note, index) => {
-            return (
-              <NoteCard key={index} note={note} />
-            );
-          })
-        }
+        {cardArr}
       </div>
     </div>
   );
