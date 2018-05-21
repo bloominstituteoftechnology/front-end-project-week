@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 // import { Route, Link } from 'react-router-dom';
-import { List, Note, NewNote, EditNote, DeleteNote } from './components';
+import { List, Note, NewNote, EditNote } from './components';
 
 class App extends Component {
   render() {
@@ -16,9 +16,10 @@ class App extends Component {
               <button>+ Create New Note</button>
             </Col>
             <Col xs="9" className="content-container">
-              {/* <List /> */}
-              {/* <Note /> */}
+              {/* <List />
+              <Note />
               <NewNote />
+              <EditNote /> */}
             </Col>
           </Row>
         </Container>
