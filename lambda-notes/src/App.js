@@ -5,8 +5,15 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        
+      <div className="app-container">
+        <div className="sidebar">
+          <h1>Lambda Notes</h1>
+          <button>View Your Notes</button>
+          <button>+ Create New Note</button>
+        </div>
+        <div>
+         
+        </div>
       </div>
     );
   }

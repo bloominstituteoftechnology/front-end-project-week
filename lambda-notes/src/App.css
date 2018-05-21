@@ -1,28 +1,31 @@
-.App {
-  text-align: center;
+html{
+  font-family: 'Raleway Medium';
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.app-container{
+  display: flex;
+  height: 100%;
+  background-color: #f3f3f3;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  max-width: 25%;
+  min-height: 100%;
+  background-color: #D8D8D8;
 }
 
-.App-title {
-  font-size: 1.5em;
+.sidebar h1{
+  font-family: Roboto;
+  font-weight: bold;
+  color: #4A4A4A;
+  margin: 20px;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.sidebar button{
+  color: #FFF;
+  background-color: #2BC1C4;
+  margin: 10px;
+  padding: 10px;
 }
