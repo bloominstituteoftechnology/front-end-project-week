@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Route } from 'react-router-dom';
-import displayList from './displayList.js';
+import displayList from './displayList';
 
 class App extends Component {
   render() {
