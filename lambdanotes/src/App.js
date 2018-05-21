@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
 import './App.css';
 import ContentArea from './components/contentarea.js';
+import SideMenu from './components/sidemenu.js';
 
 class App extends Component {
 
@@ -40,7 +41,7 @@ class App extends Component {
       <div className="App">
           <Row>
             <Col className="left-side" xs="3">
-              PLACEHOLDER
+              <SideMenu />
             </Col>
             <Col className="content" xs="9">
               <ContentArea appState={this.state.appState} notes={this.state.notes} />
