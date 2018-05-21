@@ -1,7 +1,31 @@
 .note {
+   box-sizing: border-box;
    width: 210px;
    height: 215px;
    border: 1px solid  #CECECE;
    background-color: #FFFFFF;
    margin-bottom: 29px;
+   padding-bottom: 34px;
+   padding-right: 20px;
+   padding-left: 20px;
+   /* font-family: "Raleway"; */
+   padding-top: 11px;
 }
+
+.note-title {
+    font-size: 20px;
+    text-align: start;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #CECECE;
+    padding-bottom: 5px;
+}
+
+.note-body {
+    font-size: 12px;
+    font-family: "Raleway";
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+}
+

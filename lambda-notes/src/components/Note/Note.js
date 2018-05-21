@@ -6,8 +6,8 @@ import './Note.css';
 const Note = props => {
     return (
         <div className="note">
-            <h4>{props.note.title}</h4>
-            <p>{props.note.body}</p>
+            <div className="note-title">{props.note.title}</div>
+            <p className="note-body">{props.note.body}</p>
         </div>
     )
 }
