@@ -8,5 +8,13 @@ class NoteList extends Component {
         notes: []
     }
 
-    
+    render() {
+        return (
+            <div>
+                hello
+            </div>
+        )
+    }
 }
+
+export default NoteList;
