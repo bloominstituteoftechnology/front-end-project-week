@@ -20,6 +20,26 @@ class displayList extends Component {
                                 </Card>
                             </td>
                             <td>
+                                <Card>
+                                    <CardBody>
+                                        <CardTitle>Note Title</CardTitle>
+                                        <CardText>{catIpsum}</CardText>
+                                    </CardBody>
+                                </Card>
+                            </td>
+                            <td>
+                                <Card>
+                                    <CardBody>
+                                        <CardTitle>Note Title</CardTitle>
+                                        <CardText>{catIpsum}</CardText>
+                                    </CardBody>
+                                </Card>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                        <td>
                             <Card>
                                 <CardBody>
                                     <CardTitle>Note Title</CardTitle>
@@ -28,6 +48,25 @@ class displayList extends Component {
                             </Card>
                         </td>
                         <td>
+                            <Card>
+                                <CardBody>
+                                    <CardTitle>Note Title</CardTitle>
+                                    <CardText>{catIpsum}</CardText>
+                                </CardBody>
+                            </Card>
+                        </td>
+                        <td>
+                            <Card>
+                                <CardBody>
+                                    <CardTitle>Note Title</CardTitle>
+                                    <CardText>{catIpsum}</CardText>
+                                </CardBody>
+                            </Card>
+                        </td>
+                    </tr>
+
+                    <tr>
+                    <td>
                         <Card>
                             <CardBody>
                                 <CardTitle>Note Title</CardTitle>
@@ -35,8 +74,23 @@ class displayList extends Component {
                             </CardBody>
                         </Card>
                     </td>
-                            
-                        </tr>
+                    <td>
+                        <Card>
+                            <CardBody>
+                                <CardTitle>Note Title</CardTitle>
+                                <CardText>{catIpsum}</CardText>
+                            </CardBody>
+                        </Card>
+                    </td>
+                    <td>
+                        <Card>
+                            <CardBody>
+                                <CardTitle>Note Title</CardTitle>
+                                <CardText>{catIpsum}</CardText>
+                            </CardBody>
+                        </Card>
+                    </td>
+                </tr>
                         
                     </tbody>
                 </Table>
