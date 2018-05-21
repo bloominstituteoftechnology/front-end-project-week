@@ -28,7 +28,27 @@
 }
 
 .sidebar {
-  width: 15%;
   height: 100%;
-  background: #D8D8D8
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #D8D8D8;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar-item{
+  border-radius: 3px;
+  background: #2BC1C4;
+  color: white;
 }
