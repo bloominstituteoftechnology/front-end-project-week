@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { Component } from 'react';
 import  NavButtons  from './navButtons';
 
 const ViewNote = () => {

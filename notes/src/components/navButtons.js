@@ -8,7 +8,7 @@ const NavButtons = () => {
           <a href="">View Your Notes</a>
         </div>
         <div>
-          <a href="+ Create New Note"></a>
+          <a href=""> Create New Note</a>
         </div>
       </div>
     </div>

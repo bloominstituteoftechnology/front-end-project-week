@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import { CreateNote, DisplayNotes, EditNote, NavButtons, ViewNote } from './components';
+import { Note, CreateNote, DisplayNotes, EditNote, NavButtons, ViewNote } from './components';
 
 class App extends Component {
   render() {
