@@ -1,0 +1,100 @@
+
+.container {
+  background:#F0F0F0;
+  border: 1px solid red;
+  /* max-width: 100%;
+  width: 800px; */
+  margin: auto;
+  border: 2px #737373;
+  
+
+  
+}
+
+.column_left {
+  width: 21%;
+  background: #B0B0B0;
+  height: 1000px;
+}
+
+.column_right {
+  width: 79%;
+  background: #F0F0F0;
+  height: 1000px;
+}
+
+.myCards {
+  width: 100%;
+
+}
+
+.NavButtons {
+  background: lightseagreen;
+  margin-top: 5px ;
+  color: white;
+  width: 85%;
+  height: 40px;
+  border: 1px grey;
+  cursor: pointer;
+}
+.NavButtons:hover {
+  background-color: green;
+  color: white;
+}
+.btn {
+  background: lightseagreen;
+  margin-top: 5px ;
+  color: white;
+  /* width: 100%; */
+  font-size: 8px;
+  cursor: pointer;
+}
+
+.input_title {
+  width: 50%;
+  border-color: #BEBEBE !important;
+  /* border-width: 5px !important ; */
+  box-shadow: none;
+}
+.input_content {
+  height: 400px;
+  border-color: #BEBEBE;
+  
+}
+
+.save_button {
+  border: 1px solid #B0B0B0;
+  color: white;
+  background-color: lightseagreen;
+  width: 25%;
+  
+}
+.btn:hover {
+  background-color: green;
+  color: white;
+}
+
+.Update_Delete {
+  color: black;
+}
+
+.Button_Modal {
+  width: 33%;
+  padding: 5px !important;
+}
+
+.DeleteNote {
+  cursor: pointer;
+}
+
+.DeleteNote:hover {
+  text-decoration: underline;
+}
+
+.Link {
+  width: 27%;
+  height: 300px;
+  border-width: 2px !important;
+  border-color: #BEBEBE	!important;
+  cursor: pointer;
+}

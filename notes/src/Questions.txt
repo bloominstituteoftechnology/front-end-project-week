@@ -1,0 +1,5 @@
+Don't know how to get ID to ++ --> CreateNote
+
+Don't know how to link to Specific ID
+
+Editing/Deleting can't be done without a specified ID/Index linked
