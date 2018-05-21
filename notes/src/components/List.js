@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Route, Link } from 'react-router-dom';
+import Note from './Note.js';
 
 export default class List extends Component {
   render() {
@@ -10,10 +12,13 @@ export default class List extends Component {
             <h3>Your Notes:</h3>
                 <Row>
                     <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
+                    <Route path="/note" component={Note}/>
+                        <Link to="/note">
+                            <button>
+                                <h1>Note Title</h1>
+                                <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
+                            </button>
+                        </Link>
                     </Col>
                     <Col xs="4">
                         <button>

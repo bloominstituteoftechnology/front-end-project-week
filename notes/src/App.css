@@ -1,6 +1,14 @@
+/* App-wide Styles */
+
+.App {
+  font: Raleway Medium;
+}
+
 /* Sidebar Styles*/
 
 .sidebar {
+  font: Roboto Bold;
   display: fixed;
   border: 1px solid gray;
+  height: 700px;
 }

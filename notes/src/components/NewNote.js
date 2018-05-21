@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class Newnote extends Component {
     constructor(props) {
@@ -7,18 +9,24 @@ class Newnote extends Component {
     }
     render() { 
         return ( 
-            <div style={{ display:'flex', flexWrap:'wrap' }}>
-                <h3>Create New Note:</h3>
-                <div className="note-title">
-                    <input placeholder="Note Title"/>
-                </div>
-                <div>
-                    <input style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
-                </div>
-                <div>
-                    <button>Save</button>
-                </div>
-            </div>
+            <Container>
+                <Row>
+                    <Col>
+                        <h3>Create New Note:</h3>
+                        <div className="note-title">
+                            <input placeholder="Note Title"/>
+                        </div>
+                        <div>
+                            <input style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
+                        </div>
+                        <span>
+                            <Link to="/">
+                                <button>Save</button>
+                            </Link>
+                        </span>
+                    </Col>
+                </Row>
+            </Container>
          )
     }
 }
