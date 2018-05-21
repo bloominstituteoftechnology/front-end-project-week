@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { showEditTagBox } from '../actions';
+
 import {
     DocumentCard,
     DocumentCardTitle,
@@ -8,16 +10,18 @@ import {
 } from 'office-ui-fabric-react/lib/DocumentCard';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 
-const Tag = ({ name }) =>
+const Tag = ({ id, name, showEditTagBox }) =>
     <div style={style.root}>
         <div style={style.tag}>
             <div style={style.hole}></div>
             {name}
         </div>
-        <IconButton
-          iconProps={ { iconName: 'Edit' } }
-          onClick={() => console.log('update tag or open update form')}
-        />
+        <div className='ms-buttonArea'>
+            <IconButton
+            iconProps={ { iconName: 'Edit' } }
+            onClick={ showEditTagBox }
+            />
+        </div>
     </div>
 
 const style = {
@@ -38,7 +42,14 @@ const style = {
         borderRadius: '50%',
         border: '1px solid #eaeaea',
         marginRight: 10
+    },
+    extraHeight: {
+        height: 100
     }
 }
 
-export default Tag;
+const mapStateToProps = (state) => {
+    return state.tagsReducer
+}
+
+export default connect(mapStateToProps, { showEditTagBox })(Tag);

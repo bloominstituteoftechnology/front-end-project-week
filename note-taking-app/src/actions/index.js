@@ -18,6 +18,8 @@ export const SHOW_TAG_BOX = 'SHOW_TAG_BOX'
 export const HIDE_TAG_BOX = 'HIDE_TAG_BOX'
 export const FETCHING_TAGS = 'FETCHING_TAGS'
 export const FETCHED_TAGS = 'FETCHED_TAGS'
+export const SHOW_EDIT_TAG_BOX = 'SHOW_EDIT_TAG_BOX'
+export const HIDE_EDIT_TAG_BOX = 'HIDE_EDIT_TAG_BOX'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -217,4 +219,17 @@ export const saveTag = (tag) => {
             dispatch({ type: ERROR, error: error.code })
         })
     }
+}
+
+export const showEditTagBox = () => {
+    return (dispatch) => { 
+        dispatch({type: HIDE_EDIT_TAG_BOX })
+        setTimeout(() => {
+            dispatch({type: SHOW_EDIT_TAG_BOX })
+        }, 1000)
+    }
+}
+
+export const hideEditTagBox = () => {
+    return { type: HIDE_EDIT_TAG_BOX }
 }
