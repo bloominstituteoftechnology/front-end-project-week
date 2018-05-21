@@ -1,0 +1,39 @@
+container1 {
+    display: inline-block;
+    position: absolute;
+    background-color: #F3F3F3;
+    height: 1200px;
+    width: 1000px;
+    border-top: 1px solid darkgray;
+    border-right: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+    margin-left: 265px;
+}
+h2 {
+    font: Roboto Bold;
+    font-weight: bold;
+    color: #4A4A4A;
+    margin-left: 38px;
+    margin-top: 83px;
+    font-size: 22px;
+}
+.card {
+    display: inline-block;
+    width: 250px;
+    height: 260px;
+    margin-top: 15px;
+    border: 1px solid darkgrey;
+    font: Raleway Medium;
+    color: #4A4A4A;
+    margin: 39px 41px;
+    border-radius: 0;
+}
+.cardtitle {
+    font-weight: bold;
+    font-size: 20px
+}
+.cardtext {
+    font-size: 15px;
+    line-height: 30px;
+    border-top: 1px solid darkgray;
+}

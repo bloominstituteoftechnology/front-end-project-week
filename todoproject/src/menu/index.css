@@ -5,13 +5,13 @@ h1 {
     color: #4A4A4A;
     border: 1px solid darkgray;
     text-align: left;
-    height: 750px;
+    height: 1200px;
     width: 250px;
     background-color: #D8D8D8;
-    margin-left: 40px;
     padding-top: 15px;
     padding-left: 30px;
     position:relative;
+    margin-left: 15px;
 
 }
 .button1 {
@@ -21,8 +21,8 @@ h1 {
     border: 1px solid darkgray;
     font: Raleway Medium;
     font-size: 15px;
-    margin-top: -600px;
-    margin-left: 70px;
+    margin-top: -1050px;
+    margin-left: 30px;
     padding: 10px;
     position: absolute;
     width: 190px;
@@ -35,8 +35,8 @@ h1 {
     border: 1px solid darkgray;
     font-size: 15px;
     font: Raleway Medium;
-    margin-top: -530px;
-    margin-left: 70px;
+    margin-top: -980px;
+    margin-left: 30px;
     padding: 10px;
     position: absolute;
     width: 190px;
