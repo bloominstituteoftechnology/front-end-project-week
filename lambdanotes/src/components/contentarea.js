@@ -5,7 +5,7 @@ const ContentArea = (props) => {
   switch (props.appState) {
     case "list":
       return (
-        <NoteList />
+        <NoteList notes={props.notes} />
       );
     default:
       return (
