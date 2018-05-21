@@ -3,7 +3,6 @@ import {
   DELETENOTE,
   UPDATENOTE,
   CHECKUPDATE,
-  //ADDTAG,
   REORDERSTATE
 } from "../actions/action";
 
@@ -96,14 +95,6 @@ export const notesReducer = (state = intialState, action) => {
         notes: [(state.notes[action.index].check = action.payload)],
         notes: [...state.notes]
       };
-    // case ADDTAG:
-    //   return {
-    //     ...state,
-    //     notes: [
-    //       ...state.notes,
-    //       (state.notes[action.index].tag = action.payload)
-    //     ]
-    //   };
     case REORDERSTATE:
       return {
         ...state,
