@@ -1,0 +1,174 @@
+.container0 {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container1 {
+  display: flex;
+  width: 600px;
+  flex-wrap: wrap;
+  background: #f3f3f3;
+  padding: 10px;
+}
+
+/* navbar */
+.navbar-heading {
+  margin-left: 10px;
+}
+
+.navbar {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  background: #d8d8d8;
+  border: 2px solid #979797;
+  color:#727171;
+
+}
+
+.button {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 22px;
+    width: 85%;
+    margin: 10px 10px;
+    background: #2bc1c2;
+    border: 1px solid grey;
+    text-align: justify;
+    padding-top: 7px;
+    color: white;
+}
+
+/* note List */
+.Note {
+  height: 150px;
+  width: 150px;
+  background: white;
+  margin: 10px 10px;
+  overflow: hidden;
+  border: 1px solid grey;
+  font-size: 13px;
+}
+
+.note-content {
+    color: #534646;
+    padding-left: 5px;
+}
+
+.noteList-title {
+    margin: 20px 350px 20px 7px;
+    font-weight: 900;
+    color: #534646;
+}
+.note-title {
+  width: 90%;
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  font-weight: 750;
+  margin-left: 5px;
+  text-decoration: none;
+  color: black;
+}
+
+
+.titlefornotes {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
+  background: #f3f3f3;
+  padding-left: 240px;
+  padding-top: 10px;
+}
+/* single note */
+
+
+.single-note-title {
+  padding: 5px 0;
+}
+
+
+.single-header {
+  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.single-header-link {
+  padding: 5px;
+}
+
+.delete {
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+}
+
+.delete-btns {
+  display: flex;
+  padding: 0.3rem;
+}
+
+.noBtn {
+  background-color: #2bc1c5;
+  border: 1px solid grey;
+  padding: 0.7rem 5rem;
+  margin-left: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.deleteBtn {
+  background-color: red;
+  border: 1px solid grey;
+  padding: 0.7rem 4rem;
+  color: white;
+  font-weight: bold;
+}
+
+input {
+  padding: 0.5rem;
+  width: 50%;
+  margin-bottom: 0.5rem;
+}
+
+textarea {
+  width: 100%;
+}
+
+.save-button {
+  width: 20%;
+  text-align: center;
+  background-color: #2bc1c5;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.container1 a {
+  text-decoration: none !important ;
+}
+.container0 a {
+  text-decoration: none !important ;
+}
+
+.form-container {
+  width: 95%;
+}
+
+.edit-heading-text {
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
