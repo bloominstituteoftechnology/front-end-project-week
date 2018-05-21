@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import './App.css';
 import ContentArea from './components/contentarea.js';
 
@@ -38,7 +38,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container>
           <Row>
             <Col className="left-side" xs="3">
               PLACEHOLDER
@@ -47,7 +46,6 @@ class App extends Component {
               <ContentArea appState={this.state.appState} notes={this.state.notes} />
             </Col>
           </Row>
-        </Container>
       </div>
     );
   }
