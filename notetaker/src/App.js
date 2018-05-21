@@ -5,8 +5,8 @@ import { Route } from 'react-router-dom';
 
 import Dashboard from './components/dashboard/Dashboard';
 import NewNote from './components/newnote/NewNote';
-import Note from './components/Note';
-import EditNote from './components/EditNote';
+import NoteView from './components/noteview/NoteView';
+import EditNote from './components/editnote/EditNote';
 import DeleteNote from './components/DeleteNote'
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={ Dashboard }/>
         <Route path="/create" component={ NewNote }/>
-        <Route path="/note" component={ Note }/>
+        <Route path="/note" component={ NoteView }/>
         <Route path="/edit" component={ EditNote }/>
         <Route path="/delete" component={ DeleteNote }/>
       </div>
