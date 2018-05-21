@@ -10,7 +10,7 @@ const NoteList = (props) => {
     let subArr = [];
     for (let j = 0; j < 3 && i + j < props.notes.length; j++) {
       subArr.push(
-        <Col xs="4" key={j}>
+        <Col className="my-column" xs="4" key={j}>
           <NoteCard note={props.notes[i+j]} />
         </Col>
       );
@@ -26,7 +26,7 @@ const NoteList = (props) => {
       <div className="heading">
         <h5>Your Notes:</h5>
       </div>
-      <div className="note-cards">
+      <div className="note-row">
         {cardArr}
       </div>
     </div>

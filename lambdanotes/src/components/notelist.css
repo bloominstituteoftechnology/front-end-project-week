@@ -9,6 +9,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.note-cards {
+.note-row {
+  width: 100%
+}
 
+.my-column {
+
+  padding: 8px 6px !important;
 }

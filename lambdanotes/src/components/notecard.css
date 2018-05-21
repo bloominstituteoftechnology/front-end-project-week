@@ -1,13 +1,13 @@
 .note-card {
-  border: solid 1px #979797;
-  padding: 10px;
+
+  width: 100%;
+  height: 100%;
+  border: solid #979797 1px;
   background: white;
-  margin: 10px 0;
+  padding: 5px 10px; 
 }
 
-hr {
-  background: #979797;
-}
+
 
 .note-title {
   font-family: 'Roboto', sans-serif;
