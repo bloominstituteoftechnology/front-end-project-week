@@ -1,0 +1,31 @@
+header {
+  font-size: 25px;
+  font-weight: 700;
+}
+.Edit-Note {
+  width: 100%;
+  margin: 50px;
+}
+.Edit-Note .Edit-Note-Form {
+  display: flex;
+  flex-direction: column;
+}
+.Edit-Note .Edit-Note-Form .Edit-Note-Title {
+  width: 60%;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid grey;
+}
+.Edit-Note .Edit-Note-Form .Edit-Note-Content {
+  padding: 10px;
+}
+.Edit-Note .Edit-Note-Form .Save-Button {
+  background-color: #00CED1;
+  border: 1px solid grey;
+  color: white;
+  width: 225px;
+  height: 50px;
+  margin: 15px 0;
+  font-weight: 800;
+  font-size: 18px;
+}

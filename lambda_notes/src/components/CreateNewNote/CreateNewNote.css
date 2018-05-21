@@ -1,0 +1,36 @@
+.Container {
+  display: flex;
+  height: 100%;
+  background-color: #F4F4F4;
+}
+.Container header {
+  font-size: 25px;
+  font-weight: 700;
+}
+.Container .New-Note {
+  width: 100%;
+  margin: 50px;
+}
+.Container .New-Note .New-Note-Form {
+  display: flex;
+  flex-direction: column;
+}
+.Container .New-Note .New-Note-Form .New-Note-Title {
+  width: 60%;
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px solid grey;
+}
+.Container .New-Note .New-Note-Form .New-Note-Content {
+  padding: 10px;
+}
+.Container .New-Note .New-Note-Form .Save-Button {
+  background-color: #00CED1;
+  border: 1px solid grey;
+  color: white;
+  width: 225px;
+  height: 50px;
+  margin: 15px 0;
+  font-weight: 800;
+  font-size: 18px;
+}

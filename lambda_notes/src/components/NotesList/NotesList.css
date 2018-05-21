@@ -1,0 +1,25 @@
+.Note {
+  border: 1.5px solid #D3D3D3;
+  width: 225px;
+  height: 225px;
+  margin: 5px 20px 20px 25px;
+  background-color: white;
+}
+.Note .Note-Title {
+  margin: 12px;
+  font-size: 22px;
+  font-weight: 700;
+  height: 23px;
+  overflow: hidden;
+}
+.Note hr {
+  margin: 12px;
+  color: #D3D3D3;
+}
+.Note .Note-Content {
+  margin: 12px;
+  font-size: 15px;
+  height: 150px;
+  font-family: 'Raleway';
+  overflow: hidden;
+}

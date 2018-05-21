@@ -1,0 +1,30 @@
+.Container {
+  display: flex;
+  height: 100%;
+  background: #F4F4F4;
+}
+.Container .Note-Container {
+  width: 100%;
+  margin: 20px;
+}
+.Container .Note-Container .Links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  margin-right: 15px;
+}
+.Container .Note-Container .Links .Edit-Link {
+  margin-right: 10px;
+}
+.Container .Note-Container .Note-Title {
+  font-size: 25px;
+  margin: 15px 0;
+  font-weight: 700;
+  width: 100%;
+}
+.Container .Note-Container .Note-Content {
+  margin: 10px 0;
+  font-family: 'Raleway';
+  line-height: 1.5;
+}
