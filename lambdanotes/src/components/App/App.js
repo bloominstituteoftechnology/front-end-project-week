@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Sidebar from '../Sidebar/Sidebar';
+import NotesList from '../NotesList/NotesList';
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
   render() {
+    const props = this.props;
+    console.log('App props', this.props)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Sidebar />
+        <div className="Notes-Section">
+          <header>Your Notes: </header>
+          <div className="Notes-Container">
+            {props.state.notes.map((note, index) => <NotesList id={index} note={note}/>)}
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    state: state,
+  }
+}
+
+export default connect(mapStateToProps)(App);
