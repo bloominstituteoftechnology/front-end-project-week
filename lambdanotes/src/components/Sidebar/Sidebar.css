@@ -1,18 +1,20 @@
-.sidebarContainer {
-    background-color: #D8D8D8;
-    border: 3px, solid, #979797;
-    height: 1000px;
-}
-
 .title {
-    font: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
-    margin: 10px 0 0 5px;
+    margin: 20px 0 8px 12px;
+    font-size: 36px;
+    line-height: 30px;
 }
 
 .button {
     background-color: #2BC1C4;
-    font: 'Raleway', sans-serif;
-    margin: 15px 0 0 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin: 20px 20px 0 15px;
+    width: 86%;
+    height: 41px;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
 }

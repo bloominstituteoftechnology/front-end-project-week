@@ -9,16 +9,14 @@ import ListView from './components/ListView/ListView.js';
 class App extends Component {
   render() {
     return (
-      <Container className="App">
-        <Row>
-          <Col xs='3'>
-            <Route path='/' component={Sidebar} />
-          </Col>
-          <Col xs='9'>
-            <Route exact path='/' component={ListView} />
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <div className='sidebarContainer'>
+          <Route path='/' component={Sidebar} />
+        </div>
+        <div className='viewContainer'>
+          <Route exact path='/' component={ListView} />
+        </div>
+      </div>
     );
   }
 }

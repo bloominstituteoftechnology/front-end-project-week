@@ -5,23 +5,12 @@ import { Container, Col, Row, Button } from 'reactstrap';
 
 const Sidebar = () => {
     return (
-        <Container className='sidebarContainer'>
-            <Row>
-                <Col>
-                    <h1 className='title'>Lambda Notes</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Button block='true' className='button'>View Your Notes</Button>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Button block='true' className='button'>+ Create New Note</Button>
-                </Col>
-            </Row>
-        </Container>
+        <div>
+            <h1 className='title'>Lambda Notes</h1>
+            <button block='true' className='button'>View Your Notes</button>
+            <button block='true' className='button'>+ Create New Note</button>
+        </div>
+                
     )
 }
 

@@ -2,3 +2,10 @@
   text-align: center;
   height: 1000px;
 }
+
+.sidebarContainer {
+  width: 25%;
+  background-color: #D8D8D8;
+  border: 1px solid #979797;
+  height: 888px;
+}
