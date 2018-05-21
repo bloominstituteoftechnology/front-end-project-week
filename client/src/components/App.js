@@ -32,12 +32,12 @@ class App extends Component {
   // adds new note to `this.state.noteList`
   addNewNote = () => {
     const newNote = {
-      id: this.state.noteList.length,
+      id: '' + this.state.noteList.length,
       title: this.state.title,
       content: this.state.content,
     };
 
-    this.setState({ noteList: [ newNote, ...this.state.noteList ] });
+    this.setState({ noteList: [ ...this.state.noteList, newNote ] });
   }
 
   // sets currently selected note for dynamic routing
