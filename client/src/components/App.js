@@ -5,6 +5,7 @@ import { Route } from 'react-router';
 import Sidebar from './sidebar/Sidebar';
 import NoteView from './noteview/NoteView';
 import NewNote from './newnote/NewNote';
+import Note from './noteview/Note';
 
 // presentational
 import './App.css';
@@ -19,6 +20,7 @@ class App extends Component {
       title: '',
       content: '',
       noteList: [],
+      selectedNote: {},
     };
   }
 
@@ -38,6 +40,19 @@ class App extends Component {
     this.setState({ noteList: [ newNote, ...this.state.noteList ] });
   }
 
+  // sets currently selected note for dynamic routing
+  setSelectedNote = id => {
+    let currentNote = {};
+
+    for (let note of this.state.noteList) {
+      if (id === note.id) {
+        currentNote = { ...note };
+      }
+    }
+
+    this.setState({ selectedNote: { ...currentNote } });
+  }
+
   // adds data to `this.state.noteList`
   // data currently comes from `/src/data.json`
   componentDidMount() {
@@ -54,7 +69,7 @@ class App extends Component {
         <Route
           exact path='/'
           render={ props => {
-            return <NoteView { ...props } noteList={ this.state.noteList }/>
+            return <NoteView { ...props } noteList={ this.state.noteList } setSelectedNote={ this.setSelectedNote }/>
             }
           }
         />
@@ -73,6 +88,23 @@ class App extends Component {
               />
             )}
           }
+        />
+
+        {/* Note (specific note) */}
+        <Route
+          path='/note/:id'
+          render= { props => {
+            return (
+              <Note
+                { ...props }
+                noteList={ this.state.noteList }
+                ID={ this.state.selectedNote.ID }
+                title={ this.state.selectedNote.title }
+                content={ this.state.selectedNote.content }
+                selectedNote={ this.state.selectedNote }
+              />
+            )
+          }}
         />
       </div>
     );
