@@ -1,0 +1,11 @@
+.ListView {
+  width: 75%;
+  /* display: flex; */
+}
+
+.List-Header {
+  margin: 60px 0 30px 20px;
+  font-size: 2.0rem;
+  font-weight: bold;
+  text-align: left;
+}

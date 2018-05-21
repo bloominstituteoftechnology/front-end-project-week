@@ -1,0 +1,19 @@
+.Card-Style {
+  margin: 20px;
+  
+}
+
+.Card-Body {
+  border: 0.5px solid #979797;
+}
+
+.Card-Title {
+font-size: 1.8rem;
+border-bottom: 1px solid #979797;
+text-align: left;
+font-weight: bold;
+}
+
+.Card-Text {
+font-size: 1.3rem;
+}
