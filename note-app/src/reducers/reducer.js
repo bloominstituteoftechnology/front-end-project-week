@@ -12,56 +12,47 @@ const intialState = {
       title: "Note-1",
       note: "",
       check: false,
-      tag: ""
     },
 
     {
       title: "Note-2",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-3",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-4",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-5",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-6",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-7",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-8",
       note: "",
       check: false,
-      tag: ""
     },
     {
       title: "Note-9",
       note: "",
       check: false,
-      tag: ""
     }
   ],
   error: null
