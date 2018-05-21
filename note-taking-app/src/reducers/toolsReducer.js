@@ -5,13 +5,16 @@ import {
     SHOW_SORT_BOX,
     HIDE_SORT_BOX,
     SORTING_NOTE,
-    TOGGLE_MARKDOWN
+    TOGGLE_MARKDOWN,
+    SHOW_TAG_BOX,
+    HIDE_TAG_BOX,
 } from '../actions'
 
 const initialState = {
     searchText: '',
     searchBoxOpen: false,
     sortBoxOpen: false,
+    tagBoxOpen: false,
     inMarkdown: true,
     sortType: ''
 }
@@ -57,6 +60,16 @@ export const toolsReducer = (state=initialState, action) => {
             return {
                 ...state,
                 inMarkdown: action.checked
+            }
+        case SHOW_TAG_BOX:
+            return {
+                ...state,
+                tagBoxOpen: true
+            }
+        case HIDE_TAG_BOX:
+            return {
+                ...state,
+                tagBoxOpen: false,
             }
         default:
             return state

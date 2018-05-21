@@ -14,6 +14,10 @@ export const SORTING_NOTE = 'SORTING_NOTE'
 export const SHOW_SORT_BOX = 'SHOW_SORT_BOX'
 export const HIDE_SORT_BOX = 'HIDE_SORT_BOX'
 export const TOGGLE_MARKDOWN= 'TOGGLE_MARKDOWN'
+export const SHOW_TAG_BOX = 'SHOW_TAG_BOX'
+export const HIDE_TAG_BOX = 'HIDE_TAG_BOX'
+export const FETCHING_TAGS = 'FETCHING_TAGS'
+export const FETCHED_TAGS = 'FETCHED_TAGS'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -154,4 +158,30 @@ export const hideSortBox = () => {
 // Toggle Markdown
 export const toggleMarkdown = (checked) => {
     return { type: TOGGLE_MARKDOWN, checked }
+}
+
+// Tag Actions
+
+export const showTagBox = () => {
+    return { type: SHOW_TAG_BOX }
+}
+
+export const hideTagBox = () => {
+    return { type: HIDE_TAG_BOX }
+}
+
+export const getTags = () => {
+    let ref = db.database().ref('/tags')
+
+    return (dispatch) => {
+        dispatch({ type: FETCHING_TAGS })
+        
+        ref.on("value", 
+        response => {
+            dispatch({ type: FETCHED_TAGS, tags: response.val()})
+        }, 
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        });
+    }
 }
