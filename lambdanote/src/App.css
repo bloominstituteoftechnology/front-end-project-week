@@ -1,5 +1,5 @@
 .App {
-  display: flex;
+  /* display: flex; */
 }
 
 .note {
@@ -7,3 +7,18 @@
   text-align: left;
 }
 
+.nav-container {
+  border-right: 1px solid #979797;
+  background-color: #D8D8D8;
+}
+
+.note-container {
+  background-color: #F3F3F3;
+}
+
+.nav-container .nav-btn {
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  border: 1px solid #979797;
+  text-align: center;
+}

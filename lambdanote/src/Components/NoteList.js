@@ -13,14 +13,14 @@ class NoteList extends Component {
     componentDidMount() {
         this.setState({ notes: dummyData })
     }
-    
+
     render () {
         return (
             <div>
                 <div className='note-container'>
                 <h2>Your Notes:</h2>
                 <div>
-                {this.state.notes.map(note => <Note note={note} />)}
+                {this.state.notes.map(note => <Note key={note.id}note={note} />)}
                 </div>
                 </div>
             </div>
