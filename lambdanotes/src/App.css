@@ -1,3 +1,16 @@
 .App {
   text-align: center;
+  max-width:
+}
+
+.left-side {
+  background: #D8D8D8;
+  border-top: solid #979797 1px;
+  border-left: solid #979797 1px;
+  border-bottom: solid #979797 1px;
+}
+
+.content {
+  background: #F3F3F3;
+  border: solid #979797 1px;
 }
