@@ -25,31 +25,31 @@ export const updateNote = (noteTitle, noteBody, i) => {
 };
 
 export const addTag = (tag, i) => {
-    return {
-        type: ADDTAG,
-        payload: tag,
-        index: i
-    }
-}
+  return {
+    type: ADDTAG,
+    payload: tag,
+    index: i
+  };
+};
 
-export const deleteNote = (note) => {
-    return {
-        type: DELETENOTE,
-        payload: note
-    }
-}
+export const deleteNote = note => {
+  return {
+    type: DELETENOTE,
+    payload: note
+  };
+};
 
 export const checkUpdate = (bool, i) => {
-    return {
-        type: CHECKUPDATE,
-        payload: bool,
-        index: i
-    }
-}
+  return {
+    type: CHECKUPDATE,
+    payload: bool,
+    index: i
+  };
+};
 
-export const reorderState = (completeObject) => {
-    return {
-        type: REORDERSTATE,
-        payload: completeObject,
-    }
-}
+export const reorderState = completeObject => {
+  return {
+    type: REORDERSTATE,
+    payload: completeObject
+  };
+};
