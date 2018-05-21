@@ -93,17 +93,8 @@ class App extends Component {
         {/* Note (specific note) */}
         <Route
           path='/note/:id'
-          render= { props => {
-            return (
-              <Note
-                { ...props }
-                noteList={ this.state.noteList }
-                ID={ this.state.selectedNote.ID }
-                title={ this.state.selectedNote.title }
-                content={ this.state.selectedNote.content }
-                selectedNote={ this.state.selectedNote }
-              />
-            )
+          render={ props => {
+            return <Note { ...props } noteList={ this.state.noteList }/> 
           }}
         />
       </div>
