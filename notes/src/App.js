@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import SideBar from './components/Sidebar'
 import NoteList from './components/NoteList'
 import Notes from './notes'
@@ -80,7 +79,7 @@ class App extends Component {
 
 
         <Route exact path="/create" render={(props) => (<CreateNote pageTitle="Create New Note:" onSubmit={this.handleSubmit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
-        <Route exact path="/edit" render={(props) => (<CreateNote pageTitle="Edit Your Note:"onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
+        <Route exact path="/edit" render={(props) => (<CreateNote pageTitle="Edit Your Note:" onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
       </div>
     );
   }
