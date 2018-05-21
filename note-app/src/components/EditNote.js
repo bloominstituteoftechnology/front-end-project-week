@@ -1,25 +1,20 @@
 import React from "react";
-import { addNote } from "../actions/actions";
+import { updateNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class NewNote extends React.Component {
+class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      note: "",
-      tag: ""
+      note: ""
     };
   }
 
   componentDidMount() {
     this.props.notes;
   }
-
-  refresh = () => {
-    this.props.notes;
-  };
 
   handleTextInput = e => {
     e.preventDefault();
@@ -29,21 +24,19 @@ class NewNote extends React.Component {
   newNote = e => {
     const noteOject = {
       title: this.state.title,
-      note: this.state.note,
-      check: false,
-      tag: this.state.tag
+      note: this.state.note
     };
-    this.props.addNote(noteOject);
-    this.refresh();
+    this.props.updateNote(this.state.title, this.state.note, this.props.ide);
     this.setState({
       title: "",
       note: ""
     });
   };
+
   render() {
     return (
       <div>
-        <h3>Create New Note:</h3>
+        <h3>Edit Note:</h3>
         <input
           type="text"
           name="title"
@@ -66,12 +59,10 @@ class NewNote extends React.Component {
   }
 }
 
-//export default NewNote;
-
 const mapDispatchToProps = state => {
   return {
-    notes: this.state.notes
+    notes: state.notes
   };
 };
 
-export default connect(mapDispatchToProps, { addNote })(NewNote);
+export default connect(mapDispatchToProps, { updateNote })(EditNote);
