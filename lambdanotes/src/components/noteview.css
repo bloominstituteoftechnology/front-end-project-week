@@ -1,0 +1,27 @@
+.note-view {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+.note-view-link {
+  margin: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: .9rem;
+  text-decoration: underline;
+}
+
+.note-view-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view-title {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+.note-view-content {
+  text-align: left;
+  margin: 20px 0;
+}
