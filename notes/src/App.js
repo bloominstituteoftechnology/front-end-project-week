@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Create from "./Create";
+import Delete from './Delete';
+import Edit from './Edit';
+import List from './List';
+import Note from './Note'
 import logo from './logo.svg';
 import './App.css';
 
