@@ -4,7 +4,8 @@ const Button = props => {
   return (
     <button
       className={ props.buttonClassName }
-      // onClick={ () => alert() }
+      onClick={ props.buttonOnClick }
+      type={ props.buttonType }
     >
       { props.buttonContent }
     </button>

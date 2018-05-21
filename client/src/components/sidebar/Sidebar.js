@@ -20,9 +20,9 @@ const Sidebar = () => {
             />
           </Link>
         </li>
-        
+
         <li>
-          <Link to='/new'>
+          <Link to='/note/new'>
             <Button
               buttonContent='+ Create new Note'
               className='nav_create-new-note-button'
