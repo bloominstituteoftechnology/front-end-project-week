@@ -3,18 +3,33 @@ import './noteform.css';
 import { Form, FormGroup, Input} from 'reactstrap';
 
 
-const NoteForm = (props) => {
-  return (
-    <Form>
-      <h5>{props.topText}</h5>
-      <FormGroup>
-        <Input name="title" id="title-input" placeholder="Note Title" />
-      </FormGroup>
-      <FormGroup>
-        <Input type="textarea" name="text" id="exampleText" />
-      </FormGroup>
-    </Form>
-  );
+class NoteForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      myTitle: props.myTitle,
+      myContent: props.myContent
+    }
+  }
+
+  handleFormType = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  render() {
+    return (
+      <Form>
+        <h5>{this.props.topText}</h5>
+        <FormGroup>
+          <Input name="myTitle" onChange={this.handleFormType} id="title-input" placeholder="Note Title" />
+        </FormGroup>
+        <FormGroup>
+          <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" />
+        </FormGroup>
+      </Form>
+    );
+  }
 }
 
 export default NoteForm;
