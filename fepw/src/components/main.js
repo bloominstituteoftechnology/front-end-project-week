@@ -9,7 +9,7 @@ class Main extends Component {
 	constructor() {
 		super();
 		this.state = {
-			cards: [],
+			cards: [{ title: 'Notecard1', content: 'whatever'}],
 			addNotecard: {
 				title:'',
 				content:''
@@ -56,9 +56,9 @@ render () {
 	return (
 		<div>
 			<Route path = '/' render={() => <ListView updateSelectedNotecard={this.updateSelectedNotecard} {...this.state} />} />
-			<Route path = '/CreateNote' render={() => <CreateNote />} />
-			<Route path = '/NoteView' render={() => <NoteView />} />
-			<Route path = '/EditNote' render={() => <EditNote />} />
+			<Route path = '/CreateNote' render={() => <CreateNote newNotecard = {this.newNotecard} updateNotecard = {this.updateNotecard} />} />
+			<Route path = '/NoteView' render={(props) => <NoteView {...this.state} deleteNotecard={this.deleteNotecard} {...props} />} />
+			<Route path = '/EditNote' render={() => <EditNote {...this.state} updatedNotecard={this.updatedNotecard} />} />
 		</div>
 	)
 }

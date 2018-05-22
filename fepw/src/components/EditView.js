@@ -16,7 +16,7 @@ class EditNote extends Component {
 	}
 
 	handleSubmit = () => {
-		this.props.editNote(this.state);
+		this.props.updatedNotecard(this.state);
 	}
 
 	render() {

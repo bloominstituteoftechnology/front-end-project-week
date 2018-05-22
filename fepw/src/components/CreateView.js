@@ -18,7 +18,7 @@ class CreateNote extends Component {
 
 	handleSubmit = () => {
 		this.props.newNotecard(this.state);
-		this.props.updatedNotecard(this.state);
+		this.props.updateNotecard(this.state);
 	}
 
 	render() {
@@ -30,7 +30,7 @@ class CreateNote extends Component {
 					<Input onChange={this.handleInput} name='title' id='Title' placeholder='Note Title' />
 				</FormGroup>
 				<FormGroup>
-					<Input onChange={this.handleInput} name='text' id='Body' placeholder='Note Content' />
+					<Input onChange={this.handleInput} name='content' id='Body' placeholder='Note Content' />
 				</FormGroup>
 				<FormGroup>
 					<Link to='/'>
