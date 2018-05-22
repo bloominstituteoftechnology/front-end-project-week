@@ -1,8 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Button = () => {
+const Button = props => {
   return (
-    <div>Button</div>
+    <React.Fragment>
+      <button className={props.type}>
+        {(props.link !== null) ? <Link to={props.link}></Link> : props.title}
+      </button>
+    </React.Fragment>
   );
 }
 
