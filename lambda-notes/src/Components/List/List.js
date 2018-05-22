@@ -20,50 +20,7 @@ class List extends Component {
                     
                         <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
                     </Card>
-                    <Card className = "card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className = "card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className = "card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className = "card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
-                    <Card className="card">
-                        <CardTitle className = "card-title">Special Title Treatment</CardTitle>
-                        <CardText className = "card-body">With supporting text below as a natural lead-in to additional content.</CardText>
-                    </Card>
+                    
                 </div>
                 
             </div>

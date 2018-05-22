@@ -1,16 +1,24 @@
 import React, { Component } from "react";
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 class EditNote extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
     render() { 
-        return ( 
-            <div>
-                <h4>I'm an editNote component!</h4>
-            </div>
-         )
-    }
+        return(
+            <Form>
+            <FormGroup>
+                <Label for="exampleEmail">Email</Label>
+                <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="exampleText">Text Area</Label>
+                <Input type="textarea" name="text" id="exampleText" />
+            </FormGroup>
+            <Button>Submit</Button>
+        </Form>
+        )
+        
+  }
+
 }
  
 export default EditNote;
