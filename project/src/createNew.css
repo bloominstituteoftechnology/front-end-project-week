@@ -1,0 +1,36 @@
+.CNcontainer {
+    display: flex;
+    box-sizing: border-box;
+}
+
+.CNtitle {
+    margin-top: 35px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.CNnewTitle {
+    width: 300px;
+    padding-bottom: 10px;
+}
+
+.CNcomment {
+    width: 500px;
+    height: 300px;
+    padding-bottom: 10px;
+}
+
+.form {
+    background:  #F3F3F3;
+    padding: 15px;
+    /* width: 700px; */
+}
+
+.CNbutton {
+    width: 200px;
+    color: #FFFFFF;
+    background: #2BC1C4;
+    margin-bottom: 10px;
+    border: #979797 1px solid;
+    
+}
