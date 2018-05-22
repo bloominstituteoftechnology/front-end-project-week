@@ -27,16 +27,18 @@ class ModalComponent extends Component {
     });
   };
   render() {
-    return <div />;
+    return (
+      <div>
+       
+      </div>
+    );
   }
 }
 
-const mapDispatchToProps = state => {
+const mapToProps = state => {
   return {
     notes: state.notes
   };
 };
 
-export default connect(mapDispatchToProps, { addNote, deleteNote })(
-  ModalComponent
-);
+export default connect(mapToProps, { addNote, deleteNote })(ModalComponent);

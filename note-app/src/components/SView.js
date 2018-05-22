@@ -4,11 +4,6 @@ import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import { addNote, deleteNote, checkUpdate } from "../actions/action";
 import { connect } from "react-redux";
 
-let noteI = [];
-let titleI = [];
-let dcheck;
-let dcolor = "red";
-let dcomplete = "NOT COMPLETE";
 
 class SView extends React.Component {
   constructor(props) {
@@ -36,8 +31,6 @@ class SView extends React.Component {
   }
   handleDelete = id => {
     this.props.deleteNote(this.props.notes[id]);
-    noteI = [];
-    titleI = [];
     this.refresh();
     this.setState({
       modal: !this.state.modal
@@ -50,71 +43,7 @@ class SView extends React.Component {
   };
 
   render() {
-    noteI = [];
-    titleI = [];
-    dcheck = [];
-    dcomplete = "";
-    return (
-      <div>
-        <div>
-          <Link to={`/notes/edit/${this.props.id}`}>
-            <span>edit</span>
-          </Link>
-
-          <Link to={`#`} onClick={this.toggle}>
-            <span>delete</span>
-          </Link>
-
-          {this.props.notes.map((note, i) => {
-            return (
-              <div key={note + i}>
-                {noteI.push(note.note)}
-                {titleI.push(note.title)}
-                {dcheck.push(note.check)}
-              </div>
-            );
-          })}
-          <div>
-            {dcheck[this.props.id] === false
-              ? (dcolor = "red")
-              : (dcolor = "blue")};
-            {dcheck[this.props.id] === false
-              ? (dcomplete = "NOT COMPLETE")
-              : (dcomplete = "COMPLETED")};
-          </div>
-          <div>
-            <h1>{titleI[this.props.id]}</h1>
-            <h4>
-              Complete Status: <span> {dcomplete} </span>{" "}
-            </h4>
-            <input
-              name="checkedB"
-              type="checkbox"
-              checked={dcheck[this.props.id]}
-              onChange={this.handleInputChange}
-            />
-            {noteI[this.props.id]}
-            <label />
-          </div>
-        </div>
-
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}
-        >
-          <ModalBody>Are you sure you want to delete this?</ModalBody>
-          <ModalFooter>
-            <Link to={`/`} onClick={() => this.handleDelete(this.props.id)}>
-              <Button color="primary">Delete</Button>
-            </Link>
-            <Button color="secondary" onClick={this.toggle}>
-              No
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </div>
-    );
+    return <div />;
   }
 }
 const mapDispatchToProps = state => {
