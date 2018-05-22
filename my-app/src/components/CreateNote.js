@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './createNote.css';
 
 
-export default class Note extends Component {
+export default class CreateNote extends Component {
     constructor() {
         super();
         this.state = {
@@ -16,9 +16,10 @@ export default class Note extends Component {
          this.setState({ [e.target.name]: e.target.value })
      }
 
-     handleAddNote = _ => {
-         const { title, comment } = this.state;
-         this.setState({id: 0, title: '', comment: ''})
+     handleAddNote = () => {
+         const { title, comment, id } = this.state;
+         this.setState({id: 0, title: '', comment: ''});
+         
      }
 
     render() {

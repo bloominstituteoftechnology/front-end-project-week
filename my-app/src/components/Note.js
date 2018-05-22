@@ -3,32 +3,27 @@ import './note.css';
 
 import { Route, Link } from 'react-router-dom';
 import { Card, CardText, CardBody,
-  CardTitle, Button } from 'reactstrap';
+  CardTitle } from 'reactstrap';
 
-  class Notes extends Component {
-    constructor() {
-        super();
-        this.state = {
-            title: '',
-            comment: ''
-        }
-    }
-    
-    render(){
-        return(
-        <div className="note">
-            <Card>
-                <CardBody>
-                    <CardTitle>Note title</CardTitle>
+  const Notes = props => {
+      console.log("Props, ", props)
+     
+    return (
+        <div className="itemFlex">
+            {props.notesState.map(item => {
+                return (
+                    <Card className="note"  key={item.id}>
+                    <CardBody>
+                    <CardTitle>{item.title}</CardTitle>
                     <hr />
-                    <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                    <Button>Button</Button>
-                </CardBody>
-            </Card>
+                    <CardText>{item.comment}</CardText>
+                        </CardBody>
+                    </Card>
+                )
+            })}
         </div>
-        )
-    }
-
-}
+    )
+  }
+  
  
 export default Notes;
