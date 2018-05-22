@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Form, FormGroup, Input, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class CreateNote extends Component {
 	constructor() {
@@ -9,13 +11,14 @@ class CreateNote extends Component {
 		};
 	}
 
+
 	handleInput = event => {
-		this.setState{( [event.target.name]: event.target.value] )};
+		this.setState({ [event.target.name]: event.target.value });
 	}
 
 	handleSubmit = () => {
-		this.props.newCard(this.state);
-		this.props.updateNote(this.state);
+		this.props.newNotecard(this.state);
+		this.props.updatedNotecard(this.state);
 	}
 
 	render() {
@@ -27,11 +30,11 @@ class CreateNote extends Component {
 					<Input onChange={this.handleInput} name='title' id='Title' placeholder='Note Title' />
 				</FormGroup>
 				<FormGroup>
-					<Input onChange={this.handleInput} name='text' id='Body' placeholder="Note Content' />
+					<Input onChange={this.handleInput} name='text' id='Body' placeholder='Note Content' />
 				</FormGroup>
 				<FormGroup>
 					<Link to='/'>
-						<button onClick={this.handleSubmit}>Save</button>
+						<Button onClick={this.handleSubmit}>Save</Button>
 					</Link>
 				</FormGroup>
 			</Form>

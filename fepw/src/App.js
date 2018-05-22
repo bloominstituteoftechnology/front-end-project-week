@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { NoteCard } from './components/NoteCard.js';
+import Main from './components/main.js';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
 	
@@ -15,6 +16,9 @@ render() {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
 	</p>
+	<Route path ='/'>
+		<div><Main /></div>
+	</Route>
       </div>
     );
   }

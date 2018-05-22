@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NoteCard from './NoteCard.js';
+import NoteView from './NoteView.js';
+
 
 class ListView extends Component {
 	render() {
 		return (
 			<div>
-				{this.props.cards.map( (card, index) => <Link to='/NoteView'><NoteCard key=[index] /></Link>
+				{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard key={index} /></Link></div>)}
 			</div>
 		)
 	}
