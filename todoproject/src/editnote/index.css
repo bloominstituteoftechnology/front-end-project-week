@@ -1,22 +1,8 @@
-.content {
+.Form1 {
     display: inline-block;
-    width:800px;
+    width: 500px;
     position: absolute;
-    margin: 38px 0px 0px 38px; 
-    line-height: 2.1; 
-    font: Raleway Medium;
-    font-size: 15px;
-    color: #4A4A4A;
-}
-.content2 {
-    display: inline-block;
-    width:800px;
-    position: absolute;
-    margin: 390px 0px 0px 38px; 
-    line-height: 2.1;  
-    font: Raleway Medium;
-    font-size: 15px;
-    color: #4A4A4A;
+    margin: 38px 0px 0px 38px;  
 }
 
 .container2 {
@@ -38,8 +24,12 @@ h6 {
     margin-top: 80px;
     font-size: 25px;
 }
-/* 
-.content {
+#note-title {
+    height: 45px;
+    border-radius: 1;
+    border: 1px solid darkgray;
+}
+#note-content {
     padding-bottom: 400px;
     width: 750px;
     border-radius: 1;
@@ -59,4 +49,4 @@ h6 {
 }
 .button3:hover {
     background-color: #26acaf;
-} */
+}
