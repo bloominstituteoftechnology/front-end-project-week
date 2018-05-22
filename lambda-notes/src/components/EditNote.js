@@ -21,10 +21,12 @@ class EditNote extends Component {
                     <h4>{this.props.notes[0].title}</h4>
                     <p>{this.props.notes[0].body}</p>
                 </div>
+                <button>Edit</button>
                 <button
                     value={this.props.notes.index} onClick={(event) => {
                         this.handleRemoveNote(event, this.props.notes.index)
-                    }}>Remove Note</button>
+                    }}>Remove Note
+                </button>
             </div>
         )
     }
