@@ -6,7 +6,7 @@ const SaveNote = props => {
   return ( 
     <div className="save-note">
       <Title title={props.title} />
-      <NoteForm action={props.action} />
+      <NoteForm action={props.action} noteId={(props.noteId !== undefined) ? props.noteId : null}/>
     </div>
   );
 }
