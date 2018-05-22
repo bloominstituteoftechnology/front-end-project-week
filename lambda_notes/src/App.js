@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import Notesidebar from './components/Notesidebar.js';
-import NoteList from './components/NoteListjs';
-import logo from './logo.svg';
-
+import { Route, Link } from 'react-router-dom';
+import Notesidebar from './container/Notesidebar.js';
+import NoteList from './container/components/NoteList.js';
+import CreateNote from './container/components/CreateNote.js';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <Notesidebar />
-        <Route exact path="/" component={NoteList} />
       </div>
     );
   }

@@ -8,6 +8,11 @@ import { thunk } from 'react-thunk';
 import { logger } from 'react-logger';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-ReactDOM.render(<Routers><App /></Routers>, document.getElementById('root'));
+ReactDOM.render(
+        <Routers>
+            <App />
+        </Routers>
+, document.getElementById('root'));
 registerServiceWorker();
