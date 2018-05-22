@@ -1,0 +1,9 @@
+.view {
+  background-color: #F3F3F3;
+  border: 1px solid #979797;
+  border-left: none;
+}
+
+.view > div {
+  margin: 40px 20px;
+}
