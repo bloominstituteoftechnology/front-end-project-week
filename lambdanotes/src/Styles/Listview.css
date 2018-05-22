@@ -1,19 +1,20 @@
 .container{
-    height: 100%;
-    width: 350px !important;
     border-color: 1px solid black;
 }
 
-.row{
-    height: 1000px;
+.row{ 
+    height: 100vh;
     border-color: 1px solid black;
 }
 
-.col{
-    background-color:#D8D8D8;    
+.col{   
     flex-grow: 0 !important;
 }
 
 h1 {
     margin-top: 10px !important;
+}
+
+#sidebar {
+    background-color:#D8D8D8; 
 }
