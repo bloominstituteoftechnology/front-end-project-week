@@ -31,9 +31,9 @@ class EditNote extends Component {
            </div>
         
          <div className="mainBody">
+            <div>
             <h4 className="mainBodyTitle">Edit Note:</h4>
             <div>
-              <h4 className="mainBodyTitle">Create New Note:</h4>
               <input className="noteTitle"
                 placeholder="Note Title"
                 type="text"
@@ -54,9 +54,11 @@ class EditNote extends Component {
             </div>
 
             <div>
-              
-              <button className="saveButton" onClick={this.handleAddNote}>Update</button>
+              <Link to="/viewNote">
+              <button className="saveButton" type="button">Update</button>
+              </Link>
             </div>
+          </div>
           </div>
           </div>
       </body>

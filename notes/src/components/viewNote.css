@@ -8,7 +8,6 @@ body {
 .container {
     max-width: 1200px;
     display: flex;
-    height: 100%;
     margin: auto;
     
 
@@ -81,7 +80,22 @@ body {
 
 }
 
+.editLink {
+    font: Raleway Medium;
+    color: #4A4A4A;
+    margin-left: 85%;
+    padding-top: 50px;
+    text-decoration: underline;
+}
 
+.deleteLink {
+    font: Raleway Medium;
+    color: #4A4A4A;
+    padding: 20px;
+    text-decoration: underline;
+    
+    
+}
 
 .mainBodyTitle {
     font: Raleway Medium;

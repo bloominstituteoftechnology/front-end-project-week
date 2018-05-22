@@ -31,6 +31,8 @@ class ViewNote extends Component {
            </div>
         
          <div className="mainBody">
+            <Link className="editLink" to="/editNote">edit</Link>
+            <Link className="deleteLink" to="/viewNote">delete</Link>
             <h4 className="mainBodyTitle">Note Name:</h4>
         </div>
         </div>
