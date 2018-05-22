@@ -14,46 +14,45 @@ class NoteForm extends Component {
       note: "ASJIFKHOKF",
       title: "JFLKHAFNJSKF"
     };
+    this.updateInput = this.updateInput.bind(this);
   }
 
+
+
   //method will handle the UI
-  onChange(event){
-    this.setState({note: event.target.value}, {title: event.target.value})
+  updateInput = (event) => {
+    this.setState({[event.target.name]: event.target.value});
   }
-  //methods that handles the change
-  handleChange(event){
-    console.log('handle change')
-  }
+  //methods that handles the cha
   //fires when the submit button is hit
   handleClick (event) {
     console.log('STATE', this.state)
     event.preventDefault()
     this.setState({note: "", title: ""});
-    console.log('AFTER', this.state)    
-    this.handleChange();
+    console.log('AFTER', this.state)   
   }
 
 
   render() {
+    console.log("STATE", this.state);
     return (
       <Container className="container">
       <Form>
         <FormGroup>
           <Label>Create Note:</Label>
           <Input 
-            state={this.state}
             type="text" 
-            name="text" 
+            name="title" 
             placeholder="Note Title" 
-            value={this.state.title}/>
+            value={this.state.title}
+            onChange={this.updateInput}/>
         </FormGroup>
           <Input 
-            state={this.state}
             type="textarea" 
-            name="text"  
+            name="note"  
             placeholder="Note Content" 
             value={this.state.note}
-            onChange={this.handleChange.bind(this)} />
+            onChange={this.updateInput.bind(this)} />
           <Link to="/"> <Button onClick={this.handleClick.bind(this)} color="info">Save</Button></Link>
       </Form>
       </Container>
