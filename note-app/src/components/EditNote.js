@@ -1,5 +1,5 @@
 import React from "react";
-import { updateNote } from "../actions/action";
+//import { updateNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -65,4 +65,4 @@ const mapDispatchToProps = state => {
   };
 };
 
-export default connect(mapDispatchToProps, { updateNote })(EditNote);
+export default connect(mapDispatchToProps) (EditNote);

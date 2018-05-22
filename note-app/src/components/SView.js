@@ -12,8 +12,6 @@ class SView extends React.Component {
       modal: false,
       list: this.props.notes,
       checked: true,
-      Complete: "NOT COMPLETE",
-      ccolor: "red"
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -37,9 +35,7 @@ class SView extends React.Component {
     });
   };
   handleInputChange = event => {
-    this.setState({ checked: this.state.checked === false ? true : false });
-    this.setState({ ccolor: this.state.ccolor === "red" ? "blue" : "red" });
-    this.props.checkUpdate(this.state.checked, this.props.id);
+
   };
 
   render() {
@@ -52,7 +48,7 @@ const mapDispatchToProps = state => {
   };
 };
 export default connect(mapDispatchToProps, {
-  addNote,
-  deleteNote,
-  checkUpdate
+  //addNote,
+//   deleteNote,
+//   checkUpdate
 })(SView);
