@@ -30,7 +30,7 @@ function NoteDetails({ note }) {
     return (
         <div>
             <div className="note-card">
-                <Link to={`/notes/${note.id}`} >
+                <Link to={`/note/${note.id}`} >
                     <h2>{title}</h2>
                     <p>{body}</p>
                 </Link>

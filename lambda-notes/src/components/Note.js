@@ -12,17 +12,17 @@ class Note extends Component {
   
 
     render() { 
-        console.log('PROPS:', this.props)
-        console.log('NOTES:', this.props.notes)
-        const id = this.props.match.params.id
+        console.log('Note PROPS:', this.props);
+        console.log('Note NOTES:', this.props.notes);
+        const id = this.props.match.params.id;
         const { title, body } = this.props.notes[id];
         return (
             <div className='note-container'> 
                 <div className="note-links">
-                    <Link to="/create">
+                    <Link to={`/note/${id}/edit`}>
                         edit
                     </Link>
-                    <Link to='/notes/delete'>
+                    <Link to='/delete'>
                         delete
                     </Link>
                 </div>
