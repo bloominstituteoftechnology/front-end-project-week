@@ -9,13 +9,34 @@ import NewNote from "./components/NewNote";
 import SideBar from "./components/SideBar";
 
 //LeftSide
-
+function LeftSide() {
+  return (
+    <div>
+      <SideBar />
+    </div>
+  )
+}
 //RightSide
+function RightSide(){
+  return (
+    <div>
+      <MainView />
+    </div>
+  )
+}
 
 //SplitScreen
+// function SplitScreen(){
+//   return (
+//     <div>
 
+//     </div>
+//   )
+// }
 //Home
-
+const Home = props => {
+  return 
+}
 //New
 
 //View
@@ -29,8 +50,8 @@ import SideBar from "./components/SideBar";
 const App = props => {
   return (
     <div>
-      <Route exact path="/" component={SideBar} />
-      <Route path="/notes/new" component={NewNote} />
+      <Route exact path="/" component={} />
+      <Route path="/notes/new" component={} />
       <Route path="/notes/edit" component={EditNote} />
     </div>
   );
