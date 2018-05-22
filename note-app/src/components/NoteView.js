@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NoteView = props => {
   let foundNote = props.notes.filter(note => {
-    return note.id == props.match.params.id;
+    return note.id === props.match.params.id;
   });
 
   return (

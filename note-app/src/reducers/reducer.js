@@ -1,5 +1,5 @@
 import {
-  ADDNOTE,
+  ADDNOTE
   // DELETENOTE,
   // UPDATENOTE,
   // CHECKUPDATE,
@@ -7,6 +7,63 @@ import {
 } from "../actions/action";
 
 const intialState = {
+  notes: [
+    {
+      title: "Note-1",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+
+    {
+      title: "Note-2",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-3",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-4",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-5",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-6",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-7",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-8",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    },
+    {
+      title: "Note-9",
+      note:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl id sapien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus id sagittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit id euismod bibendum.",
+      check: false
+    }
+  ]
 };
 
 export const notesReducer = (state = intialState, action) => {
@@ -42,5 +99,7 @@ export const notesReducer = (state = intialState, action) => {
     //     ...state,
     //     notes: [action.payload]
     //   };
+    default:
+      return state;
   }
 };

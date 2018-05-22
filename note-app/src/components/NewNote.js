@@ -43,8 +43,8 @@ class NewNote extends React.Component {
 
   render() {
     return (
-      <div className="newNote-container">
-        <div className="create-newNote">Create New Note:</div>
+      <div className="newNoteBody">
+        <div className="createNewNote">Create New Note:</div>
         <input
           onChange={this.handleTextInput}
           name="title"
