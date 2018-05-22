@@ -10,8 +10,8 @@ class NewNote extends Component {
         this.state = {
             edit: props.edit,
             note: props.note,
-            title: '',
-            content: '',
+            title: props.title,
+            content: props.content,
             submitted: false
         }
     }
@@ -22,7 +22,7 @@ class NewNote extends Component {
             this.setState({title: '', content: ''})
         } else {
             console.log("updating note")
-            this.setState({title: this.state.note.title, content: this.state.note.content})
+            // this.setState({title: this.state.note.title, content: this.state.note.content})
         }
     }
 
@@ -38,22 +38,36 @@ class NewNote extends Component {
         console.log("Submitted title: ", newNote.title);
         console.log("Submitted content: ", newNote.content);
         if (this.state.edit) {
-            return null;
+            const updatedNote = Object.assign({}, newNote, {id: this.state.note.id})
+            console.log(this.props);
+            axios
+                .put(`http://localhost:5000/note/${updatedNote.id}`, updatedNote)
+                .then( res => {
+                    this.setState({submitted: true});
+                })
+                .catch( err => {
+                    console.log(err);
+                })
         } else {
             axios
-            .post('http://localhost:5000/notes', newNote)
-            .then( res => {
-                this.setState({title: '', content: '', submitted: true})
-            })
-            .catch( err => {
-                console.log(err);
-            })
+                .post('http://localhost:5000/notes', newNote)
+                .then( res => {
+                    this.setState({title: '', content: '', submitted: true});
+                })
+                .catch( err => {
+                    console.log(err);
+                })
         }
     }
 
     render() { 
         return (
             this.state.submitted ? (
+                // this.state.edit ? (
+                //     <Redirect to={`/note/${this.state.note.id}`}/>
+                // ) : (
+                //     <Redirect to="/"/>
+                // )
                 <Redirect to="/"/>
             ) : (
                 <Container className="form-section">
@@ -65,14 +79,14 @@ class NewNote extends Component {
                                     type="text" 
                                     name="title"
                                     placeholder="Note Title"
-                                    defaultValue={this.state.content} 
+                                    defaultValue={this.state.title} 
                                     onChange={this.handleChange}
                                     className="form-title"/>
                                 <Input 
                                     type="textarea" 
                                     name="content" 
                                     placeholder="Note Content"
-                                    defaultValue={this.state.title}
+                                    defaultValue={this.state.content}
                                     onChange={this.handleChange}
                                     className="form-content"/>
                                 <NoteButton color="main" value="Save"/>

@@ -33,6 +33,7 @@ h3.heading {
   align-items: flex-start !important;
   justify-content: flex-start;
   border-right: 1px solid #979797;
+  min-height: 100vh;
 }
 
 .nav-section {
@@ -80,6 +81,7 @@ h3.heading {
   height: 300px;
   border: 1px solid #979797 !important;
   border-radius: 0px !important;
+  color: #4A4A4A;
 }
 
 /* .note-thumbnail:before {
@@ -122,4 +124,25 @@ h3.heading {
   padding: 30px !important;
   font-size: 1em !important;
   border-color: #979797 !important;
+}
+
+.note-content {
+  margin: 35px 30px;
+  line-height: 1.8em;
+  font-size: 1.2em;
+}
+
+.edit-delete {
+  position: absolute;
+  top: 29px;
+  right: 31px;
+}
+
+.edit-delete a {
+  font-family: 'Roboto', sans-serif;
+  margin: 15px;
+  font-size: 1.2em;
+  font-weight: 900;
+  text-decoration: underline !important;
+  cursor: pointer;
 }
