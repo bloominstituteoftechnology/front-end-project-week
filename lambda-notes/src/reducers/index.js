@@ -2,15 +2,24 @@ import { ADD_NOTE, EDIT_NOTE, REMOVE_NOTE } from '../actions';
 
 // { noteText: 'Stuff', edited: false}
 
-let initialArray = [];
+let initialState = [
+    {
+        title: '',
+        body: ''
+    },
+    {
+        title: '',
+        body: ''
+    }
+]
 
 const saveData = (array) => {
     return localStorage.setItem('array', JSON.stringify(array));
 }
 
 const retrieveData = () => {
-    initialArray = JSON.parse(localStorage.getItem('array'));
-    return initialArray === null ? [] : initialArray;
+    initialState = JSON.parse(localStorage.getItem('array'));
+    return initialState === null ? [] : initialState;
 }
 
 export default (state = retrieveData(), action) => {

@@ -11,18 +11,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="sidebar">
-          <SideBar />
-        </div>
-        <div className="container">
-          <div className="home-page">
-            <Route exact path="/" component={NoteList} />
+        <header>The Type of View</header>
+        <div className="app-container">
+          <div className="sidebar">
+            <SideBar />
           </div>
-          <div className="create-note">
-            <Route path="/addNote" component={CreateNote} />
-          </div>
-          <div className="edit-note">
-            <Route path="/editNote" component={EditNote} />
+          <div className="container">
+            <div className="home-page">
+              <Route exact path="/" component={NoteList} />
+            </div>
+            <div className="create-note">
+              <Route path="/addNote" component={CreateNote} />
+            </div>
+            <div className="edit-note">
+              <Route path="/editNote" component={EditNote} />
+            </div>
           </div>
         </div>
       </div>
