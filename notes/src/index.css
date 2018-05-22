@@ -3,8 +3,8 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-image: linear-gradient(
-      rgba(0, 0, 0, 0.0),
-      rgba(0, 0, 0, 0.0)
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
     ),
     url("https://www.st-christophers.co.uk/__data/assets/image/0015/510351/london-bridge-village.jpg");
   height: 30em;
@@ -17,4 +17,12 @@ body {
   -o-background-size: cover;
   background-size: cover;
   margin-bottom: 3em;
+}
+
+button {
+  background-color: #00cccc;
+  color: white;
+  height: 50px;
+  width: 60%;
+  margin-bottom: 20px;
 }
