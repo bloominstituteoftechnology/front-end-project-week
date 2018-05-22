@@ -7,10 +7,12 @@ class NewNote extends Component {
         super(props);
         this.state = {  }
     }
+  
     render() { 
-        
+        console.log("newNote props", this.props.notes)
         return (
-            <div> HELLO I AM THE STUPID NEWNOTE PAGE 
+            <div>
+                {this.props.notes.title} HELLO I AM THE STUPID NEWNOTE PAGE 
             </div>
             
         )
