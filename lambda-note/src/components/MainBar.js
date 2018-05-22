@@ -10,7 +10,7 @@ const MainBar = () => {
     return (
         <div  className ="col-md-9" style = {mainBar}>
             <h1 className ="m-4 font-weight-bold" >Your Notes:</h1>
-            <div className ="d-flex flex-row flex-wrap pr-2 " >
+            <div className ="d-flex flex-row flex-wrap pl-4 " >
                 <NoteList />
                 <NoteList />
                 <NoteList />
