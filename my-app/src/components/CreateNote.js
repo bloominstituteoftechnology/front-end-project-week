@@ -24,8 +24,8 @@ export default class Note extends Component {
     render() {
         return (
             <div className="createNote">
+                <h4>Create New Note</h4>
                 <form className="formStyle">
-                    <h4>Create New Note</h4>
                     <div class="form-group">
                         <input type="text"  value={this.state.title} name="title" placeholder="Note Title" onChange={this.handelTodoChange} />
                     </div>

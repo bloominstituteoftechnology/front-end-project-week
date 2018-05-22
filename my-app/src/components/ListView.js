@@ -8,7 +8,7 @@ class ListView extends Component {
         return (
             <div className="noteArea">
                 {/* ListView - list of all notes */}
-                <h2>Your Notes</h2>
+                <h5>Your Notes</h5>
                 <Notes /> 
             </div>
         );
