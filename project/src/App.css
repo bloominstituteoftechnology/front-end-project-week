@@ -36,12 +36,9 @@
   font-size: 35px;
 }
 
-
-.note title {
-  text-align: left;
-}
 .main {
   background: #F3F3F3;
+  padding-top: 85px;
 }
 
 .card {

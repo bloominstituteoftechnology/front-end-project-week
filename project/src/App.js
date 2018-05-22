@@ -3,13 +3,15 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Route } from 'react-router-dom';
-import displayList from './displayList';
+// import displayList from './displayList';
+import createNew from './createNew';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={displayList}></Route>
+        {/*<Route exact path="/" component={displayList}></Route>*/}
+        <Route path="/" component={createNew}></Route>
       </div>
     );
   }
