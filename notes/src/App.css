@@ -8,7 +8,10 @@
 }
 
 .App-header {
+  display:flex;
   background-color: #222;
+  flex-direction: row;
+  
   height: 150px;
   padding: 20px;
   color: white;
@@ -25,4 +28,36 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.container{
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  
+  
+  -webkit-flex-flow: row wrap;
+  
+
+
+
+  background: tomato;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  
+  line-height: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
 }

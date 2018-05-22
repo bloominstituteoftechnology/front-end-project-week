@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import NoteList from './components/NoteList';
 
-const placeHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+const placeHolder = "/";
 
 const initialNotes = [
   {
@@ -43,13 +43,49 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          
           <h1 className="App-title">Lambda Notes</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+      
         </p>
         <Container>
+          <Col sm="3">
+            <Route path="/"
+              render={props => {
+                return <NoteList notes={this.state.notes} />;
+              }} />
+          </Col>
+          <Col sm="3">
+            <Route path="/"
+              render={props => {
+                return <NoteList notes={this.state.notes} />;
+              }} />
+          </Col>
+          <Col sm="3">
+            <Route path="/"
+              render={props => {
+                return <NoteList notes={this.state.notes} />;
+              }} />
+          </Col>
+          <Col sm="3">
+            <Route path="/"
+              render={props => {
+                return <NoteList notes={this.state.notes} />;
+              }} />
+          </Col>
+          <Col sm="3">
+            <Route path="/"
+              render={props => {
+                return <NoteList notes={this.state.notes} />;
+              }} />
+          </Col>
+          <Col sm="3">
+            <Route path="/"
+              render={props => {
+                return <NoteList notes={this.state.notes} />;
+              }} />
+          </Col>
           <Col sm="3">
             <Route path="/"
               render={props => {
