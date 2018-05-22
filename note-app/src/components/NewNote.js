@@ -30,14 +30,14 @@ class NewNote extends React.Component {
   createNewNote = e => {
     this.count++;
     let { title, body } = this.state;
-    let newNote = {
+    let note = {
       title,
       body,
       id: this.count
     };
 
     e.preventDefault();
-    this.props.addNote(newNote);
+    this.props.addNote(note);
     this.setState({ title: "", body: "" });
   };
 
