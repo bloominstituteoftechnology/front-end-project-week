@@ -29,6 +29,8 @@ class NewNote extends Component {
         e.preventDefault();
         this.props.addNote(newNote);
         this.setState({title: "", body: ""})
+
+        this.props.history.push('/'); // takes back to list view
     }
 
     render() {
