@@ -22,7 +22,7 @@ class CreateNote extends Component {
         super();
         this.state = {
             todos: initialState,
-            todo: ''
+            todo: '',
         };
     }
 handleEventChange = event => {
@@ -33,8 +33,8 @@ handleSubmit = () => {
     const todos = this.state.todos;
     const todo = {
         id: this.state.todo + todos.length,
-        title: this.state.todo,
-        content: this.state.todo,
+        title: this.state.title,
+        content: this.state.content,
     };
     todos.push(todo);
     this.setState({ todos: todos, todo: '' })
@@ -48,10 +48,10 @@ handleSubmit = () => {
             <ListItems todos={this.state.todos} />
             <Form className="Form1">
                 <FormGroup>
-                <Input name="todo" onChange={this.handleEventChange} value={this.state.todo} type="noteTitle" name="noteTitle" id="note-title" placeholder="Note Title" />
+                <Input name="title" onChange={this.handleEventChange} value={this.state.title} type="noteTitle" id="note-title" placeholder="Note Title" />
                 </FormGroup>
                 <FormGroup>
-                <Input type="noteContent" name="noteContent" id="note-content" placeholder="Note Content" />
+                <Input value={this.state.content} onChange={this.handleEventChange} type="noteContent" name="content" id="note-content" placeholder="Note Content" />
                 </FormGroup>
                 <Link to="/">
                 <button onClick={this.handleSubmit} className="button3">Save</button>
