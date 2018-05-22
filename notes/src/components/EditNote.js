@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './EditNote.css';
 
 class EditNote extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class EditNote extends Component {
                 <Row>
                     <Col>
                         <h3>Edit Note:</h3>
-                        <div className="note-title">
+                        <div className="edit-note">
                             <input placeholder="Note Title"/>
                         </div>
                         <div>
@@ -21,7 +22,7 @@ class EditNote extends Component {
                         </div>
                         <span>
                             <Link to="/">
-                                <button>Update</button>
+                                <button className="edit-button">Update</button>
                             </Link>
                         </span>
                     </Col>

@@ -12,6 +12,7 @@ Button font color: #FFFFFF
 Sidebar background: #D8D8D8
 Main background: #F3F3F3
 Main button background: #2BC1C4
+rgb(43, 193, 196)
 Delete button background: #D0021B
 Border color used throughout: #979797
 

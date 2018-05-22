@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './NewNote.css';
 
 class Newnote extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Newnote extends Component {
                         </div>
                         <span>
                             <Link to="/">
-                                <button>Save</button>
+                                <button className="save-button">Save</button>
                             </Link>
                         </span>
                     </Col>

@@ -7,7 +7,13 @@ class Test extends Component {
     }
     render() { 
         return ( 
-            <div>THIS IS A TEST</div>
+            <button 
+                style={{ 
+                    height: '50px', 
+                    width: '200px', 
+                    border: '#979797',
+                    backgroundColor: 'rgb(43, 193, 196)',
+                     }}/>
          )
     }
 }

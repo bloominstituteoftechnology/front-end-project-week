@@ -3,6 +3,7 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import { List, Note, NewNote, EditNote, DeleteNote } from './components';
+// import Test from './components';
 
 class App extends Component {
   render() {
@@ -13,10 +14,10 @@ class App extends Component {
             <Col xs="3" className="sidebar">
               <h1>Lambda Notes</h1>
               <Link to="/">
-                <button>View Your Notes</button>
+                <button className="list-button">View Your Notes</button>
               </Link>
               <Link to="/newnote">
-                <button>+ Create New Note</button>
+                <button className="new-note-button">+ Create New Note</button>
               </Link>
             </Col>
             <Col xs="9" className="content-container">
@@ -25,6 +26,7 @@ class App extends Component {
               <Route path="/note" component={Note}/>
               <Route path="/edit" component={EditNote}/>
               <Route path="/delete" component={DeleteNote}/>
+              {/* <Test/> */}
             </Col>
           </Row>
         </Container>

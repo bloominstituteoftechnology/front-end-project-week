@@ -2,13 +2,43 @@
 
 .App {
   font: Raleway Medium;
+  background-color: #F3F3F3;
+  width:100%;
+  max-width: 1000px;
 }
 
 /* Sidebar Styles*/
 
 .sidebar {
+  /* background-color:rgb(216, 216, 216); */
+  background-color: rgb(185, 185, 185);
   font: Roboto Bold;
   display: fixed;
-  border: 1px solid gray;
+  border-right: 1px solid gray;
+  width:100%;
   height: 700px;
+}
+
+.list-button {
+  
+    height: 50px;
+    width: 200px;
+    border: #979797;
+    background-color: rgb(43, 193, 196);
+    color: white;
+    margin-top:10px;
+    margin-bottom: 10px;
+
+}
+
+.new-note-button {
+
+  height: 50px;
+  width: 200px;
+  border: #979797;
+  background-color: rgb(43, 193, 196);
+  color: white;
+  margin-top:10px;
+  margin-bottom: 10px;
+  
 }
