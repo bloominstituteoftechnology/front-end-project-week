@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import NewNote from './NewNote';
 
@@ -10,7 +11,8 @@ class Note extends Component {
             note: null,
             title: '',
             content: '',
-            edit: false
+            edit: false,
+            deleted: false
         }
     }
 
@@ -38,29 +40,44 @@ class Note extends Component {
         this.setState({edit: true})
     }
 
+    deleteNote = () => {
+        axios
+            .delete(`http://localhost:5000/note/${this.state.note.id}`)
+            .then( res => {
+                this.setState({deleted: true});
+            })
+            .catch( err => {
+                console.log(err);
+            })
+    }
+
     render() { 
         return (
-            this.state.edit ? (
-                <NewNote 
-                    edit={true} 
-                    note={this.state.note} 
-                    title={this.state.title}
-                    content={this.state.content}/>
+            this.state.deleted ? (
+                <Redirect to="/"/>
             ) : (
-                <Container>
-                    <div className="edit-delete">
-                        <a onClick={this.editNote}>edit</a>
-                        <a>delete</a>
-                    </div>
-                    <h3 className="heading">{this.state.title}</h3>
-                    <Row>
-                        <Col sm="12">
-                            <div  className="note-content">
-                                {this.state.content}
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+                this.state.edit ? (
+                    <NewNote 
+                        edit={true} 
+                        note={this.state.note} 
+                        title={this.state.title}
+                        content={this.state.content}/>
+                ) : (
+                    <Container>
+                        <div className="edit-delete">
+                            <a onClick={this.editNote}>edit</a>
+                            <a onClick={this.deleteNote}>delete</a>
+                        </div>
+                        <h3 className="heading">{this.state.title}</h3>
+                        <Row>
+                            <Col sm="12">
+                                <div  className="note-content">
+                                    {this.state.content}
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                )
             )
         )
     }
