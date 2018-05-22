@@ -12,6 +12,18 @@
     flex-flow: row wrap;
 }
 
+.noteCardLink {
+    cursor: default;
+}
+
+.noteCardLink:hover {
+    text-decoration: none;
+}
+
+.noteCard:active {
+    background-color: #F3F3F3;
+}
+
 .noteCard {
     border: 1px solid #979797;
     border-radius: 2px;
@@ -28,6 +40,7 @@
     font-size: 19px;
     padding-bottom: 4px;
     border-bottom: 1px solid #979797;
+    color: black;
 }
 
 .noteContent {
@@ -35,4 +48,5 @@
     font-size: 13.5px;
     text-align: start;
     line-height: 21px;
+    color: black;
 }
