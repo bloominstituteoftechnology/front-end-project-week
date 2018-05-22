@@ -1,180 +1,49 @@
-import React from "react";
+import React, { Component } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchNotes, createNote } from "../actions";
 
 
 
-const Cards = () => {
-  return <div className="col-sm-9 cards">
-      <h4 className="your-notes">Your notes:</h4>
+class Cards extends Component {
+  
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
 
-      <div class="card mb-sm-4 col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          </p>
-        </div>
-      </div>
+  render() {
+      console.log(this.props)
+    return (
 
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
+    <div className="col-sm-9 cards">
+        <h4 className="your-notes">Your notes:</h4>
+        {this.props.notes.map(note => {
+            return (
+            <div className="card mb-sm-4 col-sm-3" key={note.id}>
+          <div className="card-header no-bg">
+            <h5 className="d-sm-inline">{note.title}</h5>
+          </div>
+          <div className="list-group list-group-flush">
+            <p className="mt-sm-2">
+              {note.context}
+            </p>
+          </div>
         </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
+            )
+        })}
+
+        
       </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-      <div class="card mb-sm-4  col-sm-3">
-        <div class="card-header no-bg">
-          <h5 class="d-sm-inline">Note Title</h5>
-        </div>
-        <div class="list-group list-group-flush">
-          <p className="mt-sm-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
-        </div>
-      </div>
-    </div>;
+    )
+  }
 };
 
-export default Cards;
+const mapStateToProps = state => {
+  return {
+    notes: state
+  };
+};
+
+
+export default connect(mapStateToProps, { fetchNotes})(Cards);
