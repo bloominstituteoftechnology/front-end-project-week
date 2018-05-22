@@ -1,6 +1,7 @@
 import React from 'react';
 import NoteList from './notelist.js';
 import NoteView from './noteview.js';
+import NoteForm from './noteform.js';
 
 
 const ContentArea = (props) => {
@@ -22,7 +23,7 @@ const ContentArea = (props) => {
       );
     case "create":
       return (
-        <div>CREATE</div>
+        <NoteForm />
       );
     default:
       return (
