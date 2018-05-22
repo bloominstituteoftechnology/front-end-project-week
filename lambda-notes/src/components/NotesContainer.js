@@ -3,6 +3,8 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Row, Col, CardColumns, Container } from 'reactstrap';
 import './NotesContainer.css'
 
+
+
 const NotesContainer = (props) => {
     return (
             <Card className = "note-container" key={props.note.id}>
@@ -20,3 +22,4 @@ const NotesContainer = (props) => {
 }
 
 export default NotesContainer;
+
