@@ -19,7 +19,7 @@ class NoteList extends Component {
                 <Container>
                     {this.state.notes.map(note => {
                         return (
-                            <NoteCard key={note.id} to={`note/${note.id}`}/>
+                            <NoteCard note={note} key={note.id} to={`note/${note.id}`}/>
                         )
                     })}
                 </Container>
