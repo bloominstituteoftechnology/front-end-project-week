@@ -14,6 +14,7 @@ export const SORTING_NOTE = 'SORTING_NOTE'
 export const SHOW_SORT_BOX = 'SHOW_SORT_BOX'
 export const HIDE_SORT_BOX = 'HIDE_SORT_BOX'
 export const TOGGLE_MARKDOWN= 'TOGGLE_MARKDOWN'
+export const TOGGLE_CHECKLIST= 'TOGGLE_CHECKLIST'
 export const SHOW_TAG_BOX = 'SHOW_TAG_BOX'
 export const HIDE_TAG_BOX = 'HIDE_TAG_BOX'
 export const FETCHING_TAGS = 'FETCHING_TAGS'
@@ -158,9 +159,13 @@ export const hideSortBox = () => {
     return { type: HIDE_SORT_BOX }
 }
 
-// Toggle Markdown
+// Toggle Tools
 export const toggleMarkdown = (checked) => {
     return { type: TOGGLE_MARKDOWN, checked }
+}
+
+export const toggleChecklist = (checked) => {
+    return { type: TOGGLE_CHECKLIST, checked }
 }
 
 // Tag Actions

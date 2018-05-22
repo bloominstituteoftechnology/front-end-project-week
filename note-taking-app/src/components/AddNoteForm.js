@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
-import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 
-import { saveNote, toggleMarkdown } from '../actions';
+import Checklist from './Checklist';
+
+import { saveNote, toggleMarkdown, toggleChecklist } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 
 class AddNoteForm extends Component {
   state = {
@@ -19,7 +21,7 @@ class AddNoteForm extends Component {
     })
   }
   render() {    
-    const { saveNote, toggleMarkdown, inMarkdown } = this.props
+    const { saveNote, toggleMarkdown, inMarkdown, toggleChecklist, inChecklist } = this.props
     const { title, content } = this.state
     return (
       <div style={style.root}>
@@ -31,27 +33,31 @@ class AddNoteForm extends Component {
             style={style.largeText}
           />
           <div style={style.topLine}>
-          {inMarkdown ?
-          // in Markdown mode
-            <TextField
-              style={style.removePadding}
-              borderless
-              placeholder='8am Standup, 1pm Engineer Team Meeting, ...'
-              multiline
-              autoAdjustHeight
-              name='content' value={content} onBeforeChange={val => this.handleChange('content', val)}
-            />
+          {inChecklist ?
+            <Checklist content={content} />
             :
-            <Markdown text={content} />
+            (inMarkdown ?
+            // in Markdown mode
+              <TextField
+                style={style.removePadding}
+                borderless
+                placeholder='8am Standup, 1pm Engineer Team Meeting, ...'
+                multiline
+                autoAdjustHeight
+                name='content' value={content} onBeforeChange={val => this.handleChange('content', val)}
+              />
+              :
+              <Markdown text={content} />
+            )
           }
           </div>
         </div>
         <div style={style.displayBottomCorner}>
           <Toggle
-            checked={inMarkdown}
+            checked={inChecklist}
             onText='Checklist'
             offText='Paragraph'
-            onChanged={checked => toggleMarkdown(checked)}
+            onChanged={checked => toggleChecklist(checked)}
           />
           <Toggle
             checked={inMarkdown}
@@ -72,9 +78,10 @@ class AddNoteForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { inMarkdown } = state.toolsReducer
+  const { inMarkdown, inChecklist } = state.toolsReducer
   return {
-    inMarkdown
+    inMarkdown,
+    inChecklist
   }
 }
 
@@ -105,4 +112,4 @@ const style = {
   }
 }
 
-export default connect( mapStateToProps, { saveNote, toggleMarkdown })(AddNoteForm);
+export default connect( mapStateToProps, { saveNote, toggleMarkdown, toggleChecklist })(AddNoteForm);
