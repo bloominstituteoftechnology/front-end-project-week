@@ -68,10 +68,8 @@
   height: 50px;
   cursor: pointer;
   margin-top: 20px;
-}
-
-.link-btn {
-  color: #FFFFFF;
+  border: 1px solid #979797;
+  border-radius: 0px;
 }
 
 .link-btn:hover {
@@ -81,14 +79,10 @@
 
 .btn.main {
   background-color: #2BC1C4;
-  border: 1px solid #979797;
-  border-radius: 0px;
 }
 
 .btn.danger {
   background-color: #D0021B;
-  border: 1px solid #979797;
-  border-radius: 0px;
 }
 
 .note-thumbnail {
@@ -101,6 +95,12 @@
   display: block;
   padding-top: 10%;
 } */
+
+.note-title {
+  width: 95%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #979797;
+}
 
 .notes-section {
   padding: 10px 30px;
