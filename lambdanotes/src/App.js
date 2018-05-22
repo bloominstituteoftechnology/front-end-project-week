@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   tempReallyDelete() {
-    console.log("REALLY DELETE");
+    this.setState({appState: "list", notes: this.state.notes.filter((note) => note.id !== this.state.viewId), viewId: null})
   }
 
   tempCancelDelete() {
