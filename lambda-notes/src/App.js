@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import note from "./components/dummyData";
 import NoteList from './components/NoteList'
 import NavBar from './components/NavBar';
+import NoteForm from './components/NoteForm';
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component {
   render() {
     const { noteInList } = this.state;
     return (
+      <div className="App">
       <Container>
         <Row>
           <Col sm='3'>
@@ -33,6 +35,7 @@ class App extends Component {
         </Row>
           <h4>Your Notes:</h4>
       </Container>
+      </div>
     );
   }
 }
