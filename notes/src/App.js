@@ -27,6 +27,7 @@ class App extends Component {
         </Link>*/}
         <Route path="/createNote" component={CreateNote}></Route>
         <Route exact path="/" component={DisplayNotes}></Route>
+        <Route path="/viewNote" component={ViewNote}></Route>
 
       </div>
     );
