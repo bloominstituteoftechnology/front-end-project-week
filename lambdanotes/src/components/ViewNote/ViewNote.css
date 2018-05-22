@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-.header {
+.viewNoteHeader {
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
@@ -29,7 +29,7 @@
     font-size: 21px;
 }
 
-.noteContent {
+.ViewNoteContent {
     text-align: start;
     margin: 25px;
     line-height: 25px;

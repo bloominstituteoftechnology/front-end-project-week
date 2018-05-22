@@ -1,4 +1,4 @@
-.title {
+.sidebarTitle {
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
@@ -7,7 +7,7 @@
     line-height: 30px;
 }
 
-.button {
+.sidebarButton {
     background-color: #2BC1C4;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;

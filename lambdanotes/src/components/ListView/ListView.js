@@ -5,7 +5,7 @@ import './ListView.css';
 const ListView = () => {
     return (
         <div className='listViewContainer'>
-            <h3 className='header'>Your Notes:</h3>
+            <h3 className='listViewHeader'>Your Notes:</h3>
             <div className='noteCardsCollection'>
                 <div className='noteCard'>
                     <h6 className='noteTitle'>Note Title</h6>
