@@ -5,6 +5,7 @@ import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reac
 //importing Form CSS
 import './Form.css';
 
+//Class Component that will render NoteForm and its props
 class NoteForm extends Component {
   constructor(props){
     super(props);
@@ -15,14 +16,15 @@ class NoteForm extends Component {
     };
   }
 
+  //method will handle the UI
   onChange(event){
     this.setState({note: event.target.value}, {title: event.target.value})
   }
-
+  //methods that handles the change
   handleChange(event){
     console.log('handle change')
   }
-
+  //fires when the submit button is hit
   handleClick (event) {
     console.log('STATE', this.state)
     event.preventDefault()
