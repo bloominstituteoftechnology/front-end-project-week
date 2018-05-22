@@ -11,3 +11,7 @@
     width: 40%;
     padding-top: 0;
 }
+
+Card {
+    background-color: white;
+}

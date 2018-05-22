@@ -50,9 +50,9 @@ class App extends Component {
                 return <NoteList notes={this.state.notes} />;  
               }}/>
           </Col>
-          <Col sm="9">
+          {/* <Col sm="9">
               
-          </Col>
+          </Col> */}
         </Container>
       </div>
     );
