@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom';
 import '../Navigation/Navigation.css';
 
 class Navigation extends Component {
-  // constructor(){
-  //   super();
-  // }
-
   render(){
     return (
       <div className="NavigationBar">
         <h1 className="Main-Heading">Lambda Notes</h1>
-        <Link to="/">
+        <Link to="/home">
           <button className="NavButton">
             View Your Notes
           </button>
@@ -21,7 +17,6 @@ class Navigation extends Component {
             + Create New Note
           </button>
         </Link>
-       
       </div>
     )
   }

@@ -1,23 +1,22 @@
 import React from 'react';
 import '../NoteCard/NoteCard.css';
+import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
-const NoteCard = props => {
-  return (
-    props.notes.map(note => {
+const NoteCard = ({note}) => {
       return (
-      <Card className="Card-Style" key={note.id}>
-        <CardBody className="Card-Body">
-          <CardTitle className="Card-Title">
-            {note.title}
-          </CardTitle>
-          <CardText className="Card-Text">
-            {note.content}
-          </CardText>
-        </CardBody>
-      </Card>
-    )})
-  )
-}
+      <Link to={`/note/${note.id}`} style={{textDecoration: 'none'}}>
+        <Card className="Card-Style" key={note.id}>
+          <CardBody className="Card-Body">
+            <CardTitle className="Card-Title">
+              {note.title}
+            </CardTitle>
+            <CardText className="Card-Text">
+              {note.content}
+            </CardText>
+          </CardBody>
+        </Card>
+      </Link>
+    )}
 
 export default NoteCard;

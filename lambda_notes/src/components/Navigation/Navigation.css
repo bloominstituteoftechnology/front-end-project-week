@@ -2,7 +2,7 @@
   border-right: 2px solid #979797;
   width: 25%;
   background-color: #D8D8D8;
-  padding: 10px;
+  padding: 15px;
 }
 
 .Main-Heading {
@@ -19,5 +19,6 @@
   text-decoration: none;
   font-size: 1.6rem;
   height: 40px;
+  width: 195px;
   margin: 12px auto 8px;
 }

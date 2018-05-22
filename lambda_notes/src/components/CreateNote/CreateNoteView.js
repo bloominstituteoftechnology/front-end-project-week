@@ -8,7 +8,7 @@ class CreateNoteView extends Component {
     this.state = { 
       title: '',
       content: '',
-      id: Date.now(),
+      id: '',
      };
   }
 
@@ -16,6 +16,13 @@ class CreateNoteView extends Component {
     this.setState({[event.target.name]:event.target.value});
   }
   
+  submitInputChange = (props) => {
+    let notes = this.props.notes;
+    let input = {title: this.state.title, content: this.state.content, id: Date.now()};
+    notes.push(input);
+    this.setState({title: '', content: '', id: ''});
+  }
+
   render() {
     return (
       <div className="NoteView">
@@ -40,8 +47,12 @@ class CreateNoteView extends Component {
             ></textarea>
           </p>
         </form>
-        <Link to="/">
-          <button className="CreateViewButton">Save</button>
+        <Link to="/home">
+          <button 
+          onClick={this.submitInputChange}
+          className="CreateViewButton">
+            Save
+          </button>
         </Link>
       </div>
     );
