@@ -1,7 +1,7 @@
 .optionsContainer {
     display: flex;
     justify-content: flex-end;
-    margin: 15px 32px 0 0;
+    margin: 15px 34px 0 0;
 }
 
 .edit {
@@ -33,5 +33,5 @@
     text-align: start;
     margin: 25px;
     line-height: 25px;
-    font-size: 14.03px;
+    font-size: 14.08px;
 }

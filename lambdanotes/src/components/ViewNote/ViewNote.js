@@ -6,7 +6,8 @@ const ViewNote = () => {
     return (
         <div>
             <div className='optionsContainer'>
-                <p className='edit'>edit</p><p className='delete'>delete</p>
+                <p className='edit'>edit</p>
+                <p className='delete'>delete</p>
             </div>
             <h3 className='viewNoteHeader'>Note Name</h3>
             <p className='ViewNoteContent'>

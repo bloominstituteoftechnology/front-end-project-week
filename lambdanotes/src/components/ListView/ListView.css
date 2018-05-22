@@ -7,13 +7,13 @@
 }
 
 .noteCardsCollection {
-    margin: 16px 18px;
+    margin: 16px 20px;
     display: flex;
     flex-flow: row wrap;
 }
 
 .entireNoteCardLink {
-    width: 193px;
+    width: 192px;
     margin: 12px 8px;
 }
 
