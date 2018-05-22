@@ -22,10 +22,10 @@ class NoteForm extends React.Component {
       <Form>
         <h5>{this.props.topText}</h5>
         <FormGroup>
-          <Input name="myTitle" onChange={this.handleFormType} id="title-input" placeholder="Note Title" />
+          <Input name="myTitle" onChange={this.handleFormType} id="title-input" placeholder="Note Title" value={this.state.myTitle} />
         </FormGroup>
         <FormGroup>
-          <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" />
+          <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" value={this.state.myContent} />
         </FormGroup>
       </Form>
     );
