@@ -29,7 +29,7 @@
   to { transform: rotate(360deg); }
 }
 
-.App-content {
+.App-content-container {
   flex: 10;
   padding: 25px;
   border: 1px solid #979797;
@@ -58,3 +58,23 @@ Sidebar background: #D8D8D8
  Main button background: #2BC1C4 
  Delete button background: #D0021B 
  Border color used throughout: #979797 */
+
+.NotesList-container {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.NoteCard-list {
+  background: white;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #979797;
+  width: 27%;
+}
+
+.NoteCard-tittle {
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #979797;
+  padding-bottom: 10px;
+}
