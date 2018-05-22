@@ -34,3 +34,11 @@
   padding: 15px;
   width: 275px;
 }
+
+@media (min-width: 890px) {
+  .navigation {
+    min-height: 100vh;
+    margin-right: 1rem;
+    width: 320px;
+  }
+}

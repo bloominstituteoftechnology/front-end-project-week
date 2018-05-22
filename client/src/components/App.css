@@ -14,3 +14,9 @@ a {
   color: #4A4A4A;
   text-decoration: none;
 }
+
+@media (min-width: 890px) {
+  .App {
+    display: flex;
+  }
+}

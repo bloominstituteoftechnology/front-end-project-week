@@ -3,6 +3,9 @@ import React from 'react';
 // components
 import Note from './Note';
 
+// style
+import './NoteView.css';
+
 const NoteView = props => {
   return (
     <div className='noteview__note-container'>
