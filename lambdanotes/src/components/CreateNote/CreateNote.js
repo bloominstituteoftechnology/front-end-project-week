@@ -11,9 +11,11 @@ const CreateNote = () => {
             <form className='createNoteForm'>
                 <input type='text' className='createNoteInputTitle' name='title' placeholder='Note Title' />
                 <textarea type='text' className='createNoteInputContent' name='content' placeholder='Note Content'></textarea>
-                <Link to='/note' className='createNoteLink'>
-                    <input className='createNoteSaveButton' type='button' value='Save' />
-                </Link>
+                <div className='cnEntireLink'>
+                    <Link to='/note'>
+                        <input className='createNoteSaveButton' type='button' value='Save' />
+                    </Link>
+                </div>
             </form>
         </div>
     )

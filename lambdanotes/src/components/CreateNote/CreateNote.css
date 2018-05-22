@@ -36,17 +36,13 @@
     padding: 17px 20px;
 }
 
-.createNoteLink {
-    display: flex;
-    cursor: default;
-}
-
-.createNoteLink:hover{
-    text-decoration: none;
+.cnEntireLink {
+    margin: 14px 0 0 2px;
+    width: 190px;
+    height: 41px;
 }
 
 .createNoteSaveButton {
-    margin: 14px 0 0 2px;
     width: 190px;
     height: 41px;
     background-color: #2BC1C4;
