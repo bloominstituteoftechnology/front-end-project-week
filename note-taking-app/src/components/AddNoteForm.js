@@ -104,11 +104,7 @@ class AddNoteForm extends Component {
             primary={ true }
             iconProps={ { iconName: 'Save' } }
             text='Save'
-<<<<<<< HEAD
             onClick={() => saveNote({title, content, inChecklist})}
-=======
-            onClick={() => saveNote({title, content: content.toJSON()})}
->>>>>>> master
           />
         </div>
       </div>
@@ -154,8 +150,4 @@ const style = {
   }
 }
 
-<<<<<<< HEAD
 export default connect( mapStateToProps, { saveNote, toggleMarkdown, toggleChecklist })(AddNoteForm);
-=======
-export default connect( mapStateToProps, { saveNote, toggleMarkdown })(AddNoteForm);
->>>>>>> master
