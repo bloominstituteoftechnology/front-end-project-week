@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
 const SideBar = () => {
-    const sideBarStyle = {
-        backgroundColor : "#D8D8D8"
+    const sideBar = {
+        backgroundColor : "#D8D8D8",
+        height : "100vh",
+        width : "25vh"
     }
 
     return (
-        <Container className = "W-25" >
+        <div style ={sideBar} >
 
-        </Container>
+        </div>
     )
 }
 

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Container, Row, Col} from 'reactstrap';
 const MainBar = () => {
     const mainBar = {
-      backgroundColor : "#F3F3F3"
+      backgroundColor : "#F3F3F3",
+      height : "100vh",
+      width : "75vh",
+
     }
     return (
-        <div className = "w-75" style = {mainBar}>
+        <div  style = {mainBar}>
 
         </div>
     )
