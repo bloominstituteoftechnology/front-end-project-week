@@ -6,9 +6,31 @@ class NoteEdit extends Component {
     super(props);
     this.state = {  
       title:"",
-      body:""
+      body:"",
+      id: null,
+      edit: false
     } 
 
+  }
+
+  componentDidMount() {
+    // console.log("will",this.props)
+    // const editNote = this.props.notes.filter((current) => {
+    //   return current.id === Number(this.props.match.params.id)
+    // })
+    // console.log("filtered note",editNote[0].title)
+    if(this.props.match.path === "/edit/:id"){
+      const editNote = this.props.notes.filter((current) => {
+        return current.id === Number(this.props.match.params.id)
+      })
+      this.setState({ 
+        edit: true, 
+        title: editNote[0].title,
+        body: editNote[0].body,
+        id: editNote[0].id
+      })
+    }
+    
   }
 
   handleInput = e => {
@@ -17,7 +39,7 @@ class NoteEdit extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const newNote = Object.assign({}, this.state, {id: Date.now()});
+    const newNote = Object.assign({}, this.state);
     if(newNote.title !== "" && newNote.body !== ""){
       this.props.add(newNote);
     }
@@ -27,13 +49,16 @@ class NoteEdit extends Component {
       title: "",
       body: ""
     })
+
+    this.props.history.push("/")
+
   }
   
   render() { 
-    console.log(this.props)
+    console.log('true? ',this.state.edit)
     return (
       <React.Fragment>
-        <h3>Create New Note:</h3>  
+        <h3>{this.state.edit ? "Edit Note:" : "Create New Note:"}</h3>  
         <Form>
         <FormGroup>
             <Input type="text" name="title" value={this.state.title} onChange={this.handleInput} placeholder="Note Title"/>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import NoteCards from './NoteCards';
 import NoteEdit from './NoteEdit';
+import NoteView from './NoteView';
 
 class AllNotes extends Component {
   constructor(props) {
@@ -42,8 +44,26 @@ class AllNotes extends Component {
   }
 
   addNote = (note) => {
-    const newNotes = this.state.notes.concat(note)
-    this.setState({ notes: newNotes })
+    const newNotes = this.state.notes.concat({ id: Date.now(), title: note.title, body: note.body })
+    this.setState({ notes: newNotes, })
+    console.log("add",newNotes)
+  }
+
+  deleteNote = note => {
+    const afterDelete = this.state.notes.filter((current) => {
+      return current.id !== note
+    })
+    console.log("after filter",afterDelete)
+    this.setState({ notes: afterDelete })
+  }
+
+  editNote = note => {
+    console.log("edit",note)
+    const newNotes = this.state.notes.filter((c) => {
+      return c.id !== note.id
+    })
+    this.setState({notes: newNotes.concat({id: note.id, title: note.title, body: note.body})})
+    console.log(newNotes)
   }
 
 
@@ -51,8 +71,10 @@ class AllNotes extends Component {
     return (  
       <div className="col-9 mt-5">
         
-        <NoteCards notes={this.state.notes} />
-        <NoteEdit add={this.addNote}/>
+        <Route exact path="/" render={() => <NoteCards notes={this.state.notes} />} />
+        <Route path="/add" render={(props) => <NoteEdit {...props} add={this.addNote}/>} />
+        <Route path="/edit/:id" render={(props) => <NoteEdit {...props} notes={this.state.notes} add={this.editNote}/>} />
+        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
       </div>
     )
   }

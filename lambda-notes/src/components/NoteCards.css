@@ -1,10 +1,23 @@
+.links{
+  font-style: inherit;
+  color: inherit;
+  /* background-color: transparent; */
+  /* font-size: inherit; */
+  /* text-decoration: none; */
+}
+
+.links:hover {
+  text-decoration: none;
+  color: grey;
+}
 
 .card {
-  height: 200px;
+  /* height: 200px; */
   overflow: hidden;
   font-size: 12px;
   padding: 5px;
   border: solid thin #979797;
+  text-decoration: none;
 }
 
 .card-body {  
