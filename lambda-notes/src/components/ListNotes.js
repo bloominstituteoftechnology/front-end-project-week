@@ -10,7 +10,7 @@ export default class ListNotes extends Component {
     }
 
     render() { 
-        console.log(this.props.notes)
+        console.log("NOTES",this.props.notes)
         return ( 
             <div>
                 <h2 className="main-header">Your Notes:</h2> 

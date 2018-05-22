@@ -15,9 +15,10 @@ class CreateNote extends Component {
     }
 
     saveNewNote = () => {
-        const newNote = {title: this.state.title, body: this.state.body};
+        const newNote = {id: this.props.notes.length, title: this.state.title, body: this.state.body};
         const notes = this.props.notes;
-        notes.unshift(newNote);
+        console.log('NOTES:', notes)
+        notes.push(newNote);
         this.setState({
             title: '',
             body: ''
@@ -25,7 +26,6 @@ class CreateNote extends Component {
     }
 
     render() { 
-        console.log("NEW NOTE PROPS",this.props.notes)
         const notes = this.props.notes;
         return ( 
             <div className="new-note-container">
