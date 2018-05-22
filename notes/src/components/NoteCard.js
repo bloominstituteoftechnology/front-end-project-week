@@ -3,7 +3,7 @@ import {Card, CardText, CardBody, CardTitle, Button } from 'reactstrap';
 
 
 
-const NoteCard = (props) => {
+const NoteCard = () => {
     return (
         <div>
             <Card>
@@ -16,6 +16,5 @@ const NoteCard = (props) => {
 
     );
 };
-
 
 export default NoteCard;

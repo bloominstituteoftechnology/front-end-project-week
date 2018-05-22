@@ -1,0 +1,19 @@
+.sidebar-wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
+    width: 20%;
+    background-color: #D8D8D8;
+    font-family: 'Roboto Bold';
+}
+
+.viewNotes{
+
+    
+
+}
+
+.createNote{
+
+
+}
