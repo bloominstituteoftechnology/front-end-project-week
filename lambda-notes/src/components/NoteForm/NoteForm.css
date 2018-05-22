@@ -14,3 +14,7 @@
 .save-note-form .form-control.contents {
   min-height: 400px;
 }
+
+.save-note-form .button {
+  max-width: 250px;
+}
