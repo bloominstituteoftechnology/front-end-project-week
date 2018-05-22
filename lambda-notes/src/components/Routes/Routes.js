@@ -7,7 +7,7 @@ import Note from '../../views/Note';
 
 const Routes = () => {
   return (
-    <div>
+    <div class="main-container">
       <Route exact path="/" component={List} />
       <Route path="/create-new" component={CreateNew} />
       <Route path="/edit" component={Edit} />
