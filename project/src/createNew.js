@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Input, FormText } from 'reactstrap';
 
 class createNew extends Component {
     render() {
@@ -21,11 +20,10 @@ class createNew extends Component {
                 </div>
 
                 <div className='createNew-Form'>
-                    <Form>
-                        <FormGroup className="form">
+                    <form className="form">
                         <div className="CNtitle"><strong>Create New Note:</strong></div>
                             <div className="CNnewTitle">
-                                <Input type="email" name="email" id="exampleEmail" placeholder="New Title" />
+                                <input type="email" name="email" id="exampleEmail" placeholder="New Title" />
                             </div>
                             <div>
                                 {/* <Input className="comment" type="text" name="new comment" id="new comment" placeholder="New Comment" />*/}
@@ -34,9 +32,7 @@ class createNew extends Component {
                             <div>
                                 <button className="CNbutton">Save</button>
                             </div>
- 
-                        </FormGroup>
-                    </Form>
+                    </form>
                 </div>
         </container>
             </div>
