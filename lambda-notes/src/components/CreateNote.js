@@ -7,10 +7,26 @@ class CreateNote extends Component {
   constructor (props) {
     super(props);
     this.state = {
+      noteID: new Date(),
       noteTitle: '',
-      noteContent: ''
+      noteText: ''
   }
 }
+
+handleNoteInput = e => {
+    this.setState({[e.target.name]: e.target.value});
+};
+
+handleSaveNoteButton = () => {
+    const newNote = this.state;
+    this.props.notes.push(newNote);
+    this.setState({
+        noteID: new Date(),
+        noteTitle: '',
+        noteText: ''
+    });
+}
+
 
   render() {
 
@@ -19,16 +35,16 @@ class CreateNote extends Component {
             <SideBar />
             <Form>
             <FormGroup>
-                <Label for="note-title">Edit Note:</Label>
-                <Input type="text" name="note-title" id="note-title" placeholder="Note Title" value={this.state.noteTitle} />
+                <Label for="note-title">Create New Note:</Label>
+                <Input onChange={this.handleNoteInput} type="text" name="noteTitle" id={this.state.noteID} placeholder="Note Title" value={this.state.noteTitle} />
             </FormGroup>
 
             
             <FormGroup>
-                <Input type="textarea" name="note-content" id="note-content" placeholder="Note Content" value={this.state.noteContent}/>
+                <Input onChange={this.handleNoteInput} type="textarea" name="noteText" id={this.state.noteID} placeholder="Note Text" value={this.state.noteText}/>
             </FormGroup>
             
-            <Button>Update</Button>
+            <Button onClick={this.handleSaveNoteButton} >Save</Button>
             </Form>
         </div>
       );

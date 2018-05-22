@@ -9,7 +9,7 @@ const SideBar = () => {
     return (
         <div className="side-bar">
             <h2>Lambda <br/>Notes</h2>
-            <Button color="info" className="side-bar-button">View Your Notes</Button>
+            <Link to="/"><Button color="info" className="side-bar-button">View Your Notes</Button></Link>
             <br/>
             <br/>
             <Link to="/createNote"><Button color="info" className="side-bar-button">+Create New Note</Button></Link>

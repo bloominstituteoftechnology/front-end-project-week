@@ -46,7 +46,8 @@ componentDidMount () {
             })}
           </Row>
         </Container>
-        <Route path="/createNote" component={ CreateNote } />
+        <Route path="/createNote" render={() => <CreateNote notes={this.state.userNotes}/>} />
+        {/* <Route path="/createNote" component={ CreateNote } /> */}
       </div>
     );
   }
