@@ -6,8 +6,8 @@ const NoteCard = props => {
   const notePreview = `${props.note.value.slice(0, 100)}...`;
   return (
     <React.Fragment>
-      <Link to={`/note/${props.note.id}`}>
-        <Card className="note-preview-card">
+      <Link className="note-card-link" to={`/note/${props.note.id}`}>
+        <Card className="note-card">
           <CardBody>
             <CardTitle>
               {props.note.title}
