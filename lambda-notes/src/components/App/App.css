@@ -30,12 +30,31 @@
 }
 
 .App-content {
-  flex: auto;
+  flex: 10;
   padding: 25px;
+  border: 1px solid #979797;
 }
 
-.Nav {
-  flex: auto;
+.Nav-container {
+  flex: 2;
   background: #D8D8D8;
   padding: 25px;
+  border: 1px solid #979797;
 }
+
+.main-button {
+  width: 100%;
+  color: #FFFFFF;
+  background: #2BC1C4;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 0px;
+  font-size: 15px;
+}
+
+/* Button font color: #FFFFFF 
+Sidebar background: #D8D8D8
+ Main background: #F3F3F3 
+ Main button background: #2BC1C4 
+ Delete button background: #D0021B 
+ Border color used throughout: #979797 */

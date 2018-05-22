@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 class Nav extends Component {
     render() { 
         return (
-            <div className="Nav">
+            <div className="Nav-container">
                 <h1>Lambda Notes</h1>
-                <p><a href="">View Your Notes</a></p>
-                <p><a href="">+ Create New Note</a></p>
+                <button className="main-button">View Your Notes</button>
+                <button className="main-button">+ Create New Note</button>
             </div>
         )
     }

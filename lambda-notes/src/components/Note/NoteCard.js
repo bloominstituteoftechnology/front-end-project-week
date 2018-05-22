@@ -7,7 +7,7 @@ class NoteCard extends Component {
     }
     render() { 
         return (
-            <div>
+            <div className="App-content">
                 <h3>
                     {this.props.note.title}
                 </h3>

@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      show : true,
       notes: [
         {
           id: 1,
@@ -53,9 +54,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header> */}
         <Nav />
-        <NotesList notes={this.state.notes} />
-        {/* <NoteForm header="Create New Note" button="Save" /> */}
-        {/* <ViewNote note={this.state.notes[0]}/> */}
+        {this.state.show && <NotesList notes={this.state.notes} />}
+        {!this.state.show && <NoteForm header="Create New Note" button="Save" />}
+        {!this.state.show && <ViewNote note={this.state.notes[0]}/>}
       </div>
     );
   }

@@ -9,7 +9,7 @@ class VieNote extends Component {
     }
     render() { 
         return (
-            <div>
+            <div className="App-content">
                 <a href="">edit</a>
                 <a href="">delete</a>
                 <NoteCard note={this.props.note}/>
