@@ -1,0 +1,25 @@
+.new-note{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.new-note input{
+    margin-bottom: 20px;
+    width: 500px;
+}
+
+.new-note textarea{
+    width: 500px;
+    height: 500px;
+}
+
+.save-note{
+    color: #FFF;
+    background-color: #2BC1C4;
+    margin: 10px 15px;
+    padding: 10px;
+    font-weight: 700;
+    width: 300px;
+}

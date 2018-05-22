@@ -30,10 +30,13 @@ export default class ListNotes extends Component {
     render() { 
         console.log(this.state.notes)
         return ( 
-            <div className="note-list">
-                {this.state.notes.map(note => (
-                    <NoteDetails key={note.id} note={note} />
-                ))}
+            <div>
+                <h2 className="main-header">Your Notes:</h2> 
+                <div className="note-list">
+                    {this.state.notes.map(note => (
+                        <NoteDetails key={note.id} note={note} />
+                    ))}
+                </div>
             </div>
          )
     }
@@ -44,11 +47,14 @@ function NoteDetails({ note }) {
     const { title, body } = note;
     console.log('NOTE:', note);
     return (
-        <div className="note-card">
-            <Link to={`/notes/${note.id}`} >
-                <h2>{title}</h2>
-                <p>{body}</p>
-            </Link>
+        <div>
+            {/* <h2 className="main-header">Your Notes:</h2>        */}
+            <div className="note-card">
+                <Link to={`/notes/${note.id}`} >
+                    <h2>{title}</h2>
+                    <p>{body}</p>
+                </Link>
+            </div>
         </div>
     )
 }

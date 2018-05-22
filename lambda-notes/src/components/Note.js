@@ -27,9 +27,7 @@ class Note extends Component {
          }
     }
 
-    // componentDidMount() {
-    //     const id = this.props.match.params.id
-    // }
+  
 
     render() { 
         console.log('STATE:', this.state)
@@ -39,8 +37,12 @@ class Note extends Component {
         return (
             <div className='note-container'> 
                 <div className="note-links">
-                    <Link to="/notes/create"><a>edit</a></Link>
-                    <Link to='/notes/delete'><a>delete</a></Link>
+                    <Link to="/create">
+                        <a>edit</a>
+                    </Link>
+                    <Link to='/notes/delete'>
+                        <a>delete</a>
+                    </Link>
                 </div>
                 <div className="view-note">
                     <h2> {title} </h2>
