@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+div {
+  color: magenta;
+}
+div {
+  color: gold;
+}
+div {
+  color: cyan;
+}
+div {
+  color: pink;
+}
+div {
+  color: purple;
+}

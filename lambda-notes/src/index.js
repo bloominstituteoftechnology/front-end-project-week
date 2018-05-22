@@ -9,10 +9,10 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
+import "./css/index.css";
 
 import mainReducer from "./reducers";
-import App from "./components/App";
+import App from "./components/App/App";
 
 const store = createStore(mainReducer, applyMiddleware(thunk, logger));
 
