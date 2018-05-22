@@ -51,6 +51,14 @@ class App extends Component {
     this.setState({appState: "deleting"});
   }
 
+  tempReallyDelete() {
+    console.log("REALLY DELETE");
+  }
+
+  tempCancelDelete() {
+    this.setState({appState: "view"});
+  }
+
   render() {
     return (
       <div className="App">
@@ -64,7 +72,9 @@ class App extends Component {
                 appState={this.state.appState}
                 notes={this.state.notes}
                 viewId={this.state.viewId}
-                deleteMethod={this.tempDelete.bind(this)} />
+                deleteMethod={this.tempDelete.bind(this)}
+                reallyDeleteMethod={this.tempReallyDelete.bind(this)}
+                cancelDeleteMethod={this.tempCancelDelete.bind(this)} />
             </Col>
           </Row>
       </div>
