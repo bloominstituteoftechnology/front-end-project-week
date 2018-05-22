@@ -10,7 +10,7 @@ class App extends Component {
       <Route path='/'>
         <div className='App container-fluid'>
           <div className='row mainRow'><NavBar /></div>
-          <div className='col-9 contAll'><noteAll /></div>
+          <div className='col-9 contAll'><AddNote /></div>
         </div>
       </Route>
 
