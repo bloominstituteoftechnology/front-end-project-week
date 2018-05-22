@@ -126,6 +126,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/** Import all less files from components */
+.custom-button {
+  color: white;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+}
+/* SideBar_ */
+.side-bar {
+  height: 100vh;
+  padding: 1.3rem 1rem;
+  background-color: #D8D8D8;
+  border: 1px solid #979797;
+}
+.side-bar h1 {
+  margin-bottom: 1.65rem;
+}
 *,
 *:before,
 *:after {
@@ -134,7 +156,7 @@ table {
 html,
 body {
   height: 100%;
-  font-family: "Raleway Medium";
+  font-family: "Raleway Medium", sans-serif;
   color: #4A4A4A;
   border: 1px dotted green;
 }
@@ -143,8 +165,12 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Roboto Bold";
+  font-family: "Roboto Bold", sans-serif;
   letter-spacing: 1px;
+}
+h1 {
+  font-size: 2.3rem;
+  font-weight: 900;
 }
 .custom-container {
   max-width: 80%;
@@ -152,15 +178,12 @@ h5 {
   padding: 0;
   border: 1px solid cyan;
 }
-.custom-container .side-bar {
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  border: 1px solid red;
+.custom-container .row {
+  margin: 0px;
 }
-.custom-container .custom-main {
+.custom-container .row .side-bar .custom-main {
   padding: 0;
-  margin: 0;
   height: 100vh;
   border: 1px solid darkorange;
+  background-color: #F3F3F3;
 }

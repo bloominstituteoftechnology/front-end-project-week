@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Button_ = () => {
+const Button_ = (props) => {
+  const {text} = props;
   return (
-    <div>
-      
+    <div className="text-center custom-button" >
+      {text}
     </div>
   );
 };
