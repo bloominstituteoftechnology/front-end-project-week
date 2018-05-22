@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Notes from './Note';
-import './listView.css';
+import './css/listView.css';
 import { list } from '../list';
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
 import CreateNote from './components/CreateNote';
