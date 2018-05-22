@@ -1,8 +1,13 @@
 import React from 'react';
-
+import Header from '../Header';
+import Button from '../Button';
 const Sidebar = () => {
   return (
-    <div>Sidebar</div>
+    <div className="sidebar">
+      <Header title="Lambda Notes"/>
+      <Button type="primary" title="View Your Notes" link="/"/>
+      <Button type="primary" title="+ Create New Note" link="/create-new"/>
+    </div>
   );
 }
 
