@@ -1,8 +1,11 @@
 import React from 'react';
+import Sidebar from '../../components/Sidebar';
 
 const List = () => {
   return (
-    <div>List View</div>
+    <React.Fragment>
+      <Sidebar />
+    </React.Fragment>
   );
 }
  

@@ -1,8 +1,12 @@
 import React from 'react';
+import Sidebar from '../../components/Sidebar';
+
 
 const CreateNew = () => {
   return (
-    <div>Create New View</div>
+    <React.Fragment>
+      <Sidebar />
+    </React.Fragment>
   );
 }
 

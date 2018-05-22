@@ -1,8 +1,11 @@
 import React from 'react';
+import Sidebar from '../../components/Sidebar';
 
 const Edit = () => {
   return (
-    <div>Edit View</div>
+    <React.Fragment>
+      <Sidebar />
+    </React.Fragment>
   );
 }
 
