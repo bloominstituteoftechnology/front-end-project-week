@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 const SideBar = () => {
-    const sideBar = {
-        height : "100vh",
-        backgroundColor: "#D8D8D8"
-      }
+    const sideBarStyle = {
+        backgroundColor : "#D8D8D8"
+    }
+
     return (
-        <Container>
+        <Container className = "W-25" >
 
         </Container>
     )
