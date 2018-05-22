@@ -7,7 +7,7 @@ class Test extends Component {
     }
     render() { 
         return ( 
-            null
+            <div></div>
          )
     }
 }
