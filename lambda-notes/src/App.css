@@ -1,55 +1,42 @@
-body {
-  font-family: Raleway Medium;
-  background: #F3F3F3;
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+body, html {
+  height: 100%;
 }
 
 .sidebar {
   height: 100%;
-  width: 220px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  display: flex;
+  flex-direction: column;
+  /* width: 249px; */
+  /* position: fixed; */
+  /* z-index: 1; */
+  /* top: 0;
+  left: 0; */
   background-color: #D8D8D8;
-  overflow-x: hidden;
-  padding-top: 20px;
+  /* overflow-x: hidden; */
+  /* padding-top: 20px; */
 }
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
+.cards {
+  height: 100%;
+  background: #F3F3F3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 2.5%;
+  padding-right: 2.5%
+}
+
+.card {
+  min-width: 320px;
+}
+
+.container-fluid {
+  height: 100%;
+  /* max-width: 1000px; */
+}
+
+.custom-row {
+  height: 100%;
 }
 
 .sidebar-item{
@@ -57,3 +44,18 @@ body {
   background: #2BC1C4;
   color: white;
 }
+
+.sidebar-header {
+  margin-left: 4%;
+  margin-top: 6%
+}
+.no-bg{
+  background: none;
+}
+
+.your-notes {
+  width: 100%;
+  margin-bottom: 2%;
+  margin-top: 5.5%;
+}
+
