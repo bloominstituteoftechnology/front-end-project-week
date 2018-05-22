@@ -28,7 +28,8 @@ class Notes extends Component {
 
     render() { 
         return (
-            <Container>Your Notes: 
+            <Container>
+                <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">
                     {this.state.notes.map( note => {
                         return <NoteThumbnail note={note} key={note.id}/>

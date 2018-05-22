@@ -9,9 +9,11 @@ class NavNotes extends Component {
         return (
             <Navbar className="nav-container" fixed="true">
                 <Nav vertical="true" className="nav-section">
-                    <h1 className="heading">Lambda Notes</h1>
-                    <NoteButton color="main" value="View Your Notes" link="/"/>
-                    <NoteButton color="main" value="+ Create New Note" link="/new"/>
+                    <h2 className="heading nav-heading">Lambda Notes</h2>
+                    <div className="btn-container">
+                        <NoteButton color="main" value="View Your Notes" link="/"/>
+                        <NoteButton color="main" value="+ Create New Note" link="/new"/>
+                    </div>
                 </Nav>
             </Navbar>
         )

@@ -57,9 +57,10 @@ class NewNote extends Component {
                 <Redirect to="/"/>
             ) : (
                 <Container className="form-section">
+                    <h3 className="heading">Create New Note: </h3>
                     <Row>
-                        <Col sm={{ size: 8, offset:2 }}>
-                            <Form onSubmit={this.saveNote}>
+                        <Col sm="12">
+                            <Form onSubmit={this.saveNote} className="form">
                                 <Input 
                                     type="text" 
                                     name="title"
