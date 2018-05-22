@@ -1,11 +1,16 @@
 .cardColumns {
     border: 1px solid blue; 
+    
+    
 }
 
-.card {
-    margin: 30px;
-    border: 1px solid green; 
-
-    
+.card {    
+    margin-right: 50px;
+    border: 1px solid darkmagenta; 
 
 };
+
+.cardBody {   
+    display: flex; 
+    flex-wrap: wrap; 
+}
