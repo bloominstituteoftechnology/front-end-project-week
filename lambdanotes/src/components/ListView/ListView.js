@@ -1,23 +1,51 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './ListView.css';
-import { Container, Col, Row } from 'reactstrap';
 
 const ListView = () => {
     return (
         <div className='listViewContainer'>
-            <Container>
-                <Row>
-                    <Col>
-                        <h3>Your Notes</h3>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                    
-                    </Col>
-                </Row>
-            </Container>
+            <div>
+                <h3 className='header'>Your Notes:</h3>
+            </div>
+            <div className='noteCardsCollection'>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+                <div className='noteCard'>
+                    <h6 className='noteTitle'>Note Title</h6>
+                    <p className='noteContent'>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, eﬃcitur mollis …</p>
+                </div>
+            </div>
         </div>
     )
 }

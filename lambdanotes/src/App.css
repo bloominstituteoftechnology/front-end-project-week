@@ -1,11 +1,18 @@
 .App {
   text-align: center;
-  height: 1000px;
+  display: flex;
+  border: 1px solid #979797;
 }
 
 .sidebarContainer {
   width: 25%;
   background-color: #D8D8D8;
-  border: 1px solid #979797;
-  height: 888px;
+  border-right: 1px solid #979797;
+  height: 886px;
+}
+
+.viewContainer {
+  width: 75%;
+  height: 886px;
+  background: #F3F3F3;
 }

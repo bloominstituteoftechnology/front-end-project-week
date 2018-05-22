@@ -9,7 +9,7 @@ import ListView from './components/ListView/ListView.js';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='App'>
         <div className='sidebarContainer'>
           <Route path='/' component={Sidebar} />
         </div>

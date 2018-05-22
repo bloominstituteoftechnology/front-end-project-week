@@ -1,3 +1,37 @@
-.listViewContainer {
-    background: #F3F3F3;
+.header {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 54px 0 8px 26px;
+    font-size: 21px;
+}
+
+.noteCardsCollection {
+    margin: 16px 18px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.noteCard {
+    border: 1px solid #979797;
+    border-radius: 2px;
+    background-color: white;
+    width: 193px;
+    margin: 12px 8px;
+    padding: 9px 19px;
+}
+
+.noteTitle {
+    font-family: 'Roboto', sans-serif;
+    text-align: start;
+    font-size: 19px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #979797;
+}
+
+.noteContent {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13.5px;
+    text-align: start;
+    line-height: 21px;
 }
