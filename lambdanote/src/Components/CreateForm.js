@@ -2,28 +2,27 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 export default class CreateForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             notes: [],
+            id: '',
             title: '',
             text: ''
         }    
     }
 
-    handdleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value})
-    }
+    // handdleInputChange = e => {
+    //     this.setState({ [e.target.name]: e.target.value})
+    // }
 
-    createNewInput = (event)=> {
-        event.preventDefault();
-        const notes = this.state.notes;
-        // const newNotes = { 
-        //     title: this.state.title, 
-        //     text: this.state.text}
-        // notes.push(newNotes);
-        this.setState({ notes, title: '', text: ''})
-    };
+    //still not working
+    // createNewInput = (event)=> {
+    //     event.preventDefault();
+    //     const newNotes = this.state;
+    //    this.props.notes.push(newNotes);
+    //     this.setState({ id: '', title: '', text: ''})
+    // };
 
     render() {
         return (
@@ -36,8 +35,8 @@ export default class CreateForm extends Component {
                                 type='text' 
                                 name='title' 
                                 placeholder='Note Title'
-                                value={this.state.title}
-                                onChange={this.handdleInputChange}
+                                // value={this.state.title}
+                                // onChange={this.handdleInputChange}
                                 />
                         </FormGroup>
                         <FormGroup>
@@ -45,8 +44,8 @@ export default class CreateForm extends Component {
                                 type='textarea' 
                                 name='text' 
                                 placeholder='Note Content' 
-                                value={this.state.text}
-                                onChange={this.handdleInputChange}
+                                // value={this.state.text}
+                                // onChange={this.handdleInputChange}
                                 /> 
                         </FormGroup>
                         <Button onClick={this.createNewInput} className='content-btn'>

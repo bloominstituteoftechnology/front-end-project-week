@@ -6,6 +6,7 @@ import './App.css';
 import dummyData from './dummyData';
 import NoteList from './Components/NoteList';
 import CreateForm from './Components/CreateForm';
+import SingleNote from './Components/SingleNote';
 
 class App extends Component {
   constructor() {
@@ -31,16 +32,17 @@ componentDidMount() {
             View Your Notes
             </Button>
           </Link>
-          <Link to='CreateForm'>
+          <Link to='create-form'>
             <Button className='nav-btn' block>
             +Create New Note
             </Button>
           </Link>
         </div>  
         <div className='note-container col-9'>
-          <Route exact path='/' render={() => <NoteList {...this.state} />} />
-          <Route path='/createForm' component={CreateForm} />
-
+          <Route exact path='/' render={(props) => <NoteList {...this.state}/>} />
+          <Route path='/notes/:title' render={(props) => <NoteList {...this.state}/>} />
+          <Route path='/create-form' component={CreateForm} />
+          <Route path='/view-note' component={SingleNote} />
         </div>      
       </Row>
       </Container>
