@@ -228,6 +228,10 @@ table {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.list-view-component .custom-list-view-container > a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
 .list-view-component .custom-list-view-container .custom-NoteCard {
   max-width: 220px;
   height: 225px;
@@ -249,7 +253,7 @@ table {
   letter-spacing: 0.03rem;
 }
 .custom-button {
-  color: white;
+  color: #FFFFFF;
   background-color: #2BC1C4;
   max-width: 219.68px;
   height: 50px;
@@ -272,6 +276,10 @@ table {
 .main-component .custom-main .custom-list-view-container {
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.main-component .custom-main .custom-list-view-container > a {
+  text-decoration: none;
+  color: #4A4A4A;
 }
 .main-component .custom-main .custom-list-view-container .custom-NoteCard {
   max-width: 220px;
@@ -310,7 +318,7 @@ table {
 }
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   font-family: "Raleway Medium", sans-serif;
   color: #4A4A4A;
   border: 1px dotted green;
@@ -361,6 +369,10 @@ h5 {
 .custom-container .row .custom-main .custom-list-view-container {
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.custom-container .row .custom-main .custom-list-view-container > a {
+  text-decoration: none;
+  color: #4A4A4A;
 }
 .custom-container .row .custom-main .custom-list-view-container .custom-NoteCard {
   max-width: 220px;
