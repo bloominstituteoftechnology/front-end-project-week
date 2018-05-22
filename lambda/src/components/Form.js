@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class NoteForm extends Component {
@@ -11,7 +12,7 @@ class NoteForm extends Component {
         </FormGroup>
           <Label for="exampleText">Text Area</Label>
           <Input type="textarea" name="text" id="exampleText" />
-        <Button>Save</Button>
+          <Link to="/"> <Button>Save</Button></Link>
       </Form>
     );
   }
