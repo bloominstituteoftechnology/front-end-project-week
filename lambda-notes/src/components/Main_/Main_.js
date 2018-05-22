@@ -25,6 +25,7 @@ const Main_ = () => {
           path="/new"
           component={() => <h5 className="text-capitalize">Create new note</h5>}
         />
+        <Route component="" />
       </Switch>
       <Switch>
         <Route exact path="/" component={ListView} />
@@ -37,6 +38,7 @@ const Main_ = () => {
           path="/new"
           render={props => <Form_ {...props} type="newNote" />}
         />
+        <Route component="" />
       </Switch>
     </div>
   );

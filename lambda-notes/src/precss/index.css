@@ -202,6 +202,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.Link a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
 /* Component's less files are treated as mixins => this allow to nested styles in layout.less */
 /** Import all less files from components */
 .NoteCard-component .custom-NoteCard {
@@ -228,7 +232,7 @@ table {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.list-view-component .custom-list-view-container > a {
+.list-view-component .custom-list-view-container a {
   text-decoration: none;
   color: #4A4A4A;
 }
@@ -262,6 +266,7 @@ table {
   line-height: 3rem;
   letter-spacing: 0.05rem;
   font-weight: bold;
+  text-decoration: none;
 }
 .main-component .custom-main {
   padding: 4rem 2rem;
@@ -277,7 +282,7 @@ table {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.main-component .custom-main .custom-list-view-container > a {
+.main-component .custom-main .custom-list-view-container a {
   text-decoration: none;
   color: #4A4A4A;
 }
@@ -307,6 +312,10 @@ table {
   padding: 1.3rem 1rem;
   background-color: #D8D8D8;
   border: 1px solid #979797;
+}
+.side-bar-component .side-bar a {
+  text-decoration: none;
+  color: #4A4A4A;
 }
 .side-bar-component .side-bar h1 {
   margin-bottom: 1.65rem;
@@ -353,6 +362,10 @@ h5 {
   background-color: #D8D8D8;
   border: 1px solid #979797;
 }
+.custom-container .row .side-bar a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
 .custom-container .row .side-bar h1 {
   margin-bottom: 1.65rem;
 }
@@ -370,7 +383,7 @@ h5 {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.custom-container .row .custom-main .custom-list-view-container > a {
+.custom-container .row .custom-main .custom-list-view-container a {
   text-decoration: none;
   color: #4A4A4A;
 }
