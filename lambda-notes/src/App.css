@@ -146,3 +146,24 @@ h3.heading {
   text-decoration: underline !important;
   cursor: pointer;
 }
+
+.btn-holder {
+  width: 22vw;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 55px;
+}
+
+.delete-modal {
+  padding-top: 17%;
+}
+
+.confirm {
+  padding-top: 55px;
+  text-align: center;
+  font-size: 1.7em;
+}
