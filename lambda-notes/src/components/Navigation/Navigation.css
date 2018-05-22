@@ -1,0 +1,31 @@
+.navigation {
+    border-right: 1.5px solid #979797; 
+    padding: 10px; 
+    width: 25%; 
+    height: 100%; 
+    background: #D8D8D8; 
+}
+
+.navigation h1 {
+    font-weight: Robot Bold; 
+    color: #4A4A4A;
+}
+
+.navigation h1:first-child {
+    margin-bottom: -14px; 
+}
+
+.navigation button {
+    color: #FFFFFF;
+    background: #2BC1C4;
+    padding: 10px;
+    width: 100%;
+    margin-top: 15px;
+    border: 1.5px solid #979797;
+    font-family: Raleway;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none !important; 
+}
