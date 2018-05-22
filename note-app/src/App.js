@@ -11,7 +11,7 @@ import SideBar from "./components/SideBar";
 //LeftSide
 function LeftSide() {
   return (
-    <div>
+    <div className="LeftSide">
       <SideBar />
     </div>
   )
@@ -19,23 +19,33 @@ function LeftSide() {
 //RightSide
 function RightSide(){
   return (
-    <div>
+    <div className="RightSide">
       <MainView />
     </div>
   )
 }
 
 //SplitScreen
-// function SplitScreen(){
-//   return (
-//     <div>
+function SplitScreen(props){
+  return (
+    <div className="SplitScreen">
+      <div className="SplitScreenLeft"> 
+        {props.left}
+      </div>
+      <div className="SplitScreenRight"> 
+        {props.right}
+      </div>
+    </div>
+  )
+}
 
-//     </div>
-//   )
-// }
 //Home
 const Home = props => {
-  return 
+  return (
+    <SplitScreen 
+    left={<LeftSide />}
+    right={<RightSide notes= {props.notes}/>}
+  />)
 }
 //New
 
