@@ -204,6 +204,20 @@ table {
 }
 /* Component's less files are treated as mixins => this allow to nested styles in layout.less */
 /** Import all less files from components */
+.NoteCard-component .custom-NoteCard {
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
+}
+.list-view-component .custom-list-view-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.list-view-component .custom-list-view-container .custom-NoteCard {
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
+}
 .custom-button {
   color: white;
   background-color: #2BC1C4;
@@ -223,6 +237,16 @@ table {
 }
 .main-component .custom-main h4 {
   font-weight: 700;
+  margin-bottom: 2rem;
+}
+.main-component .custom-main .custom-list-view-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main-component .custom-main .custom-list-view-container .custom-NoteCard {
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
 }
 /* SideBar_ */
 .side-bar-component .side-bar {
@@ -287,4 +311,14 @@ h4 {
 }
 .custom-container .row .custom-main h4 {
   font-weight: 700;
+  margin-bottom: 2rem;
+}
+.custom-container .row .custom-main .custom-list-view-container {
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard {
+  max-width: 220px;
+  height: 225px;
+  margin-bottom: 2rem;
 }
