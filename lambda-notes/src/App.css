@@ -3,7 +3,7 @@ body, html {
 }
 
 .sidebar {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   /* width: 249px; */
@@ -28,6 +28,12 @@ body, html {
 
 .card {
   min-width: 320px;
+}
+
+.card p {
+  padding-bottom: 5px;
+  max-height: 220px;
+  overflow: scroll;
 }
 
 .container-fluid {
@@ -79,4 +85,9 @@ body, html {
 .form-content {
   width: 980px;
   /* height: 400px; */
+}
+
+.create-div {
+  background: #F3F3F3;
+  height: 100vh;
 }
