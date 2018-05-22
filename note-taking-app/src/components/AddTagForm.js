@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { saveTag } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { IconButton } from 'office-ui-fabric-react/lib/Button';
 
 class AddTagForm extends Component {
   state = {
@@ -23,7 +22,7 @@ class AddTagForm extends Component {
         <TextField
           placeholder='Create New Tag...'
           onBeforeChange={val => this.handleChange('name',val)}
-          onKeyPress={(e) => { e.key === 'Enter'? saveTag({name}): null}}
+          onKeyPress={(e) => { return e.key === 'Enter'? saveTag({name}): null}}
         />
       </div>
     )
@@ -32,7 +31,6 @@ class AddTagForm extends Component {
 
 const style = {
   newTagInput: {
-    marginBottom: 7,
     display: 'inline-block',
     paddingBottom: 10,
     marginBottom: 13,

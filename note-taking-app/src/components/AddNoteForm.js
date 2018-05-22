@@ -13,58 +13,23 @@ import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 class AddNoteForm extends Component {
   state = {
     title: '',
-    content: initialValue
+    content: ''
   }
-  handleChange = ({ value }) => {
-    this.setState({
-      content: value
-    })
-  }
-  handleTitleChange = (type, val) => {
+  handleChange = (type, val) => {
     this.setState({
       [type]: val
     })
   }
-  keyDown = (event, change) => {
-    const { value } = change
-    console.log(change)
-
-    if (event.ctrlKey && event.key == 'b') {
-      console.log("b")
-      change.splitBlock().setBlocks({ data: { checked: false } })
-      change.setBlock('check-list-item')
-      return true
-    }
-
-    if (
-      event.key == 'Backspace' &&
-      value.isCollapsed &&
-      value.startBlock.type == 'check-list-item' &&
-      value.selection.startOffset == 0
-    ) {
-      change.setBlocks('paragraph')
-      return true
-    }
-  }
-  renderNode = props => {
-    console.log("Render")
-    console.log(props)
-    switch (props.node.type) {
-      case 'check-list-item':
-        return <CheckListItem {...props} />
-    }    
-  }
   render() {    
     const { saveNote, toggleMarkdown, inMarkdown, toggleChecklist, inChecklist } = this.props
     const { title, content } = this.state
-    const reformatContent = content ? Value.fromJSON(content) : Plain.deserialize('')
     return (
       <div style={style.root}>
         <div>
           <TextField
             placeholder='Tomorrow meetings'
             underlined
-            name='title' value={title} onBeforeChange={val => this.handleTitleChange('title', val)}
+            name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
             style={style.largeText}
           />
           <div style={style.topLine}>

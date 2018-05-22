@@ -11,7 +11,7 @@ class TagOfNote extends React.Component {
     this.props.getTagOfNote(this.props.id)
   }
   render () {
-  const { tags, getTagOfNote, removeTagOfNote, tagsOptions, applyTag } = this.props
+  const { tags, removeTagOfNote, tagsOptions, applyTag } = this.props
   const noteId = this.props.id
   const tagsOptionsList = Object.keys(tagsOptions)
   .map(id => {

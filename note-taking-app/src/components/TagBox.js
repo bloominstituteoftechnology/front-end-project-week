@@ -4,11 +4,9 @@ import { connect } from 'react-redux';
 import Tag from './Tag';
 import AddTagForm from './AddTagForm';
 import UpdateTagForm from './UpdateTagForm';
-import NoteSearchBox from './NoteSearchBox';
 
 import { getTags, hideEditTagBox } from '../actions';
 
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
 
 class TagBox extends React.Component {
@@ -16,7 +14,7 @@ class TagBox extends React.Component {
     this.props.getTags()
   }
   render() {
-    const { tags, getTags, isFetching, showEditTagBox, hideEditTagBox, editTagBoxOpen } = this.props
+    const { tags, isFetching, hideEditTagBox, editTagBoxOpen } = this.props
     return(
       <div style={style.root} ref={editTagButton => this.editTagButtonElement = editTagButton }>
         { 

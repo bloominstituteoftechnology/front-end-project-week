@@ -66,10 +66,6 @@ const mapStateToProps = (state) => {
 }
 
 const style = {
-  root: {
-    paddingTop: 55,
-    height: '100%'
-  },
   authButton: {
     position: 'absolute',
     top: 10,

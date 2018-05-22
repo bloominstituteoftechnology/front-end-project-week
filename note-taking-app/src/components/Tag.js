@@ -3,11 +3,6 @@ import { connect } from 'react-redux';
 
 import { showEditTagBox } from '../actions';
 
-import {
-    DocumentCard,
-    DocumentCardTitle,
-    DocumentCardActions
-} from 'office-ui-fabric-react/lib/DocumentCard';
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 
 const Tag = ({ id, name, showEditTagBox }) =>

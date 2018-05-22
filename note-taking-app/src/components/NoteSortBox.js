@@ -7,7 +7,7 @@ import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 
 class NoteSortBox extends React.Component {
   render() {
-    const { sortNote, sortType } = this.props
+    const { sortNote } = this.props
     return(
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <DefaultButton

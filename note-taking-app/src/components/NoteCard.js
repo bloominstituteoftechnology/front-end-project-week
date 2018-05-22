@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
-import { Value } from 'slate'
-import Plain from 'slate-plain-serializer';
 
 import TagOfNote from './TagOfNote';
 import Checklist from './Checklist';
@@ -29,7 +27,6 @@ class NoteCard extends React.Component {
   render () {
   const {id, title, content, inChecklist, selectNote } = this.props
   const { tagOfNoteOpen } = this.state
-  const reformatContent = typeof content === 'string' ? content : Plain.serialize(Value.fromJSON(content))
   return (
     <div>
     <div 
