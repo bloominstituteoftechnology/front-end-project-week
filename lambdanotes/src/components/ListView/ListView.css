@@ -10,6 +10,7 @@
     margin: 16px 20px;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 .entireNoteCardLink {
@@ -49,4 +50,5 @@
     text-align: start;
     line-height: 21px;
     color: black;
+    text-overflow: ellipsis;
 }

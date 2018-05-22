@@ -7,15 +7,15 @@
 }
 
 .deleteNoteModal {
-    margin-top: 169px !important;
-    max-width: 700px !important;
-    width: 533px !important;
+    margin: 169px auto !important;
+    max-width: 533px !important;
+    width: 100% !important;
     border-radius: 0 !important;
     border: 2px !important;
 }
 
 .warningMessage {
-    margin: 41px 0 0 134px;
+    margin: 41px auto 0;
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     font-size: 15.3px;
@@ -23,10 +23,11 @@
 
 .deleteNoteModalButtons {
     display: flex;
+    justify-content: space-around;
+    margin: 29px 50px 43px;
 }
 
 .entireDeleteButton {
-    margin: 29px 0 44px 69px;
     width: 189px;
     height: 42px;
 }
@@ -47,7 +48,6 @@
     color: white;
     background: #2BC1C4;
     border: 1px solid #979797;
-    margin: 29px 0 44px 23px;
     width: 189px;
     height: 42px;
     cursor: pointer;

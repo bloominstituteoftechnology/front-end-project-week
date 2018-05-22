@@ -2,15 +2,16 @@
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
-    margin: 21px 0 8px 13px;
+    margin: 21px 0 18px 13px;
     font-size: 36px;
     line-height: 30px;
 }
 
 .sbEntireLink {
-    margin: 19px 20px 0 15px;
+    margin: 12px 20px 0 15px;
     width: 87%;
-    height: 42px;
+    min-height: 42px;
+    height: 100%;
 }
 
 .sidebarButton {
@@ -18,6 +19,7 @@
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     margin-top: 8px;
+    min-height: 42px;
     height: 100%;
     width: 100%;
     border: none;
