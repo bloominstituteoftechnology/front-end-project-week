@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { }
 
 class App extends Component {
   componentDidMount() {
-    
+
    }
 
   render() {
@@ -18,6 +19,13 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
       </div>
+
+      <div className="Notes-sidebar" style="width:25%">
+        <h3 className="Notes-bar-item">Lambda Notes</h3>
+        <a href="#" className="Notes-bar-item notes-button">View Your Notes</a>
+        <a href="#" className="Notes-bar-item notes-button">'+' Create New Note</a>
+      </div>
+
     );
   }
 }

@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Notes-sidebar {
+  background-color: #D8D8D8;
+}
+
+.Notes-bar-item-notes-button{
+
+  color: #FFFFFF;
+}
