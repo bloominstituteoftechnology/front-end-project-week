@@ -7,6 +7,8 @@ import '../components/Form.css'
 
 //Stateless function that renders Navbar from components file
 const ListView = (props) => {
+    console.log("PROPS",props);
+  
     return(
         <Container>
             <div>
