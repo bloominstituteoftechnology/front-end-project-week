@@ -6,17 +6,42 @@ import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reac
 import './Form.css';
 
 class NoteForm extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      title: "",
+      note: ""
+    };
+  }
+
+  onChange(event){
+    this.setState({note: event.target.value}, {title: event.target.value})
+  }
+
+  handleChange(event){
+    this.setState({note: event.target.value}, {title: event.target.value})
+  }
+
+
   render() {
     return (
       <Container className="container">
       <Form>
         <FormGroup>
           <Label>Create Note:</Label>
-          <Input type="text" name="text" id="text" placeholder="Note Title" />
+          <Input 
+            type="text" 
+            name="title" 
+            placeholder="Note Title" 
+            value={this.state.title}/>
         </FormGroup>
-          <Label for="exampleText">Text Area</Label>
-          <Input type="textarea" name="text" id="exampleText" />
-          <Link to="/"> <Button color="info">Save</Button></Link>
+          <Input 
+            type="textarea" 
+            name="note"  
+            placeholder="Note Content" 
+            value={this.state.note}
+            onChange={this.handleChange} />
+          <Link to="/"> <Button onSubmit={this.onChange} color="info">Save</Button></Link>
       </Form>
       </Container>
     );
