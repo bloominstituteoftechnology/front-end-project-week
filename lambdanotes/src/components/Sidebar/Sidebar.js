@@ -6,14 +6,17 @@ const Sidebar = () => {
     return (
         <div>
             <h1 className='sidebarTitle'>Lambda Notes</h1>
-            <Link to='/' className='buttonLink'>
-                <button block='true' className='sidebarButton'>View Your Notes</button>
-            </Link>
-            <Link to='/create' className='buttonLink'>
-                <button block='true' className='sidebarButton'>+ Create New Note</button>
-            </Link>
+            <div className='sbEntireLink'>
+                <Link to='/' className='buttonLink'>
+                    <button block='true' className='sidebarButton'>View Your Notes</button>
+                </Link>
+            </div>
+            <div className='sbEntireLink'>
+                <Link to='/create'>
+                    <button block='true' className='sidebarButton'>+ Create New Note</button>
+                </Link>
+            </div>
         </div>
-                
     )
 }
 

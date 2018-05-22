@@ -7,17 +7,19 @@
     line-height: 30px;
 }
 
-.buttonLink {
-    cursor: default;
+.sbEntireLink {
+    margin: 20px 20px 0 15px;
+    width: 86%;
+    height: 41px;
 }
 
 .sidebarButton {
     background-color: #2BC1C4;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    margin: 20px 20px 0 15px;
-    width: 86%;
-    height: 41px;
+    margin-top: 8px;
+    height: 100%;
+    width: 100%;
     border: none;
     border: 1px solid #979797;
     color: #FFFFFF;
