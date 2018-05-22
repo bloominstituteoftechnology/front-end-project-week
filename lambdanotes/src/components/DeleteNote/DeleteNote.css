@@ -33,7 +33,7 @@
 
 .deleteButton {
     padding-top: 3px;
-    font-weight: 400;
+    font-weight: 550;
     color: white;
     background: #D0021B;
     border: 1px solid #979797;
@@ -43,7 +43,7 @@
 }
 
 .cancelButton {
-    font-weight: 400;
+    font-weight: 500;
     color: white;
     background: #2BC1C4;
     border: 1px solid #979797;

@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar/Sidebar.js';
 import ListView from './components/ListView/ListView.js';
 import CreateNote from './components/CreateNote/CreateNote.js';
 import ViewNote from './components/ViewNote/ViewNote.js';
+import EditNote from './components/EditNote/EditNote.js';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path='/' component={ListView} />
           <Route path='/create' component={CreateNote} />
           <Route exact path='/note' component={ViewNote} />
+          <Route path='/note/edit' component={EditNote} />
         </div>
       </div>
     );
