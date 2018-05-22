@@ -1,18 +1,23 @@
 .App {
-  text-align: center;
+  width: 100%;
   display: flex;
-  border: 1px solid #979797;
+  justify-content: center;
 }
 
 .sidebarContainer {
   width: 25%;
+  max-width: 225.75px;
   background-color: #D8D8D8;
-  border-right: 1px solid #979797;
+  border: 1px solid #979797;
   height: 886px;
 }
 
 .viewContainer {
   width: 75%;
+  max-width: 677.25px;
   height: 886px;
   background: #F3F3F3;
+  border-top: 1px solid #979797;
+  border-right: 1px solid #979797;
+  border-bottom: 1px solid #979797;
 }
