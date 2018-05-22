@@ -10,7 +10,7 @@ const Routes = () => {
     <React.Fragment>
       <Route exact path="/" component={List} />
       <Route path="/create-new" component={CreateNew} />
-      <Route path="/edit" component={Edit} />
+      <Route path="/edit/:id" component={Edit} />
       <Route path="/note/:id" component={Note} />
     </React.Fragment>
   );
