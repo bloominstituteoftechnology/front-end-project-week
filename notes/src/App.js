@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Navigation, NotesList, AddNote, Note } from "./components";
 
 class App extends Component {
@@ -60,9 +60,11 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <Route exact path="/" render={props => <NotesList notes={notes}/>}/>
-        <Route path="/addnote" render={props => <AddNote addNote={this.addNote}/>}/>
-        <Route path="/note/:id" render={props => <Note {...props} notes={notes}/>}/>
+        <Switch>
+          <Route exact path="/" render={props => <NotesList notes={notes}/>}/>
+          <Route path="/addnote" render={props => <AddNote addNote={this.addNote}/>}/>
+          <Route path="/:id" render={props => <Note {...props} notes={notes}/>}/>
+        </Switch>
       </div>
     );
   }

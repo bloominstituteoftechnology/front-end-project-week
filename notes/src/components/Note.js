@@ -5,7 +5,10 @@ class Note extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            note: [],
+            note: {
+                title: '',
+                body: ''
+            },
             id: '',
             edit: false,
             modal: false
@@ -15,7 +18,7 @@ class Note extends React.Component {
     componentDidMount() {
         if (this.props.note) {
             const note = this.props.note;
-            this.setState({ note: note});
+            this.setState({ note: note });
         } else {
             const id = this.props.match.params.id;
             this.fetchNote(id);
@@ -28,16 +31,12 @@ class Note extends React.Component {
         }
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.state.note !== this.state.note) {
-    //         this.fetchNote(this.state.id);
-    //     }
-    // }
-
     fetchNote = id => {
-        const note = this.props.notes.filter(note => note.id === id);
+        id = parseInt(id, 10);
+        const note = this.props.notes.filter(note => note.id === id)[0];
+        // const notes = this.state.note;
         this.setState({
-            note: note[0],
+            note: note,
             id: id
         })
     }
@@ -90,7 +89,7 @@ class Note extends React.Component {
                         <button onClick={() => this.toggle}>Cancel</button>
                       </ModalFooter>
                     </Modal>
-                ): null}
+                ) : (null)}
             </div>
         );
     }
