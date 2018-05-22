@@ -9,7 +9,8 @@ export default class Listview extends Component {
         <div className="container">
             <div className="row">
                 <div className="col" id = "sidebar">
-                    <h1> Lambda Notes </h1>
+                    <h1> Lambda </h1>
+                    <h1> Notes </h1>
                     <Mybutton text = "View your notes"/>
                     <Mybutton text = "+ Create new notes"/>
             </div>
