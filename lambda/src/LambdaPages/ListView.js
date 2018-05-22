@@ -1,38 +1,42 @@
 import React from 'react';
 import NavBar from '../components/Nav'
 
-import { Card, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, CardTitle, CardText, Row, Col, Container } from 'reactstrap';
+
+import '../components/Form.css'
 
 //Stateless function that renders Navbar from components file
 const ListView = (props) => {
     return(
-        <div>
-            <NavBar />
-        <Row>
+        <Container>
+            <div>
+                <NavBar />
+            <Row>
             <Col sm="3">
                 <Card body>
                     <CardTitle>NoteTitle</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
                 </Card>
             </Col>
-        </Row>  
-        <Row>
+            </Row>  
+            <Row>
             <Col sm="3">
                 <Card body>
                     <CardTitle>NoteTitle</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
                 </Card>
             </Col>
-        </Row>
-        <Row>
+            </Row>
+            <Row>
             <Col sm="3">
                 <Card body>
                     <CardTitle>NoteTitle</CardTitle>
                     <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
                  </Card>
             </Col>
-        </Row>  
-        </div>
+            </Row>  
+            </div>
+            </Container>
         // <div>
         // <Row>
         //     <Col sm="3">
