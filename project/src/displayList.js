@@ -9,18 +9,23 @@ class displayList extends Component {
             <div>
                 <container className='container'>
                     <div className='sidebar'>
-                        <p className='heading_Font'><strong>Lambda Notes</strong>
+                        <div className='heading-container'>
+                            <p className='heading-font'><strong>Lambda Notes</strong>
                         </p>
+                        </div>
+                        
                         <div>
-                            <button>View Your Notes</button>
+                            <button className='button'>View Your Notes</button>
                         </div>
                         <div>
-                            <button>+ Create New Notes</button>
+                            <button className='DL button'>+ Create New Notes</button>
                         </div>
                     </div>
 
                     <div className='main'>
-                        <p><strong>Your Notes:</strong></p>
+                        <div className='note title'>
+                            <p><strong>Your Notes:</strong></p>
+                        </div>
                         <Table borderless>
                             <tbody>
                                 <tr>
