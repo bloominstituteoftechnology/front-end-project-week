@@ -28,19 +28,11 @@ class Note extends React.Component {
         }
     }
 
-<<<<<<< HEAD
     // componentDidUpdate(prevProps, prevState) {
     //     if (prevState.state.note !== this.state.note) {
     //         this.fetchNote(this.state.id);
     //     }
     // }
-=======
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.state.note !== this.state.note) {
-            this.fetchNote(this.state.id);
-        }
-    }
->>>>>>> 32fe975a6475225960d7e64ce470e389aa3226d9
 
     fetchNote = id => {
         const note = this.props.notes.filter(note => note.id === id);
