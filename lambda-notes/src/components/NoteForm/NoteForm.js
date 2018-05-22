@@ -14,24 +14,24 @@ class NoteForm extends Component {
   }
   render() { 
     return (
-      <div>
-        <form>
-          <input 
-            className="form-control"
+      <React.Fragment>
+        <form className="save-note-form">
+          <input
+            className="form-control title"
             type="text"
             name="title"
             placeholder="Note Title"
             onChange={this.handleChange}
           />
           <textarea
-            className="form-control"
+            className="form-control contents"
             name="contents"
             placeholder="Note Content"
             onChange={this.handleChange}
           />
           <Button type="primary" title={this.props.action} link="/" />
         </form>
-      </div>
+      </React.Fragment>
     )
   }
 }

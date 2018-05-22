@@ -1,0 +1,15 @@
+.save-note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.save-note-form .form-control {
+  border-color: #979797;
+  font-size: .8rem;
+  padding: 1rem;
+  margin: 12px 0;
+}
+
+.save-note-form .form-control.contents {
+  min-height: 400px;
+}
