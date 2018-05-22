@@ -1,0 +1,14 @@
+/* .card-columns {
+    border: 1px solid blue; 
+} */
+
+.card {
+    margin: 30px;
+    margin-right: 50px;
+}
+
+.card-body {
+    margin: 30px; 
+    font-size: 14px;
+    /* border: 1px solid green;  */
+}

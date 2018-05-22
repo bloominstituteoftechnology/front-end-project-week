@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import SideBar from './components/SideBar.js';
-import ListView from './components/ListView.js';
+import SingleNoteView from './components/SingleNoteView.js';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
             <h1 className="app-intro">
               Your Notes:
             </h1>
-            <ListView />
+            <SingleNoteView />
           </div>    
         </div>
       </div>
