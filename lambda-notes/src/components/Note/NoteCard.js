@@ -8,13 +8,12 @@ class NoteCard extends Component {
     render() { 
         return (
             <div>
-                <div>
+                <h3>
                     {this.props.note.title}
-                </div>
+                </h3>
                 <div>
                     {this.props.note.content}
                 </div>
-
             </div>
         )
     }

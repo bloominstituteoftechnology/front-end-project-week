@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  display: flex;
+
+
 }
 
 .App-logo {
@@ -25,4 +27,15 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App-content {
+  flex: auto;
+  padding: 25px;
+}
+
+.Nav {
+  flex: auto;
+  background: #D8D8D8;
+  padding: 25px;
 }

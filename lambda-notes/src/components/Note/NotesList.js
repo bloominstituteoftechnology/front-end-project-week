@@ -8,7 +8,7 @@ class NotesList extends Component {
     }
     render() { 
         return (
-            <div>
+            <div className="App-content">
                 {this.props.notes.map( (note) => <NoteCard key={note.id} note={note} />) }
             </div>
         )

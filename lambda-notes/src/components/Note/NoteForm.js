@@ -9,6 +9,12 @@ class NoteForm extends Component {
         }
     }
 
+    componentDidMount () {
+        if(this.props.note) {
+            this.setState({title: this.props.note.title, content: this.props.note.content});
+        }
+    }
+
     onChangeHandler = (event) => {
         this.setState({[event.target.name]: event.target.value});
     }

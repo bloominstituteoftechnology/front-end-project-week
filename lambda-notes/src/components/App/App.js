@@ -4,6 +4,7 @@ import './App.css';
 import Nav from '../Nav/Nav';
 import NotesList from '../Note/NotesList';
 import NoteForm from '../Note/NoteForm';
+import ViewNote from '../Note/ViewNote';
 
 class App extends Component {
   constructor(props) {
@@ -47,13 +48,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
-        </header>
+        </header> */}
         <Nav />
         <NotesList notes={this.state.notes} />
-        <NoteForm header="Create New Note" button="Save" />
+        {/* <NoteForm header="Create New Note" button="Save" /> */}
+        {/* <ViewNote note={this.state.notes[0]}/> */}
       </div>
     );
   }
