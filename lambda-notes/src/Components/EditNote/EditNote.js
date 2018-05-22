@@ -31,6 +31,8 @@ class EditNote extends Component {
         </Form>
         </div>
         )
+        //this probably should take the data from the note class and consume it so they can truly edit it
+        
         
   }
 
