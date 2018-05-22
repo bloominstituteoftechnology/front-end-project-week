@@ -6,7 +6,7 @@ import NoteCard from './NoteCard.js';
 class ListView extends Component {
 	render() {
 		return (
-			<div>
+			<div className="mainbody">
 				{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /></Link></div>)}
 			</div>
 		)

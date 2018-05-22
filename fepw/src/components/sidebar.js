@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
+
 
 class Sidebar extends Component {
 	render() {
 		return(
-			<nav>
+			<nav className="sidebar">
+				<Container>
+					<Row>
+						<Col xs="3">
 				<h2>Lambda<br />Notes</h2>
 				<Link to='/'>
 					<button>View Your Notes</button>
@@ -13,6 +18,9 @@ class Sidebar extends Component {
 				<Link to='/CreateNote'>
 					<button>+ Create New Note</button>
 				</Link>
+						</Col>
+					</Row>
+				</Container>
 			</nav>
 		)
 	}
