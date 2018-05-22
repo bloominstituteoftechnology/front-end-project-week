@@ -1,13 +1,18 @@
 import React from 'react';
 import './ViewNote.css';
 import { Link } from 'react-router-dom';
+import DeleteNote from '../DeleteNote/DeleteNote.js';
 
 const ViewNote = () => {
     return (
         <div>
             <div className='optionsContainer'>
-                <p className='edit'>edit</p>
-                <p className='delete'>delete</p>
+                <div className='entireEditLink'>
+                    <Link to='/note/edit'>
+                        <p className='edit'>edit</p>
+                    </Link>
+                </div>
+                <DeleteNote />
             </div>
             <h3 className='viewNoteHeader'>Note Name</h3>
             <p className='ViewNoteContent'>

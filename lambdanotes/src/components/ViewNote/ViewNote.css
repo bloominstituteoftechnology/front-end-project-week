@@ -4,10 +4,13 @@
     margin: 15px 34px 0 0;
 }
 
+.entireEditLink {
+    margin-right: 14px;
+}
+
 .edit {
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
-    margin-right: 14px;
     font-size: 14px;
     text-decoration: underline;
     cursor: pointer;
