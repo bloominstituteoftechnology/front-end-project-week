@@ -136,6 +136,7 @@ body {
   height: 100%;
   font-family: "Raleway Medium";
   color: #4A4A4A;
+  border: 1px dotted green;
 }
 h1,
 h2,
@@ -144,5 +145,22 @@ h4,
 h5 {
   font-family: "Roboto Bold";
   letter-spacing: 1px;
-  margin-bottom: 15px;
+}
+.custom-container {
+  max-width: 80%;
+  height: 100vh;
+  padding: 0;
+  border: 1px solid cyan;
+}
+.custom-container .side-bar {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  border: 1px solid red;
+}
+.custom-container .custom-main {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  border: 1px solid darkorange;
 }

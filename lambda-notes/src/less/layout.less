@@ -6,10 +6,35 @@ html, body {
   height: 100%;
   font-family: "Raleway Medium";
   color: @main-color;
+  border: 1px dotted green;
 }
 
 h1, h2, h3, h4, h5 {
   font-family: "Roboto Bold";
   letter-spacing: 1px;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
+}
+
+.custom-container {
+  max-width: 80%;
+  height: 100vh;
+  padding: 0;
+  border: 1px solid cyan;
+  
+  .side-bar {
+    // max-width: 25%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    border: 1px solid red;
+  }
+  
+  .custom-main {
+    // max-width: 75%;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    border: 1px solid darkorange;
+    
+  }
 }
