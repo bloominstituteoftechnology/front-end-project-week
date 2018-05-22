@@ -21,10 +21,10 @@ class DeleteNote extends React.Component {
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     return (
       <div>
-        <p onClick={this.toggle}>  Delete</p>
+          <a onClick={this.toggle}>  Delete</a>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Delete (But Really Route Back To /home)</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>Delete</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>

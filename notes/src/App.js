@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
-import { List, Note, NewNote } from './components';
+import { List, Note, NewNote, EditNote, DeleteNote } from './components';
 
 class App extends Component {
   render() {
@@ -22,7 +22,9 @@ class App extends Component {
             <Col xs="9" className="content-container">
               <Route exact path="/" component={List} />
               <Route path="/newnote" component={NewNote}/>
-              <Route path="note" component={Note}/>
+              <Route path="/note" component={Note}/>
+              <Route path="/edit" component={EditNote}/>
+              <Route path="/delete" component={DeleteNote}/>
             </Col>
           </Row>
         </Container>

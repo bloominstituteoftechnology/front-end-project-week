@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { Route, Link } from 'react-router-dom';
-import Note from './Note.js';
+import { Link } from 'react-router-dom';
+
+const NoteButton = () => {
+    return (
+        <Col xs="4">
+            <Link to="/note">
+                <button>
+                    <h1>Note Title</h1>
+                    <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
+                </button>
+            </Link>
+        </Col>
+    )
+}
 
 export default class List extends Component {
   render() {
@@ -11,67 +23,19 @@ export default class List extends Component {
           <Col className="note-list">
             <h3>Your Notes:</h3>
                 <Row>
-                    <Col xs="4">
-                    <Route path="/note" component={Note}/>
-                        <Link to="/note">
-                            <button>
-                                <h1>Note Title</h1>
-                                <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                            </button>
-                        </Link>
-                    </Col>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
+                    <NoteButton />
+                    <NoteButton />
+                    <NoteButton />
                 </Row>
                 <Row>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
+                    <NoteButton />
+                    <NoteButton />
+                    <NoteButton />
                 </Row>
                 <Row>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
-                    <Col xs="4">
-                        <button>
-                            <h1>Note Title</h1>
-                            <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
-                        </button>
-                    </Col>
+                    <NoteButton />
+                    <NoteButton />
+                    <NoteButton />
                 </Row>
           </Col>
         </Row>

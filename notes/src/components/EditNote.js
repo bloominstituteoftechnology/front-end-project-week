@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class EditNote extends Component {
     constructor(props) {
@@ -15,9 +16,11 @@ class EditNote extends Component {
                 <div>
                     <input style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
                 </div>
-                <div>
-                    <button>Update</button>
-                </div>
+                <span>
+                    <Link to="/">
+                        <button>Update</button>
+                    </Link>
+                </span>
             </div>
          )
     }
