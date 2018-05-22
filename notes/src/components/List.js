@@ -6,7 +6,7 @@ const NoteButton = () => {
     return (
         <Col xs="4">
             <Link to="/note">
-                <button>
+                <button style={{ font: 'Raleway Medium', color: '#4A4A4A'}} className="note-card">
                     <h1>Note Title</h1>
                     <p>Morbi pharetra sem vel elit pulvinar interdum. Cras aliquam accumsan nunc.</p>
                 </button>
@@ -22,17 +22,17 @@ export default class List extends Component {
         <Row>
           <Col className="note-list">
             <h3>Your Notes:</h3>
-                <Row>
+                <Row className="row-one">
                     <NoteButton />
                     <NoteButton />
                     <NoteButton />
                 </Row>
-                <Row>
+                <Row className="row-two">
                     <NoteButton />
                     <NoteButton />
                     <NoteButton />
                 </Row>
-                <Row>
+                <Row className="row-three">
                     <NoteButton />
                     <NoteButton />
                     <NoteButton />

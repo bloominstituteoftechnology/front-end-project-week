@@ -1,18 +1,16 @@
 /* App-wide Styles */
 
 .App {
-  font: Raleway Medium;
   background-color: #F3F3F3;
   width:100%;
   max-width: 1000px;
+  color: #4A4A4A;
 }
 
 /* Sidebar Styles*/
 
 .sidebar {
-  /* background-color:rgb(216, 216, 216); */
-  background-color: rgb(185, 185, 185);
-  font: Roboto Bold;
+  background-color:#D8D8D8;
   display: fixed;
   border-right: 1px solid gray;
   width:100%;
@@ -25,7 +23,7 @@
     width: 200px;
     border: #979797;
     background-color: rgb(43, 193, 196);
-    color: white;
+    color: #FFFFFF;
     margin-top:10px;
     margin-bottom: 10px;
 
@@ -37,7 +35,7 @@
   width: 200px;
   border: #979797;
   background-color: rgb(43, 193, 196);
-  color: white;
+  color: #FFFFFF;
   margin-top:10px;
   margin-bottom: 10px;
   

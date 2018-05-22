@@ -13,7 +13,7 @@ class Note extends Component {
             <Container>
                 <Row>
                     <Col className="single-note">
-                        <div style={{ display:'flex', flexDirection: 'flex-end' }}>
+                        <div className="edit-delete" style={{ display:'flex', flexDirection: 'flex-end' }}>
                             <Link to="/edit">Edit</Link>
                             <DeleteNote />
                         </div>

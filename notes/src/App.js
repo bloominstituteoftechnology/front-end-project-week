@@ -3,7 +3,7 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import { List, Note, NewNote, EditNote, DeleteNote } from './components';
-// import Test from './components';
+// import { Test } from './components';
 
 class App extends Component {
   render() {
