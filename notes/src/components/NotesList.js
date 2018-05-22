@@ -1,16 +1,17 @@
 import React from "react";
 import Note from "./Note.js";
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NotesList = props => {
     return (
         <div className="notes-list">
             {props.notes.map(note => {
                 return (
-                    <Link to={`/note/${note.id}`} key={note.id}><Note note={note}/></Link>
+                    <div key={note.id}>
+                        <Link to={`/note/${note.id}`}><Note note={note}/></Link>
+                    </div>
                 );
             })}
-            <Route path="/note/:id" component={Note}/>
         </div>    
     );
 }
