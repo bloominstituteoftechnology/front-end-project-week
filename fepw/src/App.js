@@ -19,3 +19,5 @@ render() {
 }
 
 export default App;
+
+//22 May Figured this should be where I layout the main components that everything else feeds into - Main and Sidebar. Started trying to style it but it look right yet. Will start working on that next.

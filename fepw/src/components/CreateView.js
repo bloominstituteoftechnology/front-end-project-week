@@ -47,4 +47,4 @@ export default CreateNote;
 
 //21May This is the first component I finished because I needed to start with something and this seemed like something I could build around. I will probably keep at least part of this one - we'll see.
 
-
+//22May I think I had to update the handleSubmit but otherwise this was is pretty good shape already.

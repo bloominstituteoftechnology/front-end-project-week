@@ -19,3 +19,5 @@ class Sidebar extends Component {
 }
 
 export default Sidebar;
+
+//22May created this today but it's looking pretty ugly so there will be some styling later
