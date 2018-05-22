@@ -5,7 +5,7 @@
     text-align: start;
     padding-left: 31px;
     padding-right: 31px;
-    padding-top: 72px;
+    padding-top: 30px;
     font-size: 20px;
     color: #4A4A4A;
     background-color: #F3F3F3;
@@ -15,6 +15,7 @@
     padding-bottom: 38px;
     font-size: 22px;
     font-weight: bold;
+    margin-top: 45px;
 }
 
 .noteView-body {
@@ -22,3 +23,12 @@
     font-size: 16px;
     line-height: 2;
 }
+
+.link {
+    color: #4A4A4A;
+    font-size: 15px;
+    margin-right: 16px;
+    font-weight: bold;
+    float: right;
+}
+
