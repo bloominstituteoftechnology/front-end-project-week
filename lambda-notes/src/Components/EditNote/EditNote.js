@@ -1,9 +1,24 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form,  Input } from 'reactstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import './EditNote.css';
 
 class EditNote extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            modal: false,
+        }
+
+        this.toggle = this.toggle.bind(this);
+    }
+
+    toggle() {
+        this.setState({
+          modal: !this.state.modal
+        });
+      }
+
     render() { 
         return(
             <div className = 'edit-wrapper'>

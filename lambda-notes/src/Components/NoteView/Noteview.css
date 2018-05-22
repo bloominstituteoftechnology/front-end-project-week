@@ -17,6 +17,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     width: 30px;
+    text-decoration: none;
     
 }
 .header-wrapper{
