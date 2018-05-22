@@ -12,6 +12,23 @@
   height: 150px;
   padding: 20px;
   color: white;
+  border: 1px solid red;
+}
+
+.App-sideBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid red;
+  width: 30%;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border: 1px solid red;
+  width: 100%;  
 }
 
 .App-title {
