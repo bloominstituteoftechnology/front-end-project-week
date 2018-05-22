@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Route } from "react-router-dom";
-import { Navigation, NotesList, AddNote, Note } from "./components";
+import { Navigation, NotesList, AddNote } from "./components";
 
 class App extends Component {
   constructor() {
@@ -36,35 +35,33 @@ class App extends Component {
     }
   }
 
-  addNote = (note) => {
+  addNote = (e, note) => {
+    e.preventDefault();
     const notes = this.state.notes;
-    notes.push(note);
+    this.setState({notes: notes.concat(note)});
   }
 
   updateNote = (id, note) => {
     const notes = this.state.notes;
     const index = notes.indexOf(id);
-    notes.splice(index, 1, note);
+    let newNotes = notes.splice(index, 1, note);
+    this.setState({notes: newNotes});
   }
 
   deleteNote = id => {
     const notes = this.state.notes;
     const index = notes.indexOf(id);
-    notes.splice(index, 1);
+    let newNotes = notes.splice(index, 1);
+    this.setState({notes: newNotes});
   }
 
   render() {
     const notes = this.state.notes;
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-      <Navigation />
-      <Route exact path="/" render={props => <NotesList notes={notes}/>}/>
-      <Route path="/note/:id" component={Note}/>
-      <Route path="/addnote" render={props => <AddNote />}/>
+        <Navigation />
+        <Route exact path="/" render={props => <NotesList notes={notes}/>}/>
+        <Route path="/addnote" render={props => <AddNote addNote={this.addNote}/>}/>
       </div>
     );
   }

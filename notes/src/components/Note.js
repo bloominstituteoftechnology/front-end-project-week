@@ -53,7 +53,7 @@ class Note extends React.Component {
                         <h3>{title}</h3>
                         <div>{body}</div>
                     </div>
-                )};
+                )}
                 {modal ? (
                     <Modal isOpen={modal} toggle={() => this.toggle} className={this.props.className}>
                       <ModalHeader toggle={() => this.toggle}>Modal title</ModalHeader>

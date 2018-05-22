@@ -19,13 +19,13 @@ class AddNote extends Component {
     }
 
     render() {
-        const { title, body } = this.state;
+        const { title, body, id } = this.state;
         return (
             <div>
                 <form>
                     <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
                     <input name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                    <button onClick={() => this.props.addNote(this.state)}>Save</button>
+                    <button onClick={(e) => this.props.addNote(e, {id, title, body})}>Save</button>
                 </form>
             </div>
         );
