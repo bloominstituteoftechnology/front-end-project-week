@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 const MainBar = () => {
     const mainBar = {
       backgroundColor : "#F3F3F3",
