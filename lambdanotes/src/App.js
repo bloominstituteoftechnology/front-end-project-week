@@ -59,6 +59,10 @@ class App extends Component {
     this.setState({appState: "view"});
   }
 
+  tempEdit() {
+    this.setState({appState: "edit"});
+  }
+
   render() {
     return (
       <div className="App">
@@ -74,7 +78,8 @@ class App extends Component {
                 viewId={this.state.viewId}
                 deleteMethod={this.tempDelete.bind(this)}
                 reallyDeleteMethod={this.tempReallyDelete.bind(this)}
-                cancelDeleteMethod={this.tempCancelDelete.bind(this)} />
+                cancelDeleteMethod={this.tempCancelDelete.bind(this)}
+                editMethod={this.tempEdit.bind(this)} />
             </Col>
           </Row>
       </div>

@@ -19,11 +19,16 @@ const ContentArea = (props) => {
           note={myNote}
           deleteMethod={props.deleteMethod}
           reallyDeleteMethod={props.reallyDeleteMethod}
-          cancelDeleteMethod={props.cancelDeleteMethod} />
+          cancelDeleteMethod={props.cancelDeleteMethod}
+          editMethod={props.editMethod} />
       );
     case "create":
       return (
-        <NoteForm topText="Create New Note" />
+        <NoteForm topText="Create New Note:" />
+      );
+    case "edit":
+      return (
+        <NoteForm topText="Edit A Note:" />
       );
     default:
       return (
