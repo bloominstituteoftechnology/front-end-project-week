@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
 
-const NoteCard_ = () => {
-  return (
-    <div>
-      
-    </div>
-  );
+const NoteCard_ = props => {
+  const { card } = props;
+  return <div>{card.title}</div>;
 };
 
 export default NoteCard_;

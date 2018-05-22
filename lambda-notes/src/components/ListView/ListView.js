@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import NoteCard_ from '../NoteCard_/NoteCard_';
 
 class ListView extends Component {
   render() {
+    const {cards} = this.props;
+    const cardsToDisplay = cards.map((card, index) => <NoteCard_ key={card.id} card={card} />)
     return (
-      <div>
-        
+      <div className="container custom-list-view-container" >
+        {cardsToDisplay}
       </div>
     );
   }
 }
 
-export default ListView; 
+const mapStateToProps = (state) => {
+  return {
+    cards: state.data
+  }
+}
+export default connect(mapStateToProps, {})(ListView);

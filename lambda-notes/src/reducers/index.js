@@ -76,7 +76,7 @@ const mockData = [
   }
 ];
 const initialState = {
-  data: [mockData],
+  data: mockData,
   fetching_Items: false,
   fetched_Item: false,
   adding_Item: false,

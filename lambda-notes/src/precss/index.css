@@ -221,6 +221,9 @@ table {
   border: 1px solid darkorange;
   background-color: #F3F3F3;
 }
+.main-component .custom-main h4 {
+  font-weight: 700;
+}
 /* SideBar_ */
 .side-bar-component .side-bar {
   height: 100vh;
@@ -281,4 +284,7 @@ h4 {
   height: 100vh;
   border: 1px solid darkorange;
   background-color: #F3F3F3;
+}
+.custom-container .row .custom-main h4 {
+  font-weight: 700;
 }
