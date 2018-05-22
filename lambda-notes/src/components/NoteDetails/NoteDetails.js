@@ -7,23 +7,19 @@ class NoteDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '',
       title: '',
       contents: ''
     }
   }
   componentDidMount(){
-    const currentNote = notes.reduce((current, note) => {
-      return (note.id === this.props.noteId) ? note : current;
-    });
-
-    this.setState({ id:currentNote.id, title:currentNote.title, contents:currentNote.value });
+    const currentNote = notes.filter(x => x.id === +this.props.noteId);
+    this.setState({ title:currentNote[0].title, contents:currentNote[0].value });
   }
   render() {
     return ( 
       <div className="note-details">
         <div className="note-actions">
-          <SimpleLink title="edit" link={`/edit/${this.state.id}`} />
+          <SimpleLink title="edit" link={`/edit/${this.props.noteId}`} />
           <SimpleLink title="delete" link="/"/>
         </div>
         <Title title={this.state.title} />

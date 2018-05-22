@@ -1,0 +1,15 @@
+.note-actions {
+  text-align: right;
+}
+
+.note-actions a {
+  color: #4A4A4A;
+  font-weight: bold;
+  margin-left: 20px;
+  text-decoration: underline;
+  transition: color .15s ease-in-out;
+}
+
+.note-contents {
+  line-height: 1.8rem;
+}
