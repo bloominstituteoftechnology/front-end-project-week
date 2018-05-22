@@ -1,77 +1,92 @@
 import React, { Component } from 'react';
 import { Form, Input, Container, Row, Col } from 'reactstrap';
 import NoteButton from './NoteButton';
-import axios from 'axios';
+// import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateNote, createNote } from '../actions';
 
 class NewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            edit: props.edit,
-            note: props.note,
-            title: props.title,
-            content: props.content,
-            submitted: false
+            new: false,
+            // note: props.note,
+            title: '',
+            content: '',
+            submitted: false,
+            heading: ''
         }
     }
 
     componentDidMount() {
-        if (!this.state.edit) {
+        if (this.props.match.path === '/new') {
             console.log("creating new note")
-            this.setState({title: '', content: ''})
+            this.setState({ 
+                heading: 'Create New Note:', 
+                new: true
+            })
         } else {
             console.log("updating note")
-            // this.setState({title: this.state.note.title, content: this.state.note.content})
+            this.setState({
+                heading: 'Edit Note:',
+                title: this.props.currentNote.title,
+                content: this.props.currentNote.content
+            });
         }
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
-        console.log("current title: ", this.state.title);
-        console.log("current content: ", this.state.content);
+        //console.log("current title: ", this.state.title);
+        //console.log("current content: ", this.state.content);
     }
 
     saveNote = (e) => {
         e.preventDefault();
         const newNote = {title: this.state.title, content: this.state.content};
-        console.log("Submitted title: ", newNote.title);
-        console.log("Submitted content: ", newNote.content);
-        if (this.state.edit) {
-            const updatedNote = Object.assign({}, newNote, {id: this.state.note.id})
-            console.log(this.props);
-            axios
-                .put(`http://localhost:5000/note/${updatedNote.id}`, updatedNote)
-                .then( res => {
-                    this.setState({submitted: true});
-                })
-                .catch( err => {
-                    console.log(err);
-                })
+        console.log(newNote.title)
+        //console.log("Submitted title: ", newNote.title);
+        //console.log("Submitted content: ", newNote.content);
+        if (this.state.new) {
+            this.props.createNote(newNote);
+            this.setState({submitted: true});
+            // axios
+            //     .put(`http://localhost:5000/note/${updatedNote.id}`, updatedNote)
+            //     .then( res => {
+            //         this.setState({submitted: true});
+            //     })
+            //     .catch( err => {
+            //         console.log(err);
+            //     })
         } else {
-            axios
-                .post('http://localhost:5000/notes', newNote)
-                .then( res => {
-                    this.setState({title: '', content: '', submitted: true});
-                })
-                .catch( err => {
-                    console.log(err);
-                })
+            // axios
+            //     .post('http://localhost:5000/notes', newNote)
+            //     .then( res => {
+            //         this.setState({title: '', content: '', submitted: true});
+            //     })
+            //     .catch( err => {
+            //         console.log(err);
+            //     })
+            const updatedNote = Object.assign({}, newNote, {id: this.props.currentNote.id})
+            console.log("Updated note: ", updatedNote.title);
+            this.props.updateNote(updatedNote);
+            this.setState({title: '', content: '', submitted: true})
         }
     }
 
     render() { 
         return (
             this.state.submitted ? (
-                // this.state.edit ? (
-                //     <Redirect to={`/note/${this.state.note.id}`}/>
-                // ) : (
-                //     <Redirect to="/"/>
-                // )
-                <Redirect to="/"/>
+                this.state.new ? (
+                    <Redirect to="/"/>
+                ) : (
+                    <Redirect to={`/note/${this.props.currentNote.id}`}/>
+                )
+                // <Redirect to="/"/>
             ) : (
                 <Container className="form-section">
-                    <h3 className="heading">Create New Note: </h3>
+                    <h3 className="heading">{this.state.heading}</h3>
                     <Row>
                         <Col sm="12">
                             <Form onSubmit={this.saveNote} className="form">
@@ -79,14 +94,14 @@ class NewNote extends Component {
                                     type="text" 
                                     name="title"
                                     placeholder="Note Title"
-                                    defaultValue={this.state.title} 
+                                    value={this.state.title} 
                                     onChange={this.handleChange}
                                     className="form-title"/>
                                 <Input 
                                     type="textarea" 
                                     name="content" 
                                     placeholder="Note Content"
-                                    defaultValue={this.state.content}
+                                    value={this.state.content}
                                     onChange={this.handleChange}
                                     className="form-content"/>
                                 <NoteButton color="main" value="Save"/>
@@ -98,5 +113,11 @@ class NewNote extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        currentNote: state.currentNote
+    }
+}
  
-export default NewNote;
+export default connect(mapStateToProps, { updateNote, createNote })(NewNote);

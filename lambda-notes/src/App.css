@@ -84,11 +84,9 @@ h3.heading {
   color: #4A4A4A;
 }
 
-/* .note-thumbnail:before {
-  content: '';
-  display: block;
-  padding-top: 10%;
-} */
+.note-link:hover {
+  text-decoration: none;
+}
 
 .note-title {
   width: 95%;
@@ -145,6 +143,7 @@ h3.heading {
   font-weight: 900;
   text-decoration: underline !important;
   cursor: pointer;
+  color: #4A4A4A;
 }
 
 .btn-holder {

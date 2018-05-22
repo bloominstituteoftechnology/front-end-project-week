@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
         <NavNotes />
         <Route exact path="/" component={Notes}/>
-        <Route path="/note/:id" component={Note}/>
+        <Route exact path="/note/:id" component={Note}/>
         <Route path="/new" component={NewNote}/>
         <Route path="/note/edit/:id" component={NewNote}/>
       </div>

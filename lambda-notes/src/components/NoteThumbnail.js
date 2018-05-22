@@ -6,7 +6,7 @@ const NoteThumbnail = (props) => {
     
     return (
         <Col sm="4">
-            <Link to={`/note/${props.note.id}`}>
+            <Link to={`/note/${props.note.id}`} className="note-link">
                 <Card className="note-thumbnail">
                     <CardBody>
                         <CardTitle className="note-title heading">{props.note.title}</CardTitle>

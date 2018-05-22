@@ -1,41 +1,25 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
-import axios from 'axios';
+import { Container, Row, Col, Modal, ModalBody } from 'reactstrap';
+import { Redirect, Link } from 'react-router-dom';
+// import axios from 'axios';
 import NewNote from './NewNote';
 import NoteButton from './NoteButton';
+import { connect } from 'react-redux';
+import { fetchNote, removeNote } from '../actions';
 
 class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: null,
-            title: '',
-            content: '',
             edit: false,
             deleted: false,
-            modal: true
+            modal: false
         }
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
-        this.fetchNote(id);
-    }
-
-    fetchNote = (id) => {
-        axios
-            .get(`http://localhost:5000/note/${id}`)
-            .then( res => {
-                this.setState({
-                    note: res.data, 
-                    title: res.data.title, 
-                    content: res.data.content
-                });
-            })
-            .catch( err => {
-                console.log(err);
-            })
+        const id = this.props.match.params.id
+        this.props.fetchNote(id);
     }
 
     editNote = () => {
@@ -46,67 +30,54 @@ class Note extends Component {
         this.setState({modal: !this.state.modal});
     }
 
-    deleteNote = () => {
-        axios
-            .delete(`http://localhost:5000/note/${this.state.note.id}`)
-            .then( res => {
-                this.setState({deleted: true});
-            })
-            .catch( err => {
-                console.log(err);
-            })
-    }
-
     render() { 
         return (
             this.state.deleted ? (
                 <Redirect to="/"/>
             ) : (
-                this.state.edit ? (
-                    <NewNote 
-                        edit={true} 
-                        note={this.state.note} 
-                        title={this.state.title}
-                        content={this.state.content}/>
-                ) : (
-                    <Container>
-                        <div className="edit-delete">
-                            <a onClick={this.editNote}>edit</a>
-                            <a onClick={this.toggleModal}>delete</a>
-                            <Modal isOpen={this.state.modal}
-                                toggle={this.toggleModal}
-                                size="lg"
-                                className="delete-modal">
-                                <ModalBody>
-                                    <p className="confirm">Are you sure you want to delete this?</p>
-                                    <div className="btn-container">
-                                        <div 
-                                            onClick={this.deleteNote} 
-                                            className="btn-holder">
-                                            <NoteButton color="danger" value="Delete"/>
-                                        </div>
-                                        <div 
-                                            onClick={this.toggleModal} 
-                                            className="btn-holder">
-                                            <NoteButton color="main" value="No"/>
-                                        </div>
+                <Container>
+                    <div className="edit-delete">
+                        <Link to={`edit/${this.props.currentNote.id}`}>edit</Link>
+                        <a onClick={this.toggleModal}>delete</a>
+                        <Modal isOpen={this.state.modal}
+                            toggle={this.toggleModal}
+                            size="lg"
+                            className="delete-modal">
+                            <ModalBody>
+                                <p className="confirm">Are you sure you want to delete this?</p>
+                                <div className="btn-container">
+                                    <div 
+                                        onClick={this.props.removeNote} 
+                                        className="btn-holder">
+                                        <NoteButton color="danger" value="Delete"/>
                                     </div>
-                                </ModalBody>
-                            </Modal>
-                        </div>
-                        <h3 className="heading">{this.state.title}</h3>
-                        <Row>
-                            <Col sm="12">
-                                <div  className="note-content">
-                                    {this.state.content}
+                                    <div 
+                                        onClick={this.toggleModal} 
+                                        className="btn-holder">
+                                        <NoteButton color="main" value="No"/>
+                                    </div>
                                 </div>
-                            </Col>
-                        </Row>
-                    </Container>
-                )
+                            </ModalBody>
+                        </Modal>
+                    </div>
+                    <h3 className="heading">{this.props.currentNote.title}</h3>
+                    <Row>
+                        <Col sm="12">
+                            <div  className="note-content">
+                                {this.props.currentNote.content}
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             )
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        currentNote: state.currentNote,
+    }
+}
  
-export default Note;
+export default connect(mapStateToProps, { fetchNote, removeNote })(Note);

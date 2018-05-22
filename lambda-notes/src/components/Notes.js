@@ -1,29 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchNotes } from '../actions';
 import NoteThumbnail from './NoteThumbnail';
 import { Container, Row } from 'reactstrap';
 
 class Notes extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            notes: []
-        }
-    }
 
     componentDidMount() {
-        this.fetchNotes()
-    }
-
-    fetchNotes = () => {
-        axios
-        .get('http://localhost:5000/notes')
-        .then( res => {
-            this.setState({notes: res.data})
-        })
-        .catch( err => {
-            console.log(err)
-        })
+        this.props.fetchNotes()
     }
 
     render() { 
@@ -31,7 +15,7 @@ class Notes extends Component {
             <Container>
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">
-                    {this.state.notes.map( note => {
+                    {this.props.notes.map( note => {
                         const summary = note.content.substring(0,145) + '...';
                         const thumbnailNote = Object.assign({}, note, {content: summary})
                         return <NoteThumbnail note={thumbnailNote} key={note.id}/>
@@ -41,5 +25,11 @@ class Notes extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        notes: state.notes
+    }
+}
  
-export default Notes;
+export default connect(mapStateToProps, { fetchNotes })(Notes);
