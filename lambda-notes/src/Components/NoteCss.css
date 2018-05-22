@@ -1,0 +1,25 @@
+.listRow {
+    display: flex;
+    max-width: 75%;
+    
+}
+
+.listDiv {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.noteCol {
+    max-height: 220px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.noteCard {
+    padding: 10px;
+    
+    border: 1px solid darkgray;
+    box-shadow: 2px, 2px, 3px, 5px
+}
