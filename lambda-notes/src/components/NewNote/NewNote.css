@@ -5,7 +5,7 @@
     text-align: start;
     padding-left: 31px;
     padding-right: 31px;
-    padding-top: 72px;
+    padding-top: 77px;
     font-size: 20px;
     color: #4A4A4A;
     font-weight: bold;
@@ -13,7 +13,7 @@
 }
 
 .create-newNote{
-    padding-bottom: 38px;
+    padding-bottom: 26px;
 }
 
 .title-input {

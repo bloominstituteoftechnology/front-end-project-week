@@ -10,4 +10,10 @@
     font-size: 18px;
     color: #4A4A4A;
     border-right: 2px solid #BCBCBC;
+    padding-top: 24px;
+}
+
+.lambdaNotes {
+    padding-bottom: 14px;
+    font-size: 37px;
 }

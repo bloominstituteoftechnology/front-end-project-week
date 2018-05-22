@@ -9,7 +9,7 @@ const SideNav = () => {
 
     return (
         <div className="nav-container">
-            <h1>Lambda Notes</h1>
+            <h1 className="lambdaNotes">Lambda Notes</h1>
            <Link style={{textDecoration: 'none'}} to="/"><Button text="View Your Notes" /></Link>
            <Link style={{textDecoration: 'none'}} to="/create"><Button link="/create" text="+ Create New Note"/></Link>
         </div>

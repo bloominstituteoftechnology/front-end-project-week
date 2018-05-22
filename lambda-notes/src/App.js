@@ -6,6 +6,7 @@ import NotesContainer from './components/NotesContainer/NotesContainer';
 import SideNav from './components/SideNav/SideNav';
 import NewNote from './components/NewNote/NewNote';
 import NoteView from './components/NoteView/NoteView';
+import DeleteModal from './components/DeleteModal/DeleteModal';
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
        <Route exact path="/" component={NotesContainer} />
        <Route path="/create" component={NewNote} />
        <Route path="/note/:id" component={NoteView}/>
+       {/* <Route path="/note/:id/delete" component={DeleteModal}/> */}
       </div>
     );
   }

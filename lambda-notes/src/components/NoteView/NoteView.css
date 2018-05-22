@@ -12,7 +12,7 @@
 }
 
 .noteView-title{
-    padding-bottom: 38px;
+    padding-bottom: 20px;
     font-size: 22px;
     font-weight: bold;
     margin-top: 45px;
@@ -30,5 +30,35 @@
     margin-right: 16px;
     font-weight: bold;
     float: right;
+    text-Decoration: underline;
 }
 
+.modal-body {
+    border: none;
+    width: 584px;
+    height: 100px;
+    background-color: #FFFFFF;
+    text-align: center;
+    border: 1px solid black;
+    border-bottom: none !important;
+    padding-top: 60px !important;
+    
+}
+
+.modal {
+    padding-top: 165px;
+    padding-right: 365px;
+}
+
+.modal-footer {
+    width: 584px;
+    height: 100px;
+    background-color: #FFFFFF;
+    padding-right: 80px !important;
+    border: 1px solid black;
+    border-top: none !important;
+}
+
+.red-btn {
+    background-color: #D9001E;
+}
