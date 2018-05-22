@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import SideBar from './components/sideBar';
+import MainBar from './components/MainBar';
 
 class App extends Component {
   render() {
+
     return (
-      <div className="App">
-      <Container>
-        <Row>
-          <Col>Nav</Col>
-          <Col>Main</Col>
-        </Row>
-      </Container>
+      <div ClassName = "App">
+      <Container ClassName = "container-fluid">
+      <Row>
+        <SideBar />
+        <MainBar />
+      </Row>
+      </Container >
       </div>
     );
   }
