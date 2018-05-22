@@ -5,8 +5,7 @@ class Note extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: '',
-            body: '',
+            note: [],
             id: '',
             edit: false,
             modal: false
@@ -14,8 +13,33 @@ class Note extends React.Component {
     }
     
     componentDidMount() {
-        const { title, body, id } = this.props.note;
-        this.setState({ title, body, id});
+        if (this.props.note) {
+            const note = this.props.note;
+            this.setState({ note: note});
+        } else {
+            const id = this.props.match.params.id;
+            this.fetchNote(id);
+        }
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (this.props.match.params.id !== newProps.match.params.id) {
+            this.fetchNote(newProps.match.params.id);
+        }
+    }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.state.note !== this.state.note) {
+    //         this.fetchNote(this.state.id);
+    //     }
+    // }
+
+    fetchNote = id => {
+        const note = this.props.notes.filter(note => note.id === id);
+        this.setState({
+            note: note[0],
+            id: id
+        })
     }
 
     handleChange = e => {
@@ -32,7 +56,8 @@ class Note extends React.Component {
     }
 
     render() {
-        const { title, body, edit, modal, id } = this.state;
+        const { title, body } = this.state.note;
+        const { edit, modal, id } = this.state;
         return (
             <div>
                 {edit ? (
