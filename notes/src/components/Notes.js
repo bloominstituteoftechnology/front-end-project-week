@@ -33,8 +33,11 @@ class Notes extends Component {
           }
     }
 
-   
-
+   SaveNote = (note) => {
+       const notes = this.state.notes;
+       notes.push(note);
+       this.setState({notes: notes})       
+   }
     render() { 
         return (
             <Container>

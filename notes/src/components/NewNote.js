@@ -2,41 +2,34 @@ import React, { Component } from 'react';
 import { Form, Input, Container, Row, Col } from 'reactstrap';
 import NoteButton from './NoteButton';
 import { Redirect } from 'react-router-dom';
+import Notes from './Notes';
 
 class NewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            edit: props.edit,
-            note: props.note,
+             edit: props.edit,
+             note: props.note,
             title: '',
             content: '',
-            submitted: false
+            submitted: false,
+            id: ''
         }
     }
 
+  
     componentDidMount() {
-        if (!this.state.edit) {
-            console.log("creating new note")
-            this.setState({title: '', content: ''})
-        } else {
-            console.log("updating note")
-            this.setState({title: this.state.note.title, content: this.state.note.content})
-        }
-    }
+        this.setState({id: Date.now()});
+    }   
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
-        console.log("current title: ", this.state.title);
-        console.log("current content: ", this.state.content);
-    }
+       
+    } 
 
-    saveNote = (e) => {
-        e.preventDefault();
-        
-    }
-
-    render() { 
+    render() {
+        const { title, content } = this.state;
+        const newNote = {title, content};
         return (
             this.state.submitted ? (
                 <Redirect to="/"/>
@@ -45,7 +38,7 @@ class NewNote extends Component {
                     <h3 className="heading">Create New Note: </h3>
                     <Row>
                         <Col sm="12">
-                            <Form onSubmit={this.saveNote} className="form">
+                            <Form onSubmit={() => {this.props.saveNote(newNote)}} className="form">
                                 <Input 
                                     type="text" 
                                     name="title"

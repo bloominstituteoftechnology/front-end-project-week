@@ -19,6 +19,10 @@ h3.heading {
   padding: 90px 0 0 30px;
 }
 
+.note-heading {
+  color: black;
+}
+
 .nav-heading {
   font-size: 2.8em;
   line-height: 0.9em;

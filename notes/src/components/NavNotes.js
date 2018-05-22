@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Nav, Navbar } from 'reactstrap';
-
 import NoteButton from './NoteButton';
 
 class NavNotes extends Component {
