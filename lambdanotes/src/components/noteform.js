@@ -27,8 +27,8 @@ class NoteForm extends React.Component {
 
   render() {
     return (
-      <Form>
-        <h5>{this.props.topText}</h5>
+      <Form id="note-form" >
+        <h5 className="form-heading">{this.props.topText}</h5>
         <FormGroup>
           <Input name="myTitle" onChange={this.handleFormType} id="title-input" placeholder="Note Title" value={this.state.myTitle} />
         </FormGroup>

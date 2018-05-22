@@ -1,0 +1,17 @@
+.form-heading {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  padding-bottom: 24px;
+}
+
+#title-input {
+  max-width: 360px;
+}
+
+#content-input {
+  height: 350px;
+}
+
+#note-form {
+  padding: 56px 24px;
+}
