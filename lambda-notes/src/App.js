@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Aside from './components/Aside/Aside';
-import Notes from './components/Main/Notes';
+import ListViewContainer from './containers/ListViewContainer/ListViewContainer';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Aside />
-        <Notes />
+      <div className="App container-fluid">
+        <ListViewContainer />
       </div>
     );
   }
