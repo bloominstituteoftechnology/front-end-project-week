@@ -3,6 +3,7 @@ import {
     FETCHED_TAGS,
     SHOW_EDIT_TAG_BOX,
     HIDE_EDIT_TAG_BOX,
+    FETCHED_TAG_OF_NOTE,
     // SELECTING_NOTE,
     // ADDING_NOTE,
     // UPDATING_NOTE,
@@ -18,7 +19,8 @@ const initialState = {
     updatingTag: {
         id: '',
         name: ''
-    }
+    },
+    tagOfNote: {}
 }
 
 export const tagsReducer = (state = initialState, action) => {
@@ -35,27 +37,6 @@ export const tagsReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: true,
             }
-        // case SELECTING_NOTE:
-        //     return {
-        //         ...state,
-        //         isSelecting: true,
-        //     }
-        // case ADDING_NOTE:
-        //     return {
-        //         ...state,
-        //         isAdding: true,
-        //     }
-        // case UPDATING_NOTE:
-        //     return {
-        //         ...state,
-        //         isSelecting: false,
-        //         isUpdating: true,
-        //     }
-        // case DELETING_NOTE:
-        //     return {
-        //         ...state,
-        //         isDeleting: true
-        //     }
         case SHOW_EDIT_TAG_BOX:
             return {
                 ...state,
@@ -75,6 +56,11 @@ export const tagsReducer = (state = initialState, action) => {
                     id: '',
                     name: ''
                 }
+            }
+        case FETCHED_TAG_OF_NOTE: 
+            return {
+                ...state,
+                tagOfNote: action.data
             }
         case ERROR:
             return {

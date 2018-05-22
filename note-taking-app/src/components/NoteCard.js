@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
 
+import TagOfNote from './TagOfNote';
+
 import { selectNote } from '../actions';
+import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
 
 import {
   DocumentCard,
@@ -10,36 +13,70 @@ import {
   DocumentCardActions
 } from 'office-ui-fabric-react/lib/DocumentCard';
 
-const NoteCard = ({id, title, content, selectNote }) => 
-  <div className='ms-Grid-col ms-sm12 ms-lg3' style={style.extraMargin}>
-    <DocumentCard>
-      <DocumentCardTitle title={title} onClick={() => selectNote({id, title, content})}/>
-      <div style={style.cardPreview} onClick={() => selectNote({id, title, content})}>
-        <Markdown text={content} />
+class NoteCard extends React.Component {
+  state = {
+    tagOfNoteOpen: false
+  }
+  showTagOfNote = () => {
+    this.setState({ tagOfNoteOpen: true })
+  }
+  hideTagOfNote = () => {
+    this.setState({ tagOfNoteOpen: false })
+  }
+  render () {
+  const {id, title, content, selectNote } = this.props
+  const { tagOfNoteOpen } = this.state
+  return (
+    <div>
+    <div 
+      className='ms-Grid-col ms-sm12 ms-lg3 ms-CalloutCoverExample-buttonArea' 
+      style={style.extraMargin} 
+      ref={button => this.tagOfNoteButtonElement = button }>
+      <DocumentCard>
+        <DocumentCardTitle title={title} onClick={() => selectNote({id, title, content})}/>
+        <div style={style.cardPreview} onClick={() => selectNote({id, title, content})}>
+          <Markdown text={content} />
+        </div>
+        <div style={style.displayInlineBlock}>
+          <DocumentCardActions
+            actions={
+              [ 
+                {
+                  iconProps: { iconName: 'Tag' },
+                  onClick: this.showTagOfNote
+                },
+                {
+                  iconProps: { iconName: 'Pin'},
+                  onClick: () => {console.log('')}
+                },
+                {
+                  iconProps: { iconName: 'Ringer' },
+                  onClick: () => {console.log('')}
+                }
+              ]
+            }
+          />
+        </div>
+      </DocumentCard>
+    </div>
+    <Callout
+      className='ms-CalloutExample-callout'
+      target={ this.tagOfNoteButtonElement }
+      onDismiss={this.hideTagOfNote}
+      setInitialFocus={ true }
+      hidden={ !tagOfNoteOpen }
+      directionalHint={DirectionalHint.bottomCenter}
+      isBeakVisible={ false }
+      gapSpace={0}
+    >
+      <div className='ms-CalloutExample-inner'>
+        <TagOfNote id={id}/>
       </div>
-      <div style={style.displayInlineBlock}>
-        <DocumentCardActions
-          actions={
-            [ 
-              {
-                iconProps: { iconName: 'Tag' },
-                onClick: () => {console.log('')}
-              },
-              {
-                iconProps: { iconName: 'Pin'},
-                onClick: () => {console.log('')}
-              },
-              {
-                iconProps: { iconName: 'Ringer' },
-                onClick: () => {console.log('')}
-              }
-            ]
-          }
-        />
-      </div>
-    </DocumentCard>
+    </Callout>
   </div>
-
+    )
+  }
+}
 const style = {
   extraMargin: {
     marginBottom: 10

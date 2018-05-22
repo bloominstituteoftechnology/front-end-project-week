@@ -20,6 +20,7 @@ export const FETCHING_TAGS = 'FETCHING_TAGS'
 export const FETCHED_TAGS = 'FETCHED_TAGS'
 export const SHOW_EDIT_TAG_BOX = 'SHOW_EDIT_TAG_BOX'
 export const HIDE_EDIT_TAG_BOX = 'HIDE_EDIT_TAG_BOX'
+export const FETCHED_TAG_OF_NOTE = 'FETCH_TAG_OF_NOTE'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -260,5 +261,64 @@ export const removeTag = (id) => {
         error => {
             dispatch({ type: ERROR, error: error.code })
         });
+    }
+}
+
+// Tags of note actions
+export const getTagOfNote = (noteId) => {
+    let targetRef = db.database().ref(`/notes/${noteId}/tagOfNote`)
+    
+    return (dispatch) => {        
+        targetRef.on('value', 
+        response => {
+            dispatch({ type: FETCHED_TAG_OF_NOTE, data: response.val() })
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+    }
+}
+
+export const removeTagOfNote = (noteId, tagId) => {
+    let targetNoteRef = db.database().ref(`/notes/${noteId}/tagOfNote`)
+    let targetTagOfNoteRef = db.database().ref(`/notes/${noteId}/tagOfNote/${tagId}`)
+    
+    return (dispatch) => {
+        targetTagOfNoteRef.on('value', 
+        response => {
+            if (response.val()) {
+                // tag exists, update
+                targetTagOfNoteRef.remove()
+            }
+                // tag does not exist, someone already deleted recently, notify user
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+
+        targetNoteRef.on('value', 
+        response => {
+            dispatch({ type: FETCHED_TAG_OF_NOTE, data: response.val() })
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+    }
+}
+
+export const applyTag = ({noteId, tagId, tagName}) => {
+    console.log(noteId, tagId, tagName)
+    let targetNoteRef = db.database().ref(`/notes/${noteId}/tagOfNote`)
+
+    targetNoteRef.child(`${tagId}`).set(tagName)
+
+    return (dispatch) => {
+        targetNoteRef.on('value', 
+        response => {
+            dispatch({ type: FETCHED_TAG_OF_NOTE, data: response.val() })
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
     }
 }

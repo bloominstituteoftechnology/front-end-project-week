@@ -6,7 +6,7 @@ import AddNoteForm from './AddNoteForm';
 import UpdateNoteForm from './UpdateNoteForm';
 import Note from './Note';
 
-import { getNotes } from '../actions';
+import { getNotes, getTags } from '../actions';
 
 const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isDeleting }) => {
   if (!isFetching) {
@@ -21,6 +21,7 @@ const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isD
 class NoteContainer extends React.Component {
   componentDidMount = () => {
     this.props.getNotes()
+    this.props.getTags()
   }
   render () {
     return (
@@ -34,4 +35,4 @@ const mapStateToProps = (state) => {
   return notesReducer
 }
 
-export default connect(mapStateToProps, { getNotes })(NoteContainer);
+export default connect(mapStateToProps, { getNotes, getTags })(NoteContainer);
