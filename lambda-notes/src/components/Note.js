@@ -1,14 +1,18 @@
 import React, { component } from 'react';
-import axios from 'axios';
-import NoteCard from './NoteCard';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import NoteList from './NoteList';
 
-export default class Note extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: null
-        };
-    }
-
-    
+const Note = props => {
+    return (
+        <div>
+            <Card className='col-3'>
+                <CardBody>
+                    <CardTitle>{props.note.title}</CardTitle>
+                    <CardText>{props.note.content}</CardText>
+                </CardBody>
+            </Card>
+        </div>
+    )
 }
+
+export default Note;

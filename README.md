@@ -23,7 +23,7 @@ The main objective of this week is to develop the MVP feature set listed below u
 TRELLO URL:
 ********** Trello Link Here **********
 
-https://trello.com/b/cW6nC0lg/lambda-notes
+https://trello.com/b/cW6nC0lg/lambda-notes-chris-honda
 
 ^^^^^^^^^^ Trello Link Here ^^^^^^^^^^
 
