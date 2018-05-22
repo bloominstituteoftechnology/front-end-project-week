@@ -7,10 +7,78 @@ class displayList extends Component {
     render() {
         return (
             <div>
-            <p>Your Notes:</p>
-                <Table borderless>
-                    <tbody>
-                        <tr>
+                <container className='container'>
+                    <div className='sidebar'>
+                        <p className='heading_Font'><strong>Lambda Notes</strong>
+                        </p>
+                        <div>
+                            <button>View Your Notes</button>
+                        </div>
+                        <div>
+                            <button>+ Create New Notes</button>
+                        </div>
+                    </div>
+
+                    <div className='main'>
+                        <p><strong>Your Notes:</strong></p>
+                        <Table borderless>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <Card classname>
+                                            <CardBody>
+                                                <CardTitle>Note Title</CardTitle>
+                                                <CardText>{catIpsum}</CardText>
+                                            </CardBody>
+                                        </Card>
+                                    </td>
+                                    <td>
+                                        <Card>
+                                            <CardBody>
+                                                <CardTitle>Note Title</CardTitle>
+                                                <CardText>{catIpsum}</CardText>
+                                            </CardBody>
+                                        </Card>
+                                    </td>
+                                    <td>
+                                        <Card>
+                                            <CardBody>
+                                                <CardTitle>Note Title</CardTitle>
+                                                <CardText>{catIpsum}</CardText>
+                                            </CardBody>
+                                        </Card>
+                                    </td>
+                                </tr>
+
+
+                                <tr>
+                                <td>
+                                    <Card>
+                                        <CardBody>
+                                            <CardTitle>Note Title</CardTitle>
+                                            <CardText>{catIpsum}</CardText>
+                                        </CardBody>
+                                    </Card>
+                                </td>
+                                <td>
+                                    <Card>
+                                        <CardBody>
+                                            <CardTitle>Note Title</CardTitle>
+                                            <CardText>{catIpsum}</CardText>
+                                        </CardBody>
+                                    </Card>
+                                </td>
+                                <td>
+                                    <Card>
+                                        <CardBody>
+                                            <CardTitle>Note Title</CardTitle>
+                                            <CardText>{catIpsum}</CardText>
+                                        </CardBody>
+                                    </Card>
+                                </td>
+                            </tr>
+
+                            <tr>
                             <td>
                                 <Card>
                                     <CardBody>
@@ -36,64 +104,11 @@ class displayList extends Component {
                                 </Card>
                             </td>
                         </tr>
-
-
-                        <tr>
-                        <td>
-                            <Card>
-                                <CardBody>
-                                    <CardTitle>Note Title</CardTitle>
-                                    <CardText>{catIpsum}</CardText>
-                                </CardBody>
-                            </Card>
-                        </td>
-                        <td>
-                            <Card>
-                                <CardBody>
-                                    <CardTitle>Note Title</CardTitle>
-                                    <CardText>{catIpsum}</CardText>
-                                </CardBody>
-                            </Card>
-                        </td>
-                        <td>
-                            <Card>
-                                <CardBody>
-                                    <CardTitle>Note Title</CardTitle>
-                                    <CardText>{catIpsum}</CardText>
-                                </CardBody>
-                            </Card>
-                        </td>
-                    </tr>
-
-                    <tr>
-                    <td>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>Note Title</CardTitle>
-                                <CardText>{catIpsum}</CardText>
-                            </CardBody>
-                        </Card>
-                    </td>
-                    <td>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>Note Title</CardTitle>
-                                <CardText>{catIpsum}</CardText>
-                            </CardBody>
-                        </Card>
-                    </td>
-                    <td>
-                        <Card>
-                            <CardBody>
-                                <CardTitle>Note Title</CardTitle>
-                                <CardText>{catIpsum}</CardText>
-                            </CardBody>
-                        </Card>
-                    </td>
-                </tr>
-                        
-                    </tbody>
-                </Table>
+                                
+                            </tbody>
+                        </Table>
+                    </div>
+                </container>
             </div>
         );
     }

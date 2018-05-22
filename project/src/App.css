@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -25,4 +26,36 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  background: #D8D8D8;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  /* display: -webkit-flex;
+  height: 100%;
+  width: 200px;
+  position: fixed; */
+
+}
+
+.headingFont {
+  font: Roboto Bold;
+}
+
+.main {
+  background: #F3F3F3;
+}
+
+.card {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  text-align: left;
 }
