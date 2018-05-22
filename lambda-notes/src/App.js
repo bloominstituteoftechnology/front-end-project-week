@@ -42,7 +42,7 @@ class App extends Component {
           </Link>
         </div>
         <div>
-          <Route exact path="/" component={ListNotes} ></Route>
+          <Route exact path="/" render={(props) => <ListNotes {...props} notes={this.state.notes} />} />
           <Route path="/notes/:id" component={Note} ></Route>
           <Route path="/create" render={(props) => <CreateNote {...props} notes={this.state.notes} />} />
         </div>
