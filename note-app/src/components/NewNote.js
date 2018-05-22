@@ -1,5 +1,5 @@
 import React from "react";
-import { addNote } from "../actions/actions";
+import { addNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,6 @@ class NewNote extends React.Component {
     this.state = {
       title: "",
       note: "",
-      tag: ""
     };
   }
 
@@ -31,7 +30,6 @@ class NewNote extends React.Component {
       title: this.state.title,
       note: this.state.note,
       check: false,
-      tag: this.state.tag
     };
     this.props.addNote(noteOject);
     this.refresh();
@@ -70,7 +68,7 @@ class NewNote extends React.Component {
 
 const mapDispatchToProps = state => {
   return {
-    notes: this.state.notes
+    note: this.state.notes
   };
 };
 

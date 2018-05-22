@@ -1,13 +1,12 @@
-import React from 'react';
-import './App.css';
-import { Route } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { Route } from "react-router-dom";
 
-import SView from './components/SView';
-import MainView from './components/MainView';
-import EditNote from './components/EditNote';
-import NewNote from './components/NewNote';
-import SideBar from './components/SideBar';
-
+import SView from "./components/SView";
+import MainView from "./components/MainView";
+import EditNote from "./components/EditNote";
+import NewNote from "./components/NewNote";
+import SideBar from "./components/SideBar";
 
 //LeftSide
 
@@ -17,7 +16,7 @@ import SideBar from './components/SideBar';
 
 //Home
 
-//New 
+//New
 
 //View
 
@@ -30,13 +29,11 @@ import SideBar from './components/SideBar';
 const App = props => {
   return (
     <div>
-			<Route exact path="/" component={Home} />
-			<Route path="/notes/new" component={New} />
-			<Route path="/notes/view/:idV" component={View} />
-			<Route path="/notes/edit/:idE" component={Edit} />
-			<Route path="/notes/view/delete/:idD" component={Delete} />
-		</div>
-  )
-}
+      <Route exact path="/" component={SideBar} />
+      <Route path="/notes/new" component={NewNote} />
+      <Route path="/notes/edit" component={EditNote} />
+    </div>
+  );
+};
 
 export default App;
