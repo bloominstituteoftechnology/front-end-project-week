@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
+import { Value } from 'slate'
+import Plain from 'slate-plain-serializer';
 
 import { updateNote, deleteNote, removeNote} from '../actions';
 
@@ -11,7 +13,7 @@ const Note = ({id, title, content, updateNote, deleteNote, removeNote}) =>
     <div>
       <h2 style={style.removeMargin}>{title}</h2>
       <div style={style.topLine}>
-        <Markdown text={content} />
+        <Markdown text={Plain.serialize(Value.fromJSON(content))} />
       </div>
     </div>
     <div style={style.displayBottomCorner}>
@@ -31,7 +33,6 @@ const Note = ({id, title, content, updateNote, deleteNote, removeNote}) =>
 
 const mapStateToProps = (state) => {
   const { notes } = state.notesReducer
-  
   return {
     id: Object.keys(notes)[0],
     title: notes[Object.keys(notes)[0]].title,

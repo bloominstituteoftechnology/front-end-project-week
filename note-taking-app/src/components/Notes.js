@@ -7,7 +7,6 @@ import NoteCard from './NoteCard';
 
 const Notes = ({notes}) => 
   <div>
-    <h3>Your Notes:</h3>
     {
       notes && Object.keys(notes).map((id) => {
         return (          

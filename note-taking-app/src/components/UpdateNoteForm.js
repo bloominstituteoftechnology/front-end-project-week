@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
+import { Editor } from 'slate-react'
+import { Value } from 'slate'
+import Plain from 'slate-plain-serializer'
 
 import { saveNote, toggleMarkdown } from '../actions';
 
@@ -16,11 +19,17 @@ class UpdateNoteForm extends Component {
   }
   componentDidMount = () => {
     const { id, title, content } = this.props
+    console.log(content)
     this.setState({
       id, title, content
     })
   }
-  handleChange = (key, val) => {
+  handleChange = ({ value }) => {
+    this.setState({
+      content: value
+    })
+  }
+  handleTitleChange = (key, val) => {
     this.setState({
       [key]: val
     })
@@ -28,29 +37,23 @@ class UpdateNoteForm extends Component {
   render() {    
     const { saveNote, toggleMarkdown, inMarkdown } = this.props
     const { id, title, content } = this.state
+    const reformatContent = content ? Value.fromJSON(content) : Plain.deserialize('')
     return (
       <div style={style.root}>
         <div>
           <TextField
             placeholder='Tomorrow meetings'
             borderless
-            name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
+            name='title' value={title} onBeforeChange={val => this.handleTitleChange('title', val)}
             style={style.largeText}
           />
           <div style={style.topLine}>
           {inMarkdown ?
             // in Markdown mode
-            <TextField
-              style={style.removePadding}
-              borderless
-              placeholder='8am Standup, 1pm Engineer Team Meeting, ...'
-              multiline
-              autoAdjustHeight
-              name='content' value={content} onBeforeChange={val => this.handleChange('content', val)}
-            />
+            <Editor value={reformatContent} onChange={this.handleChange} style={style.content}/>
             :
             // in Preview mode
-            <Markdown text={content} />
+            <Markdown text={Plain.serialize(content)} />
           }
           </div>
         </div>
@@ -65,7 +68,7 @@ class UpdateNoteForm extends Component {
             primary={ true }
             iconProps={ { iconName: 'Save' } }
             text='Save'
-            onClick={() => saveNote({id, title, content})}
+            onClick={() => saveNote({id, title, content: content.toJSON()})}
           />
         </div>        
       </div>
@@ -88,6 +91,9 @@ const style = {
   root: {
     height: '100%',
     position: 'relative',
+  },
+  content: {
+    height: 100
   },
   topLine: {
     borderTop: '1px solid #eaeaea',

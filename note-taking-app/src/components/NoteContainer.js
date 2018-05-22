@@ -39,7 +39,7 @@ class NoteContainer extends React.Component {
   render () {
     const { openPanel } = this.state
     return (
-      <div>
+      <div style={style.root}>
         <DefaultButton
           iconProps={ { iconName: 'ContactCard' } }
           text='Log In'
@@ -70,6 +70,12 @@ const style = {
     position: 'absolute',
     top: 10,
     right: 10
+  },
+  root: {
+    paddingTop: 55,
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%'
   }
 }
 

@@ -2,20 +2,49 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
 import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
+import { Editor } from 'slate-react'
+import { Value } from 'slate'
+import Plain from 'slate-plain-serializer'
 
 import { saveNote, toggleMarkdown } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
-class NoteForm extends Component {
+const initialValue = Value.fromJSON({
+  document: {
+    nodes: [
+      {
+        object: 'block',
+        type: 'paragraph',
+        nodes: [
+          {
+            object: 'text',
+            leaves: [
+              {
+                text: 'A line of text in a paragraph.',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+})
+
+class AddNoteForm extends Component {
   state = {
     title: '',
-    content: ''
+    content: initialValue
   }
-  handleChange = (key, val) => {
+  handleChange = ({ value }) => {
     this.setState({
-      [key]: val
+      content: value
+    })
+  }
+  handleTitleChange = (type, val) => {
+    this.setState({
+      [type]: val
     })
   }
   render() {    
@@ -27,22 +56,14 @@ class NoteForm extends Component {
           <TextField
             placeholder='Tomorrow meetings'
             underlined
-            name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
+            name='title' value={title} onBeforeChange={val => this.handleTitleChange('title', val)}
             style={style.largeText}
           />
           <div style={style.topLine}>
           {inMarkdown ?
-          // in Markdown mode
-            <TextField
-              style={style.removePadding}
-              borderless
-              placeholder='8am Standup, 1pm Engineer Team Meeting, ...'
-              multiline
-              autoAdjustHeight
-              name='content' value={content} onBeforeChange={val => this.handleChange('content', val)}
-            />
+            <Editor value={content} onChange={this.handleChange} style={style.content}/>
             :
-            <Markdown text={content} />
+            <Markdown text={Plain.serialize(content)} />
           }
           </div>
         </div>
@@ -57,7 +78,7 @@ class NoteForm extends Component {
             primary={ true }
             iconProps={ { iconName: 'Save' } }
             text='Save'
-            onClick={() => saveNote({title, content})}
+            onClick={() => saveNote({title, content: content.toJSON()})}
           />
         </div>
       </div>
@@ -76,6 +97,9 @@ const style = {
   root: {
     height: '100%',
     position: 'relative'
+  },
+  content: {
+    height: 100
   },
   topLine: {
     borderTop: '1px solid #eaeaea',
@@ -99,4 +123,4 @@ const style = {
   }
 }
 
-export default connect( mapStateToProps, { saveNote, toggleMarkdown })(NoteForm);
+export default connect( mapStateToProps, { saveNote, toggleMarkdown })(AddNoteForm);
