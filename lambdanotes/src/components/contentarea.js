@@ -23,7 +23,7 @@ const ContentArea = (props) => {
       );
     case "create":
       return (
-        <NoteForm />
+        <NoteForm topText="Create New Note" />
       );
     default:
       return (
