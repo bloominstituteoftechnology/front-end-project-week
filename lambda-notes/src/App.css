@@ -60,3 +60,23 @@ body, html {
   margin-top: 5.5%;
 }
 
+.create-form {
+  margin-left: 5%;
+  margin-top: 6%;
+}
+
+.create-button {
+  background: #2BC1C4;
+  color: white;
+  border-radius: 6%;
+  width: 24%;
+}
+
+.form-title {
+  width: 490px;
+}
+
+.form-content {
+  width: 980px;
+  /* height: 400px; */
+}
