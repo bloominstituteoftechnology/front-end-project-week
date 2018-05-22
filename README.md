@@ -1,3 +1,5 @@
+Marco Guzman trello: https://trello.com/b/7kBJnp5n/lambda-notes-marco-guzman
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -49,7 +51,7 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 * [ ] Edit an existing note
 * [ ] Delete an existing note
 ```
-Marco Guzman trello: https://trello.com/b/7kBJnp5n/lambda-notes-marco-guzman
+
 
 ---
 
