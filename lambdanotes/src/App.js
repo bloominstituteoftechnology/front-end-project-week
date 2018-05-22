@@ -5,6 +5,8 @@ import { Container, Col, Row } from 'reactstrap';
 
 import Sidebar from './components/Sidebar/Sidebar.js';
 import ListView from './components/ListView/ListView.js';
+import CreateNote from './components/CreateNote/CreateNote.js';
+import ViewNote from './components/ViewNote/ViewNote.js';
 
 class App extends Component {
   render() {
@@ -15,6 +17,8 @@ class App extends Component {
         </div>
         <div className='viewContainer'>
           <Route exact path='/' component={ListView} />
+          <Route path='/create' component={CreateNote} />
+          <Route exact path='/note' component={ViewNote} />
         </div>
       </div>
     );

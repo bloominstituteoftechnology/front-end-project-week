@@ -1,0 +1,37 @@
+.optionsContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 32px 0 0;
+}
+
+.edit {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    margin-right: 14px;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.delete {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.header {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 2px 0 8px 25px;
+    font-size: 21px;
+}
+
+.noteContent {
+    text-align: start;
+    margin: 25px;
+    line-height: 25px;
+    font-size: 14.03px;
+}
