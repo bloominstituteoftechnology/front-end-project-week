@@ -1,3 +1,11 @@
+#root > .container-fluid {
+  height: 100%;
+}
+
+#root > .container-fluid > .row {
+  min-height: 100%;
+}
+
 .view {
   background-color: #F3F3F3;
   border: 1px solid #979797;
