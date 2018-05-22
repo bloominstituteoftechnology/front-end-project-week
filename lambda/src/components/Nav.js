@@ -13,7 +13,7 @@ const NavBar = () => {
     return(
       <Container className="container">
         <Col>
-        <div className="Nav">
+        <div className="Nav align-self-start">
             <h1>Lambda Notes</h1>
             <Link to="/"><Button color="info">View Your Note</Button>{' '}</Link>
             <Link to="/note"> <Button color="info">+ Create New Note</Button>{' '}</Link>  
