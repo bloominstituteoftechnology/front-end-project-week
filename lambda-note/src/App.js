@@ -8,7 +8,7 @@ class App extends Component {
 
     return (
       <div ClassName = "App">
-      <Container ClassName = "container-fluid">
+      <Container ClassName = "container">
       <Row>
         <SideBar />
         <MainBar />
