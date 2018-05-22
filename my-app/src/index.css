@@ -1,13 +1,20 @@
 body {
-  margin: 0;
+  margin: 3% auto;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Raleway;
+  font-weight: 500;
   background-color: rgb(255, 255, 255);
   color: #4A4A4A;
-
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: Roboto;
+  font-weight: bold;
 }
 
 button {
   background-color: #2BC1C4;
   color: #FFFFFF;
+  border: none;
+  width: 80%;
+  font-size: 1.1rem;
 }

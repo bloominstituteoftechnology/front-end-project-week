@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './createNote.css';
 
 
 export default class Note extends Component {
@@ -22,17 +23,18 @@ export default class Note extends Component {
 
     render() {
         return (
-
-            <form>
-                <h4>Create New Note</h4>
-                <div class="form-group">
-                    <input type="text"  value={this.state.title} name="title" placeholder="Note Title" onChange={this.handelTodoChange} />
-                </div>
-                <div class="form-group">
-                    <textarea rows="10" name="comment" value={this.state.comment} placeholder="Note Content" onChange={this.handelTodoChange}></textarea>
-                </div>
-                <button onClick={() => this.handleAddNote()}>Save</button>
-            </form>
+            <div className="createNote">
+                <form className="formStyle">
+                    <h4>Create New Note</h4>
+                    <div class="form-group">
+                        <input type="text"  value={this.state.title} name="title" placeholder="Note Title" onChange={this.handelTodoChange} />
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="10" name="comment" value={this.state.comment} placeholder="Note Content" onChange={this.handelTodoChange}></textarea>
+                    </div>
+                    <button onClick={() => this.handleAddNote()}>Save</button>
+                </form>
+            </div>
 
         )
     }
