@@ -1,5 +1,7 @@
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 body {
   margin: 0;
@@ -21,3 +23,5 @@ div {
 div {
   color: purple;
 }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3ByZWNzcy9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwrQkFBdUI7S0FBdkIsNEJBQXVCO1VBQXZCLHVCQUF1QjtDQUN4QjtBQUNEO0VBQ0UsVUFBVTtFQUNWLFdBQVc7RUFDWCx3QkFBd0I7Q0FDekI7QUFDRDtFQUNFLGVBQWU7Q0FDaEI7QUFDRDtFQUNFLFlBQVk7Q0FDYjtBQUNEO0VBQ0UsWUFBWTtDQUNiO0FBQ0Q7RUFDRSxZQUFZO0NBQ2I7QUFDRDtFQUNFLGNBQWM7Q0FDZiIsImZpbGUiOiJpbmRleC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIqIHtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbn1cbmJvZHkge1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmO1xufVxuZGl2IHtcbiAgY29sb3I6IG1hZ2VudGE7XG59XG5kaXYge1xuICBjb2xvcjogZ29sZDtcbn1cbmRpdiB7XG4gIGNvbG9yOiBjeWFuO1xufVxuZGl2IHtcbiAgY29sb3I6IHBpbms7XG59XG5kaXYge1xuICBjb2xvcjogcHVycGxlO1xufVxuIl19 */
