@@ -38,25 +38,23 @@ h6 {
     margin-top: 80px;
     font-size: 25px;
 }
-/* 
-.content {
-    padding-bottom: 400px;
-    width: 750px;
-    border-radius: 1;
-    border: 1px solid darkgray;
-
-}
-.button3 {
-    display: block;
-    background-color:#2BC1C4;
-    color: #FFFF;
-    border: 1px solid darkgray;
-    font: Raleway Medium;
-    font-size: 15px;
-    padding: 10px;
+.button4 {
     position: absolute;
-    width: 200px;
+    margin-left: 700px;
+    margin-top: -70px;
+    text-decoration: underline;
+    border: none;
+    background-color: #F3F3F3;
+    color: #4A4A4A;
+    font: Raleway Medium
 }
-.button3:hover {
-    background-color: #26acaf;
-} */
+.button5 {
+    position: absolute;
+    margin-left: 750px;
+    margin-top: -70px;
+    text-decoration: underline;
+    border: none;
+    background-color: #F3F3F3;
+    color: #4A4A4A;
+    font: Raleway Medium
+}

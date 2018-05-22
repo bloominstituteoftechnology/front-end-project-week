@@ -6,6 +6,7 @@ import Sidebar from './sidebar/sidebar';
 import ViewNote from './viewnote/viewnote';
 import CreateNote from './createnote/createnote';
 import EditNote from './editnote/editnote';
+import DeleteNote from './deletenote/deletenote';
 
 class App extends Component {
 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/CreateNewNote" component={CreateNote}></Route>
             <Route path="/EditNote" component={EditNote}></Route>
             <Route path="/ViewNote" component={ViewNote}></Route>
+            <Route path="/DeleteNote" component={DeleteNote}></Route>
             <Route component={NoMatch}></Route>
       </Switch>
             <Route path="/" component={Sidebar}></Route>

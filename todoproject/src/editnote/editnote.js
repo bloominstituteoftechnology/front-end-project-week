@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class EditNote extends Component {

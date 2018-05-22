@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import './index.css';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
-  
 
-class ListView extends Component {
-    render() {
+const ListView = (props) => {
+  
         return (
             <div className ="container1">
             <h2>Your Notes:</h2>
-
-
+   
             <Card className="card">
                 <CardBody>
                     <CardTitle className="cardtitle">Note Title</CardTitle>
@@ -79,6 +77,6 @@ class ListView extends Component {
             </div>
         )
     }
-};
+
 
 export default ListView;

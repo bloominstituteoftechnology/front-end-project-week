@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 
 class ViewNote extends Component {
     render() {
+
         return (
-          
+
             <div className="container2">    
             <h6>Note Name</h6>
+
+            <Link to="/EditNote">
+            <button className="button4">edit</button>
+            </Link>
+
+            <Link to="/DeleteNote">
+            <button className="button5">delete</button>
+            </Link>
 
             <p className="content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a pellentesque elit. Suspendisse non blandit tellus. Ut leo dolor, vestibulum nec justo in, hendrerit placerat magna. Aenean sem elit, pulvinar et nulla sit amet, mattis placerat libero. Vivamus ante lacus, interdum quis nunc eu, facilisis mollis quam. Praesent accumsan efficitur elementum. Quisque ornare nulla sit amet facilisis blandit.
