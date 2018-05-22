@@ -14,12 +14,15 @@ const Note = props => {
             <div key={ Date.now() }>
               <div className=''>
                 <Link to={ `edit/${ note.id }` }>
-                  <Button buttonContent={ 'Edit' } buttonOnClick={ () => props.setEditValues(note.title, note.content) }/>
+                  <Button
+                    buttonContent={ 'Edit' }
+                    buttonOnClick={ () => props.setEditValues(note.title, note.content) }
+                  />
                 </Link>
 
                 <Button
                   buttonContent='Delete'
-                  // onClick={}
+                  buttonOnClick={ () => props.handleDeleteNote(note.id) }
                 />
               </div>
               

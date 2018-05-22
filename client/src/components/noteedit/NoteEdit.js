@@ -3,7 +3,6 @@ import React from 'react';
 import Form from '../misc/Form'
 
 const NoteEdit = props => {
-  console.log(props);
   return (
     <div>
       <div>
