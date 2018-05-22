@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
+import Button from '../misc/Button';
+
 const Note = props => {
   if (props.match) {
     return (
@@ -9,12 +11,21 @@ const Note = props => {
       })
         .map(note => {
           return (
-            <Link to={ `note/edit/${ note.id }` } key={ Date.now() }>
-              <div>
-                <h2>{ note.title }</h2>
-                <p>{ note.content }</p>
+            <div key={ Date.now() }>
+              <div className=''>
+                <Link to={ `edit/${ note.id }` }>
+                  <Button buttonContent={ 'Edit' } buttonOnClick={ () => props.setEditValues(note.title, note.content) }/>
+                </Link>
+
+                <Button
+                  buttonContent='Delete'
+                  // onClick={}
+                />
               </div>
-            </Link>
+              
+              <h2>{ note.title }</h2>
+              <p>{ note.content }</p>
+            </div>
           )
         })
     )

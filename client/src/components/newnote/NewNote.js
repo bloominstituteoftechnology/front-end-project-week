@@ -12,6 +12,7 @@ const NewNote = props => {
 
       <Form
         setInputVal={ props.setInputVal }
+        setTextAreaVal={ props.setTextAreaVal }
         title={ props.title }
         content={ props.content }
         buttonOnClick={ props.buttonOnClick }

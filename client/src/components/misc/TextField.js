@@ -5,9 +5,10 @@ const TextField = props => {
     return (
       <input
         name={ props.inputName }
+        onChange={ props.inputOnChange }
+        placeholder={ props.inputPlaceholder }
         type={ props.inputType }
         value={ props.inputVal }
-        onChange={ props.inputOnChange }
       />
     )
   }
@@ -16,6 +17,7 @@ const TextField = props => {
     <textarea
       name={ props.textareaName }
       onChange={ props.textareaOnChange }
+      placeholder={ props.textareaPlaceholder }
       value={ props.textareaContent }
     >
     </textarea>

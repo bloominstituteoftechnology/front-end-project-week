@@ -6,6 +6,7 @@ import Sidebar from './sidebar/Sidebar';
 import NoteView from './noteview/NoteView';
 import NewNote from './newnote/NewNote';
 import Note from './noteview/Note';
+import NoteEdit from './noteedit/NoteEdit';
 
 // presentational
 import './App.css';
@@ -38,6 +39,24 @@ class App extends Component {
     };
 
     this.setState({ noteList: [ ...this.state.noteList, newNote ] });
+  }
+
+  // setNewNoteValues
+  setNewNoteValues = (id, title, content) => {
+    const newNoteList = [ ...this.state.noteList ];
+
+    for (let i = 0; i < newNoteList.length; i++) {
+      if (id === newNoteList[i].id) {
+        newNoteList[i] = { id, title, content }
+      }
+    }
+
+    this.setState({ title: '', content: '', noteList: [ ...newNoteList ] });
+  }
+
+  // setEditValues
+  setEditValues = (title, content) => {
+    this.setState({ title, content });
   }
 
   // sets currently selected note for dynamic routing
@@ -82,6 +101,7 @@ class App extends Component {
               <NewNote
                 { ...props }
                 setInputVal={ this.setInputVal }
+                setTextAreaVal={ this.setInputVal }
                 title={ this.state.title }
                 content={ this.state.content }
                 buttonOnClick={ this.addNewNote }
@@ -94,7 +114,25 @@ class App extends Component {
         <Route
           path='/note/:id'
           render={ props => {
-            return <Note { ...props } noteList={ this.state.noteList }/> 
+            return <Note { ...props } noteList={ this.state.noteList } setEditValues={ this.setEditValues }/>
+          }}
+        />
+
+        {/* NoteEdit */}
+        <Route
+          path='/note/edit/:id'
+          render={ props => {
+            return (
+              <NoteEdit
+                { ...props }
+                noteList={ this.state.noteList }
+                title={ this.state.title }
+                setInputVal={ this.setInputVal }
+                setTextAreaVal={ this.setInputVal }
+                content={ this.state.content }
+                buttonOnClick={ this.setNewNoteValues }
+              />
+            )
           }}
         />
       </div>

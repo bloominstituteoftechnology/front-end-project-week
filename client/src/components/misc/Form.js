@@ -20,7 +20,7 @@ const Form = props => {
         <TextField
           textareaName='content'
           textareaContent={ props.content }
-          textareaOnChange={ props.setInputVal }
+          textareaOnChange={ props.setTextAreaVal }
         />
       </div>
 
