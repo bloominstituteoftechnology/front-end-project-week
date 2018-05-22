@@ -5,7 +5,7 @@ const Button = props => {
   return (
     <React.Fragment>
       <button className={props.type}>
-        {(props.link !== null) ? <Link to={props.link}></Link> : props.title}
+        {(props.link !== null) ? <Link to={props.link}>{props.title}</Link> : props.title}
       </button>
     </React.Fragment>
   );
