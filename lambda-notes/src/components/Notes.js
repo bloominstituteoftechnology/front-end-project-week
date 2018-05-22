@@ -32,7 +32,9 @@ class Notes extends Component {
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">
                     {this.state.notes.map( note => {
-                        return <NoteThumbnail note={note} key={note.id}/>
+                        const summary = note.content.substring(0,145) + '...';
+                        const thumbnailNote = Object.assign({}, note, {content: summary})
+                        return <NoteThumbnail note={thumbnailNote} key={note.id}/>
                     })}
                 </Row>
             </Container>
