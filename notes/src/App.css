@@ -15,20 +15,20 @@
   border: 1px solid red;
 }
 
-.App-sideBar {
+/* .App-sideBar {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   border: 1px solid red;
-  width: 30%;
-}
+  max-width: 30%;
+} */
 
 .App-main {
   display: flex;
-  flex-direction: columnr;
-  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   border: 1px solid red;
-  width: 100%;  
+  width: 100%; 
 }
 
 .App-title {

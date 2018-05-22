@@ -10,7 +10,7 @@ export default class SideBar extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="sideBar">
                 <h1 className="text-white">Lambda Notes</h1>
                 <button onClick={this.add}>View Your Notes</button>
                 <button onClick={this.add}>+ Create New Note</button>

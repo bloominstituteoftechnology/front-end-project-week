@@ -11,7 +11,7 @@ export default class Board extends Component {
     }
     render() {
             return (
-                <div>
+                <div className="main">
                     <h1 className="text-white">Your Notes:</h1>
                 </div>
             );
