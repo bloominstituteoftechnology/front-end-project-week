@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
-import NoteList from './NoteList';
+
 
 const Note = props => {
     return (
