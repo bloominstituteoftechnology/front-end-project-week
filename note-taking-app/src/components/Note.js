@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
+import { Value } from 'slate'
+import Plain from 'slate-plain-serializer';
 
 import Checklist from './Checklist';
 
@@ -13,11 +15,15 @@ const Note = ({id, title, content, inChecklist, updateNote, deleteNote, removeNo
     <div>
       <h2 style={style.removeMargin}>{title}</h2>
       <div style={style.topLine}>
+<<<<<<< HEAD
         {inChecklist?
           <Checklist content={content} />
           :
           <Markdown text={content} />
         }
+=======
+        <Markdown text={Plain.serialize(Value.fromJSON(content))} />
+>>>>>>> master
       </div>
     </div>
     <div style={style.displayBottomCorner}>
@@ -37,7 +43,6 @@ const Note = ({id, title, content, inChecklist, updateNote, deleteNote, removeNo
 
 const mapStateToProps = (state) => {
   const { notes } = state.notesReducer
-  
   return {
     id: Object.keys(notes)[0],
     title: notes[Object.keys(notes)[0]].title,

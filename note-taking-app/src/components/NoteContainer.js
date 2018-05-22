@@ -74,6 +74,12 @@ const style = {
     position: 'absolute',
     top: 10,
     right: 10
+  },
+  root: {
+    paddingTop: 55,
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%'
   }
 }
 

@@ -13,23 +13,58 @@ import { Toggle } from 'office-ui-fabric-react/lib/Toggle';
 class AddNoteForm extends Component {
   state = {
     title: '',
-    content: ''
+    content: initialValue
   }
-  handleChange = (key, val) => {
+  handleChange = ({ value }) => {
     this.setState({
-      [key]: val
+      content: value
     })
+  }
+  handleTitleChange = (type, val) => {
+    this.setState({
+      [type]: val
+    })
+  }
+  keyDown = (event, change) => {
+    const { value } = change
+    console.log(change)
+
+    if (event.ctrlKey && event.key == 'b') {
+      console.log("b")
+      change.splitBlock().setBlocks({ data: { checked: false } })
+      change.setBlock('check-list-item')
+      return true
+    }
+
+    if (
+      event.key == 'Backspace' &&
+      value.isCollapsed &&
+      value.startBlock.type == 'check-list-item' &&
+      value.selection.startOffset == 0
+    ) {
+      change.setBlocks('paragraph')
+      return true
+    }
+  }
+  renderNode = props => {
+    console.log("Render")
+    console.log(props)
+    switch (props.node.type) {
+      case 'check-list-item':
+        return <CheckListItem {...props} />
+    }    
   }
   render() {    
     const { saveNote, toggleMarkdown, inMarkdown, toggleChecklist, inChecklist } = this.props
     const { title, content } = this.state
+    const reformatContent = content ? Value.fromJSON(content) : Plain.deserialize('')
     return (
       <div style={style.root}>
         <div>
           <TextField
             placeholder='Tomorrow meetings'
             underlined
-            name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
+            name='title' value={title} onBeforeChange={val => this.handleTitleChange('title', val)}
             style={style.largeText}
           />
           <div style={style.topLine}>
@@ -69,13 +104,17 @@ class AddNoteForm extends Component {
             primary={ true }
             iconProps={ { iconName: 'Save' } }
             text='Save'
+<<<<<<< HEAD
             onClick={() => saveNote({title, content, inChecklist})}
+=======
+            onClick={() => saveNote({title, content: content.toJSON()})}
+>>>>>>> master
           />
         </div>
       </div>
     );
   }
-}
+} 
 
 const mapStateToProps = (state) => {
   const { inMarkdown, inChecklist } = state.toolsReducer
@@ -89,6 +128,9 @@ const style = {
   root: {
     height: '100%',
     position: 'relative'
+  },
+  content: {
+    height: 100
   },
   topLine: {
     borderTop: '1px solid #eaeaea',
@@ -112,4 +154,8 @@ const style = {
   }
 }
 
+<<<<<<< HEAD
 export default connect( mapStateToProps, { saveNote, toggleMarkdown, toggleChecklist })(AddNoteForm);
+=======
+export default connect( mapStateToProps, { saveNote, toggleMarkdown })(AddNoteForm);
+>>>>>>> master

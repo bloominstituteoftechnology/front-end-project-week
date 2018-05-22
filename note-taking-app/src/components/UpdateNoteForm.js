@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
+import { Editor } from 'slate-react'
+import { Value } from 'slate'
+import Plain from 'slate-plain-serializer'
+
+import CheckListItem from './CheckListItem';
 
 import Checklist from './Checklist';
 
@@ -18,25 +23,61 @@ class UpdateNoteForm extends Component {
   }
   componentDidMount = () => {
     const { id, title, content } = this.props
+    console.log(content)
     this.setState({
       id, title, content
     })
   }
-  handleChange = (key, val) => {
+  handleChange = ({ value }) => {
+    this.setState({
+      content: value
+    })
+  }
+  handleTitleChange = (key, val) => {
     this.setState({
       [key]: val
     })
   }
+  keyDown = (event, change) => {
+    const { value } = change
+    console.log(change)
+
+    if (event.ctrlKey && event.key == 'b') {
+      console.log("b")
+      change.splitBlock().setBlocks({ data: { checked: false } })
+      change.setBlock('check-list-item')
+      return true
+    }
+
+    if (
+      event.key == 'Backspace' &&
+      value.isCollapsed &&
+      value.startBlock.type == 'check-list-item' &&
+      value.selection.startOffset == 0
+    ) {
+      change.setBlocks('paragraph')
+      return true
+    }
+  }
+  renderNode = props => {
+    console.log("Render")
+    console.log(props)
+    switch (props.node.type) {
+      case 'check-list-item':
+        return <CheckListItem {...props} />
+    }    
+  }
   render() {    
     const { saveNote, toggleMarkdown, inMarkdown, toggleChecklist, inChecklist } = this.props
     const { id, title, content } = this.state
+    const reformatContent = content ? Value.fromJSON(content) : Plain.deserialize('')
     return (
       <div style={style.root}>
         <div>
           <TextField
             placeholder='Tomorrow meetings'
             borderless
-            name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
+            name='title' value={title} onBeforeChange={val => this.handleTitleChange('title', val)}
             style={style.largeText}
           />
           <div style={style.topLine}>
@@ -101,6 +142,9 @@ const style = {
   root: {
     height: '100%',
     position: 'relative',
+  },
+  content: {
+    height: 100
   },
   topLine: {
     borderTop: '1px solid #eaeaea',
