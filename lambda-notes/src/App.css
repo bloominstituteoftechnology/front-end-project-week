@@ -2,7 +2,7 @@
   display: flex;
   text-align: center;
   background: #F3F3F3;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .App-logo {
@@ -12,7 +12,7 @@
 
 .App-header {
   background-color: #D8D8D8;
-  height: 100%;
+  min-height: 100%;
   padding: 20px;
   color: 4A4A4A;
 }
@@ -42,4 +42,5 @@ Button {
   background-color: #2BC1C4;
   color: #FFFFFF;
   padding: 5px;
+  margin: 0 0 5px 0;
 }
