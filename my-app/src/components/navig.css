@@ -1,3 +1,11 @@
 .wrapper {
     width: 30%;
+    background-color: #D8D8D8;
+}
+.buttonStyle {
+    border: none;
+}
+
+.buttonStyle a {
+    color: #FFFFFF;
 }

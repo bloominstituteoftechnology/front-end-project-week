@@ -2,4 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: rgb(255, 255, 255);
+  color: #4A4A4A;
+
+}
+
+button {
+  background-color: #2BC1C4;
+  color: #FFFFFF;
 }

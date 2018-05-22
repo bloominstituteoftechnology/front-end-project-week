@@ -1,5 +1,6 @@
 .note {
     width: 30%;
-    border: 1px solid lightgray; 
+    border: 1px solid #979797; 
     margin: 5%;
+    background-color: white;
 }

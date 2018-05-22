@@ -13,9 +13,9 @@ const Navigation = () => {
             <h3>Lambda Notes</h3>
         </div>
         <ul className="list-unstyled components">
-            <li className="active"><button><Link to="/">View Your Notes</Link></button></li>
+            <li className="active"><button className="buttonStyle"><Link to="/">View Your Notes</Link></button></li>
             <br />
-            <li><button><Link to="/createNote">+ Create new Note</Link></button></li>
+            <li><button className="buttonStyle"><Link to="/createNote">+ Create new Note</Link></button></li>
         </ul>
       </nav>
 
