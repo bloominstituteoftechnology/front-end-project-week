@@ -11,24 +11,17 @@ class NoteList extends Component {
         };
     }
     render() {
-        console.log(this.state.props);
+        console.log(this.state);
         return (
             <div>
                 <h1>Your notes:</h1>
                 <Input type="text" placeholder="search your notes"/>
                 <Container>
-                    {/* {this.notes.map(note => {
+                    {this.state.notes.map(note => {
                         return (
-                            <div key={note.id} to={`note/${note.id}`}>
-                                <div>
-                                    {note.title}
-                                </div>
-                                <div>
-                                    {note.content}
-                                </div>
-                            </div>
+                            <NoteCard key={note.id} to={`note/${note.id}`}/>
                         )
-                    })} */}
+                    })}
                 </Container>
             </div>
         );

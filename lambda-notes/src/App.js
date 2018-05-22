@@ -4,6 +4,7 @@ import { Row, Col, Container, Input, Button } from "reactstrap";
 import logo from './logo.svg';
 import './App.css';
 import NoteList from './Components/NoteList';
+import NoteView from './Components/NoteView';
 
 const placeHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -11,13 +12,13 @@ const initialNotes = [
   {id: 1,
   title: "First Note",
   content: placeHolder + placeHolder},
-  {id: 1,
+  {id: 2,
   title: "Second Note",
   content: placeHolder + placeHolder},
-  {id: 1,
+  {id: 3,
   title: "Third Note",
   content: placeHolder + placeHolder + placeHolder},
-  {id: 1,
+  {id: 4,
   title: "Fourth Note",
   content: placeHolder + placeHolder + placeHolder + placeHolder}
 ];
@@ -43,10 +44,13 @@ class App extends Component {
         </p>
         <Container>
           <Col sm="3">
-            <Route path="/" 
+            <Route exact path="/" 
               render={props => {
                 return <NoteList notes={this.state.notes} />;  
               }}/>
+          </Col>
+          <Col sm="9">
+              
           </Col>
         </Container>
       </div>
