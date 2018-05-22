@@ -5,6 +5,8 @@ import { Editor } from 'slate-react'
 import { Value } from 'slate'
 import Plain from 'slate-plain-serializer'
 
+import CheckListItem from './CheckListItem';
+
 import { saveNote, toggleMarkdown } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
@@ -34,6 +36,35 @@ class UpdateNoteForm extends Component {
       [key]: val
     })
   }
+  keyDown = (event, change) => {
+    const { value } = change
+    console.log(change)
+
+    if (event.ctrlKey && event.key == 'b') {
+      console.log("b")
+      change.splitBlock().setBlocks({ data: { checked: false } })
+      change.setBlock('check-list-item')
+      return true
+    }
+
+    if (
+      event.key == 'Backspace' &&
+      value.isCollapsed &&
+      value.startBlock.type == 'check-list-item' &&
+      value.selection.startOffset == 0
+    ) {
+      change.setBlocks('paragraph')
+      return true
+    }
+  }
+  renderNode = props => {
+    console.log("Render")
+    console.log(props)
+    switch (props.node.type) {
+      case 'check-list-item':
+        return <CheckListItem {...props} />
+    }    
+  }
   render() {    
     const { saveNote, toggleMarkdown, inMarkdown } = this.props
     const { id, title, content } = this.state
@@ -50,7 +81,12 @@ class UpdateNoteForm extends Component {
           <div style={style.topLine}>
           {inMarkdown ?
             // in Markdown mode
-            <Editor value={reformatContent} onChange={this.handleChange} style={style.content}/>
+            <Editor value={reformatContent} 
+            onChange={this.handleChange} 
+            style={style.content}
+            onKeyDown={this.keyDown}
+            renderNode={this.renderNode}
+            />
             :
             // in Preview mode
             <Markdown text={Plain.serialize(content)} />

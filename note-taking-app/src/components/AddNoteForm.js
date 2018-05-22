@@ -6,6 +6,8 @@ import { Editor } from 'slate-react'
 import { Value } from 'slate'
 import Plain from 'slate-plain-serializer'
 
+import CheckListItem from './CheckListItem';
+
 import { saveNote, toggleMarkdown } from '../actions';
 
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
@@ -22,7 +24,7 @@ const initialValue = Value.fromJSON({
             object: 'text',
             leaves: [
               {
-                text: 'A line of text in a paragraph.',
+                text: 'What will I do today?',
               },
             ],
           },
@@ -47,9 +49,39 @@ class AddNoteForm extends Component {
       [type]: val
     })
   }
+  keyDown = (event, change) => {
+    const { value } = change
+    console.log(change)
+
+    if (event.ctrlKey && event.key == 'b') {
+      console.log("b")
+      change.splitBlock().setBlocks({ data: { checked: false } })
+      change.setBlock('check-list-item')
+      return true
+    }
+
+    if (
+      event.key == 'Backspace' &&
+      value.isCollapsed &&
+      value.startBlock.type == 'check-list-item' &&
+      value.selection.startOffset == 0
+    ) {
+      change.setBlocks('paragraph')
+      return true
+    }
+  }
+  renderNode = props => {
+    console.log("Render")
+    console.log(props)
+    switch (props.node.type) {
+      case 'check-list-item':
+        return <CheckListItem {...props} />
+    }    
+  }
   render() {    
     const { saveNote, toggleMarkdown, inMarkdown } = this.props
     const { title, content } = this.state
+    const reformatContent = content ? Value.fromJSON(content) : Plain.deserialize('')
     return (
       <div style={style.root}>
         <div>
@@ -61,7 +93,11 @@ class AddNoteForm extends Component {
           />
           <div style={style.topLine}>
           {inMarkdown ?
-            <Editor value={content} onChange={this.handleChange} style={style.content}/>
+            <Editor value={reformatContent} 
+            onChange={this.handleChange} 
+            style={style.content} 
+            onKeyDown={this.keyDown}
+            renderNode={this.renderNode}/>
             :
             <Markdown text={Plain.serialize(content)} />
           }
@@ -84,7 +120,7 @@ class AddNoteForm extends Component {
       </div>
     );
   }
-}
+} 
 
 const mapStateToProps = (state) => {
   const { inMarkdown } = state.toolsReducer
