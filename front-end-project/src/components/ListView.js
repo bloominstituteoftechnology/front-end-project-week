@@ -4,7 +4,7 @@ import '../styles/ListView.css'
 const ListView = props => {
     return (
        <div className="listView">
-        <div className="row ml-5 mt-5 mb-2">
+        <div className="row yourNotes">
             <h3 style={{textAlign: "left"}}> Your Notes: </h3>
             </div>
         <div className="row mein-row no-gutters">

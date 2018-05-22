@@ -1,14 +1,71 @@
 .sideNav {
     width: 25%;
+    min-width: 15rem;
     height: 100vh;
     background: #D8D8D8;
-    font: Roboto Bold;
-    padding-left: 2rem;
+    padding: 1rem 2rem;
+    z-index: 10;
 }
-
+.headingForSideNav {
+    font-family: Roboto Bold;
+    color: #4A4A4A;
+    font-size: 3.6rem;
+}
 button {
-    width: 100%;
-    height: 110%;
+    width: calc(180% - 2rem);
+    min-width: 2rem;
+    height: 200%;
     color: #FFFFFF;
     background: #2BC1C4;
+    outline-width: 1rem;
+}
+
+.button2 {
+    width: calc(162% - 2rem);
+    min-width: 2rem;
+}
+@media (max-width: 1920px) {
+    .buttonStyle {
+        margin: 10% 20%;
+    }
+    .sideNav {
+        padding-left: 5rem;
+    }
+}
+@media (max-width: 1680px) {
+    .buttonStyle {
+        width: 100%;
+        margin: 10% 0%;
+    }
+    .button2 {
+        width: 180%;
+    }
+    button {
+        width: 200%;
+    }
+}
+@media (max-width: 1440px) {
+    .buttonStyle {
+        margin: 10% -15%;
+    }
+}
+
+@media (max-width: 1290px) {
+    button {
+        width: 144%;
+    }
+    .buttonStyle {
+        margin: 20% 15%;
+    }
+    .sideNav {
+        padding-left: 2rem;
+    }
+    .button2 {
+        width: 130%;
+    }
+}
+@media (max-width: 1060px) {
+    .buttonStyle {
+        margin: 20% 0;
+    }
 }

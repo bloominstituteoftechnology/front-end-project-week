@@ -8,14 +8,18 @@
 
 .mein-row {
     justify-content: space-evenly;
-    margin: 2rem;
 }
 
 .mein-card {
     width: 15rem;
+    margin-bottom: 2rem;
 }
 
 h5 {
     padding-bottom: .5rem;
     border-bottom: 1px solid #979797;
+}
+
+.yourNotes {
+    margin: 4rem 0rem 2rem 2rem;
 }
