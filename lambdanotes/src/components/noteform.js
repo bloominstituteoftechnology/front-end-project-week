@@ -1,6 +1,7 @@
 import React from 'react';
 import './noteform.css';
 import { Form, FormGroup, Input} from 'reactstrap';
+import LambdaButton from './lambdabutton.js';
 
 
 class NoteForm extends React.Component {
@@ -17,6 +18,13 @@ class NoteForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  componentWillReceiveProps(newprops) {
+    this.setState({
+      myTitle: newprops.myTitle,
+      myContent: newprops.myContent
+    });
+  }
+
   render() {
     return (
       <Form>
@@ -27,6 +35,7 @@ class NoteForm extends React.Component {
         <FormGroup>
           <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" value={this.state.myContent} />
         </FormGroup>
+        <LambdaButton text="Save" color="green" />
       </Form>
     );
   }
