@@ -24,6 +24,7 @@
 .note-view-content {
   text-align: left;
   margin: 20px 0;
+  white-space: pre-line;
 }
 
 .delete-modal {
