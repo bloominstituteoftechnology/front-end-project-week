@@ -39,3 +39,7 @@
   width: 100%;
   margin: 10px 0 0 0;
 }
+
+.my-modal {
+  margin-top: 200px !important;
+}
