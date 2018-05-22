@@ -39,7 +39,7 @@ class NoteContainer extends React.Component {
   render () {
     const { openPanel } = this.state
     return (
-      <div>
+      <div style={style.root}>
         <DefaultButton
           iconProps={ { iconName: 'ContactCard' } }
           text='Log In'
@@ -66,6 +66,10 @@ const mapStateToProps = (state) => {
 }
 
 const style = {
+  root: {
+    paddingTop: 55,
+    height: '100%'
+  },
   authButton: {
     position: 'absolute',
     top: 10,

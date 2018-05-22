@@ -8,7 +8,7 @@ import { saveNote, toggleMarkdown } from '../actions';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
-class NoteForm extends Component {
+class AddNoteForm extends Component {
   state = {
     title: '',
     content: ''
@@ -47,6 +47,12 @@ class NoteForm extends Component {
           </div>
         </div>
         <div style={style.displayBottomCorner}>
+          <Toggle
+            checked={inMarkdown}
+            onText='Checklist'
+            offText='Paragraph'
+            onChanged={checked => toggleMarkdown(checked)}
+          />
           <Toggle
             checked={inMarkdown}
             onText='Markdown'
@@ -99,4 +105,4 @@ const style = {
   }
 }
 
-export default connect( mapStateToProps, { saveNote, toggleMarkdown })(NoteForm);
+export default connect( mapStateToProps, { saveNote, toggleMarkdown })(AddNoteForm);
