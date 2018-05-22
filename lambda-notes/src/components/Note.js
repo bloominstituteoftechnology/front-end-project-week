@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { addNote, editNote } from '../actions';
 
+const routeView = 'Note View'
+
 class Note extends Component {
     state = {
         notes: []
