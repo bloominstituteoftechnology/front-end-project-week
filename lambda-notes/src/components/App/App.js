@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import logo from "../../logo.svg";
 
-import SideBar_ from '../SideBar_/SideBar_';
-import Main_ from '../Main_/Main_';
+import SideBar_ from "../SideBar_/SideBar_";
+import Main_ from "../Main_/Main_";
 
 class App extends Component {
   render() {
     return (
       <div className="container custom-container">
-        <div className="row" >
+        <div className="row">
           <SideBar_ />
           <Main_ />
         </div>
@@ -18,4 +18,3 @@ class App extends Component {
 }
 
 export default App;
- 
