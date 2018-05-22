@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, editNote, removeNote } from '../actions';
+import { addNote } from '../actions';
 
 class NoteList extends Component {
     state = {
@@ -9,12 +9,26 @@ class NoteList extends Component {
     }
 
     render() {
+        console.log(this.props.notes)
         return (
             <div>
-                hello
+                {this.props.notes.map(note => {
+                    return (
+                    <div key={note.title}>
+                        <h4>{note.title}</h4>
+                        <p>{note.body}</p>
+                    </div>
+                    )
+                })}
             </div>
         )
     }
 }
 
-export default NoteList;
+const mapStateToProps = store => {
+    return {
+        notes: store
+    };
+};
+
+export default connect(mapStateToProps, { addNote })(NoteList);

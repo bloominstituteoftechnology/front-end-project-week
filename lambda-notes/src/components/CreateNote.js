@@ -9,13 +9,45 @@ class CreateNote extends Component {
         body: ''
     }
 
+    handleNewNote = (event) => {
+        event.preventDefault();
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    addNote = (event) => {
+        event.preventDefault();
+        let noteObj = { title: this.state.title, body: this.state.body }
+        this.props.addNote(noteObj);
+        this.setState({title: '', body: ''});
+        this.props.history.push('/');
+    }
+
     render() {
+        console.log(this.props)
         return (
-            <div>
-                Hello
+            <div className="container">
+                <form>
+                    <input
+                    type="text"
+                    placeholder="Title"
+                    name="title"
+                    value={this.state.title}
+                    onChange={this.handleNewNote}
+                    />
+                    <input
+                    type="text"
+                    placeholder="Write note here..."
+                    name="body"
+                    value={this.state.body}
+                    onChange={this.handleNewNote}
+                    />
+                    <button onClick={this.addNote}>
+                        Add Note
+                    </button>
+                </form>
             </div>
         )
     }
 }
 
-export default CreateNote;
+export default connect(null, { addNote })(CreateNote);

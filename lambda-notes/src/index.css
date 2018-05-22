@@ -1,3 +1,15 @@
+/* Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797 */
+
 html, body {
   height: 100%;
   font-size: 62.5%;
@@ -12,4 +24,12 @@ html, body {
 .sidebar {
   height: 100vh;
   width: 25%;
+}
+
+.app-container {
+    display: flex;
+}
+
+.container {
+    width: 100%;
 }

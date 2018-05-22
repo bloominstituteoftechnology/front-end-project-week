@@ -4,12 +4,12 @@ import { ADD_NOTE, EDIT_NOTE, REMOVE_NOTE } from '../actions';
 
 let initialState = [
     {
-        title: '',
-        body: ''
+        title: 'ertrtyrt',
+        body: 'rtyrtyrtyrtyytry'
     },
     {
-        title: '',
-        body: ''
+        title: 'rtytry',
+        body: 'rtytrytrytytryt'
     }
 ]
 
@@ -18,8 +18,8 @@ const saveData = (array) => {
 }
 
 const retrieveData = () => {
-    initialState = JSON.parse(localStorage.getItem('array'));
-    return initialState === null ? [] : initialState;
+    //initialState = JSON.parse(localStorage.getItem('array'));
+    return initialState //=== null ? [] : initialState;
 }
 
 export default (state = retrieveData(), action) => {

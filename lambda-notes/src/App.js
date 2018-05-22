@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import NoteList from './components/NoteList';
 import CreateNote from './components/CreateNote';
 import EditNote from './components/EditNote';
 import SideBar from './components/SideBar';
-import './App.css';
 
 class App extends Component {
   render() {
@@ -14,19 +13,13 @@ class App extends Component {
         <header>The Type of View</header>
         <div className="app-container">
           <div className="sidebar">
-            <SideBar />
+            <Route path="/" component={SideBar} />
           </div>
-          <div className="container">
-            <div className="home-page">
+          <Switch className="container">
               <Route exact path="/" component={NoteList} />
-            </div>
-            <div className="create-note">
               <Route path="/addNote" component={CreateNote} />
-            </div>
-            <div className="edit-note">
               <Route path="/editNote" component={EditNote} />
-            </div>
-          </div>
+          </Switch>
         </div>
       </div>
     );
