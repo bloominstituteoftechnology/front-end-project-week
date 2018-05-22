@@ -1,16 +1,23 @@
-.cardColumns {
-    border: 1px solid blue; 
-    
-    
+.cardColumns {    
+    margin-top: 45px; 
+    margin-left: 270px; 
+    margin-right: 20px; 
 }
 
 .card {    
-    margin-right: 50px;
-    border: 1px solid darkmagenta; 
-
+    margin-right: 50px;    
+    margin-bottom: 30px;     
 };
 
 .cardBody {   
-    display: flex; 
-    flex-wrap: wrap; 
+    margin-bottom: 1px solid #979797;
+}
+
+.cardTitle {
+    margin-bottom: 1px solid #979797; 
+}
+
+.cardText {
+    text-align: left;
+    margin-top: 1px solid #979797; 
 }

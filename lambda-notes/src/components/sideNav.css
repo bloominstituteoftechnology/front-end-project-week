@@ -1,6 +1,6 @@
 .sidenav {
     height: 100%;
-    width: 220px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -11,7 +11,13 @@
 }
 
 .main-button1 {
-    background-color: #2BC1C4;     
+    margin-top: 30px;  
+    padding: trbl 15px 20px 15px 20px; 
+ 
+}
+
+.main-button2 {
+    margin-top: 30px;  
 }
 
 
@@ -34,15 +40,14 @@
 .main {
     margin-left: 220px; /* Same as the width of the sidenav */
     font-size: 16px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-    border: 1px solid violet; 
+    padding: 0px 10px;    
 }
 
 .header-Notes {
-    text-align: left;         
-    border: 1px solid fuchsia; 
+    text-align: left;              
     font: Roboto Bold; 
     margin-top: 70px; 
+    margin-left: 40px; 
 }
 
 @media screen and (max-height: 450px) {
