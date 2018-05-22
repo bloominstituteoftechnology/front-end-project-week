@@ -24,6 +24,8 @@ class InputForm extends Component {
       const note = this.props.notes.filter(note => note.id === id)[0];
       const { title, text } = note; 
       this.setState({ id: id, title: title, text: text });
+    } else {
+      this.setState({ id: "", title: "", text: "" });
     }
   }
 
@@ -57,18 +59,17 @@ class InputForm extends Component {
   }
 
   render() {
-    console.log("InputForm-props",this.props);
     if (this.state.go === true) return <Redirect to="/" />;
     const path = this.props.match.path;
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="p-3">
-        <h3>{ path === "/new" ? `Create New ` : `Update ` } Note:</h3>
+        <h3>{ path === "/new" ? `Create New ` : `Edit ` } Note:</h3>
         <Form onSubmit={this.submitNote}>
           <FormGroup>
-            <Input type="title" name="title" id="noteTitle" placeholder="Note Title" value={this.state.title} onChange={this.handleTextChange} />
+            <Input type="title" name="title" id="noteTitle" placeholder="Note Title" style={{width: "65%"}}value={this.state.title} onChange={this.handleTextChange} />
           </FormGroup>
           <FormGroup>
-            <Input type="textarea" name="text" id="noteText" placeholder="Note Content" value={this.state.text} onChange={this.handleTextChange} />
+            <Input type="textarea" name="text" id="noteText" placeholder="Note Content" rows="23" value={this.state.text} onChange={this.handleTextChange} />
           </FormGroup>
           <Button type="submit">{path === "/new" ? "Submit" : "Update"}</Button>
         </Form>
