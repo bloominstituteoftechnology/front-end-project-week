@@ -9,8 +9,9 @@ class NoteForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      title: "",
-      note: ""
+      value: "random text",
+      note: "ASJIFKHOKF",
+      title: "JFLKHAFNJSKF"
     };
   }
 
@@ -19,7 +20,15 @@ class NoteForm extends Component {
   }
 
   handleChange(event){
-    this.setState({note: event.target.value}, {title: event.target.value})
+    console.log('handle change')
+  }
+
+  handleClick (event) {
+    console.log('STATE', this.state)
+    event.preventDefault()
+    this.setState({note: "", title: ""});
+    console.log('AFTER', this.state)    
+    this.handleChange();
   }
 
 
@@ -30,18 +39,20 @@ class NoteForm extends Component {
         <FormGroup>
           <Label>Create Note:</Label>
           <Input 
+            state={this.state}
             type="text" 
-            name="title" 
+            name="text" 
             placeholder="Note Title" 
             value={this.state.title}/>
         </FormGroup>
           <Input 
+            state={this.state}
             type="textarea" 
-            name="note"  
+            name="text"  
             placeholder="Note Content" 
             value={this.state.note}
-            onChange={this.handleChange} />
-          <Link to="/"> <Button onSubmit={this.onChange} color="info">Save</Button></Link>
+            onChange={this.handleChange.bind(this)} />
+          <Link to="/"> <Button onClick={this.handleClick.bind(this)} color="info">Save</Button></Link>
       </Form>
       </Container>
     );
