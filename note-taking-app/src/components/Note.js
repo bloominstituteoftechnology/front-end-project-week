@@ -2,16 +2,22 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
 
+import Checklist from './Checklist';
+
 import { updateNote, deleteNote, removeNote} from '../actions';
 
 import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
-const Note = ({id, title, content, updateNote, deleteNote, removeNote}) =>
+const Note = ({id, title, content, inChecklist, updateNote, deleteNote, removeNote}) =>
   <div style={style.root}>
     <div>
       <h2 style={style.removeMargin}>{title}</h2>
       <div style={style.topLine}>
-        <Markdown text={content} />
+        {inChecklist?
+          <Checklist content={content} />
+          :
+          <Markdown text={content} />
+        }
       </div>
     </div>
     <div style={style.displayBottomCorner}>
@@ -35,7 +41,8 @@ const mapStateToProps = (state) => {
   return {
     id: Object.keys(notes)[0],
     title: notes[Object.keys(notes)[0]].title,
-    content: notes[Object.keys(notes)[0]].content
+    content: notes[Object.keys(notes)[0]].content,
+    inChecklist: notes[Object.keys(notes)[0]].inChecklist
   }
 }
 

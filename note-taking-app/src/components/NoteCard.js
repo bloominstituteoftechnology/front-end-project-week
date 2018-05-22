@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Markdown from 'markdown-react-js';
 
 import TagOfNote from './TagOfNote';
+import Checklist from './Checklist';
 
 import { selectNote } from '../actions';
 import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
@@ -24,7 +25,7 @@ class NoteCard extends React.Component {
     this.setState({ tagOfNoteOpen: false })
   }
   render () {
-  const {id, title, content, selectNote } = this.props
+  const {id, title, content, inChecklist, selectNote } = this.props
   const { tagOfNoteOpen } = this.state
   return (
     <div>
@@ -35,7 +36,11 @@ class NoteCard extends React.Component {
       <DocumentCard>
         <DocumentCardTitle title={title} onClick={() => selectNote({id, title, content})}/>
         <div style={style.cardPreview} onClick={() => selectNote({id, title, content})}>
-          <Markdown text={content} />
+          { inChecklist ? 
+            <Checklist content={content}/>
+            :
+            <Markdown text={content} />
+          }
         </div>
         <div style={style.displayInlineBlock}>
           <DocumentCardActions

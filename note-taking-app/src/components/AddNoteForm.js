@@ -69,7 +69,7 @@ class AddNoteForm extends Component {
             primary={ true }
             iconProps={ { iconName: 'Save' } }
             text='Save'
-            onClick={() => saveNote({title, content})}
+            onClick={() => saveNote({title, content, inChecklist})}
           />
         </div>
       </div>

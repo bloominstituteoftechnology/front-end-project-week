@@ -77,7 +77,7 @@ class UpdateNoteForm extends Component {
             primary={ true }
             iconProps={ { iconName: 'Save' } }
             text='Save'
-            onClick={() => saveNote({id, title, content})}
+            onClick={() => saveNote({id, title, content, inChecklist})}
           />
         </div>        
       </div>
