@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import Note from './Note';
 
 class EditNote extends Component {
     constructor(props) {
         super(props);
         const id = this.props.match.params.id
-        console.log("ID:", id)
         this.state = {
             id: id, 
             title: this.props.notes[id].title,
@@ -33,7 +33,6 @@ class EditNote extends Component {
     }
 
     render() { 
-        console.log("EDIT PROPS:",this.props)
         return ( 
             <div className="new-note-container">
                 <h2>Edit Note:</h2>
@@ -54,7 +53,7 @@ class EditNote extends Component {
                         value={this.state.body}
                         placeholder='Type Notes Here!' >
                     </textarea>
-                    <Link to={`/note/${this.props.match.params.id}`} >
+                    <Link to={`/`/*note/${this.props.match.params.id}*/} >
                         <button onClick={this.updateNote} className="save-note">
                             Update
                         </button>

@@ -52,6 +52,4 @@ class App extends Component {
   }
 }
 
-//  <Route path="/macs" render={(props) => <Macs {...props} macs={this.state.mac} />} /> 
-
 export default App;

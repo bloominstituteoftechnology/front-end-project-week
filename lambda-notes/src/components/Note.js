@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
 import ListNotes from './ListNotes';
 import './Note.css';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import EditNote from './EditNote'
 
 class Note extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { }
     }
 
-  
-
     render() { 
-        console.log('Note PROPS:', this.props);
-        console.log('Note NOTES:', this.props.notes);
         const id = this.props.match.params.id;
         const { title, body } = this.props.notes[id];
         return (
@@ -31,7 +28,7 @@ class Note extends Component {
                     <p>{body}</p>
                 </div>
             </div>    
-         )
+        )
     }
 }
  
