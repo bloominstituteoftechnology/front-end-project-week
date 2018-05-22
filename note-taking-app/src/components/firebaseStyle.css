@@ -1,0 +1,27 @@
+#firebaseui-auth-container li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+#firebaseui-auth-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid grey;
+    width: 100%;
+}
+
+#firebaseui-auth-container img {
+    width: 20px;
+    height: 20px;
+    margin: 7px;
+}
+
+.firebaseui-idp-text-short {
+    display: none !important;
+}
+.firebaseui-idp-facebook {
+    background-color: #3b5998 !important;
+    color: white !important;
+}
