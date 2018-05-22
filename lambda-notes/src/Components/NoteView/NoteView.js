@@ -8,10 +8,10 @@ const NoteView = () => {
             <Sidebar />
             <div className = "header-wrapper">
                 <header className = "noteview-header">
-                    <Link to = "/list/number/edit" className = "header-link">edit</Link>
+                    <Link to = "/edit" className = "header-link">edit</Link>
                     <Link to = "/" className = "header-link">delete</Link>
-                    <h1 className = "note-name">Note Name</h1></header>
-                    <p className = "note-body">With supporting text below as a natural lead-in to additional content.</p>
+                    <h1 className = "note-name">in purus eu magna</h1></header>
+                    <p className = "note-body">"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque."</p>
                 </div>
         </div>
     )

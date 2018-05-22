@@ -15,7 +15,7 @@ class App extends Component {
             <Route exact path = '/' component = {List}/>
             <Route exact path='/list' component={List}/>
             <Route path='/list/:number' component={NoteView}/>
-            <Route exact path = '/list/:number/edit' component ={EditNote}/>
+            <Route exact path = '/edit' component ={EditNote}/>
           </Switch>
         </Router>
         </div>

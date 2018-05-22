@@ -1,4 +1,4 @@
-const DummyData = 
+export const dummydata = 
 [{"id":1,"note_title":"curae donec pharetra magna","note_body":"Curabitur convallis."},
 {"id":2,"note_title":"sit amet sem","note_body":"Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est."},
 {"id":3,"note_title":"volutpat dui maecenas tristique est","note_body":"Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem."},
