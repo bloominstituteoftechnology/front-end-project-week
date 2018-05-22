@@ -1,24 +1,14 @@
-// React
+// Dependencies
 import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
 // CSS
 import './NoteList.css';
+import connect from 'react-redux/lib/connect/connect';
 
 class NoteList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  generateDummyNotes = () => {
-    const dummyArr = [];
-    for(let i = 0; i < 9; i++) {
-      dummyArr.push({
-        id: i,
-        title: 'Note Title',
-        text: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...',
-      })
-    }
-    return dummyArr;
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     const { classes } = this.props;
@@ -26,7 +16,7 @@ class NoteList extends Component {
       <div className={`note-list ${classes}`}>
         <h4>Your Notes:</h4>
         <div className={`note-view d-flex flex-wrap`}>
-          { this.generateDummyNotes().map(obj => <NoteCard key={obj.id} {...obj} />)}
+          { this.props.notes.map(obj => <NoteCard key={obj.id} {...obj} />)}
         </div>
       </div>
     );
@@ -34,14 +24,22 @@ class NoteList extends Component {
 }
 
 const NoteCard = (props) => {
-  const { title, text } = props;
+  const { id, title, text } = props;
+  const truncTitle = title.length > 12 ? title.substring(0,10) + '...' : title;
+  const truncText = text.length > 82 ? text.substring(0,80) + '...' : text;
   return (
-    <div className="note-card">
-      <h3>{title}</h3>
+    <Link to={`/note/${id}`} className="note-card">
+      <h3>{truncTitle}</h3>
       <hr />
-      <p>{text}</p>
-    </div>
+      <p>{truncText}</p>
+    </Link>
   );
 }
 
-export default NoteList;
+const mapDispatchToProps = (state) => {
+  return {
+    notes: state.notes,
+  }
+}
+
+export default withRouter(connect(mapDispatchToProps, null)(NoteList));

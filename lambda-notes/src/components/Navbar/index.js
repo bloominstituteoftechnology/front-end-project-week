@@ -1,7 +1,7 @@
 // React
 import React from 'react';
-// Componenst
-import Button from '../Button';
+// Components
+import { Button, RLink } from '../Button';
 // CSS
 import './Navbar.css';
 
@@ -10,8 +10,8 @@ const Navbar = (props) => {
     return (
         <div className={`navbar ${classes}`}>
             <h1>Lambda<br/>Notes</h1>
-            <Button>View Your Notes</Button>
-            <Button>+ Create New Note</Button>
+            <RLink to="/"><Button>View Your Notes</Button></RLink>
+            <RLink to="/new"><Button>+ Create New Note</Button></RLink>
         </div>
     );
 }

@@ -13,12 +13,14 @@
 
 html {
   height: 100%;
+  white-space: pre-line;
+  /* https://stackoverflow.com/a/44413780 */
+  /* Preserves new lines in text input */
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
   height: 100%;
 }
 
