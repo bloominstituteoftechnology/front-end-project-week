@@ -1,13 +1,14 @@
 import {
   ADD,
   EDIT,
+  DELETE,
 } from '../Actions';
 
 const generateDummyNotes = () => {
   const dummyArr = [];
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 6; i++) {
     dummyArr.push({
-      id: i,
+      id: i.toString(),
       title: 'Note Title',
       text: `Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis consectetur adipiscing elit. Nullam odio ex, pulvinar sed lectus eu, vestibulum tempor ante. Sed scelerisque ut massa nec elementum. Praesent ut sagittis dui, vel imperdiet libero. Aenean vel tempus metus. Aliquam interdum est mauris, vitae aliquet nisl posuere sit amet. Pellentesque quis leo venenatis, euismod lacus non, tincidunt dolor. Mauris bibendum sem quis lorem sodales pulvinar. Nam nisl magna, ultricies ullamcorper quam nec, semper rhoncus nisl.
 
@@ -32,9 +33,26 @@ export const notesReducer = ( state = initialState, action ) => {
         ...state,
         notes: [...state.notes, action.payload],
       };
+    case EDIT:
+      const updatedNotes= state.notes.map(note => {
+        if (note.id === action.payload.id) {
+          return action.payload;
+        }
+        return note;
+      });
+      return {
+        ...state,
+        notes: updatedNotes,
+      };
+    case DELETE:
+      const filteredNotes = state.notes.filter(note => note.id !== action.payload.id);
+      return {
+        ...state,
+        notes: filteredNotes,
+      };
     default:
       return {
         ...state,
-      }
+      };
   }
 }

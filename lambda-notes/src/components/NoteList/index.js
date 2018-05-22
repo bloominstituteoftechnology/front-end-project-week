@@ -25,11 +25,11 @@ class NoteList extends Component {
 
 const NoteCard = (props) => {
   const { id, title, text } = props;
-  const truncTitle = title.length > 13 ? title.substring(0,10) + '...' : title;
-  const truncText = text.substring(0,80) + '...';
+  const truncTitle = title.length > 12 ? title.substring(0,10) + '...' : title;
+  const truncText = text.length > 82 ? text.substring(0,80) + '...' : text;
   return (
     <Link to={`/note/${id}`} className="note-card">
-      <h3>{title}</h3>
+      <h3>{truncTitle}</h3>
       <hr />
       <p>{truncText}</p>
     </Link>
