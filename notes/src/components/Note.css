@@ -1,5 +1,11 @@
 .edit-delete {
+    color: #4A4A4A;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between
+    justify-content: flex-end;
+    text-decoration: underline;
+}
+
+.edit {
+    color:#4A4A4A;
+    padding-right: 10px;
 }

@@ -13,7 +13,7 @@ class Newnote extends Component {
             <Container>
                 <Row>
                     <Col>
-                        <h3>Create New Note:</h3>
+                        <h4 className="new-note-header">Create New Note:</h4>
                         <div className="note-title">
                             <input placeholder="Note Title"/>
                         </div>

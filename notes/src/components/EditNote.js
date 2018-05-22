@@ -13,7 +13,7 @@ class EditNote extends Component {
             <Container>
                 <Row>
                     <Col>
-                        <h3>Edit Note:</h3>
+                        <h4 className="edit-note-header">Edit Note:</h4>
                         <div className="edit-note">
                             <input placeholder="Note Title"/>
                         </div>

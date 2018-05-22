@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { DeleteNote } from './index';
+import './Note.css';
 
 class Note extends Component {
     constructor(props) {
@@ -13,8 +14,10 @@ class Note extends Component {
             <Container>
                 <Row>
                     <Col className="single-note">
-                        <div className="edit-delete" style={{ display:'flex', flexDirection: 'flex-end' }}>
-                            <Link to="/edit">Edit</Link>
+                        <div className="edit-delete">
+                            <Link to="/edit">
+                                <div className="edit">edit</div>
+                            </Link>
                             <DeleteNote />
                         </div>
                         <h1>Note Name</h1>
