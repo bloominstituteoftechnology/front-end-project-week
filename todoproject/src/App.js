@@ -58,7 +58,7 @@ this.setState({ todos: todos, todo: '' })
             <Route exact path="/" component={ListView}></Route>
             <Route path="/ViewYourNotes" component={ViewNote}></Route>
             <Route path="/CreateNewNote" render={(props) => (
-            <CreateNote handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route path="/EditNote" component={EditNote}></Route>
             <Route path="/ViewNote" component={ViewNote}></Route>
