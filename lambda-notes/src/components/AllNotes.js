@@ -55,6 +55,7 @@ class AllNotes extends Component {
     })
     console.log("after filter",afterDelete)
     this.setState({ notes: afterDelete })
+    
   }
 
   editNote = note => {
