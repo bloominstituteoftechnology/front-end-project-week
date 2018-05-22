@@ -16,13 +16,14 @@ class NewNote extends Component {
     newNoteHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
-    
+     count = 9;
     submitNewNote = (e) => {
+       this.count++;
        let { title, body } = this.state
         let newNote = {
             title, 
             body, 
-            id: Date.now()
+            id: this.count
         }
 
         e.preventDefault();

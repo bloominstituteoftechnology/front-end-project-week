@@ -4,15 +4,15 @@ const body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eg
 
 const initialState = {
     notes: [ 
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body,id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()},
-        {title: 'Note Title', body: body, id: Date.now()}
+        {title: 'Note Title', body: body, id: 1},
+        {title: 'Note Title', body: body, id: 2},
+        {title: 'Note Title', body: body, id: 3},
+        {title: 'Note Title', body: body, id: 4},
+        {title: 'Note Title', body: body, id: 5},
+        {title: 'Note Title', body: body, id: 6},
+        {title: 'Note Title', body: body, id: 7},
+        {title: 'Note Title', body: body, id: 8},
+        {title: 'Note Title', body: body, id: 9}
      ],
     pending: false,
     error: null
