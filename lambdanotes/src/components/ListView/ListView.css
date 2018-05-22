@@ -12,8 +12,9 @@
     flex-flow: row wrap;
 }
 
-.noteCardLink {
-    cursor: default;
+.entireNoteCardLink {
+    width: 193px;
+    margin: 12px 8px;
 }
 
 .noteCardLink:hover {
@@ -29,7 +30,6 @@
     border-radius: 2px;
     background-color: white;
     width: 193px;
-    margin: 12px 8px;
     padding: 9px 19px;
     cursor: pointer;
 }
