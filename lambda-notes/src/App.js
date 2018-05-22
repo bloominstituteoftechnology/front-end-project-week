@@ -9,12 +9,22 @@ import MainBody from './components/main/MainBody.js';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+      <div className="app">
+        <header className="app-header">
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <h1>Note it</h1>
+          </Link>
         </header>
-      <SideNavigation />
+        <div className="main-container">
+          <div className="minor-container">
+            <div className="side-navigation">
+              <SideNavigation />
+            </div>
+            <div className="main-body">
+              <MainBody />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
