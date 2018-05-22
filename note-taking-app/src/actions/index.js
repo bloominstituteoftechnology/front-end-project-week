@@ -67,7 +67,6 @@ export const updateNote = (note) => {
 
 // saveNote will save note to db and return current db
 export const saveNote = (note) => {
-    console.log(note)
     let ref = db.database().ref('/notes')
     let targetRef = db.database().ref(`/notes/${note.id}`)
 

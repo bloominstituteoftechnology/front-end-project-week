@@ -18,17 +18,11 @@ class UpdateNoteForm extends Component {
   }
   componentDidMount = () => {
     const { id, title, content } = this.props
-    console.log(content)
     this.setState({
       id, title, content
     })
   }
-  handleChange = ({ value }) => {
-    this.setState({
-      content: value
-    })
-  }
-  handleTitleChange = (key, val) => {
+  handleChange = (key, val) => {
     this.setState({
       [key]: val
     })
@@ -42,7 +36,7 @@ class UpdateNoteForm extends Component {
           <TextField
             placeholder='Tomorrow meetings'
             borderless
-            name='title' value={title} onBeforeChange={val => this.handleTitleChange('title', val)}
+            name='title' value={title} onBeforeChange={val => this.handleChange('title', val)}
             style={style.largeText}
           />
           <div style={style.topLine}>
@@ -99,7 +93,7 @@ const mapStateToProps = (state) => {
     title: notes[Object.keys(notes)[0]].title,
     content: notes[Object.keys(notes)[0]].content,
     inMarkdown,
-    inChecklist
+    inChecklist,
   }
 }
 

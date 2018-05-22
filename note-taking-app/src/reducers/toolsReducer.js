@@ -18,7 +18,7 @@ const initialState = {
     tagBoxOpen: false,
     inMarkdown: true,
     inChecklist: false,
-    sortType: ''
+    sortType: '',
 }
 
 export const toolsReducer = (state=initialState, action) => {

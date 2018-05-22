@@ -7,7 +7,7 @@ const Checklist = ({content}) => {
         <div>
             { list.map((item,index) => 
                 <div key={index}>
-                    <input type='checkbox' name='item'/>
+                    <input type='checkbox' name={`${item}`}/>
                     <label htmlFor={`${item}`}>{item}</label>
                 </div>
             )}
