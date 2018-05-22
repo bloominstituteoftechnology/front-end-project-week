@@ -19,6 +19,7 @@ class NoteForm extends React.Component {
   }
 
   componentWillReceiveProps(newprops) {
+    console.log(this.props.myMethod);
     this.setState({
       myTitle: newprops.myTitle,
       myContent: newprops.myContent
@@ -35,7 +36,7 @@ class NoteForm extends React.Component {
         <FormGroup>
           <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" value={this.state.myContent} />
         </FormGroup>
-        <LambdaButton text="Save" color="green" />
+        <LambdaButton myFunc={() => this.props.myMethod({title: this.state.myTitle, content: this.state.myContent})} text="Save" color="green" />
       </Form>
     );
   }

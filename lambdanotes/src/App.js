@@ -31,7 +31,8 @@ class App extends Component {
       },
     ],
       appState: "list",
-      viewId: null
+      viewId: null,
+      newId: 4
     };
   }
 
@@ -63,6 +64,20 @@ class App extends Component {
     this.setState({appState: "edit"});
   }
 
+  tempSaveNew(newNote) {
+    let processedNote = Object.assign({}, newNote, {id: this.state.newId});
+    let newNotes = this.state.notes.slice(0);
+    newNotes.push(processedNote);
+    this.setState({appState: "list", notes: newNotes, newId: this.state.newId + 1});
+  }
+
+  tempSaveEdit(newNote) {
+    let processedNote = Object.assign({}, newNote, {id: this.state.viewId});
+    let newNotes = this.state.notes.filter((note) => note.id !== processedNote.id);
+    newNotes.push(processedNote)
+    this.setState({appState: "view", notes: newNotes});
+  }
+
   render() {
     return (
       <div className="App">
@@ -79,7 +94,9 @@ class App extends Component {
                 deleteMethod={this.tempDelete.bind(this)}
                 reallyDeleteMethod={this.tempReallyDelete.bind(this)}
                 cancelDeleteMethod={this.tempCancelDelete.bind(this)}
-                editMethod={this.tempEdit.bind(this)} />
+                editMethod={this.tempEdit.bind(this)}
+                saveEditMethod={this.tempSaveEdit.bind(this)}
+                saveNewMethod={this.tempSaveNew.bind(this)} />
             </Col>
           </Row>
       </div>
