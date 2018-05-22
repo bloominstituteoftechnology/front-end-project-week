@@ -1,0 +1,13 @@
+.Nav {
+    border: 1px solid #979797;
+    background: #D8D8D8;
+    font: #4A4A4A;
+}
+
+.button {
+    color:  #FFFFFF;
+}
+
+.container{
+    flex-direction: column;
+}
