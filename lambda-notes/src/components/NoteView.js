@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import './App.css';
-import SideBar from './components/SideBar.js';
-import SingleNoteView from './components/SingleNoteView.js';
+import './NoteView.css';
+import SideBar from './SideBar.js';
+import SingleNoteView from './SingleNoteView.js';
 
-class App extends Component {
+class NoteView extends Component {
   render() {
     return (
       <div className="page-container">
@@ -14,7 +14,7 @@ class App extends Component {
           </div>
           <div className="list-view">      
             <h1 className="app-intro">
-              Your Notes:
+              Note View:
             </h1>
             <SingleNoteView />
           </div>    
@@ -24,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default NoteView;
