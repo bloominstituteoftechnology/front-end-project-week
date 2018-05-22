@@ -11,7 +11,7 @@ const Main_ = () => {
         <Route
           exact
           path="/"
-          component={() => <h4 className="text-capitalize">Your Notes</h4>}
+          component={() => <h4 className="text-capitalize">Your Notes:</h4>}
         />
         <Route
           path="/note/:id"

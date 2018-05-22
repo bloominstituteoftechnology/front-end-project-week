@@ -86,9 +86,85 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-size: 100%;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -140,7 +216,7 @@ table {
   font-weight: bold;
 }
 .main-component .custom-main {
-  padding: 3rem 1rem;
+  padding: 4rem 2rem;
   height: 100vh;
   border: 1px solid darkorange;
   background-color: #F3F3F3;
@@ -179,6 +255,9 @@ h1 {
   font-size: 2.3rem;
   font-weight: 900;
 }
+h4 {
+  font-size: 1.3rem;
+}
 .custom-container {
   max-width: 80%;
   height: 100vh;
@@ -198,7 +277,7 @@ h1 {
   margin-bottom: 1.65rem;
 }
 .custom-container .row .custom-main {
-  padding: 3rem 1rem;
+  padding: 4rem 2rem;
   height: 100vh;
   border: 1px solid darkorange;
   background-color: #F3F3F3;
