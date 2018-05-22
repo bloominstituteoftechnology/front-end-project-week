@@ -14,7 +14,7 @@ class NoteList extends Component {
             <div>
                 {this.props.notes.map(note => {
                     return (
-                    <div key={note.title}>
+                    <div key={note.index}>
                         <h4>{note.title}</h4>
                         <p>{note.body}</p>
                     </div>
