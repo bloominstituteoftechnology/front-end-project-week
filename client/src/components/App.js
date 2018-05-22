@@ -41,8 +41,8 @@ class App extends Component {
     this.setState({ noteList: [ ...this.state.noteList, newNote ] });
   }
 
-  // setNewNoteValues
-  setNewNoteValues = (id, title, content) => {
+  // setEditNoteValues
+  setEditNoteValues = (id, title, content) => {
     const newNoteList = [ ...this.state.noteList ];
 
     for (let i = 0; i < newNoteList.length; i++) {
@@ -127,7 +127,7 @@ class App extends Component {
         setInputVal={ this.setInputVal }
         setTextAreaVal={ this.setInputVal }
         content={ this.state.content }
-        buttonOnClick={ this.setNewNoteValues }
+        buttonOnClick={ this.setEditNoteValues }
       />
     );
   }
