@@ -12,7 +12,7 @@ export default class Board extends Component {
     render() {
             return (
                 <div className="main">
-                    <h1 className="text-white">Your Notes:</h1>
+                    <h3 className="text-white">Your Notes:</h3>
                 </div>
             );
     }

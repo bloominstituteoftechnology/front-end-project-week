@@ -15,14 +15,6 @@
   border: 1px solid red;
 }
 
-/* .App-sideBar {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  border: 1px solid red;
-  max-width: 30%;
-} */
-
 .App-main {
   display: flex;
   flex-direction: row;
