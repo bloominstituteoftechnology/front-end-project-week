@@ -56,3 +56,5 @@ class NoteView extends Component {
 				}
 
 export default withRouter(NoteView);
+
+//22 May This is another file that took me a long time to figure out because of the modal. Decided to use reactstrap for that and it seems to work. I had to use the internet as my "phone a friend" for the syntax of the modal. That null killed me. The other thing that took me awhile was the handleDelete. It wouldn't go back to the home page after deleting without the history.push part, which is related to the withRouter. If you wrap your NoteView with withRouter, it will be able to access the history properties. This stuff is really useful in a project with a lot of components. It would probably be more useful with Redux, but one thing at a time.

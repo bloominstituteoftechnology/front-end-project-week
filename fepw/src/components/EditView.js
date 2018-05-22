@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Form, Input, Row, Col, Button } from 'reactstrap';
 
 class EditNote extends Component {
@@ -32,7 +32,7 @@ class EditNote extends Component {
 						</Row>
 						<Row>
 							<Col>
-								<Input onChange={this.handleInput} name='content' value={this.state.value} placeholder='Note Content' />
+								<Input onChange={this.handleInput} name='content' value={this.state.content} placeholder='Note Content' />
 							</Col>
 						</Row>
 						<Row>
@@ -50,4 +50,6 @@ class EditNote extends Component {
 	}
 }
 
-export default EditNote;
+export default withRouter(EditNote);
+
+//22 May - I dug deep into the React documentation to find this withRouter thing which is what I think I need to make sure the Router has access to the props it needs to do things correctly. It seems to work. Fingers crossed. 
