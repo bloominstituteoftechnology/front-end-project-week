@@ -8,7 +8,7 @@ class NewNote extends React.Component {
     super(props);
     this.state = {
       title: "",
-      note: "",
+      note: ""
     };
   }
 
@@ -25,51 +25,48 @@ class NewNote extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  newNote = e => {
-    const noteOject = {
-      title: this.state.title,
-      note: this.state.note,
-      check: false,
+  count = 9;
+
+  createNewNote = e => {
+    this.count++;
+    let { title, body } = this.state;
+    let newNote = {
+      title,
+      body,
+      id: this.count
     };
-    this.props.addNote(noteOject);
-    this.refresh();
-    this.setState({
-      title: "",
-      note: ""
-    });
+
+    e.preventDefault();
+    this.props.addNote(newNote);
+    this.setState({ title: "", body: "" });
   };
+
   render() {
     return (
-      <div>
-        <h3>Create New Note:</h3>
+      <div className="newNote-container">
+        <div className="create-newNote">Create New Note:</div>
         <input
-          type="text"
+          onChange={this.handleTextInput}
           name="title"
           value={this.state.title}
-          placeholder="Note Title"
-          onChange={this.handleTextInput}
-        />
-        <input
+          className="title-input"
           type="text"
-          name="note"
-          value={this.state.note}
-          placeholder="Note Content"
-          onChange={this.handleTextInput}
+          placeholder="Title"
         />
-        <Link to={`/`} onClick={this.newNote}>
-          <button>Save</button>
-        </Link>
+        <textarea
+          onChange={this.handleTextInput}
+          name="body"
+          value={this.state.body}
+          className="content-input"
+          cols="30"
+          rows="10"
+          type="text"
+          placeholder="Content"
+        />
+        <button onClick={this.createNewNote} text="Save" />
       </div>
     );
   }
 }
 
-//export default NewNote;
-
-const mapDispatchToProps = state => {
-  return {
-    note: this.state.notes
-  };
-};
-
-export default connect(mapDispatchToProps, { addNote })(NewNote);
+export default connect(null, { addNote })(NewNote);

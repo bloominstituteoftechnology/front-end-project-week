@@ -7,55 +7,6 @@ import {
 } from "../actions/action";
 
 const intialState = {
-  notes: [
-    {
-      title: "Note-1",
-      note: "",
-      check: false,
-    },
-
-    {
-      title: "Note-2",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-3",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-4",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-5",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-6",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-7",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-8",
-      note: "",
-      check: false,
-    },
-    {
-      title: "Note-9",
-      note: "",
-      check: false,
-    }
-  ],
-  error: null
 };
 
 export const notesReducer = (state = intialState, action) => {
