@@ -30,8 +30,8 @@ class App extends Component {
           <Route path="/newnote" component={NewNotes} />  
           
         </div>
-        </div>
-      </Router>
+        {/* </div> */}
+    </Router>
 
     );
   }
