@@ -3,6 +3,7 @@ import './App.css';
 import { Container, Row, Col, Button } from 'reactstrap';
 import note from "./components/dummyData";
 import NoteList from './components/NoteList'
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor(props) {
@@ -24,9 +25,7 @@ class App extends Component {
       <Container>
         <Row>
           <Col sm='3'>
-            <h3>Lambda Notes</h3>
-            <Button className='main-btn'>View Your Notes</Button>
-            <Button className='main-btn'>+Create New Note</Button>
+            <NavBar />
           </Col>
           <Col sm='9'>
             <NoteList />
