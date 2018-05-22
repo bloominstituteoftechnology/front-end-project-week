@@ -1,0 +1,25 @@
+.edit {
+    margin-top: -10vh;
+    margin-left: 85vw;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+.delete {
+    margin-top: -2.9vh;
+    margin-left: 90vw;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.note {
+    margin: 5rem 5rem 0rem 29rem;
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}

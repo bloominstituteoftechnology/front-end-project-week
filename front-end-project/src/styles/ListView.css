@@ -1,4 +1,4 @@
-.listView {
+.main-text {
     width: 75%;
     margin-left: 25%;
     margin-top: -100vh;
@@ -20,6 +20,9 @@ h5 {
     border-bottom: 1px solid #979797;
 }
 
-.yourNotes {
-    margin: 4rem 0rem 2rem 2rem;
+a {
+    color: #4A4A4A;
+} 
+a:hover {
+            color: #4A4A4A;
 }

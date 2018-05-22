@@ -11,7 +11,7 @@ class App extends Component {
         <Route path="/" component={SideNav}/>
         <Switch>
           <Route exact path="/" component={ListView}/>
-          <Route path="/note/:id" componet={NoteView}/>
+          <Route path="/note/:id" component={NoteView}/>
           <Route path="/create" component={Create}/>
           <Route path="/edit" component={Edit}/>
           <Route path="/delete" component={Delete}/>
