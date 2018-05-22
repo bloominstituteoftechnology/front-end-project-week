@@ -10,22 +10,39 @@
     padding-top: 20px;
 }
 
-.sidenav a {
+.main-button1 {
+    background-color: #2BC1C4;     
+}
+
+
+/* .button {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
-}
+  } */
+  
 
-.sidenav a:hover {
-    color: #f1f1f1;
+.header-School {
+    font-size: 40px; 
+    font: Roboto Bold;
+    text-align: left; 
+    margin-left: 20px;         
 }
 
 .main {
     margin-left: 220px; /* Same as the width of the sidenav */
     font-size: 16px; /* Increased text to enable scrolling */
     padding: 0px 10px;
+    border: 1px solid violet; 
+}
+
+.header-Notes {
+    text-align: left;         
+    border: 1px solid fuchsia; 
+    font: Roboto Bold; 
+    margin-top: 70px; 
 }
 
 @media screen and (max-height: 450px) {
