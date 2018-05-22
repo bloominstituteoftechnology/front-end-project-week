@@ -35,6 +35,15 @@
   border: 1px solid #979797;
 }
 
+.App-content-container .nav{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App-content-container .nav a{
+  margin-left: 15px;
+}
+
 .Nav-container {
   flex: 2;
   background: #D8D8D8;
@@ -63,6 +72,10 @@ Sidebar background: #D8D8D8
 	display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.NotesList-container h2{
+  font-size: 20px;
 }
 
 .NoteCard-list {
