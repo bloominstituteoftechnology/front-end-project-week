@@ -4,8 +4,8 @@ import React,  { Component } from 'react';
 
 
 class CreateNote extends Component {
-    constructor(props) {
-      super(props);
+    constructor() {
+      super();
       this.state = {
         noteList: [],
         fields:{
@@ -18,7 +18,7 @@ class CreateNote extends Component {
       };
     }
   
-    /*handleRemoveNote = noteId => {
+   /* handleRemoveNote = noteId => {
       const noteList = this.state.noteList.map(note => {
         if (noteId === note.id) {
           note.completed = !note.completed;
@@ -27,17 +27,17 @@ class CreateNote extends Component {
       });
       this.setState({ noteList });
     };*/
-    handleNoteChange = event => {
+   /* handleNoteChange = event => {
       this.setState({ [event.target.name]: event.target.value });
-    };
-  
-    /*handleNoteChange = event => {
-      const fields = Object.assign({}, this.state.fields);
-    fields[event.target.name] = event.target.value;
-    this.setState({fields});
     };*/
 
-   /* handleAddNote = event => {
+    handleNoteChange = event => {
+      const fields = Object.assign({}, this.state.fields);
+      fields[event.target.name] = event.target.value;
+      this.setState({fields});
+    };
+
+    handleAddNote = event => {
       const noteList = [...this.state.noteList, this.state.fields];
       this.setState({
         noteList,
@@ -47,9 +47,9 @@ class CreateNote extends Component {
         }
       });
       event.preventDefault();
-    };*/
+    };
   
-    handleAddNote = () => {
+    /*handleAddNote = () => {
       if (this.state.note === "") {
         this.setState({ error: true });
         setTimeout(() => {
@@ -59,15 +59,15 @@ class CreateNote extends Component {
         const noteList = this.state.noteList.slice(); //reference note array
         const fields = {
           // build  note object
-          id: this.state.noteList.length + this.state.note,
+          //id: this.state.noteList.length + this.state.note,
           noteTitle: this.state.fields.noteTitle,
           noteContent: this.state.fields.noteContent,
-          completed: false
+         // completed: false
         };
         noteList.push(fields); // add note to note list
         this.setState({ noteList, note: "" });
       }
-    };
+    };*/
   
     render() {
       return (
@@ -78,7 +78,7 @@ class CreateNote extends Component {
             placeholder="Note Title"
             type="text"
             value={this.state.fields.noteTitle}
-            name="note title"
+            name="noteTitle"
             onChange={this.handleNoteChange}
           />
           </div>
@@ -87,13 +87,24 @@ class CreateNote extends Component {
             placeholder="Create New Note"
             type="text"
             value={this.state.fields.noteContent}
-            name="note"
+            name="noteContent"
             onChange={this.handleNoteChange}
           />
+          </div>
           <div>
           {this.state.error ? <div>Error note must not be empty text</div> : null}
           <button onClick={this.handleAddNote}>Save</button>
           </div>
+          <div>
+          <h3>Notes</h3>
+          <ul>
+            {this.state.noteList.map(({noteTitle, noteContent}, i) => (
+              <li key={i}>
+                <h4>{noteTitle}</h4>
+               <h4>{noteContent}</h4>
+              </li>
+            ))}
+          </ul>
         </div>
         </div>
       );
