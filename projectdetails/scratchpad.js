@@ -48,3 +48,45 @@ render(
     </Provider>,
     document.getElementById('root')
 )
+
+
+//Actions template
+
+let nextTodoId = 0
+export const addTodo = (text) => ({
+    type: 'ADD_TODO',
+    id: nextTodoId++,
+    text
+})
+
+export const setVisibilityFilter = (filter) => ({
+    type: 'SET_VISIBILITY_FILTER',
+    filter
+})
+
+export const toggleTodo = (id) => ({
+    type: 'TOGGLE_TODO',
+    id
+})
+
+
+//App template
+
+import React from 'react'
+import Footer from './Footer'
+import AddTodo from '../containers/AddTodo'
+import VisibleTodoList from '../containers/VisibleTodoList'
+import UndoRedo from '../containers/UndoRedo'
+
+const App = () => (
+    <div>
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
+        <UndoRedo />
+    </div>
+)
+
+export default App
+
+
