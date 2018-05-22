@@ -8,7 +8,26 @@ const Main_ = () => {
   return (
     <div className="col-9 custom-main">
       <Switch>
-        <Route path="/" component={ListView} />
+        <Route
+          exact
+          path="/"
+          component={() => <h4 className="text-capitalize">Your Notes</h4>}
+        />
+        <Route
+          path="/note/:id"
+          component={() => <h4 className="text-capitalize">Note Name</h4>}
+        />
+        <Route
+          path="/edit/:id"
+          component={() => <h4 className="text-capitalize">Edit Note:</h4>}
+        />
+        <Route
+          path="/new"
+          component={() => <h4 className="text-capitalize">Create new note</h4>}
+        />
+      </Switch>
+      <Switch>
+        <Route exact path="/" component={ListView} />
         <Route path="/note/:id" component={NoteView} />
         <Route
           path="/edit/:id"
