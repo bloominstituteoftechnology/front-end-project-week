@@ -7,14 +7,12 @@ import Note from '../../views/Note';
 
 const Routes = () => {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <Route exact path="/" component={List} />
-        <Route path="/create-new" component={CreateNew} />
-        <Route path="/edit" component={Edit} />
-        <Route path="/note/:id" component={Note} />
-      </div>
-    </div>
+    <React.Fragment>
+      <Route exact path="/" component={List} />
+      <Route path="/create-new" component={CreateNew} />
+      <Route path="/edit" component={Edit} />
+      <Route path="/note/:id" component={Note} />
+    </React.Fragment>
   );
 }
 
