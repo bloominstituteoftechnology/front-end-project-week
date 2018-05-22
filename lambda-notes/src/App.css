@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  background-color: #F3F3F3;
+  color: #4A4A4A;
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -25,4 +31,88 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.heading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 3.5em;
+  line-height: 0.9em;
+  width: 100%;
+  padding-left: 15px;
+}
+
+.nav-container {
+  width: 30%;
+  background-color: #D8D8D8;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-right: 1px solid #979797;
+}
+
+.nav-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  width: 100%;
+}
+
+.btn {
+  color: #FFFFFF;
+  width: 300px;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.link-btn {
+  color: #FFFFFF;
+}
+
+.link-btn:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.btn.main {
+  background-color: #2BC1C4;
+  border: 1px solid #979797;
+  border-radius: 0px;
+}
+
+.btn.danger {
+  background-color: #D0021B;
+  border: 1px solid #979797;
+  border-radius: 0px;
+}
+
+.note-thumbnail {
+  margin: 15px 0;
+  height: 300px;
+}
+
+/* .note-thumbnail:before {
+  content: '';
+  display: block;
+  padding-top: 10%;
+} */
+
+.notes-section {
+  padding: 10px 30px;
+}
+
+.form-section {
+  min-height: 100vh;
+  margin-top: 30px;
+  padding: 10px 40px;
+}
+
+.form-content {
+  height: 500px;
+  margin-top: 20px;
 }
