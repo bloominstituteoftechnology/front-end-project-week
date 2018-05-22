@@ -5,7 +5,7 @@ import Note from './Note';
 
 const NoteView = props => {
   return (
-    <div>
+    <div className='noteview__note-container'>
       {
         props.noteList.map(note => {
           return (

@@ -3,10 +3,14 @@ html {
 }
 
 body {
+  background: #F3F3F3;
+  color: #4A4A4A;
+  font-family: Raleway, 'sans-serif';
   height: 100vh;
   margin: 0;
 }
 
 a {
+  color: #4A4A4A;
   text-decoration: none;
 }
