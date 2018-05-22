@@ -25,23 +25,27 @@ class NoteForm extends Component {
 
     render() { 
         return (
-            <div className="App-content">
+            <div className="App-content-container">
                 <h2>{this.props.header}</h2>
                 <form>
-                    <input
-                        name="title"
-                        value={this.state.title}
-                        placeholder="Note Title"
-                        onChange={this.onChangeHandler}
-                     />
-                    <input
-                        name="content"
-                        value={this.state.content}
-                        placeholder="Note Content"
-                        onChange={this.onChangeHandler}
-                     />
+                    <div>
+                        <input className="input-tittle"
+                            name="title"
+                            value={this.state.title}
+                            placeholder="Note Title"
+                            onChange={this.onChangeHandler}
+                        />
+                     </div>
+                     <div>
+                     <textarea className="input-content"
+                            name="content"
+                            value={this.state.content}
+                            placeholder="Note Content"
+                            onChange={this.onChangeHandler}
+                        />
+                     </div>
                 </form>
-                <button onClick={this.onSubmitHandler}>
+                <button className="save-button" onClick={this.onSubmitHandler}>
                     {this.props.button}
                 </button>
             </div>
