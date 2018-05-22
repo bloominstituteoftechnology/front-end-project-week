@@ -208,6 +208,21 @@ table {
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
+  padding: 16px;
+}
+.NoteCard-component .custom-NoteCard > h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.NoteCard-component .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+.NoteCard-component .custom-NoteCard > p {
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
 }
 .list-view-component .custom-list-view-container {
   flex-wrap: wrap;
@@ -217,6 +232,21 @@ table {
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
+  padding: 16px;
+}
+.list-view-component .custom-list-view-container .custom-NoteCard > h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.list-view-component .custom-list-view-container .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+.list-view-component .custom-list-view-container .custom-NoteCard > p {
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
 }
 .custom-button {
   color: white;
@@ -231,11 +261,11 @@ table {
 }
 .main-component .custom-main {
   padding: 4rem 2rem;
-  height: 100vh;
+  min-height: 100vh;
   border: 1px solid darkorange;
   background-color: #F3F3F3;
 }
-.main-component .custom-main h4 {
+.main-component .custom-main > h5 {
   font-weight: 700;
   margin-bottom: 2rem;
 }
@@ -247,10 +277,25 @@ table {
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
+  padding: 16px;
+}
+.main-component .custom-main .custom-list-view-container .custom-NoteCard > h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.main-component .custom-main .custom-list-view-container .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+.main-component .custom-main .custom-list-view-container .custom-NoteCard > p {
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
 }
 /* SideBar_ */
 .side-bar-component .side-bar {
-  height: 100vh;
+  min-height: 100vh;
   padding: 1.3rem 1rem;
   background-color: #D8D8D8;
   border: 1px solid #979797;
@@ -282,7 +327,7 @@ h1 {
   font-size: 2.3rem;
   font-weight: 900;
 }
-h4 {
+h5 {
   font-size: 1.3rem;
 }
 .custom-container {
@@ -295,7 +340,7 @@ h4 {
   margin: 0px;
 }
 .custom-container .row .side-bar {
-  height: 100vh;
+  min-height: 100vh;
   padding: 1.3rem 1rem;
   background-color: #D8D8D8;
   border: 1px solid #979797;
@@ -305,11 +350,11 @@ h4 {
 }
 .custom-container .row .custom-main {
   padding: 4rem 2rem;
-  height: 100vh;
+  min-height: 100vh;
   border: 1px solid darkorange;
   background-color: #F3F3F3;
 }
-.custom-container .row .custom-main h4 {
+.custom-container .row .custom-main > h5 {
   font-weight: 700;
   margin-bottom: 2rem;
 }
@@ -321,4 +366,19 @@ h4 {
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
+  padding: 16px;
+}
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard > h5 {
+  font-weight: 500;
+  margin: 0px;
+  margin-bottom: 0.5rem;
+}
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard .custom-hr {
+  margin: 0px;
+  border: 1px solid #979797;
+  margin-bottom: 0.5rem;
+}
+.custom-container .row .custom-main .custom-list-view-container .custom-NoteCard > p {
+  line-height: 1.565;
+  letter-spacing: 0.03rem;
 }

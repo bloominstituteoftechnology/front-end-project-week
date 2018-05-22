@@ -11,19 +11,19 @@ const Main_ = () => {
         <Route
           exact
           path="/"
-          component={() => <h4 className="text-capitalize">Your Notes:</h4>}
+          component={() => <h5 className="text-capitalize">Your Notes:</h5>}
         />
         <Route
           path="/note/:id"
-          component={() => <h4 className="text-capitalize">Note Name</h4>}
+          component={() => <h5 className="text-capitalize">Note Name</h5>}
         />
         <Route
           path="/edit/:id"
-          component={() => <h4 className="text-capitalize">Edit Note:</h4>}
+          component={() => <h5 className="text-capitalize">Edit Note:</h5>}
         />
         <Route
           path="/new"
-          component={() => <h4 className="text-capitalize">Create new note</h4>}
+          component={() => <h5 className="text-capitalize">Create new note</h5>}
         />
       </Switch>
       <Switch>

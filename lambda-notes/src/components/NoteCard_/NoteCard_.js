@@ -6,6 +6,7 @@ const NoteCard_ = props => {
   return (
     <Card className="custom-NoteCard" body>
       <CardTitle>{card.title}</CardTitle>
+      <hr className="custom-hr" />
       <CardText>{card.shortContent}</CardText>
     </Card>
   );
