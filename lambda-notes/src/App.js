@@ -5,6 +5,7 @@ import './App.css';
 import NotesContainer from './components/NotesContainer/NotesContainer';
 import SideNav from './components/SideNav/SideNav';
 import NewNote from './components/NewNote/NewNote';
+import NoteView from './components/NoteView/NoteView';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
        <Route path="/" component={SideNav} />
        <Route exact path="/" component={NotesContainer} />
        <Route path="/create" component={NewNote} />
+       <Route path="/note/:id" component={NoteView}/>
       </div>
     );
   }

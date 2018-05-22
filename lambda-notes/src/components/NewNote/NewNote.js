@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Button from '../Button/Button';
 import './NewNote.css';
@@ -17,8 +18,15 @@ class NewNote extends Component {
     }
     
     submitNewNote = (e) => {
+       let { title, body } = this.state
+        let newNote = {
+            title, 
+            body, 
+            id: Date.now()
+        }
+
         e.preventDefault();
-        this.props.addNote(this.state);
+        this.props.addNote(newNote);
         this.setState({title: "", body: ""})
     }
 
