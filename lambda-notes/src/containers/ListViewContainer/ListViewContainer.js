@@ -29,6 +29,16 @@ class ListViewContainer extends Component {
           title: 'CARD title 4',
           message: 'MESSAGE 4 asdfasdfasdfasdfasdfasdfaklsjdfasdfhajskdflasdfhaksdjfhalksdfhasdhfj',
         },
+        {
+          id: 5,
+          title: 'CARD title 5',
+          message: 'MESSAGE 5 asdfasdfasdfasdfasdfasdfaklsjdfasdfhajskdflasdfhaksdjfhalksdfhasdhfj',
+        },
+        {
+          id: 6,
+          title: 'CARD title 6',
+          message: 'MESSAGE 6 asdfasdfasdfasdfasdfasdfaklsjdfasdfhajskdflasdfhaksdjfhalksdfhasdhfj',
+        },
       ]
     }
   }
@@ -37,7 +47,7 @@ class ListViewContainer extends Component {
     return (
       <div>
         <Aside />
-        <Notes notes={this.state.notes.map(note => note)} />
+        <Notes notes={this.state.notes} />
       </div>  
     );
   }

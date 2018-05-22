@@ -1,10 +1,10 @@
 import React from 'react';
-//import Aside from '../Aside/Aside';
+import './Button.css';
 
 const Button = (props) => { 
   return (
     <div>
-      <button type="button" className="btn btn-info">{props.content}</button>
+      <button type="button" className="btn btn-info px-5">{props.content}</button>
     </div>
   );
 }
