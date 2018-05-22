@@ -38,12 +38,13 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Lambda Notes</h1>
+          <Button>View Your Notes</Button>
+
+          <Button>Create New Note</Button>
+
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <Container>
-          <Col sm="3">
+          <Col sm="9">
             <Route exact path="/" 
               render={props => {
                 return <NoteList notes={this.state.notes} />;  

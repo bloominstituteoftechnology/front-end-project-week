@@ -1,0 +1,19 @@
+.note-card {
+    margin: 0 0 0 15px;
+    width: 30%;
+    text-align: left;
+
+}
+
+.note-card .card-header {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 25px;
+}
+
+.note-card .card-body .card-text {
+    overflow: hidden;
+    height: 100%;
+
+}

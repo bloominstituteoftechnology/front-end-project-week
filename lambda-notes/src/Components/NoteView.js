@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
-
+import "./NoteView.css";
 class NoteView extends Component {
     constructor(props) {
         super(props);
@@ -29,9 +29,9 @@ class NoteView extends Component {
     
     render () {
         return(
-            <div>
-            <h3>{this.state.title}</h3>
-            <div>{this.state.content}</div>
+            <div className="note-view">
+            <h3 className="note-title">{this.state.title}</h3>
+            <div className="note-content">{this.state.content}</div>
             </div>
         )
     }

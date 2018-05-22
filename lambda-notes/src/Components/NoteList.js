@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Input, Button } from 'reactstrap';
 import NoteCard from "./NoteCard";
+import "./NoteList.css";
 
 class NoteList extends Component {
     constructor(props) {
@@ -14,9 +15,9 @@ class NoteList extends Component {
         console.log(this.state);
         return (
             <div>
-                <h1>Your notes:</h1>
-                <Input type="text" placeholder="search your notes"/>
-                <Container>
+                <Input className="search" type="text" placeholder="search your notes"/>
+                <h3>Your notes:</h3>
+                <Container className="note-list">
                     {this.state.notes.map(note => {
                         return (
                             <NoteCard note={note} key={note.id} to={`note/${note.id}`}/>
