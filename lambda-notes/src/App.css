@@ -10,6 +10,12 @@
   align-content: flex-start;
 }
 
+.App .main-view {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
 /* Keeping this stuff around for reference or later use
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

@@ -1,7 +1,8 @@
 // React
 import React from 'react';
-// Componenst
+// Components
 import Button from '../Button';
+import { Link } from 'react-router-dom';
 // CSS
 import './Navbar.css';
 
@@ -10,7 +11,7 @@ const Navbar = (props) => {
     return (
         <div className={`navbar ${classes}`}>
             <h1>Lambda<br/>Notes</h1>
-            <Button>View Your Notes</Button>
+            <Link to="/"><Button>View Your Notes</Button></Link>
             <Button>+ Create New Note</Button>
         </div>
     );
