@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class EditNote extends Component {
     constructor(props) {
         super(props);
         const id = this.props.match.params.id
         console.log("ID:", id)
-        this.state = { 
+        this.state = {
+            id: id, 
             title: this.props.notes[id].title,
             body: this.props.notes[id].body
          }
@@ -13,6 +15,21 @@ class EditNote extends Component {
 
     handleNoteInput = e => {
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    updateNote = () => {
+        const id = this.props.match.params.id;
+        const newNote = {id: this.state.id, title: this.state.title, body: this.state.body};
+
+        this.props.notes[id].title = newNote.title;
+        this.props.notes[id].body = newNote.body;
+
+        this.setState({
+            id: id, 
+            title: this.props.notes[id].title,
+            body: this.props.notes[id].body
+        })
+
     }
 
     render() { 
@@ -37,9 +54,11 @@ class EditNote extends Component {
                         value={this.state.body}
                         placeholder='Type Notes Here!' >
                     </textarea>
-                    <button onClick={this.updateNote} className="save-note">
-                        Update
-                    </button>
+                    <Link to={`/note/${this.props.match.params.id}`} >
+                        <button onClick={this.updateNote} className="save-note">
+                            Update
+                        </button>
+                    </Link>
                 </div>
             </div>
          )
