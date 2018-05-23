@@ -12,6 +12,7 @@ export const DONE_DELETING = "DONE_DELETING";
 export const SAVE_NEW = "SAVE_NEW";
 export const DONE_SAVING = "DONE_SAVING";
 export const CANCEL_DELETE = "CANCEL_DELETE";
+export const EDIT_NOTE = "EDIT_NOTE";
 
 
 
@@ -85,5 +86,11 @@ export const saveNew = (nextAct, url, note) => {
 export const cancelDelete = () => {
   return (dispatch) => {
     dispatch({type: CANCEL_DELETE});
+  }
+}
+
+export const editNote = () => {
+  return (dispatch) => {
+    dispatch({type: EDIT_NOTE});
   }
 }
