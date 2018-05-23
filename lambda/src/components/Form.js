@@ -10,9 +10,8 @@ class NoteForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      value: "random text",
-      note: "ASJIFKHOKF",
-      title: "JFLKHAFNJSKF"
+      note: "",
+      title: ""
     };
     this.updateInput = this.updateInput.bind(this);
   }
@@ -26,7 +25,7 @@ class NoteForm extends Component {
   //methods that handles the cha
   //fires when the submit button is hit
   handleClick (event) {
-    console.log('STATE', this.state)
+    console.log('STATE Before', this.state)
     event.preventDefault()
     this.setState({note: "", title: ""});
     console.log('AFTER', this.state)   
@@ -34,7 +33,7 @@ class NoteForm extends Component {
 
 
   render() {
-    console.log("STATE", this.state);
+    console.log("Render STATE", this.state);
     return (
       <Container className="container">
       <Form>
@@ -53,7 +52,7 @@ class NoteForm extends Component {
             placeholder="Note Content" 
             value={this.state.note}
             onChange={this.updateInput.bind(this)} />
-          <Link to="/"> <Button onClick={this.handleClick.bind(this)} color="info">Save</Button></Link>
+          <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
       </Form>
       </Container>
     );
