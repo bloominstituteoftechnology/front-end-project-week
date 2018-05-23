@@ -8,8 +8,6 @@ class NewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-             edit: props.edit,
-             note: props.note,
             title: '',
             content: '',
             submitted: false,
@@ -18,18 +16,31 @@ class NewNote extends Component {
     }
 
   
-    componentDidMount() {
-        this.setState({id: Date.now()});
-    }   
+    // componentDidMount() {
+    //     this.setState({id: Date.now()});
+    // }   
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
        
     } 
 
+    submitNote = (event) => {
+        event.preventDefault();
+        const newNote = {
+            title: this.state.title,
+            content: this.state.content,
+        };
+        this.props.save(newNote);
+        this.setState({
+            title: '',
+            content: '',
+            submitted: true
+        });
+    }
+
     render() {
-        const { title, content } = this.state;
-        const newNote = {title, content};
+        
         return (
             this.state.submitted ? (
                 <Redirect to="/"/>
@@ -38,7 +49,7 @@ class NewNote extends Component {
                     <h3 className="heading">Create New Note: </h3>
                     <Row>
                         <Col sm="12">
-                            <Form onSubmit={() => {this.props.saveNote(newNote)}} className="form">
+                            <Form onSubmit={this.submitNote} className="form">
                                 <Input 
                                     type="text" 
                                     name="title"

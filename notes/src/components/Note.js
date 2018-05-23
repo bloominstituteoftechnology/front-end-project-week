@@ -25,8 +25,7 @@ class Note extends Component {
     fetchNote = (id) => {}
     
 
-    fetchNote = (id) => {
-    }
+    fetchNote = (id) => {}
 
     editNote = () => {
         this.setState({edit: true})
