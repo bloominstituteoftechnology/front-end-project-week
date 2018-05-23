@@ -18,12 +18,12 @@ export const createNote = note => {
   };
 };
 
-export const getNote = id => {
-    return {
-        type: GET_NOTE,
-        payload: id
-    };
-};
+// export const getNote = id => {
+//     return {
+//         type: GET_NOTE,
+//         payload: id
+//     };
+// };
 
 export const deleteNote = id => {
   return {

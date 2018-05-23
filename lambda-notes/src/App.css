@@ -23,12 +23,23 @@ body, html {
 
 .card {
   min-width: 320px;
+  color: black;
+}
+
+.card-head:hover {
+  text-decoration-line: none
 }
 
 .card p {
   padding-bottom: 5px;
   max-height: 220px;
   overflow: scroll;
+}
+
+.card-head {
+  padding: .75rem 0.15rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+  margin-bottom: 0
 }
 
 .container-fluid {
@@ -97,4 +108,21 @@ body, html {
 }
 .note-link{
   text-decoration: underline;
+  margin-left: 2%;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-wrap {
+  padding-top: 15%;
+}
+
+.no-button {
+  background: #2BC1C4;
+}
+
+.modal-but {
+  width: 40%;
 }
