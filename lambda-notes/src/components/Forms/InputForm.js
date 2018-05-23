@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, FormGroup, Input, Label } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 // Components
 import { addNote, editNote } from '../Actions';
 import { Button } from '../Button';
@@ -14,6 +14,7 @@ class InputForm extends Component {
         id: "",  
         title: "",
         text: "",
+        date: "",
         go: false,
     }
   }
@@ -22,10 +23,10 @@ class InputForm extends Component {
     if (this.props.match.path === "/edit/:id") {
       const id = this.props.match.params.id;
       const note = this.props.notes.filter(note => note.id === id)[0];
-      const { title, text } = note; 
-      this.setState({ id: id, title: title, text: text });
+      const { title, text, date } = note; 
+      this.setState({ id: id, title: title, text: text, date: date });
     } else {
-      this.setState({ id: "", title: "", text: "" });
+      this.setState({ id: "", title: "", text: "", date: "", });
     }
   }
 
@@ -33,26 +34,25 @@ class InputForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  submitNote = (e) => {
-    e.preventDefault();
-
+  submitNote = () => {
     const noteToSend = {
       title: this.state.title,
       text: this.state.text,
+      date: this.state.date,
     }
 
     if (this.props.match.path === "/new") {
       this.props.addNote(noteToSend);
     } else {
-      this.props.editNote({
+      this.props.editNote(this.state.id, {
         ...noteToSend,
-        id: this.state.id,
       });
     }
     this.setState({
       id: "",
       title: "",
       text: "",
+      date: "",
       go: true,
     });
 
@@ -64,7 +64,10 @@ class InputForm extends Component {
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="p-3">
         <h3>{ path === "/new" ? `Create New ` : `Edit ` } Note:</h3>
-        <Form onSubmit={this.submitNote}>
+        <Form onSubmit={(e) => {
+          e.preventDefault();
+          this.submitNote();
+        }}>
           <FormGroup>
             <Input type="title" name="title" id="noteTitle" placeholder="Note Title" style={{width: "65%"}}value={this.state.title} onChange={this.handleTextChange} />
           </FormGroup>
@@ -84,4 +87,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { addNote, editNote })(InputForm);
+export default withRouter(connect(mapStateToProps, { addNote, editNote })(InputForm));

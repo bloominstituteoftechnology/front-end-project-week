@@ -4,14 +4,21 @@ import { withRouter, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 // CSS
 import './NoteList.css';
+// Components
 import connect from 'react-redux/lib/connect/connect';
+import { fetchNotes } from '../Actions';
 
 class NoteList extends Component {
   // constructor(props) {
   //   super(props);
   // }
 
+  componentWillMount() {
+    this.props.fetchNotes();
+  }
+
   render() {
+    console.log("NoteList props.notes",this.props.notes)
     const { classes } = this.props;
     return (
       <div className={`note-list ${classes}`}>
@@ -44,4 +51,4 @@ const mapDispatchToProps = (state) => {
   }
 }
 
-export default withRouter(connect(mapDispatchToProps, null)(NoteList));
+export default withRouter(connect(mapDispatchToProps, { fetchNotes })(NoteList));
