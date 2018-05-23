@@ -4,10 +4,19 @@ import { Card, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const NoteCards = (props) => {
-  // console.log(props)
+  console.log(props.notes)
+  
+  
+  // const fireBaseNotes = Object.entries(props.notes.notes).map(article => {
+  //   return Object.assign({}, { id: article[0] }, article[1]);
+  //   });
+    
+  
 
 
+ //this is when you started making changes
   return(
+    
     <React.Fragment>
       <h3>Your Notes:</h3>
       <div className="row justify-content-between mt-4">      

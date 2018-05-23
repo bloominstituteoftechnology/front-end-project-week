@@ -26,7 +26,7 @@ class NoteView extends Component {
 
   render() {
     const selectedNote = this.props.notes.filter((current) => {
-      return current.id === Number(this.props.match.params.id)
+      return current.id === this.props.match.params.id
     })
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
 
