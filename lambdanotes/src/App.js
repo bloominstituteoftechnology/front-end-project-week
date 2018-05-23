@@ -74,7 +74,7 @@ class App extends Component {
   tempSaveEdit(newNote) {
     let processedNote = Object.assign({}, newNote, {id: this.state.viewId});
     let newNotes = this.state.notes.filter((note) => note.id !== processedNote.id);
-    newNotes.push(processedNote)
+    newNotes.push(processedNote);
     this.setState({appState: "view", notes: newNotes});
   }
 
