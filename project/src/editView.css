@@ -1,11 +1,6 @@
-.EVmainContainer {
-    border: solid 1px purple;
-}
-
 .EVcontainer {
     display: flex;
-    box-sizing: border-box;
-    border: solid 1px red;
+    height: 980px;
 }
 
 .EVsideNav {
@@ -14,15 +9,4 @@
     flex-direction: column;
     padding: 10px;
     border: solid 1px  #979797;
-}
-
-.EVsideNavTitle {
-    margin-top: 35px;
-    text-align: left;
-    padding-bottom: 10px;
-    flex-wrap: wrap;
-    font-size: 25px;
-    font: Roboto Bold;
-    color: #4A4A4A;
-    font-size: 35px;
 }

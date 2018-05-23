@@ -3,30 +3,31 @@ import React, { Component } from 'react';
 class editView extends Component {
     render() {
         return (
-            <div className="EVmainContainer">
-                <div className="EVcontainer">
-                    <div classname="EVsideNav">
-                        <p classname="EVsideNavTitle">Lambda Notes</p>
-                    </div>
+            <div>
+            <container className='EVcontainer'>
+                <div className='EVsideNav'>
+                    <p className='EVsideNavTitle'>Lambda Notes</p>
                     <div>
-                        <button>View Your Notes</button>
-                    </div>
-                    <div>
-                        <button>+ Create New Note</button>
-                    </div>
+                    <button>View Your Notes</button>
+                </div>
+                <div>
+                    <button>+ Create New Note</button>
+                </div>
+                </div>
+                 
 
 
-                    <div classname="EVmainBody">
-                        <p>Edit Note:</p>
-                    </div>
-                    <div className="EVnewTitle">
+                <div className='EVmainBody'>
+                    <p>Edit Note:</p>
+                </div>
+                    <div className='EVnewTitle'>
                         <input type="title" name="title" id="exampleTitle" placeholder="New Title" />
                     </div>
-                    <div className="EVnewContent">
+                    <div className='EVnewContent'>
                     <input type="content" name="content" id="exampleContent" placeholder="New Content" />
-                </div>
-                </div>
-                
+                    </div>
+            </container>
+            
             </div>
         );
     }

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import './createNew.css';
 import './noteView.css';
+import './editView.css';
 
 import { Route } from 'react-router-dom';
 // import displayList from './displayList';
