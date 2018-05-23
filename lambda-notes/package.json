@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.18.0",
-=======
->>>>>>> 84d351c9bc02fd1f746ec4a92576c40646625eb2
     "bootstrap": "^4.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

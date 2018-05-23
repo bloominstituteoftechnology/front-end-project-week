@@ -1,5 +1,3 @@
-Edward Gonzalez Trello URL - https://trello.com/b/IWPzf0i1
-
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -12,9 +10,11 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 * You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
 
+Trello URL - https://trello.com/b/IWPzf0i1
+
 ## Trello Set Up:
 
-* [Completed] Create a Trello account
+* [Completed] Create a Trello account 
 * [Completed] Create a new board called "Lambda Notes - {Your Name}"
 * [Completed] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
 * [Completed] Fill in the `To Do` list with the MVP features listed below
@@ -24,9 +24,9 @@ The main objective of this week is to develop the MVP feature set listed below u
 
 ## MVP Features:
 
-* [ ] Display a list of notes
-* [ ] Create a note with a title and content
-* [ ] View an existing note
+* [Completed] Display a list of notes
+* [Completed] Create a note with a title and content
+* [Completed] View an existing note
 * [ ] Edit an existing note
 * [ ] Delete an existing note
 

@@ -8,17 +8,19 @@ class Note extends Component {
         super(props);
         this.state = {
             note: null,
+            id: null
         };
     }
 
     componentDidMount() {
-        console.log('This Props Match Id', this.props.match.params.id);
         this.fetchNote(this.props.match.params.id);
+        this.setState({ id: this.props.match.params.id })
     }
 
     componentWillReceiveProps(newProps) {
         if (this.props.match.params.id !== newProps.match.params.id) {
             this.fetchNote(newProps.match.params.id);
+            this.setState({ id: this.props.match.params.id });
         }
     }
 
@@ -28,17 +30,22 @@ class Note extends Component {
             .catch(error => { console.log(error) })
     }
 
+    removeNote = (id) => {
+        this.props.deleteNote(id);
+    }
+
+
+
     render() {
 
         if (!this.state.note) {
             return <div>Loading note information...</div>
         }
 
-        console.log('Note', this.state.note)
         return (
             <div className="cont">
                 <Navigation />
-                <NoteCard note={this.state.note} />
+                <NoteCard note={this.state.note} id={this.state.id} removeNote={this.removeNote} />
             </div>
         )
     }

@@ -13,7 +13,7 @@ class NotesContainer extends Component {
                     {this.props.cards.map((item, index) => {
                         console.log('item id', item.id);
                         return (
-                            <Link className="link" key={item.id + item.title + item.text + index} to={`/notes/${item.id}`}>
+                            <Link className="link" key={item.id + item.title + item.text + index} to={`/notes/${index}`}>
                                 <Card>
                                     <CardBody>
                                         <CardTitle>{item.title}</CardTitle>
