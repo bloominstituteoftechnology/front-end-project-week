@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button';
-import { notes } from '../../data/notes';
+import axios from 'axios';
+import history from '../Routes/history';
 
 class NoteForm extends Component {
   constructor(props) {
@@ -10,19 +11,35 @@ class NoteForm extends Component {
       contents: ''
     }
   }
-  handleChange= event => {
+  handleChange = event => {
     this.setState({ [event.target.name]:event.target.value });
+  }
+  saveForm = event => {
+    // create new or update
+    if(this.state.title !== ''){
+      const newNote = {
+        title: this.state.title,
+        contents: this.state.contents
+      };
+
+      const redirect = (this.props.noteId) ? `/note/${this.props.noteId}` : "/";
+
+      axios.post('http://localhost:5000/notes', newNote)
+        .then(response => history.push(redirect))
+        .catch(error => console.error(error));
+    }
   }
   componentDidMount(){
     if (this.props.noteId){
-      const currentNote = notes.filter(x => x.id === +this.props.noteId);
-      this.setState({ title: currentNote[0].title, contents: currentNote[0].content });
+      axios.get(`http://localhost:5000/notes/${this.props.noteId}`)
+        .then(response => this.setState({ title: response.data.title, contents: response.data.contents }))
+        .catch(error => console.error(error));
     }
   }
   render() { 
     return (
       <React.Fragment>
-        <form className="save-note-form">
+        <div className="save-note-form">
           <input
             className="form-control title"
             type="text"
@@ -41,9 +58,10 @@ class NoteForm extends Component {
           <Button
             type="primary"
             title={this.props.action}
-            link={(this.props.noteId) ? `/note/${this.props.noteId}` : "/"}
+            clickAction={this.saveForm}
+            // link={(this.props.noteId) ? `/note/${this.props.noteId}` : "/"}
           />
-        </form>
+        </div>
       </React.Fragment>
     )
   }
