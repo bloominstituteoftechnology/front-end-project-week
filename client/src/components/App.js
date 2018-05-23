@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   // adds new note to `this.state.noteList`
-  addNewNote = (e, props, state) => {
+  addNewNote = (e, props) => {
     e.preventDefault();
     const newNote = {
       id: '' + this.state.noteList.length,
