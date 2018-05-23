@@ -14,8 +14,10 @@ class App extends Component {
       <Container ClassName = "container">
       <Row>
         <SideBar />
+        <Col>
+           <EditNote />
+        </Col>
         {/*<MainBarComponent />*/}
-        <EditNote />
       </Row>
       </Container >
       </div>
