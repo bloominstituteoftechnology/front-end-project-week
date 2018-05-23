@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteCard from './NoteCard.js';
-
+import './ListView.css';
 
 class ListView extends Component {
 	render() {
 		return (
-			<div>
+			<div className='col-offset-4 wrapper'>
 				{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /></Link></div>)}
 			</div>
 		)

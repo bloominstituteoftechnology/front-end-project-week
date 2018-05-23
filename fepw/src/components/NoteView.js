@@ -28,8 +28,8 @@ class NoteView extends Component {
 			<div>
 				<Row>
 					<Col>
-				<Link to ='/EditView'><Button>Edit</Button></Link>
-				<Button onClick={ () => this.toggleModal() }>Delete</Button>
+				<Link to ='/EditView'><Button color='link'>Edit</Button></Link>
+				<Button color='link' onClick={ () => this.toggleModal() }>Delete</Button>
 				{this.state.modal ? <Modal isOpen={this.state.modal}>
 					<ModalBody>
 						Are you sure you want to delete this?

@@ -10,13 +10,11 @@ class App extends Component {
 render() {
     return (
 	    <Route path ='/'>
-		    <div className='container'>
-			    <div className='row'>
-			<div className='col-4'><Sidebar /></div>
-			<div className='col-8'><Main /></div>
-			   </div>
-		   </div>
-	</Route>
+		    <div>
+			  <div><Sidebar /></div>
+			  <div><Main /></div>
+		</div>
+	    </Route>
     );
   }
 }
