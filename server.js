@@ -49,6 +49,17 @@ app.get('/notes', (req, res) => {
   res.status(200).json(notes);
 });
 
+app.get('/notes/:id', (req, res) => {
+  const { id } = req.params;
+  const note = notes.find(note => note.id == id);
+
+  if(note){
+    res.status(200).json(note);
+  } else {
+    res.status(404).json({ message: `The note with id ${id} does not exist.` });
+  }
+});
+
 app.post('/notes', (req, res) => {
   const note = { id: getNewId(), ...req.body };
   notes = [...notes, note];
