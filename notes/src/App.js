@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
-import { List, Note, NewNote, EditNote, DeleteNote } from './components';
-// import { Test } from './components';
+import { List, Note, NewNote, EditNote, DeleteNote, Test } from './components';
+
 
 class App extends Component {
   render() {
@@ -19,6 +19,9 @@ class App extends Component {
               <Link to="/newnote">
                 <button className="new-note-button">+ Create New Note</button>
               </Link>
+              <Link to="/test">
+               <button className="test-button">Test Here</button>
+              </Link>
             </Col>
             <Col xs="9" className="content-container">
               <Route exact path="/" component={List} />
@@ -26,7 +29,7 @@ class App extends Component {
               <Route path="/note" component={Note}/>
               <Route path="/edit" component={EditNote}/>
               <Route path="/delete" component={DeleteNote}/>
-              {/* <Test/> */}
+              <Route path="/test" component={Test}/>
             </Col>
           </Row>
         </Container>

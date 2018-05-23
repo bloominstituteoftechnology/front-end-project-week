@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.span {
+.want-to-delete {
     display: flex;
     justify-content: center;
     align-content: center;
