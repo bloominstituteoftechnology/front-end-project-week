@@ -7,10 +7,10 @@ const Sidebar = () => {
     
         <div className="sidebar-wrapper" >
             <header className="header">
-                    <h1>Lambda Notes</h1>
+                    <h1 className="headerText">Lambda Notes</h1>
             </header>
             <button className="viewNotes" > View Your Notes </button>
-            <button className="createNote"> Create New Note </button>
+            <button className="createNote"> + Create New Note </button>
               
         </div>
 
