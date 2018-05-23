@@ -2,7 +2,6 @@ import React from 'react';
 import './notelist.css';
 import NoteCard from './notecard.js';
 import { Row, Col } from 'reactstrap';
-import LambdaButton from './lambdabutton.js';
 
 
 const NoteList = (props) => {

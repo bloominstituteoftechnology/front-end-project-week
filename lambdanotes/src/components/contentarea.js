@@ -37,7 +37,7 @@ const ContentArea = (props) => {
     case "fetching":
       return (
         <Alert className="loading-alert" color="dark">
-        Loading ...
+          Loading ...
         </Alert>
       );
     default:
