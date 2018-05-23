@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING, REALLY_DELETE, DONE_DELETING, CANCEL_DELETE, EDIT_NOTE, SAVE_EDIT } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING, REALLY_DELETE, DONE_DELETING, CANCEL_DELETE, EDIT_NOTE, SAVE_EDIT, ALPHABETIZE_NOTES } from '../actions';
 
 const initialState = {
   notes: [],
@@ -29,6 +29,9 @@ const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {appState: "view"});
     case EDIT_NOTE:
       return Object.assign({}, state, {appState: "edit"});
+    case ALPHABETIZE_NOTES:
+      let sortedNotes = state.notes.slice(0).sort((a, b) => a.title.localeCompare(b.title));
+      return Object.assign({}, state, {notes: sortedNotes});
     default:
       return state;
   }
