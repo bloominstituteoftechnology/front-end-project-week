@@ -9,12 +9,14 @@
   font-family: 'Roboto', sans-serif;
   font-size: .9rem;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .note-view-links {
   display: flex;
   justify-content: flex-end;
 }
+
 
 .note-view-title {
   font-family: 'Roboto', sans-serif;

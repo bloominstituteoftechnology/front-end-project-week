@@ -5,11 +5,11 @@ const LambdaButton = (props) => {
   switch (props.color) {
     case "green":
       return (
-        <div onClick={props.myFunc} className="lambda-button" >{props.text}</div>
+        <div onClick={props.myFunc} className="lambda-button lambda-button-green" >{props.text}</div>
       );
     case "red":
       return (
-        <div onClick={props.myFunc} className="lambda-button-red" >{props.text}</div>
+        <div onClick={props.myFunc} className="lambda-button lambda-button-red" >{props.text}</div>
       );
     default:
       return (
