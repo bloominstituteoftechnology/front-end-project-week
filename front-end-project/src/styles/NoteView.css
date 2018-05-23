@@ -23,3 +23,30 @@ h3 {
     font-size: 2rem;
     font-weight: bold;
 }
+.modal-content {
+    width: 100vw;
+    padding: 1rem 0rem 2rem 0rem;
+    margin: 2rem -10rem;
+    height: 23vh;
+    font-size: 1.6rem;
+}
+
+.modalbutton {
+    display: inline-block;
+    width: 15vw;
+    margin: 2rem;
+    padding: 1rem;
+}
+.modal-body {
+    text-align: center;
+    margin: auto;
+}
+
+.button {
+    color: #FFFFFF;
+    background: #2BC1C4;
+}
+
+.modal {
+    margin-top: -20rem;
+}
