@@ -47,6 +47,8 @@
 
   .NVparagraph {
       text-align: left;
-      
-      
+  }
+
+  .NVnoteName {
+    color: #4A4A4A;
   }
