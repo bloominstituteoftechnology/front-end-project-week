@@ -6,6 +6,7 @@
 
 .noteContent {
     margin-top: 20px;  
+    
 }
 
 
@@ -19,4 +20,5 @@
     display: block;
     margin-left: 270px;
     margin-top: 20px; 
+    margin-bottom: 50px; 
 } 

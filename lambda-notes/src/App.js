@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import ListView from './components/ListView.js';
 import NewNote from './components/NewNote.js';
+import NoteView from './components/NoteView.js';
+
 
 class App extends Component {
   render() {
@@ -13,6 +15,9 @@ class App extends Component {
           {/* <ListView />                                      */}
           <Route exact path="/" component={ListView}></Route>
           <Route path="/newnote" component={NewNote}></Route>
+          <Route path="/noteview" component={NoteView}></Route>
+          
+
       </div>
     );
   }

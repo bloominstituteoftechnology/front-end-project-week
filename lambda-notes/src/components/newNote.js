@@ -11,14 +11,12 @@ const NewNote = (props) => {
       <SideNav />
         <h2 className="header-Notes">Create New Note:</h2>        
         <Form className="form">
-          <FormGroup row>
-            {/* <Label for="exampleEmail" sm={2}>Email</Label> */}
+          <FormGroup row> 
             <Col sm={7}>
               <Input type="title" className="noteTitle" placeholder="Note Title" />
             </Col>
           </FormGroup>
-          <FormGroup row className="noteContent">
-          {/* <Label for="exampleText" sm={2}>Text Area</Label> */}
+          <FormGroup row className="noteContent">          
           <Col sm={9}>
             <Input type="textarea" className="text" placeholder="Note Content"/>
           </Col>
