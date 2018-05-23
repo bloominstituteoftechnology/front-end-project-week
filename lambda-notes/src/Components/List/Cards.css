@@ -1,0 +1,16 @@
+.card{
+    display: block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    padding-bottom: 10px;
+}
+.card-container{
+    display: flex;
+    flex-wrap:wrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    
+    
+
+}

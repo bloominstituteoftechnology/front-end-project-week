@@ -8,7 +8,7 @@ class List extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dummydata : [{dummydata}],
+            notes : {dummydata},
           };
     }
 
@@ -17,7 +17,7 @@ class List extends Component {
         return (
             <div className = "list-wrapper">
                 <Sidebar />
-                <Cards dummydata = {this.state.dummydata}/>                    
+                <Cards notes = {this.state.notes}/>                    
                 </div>
           )
     }
