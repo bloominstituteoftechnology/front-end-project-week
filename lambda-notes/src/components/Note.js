@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import NoteButton from './NoteButton';
 import { connect } from 'react-redux';
 import { fetchNote, removeNote } from '../actions';
+import ReactMarkdown from 'react-markdown';
 
 class Note extends Component {
     constructor(props) {
@@ -69,7 +70,7 @@ class Note extends Component {
                     <Row>
                         <Col sm="12">
                             <div  className="note-content">
-                                {this.props.currentNote.content}
+                                <ReactMarkdown source={this.props.currentNote.content}/>
                             </div>
                         </Col>
                     </Row>

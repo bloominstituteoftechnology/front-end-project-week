@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText, Col } from 'reactstrap';
+import ReactMarkdown from 'react-markdown';
 
 const NoteThumbnail = (props) => {
     
@@ -10,7 +11,7 @@ const NoteThumbnail = (props) => {
                 <Card className="note-thumbnail">
                     <CardBody>
                         <CardTitle className="note-title heading">{props.note.title}</CardTitle>
-                        <CardText>{props.note.content}</CardText>
+                        <CardText><ReactMarkdown source={props.note.content}/></CardText>
                     </CardBody>
                 </Card>
             </Link>
