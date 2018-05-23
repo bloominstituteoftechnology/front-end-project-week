@@ -10,7 +10,6 @@ import NoteEdit from './noteedit/NoteEdit';
 
 // presentational
 import './App.css';
-import logo from '../logo.svg';
 
 import data from '../data.json';
 
