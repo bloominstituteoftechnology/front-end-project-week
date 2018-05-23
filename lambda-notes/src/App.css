@@ -27,7 +27,8 @@ h3.heading {
 }
 
 .nav-container {
-  width: 32vw;
+  max-width: 32vw;
+
   background-color: #D8D8D8;
   display: flex;
   align-items: flex-start !important;
@@ -45,15 +46,37 @@ h3.heading {
   width: 100%;
 }
 
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30px;
+  width: 22vw;
+}
+
+.fa-search {
+  color: #979797;
+  padding-right: 10px;
+  width: 8%;
+}
+
+.search-field {
+  width: 92%;
+  height: 40px;
+  font-size: 1em;
+  padding-left: 10px;
+  border: 1px solid #979797;
+}
+
 .btn {
   color: #FFFFFF;
   width: 22vw;
+  max-width: 300px;
   height: 70px;
   cursor: pointer;
   margin: 30px 0.5vw 0 0.5vw;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  font-size: 2em;
 }
 
 .btn-link {
@@ -77,7 +100,7 @@ h3.heading {
 .note-thumbnail {
   margin: 20px 0;
   padding: 0px 10px;
-  max-width: 300px;
+  width: 300px;
   height: 300px;
   border: 1px solid #979797 !important;
   border-radius: 0px !important;
@@ -93,6 +116,11 @@ h3.heading {
   padding-bottom: 5px;
   border-bottom: 1px solid #979797;
   font-size: 1.4em;
+}
+
+.notes-container {
+  /* background-color: yellow; */
+  width: 90%;
 }
 
 .notes-section {

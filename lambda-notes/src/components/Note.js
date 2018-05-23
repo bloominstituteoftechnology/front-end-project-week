@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Modal, ModalBody } from 'reactstrap';
 import { Link } from 'react-router-dom';
-//import NewNote from './NewNote';
 import NoteButton from './NoteButton';
 import { connect } from 'react-redux';
 import { fetchNote, removeNote } from '../actions';
