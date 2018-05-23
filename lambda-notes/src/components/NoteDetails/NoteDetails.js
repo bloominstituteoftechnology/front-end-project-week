@@ -3,6 +3,7 @@ import Title from '../Title';
 import SimpleLink from '../SimpleLink';
 import ModalLink from '../ModalLink';
 import axios from 'axios';
+import history from '../Routes/history';
 
 class NoteDetails extends Component {
   constructor(props) {
@@ -17,6 +18,11 @@ class NoteDetails extends Component {
       .then(response => this.setState({ title: response.data.title, contents: response.data.contents }))
       .catch(error => console.error(error));
   }
+  deleteNote = () => {
+    axios.delete(`http://localhost:5000/notes/${this.props.noteId}`)
+      .then(response => history.push('/'))
+      .catch(error => console.error(error));
+  }
   render() {
     return ( 
       <div className="note-details">
@@ -25,8 +31,9 @@ class NoteDetails extends Component {
           <ModalLink
             title="delete"
             modalBody="Are you sure you want to delete this?"
-            primaryAction="Delete"
-            secondaryAction="No"
+            primaryAction={this.deleteNote}
+            primaryActionTitle="Delete"
+            secondaryActionTitle="No"
           />
         </div>
         <Title title={this.state.title} />
