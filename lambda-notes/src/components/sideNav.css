@@ -10,24 +10,28 @@
     padding-top: 20px;
 }
 
-.main-button1 {
-    margin-top: 30px;  
-    padding: trbl 15px 20px 15px 20px; 
- 
-}
-
-.main-button2 {
-    margin-top: 30px;  
-}
-
-
-/* .button {
-    padding: 6px 8px 6px 16px;
+.button1 {
+    padding: 6px 45px 6px 45px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
     display: block;
-  } */
+    margin-left: 20px; 
+} 
+
+.button2 {
+    padding: 6px 35px 6px 35px;
+    text-decoration: none;
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px; 
+} 
   
 
 .header-School {

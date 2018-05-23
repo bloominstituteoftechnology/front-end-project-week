@@ -7,8 +7,8 @@ const SideNav = (props) => {
       <div>
         <div class="sidenav">
             <h1 className="header-School">Lambda School</h1>        
-            <Button color="primary" className="main-button1" size="lg">  View Your Notes  </Button>                        
-            <Button color="primary" className="main-button2" size="lg">+ Create New Note</Button>            
+            <button className="button1">View Your Notes</button>
+            <button className="button2">+ Create New Note</button>           
         </div>
         <div class="main">
             <h2 className="header-Notes">Your Notes:</h2>            
