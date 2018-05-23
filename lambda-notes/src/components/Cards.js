@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchNotes, createNote } from "../actions";
+import { createNote } from "../actions";
 
 
 
 class Cards extends Component {
   
-  componentDidMount() {
-    this.props.fetchNotes();
-  }
+//   componentDidMount() {
+//     this.props.fetchNotes();
+//   }
 
   render() {
       console.log(this.props)
@@ -26,7 +26,7 @@ class Cards extends Component {
           </div>
           <div className="list-group list-group-flush">
             <p className="mt-sm-2">
-              {note.context}
+              {note.content}
             </p>
           </div>
         </div>
@@ -46,4 +46,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, { fetchNotes})(Cards);
+export default connect(mapStateToProps, { })(Cards);

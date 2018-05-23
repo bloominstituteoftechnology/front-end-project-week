@@ -4,15 +4,12 @@ export const DELETE_NOTE = "DELETE_NOTE";
 
 let noteId = 2;
 
-export const fetchNotes = () => {
-  return {
-    type: FETCH_NOTES,
-    payload: [
-      { id: 1, title: "redux", context: 'Redux is ...' },
-      { id: 2, title: "tips for front-end development", context: 'Students who...' }
-    ]
-  };
-};
+// export const fetchNotes = () => {
+//   return {
+//     type: FETCH_NOTES,
+//     payload: []
+//   };
+// };
 
 export const createNote = note => {
   noteId += 1;
@@ -21,7 +18,7 @@ export const createNote = note => {
     payload: {
       id: noteId,
       title: note.title,
-      context: note.context
+      content: note.content
     }
   };
 };

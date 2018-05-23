@@ -4,7 +4,12 @@ import {
   DELETE_NOTE
 } from "../actions";
 
-export const notesReducer = (notes = [], action) => {
+const initialNotes = [
+  { id: 1, title: "redux", content: "Redux is ..." },
+  { id: 2, title: "tips for front-end development", content: "Students who..." }
+];
+
+export const notesReducer = (notes = initialNotes, action) => {
   switch (action.type) {
     case FETCH_NOTES:
       return notes.concat(action.payload);
