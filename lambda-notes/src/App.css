@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  font-size: 2rem
+}
+
+.MainSection {
+  width: 75%;
+  background: #F3F3F3
+}
+
+.Flex {
+  display: flex
+}
