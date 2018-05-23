@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import Button from '../Button/Button';
 import './EditNote.css';
@@ -46,16 +45,17 @@ class EditNote extends Component {
                 <input 
                     onChange={this.changeHandler} 
                     name="title" 
-                    // defaultValue={this.matchedNote.title} 
-                    value={this.state.title}className="title-input" 
+                    defaultValue={this.matchedNote.title} 
+                    // value={this.state.title}
+                    className="title-input" 
                     type="text" placeholder="Note Title">
                 </input>
 
                 <textarea
                     onChange={this.changeHandler}
                     name="body" 
-                    // defaultValue={this.matchedNote.body} 
-                    value={this.state.body} 
+                    defaultValue={this.matchedNote.body} 
+                    // value={this.state.body} 
                     className="content-input" 
                     cols="30" 
                     rows="10" 
