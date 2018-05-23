@@ -14,6 +14,7 @@ export const DONE_SAVING = "DONE_SAVING";
 export const CANCEL_DELETE = "CANCEL_DELETE";
 export const EDIT_NOTE = "EDIT_NOTE";
 export const SAVE_EDIT = "SAVE_EDIT";
+export const ALPHABETIZE_NOTES = "ALPHABETIZE_NOTES";
 
 
 
@@ -98,7 +99,6 @@ export const editNote = () => {
 
 export const saveEdit = (nextAct, url, note, id) => {
   let newNote = Object.assign({}, note, {_id: id})
-  console.log(url + `edit/${id}`);
   const request = axios.put(url + `edit/${id}`, newNote);
   return (dispatch) => {
     dispatch({type: SAVE_EDIT});
@@ -112,3 +112,9 @@ export const saveEdit = (nextAct, url, note, id) => {
     });
   };
 };
+
+export const alphabetizeNotes = () => {
+  return (dispatch) => {
+    dispatch({type: ALPHABETIZE_NOTES});
+  }
+}

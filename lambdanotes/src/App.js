@@ -4,7 +4,7 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
-import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit } from './actions';
+import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit, alphabetizeNotes } from './actions';
 
 class App extends Component {
 
@@ -32,7 +32,8 @@ class App extends Component {
                 editMethod={this.props.editNote}
                 saveEditMethod={this.props.saveEdit}
                 saveNewMethod={this.props.saveNew}
-                fetcher={this.props.fetcher} />
+                fetcher={this.props.fetcher}
+                alphabetizeNotes={this.props.alphabetizeNotes} />
             </Col>
           </Row>
       </div>
@@ -49,4 +50,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit })(App);
+export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit, alphabetizeNotes })(App);

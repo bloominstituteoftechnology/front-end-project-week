@@ -11,7 +11,7 @@ const ContentArea = (props) => {
   switch (props.appState) {
     case "list":
       return (
-        <NoteList viewMethod={props.viewMethod} notes={props.notes} />
+        <NoteList viewMethod={props.viewMethod} notes={props.notes} alphabetizeNotes={props.alphabetizeNotes} />
       );
     case "deleting":
     case "view":

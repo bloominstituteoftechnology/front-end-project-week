@@ -2,6 +2,7 @@ import React from 'react';
 import './notelist.css';
 import NoteCard from './notecard.js';
 import { Row, Col } from 'reactstrap';
+import LambdaButton from './lambdabutton.js';
 
 
 const NoteList = (props) => {
@@ -29,6 +30,7 @@ const NoteList = (props) => {
       <div className="note-row">
         {cardArr}
       </div>
+      <LambdaButton text="Alphabetize Notes" color="green" myFunc={props.alphabetizeNotes} />
     </div>
   );
 }
