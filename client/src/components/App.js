@@ -30,13 +30,14 @@ class App extends Component {
   }
 
   // adds new note to `this.state.noteList`
-  addNewNote = () => {
+  addNewNote = (props, state) => {
     const newNote = {
       id: '' + this.state.noteList.length,
       title: this.state.title,
       content: this.state.content,
     };
     this.setState({ noteList: [ ...this.state.noteList, newNote ] });
+    props.history.push('/');
   }
 
   // setEditNoteValues
@@ -66,7 +67,9 @@ class App extends Component {
     this.setState({ noteList: [ ...noteListCopy ] });
   }
 
-  // component rendering for react router
+  /*****************************************
+  ** component rendering for react router **
+  *****************************************/
   // <NoteView />
   returnNoteView = props => {
     return <NoteView { ...props } noteList={ this.state.noteList } setSelectedNote={ this.setSelectedNote }/>;
