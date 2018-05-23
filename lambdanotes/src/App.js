@@ -20,7 +20,8 @@ class App extends Component {
             <Col className="left-side" xs="3">
               <SideMenu listMethod={this.props.goToList}
               createMethod={this.props.startCreate}
-              alphabetizeNotes={this.props.alphabetizeNotes} />
+              alphabetizeNotes={this.props.alphabetizeNotes}
+              appState={this.props.appState} />
             </Col>
             <Col className="content" xs="9">
               <ContentArea
