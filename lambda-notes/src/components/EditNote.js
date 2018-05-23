@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import Note from './Note';
 
 class EditNote extends Component {
     constructor(props) {

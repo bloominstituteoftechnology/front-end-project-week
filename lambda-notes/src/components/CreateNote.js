@@ -26,7 +26,6 @@ class CreateNote extends Component {
     }
 
     render() { 
-        const notes = this.props.notes;
         return ( 
             <div className="new-note-container">
                 <h2>Create New Note:</h2>

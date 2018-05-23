@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
-import ListNotes from './ListNotes';
 import './Note.css';
-import { Route, Link } from 'react-router-dom';
-import EditNote from './EditNote'
+import { Link } from 'react-router-dom';
+
 
 class Note extends Component {
     constructor(props) {
         super(props);
-        this.state = { }
+        this.state = { 
+            showNote: true
+         }
+    }
+
+    updateDisplay = () => {
+        this.state.showNote = !this.state.showNote;
+        // this.setState({
+        //     showNote: !this.state.showNote,
+        // })
     }
 
     render() { 
         const id = this.props.match.params.id;
         const { title, body } = this.props.notes[id];
+
+        if(this.state.showNote === false){
+            return <span></span>;
+        }
+
         return (
             <div className='note-container'> 
                 <div className="note-links">
-                    <Link to={`/note/${id}/edit`}>
+                    <Link onClick={this.updateDisplay()} to={`/note/${id}/edit`}>
                         edit
                     </Link>
                     <Link to='/delete'>

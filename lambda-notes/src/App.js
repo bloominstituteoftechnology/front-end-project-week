@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { Switch, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { CreateNote, EditNote, ListNotes, Note } from './components/index';
 
 class App extends Component {
