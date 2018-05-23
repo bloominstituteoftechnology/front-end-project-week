@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button';
-import axios from 'axios';
-import history from '../Routes/history';
+import { connect } from 'react-redux';
+import { getNote, addNote, updateNote } from '../../actions';
 
 class NoteForm extends Component {
   constructor(props) {
@@ -24,9 +24,7 @@ class NoteForm extends Component {
         contents: this.state.contents
       };
 
-      axios.post('http://localhost:5000/notes', newNote)
-        .then(response => history.push('/'))
-        .catch(error => console.error(error));
+      this.props.addNote(newNote);
     }
   }
   editNote = id => {
@@ -36,16 +34,16 @@ class NoteForm extends Component {
         contents: this.state.contents
       };
 
-      axios.put(`http://localhost:5000/notes/${id}`, updatedNote)
-        .then(response => history.push(`/note/${id}`))
-        .catch(error => console.error(error));
+      this.props.updateNote(id, updatedNote);
     }
   }
   componentDidMount(){
     if (this.props.noteId){
-      axios.get(`http://localhost:5000/notes/${this.props.noteId}`)
-        .then(response => this.setState({ title: response.data.title, contents: response.data.contents }))
-        .catch(error => console.error(error));
+      this.props.getNote(this.props.noteId);
+      this.setState({
+        title: this.props.title,
+        contents: this.props.contents
+      });
     }
   }
   render() { 
@@ -78,4 +76,11 @@ class NoteForm extends Component {
   }
 }
 
-export default NoteForm;
+const mapStateToProps = state => {
+  return {
+    title: state.activeNote.title,
+    contents: state.activeNote.contents
+  }
+}
+
+export default connect(mapStateToProps, { getNote, addNote, updateNote })(NoteForm);

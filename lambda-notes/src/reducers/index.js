@@ -35,7 +35,8 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         fetchingNotes: false,
-        notes: action.payload
+        notes: action.payload,
+        activeNote: {}
       });
 
     case FETCHING_NOTE:
@@ -61,7 +62,8 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         addingNote: false,
-        notes: action.payload
+        notes: action.payload,
+        activeNote: {}
       });
     
     case UPDATING_NOTE:
@@ -74,7 +76,8 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         updatingNote: false,
-        notes: action.payload
+        notes: action.payload,
+        activeNote: {}
       });
 
     case DELETING_NOTE:

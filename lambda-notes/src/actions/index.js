@@ -67,6 +67,8 @@ export const addNote = noteObj => {
           type: NOTE_ADDED,
           payload: response.data
         });
+
+        history.push('/');
       })
       .catch(err => {
         dispatch({
@@ -88,6 +90,8 @@ export const updateNote = (id, noteObj) => {
           type: NOTE_UPDATED,
           payload: response.data
         });
+
+        history.push(`/note/${id}`);
       })
       .catch(err => {
         dispatch({
