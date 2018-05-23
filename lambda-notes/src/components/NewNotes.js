@@ -8,7 +8,7 @@ const NewNotes = () => {
     return (
         <Form>
             <FormGroup>
-                <Label for="newNote"><h3>Create New Note</h3></Label>
+                <Label for="newNote"><h3>Create New Note:</h3></Label>
             </FormGroup>
             <FormGroup>
                 <Label for="exampleEmail">Note Title</Label>

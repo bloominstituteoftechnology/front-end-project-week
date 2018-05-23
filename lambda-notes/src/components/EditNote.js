@@ -8,7 +8,7 @@ const EditNote = () => {
         return (
             <Form>
                 <FormGroup>
-                    <Label for="editNote"><h3>Edit Note</h3></Label>
+                    <Label for="editNote"><h3>Edit Note:</h3></Label>
                 </FormGroup>
                 <FormGroup>
                     <Label for="editNote">Note Title</Label>
@@ -18,7 +18,7 @@ const EditNote = () => {
                     <Label for="Text">Note Content</Label>
                     <Input type="textarea" name="text" id="areaText" />
                 </FormGroup>
-                <Button className="SaveButton">Update</Button>
+                <Button className="UpdateButton">Update</Button>
             </Form >
 
         );

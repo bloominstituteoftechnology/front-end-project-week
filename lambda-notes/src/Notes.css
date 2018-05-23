@@ -1,0 +1,77 @@
+.Note1{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-start;
+margin: 10px;
+}
+
+.Note2{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-center;
+margin: 10px;
+}
+
+.Note3{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-end;
+margin: 10px;
+}
+.Note4{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-start;
+margin: 10px;
+}
+
+.Note5{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-center;
+margin: 10px;
+}
+.Note6{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-end;
+margin: 10px;
+}
+
+.Note7{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-start;
+margin: 10px;
+}
+.Note8{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-center;
+margin: 10px;
+}
+
+.Note9{
+background-color: white;
+height: 100px;
+width: 100px;
+border: 1 px lightgrey;
+justify-content: flex-end;
+margin: 10px;
+}

@@ -43,4 +43,17 @@
 .SaveButton {
   background-color: #FFFFFF;
   color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.UpdateButton {
+  background-color: #FFFFFF;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
 }
