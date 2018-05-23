@@ -3,6 +3,7 @@ import { Row, Col } from 'reactstrap';
 import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
+import { connect } from 'react-redux';
 
 class App extends Component {
 
@@ -104,4 +105,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes,
+    appState: state.appState,
+    viewId: state.viewId,
+    newId: state.newId
+  }
+}
+
+export default connect(mapStateToProps, {})(App);

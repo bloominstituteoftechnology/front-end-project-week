@@ -3,7 +3,7 @@
 //appState powers our finite state machine
 //editIndex tells the edit form which smurf we're editing
 const initialState = {
-  note: [],
+  notes: [],
   appState: "list",
   viewId: null,
   newId: 4
