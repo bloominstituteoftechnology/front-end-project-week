@@ -1,10 +1,11 @@
-import { notesRef } from '../../config/firebase';
+import { notesRef, provider, auth } from '../../config/firebase';
 
-export const ADD = "ADD";
-export const EDIT = "EDIT";
+export const ERROR = "ERROR";
 export const FETCH = "FETCH";
-export const DELETE = "DELETE";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 
+// To notesReducer
 export const addNote = note => async dispatch => {
   note = { ...note, date: Date.now() }
   notesRef.push().set(note);
@@ -14,7 +15,8 @@ export const editNote = (id, note) => async dispatch => {
   notesRef.child(id).set(note);
 };
 
-export const fetchNotes = () => async dispatch => {
+export const fetchNotes = (bool) => async dispatch => {
+  bool ? console.log("fetching notes within loginUser") : console.log("");
   notesRef.on("value", snapshot => {
     dispatch({
       type: FETCH,
@@ -25,4 +27,35 @@ export const fetchNotes = () => async dispatch => {
 
 export const deleteNote = id => async dispatch => {
   notesRef.child(id).remove();
+};
+
+// To userReducer
+
+export const loginUser = () => {
+  return (dispatch) => {
+    auth.signInWithPopup(provider)
+      .then(res => {
+        return dispatch({
+          type: LOGIN,
+          payload: res.user,
+        })
+    })
+      .catch(err => dispatch({
+        type: ERROR,
+        payload: `LOGIN: ${err}`,
+      }));
+  };
+};
+
+export const logoutUser = () => {
+  return (dispatch) => {
+    auth.signOut()
+      .then(() => dispatch({
+        type: LOGOUT,
+      }))
+      .catch(err => dispatch({
+        type: ERROR,
+        payload: `LOGOUT: ${err}`,
+      }));
+  };
 };

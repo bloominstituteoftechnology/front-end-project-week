@@ -22,13 +22,9 @@ html {
 
 body {
   background-color: var(--color-bg);
-  margin: 0;
-  padding: 0;
   height: 100%;
 }
 
 #root {
-  margin: 0;
-  padding: 0;
   height: 100%;
 }

@@ -76,7 +76,7 @@ class ViewNote extends React.Component {
 
 const mapDispatchToProps = state => {
   return {
-    notes: state.notes,
+    notes: state.notesReducer.notes,
   };
 };
 

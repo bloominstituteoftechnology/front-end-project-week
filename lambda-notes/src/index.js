@@ -10,13 +10,13 @@ import reduxThunk from 'redux-thunk';
 import './bootstrap/css/bootstrap.min.css';
 import './index.css';
 // Components
-import { notesReducer } from './components/Reducers';
+import rootReducer from './components/Reducers';
 import App from './App';
 // ??
 import registerServiceWorker from './registerServiceWorker';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(notesReducer, composeEnhancers(applyMiddleware(reduxThunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(reduxThunk, logger)));
 
 ReactDOM.render(
 <Provider store={store}>

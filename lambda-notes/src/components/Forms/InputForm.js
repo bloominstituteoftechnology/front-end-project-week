@@ -83,7 +83,7 @@ class InputForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes,
+    notes: state.notesReducer.notes,
   };
 };
 
