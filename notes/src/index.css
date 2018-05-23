@@ -32,15 +32,21 @@ button {
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-  width: 70%;
+  width: 85%;
   margin: 0 auto;
+  border: 1px solid red;
 }
 
 .sideBar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
-  width: 30%;
+  flex-wrap: nowrap;
+  width: 25%;
   margin: 0 auto;
+  border: 1px solid red;
+}
+
+.card {
+  border-radius: 30px;
 }
