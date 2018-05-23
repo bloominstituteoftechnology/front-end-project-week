@@ -1,5 +1,5 @@
 .wrapper {
-    width: 25%;
+    width: 33%;
     background-color: #D8D8D8;
 }
 .buttonStyle {
@@ -11,5 +11,8 @@
 }
 
 h1, h2, h3 {
-    margin-left: 5%;
+    margin-left: 3%;
+}
+h1{
+    margin-left: 1.4%;
 }

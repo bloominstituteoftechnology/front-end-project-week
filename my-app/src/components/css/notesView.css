@@ -1,0 +1,22 @@
+.noteArea {
+    width: 100%;
+    background-color: #F3F3F3;
+}
+
+.editDelete {
+    display: flex;
+    padding-top: 3%;
+}
+.row {
+    margin: 0;
+}
+h5 {
+    padding-top: 3%;
+    text-align: left;
+    padding-left: 3%;
+}
+.col-12 p {
+    font-size: 1.2rem;
+    text-align: left;
+    padding-left: 3%;
+}

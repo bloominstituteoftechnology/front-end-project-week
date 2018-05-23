@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Notes from './Note';
 import './css/createNote.css';
 import { Link } from 'react-router-dom';
-// import ListView  from './ListView';
 
 export default class CreateNote extends Component {
     constructor(props) {
@@ -17,20 +16,18 @@ export default class CreateNote extends Component {
     //     this.setState({ newAddedNote: this.state.objectHolder })
     // }
     //start at createNote -> note.js -> listView
-    
      handelTodoChange = (e) => {
          this.setState({ [e.target.name]: e.target.value })
      }
 
      handleAddNote = (event) => { 
-        event.preventDefault();
          const objectHolder = this.state.objectHolder.slice();
          let newObject = {
              title: this.state.title,
              comment: this.state.comment
          }
          objectHolder.push(newObject);
-         
+         event.preventDefault();
          this.setState({objectHolder: objectHolder, title: '', comment: ''});
          console.log("Object Holder", objectHolder);
     }
@@ -48,9 +45,7 @@ export default class CreateNote extends Component {
                     </div>
                     <button onClick={this.handleAddNote}>Save</button>
                 </form>
-                {/* <Notes /> should redirect to ListView page */}
-                <Notes listOfNotes={this.state.objectHolder} />
-                {/* <ListView listOfViews={this.state.listOfNotes} /> */}
+                {/* <Notes notesState={this.state.objectHolder} /> */}
             </div>
         )
     }

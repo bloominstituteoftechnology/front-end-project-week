@@ -17,12 +17,14 @@ class ListView extends Component {
     }
 
     render() {
-        console.log('state of note : ', this.state.listOfNotes)
+        console.log('state of note : ', this.state.listOfNotes);
+        // console.log('objectHolder in listView : ', props.state.objectHolder);
         return (
             <div className="noteArea">
                 {/* ListView - list of all notes */}
                 <h5>Your Notes</h5>
-                <Notes notesState={this.state.listOfNotes} /> 
+                <Notes listOfNotes={this.state.listOfNotes}/> 
+              
             </div>
         );
     }
