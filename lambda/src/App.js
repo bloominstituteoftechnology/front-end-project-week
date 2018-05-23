@@ -11,27 +11,50 @@ import Form from './components/Form';
 import './App.css';
 
 
-//routes for components to render to App
+//state of Notes
 class App extends Component {
   state = {
-    list: [],
+    list: [
+      {
+        id: 0,
+        title: "Note Title",
+        note: "Note Content"
+      },
+      {
+        id: 1,
+        title: "Note Title",
+        note: "Note Content"
+      },
+      {
+        id: 2,
+        title: "Note Title",
+        note: "Note Content"
+      },
+      {
+        id: 3,
+        title: "Note Title",
+        note: "Note Content"
+      },
+    ],
   }
 
+//remder method that will add new Note to the existing notes
 renderNoteList = (title, note) => {
-  const newNote = [{
+  const newNote = {
     id: this.state.list.length,
     title: title,
     note: note
-  }];
+  };
+  this.setState({ list: [...this.state.list, newNote] });
+ }
 
-  this.setState({ list: [...newNote] });
-}
-
+//routes for components to render to App
   render(props) {
     return (
       <div className="App">
-       <Route exact path="/" render={props => <ListView {...props} notes={this.state}/>} />
-       <Route path="/note" component={NewNote}/>
+      <NavBar />
+       <Route exact path="/" render={props => <ListView {...props} notes={this.state.list}/>} />
+       <Route path="/note" render={props => <NewNote {...props} renderNoteList={this.renderNoteList}/>} />
       </div>
     );
   }
