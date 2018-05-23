@@ -46,15 +46,51 @@ h6 {
     border: none;
     background-color: #F3F3F3;
     color: #4A4A4A;
-    font: Raleway Medium
+    font: Raleway Medium;
+    font-size: 17px;
 }
 .button5 {
     position: absolute;
     margin-left: 750px;
-    margin-top: -70px;
+    margin-top: -74px;
     text-decoration: underline;
     border: none;
     background-color: #F3F3F3;
     color: #4A4A4A;
-    font: Raleway Medium
+    font: Raleway Medium;
+}
+Button {
+    background-color: #F3F3F3;
+
+}
+.my-modal {
+    margin-top: 200px !important;
+
+}
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+  }
+.modalheader {
+    border-bottom: none;
+    padding-left: 82px;
+}
+.modalfooter {
+    border-top: none;
+    justify-content: center;
+}   
+.button6 {
+    width: 190px;
+    border-radius: 0px;
+    border: 1px solid darkgray;
+    margin: 10px 0 0 0;
+
+}
+.button7 {
+    width: 190px;
+    background-color: #2BC1C4;
+    border-radius: 0px;
+    border: 1px solid darkgray;
+    margin: 10px 0 0 0;
 }

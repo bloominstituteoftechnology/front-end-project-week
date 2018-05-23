@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import ListView from './listview/listview';
 import Sidebar from './sidebar/sidebar';
 import ViewNote from './viewnote/viewnote';
 import CreateNote from './createnote/createnote';
 import EditNote from './editnote/editnote';
-import DeleteNote from './deletenote/deletenote';
 import ListItems from './createnote/listitems';
 import CreateNote2 from './createnote/createnote2';
  
@@ -57,16 +55,14 @@ this.setState({ todos: todos, todo: '' })
       
 {/* Routes */}
       <Switch>
-            <Route path="/ViewYourNotes" component={ViewNote}></Route>
+            <Route path="/EditNote" component={EditNote}></Route>
+            <Route path="/ViewNote" component={ViewNote}></Route>
             <Route path="/CreateNewNote" render={(props) => (
             <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
              <Route path="/" render={(props) => (
             <CreateNote2 todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
-            <Route path="/EditNote" component={EditNote}></Route>
-            <Route path="/ViewNote" component={ViewNote}></Route>
-            <Route path="/DeleteNote" component={DeleteNote}></Route>
             <Route component={NoMatch}></Route>
       </Switch>
             <Route path="/" component={Sidebar}></Route>
