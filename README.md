@@ -14,7 +14,7 @@
 
 ## Extra Features:
 
-* [ ] Re-factor your code to include redux for your state-management
+* [x] Re-factor your code to include redux for your state-management
 * [ ] Make the data persist with arrays / object literals (JSON) or a 3rd party service like Firebase
 * [ ] Search functionality
 * [ ] Markdown support in notes
