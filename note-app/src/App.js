@@ -18,7 +18,7 @@ class App extends Component {
       < div className='listContainer'>
             <Route exact path='/' component={cardList} />
             <Route path='/create' component={cardForm} />
-            <Route path='/view' component={cardContent} />
+            <Route path='/card' component={cardContent} />
             </div>  
         </Container>
     );
