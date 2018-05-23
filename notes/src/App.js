@@ -41,18 +41,20 @@ class App extends Component {
     this.setState({notes: notes.concat(note)});
   }
 
-  updateNote = (id, note) => {
+  updateNote = (note) => {
+    let id = parseInt(note.id, 10);
     const notes = this.state.notes;
-    const index = notes.indexOf(id);
-    let newNotes = notes.splice(index, 1, note);
-    this.setState({notes: newNotes});
+    const index = notes.findIndex(note => note.id === id);
+    notes.splice(index, 1, note);
+    this.setState({notes: notes});
   }
 
-  deleteNote = id => {
+  deleteNote = (id) => {
+    id = parseInt(id, 10);
     const notes = this.state.notes;
-    const index = notes.indexOf(id);
-    let newNotes = notes.splice(index, 1);
-    this.setState({notes: newNotes});
+    const index = notes.findIndex(note => note.id === id);
+    notes.splice(index, 1);
+    this.setState({notes: notes});
   }
 
   render() {
@@ -63,7 +65,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={props => <NotesList notes={notes}/>}/>
           <Route path="/addnote" render={props => <AddNote addNote={this.addNote}/>}/>
-          <Route path="/:id" render={props => <Note {...props} notes={notes}/>}/>
+          <Route path="/:id" render={({match}) => <Note updateNote={this.updateNote} deleteNote={this.deleteNote} notes={notes} match={match}/>}/>
         </Switch>
       </div>
     );

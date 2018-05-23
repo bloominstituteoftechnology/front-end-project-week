@@ -1,6 +1,5 @@
 .App {
   display: flex;
-  flex-flow: row wrap;
   width: 100%;
   max-width: 880px;
   justify-content: center;
@@ -20,4 +19,12 @@
   flex-flow: row wrap;
   width: 100%;
   max-width: 660px;
+}
+
+.note-card {
+  display: inline-flex;
+}
+
+.note-view {
+  display: inline-flex;
 }
