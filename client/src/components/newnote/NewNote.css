@@ -1,0 +1,42 @@
+.new-note-wrapper {
+  margin: 0 auto;
+  padding: 3rem 2.3rem;
+  max-width: 400px;
+}
+
+.title-wrapper__h2 {
+  font-size: 2rem;
+}
+
+.form__input-title,
+.form__input-textarea {
+  border: 2px solid #979797;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+  padding: 10px;
+  width: 100%;
+}
+
+.form__input-textarea {
+  height: 200px;
+}
+
+.form__submit-wrapper .submit-wrapper__submit-newnote {
+  margin: 0;
+}
+
+@media (min-width: 890px) {
+  .new-note-wrapper {
+    flex-grow: 1;
+    max-width: initial;
+  }
+
+  .new-note-wrapper__form {
+    max-width: 680px;
+  }
+
+  .form__input-title {
+    max-width: 60%;
+  }
+}

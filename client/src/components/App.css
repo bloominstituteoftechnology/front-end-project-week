@@ -15,6 +15,17 @@ a {
   text-decoration: none;
 }
 
+.button {
+  background: #2BC1C4;
+  border: none;
+  color: #fff;
+  display: block;
+  font-size: 2rem;
+  margin: 0 auto;
+  padding: 15px;
+  width: 275px;
+}
+
 @media (min-width: 890px) {
   .App {
     display: flex;

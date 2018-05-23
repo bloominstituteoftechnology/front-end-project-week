@@ -19,7 +19,7 @@ const Sidebar = () => {
           <Link to='/'>
             <Button
               buttonContent='View Your Notes'
-              buttonClassName='button-container__view-notes-button'
+              buttonClassName='button button-container__view-notes-button'
             />
           </Link>
         </li>
@@ -28,7 +28,7 @@ const Sidebar = () => {
           <Link to='/note/new'>
             <Button
               buttonContent='+ Create new Note'
-              buttonClassName='button-container_create-new-note-button'
+              buttonClassName='button button-container_create-new-note-button'
             />
           </Link>
         </li>

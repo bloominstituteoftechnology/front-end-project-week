@@ -23,7 +23,7 @@
   padding: 0;
 }
 
-.button-container__view-notes-button,
+/* .button-container__view-notes-button,
 .button-container_create-new-note-button {
   background: #2BC1C4;
   border: none;
@@ -33,7 +33,7 @@
   margin: 0 auto;
   padding: 15px;
   width: 275px;
-}
+} */
 
 @media (min-width: 890px) {
   .navigation {

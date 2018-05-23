@@ -4,6 +4,7 @@ const TextField = props => {
   if (props.variant === 'input') {
     return (
       <input
+        className={ props.inputClassName }
         name={ props.inputName }
         onChange={ props.inputOnChange }
         placeholder={ props.inputPlaceholder }
@@ -15,6 +16,7 @@ const TextField = props => {
 
   return (
     <textarea
+      className={ props.textareaClassName }
       name={ props.textareaName }
       onChange={ props.textareaOnChange }
       placeholder={ props.textareaPlaceholder }
