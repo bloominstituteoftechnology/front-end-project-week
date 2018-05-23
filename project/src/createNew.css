@@ -38,3 +38,17 @@
     text-align: left;
     
 }
+
+.NVheader {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.NVedit {
+    padding-right: 10px;
+}
+
+.NVnoteName {
+    text-align: left;
+    font-size: 24px;
+}
