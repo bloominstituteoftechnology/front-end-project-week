@@ -1,6 +1,7 @@
 .CNcontainer {
     display: flex;
     box-sizing: border-box;
+    
 }
 
 .CNtitle {
@@ -12,6 +13,7 @@
 .CNnewTitle {
     width: 300px;
     padding-bottom: 10px;
+    text-align: left;
 }
 
 .CNcomment {
@@ -24,7 +26,7 @@
     background:  #F3F3F3;
     padding: 15px;
     border: 1px solid #979797;
-    /* width: 700px; */
+    height: 980px;
 }
 
 .CNbutton {
@@ -33,5 +35,6 @@
     background: #2BC1C4;
     margin-bottom: 10px;
     border: #979797 1px solid;
+    text-align: left;
     
 }

@@ -1,0 +1,24 @@
+.NVsidebar {
+    background: #D8D8D8;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+.NVcontainer {
+    display: flex;
+    box-sizing: border-box;
+    
+}
+
+.CNtitle {
+    margin-top: 35px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.CNnewTitle {
+    width: 300px;
+    padding-bottom: 10px;
+    text-align: left;
+}
