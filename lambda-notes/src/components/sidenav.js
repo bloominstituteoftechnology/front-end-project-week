@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap'; 
-import sideNav from './sidenav.css'
+import './sidenav.css'
 
 
 const SideNav = (props) => {
