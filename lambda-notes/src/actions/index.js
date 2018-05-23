@@ -4,8 +4,6 @@ export const DELETE_NOTE = "DELETE_NOTE";
 
 let noteId = 2;
 
-
-
 export const createNote = note => {
   noteId += 1;
   return {
@@ -17,13 +15,6 @@ export const createNote = note => {
     }
   };
 };
-
-// export const getNote = id => {
-//     return {
-//         type: GET_NOTE,
-//         payload: id
-//     };
-// };
 
 export const deleteNote = id => {
   return {

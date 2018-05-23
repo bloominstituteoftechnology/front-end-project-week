@@ -3,6 +3,7 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from 'reactstrap';
+import { deleteNote } from "../actions";
 
 
 class Note extends Component {
@@ -19,15 +20,23 @@ class Note extends Component {
         e.preventDefault();
         this.setState({ modalActive: !this.state.modalActive})
     }
+    
+    handleDeleteButton = (e, id) => {
+        e.preventDefault();
+        console.log(this.state)
+        this.props.deleteNote(id);
+        this.props.history.push("/");
+    }
 
     componentDidMount() {
         let result = this.props.notes.filter(note => note.id == this.props.match.params.id);       
         let found = result[0]
         this.setState({note: found});
+        console.log(this.state)
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
         return <div className="col-sm-9 note-view">
             <div className="note-links-wrap">
               <Link to="/edit" className="note-link">
@@ -38,18 +47,20 @@ class Note extends Component {
               </Link>
             </div>
             <div>
-              <h4 className="mb-sm-3">{this.state.note.title}</h4> 
-                <p>{this.state.note.content}</p>
+              <h4 className="mb-sm-3">{this.state.note.title}</h4>
+              <p>{this.state.note.content}</p>
             </div>
 
-            <Modal isOpen={this.state.modalActive} toggle={this.toggle} className='modal-wrap'>
-              <ModalBody className='modal-body'>
+            <Modal isOpen={this.state.modalActive} toggle={this.toggle} className="modal-wrap">
+              <ModalBody className="modal-body">
                 Are you sure you want to delete this?
               </ModalBody>
-              <ModalFooter className='but-wrapper'>
-                <Button color="danger" className='modal-but' onClick={this.toggle}>
+              <ModalFooter className="but-wrapper">
+                <Button color="danger" className="modal-but" onClick={(e) => {
+                    this.handleDeleteButton(e, this.props.match.params.id);
+                }}>
                   Delete
-                </Button> <Button className='no-button modal-but' onClick={this.toggle}>
+                </Button> <Button className="no-button modal-but" onClick={this.toggle}>
                   No
                 </Button>
               </ModalFooter>
@@ -64,5 +75,5 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { })(Note);
+export default connect(mapStateToProps, { deleteNote })(Note);
 

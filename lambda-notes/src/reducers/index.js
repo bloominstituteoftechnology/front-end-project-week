@@ -4,19 +4,33 @@ import {
   DELETE_NOTE
 } from "../actions";
 
-
-
-const initialNotes = [
+let initialNotes = [
   { id: 1, title: "redux", content: "Redux is ..." },
   { id: 2, title: "tips for front-end", content: "Students who..." }
 ];
 
-export const notesReducer = (notes = initialNotes, action) => {
+const saveData = (array) => {
+  return localStorage.setItem("array", JSON.stringify(array));
+};
+
+const retrieveData = () => {
+  initialNotes = JSON.parse(localStorage.getItem("array"));
+  return initialNotes === null ? [] : initialNotes;
+};
+
+
+export const notesReducer = (notes = retrieveData(), action) => {
   switch (action.type) {
     case CREATE_NOTE:
-      return notes.concat(action.payload);
+        const addedNote = Array.from(notes);
+        addedNote.push(action.payload);
+        saveData(addedNote);
+        return addedNote;
     case DELETE_NOTE:
-     return notes.filter(note => note.id !== parseInt(action.payload))
+        let removedNote = Array.from(notes);
+        removedNote = removedNote.filter(note => note.id !== parseInt(action.payload))
+        saveData(removedNote);
+        return removedNote;
     default:
       return notes;
   }
