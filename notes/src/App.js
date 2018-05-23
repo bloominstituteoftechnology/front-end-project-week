@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Board from './components/board';
 import SideBar from './components/sidebar';
+import Notes from './components/notes';
 
 
 class App extends Component {
@@ -34,6 +35,9 @@ class App extends Component {
         <SideBar />  
           <Board />
         </div>
+        <div className="App-middle">
+        <Notes />  
+        </div>  
       </div>  
     );
   }

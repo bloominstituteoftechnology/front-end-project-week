@@ -49,4 +49,9 @@ button {
 
 .card {
   border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 50%;
+  margin-top: 20px;
 }
