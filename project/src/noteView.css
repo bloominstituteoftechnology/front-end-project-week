@@ -5,20 +5,39 @@
     padding: 10px;
   }
 
-.NVcontainer {
+.NVtitleContainer {
     display: flex;
-    box-sizing: border-box;
-    
-}
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0px;
+    text-align: left;
+    broder: solid 1px purple;
+  }
 
-.CNtitle {
+  .NVtitle {
     margin-top: 35px;
     text-align: left;
     padding-bottom: 10px;
+    flex-wrap: wrap;
+    font-size: 25px;
+    border: solid 1px red;
 }
 
-.CNnewTitle {
-    width: 300px;
-    padding-bottom: 10px;
-    text-align: left;
+  .heading-font {
+    font: Roboto Bold;
+    color: #4A4A4A;
+    font-size: 35px;
+  }
+
+  .NVcontainer {
+    display: flex;
+    box-sizing: border-box;
 }
+
+.NVbutton {
+    width: 200px;
+    color: #FFFFFF;
+    background: #2BC1C4;
+    margin-bottom: 10px;
+    border: #979797 1px solid;
+  }
