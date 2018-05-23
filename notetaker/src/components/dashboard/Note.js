@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './dashboard.css';
 import { Route } from 'react-router-dom';
 import NoteView from '../noteview/NoteView';
+import './dashboard.css';
 
 export default class Note extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class Note extends Component {
                 >
                     <CardTitle className="text-left card-title"><h4 className="font-weight-bold">{this.state.title}</h4></CardTitle>
                 </Link>
-                <CardText className="text-left">{this.state.body}...</CardText>
+                <CardText className="text-left">{this.state.body.substring(0, 140)}...</CardText>
             </CardBody>
         </Card>
     )

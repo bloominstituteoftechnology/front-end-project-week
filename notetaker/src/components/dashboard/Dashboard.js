@@ -15,8 +15,8 @@ export default class Dashboard extends Component {
       };
   }
 
-  componentDidMount() {
-      console.log(this.state.notes);
+  componentWillMount() {
+      
 
     {/*if (typeof this.props.location.state != "undefined") {
         if (typeof this.props.location.state.newNoteTitle != "undefined") {
@@ -29,20 +29,25 @@ export default class Dashboard extends Component {
             let noteLength = this.state.notes.length;
             let lastIn = this.state.notes[noteLength - 1];
             console.log(lastIn);
-        }
-        else if (typeof this.props.location.state.id != "undefined") {
+        }*/}
+    if (typeof this.props.location.state != "undefined") {
+        if (typeof this.props.location.state.id != "undefined") {
             console.log(this.props.location.state.id.id);
+            console.log(this.props.location.state.newTitle);
             let newNotes = [];
             newNotes = [...this.state.notes];
-            for (let i = 0; i < newNotes.length; i++) {
-                if (newNotes[i].id === this.props.location.state.id.id) {
-                    newNotes[i].title = this.props.location.state.newTitle;
-                    newNotes[i].body = this.props.location.state.newBody;
+            console.log(newNotes);
+            for (let i = 0; i < this.state.notes.length; i++) {
+                if (newNotes[i][0].id === this.props.location.state.id.id) {
+                    console.log(this.props.location.state.newTitle);
+                    this.state.notes[i][0].title = this.props.location.state.newTitle;
+                    this.state.notes[i][0].body = this.props.location.state.newBody;
+                    console.log(this.state.notes);
                 }
             }
-            this.setState({notes: newNotes});
+            console.log(newNotes);
         }
-     }*/}
+     }
   }
 
   render() {

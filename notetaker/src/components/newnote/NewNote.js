@@ -23,7 +23,6 @@ export default class NewNote extends Component {
 
     submitHandler = e => {
         e.preventDefault();
-        console.log('fuck');
         this.state.notes.push({title: this.state.newNoteTitle, 
             body: this.state.newNoteBody, 
             id: this.state.newNoteID});
