@@ -24,6 +24,8 @@ class NoteDetails extends Component {
           <ModalLink
             title="delete"
             modalBody="Are you sure you want to delete this?"
+            primaryAction="Delete"
+            secondaryAction="No"
           />
         </div>
         <Title title={this.state.title} />
