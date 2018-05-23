@@ -1,0 +1,17 @@
+html {
+  background: #4A4A4A;
+}
+
+body {
+  background: #4A4A4A !important;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#root {
+  background: #4A4A4A;
+  height: 1000px;
+  max-width: 880px; 
+  margin: 50px auto; 
+}

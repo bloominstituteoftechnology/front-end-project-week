@@ -1,0 +1,45 @@
+.notescontainer {
+    width: 75%; 
+    height: 100%; 
+    background:  #F3F3F3;
+}
+
+.notescontainer h4 {
+    color: #4A4A4A;
+    font-weight: bolder;
+    font-family: Raleway Medium;
+    margin: 60px 0 0 25px;
+}
+
+.notes {
+    display: flex; 
+    flex-wrap: wrap; 
+}
+
+.link {
+    height: 113px; 
+    width: 25%; 
+    margin: 25px 0 0 25px; 
+    color: black; 
+
+}
+
+.link:hover {
+    color: black; 
+}
+
+.card {
+    height: 100%; 
+    width: 100%; 
+    overflow: scroll;  
+}
+
+.card-title {
+    border-bottom: 1.5px solid #979797; 
+    padding-bottom: 5px; 
+}
+
+button {
+    border: none; 
+    background: white;    
+}
