@@ -4,8 +4,8 @@ import './notecard.css';
 const NoteCard = (props) => {
   const previewLength = 150;
   let preview = "";
-  if (props.note.content.length > previewLength) preview = props.note.content.substr(0, previewLength - 4) + " ...";
-  else preview = props.note.content
+  if (props.note.textBody.length > previewLength) preview = props.note.textBody.substr(0, previewLength - 4) + " ...";
+  else preview = props.note.textBody
   return (
     <div className="note-card" onClick={() => props.viewMethod(props.note.id)} >
       <p className="note-title" >{props.note.title}</p>

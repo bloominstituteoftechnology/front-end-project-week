@@ -12,7 +12,7 @@ const NoteView = (props) => {
         <div className="note-view-link" onClick={props.editMethod}>edit</div><div onClick={props.deleteMethod} className="note-view-link">delete</div>
       </div>
       <h5 className="note-view-title">{props.note.title}</h5>
-      <p className="note-view-content">{props.note.content}</p>
+      <p className="note-view-content">{props.note.textBody}</p>
       <Modal isOpen={deleting} toggle={props.cancelDeleteMethod} className="my-modal">
         <ModalBody className="delete-modal">
           Are you sure you want to delete this?

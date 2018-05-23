@@ -4,38 +4,11 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
+import { fetcher, startCreate } from './actions';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: [{
-        title: "Note Title",
-        content: "Placeholder note content",
-        id: 0
-      },
-      {
-        title: "Note Title2",
-        content: "Placeholder note content2",
-        id: 1
-      },
-      {
-        title: "Note Title3",
-        content: "Placeholder note content3 ssdf sdf sdf sdf sdf fhgd asdwer g rth fdbvgsd fgtreg srasdv fghetrg weragf asdf erg a sdf af awerf asf fgserg sdcv sdgfsea egr asdfg saertg aZDf aer gsdfg aergf adfg a ffg arg asdfg aerg asdfg aefaf asdf asdf adf asdfawefasdf sdf ",
-        id: 2
-      },
-      {
-        title: "Note Title4",
-        content: "Placeholder note content4",
-        id: 3
-      },
-    ],
-      appState: "list",
-      viewId: null,
-      newId: 4
-    };
-  }
+
 
   tempCreate() {
     this.setState({appState: "create", viewId: null});
@@ -79,19 +52,23 @@ class App extends Component {
     this.setState({appState: "view", notes: newNotes});
   }
 
+  componentDidMount() {
+    this.props.fetcher("https://killer-notes.herokuapp.com/note/get/all");
+  }
+
   render() {
     return (
       <div className="App">
           <Row>
             <Col className="left-side" xs="3">
-              <SideMenu listMethod={this.tempList.bind(this)} createMethod={this.tempCreate.bind(this)} />
+              <SideMenu listMethod={this.tempList.bind(this)} createMethod={this.props.startCreate} />
             </Col>
             <Col className="content" xs="9">
               <ContentArea
                 viewMethod={this.tempView.bind(this)}
-                appState={this.state.appState}
-                notes={this.state.notes}
-                viewId={this.state.viewId}
+                appState={this.props.appState}
+                notes={this.props.notes}
+                viewId={this.props.viewId}
                 deleteMethod={this.tempDelete.bind(this)}
                 reallyDeleteMethod={this.tempReallyDelete.bind(this)}
                 cancelDeleteMethod={this.tempCancelDelete.bind(this)}
@@ -114,4 +91,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, { fetcher, startCreate })(App);

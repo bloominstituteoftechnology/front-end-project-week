@@ -29,7 +29,7 @@ const ContentArea = (props) => {
     case "edit":
       myNote = props.notes.filter((note) => note.id === props.viewId)[0];
       return (
-        <NoteForm topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.content} myMethod={props.saveEditMethod} />
+        <NoteForm topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} />
       );
     default:
       return (
