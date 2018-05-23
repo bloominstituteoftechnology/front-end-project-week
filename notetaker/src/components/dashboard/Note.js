@@ -3,21 +3,35 @@ import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
+import { Route } from 'react-router-dom';
+import NoteView from '../noteview/NoteView';
 
 export default class Note extends Component {
   constructor(props) {
       super(props);
+      this.state = {
+          id: this.props.id,
+          title: this.props.title,
+          body: this.props.body
+      };
   }
 
   render() {
-    return ( 
+    return (
         <Card className="rounded-0"> 
             <CardBody>
-                <Link to="/note" style={{ textDecoration: 'none', color: 'black' }}>
-                    <CardTitle className="text-left card-title"><h4 className="font-weight-bold">Note Title</h4></CardTitle>
+                <Link to={{
+                    pathname:`/note/${this.state.id}`,
+                    state: {
+                        id: this.state.id,
+                        title: this.state.title,
+                        body: this.state.body
+                    }
+                 }} style={{ textDecoration: 'none', color: 'black' }}
+                >
+                    <CardTitle className="text-left card-title"><h4 className="font-weight-bold">{this.state.title}</h4></CardTitle>
                 </Link>
-                <CardText className="text-left">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
-                                                Aenean massa. Cum sociis natoque penatibus et magnis dis.</CardText>
+                <CardText className="text-left">{this.state.body}...</CardText>
             </CardBody>
         </Card>
     )

@@ -5,6 +5,31 @@ import { Link } from 'react-router-dom';
 import './newnote.css';
 
 export default class NewNote extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            newNoteTitle: '',
+            newNoteBody: '',
+            newNoteID: Date(),
+            notes: []
+        };
+    }
+
+    handleChange = e => {
+        this.setState({ [e.target.name] : e.target.value });
+    }
+
+    submitHandler = e => {
+        e.preventDefault();
+        console.log('fuck');
+        this.state.notes.push({title: this.state.newNoteTitle, 
+            body: this.state.newNoteBody, 
+            id: this.state.newNoteID});
+        this.props.handleSubmit(this.state.notes);
+    }
+
   render() {
     return (
       <div>
@@ -25,17 +50,29 @@ export default class NewNote extends Component {
                     </Row>
                     <Row className="mb-4">
                         <Col xs="7" className="ml-3">
-                            <Input placeholder="Note Title" className="note-title-input" />
+                            <Input placeholder="Note Title" 
+                            className="note-title-input" 
+                            onChange={this.handleChange}
+                            value={this.state.newNoteTitle} 
+                            name="newNoteTitle" />
                         </Col>
                     </Row>
                     <Row>
                         <Col xs="12" className="ml-3 pr-5">
-                            <textarea placeholder="Note Content" className="rounded note-content-input"></textarea>
+                            <textarea placeholder="Note Content" 
+                            className="rounded note-content-input" 
+                            onChange={this.handleChange} 
+                            value={this.state.newNoteBody} 
+                            name="newNoteBody"></textarea>
                         </Col>
                         <Col xs="4" className="ml-3">
-                            <Link to="/">
-                                <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">Save</button>
-                            </Link>
+                            <form onSubmit={this.submitHandler}>
+                            
+                                <button type="submit"
+                                class="mt-4 btn btn-lg btn-block rounded-0"> 
+                                Save</button>
+                            
+                            </form>
                         </Col>
                     </Row>
                 </Col>

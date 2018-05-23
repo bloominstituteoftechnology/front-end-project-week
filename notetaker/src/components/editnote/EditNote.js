@@ -4,6 +4,27 @@ import { Card, CardHeader, CardFooter, CardBody,
 import { Link } from 'react-router-dom';
 
 export default class EditNote extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.state = {
+            newTitle: '',
+            newBody:'',
+        };
+    }
+
+    componentDidMount () {
+        const { id } = this.props.location.state.id;
+        this.setState({
+            id: { id }
+        });
+    }
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name] : e.target.value });
+      };
+
   render() {
     return (
     <Container>
@@ -23,15 +44,29 @@ export default class EditNote extends Component {
                 </Row>
                 <Row className="mb-4">
                     <Col xs="7" className="ml-3">
-                        <Input placeholder="Note Title" className="note-title-input" />
+                        <Input placeholder="Note Title" className="note-title-input" 
+                        onChange={this.handleInputChange} 
+                        value={this.state.newTitle}
+                        name="newTitle" />
                     </Col>
                 </Row>
                 <Row>
                     <Col xs="12" className="ml-3 pr-5">
-                        <textarea placeholder="Note Content" className="rounded note-content-input"></textarea>
+                        <textarea placeholder="Note Content" 
+                        className="rounded note-content-input"
+                        onChange={this.handleInputChange}
+                        value={this.state.newBody}
+                        name="newBody"></textarea>
                     </Col>
                     <Col xs="4" className="ml-3">
-                        <Link to="/">
+                        <Link to={{
+                                    pathname:`/`,
+                                    state: {
+                                        id: this.state.id,
+                                        newTitle: this.state.newTitle,
+                                        newBody: this.state.newBody
+                                    }
+                                }}>
                             <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">Update</button>
                         </Link>
                     </Col>
