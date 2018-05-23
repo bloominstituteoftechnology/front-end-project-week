@@ -7,6 +7,8 @@ import Form from '../misc/Form';
 import './NewNote.css';
 
 const NewNote = props => {
+  const { buttonOnClick, setInputVal, setTextAreaVal, title, content } = props;
+  
   return (
     <div className='new-note-wrapper'>
       <div className='new-note-wrapper__title-wrapper'>
@@ -16,14 +18,14 @@ const NewNote = props => {
       <Form
         buttonClassName='submit-wrapper__submit-newnote button'
         buttonContent='Save'
-        buttonOnClick={ e => props.buttonOnClick(e, props) }
+        buttonOnClick={ e => buttonOnClick(e, props) }
         formClassName='new-note-wrapper__form'
         inputClassName='form__input-title'
         textareaClassName='form__input-textarea'
-        setInputVal={ props.setInputVal }
-        setTextAreaVal={ props.setTextAreaVal }
-        title={ props.title }
-        content={ props.content }
+        setInputVal={ setInputVal }
+        setTextAreaVal={ setTextAreaVal }
+        title={ title }
+        content={ content }
       />
     </div>
   )
