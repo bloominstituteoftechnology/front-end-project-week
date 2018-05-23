@@ -219,8 +219,11 @@ table {
   cursor: pointer;
 }
 .note-view-component .modal-header {
-  width: 800px;
+  width: 800px !important;
   justify-content: space-around;
+}
+.note-view-component .modal-header > .custom-button {
+  min-width: 200px;
 }
 .NoteCard-component .custom-NoteCard {
   max-width: 220px;
@@ -286,6 +289,14 @@ table {
   font-weight: bold;
   text-decoration: none;
 }
+.form-component .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+}
+.form-component .custom-form .custom-text-area {
+  padding: 20px;
+}
 .main-component .custom-main {
   padding: 4rem 2rem;
   min-height: 100vh;
@@ -337,8 +348,19 @@ table {
   cursor: pointer;
 }
 .main-component .custom-main .modal-header {
-  width: 800px;
+  width: 800px !important;
   justify-content: space-around;
+}
+.main-component .custom-main .modal-header > .custom-button {
+  min-width: 200px;
+}
+.main-component .custom-main .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+}
+.main-component .custom-main .custom-form .custom-text-area {
+  padding: 20px;
 }
 .main-component .custom-main a {
   text-decoration: none;
@@ -465,8 +487,19 @@ p {
   cursor: pointer;
 }
 .custom-container .row .custom-main .modal-header {
-  width: 800px;
+  width: 800px !important;
   justify-content: space-around;
+}
+.custom-container .row .custom-main .modal-header > .custom-button {
+  min-width: 200px;
+}
+.custom-container .row .custom-main .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+}
+.custom-container .row .custom-main .custom-form .custom-text-area {
+  padding: 20px;
 }
 .custom-container .row .custom-main a {
   text-decoration: none;
