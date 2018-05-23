@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Title from '../Title';
 import { notes } from '../../data/notes';
 import SimpleLink from '../SimpleLink';
+import ModalLink from '../ModalLink';
 
 class NoteDetails extends Component {
   constructor(props) {
@@ -20,7 +21,10 @@ class NoteDetails extends Component {
       <div className="note-details">
         <div className="note-actions">
           <SimpleLink title="edit" link={`/edit/${this.props.noteId}`} />
-          <SimpleLink title="delete" link="/"/>
+          <ModalLink
+            title="delete"
+            modalBody="Are you sure you want to delete this?"
+          />
         </div>
         <Title title={this.state.title} />
         <div className="note-contents">
