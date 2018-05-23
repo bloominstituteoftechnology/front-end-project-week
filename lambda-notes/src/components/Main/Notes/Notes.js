@@ -13,14 +13,14 @@ const Notes = (props) => {
       <div class="row">
         {props.notes.map(note => (
           <div className="col-sm">
-            <div className="card note">   
+            <div className="card card-note">   
               <div className="card-body">
                 <h5 className="card-title">{note.title}</h5>
                 <hr />
                 <p className="card-text">{note.message}</p>
 
                 <Link to="/view-note"><a href="#" class="btn-sm">read more...</a></Link>
-                
+
               </div>
             </div> 
           </div>

@@ -1,0 +1,11 @@
+span.top-right {
+  position: fixed;
+  top: 5;
+  right: 200px;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.edit {
+  margin-right: 10px;
+}

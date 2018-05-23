@@ -5,15 +5,10 @@ const NoteView = (props) => {
   console.log('ListView', props.notes)
   return (
     <div className="container">  
-      <h4 className="heading">Note Name</h4>
-      <div className="card note">   
-        <div className="card-body">
-          <h5 className="card-title">Title </h5>
-          <hr />
-          <p className="card-text">Message here</p>
-        </div>
-      </div> 
-    </div>
+        <span className="top-right"><a href="#" className="edit">edit</a><a href="#" className="delete">delete</a></span>
+      <h4 className="text-left pt-5">Note Name</h4>
+      <p className="text-left mt-4">lypsum ipsumlypsum ipsum lypsum ipsumlypsum ipsum </p>
+    </div> 
   );
 }
 
