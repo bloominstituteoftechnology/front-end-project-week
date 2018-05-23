@@ -2,18 +2,26 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import SideBar from './components/Sidebar'
 import NoteList from './components/NoteList'
-import Notes from './notes'
 import Note from './components/Note'
 import CreateNote from './components/CreateNote'
+import { base } from './base'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: Notes,
+      notes: [],
       title: '',
       text: ''
     }
+  }
+
+  componentDidMount = () => {
+    base.syncState('notes', {
+      context: this,
+      state: 'notes',
+      asArray: true
+    })
   }
   onChange = (event) => {
     this.setState({
