@@ -25,7 +25,9 @@ const NoteCards = (props) => {
             <Link to={`/note/${note.id}`}key={note.id} className="links mb-4 col-12 col-md-4">
               <Card className="card">
                 <CardTitle className="card-title">{note.title}</CardTitle>
-                <CardText className="card-body">{note.body.substring(0,250)+"..."}</CardText>              
+                <CardText className="card-body">
+                  {note.body.length > 250 ? note.body.substring(0,250)+"..." : note.body}
+                </CardText>              
               </Card> 
             </Link>                      
           )
