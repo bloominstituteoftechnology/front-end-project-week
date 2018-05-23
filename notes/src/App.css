@@ -1,41 +1,53 @@
 .App {
-  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App-sideBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 240px;
+  width: 20vw;
+  height: 100vh;
+  padding: 1rem;
+  background-color: rgba(92, 92, 92, 0.514);
+  border: 1px solid white;
 }
 
 .App-main {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100%; 
-}
-
-.App-middle {
-  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  max-width: 50%;
+  min-width: 320px;
+  width: 100%; 
+  padding: 1rem;
+  background-color: rgba(211, 211, 211, 0.404);
+  border: 1px solid white;
+}
+
+.board-notes {
+  display: flex;
   width: 100%;
+  flex-wrap: wrap;
 }
 
-
-.App-title {
-  font-size: 1.5em;
+.cardflow {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-.App-intro {
-  font-size: large;
+.App-noteCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: auto;
+  height: 80vh;
+  justify-content: space-between;
 }
 
 @keyframes App-logo-spin {

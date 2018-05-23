@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Notes from './notes';
 
 export default class Board extends Component {
     constructor() {
@@ -11,8 +12,12 @@ export default class Board extends Component {
     }
     render() {
             return (
-                <div className="main">
-                    <h3 className="text-white">Your Notes:</h3>
+                <div className="App-main">
+                    <h3 className="main-header">Your Notes:</h3>
+                    <div className="board-notes">
+                        <Notes />
+                        </div>
+
                 </div>    
             );
     }
