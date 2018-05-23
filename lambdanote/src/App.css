@@ -6,11 +6,6 @@
   margin: 0 auto;
 }
 
-.note {
-  margin: 1.5rem;
-  text-align: left;
-}
-
 .nav-container {
   width: 25%;  
   border-right: 1px solid #979797;
@@ -38,9 +33,15 @@
 .note-container {
   width: 75%;
   background-color: #F3F3F3; 
+  border: 1px solid red;
+  padding: 2.5%;
+  display: flex;
 }
 
-
+.notelist-header {
+  text-align: left;
+  margin: 3rem 0;
+}
 
 
 
