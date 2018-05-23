@@ -15,11 +15,11 @@ import {
 const initialState = {
   notes: [],
   error: null,
-  fetchingNotes = false,
-  fetchingNote = false,
-  addingNote = false,
-  updatingNote = false,
-  deletingNote = false
+  fetchingNotes: false,
+  fetchingNote: false,
+  addingNote: false,
+  updatingNote: false,
+  deletingNote: false
 };
 
 export const notesReducer = (state = initialState, action) => {
@@ -35,7 +35,7 @@ export const notesReducer = (state = initialState, action) => {
         error: null,
         fetchingNotes: false,
         notes: state.notes.concat(action.payload)
-      });;
+      });
 
     case FETCHING_NOTE:
       return Object.assign({}, state, {
