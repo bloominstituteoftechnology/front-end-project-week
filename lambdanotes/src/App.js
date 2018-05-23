@@ -4,23 +4,17 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
-import { fetcher, startCreate } from './actions';
+import { fetcher, startCreate, goToList, viewNote } from './actions';
 
 class App extends Component {
 
 
 
-  tempCreate() {
-    this.setState({appState: "create", viewId: null});
-  }
 
-  tempList() {
-    this.setState({appState: "list", viewId: null});
-  }
 
-  tempView(id) {
-    this.setState({appState: "view", viewId: id});
-  }
+
+
+
 
   tempDelete() {
     this.setState({appState: "deleting"});
@@ -61,11 +55,11 @@ class App extends Component {
       <div className="App">
           <Row>
             <Col className="left-side" xs="3">
-              <SideMenu listMethod={this.tempList.bind(this)} createMethod={this.props.startCreate} />
+              <SideMenu listMethod={this.props.goToList} createMethod={this.props.startCreate} />
             </Col>
             <Col className="content" xs="9">
               <ContentArea
-                viewMethod={this.tempView.bind(this)}
+                viewMethod={this.props.viewNote}
                 appState={this.props.appState}
                 notes={this.props.notes}
                 viewId={this.props.viewId}
@@ -91,4 +85,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetcher, startCreate })(App);
+export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote })(App);
