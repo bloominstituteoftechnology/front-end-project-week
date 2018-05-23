@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notes from '../func/Notes';
+
 import './components.css';
  
 class CreateNote extends Component{
@@ -41,6 +42,7 @@ class CreateNote extends Component{
         console.log(newNote);
         this.props.fetch(this.state.notesList);
         this.setState({ title: "", content: "", newNote })
+
     }
 
     
