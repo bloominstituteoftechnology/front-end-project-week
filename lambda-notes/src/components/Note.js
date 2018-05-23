@@ -18,6 +18,10 @@ class Note extends Component {
         // })
     }
 
+    deleteNote = () => {
+        return alert('Alert message!');
+    }
+
     render() { 
         const id = this.props.match.params.id;
         const { title, body } = this.props.notes[id];
