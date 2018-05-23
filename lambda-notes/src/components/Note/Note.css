@@ -23,7 +23,7 @@
 
 .note-body {
     font-size: 12px;
-    font-family: "Raleway";
+    font-family: 'Raleway';
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap;

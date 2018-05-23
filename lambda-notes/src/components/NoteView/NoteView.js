@@ -26,14 +26,15 @@ class NoteView extends Component {
       }
 
 
-     matchedNote = this.props.notes.filter(note => {return note.id == this.props.match.params.id})[0] // [0] is the one element in the filtered Array that has a matched id
-    
+    matchedNote = this.props.notes.filter(note => {return note.id == this.props.match.params.id})[0] // [0] is the one element in the filtered Array that has a matched id
+
   render() {
+     
     return (
         <div className="noteView-container">
             <div className="links-container">
-                <Link  onClick={this.toggle} className="link" to={`/note/${this.matchedNote.id}/delete`}>delete</Link>
-                <Link  onClick={this.toggle} className="link" to={`/note/${this.matchedNote.id}/edit`}>edit</Link>
+                <Link onClick={this.toggle} className="link" to={`/note/${this.matchedNote.id}/delete`}>delete</Link>
+                <Link className="link" to={`/note/${this.matchedNote.id}/edit`}>edit</Link>
             </div>
 
             <div className="noteView-title">{this.matchedNote.title}</div>

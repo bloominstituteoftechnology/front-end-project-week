@@ -47,7 +47,9 @@
 
 .modal {
     padding-top: 165px;
-    padding-right: 365px;
+    padding-right: 75px; /*365 initially*/
+    max-width: 980px;
+    width: 100%;
 }
 
 .modal-footer {
