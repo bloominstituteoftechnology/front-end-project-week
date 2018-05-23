@@ -4,12 +4,18 @@ import Notes from '../func/Notes';
 
 
 class NoteList extends Component{
+    constructor(){
+        super();
+}
+
+    
     render(){
+        console.log(this.props.NoteData);
         return (
             <div>
-                {/* {props.NoteData.notesList.map((char)=>{
+                {this.props.NoteData.map((data, index)=> <Notes key={index} NoteData={data}/>
                     
-                })} */}
+                )}
             </div>
         )
     }

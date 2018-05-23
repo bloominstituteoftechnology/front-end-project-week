@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, } from 'reactstrap';
+import '../components/components.css';
 
-const Notes = (props) => {
-    return(
-        <div>
-            testing
-            <div>{props.NoteData.title} </div>
-            <div>{props.NoteData.content} </div>
-        </div>  
-    )
+class Notes extends Component{
+
+    render(){
+        return (
+            <div className="note-container">
+                test Note
+            <Card>
+                    <CardBody>
+                        <CardTitle>{this.props.NoteData.title} </CardTitle>
+                        <CardTitle>{this.props.NoteData.content} </CardTitle>
+                        <CardTitle>{this.props.NoteData.id} </CardTitle>
+                        <CardTitle>{this.props.NoteData.notesList} </CardTitle>
+                    </CardBody>
+                </Card>
+            </div>
+        )
+    }
+    
          
 }
 
