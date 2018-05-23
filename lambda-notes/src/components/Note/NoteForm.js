@@ -25,9 +25,9 @@ class NoteForm extends Component {
 
     render() { 
         return (
-            <div className="App-content-container">
+            <div className={this.props.className}>
                 <h2>{this.props.header}</h2>
-                <form>
+                <form className="note-form" >
                     <div>
                         <input className="input-tittle"
                             name="title"

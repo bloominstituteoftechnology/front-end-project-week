@@ -55,8 +55,8 @@ class App extends Component {
         </header> */}
         <Nav />
         {!this.state.show && <NotesList notes={this.state.notes} />}
-        {this.state.show && <NoteForm header="Create New Note:" button="Save" />}
-        {!this.state.show && <ViewNote note={this.state.notes[0]}/>}
+        {!this.state.show && <NoteForm className="App-content-container" header="Create New Note:" button="Save" />}
+        {this.state.show && <ViewNote note={this.state.notes[0]}/>}
       </div>
     );
   }
