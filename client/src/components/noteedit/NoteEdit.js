@@ -23,7 +23,6 @@ class NoteEdit extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     for (let note of nextProps.noteList) {
       if (nextProps.match.params.id === note.id) {
-        console.log(note.id, note.title, note.content)
         return {
           title: note.title,
           content: note.content,
@@ -45,18 +44,21 @@ class NoteEdit extends React.Component {
             return note.id === this.props.match.params.id;
           })
             .map(note => {
+              const { id } = note;
+              const { title, content } = this.state;
+              const { setInputVal, props } = this;
               return (
                 <Form
-                  key={ note.id }
+                  key={ id }
                   buttonClassName='edit-wrapper__save-newnote button'
                   buttonContent='Update'
-                  buttonOnClick={ e => this.props.buttonOnClick(e, this.props, note.id, this.state.title, this.state.content) }
-                  content={ this.state.content }
+                  buttonOnClick={ e => props.buttonOnClick(e, props, id, title, content) }
+                  content={ content }
                   formClassName='edit-note-wrapper__form'
                   inputClassName='form__input-title'
-                  setInputVal={ this.setInputVal }
-                  setTextAreaVal={ this.setInputVal }
-                  title={ this.state.title }
+                  setInputVal={ setInputVal }
+                  setTextAreaVal={ setInputVal }
+                  title={ title }
                   textareaClassName='form__input-textarea'
                 />
               )
