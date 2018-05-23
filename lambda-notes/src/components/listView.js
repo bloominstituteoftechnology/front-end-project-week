@@ -8,70 +8,88 @@ import SideNav from './SideNav.js';
 const ListView = (props) => {
   return (
     <div>
-      <SideNav />
+      {/* <SideNav /> */}
         <h2 className="header-Notes">Your Notes:</h2>
         <CardColumns className="cardColumns">
           <Card className="card">        
             <CardBody className="cardBody">
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>
           <Card className="card">        
             <CardBody className="cardBody">
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>
           <Card className="card">        
             <CardBody className="cardBody">
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>      
           <Card className="card">        
             <CardBody>
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>
           <Card className="card">        
             <CardBody>
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>
           <Card className="card">        
             <CardBody>
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>      
           <Card className="card">        
             <CardBody>
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>
           <Card className="card">        
             <CardBody>
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>
           <Card className="card">        
             <CardBody>
               <CardTitle>Card title</CardTitle>              
               <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-              <Button>Button</Button>
+              <Link to="/noteview">
+              <Button>View</Button>
+              </Link>
             </CardBody>
           </Card>      
         </CardColumns>
