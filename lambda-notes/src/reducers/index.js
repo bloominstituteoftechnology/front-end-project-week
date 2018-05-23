@@ -14,6 +14,7 @@ import {
 
 const initialState = {
   notes: [],
+  activeNote: {},
   error: null,
   fetchingNotes: false,
   fetchingNote: false,
@@ -47,7 +48,7 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         fetchingNote: false,
-        notes: action.payload
+        activeNote: action.payload
       });
 
     case ADDING_NOTE:
@@ -86,12 +87,14 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         deletingNote: false,
-        notes: action.payload
+        notes: action.payload,
+        activeNote: {}
       });
 
     case ERROR:
       return Object.assign({}, state, {
         error: action.payload,
+        activeNote: {},
         fetchingNotes: false,
         fetchingNote: false,
         addingNote: false,

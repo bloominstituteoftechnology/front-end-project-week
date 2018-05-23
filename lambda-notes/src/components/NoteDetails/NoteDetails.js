@@ -2,26 +2,21 @@ import React, { Component } from 'react';
 import Title from '../Title';
 import SimpleLink from '../SimpleLink';
 import ModalLink from '../ModalLink';
-import axios from 'axios';
 import history from '../Routes/history';
+import { connect } from 'react-redux';
+import { getNote } from '../../actions';
 
 class NoteDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      contents: ''
-    }
   }
   componentDidMount(){
-    axios.get(`http://localhost:5000/notes/${this.props.noteId}`)
-      .then(response => this.setState({ title: response.data.title, contents: response.data.contents }))
-      .catch(error => console.error(error));
+    this.props.getNote(this.props.noteId);
   }
   deleteNote = () => {
-    axios.delete(`http://localhost:5000/notes/${this.props.noteId}`)
-      .then(response => history.push('/'))
-      .catch(error => console.error(error));
+    // axios.delete(`http://localhost:5000/notes/${this.props.noteId}`)
+    //   .then(response => history.push('/'))
+    //   .catch(error => console.error(error));
   }
   render() {
     return ( 
@@ -36,13 +31,21 @@ class NoteDetails extends Component {
             secondaryActionTitle="No"
           />
         </div>
-        <Title title={this.state.title} />
+        <Title title={this.props.title} />
         <div className="note-contents">
-          {this.state.contents}
+          {this.props.contents}
         </div>
       </div>
      )
   }
-}
+};
+
+const mapStateToProp = state => {
+  return {
+    id: state.activeNote.id,
+    title: state.activeNote.title,
+    contents: state.activeNote.contents
+  }
+};
  
-export default NoteDetails;
+export default connect(mapStateToProp, { getNote })(NoteDetails);

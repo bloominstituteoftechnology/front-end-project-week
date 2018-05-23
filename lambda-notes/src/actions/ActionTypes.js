@@ -1,4 +1,4 @@
-export const FETCHING_NOTES = 'FETHCING_NOTES';
+export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const NOTES_FETCHED = 'NOTES_FETCHED';
 export const FETCHING_NOTE = 'FETCHING_NOTE';
 export const NOTE_FETCHED = 'NOTE_FETCHED';
