@@ -11,22 +11,20 @@ class Note extends Component {
         this.props.getNote(this.props.match.params.id);        
     }
 
-    // handleNote = () => {
-    //     this.props.getNote(this.props.match.params.id);
-    // }
-    // this.props.getNote(this.props.match.params.id)
     render() {
-        // this.handleNote
-        console.log(this.props);
         return (
-        <div className="col-sm-9 cards">
-            Title: {this.props.note[0].title}
+        <div className="col-sm-9 note-view">
+            <div className='note-links-wrap'>
+                <Link to='/edit' className='note-link'>edit</Link>
+                <Link to='/' className='note-link'>delete</Link>
+            </div>
+            {/* <div> */}
+                {/* Title: {this.props.note[0].title} */}
+            {/* </div> */}
         </div>
         )
     }
 }
-// const note = this.props.getNote()
-// this.props.getNote();
 
 const mapStateToProps = state => {
   return {

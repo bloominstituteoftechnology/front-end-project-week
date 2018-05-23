@@ -85,3 +85,16 @@ body, html {
   background: #F3F3F3;
   height: 100vh;
 }
+
+.note-view {
+  background: #F3F3F3
+}
+
+.note-links-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 25px;
+}
+.note-link{
+  text-decoration: underline;
+}
