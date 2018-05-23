@@ -16,7 +16,7 @@ class NoteForm extends Component {
   componentDidMount(){
     if (this.props.noteId){
       const currentNote = notes.filter(x => x.id === +this.props.noteId);
-      this.setState({ title: currentNote[0].title, contents: currentNote[0].value });
+      this.setState({ title: currentNote[0].title, contents: currentNote[0].contents });
     }
   }
   render() { 

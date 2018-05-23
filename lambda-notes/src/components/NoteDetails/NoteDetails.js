@@ -14,7 +14,7 @@ class NoteDetails extends Component {
   }
   componentDidMount(){
     const currentNote = notes.filter(x => x.id === +this.props.noteId);
-    this.setState({ title:currentNote[0].title, contents:currentNote[0].value });
+    this.setState({ title:currentNote[0].title, contents:currentNote[0].contents });
   }
   render() {
     return ( 
