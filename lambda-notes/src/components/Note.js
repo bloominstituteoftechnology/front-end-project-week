@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Note.css';
 import { Link } from 'react-router-dom';
+import { DeleteNote } from '.';
 
 
 class Note extends Component {
@@ -18,6 +19,10 @@ class Note extends Component {
         // })
     }
 
+    showDisplay = () => {
+        this.state.showNote = true;
+    }
+
     deleteNote = () => {
         return alert('Alert message!');
     }
@@ -33,12 +38,12 @@ class Note extends Component {
         return (
             <div className='note-container'> 
                 <div className="note-links">
-                    <Link onClick={this.updateDisplay()} to={`/note/${id}/edit`}>
-                        edit
+                    <Link className='edit-delete' onClick={this.updateDisplay()} to={`/note/${id}/edit`}>
+                        Edit
                     </Link>
-                    <Link to='/delete'>
-                        delete
-                    </Link>
+                       <DeleteNote />
+                    
+                    
                 </div>
                 <div className="view-note">
                     <h2> {title} </h2>

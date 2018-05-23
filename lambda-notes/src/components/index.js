@@ -4,4 +4,4 @@ import ListNotes from './ListNotes';
 import Note from './Note';
 import DeleteNote from './DeleteNote';
 
-export { CreateNote, EditNote, ListNotes, Note };
+export { DeleteNote, CreateNote, EditNote, ListNotes, Note };
