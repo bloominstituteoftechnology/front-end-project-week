@@ -288,6 +288,7 @@ table {
   letter-spacing: 0.05rem;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 }
 .form-component .custom-form .custom-input {
   width: 400px;

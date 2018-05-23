@@ -83,9 +83,11 @@ const mainReducer = (state = initialState, action) => {
         adding_Item: false,
         added_Item: true,
         //OPTION-1
-        data: [...state.data, action.allItems[action.allItems.length - 1]] // TO REVIEW WITH REAL EXAMPLES
+        // data: [...state.data, action.allItems[action.allItems.length - 1]] // TO REVIEW WITH REAL EXAMPLES
         //OPTION-2
         // data: action.allItems
+        // OPTIONS-3
+        data: [...state.data,action.newItem]
       };
     case UPDATING_ITEM:
       return {

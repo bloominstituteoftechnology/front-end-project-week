@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const Button_ = ({text, ...rest}) => {
+const Button_ = ({ text, action, ...rest }) => {
   // const {text} = props;
   return (
-    <div className="text-center custom-button" >
+    <div className="text-center custom-button" onClick={ action ? action : null }>
       {text}
     </div>
   );

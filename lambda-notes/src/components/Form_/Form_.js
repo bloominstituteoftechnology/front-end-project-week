@@ -1,30 +1,29 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {addingItem} from '../../actions/index';
-import Button_ from '../Button_/Button_';
+import { addingItem, updatingItem } from "../../actions/index";
+import Button_ from "../Button_/Button_";
 
 class Form_ extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      content: ''
-    }
+      title: "",
+      content: ""
+    };
   }
-  
-
-  componentDidMount() {
-    const url = this.props.match.url;
-
-  }
-  handleInput = (e) => {
+  handleInput = e => {
+    e.key === "Enter" ? e.preventDefault() : null;
     this.setState({ [e.target.name]: e.target.value });
+  };
+  newNote = () => {
+    const newItem = this.state;
+    this.props.addingItem(newItem)
   }
-  
+
   render() {
     return (
-      <form className="custom-form" >
+      <form className="custom-form">
         <div className="form-group">
           <input
             className="custom-input"
@@ -32,6 +31,7 @@ class Form_ extends Component {
             name="title"
             placeholder="Note Title"
             onChange={this.handleInput}
+            onKeyPress={this.handleInput}
             value={this.state.title}
           />
         </div>
@@ -42,10 +42,13 @@ class Form_ extends Component {
             rows="13"
             placeholder="Note Content"
             onChange={this.handleInput}
+            onKeyPress={this.handleInput}
             value={this.state.content}
           />
         </div>
-        <Button_ text="Save" />
+        <Button_
+        text="Save"
+        action={this.newNote} />
       </form>
     );
   }
@@ -55,6 +58,4 @@ const mapStateToProps = state => {
     notes: state.data
   };
 };
-export default withRouter(
-  connect(mapStateToProps, { addingItem })(Form_)
-);
+export default withRouter(connect(mapStateToProps, { addingItem, updatingItem })(Form_));
