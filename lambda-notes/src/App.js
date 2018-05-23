@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import DeleteModal from './DeleteModal';
+import EditNote from './EditNote';
+import NewNotes from './NewNotes';
+import Notes from './Notes';
+import NoteView from './NoteView';
 
 class App extends Component {
 
@@ -22,17 +27,27 @@ class App extends Component {
         <h3 className="Notes-bar-item">Lambda Notes</h3>
         <ul>
         <li><Link to="/notes" className="Notes-bar-item notes-button">View Your Notes</Link></li>
-        <li><Link to="/newnote" className="Notes-bar-item notes-button">'+' Create New Note</Link></li>
+        <li><Link to="/newnotes" className="Notes-bar-item notes-button">'+' Create New Note</Link></li>
         </ul>  
           <hr/>
 
-          <Route exact path="/" component={Home} /> 
-          <Route path="/notes" component={Notes} />
-          <Route path="/newnote" component={NewNotes} />  
+           {/* <Route exact path="/" component={Home} />  */}
+          <Route path="/viewyournotes" component={Notes} />
+          <Route path="/+ createyournotes" component={NewNotes} />  
+          <Route path="/edit" component={EditNote} />
+          <Route path="/delete" component={DeleteModal} />
+
           
         </div>
         {/* </div> */}
-    </Router>
+      </Router>
+    //   <div>
+    //     <Notes />
+    //     <NewNotes />
+    //     <NoteView />
+    //     <EditNote />
+    //     <DeleteModal />
+    // </div>  
 
     );
   }

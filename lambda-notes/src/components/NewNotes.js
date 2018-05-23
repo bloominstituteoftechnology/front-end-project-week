@@ -11,7 +11,7 @@ const NewNotes = () => {
                 <Label for="newNote"><h3>Create New Note:</h3></Label>
             </FormGroup>
             <FormGroup>
-                <Label for="exampleEmail">Note Title</Label>
+                <Label for="noteTitle">Note Title</Label>
                 <Input type="newnote" name="newnote" id="newNote" placeholder="with a placeholder" />
             </FormGroup>
             <FormGroup>
