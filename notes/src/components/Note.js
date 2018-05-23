@@ -16,7 +16,7 @@ class Note extends Component {
                     <Col className="single-note">
                         <div className="edit-delete">
                             <Link to="/edit">
-                                <button className="edit">edit</button>
+                                <div className="edit">edit</div>
                             </Link>
                             <DeleteNote />
                         </div>
@@ -29,5 +29,5 @@ class Note extends Component {
          )
     }
 }
- 
+
 export default Note;

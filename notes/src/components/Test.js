@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 
-import { Container, Row, Col } from 'reactstrap';
-// import { Link } from 'react-router-dom';
+// ########## ^imports^ ################### 
 
 class Test extends Component {
 
@@ -17,14 +16,10 @@ class Test extends Component {
             <div>
                 {this.props.notes.map(note => {
                     return (
-                        <Container key={`${note._id}`}>
-                            <Row>
-                                <Col >
-                                    <h1>{note.title}</h1>
-                                    <p>{note.textBody}</p>
-                                </Col>
-                            </Row>
-                        </Container>
+                        <div key={note._id}>
+                            <h5>{note.title}</h5>
+                            <p>{note.textBody}</p>
+                        </div>
                     )
                 })}  
             </div>

@@ -2,6 +2,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+
+
 .want-to-delete {
     display: flex;
     justify-content: center;

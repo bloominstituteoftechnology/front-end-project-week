@@ -3,9 +3,12 @@
     display: flex;
     justify-content: flex-end;
     text-decoration: underline;
+    text-decoration-color: #4A4A4A;
 }
 
 .edit {
     color:#4A4A4A;
     padding-right: 10px;
+    text-decoration: underline !important;
+    text-decoration-color: #4A4A4A !important;
 }

@@ -3,9 +3,16 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import { List, Note, NewNote, EditNote, DeleteNote, Test } from './components';
+// import { connect } from 'react-redux';
+// import { fetchNotes } from './actions';
 
 
 class App extends Component {
+
+  // componentDidMount() {
+  //   this.props.fetchNotes();
+  // }
+
   render() {
     return (
       <div className="App">
@@ -20,7 +27,7 @@ class App extends Component {
                 <button className="new-note-button">+ Create New Note</button>
               </Link>
               <Link to="/test">
-               <button className="test-button">Test Here</button>
+               <button className="test-button">Test Zone</button>
               </Link>
             </Col>
             <Col xs="9" className="content-container">
@@ -37,5 +44,15 @@ class App extends Component {
     );
   }
 }
+
+// const mapStateToProps = state => {
+//   console.log("State:", state);
+//   return {
+//       notes: state.notes,
+//       fetching: state.fetching
+//   }
+// }
+
+// export default connect(mapStateToProps, { fetchNotes })(App);
 
 export default App;

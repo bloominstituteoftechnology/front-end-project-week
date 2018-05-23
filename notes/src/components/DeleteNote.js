@@ -23,7 +23,7 @@ class DeleteNote extends React.Component {
     const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
     return (
       <div>
-          <button className="modul-link" onClick={this.toggle}>delete</button>
+          <div className="modul-link" onClick={this.toggle}>delete</div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
           <ModalFooter className="delete-modul">
               <span className="want-to-delete">Are you sure you want to delete this?</span>
