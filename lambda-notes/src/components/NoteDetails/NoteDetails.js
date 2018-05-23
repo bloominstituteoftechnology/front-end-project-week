@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Title from '../Title';
-import { notes } from '../../data/notes';
 import SimpleLink from '../SimpleLink';
 import ModalLink from '../ModalLink';
+import axios from 'axios';
 
 class NoteDetails extends Component {
   constructor(props) {
@@ -13,8 +13,9 @@ class NoteDetails extends Component {
     }
   }
   componentDidMount(){
-    const currentNote = notes.filter(x => x.id === +this.props.noteId);
-    this.setState({ title:currentNote[0].title, contents:currentNote[0].content });
+    axios.get(`http://localhost:5000/notes/${this.props.noteId}`)
+      .then(response => this.setState({ title: response.data.title, contents: response.data.contents }))
+      .catch(error => console.error(error));
   }
   render() {
     return ( 
