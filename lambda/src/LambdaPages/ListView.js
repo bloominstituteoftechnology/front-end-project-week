@@ -15,7 +15,7 @@ const ListView = (props) => {
                     <Container>
                     <Card body>
                         <CardTitle>{note.title}</CardTitle>
-                        <CardText>{note.content}</CardText>
+                        <CardText>{note.note}</CardText>
                     </Card>
                     </Container>
                 </div>
