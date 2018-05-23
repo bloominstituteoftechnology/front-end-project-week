@@ -21,15 +21,16 @@ class NoteEdit extends React.Component {
   
   // getDerivedStateFromProps
   static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(nextProps);
-    const currentNote = nextProps.noteList[nextProps.match.params.id];
-    if (currentNote) {
-      return {
-        title: currentNote.title,
-        content: currentNote.content,
-      };
+    for (let note of nextProps.noteList) {
+      if (nextProps.match.params.id === note.id) {
+        console.log(note.id, note.title, note.content)
+        return {
+          title: note.title,
+          content: note.content,
+        };
+      }
     }
-    return {};
+    return null;
   }
   
   render() {
