@@ -23,9 +23,9 @@ class CreateNote extends Component {
 
 	render() {
 		return(
-			<div class='wrapper'>
+			<div className='wrapper'>
 				<header>
-					<h1>Create New Note:</h1>
+					<h5>Create New Note:</h5>
 				</header>
 			<Form>
 				<FormGroup>

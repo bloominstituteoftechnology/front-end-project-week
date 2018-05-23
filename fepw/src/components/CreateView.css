@@ -2,10 +2,6 @@
 	width: 75%;
 	position: absolute;
 	left: 25%;
+	display: flex;
 }
 
-header {
-	margin-left: 20px;
-	padding: 20px;
-	font-weight: bold;
-}
