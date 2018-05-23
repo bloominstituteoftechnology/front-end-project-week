@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavigationBar from './Navigation-bar';
 import loremipsem from './loremipsem';
 import NoteComponent from './components/noteComponent';
+import Sidebar from './components/Sidebar/sidebar';
 
 class App extends Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Sidebar />
         <div className= "Notes">
         {this.state.notesMadeByUser.map((note, index)=> {
           return <NoteComponent key={index} note= {note}/>
@@ -30,5 +31,9 @@ class App extends Component {
     );
   }
 }
+
+
+
+  
 
 export default App;
