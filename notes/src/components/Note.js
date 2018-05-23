@@ -1,5 +1,4 @@
 import React from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Link } from "react-router-dom";
 
 class Note extends React.Component {
@@ -62,43 +61,46 @@ class Note extends React.Component {
     render() {
         const { title, body, id, edit, modal, list } = this.state;
         return (
-            <div>
+            <div className="note-flex-props">
                 {list ? (
                     <div className="note-card">
                         <h3>{title}</h3>
                         <div className="note-card-text-wrapper"><p className="note-card-text">{body}</p></div>
                     </div>
-                ) : (<div>
+                ) : (<div className="note-view">
                     {edit ? (
-                        <div>
+                        <div className="note-edit">
                             <h3>Edit Note:</h3>
                             <form>
                                 <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                                <input name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                                <button onClick={(e) => this.handleUpdate(e, ({title, body, id}))}>Save</button>
+                                <textarea name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
+                                <button className="button" onClick={(e) => this.handleUpdate(e, ({title, body, id}))}>Save</button>
                             </form>
                         </div>
                     ) : (
                         <div>
-                            <div>
-                                <button onClick={() => this.setState({edit: true})}>Edit</button>
-                                <button onClick={() => this.toggleModal()}>Delete</button>
+                            <div className="note-view-actions">
+                                <a onClick={() => this.setState({edit: true})}>edit</a>
+                                <a onClick={() => this.toggleModal()}>delete</a>
                             </div>
                             <h3>{title}</h3>
-                            <div>{body}</div>
+                            <p>{body}</p>
                         </div>
                     )}
                     {modal ? (
-                        <Modal isOpen={modal} className={this.props.className}>
-                          <ModalHeader>Modal title</ModalHeader>
-                          <ModalBody>
-                            Are you sure you want to delete this?
-                          </ModalBody>
-                          <ModalFooter>
-                            <Link to="/" onClick={() => this.handleDelete(id)}>Delete</Link>
-                            <button onClick={() => this.toggleModal()}>Cancel</button>
-                          </ModalFooter>
-                        </Modal>
+                        <div>
+                            <div className="modal-background"></div>
+                            <div className="modal-position">
+                                <div className="modal">
+                                    <p>Are you sure you want to delete this?</p>
+                                        <div className="modal-actions">
+                                            <Link className="button delete" to="/" onClick={() =>   this.handleDelete(id)}>Delete</Link>
+                                            <div className="modal-divider"></div>
+                                            <button className="button" onClick={() => this.toggleModal()}   >Cancel</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                     ) : (null)}
                     </div>
                 )}

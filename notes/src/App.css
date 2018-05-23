@@ -10,10 +10,29 @@ h1 {
   font-size: 3.2rem;
 }
 
+h1, h2, h3 {
+  color: #4A4A4A;
+}
+
 a {
   text-decoration: none;
-  color: black;
+  color: #4A4A4A;
   font-size: 1.6rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+p {
+  font-size: 1.4rem;
+  color: #4A4A4A;
+  line-height: 2.4rem;
+  margin: 0;
 }
 
 .App {
@@ -27,6 +46,22 @@ a {
   text-rendering: geometricPrecision;
 }
 
+.button {
+  width: 190px;
+  padding: 12px 0 11px;
+  margin-bottom: 18px;
+  background: #2BC1C4;
+  color: white;
+  border: 1px solid #979797;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.delete {
+  background: #D0021B;
+}
 
 /* Navigation */
 
@@ -46,16 +81,6 @@ a {
   margin: 5px 0 30px;
   line-height: 2.8rem;
   color: #4A4A4A;
-}
-
-.nav-button {
-  padding: 12px 0 11px;
-  margin-bottom: 18px;
-  background: #2BC1C4;
-  color: white;
-  border: 1px solid #979797;
-  text-decoration: none;
-  text-align: center;
 }
 
 
@@ -108,4 +133,120 @@ a {
 .note-card-text-wrapper {
   height: calc(100% - 48px);
   overflow: hidden;
+}
+
+
+/* Note View */
+
+.note-flex-props {
+  flex-grow: 3;
+}
+
+.note-view {
+  padding: 20px 30px;
+  background: #F3F3F3;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 660px;
+}
+
+.note-view-actions {
+  margin: 0 0 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-view-actions a {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.note-view h3 {
+  margin: 0 0 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+}
+
+
+/* Note Edit */
+
+
+.note-edit h3 {
+  margin: 35px 0 30px;
+}
+
+.note-edit form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.note-edit form input, textarea {
+  padding: 13.5px 10px;
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: #4A4A4A;
+  border-radius: 2px;
+  border: 1px solid #979797;
+}
+
+.note-edit form input:focus, textarea:focus {
+  outline: none;
+}
+
+.note-edit form input:first-child {
+  width: 53.939%;
+}
+
+.note-edit form textarea {
+  height: 346px;
+  resize: none;
+}
+
+/* Note Delete Modal */
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #979797;
+  mix-blend-mode: multiply;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-position {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.modal {
+  border: 1px solid #4A4A4A;
+  background: white;
+  margin-top: 170px;
+  width: 100%;
+  max-width: 530px;
+  height: 175px;
+  text-align: center;
+}
+
+.modal p {
+  margin: 40px 0 30px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-divider {
+  width: 20px;
 }
