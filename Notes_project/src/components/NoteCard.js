@@ -9,13 +9,18 @@ const NoteCard = (props) => {
     console.log("PROPS:", props);
     return (
         <div>
-            
-            <Card>
-                <CardBody>
-                    <CardTitle> {props.noteData.title} </CardTitle>
-                    <CardText>{props.noteData.body}</CardText>
-                </CardBody>
-            </Card>
+            {props.noteData.map(note =>{
+                return(
+                <div key={note.title}>
+                <Card>
+                    <CardBody>
+                        <CardTitle> {note.title} </CardTitle>
+                        <CardText>{note.body}</CardText>
+                    </CardBody>
+                </Card>
+                </div>
+                );
+            })}
         </div>
 
     );

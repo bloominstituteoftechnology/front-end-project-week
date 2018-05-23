@@ -4,10 +4,12 @@ import dummyData from '../dummydata';
 import NoteCard from './NoteCard';
 
 class NoteContainer extends Component {
-    state = {
-        noteData: []
-    };
-
+    constructor(){
+        super();
+        this.state = {
+            noteData: []
+        };
+        }
 
     componentDidMount() {
         this.setState({ noteData: dummyData})
@@ -17,11 +19,9 @@ class NoteContainer extends Component {
         console.log(this.state);
         return(
             <div className="Notes">
-                {this.state.noteData.map((note, index) => {
-                    return (
-                    <NoteCard key={index} noteData={this.state.noteData}/>
-                    );
-                })}
+                
+                <NoteCard noteData={this.state.noteData}/>
+                    
             </div>
         )
         
