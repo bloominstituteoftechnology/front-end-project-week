@@ -11,7 +11,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>The Type of View</header>
         <div className="app-container">
           <div className="sidebar">
             <Route path="/" component={SideBar} />

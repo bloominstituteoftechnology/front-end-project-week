@@ -1,32 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { addNote, editNote } from '../actions';
 
-const routeView = 'Note View'
-
-class Note extends Component {
-    state = {
-        notes: []
-    }
-
-    render() {
-        console.log(this.props.notes)
-        return (
+const Note = props => {
+    return (
+        <Link to={`/note/${props.notes.id}`}>
             <div>
-                <div>
-                    <h4>{this.props.notes[0].title}</h4>
-                    <p>{this.props.notes[0].body}</p>
-                </div>
+                <h4>{props.notes.title}</h4>
+                <p>{props.notes.body}</p>
             </div>
-        )
-    }
+        </Link>
+    )
 }
 
-const mapStateToProps = store => {
-    return {
-        notes: store
-    };
-};
-
-export default connect(mapStateToProps, { addNote, editNote })(Note);
+export default Note;

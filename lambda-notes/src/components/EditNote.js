@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { removeNote, editNote } from '../actions';
 
@@ -14,12 +15,11 @@ class EditNote extends Component {
     };
 
     render() {
-        console.log(this.props.notes)
         return (
-            <div>
+            <Link to={`/note/${this.props.notes.id}`}>
                 <div>
-                    <h4>{this.props.notes[0].title}</h4>
-                    <p>{this.props.notes[0].body}</p>
+                    <h4>{this.props.notes.title}</h4>
+                    <p>{this.props.notes.body}</p>
                 </div>
                 <button>Edit</button>
                 <button
@@ -27,7 +27,7 @@ class EditNote extends Component {
                         this.handleRemoveNote(event, this.props.notes.index)
                     }}>Remove Note
                 </button>
-            </div>
+            </Link>
         )
     }
 }
