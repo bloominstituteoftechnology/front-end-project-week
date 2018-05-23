@@ -218,6 +218,10 @@ table {
   margin: 1rem 0.5rem;
   cursor: pointer;
 }
+.note-view-component .modal-header {
+  width: 800px;
+  justify-content: space-around;
+}
 .NoteCard-component .custom-NoteCard {
   max-width: 220px;
   height: 225px;
@@ -331,6 +335,10 @@ table {
 .main-component .custom-main .edition div {
   margin: 1rem 0.5rem;
   cursor: pointer;
+}
+.main-component .custom-main .modal-header {
+  width: 800px;
+  justify-content: space-around;
 }
 .main-component .custom-main a {
   text-decoration: none;
@@ -455,6 +463,10 @@ p {
 .custom-container .row .custom-main .edition div {
   margin: 1rem 0.5rem;
   cursor: pointer;
+}
+.custom-container .row .custom-main .modal-header {
+  width: 800px;
+  justify-content: space-around;
 }
 .custom-container .row .custom-main a {
   text-decoration: none;
