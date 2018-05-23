@@ -36,7 +36,6 @@ class NoteDetails extends Component {
 
 const mapStateToProp = state => {
   return {
-    id: state.activeNote.id,
     title: state.activeNote.title,
     contents: state.activeNote.contents
   }
