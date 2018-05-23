@@ -9,10 +9,12 @@ class Notecard extends Component {
     }
 
     handleClickNote = () => {
-        this.state.updateSelectedNote({ title: this.props.title, content: this.props.content});
+        // console.log('UPDATE', this.props);
+        this.state.updateSelectedNote({ title: this.props.title, content: this.props.content });
     }
 
     render() {
+        // console.log(this.props);
         return (
             <div className='col-12 d-flex flex-row align-items-start mt-3 mb-3'>
             <Card onClick={() => this.handleClickNote()}>
@@ -26,4 +28,4 @@ class Notecard extends Component {
     }
 }
 
-export default Notecard;
+export default withRouter (Notecard);

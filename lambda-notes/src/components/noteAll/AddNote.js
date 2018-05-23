@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class AddNote extends Component {
     constructor(){
         super();
         this.state={
-            titel: '',
+            title: '',
             content: ''
         };
     }
@@ -17,6 +18,7 @@ class AddNote extends Component {
 
     handleSubmit = () => {
         this.props.addNewNotecard(this.state);
+        this.props.updateNewNote(this.state);
     }
 
     render() {
