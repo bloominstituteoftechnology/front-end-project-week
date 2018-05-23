@@ -34,7 +34,7 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         fetchingNotes: false,
-        notes: state.notes.concat(action.payload)
+        notes: action.payload
       });
 
     case FETCHING_NOTE:

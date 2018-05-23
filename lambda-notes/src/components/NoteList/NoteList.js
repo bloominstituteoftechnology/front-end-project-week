@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import Title from '../Title';
 import NoteCard from '../NoteCard';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getNotes } from '../../actions';
 
 class NoteList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      notes: []
-    }
-  }
   componentDidMount(){
-    axios.get('http://localhost:5000/notes')
-      .then(response => this.setState({ notes: response.data }))
-      .catch(error => console.error(error));
+    this.props.getNotes();
   }
   render() { 
     return ( 
       <div className="note-list">
         <Title title="Your Notes" />
         <div className="note-cards">
-          {this.state.notes.map(note => <NoteCard key={note.id} note={note} />)}
+          {this.props.notes.map(note => <NoteCard key={note.id} note={note} />)}
         </div>
       </div>
      )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetchingNotes: state.fetchingNotes
+  };
+};
  
-export default NoteList;
+export default connect(mapStateToProps, { getNotes })(NoteList);
