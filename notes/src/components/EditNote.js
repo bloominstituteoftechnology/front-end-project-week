@@ -9,16 +9,17 @@ class EditNote extends Component {
         this.state = {  }
     }
     render() { 
-        return ( 
+        console.log("Edit Note Props:", this.props);
+        return (
             <Container>
                 <Row>
                     <Col>
                         <h4 className="edit-note-header">Edit Note:</h4>
-                        <div className="edit-note">
-                            <input placeholder="Note Title"/>
+                        <div>
+                            <input className="edit-note" style={{ marginBottom:'10px' }} placeholder="Note Title"/>
                         </div>
                         <div>
-                            <input style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
+                            <input className="edit-note-content" style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
                         </div>
                         <span>
                             <Link to="/">

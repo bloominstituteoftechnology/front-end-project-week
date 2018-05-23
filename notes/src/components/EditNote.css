@@ -3,6 +3,20 @@
   margin-top: 60px;
   margin-bottom: 20px;
 }
+
+.edit-note {
+  margin-bottom: 20px;
+  border: 1px solid #979797;
+  height: 50px;
+  width: 300px;
+}
+
+.edit-note-content {
+  border: 1px solid #979797;
+  height: 400px;
+  width: 600px;
+}
+
 .edit-button {
     height: 50px;
     width: 200px;

@@ -14,9 +14,9 @@ class Newnote extends Component {
                 <Row>
                     <Col>
                         <h4 className="new-note-header">Create New Note:</h4>
-                            <input placeholder="Note Title"/>
+                            <input className="new-note-title" placeholder="Note Title"/>
                         <div>
-                            <input style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
+                            <input className="new-note-content" style={{ width:'600px', height:'400px' }} placeholder="Note Content"/>
                         </div>
                         <span>
                             <Link to="/">

@@ -4,10 +4,22 @@
   margin-bottom: 20px;
 }
 
+.new-note-title {
+  margin-bottom: 20px;
+  border: 1px solid #979797;
+  height: 50px;
+  width: 300px;
+}
+
+.new-note-content {
+  border: 1px solid #979797;
+  height: 400px;
+  width: 600px;
+}
 .save-button {
   height: 50px;
   width: 200px;
-  border: #979797;
+  border:1px solid #979797;
   background-color: rgb(43, 193, 196);
   color: #FFFFFF;
   margin-top:10px;
