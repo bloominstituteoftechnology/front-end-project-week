@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Title from '../Title';
 import NoteCard from '../NoteCard';
-import { notes } from '../../data/notes';
+// import { notes } from '../../data/notes';
+import axios from 'axios';
 
 class NoteList extends Component {
   constructor(props) {
@@ -11,7 +12,11 @@ class NoteList extends Component {
     }
   }
   componentDidMount(){
-    this.setState({ notes:notes });
+    // this.setState({ notes:notes });
+
+    axios.get('http://localhost:5000/notes')
+      .then(response => this.setState({ notes: response.data }))
+      .catch(error => console.error(error));
   }
   render() { 
     return ( 
