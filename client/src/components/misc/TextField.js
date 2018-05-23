@@ -1,26 +1,32 @@
 import React from 'react';
 
 const TextField = props => {
-  if (props.variant === 'input') {
+  const {
+    variant,
+    inputClassName, inputName, inputOnChange, inputPlaceholder, inputType, inputVal,
+    textareaClassName, textareaContent, textareaName, textareaOnChange, textareaPlaceholder,
+  } = props
+  
+  if (variant === 'input') {
     return (
       <input
-        className={ props.inputClassName }
-        name={ props.inputName }
-        onChange={ props.inputOnChange }
-        placeholder={ props.inputPlaceholder }
-        type={ props.inputType }
-        value={ props.inputVal }
+        className={ inputClassName }
+        name={ inputName }
+        onChange={ inputOnChange }
+        placeholder={ inputPlaceholder }
+        type={ inputType }
+        value={ inputVal }
       />
     )
   }
 
   return (
     <textarea
-      className={ props.textareaClassName }
-      name={ props.textareaName }
-      onChange={ props.textareaOnChange }
-      placeholder={ props.textareaPlaceholder }
-      value={ props.textareaContent }
+      className={ textareaClassName }
+      name={ textareaName }
+      onChange={ textareaOnChange }
+      placeholder={ textareaPlaceholder }
+      value={ textareaContent }
     >
     </textarea>
   )
