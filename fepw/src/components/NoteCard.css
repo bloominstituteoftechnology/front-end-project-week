@@ -5,6 +5,7 @@
 
 .cardTitle {
 	color: black;
+	font-weight: bold;
 }
 
 .cardText {
@@ -15,10 +16,17 @@
   	overflow: hidden;
   	position: relative;
   	line-height: 1.2em;
-  	max-height: 3.6em;
+  	max-height: 7.2em;
   	text-align: justify;
   	margin-right: -1em;
   	padding-right: 1em;
 	width: 250px;
 	text-overflow: ellipsis;
+}
+
+.truncate:before {
+	content: '...';
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }

@@ -23,8 +23,10 @@ class CreateNote extends Component {
 
 	render() {
 		return(
-		<div>
-			<h1>Create New Note:</h1>
+			<div class='wrapper'>
+				<header>
+					<h1>Create New Note:</h1>
+				</header>
 			<Form>
 				<FormGroup>
 					<Input onChange={this.handleInput} name='title' id='Title' placeholder='Note Title' />

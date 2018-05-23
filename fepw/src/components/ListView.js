@@ -12,7 +12,7 @@ class ListView extends Component {
 				</header>
 				<br />
 				<div className='cards'>
-				{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /></Link></div>)}
+					{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /><br /></Link></div>)}
 				</div>
 			</div>
 		)

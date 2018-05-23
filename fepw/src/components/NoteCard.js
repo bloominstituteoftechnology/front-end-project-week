@@ -19,6 +19,7 @@ class NoteCard extends Component {
 			<Card onClick= {() => this.handleSelectNote()}>
 				<CardBody className='notecard'>
 					<CardTitle className='cardTitle'>{this.props.title}</CardTitle>
+					<hr />
 					<CardText className='truncate'>{this.props.content}</CardText>
 				</CardBody>
 			</Card>
