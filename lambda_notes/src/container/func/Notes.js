@@ -7,7 +7,6 @@ class Notes extends Component{
     render(){
         return (
             <div className="note-container">
-                test Note
             <Card>
                     <CardBody>
                         <CardTitle>{this.props.NoteData.title} </CardTitle>

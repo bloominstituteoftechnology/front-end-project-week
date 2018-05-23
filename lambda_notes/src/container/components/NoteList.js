@@ -4,8 +4,8 @@ import Notes from '../func/Notes';
 
 
 class NoteList extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 }
 
     
