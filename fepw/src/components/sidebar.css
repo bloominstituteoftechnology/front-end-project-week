@@ -1,0 +1,15 @@
+nav {
+	height: 100%;
+	font-family: 'Roboto Bold', sans-serif;
+	font-size: .7rem;
+	background-color: #D8D8D8;
+}
+
+button {
+	background-color: #00bfff;
+	color: white;
+	text-align: center;
+	border: .25px grey solid;
+	padding: 5px 10px;
+	width: 90%;
+}

@@ -1,8 +1,10 @@
 .App {
-  text-align: center;
+  height: 100%;
+  background-color: #F3F3F3;
+  font-family: Raleway, 'sans-serif'; 
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -26,3 +28,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/

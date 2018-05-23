@@ -3,25 +3,19 @@ import './App.css';
 import Main from './components/main.js';
 import { Route } from 'react-router-dom';
 import Sidebar from './components/sidebar.js';
-import { Container, Row, Col } from 'reactstrap';
+
 
 class App extends Component {
 	
 render() {
     return (
-	<Route path ='/'>
-		<div>
-			<Container>
-				<Row>
-					<Col sm="3">
-						<div><Sidebar /></div>
-					</Col>
-					<Col sm="9">
-						<div classname='col-9'><Main /></div>
-					</Col>
-				</Row>
-			</Container>
-		</div>
+	    <Route path ='/'>
+		    <div className='container'>
+			    <div className='row'>
+			<div className='col-4'><Sidebar /></div>
+			<div className='col-8'><Main /></div>
+			   </div>
+		   </div>
 	</Route>
     );
   }

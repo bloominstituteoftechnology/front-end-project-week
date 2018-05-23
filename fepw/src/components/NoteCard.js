@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
+import './NoteCard.css';
 
 class NoteCard extends Component {
 	constructor(props) {
@@ -16,9 +17,9 @@ class NoteCard extends Component {
 		return (
 		<div>
 			<Card onClick= {() => this.handleSelectNote()}>
-				<CardBody>
-					<CardTitle>{this.props.title}</CardTitle>
-					<CardText>{this.props.content}</CardText>
+				<CardBody className='notecard'>
+					<CardTitle className='cardTitle'>{this.props.title}</CardTitle>
+					<CardText className='truncate'>{this.props.content}</CardText>
 				</CardBody>
 			</Card>
 		</div>

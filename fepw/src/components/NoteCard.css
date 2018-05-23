@@ -1,0 +1,25 @@
+.wrapper {
+	background-color: teal;
+}
+
+.notecard {
+	width: 30%;
+	color: black;
+	border: grey 1px solid;
+
+}
+
+.cardTitle {
+	color: black;
+}
+
+.cardText {
+	color: black;
+}
+
+.truncate {
+	width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

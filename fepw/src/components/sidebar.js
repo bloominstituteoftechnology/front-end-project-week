@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
-
+import './sidebar.css';
 
 class Sidebar extends Component {
 	render() {
 		return(
 			<nav className="sidebar">
-				<Container>
-					<Row>
-						<Col xs="3">
-				<h2>Lambda<br />Notes</h2>
-				<Link to='/'>
-					<button>View Your Notes</button>
-				</Link>
-
-				<Link to='/CreateNote'>
-					<button>+ Create New Note</button>
-				</Link>
-						</Col>
-					</Row>
-				</Container>
+				<h3>Lambda<br />Notes</h3>
+				<div>
+					<Link to='/'>
+						<button>View Your Notes</button>
+					</Link>
+				</div>
+				<br />
+				<div>
+					<Link to='/CreateNote'>
+						<button>+ Create New Note</button>
+					</Link>
+				</div>
 			</nav>
 		)
 	}
