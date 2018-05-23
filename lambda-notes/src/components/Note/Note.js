@@ -12,7 +12,7 @@ class Note extends Component {
     }
 
     componentDidMount() {
-        console.log('This Props Match Id', this.props.match.params.id); 
+        console.log('This Props Match Id', this.props.match.params.id);
         this.fetchNote(this.props.match.params.id);
     }
 
@@ -31,9 +31,9 @@ class Note extends Component {
     render() {
 
         if (!this.state.note) {
-            return <div>Loading note information...</div> 
+            return <div>Loading note information...</div>
         }
-        
+
         console.log('Note', this.state.note)
         return (
             <div className="cont">
