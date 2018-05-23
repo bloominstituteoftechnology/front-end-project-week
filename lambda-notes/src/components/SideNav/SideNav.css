@@ -3,14 +3,12 @@
     max-width: 244px;
     width: 100%;
     background-color: #D8D8D8;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding: 24px 18px 0px 18px;
     text-align: start;
     font-family: "Roboto";
     font-size: 18px;
     color: #4A4A4A;
     border-right: 2px solid #BCBCBC;
-    padding-top: 24px;
 }
 
 .lambdaNotes {

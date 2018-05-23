@@ -3,9 +3,7 @@
     height: 980px;
     box-sizing: border-box;
     text-align: start;
-    padding-left: 31px;
-    padding-right: 31px;
-    padding-top: 30px;
+    padding: 30px 31px 0px 31px;
     font-size: 20px;
     color: #4A4A4A;
     background-color: #F3F3F3;
@@ -46,8 +44,7 @@
 }
 
 .modal {
-    padding-top: 165px;
-    padding-right: 75px; /*365 initially*/
+    padding: 165px 75px 0px 0px; 
     max-width: 980px;
     width: 100%;
 }
