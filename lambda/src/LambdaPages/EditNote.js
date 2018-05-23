@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col } from 'reactstrap';
 
 //importing Form CSS
-import './Form.css';
+import '../components/Form.css';
 
 //Class Component that will render NoteForm and its props
-class NoteForm extends Component {
+class EditNote extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -63,4 +63,5 @@ class NoteForm extends Component {
   }
 }
 
-export default NoteForm;
+export default EditNote;
+

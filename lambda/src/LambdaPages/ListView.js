@@ -1,7 +1,11 @@
 import React from 'react';
-import NavBar from '../components/Nav'
+import { Link } from 'react-router-dom'
 
-import { Card, CardTitle, CardText, Row, Col, Container } from 'reactstrap';
+import NavBar from '../components/Nav'
+import Delete from '../components/Delete';
+import EditNote from '../LambdaPages/EditNote'
+
+import { Card, CardTitle, CardText, Row, Col, Container, Button } from 'reactstrap';
 
 import '../components/Form.css'
 
@@ -13,10 +17,14 @@ const ListView = (props) => {
             return (
                 <div key={note.id}>
                     <Container>
-                    <Card body>
-                        <CardTitle>{note.title}</CardTitle>
-                        <CardText>{note.note}</CardText>
-                    </Card>
+                        <Row>
+                            <Card body>
+                                <CardTitle>{note.title}</CardTitle>
+                                <CardText>{note.note}</CardText>
+                                <Link to="note/edit/"><Button color="info">Edit</Button></Link>
+                                <Delete />
+                            </Card>
+                        </Row>
                     </Container>
                 </div>
             );   

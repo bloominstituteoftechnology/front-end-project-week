@@ -1,5 +1,3 @@
 .container{
-    background: #F3F3F3;
-    height: 100%;
-    max-width: 100%;
+    display: flex;
 }
