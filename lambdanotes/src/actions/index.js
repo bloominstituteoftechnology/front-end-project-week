@@ -11,6 +11,7 @@ export const REALLY_DELETE = "REALLY_DELETE";
 export const DONE_DELETING = "DONE_DELETING";
 export const SAVE_NEW = "SAVE_NEW";
 export const DONE_SAVING = "DONE_SAVING";
+export const CANCEL_DELETE = "CANCEL_DELETE";
 
 
 
@@ -78,3 +79,9 @@ export const saveNew = (url, note) => {
     });
   };
 };
+
+export const cancelDelete = () => {
+  return (dispatch) => {
+    dispatch({type: CANCEL_DELETE});
+  }
+}

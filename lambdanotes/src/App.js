@@ -4,7 +4,7 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
-import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete } from './actions';
+import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete } from './actions';
 
 class App extends Component {
 
@@ -25,12 +25,6 @@ class App extends Component {
     this.setState({appState: "edit"});
   }
 
-  tempSaveNew(newNote) {
-    let processedNote = Object.assign({}, newNote, {id: this.state.newId});
-    let newNotes = this.state.notes.slice(0);
-    newNotes.push(processedNote);
-    this.setState({appState: "list", notes: newNotes, newId: this.state.newId + 1});
-  }
 
   tempSaveEdit(newNote) {
     let processedNote = Object.assign({}, newNote, {id: this.state.viewId});
@@ -58,7 +52,7 @@ class App extends Component {
                 viewId={this.props.viewId}
                 deleteMethod={this.props.startDelete}
                 reallyDeleteMethod={this.props.reallyDelete}
-                cancelDeleteMethod={this.tempCancelDelete.bind(this)}
+                cancelDeleteMethod={this.props.cancelDelete}
                 editMethod={this.tempEdit.bind(this)}
                 saveEditMethod={this.tempSaveEdit.bind(this)}
                 saveNewMethod={this.props.saveNew}
@@ -79,4 +73,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete })(App);
+export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete })(App);
