@@ -5,7 +5,7 @@ import SaveNote from '../../components/SaveNote';
 const CreateNew = () => {
   return (
     <React.Fragment>
-      <SaveNote title="Create New Note" action="Update"/>
+      <SaveNote title="Create New Note" action="Save"/>
     </React.Fragment>
   );
 }

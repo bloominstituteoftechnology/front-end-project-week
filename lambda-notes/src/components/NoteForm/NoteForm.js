@@ -15,17 +15,29 @@ class NoteForm extends Component {
     this.setState({ [event.target.name]:event.target.value });
   }
   saveForm = event => {
-    // create new or update
-    if(this.state.title !== ''){
+    (this.props.noteId) ? this.editNote(this.props.noteId) : this.createNewNote();
+  }
+  createNewNote = () => {
+    if (this.state.title !== ''){
       const newNote = {
         title: this.state.title,
         contents: this.state.contents
       };
 
-      const redirect = (this.props.noteId) ? `/note/${this.props.noteId}` : "/";
-
       axios.post('http://localhost:5000/notes', newNote)
-        .then(response => history.push(redirect))
+        .then(response => history.push('/'))
+        .catch(error => console.error(error));
+    }
+  }
+  editNote = id => {
+    if (this.state.title !== ''){
+      const updatedNote = {
+        title: this.state.title,
+        contents: this.state.contents
+      };
+
+      axios.put(`http://localhost:5000/notes/${id}`, updatedNote)
+        .then(response => history.push(`/note/${id}`))
         .catch(error => console.error(error));
     }
   }
@@ -59,7 +71,6 @@ class NoteForm extends Component {
             type="primary"
             title={this.props.action}
             clickAction={this.saveForm}
-            // link={(this.props.noteId) ? `/note/${this.props.noteId}` : "/"}
           />
         </div>
       </React.Fragment>
