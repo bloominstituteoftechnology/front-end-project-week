@@ -4,34 +4,44 @@ import TextField from '../misc/TextField';
 import Button from '../misc/Button';
 
 const Form = props => {
+  const { 
+    buttonClassName, buttonContent, buttonOnClick,
+    content,
+    formClassName,
+    inputClassName,
+    setInputVal, setTextAreaVal,
+    title,
+    textareaClassName 
+  } = props;
+
   return (
-    <form className={ props.formClassName }>
+    <form className={ formClassName }>
       <div>
         <TextField
           variant='input'
-          inputClassName={ props.inputClassName }
+          inputClassName={ inputClassName }
           inputName='title'
           inputType='text'
-          inputVal={ props.title }
-          inputOnChange={ props.setInputVal }
+          inputVal={ title }
+          inputOnChange={ setInputVal }
         />
       </div>
 
       <div>
         <TextField
-          textareaClassName={ props.textareaClassName }
-          textareaContent={ props.content }
+          textareaClassName={ textareaClassName }
+          textareaContent={ content }
           textareaName='content'
-          textareaOnChange={ props.setTextAreaVal }
+          textareaOnChange={ setTextAreaVal }
         />
       </div>
 
       <div className='form__submit-wrapper'>
         <Button
-          buttonClassName={ props.buttonClassName }
-          buttonContent={ props.buttonContent }
+          buttonClassName={ buttonClassName }
+          buttonContent={ buttonContent }
           buttonType='submit'
-          buttonOnClick={ props.buttonOnClick }
+          buttonOnClick={ buttonOnClick }
         />
       </div>
     </form>
