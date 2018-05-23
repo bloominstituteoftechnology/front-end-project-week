@@ -3,8 +3,22 @@ import { Link } from 'react-router-dom'
 import Styles from '../../Styles/Noteview.css';
 import Mybutton from '../Reusables/Mybutton';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 export default class Noteview extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          modal: false
+        };
+    
+        this.toggle = this.toggle.bind(this);
+      }
+    
+      toggle() {
+        this.setState({
+          modal: !this.state.modal
+        });
+      }
   render() {
     return (
         <div className="BigContainer">
@@ -27,7 +41,17 @@ export default class Noteview extends Component {
                     <Link to = "/edit">
                         <a href="#"> edit </a>
                     </Link>
-                    <a href="#"> delete </a>
+                    <a href = "#close" onClick={this.toggle}>delete</a>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                    <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
+                    <ModalBody>
+                        hmm.......
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={this.toggle}>No</Button>
+                        <Button color="secondary" onClick={this.toggle}>Yes</Button>
+                    </ModalFooter>
+                    </Modal>
                 </div >
 
                 <div className = "mainbarHeading">
