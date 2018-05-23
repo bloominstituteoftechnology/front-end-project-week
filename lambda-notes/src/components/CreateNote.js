@@ -26,7 +26,7 @@ class CreateNote extends Component {
         console.log(this.props)
         console.log(this.noteID)
         return (
-            <div className="container">
+            <div className="create-note">
                 <form>
                     <input
                     type="text"
@@ -34,13 +34,15 @@ class CreateNote extends Component {
                     name="title"
                     value={this.state.title}
                     onChange={this.handleNewNote}
+                    className="title"
                     />
-                    <input
+                    <textarea
                     type="text"
                     placeholder="Write note here..."
                     name="body"
                     value={this.state.body}
                     onChange={this.handleNewNote}
+                    className="bodytext"
                     />
                     <button onClick={this.addNote}>
                         Add Note

@@ -12,9 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="app-container">
-          <div className="sidebar">
-            <Route path="/" component={SideBar} />
-          </div>
+          <Route path="/" component={SideBar} />
           <Switch className="container">
               <Route exact path="/" component={NoteList} />
               <Route path="/addNote" component={CreateNote} />

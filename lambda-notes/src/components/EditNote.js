@@ -9,9 +9,9 @@ class EditNote extends Component {
         notes: []
     }
 
-    handleRemoveNote = (event, index) => {
+    handleRemoveNote = (event, id) => {
         event.preventDefault();
-        this.props.removeNote(index)
+        this.props.removeNote(id)
     };
 
     render() {
@@ -23,8 +23,8 @@ class EditNote extends Component {
                 </div>
                 <button>Edit</button>
                 <button
-                    value={this.props.notes.index} onClick={(event) => {
-                        this.handleRemoveNote(event, this.props.notes.index)
+                    value={this.props.notes.id} onClick={(event) => {
+                        this.handleRemoveNote(event, this.props.notes.id)
                     }}>Remove Note
                 </button>
             </Link>
