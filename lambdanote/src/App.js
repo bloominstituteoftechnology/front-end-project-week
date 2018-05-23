@@ -24,33 +24,30 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-      <Container fluid>
-        <Row>
+      
           
-            <div className='nav-container col-3'>
-              <h3>Lambda Notes</h3>
+            <div className='nav-container'>
+              <h1 className='header'>Lambda <br /> Notes</h1>
                <Link to='/'>
-                <Button className='nav-btn' block>
+                <button className='nav-btn'>
                   View Your Notes
-                </Button>
-              </Link>
+                </button>              </Link>
               <Link to='create-form'>
-              <Button className='nav-btn' block>
+              <button className='nav-btn'>
                 +Create New Note
-              </Button>
+              </button>
               </Link>
             </div>  
           
           
-          <div className='note-container col-9'>
+          <div className='note-container'>
             <Route exact path='/' render={(props) => <NoteList {...this.state}/>} />
             <Route path='/note/:id' render={(props) => <SingleNote {...this.state}/>} />
             <Route path='/create-form' component={CreateForm} />
             <Route path='/edit' component={EditForm} />
           </div>  
              
-        </Row>
-      </Container>
+       
       </div>
     );
   }
