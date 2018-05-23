@@ -12,7 +12,7 @@ const Sidebar = () => {
                 </Link>
             </div>
             <div className='sbEntireLink'>
-                <Link to='/create'>
+                <Link to='/note/create'>
                     <button block='true' className='sidebarButton'>+ Create New Note</button>
                 </Link>
             </div>

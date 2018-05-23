@@ -41,7 +41,7 @@ class App extends Component {
         </div>
         <div className='viewContainer'>
           <Route exact path='/' render={ (props) => { return(<ListView {...props} notesList={this.state.notesList} setCurrentNote={this.setCurrentNote}/>)}} />
-          <Route path='/create' component={CreateNote} />
+          <Route path='/note/create' component={CreateNote} />
           <Route exact path='/:_id' render={ (props) => { return(<ViewNote {...props} currentNote={this.state.currentNote} />)}} />
           <Route path='/:_id/edit' component={EditNote} />
         </div>

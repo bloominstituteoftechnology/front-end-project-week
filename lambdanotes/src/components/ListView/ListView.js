@@ -8,7 +8,7 @@ const ListView = (props) => {
             <h3 className='listViewHeader'>Your Notes:</h3>
             <div className='noteCardsCollection'>
                 {props.notesList.map(note => (
-                    <div onClick={() => props.setCurrentNote(note._id)} className='entireNoteCardLink'>
+                    <div onClick={() => props.setCurrentNote(note._id)} key={note._id} className='entireNoteCardLink'>
                         <Link to={`/${note._id}`} className='noteCardLink'>
                             <div className='noteCard'>
                                 <h6 className='noteTitle'>{note.title}</h6>
