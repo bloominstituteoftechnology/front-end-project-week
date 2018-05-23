@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING } from '../actions';
 
 const initialState = {
   notes: [],
@@ -9,6 +9,7 @@ const initialState = {
 
 const noteReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SAVE_NEW:
     case FETCHING_NOTES:
       return Object.assign({}, state, {appState: "fetching"});
     case FETCHED_NOTES:
@@ -21,6 +22,8 @@ const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {appState: "view", viewId: action.payload});
     case START_DELETE:
       return Object.assign({}, state, {appState: "deleting"});
+    case DONE_SAVING:
+      return Object.assign({}, state, {appState: "needsToFetch"});
     default:
       return state;
   }

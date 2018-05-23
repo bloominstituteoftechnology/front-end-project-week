@@ -4,7 +4,7 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
-import { fetcher, startCreate, goToList, viewNote, startDelete } from './actions';
+import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew } from './actions';
 
 class App extends Component {
 
@@ -64,7 +64,8 @@ class App extends Component {
                 cancelDeleteMethod={this.tempCancelDelete.bind(this)}
                 editMethod={this.tempEdit.bind(this)}
                 saveEditMethod={this.tempSaveEdit.bind(this)}
-                saveNewMethod={this.tempSaveNew.bind(this)} />
+                saveNewMethod={this.props.saveNew}
+                fetcher={this.props.fetcher} />
             </Col>
           </Row>
       </div>
@@ -81,4 +82,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete })(App);
+export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew })(App);

@@ -7,6 +7,10 @@ export const ERROR = "ERROR";
 export const GO_TO_LIST = "GO_TO_LIST";
 export const VIEW_NOTE = "VIEW_NOTE";
 export const START_DELETE = "START_DELETE";
+export const REALLY_DELETE = "REALLY_DELETE";
+export const DONE_DELETING = "DONE_DELETING";
+export const SAVE_NEW = "SAVE_NEW";
+export const DONE_SAVING = "DONE_SAVING";
 
 
 
@@ -48,3 +52,29 @@ export const startDelete = () => {
     dispatch({type: START_DELETE});
   }
 }
+
+export const reallyDelete = (url, note) => {
+  const request = axios.delete(url);
+  return (dispatch) => {
+    dispatch({type: REALLY_DELETE});
+    request.then((data) => {
+      dispatch({type: DONE_DELETING, payload: data.data});
+    })
+    .catch(err => {
+      dispatch({type: ERROR, payload: err});
+    });
+  };
+};
+
+export const saveNew = (url, note) => {
+  const request = axios.post(url + "create", note);
+  return (dispatch) => {
+    dispatch({type: SAVE_NEW});
+    request.then((data) => {
+      dispatch({type: DONE_SAVING});
+    })
+    .catch(err => {
+      dispatch({type: ERROR, payload: err});
+    });
+  };
+};

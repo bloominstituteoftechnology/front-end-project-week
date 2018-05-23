@@ -31,6 +31,15 @@ const ContentArea = (props) => {
       return (
         <NoteForm topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} />
       );
+    case "fetching":
+      return (
+        <div />
+      );
+    case "needsToFetch":
+      props.fetcher("https://killer-notes.herokuapp.com/note/get/all");
+      return (
+        <div />
+      );
     default:
       return (
         <div />
