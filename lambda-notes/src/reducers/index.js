@@ -7,7 +7,7 @@ import {
 import dummyData from '../Components/Dummy-Data'
 
 const initialState = {
-    notes: dummyData,
+    notes: [],
     addNote: false,
     updateNote: false,
     deleteNote: false,

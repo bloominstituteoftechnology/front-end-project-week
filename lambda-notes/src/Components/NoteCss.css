@@ -23,3 +23,17 @@
     border: 1px solid darkgray;
     box-shadow: 2px, 2px, 3px, 5px
 }
+
+.sideNav {
+    height: 1200px;
+    background-color: grey
+}
+
+.navBar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 1000px;
+    height: 100%;
+    flex-direction: column;
+}

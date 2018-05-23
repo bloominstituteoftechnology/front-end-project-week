@@ -1,40 +1,32 @@
 import React, { Component } from "react";
-import { Col } from "reactstrap";
-import { connect } from "react-redux";
+import { Col, Nav, Navbar, Button } from "reactstrap";
 import { withRouter, Link } from "react-router-dom";
-
+import './NoteCss.css'
 class NavBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      new1: this.props.notes
-    };
-  }
+  
 
   render() {
-    console.log("ASDSADADA", this.props);
-    console.log(this.state.new1);
+  
     return (
-      <div>
-        <div>
-          <h1>Lambda Notes</h1>
-        <button>        
-          <Link to={`/`}>View Your Notes</Link>
-        </button>
-        </div>
-        <div>
-         <button> <Link to={`/NewNote`}>+Create New Note</Link>
-        </button>
-        </div>
-      </div>
+      <Col sm="4" >
+      <Navbar className="navBar">
+     <Nav vertical>
+    <h1>Lambda Notes</h1>
+    <br />
+    <br />
+    <Link to="/">
+    <Button>View Notes</Button>
+      </Link>
+    <br />
+    <Link to="/NewNote">
+    <Button>Create New Note</Button>
+    </Link>
+     </Nav>
+     </Navbar>
+     </Col>
     );
   }
 }
-const mapStateToProps = state => {
-  console.log("NavBarState", state.notes);
-  return {
-    notes: state.notes
-  };
-};
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+
+export default NavBar;

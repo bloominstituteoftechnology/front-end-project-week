@@ -1,55 +1,28 @@
-import React, { Component } from "react";
-import NoteCard from "./NoteCard";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Card } from "reactstrap";
-import { withRouter } from "react-router-dom";
-import { addNote, deleteNote, updateNote, error } from "../actions";
+import NoteCard from './NoteCard';
+import { Col, Card, Row, Container } from "reactstrap";
 
-import { connect } from "react-redux";
-import "./NoteCss.css";
-
-class NoteList extends Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return (
-      <div className="listDiv">
-        <Row className="listRow">
-          {this.props.notes.map(note => {
-            console.log("Note", note);
-            return (
-              <Col sm="4" key={note.id}>
-                <Link
-                  to={`notes/${note.id}`}
-                  note={note}
-                  style={{ color: "black", textDecoration: "none" }}
-                >
-                  <Card>
-                    {note.title}
-                    <p>{note.note}</p>
-                  </Card>
-                </Link>
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  };
-};
-
-export default withRouter(
-  connect(mapStateToProps, {
-    addNote,
-    deleteNote,
-    updateNote,
-    error
-  })(NoteList)
-);
+const NoteList = props => {
+  console.log("NoteList", props.notes);
+return (
+    <Col sm="8">
+    {props.notes.map(note => (
+   <Link to={`notes/${note.id}`}>
+        <NoteCard key={note.id} note={note}  />
+    </Link>
+    ))}
+    </Col>
+    
+)}
+   
+    export default NoteList;
+    
+//     <Link to={`/notes/${props.id}`}>
+// <div>
+// <h3>{props.title}</h3>
+// <p>{props.content}</p> 
+// </div>
+// </Link>
+// );
+// };
