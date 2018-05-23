@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import './NoteView.css';
-import SideBar from './SideBar.js';
-import SingleNoteView from './SingleNoteView.js';
 
 class NoteView extends Component {
   render() {
     return (
-      <div className="page-container">
-        <div className="main-content-container">          
-          <div className="side-menu">
-            <SideBar />
-          </div>
-          <div className="list-view">      
-            <h1 className="app-intro">
-              Note View:
-            </h1>
-            <SingleNoteView />
-          </div>    
-        </div>
+      <div className="route-container">
+        {/* <div className="navigation-bottom"> */}
+          <Route exact path="/SingleNoteView" component={NoteView} />
+          <Route path="/CreateNewView" component={CreateNewView} />
+        {/* </div> */}
       </div>
     );
   }

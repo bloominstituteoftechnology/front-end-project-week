@@ -1,76 +1,66 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Card, CardTitle, CardText, CardColumns,
+  CardBody } from 'reactstrap';
 
 import './ListView.css';
-
-import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
-    CardBody } from 'reactstrap'; 
-
 
 const ListView = (props) => {
   return (
     <CardColumns className="card-columns">
       <Card className="card">        
         <CardBody className="card-body">
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>
       <Card className="card">        
         <CardBody className="card-body">
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>
       <Card className="card">        
         <CardBody className="card-body">
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>      
       <Card className="card">        
         <CardBody>
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>
       <Card className="card">        
         <CardBody>
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>
       <Card className="card">        
         <CardBody>
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>      
       <Card className="card">        
         <CardBody>
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>
       <Card className="card">        
         <CardBody>
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>
       <Card className="card">        
         <CardBody>
-          <CardTitle>Note Title</CardTitle>
+          <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>
           <CardText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-          <Button>Button</Button>
-        </CardBody>
+          </CardBody>
       </Card>      
     </CardColumns>
   );
