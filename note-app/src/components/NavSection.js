@@ -1,18 +1,29 @@
 import React from 'react';
-import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Container, Col, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-class NavSection extends Component {
-    render() {
+const navSection = () => { 
     return (
-        <div>
-            <h1>Lambda Notes</h1>
-            <Button>View Your Notes</Button>{' '}
-            <Button>+ Create New Note</Button>{' '}
-            </div>
-        );
-    }   
-};
+        <Container className= 'navContainer'>
+          <Row>
+              <Col>
+                <h1 className='title'>Lambda Notes</h1>
+                </Col>
+            </Row>
+                <Col>
+                    <Row>
+                    <Link to ='/'>
+                        <Button>View Your Notes</Button>
+                    </Link>
+                    <Link to='/cardForm'>
+                         <Button>+ Create New Note</Button>
+                    </Link>
+                    </Row>
+                </Col>
+        </Container>
+    )
+ }
+                    
 
-export default NavSection;
+export default navSection;
 

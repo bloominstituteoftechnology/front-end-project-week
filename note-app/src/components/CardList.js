@@ -1,12 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Col, Row } from 'reactstrap';
 
-class CardsList extends Component {
-    render() {
+const cardsList = () => {
         return (
-            <div>
-                </div>
-        )
-    };
-}
+            <Container>
+                <Row>
+                    <Col>
+                        <h2>Your Notes:</h2>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                    {/*insert card list here*/}
+                    </Col>
+                </Row>
+            </Container>
 
-export default CardList;
+        )
+    }
+    
+
+export default cardList;
