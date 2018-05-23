@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
 import Markdown from 'markdown-to-jsx';
+import { CSVLink, CSVDownload } from 'react-csv';
 
 export default (props) => {
     // console.log("props", props)
@@ -26,6 +27,7 @@ export default (props) => {
                     );
                 })}
             </div>
+            <CSVLink className="download-link" seperator="," data={props.notes.notes} target="_blank">Download</CSVLink>
         </div>
     );
 }
