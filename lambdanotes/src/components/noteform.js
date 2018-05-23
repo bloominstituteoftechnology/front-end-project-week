@@ -27,6 +27,7 @@ class NoteForm extends React.Component {
   }
 
   render() {
+    console.log(this.props.fetcher);
     return (
       <Form id="note-form" >
         <h5 className="form-heading">{this.props.topText}</h5>
@@ -36,7 +37,7 @@ class NoteForm extends React.Component {
         <FormGroup>
           <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" value={this.state.myContent} />
         </FormGroup>
-        <LambdaButton myFunc={() => this.props.myMethod("https://killer-notes.herokuapp.com/note/", {title: this.state.myTitle, textBody: this.state.myContent})} text="Save" color="green" />
+        <LambdaButton myFunc={() => this.props.myMethod(this.props.fetcher, "https://killer-notes.herokuapp.com/note/", {title: this.state.myTitle, textBody: this.state.myContent})} text="Save" color="green" />
       </Form>
     );
   }

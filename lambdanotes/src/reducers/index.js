@@ -12,6 +12,8 @@ const noteReducer = (state = initialState, action) => {
     case SAVE_NEW:
     case FETCHING_NOTES:
     case REALLY_DELETE:
+    case DONE_SAVING:
+    case DONE_DELETING:
       return Object.assign({}, state, {appState: "fetching"});
     case FETCHED_NOTES:
       return Object.assign({}, state, {appState: "list", notes: action.payload});
@@ -23,9 +25,6 @@ const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {appState: "view", viewId: action.payload});
     case START_DELETE:
       return Object.assign({}, state, {appState: "deleting"});
-    case DONE_SAVING:
-    case DONE_DELETING:
-      return Object.assign({}, state, {appState: "needsToFetch"});
     case CANCEL_DELETE:
       return Object.assign({}, state, {appState: "view"});
     default:

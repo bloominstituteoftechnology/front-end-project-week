@@ -17,7 +17,7 @@ const NoteView = (props) => {
         <ModalBody className="delete-modal">
           Are you sure you want to delete this?
           <div className="delete-buttons">
-            <LambdaButton color="red" text="Delete" myFunc={() => props.reallyDeleteMethod("https://killer-notes.herokuapp.com/note/delete/" + props.note._id)} />
+            <LambdaButton color="red" text="Delete" myFunc={() => props.reallyDeleteMethod(props.fetcher, "https://killer-notes.herokuapp.com/note/", props.note._id)} />
             <LambdaButton color="green" text="No" myFunc={props.cancelDeleteMethod} />
           </div>
         </ModalBody>

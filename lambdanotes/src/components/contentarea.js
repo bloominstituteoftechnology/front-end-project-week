@@ -20,23 +20,19 @@ const ContentArea = (props) => {
           deleteMethod={props.deleteMethod}
           reallyDeleteMethod={props.reallyDeleteMethod}
           cancelDeleteMethod={props.cancelDeleteMethod}
-          editMethod={props.editMethod} />
+          editMethod={props.editMethod}
+          fetcher={props.fetcher} />
       );
     case "create":
       return (
-        <NoteForm topText="Create New Note:" myTitle="" myContent="" myMethod={props.saveNewMethod} />
+        <NoteForm fetcher={props.fetcher} topText="Create New Note:" myTitle="" myContent="" myMethod={props.saveNewMethod} />
       );
     case "edit":
       myNote = props.notes.filter((note) => note._id === props.viewId)[0];
       return (
-        <NoteForm topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} />
+        <NoteForm fetcher={props.fetcher} topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} />
       );
     case "fetching":
-      return (
-        <div />
-      );
-    case "needsToFetch":
-      props.fetcher("https://killer-notes.herokuapp.com/note/get/all");
       return (
         <div />
       );

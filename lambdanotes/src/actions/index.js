@@ -54,12 +54,13 @@ export const startDelete = () => {
   }
 }
 
-export const reallyDelete = (url) => {
-  const request = axios.delete(url);
+export const reallyDelete = (nextAct, url, id) => {
+  const request = axios.delete(url + "delete/" + id);
   return (dispatch) => {
     dispatch({type: REALLY_DELETE});
     request.then((data) => {
       dispatch({type: DONE_DELETING});
+      nextAct(url + "get/all");
     })
     .catch(err => {
       dispatch({type: ERROR, payload: err});
@@ -67,12 +68,13 @@ export const reallyDelete = (url) => {
   };
 };
 
-export const saveNew = (url, note) => {
+export const saveNew = (nextAct, url, note) => {
   const request = axios.post(url + "create", note);
   return (dispatch) => {
     dispatch({type: SAVE_NEW});
     request.then((data) => {
       dispatch({type: DONE_SAVING});
+      nextAct(url + "get/all");
     })
     .catch(err => {
       dispatch({type: ERROR, payload: err});
