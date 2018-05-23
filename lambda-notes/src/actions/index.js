@@ -1,15 +1,10 @@
-export const FETCH_NOTES = "FETCH_NOTES";
 export const CREATE_NOTE = "CREATE_NOTE";
+export const GET_NOTE = "GET_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 
 let noteId = 2;
 
-// export const fetchNotes = () => {
-//   return {
-//     type: FETCH_NOTES,
-//     payload: []
-//   };
-// };
+
 
 export const createNote = note => {
   noteId += 1;
@@ -21,6 +16,13 @@ export const createNote = note => {
       content: note.content
     }
   };
+};
+
+export const getNote = id => {
+    return {
+        type: GET_NOTE,
+        payload: id
+    };
 };
 
 export const deleteNote = id => {

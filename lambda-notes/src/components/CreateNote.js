@@ -9,9 +9,7 @@ class CreateNote extends Component {
     title: '', content: ''
   };
 
-//   componentDidMount() {
-//       this.props.();
-//   }
+
 
   handleNoteInput = e => {
     this.setState({

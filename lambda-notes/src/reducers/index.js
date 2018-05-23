@@ -1,5 +1,5 @@
 import {
-  FETCH_NOTES,
+  GET_NOTE,
   CREATE_NOTE,
   DELETE_NOTE
 } from "../actions";
@@ -11,8 +11,9 @@ const initialNotes = [
 
 export const notesReducer = (notes = initialNotes, action) => {
   switch (action.type) {
-    case FETCH_NOTES:
-      return notes.concat(action.payload);
+    case GET_NOTE:
+    console.log(typeof action.payload)
+      return notes.filter(note => note.id === parseInt(action.payload))
     case CREATE_NOTE:
       return notes.concat(action.payload);
     default:

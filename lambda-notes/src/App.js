@@ -3,7 +3,10 @@ import './App.css';
 import { Route, Link } from "react-router-dom";
 import CreateNote from './components/CreateNote';
 import SideBar from "./components/SideBar";
-import Cards from "./components/Cards";
+import Notes from "./components/Notes";
+import Note from "./components/Note";
+
+
 
 
 
@@ -15,8 +18,9 @@ class App extends Component {
       <div className="container-fluid custom-container">
           <div className="row custom-row">
             <Route path="/" component={SideBar} />
-            <Route exact path="/" component={Cards} />
+            <Route exact path="/" component={Notes} />
             <Route exact path="/create" component={CreateNote} />
+            <Route exact path='/notes/:id' component={Note}/>
           </div>
         </div>
     )
