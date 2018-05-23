@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Form, Input, Row, Col, Button, Modal, ModalBody } from 'reactstrap';
 
-class AddNote extends Component {
+class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {

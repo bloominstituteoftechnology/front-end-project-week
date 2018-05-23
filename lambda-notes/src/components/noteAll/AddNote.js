@@ -13,11 +13,12 @@ class AddNote extends Component {
     }
 
     handleInputChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({ [e.target.name]: e.target.value });// title: "hi"
     }
 
     handleSubmit = () => {
-        this.props.addNewNotecard(this.state);
+        console.log(this.props);
+        this.props.addNewCard(this.state);
         this.props.updateNewNote(this.state);
     }
 
@@ -27,14 +28,14 @@ class AddNote extends Component {
                 <h1 className='sub-header'>Create New Note:</h1>
                 <Form>
                     <FormGroup>
-                        <Input onChange={this.handleInputChange} type='text' className='noteTitle mt-4' name='Title' id='Title' placeholder='Note Title'/>
+                        <Input onChange={this.handleInputChange} value={this.state.title} type='text' className='noteTitle mt-4' name='title' id='Title' placeholder='Note Title'/>
                     </FormGroup>
                     <FormGroup>
-                        <Input type='textarea' className='noteContent'name='Content' id='Content' placeholder='Note Content' />
+                        <Input onChange={this.handleInputChange} type='textarea' className='noteContent'name='content' value={this.state.content} id='Content' placeholder='Note Content' />
                     </FormGroup>
-                    <FormGroup>
+                    {/* <FormGroup>
                         <Input onChange={this.handleInputChange} type='text' className='noteTitle mt-4' name='Title' id='Title' placeholder='Note Title'/>
-                    </FormGroup>
+                    </FormGroup> */}
                 </Form>    
                         <Link className='' to='/'>
                         <button onClick={this.handleSubmit} className='navButton_save mt-2'>Save Note</button>

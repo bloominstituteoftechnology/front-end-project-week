@@ -14,13 +14,15 @@ class Notecard extends Component {
     }
 
     render() {
-        // console.log(this.props);
+        console.log(this.props);
+        const title = this.props.title
+        const content = this.props.content
         return (
             <div className='col-12 d-flex flex-row align-items-start mt-3 mb-3'>
             <Card onClick={() => this.handleClickNote()}>
                 <CardBody>
-                    <CardTitle className='border-bottom border-dar text-left font-weight-bold cardtitle'>Note Title</CardTitle>
-                    <CardText className='text-left'>Content</CardText>
+                    <CardTitle className='border-bottom border-dar text-left font-weight-bold cardtitle'>{title}</CardTitle>
+                    <CardText className='text-left'>{content}</CardText>
                 </CardBody>
             </Card>
             </div>

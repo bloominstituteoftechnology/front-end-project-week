@@ -9,7 +9,13 @@ class NoteList extends Component {
                 <div className='col-9 d-flex flex-row mt-5'>
                 <h2 className='justify-self-start font-weight-bold noteHeader'>NOTES:</h2>
             <div className='row d-flex flex-row justify-content-around'>
-    { this.props.cards.map( (card, i) => <div className='col-4'><Link className='link' to='/ViewNote'><Notecard key={i} updateSelectedNote={this.props.updateSelectedNote} {...card } /></Link></div> ) }
+                { this.props.cards.map( (card, i) => 
+                    <div key={i} className='col-4'>
+                        <Link className='link' to='/ViewNote'>
+                            <Notecard key={i} updateSelectedNote={this.props.updateSelectedNote} {...card } />
+                        </Link>
+                    </div> 
+                )}
             </div>
         </div>
     </div>        
