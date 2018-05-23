@@ -306,6 +306,10 @@ table {
   line-height: 1.565;
   letter-spacing: 0.03rem;
 }
+.main-component .custom-main a {
+  text-decoration: none;
+  color: #4A4A4A;
+}
 /* SideBar_ */
 .side-bar-component .side-bar {
   min-height: 100vh;
@@ -406,4 +410,8 @@ h5 {
 .custom-container .row .custom-main .custom-list-view-container .custom-NoteCard > p {
   line-height: 1.565;
   letter-spacing: 0.03rem;
+}
+.custom-container .row .custom-main a {
+  text-decoration: none;
+  color: #4A4A4A;
 }

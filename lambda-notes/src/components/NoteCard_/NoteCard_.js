@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardTitle, CardText, Col } from "reactstrap";
 
-const NoteCard_ = ({card, ...rest}) => {
+const NoteCard_ = ({card}) => {
   // const { card } = props;
   return (
     <Card className="custom-NoteCard" body>
