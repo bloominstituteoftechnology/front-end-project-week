@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Modal, ModalBody } from 'reactstrap';
+import { Modal } from 'reactstrap';
 import './DeleteNote.css';
 
 class DeleteNote extends Component {
