@@ -8,7 +8,7 @@ import Button_ from '../Button_/Button_';
 const Main_ = () => {
   const Page404 = <div><br/><h5>Something went wrong,</h5><br/><p>the page you are looking for is no here...</p><br/><Link to="/" ><Button_ text="View my notes" /></Link></div>;
   return (
-    <div className="col-9 custom-main">
+    <div className="col-9 position-relative custom-main">
       <Switch>
         <Route
           exact
@@ -17,7 +17,7 @@ const Main_ = () => {
         />
         <Route
           path="/note/:id"
-          component={() => <h5 className="text-capitalize">Note Name</h5>}
+          component={() => null}
         />
         <Route
           path="/edit/:id"

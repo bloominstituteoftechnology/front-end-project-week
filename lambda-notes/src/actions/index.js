@@ -1,6 +1,3 @@
-import { exec } from "child_process";
-import { ECONNREFUSED } from "constants";
-
 import axios from "axios";
 
 export const FETCHING_ITEMS = "FETCHING_ITEMS";

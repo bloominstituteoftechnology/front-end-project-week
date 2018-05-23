@@ -208,6 +208,15 @@ table {
 }
 /* Component's less files are treated as mixins => this allow to nested styles in layout.less */
 /** Import all less files from components */
+.note-view-component .edition {
+  flex-direction: row-reverse;
+  top: 0;
+  right: 0;
+  margin-right: 1.5rem;
+}
+.note-view-component .edition div {
+  margin: 1rem 0.5rem;
+}
 .NoteCard-component .custom-NoteCard {
   max-width: 220px;
   height: 225px;
@@ -306,6 +315,15 @@ table {
   line-height: 1.565;
   letter-spacing: 0.03rem;
 }
+.main-component .custom-main .edition {
+  flex-direction: row-reverse;
+  top: 0;
+  right: 0;
+  margin-right: 1.5rem;
+}
+.main-component .custom-main .edition div {
+  margin: 1rem 0.5rem;
+}
 .main-component .custom-main a {
   text-decoration: none;
   color: #4A4A4A;
@@ -350,6 +368,13 @@ h1 {
 }
 h5 {
   font-size: 1.3rem;
+}
+p {
+  margin-top: 1.6rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.82rem;
+  letter-spacing: 0.5px;
 }
 .custom-container {
   max-width: 80%;
@@ -410,6 +435,15 @@ h5 {
 .custom-container .row .custom-main .custom-list-view-container .custom-NoteCard > p {
   line-height: 1.565;
   letter-spacing: 0.03rem;
+}
+.custom-container .row .custom-main .edition {
+  flex-direction: row-reverse;
+  top: 0;
+  right: 0;
+  margin-right: 1.5rem;
+}
+.custom-container .row .custom-main .edition div {
+  margin: 1rem 0.5rem;
 }
 .custom-container .row .custom-main a {
   text-decoration: none;
