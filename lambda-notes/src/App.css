@@ -1,0 +1,15 @@
+.App_container {
+  display:flex;
+  width: 100%;
+  max-width: 800px;
+}
+.App-left{
+  width:25%;
+  border:solid black 1px;
+  background-color: rgb(238, 226, 226);
+}
+App-right{
+width: 75%;
+border:solid black 1px;
+background-color: gray;
+}
