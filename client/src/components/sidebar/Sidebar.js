@@ -27,7 +27,7 @@ const Sidebar = () => {
         <li>
           <Link to='/note/new'>
             <Button
-              buttonContent='+ Create new Note'
+              buttonContent='+ Create New Note'
               buttonClassName='button button-container_create-new-note-button'
             />
           </Link>
