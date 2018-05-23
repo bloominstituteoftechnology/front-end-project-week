@@ -1,23 +1,45 @@
 // Dependencies
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 // CSS
 import './NoteList.css';
+// Components
 import connect from 'react-redux/lib/connect/connect';
+import { fetchNotes } from '../Actions';
 
 class NoteList extends Component {
   // constructor(props) {
   //   super(props);
   // }
 
-  render() {
-    const { classes } = this.props;
+  componentWillMount() {
+    this.props.fetchNotes();
+  }
+
+  displayNotes = () => {
     return (
-      <div className={`note-list ${classes}`}>
+      <Fragment>
         <h4>Your Notes:</h4>
         <div className={`note-view d-flex flex-wrap`}>
           { this.props.notes.map(obj => <NoteCard key={obj.id} {...obj} />)}
         </div>
+      </Fragment>
+    );
+  }
+
+  render() {
+    console.log("NoteList props.notes",this.props.notes);
+    console.log("Notelist props.user",this.props.user);
+    const { classes } = this.props;
+    return (
+      <div className={`note-list ${classes}`}>
+      {
+        this.props.user ?
+          this.displayNotes()
+        :
+          <h2 className="text-center">Click on the "Log-In" button to get started!</h2>
+      }
       </div>
     );
   }
@@ -32,14 +54,16 @@ const NoteCard = (props) => {
       <h3>{truncTitle}</h3>
       <hr />
       <p>{truncText}</p>
+      {/* <ReactMarkdown source={truncText} /> */}
     </Link>
   );
 }
 
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
+    notes: state.notesReducer.notes,
+    user: state.userReducer.user,
   }
 }
 
-export default withRouter(connect(mapDispatchToProps, null)(NoteList));
+export default withRouter(connect(mapStateToProps, { fetchNotes })(NoteList));

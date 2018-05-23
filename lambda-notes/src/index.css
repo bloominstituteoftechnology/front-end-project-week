@@ -4,6 +4,7 @@
 :root {
   --color--main: #4A4A4A;
   --color--button: #FFFFFF;
+  --color-bg: white;
   --color-bg--side: #D8D8D8;
   --color-bg--main:  #F3F3F3;
   --color-bg--button-main: #2bc1c4;
@@ -13,19 +14,17 @@
 
 html {
   height: 100%;
+  background-color: var(--color-bg);
   white-space: pre-line;
   /* https://stackoverflow.com/a/44413780 */
   /* Preserves new lines in text input */
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  background-color: var(--color-bg);
   height: 100%;
 }
 
 #root {
-  margin: 0;
-  padding: 0;
   height: 100%;
 }
