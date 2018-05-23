@@ -7,6 +7,10 @@ import './ListView.css';
 
 const ListView = (props) => {
   return (
+    <div>
+    <div>
+      <h2 className="main-text">Your Notes:</h2>
+    </div>
     <CardColumns className="card-columns">
       <Card className="card">        
         <CardBody className="card-body">
@@ -63,6 +67,7 @@ const ListView = (props) => {
           </CardBody>
       </Card>      
     </CardColumns>
+    </div>
   );
 };
 

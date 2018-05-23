@@ -8,6 +8,7 @@ const SingleNoteView = () => {
         <div className="main-div">
             <div>
                 <Link to="/editnote">Edit</Link>
+                <Link to="/deletenote">Delete</Link>
             </div>
             <div>
                 <h1>Note Name</h1>
