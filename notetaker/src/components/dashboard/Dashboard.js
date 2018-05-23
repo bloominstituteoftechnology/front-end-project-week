@@ -15,6 +15,14 @@ export default class Dashboard extends Component {
       };
   }
 
+  /*handleDelete = id => {
+    for (let i = 0; i < this.state.notes.length; i++) {
+        if (this.state.notes[i][0].id === id) {
+            this.state.notes.splice(i, 1);
+        }
+    }
+  }*/
+
   componentWillMount() {
       
 
@@ -31,6 +39,14 @@ export default class Dashboard extends Component {
             console.log(lastIn);
         }*/}
     if (typeof this.props.location.state != "undefined") {
+        if (typeof this.props.location.state.deleteID != "undefined") {
+            console.log(this.props.location.state.deleteID.id);
+            for (let i = 0; i < this.state.notes.length; i++) {
+                if (this.state.notes[i][0].id === this.props.location.state.deleteID.id) {
+                    this.state.notes.splice(i, 1);
+                }
+            }
+        }
         if (typeof this.props.location.state.id != "undefined") {
             console.log(this.props.location.state.id.id);
             console.log(this.props.location.state.newTitle);
@@ -71,7 +87,8 @@ export default class Dashboard extends Component {
                             <Col xs="4" className="mb-4" key={note.id}>
                             <Note id={note[0].id}
                             title={note[0].title}
-                            body={note[0].body} />
+                            body={note[0].body}
+                             />
                             </Col>
                         )}
                         </Row>
