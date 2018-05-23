@@ -3,14 +3,14 @@ import _ from "underscore";
 import './App.css';
 import { connect } from "react-redux";
 import { fetchNote, addNote, deleteNote } from "./actions/notesAction";
+import Header from "./components/Header";
+import AddNoteForm from "./components/AddNoteForm";
+import Note from "./components/Note";
+
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-      body: ""
-    }
   }
 
 
@@ -35,37 +35,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="title"
-            onChange={this.handleChange}
-            value={this.state.title}
-            required
-            placeholder="Enter Title"
-          />
-          <input
-            onChange={this.handleChange}
-            value={this.state.body}
-            type="text"
-            name="body"
-            required
-            placeholder="Notes..."
-          />
-          <button>
-            Add Note
-          </button>
-        </form>
+        <Header />
+        <AddNoteForm />
         {_.map(this.props.notes, (note, key) => {
           return (
-            <div key={key}>
-              <h2>{note.title}</h2>
-              <p>{note.body}</p>
-              <button
-                onClick={() => this.props.deleteNote(key)}
-              >
-                X
-              </button>
-            </div>
+            <Note
+              title={note.title}
+              key={key}
+              body={note.body}
+              id={key}
+              deleteNote={this.props.deleteNote}/>
           )
         })}
       </div>
