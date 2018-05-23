@@ -1,5 +1,4 @@
 import React from 'react';
-import './cardContent';
 import { Link } from 'react-router-dom';
 
 const cardContent = () => {
