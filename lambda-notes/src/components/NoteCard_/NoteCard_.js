@@ -1,8 +1,8 @@
 import React from "react";
 import { Card, CardTitle, CardText, Col } from "reactstrap";
 
-const NoteCard_ = props => {
-  const { card } = props;
+const NoteCard_ = ({card, ...rest}) => {
+  // const { card } = props;
   return (
     <Card className="custom-NoteCard" body>
       <CardTitle>{card.title}</CardTitle>
@@ -13,3 +13,4 @@ const NoteCard_ = props => {
 };
 
 export default NoteCard_;
+ 

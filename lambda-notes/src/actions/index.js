@@ -13,7 +13,7 @@ export const DELETING_ITEM = "DELETING_ITEM";
 export const DELETED_ITEM = "DELETED_ITEM";
 export const ERROR = "ERROR";
 
-const URL = "http://localhost:7777/data";
+const URL = "http://localhost:5000/notes";
 const errorAction = error => {
   return {
     type: ERROR,
@@ -29,14 +29,14 @@ export const fetchingItems = () => {
     });
     fetch
       .then(response => {
-        // console.log("response.data", response.data);
+        console.log("response.data", response.data);
         dispatch({
           type: FETCHED_ITEMS,
           data: response.data
         });
       })
       .catch(e => {
-        // console.log("error", e);
+        console.log("error", e);
         dispatch(errorAction(e));
       });
   };
