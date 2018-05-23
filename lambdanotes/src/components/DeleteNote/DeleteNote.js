@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Modal } from 'reactstrap';
 import './DeleteNote.css';
+import axios from 'axios';
 
 class DeleteNote extends Component {
   constructor(props) {
@@ -19,6 +20,15 @@ class DeleteNote extends Component {
     });
   }
 
+  handleDeleteNote = (id) => {
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+        .then(res => {console.log(res)})
+        .catch(err => {console.log(err)})
+
+    window.location.reload();
+  }
+
   render() {
     return (
       <div>
@@ -26,9 +36,9 @@ class DeleteNote extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className='deleteNoteModal'>
             <p className='warningMessage'>Are you sure you want to delete this?</p>
             <div className='deleteNoteModalButtons'>
-                <div className='entireDeleteButton'>
-                    <Link to='/'>
-                        <button className='deleteButton'>Delete</button>
+                <div onClick={() => this.handleDeleteNote(this.props.currentNoteID)} className='entireDeleteButton'>
+                    <Link onClick={() => this.handleDeleteNote(this.props.currentNoteID)} to='/'>
+                        <button onClick={() => this.handleDeleteNote(this.props.currentNoteID)} className='deleteButton'>Delete</button>
                     </Link>
                 </div>
                 <button className='cancelButton' onClick={this.toggle}>No</button>

@@ -12,7 +12,7 @@ const ViewNote = (props) => {
                         <p className='edit'>edit</p>
                     </Link>
                 </div>
-                <DeleteNote />
+                <DeleteNote currentNoteID={props.currentNote._id} />
             </div>
             <h3 className='viewNoteHeader'>{props.currentNote.title}</h3>
             <p className='ViewNoteContent'>{props.currentNote.textBody}</p>

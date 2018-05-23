@@ -3,7 +3,6 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 
-import notesList from './notes-list.js';
 import Sidebar from './components/Sidebar/Sidebar.js';
 import ListView from './components/ListView/ListView.js';
 import CreateNote from './components/CreateNote/CreateNote.js';
