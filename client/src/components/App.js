@@ -14,14 +14,11 @@ import './App.css';
 import data from '../data.json';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      title: '',
-      content: '',
-      noteList: [],
-    };
-  }
+  state = {
+    title: '',
+    content: '',
+    noteList: [],
+  };
 
   // setInputVal
   setInputVal = e => {
@@ -31,25 +28,26 @@ class App extends Component {
   // adds new note to `this.state.noteList`
   addNewNote = (e, props) => {
     e.preventDefault();
+    const { noteList, title, content } = this.state;
     const newNote = {
-      id: '' + this.state.noteList.length,
-      title: this.state.title,
-      content: this.state.content,
+      id: '' + noteList.length,
+      title,
+      content,
     };
-    this.setState({ noteList: [ ...this.state.noteList, newNote ] });
+    this.setState({ noteList: [ ...noteList, newNote ] });
     props.history.push('/');
   }
 
   // setEditNoteValues
   setEditNoteValues = (e, props, id, title, content) => {
     e.preventDefault();
-    const newNoteList = [ ...this.state.noteList ];
-    for (let i = 0; i < newNoteList.length; i++) {
-      if (id === newNoteList[i].id) {
-        newNoteList[i] = { id, title, content }
+    const noteList = [ ...this.state.noteList ];
+    for (let i = 0; i < noteList.length; i++) {
+      if (id === noteList[i].id) {
+        noteList[i] = { id, title, content }
       }
     }
-    this.setState({ title: '', content: '', noteList: [ ...newNoteList ] });
+    this.setState({ title: '', content: '', noteList });
     props.history.push('/');
   }
 
@@ -60,13 +58,13 @@ class App extends Component {
 
   // handleDeleteNote
   handleDeleteNote = id => {
-    const noteListCopy = [ ...this.state.noteList ];
-    for (let i = 0; i < noteListCopy.length; i++) {
-      if (id === noteListCopy[i].id) {
-        noteListCopy.splice(i, 1);
+    const noteList = [ ...this.state.noteList ];
+    for (let i = 0; i < noteList.length; i++) {
+      if (id === noteList[i].id) {
+        noteList.splice(i, 1);
       }
     }
-    this.setState({ noteList: [ ...noteListCopy ] });
+    this.setState({ noteList });
   }
 
   /*****************************************
@@ -74,46 +72,50 @@ class App extends Component {
   *****************************************/
   // <NoteView />
   returnNoteView = props => {
-    return <NoteView { ...props } noteList={ this.state.noteList } setSelectedNote={ this.setSelectedNote }/>;
+    const { state: { noteList }, setSelectedNote } = this;
+    return <NoteView { ...props } noteList={ noteList } setSelectedNote={ setSelectedNote }/>;
   }
   
   // <Note />
   returnNoteComponent = props => {
+    const { state: { noteList }, setEditValues, handleDeleteNote } = this;
     return (
       <Note
         { ...props }
-        noteList={ this.state.noteList }
-        setEditValues={ this.setEditValues }
-        handleDeleteNote={ this.handleDeleteNote }
+        noteList={ noteList }
+        setEditValues={ setEditValues }
+        handleDeleteNote={ handleDeleteNote }
       />
     );
   }
 
   // <NewNote />
   returnNewNoteComponent = props => {
+    const { state: { title, content }, setInputVal, addNewNote } = this;
     return (
       <NewNote
         { ...props }
-        setInputVal={ this.setInputVal }
-        setTextAreaVal={ this.setInputVal }
-        title={ this.state.title }
-        content={ this.state.content }
-        buttonOnClick={ this.addNewNote }
+        setInputVal={ setInputVal }
+        setTextAreaVal={ setInputVal }
+        title={ title }
+        content={ content }
+        buttonOnClick={ addNewNote }
       />
     );
   }
 
   // <NoteEdit />
   returnNoteEdit = props => {
+    const { state: { noteList, title, content }, setInputVal, setEditNoteValues } = this;
     return (
       <NoteEdit
         { ...props }
-        noteList={ this.state.noteList }
-        title={ this.state.title }
-        setInputVal={ this.setInputVal }
-        setTextAreaVal={ this.setInputVal }
-        content={ this.state.content }
-        buttonOnClick={ this.setEditNoteValues }
+        noteList={ noteList }
+        title={ title }
+        setInputVal={ setInputVal }
+        setTextAreaVal={ setInputVal }
+        content={ content }
+        buttonOnClick={ setEditNoteValues }
       />
     );
   }
