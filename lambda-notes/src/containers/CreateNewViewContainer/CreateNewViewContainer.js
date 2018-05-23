@@ -15,6 +15,7 @@ class CreateNewViewContainer extends Component {
   render() {
     return (
       <div>
+        <Aside />
         <CreateNewView />
       </div>  
     );

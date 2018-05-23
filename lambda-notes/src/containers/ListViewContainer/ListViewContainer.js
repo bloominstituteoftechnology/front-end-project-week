@@ -4,7 +4,7 @@ import React, {
 import Notes from '../../components/Main/Notes/Notes';
 import Aside from '../../components/Aside/Aside';
 import { Route } from 'react-router-dom';
-import CreateNewViewContainer from './CreateNewViewContainer';
+// import CreateNewViewContainer from './CreateNewViewContainer';
 
 class ListViewContainer extends Component {
   constructor(props) {
@@ -49,9 +49,9 @@ class ListViewContainer extends Component {
     return (
       <div>
         <Aside />
-        <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes}/>} />
-        {/* <Notes notes={this.state.notes} /> */}
-        <Route path="/create-new-note" component={CreateNewViewContainer} /> 
+        {/* <Route exact path="/" render={(props) => <Notes {...props} notes={this.state.notes}/>} /> */}
+        <Notes notes={this.state.notes} />
+        {/* <Route path="/create-new-note" component={CreateNewViewContainer} />  */}
       </div>  
     );
   }
