@@ -106,7 +106,7 @@ const mainReducer = (state = initialState, action) => {
         //OPTION-2  => to review with real data
         data: [
           ...state.data.slice(0, action.index),
-          (state.dta[action.index] = action.content),
+          (state.data[action.index] = action.content),
           ...state.data.slice(action.index + 1)
         ]
       };

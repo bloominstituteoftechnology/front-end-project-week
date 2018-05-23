@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updatingItem, deletingItem } from "../../actions/index";
 
@@ -44,7 +44,7 @@ class NoteView extends Component {
       <React.Fragment>
         <div className="d-flex position-absolute edition">
           <div onClick={this.toggle}>delete</div>
-          <div>edit</div>
+          <Link to={`/edit/${index}`} ><div>edit</div></Link>
         </div>
         <h5 className="text-capitalize">
           {note.id}-{note.title}
