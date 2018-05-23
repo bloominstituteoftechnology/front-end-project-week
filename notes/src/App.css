@@ -1,30 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem;
+}
+
 .App {
   display: flex;
   width: 100%;
   max-width: 880px;
   justify-content: center;
   margin: 0 auto;
+  border: 1px solid #979797;
+  font-family: 'Raleway', sans-serif;
+  text-rendering: geometricPrecision;
 }
+
+
+/* Navigation */
 
 .nav-sidebar {
   display: flex;
   flex-flow: column wrap;
+  padding: 1.709%;
+  background: #D8D8D8;
+  border-right: 1px solid #979797;
   min-height: 100vh;
   width: 100%;
   max-width: 220px;
+  font-family: 'Roboto', sans-serif;
 }
+
+.nav-sidebar h1 {
+  margin: 5px 0 30px;
+  line-height: 2.8rem;
+  color: #4A4A4A;
+}
+
+.nav-button {
+  padding: 12px 0 11px;
+  margin-bottom: 18px;
+  background: #2BC1C4;
+  color: white;
+  border: 1px solid #979797;
+  text-decoration: none;
+  text-align: center;
+}
+
+
+/* Notes List */
 
 .notes-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  padding: 0 3.417% 3.417%;
   width: 100%;
   max-width: 660px;
+  background: #F3F3F3;
+}
+
+.notes-list h2 {
+  font-size: 1.8rem;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  margin: 55px 0 30px;
+  color: #4A4A4A;
+
 }
 
 .note-card {
-  display: inline-flex;
+  width: 100%;
+  max-width: 190px;
+  height: 195px;
+  overflow: hidden;
+  padding: 10px 15px;
+  margin: 0 0 15px;
+  border: 1px solid #979797;
+  background: white;
+  border-radius: 1px;
 }
 
-.note-view {
-  display: inline-flex;
+.note-card h3 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #979797;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+}
+
+.note-card-text {
+  margin: 10px 0 0;
+}
+
+.note-card-text-wrapper {
+  height: calc(100% - 48px);
+  overflow: hidden;
 }

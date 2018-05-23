@@ -30,12 +30,6 @@ class Note extends React.Component {
         }
     }
 
-    componentWillReceiveProps(newProps) {
-        if (this.props.match.params.id !== newProps.match.params.id) {
-            this.fetchNote(newProps.match.params.id);
-        }
-    }
-
     fetchNote = id => {
         id = parseInt(id, 10);
         const note = this.props.notes.filter(note => note.id === id)[0];
@@ -68,11 +62,11 @@ class Note extends React.Component {
     render() {
         const { title, body, id, edit, modal, list } = this.state;
         return (
-            <div className="note-view">
+            <div>
                 {list ? (
-                    <div>
+                    <div className="note-card">
                         <h3>{title}</h3>
-                        <div>{body}</div>
+                        <div className="note-card-text-wrapper"><p className="note-card-text">{body}</p></div>
                     </div>
                 ) : (<div>
                     {edit ? (

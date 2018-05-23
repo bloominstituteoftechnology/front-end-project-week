@@ -5,8 +5,8 @@ const Navigation = (props) => {
     return (
         <div className="nav-sidebar">
             <h1>Lambda Notes</h1>
-            <NavLink to="/">View Your Notes</NavLink>
-            <NavLink to="/addnote">+ Create New Note</NavLink>
+            <NavLink className="nav-button" to="/">View Your Notes</NavLink>
+            <NavLink className="nav-button" to="/addnote">+ Create New Note</NavLink>
         </div>
     );
 }
