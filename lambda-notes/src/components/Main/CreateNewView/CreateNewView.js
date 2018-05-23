@@ -7,10 +7,11 @@ const CreateNewView = (props) => {
   return (
     <div className="container">  
       <form onSubmit={() => this.handleSubmit()}>
-        <div className="">
-          <input type="text" name="title" className="form-control" placeholder="title" onChange={(el) => this.handleChange(el)}/>
-          <textarea type="text" name="message" className="form-control" placeholder="message" onChange={(el) => this.handleChange(el)}/>
-          <button className="btn btn-primary px-4 mt-2 float-left" type="submit"> Add </button>
+        <div className="float-left">
+          <h4 className = "text-left edit-header" > Edit Note: </h4>
+          <input type="text" name="title" className="form-control mb-3" placeholder="title" onChange={(el) => this.handleChange(el)}/>
+          <textarea type="text" name="message" rows="15" cols="50" className="form-control text-area" placeholder="message" onChange={(el) => this.handleChange(el)}/>
+          <button className="btn btn-primary px-4 mt-2 float-left ml-0" type="submit"> Update </button>
         </div>
       </form>
     </div>

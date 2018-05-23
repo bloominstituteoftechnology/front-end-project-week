@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 import Notes from '../../components/Main/Notes/Notes';
 import Aside from '../../components/Aside/Aside';
+
 import { Route } from 'react-router-dom';
 // import CreateNewViewContainer from './CreateNewViewContainer';
 
