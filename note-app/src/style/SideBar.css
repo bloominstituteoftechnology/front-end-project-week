@@ -1,0 +1,13 @@
+.buttonStyle {
+  display: block;
+  color: #ffffff;
+  background-color: #2bc1c4;
+  font-size: 16px;
+  font-weight: bold;
+  height: 47px;
+  width: 211px;
+  border: 1px solid #979797;
+  margin-bottom: 22px !important;
+}
+
+

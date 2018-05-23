@@ -1,5 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../style/SideBar.css';
+
+const buttonStyle = {
+  marginTop: 10,
+	fontSize: 20,
+	marginBottom: 10,
+	backgroundColor: '#25b8bd',
+	cursor: 'pointer',
+	width: '85%',
+	color: 'white',
+	height: 50,
+	fontWeight: 'bold'
+}
 
 const SideBar = props => {
   return (
@@ -10,10 +23,10 @@ const SideBar = props => {
         </h1>
       </div>
       <Link to="/">
-        <button>View Your Notes</button>
+        <button style={buttonStyle}>View Your Notes</button>
       </Link>
       <Link to="/notes/new">
-        <button>+ Create New Note</button>
+        <button style={buttonStyle}>+ Create New Note</button>
       </Link>
     </div>
   );

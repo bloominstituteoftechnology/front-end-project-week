@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
-//import { addNote, deleteNote } from "../actions/action";
+import { addNote, deleteNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -43,8 +43,8 @@ const mapToProps = state => {
 
 export default connect(mapToProps, 
     { 
-        // addNote, 
-        // deleteNote 
+         addNote, 
+         deleteNote 
     }
     )
     (ModalComponent);
