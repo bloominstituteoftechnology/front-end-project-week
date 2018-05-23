@@ -4,12 +4,10 @@ import Form from '../components/Form';
 
 //Statless component that renders Navbar from components file 
 //and will render form for new note
-const NewNote = () => {
+const NewNote = (props) => {
+    console.log("Note Param", props)
     return(
-        <div>
-            <NavBar/>
-            <Form/>
-        </div>
+        <Form renderNoteList={props.renderNoteList}/>
     );
 }
 
