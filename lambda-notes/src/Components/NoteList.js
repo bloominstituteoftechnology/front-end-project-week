@@ -11,18 +11,32 @@ class NoteList extends Component {
             notes: this.props.notes
         };
     }
+
+    handleSearch = el => {
+        this.setState({ search: el.target.value});
+    };
+
     render() {
         console.log(this.state);
         return (
             <div>
-                <Input className="search" type="text" placeholder="search your notes"/>
+                <Input className="search" type="text" placeholder="search your notes" onChange={this.handleSearch} value={this.state.handleSearch}/>
                 <h3>Your notes:</h3>
                 <Card>
                 <Container className="note-list">
                     {this.state.notes.map(note => {
-                        return (
-                            <NoteCard note={note} key={note.id} to={`note/${note.id}`}/>
-                        )
+                        if (this.state.search === ""){
+                            return (
+                                <NoteCard note={note} key={note.id} to={`note/${note.id}`}/>
+                            )
+                        } else if (
+                            note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
+                            note.content.toLowerCase().includes(this.state.search.toLowerCase())
+                        ) {
+                            return <NoteCard key={note.title + note.id} note={note} />;
+                        } else {
+                            return null;
+                        }
                     })}
                 </Container>
                 </Card>
