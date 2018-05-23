@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './CreateNote.css';
 
 class CreateNote extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             title: '',
             textBody: '',
