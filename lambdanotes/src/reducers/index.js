@@ -3,8 +3,7 @@ import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, STA
 const initialState = {
   notes: [],
   appState: "list",
-  viewId: null,
-  newId: 4
+  viewId: null
 };
 
 const noteReducer = (state = initialState, action) => {
