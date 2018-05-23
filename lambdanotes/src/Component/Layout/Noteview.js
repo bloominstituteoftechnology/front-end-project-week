@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Styles from '../../Styles/Noteview.css';
 import Mybutton from '../Reusables/Mybutton';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
@@ -12,14 +13,20 @@ export default class Noteview extends Component {
                     <h1> Lambda Notes</h1>
                 </div>
                 <div>
-                    <Mybutton className="btn" text = "View your notes"/>
-                    <Mybutton className="btn" text = "+ Create new notes"/>
+                    <Link to="/note">
+                        <Mybutton className="btn" text = "View your notes"/>
+                    </Link>
+                    <Link to="/create">
+                        <Mybutton className="btn" text = "+ Create new notes"/>
+                    </Link>
                 </div>
             </div>
 
             <div className="mainbar">
                 <div className="mainbarNav">
-                    <a href="#"> edit </a>
+                    <Link to = "/edit">
+                        <a href="#"> edit </a>
+                    </Link>
                     <a href="#"> delete </a>
                 </div >
 

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Notecard from '../Reusables/Notecard';
 import Mybutton from '../Reusables/Mybutton';
 import Styles from '/Users/samar/Documents/js/lambdaschool/course/front-end-project-week/lambdanotes/src/Styles/Listview.css';
+
 
 export default class Listview extends Component {
   render() {
@@ -11,8 +13,12 @@ export default class Listview extends Component {
                 <div className="col" id = "sidebar">
                     <h1> Lambda </h1>
                     <h1> Notes </h1>
-                    <Mybutton text = "View your notes"/>
-                    <Mybutton text = "+ Create new notes"/>
+                    <Link to="/note">
+                      <Mybutton text = "View your notes"/>
+                    </Link>
+                    <Link to="/create">
+                      <Mybutton text = "+ Create new notes"/>
+                    </Link>
             </div>
             <div className="col-8">
                     <h2> Your</h2>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import Styles from '../../Styles/Createview.css';
+import Styles from '../../Styles/Editview.css';
 import Mybutton from '../Reusables/Mybutton';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
-export default class Createview extends Component {
+export default class Editview extends Component {
   render() {
     return (
         <div className="BigContainer">
@@ -24,7 +24,7 @@ export default class Createview extends Component {
 
             <div className="mainbar">
                 <div className = "mainbarHeading">
-                    <h2>Create New Note: </h2>
+                    <h2>Edit Note: </h2>
                 </div>
 
                 <div className = "titleInput">
@@ -36,7 +36,7 @@ export default class Createview extends Component {
                 </div>
                 
                 <div className = "submitButton">
-                <Mybutton className="btn" text = "Save"/>
+                <Mybutton className="btn" text = "Update"/>
                 </div>
 
 
