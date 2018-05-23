@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 import Title from '../Title';
 import SimpleLink from '../SimpleLink';
 import ModalLink from '../ModalLink';
-import history from '../Routes/history';
 import { connect } from 'react-redux';
-import { getNote } from '../../actions';
+import { getNote, deleteNote } from '../../actions';
 
 class NoteDetails extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount(){
     this.props.getNote(this.props.noteId);
   }
   deleteNote = () => {
-    // axios.delete(`http://localhost:5000/notes/${this.props.noteId}`)
-    //   .then(response => history.push('/'))
-    //   .catch(error => console.error(error));
+    this.props.deleteNote(this.props.noteId);
   }
   render() {
     return ( 
@@ -48,4 +42,4 @@ const mapStateToProp = state => {
   }
 };
  
-export default connect(mapStateToProp, { getNote })(NoteDetails);
+export default connect(mapStateToProp, { getNote, deleteNote })(NoteDetails);

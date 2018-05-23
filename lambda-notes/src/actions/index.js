@@ -1,3 +1,4 @@
+import history from '../components/Routes/history';
 import axios from 'axios';
 import {
   FETCHING_NOTES,
@@ -108,6 +109,8 @@ export const deleteNote = noteId => {
           type: NOTE_DELETED,
           payload: response.data
         });
+
+        history.push('/');
       })
       .catch(err => {
         dispatch({
