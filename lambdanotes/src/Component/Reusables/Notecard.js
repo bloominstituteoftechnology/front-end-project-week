@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import Styles from '../../Styles/Notecard.css';
 
-export default class Notecard extends Component {
-  render() {
+const Notecard = (props) => {
     return (
-      <div class="card">
-        <div class="card-body">
-        <h5 class="card-title">title here</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      
+      <div className="card">
+        <div className="card-body">
+        <h5 className="card-title">{props.note.title}</h5>
+            <p className="card-text">{props.note.textBody}</p>
         </div>
       </div>
     )
-  }
 };
+
+
+export default Notecard;

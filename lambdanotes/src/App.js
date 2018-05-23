@@ -12,10 +12,11 @@ class App extends Component {
     return (
       <div className="container-fluid">
           <Route exact path="/" component={ Listview }/>
-          <Route path="/edit" component={ Editview }/>
-          <Route path="/create" component={ Createview }/>
-          <Route path="/note" component={ Noteview }/>
-          
+          <Route exact path="/edit" component={ Editview }/>
+          <Route exact path="/create" component={ Createview }/>
+          <Route exact path="/note" component={ Noteview }/>
+          <Route path="/note/:id" render={ (props) =>  <Noteview {...props} id = {props.match.id} />
+        } />
       </div>
     );
   }

@@ -2,13 +2,36 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import Notecard from '../Reusables/Notecard';
 import Mybutton from '../Reusables/Mybutton';
-import Styles from '/Users/samar/Documents/js/lambdaschool/course/front-end-project-week/lambdanotes/src/Styles/Listview.css';
+import Styles from '../../Styles/Listview.css';
 import {Container, Row, Col} from 'reactstrap'
+import axios from 'axios';
 
-export default class Createview extends Component {
+export default class Listview extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: []
+    };
+  }
+
+  componentDidMount() {
+    this.fetch();
+}
+
+fetch = () => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .then(response => {
+        this.setState(() => ({ notes: response.data }));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
   render() {
     return (
         <div className="BigContainer">
+        
             <div className="sidebar">
                 <div className="sidebarname">
                     <h1> Lambda Notes</h1>
@@ -22,7 +45,6 @@ export default class Createview extends Component {
                     </Link>
                 </div>
             </div>
-
             <div className="mainbar">
                 <div className = "mainbarHeading">
                     <h2>Your Notes: </h2>
@@ -30,16 +52,13 @@ export default class Createview extends Component {
                 <Container>
                   <Row>
                     <Col>
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
-                          <Notecard />
+                    {this.state.notes.map(note => (
+                      <div key={note._id}>
+                      <Link to={`/note/${note._id}`}>
+                        <Notecard key={note._id} note={note} />
+                      </Link>
+                      </div>
+                    ))}
                     </Col>
                   </Row>
                 </Container>
