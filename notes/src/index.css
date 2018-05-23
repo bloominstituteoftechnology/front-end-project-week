@@ -113,3 +113,6 @@ a:visited {
 .note-body {
     margin-top: 15px;
 }
+.download-link {
+    color: black;
+}

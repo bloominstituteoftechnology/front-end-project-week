@@ -27,7 +27,7 @@ export default (props) => {
                     );
                 })}
             </div>
-            <CSVLink className="download-link" seperator="," data={props.notes.notes} target="_blank">Download</CSVLink>
+            <h6><CSVLink className="download-link" seperator="," data={props.notes.notes} target="_blank">Download</CSVLink></h6>
         </div>
     );
 }
