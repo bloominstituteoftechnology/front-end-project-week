@@ -8,7 +8,8 @@ import CreateNote from './createnote/createnote';
 import EditNote from './editnote/editnote';
 import DeleteNote from './deletenote/deletenote';
 import ListItems from './createnote/listitems';
-
+import CreateNote2 from './createnote/createnote2';
+ 
 
 const initialState = [
   {id: 1,
@@ -54,13 +55,14 @@ this.setState({ todos: todos, todo: '' })
     return (
       <div className="App">
       
-      
 {/* Routes */}
       <Switch>
-            <Route exact path="/" component={ListView}></Route>
             <Route path="/ViewYourNotes" component={ViewNote}></Route>
             <Route path="/CreateNewNote" render={(props) => (
             <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            )} />
+             <Route path="/" render={(props) => (
+            <CreateNote2 todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route path="/EditNote" component={EditNote}></Route>
             <Route path="/ViewNote" component={ViewNote}></Route>

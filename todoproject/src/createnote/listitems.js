@@ -6,21 +6,18 @@ const ListItems = (props) => {
     return (
     <div>
         {props.todos.map(todo => {
-          // return <li key={todo.id}>{todo.title}{todo.content}</li>;
           return (        
-          <Card className="card">
-          <CardBody>
-              <CardTitle className="cardtitle">{todo.title}</CardTitle>
-              <CardText className="cardtext">{todo.content}</CardText>
-          </CardBody>
-      </Card>
+          <Card className="card" key={todo.title}>
+            <CardBody>
+                <CardTitle className="cardtitle">{todo.title}</CardTitle>
+                <CardText className="cardtext">{todo.content}</CardText>
+            </CardBody>
+         </Card>
           )
         })}
-      </div>
+    </div>
     );
   };
   
   export default ListItems;
 
-
-  //add card structure to return statement above *****

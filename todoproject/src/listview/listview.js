@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './index.css';
+
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 // import CreateNote from './createnote/createnote';
@@ -11,7 +11,7 @@ const ListView = (props) => {
 
             <div className ="container1">
             <h2>Your Notes:</h2>
-           
+      
     
             {/* <Card className="card">
                 <CardBody>

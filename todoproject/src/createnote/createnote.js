@@ -12,7 +12,7 @@ class CreateNote extends Component {
           
             <div className="container2">    
             <h6>Create New Note:</h6>
-            <ListItems todos={this.props.todos} />
+            
             <Form className="Form1">
                 <FormGroup>
                 <Input name="title" onChange={this.props.handleEventChange} value={this.props.title} type="noteTitle" id="note-title" placeholder="Note Title" />
