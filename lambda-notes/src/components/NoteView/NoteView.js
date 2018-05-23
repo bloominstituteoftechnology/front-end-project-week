@@ -26,47 +26,76 @@ class NoteView extends Component {
       }
 
 
-    matchedNote = this.props.notes.filter(note => {return note.id == this.props.match.params.id})[0] // [0] is the one element in the filtered Array that has a matched id
+    matchedNote = this.props.notes.filter(note => {return note.id == this.props.match.params.id})[0] 
+    // [0] is the one element in the filtered Array that has the matched id
 
-  render() {
+    render() {
      
-    return (
-        <div className="noteView-container">
-            <div className="links-container">
-                <Link onClick={this.toggle} className="link" to={`/note/${this.matchedNote.id}/delete`}>delete</Link>
-                <Link className="link" to={`/note/${this.matchedNote.id}/edit`}>edit</Link>
-            </div>
+        return (
+            <div className="noteView-container">
 
-            <div className="noteView-title">{this.matchedNote.title}</div>
+                <div className="links-container">
+                    <Link 
+                        onClick={this.toggle} 
+                        className="link" 
+                        to={`/note/${this.matchedNote.id}/delete`}
+                    >delete
+                    </Link>
 
-            <div className="noteView-body">{this.matchedNote.body}</div>
+                    <Link 
+                        className="link" 
+                        to={`/note/${this.matchedNote.id}/edit`}
+                    >edit
+                    </Link>
+                </div>
 
-            {/*MODAL*/}
-            <div>
+                <div className="noteView-title">{this.matchedNote.title}</div>
+
+                <div className="noteView-body">{this.matchedNote.body}</div>
+
+                {/*MODAL*/}
                 <div>
-                    <Modal className="modal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    
-                        <ModalBody className="modal-body">
-                        Are you sure you want to delete this?
-                        </ModalBody>
+                    <div>
+                        <Modal 
+                            className="modal" 
+                            isOpen={this.state.modal} 
+                            toggle={this.toggle} 
+                            className={this.props.className}
+                        >
+                        
+                            <ModalBody className="modal-body">
+                            Are you sure you want to delete this?
+                            </ModalBody>
 
-                        <ModalFooter className="modal-footer">
-                            <Link style={{textDecoration: "none"}} to="/"><Button className="red-btn" text="Delete" onClick={() => this.props.deleteNote(this.matchedNote.id)}></Button>{' '}</Link>
-                            <Link style={{textDecoration: "none"}} to={`/note/${this.matchedNote.id}`}><Button text="No" onClick={this.toggle}></Button></Link>
-                        </ModalFooter>
+                            <ModalFooter className="modal-footer">
 
-                    </Modal>
+                                <Link 
+                                    style={{textDecoration: "none"}} 
+                                    to="/"><Button className="red-btn" 
+                                    text="Delete" 
+                                    onClick={() => this.props.deleteNote(this.matchedNote.id)}
+                                >
+                                    </Button>
+                                {' '}</Link>
+
+                                <Link 
+                                    style={{textDecoration: "none"}} 
+                                    to={`/note/${this.matchedNote.id}`}
+                                >
+                                    <Button text="No" onClick={this.toggle}></Button>
+                                </Link>
+
+                            </ModalFooter>
+
+                        </Modal>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+
   }
     
 } 
-
-         
-    
-
 
 
 const mapStateToProps = state => {
@@ -80,20 +109,3 @@ export default connect(mapStateToProps, { deleteNote })(NoteView);
 
 
 
-
-// const NoteView = props => {
-
-//     let matchedNote = props.notes.filter(note => {return note.id == props.match.params.id})[0] // [0] is the one element in the filtered Array that has a matched id
-    
-  
-//     return (
-//         <div className="noteView-container">
-//             <div className="links-container">
-//                 <Link className="link" to={`/note/${matchedNote.id}/delete`}>delete</Link>
-//                 <Link className="link" to={`/note/${matchedNote.id}/edit`}>edit</Link>
-//             </div>
-//             <div className="noteView-title">{matchedNote.title}</div>
-//             <div className="noteView-body">{matchedNote.body}</div>
-//         </div>
-//     )
-// } 
