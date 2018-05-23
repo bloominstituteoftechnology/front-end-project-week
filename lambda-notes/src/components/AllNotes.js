@@ -58,7 +58,7 @@ class AllNotes extends Component {
     
   }
 
-  editNote = note => {
+  editNote = note => { 
     console.log("edit",note)
     const newNotes = this.state.notes.filter((c) => {
       return c.id !== note.id

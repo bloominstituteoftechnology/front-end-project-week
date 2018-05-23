@@ -2,3 +2,7 @@
   color: #FFFFFF;
   background-color: #2bc1c4;
 }
+
+.note-text{
+  white-space: pre-wrap;
+}

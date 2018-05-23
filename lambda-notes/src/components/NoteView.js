@@ -38,7 +38,7 @@ class NoteView extends Component {
           <div className="links ml-3" onClick={this.toggle}><u>delete</u></div>
         </div>
         <h3>{selectedNote[0].title}</h3>
-        <p>{selectedNote[0].body}</p>
+        <p className="note-text">{selectedNote[0].body}</p>
         {/* <DeleteModal /> */}
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
           <ModalHeader>Are you sure you want to delete this?</ModalHeader>
