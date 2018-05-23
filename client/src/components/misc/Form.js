@@ -29,7 +29,7 @@ const Form = props => {
       <div className='form__submit-wrapper'>
         <Button
           buttonClassName={ props.buttonClassName }
-          buttonContent='Save'
+          buttonContent={ props.buttonContent }
           buttonType='submit'
           buttonOnClick={ props.buttonOnClick }
         />

@@ -2,6 +2,9 @@ import React from 'react';
 
 import Form from '../misc/Form'
 
+// style
+import './NoteEdit.css';
+
 class NoteEdit extends React.Component {
   constructor(props) {
     super(props);
@@ -32,9 +35,9 @@ class NoteEdit extends React.Component {
   
   render() {
     return (
-      <div>
-        <div>
-          <h2>Edit Note:</h2>
+      <div className='edit-note-wrapper'>
+        <div className='edit-note-wrapper__title-wrapper'>
+          <h2 className='title-wrapper__h2'>Edit Note:</h2>
         </div>
         
         {
@@ -45,12 +48,16 @@ class NoteEdit extends React.Component {
               return (
                 <Form
                   key={ note.id }
+                  buttonClassName='edit-wrapper__save-newnote button'
                   buttonContent='Update'
                   buttonOnClick={ () => this.props.buttonOnClick(note.id, this.state.title, this.state.content) }
                   content={ this.state.content }
+                  formClassName='edit-note-wrapper__form'
+                  inputClassName='form__input-title'
                   setInputVal={ this.setInputVal }
                   setTextAreaVal={ this.setInputVal }
                   title={ this.state.title }
+                  textareaClassName='form__input-textarea'
                 />
               )
             })
