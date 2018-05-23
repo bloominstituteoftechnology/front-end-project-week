@@ -4,16 +4,21 @@
     text-align: left;
     outline: 2px solid #000;
     background-color: white;
+    
 }
 
 .note-card .card-header {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin: 5%;
+    line-height: 40px;
+    border-bottom: 1px solid #000;
 }
 
 .note-card .card-body .card-text {
     overflow: hidden;
     height: 100%;
-
+    margin: 5%;
+    
 }
