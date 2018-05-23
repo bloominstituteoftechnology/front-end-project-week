@@ -1,12 +1,15 @@
-import { PENDING, SUCCESS, SINGLE_NOTE, ERROR } from '../actions';
+import { PENDING, FETCHED, CREATED, UPDATED, DELETED, SINGLE_NOTE, ERROR } from '../actions';
 
 const initialState = {
-    pending: false, 
-    success: false, 
+    pending: false,
+    fetched: false,
+    created: false,
+    updated: false,
+    deleted: false,
+    singleNote: false, 
     error: false, 
     notes: [],
-    currentNote: null,
-    creating: false
+    currentNote: null
 }
 
 export default (state=initialState, action) => {
@@ -14,29 +17,51 @@ export default (state=initialState, action) => {
         case PENDING:
             return Object.assign({}, state, {
                 pending: true,
-                success: false,
+                fetched: false,
+                created: false,
+                updated: false,
+                deleted: false,
                 error: false,
             })
-        case SUCCESS:
+        case FETCHED:
             return Object.assign({}, state, {
                 pending: false,
-                success: true,
+                singleNote: false,
+                error: false,
+                notes: action.payload
+            })
+        case CREATED:
+            return Object.assign({}, state, {
+                pending: false,
+                created: true,
+                error: false,
+                notes: action.payload
+            })
+        case UPDATED:
+            return Object.assign({}, state, {
+                pending: false,
+                updated: true,
+                error: false,
+                notes: action.payload
+            })
+        case DELETED:
+            return Object.assign({}, state, {
+                pending: false,
+                deleted: true,
                 error: false,
                 notes: action.payload
             })
         case SINGLE_NOTE: 
             return Object.assign({}, state, {
                 pending: false,
-                success: true,
+                singleNote: true,
                 error: false,
-                //creating: false,
                 currentNote: action.payload
             })
         case ERROR:
             return Object.assign({}, state, {
                 pending: false,
                 success: false,
-                creating: false,
                 error: true
             })
         default:

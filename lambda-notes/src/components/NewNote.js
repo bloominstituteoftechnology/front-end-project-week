@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Container, Row, Col } from 'reactstrap';
 import NoteButton from './NoteButton';
-// import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateNote, createNote } from '../actions';
@@ -11,79 +10,57 @@ class NewNote extends Component {
         super(props);
         this.state = {
             new: false,
-            // note: props.note,
             title: '',
             content: '',
             submitted: false,
-            heading: ''
+            heading: '',
+            button: ''
         }
     }
 
     componentDidMount() {
         if (this.props.match.path === '/new') {
-            console.log("creating new note")
+            console.log("Creating a new note")
             this.setState({ 
                 heading: 'Create New Note:', 
-                new: true
+                new: true,
+                button: "Save"
             })
+            console.log("State before creating. New should be true...", this.state)
         } else {
-            console.log("updating note")
+            console.log("Updating an existing note")
             this.setState({
                 heading: 'Edit Note:',
                 title: this.props.currentNote.title,
-                content: this.props.currentNote.content
+                content: this.props.currentNote.content,
+                button: "Update"
             });
+            console.log("State before updating. New should be false, title and content should be real values", this.state)
         }
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
-        //console.log("current title: ", this.state.title);
-        //console.log("current content: ", this.state.content);
     }
 
     saveNote = (e) => {
         e.preventDefault();
         const newNote = {title: this.state.title, content: this.state.content};
-        console.log(newNote.title)
-        //console.log("Submitted title: ", newNote.title);
-        //console.log("Submitted content: ", newNote.content);
         if (this.state.new) {
             this.props.createNote(newNote);
-            this.setState({submitted: true});
-            // axios
-            //     .put(`http://localhost:5000/note/${updatedNote.id}`, updatedNote)
-            //     .then( res => {
-            //         this.setState({submitted: true});
-            //     })
-            //     .catch( err => {
-            //         console.log(err);
-            //     })
+            console.log("After creating new:", this.state)
         } else {
-            // axios
-            //     .post('http://localhost:5000/notes', newNote)
-            //     .then( res => {
-            //         this.setState({title: '', content: '', submitted: true});
-            //     })
-            //     .catch( err => {
-            //         console.log(err);
-            //     })
             const updatedNote = Object.assign({}, newNote, {id: this.props.currentNote.id})
-            console.log("Updated note: ", updatedNote.title);
             this.props.updateNote(updatedNote);
-            this.setState({title: '', content: '', submitted: true})
+            console.log("After updating:", this.state)
         }
+        this.setState({submitted: true})
     }
 
     render() { 
         return (
             this.state.submitted ? (
-                this.state.new ? (
-                    <Redirect to="/"/>
-                ) : (
-                    <Redirect to={`/note/${this.props.currentNote.id}`}/>
-                )
-                // <Redirect to="/"/>
+                <Redirect to="/"/>
             ) : (
                 <Container className="form-section">
                     <h3 className="heading">{this.state.heading}</h3>
@@ -104,7 +81,9 @@ class NewNote extends Component {
                                     value={this.state.content}
                                     onChange={this.handleChange}
                                     className="form-content"/>
-                                <NoteButton color="main" value="Save"/>
+                                <NoteButton 
+                                    color="main" 
+                                    value={this.state.button}/>
                             </Form>
                         </Col>
                     </Row>
@@ -116,7 +95,9 @@ class NewNote extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        currentNote: state.currentNote
+        currentNote: state.currentNote,
+        created: state.created,
+        updated: state.updated
     }
 }
  

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Modal, ModalBody } from 'reactstrap';
-import { Redirect, Link } from 'react-router-dom';
-// import axios from 'axios';
-import NewNote from './NewNote';
+import { Link } from 'react-router-dom';
+//import NewNote from './NewNote';
 import NoteButton from './NoteButton';
 import { connect } from 'react-redux';
 import { fetchNote, removeNote } from '../actions';
@@ -19,7 +18,9 @@ class Note extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id
+        console.log(id)
         this.props.fetchNote(id);
+        this.setState({deleted: this.props.deleted})
     }
 
     editNote = () => {
@@ -30,14 +31,18 @@ class Note extends Component {
         this.setState({modal: !this.state.modal});
     }
 
+    deleteNote = () => {
+        const id = this.props.match.params.id
+        console.log(id)
+        this.props.removeNote(id)
+    }
+
     render() { 
         return (
-            this.state.deleted ? (
-                <Redirect to="/"/>
-            ) : (
+            this.props.singleNote ? (
                 <Container>
                     <div className="edit-delete">
-                        <Link to={`edit/${this.props.currentNote.id}`}>edit</Link>
+                        <Link to={`edit/${this.props.match.params.id}`}>edit</Link>
                         <a onClick={this.toggleModal}>delete</a>
                         <Modal isOpen={this.state.modal}
                             toggle={this.toggleModal}
@@ -47,9 +52,9 @@ class Note extends Component {
                                 <p className="confirm">Are you sure you want to delete this?</p>
                                 <div className="btn-container">
                                     <div 
-                                        onClick={this.props.removeNote} 
+                                        onClick={this.deleteNote} 
                                         className="btn-holder">
-                                        <NoteButton color="danger" value="Delete"/>
+                                        <NoteButton color="danger" value="Delete" link="/"/>
                                     </div>
                                     <div 
                                         onClick={this.toggleModal} 
@@ -69,6 +74,8 @@ class Note extends Component {
                         </Col>
                     </Row>
                 </Container>
+            ) : (
+                null
             )
         )
     }
@@ -77,6 +84,8 @@ class Note extends Component {
 const mapStateToProps = (state) => {
     return {
         currentNote: state.currentNote,
+        singleNote: state.singleNote,
+        deleted: state.deleted
     }
 }
  
