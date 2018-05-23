@@ -7,10 +7,27 @@ import './displayNotes.css';
 class DisplayNotes extends Component {
     constructor() {
       super();
+      this.state = {
+          noteArr: [],
+            noteObj:{
+            
+            }
+        
+      }
       };
     
   
     render() {
+        const noteObj = {
+            noteTitle: 'Note Title',
+            noteContent: 'Bacon ipsum dolor amet tail alcatra filet mignon pork loin meatloaf. Pork loin kevin beef pork'
+        };
+        const noteArr = [];
+        for(let x = 0; x < 9; x++){
+            noteArr.push(noteObj);
+        }
+
+
       return (
       <body>  
         <div className="container">
@@ -32,7 +49,18 @@ class DisplayNotes extends Component {
            </div>
         
          <div className="mainBody">
+            
             <h4 className="mainBodyTitle1">Your Notes:</h4>
+            <div className="cardContainer">
+            {noteArr.map(({noteTitle, noteContent}, i) => (
+             <Link to="/viewNote">
+              <div className="noteCard" key={i}>
+                <h5 className="noteTitle1">{noteTitle}</h5>
+                <p className="noteCon">{noteContent}</p>
+              </div>
+              </Link>
+            ))}
+        </div>  
         </div>
         </div>
       </body>
