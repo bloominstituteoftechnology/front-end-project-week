@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 const NoteCard = props => {
-  const notePreview = `${props.note.value.slice(0, 100)}...`;
+  const notePreview = `${props.note.content.slice(0, 100)}...`;
   return (
     <React.Fragment>
       <Link className="note-card-link" to={`/note/${props.note.id}`}>
