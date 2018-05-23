@@ -8,11 +8,11 @@ class NoteCard extends Component {
     render() { 
         return (
             <div className={this.props.className}>
-                <h2 className="NoteCard-tittle">
-                    {this.props.note.title}
-                </h2>
-                <div>
-                    {this.props.note.content}
+                <div className="scroll">
+                    <h2 className="NoteCard-tittle">
+                        {this.props.note.title}
+                    </h2>
+                <span>{this.props.note.content}</span>
                 </div>
             </div>
         )

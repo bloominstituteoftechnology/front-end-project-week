@@ -6,7 +6,7 @@ class VieNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            edit: true
+            edit: false
         }
     }
     render() { 

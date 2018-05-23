@@ -96,6 +96,11 @@ Sidebar background: #D8D8D8
   width: 27%;
 }
 
+.NoteCard-list .scroll {
+  height: 204px;
+  overflow: hidden;
+}
+
 .NoteCard-tittle {
   margin: 0 0 10px 0;
   border-bottom: 1px solid #979797;
@@ -115,6 +120,8 @@ Sidebar background: #D8D8D8
   padding: 10px;
   width: 100%;
   height: 400px;
+  resize: none;
+
 }
 
 .note-form {
