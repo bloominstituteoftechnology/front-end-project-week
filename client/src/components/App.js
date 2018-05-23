@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   // setEditNoteValues
-  setEditNoteValues = (id, title, content) => {
+  setEditNoteValues = (props, id, title, content) => {
     const newNoteList = [ ...this.state.noteList ];
     for (let i = 0; i < newNoteList.length; i++) {
       if (id === newNoteList[i].id) {
@@ -49,6 +49,7 @@ class App extends Component {
       }
     }
     this.setState({ title: '', content: '', noteList: [ ...newNoteList ] });
+    props.history.push('/');
   }
 
   // setEditValues
