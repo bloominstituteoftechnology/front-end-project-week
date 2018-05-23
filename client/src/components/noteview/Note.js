@@ -15,23 +15,27 @@ const Note = props => {
       })
         .map(note => {
           return (
-            <div key={ Date.now() }>
-              <div className=''>
-                <Link to={ `edit/${ note.id }` }>
+            <div key={ Date.now() } className='note-wrapper'>
+              <div className='note-wrapper__note-action-wrapper'>
+                <Link to={ `edit/${ note.id }` } className='note-action-wrapper__note-edit-link'>
                   <Button
+                    buttonClassName='note-edit-link__edit-button'
                     buttonContent={ 'Edit' }
                     buttonOnClick={ () => props.setEditValues(note.title, note.content) }
                   />
                 </Link>
 
                 <Button
+                  buttonClassName='note-action-wrapper__delete-button'
                   buttonContent='Delete'
                   buttonOnClick={ () => props.handleDeleteNote(note.id) }
                 />
               </div>
               
-              <h2>{ note.title }</h2>
-              <p>{ note.content }</p>
+              <div className='note-wrapper__note-content-wrapper'>
+                <h2 className='note-content-wrapper__h2'>{ note.title }</h2>
+                <p className='note-content-wrapper__p'>{ note.content }</p>
+              </div>
             </div>
           )
         })
