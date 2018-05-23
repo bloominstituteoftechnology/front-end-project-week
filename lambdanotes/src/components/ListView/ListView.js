@@ -8,11 +8,11 @@ const ListView = (props) => {
             <h3 className='listViewHeader'>Your Notes:</h3>
             <div className='noteCardsCollection'>
                 {props.notesList.map(note => (
-                    <div onClick={() => props.setCurrentID(note.id)} className='entireNoteCardLink'>
-                        <Link to={`/${note.id}`} className='noteCardLink'>
+                    <div onClick={() => props.setCurrentNote(note._id)} className='entireNoteCardLink'>
+                        <Link to={`/${note._id}`} className='noteCardLink'>
                             <div className='noteCard'>
                                 <h6 className='noteTitle'>{note.title}</h6>
-                                <p className='noteContent'>{note.content}</p>
+                                <p className='noteContent'>{note.textBody}</p>
                             </div>
                         </Link>
                     </div>

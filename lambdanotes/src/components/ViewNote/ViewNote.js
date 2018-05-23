@@ -8,14 +8,14 @@ const ViewNote = (props) => {
         <div>
             <div className='optionsContainer'>
                 <div className='entireEditLink'>
-                    <Link to={`/${props.currentID}/edit`}>
+                    <Link to={`/${props.currentNote._id}/edit`}>
                         <p className='edit'>edit</p>
                     </Link>
                 </div>
                 <DeleteNote />
             </div>
-            <h3 className='viewNoteHeader'>{props.notesList[props.currentID].title}</h3>
-            <p className='ViewNoteContent'>{props.notesList[props.currentID].content}</p>
+            <h3 className='viewNoteHeader'>{props.currentNote.title}</h3>
+            <p className='ViewNoteContent'>{props.currentNote.textBody}</p>
         </div>
                 
     )
