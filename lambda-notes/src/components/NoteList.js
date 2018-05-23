@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import { addNote } from '../actions';
 
 class NoteList extends Component {
@@ -15,10 +15,12 @@ class NoteList extends Component {
                 <h1>Your Notes:</h1>
                 {this.props.notes.map(note => {
                     return (
-                    <div key={note.id} className="note">
-                        <h4>{note.title}</h4>
-                        <p>{note.body}</p>
-                    </div>
+                    <Link to={`/note/${note.id}`} className="note-link">
+                        <div key={note.id} className="note">
+                            <h4>{note.title}</h4>
+                            <p>{note.body}</p>
+                        </div>
+                    </Link>
                     )
                 })}
             </div>

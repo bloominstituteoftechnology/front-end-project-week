@@ -38,7 +38,12 @@ html, body {
   margin-left: 10%;
 }
 
-.sidebar button {
+.sidebar .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 40px;
   font-size: 2.5rem;
   width: 80%;
   margin: 3%;
@@ -80,7 +85,7 @@ html, body {
   margin: 2%;
   padding: 0;
   background-color: white;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .note h4 {

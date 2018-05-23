@@ -2,7 +2,18 @@ import { ADD_NOTE, EDIT_NOTE, REMOVE_NOTE } from '../actions';
 
 // { noteText: 'Stuff', edited: false}
 
-let initialState = []
+let initialState = [
+    {
+    title: "Hey",
+    body: "I am a note",
+    id: "Hey"
+    },
+    {
+    title: "This",
+    body: "Another note",
+    id: "This"
+    }
+]
 
 const saveData = (array) => {
     return localStorage.setItem('array', JSON.stringify(array));

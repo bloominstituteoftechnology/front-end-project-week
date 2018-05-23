@@ -1,8 +1,0 @@
-.sidebar-container {
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 0;
-    padding: 0 2%;
-    width: 20%;
-}
