@@ -2,6 +2,21 @@
 	width: 75%;
 	position: absolute;
 	left: 25%;
+}
+
+header {
+	padding: 50px;
+}
+
+h5 {
+	font-weight: bold;
+}
+
+.cards {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.eachcard {
+	flex-basis: 25%;
 }

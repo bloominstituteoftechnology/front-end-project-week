@@ -6,8 +6,14 @@ import './ListView.css';
 class ListView extends Component {
 	render() {
 		return (
-			<div className='col-offset-4 wrapper'>
-				{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /></Link></div>)}
+			<div className='wrapper'>
+				<header>
+					<h5> Your Notes:</h5>
+				</header>
+				<br />
+				<div className='cards'>
+				{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /></Link></div>)}
+				</div>
 			</div>
 		)
 	}

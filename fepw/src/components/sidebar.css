@@ -7,7 +7,15 @@ nav {
 	font-size: .7rem;
 	background-color: #D8D8D8;
 	position: absolute;
-	left: 10px;
+	left: 0px;
+}
+
+h3 {
+	margin-left: 20px;
+}
+
+.buttonnav {
+	margin-left: 20px;
 }
 
 button {

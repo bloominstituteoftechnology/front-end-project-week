@@ -1,7 +1,6 @@
 .notecard {
 	color: black;
 	border: grey 1px solid;
-
 }
 
 .cardTitle {
@@ -13,8 +12,13 @@
 }
 
 .truncate {
+  	overflow: hidden;
+  	position: relative;
+  	line-height: 1.2em;
+  	max-height: 3.6em;
+  	text-align: justify;
+  	margin-right: -1em;
+  	padding-right: 1em;
 	width: 250px;
-	white-space: nowrap;
-	overflow: hidden;
 	text-overflow: ellipsis;
 }

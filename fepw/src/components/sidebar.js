@@ -7,13 +7,13 @@ class Sidebar extends Component {
 		return(
 			<nav className="sidebar">
 				<h3>Lambda<br />Notes</h3>
-				<div>
+				<div className='buttonnav'>
 					<Link to='/'>
 						<button>View Your Notes</button>
 					</Link>
 				</div>
 				<br />
-				<div>
+				<div className='buttonnav'>
 					<Link to='/CreateNote'>
 						<button>+ Create New Note</button>
 					</Link>
