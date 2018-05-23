@@ -30,7 +30,8 @@ class App extends Component {
   }
 
   // adds new note to `this.state.noteList`
-  addNewNote = (props, state) => {
+  addNewNote = (e, props, state) => {
+    e.preventDefault();
     const newNote = {
       id: '' + this.state.noteList.length,
       title: this.state.title,
@@ -41,7 +42,8 @@ class App extends Component {
   }
 
   // setEditNoteValues
-  setEditNoteValues = (props, id, title, content) => {
+  setEditNoteValues = (e, props, id, title, content) => {
+    e.preventDefault();
     const newNoteList = [ ...this.state.noteList ];
     for (let i = 0; i < newNoteList.length; i++) {
       if (id === newNoteList[i].id) {

@@ -16,7 +16,7 @@ const NewNote = props => {
       <Form
         buttonClassName='submit-wrapper__submit-newnote button'
         buttonContent='Save'
-        buttonOnClick={ () => props.buttonOnClick(props) }
+        buttonOnClick={ e => props.buttonOnClick(e, props) }
         formClassName='new-note-wrapper__form'
         inputClassName='form__input-title'
         textareaClassName='form__input-textarea'

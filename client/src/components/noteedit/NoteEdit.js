@@ -50,7 +50,7 @@ class NoteEdit extends React.Component {
                   key={ note.id }
                   buttonClassName='edit-wrapper__save-newnote button'
                   buttonContent='Update'
-                  buttonOnClick={ () => this.props.buttonOnClick(this.props, note.id, this.state.title, this.state.content) }
+                  buttonOnClick={ e => this.props.buttonOnClick(e, this.props, note.id, this.state.title, this.state.content) }
                   content={ this.state.content }
                   formClassName='edit-note-wrapper__form'
                   inputClassName='form__input-title'

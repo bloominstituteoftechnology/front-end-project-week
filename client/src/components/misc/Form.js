@@ -5,7 +5,7 @@ import Button from '../misc/Button';
 
 const Form = props => {
   return (
-    <form className={ props.formClassName } onSubmit={ e => e.preventDefault() } >
+    <form className={ props.formClassName }>
       <div>
         <TextField
           variant='input'
