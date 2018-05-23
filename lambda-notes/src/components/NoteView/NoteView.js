@@ -38,13 +38,13 @@ class NoteView extends Component {
                     <Link 
                         onClick={this.toggle} 
                         className="link" 
-                        to={`/note/${this.matchedNote.id}/delete`}
+                        to={`/note/${this.matchedNote.id}`}
                     >delete
                     </Link>
 
                     <Link 
                         className="link" 
-                        to={`/note/${this.matchedNote.id}/edit`}
+                        to={`/note/edit/${this.matchedNote.id}`}
                     >edit
                     </Link>
                 </div>

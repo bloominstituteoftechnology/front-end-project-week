@@ -16,16 +16,13 @@ class App extends Component {
       
       <div className="App">
        
+        <SideNav />
+
+        <Route exact path="/" component={NotesContainer} />
+        <Route path="/create" component={NewNote} />
+        <Route exact path="/note/:id" component={NoteView}/>
+        <Route path="/note/edit/:id" component={EditNote}/>
         
-        <Route path="/" component={SideNav} />
-      
-        <Switch>
-          <Route exact path="/" component={NotesContainer} />
-          <Route path="/create" component={NewNote} />
-          <Route path="/note/:id" component={NoteView}/>
-          <Route path="/note/:id/edit" component={EditNote}/>
-        </Switch >
-      
       </div>
       
     );
