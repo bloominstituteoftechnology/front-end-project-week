@@ -6,26 +6,31 @@ class editView extends Component {
             <div>
             <container className='EVcontainer'>
                 <div className='EVsideNav'>
+                    <div className='EVnavTitleContainer'>
                     <p className='EVsideNavTitle'>Lambda Notes</p>
+                    </div>
                     <div>
-                    <button>View Your Notes</button>
+                    <button className='EVbutton'>View Your Notes</button>
                 </div>
                 <div>
-                    <button>+ Create New Note</button>
+                    <button className='EVbutton'>+ Create New Note</button>
                 </div>
                 </div>
                  
 
 
                 <div className='EVmainBody'>
+                    <div className='EVmainTitle'>
                     <p>Edit Note:</p>
+                    </div>
+                    <div >
+                    <input className='EVnewTitle' Etype="title" name="title" id="exampleTitle" placeholder="New Title" />
+                    </div>
+                    <div>
+                    <input className='EVnewContent' type="content" name="content" id="exampleContent" placeholder="New Content" />
+                    </div>
                 </div>
-                    <div className='EVnewTitle'>
-                        <input type="title" name="title" id="exampleTitle" placeholder="New Title" />
-                    </div>
-                    <div className='EVnewContent'>
-                    <input type="content" name="content" id="exampleContent" placeholder="New Content" />
-                    </div>
+                 
             </container>
             
             </div>
