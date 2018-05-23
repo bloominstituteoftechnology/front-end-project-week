@@ -8,15 +8,23 @@ class CreateNewViewContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    
+      title: '',
+      message: '', 
     }
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render() {
+    console.log(this.state)
     return (
       <div>
         <Aside />
-        <CreateNewView />
+        <CreateNewView addNote={(e) => this.props.addNote(e, this.state.title, this.state.message)} handleChange={this.handleChange}/>
       </div>  
     );
   }

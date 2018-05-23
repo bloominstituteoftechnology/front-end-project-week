@@ -14,7 +14,7 @@ const NoteView = (props) => {
           <a href="#" className="edit"> edit</a>
         </Link >
         <Link to="/delete-note">
-          <a href="#" className="delete" data-toggle="modal" data-target="#exampleModalCenter">delete</a>
+          <a href="#" className="delete" data-toggle="modal" data-target="#exampleModal">delete</a>
         </Link>
       </span>
       <h4 className="text-left pt-5">Note Name</h4>
