@@ -36,7 +36,9 @@ export default class Editview extends Component {
                 </div>
                 
                 <div className = "submitButton">
-                <Mybutton className="btn" text = "Update"/>
+                <Link to = "/">
+                    <Mybutton className="btn" text = "Update"/>
+                </Link>
                 </div>
 
 

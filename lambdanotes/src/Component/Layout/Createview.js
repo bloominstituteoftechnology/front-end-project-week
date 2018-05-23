@@ -36,7 +36,9 @@ export default class Createview extends Component {
                 </div>
                 
                 <div className = "submitButton">
-                <Mybutton className="btn" text = "Save"/>
+                <Link to = "/">
+                    <Mybutton className="btn" text = "Save"/>
+                </Link>
                 </div>
 
 

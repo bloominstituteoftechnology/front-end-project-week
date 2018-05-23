@@ -1,20 +1,46 @@
-.container{
-    border-color: 1px solid black;
-}
 
-.row{ 
+.BigContainer{
+    display: flex;
+    flex-direction: row;
     height: 100vh;
-    border-color: 1px solid black;
+    width: 100vw;
 }
 
-.col{   
-    flex-grow: 0 !important;
-}
-
-h1 {
-    margin-top: 10px !important;
-}
-
-#sidebar {
+.sidebar{
+    width: 20vw;
     background-color:#D8D8D8; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
+
+
+.sidebarname {
+    width: 10vw;
+    align-self: flex-start;
+    padding: 20px;
+}
+
+
+
+.mainbar{
+    display: flex;
+    background-color: #F3F3F3;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainbarHeading {
+    height: 10vw;
+    width: 80vw;
+    padding-top: 80px;
+    padding-left: 40px;
+
+}
+
+.col{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
