@@ -7,49 +7,20 @@ import '../components/Form.css'
 
 //Stateless function that renders Navbar from components file
 const ListView = (props) => {
-    console.log("PROPS",props);
-  
+    // console.log("PROPS",props.notes);
     return(
-        <Container>
-            <div>
-                <NavBar />
-            <Row>
-            <Col sm="3">
-                <Card body>
-                    <CardTitle>NoteTitle</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                </Card>
-            </Col>
-            </Row>  
-            <Row>
-            <Col sm="3">
-                <Card body>
-                    <CardTitle>NoteTitle</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                </Card>
-            </Col>
-            </Row>
-            <Row>
-            <Col sm="3">
-                <Card body>
-                    <CardTitle>NoteTitle</CardTitle>
-                    <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                 </Card>
-            </Col>
-            </Row>  
-            </div>
-            </Container>
-        // <div>
-        // <Row>
-        //     <Col sm="3">
-        //         <Card body>
-        //             <CardTitle>NoteTitle</CardTitle>
-        //             <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-        //         </Card>
-        //     </Col>
-        // </Row>
-        // </div>
-               
+        props.notes.map(note =>{
+            return (
+                <div key={note.id}>
+                    <Container>
+                    <Card body>
+                        <CardTitle>{note.title}</CardTitle>
+                        <CardText>{note.content}</CardText>
+                    </Card>
+                    </Container>
+                </div>
+            );   
+        })
     )
 };
 
