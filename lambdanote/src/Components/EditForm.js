@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export default class EditForm extends Component {
  
@@ -23,9 +24,11 @@ export default class EditForm extends Component {
                                 placeholder='Note Content' 
                                 /> 
                         </FormGroup>
-                        <Button onClick={this.createNewInput} className='content-btn'>
-                        Update
-                        </Button>
+                        <Link to='/'>
+                            <Button onClick={this.createNewInput} className='content-btn'>
+                            Update
+                            </Button>
+                        </Link>
                     </Form>
                 </div>
             </div>

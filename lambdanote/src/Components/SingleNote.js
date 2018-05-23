@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleNote = () => {
     return (
         <div className='single-note'>
-        <button className='viewNote-btn'>edit</button>
+        <Link to='/edit'><button className='viewNote-btn'>edit</button></Link>
         <button className='viewNote-btn'>delete</button>
             <h5>Note Name</h5>
             <br />

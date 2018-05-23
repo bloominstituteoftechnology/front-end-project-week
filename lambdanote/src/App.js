@@ -7,7 +7,7 @@ import dummyData from './dummyData';
 import NoteList from './Components/NoteList';
 import CreateForm from './Components/CreateForm';
 import SingleNote from './Components/SingleNote';
-// import EditNote from './Components/EditNote';
+import EditForm from './Components/EditForm';
 
 class App extends Component {
   constructor() {
@@ -44,10 +44,9 @@ componentDidMount() {
           
           <div className='note-container col-9'>
             <Route exact path='/' render={(props) => <NoteList {...this.state}/>} />
-            <Route path='/note-view/:id' render={(props) => <SingleNote {...this.state}/>} />
+            <Route path='/note/:id' render={(props) => <SingleNote {...this.state}/>} />
             <Route path='/create-form' component={CreateForm} />
-            {/* <Route path='/note-view/:id' component={SingleNote} /> */}
-            {/* <Route path='/edit-note' component={EditNote} /> */}
+            <Route path='/edit' component={EditForm} />
           </div>  
              
         </Row>

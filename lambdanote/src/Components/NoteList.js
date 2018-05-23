@@ -8,9 +8,11 @@ const NoteList = (props) => {
          <div>
             <div className='note-container'>
             <h2>Your Notes:</h2>
-            <div>
+            <Container fluid>
+            <Row>
                 {props.notes.map(note => <Note key={note.id} note={note} />)}
-            </div>
+            </Row>
+            </Container>
             </div>
         </div>
     )
