@@ -12,3 +12,4 @@ How I envision the routing:
  -the DeleteNote [Button] will be accessible here but not exlusively, upon clicking it,
     the page will route back to the default list view
 
+Overflow: hidden 
