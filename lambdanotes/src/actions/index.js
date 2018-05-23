@@ -13,6 +13,7 @@ export const SAVE_NEW = "SAVE_NEW";
 export const DONE_SAVING = "DONE_SAVING";
 export const CANCEL_DELETE = "CANCEL_DELETE";
 export const EDIT_NOTE = "EDIT_NOTE";
+export const SAVE_EDIT = "SAVE_EDIT";
 
 
 
@@ -94,3 +95,20 @@ export const editNote = () => {
     dispatch({type: EDIT_NOTE});
   }
 }
+
+export const saveEdit = (nextAct, url, note, id) => {
+  let newNote = Object.assign({}, note, {_id: id})
+  console.log(url + `edit/${id}`);
+  const request = axios.put(url + `edit/${id}`, newNote);
+  return (dispatch) => {
+    dispatch({type: SAVE_EDIT});
+    request.then((data) => {
+      dispatch({type: DONE_SAVING});
+      console.log(data);
+      nextAct(url + "get/all");
+    })
+    .catch(err => {
+      dispatch({type: ERROR, payload: err});
+    });
+  };
+};

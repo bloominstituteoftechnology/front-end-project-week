@@ -4,29 +4,10 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
-import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote } from './actions';
+import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit } from './actions';
 
 class App extends Component {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  tempSaveEdit(newNote) {
-    let processedNote = Object.assign({}, newNote, {id: this.state.viewId});
-    let newNotes = this.state.notes.filter((note) => note.id !== processedNote.id);
-    newNotes.push(processedNote);
-    this.setState({appState: "view", notes: newNotes});
-  }
 
   componentDidMount() {
     this.props.fetcher("https://killer-notes.herokuapp.com/note/get/all");
@@ -49,7 +30,7 @@ class App extends Component {
                 reallyDeleteMethod={this.props.reallyDelete}
                 cancelDeleteMethod={this.props.cancelDelete}
                 editMethod={this.props.editNote}
-                saveEditMethod={this.tempSaveEdit.bind(this)}
+                saveEditMethod={this.props.saveEdit}
                 saveNewMethod={this.props.saveNew}
                 fetcher={this.props.fetcher} />
             </Col>
@@ -68,4 +49,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote })(App);
+export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit })(App);

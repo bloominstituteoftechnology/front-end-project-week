@@ -30,7 +30,7 @@ const ContentArea = (props) => {
     case "edit":
       myNote = props.notes.filter((note) => note._id === props.viewId)[0];
       return (
-        <NoteForm fetcher={props.fetcher} topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} />
+        <NoteForm fetcher={props.fetcher} topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} myId={props.viewId} />
       );
     case "fetching":
       return (

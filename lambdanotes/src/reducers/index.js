@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING, REALLY_DELETE, DONE_DELETING, CANCEL_DELETE, EDIT_NOTE } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING, REALLY_DELETE, DONE_DELETING, CANCEL_DELETE, EDIT_NOTE, SAVE_EDIT } from '../actions';
 
 const initialState = {
   notes: [],
@@ -10,6 +10,7 @@ const initialState = {
 const noteReducer = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_NEW:
+    case SAVE_EDIT:
     case FETCHING_NOTES:
     case REALLY_DELETE:
     case DONE_SAVING:
