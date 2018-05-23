@@ -69,7 +69,7 @@ class Note extends React.Component {
                     </div>
                 ) : (<div className="note-view">
                     {edit ? (
-                        <div className="note-edit">
+                        <div className="note-form">
                             <h3>Edit Note:</h3>
                             <form>
                                 <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>

@@ -21,12 +21,17 @@ class AddNote extends Component {
     render() {
         const { title, body, id } = this.state;
         return (
-            <div>
-                <form>
-                    <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                    <input name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                    <button onClick={(e) => this.props.addNote(e, {id, title, body})}>Save</button>
-                </form>
+            <div className="note-flex-props">
+                <div className="note-view">
+                    <div className="note-form">
+                    <h3>Create New Note:</h3>
+                        <form>
+                            <input name="title" value={title} placeholder="Note Title" onChange={(e) =>     this.handleChange(e)}/>
+                            <textarea name="body" value={body} placeholder="Note Content" onChange={(e) =>     this.handleChange(e)}/>
+                            <button className="button" onClick={(e) => this.props.addNote(e, {id, title, body})}>Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }

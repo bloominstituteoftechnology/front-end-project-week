@@ -29,7 +29,7 @@ a:hover {
 }
 
 p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #4A4A4A;
   line-height: 2.4rem;
   margin: 0;
@@ -173,16 +173,16 @@ p {
 /* Note Edit */
 
 
-.note-edit h3 {
+.note-form h3 {
   margin: 35px 0 30px;
 }
 
-.note-edit form {
+.note-form form {
   display: flex;
   flex-flow: column wrap;
 }
 
-.note-edit form input, textarea {
+.note-form form input, textarea {
   padding: 13.5px 10px;
   margin-bottom: 18px;
   font-size: 1.4rem;
@@ -192,15 +192,15 @@ p {
   border: 1px solid #979797;
 }
 
-.note-edit form input:focus, textarea:focus {
+.note-form form input:focus, textarea:focus {
   outline: none;
 }
 
-.note-edit form input:first-child {
+.note-form form input:first-child {
   width: 53.939%;
 }
 
-.note-edit form textarea {
+.note-form form textarea {
   height: 346px;
   resize: none;
 }
