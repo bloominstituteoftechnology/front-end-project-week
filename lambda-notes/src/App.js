@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Route }from "react-router-dom";
+import { Route, Link }from "react-router-dom";
 import { Row, Col, Container, Input, Button } from "reactstrap";
 import logo from './logo.svg';
 import './App.css';
 import NoteList from './Components/NoteList';
 import NoteView from './Components/NoteView';
+import NewNote from './Components/NewNote';
 
 const placeHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
@@ -38,9 +39,9 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Lambda Notes</h1>
-          <Button>View Your Notes</Button>
+          <Link to="/"><Button>View Your Notes</Button></Link>
 
-          <Button>Create New Note</Button>
+          <Link to="/create"><Button>Create New Note</Button></Link>
 
         </header>
         <Container>
@@ -49,10 +50,25 @@ class App extends Component {
               render={props => {
                 return <NoteList notes={this.state.notes} />;  
               }}/>
+            <Route exact path="/note/:id"
+              render={props => {
+                return(
+                  <NoteView {...props}
+                    notes={this.state.notes}
+                  />
+                );
+            }}/>
+            <Route path="/create"
+              render={props => {
+                return (
+                  <NewNote 
+                    notes={this.state.notes}
+                    addNote={this.addNote}
+                  />
+                );
+              }}
+            />
           </Col>
-          {/* <Col sm="9">
-              
-          </Col> */}
         </Container>
       </div>
     );
