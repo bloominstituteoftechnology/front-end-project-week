@@ -14,13 +14,9 @@ const NavBar = () => {
                     <Button>View Your Notes</Button>
                 </Link>
                 <br />
-                <Link to='NoteForm'>
+                <Link to='note-form'>
                     <Button>+Create New Note</Button>
                 </Link>
-            </div>
-            <div >
-                <Route exact path='/' render={() => <NoteList { ...this.state } />} />
-                <Route path='/createForm' component={ NoteForm } />
             </div>
         </div>
     )

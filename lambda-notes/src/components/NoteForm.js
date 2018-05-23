@@ -25,7 +25,7 @@ export default class NoteForm extends Component {
         return (
             <div>
                 <h4>Create New Note</h4>
-                    <div className='create-form'>
+                    <div className='note-form'>
                         <Form>
                             <FormGroup>
                                 <Input
@@ -39,13 +39,13 @@ export default class NoteForm extends Component {
                             <FormGroup>
                                 <Input
                                     type='text'
-                                    name='title'
+                                    name='content'
                                     placeholder='Note Content'
                                     value={this.state.content}
                                     onChange={this.handleInputChange}
                                 />
                             </FormGroup>
-                            <Button onClick={this.createNewNote} className='content-btn'>
+                            <Button onClick={this.createNewNote} className='add-note-btn'>
                                 Save
                             </Button>
                         </Form>
