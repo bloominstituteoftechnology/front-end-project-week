@@ -53,12 +53,12 @@ export const startDelete = () => {
   }
 }
 
-export const reallyDelete = (url, note) => {
+export const reallyDelete = (url) => {
   const request = axios.delete(url);
   return (dispatch) => {
     dispatch({type: REALLY_DELETE});
     request.then((data) => {
-      dispatch({type: DONE_DELETING, payload: data.data});
+      dispatch({type: DONE_DELETING});
     })
     .catch(err => {
       dispatch({type: ERROR, payload: err});
