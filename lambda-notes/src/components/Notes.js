@@ -6,13 +6,13 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 const Notes = () => {
 
     return (
-        
-        <div className="NotesViewName" style="width:25%">
-            <h3 className="NotesViewName">Your Notes:</h3>
+        <div>
+        <div>
+            <h3 className="NotesViewName" style="width:25%">Your Notes:</h3>
         </div>
         
-        <div className= "Note1">
-            <p><u>Note Title</u></p>
+        <div className="Note1">
+            <p ><u>Note Title</u></p>
             <p>
             Morbi pellentesque
             euismod venetais.
@@ -109,7 +109,8 @@ const Notes = () => {
                 blandit ac purus a.
                 efficitur mollis
             </p>
-        </div>
+            </div>
+        </div>    
     );
 };
 

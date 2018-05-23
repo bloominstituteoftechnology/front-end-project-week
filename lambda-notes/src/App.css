@@ -57,3 +57,8 @@
   text-decoration: none;
   display: block;
 }
+
+.EditDelete-TopNavRight{
+color: black;
+float:right;
+}

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import './Notes.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import DeleteModal from './DeleteModal';
-import EditNote from './EditNote';
-import NewNotes from './NewNotes';
-import Notes from './Notes';
-import NoteView from './NoteView';
+import DeleteModal from './components/DeleteModal';
+import EditNote from './components/EditNote';
+import NewNotes from './components/NewNotes';
+import Notes from './components/Notes';
+import NoteView from './components/NoteView';
 
 class App extends Component {
 
