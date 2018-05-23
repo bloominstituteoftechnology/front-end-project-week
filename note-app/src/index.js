@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import cardContent from './components/cardContent';
+import { BrowserRouter as Router,Link,Route,Switch,} from 'react-router-dom';
 
 
 
 
 ReactDOM.render(
-  <App />,
-
-  document.getElementById('app')
-);
+<Router>
+    <App />
+    </Router>, 
+    document.getElementById('root'));

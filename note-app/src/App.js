@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Nav from './components/navSection';
 import { Container, Col, Row} from 'reactstrap';
 import './App.css';
-import navSection from '../navSection';
-import cardList from '../cardList';
-import cardForm from '../cardForm';
+import navSection from './components/navSection.js';
+import cardList from './components/cardList.js';
+import cardForm from './components/cardForm.js';
 import cardContent from './components/cardContent.js';
 import { BrowserRouter as Router,Link,Route,Switch,} from 'react-router-dom';
 

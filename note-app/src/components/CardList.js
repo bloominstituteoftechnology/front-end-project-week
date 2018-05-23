@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Col, Row } from 'reactstrap';
+import './cardList';
 
-const cardsList = () => {
+const cardList = () => {
         return (
             <Container>
                 <Row>

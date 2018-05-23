@@ -10,7 +10,7 @@ const cardForm = () => {
         </div>
             <form className='form'>
                 <input type='text' className ='insertTitle' placeholder='Note Title' />
-                <textarea type='text' className='insertContent' name='content' placeholder='Note Content'><textarea>
+                <textarea type='text' className='insertContent' name='content' placeholder='Note Content'></textarea>
                     <Link to ='/card'>
                         <input className='saveButton' type='button' value='Save' />
                         </Link>
