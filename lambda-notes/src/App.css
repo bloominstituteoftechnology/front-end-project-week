@@ -32,10 +32,15 @@
 }
 
 .Notes-bar-item-notes-button{
-
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .SaveButton {
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: white;
 }
