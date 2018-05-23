@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import './App.css';
 import { Form, FormGroup, Label, Input, FormText, Container, Button } from 'reactstrap';
-import SideBar from './SideBar';
 
 class CreateNote extends Component {
   constructor (props) {
@@ -32,7 +31,6 @@ handleSaveNoteButton = () => {
 
     return  (
         <div>
-            <SideBar />
             <Form>
             <FormGroup>
                 <Label for="note-title">Create New Note:</Label>

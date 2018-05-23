@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
-import dummyData from './dummyData';
 import { Route } from 'react-router-dom';
+
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col, CardColumns, Container } from 'reactstrap';
+
+import './App.css';
+import dummyData from './dummyData';
 import NotesContainer from './components/NotesContainer';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
+import NoteView from './components/NoteView';
 
 class App extends Component {
   constructor (props) {
@@ -28,26 +31,25 @@ componentDidMount () {
     
     return (
       <div className="App">
-        <Route exact path="/" render={() => <h5 className="App-header">Your Notes:</h5>} />
-        {/* <h5 className="App-header">Your Notes:</h5> */}
-        <Container fluid>
+
+  
+       <Container fluid>
           <Row>
-            <Col sm="3" >
-              <Route exact path="/" component={ SideBar } />
-               {/* <SideBar /> */}
+            <Col className="sidebar" sm="3">
+              <Route path="/" component={ SideBar } />
             </Col>
-            {this.state.userNotes.map((note, index) => {
-              return ( 
-                <Col sm="3" >
-                  <Route exact path="/" render={() => <NotesContainer key={index} note = {note}/>} />
-                    {/* <NotesContainer key={index} note = {note}/> */}
-                </Col> 
-              )
-            })}
+            <Col className="content-container" sm="9">
+             
+              <Route exact path="/" render={(props) => { return <NotesContainer notes={this.state.userNotes}/>}} />
+
+              <Route path="/createNote" render={(props) => <CreateNote notes={this.state.userNotes}/>} />
+
+              <Route path='/noteView/:noteID' render={ (props) => {return <NoteView notes={this.state.userNotes}/>}} />
+
+            </Col>
           </Row>
-        </Container>
-        <Route path="/createNote" render={() => <CreateNote notes={this.state.userNotes}/>} />
-        {/* <Route path="/createNote" component={ CreateNote } /> */}
+       </Container>
+
       </div>
     );
   }
