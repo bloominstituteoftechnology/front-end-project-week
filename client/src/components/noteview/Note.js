@@ -24,11 +24,13 @@ const Note = props => {
                   />
                 </Link>
 
-                <Button
-                  buttonClassName='note-action-wrapper__delete-button'
-                  buttonContent='Delete'
-                  buttonOnClick={ () => props.handleDeleteNote(note.id) }
-                />
+                <Link to='/'>
+                  <Button
+                    buttonClassName='note-action-wrapper__delete-button'
+                    buttonContent='Delete'
+                    buttonOnClick={ () => props.handleDeleteNote(note.id) }
+                  />
+                </Link>
               </div>
               
               <div className='note-wrapper__note-content-wrapper'>
