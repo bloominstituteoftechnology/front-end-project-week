@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../style/SideBar.css";
 
 const buttonStyle = {
   display: "inline-flex",
@@ -9,23 +8,27 @@ const buttonStyle = {
   marginBottom: 10,
   backgroundColor: "#25b8bd",
   cursor: "pointer",
-  width: "20%",
+  width: "80%",
   color: "white",
   height: 50,
-  fontWeight: "bold"
+  fontWeight: "bold",
+  marginLeft: "7.5%"
 };
 
 const headerStyle = {
   fontWeight: "bold"
 };
-
-const marginSide = {
+const container = {
   marginLeft: "7.5%"
+}
+const marginSide = {
+  marginLeft: "7.5%",
+  height: "100%"
 };
 
 const SideBar = props => {
   return (
-    <div>
+    <div style={container}>
       <div style={marginSide}>
         <h1 style={headerStyle}>
           Lambda <br />Notes{" "}

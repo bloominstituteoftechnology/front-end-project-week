@@ -113,11 +113,11 @@ class MainView extends React.Component {
     let descI = this.props.notes.length;
     return (
       <div>
-        <div>
+        {/* <div>
           {this.state.showAscending === true
             ? (changeOrder = "DESCENDING")
             : (changeOrder = "ASCENDING")}
-        </div>
+        </div> */}
         <div>
           <h4>Your Notes:</h4>
           <span>

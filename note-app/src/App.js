@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SView from "./components/SView";
 import MainView from "./components/MainView";
 import EditNote from "./components/EditNote";
