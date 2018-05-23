@@ -45,7 +45,6 @@ export const goToList = () => {
 }
 
 export const viewNote = (id) => {
-  console.log(id);
   return (dispatch) => {
     dispatch({type: VIEW_NOTE, payload: id});
   }
