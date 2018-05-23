@@ -293,9 +293,11 @@ table {
   width: 400px;
   height: 50px;
   padding: 0 9px;
+  outline: none;
 }
 .form-component .custom-form .custom-text-area {
   padding: 20px;
+  outline: none;
 }
 .main-component .custom-main {
   padding: 4rem 2rem;
@@ -358,9 +360,11 @@ table {
   width: 400px;
   height: 50px;
   padding: 0 9px;
+  outline: none;
 }
 .main-component .custom-main .custom-form .custom-text-area {
   padding: 20px;
+  outline: none;
 }
 .main-component .custom-main a {
   text-decoration: none;
@@ -497,9 +501,11 @@ p {
   width: 400px;
   height: 50px;
   padding: 0 9px;
+  outline: none;
 }
 .custom-container .row .custom-main .custom-form .custom-text-area {
   padding: 20px;
+  outline: none;
 }
 .custom-container .row .custom-main a {
   text-decoration: none;
