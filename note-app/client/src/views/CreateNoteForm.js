@@ -1,5 +1,8 @@
 import React from 'react';
 import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
+import { BrowserRouter as Router} from "react-router-dom";
+
+
 
 const CreateNote = (props) => {
     return (
