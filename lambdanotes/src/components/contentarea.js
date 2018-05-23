@@ -13,7 +13,7 @@ const ContentArea = (props) => {
       );
     case "deleting":
     case "view":
-      myNote = props.notes.filter((note) => note.id === props.viewId)[0];
+      myNote = props.notes.filter((note) => note._id === props.viewId)[0];
       return (
         <NoteView appState={props.appState}
           note={myNote}
@@ -27,7 +27,7 @@ const ContentArea = (props) => {
         <NoteForm topText="Create New Note:" myTitle="" myContent="" myMethod={props.saveNewMethod} />
       );
     case "edit":
-      myNote = props.notes.filter((note) => note.id === props.viewId)[0];
+      myNote = props.notes.filter((note) => note._id === props.viewId)[0];
       return (
         <NoteForm topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} />
       );

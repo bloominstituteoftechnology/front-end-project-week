@@ -6,6 +6,7 @@ export const START_CREATE = "START_CREATE";
 export const ERROR = "ERROR";
 export const GO_TO_LIST = "GO_TO_LIST";
 export const VIEW_NOTE = "VIEW_NOTE";
+export const START_DELETE = "START_DELETE";
 
 
 
@@ -35,8 +36,15 @@ export const goToList = () => {
   }
 }
 
-export const viewNote = () => {
+export const viewNote = (id) => {
+  console.log(id);
   return (dispatch) => {
-    dispatch({type: VIEW_NOTE});
+    dispatch({type: VIEW_NOTE, payload: id});
+  }
+}
+
+export const startDelete = () => {
+  return (dispatch) => {
+    dispatch({type: START_DELETE});
   }
 }

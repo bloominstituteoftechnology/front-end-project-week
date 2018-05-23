@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE } from '../actions';
 
 const initialState = {
   notes: [],
@@ -19,6 +19,8 @@ const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {appState: "list", viewId: null});
     case VIEW_NOTE:
       return Object.assign({}, state, {appState: "view", viewId: action.payload});
+    case START_DELETE:
+      return Object.assign({}, state, {appState: "deleting"});
     default:
       return state;
   }

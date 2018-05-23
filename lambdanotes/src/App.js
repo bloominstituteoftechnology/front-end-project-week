@@ -4,7 +4,7 @@ import './App.css';
 import ContentArea from './components/contentarea.js';
 import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
-import { fetcher, startCreate, goToList, viewNote } from './actions';
+import { fetcher, startCreate, goToList, viewNote, startDelete } from './actions';
 
 class App extends Component {
 
@@ -15,10 +15,6 @@ class App extends Component {
 
 
 
-
-  tempDelete() {
-    this.setState({appState: "deleting"});
-  }
 
   tempReallyDelete() {
     this.setState({appState: "list", notes: this.state.notes.filter((note) => note.id !== this.state.viewId), viewId: null})
@@ -63,7 +59,7 @@ class App extends Component {
                 appState={this.props.appState}
                 notes={this.props.notes}
                 viewId={this.props.viewId}
-                deleteMethod={this.tempDelete.bind(this)}
+                deleteMethod={this.props.startDelete}
                 reallyDeleteMethod={this.tempReallyDelete.bind(this)}
                 cancelDeleteMethod={this.tempCancelDelete.bind(this)}
                 editMethod={this.tempEdit.bind(this)}
@@ -85,4 +81,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote })(App);
+export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete })(App);
