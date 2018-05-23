@@ -115,7 +115,6 @@ class Notes extends React.Component {
   render() {
     const {notes, sortBoxOpen, searchBoxOpen} = this.props
     const {list1, list2, list3, list4} = this.state
-    console.log(this.props)
     return (
         <div style={getNotesStyle(searchBoxOpen, sortBoxOpen)}>
             { (!sortBoxOpen && !searchBoxOpen) ?

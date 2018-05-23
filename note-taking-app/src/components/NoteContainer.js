@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import firebase from 'firebase/app';
 
 import Notes from './Notes';
 import AddNoteForm from './AddNoteForm';
@@ -10,7 +12,6 @@ import { getNotes, getTags } from '../actions';
 
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Panel } from 'office-ui-fabric-react/lib/Panel';
-import FirebaseAuthentication from './FirebaseAuthentication';
 
 const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isDeleting }) => {
   if (!isFetching) {
@@ -24,7 +25,8 @@ const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isD
 
 class NoteContainer extends React.Component {
   state = {
-    openPanel: false
+    openPanel: false,
+    isSignedIn: false
   }
   componentDidMount = () => {
     this.props.getNotes()
@@ -36,25 +38,51 @@ class NoteContainer extends React.Component {
   hidePanel = () => {
     this.setState({ openPanel: false })
   }
+
+  // Configure FirebaseUI.
+  uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      // Avoid redirects after sign-in.
+      signInSuccessWithAuthResult: () => {
+        this.hidePanel()
+        return false
+      }
+    }
+  }
+  // Listen to the Firebase Auth state and set the local state.
+  componentDidMount() {
+    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+        (user) => {
+          console.log(user)
+        }
+    );
+  }
+
+  // Make sure we un-register Firebase observers when the component unmounts.
+  // componentWillUnmount() {
+  //   this.unregisterAuthObserver();
+  // }
   render () {
-    const { openPanel } = this.state
+    const { openPanel, hidePanel } = this.state
+    console.log(this.state)
     return (
       <div style={style.root}>
-        <DefaultButton
-          iconProps={ { iconName: 'ContactCard' } }
-          text='Log In'
-          onClick={this.showPanel}
-          style={style.authButton}
-        />
+        {
+          !this.state.isSignedIn?
+          <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+          :
+          <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+        }
         <NoteContainerChild {...this.props}/>
-        <Panel
-          isOpen={ openPanel }
-          isLightDismiss={ true }
-          headerText='Sign In'
-          onDismiss={ this.hidePanel }
-        >
-          <FirebaseAuthentication />
-        </Panel>
+        
+        
       </div>
     )
   }
