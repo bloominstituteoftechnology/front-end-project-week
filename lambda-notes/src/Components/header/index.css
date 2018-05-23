@@ -1,0 +1,9 @@
+.Title {
+    padding: 1rem 0;
+    border-bottom: 1px solid lightslategrey;
+    float: left;
+    display: block;
+    font-weight: bold;
+    width: 100%;
+    
+}
