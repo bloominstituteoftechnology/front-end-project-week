@@ -2,6 +2,8 @@ import React from 'react';
 import NoteList from './notelist.js';
 import NoteView from './noteview.js';
 import NoteForm from './noteform.js';
+import { Alert } from 'reactstrap';
+import './contentarea.css';
 
 
 const ContentArea = (props) => {
@@ -34,11 +36,15 @@ const ContentArea = (props) => {
       );
     case "fetching":
       return (
-        <div />
+        <Alert className="loading-alert" color="dark">
+        Loading ...
+        </Alert>
       );
     default:
       return (
-        <div />
+        <div>
+          Oh no!  Something is wrong.  No recongized app state.
+        </div>
       );
   }
 }
