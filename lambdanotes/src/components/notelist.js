@@ -30,7 +30,6 @@ const NoteList = (props) => {
       <div className="note-row">
         {cardArr}
       </div>
-      <LambdaButton text="Alphabetize Notes" color="green" myFunc={props.alphabetizeNotes} />
     </div>
   );
 }

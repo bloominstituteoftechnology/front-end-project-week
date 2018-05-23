@@ -18,7 +18,9 @@ class App extends Component {
       <div className="App">
           <Row>
             <Col className="left-side" xs="3">
-              <SideMenu listMethod={this.props.goToList} createMethod={this.props.startCreate} />
+              <SideMenu listMethod={this.props.goToList}
+              createMethod={this.props.startCreate}
+              alphabetizeNotes={this.props.alphabetizeNotes} />
             </Col>
             <Col className="content" xs="9">
               <ContentArea
@@ -33,7 +35,7 @@ class App extends Component {
                 saveEditMethod={this.props.saveEdit}
                 saveNewMethod={this.props.saveNew}
                 fetcher={this.props.fetcher}
-                alphabetizeNotes={this.props.alphabetizeNotes} />
+                 />
             </Col>
           </Row>
       </div>
