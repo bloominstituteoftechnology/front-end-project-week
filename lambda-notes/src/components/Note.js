@@ -46,7 +46,7 @@ class Note extends Component {
               <ModalBody className='modal-body'>
                 Are you sure you want to delete this?
               </ModalBody>
-              <ModalFooter>
+              <ModalFooter className='but-wrapper'>
                 <Button color="danger" className='modal-but' onClick={this.toggle}>
                   Delete
                 </Button> <Button className='no-button modal-but' onClick={this.toggle}>

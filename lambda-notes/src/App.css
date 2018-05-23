@@ -10,13 +10,20 @@ body, html {
   background-color: #D8D8D8;
 }
 
+
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  justify-content: space-between;
+}
 .cards {
   height: 100vh;
   overflow: scroll; /*these two lines enabled me to scroll notes indepenently and have the sidebar fixed */
   background: #F3F3F3;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   padding-left: 2.5%;
   padding-right: 2.5%;
 }
@@ -24,6 +31,7 @@ body, html {
 .card {
   min-width: 320px;
   color: black;
+  margin: 1%;
 }
 
 .card-head:hover {
@@ -67,7 +75,8 @@ body, html {
 }
 
 .your-notes {
-  width: 100%;
+  display: flex;
+  width: 100vw;
   margin-bottom: 2%;
   margin-top: 2.5%;
 }
@@ -125,4 +134,7 @@ body, html {
 
 .modal-but {
   width: 40%;
+}
+.but-wrapper {
+  
 }
