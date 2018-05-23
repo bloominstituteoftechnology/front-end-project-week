@@ -79,17 +79,18 @@ body {
     padding-left: 20px;
     border: 2px solid #979797;
 
-}
+}*/
 
 
 
-.mainBodyTitle {
+.mainBodyTitle2 {
     font: Raleway Medium;
     margin-left: 5%;
     margin-top: 8%;
+    font-weight: bold;
 }
 
-.sideBarTitle1 {
+/*.sideBarTitle1 {
     margin-top: 15px;
     margin-left: 20px;
     font: Roboto Bold;

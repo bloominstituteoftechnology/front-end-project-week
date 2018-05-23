@@ -32,7 +32,7 @@ class EditNote extends Component {
         
          <div className="mainBody">
             <div>
-            <h4 className="mainBodyTitle">Edit Note:</h4>
+            <h4 className="mainBodyTitle2">Edit Note:</h4>
             <div>
               <input className="noteTitle"
                 placeholder="Note Title"

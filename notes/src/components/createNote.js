@@ -92,7 +92,7 @@ class CreateNote extends Component {
         
         <div className="mainBody">
           <div>
-            <h4 className="mainBodyTitle">Create New Note:</h4>
+            <h4 className="mainBodyTitle2">Create New Note:</h4>
             <input className="noteTitle"
               placeholder="Note Title"
               type="text"
