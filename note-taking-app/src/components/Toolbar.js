@@ -80,7 +80,7 @@ class Toolbar extends Component {
             <Callout
               className='ms-CalloutExample-callout'
               target={ this.sortButtonElement }
-              onDismiss={ hideSortBox }
+              // onDismiss={ hideSortBox }
               setInitialFocus={ true }
               hidden={ !sortBoxOpen }
               directionalHint={DirectionalHint.leftTopEdge}

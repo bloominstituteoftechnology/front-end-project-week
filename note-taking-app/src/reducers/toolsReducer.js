@@ -55,7 +55,6 @@ export const toolsReducer = (state=initialState, action) => {
         case SORTING_NOTE:
             return {
                 ...state,
-                sortBoxOpen: false,
                 sortType: action.sortType
             }
         case TOGGLE_MARKDOWN:

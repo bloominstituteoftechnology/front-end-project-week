@@ -25,10 +25,10 @@ class NoteCard extends React.Component {
     this.setState({ tagOfNoteOpen: false })
   }
   render () {
-  const {id, title, content, inChecklist, selectNote } = this.props
+  const {id, title, content, inChecklist, selectNote, searchBoxOpen, sortBoxOpen } = this.props
   const { tagOfNoteOpen } = this.state
   return (
-    <div style={style.root}>
+    <div style={getNoteCardWidth(searchBoxOpen, sortBoxOpen)}>
     <div  
       ref={button => this.tagOfNoteButtonElement = button }>
       <DocumentCard>
@@ -81,10 +81,6 @@ class NoteCard extends React.Component {
   }
 }
 const style = {
-  root: {
-    width: '100%',
-    
-  },
   cardPreview: {
     padding: '8px 16px',
     color: '#666'
@@ -93,5 +89,10 @@ const style = {
     display: 'inline-block'
   }
 }
+
+const getNoteCardWidth = (searchBoxOpen, sortBoxOpen) => ({
+  padding: (!sortBoxOpen && !searchBoxOpen) ? 'auto' : 8,
+  width: (!sortBoxOpen && !searchBoxOpen) ? '100%' : '25%',
+})
 
 export default connect(null, { selectNote })(NoteCard);

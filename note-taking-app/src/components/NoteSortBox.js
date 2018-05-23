@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { sortNote } from '../actions';
+import { sortNote, hideSortBox } from '../actions';
 
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button';
 
 class NoteSortBox extends React.Component {
   render() {
-    const { sortNote } = this.props
+    const { sortNote, hideSortBox } = this.props
     return(
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <DefaultButton
@@ -25,9 +25,13 @@ class NoteSortBox extends React.Component {
           text='Descending'
           onClick={() => sortNote('des') }
         />
+        <IconButton
+          iconProps={ { iconName: 'ChromeClose' } }
+          onClick={hideSortBox}
+        />
       </div>
     )
   }
 }
 
-export default connect(null, { sortNote })(NoteSortBox);
+export default connect(null, { sortNote, hideSortBox })(NoteSortBox);

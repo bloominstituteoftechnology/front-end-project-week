@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import { makeSearchNoteByText, makeSortNoteBy, makeConvertObjectToArray } from '../selectors';
 
@@ -48,13 +48,14 @@ class Notes extends React.Component {
   };
   componentDidMount = () => {
     const notesObj = this.props.notes
-    const notes = Object.keys(notesObj)
-    .map(id => {
-      return {
+    let notes = notesObj ? Object.keys(notesObj) : []
+    notes = notes.map(id => {
+      const obj = {
         id: id,
         title: notesObj[id].title,
         content: notesObj[id].content
       }
+      return obj
     })
     this.setState({
       list1: notes.slice(0,2),
@@ -112,17 +113,27 @@ class Notes extends React.Component {
   };
 
   render() {
-    const {notes} = this.props
+    const {notes, sortBoxOpen, searchBoxOpen} = this.props
     const {list1, list2, list3, list4} = this.state
-    console.log(this.state)
+    console.log(this.props)
     return (
-        <div style={style.root}>
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <DroppableCol id={1} list={list1}/>
-                <DroppableCol id={2} list={list2}/>
-                <DroppableCol id={3} list={list3}/>
-                <DroppableCol id={4} list={list4}/>
-            </DragDropContext>
+        <div style={getNotesStyle(searchBoxOpen, sortBoxOpen)}>
+            { (!sortBoxOpen && !searchBoxOpen) ?
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <DroppableCol id={1} list={list1}/>
+                    <DroppableCol id={2} list={list2}/>
+                    <DroppableCol id={3} list={list3}/>
+                    <DroppableCol id={4} list={list4}/>
+                </DragDropContext>
+                :
+                // <div>
+                notes && Object.keys(notes).map((id) => {
+                    return (          
+                        <NoteCard key={id} id={id} {...notes[id]} sortBoxOpen={sortBoxOpen} searchBoxOpen={searchBoxOpen}/>
+                    )
+                })
+                // </div>
+            }
         </div>
     )
   }
@@ -130,20 +141,38 @@ class Notes extends React.Component {
   
 
 const mapStateToProps = () => {
-  const searchNoteByText = makeSearchNoteByText()
-  const sortNoteBy = makeSortNoteBy()
-  return (state) => {
-    if (state.toolsReducer.searchBoxOpen) {
-      return searchNoteByText(state.notesReducer.notes, state.toolsReducer.searchText)
+    const searchNoteByText = makeSearchNoteByText()
+    const sortNoteBy = makeSortNoteBy()
+    return (state) => {
+        if (state.toolsReducer.searchBoxOpen) {
+            const { notes } = searchNoteByText(state.notesReducer.notes, state.toolsReducer.searchText)
+            return {
+                notes,
+                searchBoxOpen: state.toolsReducer.searchBoxOpen
+            }
+        } else if (state.toolsReducer.sortBoxOpen) {
+            const { notes } = sortNoteBy(state.notesReducer.notes, state.toolsReducer.sortType)
+            console.log(notes)
+            return {
+                notes,
+                sortBoxOpen: state.toolsReducer.sortBoxOpen
+            }
+        }
+        const { notes } = state.notesReducer
+        const { sortBoxOpen, searchBoxOpen } = state.toolsReducer
+        return {
+            notes,
+            sortBoxOpen,
+            searchBoxOpen,
+        }
+        
     }
-    return sortNoteBy(state.notesReducer.notes, state.toolsReducer.sortType)
-  }
 }
 
-const style = {
-    root: {
-        display: 'flex',
-    }
-}
+const getNotesStyle = (searchBoxOpen, sortBoxOpen) => ({
+    display: 'flex',
+    flexWrap: (!searchBoxOpen && !sortBoxOpen) ? 'none': 'wrap',
+    justifyContent: (!searchBoxOpen && !sortBoxOpen) ? 'none': 'space-around',
+})
 
 export default connect(mapStateToProps, {})(Notes);
