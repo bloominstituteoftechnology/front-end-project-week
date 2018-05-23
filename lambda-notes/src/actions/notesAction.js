@@ -10,10 +10,16 @@ export const fetchNote = () => {
       })
     });
   }
-}
+};
 
 export const addNote = (note) => {
   return () => {
-    database.push(note)
+    return database.push(note)
   };
-}
+};
+
+export const deleteNote = (id) => {
+  return () => {
+    return database.child(id).remove();
+  };
+};

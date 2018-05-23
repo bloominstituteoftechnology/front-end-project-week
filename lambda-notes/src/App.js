@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import _ from "underscore";
 import './App.css';
 import { connect } from "react-redux";
-import { fetchNote, addNote } from "./actions/notesAction";
+import { fetchNote, addNote, deleteNote } from "./actions/notesAction";
 
 class App extends Component {
   constructor(props) {
@@ -31,25 +32,9 @@ class App extends Component {
     this.setState({title: "", body: ""});
   }
 
-  renderNotes = () => {
-    let newArray = [];
-    let obj = this.props.notes;
-    for(let key in obj) {
-      newArray.push(obj[key]);
-    }
-    return newArray.map((note, index) => {
-      return (
-        <div key={index}>
-          <h2>{note.title}</h2>
-          <p>{note.body}</p>
-        </div>
-      );
-    });
-  }
-
   render() {
     return (
-      <div>
+      <div className="App">
         <form onSubmit={this.handleSubmit}>
           <input
             name="title"
@@ -70,7 +55,19 @@ class App extends Component {
             Add Note
           </button>
         </form>
-        {this.renderNotes()}
+        {_.map(this.props.notes, (note, key) => {
+          return (
+            <div key={key}>
+              <h2>{note.title}</h2>
+              <p>{note.body}</p>
+              <button
+                onClick={() => this.props.deleteNote(key)}
+              >
+                X
+              </button>
+            </div>
+          )
+        })}
       </div>
     );
   }
@@ -82,4 +79,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchNote, addNote })(App);
+export default connect(mapStateToProps, { fetchNote, addNote, deleteNote })(App);
