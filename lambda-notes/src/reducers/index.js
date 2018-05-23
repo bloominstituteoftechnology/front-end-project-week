@@ -6,12 +6,12 @@ let initialState = [
     {
     title: "Hey",
     body: "I am a note",
-    id: "Hey"
+    id: 1
     },
     {
     title: "This",
     body: "Another note",
-    id: "This"
+    id: 2
     }
 ]
 
@@ -20,8 +20,8 @@ const saveData = (array) => {
 }
 
 const retrieveData = () => {
-    initialState = JSON.parse(localStorage.getItem('array'));
-    return initialState === null ? [] : initialState;
+    //initialState = JSON.parse(localStorage.getItem('array'));
+    return initialState //=== null ? [] : initialState;
 }
 
 export default (state = retrieveData(), action) => {
@@ -39,8 +39,14 @@ export default (state = retrieveData(), action) => {
             saveData(editNoteState);
             return editNoteState;
         case REMOVE_NOTE:
-            const removeNoteState = Array.from(state);
-            removeNoteState.splice(action.payload, 1);
+            // console.log(typeof action.payload)
+            let removeNoteState = Array.from(state);
+            // console.log(removeNoteState);
+            removeNoteState = removeNoteState.filter(note => {
+                // console.log(note)
+                return note.id !== action.payload;
+            });
+            // console.log(removeNoteState)
             saveData(removeNoteState);
             return removeNoteState;
         default:

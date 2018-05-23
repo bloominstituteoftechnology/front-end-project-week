@@ -2,10 +2,17 @@ export const ADD_NOTE = 'ADD_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const REMOVE_NOTE = 'REMOVE_NOTE';
 
-export const addNote = (note) => {
+let noteID = 2;
+
+export const addNote = note => {
+    noteID++;
     return {
         type: ADD_NOTE,
-        payload: note
+        payload: {
+            id: noteID,
+            title: note.title,
+            body: note.body
+        }
     };
 };
 

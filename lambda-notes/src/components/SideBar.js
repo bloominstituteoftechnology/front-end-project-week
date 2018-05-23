@@ -7,7 +7,7 @@ const SideBar = props => {
         <div className="sidebar"> 
             <h1>Lamda<br/>Notes</h1>
             <Link to={"/"} className="button">View Your Notes</Link>
-            <Link to={""}className="button">+ Create New Note</Link>
+            <Link to={"/addNote"}className="button">+ Create New Note</Link>
         </div>
     )
 }

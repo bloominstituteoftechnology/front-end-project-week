@@ -16,7 +16,7 @@ class CreateNote extends Component {
 
     addNote = (event) => {
         event.preventDefault();
-        let noteObj = { title: this.state.title, body: this.state.body, id: this.state.title }
+        let noteObj = { title: this.state.title, body: this.state.body, id: this.state.id }
         this.props.addNote(noteObj);
         this.setState({title: '', body: ''});
         this.props.history.push('/');
@@ -24,7 +24,6 @@ class CreateNote extends Component {
 
     render() {
         console.log(this.props)
-        console.log(this.noteID)
         return (
             <div className="create-note">
                 <form>

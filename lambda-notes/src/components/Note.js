@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 import { addNote, editNote, removeNote } from '../actions';
 
-const routeView = 'Note View'
-
 class Note extends Component {
     state = {
         notes: []
@@ -22,14 +20,16 @@ class Note extends Component {
     };
 
     render() {
-        console.log(this.props.match)
+        console.log(this.props.notes)
         console.log(this.matchedNote)
         return (
             <div>
-                <button>Edit</button>
+                <Link to={`/note/${this.matchedNote.id}`}>
+                Edit
+                </Link>
                 <button
-                    value={this.matchedNote} onClick={(event) => {
-                        this.handleRemoveNote(event, this.matchedNote)
+                     onClick={(event) => {
+                        this.handleRemoveNote(event, this.matchedNote.id)
                     }}>Remove Note
                 </button>
                 <div>
