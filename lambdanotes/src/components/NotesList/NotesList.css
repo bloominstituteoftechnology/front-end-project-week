@@ -3,12 +3,14 @@
     flex-direction: column;
     width: 100%;
     padding: 1rem 0;
+    background-color: #F1F1F1;
 }
 
 .contentHeader {
     display: flex;
     width: 100vw;
     padding: 0 1rem;
+    color: #3D3F41;
 }
 
 
@@ -23,7 +25,7 @@
     width: 18rem;
     height: 14rem;
     background-color: white;
-    border: 1px solid lightslategray;
+    border: 1px solid #DEDEDE;
     border-radius: 0.2rem;
     padding: 0 1rem;
     margin: 1rem;
@@ -32,11 +34,19 @@
 }
 
 .noteCard p {
-    height: 8rem;
+    margin-top: 0;
+    height: 9rem;
     overflow: hidden;
+    color: #958F91;
+    font-size: 1.3rem;
 }
 
 .noteCard h3 {
     height: 1.5rem;
     overflow: hidden;
+    margin-bottom: 0;
+}
+
+.noteCard hr {
+    border: 1.5px solid #DEDEDE;
 }

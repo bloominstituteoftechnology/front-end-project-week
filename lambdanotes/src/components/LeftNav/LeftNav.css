@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: column;
     padding:  0 1rem;
-    background-color: rgb(148, 151, 155);
+    background-color: #D3D3D3;
     height: 100vh;
+    color: #3D3F41;
 }
 
 .navHeader {
@@ -15,9 +16,9 @@
 .navButton {
     width: 200px;
     height: 50px;
-    background-color: rgb(11, 226, 226);
-    border: 1px solid rgb(9, 131, 131);
-    box-shadow: 1px 1px rgb(9, 131, 131);
+    background-color: #23B8BE;
+    border: 1px solid #3FADAF; 
+    box-shadow: 1px 1px rgb(102, 127, 129);
     border-radius: 0.2rem;
     margin: 0 0 1rem 0;
 }
