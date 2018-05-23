@@ -5,40 +5,7 @@ import { Link } from 'react-router-dom';
 import ListItems from './listitems';
 
 
-// const initialState = [
-//     {id: 1,
-//     title: "Note 1",
-//     content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-//     {id: 2,
-//     title: "Note 2",
-//     content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-//     {id: 3,
-//     title: "Note 3",
-//     content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-// ]
-
 class CreateNote extends Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             todos: initialState,
-//             todo: '',
-//         };
-//     }
-// handleEventChange = event => {
-//     this.setState({ [event.target.name]: event.target.value })
-// };
-
-// handleSubmit = () => {
-//     const todos = this.state.todos;
-//     const todo = {
-//         id: this.state.todo + todos.length,
-//         title: this.state.title,
-//         content: this.state.content,
-//     };
-//     todos.push(todo);
-//     this.setState({ todos: todos, todo: '' })
-// };
 
     render() {
         return (
