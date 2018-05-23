@@ -3,6 +3,37 @@ import { addNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+const noteBody = {
+  width: "90%",
+  height: 300,
+  padding: "12px 20px",
+  boxSizing: "border-box",
+  border: "2px solid #ccc",
+  borderRadius: "4px",
+  backgroundColor: "#f8f8f8",
+  resize: "none",
+  marginTop: 20
+};
+const buttonStyle = {
+  marginTop: 20,
+  width: "28%",
+  backgroundColor: "#25b8bd",
+  cursor: "pointer",
+  color: "white",
+  height: 50,
+  fontWeight: "bold",
+  fontSize: 20
+};
+const marginMain = {
+  marginLeft: "5%",
+  paddingTop: 55
+};
+const noteHeader = {
+  width: "47%",
+  height: 40,
+  marginTop: 10
+};
+
 class NewNote extends React.Component {
   constructor(props) {
     super(props);
@@ -37,9 +68,10 @@ class NewNote extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div style={marginMain}>
         <h3>Create New Note:</h3>
         <input
+          style={noteHeader}
           type="text"
           name="title"
           value={this.state.title}
@@ -47,6 +79,7 @@ class NewNote extends React.Component {
           onChange={this.handleTextInput}
         />
         <input
+          style={noteBody}
           type="text"
           name="note"
           value={this.state.note}
@@ -54,7 +87,7 @@ class NewNote extends React.Component {
           onChange={this.handleTextInput}
         />
         <Link to={`/`} onClick={this.newNote}>
-          <button>Save</button>
+          <button style={buttonStyle}>Save</button>
         </Link>
       </div>
     );
@@ -63,7 +96,6 @@ class NewNote extends React.Component {
 const mapDispatchToProps = state => {
   return {
     notes: state.notes
-    // titles: state.titles,
   };
 };
 // export default NewNote;

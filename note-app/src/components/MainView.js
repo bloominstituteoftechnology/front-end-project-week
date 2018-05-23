@@ -10,6 +10,21 @@ let dcomplete = "NOT COMPLETE";
 let changeOrder = "Descending";
 let originalNotes;
 
+const noteView = {
+  display: "inline-flex",
+  backgroundColor: "white",
+  width: "22%",
+  marginLeft: "3%",
+  marginRight: "3%",
+  border: "1px solid gray",
+  padding: 10,
+  height: 200,
+  cursor: "pointer",
+  marginTop: 10,
+  marginBottom: 10,
+  overflow: "hidden"
+};
+
 class MainView extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +33,7 @@ class MainView extends React.Component {
       modal: false,
       list: this.props.notes,
       isGoing: true,
-      showAscending: true,
+      showAscending: true
     };
   }
 
@@ -90,7 +105,7 @@ class MainView extends React.Component {
 
     console.log("norder: ", norder);
   };
-  
+
   render() {
     let tempVal;
     console.log("notes length: ", this.props.notes.length);
@@ -126,7 +141,7 @@ class MainView extends React.Component {
                   : (dcomplete = "COMPLETED");
               }
               return (
-                <Link to={`/notes/view/${i}`} key={note + i}>
+                <Link style={noteView} to={`/notes/view/${i}`} key={note + i}>
                   {" "}
                   <h6>
                     <span>
@@ -157,7 +172,7 @@ class MainView extends React.Component {
                   : (dcomplete = "COMPLETED");
               }
               return (
-                <Link to={`/notes/view/${i}`} key={note + i}>
+                <Link style={noteView} to={`/notes/view/${i}`} key={note + i}>
                   {" "}
                   <h6>
                     <span>

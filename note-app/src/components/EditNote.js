@@ -3,6 +3,37 @@ import { updateNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+const noteBody = {
+  width: "90%",
+  height: 300,
+  padding: "12px 20px",
+  boxSizing: "border-box",
+  border: "2px solid #ccc",
+  borderRadius: "4px",
+  backgroundColor: "#f8f8f8",
+  resize: "none",
+  marginTop: 20
+};
+const buttonStyle = {
+  marginTop: 20,
+  width: "28.33%",
+  backgroundColor: "#25b8bd",
+  cursor: "pointer",
+  color: "white",
+  height: 50,
+  fontWeight: "bold",
+  fontSize: 20
+};
+const marginMain = {
+  marginLeft: "5%",
+  paddingTop: 55
+};
+const noteHeader = {
+  width: "47%",
+  height: 40,
+  marginTop: 10
+};
+
 class EditNote extends React.Component {
   constructor(props) {
     super(props);
@@ -35,9 +66,10 @@ class EditNote extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={marginMain}>
         <h3>Edit Note:</h3>
         <input
+          style={noteHeader}
           type="text"
           name="title"
           value={this.state.title}
@@ -45,14 +77,16 @@ class EditNote extends React.Component {
           onChange={this.handleTextInput}
         />
         <input
+          style={noteBody}
           type="text"
           name="note"
           value={this.state.note}
           placeholder="Note Content"
           onChange={this.handleTextInput}
         />
-        <Link to={`/`} onClick={this.newNote}>
-          <button>Save</button>
+        <Link to={`/`} onClick={this.newNote} style={buttonStyle}>
+          {" "}
+          <button style={buttonStyle}> Update</button>{" "}
         </Link>
       </div>
     );
@@ -65,4 +99,4 @@ const mapDispatchToProps = state => {
   };
 };
 
-export default connect(mapDispatchToProps) (EditNote);
+export default connect(mapDispatchToProps)(EditNote);
