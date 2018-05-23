@@ -14,10 +14,11 @@ const Note = props => {
         return note.id === props.match.params.id;
       })
         .map(note => {
+          const { id, title, content } = note;
           return (
             <div key={ Date.now() } className='note-wrapper'>
               <div className='note-wrapper__note-action-wrapper'>
-                <Link to={ `edit/${ note.id }` } className='note-action-wrapper__note-edit-link'>
+                <Link to={ `edit/${ id }` } className='note-action-wrapper__note-edit-link'>
                   <Button
                     buttonClassName='note-edit-link__edit-button'
                     buttonContent={ 'Edit' }
@@ -28,14 +29,14 @@ const Note = props => {
                   <Button
                     buttonClassName='note-action-wrapper__delete-button'
                     buttonContent='Delete'
-                    buttonOnClick={ () => props.handleDeleteNote(note.id) }
+                    buttonOnClick={ () => props.handleDeleteNote(id) }
                   />
                 </Link>
               </div>
               
               <div className='note-wrapper__note-content-wrapper'>
-                <h2 className='note-content-wrapper__h2'>{ note.title }</h2>
-                <p className='note-content-wrapper__p'>{ note.content }</p>
+                <h2 className='note-content-wrapper__h2'>{ title }</h2>
+                <p className='note-content-wrapper__p'>{ content }</p>
               </div>
             </div>
           )
