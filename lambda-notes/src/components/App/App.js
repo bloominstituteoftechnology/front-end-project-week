@@ -22,7 +22,7 @@ class App extends Component {
         },
         {
           id: 2,
-          title: "Note Tittle",
+          title: "Donec erat",
           content: "Donec laoreet posuere erat eget placerat. Fusce vel ultricies lacus, a placerat lorem. Sed faucibus venenatis nulla, sit amet efficitur libero pellentesque ut. Phasellus quis congue enim. Mauris mattis pretium egestas. Vestibulum rhoncus at est et porttitor. Donec semper eleifend dolor, eget dictum orci interdum et. Suspendisse sagittis vitae est id viverra. Vestibulum id cursus velit. Donec commodo accumsan nisi vel placerat. Aenean in elit risus. Praesent sagittis porttitor mollis. Aenean lobortis scelerisque dolor, ac dignissim nulla luctus id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse sit amet ante ultricies, convallis enim sit amet, tristique erat. Morbi ligula nisl, finibus in nibh nec, interdum eleifend diam.",
         },
         {
@@ -32,7 +32,7 @@ class App extends Component {
         },
         {
           id: 4,
-          title: "Note Tittle",
+          title: "Nulla songs",
           content: "Nulla a neque at ex fringilla vulputate. Quisque vel lacus vel orci tempor consequat quis a augue. Aliquam tortor risus, pulvinar sit amet urna vitae, pulvinar consequat dui. Nullam vitae viverra arcu, vitae feugiat nisi. Nam commodo, lectus non dignissim vestibulum, felis nibh consequat elit, quis pulvinar turpis odio id augue. Donec lacus purus, placerat quis tincidunt in, blandit quis lacus. Proin quis eleifend nunc. Nulla tincidunt condimentum velit, a semper metus vulputate et.",
 
         },
@@ -60,10 +60,13 @@ class App extends Component {
         <Route path="/" component={Nav} />
         <Route exact path="/" render={() => (<NotesList notes={this.state.notes} />)}/>
         <Route exact path="/newnote" render={() => (<NoteForm className="App-content-container" header="Create New Note:" button="Save" />)}/>
-        <Route exact path="/viewnote" render={() => (<ViewNote note={this.state.notes[0]}/>)}/>
+        <Route exact path="/note/:id" render={(props) => (<ViewNote {...props} notes={this.state.notes}/>)}/>
+        <Route exact path="/editnote/:id" render={(props) => (<NoteForm {...props} className="App-content-container" header="Edit Note:" notes={this.state.notes} button="Update" />)}/>
       </div>
     );
   }
 }
 
 export default App;
+
+{/* <Route path="/movies/:id" render={(props) => <Movie {...props} addToSavedList={this.addToSavedList}/>} /> */}

@@ -10,9 +10,14 @@ class NoteForm extends Component {
     }
 
     componentDidMount () {
-        if(this.props.note) {
-            this.setState({title: this.props.note.title, content: this.props.note.content});
-        }
+        // change this line to grab the id passed on the URL
+        if(!this.props.match) return;
+        const id = this.props.match.params.id;
+        this.props.notes.forEach((note) => {
+            if(note.id == id)
+                this.setState({title: note.title, content: note.content})
+        } )
+        
     }
 
     onChangeHandler = (event) => {
@@ -23,7 +28,8 @@ class NoteForm extends Component {
         console.log("Form Updated")
     }
 
-    render() { 
+    render() {
+        {console.log(this.props)} 
         return (
             <div className={this.props.className}>
                 <h2>{this.props.header}</h2>
