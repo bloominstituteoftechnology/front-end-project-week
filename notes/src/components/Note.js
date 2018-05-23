@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import Button from './Button'
+import Markdown from 'markdown-to-jsx';
 
 class Note extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class Note extends Component {
                     <Link to="/" onClick={this.toggle} className="nview">delete</Link>
                 </div>
                 <h3>{this.props.note.title}</h3>
-                <p className="note-body">{this.props.note.text}</p>
+                <p className="note-body"><Markdown>{this.props.note.text}</Markdown></p>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalBody>
                         <h6>Are you sure you want to delete this?</h6>

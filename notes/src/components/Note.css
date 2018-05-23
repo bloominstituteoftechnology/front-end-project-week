@@ -19,3 +19,7 @@
 .modal-footer {
     justify-content: center;
 }
+
+.note-view {
+    width: 100%;
+}

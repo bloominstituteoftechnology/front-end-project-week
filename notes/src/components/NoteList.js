@@ -4,6 +4,7 @@ import {
     CardTitle
 } from 'reactstrap';
 import { Link } from 'react-router-dom'
+import Markdown from 'markdown-to-jsx';
 
 export default (props) => {
     // console.log("props", props)
@@ -18,7 +19,7 @@ export default (props) => {
                             <Card key={e.i}>
                                 <CardBody>
                                     <CardTitle>{e.title}</CardTitle>
-                                    <CardText>{e.text}</CardText>
+                                    <CardText><Markdown>{e.text}</Markdown></CardText>
                                 </CardBody>
                             </Card>
                         </Link>
