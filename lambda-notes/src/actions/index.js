@@ -1,4 +1,4 @@
-import history from '../components/Routes/history';
+import history from '../constants/history';
 import axios from 'axios';
 import {
   FETCHING_NOTES,
@@ -12,7 +12,7 @@ import {
   DELETING_NOTE,
   NOTE_DELETED,
   ERROR
-} from './ActionTypes';
+} from '../constants/actionTypes';
 
 export const getNotes = () => {
   const getAllNotes = axios.get('http://localhost:5000/notes');

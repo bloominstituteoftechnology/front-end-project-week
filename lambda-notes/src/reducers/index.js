@@ -10,7 +10,7 @@ import {
   DELETING_NOTE,
   NOTE_DELETED,
   ERROR
-} from '../actions/ActionTypes';
+} from '../constants/actionTypes';
 
 const initialState = {
   notes: [],

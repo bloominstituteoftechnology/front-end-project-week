@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
 import { Router } from 'react-router-dom';
 import Routes from '../Routes';
-import history from '../Routes/history';
+import history from '../../constants/history';
 import Sidebar from '../Sidebar';
 
 class App extends Component {
