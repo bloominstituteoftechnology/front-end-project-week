@@ -1,8 +1,8 @@
-* {
+/** {
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
+    height: 980px;
 }
 
 .container {
@@ -79,17 +79,18 @@ body {
     padding-left: 20px;
     border: 2px solid #979797;
 
-}
+}*/
 
 
 
-.mainBodyTitle {
+.mainBodyTitle1{
     font: Raleway Medium;
     margin-left: 5%;
-    margin-top: 8%;
+    margin-top: 7%;
+    font-weight: bold;
 }
 
-.sideBarTitle1 {
+/*.sideBarTitle1 {
     margin-top: 15px;
     margin-left: 20px;
     font: Roboto Bold;
@@ -98,7 +99,7 @@ body {
     line-height: 20%;
     margin-left: 8%;
     font: Roboto Bold;
-}
+}*/
 
 
 /*Heading font: Roboto Bold

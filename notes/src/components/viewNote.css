@@ -1,15 +1,13 @@
 * {
     box-sizing: border-box;
 }
-body {
-    height: 100vh;
-}
+
 
 .container {
     max-width: 1200px;
     display: flex;
     margin: auto;
-    
+    height: 900px;
 
 }
 
@@ -65,6 +63,7 @@ body {
     padding-left:20px;
     border: 2px solid #979797;
 
+
 }
 
 .createNewNote {
@@ -80,39 +79,70 @@ body {
 
 }
 
-.editLink {
+.editButton {
     font: Raleway Medium;
     color: #4A4A4A;
+    background-color:#F3F3F3;
     margin-left: 85%;
-    padding-top: 50px;
     text-decoration: underline;
+    border: none;
+}
+.deleteButton {
+    font: Raleway Medium;
+    color: #4A4A4A;
+    background-color:#F3F3F3; 
+    text-decoration: underline;
+    border: none;
+    
+    
+
 }
 
-.deleteLink {
+/*.deleteLink {
     font: Raleway Medium;
     color: #4A4A4A;
     padding: 20px;
     text-decoration: underline;
-    
-    
-}
+}*/
 
 .mainBodyTitle {
+    width: 200px;
     font: Raleway Medium;
     margin-left: 5%;
-    margin-top: 8%;
+    margin-top: 3%;
+    font-weight: bold;
 }
 
 .sideBarTitle1 {
     margin-top: 15px;
     margin-left: 20px;
     font: Roboto Bold;
+    font-weight: bold;
 }
 .sideBarTitle2 {
     line-height: 20%;
-    margin-left: 8%;
+    margin-left: 7.5%;
     font: Roboto Bold;
+    font-weight: bold;
 }
+
+.modalDelete {
+    background-color: #D0021B;
+    width: 228px;
+    margin-bottom: 30px;
+}
+
+.modalNo {
+    background-color: #2BC1C4;
+    width: 228px;
+    margin-bottom: 30px;
+}
+
+.modalHeader {
+    margin-left: 60px;
+    margin-top: 50px;
+}
+
 
 
 /*Heading font: Roboto Bold

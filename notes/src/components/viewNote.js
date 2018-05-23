@@ -1,11 +1,25 @@
 import React,  { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './viewNote.css';
-
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ViewNote extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
+      this.state = {
+        modal : false
+    };
+
+    this.toggle = this.toggle.bind(this);
+
+}
+
+
+
+      toggle() {
+        this.setState({
+          modal: !this.state.modal
+        });
       };
     
   
@@ -31,9 +45,27 @@ class ViewNote extends Component {
            </div>
         
          <div className="mainBody">
-            <Link className="editLink" to="/editNote">edit</Link>
-            <Link className="deleteLink" to="/viewNote">delete</Link>
-            <h4 className="mainBodyTitle">Note Name:</h4>
+            <Link to="/editNote">
+            <button type="button" className="editButton">
+            edit
+            </button>
+            </Link>
+            
+            <button className="deleteButton" onClick={this.toggle}>{this.props.buttonLabel}delete</button>
+        
+            <Modal className="modalBody" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader className="modalHeader" toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
+            <ModalBody>
+                
+            </ModalBody>
+            <ModalFooter>
+                <Link to="/">
+                <Button  className="modalDelete" onClick={this.toggle}>Delete</Button>{' '}
+                </Link>
+                <Button className="modalNo" onClick={this.toggle}>No</Button>
+            </ModalFooter>
+            </Modal>
+            <h4 className="mainBodyTitle">Note Name</h4>
         </div>
         </div>
       </body>
@@ -42,3 +74,8 @@ class ViewNote extends Component {
  
 
 export default ViewNote;
+
+
+
+  
+          

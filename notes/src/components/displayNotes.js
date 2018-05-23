@@ -32,7 +32,7 @@ class DisplayNotes extends Component {
            </div>
         
          <div className="mainBody">
-            <h4 className="mainBodyTitle">Your Notes:</h4>
+            <h4 className="mainBodyTitle1">Your Notes:</h4>
         </div>
         </div>
       </body>

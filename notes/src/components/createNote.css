@@ -1,10 +1,10 @@
 
 
-* {
+/** {
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
+    height: 980px;
 }
 
 .container {
