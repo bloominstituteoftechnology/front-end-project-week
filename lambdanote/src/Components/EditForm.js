@@ -25,7 +25,7 @@ export default class EditForm extends Component {
                                 /> 
                         </FormGroup>
                         <Link to='/'>
-                            <Button onClick={this.createNewInput} className='content-btn'>
+                            <Button className='content-btn'>
                             Update
                             </Button>
                         </Link>

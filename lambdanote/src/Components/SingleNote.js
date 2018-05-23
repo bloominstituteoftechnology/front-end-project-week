@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DeleteNote from './DeleteNote';
 
 const SingleNote = () => {
     return (
         <div className='single-note'>
+        <div className='click-container'>
         <Link to='/edit'><button className='viewNote-btn'>edit</button></Link>
-        <button className='viewNote-btn'>delete</button>
+        <DeleteNote />
+        </div>
             <h5>Note Name</h5>
             <br />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
