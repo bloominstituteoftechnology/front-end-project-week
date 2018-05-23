@@ -27,7 +27,7 @@ class ModalLink extends Component {
           <ModalBody>
             {this.props.modalBody}
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter className="modal-actions">
             <Button type="primary" title={this.props.primaryAction} link="/" />
             <Button type="secondary" title={this.props.secondaryAction} clickAction={this.closeModal} />
           </ModalFooter>
