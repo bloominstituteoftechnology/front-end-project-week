@@ -59,9 +59,9 @@ class NoteView extends Component {
           <ModalHeader toggle={this.toggle}>
             Are you sure you want to delete this?
             <div className="d-fles">
-              <Button color="danger" onClick={this.delete}>
+              <Link to="/" ><Button color="danger" onClick={this.delete}>
                 Delete
-              </Button>{" "}
+              </Button></Link>{" "}
               <Button color="secondary" onClick={this.toggle}>
                 No
               </Button>
