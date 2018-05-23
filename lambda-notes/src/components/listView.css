@@ -1,5 +1,12 @@
+.header-Notes {
+    text-align: left;              
+    font: Roboto Bold; 
+    margin-top: 70px; 
+    margin-left: 270px;
+}
+
 .cardColumns {    
-    margin-top: 45px; 
+    margin-top: 20px; 
     margin-left: 270px; 
     margin-right: 20px; 
 }

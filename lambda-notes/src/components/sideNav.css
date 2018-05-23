@@ -43,16 +43,16 @@
 
 .main {
     margin-left: 220px; /* Same as the width of the sidenav */
-    font-size: 16px; /* Increased text to enable scrolling */
+    /* font-size: 16px; Increased text to enable scrolling */
     padding: 0px 10px;    
 }
 
-.header-Notes {
+/* .header-Notes {
     text-align: left;              
     font: Roboto Bold; 
     margin-top: 70px; 
     margin-left: 40px; 
-}
+} */
 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}

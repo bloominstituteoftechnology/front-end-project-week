@@ -1,15 +1,15 @@
 import React from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardColumns,
-  CardSubtitle, CardBody } from 'reactstrap'; 
+import { Route, Link } from 'react-router-dom';
+import { Card, Button, CardTitle, CardText, CardColumns, CardBody } from 'reactstrap'; 
 
 import listView from './listView.css';
 import SideNav from './SideNav.js'; 
 
-
 const ListView = (props) => {
   return (
     <div>
-      <SideNav /> 
+      <SideNav />
+        <h2 className="header-Notes">Your Notes:</h2>
         <CardColumns className="cardColumns">
           <Card className="card">        
             <CardBody className="cardBody">
