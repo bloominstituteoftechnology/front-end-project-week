@@ -113,6 +113,12 @@
     font-weight: bold;
 }
 
+.noteBody {
+    width: 85%;
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
 .sideBarTitle1 {
     margin-top: 15px;
     margin-left: 20px;

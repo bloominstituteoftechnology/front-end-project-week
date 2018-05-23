@@ -66,6 +66,26 @@ class ViewNote extends Component {
             </ModalFooter>
             </Modal>
             <h4 className="mainBodyTitle">Note Name</h4>
+            <div className="noteBody">
+                <p>Bacon ipsum dolor amet tail alcatra filet mignon pork loin meatloaf. Pork loin kevin beef pork 
+                    chop prosciutto tenderloin filet mignon. Turducken salami tri-tip venison capicola leberkas. 
+                    Bresaola pork chop picanha ground round turkey. Porchetta spare ribs ball tip ground round strip 
+                    steak boudin venison kielbasa tail jerky salami shoulder shankle rump frankfurter.
+                </p>
+                <p> Pork chop frankfurter shoulder meatball flank, landjaeger sausage. Short loin pork loin picanha 
+                    jowl beye spare ribs prosciutto turkey brisket meatball shank burgdoggen cupim ground round. Chuck 
+                    shankle pork loin ribeye pork belly jerky short ribs pork porchetta flank pastrami venison sirloin. Shank pig 
+                    short ribs bacon pork loin venison leberkas. Ribeye burgdoggen tongue kevin bresaola venison jerky. 
+                </p>T-bone doner pastrami pancetta chuck shank cupim, frankfurter jowl alcatra ground round filet mignon.
+
+                <p>Bacon ipsum dolor amet shankle andouille t-bone tongue chuck hamburger. Andouille meatball jowl, shankle
+                    ball tip t-bone spare ribs burgdoggen short ribs. Cow kevin shankle meatball, corned beef prosciutto porchetta. 
+                    Ground round salami short ribs flank picanha kielbasa pork turkey t-bone jowl turducken frankfurter tail. Tail 
+                    pork chop chuck ground round, tenderloin ribeye fatback landjaeger pancetta cow pork belly meatloaf andouille. 
+                    Landjaeger venison shank, fatback biltong kevin pastrami tri-tip meatball t-bone boudin. Ball tip bresaola 
+                    turducken meatball, doner turkey swine pig filet mignon shoulder cupim.
+                </p>
+            </div>
         </div>
         </div>
       </body>
