@@ -6,18 +6,20 @@ import Note from './Note';
 // style
 import './NoteView.css';
 
-const NoteView = props => {
+const NoteView = ({ noteList, setSelectedNote }) => {
   return (
     <div className='noteview__note-container'>
       {
-        props.noteList.map(note => {
+        noteList.map(note => {
+          const { id, title, content } = note;
+          
           return (
             <Note
-              key={ note.id }
-              ID={ note.id }
-              title={ note.title }
-              content={ note.content }
-              setSelectedNote={ props.setSelectedNote }
+              key={ id }
+              ID={ id }
+              title={ title }
+              content={ content }
+              setSelectedNote={ setSelectedNote }
             />
           )
         })
