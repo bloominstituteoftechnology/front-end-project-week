@@ -73,12 +73,6 @@ export const updatingItem = (index, id, content) => {
     updateItem
       .then(response => {
         // console.log("response.data", response.data);
-        console.log({
-          type: UPDATED_ITEM,
-          toUpdate: index,
-          content,  // TO REVIEW WITH REAL DATA
-          allItems: response.data // TO REVIEW WITH REAL DATA
-        });
         dispatch({
           type: UPDATED_ITEM,
           toUpdate: index,

@@ -30,6 +30,10 @@ class Form_ extends Component {
   newNote = () => {
     const newItem = this.state;
     this.props.addingItem(newItem);
+    this.setState({ title: '', content: '' });
+    setTimeout(() => {
+      alert(`Note: ${newItem.title} added.`);
+    }, 500);
   };
   updateNote = () => {
     const index = this.props.match.params.index;
@@ -39,10 +43,11 @@ class Form_ extends Component {
   }
  
   render() {
+    const index = this.props.match.params.index;
     const button = this.props.match.path === "/edit/:index" ? (
-      <Button_ text="Update" action={this.updateNote} />
+      <Link to={`/note/${index}`} ><Button_ text="Update" action={this.updateNote} /></Link>
     ) : (
-      <Button_ text="Save" action={this.newNote} />
+      <Link to="/" ><Button_ text="Save" action={this.newNote} /></Link>
     );
     return (
       <form className="custom-form">

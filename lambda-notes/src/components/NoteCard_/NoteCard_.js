@@ -3,11 +3,12 @@ import { Card, CardTitle, CardText, Col } from "reactstrap";
 
 const NoteCard_ = ({card}) => {
   // const { card } = props;
+  // console.log("card",card);
   return (
     <Card className="custom-NoteCard" body>
-      <CardTitle>{card.id}-{card.title}</CardTitle>
+      <CardTitle>{card.title.length > 16 ? card.title.substring(0,13) : card.title }{card.title.length > 13 && '...'}</CardTitle>
       <hr className="custom-hr" />
-      <CardText>{card.shortContent}</CardText>
+      <CardText>{card.content.substring(0,118)}</CardText>
     </Card>
   );
 };

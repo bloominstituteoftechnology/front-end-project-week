@@ -226,6 +226,7 @@ table {
   min-width: 200px;
 }
 .NoteCard-component .custom-NoteCard {
+  width: 220px;
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
@@ -256,6 +257,7 @@ table {
   color: #4A4A4A;
 }
 .list-view-component .custom-list-view-container .custom-NoteCard {
+  width: 220px;
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
@@ -319,6 +321,7 @@ table {
   color: #4A4A4A;
 }
 .main-component .custom-main .custom-list-view-container .custom-NoteCard {
+  width: 220px;
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;
@@ -460,6 +463,7 @@ p {
   color: #4A4A4A;
 }
 .custom-container .row .custom-main .custom-list-view-container .custom-NoteCard {
+  width: 220px;
   max-width: 220px;
   height: 225px;
   margin-bottom: 2rem;

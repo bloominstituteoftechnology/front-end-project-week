@@ -39,7 +39,7 @@ class NoteView extends Component {
     const content = note.content
       .split("\n")
       .map((paragraph, index) => <p key={index}>{paragraph}</p>);
-    // console.log(content);
+    console.log("note",note);
     return (
       <React.Fragment>
         <div className="d-flex position-absolute edition">
@@ -47,7 +47,7 @@ class NoteView extends Component {
           <Link to={`/edit/${index}`} ><div>edit</div></Link>
         </div>
         <h5 className="text-capitalize">
-          {note.id}-{note.title}
+          {note.title}
         </h5>
         <div className="">{content}</div>
 
