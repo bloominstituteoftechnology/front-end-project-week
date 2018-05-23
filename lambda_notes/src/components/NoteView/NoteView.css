@@ -1,0 +1,25 @@
+.NoteView-Container {
+  margin: 45px 0 30px 30px;
+}
+
+.NoteView-Header {
+  font-size: 2.0rem;
+  text-align: left;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.4rem;
+  color: black;
+  line-height: 25px;
+  text-align: left;
+}
+
+.Noteview-Link {
+  text-decoration: underline;
+  color: black; 
+  font-size: 1.3rem;
+  text-align: right;
+}

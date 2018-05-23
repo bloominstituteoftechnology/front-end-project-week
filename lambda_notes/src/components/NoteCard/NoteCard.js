@@ -5,7 +5,7 @@ import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 const NoteCard = ({note}) => {
       return (
-      <Link to={`/note/${note.id}`} style={{textDecoration: 'none'}}>
+      <Link to={`/note/view`} style={{textDecoration: 'none'}}>
         <Card className="Card-Style" key={note.id}>
           <CardBody className="Card-Body">
             <CardTitle className="Card-Title">
