@@ -1,22 +1,19 @@
-.edit {
-    margin-top: -10vh;
-    margin-left: 85vw;
-    font-weight: bold;
+.noteViewButtons {
+    margin-top: -55rem;
+    margin-left: 73rem;
+    margin-right: 3rem;
     font-size: 1.2rem;
     text-decoration: underline;
-}
+    display: flex;
+    font-weight: bold;
 
-.delete {
-    margin-top: -2.9vh;
-    margin-left: 90vw;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-decoration: underline;
 }
 
 .note {
-    margin: 5rem 5rem 0rem 29rem;
-    font-size: 1.4rem;
+    margin: 1rem 5rem 0rem 4rem;
+    line-height: 2.5;
+    white-space: pre-line;
+    font-size: 1.2rem;
 }
 
 h3 {
@@ -24,22 +21,18 @@ h3 {
     font-weight: bold;
 }
 .modal-content {
-    width: 100vw;
     padding: 1rem 0rem 2rem 0rem;
-    margin: 2rem -10rem;
-    height: 23vh;
-    font-size: 1.6rem;
+    margin: 2rem;
+    font-size: 1.4rem;
 }
 
 .modalbutton {
     display: inline-block;
     width: 15vw;
-    margin: 2rem;
-    padding: 1rem;
+    margin: -.8rem 1rem;
 }
 .modal-body {
     text-align: center;
-    margin: auto;
 }
 
 .button {
@@ -47,6 +40,24 @@ h3 {
     background: #2BC1C4;
 }
 
+p {
+    margin-top: 0rem;
+    margin-bottom: 3rem;
+}
+.modal-backdrop.in {
+    height: 100%;
+}
 .modal {
-    margin-top: -20rem;
+    height: 13rem;
+    margin-left: 21rem;
+    width: 50rem;
+    background: #FFFFFF;
+    border: .5px solid #979797;
+
+}
+.modal-backdrop {
+    height: 100vh;
+}
+span {
+    margin-left: 2rem;
 }
