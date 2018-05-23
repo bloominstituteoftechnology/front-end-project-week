@@ -3,9 +3,12 @@ import React from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import ReactMarkdown from 'react-markdown';
 // Components
 import { deleteNote } from '../Actions';
 import { Button } from '../Button';
+// CSS
+import './ViewNote.css';
 
 const cssMakesMeCry = {
   color: "black",
@@ -46,6 +49,7 @@ class ViewNote extends React.Component {
     const { title, text } = note; 
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="pr-3">
+        {/* Delete Modal */}
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalBody>
             <h5 className="text-center">Are you sure you want to delete this?</h5>
@@ -54,14 +58,16 @@ class ViewNote extends React.Component {
             <Button delete onClick={this.deleteMethod}>Delete</Button>{' '}
             <Button onClick={this.toggle}>No</Button>
           </ModalFooter>
-        </Modal>
+        </Modal>{/* End of Delete Modal */}
         <div className="actions d-flex pt-3 justify-content-end">
           <Link style={cssMakesMeCry} to={`/edit/${this.props.id}`} className="mx-2">edit</Link>
           <a style={cssMakesMeCry} href="" onClick={this.toggle} className="mx-2">delete</a>
         </div>
         <div className="view-note p-4">
           <h3>{title}</h3>
-          <p>{text}</p>
+          <hr />
+          <br />
+          <ReactMarkdown source={text} />
         </div>
       </div>
     );

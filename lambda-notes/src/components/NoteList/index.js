@@ -1,6 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 // CSS
 import './NoteList.css';
 import connect from 'react-redux/lib/connect/connect';
@@ -32,6 +33,7 @@ const NoteCard = (props) => {
       <h3>{truncTitle}</h3>
       <hr />
       <p>{truncText}</p>
+      {/* <ReactMarkdown source={truncText} /> */}
     </Link>
   );
 }
