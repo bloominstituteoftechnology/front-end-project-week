@@ -1,11 +1,16 @@
 .note-card-link {
+  background-color: #fff;
   border: 1px solid #979797;
   border-radius: 0;
   color: #404040;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
-  margin: 12px 0;
+  margin: 12px 3% 12px 0;
   transition: box-shadow .15s ease-in-out;
-  width: 32%;
+  width: 31%;
+}
+
+.note-card-link:nth-child(3n){
+  margin-right: 0;
 }
 
 .note-card-link:hover {
