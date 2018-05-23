@@ -21,7 +21,6 @@ class App extends Component {
       title: '',
       content: '',
       noteList: [],
-      selectedNote: {},
     };
   }
 
@@ -37,20 +36,17 @@ class App extends Component {
       title: this.state.title,
       content: this.state.content,
     };
-
     this.setState({ noteList: [ ...this.state.noteList, newNote ] });
   }
 
   // setEditNoteValues
   setEditNoteValues = (id, title, content) => {
     const newNoteList = [ ...this.state.noteList ];
-
     for (let i = 0; i < newNoteList.length; i++) {
       if (id === newNoteList[i].id) {
         newNoteList[i] = { id, title, content }
       }
     }
-
     this.setState({ title: '', content: '', noteList: [ ...newNoteList ] });
   }
 
@@ -59,29 +55,14 @@ class App extends Component {
     this.setState({ title, content });
   }
 
-  // setSelectedNote
-  setSelectedNote = id => {
-    let currentNote = {};
-
-    for (let note of this.state.noteList) {
-      if (id === note.id) {
-        currentNote = { ...note };
-      }
-    }
-
-    this.setState({ selectedNote: { ...currentNote } });
-  }
-
   // handleDeleteNote
   handleDeleteNote = id => {
     const noteListCopy = [ ...this.state.noteList ];
-
     for (let i = 0; i < noteListCopy.length; i++) {
       if (id === noteListCopy[i].id) {
         noteListCopy.splice(i, 1);
       }
     }
-
     this.setState({ noteList: [ ...noteListCopy ] });
   }
 

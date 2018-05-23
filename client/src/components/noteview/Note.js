@@ -21,7 +21,6 @@ const Note = props => {
                   <Button
                     buttonClassName='note-edit-link__edit-button'
                     buttonContent={ 'Edit' }
-                    buttonOnClick={ () => props.setEditValues(note.title, note.content) }
                   />
                 </Link>
 
@@ -44,7 +43,7 @@ const Note = props => {
   
   return (
     <Link to={ `note/${ props.ID }` } className='note-container__note-link'>
-      <div className='note-link__note-div' onClick={ () => props.setSelectedNote(props.ID) }>
+      <div className='note-link__note-div'>
         <h2 className='note-div__h1'>{ props.title }</h2>
         <p className='note-div__p'>{ props.content }</p>
       </div>
