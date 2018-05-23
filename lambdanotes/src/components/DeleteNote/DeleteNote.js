@@ -21,12 +21,14 @@ class DeleteNote extends Component {
   }
 
   handleDeleteNote = (id) => {
+    console.log('handleDeleteNoteFired');
     axios
       .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-        .then(res => {console.log(res)})
+        .then(res => {
+          console.log(res);
+          window.location.reload();
+        })
         .catch(err => {console.log(err)})
-
-    window.location.reload();
   }
 
   render() {
@@ -36,8 +38,8 @@ class DeleteNote extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle} className='deleteNoteModal'>
             <p className='warningMessage'>Are you sure you want to delete this?</p>
             <div className='deleteNoteModalButtons'>
-                <div onClick={() => this.handleDeleteNote(this.props.currentNoteID)} className='entireDeleteButton'>
-                    <Link onClick={() => this.handleDeleteNote(this.props.currentNoteID)} to='/'>
+                <div className='entireDeleteButton'>
+                    <Link to='/'>
                         <button onClick={() => this.handleDeleteNote(this.props.currentNoteID)} className='deleteButton'>Delete</button>
                     </Link>
                 </div>
