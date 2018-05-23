@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addNote } from "../actions/notesAction";
+import { Redirect } from "react-router-dom";
 
 class AddNoteForm extends React.Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class AddNoteForm extends React.Component {
     };
     this.props.addNote(note);
     this.setState({title: "", body: ""});
+    <Redirect path="/" />
   }
 
   render() {

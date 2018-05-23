@@ -8,11 +8,24 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from "./reducers";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./components/Login";
+import AddNoteForm from "./components/AddNoteForm";
+import Header from "./components/Header";
 
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/" component={App} exact />
+            <Route path="/login" component={Login} exact />
+            <Route path="/new" component={AddNoteForm} exact />
+          </Switch>
+        </div>
+      </Router>
     </Provider>,
     document.getElementById('root')
 );

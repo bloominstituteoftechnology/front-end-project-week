@@ -1,61 +1,32 @@
 import React, { Component } from 'react';
-import _ from "underscore";
 import './App.css';
 import { connect } from "react-redux";
-import { fetchNote, addNote, deleteNote } from "./actions/notesAction";
+import { fetchNote } from "./actions/notesAction";
+import { getUser } from "./actions/userAction";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
 import AddNoteForm from "./components/AddNoteForm";
+import NotesList from "./components/NotesList";
 import Note from "./components/Note";
-
+import Login from "./components/Login";
 
 class App extends Component {
   constructor(props) {
     super(props);
   }
 
-
   componentDidMount() {
-    this.props.fetchNote()
-  }
-
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    let note = {
-      title: this.state.title,
-      body: this.state.body
-    };
-    this.props.addNote(note);
-    this.setState({title: "", body: ""});
+    this.props.fetchNote();
+    this.props.getUser();
   }
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <AddNoteForm />
-        {_.map(this.props.notes, (note, key) => {
-          return (
-            <Note
-              title={note.title}
-              key={key}
-              body={note.body}
-              id={key}
-              deleteNote={this.props.deleteNote}/>
-          )
-        })}
+        <NotesList />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    notes: state.notes
-  }
-}
-
-export default connect(mapStateToProps, { fetchNote, addNote, deleteNote })(App);
+export default connect(null, { fetchNote, getUser } )(App);

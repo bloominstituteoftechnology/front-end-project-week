@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { logout } from "../actions/userAction";
+import { connect } from "react-redux";
 
 class Header extends React.Component {
 
@@ -7,24 +10,29 @@ class Header extends React.Component {
       <header>
         <nav>
           <div>
-            Logo
+            <Link to="/">Logo</Link>
           </div>
           <div>
-            search
+            <Link to="/new">search</Link>
           </div>
           <div>
             signup
           </div>
-          <div>
-            login
-          </div>
-          <div>
-            logout
-          </div>
+          {this.props.user !== null ? (<div onClick={this.props.logout}>
+            <button>logout</button>
+          </div>) : (<div>
+            <Link to="/login">login</Link>
+          </div>)}
         </nav>
       </header>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, { logout })(Header);
