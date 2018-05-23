@@ -22,3 +22,9 @@
     margin: 5%;
     
 }
+
+Button {
+    width: 50px;
+    padding: 1%;
+    margin: 2px;
+}

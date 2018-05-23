@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link }from "react-router-dom";
 import { Row, Col, Container, Input, Button } from "reactstrap";
 import logo from './logo.svg';
+import Nyancat from './Nyancat.gif';
 import './App.css';
 import NoteList from './Components/NoteList';
 import NoteView from './Components/NoteView';
@@ -37,7 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={Nyancat} className="App-logo" alt="logo" />
           <h1 className="App-title">Lambda Notes</h1>
           <Link to="/"><Button>View Your Notes</Button></Link>
 

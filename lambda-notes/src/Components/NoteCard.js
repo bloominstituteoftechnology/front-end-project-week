@@ -7,7 +7,7 @@ const NoteCard = (props) => {
     return (
         <Card className="note-card">
             <CardHeader className="card-header">
-                 {props.note.title} 
+                 <Link to={`note/${props.note.id}`}>{props.note.title} </Link>
             </CardHeader>
             <CardBody className="card-body">
                 <CardText>{props.note.content}</CardText>

@@ -32,6 +32,8 @@ class NoteView extends Component {
             <div className="note-view">
             <h3 className="note-title">{this.state.title}</h3>
             <div className="note-content">{this.state.content}</div>
+            <Button>Delete</Button>
+            <Button>Edit</Button>
             </div>
         )
     }

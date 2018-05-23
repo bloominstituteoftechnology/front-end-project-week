@@ -1,0 +1,22 @@
+form {
+    text-align: left;
+    margin-left: 5%;
+    
+}
+form h3 {
+    margin-bottom: 5%;
+    text-align: left;
+    
+}
+form .input-title {
+    width: 300px;
+    vertical-align: center;
+    padding: 2% 15px 0 15px;
+    margin-bottom: 1%;
+}
+
+form .input-content {
+    height: 250px;
+    width: 500px;
+    padding: 2% 15px 0 15px;
+}

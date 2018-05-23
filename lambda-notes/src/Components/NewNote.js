@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
+import NewNotes from "./NewNotes.css"
 
 class NewNote extends Component {
     constructor(props) {
@@ -52,6 +53,7 @@ class NewNote extends Component {
                     placeholder="Title"
                     value={this.state.title}
                     onChange={this.handleInput}
+                    className="input-title"
                     />
             </FormGroup>
             <FormGroup>
@@ -61,6 +63,7 @@ class NewNote extends Component {
                     placeholder="Content"
                     value={this.state.content}
                     onChange={this.handleInput}
+                    className="input-content"
                     />
             </FormGroup>
             <Link to="/">
