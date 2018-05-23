@@ -1,0 +1,9 @@
+Title Font: 444445
+
+Left Nav Bar:  d3d2d3
+	Border: a6a6a6
+	Buttons: 24b8bd
+
+
+Note Container Area: f2f1f2
+
