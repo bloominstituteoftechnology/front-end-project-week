@@ -20,11 +20,30 @@
 }
 
 .note-body {
-    font-size: 13px;
+    /* font-size: 13px;
     font-family: 'Raleway';
     overflow: hidden; 
     text-overflow: ellipsis; 
     white-space: nowrap;
+    padding-top: 5px;   
+    text-align: left; */
     padding-top: 5px;
-}
+    font-size: 13px;
+    font-family: 'Raleway';
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    height: 130px;
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 1;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left; 
+    text-overflow: ellipsis;
+  }
+  /* temp solution w/o ellipses https://www.consolelog.io/multiple-line-ellipsis-css-effect/ */ 
+
 

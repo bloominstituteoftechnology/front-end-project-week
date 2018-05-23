@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { deleteNote } from '../../actions';
 
+import { deleteNote } from '../../actions';
 import './NoteView.css';
 import Button from '../Button/Button';
 
