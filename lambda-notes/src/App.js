@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route } from 'react-router-dom';
+import ListView from './components/ListView';
+import NavBar from './components/NavBar';
+import CreateNote from './components/CreateNote';
+import ViewNote from './components/ViewNote';
+import EditNote from './components/EditNote';
 
 
 class App extends Component {
