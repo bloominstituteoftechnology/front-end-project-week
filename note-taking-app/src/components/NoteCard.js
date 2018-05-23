@@ -28,10 +28,8 @@ class NoteCard extends React.Component {
   const {id, title, content, inChecklist, selectNote } = this.props
   const { tagOfNoteOpen } = this.state
   return (
-    <div>
-    <div 
-      className='ms-Grid-col ms-sm12 ms-lg3 ms-CalloutCoverExample-buttonArea' 
-      style={style.extraMargin} 
+    <div style={style.root}>
+    <div  
       ref={button => this.tagOfNoteButtonElement = button }>
       <DocumentCard>
         <DocumentCardTitle title={title} onClick={() => selectNote({id, title, content})}/>
@@ -83,11 +81,11 @@ class NoteCard extends React.Component {
   }
 }
 const style = {
-  extraMargin: {
-    marginBottom: 10
+  root: {
+    width: '100%',
+    
   },
   cardPreview: {
-    height: 150,
     padding: '8px 16px',
     color: '#666'
   },
