@@ -89,6 +89,8 @@ Sidebar background: #D8D8D8
 }
 
 .NoteCard-list {
+  text-decoration: none;
+  color: #4A4A4A;
   background: white;
   margin-bottom: 20px;
   padding: 20px;
