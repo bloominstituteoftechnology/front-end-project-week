@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
 import SideBar from './components/Sidebar'
-import NoteList from './components/NoteList'
+import NoteList from './components/NoteList.ex'
 import Note from './components/Note'
 import CreateNote from './components/CreateNote'
 import { base } from './base'
@@ -72,7 +72,7 @@ class App extends Component {
     return (
       <div className="wrapper">
         <Route path="/" component={SideBar} />
-        <Route exact path="/" render={(props) => (<NoteList notes={this.state} />)} />
+        <Route exact path="/" render={(props) => (<NoteList notes={this.state.notes} />)} />
 
         {/* Render Note component with the note we are filtering for:  */}
         <Route exact path="/notes/:id" render={(props) => {
