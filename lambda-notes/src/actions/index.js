@@ -96,7 +96,7 @@ export const deletingItem = (index, id) => {
     });
     deleteItem
       .then(response => {
-        // console.log("DELETE response.data", response.data);
+        console.log("DELETE response.data", response.data);
         dispatch({
           type: DELETED_ITEM,
           allItems: response.data,

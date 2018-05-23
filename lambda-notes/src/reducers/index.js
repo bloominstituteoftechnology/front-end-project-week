@@ -117,17 +117,18 @@ const mainReducer = (state = initialState, action) => {
       };
     case DELETED_ITEM:
       console.log("action.toDelete", action.toDelete);
+      const index = action.index;
       return {
         ...state,
         deleting_Item: false,
         deleted_Item: true,
         //OPTION-1
-        // data: action.allItems
+        data: action.allItems
         //OPTION-2  => to review with real data
-        data: [
-          ...state.data.slice(0, action.index),
-          ...state.data(action.index + 1)
-        ]
+        // data: [
+        //   ...state.data.slice(0, index),
+        //   ...state.data(index + 1)
+        // ]
       };
     case ERROR:
       return {

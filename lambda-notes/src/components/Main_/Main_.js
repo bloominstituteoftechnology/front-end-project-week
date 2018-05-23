@@ -31,9 +31,9 @@ const Main_ = () => {
       </Switch>
       <Switch>
         <Route exact path="/" component={ListView} />
-        <Route path="/note/:id" component={NoteView} />
+        <Route path="/note/:index" component={NoteView} />
         <Route
-          path="/edit/:id"
+          path="/edit/:index"
           render={props => <Form_ {...props} type="editNote" />}
         />
         <Route
