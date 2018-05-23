@@ -1,0 +1,42 @@
+.contentWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.contentHeader {
+    display: flex;
+    width: 100vw;
+    padding: 0 1rem;
+}
+
+
+.notesList {
+    display: flex;
+    max-width: 85vw;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.noteCard {
+    width: 18rem;
+    height: 14rem;
+    background-color: white;
+    border: 1px solid lightslategray;
+    border-radius: 0.2rem;
+    padding: 0 1rem;
+    margin: 1rem;
+    overflow: hidden;
+    box-shadow: 1px 1px 4px rgb(82, 83, 83);
+}
+
+.noteCard p {
+    height: 8rem;
+    overflow: hidden;
+}
+
+.noteCard h3 {
+    height: 1.5rem;
+    overflow: hidden;
+}
