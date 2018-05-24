@@ -30,6 +30,49 @@
   display:flex;
 }
 .home-styles{
+  margin-bottom:100px;
+
+}
+.card{
+
+  min-height:226px;
+ 
+  min-width:80%;
+  max-width:80%;
+  color:black;
+  margin:0 auto;
+  margin-bottom: 22px;
+
+}
+.note-styles{
+  width:80%;
+  margin:0 auto;
+  margin-top: 10px;
+}
+.navbar-brand{
+  margin:0;
+  padding:0;
+  display:flex;
+
+}
+.input-group{
+  margin-bottom:4px;
+}
+.components{
+  max-width: ;
+display:flex;
+justify-content: center;
+
+}
+.fa-eraser{
+  color:red;
+}
+.fa-edit{
+  color:green
+}
+
+/* 
+.home-styles{
   width: 200px;
   height: 650px;
   background:rgb(215,215,215)
@@ -229,4 +272,4 @@ text-decoration: underline rgb(83, 83, 83);
 .deleteLink-styles{
  
   text-decoration:underline white;
-}
+} */

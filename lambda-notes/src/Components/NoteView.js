@@ -1,72 +1,54 @@
 import React,  { Component } from "react";
+import axios from 'axios'
 import {notes} from '../Notes/notes'
+import Delete from '../Note/delete'
+import Update from '../Note/update'
 import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Row,Col,  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+    CardTitle, CardSubtitle, Button, Row,Col,  Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
     import{ Link } from 'react-router-dom'
-class NoteView extends Component{
+import Axios from "axios";
+class Note extends Component{
 constructor(props){
     super(props)
     this.state={
         note:[],
-        modal:false
     };
-    this.toggle = this.toggle.bind(this); 
-}
-   
-    componentDidMount(){
-        const { id } = this.props.match.params; 
-       console.log(this.state)
-        this.setState({note: notes[id]})
-    }
-    toggle() {
-        this.setState({
-          modal: !this.state.modal
-        });
-      }
 
+}
+componentDidMount(){
+    const {id} = this.props.match.params
+    console.log(id)
+    this.getNote(id)
+}
+getNote =id=>{
+
+    axios
+    .get(`http://localhost:5000/notes/${id}`)
+    .then(response =>{
+        console.log(response)
+        this.setState(()=>({note:response.data}))
+    })
+    .catch(err=>{
+        console.log("failed to get note")
+    })
+}
 render(){
-   
-    console.log(this.props)
- 
+    console.log(this.state)
     return(
+        <Card className="note-styles" key={this.state.note._id}>
+         <Delete id={this.state.note._id}/>
+        <CardBody className="body-styles">
+         <CardTitle>{this.state.note.title}</CardTitle>
+         <CardText className="cardtext-styles">{this.state.note.textbody}</CardText>
+         </CardBody>
         
-    <React.Fragment>
-
-
-    <Card>
-      <Row>  
-<Col className="link-styles">
-    <Link to={`/edit/${this.state.note.id}`} ><Button color="link" className="link editLink-styles" >edit</Button></Link>
-  
-<Button color="link" className="link deleteLink-styles" onClick={this.toggle} >delete</Button>
-<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-       
-       <ModalBody>
-        Are you sure you want to delete this?
-       </ModalBody>
-       <ModalFooter>
-         <Link to="/">
-         <Button color="danger" className="button danger-styles modal-button" onClick={this.props.delete(this.state.note.id)}>Delete</Button>
-         </Link>
-         <Button color="secondary" className="button modal-button" onClick={this.toggle}>No</Button>
-       </ModalFooter>
-     </Modal>
-</Col>
-</Row>
-
-<Row>
-<Col>
-    <CardBody>
-<CardTitle className="title-styles">{this.state.note.title}</CardTitle>
-
-<CardText  className="text-styles">{this.state.note.textbody}</CardText>
-</CardBody>
-</Col>
-</Row>
-</Card>
-
-    </React.Fragment>
-        )
-    }
+         <Update id={this.state.note._id}/> 
+      
+        
+        
+        
+         </Card>
+    )
 }
-export default NoteView;
+}
+export default Note;
