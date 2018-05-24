@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    Card, CardText, CardBody,
-    CardTitle
-} from 'reactstrap';
-import { Link } from 'react-router-dom'
-import Markdown from 'markdown-to-jsx';
-import { CSVLink, CSVDownload } from 'react-csv';
-
+import { CSVLink } from 'react-csv';
+import { ListComponent } from './ListComponent'
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
@@ -19,13 +13,11 @@ export default class NoteList extends React.Component {
         };
     }
     componentDidMount = () => {
-        console.log("props", this.props)
         this.setState({
             notes: this.props.notes
         })
     }
     componentWillReceiveProps = (newProps) => {
-        console.log("newp", newProps)
         this.setState({
             notes: newProps.notes
         })
@@ -52,24 +44,13 @@ export default class NoteList extends React.Component {
         this.dragged.style.display = "none";
         if (e.target.className === 'placeholder') return;
         this.over = e.target;
+        console.log(e.target)
         e.target.parentNode.insertBefore(placeholder, e.target);
     }
     render() {
         var listItems = this.state.notes.map((item, i) => {
             return (
-                <li data-id={i}
-                    key={i}
-                    draggable='true'
-                    onDragEnd={this.dragEnd.bind(this)}
-                    onDragStart={this.dragStart.bind(this)}>
-                    <Link to={`/notes/${item.id}`} key={item.id} className="noDecoration">
-                        <Card key={item.i}>
-                            <CardBody>
-                                <CardTitle>{item.title}</CardTitle>
-                                <CardText><Markdown>{item.text}</Markdown></CardText>
-                            </CardBody>
-                        </Card>
-                    </Link></li>
+                <ListComponent onDragEnd={this.dragEnd.bind(this)} onDragStart={this.dragStart.bind(this)} index={i} key={i} item={item} />
             )
         });
         return (

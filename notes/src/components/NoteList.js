@@ -20,7 +20,7 @@ export default (props) => {
                             <Card key={e.i}>
                                 <CardBody>
                                     <CardTitle>{e.title}</CardTitle>
-                                    <CardText><Markdown>{e.text}</Markdown></CardText>
+                                    <div><Markdown>{e.text}</Markdown></div>
                                 </CardBody>
                             </Card>
                         </Link>

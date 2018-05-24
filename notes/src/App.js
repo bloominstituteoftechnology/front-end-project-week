@@ -78,7 +78,7 @@ class App extends Component {
         <Route exact path="/notes/:id" render={(props) => {
           let newNote = []
           newNote = this.state.notes.filter(e => {
-            if (e.id == props.match.params.id) {
+            if (e.id.toString() === props.match.params.id) {
               return e
             }
           })
