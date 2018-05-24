@@ -37,8 +37,7 @@ class App extends Component {
   // setEditNoteValues
   setEditNoteValues = (e, props, id, title, content) => {
     e.preventDefault();
-    const notesRef = firebase.database().ref(`notes/${ id }`);
-    notesRef.set({ title, content });
+    firebase.database().ref(`notes/${ id }`).set({ title, content });
     props.history.push('/');
   }
 
@@ -49,13 +48,7 @@ class App extends Component {
 
   // handleDeleteNote
   handleDeleteNote = id => {
-    const noteList = [ ...this.state.noteList ];
-    for (let i = 0; i < noteList.length; i++) {
-      if (id === noteList[i].id) {
-        noteList.splice(i, 1);
-      }
-    }
-    this.setState({ noteList });
+    firebase.database().ref(`notes/${ id }`).remove();
   }
 
   /*****************************************
