@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './Form.css';
 
 export default class CreateForm extends Component {
     constructor(props) {
@@ -27,11 +28,11 @@ export default class CreateForm extends Component {
     render() {
         return (
             <div>
-                <h4>Create New Note</h4>
-                <div className='create-form'>
+                <h3 className='note-header'>Create New Note:</h3>
+                <div className='form'>
                     <Form>
                         <FormGroup>
-                            <Input 
+                            <Input className='title-input'
                                 type='text' 
                                 name='title' 
                                 placeholder='Note Title'
@@ -40,7 +41,7 @@ export default class CreateForm extends Component {
                                 />
                         </FormGroup>
                         <FormGroup>
-                            <Input 
+                            <Input className='text-input' 
                                 type='textarea' 
                                 name='text' 
                                 placeholder='Note Content' 
@@ -49,9 +50,9 @@ export default class CreateForm extends Component {
                                 /> 
                         </FormGroup>
                         <Link to='/'>
-                            <Button onClick={this.createNewInput} className='content-btn'>
+                            <button onClick={this.createNewInput} className='content-btn'>
                                 Save
-                            </Button>
+                            </button>
                         </Link>
                     </Form>
                 </div>

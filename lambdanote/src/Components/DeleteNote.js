@@ -27,9 +27,9 @@ class DeleteNote extends Component {
           <p>Are you sure you want to delete this?</p>
           <div className='modal-btn'>
           <Link to='/'>
-            <Button style={{ backgroundColor: '#2BC1C4', color: 'white' }}>Delete</Button>
-            </Link>
-            <Button style={{ backgroundColor: 'red', color: 'white' }}onClick={this.toggle}>No</Button>
+            <Button style={{ backgroundColor: 'red', color: 'white' }}>Delete</Button>
+          </Link>
+            <Button style={{ backgroundColor: '#2BC1C4', color: 'white' }}onClick={this.toggle}>No</Button>
           </div>
         </Modal>
       </div>

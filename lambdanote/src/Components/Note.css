@@ -1,8 +1,8 @@
-.note {
-    margin-left: 1rem;
+.note {  
     text-align: left;
     border: 1px solid #979797;
-    height: 30%;
-    width: 25%;
+    height: 50%;
+    width: 30%;
     padding: 2%;
+    margin-bottom: 2rem;    
   }

@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './Form.css';
 
 export default class EditForm extends Component {
  
     render() {
         return (
             <div>
-                <h4>Edit Note</h4>
-                <div className='create-form'>
+                <h3 className='note-header'>Edit Note</h3>
+                <div className='form'>
                     <Form>
                         <FormGroup>
-                            <Input 
+                            <Input className='title-input'
                                 type='text' 
                                 name='title' 
                                 placeholder='Note Title'
                                 />
                         </FormGroup>
                         <FormGroup>
-                            <Input 
+                            <Input className='text-input'
                                 type='textarea' 
                                 name='text' 
                                 placeholder='Note Content' 
                                 /> 
                         </FormGroup>
                         <Link to='/'>
-                            <Button className='content-btn'>
+                            <button className='content-btn'>
                             Update
-                            </Button>
+                            </button>
                         </Link>
                     </Form>
                 </div>
