@@ -19,8 +19,10 @@
     font-size: 1.1rem;
     padding-left: 1.8%;
 }
-h4{
-    padding-top: 3%;
+h3{
+    padding-top: 5%;
+    padding-left: 2.2%;
+    font-size: 2rem;
 }
 .form-group textarea {
     width: 96%;
