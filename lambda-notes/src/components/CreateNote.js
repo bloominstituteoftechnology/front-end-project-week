@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import '../App.css';
 import './CreateNote.css';
 
@@ -17,11 +18,18 @@ class CreateNote extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    submitInputChange = props => {
-        let notes = this.props.notes;
-        let input = {title: this.state.title, 
-            content: this.state.content, 
-            id: this.state.id}
+    handleNoteSave = () => {
+        axios
+            .post(
+                `https://killer-notes.herokuapp.com/note/create`, this.state)
+            .then(
+                res => {console.log(res)}
+            )
+            .catch(
+                err => {console.log(err)}
+            )
+        window.location.reload();
+
     }
     
     render() {
@@ -36,14 +44,14 @@ class CreateNote extends Component {
                         className='crate-note-input-title'
                         name='title'
                         placeholder='Note Title'
-                        value='{this.state.title'
-                        onChange='{this.state.handleInputChange'
+                        value='{this.state.title}'
+                        onChange='{this.state.handleInputChange}'
                     />
                     <textarea
                         className="content-input"
                         placeholder='Note Content'
                         name='content'
-                        value='{this.state.content'
+                        value='{this.state.content}'
                         onChange='{this.handleInputChange}'
                     ></textarea>
                 </form>

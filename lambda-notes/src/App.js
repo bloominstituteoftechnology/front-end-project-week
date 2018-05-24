@@ -14,7 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [],
+      noteList: [],
       current: {}
     }
   }
@@ -24,7 +24,7 @@ class App extends Component {
         .get(
             `https://killer-notes.herokuapp.com/note/get/all`)
         .then(
-            res => {this.setState({ notes: res.data })})
+            res => {this.setState({ noteList: res.data })})
         .catch(
             err => {console.log(err)})
   }
@@ -32,7 +32,7 @@ class App extends Component {
   setCurrentNote = (noteID) => {
       axios
         .get(
-            `https://killer-notes.herokuapp.com/note/get/${noteID}`
+            `https://killer-List.herokuapp.com/note/get/${noteID}`
         )
         .then(
             res => {this.setState({ current: res.data })}
@@ -50,11 +50,11 @@ class App extends Component {
             </div>
             <div className='note-container'>
                 <Route exact path='/' render={ (props) => {
-                    return (<ListView { ...props } notes={this.state.notes} />)}} />
-                <Route path='/create' component={CreateNote} />
+                    return (<ListView { ...props } noteList={this.state.noteList} />)}} />
+                <Route path='/note/create' component={CreateNote} />
                 <Route exact path='/:id' render={ (props) => {
-                    return (<ListView {...props} notes={this.state.notes} />)}} />
-                <Route path='/note/edit' component={EditNote} />
+                    return (<ViewNote {...props} current={this.state.current} />)}} />
+                <Route path='/:id/edit' component={EditNote} />
             </div>
         </div>
     );
