@@ -13,7 +13,8 @@ class NewNote extends Component {
             content: '',
             submitted: false,
             heading: '',
-            button: ''
+            button: '',
+            link: ''
         }
     }
 
@@ -24,6 +25,7 @@ class NewNote extends Component {
                 heading: 'Create New Note:', 
                 new: true,
                 button: "Save",
+                link: "/"
             })
         } else {
             console.log("Updating an existing note")
@@ -32,6 +34,7 @@ class NewNote extends Component {
                 title: this.props.currentNote.title,
                 content: this.props.currentNote.content,
                 button: "Update",
+                link: `/note/${this.props.currentNote.id}`
             });
         }
     }
@@ -83,7 +86,8 @@ class NewNote extends Component {
                                 value={this.state.button}/>
                             <NoteButton 
                                 color="danger" 
-                                value="Cancel"/>
+                                value="Cancel"
+                                link={this.state.link}/>
                         </Form>
                     </Col>
                 </Row>
