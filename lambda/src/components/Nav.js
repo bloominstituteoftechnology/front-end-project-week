@@ -16,7 +16,7 @@ const NavBar = () => {
             <Link to="/"><Button className="button" color="info">View Your Note</Button>{' '}</Link>
             <Link to="/note"> <Button className="button1" color="info">+Create New Note</Button>{' '}</Link>  
           </div>
-
+            
     );
 };
 

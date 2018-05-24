@@ -9,7 +9,7 @@ import NewNote from './LambdaPages/NewNote';
 import NavBar from './components/Nav';
 import Form from './components/Form';
 import './App.css';
-import { Card, CardTitle, CardText, Col, Row, Container,Button } from 'reactstrap';
+import { Card, CardTitle, CardText, Col, Row, Container,Button, Label } from 'reactstrap';
 import EditNote from './LambdaPages/EditNote';
 
 
@@ -55,10 +55,12 @@ renderNoteList = (title, note) => {
     return (
       <div className="App">
         <NavBar />
+        <h4>Your Notes:</h4>
         <Route exact path="/" render={props => <ListView {...props} notes={this.state.list}/>} />
         <Route path="/note" render={props => <NewNote {...props} renderNoteList={this.renderNoteList}/>} />
         <Route path="/note/edit" component={EditNote} />
-        </div>
+      </div>
+      
     );
   }
 }

@@ -5,7 +5,7 @@ import NavBar from '../components/Nav'
 import Delete from '../components/Delete';
 import EditNote from '../LambdaPages/EditNote'
 
-import { Card, CardTitle, CardText, Row, Col, Container, Button } from 'reactstrap';
+import { Card, CardTitle, CardText, Row, Col, Container, Button, } from 'reactstrap';
 
 import '../components/Form.css'
 import '../components/Delete'
@@ -19,7 +19,7 @@ const ListView = (props) => {
                 <div key={note.id}>
                     <Container className="form-container">
                         <Row>
-                            <Card className="cbody" body>
+                            <Card  body>
                                 <CardTitle className="tcard">{note.title}</CardTitle>
                                 <CardText className="ctext">{note.note}</CardText>
                                 <Link to="note/edit/"><Button color="info">Edit</Button></Link>
