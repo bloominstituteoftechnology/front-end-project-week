@@ -3,15 +3,15 @@ html {
 }
 
 body {
-  background: #4A4A4A !important;
-  margin: 0;
   padding: 0;
+  margin: 0;
   font-family: sans-serif;
+  background: #4A4A4A !important;  
 }
 
 #root {
-  background: #4A4A4A;
   height: 1000px;
   max-width: 880px; 
   margin: 50px auto; 
+  background: #4A4A4A;
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navigation.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navigation.css";
 
 const Navigation = (props) => {
     return (
@@ -12,7 +12,7 @@ const Navigation = (props) => {
             <Link to="/"><button>View Your Notes</button></Link>
             <Link to="/CreateNote"><button>+ Create New Note</button></Link>
         </div>
-    );
+    )
 }
 
 export default Navigation; 

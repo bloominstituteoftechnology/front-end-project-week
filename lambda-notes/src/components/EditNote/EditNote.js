@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Navigation from '../Navigation/Navigation';
-import EditNoteCard from './EditNoteCard';
-import './EditNote.css';
+import React, { Component } from "react";
+import axios from "axios";
+import Navigation from "../Navigation/Navigation";
+import EditNoteCard from "./EditNoteCard";
+import "./EditNote.css";
 
 class EditNote extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class EditNote extends Component {
 
     componentWillMount() {
         this.fetchNote(this.props.match.params.id);
-        this.setState({ id: this.props.match.params.id });
+        this.setState({ id: this.props.match.params.id })
     }
 
     ComponentWillReceiveProps(newProps) {
@@ -28,7 +28,7 @@ class EditNote extends Component {
     fetchNote = (id) => {
         axios.get(`http://localhost:5000/api/notes/${id}`)
             .then(response => this.setState({ note: response.data }))
-            .catch(error => { console.log(error) })
+            .catch(error => console.log(error))
     }
 
     modifyNote = (id, obj) => {
@@ -36,12 +36,8 @@ class EditNote extends Component {
     }
 
     render() {
-        if (!this.state.note) {
-            return <div>Loading note information...</div>
-        }
-
         return (
-            <div className="cont">
+            <div className="editNoteContainer">
                 <Navigation />
                 <EditNoteCard note={this.state.note} id={this.state.id} modifyNote={this.modifyNote} />
             </div>

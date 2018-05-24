@@ -1,34 +1,34 @@
-.cont {
+.noteContainer {
     width: 100%; 
     height: 100%;
     display: flex; 
 }
 
-.notecardcontainer {
+.noteCardContainer {
     width: 75%; 
     height: 100%; 
     background:  #F3F3F3;
 }
 
-.notecardcontainer h4 {
-    color: #4A4A4A;
-    font-weight: bolder;
-    font-family: Raleway Medium;
+.noteCardContainer h4 {
     margin: 28px 0 0 25px;
+    font-family: Raleway Medium;
+    font-weight: bolder;
+    color: #4A4A4A;
 }
 
-.notecardcontainer p {
+.noteCardContainer p {
     width: 90%; 
     margin: 20px 0 0 25px; 
 }
 
-.notecardbuttons {
+.noteCardButtons {
     display: flex; 
     flex-direction: row; 
     justify-content: flex-end; 
 }
 
-.notecardbuttons span {
+.noteCardButtons span {
     margin-top: 2%; 
     font-family: Raleway Medium;
     font-weight: bolder; 
@@ -36,8 +36,16 @@
     text-decoration: underline; 
 }
 
-.notecardbuttons span:nth-child(2) {
+.noteCardButtons span:nth-child(2) {
     margin: 2% 5% 0 2%; 
+}
+
+.editLink {
+    margin-top: 2%; 
+}
+
+.modal-content {
+    border-radius: 0 !important; 
 }
 
 .popup {
@@ -45,13 +53,9 @@
     border: 1.5px solid #4A4A4A; 
 }
 
-.modal-content {
-    border-radius: 0 !important; 
-}
-
 .popupBody {
-    text-align: center;
     padding: 30px 30px 0 30px !important;
+    text-align: center;
     color: #4A4A4A;
 }
 
@@ -62,25 +66,21 @@
 }
 
 .deleteButton {
-    width: 100%; 
+    width: 100%;
+    margin: 0 !important; 
     border-radius: 0 !important; 
     border: 1.5px solid #4A4A4A !important; 
-    margin: 0 !important;
 }
 
 .cancelButton {
     width: 40%; 
+    margin: 20px 0 20px 5% !important;
     border-radius: 0 !important; 
     border: 1.5px solid #4A4A4A !important; 
-    margin: 20px 0 20px 5% !important;
 }
 
 .deleteLink {
     width: 40%; 
     height: 41px; 
     margin: 0 !important; 
-}
-
-.editLink {
-    margin-top: 2%; 
 }
