@@ -26,6 +26,7 @@ class ViewNote extends Component {
     render() {
         return (
             <div>
+                
                 <Row>
                     <Col className='col-3 ml-auto'>
                         <Link to='/edit-note'><Button className='mr-2' size='sm'>Edit</Button></Link>
