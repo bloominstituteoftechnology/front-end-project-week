@@ -8,6 +8,7 @@ import EditNote from '../LambdaPages/EditNote'
 import { Card, CardTitle, CardText, Row, Col, Container, Button } from 'reactstrap';
 
 import '../components/Form.css'
+import '../components/Delete'
 
 //Stateless function that renders Navbar from components file
 const ListView = (props) => {
@@ -16,11 +17,11 @@ const ListView = (props) => {
         props.notes.map(note =>{
             return (
                 <div key={note.id}>
-                    <Container>
+                    <Container className="form-container">
                         <Row>
-                            <Card body>
-                                <CardTitle>{note.title}</CardTitle>
-                                <CardText>{note.note}</CardText>
+                            <Card className="cbody" body>
+                                <CardTitle className="tcard">{note.title}</CardTitle>
+                                <CardText className="ctext">{note.note}</CardText>
                                 <Link to="note/edit/"><Button color="info">Edit</Button></Link>
                                 <Delete />
                             </Card>
