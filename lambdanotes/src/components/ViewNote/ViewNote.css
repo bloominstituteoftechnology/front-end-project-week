@@ -32,9 +32,11 @@
     font-size: 21px;
 }
 
-.ViewNoteContent {
+.viewNoteContent {
+    display: block;
     text-align: start;
     margin: 25px;
     line-height: 25px;
     font-size: 14.08px;
+    white-space: pre-wrap;
 }

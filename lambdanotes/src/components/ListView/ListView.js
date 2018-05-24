@@ -12,7 +12,7 @@ const ListView = (props) => {
                         <Link to={`/${note._id}`} className='noteCardLink'>
                             <div className='noteCard'>
                                 <h6 className='noteTitle'>{note.title}</h6>
-                                <p className='noteContent'>{note.textBody}</p>
+                                <span className='noteContent'>{note.textBody}</span>
                             </div>
                         </Link>
                     </div>
