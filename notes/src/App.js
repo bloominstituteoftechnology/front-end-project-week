@@ -5,6 +5,7 @@ import Board from './components/board';
 import SideBar from './components/sidebar';
 import Notes from './components/notes';
 import NewNote from './components/newNote';
+import EditNote from './components/editnote';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -28,16 +29,6 @@ class App extends Component {
   //   this.setState({ newNote: event.target.value });
   // }
 
-  // const App = () => (
-  //   <div>
-  //     <Navigation />
-  //     <Route exact path="/" component={} />
-  //     <Route exact path="/" component={} />
-  //     <Route exact path="/" component={} />
-  //     </div>
-  // )
-
-
   render() {
     return (
       <div className="App">
@@ -45,7 +36,7 @@ class App extends Component {
         <div className="App-main">
           <Route exact path="/" component={Board} />
           <Route exact path="/newnote" component={NewNote} />
-          <Route exact path="/editnote" component={NewNote} />
+          <Route exact path="/editnote" component={EditNote} />
         </div>
       </div>
     );

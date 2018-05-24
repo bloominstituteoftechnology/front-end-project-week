@@ -37,7 +37,7 @@ body {
 
 
 .card {
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   box-shadow: 1px 1px 10px black;
   display: flex;
   flex-direction: row;
@@ -50,4 +50,12 @@ body {
 .main-header {
 color: white;
 text-shadow: 1px 1px 5px black;
+}
+
+#input1 {
+  margin-bottom: 20px;
+}
+
+.new {
+  width: 20vw;
 }
