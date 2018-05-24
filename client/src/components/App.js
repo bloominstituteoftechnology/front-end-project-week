@@ -11,7 +11,9 @@ import NoteEdit from './noteedit/NoteEdit';
 // presentational
 import './App.css';
 
+// database
 import firebase from '../firebase';
+import 'firebase/database';
 
 class App extends Component {
   state = {
@@ -28,7 +30,7 @@ class App extends Component {
   // adds new note to `this.state.noteList`
   addNewNote = (e, props) => {
     e.preventDefault();
-    const { noteList, title, content } = this.state;
+    const { title, content } = this.state;
     const notesRef = firebase.database().ref('notes');
     notesRef.push({ title, content });
     props.history.push('/');
