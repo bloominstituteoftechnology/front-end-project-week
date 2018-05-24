@@ -2,7 +2,9 @@ export const CREATE_NOTE = "CREATE_NOTE";
 export const GET_NOTE = "GET_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 
-let noteId = 2;
+let ls = JSON.parse(localStorage.getItem('array'))
+
+let noteId = ls !== null ? ls.length : 0
 
 export const createNote = note => {
   noteId += 1;
@@ -15,6 +17,11 @@ export const createNote = note => {
     }
   };
 };
+
+export const editNote = note => {
+    
+}
+
 
 export const deleteNote = id => {
   return {

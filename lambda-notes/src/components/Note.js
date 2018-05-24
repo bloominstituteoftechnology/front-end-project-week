@@ -23,7 +23,6 @@ class Note extends Component {
     
     handleDeleteButton = (e, id) => {
         e.preventDefault();
-        console.log(this.state)
         this.props.deleteNote(id);
         this.props.history.push("/");
     }
@@ -32,14 +31,13 @@ class Note extends Component {
         let result = this.props.notes.filter(note => note.id == this.props.match.params.id);       
         let found = result[0]
         this.setState({note: found});
-        console.log(this.state)
     }
 
     render() {
         console.log(this.props)
         return <div className="col-sm-9 note-view">
             <div className="note-links-wrap">
-              <Link to="/edit" className="note-link">
+              <Link to={`edit/${this.state.note.id}`} className="note-link">
                 edit
               </Link>
               <Link to="/" className="note-link" onClick={this.toggle}>
@@ -56,9 +54,9 @@ class Note extends Component {
                 Are you sure you want to delete this?
               </ModalBody>
               <ModalFooter className="but-wrapper">
-                <Button color="danger" className="modal-but" onClick={(e) => {
+                <Button color="danger" className="modal-but" onClick={e => {
                     this.handleDeleteButton(e, this.props.match.params.id);
-                }}>
+                  }}>
                   Delete
                 </Button> <Button className="no-button modal-but" onClick={this.toggle}>
                   No

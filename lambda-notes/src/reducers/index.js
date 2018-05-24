@@ -30,6 +30,7 @@ export const notesReducer = (notes = retrieveData(), action) => {
         let removedNote = Array.from(notes);
         removedNote = removedNote.filter(note => note.id !== parseInt(action.payload))
         saveData(removedNote);
+
         return removedNote;
     default:
       return notes;
