@@ -42,7 +42,8 @@
     font-family: 'Roboto', sans-serif;
     text-align: start;
     font-size: 19px;
-    padding-bottom: 4px;
+    padding-top: 12px;
+    line-height: 0px;
     border-bottom: 1px solid #979797;
     color: black;
     overflow: auto;
