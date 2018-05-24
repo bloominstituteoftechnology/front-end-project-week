@@ -1,5 +1,5 @@
 import React from "react";
-import { updateNote } from "../actions/action";
+import { updateNote, editNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -85,8 +85,7 @@ class EditNote extends React.Component {
           onChange={this.handleTextInput}
         />
         <Link to={`/`} onClick={this.newNote} style={buttonStyle}>
-          {" "}
-          <button style={buttonStyle}> Update</button>{" "}
+          <button style={buttonStyle}> Update</button>
         </Link>
       </div>
     );
@@ -99,4 +98,4 @@ const mapDispatchToProps = state => {
   };
 };
 
-export default connect(mapDispatchToProps)(EditNote);
+export default connect(mapDispatchToProps, { updateNote })(EditNote);

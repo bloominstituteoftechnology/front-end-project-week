@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import SView from "./components/SView";
 import MainView from "./components/MainView";
 import EditNote from "./components/EditNote";
@@ -57,7 +57,7 @@ const New = props => {
 const View = props => {
   let id = props.match.params.id;
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <SplitScreen left={<ContentLeft />} right={<RightView id={id} />} />
     </div>
   );
@@ -68,7 +68,7 @@ const View = props => {
 export const Edit = props => {
   let idX = props.match.params.idX;
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <SplitScreen left={<ContentLeft />} right={<EditRight idX={idX} />} />
     </div>
   );
@@ -80,7 +80,7 @@ const Delete = props => {
   let id = props.match.params.id;
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       <SplitScreen left={<ContentLeft />} right={<RightView id={id} />} />
     </div>
   );
@@ -123,9 +123,8 @@ const App = props => {
     <div>
       <Route exact path="/" component={Home} />
       <Route path="/notes/new" component={New} />
-      <Route path="/notes/edit" component={Edit} />
+      <Route path="/notes/edit:idX" component={Edit} />
       <Route path="/notes/view/:id" component={View} />
-      <Route path="/notes/edit/:idX" component={Edit} />
       <Route path="/notes/view/delete/:idX" component={Delete} />
     </div>
   );

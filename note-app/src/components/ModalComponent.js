@@ -9,9 +9,7 @@ class ModalComponent extends Component {
     super(props);
     this.state = {
       modal: false,
-      list: this.props.notes,
-      isGoing: true
-      //hover
+      list: this.props.notes
     };
   }
   componentDidMount() {
@@ -29,7 +27,12 @@ class ModalComponent extends Component {
   render() {
     return (
       <div>
-       
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <Link to={`/`} onClick={() => this.handleDelete(this.props.id)}>
+            <Button color="primary">Delete</Button>
+          </Link>{" "}
+          */}
+        </Modal>
       </div>
     );
   }
@@ -41,10 +44,7 @@ const mapToProps = state => {
   };
 };
 
-export default connect(mapToProps, 
-    { 
-         addNote, 
-         deleteNote 
-    }
-    )
-    (ModalComponent);
+export default connect(mapToProps, {
+  addNote,
+  deleteNote
+})(ModalComponent);

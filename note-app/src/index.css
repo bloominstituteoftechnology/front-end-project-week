@@ -16,7 +16,7 @@ html, body, #root {
 .SplitScreenLeft {
   float: left;
   width: 25%;
-  height: 705px;
+  height: 100%;
 }
 
 .SplitScreenRight {

@@ -1,5 +1,6 @@
 import {
   ADDNOTE,
+  EDITNOTE,
   DELETENOTE,
   UPDATENOTE,
   CHECKUPDATE,
@@ -82,6 +83,8 @@ export const notesReducer = (state = intialState, action) => {
         ...state,
         notes: [...state.notes.concat(action.payload)]
       };
+      case EDITNOTE:
+            return {...state, notes: state.notes[action.payload] = action.note}
 
     case UPDATENOTE:
       return {

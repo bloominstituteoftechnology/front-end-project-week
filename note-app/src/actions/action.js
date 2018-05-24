@@ -1,13 +1,20 @@
 export const ADDNOTE = "ADDNOTE";
+export const EDITNOTE = "EDITNOTE";
 export const DELETENOTE = "DELETENOTE";
 export const UPDATENOTE = "UPDATENOTE";
 export const CHECKUPDATE = "CHECKUPDATE";
 export const REORDERSTATE = "REORDERSTATE";
 
-
 export const addNote = note => {
   return {
     type: ADDNOTE,
+    payload: note
+  };
+};
+
+export const editNote = note => {
+  return {
+    type: EDITNOTE,
     payload: note
   };
 };
