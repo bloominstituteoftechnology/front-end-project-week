@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class editView extends Component {
     render() {
@@ -9,10 +10,10 @@ class editView extends Component {
                     <div className='EVnavTitleContainer'>
                     <p className='EVsideNavTitle'>Lambda Notes</p>
                     </div>
-                    <div>
+                    <div className='EVbuttonContainer'>
                     <button className='EVbutton'>View Your Notes</button>
                 </div>
-                <div>
+                <div className='EVbuttonContainer'>
                     <button className='EVbutton'>+ Create New Note</button>
                 </div>
                 </div>
@@ -23,11 +24,14 @@ class editView extends Component {
                     <div className='EVmainTitle'>
                     <p>Edit Note:</p>
                     </div>
-                    <div >
-                    <input className='EVnewTitle' Etype="title" name="title" id="exampleTitle" placeholder="New Title" />
+                    <div className='EVnewTitleContainer'>
+                    <input className='EVnewTitle' type="title" name="title" id="exampleTitle" placeholder="New Title" />
                     </div>
-                    <div>
-                    <input className='EVnewContent' type="content" name="content" id="exampleContent" placeholder="New Content" />
+                    <div className='EVnewContentContainer'>
+                    <textarea className='EVnewContent'>New Content</textarea>
+                    </div>
+                    <div className='EVbuttonContainer'>
+                        <button className='EVbutton'>Update</button>
                     </div>
                 </div>
                  

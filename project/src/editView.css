@@ -8,6 +8,7 @@
     flex-direction: column;
     padding: 10px;
     border: solid 1px  #979797;
+    width: 230px;
 }
 
 .EVnavTitleContainer {
@@ -23,10 +24,13 @@
     text-align: left;
     padding-bottom: 10px;
     flex-wrap: wrap;
-    font-size: 25px;
     font: Roboto Bold;
     color: #4A4A4A;
     font-size: 35px;
+}
+
+.EVbuttonContainer {
+    padding: 0px;
 }
 
 .EVbutton {
@@ -50,12 +54,33 @@
     margin-top: 35px;
 }
 
+.EVnewTitleContainer {
+    text-align: left;
+}
+
 .EVnewTitle {
     width: 300px;
     text-align: left;
 }
 
+.EVnewContentContainer {
+    text-align: left;
+}
+
 .EVnewContent {
     width: 500px;
-    height: 500px;
+    height: 300px;
+}
+
+.EVbuttonContainer {
+    text-align: left;
+}
+
+.EVbutton {
+    width: 200px;
+    color: #FFFFFF;
+    background: #2BC1C4;
+    margin-bottom: 10px;
+    border: #979797 1px solid;
+
 }
