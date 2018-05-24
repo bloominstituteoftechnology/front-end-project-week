@@ -35,6 +35,9 @@ class Note extends Component {
     }
 
     render() {
+        if (!this.state.note) {
+            return <div>Loading note information...</div>
+        }
         return (
             <div className="noteContainer">
                 <Navigation />

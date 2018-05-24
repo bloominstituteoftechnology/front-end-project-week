@@ -16,9 +16,6 @@ class NoteCard extends Component {
     }
 
     render() {
-        if (!this.props.note) {
-            return <div>Loading note information...</div>
-        }
         const { title, text } = this.props.note;
         return (
             <div className="noteCardContainer">

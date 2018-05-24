@@ -36,6 +36,9 @@ class EditNote extends Component {
     }
 
     render() {
+        if (!this.state.note) {
+            return <div>>Loading note information...</div>
+        }
         return (
             <div className="editNoteContainer">
                 <Navigation />
