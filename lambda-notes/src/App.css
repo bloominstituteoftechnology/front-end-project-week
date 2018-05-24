@@ -16,6 +16,7 @@ body, html {
   flex-wrap: wrap;
   overflow: auto;
   justify-content: space-around;
+  margin-top: 5%;
   /* max-width: 200px; */
 }
 .cards {
@@ -34,6 +35,7 @@ body, html {
   width: 280px;
   max-width: 310px;
   min-width: 270px;
+  height: 300px;
   color: black;
   margin: 1%;
   box-shadow: 1px 1px 4px rgb(82, 83, 83);
