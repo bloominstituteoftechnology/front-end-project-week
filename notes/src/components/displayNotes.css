@@ -1,4 +1,5 @@
 .mainBodyTitle1{
+    color: #FFFFFF;
     font: Raleway Medium;
     margin-left: 5%;
     margin-top: 7%;
@@ -15,17 +16,19 @@
 }
 
 .noteTitle1 {
+    color: #FFFFFF;
     font: Raleway Medium;
     text-decoration: underline;
     margin-top: 10px;
     text-align: center;
-    color: #4A4A4A
+    
 }
 
 .noteCon {
+    color: #FFFFFF;
     margin: 20px;
     font: Railway Medium;
-    color: #4A4A4A
+    /*color: #4A4A4A*/
 }
 
 .cardContainer {

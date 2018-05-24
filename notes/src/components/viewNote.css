@@ -105,6 +105,7 @@
 }
 
 .mainBodyTitle {
+    color: #FFFFFF;
     font: Raleway Medium;
     margin-left: 5%;
     margin-top: 4%;
@@ -119,12 +120,14 @@
 }
 
 .sideBarTitle1 {
+    color: #FFFFFF;
     margin-top: 15px;
     margin-left: 20px;
     font: Roboto Bold;
     font-weight: bold;
 }
 .sideBarTitle2 {
+    color: #FFFFFF;
     line-height: 20%;
     margin-left: 7.5%;
     font: Roboto Bold;
