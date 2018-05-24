@@ -24,17 +24,19 @@ class SingleNoteView extends Component {
     return (
       <div>
         <div className="links">
-            <Link to="/editNote" className="edit">Edit</Link>            
-
-            <Button color="link" onClick={this.toggle}>Delete{this.props.buttonLabel}</Button>
+            <Link to="/editNote" className="edit">edit</Link>            
+            <Button color="link" className="delete" onClick={this.toggle}>delete{this.props.buttonLabel}</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.SingleNoteView}>
-              
-                <ModalBody>
-                  Are you sure you want to delete this?
-                </ModalBody>
-              <ModalFooter>
-              <button className="delete-button" onClick={this.toggle}>Delete</button>
-              <button className="cancel-button" onClick={this.toggle}>Cancel</button>
+              <ModalBody>
+                Are you sure you want to delete this?
+              </ModalBody>
+              <ModalFooter className="footer">
+                <Link to="/" style={{ textDecoration: "none" }}>
+                  <button className="delete-button" onClick={this.toggle}>Delete</button>
+                </Link>
+                <Link to="/singlenote" style={{ textDecoration: "none" }}>
+                  <button className="cancel-button" onClick={this.toggle}>No</button>
+                </Link> 
               </ModalFooter>
             </Modal>
 

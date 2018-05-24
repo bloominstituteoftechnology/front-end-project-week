@@ -27,9 +27,43 @@
 }
 
 .delete-button {
-    text-align: center;
+    padding: 6px 45px 6px 45px;
+    text-decoration: none;
+    text-decoration-line: none; 
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #D0021B; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px; 
 }
 
 .cancel-button {
-    text-align: center;
+    padding: 6px 45px 6px 45px;
+    text-decoration: none;
+    text-decoration-line: none; 
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px; 
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #4A4A4A;
+    text-decoration-line: underline;
+}
+
+.delete {
+    color: #4A4A4A;
+    text-decoration-line: underline;
 }
