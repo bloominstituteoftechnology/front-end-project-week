@@ -11,7 +11,7 @@ const Root = () => (
         <Switch>
             <Route exact path = '/' component = {List}/>
             <Route exact path='/list' component={List}/>
-            <Route path='/list/:number' component={NoteView}/>
+            <Route path='/list/:id' component={NoteView}/>
             <Route exact path = '/edit' component ={EditNote}/>
             <Route exact path = '/create' component = {CreateNote}/>
         </Switch>
