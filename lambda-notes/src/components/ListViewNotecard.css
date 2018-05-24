@@ -6,12 +6,14 @@
     border: solid #979797 solid 1px;
     background: white;
     padding: 5px, 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .notecardTitle {
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
-    margin: 0%;
     text-align: left;
 }
 
