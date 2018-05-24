@@ -24,7 +24,7 @@ class EditNote extends Component {
 
     render() {
         return (
-            <div>
+            <div className="edit-view">
                 <form>
                     <input 
                         placeholder="Title"

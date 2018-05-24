@@ -122,7 +122,7 @@ const saveData = (array) => {
 }
 
 const retrieveData = () => {
-    // initialState = JSON.parse(localStorage.getItem('array'));
+    initialState = JSON.parse(localStorage.getItem('array'));
     return initialState === null ? [] : initialState;
 }
 

@@ -23,18 +23,21 @@ class Note extends Component {
         console.log(this.props.notes)
         console.log(this.matchedNote)
         return (
-            <div>
-                <Link to={`/editNote/${this.matchedNote.id}`} className="button">
-                Edit
-                </Link>
-                <button
-                     onClick={(event) => {
-                        this.handleRemoveNote(event, this.matchedNote.id)
-                    }}>Remove Note
-                </button>
+            <div className="note-view">
+                <div className="button-group">
+                    <Link to={`/editNote/${this.matchedNote.id}`} className="edit-button">
+                        <button>Edit</button>
+                    </Link>
+                    <button
+                        className="remove-button"
+                        onClick={(event) => {
+                            this.handleRemoveNote(event, this.matchedNote.id)
+                        }}>Remove Note
+                    </button>
+                </div>
                 <div>
-                    <h4>{this.matchedNote.title}</h4>
-                    <p>{this.matchedNote.body}</p>
+                    <h4 className="note-title">{this.matchedNote.title}</h4>
+                    <p className="note-body">{this.matchedNote.body}</p>
                 </div>
             </div>
         )

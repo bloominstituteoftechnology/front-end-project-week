@@ -25,7 +25,7 @@ class CreateNote extends Component {
     render() {
         console.log(this.props)
         return (
-            <div className="create-note">
+            <div className="create-view">
                 <form>
                     <input
                     type="text"
@@ -33,7 +33,6 @@ class CreateNote extends Component {
                     name="title"
                     value={this.state.title}
                     onChange={this.handleNewNote}
-                    className="title"
                     />
                     <textarea
                     type="text"
@@ -41,7 +40,6 @@ class CreateNote extends Component {
                     name="body"
                     value={this.state.body}
                     onChange={this.handleNewNote}
-                    className="bodytext"
                     />
                     <button onClick={this.addNote}>
                         Add Note
