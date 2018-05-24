@@ -71,6 +71,7 @@ button {
     padding-bottom: 20px;
     text-decoration: none;
     color: black;
+    pointer-events: none;
 }
 
 .noDecoration,
@@ -113,6 +114,32 @@ a:visited {
 .note-body {
     margin-top: 15px;
 }
+
 .download-link {
     color: black;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    padding: 10px 15px;
+}
+
+li:hover {
+    background: darken(#eee, 5%);
+}
+
+.placeholder {
+    background: lightgray;
+}
+
+.placeholder:before {
+    content: "Drop here";
+    color: white;
 }

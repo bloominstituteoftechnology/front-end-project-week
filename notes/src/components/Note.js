@@ -28,7 +28,7 @@ class Note extends Component {
                     <Link to="/" onClick={this.toggle} className="nview">delete</Link>
                 </div>
                 <h3>{this.props.note.title}</h3>
-                <p className="note-body"><Markdown>{this.props.note.text}</Markdown></p>
+                <div className="note-body"><Markdown>{this.props.note.text}</Markdown></div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalBody>
                         <h6>Are you sure you want to delete this?</h6>
