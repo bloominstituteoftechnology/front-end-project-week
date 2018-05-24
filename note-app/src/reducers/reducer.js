@@ -1,77 +1,55 @@
-import {
-  ADDNOTE,
-  EDITNOTE,
-  DELETENOTE,
-  UPDATENOTE,
-  CHECKUPDATE,
-  REORDERSTATE
-} from "../actions/action";
+import { ADDNOTE, EDITNOTE, DELETENOTE } from "../actions/action";
+
+const task =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.";
 
 const intialState = {
   notes: [
     {
       title: "Note-1",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 1
     },
 
     {
       title: "Note-2",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 2
     },
     {
       title: "Note-3",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 3
     },
     {
       title: "Note-4",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 4
     },
     {
       title: "Note-5",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 5
     },
     {
       title: "Note-6",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 6
     },
     {
       title: "Note-7",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 7
     },
     {
       title: "Note-8",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 8
     },
     {
       title: "Note-9",
-      note:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at maximus nisi, ut pulvinar odio. Duis faucibus nisl pien auctor vulputate. Aenean ullamcorper viverra est, in iaculis lacus feugiat nec. Aenean volutpat, urna non imperdiet ullamcorper, orci mi consequat ex, vitae ullamcorper nisi risus quis odio. Etiam interdum tellus gittis interdum. Morbi vel felis arcu. Phasellus eu ex nulla. Nullam ultrices velit ismod bibendum.",
-      check: false,
-      
+      task: "",
+      id: 9
     }
   ]
 };
@@ -83,32 +61,15 @@ export const notesReducer = (state = intialState, action) => {
         ...state,
         notes: [...state.notes.concat(action.payload)]
       };
-      case EDITNOTE:
-            return {...state, notes: state.notes[action.payload] = action.note}
+    case EDITNOTE:
+      return { ...state, notes: (state.notes[action.payload] = action.task) };
 
-    case UPDATENOTE:
-      return {
-        ...state,
-        notes: [
-          (state.notes[action.index].note = action.payload),
-          (state.notes[action.index].title = action.title)
-        ],
-      };
     case DELETENOTE:
       return {
         ...state,
-        notes: [...state.notes.filter(note => note !== action.payload)]
+        notes: [...state.notes.filter(task => task !== action.payload)]
       };
-    case CHECKUPDATE:
-      return {
-        ...state,
-        notes: [(state.notes[action.index].check = action.payload)]
-      };
-    case REORDERSTATE:
-      return {
-        ...state,
-        notes: [action.payload]
-      };
+
     default:
       return state;
   }

@@ -1,72 +1,57 @@
-import React from "react";
-import { addNote } from "../actions/action";
-import { connect } from "react-redux";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class NewNote extends React.Component {
+class NewNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
-      note: ""
+      notes: "",
+      id: ""
     };
   }
 
   componentDidMount() {
-    this.props.notes;
+    this.setState({ id: Date.now() });
   }
 
-  refresh = () => {
-    this.props.notes;
-  };
-
-  handleTextInput = e => {
-    e.preventDefault();
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  count = 9;
-
-  createNewNote = e => {
-    this.count++;
-    let { title, body } = this.state;
-    let note = {
-      title,
-      body,
-      id: this.count
-    };
-
-    e.preventDefault();
-    this.props.addNote(note);
-    this.setState({ title: "", body: "" });
-  };
-
   render() {
+    const { title, notes, id } = this.state;
     return (
-      <div className="newNoteBody">
-        <div className="createNewNote">Create New Note:</div>
-        <input
-          onChange={this.handleTextInput}
-          name="title"
-          value={this.state.title}
-          className="title-input"
-          type="text"
-          placeholder="Title"
-        />
-        <textarea
-          onChange={this.handleTextInput}
-          name="body"
-          value={this.state.body}
-          className="content-input"
-          cols="30"
-          rows="10"
-          type="text"
-          placeholder="Content"
-        />
-        <button onClick={this.createNewNote} text="Save" />
+      <div className="noteContainer">
+        <div className="noteView">
+          <div className="noteForm">
+            <h3>Create New Note:</h3>
+            <form>
+              <input
+                name="title"
+                value={title}
+                placeholder="Note Title"
+                onChange={e => this.handleChange(e)}
+              />
+              <textarea
+                name="notes"
+                value={notes}
+                placeholder="Note Content"
+                onChange={e => this.handleChange(e)}
+              />
+              <Link
+                className="button"
+                to="/"
+                onClick={() => this.props.addNote({ id, title, notes })}
+              >
+                Save
+              </Link>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default connect(null, { addNote })(NewNote);
+export default NewNote;

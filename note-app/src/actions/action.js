@@ -1,51 +1,25 @@
 export const ADDNOTE = "ADDNOTE";
 export const EDITNOTE = "EDITNOTE";
 export const DELETENOTE = "DELETENOTE";
-export const UPDATENOTE = "UPDATENOTE";
-export const CHECKUPDATE = "CHECKUPDATE";
-export const REORDERSTATE = "REORDERSTATE";
 
-export const addNote = note => {
+export const addNote = task => {
   return {
     type: ADDNOTE,
-    payload: note
+    payload: task
   };
 };
 
-export const editNote = note => {
+export const editNote = task => {
   return {
     type: EDITNOTE,
-    payload: note
+    payload: task
   };
 };
 
-export const updateNote = (noteTitle, noteBody, i) => {
-  return {
-    type: UPDATENOTE,
-    title: noteTitle,
-    payload: noteBody,
-    index: i
-  };
-};
 
-export const deleteNote = note => {
+export const deleteNote = task => {
   return {
     type: DELETENOTE,
-    payload: note
-  };
-};
-
-export const checkUpdate = (bool, i) => {
-  return {
-    type: CHECKUPDATE,
-    payload: bool,
-    index: i
-  };
-};
-
-export const reorderState = completeObject => {
-  return {
-    type: REORDERSTATE,
-    payload: completeObject
+    payload: task
   };
 };
