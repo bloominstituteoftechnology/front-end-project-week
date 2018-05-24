@@ -18,17 +18,11 @@ class CreateNote extends Component {
     saveNewNote = () => {
         const newNote = { title: this.state.title, body: this.state.body};
         const notes = this.props.notes;
-        axios.post(`https://killer-notes.herokuapp.com/note/create`, newNote)
-            .then(savedNote => {
-                this.setState({
-                    title: '',
-                    body: ''
-                })
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        
+        notes.push(newNote);
+        this.setState({
+            title: '',
+            body: ''
+        })
         
     }
 

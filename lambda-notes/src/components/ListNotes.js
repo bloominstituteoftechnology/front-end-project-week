@@ -18,15 +18,22 @@ export default class ListNotes extends Component {
     render() { 
         console.log('PROPS:', this.props)
         return ( 
-            <div>
-                <div className="header-buttons">
-                    <Link className="export" to="/login">
-                        <button>Sign In</button>
-                    </Link>
-                    <Link className="export" to="/export">
-                        <button>Download Notes</button>
-                    </Link>
+            <div className="main-list-container">
+                <div className="list-header">
+                    <form className="search-form"> 
+                        <input className="search" type="text" placeholder="Search..." required />
+                        <input className="search-button" type="button" value="Search" />
+                    </form>
+                    <div className="header-buttons">
+                        <Link className="export" to="/login">
+                            <button>Sign In</button>
+                        </Link>
+                        <Link className="export" to="/export">
+                            <button>Download Notes</button>
+                        </Link>
+                    </div>
                 </div>
+                
                 <h2 className="main-header">Your Notes:</h2> 
                 <div className="note-list">
                     {this.props.notes.map(note => (

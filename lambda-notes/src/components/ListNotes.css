@@ -1,3 +1,24 @@
+.main-list-container{
+    width: 100%;
+}
+
+.list-header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-form{
+    margin: 15px;
+    display: inline-block;
+}
+
+.search-button{
+    color: #FFF;
+    background-color: #2BC1C4;
+    padding: 3px;
+    font-weight: bold;
+}
+
 .note-list{
     display: flex;
     width: 100%;
@@ -35,7 +56,3 @@
     font-weight: 700;
 }
 
-.header-buttons{
-    display: flex;
-    justify-content: flex-end;
-}
