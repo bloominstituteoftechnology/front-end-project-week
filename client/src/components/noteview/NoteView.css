@@ -5,6 +5,7 @@
 @media (min-width: 625px) {
   .noteview__note-container {
     display:flex;
+    flex-grow: 1;
     flex-wrap: wrap;
   }
 }
