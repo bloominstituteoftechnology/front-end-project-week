@@ -10,12 +10,6 @@ import './Navbar.css';
 
 
 class Navbar extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         user: 'null',
-    //     }
-    // }
 
     render() {
         const { classes } = this.props;
@@ -26,7 +20,7 @@ class Navbar extends Component {
                     (<Fragment>
                         <RLink className="mt-2" to="/"><Button>View Your Notes</Button></RLink>
                         <RLink className="my-2" to="/new"><Button>+ Create New Note</Button></RLink>
-                        {/* <RLink className="mb-2" to="/styles"><Button><i className="fas fa-paint-brush"></i></Button></RLink> */}
+                        <RLink className="mb-2" to="/styles"><Button><i className="fas fa-paint-brush"></i></Button></RLink>
                         <Button onClick={this.props.logoutUser}>Log Out</Button>
                 
                     

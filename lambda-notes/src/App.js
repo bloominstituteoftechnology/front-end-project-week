@@ -1,25 +1,25 @@
 // Dependencies
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import CustomProperties from 'react-custom-properties';
 import { connect } from 'react-redux';
 // CSS & Styling
 /*import logo from './logo.svg';*/
 import './App.css';
-// import themes from './themes';
+import themes from './themes';
 // Components
 import Navbar from './components/Navbar';
 import NoteList from './components/NoteList';
 import ViewNote from './components/Forms/ViewNote';
 import InputForm from './components/Forms/InputForm';
-// import ThemePicker from './components/Forms/ThemesPicker';
+import ThemePicker from './components/Forms/ThemesPicker';
 
 class App extends Component {
 
   render() {
     return (
       <div className="App container">
-        {/* <CustomProperties global properties={themes[this.props.theme]} /> */}
+        <CustomProperties global properties={themes[this.props.theme]} />
         <div className="row">
           <Navbar classes="col-md-3" />
           <div className="main-view col-md-9">
@@ -28,7 +28,7 @@ class App extends Component {
               <Route path="/note/:id" render={props => <ViewNote id={props.match.params.id} />} />
               <Route path="/new" render={props => <InputForm match={props.match} />} />
               <Route path="/edit/:id" render={props => <InputForm match={props.match} />} />
-              {/* <Route path="/styles" component={ThemePicker} /> */}
+              <Route path="/styles" component={ThemePicker} />
             </Switch>
           </div>
         </div>
@@ -42,7 +42,7 @@ const mapStateToProps = state => {
     theme: state.userReducer.theme,
   }
 }
-export default connect(mapStateToProps, null)(App);
+export default withRouter(connect(mapStateToProps, null)(App));
 
 /* Code I might want to keep around
   <img src={logo} className="App-logo" alt="logo" />

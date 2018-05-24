@@ -11,7 +11,7 @@ const themes = {
   },
   dark: {
     '--color--main': '#B6B6B6',
-    '--color--button': '#F0F0F0',
+    '--color--button': '#200000',
     '--color-bg': '#000000',
     '--color-bg--side': '#282828',
     '--color-bg--main':  '#363636',
