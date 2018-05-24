@@ -32,14 +32,18 @@ class NoteView extends Component {
 							<Link to ='/EditView'><button className='editButton' color='link'>edit</button></Link></span>
 						<span><button className='delButton' onClick={ () => this.toggleModal() }>delete</button></span>
 				{this.state.modal ? <Modal isOpen={this.state.modal}>
-					<ModalBody>
+					<ModalBody className='modalForm'>
 						Are you sure you want to delete this?
 					</ModalBody>
-					<div>
-						<Link to='/' onClick={() => this.handleDelete() }>
-							<Button>Delete</Button>
-						</Link>
-						<Button onClick={() => this.toggleModal()}>No</Button>
+					<div className='alignCenter'>
+						<span className='modalButtons'>
+							<Link to='/' onClick={() => this.handleDelete() }>
+								<button className='deleteModal'>Delete</button>
+							</Link>
+						</span>
+						<span className='modalButtons'>
+							<button className='noModal' onClick={() => this.toggleModal()}>No</button>
+						</span>
 					</div>
 				</Modal> : null}
 

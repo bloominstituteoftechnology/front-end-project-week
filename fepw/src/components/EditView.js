@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Form, Input, Row, Col, Button } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 import './index.css';
 
 class EditNote extends Component {
@@ -26,27 +26,21 @@ class EditNote extends Component {
 				<div className='head'>
 					<h5>Edit Note:</h5>
 				</div>
-
-					<Form>
-						<Row>
-							<Col>
-								<Input onChange={this.handleInput} name='title' value={this.state.title} placeholder='Note Title' />
-							</Col>
-						</Row>
-						<Row>
-							<Col>
-								<Input onChange={this.handleInput} name='content' value={this.state.content} placeholder='Note Content' />
-							</Col>
-						</Row>
-						<Row>
-							<Col>
-								<Link to='/' onClick={() => this.handleSubmit() }>
-									<Button>Update</Button>
-								</Link>
-							</Col>
-						</Row>
-					</Form>
-				</div>
+			<div className='createForm'>
+				<Form>
+					<FormGroup>
+						<Input onChange={this.handleInput} name='title' type='textarea' value={this.state.title} id='noteTitle' placeholder='Note Title' />
+					</FormGroup>
+					<FormGroup>
+						<Input onChange={this.handleInput} name='content' type='textarea' value={this.state.content} id='noteContent' placeholder='Note Content' />
+					</FormGroup>
+						<Link to='/' onClick={() => this.handleSubmit() }>
+						<br />
+						<button class='createButton'>Update</button>
+						</Link>
+				</Form>
+			</div>
+		</div>
 
 		);
 	}

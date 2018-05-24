@@ -84,7 +84,6 @@ button {
 
 /* NoteCard.css */
 
-
 .notecard {
 	color: black;
 	border: grey 1px solid;
@@ -147,4 +146,31 @@ button {
 	text-decoration: underline;
 	width: 75px;
 	margin-right: 20px;
+}
+
+/* EditView css - same as CreateView */
+
+/* Delete Modal */
+.modalForm {
+	text-align: center;
+	height:75px;
+	margin-top: 40px;
+}
+
+.alignCenter {
+	text-align: center;
+}
+
+.modalButtons{
+	display: inline-block;
+}
+
+.deleteModal {
+	background-color: red;
+	width: 200px;
+	margin: 0 20px 40px 0;
+}
+
+.noModal {
+	width: 200px;
 }
