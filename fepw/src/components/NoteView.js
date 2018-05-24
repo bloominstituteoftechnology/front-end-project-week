@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Row, Col, Button, Modal, ModalBody } from 'reactstrap';
+import { Row, Col, Modal, ModalBody } from 'reactstrap';
 
 
 class NoteView extends Component {

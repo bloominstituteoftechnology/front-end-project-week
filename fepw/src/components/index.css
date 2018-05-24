@@ -152,6 +152,12 @@ button {
 
 /* Delete Modal */
 
+.modal-content {
+	-webkit-border-radius: 0px !important;
+ 	-moz-border-radius: 0px !important;
+  	border-radius: 0px !important;
+}
+
 .modalForm {
 	text-align: center;
 	height:75px;
