@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Note from './Note';
 
+
+
 class NoteList extends Component {
     constructor() {
         super();
@@ -42,11 +44,25 @@ class NoteList extends Component {
     render() {
         return (
             <div>
+                <div class="container">
+                
                 {this.state.notes.map(note => <Note note={note} />)}
+                
+                </div>
             </div>
         )
     }
 }
+
+
+// function MovieDetails({ movie }) {
+//     const { id } = movie;
+//     return (
+//         <NavLink to={`/movies/${id}`}>
+//         <MovieCard movie={movie} />
+//         </NavLink>
+//     );
+//     }
 
 
 export default NoteList;

@@ -1,21 +1,48 @@
 import React from 'react';
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
-import { Container, Row } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, Button, Row, Col } from 'reactstrap';
+// import { Container, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const Note = props => {
     return (
-        <Card className='col-12 col-sm-6 col-md-3 note'>
+        <div class="card-decks">
+        <div class="card">
             <CardBody>
                 <Link to={`/note/${props.note.id}`}>
                     <CardTitle>{props.note.title}</CardTitle>
                 </Link>
                 <hr />
-                <CardText>{props.note.text}</CardText>
+                <div class="col-12 text-truncate">
+                <p class ="CardText">{props.note.text}</p>
+                </div>
             </CardBody>
-        </Card>
+        </div>
+        </div>
+        
     )
 }
 
 
 export default Note;
+
+
+const Example = (props) => {
+    return (
+      <Row>
+        <Col sm="6">
+          <Card body>
+            <CardTitle>Special Title Treatment</CardTitle>
+            <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+            <Button>Go somewhere</Button>
+          </Card>
+        </Col>
+        <Col sm="6">
+          <Card body>
+            <CardTitle>Special Title Treatment</CardTitle>
+            <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+            <Button>Go somewhere</Button>
+          </Card>
+        </Col>
+      </Row>
+    );
+  };

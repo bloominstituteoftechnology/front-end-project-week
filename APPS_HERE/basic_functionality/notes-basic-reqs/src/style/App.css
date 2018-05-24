@@ -1,5 +1,4 @@
 .App {
-  max-width: 880px;
   width: 100%;
   display: flex;
   text-align: center;
@@ -11,7 +10,7 @@
   border-right: 1px solid #a6a6a6;
   background-color: #d3d2d3;
   display: block;
-  text-align: left;
+  text-align: justify;
   padding: 2%;
 }
 
