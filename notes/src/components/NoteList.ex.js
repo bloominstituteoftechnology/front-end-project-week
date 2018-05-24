@@ -1,6 +1,7 @@
 import React from 'react';
 import { CSVLink } from 'react-csv';
 import { ListComponent } from './ListComponent'
+import Button from './Button'
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
@@ -9,12 +10,32 @@ export default class NoteList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: []
+            notes: [],
+            search: ''
         };
     }
     componentDidMount = () => {
         this.setState({
             notes: this.props.notes
+        })
+    }
+    searchNow = () => {
+        console.log("fire", this.state.search)
+        let newState = [...this.state.notes]
+        newState = newState.filter(e => e.title.includes(this.state.search) || e.text.includes(this.state.search))
+        console.log(newState)
+        this.setState({
+            notes: newState,
+            search: ''
+        })
+    }
+    onChange = (event) => {
+        let newState = [...this.props.notes]
+        newState = newState.filter(e => e.title.includes(this.state.search) || e.text.includes(this.state.search))
+        console.log(newState)
+        this.setState({
+            notes: newState,
+            search: event.target.value
         })
     }
     componentWillReceiveProps = (newProps) => {
@@ -55,6 +76,7 @@ export default class NoteList extends React.Component {
         });
         return (
             <div className="notelist">
+                <div><input onChange={this.onChange} id="searchbox" value={this.state.search} type="text" placeholder="Search" /><Button text="search!" function={this.searchNow} /></div>
                 <ul onDragOver={this.dragOver.bind(this)}>
                     {listItems}
                 </ul>
