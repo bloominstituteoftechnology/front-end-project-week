@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col, Jumbotron, Button, Input, InputGroup } from 'reactstrap';
+    CardTitle, CardText, Container, Row, Col, Button, Input, InputGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './newnote.css';
 import { Redirect } from 'react-router';
+import fire from './fire.js';
 
 export default class NewNote extends Component {
 
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
         this.state = {
             newNoteTitle: '',
             newNoteBody: '',
-            newNoteID: Date(),
             notes: [],
             redirect: false
         };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange = e => {
@@ -25,10 +25,16 @@ export default class NewNote extends Component {
 
     submitHandler = e => {
         e.preventDefault();
+        // firebase:
+        const notesRef = fire.database().ref('notes');
+        const note = {
+            title: this.state.newNoteTitle,
+            body: this.state.newNoteBody,
+          }
+        notesRef.push(note);
         this.state.notes.push({
             title: this.state.newNoteTitle, 
             body: this.state.newNoteBody, 
-            id: this.state.newNoteID
         });
         console.log(this.state.notes);
         this.props.handleSubmit(this.state.notes);
@@ -74,13 +80,11 @@ export default class NewNote extends Component {
                             name="newNoteBody"></textarea>
                         </Col>
                         <Col xs="4" className="ml-3">
-                            {/*<form onSubmit={this.submitHandler}>*/}
-                                <button
-                                type="submit"
-                                class="button mt-4 btn btn-lg btn-block rounded-0" 
-                                onClick={this.submitHandler}> 
-                                Save</button>
-                            {/*</form>*/}
+                            <button
+                            type="submit"
+                            class="button mt-4 btn btn-lg btn-block rounded-0" 
+                            onClick={this.submitHandler}> 
+                            Save</button>
                         </Col>
                     </Row>
                 </Col>

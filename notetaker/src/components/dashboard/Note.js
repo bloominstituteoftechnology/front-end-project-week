@@ -30,9 +30,14 @@ export default class Note extends Component {
                     }
                  }} style={{ textDecoration: 'none', color: 'black' }}
                 >
-                    <CardTitle className="text-left card-title"><h4 className="font-weight-bold">{this.state.title}</h4></CardTitle>
+                    <CardTitle className="text-left card-title">
+                    <h4 className="font-weight-bold">
+                    {this.state.title}</h4>
+                    </CardTitle>
                 </Link>
-                <CardText className="text-left">{this.state.body.substring(0, 140)}...</CardText>
+                <CardText className="text-left">
+                {this.state.body.substring(0, 150)}...
+                </CardText>
             </CardBody>
         </Card>
     )

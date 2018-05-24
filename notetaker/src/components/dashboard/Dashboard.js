@@ -4,44 +4,44 @@ import { Card, CardHeader, CardFooter, CardBody,
 import './dashboard.css';
 import { Link } from 'react-router-dom';
 import Note from './Note';
-import fire from './fire.js';
+import fire from '../../components/newnote/fire.js';
 
 export default class Dashboard extends Component {
     
   constructor(props){
       super(props);
       this.state = {
-        notes: this.props.notes
+          notes: []
       };
   }
 
-  /*handleDelete = id => {
-    for (let i = 0; i < this.state.notes.length; i++) {
-        if (this.state.notes[i][0].id === id) {
-            this.state.notes.splice(i, 1);
-        }
-    }
-  }*/
+  componentDidMount() {
+    const notesRef = fire.database().ref('notes');
+    notesRef.on('value', (snapshot) => {
+      let notes = snapshot.val();
+      let newState = [];
+      for (let note in notes) {
+          newState.push({
+          title: notes[note].title,
+          body: notes[note].body,
+          id: note
+          });
+      }
+      this.setState({
+          notes: newState
+      });  
+    }); 
+  }
 
   componentWillMount() {
-    let notesRef = fire.database().ref('notes').orderByKey().limitToLast(100);
-    {/*if (typeof this.props.location.state != "undefined") {
-        if (typeof this.props.location.state.newNoteTitle != "undefined") {
-            this.setState(previousState => ({
-                notes: [...previousState.notes, {title: this.props.location.state.newNoteTitle,
-                    body: this.props.location.state.newNoteBody,
-                    id: ''
-                    }]
-            }));
-            let noteLength = this.state.notes.length;
-            let lastIn = this.state.notes[noteLength - 1];
-            console.log(lastIn);
-        }*/}
     if (typeof this.props.location.state != "undefined") {
         if (typeof this.props.location.state.deleteID != "undefined") {
+            console.log(this.props.location.state.deleteID.id.toString());
             for (let i = 0; i < this.state.notes.length; i++) {
-                if (this.state.notes[i][0].id === this.props.location.state.deleteID.id) {
-                    this.state.notes.splice(i, 1);
+                if (this.state.notes[i].id === this.props.location.state.deleteID.id.toString()) {
+                    console.log(this.state.notes[i].id);
+                    const itemRef = fire.database().ref(`/items/${this.state.notes[i].id}`);
+                    itemRef.remove();
                 }
             }
         }
@@ -49,7 +49,7 @@ export default class Dashboard extends Component {
             let newNotes = [];
             newNotes = [...this.state.notes];
             for (let i = 0; i < this.state.notes.length; i++) {
-                if (newNotes[i][0].id === this.props.location.state.id.id) {
+                if (newNotes[i].id === this.props.location.state.id.id) {
                     this.state.notes[i][0].title = this.props.location.state.newTitle;
                     this.state.notes[i][0].body = this.props.location.state.newBody;
                 }
@@ -65,9 +65,13 @@ export default class Dashboard extends Component {
                 <Row className="border">
                     <Col xs="3" className="sidebar">
                         <h1 className="mt-3 text-left heading">Lambda Notes</h1>
-                        <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">View Your Notes</button>
+                        <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">
+                            View Your Notes
+                        </button>
                         <Link to="/create">
-                            <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">+ Create New Note</button>
+                            <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">
+                                + Create New Note
+                            </button>
                         </Link>
                     </Col>
                     <Col xs="9" className="main">
@@ -76,10 +80,12 @@ export default class Dashboard extends Component {
                         </Row>
                         <Row className="mb-4">
                         {this.state.notes.map(note =>
-                            <Col xs="4" className="mb-4" key={note.id}>
-                            <Note id={note[0].id}
-                            title={note[0].title}
-                            body={note[0].body}
+                            <Col xs="4" className="mb-4">
+                            <Note
+                            key={note.id} 
+                            id={note.id}
+                            title={note.title}
+                            body={note.body}
                              />
                             </Col>
                         )}

@@ -8,10 +8,12 @@ import NewNote from './components/newnote/NewNote';
 import NoteView from './components/noteview/NoteView';
 import EditNote from './components/editnote/EditNote';
 import DeleteNote from './components/deletenote/DeleteNote';
+import fire from './components/newnote/fire.js';
 
 class App extends Component {
 
   constructor(props){
+
     super(props);
     this.state = {
         notes: []
