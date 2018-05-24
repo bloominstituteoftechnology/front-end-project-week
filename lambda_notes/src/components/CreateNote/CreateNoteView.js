@@ -8,8 +8,9 @@ class CreateNoteView extends Component {
     this.state = { 
       title: '',
       content: '',
-      id: '',
      };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submitInputChange = this.submitInputChange.bind(this);
   }
 
   handleInputChange = event => {
@@ -17,10 +18,9 @@ class CreateNoteView extends Component {
   }
   
   submitInputChange = (props) => {
-    let notes = this.props.notes;
-    let input = {title: this.state.title, content: this.state.content, id: Date.now()};
-    notes.push(input);
-    this.setState({title: '', content: '', id: ''});
+    let note = this.state;
+    this.props.addNote(note);
+    this.setState({title: '', content: ''});
   }
 
   render() {
