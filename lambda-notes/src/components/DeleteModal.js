@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+import { Button, ButtonGroup } from 'reactstrap';
 
 
 
@@ -21,23 +22,6 @@ const DeleteModal = (props) => {
     );
 };
 
-Button.propTypes = {
-    active: PropTypes.bool,
-    block: PropTypes.bool,
-    color: PropTypes.string, // default: 'secondary'
-    disabled: PropTypes.bool,
-
-    // Pass in a Component to override default button element
-    // example: react-router Link
-    // default: 'button'
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-
-    // ref will only get you a reference to the Button component, use innerRef to get a reference to the DOM element (for things like focus management).
-    innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-
-    onClick: PropTypes.func,
-    size: PropTypes.string
-};
 
 
 

@@ -27,11 +27,42 @@
   to { transform: rotate(360deg); }
 }
 
-.Notes-sidebar {
-  background-color: #D8D8D8;
+/* css added */
+
+* {
+    box-sizing: border-box;
 }
 
-.Notes-bar-item-notes-button{
+.Notes-sidebar {
+  background-color: #D8D8D8;
+  border: 2px solid #979797;
+}
+
+.Notes-bar-item1{
+  margin-top: 15px;
+  margin-left: 20px;
+  font: Roboto Bold;
+  font-weight: bold;
+}
+  
+.Notes-bar-item2{
+  line-height: 20%;
+  margin-left: 7.5%;
+  font: Roboto Bold;
+  font-weight: bold;
+}
+
+
+.Notes-bar-item-notes-button1{
+  background-color: #FFFFFF;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.Notes-bar-item-notes-button2{
   background-color: #FFFFFF;
   color: white;
   padding: 14px 25px;
@@ -41,6 +72,7 @@
 }
 
 .SaveButton {
+  font: Raleway Medium;
   background-color: #FFFFFF;
   color: white;
   padding: 14px 25px;
@@ -50,6 +82,7 @@
 }
 
 .UpdateButton {
+  font: Raleway Medium;
   background-color: #FFFFFF;
   color: white;
   padding: 14px 25px;

@@ -1,6 +1,7 @@
 import React from 'react';
-import React, { Component } from 'react';
+
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
 
 
 const Notes = () => {
@@ -12,7 +13,7 @@ const Notes = () => {
         </div>
         
         <div className="Note1">
-            <p ><u>Note Title</u></p>
+            <p ><u>One</u></p>
             <p>
             Morbi pellentesque
             euismod venetais.
@@ -23,7 +24,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note2">
-            <p><u>Note Title</u></p>
+            <p><u>Two</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -34,7 +35,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note3">
-            <p><u>Note Title</u></p>
+            <p><u>Three</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -45,7 +46,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note4">
-            <p><u>Note Title</u></p>
+            <p><u>Four</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -56,7 +57,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note5">
-            <p><u>Note Title</u></p>
+            <p><u>Five</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -67,7 +68,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note6">
-            <p><u>Note Title</u></p>
+            <p><u>Six</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -78,7 +79,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note7">
-            <p><u>Note Title</u></p>
+            <p><u>Seven</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -89,7 +90,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note8">
-            <p><u>Note Title</u></p>
+            <p><u>Eight</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
@@ -100,7 +101,7 @@ const Notes = () => {
             </p>
         </div>
         <div className="Note9">
-            <p><u>Note Title</u></p>
+            <p><u>Nine</u></p>
             <p>
                 Morbi pellentesque
                 euismod venetais.
