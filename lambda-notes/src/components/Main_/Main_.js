@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { CSVLink, CSVDownload } from "react-csv";
 import { fetchingItems } from "../../actions/index";
 import ListView from "../ListView/ListView";
 import NoteView from "../NoteView/NoteView";
@@ -12,7 +13,7 @@ class Main_ extends Component {
     this.props.fetchingItems();
   }
   render() {
-    const { fetched_Item, updating } = this.props;
+    const { notes, fetched_Item, updating } = this.props;
     console.log(fetched_Item);
     const PageUpdating = (
       <div>
@@ -39,14 +40,20 @@ class Main_ extends Component {
       </div>
     );
 
-    if(!fetched_Item) return <div>{PageUpdating}</div>;
+    if (!fetched_Item) return <div>{PageUpdating}</div>;
     return (
       <div className="col-9 position-relative custom-main">
         <Switch>
           <Route
             exact
             path="/"
-            component={() => <h5 className="text-capitalize">Your Notes:</h5>}
+            component={() => (
+              <div>
+                <h5 className="text-capitalize">Your Notes:</h5>
+                <br />
+                <CSVLink data={notes}>Download notes</CSVLink>
+              </div>
+            )}
           />
           <Route path="/note/:id" component={() => null} />
           <Route
@@ -84,7 +91,8 @@ class Main_ extends Component {
 const mapStateToProps = state => {
   return {
     fetched_Item: state.fetched_Item,
-    updating: state.updating_Item
+    updating: state.updating_Item,
+    notes: state.data
   };
 };
 export default withRouter(connect(mapStateToProps, { fetchingItems })(Main_));

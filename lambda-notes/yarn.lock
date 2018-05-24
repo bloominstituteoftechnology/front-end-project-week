@@ -4352,6 +4352,13 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+markdown-to-jsx@^6.6.5:
+  version "6.6.5"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-6.6.5.tgz#db0dca51b66f27518065f6040cc20cfc4edc46ce"
+  dependencies:
+    prop-types "^15.5.10"
+    unquote "^1.1.0"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -5560,6 +5567,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-csv@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/react-csv/-/react-csv-1.0.14.tgz#7c9e444fc4c3ca1e1cf73a81129b1ec032838a71"
 
 react-dev-utils@^5.0.1:
   version "5.0.1"
@@ -6818,6 +6829,10 @@ universalify@^0.1.0:
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
+
+unquote@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/unquote/-/unquote-1.1.1.tgz#8fded7324ec6e88a0ff8b905e7c098cdc086d544"
 
 unset-value@^1.0.0:
   version "1.0.0"

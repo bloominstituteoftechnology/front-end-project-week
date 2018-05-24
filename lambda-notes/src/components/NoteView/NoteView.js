@@ -40,7 +40,7 @@ class NoteView extends Component {
     const content = note.content;
     // const content = note.content
     //   .split("\n")
-    //   .map((paragraph, index) => <p key={index}>{paragraph}</p>);
+    //   .map((paragraph, index) => <Markdown key={index}>{paragraph}</Markdown>);
     console.log("note", note);
     return (
       <React.Fragment>
@@ -51,7 +51,8 @@ class NoteView extends Component {
           </Link>
         </div>
         <h5 className="text-capitalize">{note.title}</h5>
-        <Markdown className="">{content}</Markdown>
+        {/* <div className="">{content}</div> */}
+        <Markdown options={{ forceBlock: true }} className="">{content}</Markdown>
 
         <Modal
           isOpen={this.state.modal}
