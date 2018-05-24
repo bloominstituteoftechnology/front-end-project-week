@@ -15,9 +15,9 @@ class NoteList extends Component {
                 <h1>Your Notes:</h1>
                 {this.props.notes.map(note => {
                     return (
-                        <Link key={note.id} to={`/note/${note.id}`} className="note-link">
-                        <div className="note">
-                            <h4>#{note.id}{note.title}</h4>
+                        <Link style={{textDecoration: "none", color: "black"}} key={note.id} to={`/note/${note.id}`} className="note-link note">
+                        <div>
+                            <h4>{note.title}</h4>
                             <p>{note.body}</p>
                         </div>
                     </Link>
