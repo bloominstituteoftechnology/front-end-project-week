@@ -44,7 +44,8 @@ export default class EditNote extends Component {
                 </Row>
                 <Row className="mb-4">
                     <Col xs="7" className="ml-3">
-                        <Input placeholder="Note Title" className="note-title-input" 
+                        <Input placeholder="Note Title" className="note-title-input"
+                        defaultValue={this.props.location.state.title} 
                         onChange={this.handleInputChange} 
                         value={this.state.newTitle}
                         name="newTitle" />
@@ -52,7 +53,8 @@ export default class EditNote extends Component {
                 </Row>
                 <Row>
                     <Col xs="12" className="ml-3 pr-5">
-                        <textarea placeholder="Note Content" 
+                        <textarea placeholder="Note Content"
+                        defaultValue={this.props.location.state.body} 
                         className="rounded note-content-input"
                         onChange={this.handleInputChange}
                         value={this.state.newBody}

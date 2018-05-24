@@ -7,7 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import NewNote from './components/newnote/NewNote';
 import NoteView from './components/noteview/NoteView';
 import EditNote from './components/editnote/EditNote';
-import DeleteNote from './components/deletenote/DeleteNote'
+import DeleteNote from './components/deletenote/DeleteNote';
 
 class App extends Component {
 

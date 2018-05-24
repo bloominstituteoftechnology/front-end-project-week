@@ -4,7 +4,7 @@ import { Card, CardHeader, CardFooter, CardBody,
 import './dashboard.css';
 import { Link } from 'react-router-dom';
 import Note from './Note';
-import keyIndex from 'react-key-index';
+import fire from './fire.js';
 
 export default class Dashboard extends Component {
     
@@ -24,8 +24,7 @@ export default class Dashboard extends Component {
   }*/
 
   componentWillMount() {
-      
-
+    let notesRef = fire.database().ref('notes').orderByKey().limitToLast(100);
     {/*if (typeof this.props.location.state != "undefined") {
         if (typeof this.props.location.state.newNoteTitle != "undefined") {
             this.setState(previousState => ({
@@ -40,7 +39,6 @@ export default class Dashboard extends Component {
         }*/}
     if (typeof this.props.location.state != "undefined") {
         if (typeof this.props.location.state.deleteID != "undefined") {
-            console.log(this.props.location.state.deleteID.id);
             for (let i = 0; i < this.state.notes.length; i++) {
                 if (this.state.notes[i][0].id === this.props.location.state.deleteID.id) {
                     this.state.notes.splice(i, 1);
@@ -48,20 +46,14 @@ export default class Dashboard extends Component {
             }
         }
         if (typeof this.props.location.state.id != "undefined") {
-            console.log(this.props.location.state.id.id);
-            console.log(this.props.location.state.newTitle);
             let newNotes = [];
             newNotes = [...this.state.notes];
-            console.log(newNotes);
             for (let i = 0; i < this.state.notes.length; i++) {
                 if (newNotes[i][0].id === this.props.location.state.id.id) {
-                    console.log(this.props.location.state.newTitle);
                     this.state.notes[i][0].title = this.props.location.state.newTitle;
                     this.state.notes[i][0].body = this.props.location.state.newBody;
-                    console.log(this.state.notes);
                 }
             }
-            console.log(newNotes);
         }
      }
   }

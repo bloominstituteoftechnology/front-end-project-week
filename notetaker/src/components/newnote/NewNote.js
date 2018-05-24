@@ -3,6 +3,7 @@ import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Container, Row, Col, Jumbotron, Button, Input, InputGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './newnote.css';
+import { Redirect } from 'react-router';
 
 export default class NewNote extends Component {
 
@@ -13,7 +14,8 @@ export default class NewNote extends Component {
             newNoteTitle: '',
             newNoteBody: '',
             newNoteID: Date(),
-            notes: []
+            notes: [],
+            redirect: false
         };
     }
 
@@ -23,14 +25,21 @@ export default class NewNote extends Component {
 
     submitHandler = e => {
         e.preventDefault();
-        this.state.notes.push({title: this.state.newNoteTitle, 
+        this.state.notes.push({
+            title: this.state.newNoteTitle, 
             body: this.state.newNoteBody, 
-            id: this.state.newNoteID});
+            id: this.state.newNoteID
+        });
+        console.log(this.state.notes);
         this.props.handleSubmit(this.state.notes);
+        this.setState({
+            redirect: true
+        })
     }
 
   render() {
-    return (
+    if (this.state.redirect === true) return <Redirect to="/" />;   
+    return ( 
       <div>
         <Container className="container">
             <Row className="border">
@@ -65,13 +74,13 @@ export default class NewNote extends Component {
                             name="newNoteBody"></textarea>
                         </Col>
                         <Col xs="4" className="ml-3">
-                            <form onSubmit={this.submitHandler}>
-                            
-                                <button type="submit"
-                                class="mt-4 btn btn-lg btn-block rounded-0"> 
+                            {/*<form onSubmit={this.submitHandler}>*/}
+                                <button
+                                type="submit"
+                                class="button mt-4 btn btn-lg btn-block rounded-0" 
+                                onClick={this.submitHandler}> 
                                 Save</button>
-                            
-                            </form>
+                            {/*</form>*/}
                         </Col>
                     </Row>
                 </Col>
