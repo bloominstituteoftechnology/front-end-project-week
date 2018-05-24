@@ -1,3 +1,4 @@
+
 .noteArea {
     width: 100%;
     background-color: #F3F3F3;
@@ -5,18 +6,31 @@
 
 .editDelete {
     display: flex;
-    padding-top: 3%;
+    padding-right: 3%;
+    float: right;
+    padding-top: 2.9%;
+}
+.editDelete a{
+    margin-right: 10%;
+    text-decoration: underline gray;
+    font-weight: 700;
+    padding-left: 3%;
 }
 .row {
     margin: 0;
 }
-h5 {
-    padding-top: 3%;
+h4 {
+    padding-top: 7.5%;
     text-align: left;
-    padding-left: 3%;
+    padding-left: 4%;
+    letter-spacing: 0.2rem;
 }
 .col-12 p {
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
     text-align: left;
-    padding-left: 3%;
+    padding: 2.6% 4% 0.2%;
+    line-height: 1.8;
+}
+.wrapper {
+    /* width: 160%; */
 }

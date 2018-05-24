@@ -2,7 +2,7 @@ export const list =  [
     {
         "id": 1,
         "title": "Note One",
-        "comment": "Some quick example text to build on the card title and make up the bulk of the card's content."
+        "comment": "Proin accumsan purus a mi efficitur finibus. Sed augue nibh, auctor ac ornare quis, tristique ac ante.."
     },
     {
         "id": 2,

@@ -23,3 +23,19 @@ button {
 *{
   box-sizing: border-box;
 }
+
+a {
+  color: #4A4A4A;
+}
+a:hover {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+
+.buttonStyle {
+  padding: .6% 12%;
+}
+
+.buttonStyle h5 {
+  text-align: center;
+}

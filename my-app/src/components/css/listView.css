@@ -2,8 +2,11 @@
     background-color: #F3F3F3;
     width: 100%;
 }
-h5 {
-    padding-top: 3%;
+h3 {
+    padding-top: 5%;
+    padding-left: 1%;
+    
+    /* letter-spacing: 0.2rem; */
 }
 .bodyP {
     padding-bottom: 30%;

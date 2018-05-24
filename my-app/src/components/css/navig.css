@@ -16,3 +16,10 @@ h1, h2, h3 {
 h1{
     margin-left: 1.4%;
 }
+.buttonStyle {
+    padding: .6% 12%;
+}
+
+.buttonStyle h5 {
+    text-align: center;
+}

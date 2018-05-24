@@ -22,7 +22,7 @@ class ListView extends Component {
         return (
             <div className="noteArea">
                 {/* ListView - list of all notes */}
-                <h5>Your Notes</h5>
+                <h3>Your Notes:</h3>
                 <Notes listOfNotes={this.state.listOfNotes}/> 
               
             </div>

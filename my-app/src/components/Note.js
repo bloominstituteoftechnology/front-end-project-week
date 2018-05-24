@@ -17,9 +17,9 @@ import { Card, CardText, CardBody,
                     <Card className="note"  key={i}>
                         <Link to="/NoteView">
                             <CardBody>
-                                <CardTitle>{item.title}</CardTitle>
+                                <CardTitle className="cardTitle"><h4>{item.title}</h4></CardTitle>
                                     <hr />
-                                <CardText>{item.comment}</CardText>
+                                <CardText className="cardBody">{item.comment}</CardText>
                             </CardBody>
                         </Link>
                     </Card>
