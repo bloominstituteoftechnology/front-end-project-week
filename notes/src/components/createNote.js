@@ -109,11 +109,15 @@ class CreateNote extends Component {
               name="noteContent"
               onChange={this.handleNoteChange}
           />
-          
+
           </div>
           <div>
             {this.state.error ? <div>Error note must not be empty text</div> : null}
-            <button className="saveButton" onClick={this.handleAddNote}>Save</button>
+            <Link to="/">
+            <button type="button" className="saveButton" /*onClick={this.handleAddNote}*/>
+            Save
+            </button>
+            </Link>
           </div>
           <div>
           <ul>

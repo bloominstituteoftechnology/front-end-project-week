@@ -41,7 +41,7 @@ class EditNote extends Component {
               />
             </div>
             <div>
-              <input className="createNewNote"
+            <textarea className="createNewNote"
                 placeholder="Note Content"
                 type="text"
                 name="noteContent"

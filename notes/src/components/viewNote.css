@@ -61,9 +61,9 @@
 .noteTitle {
     font: Raleway Medium;
     margin-left: 5%;
-    margin-top: 2%;
+    margin-top: 1.7%;
     width: 50%;
-    height: 45px;
+    height: 55px;
     padding-left:20px;
     border: 2px solid #979797;
 }
@@ -71,7 +71,7 @@
 .createNewNote {
     font: Raleway Medium;
     margin-left: 5%;
-    margin-top: 3%;
+    margin-top: 2.8%;
     width: 90%;
     height: 400px;
     text-align: left;
@@ -113,6 +113,7 @@
 }
 
 .noteBody {
+    font: Raleway Medium;
     width: 85%;
     margin-top: 4%;
     margin-left: 5%;
