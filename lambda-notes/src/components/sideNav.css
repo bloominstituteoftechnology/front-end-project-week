@@ -10,9 +10,17 @@
     padding-top: 20px;
 }
 
+.header-School {
+    font-size: 40px; 
+    font: Roboto Bold;
+    text-align: left; 
+    margin-left: 20px;         
+}
+
 .button1 {
     padding: 6px 45px 6px 45px;
     text-decoration: none;
+    text-decoration-line: none; 
     font-size: 16px;
     font: Raleway Medium;
     background-color: #2BC1C4; 
@@ -24,6 +32,7 @@
 .button2 {
     padding: 6px 35px 6px 35px;
     text-decoration: none;
+    text-decoration-line: none; 
     font-size: 16px;
     font: Raleway Medium;
     background-color: #2BC1C4; 
@@ -34,18 +43,11 @@
 } 
   
 
-.header-School {
-    font-size: 40px; 
-    font: Roboto Bold;
-    text-align: left; 
-    margin-left: 20px;         
-}
 
-.main {
-    margin-left: 220px; /* Same as the width of the sidenav */
-    /* font-size: 16px; Increased text to enable scrolling */
+/* .main {
+    margin-left: 220px; 
     padding: 0px 10px;    
-}
+} */
 
 /* .header-Notes {
     text-align: left;              

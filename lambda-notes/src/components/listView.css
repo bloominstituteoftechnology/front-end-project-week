@@ -1,8 +1,9 @@
-.header-Notes {
-    text-align: left;              
-    font: Roboto Bold; 
+.header{
+    display: flex;     
+    justify-content: flex-start; 
     margin-top: 70px; 
-    margin-left: 270px;
+    margin-left: 270px;  
+    font: Roboto Bold;              
 }
 
 .cardColumns {    

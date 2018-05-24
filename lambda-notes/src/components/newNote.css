@@ -1,11 +1,29 @@
+.header{
+    display: flex; 
+    justify-content: flex-start; 
+    margin-top: 70px;     
+    margin-left: 270px;  
+    font: Roboto Bold;              
+}
+
 .form {
     margin-left: 270px;      
     margin-top: 15px;
-    padding: 2px;
+    padding: 2px;    
 }
 
-.noteContent {
-    margin-top: 20px;      
+.title {
+    display: flex; 
+    align-items: flex-start;     
+    padding: 2px 200px 2px 0; 
+    margin-bottom: 20px;  
+}
+
+.body {
+    display: flex; 
+    align-items: flex-start; 
+    padding: 0 800px 300px 0; 
+    margin-bottom: 30px;  
 }
 
 .button3 {
@@ -16,7 +34,6 @@
     background-color: #2BC1C4; 
     color: #FFFFFF;
     display: block;
-    margin-left: 270px;
-    margin-top: 20px; 
+    margin-left: 270px;    
     margin-bottom: 50px; 
 } 

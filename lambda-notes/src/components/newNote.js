@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 import SideNav from './SideNav.js'; 
 import newNote from './newNote.css'
 
-const NewNote = (props) => {
-  return (
-    <div>
-      <SideNav />
-        <h2 className="header-Notes">Create New Note:</h2>        
-        <Form className="form">
-          <FormGroup row> 
-            <Col sm={7}>
-              <Input type="title" className="noteTitle" placeholder="Note Title" />
-            </Col>
-          </FormGroup>
-          <FormGroup row className="noteContent">          
-          <Col sm={9}>
-            <Input type="textarea" className="text" placeholder="Note Content"/>
-          </Col>
-          </FormGroup>
-        </Form>
-        <button className="button3">Save</button>
-    </div>
-  );
+class NewNote extends Component {
+  render() {
+    return (
+      <div>
+        <SideNav />
+          <h2 className="header">Create New Note:</h2>        
+          <form className="form">
+            <input name="title" className="title" placeholder="Note Title"/>              
+            <textarea name="body" className="body" placeholder="Note content" />
+          </form>          
+          <Link to="/">
+          <button className="button3">Save</button>
+          </Link>
+      </div>
+    );
+  }
 }
 
 export default NewNote;
