@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
 import NavBar from './components/NavBar';
@@ -13,12 +14,32 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      notes: [],
+      current: {}
     }
   }
 
   componentDidMount() {
-    this.setState({ notes: note })
+    axios
+        .get(
+            `https://killer-notes.herokuapp.com/note/get/all`)
+        .then(
+            res => {this.setState({ notes: res.data })})
+        .catch(
+            err => {console.log(err)})
+  }
+
+  setCurrentNote = (noteID) => {
+      axios
+        .get(
+            `https://killer-notes.herokuapp.com/note/get/${noteID}`
+        )
+        .then(
+            res => {this.setState({ current: res.data })}
+        )
+        .catch(
+            err => {console.log(err)}
+        )
   }
 
   render() {

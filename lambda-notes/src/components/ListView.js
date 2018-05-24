@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Note from './Note';
-import './App.css';
+import '../App.css';
 import './ListView.css';
 
 const ListView = (props) => {
