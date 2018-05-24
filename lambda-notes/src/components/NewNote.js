@@ -25,9 +25,7 @@ class NewNote extends Component {
                 heading: 'Create New Note:', 
                 new: true,
                 button: "Save",
-                // submitted: this.props.created
             })
-            console.log("State before creating. New should be true...", this.state)
         } else {
             console.log("Updating an existing note")
             this.setState({
@@ -35,9 +33,7 @@ class NewNote extends Component {
                 title: this.props.currentNote.title,
                 content: this.props.currentNote.content,
                 button: "Update",
-                // submitted: this.props.updated
             });
-            console.log("State before updating. New should be false, title and content should be real values", this.state)
         }
     }
 
@@ -50,49 +46,46 @@ class NewNote extends Component {
         const newNote = {title: this.state.title, content: this.state.content};
         if (this.state.new) {
             this.props.createNote(newNote);
-            console.log("After creating new:", this.state)
-            this.setState({submitted: this.props.created})
+            setTimeout(() => {
+                this.props.history.push("/");
+            }, 200);
         } else {
             const updatedNote = Object.assign({}, newNote, {id: this.props.currentNote.id})
             this.props.updateNote(updatedNote);
-            console.log("After updating:", this.state)
-            this.setState({submitted: true})
+            setTimeout(() => {
+                this.props.history.push(`/note/${this.props.currentNote.id}`);
+            }, 200);
         }
-        // this.setState({submitted: true})
     }
 
     render() { 
         return (
-            this.state.submitted ? (
-                <Redirect to="/"/>
-            ) : (
-                <Container className="form-section">
-                    <h3 className="heading">{this.state.heading}</h3>
-                    <Row>
-                        <Col sm="12">
-                            <Form onSubmit={this.saveNote} className="form">
-                                <Input 
-                                    type="text" 
-                                    name="title"
-                                    placeholder="Note Title"
-                                    value={this.state.title} 
-                                    onChange={this.handleChange}
-                                    className="form-title"/>
-                                <Input 
-                                    type="textarea" 
-                                    name="content" 
-                                    placeholder="Note Content"
-                                    value={this.state.content}
-                                    onChange={this.handleChange}
-                                    className="form-content"/>
-                                <NoteButton 
-                                    color="main" 
-                                    value={this.state.button}/>
-                            </Form>
-                        </Col>
-                    </Row>
-                </Container>
-            )
+            <Container className="form-section">
+                <h3 className="heading">{this.state.heading}</h3>
+                <Row>
+                    <Col sm="12">
+                        <Form onSubmit={this.saveNote} className="form">
+                            <Input 
+                                type="text" 
+                                name="title"
+                                placeholder="Note Title"
+                                value={this.state.title} 
+                                onChange={this.handleChange}
+                                className="form-title"/>
+                            <Input 
+                                type="textarea" 
+                                name="content" 
+                                placeholder="Note Content"
+                                value={this.state.content}
+                                onChange={this.handleChange}
+                                className="form-content"/>
+                            <NoteButton 
+                                color="main" 
+                                value={this.state.button}/>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }

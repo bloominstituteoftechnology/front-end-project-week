@@ -185,18 +185,10 @@ h3.heading {
   color: #4A4A4A;
 }
 
-.btn-holder {
-  margin: 2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-height: 70px;
-}
-
 .btn-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   padding-bottom: 55px;
 }
@@ -287,13 +279,6 @@ h3.heading {
     margin: 0 10px 20px 10px;
     font-size: 1.2rem;
   }
-
-  .btn-holder {
-    max-width: 72vw;
-    min-width: 52vw;
-    height: 40px;
-    margin: 10px;
-  }
 }
 
 @media screen and (max-width: 1030px) {
@@ -319,10 +304,6 @@ h3.heading {
     align-items: center;
   }
 
-  .btn-holder {
-    max-width: 35vw;
-  }
-
   .search-bar {
     width: 90%;
     max-width: 90%;
@@ -333,10 +314,6 @@ h3.heading {
   .btn {
     width: 35vw;
     margin: 20px;
-  }
-
-  .btn-holder {
-    width: 35vw;
   }
 
   .single-note {
