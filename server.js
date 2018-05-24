@@ -9,49 +9,49 @@ let nextId = 10;
 let notes = [
   {
     id: 1,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "Example Note",
+    content: "You can fill in your __notes__ with any *information* you'd like. You can use `markdown` to style your note and add images or code snippets. Actually, adding images has not yet been implemented"
   },
   {
     id: 2,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "A Second Note",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 3,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "Another Note",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 4,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "More Notes",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 5,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "Note 5",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 6,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "Notes, Notes, Notes",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 7,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "My Note",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 8,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+    title: "React Note",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
   },
   {
     id: 9,
-    title: "Note Title",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-  }
+    title: "Redux Note",
+    content: "You can fill in your notes with any information you'd like. You can use markdown to style your note and add images or code snippets."
+  },
 ];
 
 app.use(bodyParser.json());
