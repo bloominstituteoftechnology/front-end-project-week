@@ -11,7 +11,6 @@ import NoteEdit from './noteedit/NoteEdit';
 // presentational
 import './App.css';
 
-import data from '../data.json';
 import firebase from '../firebase';
 
 class App extends Component {
