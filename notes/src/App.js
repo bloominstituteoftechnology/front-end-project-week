@@ -5,7 +5,8 @@ import NoteList from './components/NoteList.ex'
 import Note from './components/Note'
 import CreateNote from './components/CreateNote'
 import { connect } from 'react-redux'
-import { fetchNotes } from './components/Actions/index'
+import { fetchNotes, deleteNote, editNote, addNote } from './components/Actions/index'
+import { withRouter } from 'react-router-dom';
 
 class App extends Component {
   constructor(props) {
@@ -26,24 +27,16 @@ class App extends Component {
     })
   }
   handleSubmit = (event) => {
-    let newNotes = [...this.state.notes]
-    newNotes.push({ title: this.state.title, text: this.state.text, id: this.state.notes.length })
-    this.setState({
-      notes: newNotes,
-      title: '',
-      text: '',
-      id: ''
-    })
+    let newNote = { title: this.state.title, text: this.state.text, id: this.state.notes.length, key: this.state.notes.length }
+    this.props.addNote(newNote)
   }
   delete = (id) => {
-    let newNotes = this.state.notes.filter((e, i) => e.id !== id)
-    this.setState({
-      notes: newNotes,
-    })
+    this.props.deleteNote(id)
   }
   edit = (id) => {
     // Filter for the intended element
-    console.log(id)
+
+    console.log("fire", id)
     let element = this.state.notes.filter(e => id === e.id)
     // Load text and title into state
     console.log(element)
@@ -55,17 +48,16 @@ class App extends Component {
   }
 
   handleEdit = () => {
-    let element = this.state.notes.filter(e => this.state.id !== e.id)
-    element.unshift({ title: this.state.title, text: this.state.text, id: this.state.id })
-    this.setState({
-      notes: element,
-      text: '',
-      id: '',
-      title: ''
-    })
+    let newNote = {
+      title: this.state.title,
+      text: this.state.text,
+      id: this.state.id,
+      key: this.state.id
+    }
+    this.props.editNote(this.state.id, newNote)
   }
   render() {
-    // console.log("state", this.state)
+
     return (
       <div className="wrapper">
         <Route path="/" component={SideBar} />
@@ -74,7 +66,8 @@ class App extends Component {
         {/* Render Note component with the note we are filtering for:  */}
         <Route exact path="/notes/:id" render={(props) => {
           let newNote = []
-          newNote = this.state.notes.filter(e => {
+          console.log("props", this.props)
+          newNote = this.props.notes.filter(e => {
             if (e.id.toString() === props.match.params.id) {
               return e
             }
@@ -84,7 +77,7 @@ class App extends Component {
 
 
         <Route exact path="/create" render={(props) => (<CreateNote pageTitle="Create New Note:" onSubmit={this.handleSubmit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
-        <Route exact path="/edit" render={(props) => (<CreateNote pageTitle="Edit Your Note:" onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
+        <Route exact path="/edit:id" render={(props) => (<CreateNote pageTitle="Edit Your Note:" onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
       </div>
     );
   }
@@ -97,5 +90,5 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps,
-  { fetchNotes })(App);
+export default withRouter(connect(mapStateToProps,
+  { fetchNotes, deleteNote, editNote, addNote })(App));

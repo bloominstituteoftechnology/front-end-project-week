@@ -10,6 +10,7 @@ export const addNote = newNote => async dispatch => {
 
 export const deleteNote = key => async disptach => {
     notesRef.child(key).remove()
+
 }
 
 export function fetchNotes() {
@@ -21,4 +22,8 @@ export function fetchNotes() {
             })
         })
     }
+}
+
+export const editNote = (key, newNote) => async dispatch => {
+    notesRef.child(key).set(newNote)
 }
