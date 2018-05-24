@@ -33,13 +33,12 @@ class AddNote extends Component {
                     <FormGroup>
                         <Input onChange={this.handleInputChange} type='textarea' className='noteContent'name='content' value={this.state.content} id='Content' placeholder='Note Content' />
                     </FormGroup>
-                    {/* <FormGroup>
-                        <Input onChange={this.handleInputChange} type='text' className='noteTitle mt-4' name='Title' id='Title' placeholder='Note Title'/>
-                    </FormGroup> */}
-                </Form>    
+                    <FormGroup>    
                         <Link className='' to='/'>
-                        <button onClick={this.handleSubmit} className='navButton_save mt-2'>Save Note</button>
+                        <button onClick={this.handleSubmit} className='navButton_save mt-2'>Save</button>
                         </Link>
+                    </FormGroup>
+                </Form>
             </div>
         )
     }
