@@ -71,7 +71,9 @@ class NoteView extends Component {
 
                                 <Link 
                                     style={{textDecoration: "none"}} 
-                                    to="/"><Button className="red-btn" 
+                                    to="/">
+                                    
+                                    <Button style={{width: "211px"}} className="red-btn" 
                                     text="Delete" 
                                     onClick={() => this.props.deleteNote(this.matchedNote.id)}
                                 >
@@ -82,7 +84,7 @@ class NoteView extends Component {
                                     style={{textDecoration: "none"}} 
                                     to={`/note/${this.matchedNote.id}`}
                                 >
-                                    <Button text="No" onClick={this.toggle}></Button>
+                                    <Button style={{width: "211px"}} text="No" onClick={this.toggle}></Button>
                                 </Link>
 
                             </ModalFooter>

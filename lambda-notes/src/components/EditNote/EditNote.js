@@ -33,7 +33,7 @@ class EditNote extends Component {
             body: this.state.body,
             id: this.matchedNote.id
         }
-        
+
         this.props.editNote(updatedNote);
         this.props.history.push(`/note/${this.matchedNote.id}`); 
     }
@@ -68,6 +68,7 @@ class EditNote extends Component {
                 </textarea>
 
                 <Button 
+                    style={{width: "30%"}}
                     onClick={() => this.updateHandler()} text="Update" />
 
             </div>

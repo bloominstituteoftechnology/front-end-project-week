@@ -13,9 +13,9 @@ const SideNav = () => {
 
             <h1 className="lambdaNotes">Lambda Notes</h1>
 
-           <Link style={{textDecoration: 'none'}} to="/"><Button text="View Your Notes" /></Link>
+           <Link style={{textDecoration: 'none'}} to="/"><Button style={{width: "100%"}} text="View Your Notes" /></Link>
            
-           <Link style={{textDecoration: 'none'}} to="/create"><Button link="/create" text="+ Create New Note"/></Link>
+           <Link style={{textDecoration: 'none'}} to="/create"><Button style={{width: "100%"}} link="/create" text="+ Create New Note"/></Link>
 
         </div>
 
