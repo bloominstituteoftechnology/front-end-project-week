@@ -31,7 +31,7 @@
   right: 10px;
   width: 1em;
   height: 1em;
-   margin-top: 0.2em;
+  margin-top: 0.2em;
   background: white;
 }
 
@@ -43,6 +43,29 @@
   white-space: pre-line;
 }
 
+.note-text:before {
+  content: "...";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.note-text:after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white;
+}
+
+.note-text-container {
+  overflow: hidden;
+  position: relative;
+  height: auto;
+  max-height: 165px;
+}
 
 
 .horizontal-line {
