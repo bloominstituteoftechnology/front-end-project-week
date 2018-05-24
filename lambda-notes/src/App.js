@@ -4,8 +4,8 @@ import "./App.css";
 // import { withRouter } from "react-router-dom";
 // import { connect } from "react-redux";
 import { Row, Col, Card, Container, Button } from "reactstrap";
-import { Route } from "react-router";
-import { Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
+
 import NoteCard from "./Components/NoteCard";
 import NavBar from "./Components/NavBar";
 import NoteList from "./Components/NoteList";
@@ -105,10 +105,11 @@ class App extends Component {
     console.log("AppState", this.state.notes);
 
     return (
-      <Container>
-        <Row>
-        <NavBar />
+      <div>
         
+        {/* <NavBar /> */}
+        <Switch>
+          
         <Route
           exact
           path="/"
@@ -119,9 +120,9 @@ class App extends Component {
           
         <Route
           path="/notes/:id"
-          render={props => (
-            <NoteCard {...props} notes={this.state.notes}/>
-          )}
+          render={props => {
+            return <NoteCard {...props} notes={this.state.notes}/>
+          }}
         />
         <Route 
         path="/NewNote"
@@ -129,8 +130,9 @@ class App extends Component {
           return <NewNote {...props} notes={this.state.notes} />
         }}
         />
-        </Row>
-      </Container>
+        </Switch>
+        
+      </div>
     );
   }
 }

@@ -1,39 +1,18 @@
-.listRow {
+.navBar {
+    background-color: #D8D8D8;
+    height: 1000px;
     display: flex;
-    max-width: 75%;
-    
-}
-
-.listDiv {
-    display: flex;
-    justify-content: flex-end;
-    
-}
-
-.noteCol {
-    max-height: 220px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
+    align-items: flex-start;
+    justify-content: flex-start
 }
 
 .noteCard {
     padding: 10px;
-    
-    border: 1px solid darkgray;
-    box-shadow: 2px, 2px, 3px, 5px
+    margin-top: 10px;
+    height: 200px;
+    width: 200px;
 }
 
-.sideNav {
-    height: 1200px;
-    background-color: grey
-}
-
-.navBar {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    min-height: 1000px;
-    height: 100%;
-    flex-direction: column;
+.notesContainer {
+    background-color: #F3F3F3; 
 }

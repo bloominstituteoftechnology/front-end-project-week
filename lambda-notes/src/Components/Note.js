@@ -1,10 +1,17 @@
 import React from 'react';
 import NoteCard from "./NoteCard";
-const Note = (notes) => {
-    console.log("Note", notes.notes)
+import { Link } from 'react-router-dom'
+const Note = ( props ) => {
+    console.log("Note", props)
     return (
         <div>
-            <NoteCard notes={notes.notes}/>
+           <h3>Note Title</h3>
+            <p>Basketball ipsum dolor sit amet free throw basketball basket bank shot,
+         outlet power forward flop zone defense Duncan. Nowitzki James Duncan rip
+         alley-oop three. Bryant swish power forward center post Barkley key
+         Basketball ipsum dolor sit amet free throw basketball basket bank shot,
+         outlet power forward flop zone defense Duncan. Nowitzki James Duncan rip
+         alley-oop three. Bryant swish power forward center post Barkley key</p>
             </div>
     )
 }
