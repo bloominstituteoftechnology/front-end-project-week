@@ -58,9 +58,7 @@ class App extends Component {
       notes: [...this.state.notes, newNote]
     })
   }
-
-
-
+  
   render() {
     return (
       <div className="App container-fluid">
@@ -72,11 +70,17 @@ class App extends Component {
           path="/create-new-note"
           render={props => <CreateNewViewContainer {...props} addNewNote={this.addNewNote} />}
         />
-        <Route path="/view-note" component={NoteViewContainer} />
-        <Route path="/edit-note" component={EditViewContainer} />
+        <Route
+          path="/view-note"
+          render={props => <NoteViewContainer {...props} notes={this.state.notes} />}
+        />
+        <Route
+          path="/edit-note"
+          component={EditViewContainer}
+          notes={this.state.notes} />
         <Route
           path="/delete-note"
-          render={props => <DeleteModalContainer {...props}/>} 
+          render={props => <DeleteModalContainer {...props} />} 
         />
       </div>
     );

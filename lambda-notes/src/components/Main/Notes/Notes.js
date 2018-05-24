@@ -20,7 +20,7 @@ const Notes = (props) => {
                 <p className="card-text">{note.message}</p>
 
                 <Link to="/view-note"><span href="#" class="btn-sm">read more...</span></Link>
-
+                
               </div>
             </div> 
           </div>

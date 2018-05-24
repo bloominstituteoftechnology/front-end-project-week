@@ -9,11 +9,14 @@ class NoteViewContainer extends Component {
     super(props)
     this.state = {}
   }
+  
   render() {
+    console.log('NoteViewContainer', this.props.notes)
+    console.log('Just one note', this.props.params)
     return (
       <div>
         <Aside />
-        <NoteView />
+        <NoteView notes={this.props.notes}/>
       </div>  
     );
   }
