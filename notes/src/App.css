@@ -127,6 +127,12 @@ p {
   margin-right: 0;
 }
 
+@media (min-width:600px) and (max-width: 879px) {
+  .notes-list>div:nth-child(3n + 4) div.note-card {
+    margin-right: 15px;
+  }
+}
+
 .note-card h3 {
   margin: 0;
   padding-bottom: 10px;
