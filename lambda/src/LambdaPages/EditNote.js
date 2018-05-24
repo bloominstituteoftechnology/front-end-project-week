@@ -3,34 +3,40 @@ import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col } from 'reactstrap';
 
 //importing Form CSS
-import '../components/Form.css';
+ import '../components/Form.css';
+ 
 
 //Class Component that will render NoteForm and its props
 class EditNote extends Component {
   constructor(props){
     super(props);
+    console.log(props)
     this.state = {
-      note: "",
-      title: ""
+      note: this.props.note,
+      title: this.props.title
     };
-    this.updateInput = this.updateInput.bind(this);
   }
-
 
 
   //method will handle the UI
   updateInput = (event) => {
     this.setState({[event.target.name]: event.target.value});
   }
-  //methods that handles the cha
-  //fires when the submit button is hit
-  handleClick (event) {
-    console.log('STATE Before', this.state)
-    event.preventDefault()
-    this.setState({note: "", title: ""});
-    console.log('AFTER', this.state)   
+  
+  //this method will update the note by matching the params
+  editNote = () => {
+    const updateNote = { note: this.state.note, title: this.state.title}
+
+    this.props.notes.title = updateNote.title;
+    this.props.notes.note  = updateNote.note
+
+    this.setState({
+      title: this.props.notes.title,
+      note: this.props.notes.note
+    })
   }
 
+  
 
   render() {
     console.log("Render STATE", this.state);
@@ -53,9 +59,9 @@ class EditNote extends Component {
                   name="note"  
                   placeholder="Note Content" 
                   value={this.state.note}
-                  onChange={this.updateInput.bind(this)} />
-                 <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
-              </Form>
+                  onChange={this.updateInput} />
+                  <Link to="/"> <Button onClick={() => this.props.editNote(this.state.title, this.state.note)} color="info">Save</Button></Link>      
+                </Form>
             </Col>
           </Row>
       </Container>
