@@ -8,6 +8,8 @@ const NoteView = (props) => {
             <SideNav />
                 <Card>
                     <CardBody>
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
                         <CardTitle className="noteName">Note Name</CardTitle>
                         <CardText className="noteText">Ullamco nisi do reprehenderit amet fugiat ullamco dolore pariatur fugiat consectetur. Proident velit elit nisi mollit ea adipisicing cillum. Reprehenderit officia cillum adipisicing elit ullamco proident nulla proident sint ex.
 
