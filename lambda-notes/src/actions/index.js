@@ -16,10 +16,10 @@ export const addNote = note => {
     };
 };
 
-export const editNote = (id) => {
+export const editNote = (note) => {
     return {
         type: EDIT_NOTE,
-        payload: id
+        payload: note
     };
 };
 

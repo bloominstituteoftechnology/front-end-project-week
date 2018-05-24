@@ -5,9 +5,9 @@ import { addNote, removeNote } from '../actions';
 
 class EditNote extends Component {
     state = {
-        title: '',
-        body: '',
-        notes: []
+        title: `${this.matchedNote.title}`,
+        body: `${this.matchedNote.body}`,
+        id: this.matchedNote.id
     }
 
     matchedNote = this.props.notes.filter(note => {
@@ -17,21 +17,6 @@ class EditNote extends Component {
     handleEditNote = (event) => {
         event.preventDefault();
         this.setState({ [event.target.name]: event.target.value });
-    }
-
-    handleRemoveNote = (event, id) => {
-        this.props.removeNote(this.matchedNote)
-        this.props.history.push('/');
-    };
-
-    addNote = (event) => {
-        let noteObj = { 
-            title: this.state.title, 
-            body: this.state.body, 
-            id: this.state.id }
-        this.props.addNote(noteObj);
-        this.setState({ title: '', body: '' });
-        this.props.history.push('/');
     }
     
     editNote = (event) => {
@@ -46,7 +31,7 @@ class EditNote extends Component {
             <div>
                 <form>
                     <input 
-                        defaultValue={`${this.matchedNote.title}`} 
+                        defaultValue={``} 
                         name="title"
                         value={this.state.title}
                         onChange={this.handleEditNote}/>
