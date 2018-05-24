@@ -21,7 +21,8 @@ const noteView = () => {
                     <div className="NVheader">
                         <NavLink className="navLinkEdit"to='/createNew'>edit</NavLink>
                     {/*<p className="NVedit">edit</p>*/}
-                        <p className="NVdelete">delete</p>
+                    <NavLink className="navLinkDelete"to='/createNew'>delete</NavLink>
+                        {/*<p className="NVdelete">delete</p>*/}
                     </div>
                     <div className="NVnoteName">
                         <p><strong>Note Name</strong></p>

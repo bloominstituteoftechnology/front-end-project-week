@@ -50,6 +50,11 @@
       text-decoration: underline;
   }
 
+  .navLinkDelete {
+    color: rgb(43, 43, 43);
+    text-decoration: underline;
+  }
+
   .NVparagraph {
       text-align: left;
   }
