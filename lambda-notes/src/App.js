@@ -117,6 +117,7 @@ class App extends Component {
             return <NoteList {...props} notes={this.state.notes} />;
           }}
         />
+          <Route exact path="/Note" component={Note}/>
           
         <Route
           path="/notes/:id"

@@ -5,13 +5,14 @@ import { Col, Card, Row, Container } from "reactstrap";
 import Note from "./Note";
 import NavBar from "./NavBar";
 import "./NoteCss.css";
+import DeleteModal from './deleteModal';
 
 const NoteList = props => {
   console.log("NoteList", props.notes);
   return (
-    <Container style={{ display: "flex" }}>
-      <Col sm="3">
-        <NavBar />
+    <Container className="mainContainer" style={{ display: "flex" }}>
+      <Col sm="3" className="navCol">
+        <NavBar className="navBar"/>
       </Col>
       {/* EndNav */}
       <Container className="notesContainer">
@@ -19,6 +20,7 @@ const NoteList = props => {
           <br/>
           <h3>Your Notes:</h3>
           <br/>
+          
         <Row className="cardRow">
           <Col sm="4">
             <NoteCard />

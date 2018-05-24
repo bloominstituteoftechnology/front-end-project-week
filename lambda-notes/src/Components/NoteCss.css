@@ -1,18 +1,44 @@
 .navBar {
-    background-color: #D8D8D8;
-    height: 1000px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start
+  height: 1000px;
+  display: flex;
+  height: 250px;
+  margin: 20px;
+  justify-content: center;
+}
+
+.button {
+  width: 175px;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  padding: 0, 40px;
+  border-radius: "0";
+}
+.navCol {
+  background-color: #d8d8d8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .noteCard {
-    padding: 10px;
-    margin-top: 10px;
-    height: 200px;
-    width: 200px;
+  padding: 10px;
+  margin-top: 10px;
+  height: 230px;
+  width: 230px;
 }
 
 .notesContainer {
-    background-color: #F3F3F3; 
+  background-color: #f3f3f3;
+}
+.mainContainer {
+  height: 1000px;
+}
+
+.noteP {
+  margin: 20px;
+}
+
+.editLink {
+  margin-left: 600px;
+  color: #4a4a4a;
 }
