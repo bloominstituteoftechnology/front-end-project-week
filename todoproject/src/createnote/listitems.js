@@ -8,7 +8,7 @@ const ListItems = (props) => {
     <div>
         {props.todos.map(todo => {
           return (
-          <Link to="">     
+          <Link to={`/ViewNote/${todo.id}`}>     
           <Card className="card" key={todo.title}>
             <CardBody>
                 <CardTitle className="cardtitle">{todo.title}</CardTitle>

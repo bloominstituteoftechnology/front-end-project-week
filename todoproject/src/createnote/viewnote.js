@@ -4,7 +4,7 @@ import './index.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
-
+import ListItems from './listitems';
 
 
 class ViewNote extends Component {
@@ -23,12 +23,18 @@ class ViewNote extends Component {
         });
       }
 
+
+
     render() {
+
+    const MyNote = this.props.todos.filter((todo) => this.props.match.params.id === todo.id); 
 
         return (
 
             <div className="container2">    
             <h6>Note Name</h6>
+
+      <ListItems todos={MyNote} />
 
     {/* edit and delete buttons */}
             <Link to="/EditNote">

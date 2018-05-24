@@ -57,11 +57,13 @@ this.setState({ todos: todos, todo: '' })
 {/* Routes */}
       <Switch>
             <Route path="/EditNote" component={EditNote}></Route>
-            <Route path="/ViewNote" component={ViewNote}></Route>
+            <Route path="/ViewNote/:id" render={(props) => (
+            <ViewNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            )} />
             <Route path="/CreateNewNote" render={(props) => (
             <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
-             <Route path="/" render={(props) => (
+             <Route exact path="/" render={(props) => (
             <ListView todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route component={NoMatch}></Route>
