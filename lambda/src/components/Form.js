@@ -35,31 +35,28 @@ class NoteForm extends Component {
   render() {
     console.log("Render STATE", this.state);
     return (
-      <Container className="container">
-        <Row md="3">
-          <Col>
-            <Form>
-              <FormGroup>
-                <Label>Create Note:</Label>
-                <Input 
-                  type="text" 
-                  name="title" 
-                  placeholder="Note Title" 
-                  value={this.state.title}
-                  onChange={this.updateInput}/>
-              </FormGroup>
-                <Input 
-                  type="textarea" 
-                  name="note"  
-                  placeholder="Note Content" 
-                  value={this.state.note}
-                  onChange={this.updateInput.bind(this)} />
-                 <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
-              </Form>
-            </Col>
-          </Row>
-      </Container>
-    );
+        <div>
+        <Form>
+          <FormGroup>
+            <Label>Create Note:</Label>
+            <Input 
+              type="text" 
+              name="title" 
+              placeholder="Note Title" 
+              value={this.state.title}
+              onChange={this.updateInput}/>
+          </FormGroup>
+            <Input 
+              type="textarea" 
+              name="note"  
+              placeholder="Note Content" 
+              value={this.state.note}
+              onChange={this.updateInput.bind(this)} />
+             <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
+          </Form>
+
+        </div> 
+      );
   }
 }
 
