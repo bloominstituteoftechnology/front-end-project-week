@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 // components
 import Button from '../misc/Button';
+import TextField from '../misc/TextField';
 
 // style
 import './Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = props => {
   return (
     <nav className='navigation'>
       <div className='navigation__logo'>
@@ -31,6 +32,18 @@ const Sidebar = () => {
               buttonClassName='button button-container_create-new-note-button'
             />
           </Link>
+        </li>
+
+        <li>
+          <TextField
+            variant='input'
+            inputClassName='button-container__input-search-notes'
+            inputName='search'
+            inputOnChange={ props.setInputVal }
+            inputPlaceHolder='Search Notes'
+            inputType='text'
+            inputVal={ props.search }
+          />
         </li>
       </ul>
     </nav>

@@ -16,7 +16,6 @@ class NoteEdit extends React.Component {
 
   // setInputVal
   setInputVal = e => {
-    console.log(e.target.name)
     this.setState({ [e.target.name]: e.target.value });
   }
   
