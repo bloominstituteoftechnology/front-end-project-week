@@ -3,7 +3,7 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import { List, Note, NewNote, EditNote, DeleteNote, Test } from './components';
+import { List, Note, NewNote, EditNote, DeleteNote } from './components';
 
 
 class App extends Component {
@@ -55,9 +55,6 @@ class App extends Component {
               <Link to="/newnote">
                 <button className="new-note-button">+ Create New Note</button>
               </Link>
-              {/* <Link to="/test">
-               <button className="test-button">Test Zone</button>
-              </Link> */}
             </Col>
             <Col xs="9" className="content-container">
               <Route exact path="/" render={props =>{
@@ -72,12 +69,10 @@ class App extends Component {
               }} />
               <Route path="/note/:id" render={props => {
                 return (
-                  <Note {...props} list={this.state.notes} />
+                  <Note {...props} list={this.state.notes} removeNote={this.removeNote}/>
                 )
               }} />
               <Route path="/edit" component={EditNote}/>
-              <Route path="/delete" component={DeleteNote}/>
-              <Route path="/test" component={Test}/>
             </Col>
           </Row>
         </Container>

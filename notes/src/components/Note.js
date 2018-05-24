@@ -24,7 +24,7 @@ class Note extends Component {
                             <Link to="/edit">
                                 <div className="edit">edit</div>
                             </Link>
-                            <DeleteNote />
+                            <DeleteNote noteID={note ? note._id : ''} removeNote={this.props.removeNote}/>
                         </div>
                         <h1>{note ? note.title : ''}</h1>
                         <p className="single-note-body">{note ? note.textBody : ''}</p>

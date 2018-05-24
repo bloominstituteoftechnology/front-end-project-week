@@ -28,7 +28,7 @@ class DeleteNote extends React.Component {
           <ModalFooter className="delete-modul">
               <span className="want-to-delete">Are you sure you want to delete this?</span>
             <Link to="/">
-              <Button xs="6"className="modul-delete" style={{ backgroundColor: 'rgb(208, 2, 27)'}} onClick={this.toggle}>Delete</Button>{' '}
+              <Button xs="6"className="modul-delete" style={{ backgroundColor: 'rgb(208, 2, 27)'}} onClick={()=>this.props.removeNote(this.props.noteID)}>Delete</Button>{' '}
             </Link>
             <Button xs="6" className="modul-cancel" style={{ backgroundColor:'rgb(43, 193, 196)' }} onClick={this.toggle}>No</Button>
           </ModalFooter>
