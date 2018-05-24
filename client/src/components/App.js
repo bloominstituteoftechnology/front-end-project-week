@@ -37,13 +37,8 @@ class App extends Component {
   // setEditNoteValues
   setEditNoteValues = (e, props, id, title, content) => {
     e.preventDefault();
-    const noteList = [ ...this.state.noteList ];
-    for (let i = 0; i < noteList.length; i++) {
-      if (id === noteList[i].id) {
-        noteList[i] = { id, title, content }
-      }
-    }
-    this.setState({ title: '', content: '', noteList });
+    const notesRef = firebase.database().ref(`notes/${ id }`);
+    notesRef.set({ title, content });
     props.history.push('/');
   }
 
