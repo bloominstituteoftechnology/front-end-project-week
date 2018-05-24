@@ -20,7 +20,7 @@ class NoteList extends Component {
                         key={note.id} to={`/note/${note.id}`} 
                         className="note-link note">
                         <div>
-                            <h4>#{note.id}{note.title}</h4>
+                            <h4>{note.title}</h4>
                             <p>{note.body}</p>
                         </div>
                     </Link>
