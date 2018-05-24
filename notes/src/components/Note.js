@@ -43,8 +43,7 @@ class Note extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleUpdate = (e, note) => {
-        e.preventDefault();
+    handleUpdate = (note) => {
         this.props.updateNote(note);
         this.setState({edit: false})
     }
@@ -74,7 +73,7 @@ class Note extends React.Component {
                             <form>
                                 <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
                                 <textarea name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                                <button className="button" onClick={(e) => this.handleUpdate(e, ({title, body, id}))}>Save</button>
+                                <button className="button" onClick={() => this.handleUpdate({title, body, id})}>Save</button>
                             </form>
                         </div>
                     ) : (
