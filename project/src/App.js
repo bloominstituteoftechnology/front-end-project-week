@@ -5,7 +5,7 @@ import './noteView.css';
 import './editView.css';
 
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { Route , Switch } from 'react-router-dom';
 
 import displayList from './displayList';
 import createNew from './createNew';
@@ -18,13 +18,13 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
+          <Switch>
             <Route exact path="/" component={displayList} />
             <Route path="/createNew" component={createNew} />
             <Route path="/noteView" component={noteView} />
             <Route path="/editView" component={editView} />
             <Route component={Error} />          
-            </div>
+          </Switch>
         </Router>
       </div>
     );

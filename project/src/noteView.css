@@ -44,6 +44,12 @@
       border: 1px solid #979797;
   }
 
+  .navLinkEdit {
+      padding-right: 10px;
+      color: rgb(43, 43, 43);
+      text-decoration: underline;
+  }
+
   .NVparagraph {
       text-align: left;
   }

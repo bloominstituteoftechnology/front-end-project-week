@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const noteView = () => {
     return (
@@ -18,7 +19,8 @@ const noteView = () => {
 
                 <div className="NVnoteContainer">
                     <div className="NVheader">
-                        <p className="NVedit">edit</p>
+                        <NavLink className="navLinkEdit"to='/createNew'>edit</NavLink>
+                    {/*<p className="NVedit">edit</p>*/}
                         <p className="NVdelete">delete</p>
                     </div>
                     <div className="NVnoteName">
