@@ -17,7 +17,7 @@ class App extends Component {
               <Route exact path="/" component={NoteList} />
               <Route path="/addNote" component={CreateNote} />
               <Route path="/note/:id" component={Note} />
-              <Route path="/editNote" component={EditNote} />
+              <Route path="/editNote/:id" component={EditNote} />
           </Switch>
         </div>
       </div>
