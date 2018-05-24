@@ -16,15 +16,7 @@ class EditNote extends Component {
     matchedNote = this.props.notes.filter((note) => 
         {return note.id == this.props.match.params.id})[0]
    
-    indexOfMatched = this.props.notes.map((note, index) => {
-        if (note.id === this.props.match.params.id) {
-            return index;
-        }
-        })[0]
-
         
-    
-
     componentDidMount() {
         this.setState({title: this.matchedNote.title, body: this.matchedNote.body})
     }
@@ -32,7 +24,6 @@ class EditNote extends Component {
 
     changeHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
-
     }
 
     updateHandler = () => {
@@ -42,6 +33,7 @@ class EditNote extends Component {
             body: this.state.body,
             id: this.matchedNote.id
         }
+        
         this.props.editNote(updatedNote);
         this.props.history.push(`/note/${this.matchedNote.id}`); 
     }
@@ -49,9 +41,7 @@ class EditNote extends Component {
     
 
     render() {
-        console.log(this.matchedNote)
-        // console.log(this.indexOfMatched)
-        console.log(this.indexMatched)
+       
         return (
 
             <div className="editNote-container">
@@ -61,7 +51,6 @@ class EditNote extends Component {
                 <input 
                     onChange={this.changeHandler} 
                     name="title" 
-                    // defaultValue={this.matchedNote.title} 
                     value={this.state.title}
                     className="title-input" 
                     type="text" placeholder="Note Title">
@@ -70,7 +59,6 @@ class EditNote extends Component {
                 <textarea
                     onChange={this.changeHandler}
                     name="body" 
-                    // defaultValue={this.matchedNote.body} 
                     value={this.state.body} 
                     className="content-input" 
                     cols="30" 

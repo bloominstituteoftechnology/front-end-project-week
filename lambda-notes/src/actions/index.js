@@ -23,7 +23,7 @@ export const deleteNote = id => {
     }
 }
 
-export const editNote = (editedNote) => {
+export const editNote = editedNote => {
     return {
         type: EDIT_NOTE,
         payload: editedNote
