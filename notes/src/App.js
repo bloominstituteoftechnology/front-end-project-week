@@ -5,6 +5,7 @@ import Board from './components/board';
 import SideBar from './components/sidebar';
 import Notes from './components/notes';
 import NewNote from './components/newNote';
+import NoteView from './components/noteview';
 import EditNote from './components/editnote';
 import { Route } from 'react-router-dom';
 
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path="/" component={Board} />
           <Route exact path="/newnote" component={NewNote} />
           <Route exact path="/editnote" component={EditNote} />
+          <Route exact path="/noteview" component={NoteView} />
         </div>
       </div>
     );

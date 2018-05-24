@@ -63,3 +63,9 @@ text-shadow: 1px 1px 5px black;
 .textarea {
   padding: 20px;
 }
+
+.editlink {
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+}
