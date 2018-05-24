@@ -1,6 +1,7 @@
 .note-container__note-link {
   flex-grow: 1;
   text-decoration: none;
+  min-width: 30%;
 }
 
 .note-link__note-div {
