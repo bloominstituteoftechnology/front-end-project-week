@@ -14,8 +14,8 @@ const NewNotes = () => {
                     <h1 className="Notes-bar-item2" > Notes </h1>
                 </div>
             </div>
-            <Link to="/" > <button type="button" className="Notes-bar-item notes-button1"> View Your Notes < /button></Link >
-            <Link to="/newnotes" > < button type="button" className="Notes-bar-item notes-button2"> +Create New Note < /button></Link >
+            <Link to="/" > <button type="button" className="Notes-bar-item notes-button1"> View Your Notes </button></Link >
+            <Link to="/newnotes" > < button type="button" className="Notes-bar-item notes-button2"> +Create New Note </button></Link >
 
         <Form>
             <FormGroup>
