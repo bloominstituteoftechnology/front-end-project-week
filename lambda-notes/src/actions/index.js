@@ -1,5 +1,5 @@
 import history from '../constants/history';
-import axios from 'axios';
+import database from '../constants/dbConfig';
 import {
   FETCHING_NOTES,
   NOTES_FETCHED,
@@ -15,15 +15,15 @@ import {
 } from '../constants/actionTypes';
 
 export const getNotes = () => {
-  const getAllNotes = axios.get('http://localhost:5000/notes');
+  const getAllNotes = database.ref('notes/');
   return (dispatch) => {
     dispatch({ type: FETCHING_NOTES });
 
     getAllNotes
-      .then(response => {
+      .once('value', response => {
         dispatch({
           type: NOTES_FETCHED,
-          payload: response.data
+          payload: response.val()
         });
       })
       .catch(err => {
@@ -35,16 +35,16 @@ export const getNotes = () => {
   };
 };
 
-export const getNote = noteId => {
-  const getSingleNote = axios.get(`http://localhost:5000/notes/${noteId}`);
+export const getNote = id => {
+  const getSingleNote = database.ref(`notes/${id}`);
   return (dispatch) => {
     dispatch({ type: FETCHING_NOTE });
 
     getSingleNote
-      .then(response => {
+      .once('value', response => {
         dispatch({
           type: NOTE_FETCHED,
-          payload: response.data
+          payload: response.val()
         });
       })
       .catch(err => {
@@ -57,70 +57,73 @@ export const getNote = noteId => {
 };
 
 export const addNote = noteObj => {
-  const addNewNote = axios.post('http://localhost:5000/notes', noteObj);
+  const getUpdatedNotes = database.ref('notes/');
+  
+  database.ref(`notes/${noteObj.id}`).set(noteObj);
+
   return (dispatch) => {
     dispatch({ type: ADDING_NOTE });
 
-    addNewNote
-      .then(response => {
-        dispatch({
-          type: NOTE_ADDED,
-          payload: response.data
-        });
-
-        history.push('/');
-      })
-      .catch(err => {
-        dispatch({
-          type: ERROR,
-          payload: err
-        });
+    getUpdatedNotes.once('value', response => {
+      dispatch({
+        type: NOTE_ADDED,
+        payload: response.val()
       });
+
+      history.push('/');
+    }).catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: err
+      });
+    });
   };
 };
 
-export const updateNote = (id, noteObj) => {
-  const editNote = axios.put(`http://localhost:5000/notes/${id}`, noteObj);
+export const updateNote = noteObj => {
+  const getUpdatedNotes = database.ref('notes/');
+  
+  database.ref(`notes/${noteObj.id}`).set(noteObj);
+
   return (dispatch) => {
     dispatch({ type: UPDATING_NOTE });
 
-    editNote
-      .then(response => {
-        dispatch({
-          type: NOTE_UPDATED,
-          payload: response.data
-        });
-
-        history.push(`/note/${id}`);
-      })
-      .catch(err => {
-        dispatch({
-          type: ERROR,
-          payload: err
-        });
+    getUpdatedNotes.once('value', response => {
+      dispatch({
+        type: NOTE_UPDATED,
+        payload: response.val()
       });
+
+      history.push(`/note/${noteObj.id}`);
+    }).catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: err
+      });
+    });
   };
 };
 
-export const deleteNote = noteId => {
-  const removeNote = axios.delete(`http://localhost:5000/notes/${noteId}`);
+export const deleteNote = id => {
+  const getUpdatedNotes = database.ref('notes/');
+  
+  database.ref(`notes/${id}`).remove();
+
   return (dispatch) => {
     dispatch({ type: DELETING_NOTE });
 
-    removeNote
-      .then(response => {
-        dispatch({
-          type: NOTE_DELETED,
-          payload: response.data
-        });
-
-        history.push('/');
-      })
-      .catch(err => {
-        dispatch({
-          type: ERROR,
-          payload: err
-        });
+    getUpdatedNotes.once('value', response => {
+      dispatch({
+        type: NOTE_DELETED,
+        payload: response.val()
       });
+
+      history.push('/');
+    }).catch(err => {
+      dispatch({
+        type: ERROR,
+        payload: err
+      });
+    });
   };
 };

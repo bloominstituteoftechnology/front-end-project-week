@@ -20,6 +20,7 @@ class NoteForm extends Component {
   createNewNote = () => {
     if (this.state.title !== ''){
       const newNote = {
+        id: Date.now(),
         title: this.state.title,
         contents: this.state.contents
       };
@@ -30,11 +31,12 @@ class NoteForm extends Component {
   editNote = id => {
     if (this.state.title !== ''){
       const updatedNote = {
+        id: id,
         title: this.state.title,
         contents: this.state.contents
       };
 
-      this.props.updateNote(id, updatedNote);
+      this.props.updateNote(updatedNote);
     }
   }
   componentDidMount(){

@@ -35,7 +35,7 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         fetchingNotes: false,
-        notes: action.payload,
+        notes: (action.payload === null) ? [] : Object.values(action.payload),
         activeNote: {}
       });
 
@@ -62,14 +62,9 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         addingNote: false,
-        notes: state.notes.concat(action.payload),
+        notes: (action.payload === null) ? [] : Object.values(action.payload),
         activeNote: {}
       });
-      // return Object.assign({}, state, {
-      //   error: null,
-      //   addingNote: false,
-      //   activeNote: {}
-      // });
     
     case UPDATING_NOTE:
       return Object.assign({}, state, {
@@ -81,7 +76,7 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         updatingNote: false,
-        notes: action.payload,
+        notes: (action.payload === null) ? [] : Object.values(action.payload),
         activeNote: {}
       });
 
@@ -95,7 +90,7 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         deletingNote: false,
-        notes: action.payload,
+        notes: (action.payload === null) ? [] : Object.values(action.payload),
         activeNote: {}
       });
 
