@@ -38,8 +38,8 @@ componentDidMount() {
         </div>      
         <div className='note-container'>
           <Route exact path='/' render={(props) => <NoteList {...this.state}/>} />
-          <Route path='/note/:id' render={(props) => <SingleNote {...this.state}/>} />
-          <Route path='/create' component={CreateForm} />
+          <Route path='/note/:id' render={(props) => <SingleNote {...this.state} />} />
+          <Route path='/create' render={(props) => <CreateForm {...this.state} />} />
           <Route path='/edit' component={EditForm} />
         </div>            
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal } from 'reactstrap';
+import { Modal } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './SingleNote.css';
 import './Modal.css';

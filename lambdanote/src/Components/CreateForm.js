@@ -17,13 +17,13 @@ export default class CreateForm extends Component {
         this.setState({ [e.target.name]: e.target.value})
     }
 
-    // createNewInput = (e, props)=> {
-    //     e.preventDefault();
-    //     const notes = this.props.notes
-    //     const newNotes = { id: this.state.id, title: this.state.title, text: this.state.title }
-    //     notes.push(newNotes);
-    //     this.setState({ id: '', title: '', text: ''})
-    // };
+    createNewInput = (e, props)=> {
+        e.preventDefault();
+        const notes = this.props.notes
+        const newNotes = { id: this.state.id, title: this.state.title, text: this.state.title }
+        notes.push(newNotes);
+        this.setState({ id: '', title: '', text: ''})
+    };
 
     render() {
         return (
