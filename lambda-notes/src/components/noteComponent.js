@@ -1,14 +1,18 @@
 import React from 'react';
+import Note from './note.js'
+import loremipsem from '../loremipsem';
+// import CardFormat from './cardFormat'
 
 const NoteComponent = (props) => {
     return (
-        <div key= {props.note.id}>
-            <div className = "note-component">
-                <div className = "note-header">
-                    <h4>{props.note.Title}</h4>
-                </div>
-                <p>{props.note.noteText}</p>
-            </div>
+        <div>
+            {props.notesMadeByUser.map((note, index) => {
+                return <Note
+                    key={index}
+                    note={note}
+                    handleDeleteOption={props.handleDeleteOption}
+                />
+            })}
         </div>
     )
 }

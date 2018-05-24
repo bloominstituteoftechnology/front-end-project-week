@@ -10,6 +10,17 @@ class App extends Component {
       notesMadeByUser: []
     }
   }
+  handleDeleteOptions = () => {
+    this.setState(() => ({ notesMadeByUser: [] }));
+  };
+
+  handleDeleteOption = (noteToRemove) => {
+    this.setState((prevState) => ({
+      notesMadeByUser: prevState.options.filter((noteMadeByUser) => noteToRemove !== noteMadeByUser)
+    }));
+  };
+
+  
 
   componentDidMount() {
     this.setState({
@@ -21,12 +32,11 @@ class App extends Component {
     return (
       <div>
         <Sidebar />
-        <div className= "Notes">
-        {this.state.notesMadeByUser.map((note, index)=> {
-          return <NoteComponent key={index} note= {note}/>
-        })}
-        </div>
-        
+        <NoteComponent 
+        notesMadeByUser={this.state.options}
+        handleDeleteOptions={this.handleDeleteOptions}
+        handleDeleteOption={this.handleDeleteOption}
+        />        
       </div>
     );
   }
