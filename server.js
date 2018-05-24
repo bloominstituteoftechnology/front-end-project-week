@@ -10,7 +10,7 @@ let notes = [
   {
     id: 1,
     title: "Example Note",
-    content: "You can fill in your __notes__ with any *information* you'd like. You can use `markdown` to style your note and add images or code snippets. Actually, adding images has not yet been implemented"
+    content: "You can fill in your __notes__ with any *information* you'd like. You can use `markdown` to style your note and add images or code snippets. Actually, adding images has not yet been implemented.\n \nHere is a code snippet: \n```javascript\nvar example = \"hello world\";\n```\n \nAnd here is an example of a heading: \n### Heading"
   },
   {
     id: 2,
