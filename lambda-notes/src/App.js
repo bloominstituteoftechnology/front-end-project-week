@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import './App.css';
-import LeftBanner from './components/leftBanner.js';
+import LeftBanner from './Components/leftBanner.js';
 import {Route} from 'react-router-dom';
-import Content from './Components/noteBody/content.js';
+import Content from './Components/NoteBody/content.js';
 
 class App extends Component {
   render() {
