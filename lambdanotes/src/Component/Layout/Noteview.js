@@ -10,7 +10,7 @@ export default class Noteview extends Component {
         super(props);
         this.state = {
           modal: false,
-          notes: []
+        //   notes: []
         };
     
         this.toggle = this.toggle.bind(this);
@@ -22,27 +22,27 @@ export default class Noteview extends Component {
         });
       }
 
-      componentDidMount() {
-        this.fetch(this.props.match.params.id)
-      }
+    //   componentDidMount() {
+    //     this.fetch(this.props.match.params.id)
+    //   }
     
-      componentWillReceiveProps(newProps){
-        if(this.props.match.params.id !== newProps.match.params.id){
-          this.fetch(newProps.match.params.id);
-        }
-      }
+    //   componentWillReceiveProps(newProps){
+    //     if(this.props.match.params.id !== newProps.match.params.id){
+    //       this.fetch(newProps.match.params.id);
+    //     }
+    //   }
     
-    fetch = (id) => {
-        axios
-          .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-          .then(response => {
-            this.setState(() => ({ title: response.data.title, textBody:  response.data.textBody}));
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      };
+    // fetch = (id) => {
+    //     axios
+    //       .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    //       .then(response => {
+    //         this.setState(() => ({ title: response.data.title, textBody:  response.data.textBody}));
+    //         console.log(response.data)
+    //       })
+    //       .catch(error => {
+    //         console.error(error);
+    //       });
+    //   };
 
 
   render() {
@@ -81,13 +81,10 @@ export default class Noteview extends Component {
                 </div >
 
                 <div className = "mainbarHeading">
-                    <h2>Note Name</h2>
+                    <h2>{this.state.title}</h2>
                 </div>
 
                 <div className = "mainbarParagraph">
-                    {console.log("title", this.state)}
-                    <p> {this.state.title}</p>
-
                     <p> {this.state.textBody}</p>
                     
                 </div>

@@ -6,14 +6,16 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 export default class Editview extends Component {
   render() {
+    console.log('props',this.props)
     return (
         <div className="BigContainer">
+
             <div className="sidebar">
                 <div className="sidebarname">
                     <h1> Lambda Notes</h1>
                 </div>
                 <div>
-                    <Link to="/note">
+                    <Link to="/">
                         <Mybutton className="btn" text = "View your notes"/>
                     </Link>
                     <Link to="/create">
@@ -23,6 +25,8 @@ export default class Editview extends Component {
             </div>
 
             <div className="mainbar">
+
+ 
                 <div className = "mainbarHeading">
                     <h2>Edit Note: </h2>
                 </div>
@@ -36,9 +40,9 @@ export default class Editview extends Component {
                 </div>
                 
                 <div className = "submitButton">
-                <Link to = "/">
+                
                     <Mybutton className="btn" text = "Update"/>
-                </Link>
+         
                 </div>
 
 

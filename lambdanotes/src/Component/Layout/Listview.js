@@ -7,37 +7,37 @@ import {Container, Row, Col} from 'reactstrap'
 import axios from 'axios';
 
 export default class Listview extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: []
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     notes: []
+  //   };
+  // }
 
-  componentDidMount() {
-    this.fetch();
-}
+//   componentDidMount() {
+//     this.fetch();
+// }
 
-fetch = () => {
-    axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
-      .then(response => {
-        this.setState(() => ({ notes: response.data }));
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+// fetch = () => {
+//     axios
+//       .get(`https://killer-notes.herokuapp.com/note/get/all`)
+//       .then(response => {
+//         this.setState(() => ({ notes: response.data }));
+//       })
+//       .catch(error => {
+//         console.error(error);
+//       });
+//   };
   render() {
     return (
         <div className="BigContainer">
-        
+          {console.log(this.props)}
             <div className="sidebar">
                 <div className="sidebarname">
                     <h1> Lambda Notes</h1>
                 </div>
                 <div>
-                    <Link to="/note">
+                    <Link to="/">
                         <Mybutton className="btn" text = "View your notes"/>
                     </Link>
                     <Link to="/create">
@@ -52,10 +52,11 @@ fetch = () => {
                 <Container>
                   <Row>
                     <Col>
-                    {this.state.notes.map(note => (
-                      <div key={note._id}>
-                      <Link to={`/note/${note._id}`}>
-                        <Notecard key={note._id} note={note} />
+                    {console.log('list', this.props)}
+                    {this.props.notes.map(note => (
+                      <div key={note.id}>
+                      <Link to={`/note/${note.id}`}>
+                        <Notecard key={note.id} note={note} />
                       </Link>
                       </div>
                     ))}

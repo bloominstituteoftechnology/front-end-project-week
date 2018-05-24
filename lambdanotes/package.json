@@ -5,12 +5,15 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
+    "firebase": "^5.0.3",
+    "re-base": "^3.2.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.0.1",
+    "rebase": "^0.3.0",
     "redux": "^4.0.0"
   },
   "scripts": {

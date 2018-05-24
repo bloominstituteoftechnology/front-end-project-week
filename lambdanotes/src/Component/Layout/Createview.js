@@ -5,15 +5,17 @@ import Mybutton from '../Reusables/Mybutton';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 export default class Createview extends Component {
+    
   render() {
     return (
         <div className="BigContainer">
+        
             <div className="sidebar">
                 <div className="sidebarname">
                     <h1> Lambda Notes</h1>
                 </div>
                 <div>
-                    <Link to="/note">
+                    <Link to="/">
                         <Mybutton className="btn" text = "View your notes"/>
                     </Link>
                     <Link to="/create">
@@ -27,20 +29,18 @@ export default class Createview extends Component {
                     <h2>Create New Note: </h2>
                 </div>
 
-                <div className = "titleInput">
-                    <Input placeholder="Note Title" />
-                </div>
+                    <div className = "titleInput">
+                        <Input name="title" placeholder="Note Title" onChange={this.props.handleTaskChange} value= {this.props.title} />
+                    </div>
 
-                <div className = "noteInput">
-                    <Input placeholder="Note Content" />
-                </div>
-                
-                <div className = "submitButton">
-                <Link to = "/">
-                    <Mybutton className="btn" text = "Save"/>
-                </Link>
-                </div>
-
+                    <div className = "noteInput">
+                        <Input name="textBody" placeholder="Note Content" onChange={this.props.handleTaskChange} value= {this.props.textBody} />
+                    </div>
+                    
+                    <div className = "submitButton">
+                        <Mybutton type="submit" onClick={this.props.handleRequest}  className="btn" text = "Save"/>
+                    </div>
+             
 
             </div>
       </div>
