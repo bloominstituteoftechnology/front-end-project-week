@@ -32,19 +32,22 @@ const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {appState: "edit"});
     case ERROR:
       return Object.assign({}, state, {appState: "error", error: action.payload});
-    case ALPHABETIZE_NOTES:
+    case ALPHABETIZE_NOTES: {
       let sortedNotes = state.notes.slice(0).sort((a, b) => a.title.localeCompare(b.title));
       return Object.assign({}, state, {notes: sortedNotes});
-    case REV_ALPHABETIZE_NOTES:
-      console.log(sortedNotes);
-      sortedNotes = state.notes.slice(0).sort((a, b) => b.title.localeCompare(a.title));
+    }
+    case REV_ALPHABETIZE_NOTES: {
+      let sortedNotes = state.notes.slice(0).sort((a, b) => b.title.localeCompare(a.title));
       return Object.assign({}, state, {notes: sortedNotes});
-    case SHORTEST_NOTES:
-      sortedNotes = state.notes.slice(0).sort((a, b) => a.textBody.length - b.textBody.length);
+    }
+    case SHORTEST_NOTES: {
+      let sortedNotes = state.notes.slice(0).sort((a, b) => a.textBody.length - b.textBody.length);
       return Object.assign({}, state, {notes: sortedNotes});
-    case LONGEST_NOTES:
-      sortedNotes = state.notes.slice(0).sort((a, b) => b.textBody.length - a.textBody.length);
+    }
+    case LONGEST_NOTES: {
+      let sortedNotes = state.notes.slice(0).sort((a, b) => b.textBody.length - a.textBody.length);
       return Object.assign({}, state, {notes: sortedNotes});
+    }
     default:
       return state;
   }
