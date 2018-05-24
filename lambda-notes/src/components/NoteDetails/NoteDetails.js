@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 import Title from '../Title';
 import SimpleLink from '../SimpleLink';
 import ModalLink from '../ModalLink';
@@ -27,7 +28,11 @@ class NoteDetails extends Component {
         </div>
         <Title title={this.props.title} />
         <div className="note-contents">
-          {this.props.contents}
+          <ReactMarkdown
+            className="result"
+            source={this.props.contents}
+            escapeHtml={true}
+          />
         </div>
       </div>
      )
