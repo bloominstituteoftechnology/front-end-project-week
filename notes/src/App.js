@@ -50,9 +50,9 @@ SaveNote = (note) => {
         <NavNotes />
         <Route exact path="/" render={() => <Notes state={this.state} />}/>
         <Route path="/new" render={(props) => <NewNote  {...props} save={this.SaveNote} />} />   
-        {/* <Route path="/new" component={NewNote}/> */}
-        <Route path="/note/:id" component={Note}/>
-        <Route path="/note/edit/:id" component={NewNote}/>
+       
+        <Route path="/note/:id" render={(props) => <Note {...props}state={this.state} />}/>
+        {/* <Route path="/note/edit/:id" component={NewNote}/> */}
       </div>
     );
   }

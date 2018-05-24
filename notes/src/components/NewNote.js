@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, Input, Container, Row, Col } from 'reactstrap';
 import NoteButton from './NoteButton';
 import { Redirect } from 'react-router-dom';
-import Notes from './Notes';
 
 class NewNote extends Component {
     constructor(props) {
@@ -14,11 +13,7 @@ class NewNote extends Component {
             id: ''
         }
     }
-
-  
-    // componentDidMount() {
-    //     this.setState({id: Date.now()});
-    // }   
+     
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
@@ -30,6 +25,7 @@ class NewNote extends Component {
         const newNote = {
             title: this.state.title,
             content: this.state.content,
+            id:  Date.now()
         };
         this.props.save(newNote);
         this.setState({
