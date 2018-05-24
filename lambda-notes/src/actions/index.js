@@ -63,6 +63,7 @@ export const addingItem = newItem => {
   };
 };
 export const updatingItem = (index, id, content) => {
+  console.log("PUT",index,id,content);
   const updateItem = axios.put(`${URL}/${id}`, content);
   return dispatch => {
     dispatch({
@@ -75,9 +76,9 @@ export const updatingItem = (index, id, content) => {
         // console.log("response.data", response.data);
         dispatch({
           type: UPDATED_ITEM,
-          toUpdate: index,
-          content,  // TO REVIEW WITH REAL DATA
-          allItems: response.data // TO REVIEW WITH REAL DATA
+          index,
+          content: {...content, id},  // Previous code missed the id in the 'content' note -> this make imposible to update one more time the same note. In teh server side there were no problem but in Redux, because of how it is implemented the state update, the note get updates with out id.
+          allItems: response.data // 
         });
       })
       .catch(e => {

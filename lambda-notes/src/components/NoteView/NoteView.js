@@ -33,12 +33,14 @@ class NoteView extends Component {
   };
 
   render() {
+    // console.log("STATE", this.props.state);
+    // console.log("NOTES", this.props.notes);
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
     const content = note.content
       .split("\n")
       .map((paragraph, index) => <p key={index}>{paragraph}</p>);
-    console.log("note", note);
+    // console.log("note", note);
     return (
       <React.Fragment>
         <div className="d-flex position-absolute edition">
@@ -76,9 +78,11 @@ class NoteView extends Component {
 
 const mapStateToProps = state => {
   return {
+    state: state,
     notes: state.data
   };
 };
+// export default connect(mapStateToProps, { deletingItem })(NoteView)
 export default withRouter(
   connect(mapStateToProps, { deletingItem })(NoteView)
 );

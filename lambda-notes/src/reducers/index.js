@@ -40,7 +40,7 @@ const mockData = [
   }
 ];
 const initialState = {
-  data: mockData,
+  data: [],
   fetching_Items: false,
   fetched_Item: false,
   adding_Item: false,
@@ -85,9 +85,9 @@ const mainReducer = (state = initialState, action) => {
         //OPTION-1
         // data: [...state.data, action.allItems[action.allItems.length - 1]] // TO REVIEW WITH REAL EXAMPLES
         //OPTION-2
-        // data: action.allItems
+        // data: action.allItems // SERVER RESPONSE
         // OPTIONS-3
-        data: [...state.data,action.newItem]
+        data: [...state.data, action.newItem] // map over the current, return new array, w/ updated item
       };
     case UPDATING_ITEM:
       return {
@@ -97,18 +97,25 @@ const mainReducer = (state = initialState, action) => {
         error: null
       };
     case UPDATED_ITEM:
+      console.log("action.content",action.content);
+      console.log("action.allItems",action.allItems);
+      const index = Number(action.index);
+      console.log("action.index",index, typeof index, typeof Number(action.index));
       return {
         ...state,
         updating_Item: false,
         updated_Item: true,
-        //OPTION-1
-        // data: action.allItems
-        //OPTION-2  => to review with real data
-        data: [
-          ...state.data.slice(0, action.index),
-          (state.data[action.index] = action.content),
-          ...state.data.slice(action.index + 1)
-        ]
+        //OPTION-1 -> discourage: this just overwrite all the state.
+          // data: action.allItems
+        //OPTION-2  => to review with real data -> DO NOT WORKS
+          // data: [
+          //   ...state.data.slice(0, action.index),
+          //   (state.data[action.index] = action.content),
+          //   ...state.data.slice(action.index + 1)
+          // ]
+        // OPTION-3 -> both works as expected
+          data: Object.assign([...state.data], { [index]: action.content })
+          // data: Object.assign([...state.data], { [index]: Object.assign({}, state.data[index], action.content ) })
       };
     case DELETING_ITEM:
       return {
@@ -146,4 +153,3 @@ const mainReducer = (state = initialState, action) => {
 };
 
 export default mainReducer;
- 

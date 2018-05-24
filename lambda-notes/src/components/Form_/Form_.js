@@ -39,9 +39,10 @@ class Form_ extends Component {
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
     const id = note.id;
+    // console.log("UPDATE",index,id,this.state);
     this.props.updatingItem(index, id, this.state);
   }
- 
+  
   render() {
     const index = this.props.match.params.index;
     const button = this.props.match.path === "/edit/:index" ? (
@@ -49,6 +50,7 @@ class Form_ extends Component {
     ) : (
       <Link to="/" ><Button_ text="Save" action={this.newNote} /></Link>
     );
+    // console.log("UPDATE-RENDER: index,this.state, this.props.notes",index,this.state, this.props.notes[index]);
     return (
       <form className="custom-form">
         <div className="form-group">
