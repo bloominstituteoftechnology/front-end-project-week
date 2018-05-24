@@ -67,7 +67,8 @@ h3.heading {
   width: 92%;
   height: 40px;
   font-size: 1em;
-  padding-left: 10px;
+  /* padding-left: 10px; */
+  border-radius: 0px;
   border: 1px solid #979797;
 }
 
@@ -108,8 +109,8 @@ h3.heading {
 .note-thumbnail {
   margin: 15px;
   padding: 0px 10px;
-  max-width: 300px;
-  max-height: 300px;
+  width: 300px;
+  height: 300px;
   border: 1px solid #979797 !important;
   border-radius: 0px !important;
   color: #4A4A4A;
@@ -302,11 +303,11 @@ h3.heading {
   }
   
   .btn.main {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .btn.danger {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .form-title {
@@ -328,13 +329,19 @@ h3.heading {
   }
 }
 
-@media screen and (max-width: 1560px) {
+@media screen and (min-width: 1560px) {
   .btn {
     width: 35vw;
-    margin: 1vw;
+    margin: 20px;
   }
 
   .btn-holder {
     width: 35vw;
+  }
+
+  .single-note {
+    max-width: 1500px;
+    display: flex;
+    justify-content: center;
   }
 }

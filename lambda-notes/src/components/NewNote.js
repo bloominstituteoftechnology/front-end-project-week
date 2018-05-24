@@ -24,7 +24,8 @@ class NewNote extends Component {
             this.setState({ 
                 heading: 'Create New Note:', 
                 new: true,
-                button: "Save"
+                button: "Save",
+                // submitted: this.props.created
             })
             console.log("State before creating. New should be true...", this.state)
         } else {
@@ -33,7 +34,8 @@ class NewNote extends Component {
                 heading: 'Edit Note:',
                 title: this.props.currentNote.title,
                 content: this.props.currentNote.content,
-                button: "Update"
+                button: "Update",
+                // submitted: this.props.updated
             });
             console.log("State before updating. New should be false, title and content should be real values", this.state)
         }
@@ -49,12 +51,14 @@ class NewNote extends Component {
         if (this.state.new) {
             this.props.createNote(newNote);
             console.log("After creating new:", this.state)
+            this.setState({submitted: this.props.created})
         } else {
             const updatedNote = Object.assign({}, newNote, {id: this.props.currentNote.id})
             this.props.updateNote(updatedNote);
             console.log("After updating:", this.state)
+            this.setState({submitted: true})
         }
-        this.setState({submitted: true})
+        // this.setState({submitted: true})
     }
 
     render() { 

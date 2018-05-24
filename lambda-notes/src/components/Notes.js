@@ -3,15 +3,13 @@ import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 import NoteThumbnail from './NoteThumbnail';
 import { Container, Row } from 'reactstrap';
-import SearchBar from './SearchBar';
+import {Typeahead} from 'react-bootstrap-typeahead';
 
 class Notes extends Component {
     constructor() {
         super();
-        this.filterNotes = this.filterNotes.bind(this)
         this.state = {
             notes: [],
-            filtered: false
         }
     }
 
@@ -20,20 +18,18 @@ class Notes extends Component {
         this.setState({notes: this.props.notes});
     }
 
-    filterNotes(value) {
-        let filteredNotes = [];
-        this.state.notes.forEach(note => {
-            if (note.title.includes(value)) {
-                filteredNotes.push(note)
-            }
-        })
-        this.setState({notes: filteredNotes, filtered: true});
-    }
-
     render() { 
         return (
-            <Container fluid="true" className="notes-container">
-                <SearchBar filter={this.filterNotes}/>
+            <Container fluid={true} className="notes-container">
+                <div className="search-bar">
+                    <i className="fas fa-search"></i>
+                    <Typeahead 
+                        className="search-field"
+                        labelKey="title"
+                        multiple={false}
+                        options={this.state.notes}
+                        placeholder="Search for a note..."/>
+                </div>
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">
                     {this.state.notes.map( note => {

@@ -40,7 +40,7 @@ class Note extends Component {
     render() { 
         return (
             this.props.singleNote ? (
-                <Container fluid="true">
+                <Container fluid={true}>
                     <div className="edit-delete">
                         <Link to={`edit/${this.props.match.params.id}`}>edit</Link>
                         <a onClick={this.toggleModal}>delete</a>
@@ -65,9 +65,12 @@ class Note extends Component {
                             </ModalBody>
                         </Modal>
                     </div>
-                    <h3 className="heading">{this.props.currentNote.title}</h3>
-                    <Row>
-                        <Col sm="12">
+                    {/* <h3 className="heading">{this.props.currentNote.title}</h3> */}
+                    <Row className="single-note">
+                        <Col sm="12" xl="9">
+                            <h3 className="heading">{this.props.currentNote.title}</h3>
+                        </Col>
+                        <Col sm="12" xl="9">
                             <div  className="note-content">
                                 <ReactMarkdown source={this.props.currentNote.content}/>
                             </div>

@@ -6,12 +6,10 @@ const initialState = {
     created: false,
     updated: false,
     deleted: false,
-    //filtered: false,
     singleNote: false, 
     error: false, 
     notes: [],
     currentNote: null,
-    //filteredNotes: []
 }
 
 export default (state=initialState, action) => {
@@ -27,50 +25,46 @@ export default (state=initialState, action) => {
             })
         case FETCHED:
             return Object.assign({}, state, {
+                notes: action.payload,
                 pending: false,
-                singleNote: false,
                 error: false,
-                notes: action.payload
+                fetched: true
             })
         case CREATED:
             return Object.assign({}, state, {
+                notes: action.payload,
                 pending: false,
-                created: true,
                 error: false,
-                notes: action.payload
+                created: true,
             })
         case UPDATED:
             return Object.assign({}, state, {
+                notes: action.payload,
                 pending: false,
-                updated: true,
                 error: false,
-                notes: action.payload
+                updated: true,
             })
         case DELETED:
             return Object.assign({}, state, {
+                notes: action.payload,
                 pending: false,
-                deleted: true,
                 error: false,
-                notes: action.payload
+                deleted: true
             })
-        // case FILTERED:
-        //     return Object.assign({}, state, {
-        //         pending: false,
-        //         filtered: true,
-        //         error: false,
-        //         filteredNotes: action.payload
-        //     }) 
         case SINGLE_NOTE: 
             return Object.assign({}, state, {
+                currentNote: action.payload,
                 pending: false,
-                singleNote: true,
                 error: false,
-                currentNote: action.payload
+                singleNote: true,
             })
         case ERROR:
             return Object.assign({}, state, {
                 pending: false,
-                success: false,
+                fetched: false,
+                created: false,
+                updated: false,
+                deleted: false,
                 error: true
             })
         default:
