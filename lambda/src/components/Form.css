@@ -1,3 +1,29 @@
-.container{
-    display: flex;
+
+
+.tcard{
+    width: 100%;
+    height: 200px;
+    border: 1px solid blue;
 }
+.cbody{
+    width: 100%;
+    border: 1px solid red;
+    margin: 100px;
+    
+}
+
+.ctext{
+    border: 1px solid yellow;
+    
+}
+
+/* .form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid hotpink;
+    padding: 100px;
+    margin: 40%;
+    
+} */
