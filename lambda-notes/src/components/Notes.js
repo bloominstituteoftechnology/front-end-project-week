@@ -3,19 +3,34 @@ import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 import NoteThumbnail from './NoteThumbnail';
 import { Container, Row } from 'reactstrap';
-import {Typeahead} from 'react-bootstrap-typeahead';
+import { Typeahead } from 'react-typeahead';
 
 class Notes extends Component {
     constructor() {
         super();
         this.state = {
             notes: [],
+            titles: []
         }
     }
 
     componentDidMount() {
         this.props.fetchNotes();
         this.setState({notes: this.props.notes});
+        const titles = []
+        this.props.notes.forEach( note => {
+            titles.push(note.title);
+        })
+        this.setState({titles: titles});
+    }
+
+    selectNote = (e) => {
+        const filteredNote = this.state.notes.filter(note => note.title === e)
+        console.log("Selected Note: ", filteredNote)
+        const id = filteredNote[0].id
+        setTimeout( () => {
+            this.props.history.push(`/note/${id}`)
+        }, 10)
     }
 
     render() { 
@@ -24,11 +39,14 @@ class Notes extends Component {
                 <div className="search-bar">
                     <i className="fas fa-search"></i>
                     <Typeahead 
-                        className="search-field"
-                        labelKey="title"
-                        multiple={false}
-                        options={this.state.notes}
-                        placeholder="Search for a note..."/>
+                        options={this.state.titles}
+                        onOptionSelected={this.selectNote}
+                        onKeyPress={() => {console.log("pressed a key")}}
+                        defaultClassNames={false}
+                        custom-classes={{
+                            input: 'search-field'
+                        }}
+                        />
                 </div>
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">

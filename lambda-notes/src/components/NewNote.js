@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Container, Row, Col } from 'reactstrap';
 import NoteButton from './NoteButton';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { updateNote, createNote } from '../actions';
 
@@ -82,6 +81,9 @@ class NewNote extends Component {
                             <NoteButton 
                                 color="main" 
                                 value={this.state.button}/>
+                            <NoteButton 
+                                color="danger" 
+                                value="Cancel"/>
                         </Form>
                     </Col>
                 </Row>

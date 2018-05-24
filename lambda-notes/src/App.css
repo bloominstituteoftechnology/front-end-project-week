@@ -51,7 +51,7 @@ h3.heading {
 .search-bar {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   margin-top: 30px;
   width: 40vw;
   max-width: 500px;
@@ -67,7 +67,7 @@ h3.heading {
   width: 92%;
   height: 40px;
   font-size: 1em;
-  /* padding-left: 10px; */
+  padding-left: 10px;
   border-radius: 0px;
   border: 1px solid #979797;
 }
