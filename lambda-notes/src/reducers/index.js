@@ -33,7 +33,7 @@ export default (state = retrieveData(), action) => {
             return addNoteState;
         case EDIT_NOTE:
             let editNoteState = Array.from(state);
-            editNoteState = notes.filter(note => {
+            editNoteState = state.filter(note => {
                 return note.id !== action.payload.id;
             })
             editNoteState.push(action.payload);

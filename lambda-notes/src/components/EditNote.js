@@ -1,46 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addNote, removeNote } from '../actions';
+import { editNote } from '../actions';
 
 class EditNote extends Component {
     state = {
-        title: `${this.matchedNote.title}`,
-        body: `${this.matchedNote.body}`,
-        id: this.matchedNote.id
-    }
-
-    matchedNote = this.props.notes.filter(note => {
-        return note.id == this.props.match.params.id
-    })[0];
+        title: ``,
+        body: ``,
+        id: this.props.match.params.id
+    };
 
     handleEditNote = (event) => {
-        event.preventDefault();
         this.setState({ [event.target.name]: event.target.value });
-    }
+    };
     
-    editNote = (event) => {
+    edit = (event) => {
         event.preventDefault();
-        this.handleRemoveNote();
-        this.addNote();
-        
-    }
+        this.props.editNote(this.state);
+        this.setState({ title: `${this.props.match.params.title}`,
+                        body: `${this.props.match.params.body}` });
+        this.props.history.push(`/notes/${this.state.id}`);
+    };
 
     render() {
         return (
             <div>
                 <form>
                     <input 
-                        defaultValue={``} 
+                        placeholder="Title"
                         name="title"
                         value={this.state.title}
-                        onChange={this.handleEditNote}/>
+                        onChange={this.handleEditNote}
+                    />
                     <textarea 
-                        defaultValue={`${this.matchedNote.body}`}
+                        placeholder="Write note here"
                         name="body"
                         value={this.state.body}
-                        onChange={this.handleEditNote}/>
-                    <button onClick={this.editNote}>Submit</button>
+                        onChange={this.handleEditNote}
+                    />
+                    <button onClick={this.edit}>Submit</button>
                 </form>
             </div>
         )
@@ -53,4 +51,4 @@ const mapStateToProps = store => {
     };
 };
 
-export default connect(mapStateToProps, { addNote, removeNote })(EditNote);
+export default connect(mapStateToProps, { editNote })(EditNote);
