@@ -39,6 +39,7 @@ h3.heading {
   border-right: 1px solid #979797;
 }
 
+
 .nav-section {
   margin-top: 30px;
   display: flex;
@@ -46,6 +47,7 @@ h3.heading {
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-bottom: 350px;
 }
 
 .btn {
