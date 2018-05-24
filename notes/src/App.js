@@ -4,7 +4,8 @@ import SideBar from './components/Sidebar'
 import NoteList from './components/NoteList.ex'
 import Note from './components/Note'
 import CreateNote from './components/CreateNote'
-import { base } from './base'
+import { connect } from 'react-redux'
+import { fetchNotes } from './components/Actions/index'
 
 class App extends Component {
   constructor(props) {
@@ -17,11 +18,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    base.syncState('notes', {
-      context: this,
-      state: 'notes',
-      asArray: true
-    })
+    this.props.fetchNotes()
   }
   onChange = (event) => {
     this.setState({
@@ -72,7 +69,7 @@ class App extends Component {
     return (
       <div className="wrapper">
         <Route path="/" component={SideBar} />
-        <Route exact path="/" render={(props) => (<NoteList notes={this.state.notes} />)} />
+        <Route exact path="/" render={(props) => (<NoteList notes={this.props.notes} />)} />
 
         {/* Render Note component with the note we are filtering for:  */}
         <Route exact path="/notes/:id" render={(props) => {
@@ -93,4 +90,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    notes: state.notes
+  }
+}
+
+
+export default connect(mapStateToProps,
+  { fetchNotes })(App);

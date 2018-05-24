@@ -7,9 +7,10 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case FETCH_NOTES:
-            return Object.assign({}, state, {
-
-            });
+            return {
+                ...state,
+                notes: action.payload
+            }
         default:
             return state;
     }
