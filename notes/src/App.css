@@ -147,6 +147,7 @@ p {
   overflow: hidden;
 }
 
+
 /* Note View */
 
 .note-flex-props {
@@ -183,7 +184,6 @@ p {
 
 /* Note Edit */
 
-
 .note-form h3 {
   margin: 35px 0 30px;
 }
@@ -209,6 +209,7 @@ p {
 
 .note-form form input:first-child {
   width: 53.939%;
+  min-width: 190px;
 }
 
 .note-form form textarea {
