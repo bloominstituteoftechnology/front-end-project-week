@@ -19,6 +19,15 @@ export default class NoteList extends React.Component {
             notes: this.props.notes
         })
     }
+    sort = () => {
+        let newState = [...this.state.notes]
+        newState = newState.reverse()
+        console.log(newState)
+        this.setState({
+            notes: newState,
+            search: ''
+        })
+    }
     searchNow = () => {
         console.log("fire", this.state.search)
         let newState = [...this.state.notes]
@@ -76,7 +85,7 @@ export default class NoteList extends React.Component {
         });
         return (
             <div className="notelist">
-                <div><input onChange={this.onChange} id="searchbox" value={this.state.search} type="text" placeholder="Search" /><Button text="search!" function={this.searchNow} /></div>
+                <div className="search-field"><div><input onChange={this.onChange} id="searchbox" value={this.state.search} type="text" placeholder="Search" /><Button text="search!" class="search-button" function={this.searchNow} /></div><Button class="sort-button" text="Sort Ascending or Descending" function={this.sort} /></div>
                 <ul onDragOver={this.dragOver.bind(this)}>
                     {listItems}
                 </ul>
