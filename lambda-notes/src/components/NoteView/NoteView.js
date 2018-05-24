@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { updatingItem, deletingItem } from "../../actions/index";
+import { deletingItem } from "../../actions/index";
 
 import { Modal, ModalHeader, ModalFooter, Button } from "reactstrap";
 
@@ -27,10 +27,9 @@ class NoteView extends Component {
     const id = note.id;
     this.props.deletingItem(index, id);
     this.toggle();
-    setTimeout(
-      () => {alert(`${note.title} deleted`)},
-      500
-    );
+    setTimeout(() => {
+      alert(`${note.title} deleted`);
+    }, 500);
   };
 
   render() {
@@ -39,16 +38,16 @@ class NoteView extends Component {
     const content = note.content
       .split("\n")
       .map((paragraph, index) => <p key={index}>{paragraph}</p>);
-    console.log("note",note);
+    console.log("note", note);
     return (
       <React.Fragment>
         <div className="d-flex position-absolute edition">
           <div onClick={this.toggle}>delete</div>
-          <Link to={`/edit/${index}`} ><div>edit</div></Link>
+          <Link to={`/edit/${index}`}>
+            <div>edit</div>
+          </Link>
         </div>
-        <h5 className="text-capitalize">
-          {note.title}
-        </h5>
+        <h5 className="text-capitalize">{note.title}</h5>
         <div className="">{content}</div>
 
         <Modal
@@ -59,9 +58,11 @@ class NoteView extends Component {
           <ModalHeader toggle={this.toggle}>
             Are you sure you want to delete this?
             <div className="d-fles">
-              <Link to="/" ><Button color="danger" onClick={this.delete}>
-                Delete
-              </Button></Link>{" "}
+              <Link to="/">
+                <Button color="danger" onClick={this.delete}>
+                  Delete
+                </Button>
+              </Link>{" "}
               <Button color="secondary" onClick={this.toggle}>
                 No
               </Button>
@@ -79,5 +80,5 @@ const mapStateToProps = state => {
   };
 };
 export default withRouter(
-  connect(mapStateToProps, { updatingItem, deletingItem })(NoteView)
+  connect(mapStateToProps, { deletingItem })(NoteView)
 );

@@ -207,6 +207,20 @@ table {
   color: #4A4A4A;
 }
 /* Component's less files are treated as mixins => this allow to nested styles in layout.less */
+/**
+* WARNING => THERE ARE SOME BOOTSTRAP STYLES APPLIED USING BOOTSTRAP CUSTOM CLASSES
+*
+* App
+* |--SideBar_
+* |  |--Button_
+* |--Main_
+*    |--ListView
+*    |  |--NoteCard_
+*    |--NoteView
+*    |--Form_
+*    |--Form_
+*
+*/
 /** Import all less files from components */
 .note-view-component .edition {
   flex-direction: row-reverse;
@@ -279,7 +293,7 @@ table {
   line-height: 1.565;
   letter-spacing: 0.03rem;
 }
-.custom-button {
+.button-component .custom-button {
   color: #FFFFFF;
   background-color: #2BC1C4;
   max-width: 219.68px;
@@ -388,39 +402,18 @@ table {
 .side-bar-component .side-bar h1 {
   margin-bottom: 1.65rem;
 }
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-html,
-body {
-  min-height: 100%;
-  font-family: "Raleway Medium", sans-serif;
-  color: #4A4A4A;
-  border: 1px dotted green;
-}
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Roboto Bold", sans-serif;
-  letter-spacing: 1px;
-}
-h1 {
-  font-size: 2.3rem;
-  font-weight: 900;
-}
-h5 {
-  font-size: 1.3rem;
-}
-p {
-  margin-top: 1.6rem;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.82rem;
-  letter-spacing: 0.5px;
+.side-bar-component .side-bar .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
 .custom-container {
   max-width: 80%;
@@ -443,6 +436,19 @@ p {
 }
 .custom-container .row .side-bar h1 {
   margin-bottom: 1.65rem;
+}
+.custom-container .row .side-bar .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
 .custom-container .row .custom-main {
   padding: 4rem 2rem;
@@ -515,4 +521,39 @@ p {
 .custom-container .row .custom-main a {
   text-decoration: none;
   color: #4A4A4A;
+}
+/** END Import all less files from components */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  font-family: "Raleway Medium", sans-serif;
+  color: #4A4A4A;
+  border: 1px dotted green;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto Bold", sans-serif;
+  letter-spacing: 1px;
+}
+h1 {
+  font-size: 2.3rem;
+  font-weight: 900;
+}
+h5 {
+  font-size: 1.3rem;
+}
+p {
+  margin-top: 1.6rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.82rem;
+  letter-spacing: 0.5px;
 }

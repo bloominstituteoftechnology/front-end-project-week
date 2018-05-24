@@ -12,7 +12,7 @@ class ListView extends Component {
   render() {
     const { cards } = this.props;
     const cardsToDisplay = cards.map((card, index) => (
-      <Link to={`/note/${index}`} ><NoteCard_ key={card.id + index} card={card} /></Link>
+      <Link to={`/note/${index}`} ><NoteCard_ key={card.id} card={card} /></Link>
     ));
 
     return (
@@ -26,4 +26,4 @@ const mapStateToProps = state => {
     cards: state.data
   };
 };
-export default connect(mapStateToProps, {fetchingItems})(ListView); 
+export default connect(mapStateToProps, {fetchingItems})(ListView);

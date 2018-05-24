@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "../../logo.svg";
 
 import SideBar_ from "../SideBar_/SideBar_";
 import Main_ from "../Main_/Main_";
@@ -18,3 +17,4 @@ class App extends Component {
 }
 
 export default App;
+ 
