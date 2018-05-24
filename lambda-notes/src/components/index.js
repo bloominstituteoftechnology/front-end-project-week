@@ -4,5 +4,6 @@ import ListNotes from './ListNotes';
 import Note from './Note';
 import DeleteNote from './DeleteNote';
 import Export from './Export';
+import SignIn from './SignIn';
 
-export { Export, DeleteNote, CreateNote, EditNote, ListNotes, Note };
+export { SignIn, Export, DeleteNote, CreateNote, EditNote, ListNotes, Note };

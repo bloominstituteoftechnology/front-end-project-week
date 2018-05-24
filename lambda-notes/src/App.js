@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { Route, Link } from 'react-router-dom';
-import { Export, DeleteNote, CreateNote, EditNote, ListNotes, Note } from './components/index';
+import { SignIn, Export, DeleteNote, CreateNote, EditNote, ListNotes, Note } from './components/index';
 
 class App extends Component {
   constructor() {
@@ -48,6 +48,7 @@ class App extends Component {
           <Route path="/note/:id/edit" render={(props) => <EditNote {...props} notes={this.state.notes} />} />
           <Route path="/note/:id/delete" render={(props) => <DeleteNote {...props} notes={this.state.notes} />} />
           <Route path="/export" render={(props) => <Export {...props} notes={this.state.notes} />} />
+          <Route path="/login" render={(props) => <SignIn {...props} notes={this.state.notes} />} />
         </div>
       </div>
     );

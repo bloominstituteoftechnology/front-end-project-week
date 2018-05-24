@@ -19,9 +19,14 @@ export default class ListNotes extends Component {
         console.log('PROPS:', this.props)
         return ( 
             <div>
-                <Link className="export" to="/export">
-                    <button>Download Notes</button>
-                </Link>
+                <div className="header-buttons">
+                    <Link className="export" to="/login">
+                        <button>Sign In</button>
+                    </Link>
+                    <Link className="export" to="/export">
+                        <button>Download Notes</button>
+                    </Link>
+                </div>
                 <h2 className="main-header">Your Notes:</h2> 
                 <div className="note-list">
                     {this.props.notes.map(note => (
