@@ -2,13 +2,11 @@
     box-sizing: border-box;
 }
 
-
 .container {
     max-width: 1200px;
     display: flex;
     margin: auto;
     height: 900px;
-
 }
 
 .sideBar {
@@ -24,22 +22,22 @@
 }
 
 .createNoteButton {
- font: Raleway Medium;
- color: #FFFFFF;
- background-color: #2BC1C4;
- width: 80%;
- height: 6%;
- margin-top: 7%;
- margin-left: 9%;
+    font: Raleway Medium;
+    color: #FFFFFF;
+    background-color: #2BC1C4;
+    width: 80%;
+    height: 6%;
+    margin-top: 7%;
+    margin-left: 9%;
 }
 .viewNotesButton {
- font: Raleway Medium;
- color: #FFFFFF;
- background-color: #2BC1C4;
- width: 80%;
- height: 6%;
- margin-top: 12%;
- margin-left: 9%;
+    font: Raleway Medium;
+    color: #FFFFFF;
+    background-color: #2BC1C4;
+    width: 80%;
+    height: 6%;
+    margin-top: 12%;
+    margin-left: 9%;
 }
 
 .saveButton {
@@ -52,8 +50,6 @@
     margin-left: 5%;   
 }
 
-
-
 .noteTitle {
     font: Raleway Medium;
     margin-left: 5%;
@@ -62,8 +58,6 @@
     height: 45px;
     padding-left:20px;
     border: 2px solid #979797;
-
-
 }
 
 .createNewNote {
@@ -87,23 +81,14 @@
     text-decoration: underline;
     border: none;
 }
+
 .deleteButton {
     font: Raleway Medium;
     color: #4A4A4A;
     background-color:#F3F3F3; 
     text-decoration: underline;
     border: none;
-    
-    
-
 }
-
-/*.deleteLink {
-    font: Raleway Medium;
-    color: #4A4A4A;
-    padding: 20px;
-    text-decoration: underline;
-}*/
 
 .mainBodyTitle {
     font: Raleway Medium;
@@ -150,14 +135,3 @@
 
 
 
-/*Heading font: Roboto Bold
-Everything else font: Raleway Medium
-
-Heading and main font color: #4A4A4A
-Button font color: #FFFFFF
-
-Sidebar background: #D8D8D8
-Main background: #F3F3F3
-Main button background: #2BC1C4
-Delete button background: #D0021B
-Border color used throughout: #979797*/

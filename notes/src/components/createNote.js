@@ -58,11 +58,11 @@ class CreateNote extends Component {
       } else {
         const noteList = this.state.noteList.slice(); //reference note array
         const fields = {
-          // build  note object
-          //id: this.state.noteList.length + this.state.note,
+          build  note object
+          id: this.state.noteList.length + this.state.note,
           noteTitle: this.state.fields.noteTitle,
           noteContent: this.state.fields.noteContent,
-         // completed: false
+          completed: false
         };
         noteList.push(fields); // add note to note list
         this.setState({ noteList, note: "" });
@@ -89,7 +89,6 @@ class CreateNote extends Component {
             </button>
             </Link>
           </div>
-        
         <div className="mainBody">
           <div>
             <h4 className="mainBodyTitle2">Create New Note:</h4>
@@ -110,29 +109,25 @@ class CreateNote extends Component {
               name="noteContent"
               onChange={this.handleNoteChange}
           />
-              
           </div>
-
           <div>
             {this.state.error ? <div>Error note must not be empty text</div> : null}
             <button className="saveButton" onClick={this.handleAddNote}>Save</button>
           </div>
-
           <div>
           <ul>
             {this.state.noteList.map(({noteTitle, noteContent}, i) => (
               <li key={i}>
                 <h4>{noteTitle}</h4>
-               <h4>{noteContent}</h4>
+                <h4>{noteContent}</h4>
               </li>
             ))}
           </ul>
-         </div>
-         </div>
+        </div>
+        </div>
         </div>
       </body>
       );
     }
   }
-  
-  export default CreateNote;
+export default CreateNote;

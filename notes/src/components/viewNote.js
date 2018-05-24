@@ -5,27 +5,22 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ViewNote extends Component {
     constructor(props) {
-      super(props);
-      this.state = {
+    super(props);
+    this.state = {
         modal : false
     };
 
     this.toggle = this.toggle.bind(this);
-
 }
 
-
-
-      toggle() {
+    toggle() {
         this.setState({
-          modal: !this.state.modal
+        modal: !this.state.modal
         });
-      };
-    
-  
+    };
     render() {
-      return (
-      <body>  
+    return (
+    <body>  
         <div className="container">
             <div className="sideBar">
                 <div className="sideBarTitle">
@@ -34,29 +29,25 @@ class ViewNote extends Component {
                 </div>
                 <Link to="/">
                 <button type="button" className="viewNotesButton">
-                View Your Notes
+                    View Your Notes
                 </button>
                 </Link>
                 <Link to="/createNote">
                 <button type="button" className="createNoteButton">
-                + Create New Note
+                    + Create New Note
                 </button>
                 </Link>
-           </div>
-        
-         <div className="mainBody">
+        </div>
+        <div className="mainBody">
             <Link to="/editNote">
             <button type="button" className="editButton">
             edit
             </button>
             </Link>
-            
             <button className="deleteButton" onClick={this.toggle}>{this.props.buttonLabel}delete</button>
-        
             <Modal className="modalBody" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader className="modalHeader" toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
             <ModalBody>
-                
             </ModalBody>
             <ModalFooter>
                 <Link to="/">
@@ -87,15 +78,10 @@ class ViewNote extends Component {
                 </p>
             </div>
         </div>
-        </div>
-      </body>
- )} }    
-  
- 
-
+    </div>
+    </body>
+)} }    
 export default ViewNote;
 
 
 
-  
-          

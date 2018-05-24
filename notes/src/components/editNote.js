@@ -28,31 +28,26 @@ class EditNote extends Component {
                 + Create New Note
                 </button>
                 </Link>
-           </div>
-        
-         <div className="mainBody">
+          </div>
+        <div className="mainBody">
             <div>
             <h4 className="mainBodyTitle2">Edit Note:</h4>
             <div>
               <input className="noteTitle"
                 placeholder="Note Title"
                 type="text"
-            
                 name="noteTitle"
                 onChange={this.handleNoteChange}
               />
             </div>
-
             <div>
               <input className="createNewNote"
                 placeholder="Note Content"
                 type="text"
-                
                 name="noteContent"
                 onChange={this.handleNoteChange}
             />
             </div>
-
             <div>
               <Link to="/viewNote">
               <button className="saveButton" type="button">Update</button>
@@ -62,7 +57,7 @@ class EditNote extends Component {
           </div>
           </div>
       </body>
- )} }    
+)} }    
   
 export default EditNote; 
 
