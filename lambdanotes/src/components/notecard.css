@@ -15,7 +15,24 @@
   font-size: 1.1rem;
   margin: 0;
   text-align: left;
+  overflow: hidden;
+  height: 1.5rem;
+}
 
+.note-title:before {
+  content: "...";
+  position: absolute;
+  right: 10px;
+}
+
+.note-title:after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  width: 1em;
+  height: 1em;
+   margin-top: 0.2em;
+  background: white;
 }
 
 .note-text {
@@ -25,6 +42,8 @@
   line-height: 160%;
   white-space: pre-line;
 }
+
+
 
 .horizontal-line {
   height: 0;
