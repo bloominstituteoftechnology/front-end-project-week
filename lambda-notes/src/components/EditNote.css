@@ -1,4 +1,4 @@
-.headerNewNote {
+.header{
     display: flex; 
     justify-content: flex-start; 
     margin-top: 70px;     
@@ -7,19 +7,21 @@
 }
 
 .form {
-    margin-left: 270px;
+    margin-left: 50px;      
     margin-top: 15px;
     padding: 2px;    
 }
 
 .title {
-    margin-left: 220px;  
+    display: flex; 
+    align-items: flex-start;     
     padding: 2px 200px 2px 0; 
     margin-bottom: 20px;  
 }
 
 .body {
-    margin-left: 220px;
+    display: flex; 
+    align-items: flex-start; 
     padding: 0 500px 300px 0; 
     margin-bottom: 30px;  
 }

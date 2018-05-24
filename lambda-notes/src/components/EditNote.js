@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import './CreateNewView.css';
+import './EditNote.css'; 
 
 class EditNote extends Component {
-        render() {
-            return (
-              <div className="main-div">
-                <div>
-                  <h2>Edit Note:</h2>
-                </div>
-                <div>
-                  <Form>
-                    <FormGroup>
-                      <Label for="noteTitle">Note Title</Label>
-                      <Input type="text" name="title" id="noteTitle" placeholder="Enter title" />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label for="noteContent">Note Content</Label>
-                      <Input type="text" name="content" id="noteContent" />
-                    </FormGroup>
-                    <Button>Save</Button>
-                  </Form>
-                </div>
-              </div>
-            );
-        }
-      }
+  render() {
+    return (
+      <div>
+          <h2 className="header">Edit Note:</h2>        
+          <form className="form">
+            <input name="title" className="title" placeholder="Note Title"/>              
+            <textarea name="body" className="body" placeholder="Note content" />
+          </form>          
+          <Link to="/">
+          <button className="button3">Save</button>
+          </Link>
+      </div>
+    );
+  }
+}
 
 export default EditNote;

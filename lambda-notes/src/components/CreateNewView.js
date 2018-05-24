@@ -1,27 +1,25 @@
-import React from 'react';
-import { Col, Form, FormGroup, Input } from 'reactstrap';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './CreateNewView.css';
+import './CreateNewView.css'; 
+import SideBar from './SideBar';
 
-const CreateNewView = (props) => {
-  return (
-    <div>
-      <h2 className="header-Notes">Create New Note:</h2>        
-        <Form className="form">
-          <FormGroup row> 
-            <Col sm={20}>
-              <Input type="title" className="noteTitle" placeholder="Note Title" />
-            </Col>
-          </FormGroup>
-          <FormGroup row className="noteContent">          
-            <Col sm={45}>
-              <Input type="textarea" className="text" placeholder="Note Content" />
-            </Col>
-          </FormGroup>
-        </Form>
-        <button className="button3">Save</button>
-    </div>
-  );
+class CreateNewView extends Component {
+  render() {
+    return (
+      <div>
+        <SideBar />
+          <h2 className="headerNewNote">Create New Note:</h2>        
+          <form className="form">
+            <input name="title" className="title" placeholder="Note Title"/>              
+            <textarea name="body" className="body" placeholder="Note content" />
+          </form>          
+          <Link to="/">
+          <button className="button3">Save</button>
+          </Link>
+      </div>
+    );
+  }
 }
 
 export default CreateNewView;

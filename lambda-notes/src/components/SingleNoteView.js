@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import './SingleNoteView.css';
 
-const SingleNoteView = () => {
-    return(
-        <div className="main-div">
-            <div>
-                <Link to="/editnote">Edit</Link>
-                <Link to="/deletenote">Delete</Link>
-            </div>
-            <div>
-                <h1>Note Name</h1>
-                <p>Bacon ipsum dolor amet pig picanha frankfurter leberkas biltong ham, fatback flank salami swine meatloaf. Shoulder porchetta corned beef ball tip bresaola burgdoggen landjaeger jowl frankfurter jerky salami. Doner prosciutto pastrami ribeye picanha boudin strip steak sausage jowl pork loin turkey salami t-bone. Swine beef ribs salami, turkey shoulder short ribs picanha kielbasa short loin chicken ground round. Shank ball tip prosciutto pig, salami tongue t-bone meatball landjaeger. Flank pork loin burgdoggen, tri-tip shoulder strip steak swine.</p>
-                <p>Alcatra boudin kevin, filet mignon pork belly cupim capicola chuck. Pork belly pig flank sirloin, beef ribs ball tip prosciutto short loin filet mignon short ribs strip steak. Landjaeger salami brisket pastrami shankle chuck leberkas pork loin andouille filet mignon pancetta kevin alcatra sausage shoulder. Prosciutto shankle t-bone bresaola, andouille pork belly turducken brisket salami pastrami sausage. Leberkas boudin ball tip, doner hamburger turducken fatback biltong t-bone meatloaf cow tenderloin burgdoggen shank. Brisket jowl andouille shoulder, shank sausage kevin ham hock bresaola pork belly pig boudin pork chop salami.</p>
-            </div>
+class SingleNoteView extends Component {
+  render() {
+    return (
+      <div>
+        <div className="links">
+            <Link to="/editNote" className="edit">Edit</Link>            
+            <Link to="/deleteNote" className="delete">Delete</Link>
         </div>
-        )
+        <div>
+            <h2 className="headerNotes">Note Name</h2>
+            <p className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet elit imperdiet, volutpat sapien aliquet, condimentum libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin ac velit massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus massa in sodales lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin aliquet ipsum et arcu sollicitudin ornare. Nulla egestas consequat pellentesque. Proin accumsan maximus congue. Nulla eget varius mauris. Integer suscipit ex in semper tristique. Nam in tincidunt libero.
+            <br />
+            <br />        
+            Curabitur et tortor blandit, posuere dolor in, placerat orci. Sed vestibulum accumsan volutpat. Nullam pharetra, sapien in feugiat bibendum, sem turpis consectetur velit, at finibus massa metus rutrum mauris. Nunc in mi nisi. Aenean finibus ex non ipsum scelerisque, placerat vestibulum nulla tempus. Vestibulum ut fringilla massa. Fusce quis viverra ante. Vestibulum scelerisque lacus eros, vel accumsan felis condimentum eget. Vestibulum a mi a massa bibendum porta in in libero. Nam tincidunt faucibus erat, nec placerat leo scelerisque ut. Maecenas posuere quam odio, sit amet tincidunt massa pellentesque non. In porta mauris vitae magna placerat ornare.</p>
+        </div>
+      </div>
+    );
+  }   
 }
 
 export default SingleNoteView;

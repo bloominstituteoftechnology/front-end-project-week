@@ -1,6 +1,60 @@
 .side-bar {
-    font: Roboto Bold;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     background-color: #D8D8D8;
-    text-align: left;
-    align-content: left;
+    /* overflow-x: hidden; */
+    padding-top: 20px;
 }
+
+.app-name {
+    text-align: left;
+    margin-left: 20px;      
+    font-size: 40px; 
+    font: Roboto Bold;
+    color: black; 
+}
+
+.button1 {
+    padding: 6px 45px 6px 45px;
+    text-decoration: none;
+    text-decoration-line: none; 
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px; 
+} 
+
+.button2 {
+    padding: 6px 35px 6px 35px;
+    text-decoration: none;
+    text-decoration-line: none; 
+    font-size: 16px;
+    font: Raleway Medium;
+    background-color: #2BC1C4; 
+    color: #FFFFFF;
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px; 
+} 
+
+/* .division {
+    border-bottom: 2px solid black;
+    margin: 15px 20px;
+}
+
+.nav a {
+    display: block;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-align: left;
+} */
+
+
+

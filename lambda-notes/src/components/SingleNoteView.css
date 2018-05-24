@@ -1,0 +1,27 @@
+.headerNotes{
+    display: flex; 
+    justify-content: flex-start; 
+    margin-top: 25px;     
+    margin-left: 270px;  
+    font: Roboto Bold;              
+}
+
+.content {
+    margin-left: 270px;
+    margin-right: 50px;
+    margin-top: 20px;   
+    margin-bottom: 50px; 
+    text-align: left; 
+    font: Raleway Medium; 
+}
+
+.links {
+    display: flex; 
+    justify-content: flex-end;    
+    margin-right: 60px; 
+    margin-top: 20px;     
+}
+
+.edit {
+    margin-right: 30px; 
+}

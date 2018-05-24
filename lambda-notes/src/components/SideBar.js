@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+
+import './SideBar.css'
 
 class SideBar extends Component {
-    render(props) {
+    render() {
         return (
-            <div className="side-bar">
-                <br /><br />
-                <h1>Lambda Notes</h1>
-                <div />
-                <div className="navigation-top">
-                    <Link to="/">
-                        <Button color="info" size="lg">View Notes</Button>{' '}
-                    </Link><br /><br />
-                    <Link to="/create">
-                        <Button color="info" size="lg">+ Create New Note</Button>{' '}
-                    </Link>
+            <div>
+                <div className="side-bar">
+                    <h1 className="app-name">
+                        Lambda Notes
+                    </h1>
+                    <br />
+                    <div className="app-links">
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                            <button className="button1">View Notes</button>
+                        </Link>
+                        <Link to="/create" style={{ textDecoration: "none" }}>
+                            <button className="button2">+ Create New Note</button>    
+                        </Link>
+                    </div>
                 </div>
-            </div>
+            </div>                
         );
     }   
 }

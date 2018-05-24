@@ -1,18 +1,31 @@
-/* .card-columns {
-    border: 1px solid blue; 
-} */
-.main-text {
+.headerListView {
+    display: flex;     
+    justify-content: flex-start; 
+    margin-top: 70px; 
+    margin-left: 270px;  
+    font: Roboto Bold;              
+}
+
+.cardColumns {    
+    margin-top: 20px; 
+    margin-left: 270px; 
+    margin-right: 20px; 
+}
+
+.card {    
+    margin-right: 50px;    
+    margin-bottom: 30px;     
+};
+
+.cardBody {   
+    margin-bottom: 1px solid #979797;
+}
+
+.cardTitle {
+    margin-bottom: 1px solid #979797; 
+}
+
+.cardText {
     text-align: left;
-    margin: 30px;
-}
-
-.card {
-    margin: 30px;
-    margin-right: 50px;
-}
-
-.card-body {
-    margin: 30px; 
-    font-size: 14px;
-    /* border: 1px solid green;  */
+    margin-top: 1px solid #979797; 
 }
