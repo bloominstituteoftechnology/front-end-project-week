@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import './App.css';
-import { Form, FormGroup, Label, Input, FormText, Container, Button } from 'reactstrap';
+import './CreateNote.css'
 
 class CreateNote extends Component {
   constructor (props) {
@@ -30,23 +29,26 @@ handleSaveNoteButton = () => {
   render() {
 
     return  (
-        <div>
-            <Form>
-            <FormGroup>
-                <Label for="note-title">Create New Note:</Label>
-                <Input onChange={this.handleNoteInput} type="text" name="noteTitle" id={this.state.noteID} placeholder="Note Title" value={this.state.noteTitle} />
-            </FormGroup>
-
-            
-            <FormGroup>
-                <Input onChange={this.handleNoteInput} type="textarea" name="noteText" id={this.state.noteID} placeholder="Note Text" value={this.state.noteText}/>
-            </FormGroup>
-            
-            <Button onClick={this.handleSaveNoteButton} >Save</Button>
-            </Form>
-        </div>
+     
+        <form className="createNoteWrapper">
+         <row>
+            <div className="form-group">
+                <h4 className="mt-5 mb-5"><strong>Create New Note:</strong></h4>
+                <input className="titleAreaInput col-md-9" onChange={this.handleNoteInput} type="text" name="noteTitle" id={this.state.noteID} placeholder="Note Title" value={this.state.noteTitle} />
+            </div>
+        
+            <div className="mr-4 mt-3">
+                <textarea className="textAreaInput col-md-12 mb-3" onChange={this.handleNoteInput} type="textarea" name="noteText" id={this.state.noteID} placeholder="Note Content" value={this.state.noteText}></textarea>
+            </div>
+            <div>
+                <button type="button" className="ml-0 btn btn-md" onClick={this.handleSaveNoteButton}>Save</button>
+            </div>
+         </row>
+       </form>
+  
       );
   }
 }
 
 export default CreateNote;
+
