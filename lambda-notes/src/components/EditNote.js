@@ -4,6 +4,7 @@ import { editNote } from "../actions";
 
 class EditNote extends Component {
   state = {
+    id: parseInt(this.props.match.params.id),
     title: "",
     content: ""
   };
@@ -16,19 +17,18 @@ class EditNote extends Component {
 
   handleEdit = e => {
     e.preventDefault();
-    console.log(this.state);
     this.props.editNote(this.state);
-    this.setState({ title: "", content: "" });
-    this.props.history.push("/");
+    this.setState({ title: "Note Title", content: "Note Content" });
+    this.props.history.push(`/notes/${this.state.id}`);
   };
 
   render() {
-      console.log('ddd')
+    //   console.log(this.props)
     return (
       <div className="col-sm-9 create-div">
         <div className="create-form">
           <div className="form-group">
-            <h4>Note:</h4>
+            <h4>Edit Note #{this.props.match.params.id}:</h4>
           </div>
           <div className="form-group">
             <input
@@ -54,7 +54,7 @@ class EditNote extends Component {
           <button
             type="submit"
             className="create-button"
-            onClick={this.handleSave}
+            onClick={this.handleEdit}
           >
             Update
           </button>
@@ -64,4 +64,10 @@ class EditNote extends Component {
   }
 }
 
-export default connect(null, { editNote })(EditNote);
+const mapStateToProps = state => {
+  return {
+    notes: state
+  };
+};
+
+export default connect(mapStateToProps, { editNote })(EditNote);

@@ -19,7 +19,6 @@ class CreateNote extends Component {
 
   handleSave = e => {
       e.preventDefault();
-      console.log(this.state)
       this.props.createNote(this.state);
       this.setState({ title: "", content: ""});
       this.props.history.push('/');

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Modal, ModalBody, ModalHeader, ModalFooter, Button } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { deleteNote } from "../actions";
 
 
@@ -28,13 +28,13 @@ class Note extends Component {
     }
 
     componentDidMount() {
-        let result = this.props.notes.filter(note => note.id == this.props.match.params.id);       
+        let result = this.props.notes.filter(note => note.id == this.props.match.params.id);      
+        // console.log(result) 
         let found = result[0]
         this.setState({note: found});
     }
 
     render() {
-        console.log(this.props)
         return <div className="col-sm-9 note-view">
             <div className="note-links-wrap">
               <Link to={`/edit/${this.state.note.id}`} className="note-link">
@@ -45,7 +45,7 @@ class Note extends Component {
               </Link>
             </div>
             <div>
-              <h4 className="mb-sm-3">{this.state.note.title}</h4>
+              <h4 className="mb-sm-3">#{this.state.note.id} {this.state.note.title}</h4>
               <p>{this.state.note.content}</p>
             </div>
 
