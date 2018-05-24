@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { deletingItem } from "../../actions/index";
-
+import Markdown from 'markdown-to-jsx';
 import { Modal, ModalHeader, ModalFooter, Button } from "reactstrap";
 
 class NoteView extends Component {
@@ -37,9 +37,10 @@ class NoteView extends Component {
     console.log("NOTES", this.props.notes);
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
-    const content = note.content
-      .split("\n")
-      .map((paragraph, index) => <p key={index}>{paragraph}</p>);
+    const content = note.content;
+    // const content = note.content
+    //   .split("\n")
+    //   .map((paragraph, index) => <p key={index}>{paragraph}</p>);
     console.log("note", note);
     return (
       <React.Fragment>
@@ -50,7 +51,7 @@ class NoteView extends Component {
           </Link>
         </div>
         <h5 className="text-capitalize">{note.title}</h5>
-        <div className="">{content}</div>
+        <Markdown className="">{content}</Markdown>
 
         <Modal
           isOpen={this.state.modal}
