@@ -2,11 +2,13 @@ import {
   LOGIN,
   LOGOUT,
   ERROR,
+  THEME,
 } from '../Actions';
 
 const initialState = {
   user: null,
   error: null,
+  theme: "default",
 }
 
 export const userReducer = (state = initialState, action) => {
@@ -20,6 +22,11 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         user: null,
+      }
+    case THEME:
+      return {
+        ...state,
+        theme: action.payload,
       }
     case ERROR:
       return {

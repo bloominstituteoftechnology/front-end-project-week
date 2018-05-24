@@ -35,7 +35,7 @@ class ViewNote extends React.Component {
 
   deleteMethod = (e) => {
     e.preventDefault();
-    this.props.deleteNote(this.props.id);
+    this.props.deleteNote(this.props.user.uid, this.props.id);
     this.setState({
       modal: false,
       go: true,
@@ -44,9 +44,15 @@ class ViewNote extends React.Component {
   }
 
   render() {
-    if (this.state.go === true) return <Redirect to="/" />;
+    // Are you even logged in?
+    if (!this.props.user) return <Redirect to ="/" />;
+    // Did you just delete something? Go back to the list.
+    if (this.state.go === true) return <Redirect to="/notes" />;
+    // Some variable management
     const note = this.props.notes.filter(note => note.id === this.props.id)[0];
+    console.log("ViewNote",note);
     const { title, text } = note; 
+
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="pr-3">
         {/* Delete Modal */}
@@ -60,7 +66,7 @@ class ViewNote extends React.Component {
           </ModalFooter>
         </Modal>{/* End of Delete Modal */}
         <div className="actions d-flex pt-3 justify-content-end">
-          <Link style={cssMakesMeCry} to={`/edit/${this.props.id}`} className="mx-2">edit</Link>
+          <Link style={cssMakesMeCry} to={`/notes/edit/${this.props.id}`} className="mx-2">edit</Link>
           <a style={cssMakesMeCry} href="" onClick={this.toggle} className="mx-2">delete</a>
         </div>
         <div className="view-note p-4">
@@ -77,6 +83,7 @@ class ViewNote extends React.Component {
 const mapDispatchToProps = state => {
   return {
     notes: state.notesReducer.notes,
+    user: state.userReducer.user,
   };
 };
 
