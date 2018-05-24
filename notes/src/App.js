@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { CreateNote, DisplayNotes, EditNote, ViewNote } from './components';
-
+import axios from 'axios';
+const URL = 'http://localhost:3333/notes'
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: [],
+    };
+  }
+
+  componentWillMount(){
+    const myPromise = axios.get(URL);
+    myPromise
+      .then(response => {
+        this.setState({ notes: response.data})
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
   render() {
     return (
       <div className="App">
+        
         <Route path="/createNote" component={CreateNote}></Route>
         <Route exact path="/" component={DisplayNotes}></Route>
         <Route path="/viewNote" component={ViewNote}></Route>

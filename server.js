@@ -12,69 +12,67 @@ const sendUserError = (msg, res) => {
   return;
 };
 
-let smurfs = [
+let notes = [
   {
-    name: 'Brainey',
-    age: 200,
-    height: '5cm'
+    noteTitle: 'React Styles',
+    noteContent: 'Implement React styling changes'
   }
 ];
-server.get('/smurfs', (req, res) => {
-  res.json(smurfs);
+server.get('/notes', (req, res) => {
+  res.json(notes);
 });
-let smurfId = 0;
+let noteId = 0;
 
-server.post('/smurfs', (req, res) => {
-  const { name, age, height } = req.body;
-  const newSmurf = { name, age, height, id: smurfId };
-  if (!name || !age || !height) {
+server.post('/notes', (req, res) => {
+  const { noteTitle, noteContent } = req.body;
+  const newNote = { noteTitle, noteContent, id: noteId };
+  if (!noteTitle || !noteContent) {
     return sendUserError(
-      'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+      'Ya gone did smurfed! Title/Content are all required to create a smurf in the smurf DB.',
       res
     );
   }
-  const findSmurfByName = smurf => {
-    return smurf.name === name;
+  const findNoteByTitle = note => {
+    return note.noteTitle === noteTitle;
   };
-  if (smurfs.find(findSmurfByName)) {
+  if (note.find(findNoteByTitle)) {
     return sendUserError(
-      `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
+      `Ya gone did smurfed! ${noteTitle} already exists in the notes DB.`,
       res
     );
   }
 
-  smurfs.push(newSmurf);
-  smurfId++;
-  res.json(smurfs);
+  notes.push(newNote);
+  noteId++;
+  res.json(notes);
 });
 
-server.put('/smurfs/:id', (req, res) => {
+server.put('/notes/:id', (req, res) => {
   const { id } = req.params;
-  const { name, age, height } = req.body;
-  const findSmurfById = smurf => {
-    return smurf.id == id;
+  const { noteTitle, noteContent } = req.body;
+  const findNoteById = note => {
+    return note.id == id;
   };
-  const foundSmurf = smurfs.find(findSmurfById);
-  if (!foundSmurf) {
-    return sendUserError('No Smurf found by that ID', res);
+  const foundNote = notes.find(findNoteById);
+  if (!foundNote) {
+    return sendUserError('No Note found by that ID', res);
   } else {
-    if (name) foundSmurf.name = name;
-    if (age) foundSmurf.age = age;
-    if (height) foundSmurf.height = height;
-    res.json(smurfs);
+    if (noteTitle) foundNote.noteTitle = noteTitle;
+    if (noteContent) foundNote.noteContent = noteContent;
+    res.json(notes);
   }
 });
 
-server.delete('/smurfs/:id', (req, res) => {
+server.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
-  const foundSmurf = smurfs.find(smurf => smurf.id == id);
+  const foundNote = notes.find(note => note.id == id);
 
-  if (foundSmurf) {
-    const SmurfRemoved = { ...foundSmurf };
-    smurfs = smurfs.filter(smurf => smurf.id != id);
-    res.status(200).json(smurfs);
+  if (foundNote) {
+    const NoteRemoved = { ...foundNote };
+    notes = notes.filter(note => note.id != id);
+    res.status(200).json(notes);
   } else {
-    sendUserError('No smurf by that ID exists in the smurf DB', res);
+    sendUserError('No note by that ID exists in the note DB', res);
   }
 });
 
