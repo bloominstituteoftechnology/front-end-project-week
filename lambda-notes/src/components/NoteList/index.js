@@ -36,12 +36,7 @@ class NoteList extends Component {
     const { classes } = this.props;
     return (
       <div className={`note-list ${classes}`}>
-      {
-        this.props.user ?
-          this.displayNotes()
-        :
-          <h2 className="text-center">Click on the "Log-In" button to get started!</h2>
-      }
+      { this.displayNotes() }
       </div>
     );
   }
@@ -54,7 +49,7 @@ const NoteCard = (props) => {
   return (
     <Link to={`/notes/${id}`} className="note-card">
       <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
-      <hr />
+      <hr style={{borderColor:'var(--color--main)'}} />
       <p>{truncText}</p>
       {/* <ReactMarkdown source={truncText} /> */}
     </Link>

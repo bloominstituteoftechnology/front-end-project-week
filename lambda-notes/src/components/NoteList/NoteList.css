@@ -33,7 +33,3 @@
 .note-card {
   background-color: var(--color-bg);
 }
-
-.note-card hr {
-  color: var(--color--button) ;
-}

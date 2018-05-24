@@ -71,7 +71,7 @@ class ViewNote extends React.Component {
         </div>
         <div className="view-note p-4">
           <h3>{title}</h3>
-          <hr />
+          <hr style={{borderColor:'var(--color--main)'}} />
           <br />
           <ReactMarkdown source={text} />
         </div>
