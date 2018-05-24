@@ -89,7 +89,7 @@ p {
 .notes-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-content: flex-start;
   padding: 0 3.417% 3.417%;
   width: 100%;
@@ -107,15 +107,18 @@ p {
 }
 
 .note-card {
-  width: 100%;
-  max-width: 190px;
+  width: 189px;
   height: 195px;
   overflow: hidden;
   padding: 10px 15px;
-  margin: 0 0 15px;
+  margin: 0 15px 15px 0;
   border: 1px solid #979797;
   background: white;
   border-radius: 1px;
+}
+
+.notes-list > div:nth-child(3n + 4) div.note-card {
+  margin-right: 0;
 }
 
 .note-card h3 {

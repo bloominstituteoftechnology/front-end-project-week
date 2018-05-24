@@ -35,8 +35,7 @@ class App extends Component {
     }
   }
 
-  addNote = (e, note) => {
-    e.preventDefault();
+  addNote = (note) => {
     const notes = this.state.notes;
     this.setState({notes: notes.concat(note)});
   }

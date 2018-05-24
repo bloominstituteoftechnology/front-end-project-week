@@ -1,4 +1,5 @@
 import React,{ Component } from "react";
+import { Link } from "react-router-dom";
 
 class AddNote extends Component {
     constructor(props){
@@ -28,7 +29,7 @@ class AddNote extends Component {
                         <form>
                             <input name="title" value={title} placeholder="Note Title" onChange={(e) =>     this.handleChange(e)}/>
                             <textarea name="body" value={body} placeholder="Note Content" onChange={(e) =>     this.handleChange(e)}/>
-                            <button className="button" onClick={(e) => this.props.addNote(e, {id, title, body})}>Save</button>
+                            <Link className="button" to="/" onClick={() => this.props.addNote({id, title, body})}>Save</Link>
                         </form>
                     </div>
                 </div>
