@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const cardContent = () => {
     return (
         <div>
-            <div classname='contentContainer'>
+            <div className='contentContainer'>
             <div className='editLink'>
             <Link to='/edit'>
                 <p className='edit'>edit</p>

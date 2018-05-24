@@ -6,7 +6,7 @@ const cardForm = () => {
     return (
     <div className='createContainer'>
         <div>
-            <h2 classname='header'>Create New Note:</h2>
+            <h2 className='header'>Create New Note:</h2>
         </div>
             <form className='form'>
                 <input type='text' className ='insertTitle' placeholder='Note Title' />
