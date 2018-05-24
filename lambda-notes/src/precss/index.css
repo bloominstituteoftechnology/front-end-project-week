@@ -222,6 +222,19 @@ table {
 *
 */
 /** Import all less files from components */
+.button-component .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
 .note-view-component .edition {
   flex-direction: row-reverse;
   top: 0;
@@ -293,7 +306,17 @@ table {
   line-height: 1.565;
   letter-spacing: 0.03rem;
 }
-.button-component .custom-button {
+.form-component .custom-form .custom-input {
+  width: 400px;
+  height: 50px;
+  padding: 0 9px;
+  outline: none;
+}
+.form-component .custom-form .custom-text-area {
+  padding: 20px;
+  outline: none;
+}
+.form-component .custom-form .custom-button {
   color: #FFFFFF;
   background-color: #2BC1C4;
   max-width: 219.68px;
@@ -305,16 +328,6 @@ table {
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
-}
-.form-component .custom-form .custom-input {
-  width: 400px;
-  height: 50px;
-  padding: 0 9px;
-  outline: none;
-}
-.form-component .custom-form .custom-text-area {
-  padding: 20px;
-  outline: none;
 }
 .main-component .custom-main {
   padding: 4rem 2rem;
@@ -383,6 +396,19 @@ table {
 .main-component .custom-main .custom-form .custom-text-area {
   padding: 20px;
   outline: none;
+}
+.main-component .custom-main .custom-form .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
 .main-component .custom-main a {
   text-decoration: none;
@@ -517,6 +543,19 @@ table {
 .custom-container .row .custom-main .custom-form .custom-text-area {
   padding: 20px;
   outline: none;
+}
+.custom-container .row .custom-main .custom-form .custom-button {
+  color: #FFFFFF;
+  background-color: #2BC1C4;
+  max-width: 219.68px;
+  height: 50px;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #979797;
+  line-height: 3rem;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
 }
 .custom-container .row .custom-main a {
   text-decoration: none;
