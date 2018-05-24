@@ -9,3 +9,8 @@ button {
     border: 1px solid #979797;
     margin-bottom: 22px !important;
 }
+
+button:hover {
+    cursor: pointer;
+    background-color: #979797;
+}

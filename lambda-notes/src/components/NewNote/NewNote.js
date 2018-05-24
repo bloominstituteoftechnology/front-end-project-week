@@ -61,7 +61,7 @@ class NewNote extends Component {
                     placeholder="Note Content" >
                 </textarea>
 
-                <Button onClick={this.submitNewNote} text="Save"/>
+                <Button style={{width: "30%"}} onClick={this.submitNewNote} text="Save"/>
 
             </div>
 
