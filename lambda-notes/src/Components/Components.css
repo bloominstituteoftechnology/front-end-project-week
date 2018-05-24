@@ -15,6 +15,7 @@
     flex-direction: column;
     width: 20%;
     font-size: 1.7rem;
+    font-weight: 700;
     max-width: 150px;
     padding: 10px;
     border: 1px solid grey
@@ -27,4 +28,25 @@
     padding: 20px;
     padding-top: 40px;
     border: 1px solid grey
+  }
+
+  .TopText {
+      font-size: 1.5rem;
+      font-weight: 500;
+  }
+
+  .Cards {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .Card {
+      width: 30%;
+      height: 180px;
+      margin: 1.5%;
+      padding: 10px;
+  }
+
+  .Line {
+      border-top: 1px solid grey
   }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Card, CardTitle, CardText } from "reactstrap";
+import './Components.css'
 
 class Cards extends Component {
     constructor(props) {
@@ -7,12 +9,13 @@ class Cards extends Component {
     }
     render() {
         return (
-            <div>{this.props.notesFromState.map( (item, index)=> {
+            <div className='Cards'>{this.props.notesFromState.map( (item, index)=> {
                 return (
-                    <div>
-                        <div>{item.title}</div>
-                        <div>{item.content}</div>
-                    </div>
+                    <Card  className='Card'>
+                        <CardTitle>{item.title}</CardTitle>
+                        <div className='Line'></div>
+                        <CardText>{item.content}</CardText>
+                    </Card>
                 )
             })}</div>
         );

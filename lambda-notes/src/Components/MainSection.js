@@ -17,7 +17,8 @@ class MainSection extends Component {
     }
     render() {
         return (
-            <div className='MainSectionContainer'> Your Notes:
+            <div className='MainSectionContainer'> 
+                <div className='TopText'>Your Notes:</div>
             
                 <Cards notesFromState={this.state.notes}/>
 
