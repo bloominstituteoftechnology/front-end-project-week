@@ -12,10 +12,30 @@
 }
 
 .mein-card {
-    width: 15rem;
-    margin-bottom: 2rem;
+    width: 16rem;
+    height: 16rem;
+    font-size: 1.5rem;
+    margin: 2rem;
+    padding: 2rem;
+    background: white;
+    border: 1px solid #979797;
 }
-
+.listViewNote {
+    margin-top: -1.5rem;
+}
+.truncate {
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    width: 15rem;
+    max-height: 14rem;
+}
+.truncate:before {
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 h5 {
     padding-bottom: .5rem;
     border-bottom: 1px solid #979797;
@@ -25,5 +45,5 @@ a {
     color: #4A4A4A;
 } 
 a:hover {
-            color: #4A4A4A;
+    color: #4A4A4A;
 }

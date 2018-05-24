@@ -1,12 +1,17 @@
 h3 {
-    margin: 4rem 0rem 2rem 4rem;
+    margin: 4rem 0rem 0rem 3rem;
 }
 
-textarea {
-    margin: 1rem 4rem;
-    padding: 1.5rem 2rem;
+.content {
+    padding: 1rem;
+}
+.title {
+    padding: 1rem;
 }
 .saveButton {
     width: 20rem;
-    margin: 1rem 0rem 0rem 4rem;
+    margin: 1.5rem 0rem 0rem 0rem;
+}
+.inputForm {
+    margin: 1rem 2rem;
 }

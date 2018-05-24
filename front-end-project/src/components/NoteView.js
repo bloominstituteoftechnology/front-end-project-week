@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Modal, ModalBody } from 'reactstrap';
 import { toggleModal, toggleModalBack, deleteNote } from '../actions'
 import { connect } from 'react-redux'
 import '../styles/NoteView.css'
@@ -31,7 +30,6 @@ const NoteView = props => {
                         <p>
                             Morbi pellentesque euismod venenatis.  Nulla ut nibh nunc.  Phasellus diam metus, blandit ac purus a, efficitur mollis velit.  ut egestas, ante at lobortis ullamcorper, neque odio fringilla odio, non mattis elit lacus ut velit.  Sed feugiat nibh vel molestie sollicitudin.  Duis tincidunt portitor sem, sit amet ultricies lacus pelientesque vel.  Aenean quis enim placerat, posuere orci ac, condimentum tellus.  Vivamus vitae sodales quam, eget ultricies lorem.  Nam pellenteque massa nisl, at pellentesque nisi faucibus vitae.  Curabitur sit amet turpis quam.  Duis eget metus elementum, solicitudin dui sed, accumsan dui.  Donec ut est orci.  Nunc fringilla purus sit amet posuere volutpat.  Fusce vitae lectus is neque facilisis laoreet eget non odio.  Praesent sed mauris porta, volutpat ante hendrerit, ultrices nisl.
                 </p>
-                {console.log('Sliced state', props.notes.slice())}
                     </div>
                 </div>
             </div>
@@ -41,8 +39,8 @@ const NoteView = props => {
 
 const mapStateToProps = state => {
     return {
-        deleting: state.deleting,
-        notes: state.notes
+        deleting: state.notes.deleting,
+        notes: state.notes.notes
     }
 }
 

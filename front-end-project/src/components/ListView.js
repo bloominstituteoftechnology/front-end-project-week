@@ -1,35 +1,39 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Card, CardBody, CardTitle, CardText, CardGroup } from 'reactstrap'
 import '../styles/ListView.css'
 
 const ListView = props => {
     return (
-        <div className="main-text">
+        <div className="main-text container">
             <div className="row yourNotes">
                 <h3 style={{ textAlign: "left" }}> Your Notes: </h3>
+                {console.log('Props of ListView?', props)}
             </div>
-            {props.notes.map(note => {
+        <CardGroup>
+            {props.notes.length > 0 ? props.notes.map(note => {console.log('Note', note)
                 return (
-                    <div className="row mein-row no-gutters" key={note.id}>
-                        <NavLink to={`/note/${note.id}`}><div className="card mein-card">
-                            <div className="card-body">
-                                <h5 className="card-title"> {note.title} </h5>
-                                <p className="card-text"> {note.content} </p>
-                            </div>
-                        </div></NavLink>
-                    </div>
+                        <NavLink to={`/note/${note.id}`} style={{textDecoration: 'none'}} key={note.id}>
+                        <Card className="card mein-card">
+                            <CardBody className="card-body">
+                                <CardTitle className="card-title" style={{fontSize: '1.7rem', marginTop: '-1rem'}}> {note.title.title} </CardTitle>
+                                <CardText className="card-text listViewNote truncate"> {note.title.content} </CardText>
+                            </CardBody>
+                        </Card>
+                        </NavLink>
                     )
                 }
-            )
+            ) : null
         } 
-        </div>
+        </CardGroup>
+    </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notes.notes
     }
 }
 
