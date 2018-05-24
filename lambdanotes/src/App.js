@@ -23,9 +23,12 @@ class App extends Component {
       .get(`https://killer-notes.herokuapp.com/note/get/all`)
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
+
+    this.setCurrentNote(this.state.currentNote._id);
   }
 
   setCurrentNote = (noteID) => {
+    console.log(`setCurrentNote ran, noteID= ${noteID}`)
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/${noteID}`)
         .then(res => {this.setState({currentNote: res.data})})
@@ -40,9 +43,9 @@ class App extends Component {
         </div>
         <div className='viewContainer'>
           <Route exact path='/' render={ (props) => { return(<ListView {...props} notesList={this.state.notesList} setCurrentNote={this.setCurrentNote}/>)}} />
-          <Route path='/note/create' component={CreateNote} />
+          <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
           <Route exact path='/:_id' render={ (props) => { return(<ViewNote {...props} currentNote={this.state.currentNote} />)}} />
-          <Route path='/:_id/edit' render={ (props) => { return(<EditNote {...props} currentNote={this.state.currentNote} />)}} />
+          <Route path='/:_id/edit' render={ (props) => { return(<EditNote {...props} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
         </div>
       </div>
     );

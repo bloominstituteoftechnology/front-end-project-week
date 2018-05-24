@@ -22,7 +22,7 @@ class CreateNote extends Component {
             .post(`https://killer-notes.herokuapp.com/note/create`, this.state)
                 .then(res => {
                     console.log(res);
-                    window.location.reload();                
+                    window.location.reload();
                 })
                 .catch(err => {console.log(err)})
     }

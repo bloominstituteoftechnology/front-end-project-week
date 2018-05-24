@@ -24,11 +24,16 @@
     cursor: pointer;
 }
 
+.entireNote {
+    overflow: auto;
+    height: 834px;
+}
+
 .viewNoteHeader {
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
-    margin: 2px 0 8px 25px;
+    margin: 2px 25px 8px;
     font-size: 21px;
 }
 

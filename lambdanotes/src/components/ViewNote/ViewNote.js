@@ -14,8 +14,10 @@ const ViewNote = (props) => {
                 </div>
                 <DeleteNote currentNoteID={props.currentNote._id} />
             </div>
-            <h3 className='viewNoteHeader'>{props.currentNote.title}</h3>
-            <span className='viewNoteContent'>{props.currentNote.textBody}</span>
+            <div className='entireNote'>
+                <h3 className='viewNoteHeader'>{props.currentNote.title}</h3>
+                <span className='viewNoteContent'>{props.currentNote.textBody}</span>
+            </div>
         </div>
                 
     )

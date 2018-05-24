@@ -22,7 +22,7 @@ class EditNote extends Component {
             .put(`https://killer-notes.herokuapp.com/note/edit/${this.props.currentNote._id}`, this.state)
                 .then(res => {
                     console.log(res);
-                    window.location.reload();                
+                    this.props.setCurrentNote(res.data._id);
                 })
                 .catch(err => {console.log(err)})
     }
@@ -51,7 +51,7 @@ class EditNote extends Component {
                         placeholder='Note Content'>
                     </textarea>
                     <div className='enEntireLink'>
-                        <Link to={`/`}>
+                        <Link to={`/${this.props.currentNote._id}`}>
                             <input onClick={this.handleUpdateNote} className='editNoteSaveButton' type='button' value='Update' />
                         </Link>
                     </div>

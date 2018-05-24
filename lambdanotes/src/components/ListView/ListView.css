@@ -8,9 +8,11 @@
 
 .noteCardsCollection {
     margin: 14px 20px;
+    height: 793px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    overflow: scroll;
 }
 
 .entireNoteCardLink {

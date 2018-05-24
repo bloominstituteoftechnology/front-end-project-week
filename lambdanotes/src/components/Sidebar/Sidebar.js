@@ -6,7 +6,7 @@ const Sidebar = () => {
     return (
         <div>
             <h1 className='sidebarTitle'>Lambda Notes</h1>
-            <div className='sbEntireLink'>
+            <div onClick={() => window.location.reload()} className='sbEntireLink'>
                 <Link to='/' className='buttonLink'>
                     <button block='true' className='sidebarButton'>View Your Notes</button>
                 </Link>
