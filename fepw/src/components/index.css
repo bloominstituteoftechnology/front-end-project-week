@@ -1,0 +1,150 @@
+/*ListView css*/
+
+.wrapper {
+	width: 75%;
+	position: absolute;
+	left: 25%;
+	background-color: #F3F3F3;
+}
+
+.head h5{
+	padding: 50px 0 25px 25px;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding-bottom: 20px;
+}
+
+.eachcard {
+	flex-basis: 25%;
+}
+
+/* finally got this to display in rows of three by making eachcard a child, creating a parent for it, and then using flex-basis to size each card.*/
+
+/* sidebar css */
+
+nav {
+	height:100%;
+	width: 25%;
+	font-family: 'Roboto Bold', sans-serif;
+	font-size: 1rem;
+	background-color: #D8D8D8;
+	position: absolute;
+	left: 0px;
+}
+
+.lambdanotes h3 {
+	font-size: 2.1rem;
+	line-height: 2rem;
+	font-weight: bold;
+	padding: 20px;
+}
+
+.buttonnav {
+	margin-left: 20px;
+}
+
+button {
+	background-color: #2eced1;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	border: .25px grey solid;
+	padding: 5px 10px;
+	width: 90%;
+}
+
+/* when in doubt, create more divs! */
+
+/*CreateView css */
+.createForm {
+	padding: 0 30px;
+}
+
+#noteTitle {
+	border: grey 1px solid;
+	width: 66%;
+	height: 2.4rem;
+}
+
+#noteContent {
+	border: grey 1px solid;
+	width: 95%;
+	height: 400px;
+}
+
+.createButton {
+	width: 25%;
+}
+
+/* NoteCard.css */
+
+
+.notecard {
+	color: black;
+	border: grey 1px solid;
+}
+
+.cardTitle {
+	color: black;
+	font-weight: bold;
+}
+
+.cardText {
+	color: black;
+}
+
+.truncate {
+  	overflow: hidden;
+  	position: relative;
+  	line-height: 1.2em;
+  	max-height: 7.2em;
+  	text-align: justify;
+  	margin-right: -1em;
+  	padding-right: 1em;
+	width: 250px;
+	text-overflow: ellipsis;
+}
+
+.truncate:before {
+	content: '...';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+/* NoteView css */
+
+.viewNote {
+	padding: 0 30px;
+}
+
+.alignRight {
+	text-align: right;
+}
+
+.toplinks {
+	display:inline-block;
+}
+
+.editButton {
+	background-color: #F3F3F3;
+	border: none;
+	color: black;
+	text-decoration: underline;
+	width: 75px;
+}
+
+.delButton {
+	background-color: #F3F3F3;
+	border: none;
+	color: black;
+	text-decoration: underline;
+	width: 75px;
+	margin-right: 20px;
+}

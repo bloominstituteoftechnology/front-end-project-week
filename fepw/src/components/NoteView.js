@@ -25,11 +25,12 @@ class NoteView extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className='wrapper'>
 				<Row>
-					<Col>
-				<Link to ='/EditView'><Button color='link'>Edit</Button></Link>
-				<Button color='link' onClick={ () => this.toggleModal() }>Delete</Button>
+					<Col className='alignRight'>
+						<span className='toplinks'>
+							<Link to ='/EditView'><button className='editButton' color='link'>edit</button></Link></span>
+						<span><button className='delButton' onClick={ () => this.toggleModal() }>delete</button></span>
 				{this.state.modal ? <Modal isOpen={this.state.modal}>
 					<ModalBody>
 						Are you sure you want to delete this?
@@ -46,8 +47,12 @@ class NoteView extends Component {
 				</Row>
 				<Row>
 					<Col>
-						<h3>{this.props.selectedNotecard.title}</h3>
-						<p>{this.props.selectedNotecard.content}</p>
+						<div className='head'>
+							<h5>{this.props.selectedNotecard.title}</h5>
+						</div>
+						<div className='viewNote'>
+							<p>{this.props.selectedNotecard.content}</p>
+						</div>
 					</Col>
 				</Row>
 			</div>

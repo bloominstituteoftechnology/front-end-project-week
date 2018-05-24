@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './sidebar.css';
+import './index.css';
 
 class Sidebar extends Component {
 	render() {

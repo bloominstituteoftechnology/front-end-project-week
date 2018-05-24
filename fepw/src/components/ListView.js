@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteCard from './NoteCard.js';
-import './ListView.css';
+import './index.css';
 
 class ListView extends Component {
 	render() {
 		return (
 			<div className='wrapper'>
-				<header>
+				<div className='head'>
 					<h5> Your Notes:</h5>
-				</header>
+				</div>
 				<br />
 				<div className='cards'>
 					{ this.props.cards.map( (card, index) => <div><Link to='/NoteView'><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /><br /></Link></div>)}

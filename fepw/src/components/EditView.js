@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Form, Input, Row, Col, Button } from 'reactstrap';
+import './index.css';
 
 class EditNote extends Component {
 	constructor() {
@@ -21,9 +22,11 @@ class EditNote extends Component {
 
 	render() {
 		return (
-			<div>
-				<h3>Edit Note:</h3>
-				<div>
+			<div className='wrapper'>
+				<div className='head'>
+					<h5>Edit Note:</h5>
+				</div>
+
 					<Form>
 						<Row>
 							<Col>
@@ -44,7 +47,6 @@ class EditNote extends Component {
 						</Row>
 					</Form>
 				</div>
-			</div>
 
 		);
 	}

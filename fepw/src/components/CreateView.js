@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './index.css';
 
 class CreateNote extends Component {
 	constructor() {
@@ -24,23 +25,25 @@ class CreateNote extends Component {
 	render() {
 		return(
 			<div className='wrapper'>
-				<header>
+				<div className='head'>
 					<h5>Create New Note:</h5>
-				</header>
-			<Form>
-				<FormGroup>
-					<Input onChange={this.handleInput} name='title' id='Title' placeholder='Note Title' />
-				</FormGroup>
-				<FormGroup>
-					<Input onChange={this.handleInput} name='content' id='Body' placeholder='Note Content' />
-				</FormGroup>
-				<FormGroup>
-					<Link to='/'>
-						<Button onClick={this.handleSubmit}>Save</Button>
-					</Link>
-				</FormGroup>
-			</Form>
-		</div>
+				</div>
+			<div className='createForm'>
+				<Form>
+					<FormGroup>
+						<Input type='textarea' onChange={this.handleInput} name='title' id='noteTitle' placeholder='Note Title' />
+					</FormGroup>
+					<FormGroup>
+						<Input type='textarea' onChange={this.handleInput} name='content' id='noteContent' placeholder='Note Content' />
+					</FormGroup>
+					<FormGroup>
+						<Link to='/'>
+						<button className='createButton' onClick={this.handleSubmit}>Save</button>
+						</Link>
+					</FormGroup>
+				</Form>
+			</div>
+			</div>
 		)
 	}
 }

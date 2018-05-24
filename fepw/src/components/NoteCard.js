@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
-import './NoteCard.css';
+import './index.css';
 
 class NoteCard extends Component {
 	constructor(props) {
