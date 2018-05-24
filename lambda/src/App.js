@@ -56,12 +56,10 @@ renderNoteList = (title, note) => {
     return (
       <div className="App">
         <NavBar />
-        <h4>Your Notes:</h4>
+        <h4>Your Notes:</h4>        
         <Route exact path="/" render={props => <ListView {...props} notes={this.state.list}/>} />
-        <Route path="/note" render={props => <NewNote {...props} renderNoteList={this.renderNoteList}/>} />
+        <Route path="/note" render={props => <NewNote {...props} renderNoteList={this.renderNoteList}/>}  />
         <Route path="/note/edit" component={EditNote} />
-        <Link to="note/edit/"><Button color="info">Edit</Button></Link>
-        <Link to="/"> <Delete /> </Link>
       </div>
       
     );

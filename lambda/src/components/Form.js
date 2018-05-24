@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col } 
 
 //importing Form CSS
 import './Form.css';
+import Delete from '../components/Delete'
 
 //Class Component that will render NoteForm and its props
 class NoteForm extends Component {
@@ -52,9 +53,10 @@ class NoteForm extends Component {
               placeholder="Note Content" 
               value={this.state.note}
               onChange={this.updateInput.bind(this)} />
-             <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
+              <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
           </Form>
-
+          <Link to="note/edit/"><Button color="info">Edit</Button></Link>
+          <Link to="/"> <Delete /> </Link>
         </div> 
       );
   }
