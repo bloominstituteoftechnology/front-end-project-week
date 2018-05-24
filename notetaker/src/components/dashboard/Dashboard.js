@@ -65,11 +65,11 @@ export default class Dashboard extends Component {
                 <Row className="border">
                     <Col xs="3" className="sidebar">
                         <h1 className="mt-3 text-left heading">Lambda Notes</h1>
-                        <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">
+                        <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">
                             View Your Notes
                         </button>
                         <Link to="/create">
-                            <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">
+                            <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">
                                 + Create New Note
                             </button>
                         </Link>
@@ -80,7 +80,7 @@ export default class Dashboard extends Component {
                         </Row>
                         <Row className="mb-4">
                         {this.state.notes.map(note =>
-                            <Col xs="4" className="mb-4">
+                            <Col xs="4" className="mb-4" key={note.id}>
                             <Note
                             key={note.id} 
                             id={note.id}

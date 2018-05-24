@@ -30,9 +30,8 @@ export default class Note extends Component {
                     }
                  }} style={{ textDecoration: 'none', color: 'black' }}
                 >
-                    <CardTitle className="text-left card-title">
-                    <h4 className="font-weight-bold">
-                    {this.state.title}</h4>
+                    <CardTitle className="text-left card-title font-weight-bold">
+                    {this.state.title}
                     </CardTitle>
                 </Link>
                 <CardText className="text-left">

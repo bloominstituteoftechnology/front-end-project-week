@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Container, Row, Col, Jumbotron, Button, Input, InputGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import fire from '../../components/newnote/fire.js';
 
 export default class EditNote extends Component {
 
@@ -9,8 +10,8 @@ export default class EditNote extends Component {
         super(props);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.state = {
-            newTitle: '',
-            newBody:'',
+            newTitle: this.props.location.state.title.title,
+            newBody: this.props.location.state.body.body,
         };
     }
 
@@ -45,7 +46,6 @@ export default class EditNote extends Component {
                 <Row className="mb-4">
                     <Col xs="7" className="ml-3">
                         <Input placeholder="Note Title" className="note-title-input"
-                        defaultValue={this.props.location.state.title} 
                         onChange={this.handleInputChange} 
                         value={this.state.newTitle}
                         name="newTitle" />
@@ -53,8 +53,7 @@ export default class EditNote extends Component {
                 </Row>
                 <Row>
                     <Col xs="12" className="ml-3 pr-5">
-                        <textarea placeholder="Note Content"
-                        defaultValue={this.props.location.state.body} 
+                        <textarea placeholder="Note Content" 
                         className="rounded note-content-input"
                         onChange={this.handleInputChange}
                         value={this.state.newBody}
