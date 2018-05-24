@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Note.css';
 import { Link } from 'react-router-dom';
 import { DeleteNote } from '.';
+import axios from 'axios';
 
 
 class Note extends Component {
@@ -12,19 +13,19 @@ class Note extends Component {
          }
     }
 
+    // componentDidMount() {
+    //     this.fetchNote();
+    // }
+
+    // fetchNote = () => {
+    //     axios.get(`https://killer-notes.herokuapp.com/note/get/id`)
+    //         .then( response => {
+    //             console.log('respone', response)
+    //         })
+    // }
+
     updateDisplay = () => {
         this.state.showNote = !this.state.showNote;
-        // this.setState({
-        //     showNote: !this.state.showNote,
-        // })
-    }
-
-    showDisplay = () => {
-        this.state.showNote = true;
-    }
-
-    deleteNote = () => {
-        return alert('Alert message!');
     }
 
     render() { 

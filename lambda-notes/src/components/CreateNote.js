@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './CreateNote.css';
 
 class CreateNote extends Component {
@@ -15,17 +16,24 @@ class CreateNote extends Component {
     }
 
     saveNewNote = () => {
-        const newNote = {id: this.props.notes.length, title: this.state.title, body: this.state.body};
+        const newNote = { title: this.state.title, body: this.state.body};
         const notes = this.props.notes;
-        console.log('NOTES:', notes)
-        notes.push(newNote);
-        this.setState({
-            title: '',
-            body: ''
-        })
+        axios.post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+            .then(savedNote => {
+                this.setState({
+                    title: '',
+                    body: ''
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        
+        
     }
 
     render() { 
+        console.log("CREATE PROPS",this.props)
         return ( 
             <div className="new-note-container">
                 <h2>Create New Note:</h2>

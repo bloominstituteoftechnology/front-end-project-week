@@ -5,15 +5,15 @@ import './ListNotes.css';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../actions/index';
 
-class ListNotes extends Component {
+export default class ListNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
 
-    componentDidMount() {
-        this.props.fetchNotes();
-    }
+    // componentDidMount() {
+    //     this.props.fetchNotes();
+    // }
 
     render() { 
         console.log('PROPS:', this.props)
@@ -45,11 +45,11 @@ function NoteDetails({ note }) {
     )
 }
 
-const mapStateToProps = state => {
-    console.log('State:', state)
-    return {
-        notes: state.noteReducer.notes
-    }
-  }
+// const mapStateToProps = state => {
+//     console.log('State:', state)
+//     return {
+//         notes: state.noteReducer.notes
+//     }
+//   }
   
-  export default connect(mapStateToProps, { fetchNotes } )(ListNotes);
+//   export default connect(mapStateToProps, { fetchNotes } )(ListNotes);
