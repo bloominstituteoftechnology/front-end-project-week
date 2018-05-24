@@ -4,6 +4,7 @@ import { database } from "../config/fire";
 export const fetchNote = () => {
   return (dispatch) => {
     database.on("value", snapshot => {
+      console.log(snapshot.val());
       dispatch({
         type: FETCH_NOTES,
         payload: snapshot.val()

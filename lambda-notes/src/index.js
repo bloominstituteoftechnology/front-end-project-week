@@ -18,10 +18,8 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <div>
-          <Header />
           <Switch>
             <Route path="/" component={App} exact />
-            <Route path="/login" component={Login} exact />
             <Route path="/new" component={AddNoteForm} exact />
           </Switch>
         </div>

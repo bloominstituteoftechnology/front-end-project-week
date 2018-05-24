@@ -6,9 +6,17 @@ import { googleLogin } from "../actions/userAction";
 class Login extends React.Component {
 
   render() {
-    return <button
-            onClick={this.props.googleLogin}
-           >Sign in with google</button>;
+    return (
+      <div className="login-page">
+        <div className="login-wrapper">
+          <h1>Welecome To Lambda Note Taking App</h1>
+          <p>Please login with your google account</p>
+          <button
+                onClick={this.props.googleLogin}
+          >Sign in with google</button>
+        </div>
+      </div>
+    )
   }
 }
 

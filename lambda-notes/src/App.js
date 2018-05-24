@@ -23,10 +23,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NotesList />
+          {this.props.user === null ? <Login /> : (
+            <div>
+              <Header />
+              <NotesList />
+            </div>
+            )}
       </div>
     );
   }
 }
 
-export default connect(null, { fetchNote, getUser } )(App);
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, {getUser, fetchNote})(App);
+
+

@@ -1,5 +1,5 @@
 import { auth, googleAuth } from "../config/fire";
-import { FETCH_USER } from "../actionTypes/actionTypes";
+import { FETCH_USER, FETCHING_USER, ERROR } from "../actionTypes/actionTypes";
 
 export const googleLogin = () => {
   return dispatch => auth.signInWithPopup(googleAuth);
@@ -13,7 +13,7 @@ export const getUser = () => {
         type: FETCH_USER,
         payload: user
       });
-    });
+    })
   }
 }
 

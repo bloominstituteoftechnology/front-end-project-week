@@ -9,20 +9,21 @@ class Header extends React.Component {
     return (
       <header>
         <nav>
-          <div>
-            <Link to="/">Logo</Link>
+          <div className="logo">
+            <Link to="/">Lambda Notes</Link>
           </div>
-          <div>
-            <Link to="/new">search</Link>
+          <div className="filter-wrapper">
+            <input
+              placeholder="Filter notes"
+              className="filter"
+            />
           </div>
-          <div>
-            signup
-          </div>
-          {this.props.user !== null ? (<div onClick={this.props.logout}>
+         <div onClick={this.props.logout} className="logout">
             <button>logout</button>
-          </div>) : (<div>
-            <Link to="/login">login</Link>
-          </div>)}
+         </div>
+       {/*  <div>
+          <Link to="/new">New Note</Link>
+         </div> */}
         </nav>
       </header>
     );
