@@ -1,6 +1,7 @@
 //Dependencies
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 //Redux
 import { changeTheme } from '../Actions';
 //Components
@@ -23,6 +24,7 @@ const buttonMod = {
 }
 
 const ThemePicker = (props) => {
+  if (!props.user) return <Redirect to ="/" />;
   return(
     <div style={styles} >
     <h4>What's your style?</h4>
@@ -32,4 +34,9 @@ const ThemePicker = (props) => {
   );
 }
 
-export default connect(null, { changeTheme })(ThemePicker);
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.user,
+  }
+}
+export default connect(mapStateToProps, { changeTheme })(ThemePicker);

@@ -1,6 +1,6 @@
 // Dependencies
 import React, { Component, Fragment } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter, Link, Redirect } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 // CSS
 import './NoteList.css';
@@ -13,8 +13,9 @@ class NoteList extends Component {
   //   super(props);
   // }
 
-  componentWillMount() {
-    this.props.fetchNotes();
+  componentDidMount() {
+    console.log("Does this.props.user exist?",this.props.user ? "YES":"NO");
+    if (this.props.user) this.props.fetchNotes(this.props.user.uid);
   }
 
   displayNotes = () => {
@@ -30,7 +31,8 @@ class NoteList extends Component {
 
   render() {
     console.log("NoteList props.notes",this.props.notes);
-    console.log("Notelist props.user",this.props.user);
+    console.log("Notelist props.user.",this.props.user);
+    if (!this.props.user) return <Redirect to ="/" />;
     const { classes } = this.props;
     return (
       <div className={`note-list ${classes}`}>
@@ -50,7 +52,7 @@ const NoteCard = (props) => {
   const truncTitle = title.length > 12 ? title.substring(0,10) + '...' : title;
   const truncText = text.length > 82 ? text.substring(0,80) + '...' : text;
   return (
-    <Link to={`/note/${id}`} className="note-card">
+    <Link to={`/notes/${id}`} className="note-card">
       <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
       <hr />
       <p>{truncText}</p>

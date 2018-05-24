@@ -1,0 +1,19 @@
+// Standard User-Restricted Rules
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "$uid === auth.uid"
+      }
+    }
+  }
+}
+
+// Default (Authentication Required for **Full** Access)
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null"
+  }
+}

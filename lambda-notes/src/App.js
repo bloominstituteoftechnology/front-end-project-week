@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import CustomProperties from 'react-custom-properties';
 import { connect } from 'react-redux';
+import { auth } from './config/firebase';
+// Redux
+import { persistUser } from './components/Actions';
 // CSS & Styling
 /*import logo from './logo.svg';*/
 import './App.css';
@@ -13,8 +16,13 @@ import NoteList from './components/NoteList';
 import ViewNote from './components/Forms/ViewNote';
 import InputForm from './components/Forms/InputForm';
 import ThemePicker from './components/Forms/ThemesPicker';
+import LoginPage from './components/Forms/LoginPage';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.persistUser();
+  }
 
   render() {
     return (
@@ -24,11 +32,12 @@ class App extends Component {
           <Navbar classes="col-md-3" />
           <div className="main-view col-md-9">
             <Switch>
-              <Route exact path="/" component={NoteList} />
-              <Route path="/note/:id" render={props => <ViewNote id={props.match.params.id} />} />
-              <Route path="/new" render={props => <InputForm match={props.match} />} />
-              <Route path="/edit/:id" render={props => <InputForm match={props.match} />} />
-              <Route path="/styles" component={ThemePicker} />
+              <Route exact path="/" component={LoginPage} />
+              <Route exact path="/notes" component={NoteList} />
+              <Route path="/notes/new" render={props => <InputForm match={props.match} />} />
+              <Route path="/notes/edit/:id" render={props => <InputForm match={props.match} />} />
+              <Route path="/notes/:id" render={props => <ViewNote id={props.match.params.id} />} />
+              <Route path="/user/styles" component={ThemePicker} />
             </Switch>
           </div>
         </div>
@@ -42,7 +51,7 @@ const mapStateToProps = state => {
     theme: state.userReducer.theme,
   }
 }
-export default withRouter(connect(mapStateToProps, null)(App));
+export default withRouter(connect(mapStateToProps, { persistUser })(App));
 
 /* Code I might want to keep around
   <img src={logo} className="App-logo" alt="logo" />

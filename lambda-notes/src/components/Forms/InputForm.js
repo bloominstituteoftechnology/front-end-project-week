@@ -20,7 +20,7 @@ class InputForm extends Component {
   }
 
   componentDidMount() {
-    if (this.props.match.path === "/edit/:id") {
+    if (this.props.match.path === "/notes/edit/:id") {
       const id = this.props.match.params.id;
       const note = this.props.notes.filter(note => note.id === id)[0];
       const { title, text, date } = note; 
@@ -41,10 +41,10 @@ class InputForm extends Component {
       date: this.state.date,
     }
 
-    if (this.props.match.path === "/new") {
-      this.props.addNote(noteToSend);
+    if (this.props.match.path === "/notes/new") {
+      this.props.addNote(this.props.user.uid, noteToSend);
     } else {
-      this.props.editNote(this.state.id, {
+      this.props.editNote(this.props.user.uid, this.state.id, {
         ...noteToSend,
       });
     }
@@ -59,11 +59,13 @@ class InputForm extends Component {
   }
 
   render() {
-    if (this.state.go === true) return <Redirect to="/" />;
+    console.log("inputform this.state.user",this.state.user);
+    if (!this.props.user) return <Redirect to ="/" />;
+    if (this.state.go === true) return <Redirect to="/notes" />;
     const path = this.props.match.path;
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="p-3">
-        <h3>{ path === "/new" ? `Create New ` : `Edit ` } Note:</h3>
+        <h3>{ path === "/notes/new" ? `Create New ` : `Edit ` } Note:</h3>
         <Form onSubmit={(e) => {
           e.preventDefault();
           this.submitNote();
@@ -74,7 +76,7 @@ class InputForm extends Component {
           <FormGroup>
             <Input type="textarea" name="text" id="noteText" placeholder="Note Content" rows="23" value={this.state.text} onChange={this.handleTextChange} />
           </FormGroup>
-          <Button type="submit">{path === "/new" ? "Submit" : "Update"}</Button>
+          <Button type="submit">{path === "/notes/new" ? "Submit" : "Update"}</Button>
         </Form>
       </div>
     );
@@ -84,6 +86,7 @@ class InputForm extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notesReducer.notes,
+    user: state.userReducer.user,
   };
 };
 
