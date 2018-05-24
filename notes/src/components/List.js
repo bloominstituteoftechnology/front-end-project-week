@@ -24,24 +24,11 @@ export default class List extends Component {
         <Row>
           <Col className="note-list">
             <h3 className="note-header">Your Notes:</h3>
+            <div style={{ display: 'flex', flexWrap:'wrap'}}>
                 {this.props.list.map(note => {
                     return <NoteButton key={note._id} title={note.title} textBody={note.textBody} _id={note._id} />
                 })}
-                {/* <Row className="row-one">
-                    <NoteButton />
-                    <NoteButton />
-                    <NoteButton />
-                </Row>
-                <Row className="row-two">
-                    <NoteButton />
-                    <NoteButton />
-                    <NoteButton />
-                </Row>
-                <Row className="row-three">
-                    <NoteButton />
-                    <NoteButton />
-                    <NoteButton />
-                </Row> */}
+            </div>
           </Col>
         </Row>
       </Container>

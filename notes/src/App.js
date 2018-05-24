@@ -8,13 +8,15 @@ import { List, Note, NewNote, EditNote, DeleteNote } from './components';
 
 class App extends Component {
   state = {
-    notes: []
+    notes: [],
   }
 
   componentDidMount() {
     axios.get('https://killer-notes.herokuapp.com/note/get/all')
     .then(res => this.setState({ notes: res.data }))
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err);
+    })
   }
 
   postNote = note => {
@@ -22,7 +24,7 @@ class App extends Component {
     axios
       .post('https://killer-notes.herokuapp.com/note/create', note)
       .then(response => {
-        this.setState(() =>({ note: [...response.data] }));
+        this.refresh()
         
       })
       .catch(err => {
@@ -30,16 +32,35 @@ class App extends Component {
       })
   }
 
+  refresh() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    .then(res => this.setState({ notes: res.data }))
+    .catch(err => {
+      console.log(err);
+    })
+  }
+
   removeNote = (_id) => {
     axios
       .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
       .then(response => {
-        this.setState({ notes: [...response.data] });
+        this.refresh()
       })
       .catch(err => {
         console.log(err)
       })
   };
+
+  updateNote = (editedNote) => {
+    axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${editedNote._id}`, editedNote)
+      .then(response => {
+        this.refresh()
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   render() {
     console.log("WHERE ARE MY PROPS:", this.props)
@@ -72,7 +93,11 @@ class App extends Component {
                   <Note {...props} list={this.state.notes} removeNote={this.removeNote}/>
                 )
               }} />
-              <Route path="/edit" component={EditNote}/>
+              <Route path="/edit/:id" render={props =>{
+                return (
+                  <EditNote {...props} updateNote={this.updateNote} />
+                )
+              }} />
             </Col>
           </Row>
         </Container>

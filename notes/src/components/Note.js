@@ -19,16 +19,22 @@ class Note extends Component {
         return ( 
             <Container>
                 <Row>
-                    <Col className="single-note">
-                        <div className="edit-delete">
-                            <Link to="/edit">
-                                <div className="edit">edit</div>
-                            </Link>
-                            <DeleteNote noteID={note ? note._id : ''} removeNote={this.props.removeNote}/>
-                        </div>
-                        <h1>{note ? note.title : ''}</h1>
-                        <p className="single-note-body">{note ? note.textBody : ''}</p>
-                    </Col>
+                    { note? 
+                        (<Col className="single-note">
+                    
+                    <div className="edit-delete">
+                        <Link to={`/edit/${note._id}`}>
+                            <div className="edit">edit</div>
+                        </Link>
+                        <DeleteNote noteID={note._id} removeNote={this.props.removeNote}/>
+                    </div>
+                    <h1>{note.title}</h1>
+                    <p className="single-note-body">{note.textBody}</p>
+                </Col>)
+                        :
+                        ('')
+                    }
+                    
                 </Row>
             </Container>
          )
