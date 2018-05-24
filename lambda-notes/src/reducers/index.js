@@ -62,9 +62,14 @@ export const notesReducer = (state = initialState, action) => {
       return Object.assign({}, state, {
         error: null,
         addingNote: false,
-        notes: action.payload,
+        notes: state.notes.concat(action.payload),
         activeNote: {}
       });
+      // return Object.assign({}, state, {
+      //   error: null,
+      //   addingNote: false,
+      //   activeNote: {}
+      // });
     
     case UPDATING_NOTE:
       return Object.assign({}, state, {

@@ -1,7 +1,5 @@
-import axios from 'axios';
-import Appbase from 'appbase-js';
 import history from '../constants/history';
-import dbConfig from '../constants/dbConfig';
+import axios from 'axios';
 import {
   FETCHING_NOTES,
   NOTES_FETCHED,
@@ -16,28 +14,10 @@ import {
   ERROR
 } from '../constants/actionTypes';
 
-const appbaseRef = new Appbase({
-  url: dbConfig.url,
-  app: dbConfig.app,
-  credentials: dbConfig.credentials
-});
-
 export const getNotes = () => {
   const getAllNotes = axios.get('http://localhost:5000/notes');
-  // const getAllNotes = appbaseRef.search({ type:'note', body: { query:{match_all:{} }} });
   return (dispatch) => {
     dispatch({ type: FETCHING_NOTES });
-    
-    // getAllNotes
-    //   .on('data', response => {
-    //     console.log("@search hits: ", JSON.stringify(response, null, '\t'));
-    //   })
-    //   .on('error', err => {
-    //     dispatch({
-    //       type: ERROR,
-    //       payload: err
-    //     });
-    //   });
 
     getAllNotes
       .then(response => {
@@ -73,7 +53,7 @@ export const getNote = noteId => {
           payload: err
         });
       });
-  }; 
+  };
 };
 
 export const addNote = noteObj => {
@@ -123,7 +103,7 @@ export const updateNote = (id, noteObj) => {
 };
 
 export const deleteNote = noteId => {
-  const removeNote = axios.delete (`http://localhost:5000/notes/${noteId}`);
+  const removeNote = axios.delete(`http://localhost:5000/notes/${noteId}`);
   return (dispatch) => {
     dispatch({ type: DELETING_NOTE });
 
