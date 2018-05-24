@@ -7,20 +7,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
     };
   }
 
-  componentWillMount(){
-    const myPromise = axios.get(URL);
-    myPromise
-      .then(response => {
-        this.setState({ notes: response.data})
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
+  
   render() {
     return (
       <div className="App">

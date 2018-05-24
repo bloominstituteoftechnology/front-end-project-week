@@ -11,20 +11,24 @@
 
 .sideBar {
     width: 25%;
-    background-color: #D8D8D8;
+    /*background-color: #D8D8D8;*/
+    background-color: #68829E;
     border: 2px solid #979797;
 }
 
 .mainBody {
     border: 2px solid #979797;
-    background-color:#F3F3F3;
+    /*background-color:#F3F3F3;*/
+    background-color: #505160;
     width: 75%; 
 }
 
 .createNoteButton {
     font: Raleway Medium;
     color: #FFFFFF;
-    background-color: #2BC1C4;
+    /*background-color: #2BC1C4;*/
+    background-color: #598234;
+    border-radius: 10px;
     width: 80%;
     height: 6%;
     margin-top: 7%;
@@ -33,7 +37,9 @@
 .viewNotesButton {
     font: Raleway Medium;
     color: #FFFFFF;
-    background-color: #2BC1C4;
+    /*background-color: #2BC1C4;*/
+    background-color: #598234;
+    border-radius: 10px;
     width: 80%;
     height: 6%;
     margin-top: 12%;
@@ -43,7 +49,9 @@
 .saveButton {
     font: Raleway Medium;
     color: #FFFFFF;
-    background-color: #2BC1C4;
+    /*background-color: #2BC1C4;*/
+    background-color: #598234;
+    border-radius: 10px;
     width: 25%;
     height: 45px;
     margin-top: 2%;
@@ -75,8 +83,11 @@
 
 .editButton {
     font: Raleway Medium;
-    color: #4A4A4A;
-    background-color:#F3F3F3;
+    color: #FFFFFF;
+    /*color: #4A4A4A;*/
+    border-radius: 10px;
+    /*background-color:#F3F3F3;*/
+    background-color:#598234;
     margin-left: 85%;
     text-decoration: underline;
     border: none;
@@ -84,8 +95,11 @@
 
 .deleteButton {
     font: Raleway Medium;
-    color: #4A4A4A;
-    background-color:#F3F3F3; 
+    color: #FFFFFF;
+    /*color: #4A4A4A;*/
+    border-radius: 10px;
+    /*background-color:#F3F3F3;*/
+    background-color: #598234; 
     text-decoration: underline;
     border: none;
 }
@@ -101,6 +115,7 @@
     width: 85%;
     margin-top: 4%;
     margin-left: 5%;
+    color: #FFFFFF;
 }
 
 .sideBarTitle1 {
@@ -117,20 +132,31 @@
 }
 
 .modalDelete {
-    background-color: #D0021B;
+    /*background-color: #D0021B;*/
+    background-color: #598234;
     width: 228px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .modalNo {
-    background-color: #2BC1C4;
+    /*background-color: #2BC1C4;*/
+    background-color: #AEBD38;
     width: 228px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .modalHeader {
-    margin-left: 60px;
-    margin-top: 50px;
+    padding-left: 70px;
+    background-color: #68829E;
+    color: #FFFFFF;
+    width: 498px;
+    
+    
+}
+
+.modalBody {
+    background-color: #68829E;
+    height: 200px;
 }
 
 

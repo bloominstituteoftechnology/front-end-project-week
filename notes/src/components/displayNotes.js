@@ -1,18 +1,31 @@
 import React,  { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
+import axios from 'axios';
 import './displayNotes.css';
+const URL = 'http://localhost:3333/notes'
 
 
 class DisplayNotes extends Component {
-    constructor() {
-    super();
+    constructor(props) {
+    super(props);
     this.state = {
         noteArr: [],
         noteObj:{
-            
-        }
+            },
+        notes: []
     }
+
     };
+    componentDidMount(){
+        const myPromise = axios.get(URL);
+        myPromise
+        .then(response => {
+            this.setState({ notes: response.data})
+        })
+        .catch(err => {
+            console.error(err);
+        });
+    }
     render() {
         const noteObj = {
             noteTitle: 'Note Title',

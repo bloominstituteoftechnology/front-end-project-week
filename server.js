@@ -14,6 +14,7 @@ const sendUserError = (msg, res) => {
 
 let notes = [
   {
+    id: 0,
     noteTitle: 'React Styles',
     noteContent: 'Implement React styling changes'
   }

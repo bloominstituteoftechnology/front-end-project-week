@@ -102,13 +102,14 @@ class CreateNote extends Component {
           </div>
 
           <div>
-            <input className="createNewNote"
+            <textarea className="createNewNote"
               placeholder="Note Content"
               type="text"
               value={this.state.fields.noteContent}
               name="noteContent"
               onChange={this.handleNoteChange}
           />
+          
           </div>
           <div>
             {this.state.error ? <div>Error note must not be empty text</div> : null}

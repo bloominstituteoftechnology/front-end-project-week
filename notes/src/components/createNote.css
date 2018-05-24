@@ -4,3 +4,19 @@
     margin-top: 8%;
 }
 
+.noteTitle {
+    background-color: #AEBD38;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font: Raleway Medium;
+
+    
+}
+
+.createNewNote {
+    background-color: #AEBD38;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font: Raleway Medium;
+}
+
