@@ -1,0 +1,17 @@
+{
+    "name": "note-app",
+    "version": "1.0.0",
+    "proxy": "http://localhost:5000/",
+    "scripts": {
+        "client": "cd client && yarn start",
+        "server": "nodemon server.js",
+        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    },
+    "dependencies": {
+        "cors": "^2.8.4",
+        "express": "^4.16.2"
+    },
+    "devDependencies": {
+        "concurrently": "^3.5.0"
+    }
+}
