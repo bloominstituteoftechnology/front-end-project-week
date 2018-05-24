@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Card, CardBody, CardTitle, CardText, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './App.css';
+
 
 const Note = props => {
     return (
