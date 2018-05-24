@@ -10,4 +10,3 @@ const Button_ = ({ text, action, ...rest }) => {
 };
 
 export default Button_;
- 

@@ -24,10 +24,11 @@ class Form_ extends Component {
     path === "/edit/:index" && this.getNoteData();
   }
   handleInput = e => {
-    e.key === "Enter" ? e.preventDefault() : null;
+    e.key === "Enter" ? e.preventDefault() : console.log();;
     this.setState({ [e.target.name]: e.target.value });
   };
-  newNote = () => {
+  newNote = (e) => {
+    // e.preventDefault();
     const newItem = this.state;
     this.props.addingItem(newItem);
     this.setState({ title: '', content: '' });
