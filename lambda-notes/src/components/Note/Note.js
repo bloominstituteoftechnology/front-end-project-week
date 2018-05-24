@@ -8,7 +8,7 @@ const Note = props => {
 
     return (
 
-       <Link style={{textDecoration: "none", color: "black"}} to={`/note/${props.note.id}`}>
+       <Link className="ui-state-default" style={{textDecoration: "none", color: "black"}} to={`/note/${props.note.id}`}>
 
             <div className="note">
 
