@@ -17,8 +17,9 @@ import 'firebase/database';
 
 class App extends Component {
   state = {
-    title: '',
     content: '',
+    search: '',
+    title: '',
     noteList: [],
   };
 
@@ -53,13 +54,28 @@ class App extends Component {
     firebase.database().ref(`notes/${ id }`).remove();
   }
 
+  // handleSearchNotes
+  handleSearchNotes = () => {
+    if (this.state.search) {
+      return this.state.noteList.filter(note => {
+        const noteTitle = note.title.toLowerCase().match(this.state.search.toLowerCase());
+        const noteContent = note.content.toLowerCase().match(this.state.search.toLocaleLowerCase());
+        if (noteTitle) {
+          return noteTitle;
+        }
+        return noteContent;
+      });
+    }
+    return this.state.noteList;
+  }
+
   /*****************************************
   ** component rendering for react router **
   *****************************************/
   // <NoteView />
   returnNoteView = props => {
     const { state: { noteList }, setSelectedNote } = this;
-    return <NoteView { ...props } noteList={ noteList } setSelectedNote={ setSelectedNote }/>;
+    return <NoteView { ...props } noteList={ this.handleSearchNotes() } setSelectedNote={ setSelectedNote }/>;
   }
   
   // <Note />
@@ -128,7 +144,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar/>
+        <Sidebar setInputVal={ this.setInputVal } search={ this.state.search }/>
 
         {/* NoteView */}
         <Route
