@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING, REALLY_DELETE, DONE_DELETING, CANCEL_DELETE, EDIT_NOTE, SAVE_EDIT, ALPHABETIZE_NOTES, ERROR, SHORTEST_NOTES, LONGEST_NOTES } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, START_CREATE, GO_TO_LIST, VIEW_NOTE, START_DELETE, SAVE_NEW, DONE_SAVING, REALLY_DELETE, DONE_DELETING, CANCEL_DELETE, EDIT_NOTE, SAVE_EDIT, ALPHABETIZE_NOTES, ERROR, SHORTEST_NOTES, LONGEST_NOTES, REV_ALPHABETIZE_NOTES } from '../actions';
 
 const initialState = {
   notes: [],
@@ -8,7 +8,6 @@ const initialState = {
 };
 
 const noteReducer = (state = initialState, action) => {
-  let sortedNotes;
   switch (action.type) {
     case SAVE_NEW:
     case SAVE_EDIT:
@@ -34,7 +33,11 @@ const noteReducer = (state = initialState, action) => {
     case ERROR:
       return Object.assign({}, state, {appState: "error", error: action.payload});
     case ALPHABETIZE_NOTES:
-      sortedNotes = state.notes.slice(0).sort((a, b) => a.title.localeCompare(b.title));
+      let sortedNotes = state.notes.slice(0).sort((a, b) => a.title.localeCompare(b.title));
+      return Object.assign({}, state, {notes: sortedNotes});
+    case REV_ALPHABETIZE_NOTES:
+      console.log(sortedNotes);
+      sortedNotes = state.notes.slice(0).sort((a, b) => b.title.localeCompare(a.title));
       return Object.assign({}, state, {notes: sortedNotes});
     case SHORTEST_NOTES:
       sortedNotes = state.notes.slice(0).sort((a, b) => a.textBody.length - b.textBody.length);
@@ -46,5 +49,9 @@ const noteReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+
+
+
 
 export default noteReducer;

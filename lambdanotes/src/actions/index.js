@@ -17,6 +17,7 @@ export const SAVE_EDIT = "SAVE_EDIT";
 export const ALPHABETIZE_NOTES = "ALPHABETIZE_NOTES";
 export const SHORTEST_NOTES = "SHORTEST_NOTES";
 export const LONGEST_NOTES = "LONGEST_NOTES";
+export const REV_ALPHABETIZE_NOTES = "REV_ALPHABETIZE_NOTES";
 
 
 
@@ -117,6 +118,12 @@ export const saveEdit = (nextAct, url, note, id) => {
 export const alphabetizeNotes = () => {
   return (dispatch) => {
     dispatch({type: ALPHABETIZE_NOTES});
+  }
+}
+
+export const revAlphabetizeNotes = () => {
+  return (dispatch) => {
+    dispatch({type: REV_ALPHABETIZE_NOTES});
   }
 }
 

@@ -14,8 +14,9 @@ const SideMenu = (props) => {
 
   if (props.appState === "list") {
     buttonArray.push(<LambdaButton key="3" text="Alphabetize" color="green" myFunc={props.alphabetizeNotes} />);
-    buttonArray.push(<LambdaButton key="4" text="Sort By Shortest" color="green" myFunc={props.shortestNotes} />);
-    buttonArray.push(<LambdaButton key="5" text="Sort By Longest" color="green" myFunc={props.longestNotes} />);
+    buttonArray.push(<LambdaButton key="4" text="Reverse Alphabetize" color="green" myFunc={props.revAlphabetizeNotes} />);
+    buttonArray.push(<LambdaButton key="5" text="Sort By Shortest" color="green" myFunc={props.shortestNotes} />);
+    buttonArray.push(<LambdaButton key="6" text="Sort By Longest" color="green" myFunc={props.longestNotes} />);
   }
 
   return (
