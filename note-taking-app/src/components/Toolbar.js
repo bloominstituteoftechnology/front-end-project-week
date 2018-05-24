@@ -13,7 +13,7 @@ import { Callout, DirectionalHint } from 'office-ui-fabric-react/lib/Callout';
 class Toolbar extends Component {
   render() {
     const { searchBoxOpen, sortBoxOpen, tagBoxOpen } = this.props;
-    const { getNotes, addNote, showSearchBox, hideSearchBox, showSortBox, hideSortBox, showTagBox, hideTagBox } = this.props
+    const { getNotes, addNote, showSearchBox, hideSearchBox, showSortBox, showTagBox, hideTagBox } = this.props
     return (
       <div style={style.displayFlex}>
         <h3>Lambda Note</h3>

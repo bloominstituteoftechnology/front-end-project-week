@@ -53,14 +53,14 @@ function alphabetical_sort_object_of_objects(data, attr, sortType) {
 
   var result = [];
   for (var i=0, l=arr.length; i<l; i++) {
-      var obj = arr[i];
-      delete obj.tempSortName;
-      for (var prop in obj) {
-          if (obj.hasOwnProperty(prop)) {
-              var id = prop;
+      var obj1 = arr[i];
+      delete obj1.tempSortName;
+      for (var prop1 in obj1) {
+          if (obj1.hasOwnProperty(prop1)) {
+              var id = prop1;
           }
       }
-      var item = obj[id];
+      var item = obj1[id];
       if (sortType === 'asc'){
         result.push(item)
       } else {

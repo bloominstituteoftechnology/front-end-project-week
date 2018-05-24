@@ -1,5 +1,5 @@
 import db from '../firebase';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES'
 export const FETCHED_NOTES = 'FETCHED_NOTES'
@@ -34,7 +34,6 @@ export const getNotes = () => {
         
         ref.on("value", 
         response => {
-            console.log(response.val())
             dispatch({ type: FETCHED_NOTES, notes: response.val()})
         }, 
         error => {

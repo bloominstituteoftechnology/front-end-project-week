@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 import Notes from './Notes';
 import AddNoteForm from './AddNoteForm';
@@ -12,7 +12,7 @@ import { getNotes, getTags, getAuthState } from '../actions';
 
 import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Panel } from 'office-ui-fabric-react/lib/Panel';
-import { Persona, PersonaSize } from 'office-ui-fabric-react/lib/Persona';
+import { Persona } from 'office-ui-fabric-react/lib/Persona';
 
 const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isDeleting }) => {
   if (!isFetching) {
@@ -59,8 +59,8 @@ class NoteContainer extends React.Component {
     firebase.auth().signOut()
   }
   render () {
-    const { openPanel, hidePanel } = this.state
-    const { getAuthState, notesReducer } = this.props
+    const { openPanel } = this.state
+    const { notesReducer } = this.props
     const { isSignedIn, user } = this.props.userReducer
     return (
       <div style={style.root}>

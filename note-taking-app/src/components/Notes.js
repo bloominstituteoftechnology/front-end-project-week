@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import { makeSearchNoteByText, makeSortNoteBy, makeConvertObjectToArray } from '../selectors';
+import { makeSearchNoteByText, makeSortNoteBy } from '../selectors';
 
 import NoteCard from './NoteCard';
 import DroppableCol from './DroppableCol';
@@ -87,10 +87,15 @@ class Notes extends React.Component {
           switch (source.droppableId) {
             case 'droppable2':
                 state = { list2: items }
+                break;
             case 'droppable3':
                 state = { list3: items }
+                break;
             case 'droppable4':
                 state = { list4: items }
+                break;
+            default:
+                return;
           }
 
           this.setState(state);
@@ -143,7 +148,6 @@ const mapStateToProps = () => {
     const searchNoteByText = makeSearchNoteByText()
     const sortNoteBy = makeSortNoteBy()
     return (state) => {
-        console.log(state)
         if (state.toolsReducer.searchBoxOpen) {
             const { notes } = searchNoteByText(state.notesReducer.notes, state.toolsReducer.searchText)
             return {
