@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //importing Router
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 //importing Listview and NewNote from LambdaPages
 import ListView from './LambdaPages/ListView';
@@ -11,6 +11,7 @@ import Form from './components/Form';
 import './App.css';
 import { Card, CardTitle, CardText, Col, Row, Container,Button, Label } from 'reactstrap';
 import EditNote from './LambdaPages/EditNote';
+import Delete from './components/Delete';
 
 
 //state of Notes
@@ -59,6 +60,8 @@ renderNoteList = (title, note) => {
         <Route exact path="/" render={props => <ListView {...props} notes={this.state.list}/>} />
         <Route path="/note" render={props => <NewNote {...props} renderNoteList={this.renderNoteList}/>} />
         <Route path="/note/edit" component={EditNote} />
+        <Link to="note/edit/"><Button color="info">Edit</Button></Link>
+        <Link to="/"> <Delete /> </Link>
       </div>
       
     );

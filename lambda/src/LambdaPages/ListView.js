@@ -18,12 +18,10 @@ const ListView = (props) => {
             return (
                 <div key={note.id}>
                     <Container className="form-container">
-                        <Row>
-                            <Card  body>
+                        <Row >
+                            <Card body>
                                 <CardTitle className="tcard">{note.title}</CardTitle>
                                 <CardText className="ctext">{note.note}</CardText>
-                                <Link to="note/edit/"><Button color="info">Edit</Button></Link>
-                                <Delete />
                             </Card>
                         </Row>
                     </Container>

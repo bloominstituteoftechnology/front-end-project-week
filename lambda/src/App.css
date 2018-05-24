@@ -4,6 +4,8 @@
   width: 100%;
   background-color: #F3F3F3; 
   height: 1000px; 
+  border: 1px solid gray;
+  padding: 20px;
 }
 
 h4{
