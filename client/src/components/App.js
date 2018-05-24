@@ -112,8 +112,13 @@ class App extends Component {
     const notesRef = firebase.database().ref('notes');
     notesRef.on('value', snapshot => {
       const noteList = [];
-      for (let note in snapshot.val()) {
-        noteList.push({ id: note, title: snapshot.val()[note].title, content: snapshot.val()[note].content });
+      const snapshotVal = snapshot.val();
+      for (let note in snapshotVal) {
+        noteList.push({
+          id: note,
+          title: snapshotVal[note].title,
+          content: snapshotVal[note].content
+        });
       }
       this.setState({ noteList });
     })
