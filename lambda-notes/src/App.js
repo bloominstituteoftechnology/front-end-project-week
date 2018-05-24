@@ -9,6 +9,7 @@ import AddNoteForm from "./components/AddNoteForm";
 import NotesList from "./components/NotesList";
 import Note from "./components/Note";
 import Login from "./components/Login";
+import SideBar from './components/SideBar';
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +27,10 @@ class App extends Component {
           {this.props.user === null ? <Login /> : (
             <div>
               <Header />
+              <section className="main">
+              <SideBar />
               <NotesList />
+              </section>
             </div>
             )}
       </div>

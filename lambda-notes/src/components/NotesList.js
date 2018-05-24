@@ -8,7 +8,7 @@ class NotesList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="notes-list">
         {_.map(this.props.notes, (note, key) => {
           return (
             <Note

@@ -1,4 +1,5 @@
 
+
 body {
   min-height: 100vh;
   width: 100vw;
@@ -46,6 +47,7 @@ header nav {
   padding: 20px 0;
   color: white;
   background-color: black;
+  border-bottom: 1px solid white;
 }
 
 header nav a {
@@ -70,3 +72,63 @@ header nav a {
   font-size: 16px;
   padding: 5px 15px;
 }
+
+.main {
+  display: flex;
+}
+
+.side-bar {
+  flex-basis: 15%;
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid black;
+}
+
+.side-bar h2 {
+  font-size: 25px;
+}
+
+.side-bar button {
+  width: 90%;
+  padding: 10px 0;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+}
+
+.side-btn {
+  margin-bottom: 10px;
+}
+
+.notes-list {
+  flex: 1;
+  display: flex;
+  background-color: black;
+  justify-content: space-around;
+  color: white;
+  min-height: 89vh;
+  overflow: scroll;
+}
+
+.note-card {
+  flex-basis: 30%;
+  height: 200px;
+  overflow: scroll;
+  text-align: center;
+  margin-top: 30px;
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+
+.note-card h2 {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+
+.note-card a {
+  color: white;
+  text-decoration: none;
+}
+

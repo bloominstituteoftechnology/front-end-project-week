@@ -5,7 +5,7 @@ class Note extends React.Component {
 
   render() {
     return (
-      <div key={this.props.id}>
+      <div key={this.props.id} className="note-card">
         <Link to ={`/notes/${this.props.id}`} >
           <h2>{this.props.title}</h2>
         </Link>
