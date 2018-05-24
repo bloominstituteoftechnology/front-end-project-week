@@ -38,6 +38,7 @@
 }
 
 .viewNoteContent {
+    font-family: 'Raleway', sans-serif;
     display: block;
     text-align: start;
     margin: 25px;
