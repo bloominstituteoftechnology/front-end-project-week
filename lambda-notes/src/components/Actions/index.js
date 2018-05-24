@@ -4,6 +4,7 @@ export const ERROR = "ERROR";
 export const FETCH = "FETCH";
 export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
+export const THEME = "THEME";
 
 // To notesReducer
 export const addNote = note => async dispatch => {
@@ -59,3 +60,10 @@ export const logoutUser = () => {
       }));
   };
 };
+
+export const changeTheme = (theme) => {
+  return {
+    type: THEME,
+    payload: theme,
+  }
+}

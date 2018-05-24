@@ -29,3 +29,11 @@
   font-family: 'Raleway', sans-serif;
   font-size: 0.8rem;
 }
+
+.note-card {
+  background-color: var(--color-bg);
+}
+
+.note-card hr {
+  color: var(--color--button) ;
+}

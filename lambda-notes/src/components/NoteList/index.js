@@ -51,7 +51,7 @@ const NoteCard = (props) => {
   const truncText = text.length > 82 ? text.substring(0,80) + '...' : text;
   return (
     <Link to={`/note/${id}`} className="note-card">
-      <h3>{truncTitle}</h3>
+      <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
       <hr />
       <p>{truncText}</p>
       {/* <ReactMarkdown source={truncText} /> */}
