@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-import {  Grid, Row, Col,  Modal } from 'react-bootstrap';
+import { Row, Col,  Modal } from 'react-bootstrap';
 
 class ModalExample extends Component{
   constructor(props) {
@@ -48,7 +47,7 @@ class ModalExample extends Component{
                                               </button>
                                         </Col>
                                         <Col md={6}>
-                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                              <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
                                         </Col>
                                       </Row>
                                     </Modal.Body>

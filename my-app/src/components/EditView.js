@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Notes from './Note';
 import './css/createNote.css';
-import { Link } from 'react-router-dom';
-// import ListView  from './ListView';
 
 export default class CreateNote extends Component {
     constructor(props) {
@@ -32,7 +30,7 @@ export default class CreateNote extends Component {
          objectHolder.push(newObject);
          
          this.setState({objectHolder: objectHolder, title: '', comment: ''});
-         console.log("Object Holder", objectHolder);
+        //  console.log("Object Holder", objectHolder);
     }
 
     render() {
