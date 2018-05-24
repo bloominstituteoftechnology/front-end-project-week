@@ -1,6 +1,7 @@
 .click-container {
     display: flex;
     justify-content: flex-end;
+    font-size: 1.2rem;
 }
 
 .single-note-header {
@@ -9,6 +10,7 @@
 
 .content {
     text-align: left;
+    font-size: 1.4rem;
 }
 
 .viewNote-btn {

@@ -1,7 +1,5 @@
 import React from 'react';
 import Note from './Note';
-import { Link } from 'react-router-dom';
-import { Container, Row, Button } from 'reactstrap';
 
 
 const NoteList = (props) => {

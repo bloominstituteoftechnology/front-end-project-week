@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './Form.css';
 
@@ -44,7 +44,7 @@ export default class CreateForm extends Component {
                             <Input className='text-input' 
                                 type='textarea' 
                                 name='text' 
-                                placeholder='Note Content' 
+                                placeholder ='Note Content' 
                                 value={this.state.text}
                                 onChange={this.handdleInputChange}
                                 /> 

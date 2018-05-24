@@ -1,0 +1,35 @@
+.deleteNoteModal {
+    margin-top: 16rem !important;    
+    max-width: 60rem !important;
+    width: 55rem !important;    
+    border: 2px black !important; 
+    border-radius: 0 !important; /* border doesn't work ?? */   
+    text-align: center; 
+}
+
+.modal-text {
+    font-size: 1.4rem;
+    margin-top: 3.5rem;
+}
+
+.modal-delete-btn, .modal-no-btn {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 500px;
+    width: 18rem;
+    height: 4rem;
+    border: 1px solid #979797;
+    margin: 1.5rem 0 3.5rem 0;
+}
+
+.modal-delete-btn {
+    background-color: red;
+    margin-right: 2rem;
+}
+
+.modal-no-btn {
+    background-color:#2BC1C4;
+}
+
+
+
