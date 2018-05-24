@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../src/styles/App.css'
 import { Switch, Route } from "react-router-dom";
 import { SideNav, ListView, NoteView, Edit, Create } from './components'
+import { connect } from 'react-redux'
 
 class App extends Component {
   render() {
@@ -19,5 +20,9 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = state => {
+  return {
+    deleting: state.deleting
+  }
+}
+export default connect(mapStateToProps)(App)

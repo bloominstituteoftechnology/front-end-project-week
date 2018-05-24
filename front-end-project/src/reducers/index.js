@@ -1,7 +1,8 @@
-import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions'
+import { ADD_NOTE, EDIT_NOTE, DELETING_NOTE, DELETE_NOTE, NOT_DELETING_NOTE } from '../actions'
 
 const initialState = {
     input: '',
+    deleting: false,
     notes: [
         {
             id: 0,
@@ -10,11 +11,17 @@ const initialState = {
 
             Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis velit. ut egestas, ante at lobortis ullamcorper, neque odio fringilla odio, non mattis elit lacus ut velit. Sed feugiat nibh vel molestie sollicitudin. Duis tincidunt portitor sem, sit amet ultricies lacus pelientesque vel. Aenean quis enim placerat, posuere orci ac, condimentum tellus. Vivamus vitae sodales quam, eget ultricies lorem. Nam pellenteque massa nisl, at pellentesque nisi faucibus vitae. Curabitur sit amet turpis quam. Duis eget metus elementum, solicitudin dui sed, accumsan dui. Donec ut est orci. Nunc fringilla purus sit amet posuere volutpat. Fusce vitae lectus is neque facilisis laoreet eget non odio. Praesent sed mauris porta, volutpat ante hendrerit, ultrices nisl.`
         }
-    ]
+    ],
+    
 }
 
 const noteReducer = (state = initialState, action) => {
-    switch (action.payload) {
+    switch (action.type) {
+        case DELETING_NOTE:
+        console.log('Hey, I am running')
+        return Object.assign({}, state, {
+            deleting: true,
+        })
         case ADD_NOTE:
         let currentNotes = state.notes.slice();
         let addingNote = currentNotes.concat(action.payload);
@@ -31,14 +38,19 @@ const noteReducer = (state = initialState, action) => {
             currentNotes.content = content;
         }
         return Object.assign({}, state, { 
-            notes: currentNotes 
+            notes: currentNotes,
         })
         case DELETE_NOTE:
         currentNotes.filter(identification => {
             return identification !== id
         })
+        case NOT_DELETING_NOTE:
+        return Object.assign({}, state, {
+            deleting: false,
+        })
         return Object.assign({}, state, { 
-            notes: currentNotes 
+            notes: currentNotes,
+            deleting: false,
         })
         default:
         return state;

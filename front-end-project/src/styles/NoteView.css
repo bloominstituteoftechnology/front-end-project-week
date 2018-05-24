@@ -1,38 +1,14 @@
-.noteViewButtons {
-    margin-top: -55rem;
-    margin-left: 73rem;
-    margin-right: 3rem;
-    font-size: 1.2rem;
-    text-decoration: underline;
-    display: flex;
-    font-weight: bold;
-
-}
-
 .note {
-    margin: 1rem 5rem 0rem 4rem;
+    margin: 0rem 5rem 0rem 4rem;
     line-height: 2.5;
     white-space: pre-line;
     font-size: 1.2rem;
+    z-index: 1;
 }
 
 h3 {
     font-size: 2rem;
     font-weight: bold;
-}
-.modal-content {
-    padding: 1rem 0rem 2rem 0rem;
-    margin: 2rem;
-    font-size: 1.4rem;
-}
-
-.modalbutton {
-    display: inline-block;
-    width: 15vw;
-    margin: -.8rem 1rem;
-}
-.modal-body {
-    text-align: center;
 }
 
 .button {
@@ -44,20 +20,43 @@ p {
     margin-top: 0rem;
     margin-bottom: 3rem;
 }
-.modal-backdrop.in {
-    height: 100%;
-}
-.modal {
-    height: 13rem;
-    margin-left: 21rem;
+
+.modal-body {
+    background: white;
+    z-index: 5;
+    margin: 10rem 0 0 20rem;
     width: 50rem;
-    background: #FFFFFF;
-    border: .5px solid #979797;
+    height: 15rem;
+    position: fixed;
+    border: 1.5px solid  #979797;
+    opacity: 1;
+}
+
+
+.noteViewButtons {
+    margin-left: 50rem;
+    padding-top: 3rem;
+    font-size: 1.4rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.delete {
+    margin-left: 2rem;
+}
+
+.modalButtons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 10rem;
+    width: 60%;
 
 }
-.modal-backdrop {
-    height: 100vh;
+.cancel {
+    margin-left: 5rem;
 }
-span {
-    margin-left: 2rem;
+.modal-text {
+    margin: 3.5rem 0 0 12rem;
+}
+.deleteButton {
+    background: #D0021B;
 }

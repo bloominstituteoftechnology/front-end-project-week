@@ -2,7 +2,6 @@
     width: 25%;
     min-width: 15rem;
     height: 100vh;
-    background: #D8D8D8;
     padding: 1rem 2rem;
     z-index: 10;
 }
@@ -22,4 +21,5 @@ button {
     background: #2BC1C4;
     font-size: 1.2rem;
     outline-width: 1rem;
+    border-color: #979797;
 }
