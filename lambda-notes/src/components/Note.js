@@ -40,7 +40,7 @@ class Note extends Component {
     render() { 
         return (
             this.props.singleNote ? (
-                <Container>
+                <Container fluid="true">
                     <div className="edit-delete">
                         <Link to={`edit/${this.props.match.params.id}`}>edit</Link>
                         <a onClick={this.toggleModal}>delete</a>

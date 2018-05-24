@@ -6,10 +6,12 @@ const initialState = {
     created: false,
     updated: false,
     deleted: false,
+    //filtered: false,
     singleNote: false, 
     error: false, 
     notes: [],
-    currentNote: null
+    currentNote: null,
+    //filteredNotes: []
 }
 
 export default (state=initialState, action) => {
@@ -51,6 +53,13 @@ export default (state=initialState, action) => {
                 error: false,
                 notes: action.payload
             })
+        // case FILTERED:
+        //     return Object.assign({}, state, {
+        //         pending: false,
+        //         filtered: true,
+        //         error: false,
+        //         filteredNotes: action.payload
+        //     }) 
         case SINGLE_NOTE: 
             return Object.assign({}, state, {
                 pending: false,

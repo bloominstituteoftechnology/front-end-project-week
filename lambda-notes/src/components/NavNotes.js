@@ -7,7 +7,7 @@ import NoteButton from './NoteButton';
 const NavNotes = () => {
 
     return (
-        <Navbar className="nav-container" fixed="true">
+        <Navbar className="nav-container" fixed="true" fluid="true">
             <Nav vertical="true" className="nav-section">
                 <h2 className="heading nav-heading">Lambda<br/>Notes</h2>
                 {/* <SearchBar /> */}

@@ -10,14 +10,22 @@ class SearchBar extends Component {
     }
     
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
+        this.setState({[e.target.name]: e.target.value});
+        console.log("search term: ", this.state.search)
     }
 
-    render() {    
+    render() {
+            
         return (
             <form 
                 className="search-bar" 
-                onSubmit={() => this.state.filter(this.state.search)}>
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    const searchTerm = this.state.search
+                    console.log("search term: ", searchTerm)
+                    console.log(this.state.filter);
+                    this.state.filter(searchTerm)
+                }}>
                 <i className="fas fa-search"></i>
                 <input
                     name= "search" 

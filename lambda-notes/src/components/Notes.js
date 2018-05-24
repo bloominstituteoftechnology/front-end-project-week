@@ -4,13 +4,14 @@ import { fetchNotes } from '../actions';
 import NoteThumbnail from './NoteThumbnail';
 import { Container, Row } from 'reactstrap';
 import SearchBar from './SearchBar';
-// import { JsSearch } from 'js-search';
 
 class Notes extends Component {
     constructor() {
         super();
+        this.filterNotes = this.filterNotes.bind(this)
         this.state = {
-            notes: []
+            notes: [],
+            filtered: false
         }
     }
 
@@ -20,29 +21,18 @@ class Notes extends Component {
     }
 
     filterNotes(value) {
-        // let search = new JsSearch.Search('id');
-        // console.log("filtering");
-        // search.addIndex('title');
-        // search.addIndex('content');
-        // this.props.notes.forEach( note => {
-        //     search.addDocuments(note)
-        //     console.log("note added: ",note)
-        // });
-        // this.setState({notes: search.search(value)});
-        // console.log("notes found: ", this.state.notes);
-
         let filteredNotes = [];
         this.state.notes.forEach(note => {
             if (note.title.includes(value)) {
                 filteredNotes.push(note)
             }
         })
-        this.setState({notes: filteredNotes});
+        this.setState({notes: filteredNotes, filtered: true});
     }
 
     render() { 
         return (
-            <Container className="notes-container">
+            <Container fluid="true" className="notes-container">
                 <SearchBar filter={this.filterNotes}/>
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">

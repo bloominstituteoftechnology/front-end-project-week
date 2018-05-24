@@ -4,6 +4,7 @@ export const FETCHED = 'FETCHED';
 export const CREATED = 'CREATED';
 export const UPDATED = 'UPDATED';
 export const DELETED = 'DELETED';
+//export const FILTERED = 'FILTERED';
 export const ERROR = 'ERROR';
 export const SINGLE_NOTE = 'SINGLE_NOTE';
 
@@ -40,6 +41,12 @@ const deletedNote = (data) => {
         payload: data
     }
 }
+
+// const filteredNotes = (data) => {
+//     return {
+//         type
+//     }
+// }
 
 const error = (err) => {
     return {

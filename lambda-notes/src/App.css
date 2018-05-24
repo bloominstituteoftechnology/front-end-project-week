@@ -6,13 +6,14 @@
   color: #4A4A4A;
   font-family: 'Raleway', sans-serif;
   box-sizing: border-box;
-  font-size: 1.2em;
+  font-size: 1.2rem;
+  min-height: 100vh;
 }
 
 .heading {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
-  font-size: 1.7em;
+  font-size: 2rem;
 }
 
 h3.heading {
@@ -20,15 +21,16 @@ h3.heading {
 }
 
 .nav-heading {
-  font-size: 2.8em;
+  font-size: 3rem;
   line-height: 0.9em;
   width: 100%;
   padding-left: 15px;
+  margin-bottom: 15px;
 }
 
 .nav-container {
-  max-width: 32vw;
-
+  max-width: 50vw;
+  min-width: 350px;
   background-color: #D8D8D8;
   display: flex;
   align-items: flex-start !important;
@@ -51,7 +53,8 @@ h3.heading {
   flex-direction: row;
   align-items: center;
   margin-top: 30px;
-  width: 22vw;
+  width: 40vw;
+  max-width: 500px;
 }
 
 .fa-search {
@@ -74,34 +77,39 @@ h3.heading {
   max-width: 300px;
   height: 70px;
   cursor: pointer;
-  margin: 30px 0.5vw 0 0.5vw;
+  margin: 15px 0.5vw 15px 0.5vw;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
 }
 
 .btn-link {
-  width: 100%
+  display: flex;
+  justify-content: center;
+}
+
+.btn-link:hover {
+  text-decoration: none !important;
 }
 
 .btn.main {
   background-color: #2BC1C4;
   border: 1px solid #979797;
   border-radius: 0px;
-  font-size: 1.3em;
+  font-size: 1.4rem;
 }
 
 .btn.danger {
   background-color: #D0021B;
   border: 1px solid #979797;
   border-radius: 0px;
-  font-size: 1.3em;
+  font-size: 1.4rem;
 }
 
 .note-thumbnail {
-  margin: 20px 0;
+  margin: 15px;
   padding: 0px 10px;
-  width: 300px;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
   border: 1px solid #979797 !important;
   border-radius: 0px !important;
   color: #4A4A4A;
@@ -119,12 +127,14 @@ h3.heading {
 }
 
 .notes-container {
-  /* background-color: yellow; */
-  width: 90%;
+  margin: 0 1vw !important;
 }
 
 .notes-section {
   padding: 30px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .form-section {
@@ -137,7 +147,7 @@ h3.heading {
 }
 
 .form-title {
-  width: 40vw !important;
+  width: 80% !important;
   height: 70px !important;
   padding: 30px !important;
   font-size: 1em !important;
@@ -154,8 +164,8 @@ h3.heading {
 
 .note-content {
   margin: 35px 30px;
-  line-height: 1.8em;
-  font-size: 1.2em;
+  line-height: 1.5em;
+  font-size: 1em;
 }
 
 .edit-delete {
@@ -175,13 +185,18 @@ h3.heading {
 }
 
 .btn-holder {
-  width: 22vw;
+  margin: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 70px;
 }
 
 .btn-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
   padding-bottom: 55px;
 }
 
@@ -193,4 +208,133 @@ h3.heading {
   padding-top: 55px;
   text-align: center;
   font-size: 1.7em;
+}
+
+@media screen and (max-width: 600px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .nav-container {
+    min-width: 100vw !important;
+    border-right: none;
+    border-bottom: 1px solid #979797;
+    max-height: 40vh;
+    min-height: 10vh;
+  }
+
+  .nav-section {
+    margin-top: 10px;
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .btn {
+    max-width: 65%;
+    min-width: 50vw;
+    height: 45px;
+  }
+
+  .btn.main {
+    font-size: 1rem;
+  }
+
+  .btn.danger {
+    font-size: 1rem;
+  }
+  
+  .note-thumbnail {
+    width: 90vw;
+    height: 90vw;
+    font-size: 1em;
+  }
+
+  .search-bar {
+    width: 80vw;
+  }
+
+  .notes-container {
+    width: 100vw;
+    margin: 0 !important;
+  }
+
+  .notes-section {
+    padding: 10px 10px;
+  }
+
+  h3.heading{
+    padding-top: 20px;
+    margin: 0;
+  }
+
+  .form {
+    margin: 5vw 1vw;
+  }
+
+  .form-content {
+    height: 200px;
+    margin-bottom: 10px;
+  }
+
+  .edit-delete {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .edit-delete a {
+    margin: 0 10px 20px 10px;
+    font-size: 1.2rem;
+  }
+
+  .btn-holder {
+    max-width: 72vw;
+    min-width: 52vw;
+    height: 40px;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  .nav-container {
+    max-width: 50vw;
+    min-width: 40vw;
+  }
+  
+  .btn.main {
+    font-size: 1.3rem;
+  }
+
+  .btn.danger {
+    font-size: 1.3rem;
+  }
+
+  .form-title {
+    width: 100% !important;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-holder {
+    max-width: 35vw;
+  }
+
+  .search-bar {
+    width: 90%;
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 1560px) {
+  .btn {
+    width: 35vw;
+    margin: 1vw;
+  }
+
+  .btn-holder {
+    width: 35vw;
+  }
 }
