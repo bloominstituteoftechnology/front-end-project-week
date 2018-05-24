@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 import { Route } from 'react-router-dom';
 import ListView from './components/ListView';
 import NavBar from './components/NavBar';
@@ -13,12 +14,32 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: []
+      noteList: [],
+      current: {}
     }
   }
 
   componentDidMount() {
-    this.setState({ notes: note })
+    axios
+        .get(
+            `https://killer-notes.herokuapp.com/note/get/all`)
+        .then(
+            res => {this.setState({ noteList: res.data })})
+        .catch(
+            err => {console.log(err)})
+  }
+
+  setCurrentNote = (noteID) => {
+      axios
+        .get(
+            `https://killer-List.herokuapp.com/note/get/${noteID}`
+        )
+        .then(
+            res => {this.setState({ current: res.data })}
+        )
+        .catch(
+            err => {console.log(err)}
+        )
   }
 
   render() {
@@ -29,11 +50,11 @@ class App extends Component {
             </div>
             <div className='note-container'>
                 <Route exact path='/' render={ (props) => {
-                    return (<ListView { ...props } notes={this.state.notes} />)}} />
-                <Route path='/create' component={CreateNote} />
+                    return (<ListView { ...props } noteList={this.state.noteList} />)}} />
+                <Route path='/note/create' component={CreateNote} />
                 <Route exact path='/:id' render={ (props) => {
-                    return (<ListView {...props} notes={this.state.notes} />)}} />
-                <Route path='/note/edit' component={EditNote} />
+                    return (<ViewNote {...props} current={this.state.current} />)}} />
+                <Route path='/:id/edit' component={EditNote} />
             </div>
         </div>
     );
