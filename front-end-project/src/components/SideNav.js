@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { toggleModalBack } from '../actions'
 import '../styles/SideNav.css'
 
 const SideNav = props => {
     return (
-        <div className="nav flex-column sideNav" style={{background: props.deleting ? 'gray' : '#D8D8D8', opacity: props.deleting ? '.5' : '1'}}>
+        <div className="nav flex-column sideNav" style={{background: props.deleting ? 'gray' : '#D8D8D8', opacity: props.deleting ? '.5' : '1'}} onClick={props.toggleModalBack}>
             <div className="row no-gutters">
             <h1 className="headingforSideNav"> Lambda Notes </h1>
             </div>
@@ -23,4 +24,4 @@ const mapStateToProps = state => {
         deleting: state.deleting
     }
 }
-export default connect(mapStateToProps)(SideNav)
+export default connect(mapStateToProps, { toggleModalBack })(SideNav)

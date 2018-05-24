@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Button, Modal, ModalBody } from 'reactstrap';
-import { toggleModal, toggleModalBack } from '../actions'
+import { toggleModal, toggleModalBack, deleteNote } from '../actions'
 import { connect } from 'react-redux'
 import '../styles/NoteView.css'
 
@@ -12,18 +12,16 @@ const NoteView = props => {
                 <div className="modal-body">
                     <h2 className="modal-text"> Are you sure you want to delete this? </h2>
                     <div className="modalButtons">
-                        <button className="deleteButton">Delete</button><button className="cancel" onClick={props.toggleModalBack}>Cancel</button>
+                        {console.log('ID?', props.match.params.id)}
+                        <button className="deleteButton" onClick={()=>props.deleteNote(props.match.params.id)}>Delete</button><button className="cancel" onClick={props.toggleModalBack}>Cancel</button>
                     </div>
                 </div> : null}
-            <div className="main-text" onClick={this.toggleModalBack} style={{background: props.deleting ? 'gray' : '#F3F3F3', opacity: props.deleting? '.4' : '1'}}>
+            <div className="main-text" style={{background: props.deleting ? 'gray' : '#F3F3F3', opacity: props.deleting? '.4' : '1'}}>
                 <div className="noteViewButtons">
                     <NavLink to="/edit">edit</NavLink>
                     <span onClick={props.toggleModal} className="delete"> delete </span></div>
-                <div className="row yourNotes">
+                <div className="row yourNotes" onClick={props.toggleModalBack}>
                     <h3 style={{ textAlign: "left" }}> Note Name </h3>
-                </div>
-                <div>
-
                 </div>
                 <div onClick={props.toggleModalBack}>
                     <div className="note">
@@ -33,6 +31,7 @@ const NoteView = props => {
                         <p>
                             Morbi pellentesque euismod venenatis.  Nulla ut nibh nunc.  Phasellus diam metus, blandit ac purus a, efficitur mollis velit.  ut egestas, ante at lobortis ullamcorper, neque odio fringilla odio, non mattis elit lacus ut velit.  Sed feugiat nibh vel molestie sollicitudin.  Duis tincidunt portitor sem, sit amet ultricies lacus pelientesque vel.  Aenean quis enim placerat, posuere orci ac, condimentum tellus.  Vivamus vitae sodales quam, eget ultricies lorem.  Nam pellenteque massa nisl, at pellentesque nisi faucibus vitae.  Curabitur sit amet turpis quam.  Duis eget metus elementum, solicitudin dui sed, accumsan dui.  Donec ut est orci.  Nunc fringilla purus sit amet posuere volutpat.  Fusce vitae lectus is neque facilisis laoreet eget non odio.  Praesent sed mauris porta, volutpat ante hendrerit, ultrices nisl.
                 </p>
+                {console.log('Sliced state', props.notes.slice())}
                     </div>
                 </div>
             </div>
@@ -42,8 +41,9 @@ const NoteView = props => {
 
 const mapStateToProps = state => {
     return {
-        deleting: state.deleting
+        deleting: state.deleting,
+        notes: state.notes
     }
 }
 
-export default connect(mapStateToProps, { toggleModal, toggleModalBack })(NoteView)
+export default connect(mapStateToProps, { toggleModal, toggleModalBack, deleteNote })(NoteView)

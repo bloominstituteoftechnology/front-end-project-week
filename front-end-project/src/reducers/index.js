@@ -41,15 +41,15 @@ const noteReducer = (state = initialState, action) => {
             notes: currentNotes,
         })
         case DELETE_NOTE:
-        currentNotes.filter(identification => {
-            return identification !== id
+        let sparedNotes = state.notes.filter(note => {
+            return note.id.toString() !== action.payload
+        }) // Realized after a bit of confusion that action.payload was returning a string and the input in state was returning a number.
+        return Object.assign({}, state, {
+            notes: sparedNotes,
+            deleting: false,
         })
         case NOT_DELETING_NOTE:
         return Object.assign({}, state, {
-            deleting: false,
-        })
-        return Object.assign({}, state, { 
-            notes: currentNotes,
             deleting: false,
         })
         default:
