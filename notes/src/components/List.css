@@ -12,3 +12,11 @@
 .note-title {
     border-bottom: 1px solid gray;
 }
+
+.card-body {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
+    display: block;
+    overflow: hidden
+}

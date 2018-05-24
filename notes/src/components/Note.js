@@ -27,7 +27,7 @@ class Note extends Component {
                             <DeleteNote />
                         </div>
                         <h1>{note ? note.title : ''}</h1>
-                        <p>{note ? note.textBody : ''}</p>
+                        <p className="single-note-body">{note ? note.textBody : ''}</p>
                     </Col>
                 </Row>
             </Container>

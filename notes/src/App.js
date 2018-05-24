@@ -17,6 +17,30 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  postNote = note => {
+    console.log("NOTE:", note)
+    axios
+      .post('https://killer-notes.herokuapp.com/note/create', note)
+      .then(response => {
+        this.setState(() =>({ note: [...response.data] }));
+        
+      })
+      .catch(err => {
+          console.log(err);
+      })
+  }
+
+  removeNote = (_id) => {
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
+      .then(response => {
+        this.setState({ notes: [...response.data] });
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  };
+
   render() {
     console.log("WHERE ARE MY PROPS:", this.props)
     return (
@@ -41,7 +65,11 @@ class App extends Component {
                   <List {...props} list={this.state.notes} />
                 )
               }} />
-              <Route path="/newnote" component={NewNote}/>
+              <Route path="/newnote" render={props =>{
+                return (
+                  <NewNote {...props} postNote={this.postNote} />
+                )
+              }} />
               <Route path="/note/:id" render={props => {
                 return (
                   <Note {...props} list={this.state.notes} />

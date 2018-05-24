@@ -19,7 +19,7 @@ class EditNote extends Component {
                             <input className="edit-note" style={{ marginBottom:'10px' }} placeholder="Note Title"/>
                         </div>
                         <div>
-                            <input className="edit-note-content" style={{ width:'500px', height:'500px' }} placeholder="Note Content"/>
+                            <textarea className="edit-note-content" style={{ width:'600px', height:'400px' }} placeholder="Note Content"/>
                         </div>
                         <span>
                             <Link to="/">
