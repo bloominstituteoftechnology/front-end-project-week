@@ -33,7 +33,7 @@ class App extends Component {
       <div>
         <Sidebar />
         <NoteComponent 
-        notesMadeByUser={this.state.options}
+        notesMadeByUser={this.state.notesMadeByUser}
         handleDeleteOptions={this.handleDeleteOptions}
         handleDeleteOption={this.handleDeleteOption}
         />        
