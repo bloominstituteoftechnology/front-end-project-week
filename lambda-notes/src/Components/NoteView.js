@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Modal, ModalBody, Form, FormGroup, Input } from 'reactstrap';
 import "./NoteView.css";
+import { Link } from 'react-router-dom';
+
+
 class NoteView extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +11,8 @@ class NoteView extends Component {
             note: null,
             id: parseInt(this.props.match.params.id, 10),
             title: "",
-            content: ""
+            content: "",
+            delete: false
         };
     }
     componentDidMount = () => {
@@ -26,17 +30,37 @@ class NoteView extends Component {
             });
         }
     };
-    
-    render () {
-        return(
+
+    deleteToggle = () => {
+        this.setState({
+            delete: !this.state.delete
+        });
+    };
+    handleDelete = () => {
+        this.props.deleteNote(this.state.id);
+        this.setState({
+            note: null
+        });
+    };
+
+    render() {
+        return (
             <div className="note-view">
-            <h3 className="note-title">{this.state.title}</h3>
-            <div className="note-content">{this.state.content}</div>
-            <Button>Delete</Button>
-            <Button>Edit</Button>
+                <div>
+                    <Button><div onClick={this.deleteToggle}>Delete</div></Button>
+                </div>
+                <Modal isOpen={this.state.delete} toggle={this.deleteToggle}>
+                    <ModalBody>
+                        Do you want to delete this note?
+                </ModalBody>
+                    <Link to="/"><Button onClick={this.handleDelete}>Delete</Button></Link>
+                    <Button onClick={this.deleteToggle}>No</Button>
+                </Modal>
+                <h3 className="note-title">{this.state.title}</h3>
+                <div className="note-content">{this.state.content}</div>
             </div>
         )
     }
 };
-    
+
 export default NoteView;

@@ -13,26 +13,26 @@ class NewNote extends Component {
     }
 
     handleInput = el => {
-        this.setState({[el.target.name]: el.target.value});
+        this.setState({ [el.target.name]: el.target.value });
     };
 
-    handleEdit = () => {
-        const editNote = {
-            title: this.state.title,
-            content: this.state.content
-        };
-        this.props.editNote(editNote);
-        this.setState({
-            editing: !this.state.editing
-        });
-    };
+    // handleEdit = () => {
+    //     const editNote = {
+    //         title: this.state.title,
+    //         content: this.state.content
+    //     };
+    //     this.props.editNote(editNote);
+    //     this.setState({
+    //         editing: !this.state.editing
+    //     });
+    // };
 
     handleCreate = () => {
         const newNote = {
             title: this.state.title,
             content: this.state.content
         };
-        if (this.state.title === ""){
+        if (this.state.title === "") {
             newNote.title = "New Note";
         }
         this.props.addNote(newNote);
@@ -41,36 +41,36 @@ class NewNote extends Component {
             content: ""
         });
     };
-    
+
     render() {
         return (
             <Form>
-            <h3>Create new note: </h3>
-            <FormGroup>
-                <Input
-                    type="textarea"
-                    name="title"
-                    placeholder="Title"
-                    value={this.state.title}
-                    onChange={this.handleInput}
-                    className="input-title"
+                <h3>Create new note: </h3>
+                <FormGroup>
+                    <Input
+                        type="textarea"
+                        name="title"
+                        placeholder="Title"
+                        value={this.state.title}
+                        onChange={this.handleInput}
+                        className="input-title"
                     />
-            </FormGroup>
-            <FormGroup>
-                <Input
-                    type="textarea"
-                    name="content"
-                    placeholder="Content"
-                    value={this.state.content}
-                    onChange={this.handleInput}
-                    className="input-content"
+                </FormGroup>
+                <FormGroup>
+                    <Input
+                        type="textarea"
+                        name="content"
+                        placeholder="Content"
+                        value={this.state.content}
+                        onChange={this.handleInput}
+                        className="input-content"
                     />
-            </FormGroup>
-            <Link to="/">
-                <Button onClick={this.handleCreate}>
-                <b>Create New Note</b>
-                </Button>
-            </Link>
+                </FormGroup>
+                <Link to="/">
+                    <Button onClick={this.handleCreate}>
+                        <b>Create New Note</b>
+                    </Button>
+                </Link>
             </Form>
         );
     }

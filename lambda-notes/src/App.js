@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link }from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import { Row, Col, Container, Input, Button } from "reactstrap";
 import logo from './logo.svg';
 import Nyancat from './Nyancat.gif';
@@ -11,27 +11,61 @@ import NewNote from './Components/NewNote';
 const placeHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
 const initialNotes = [
-  {id: 1,
-  title: "First Note",
-  content: placeHolder + placeHolder},
-  {id: 2,
-  title: "Second Note",
-  content: placeHolder + placeHolder},
-  {id: 3,
-  title: "Third Note",
-  content: placeHolder + placeHolder + placeHolder},
-  {id: 4,
-  title: "Fourth Note",
-  content: placeHolder + placeHolder + placeHolder + placeHolder}
+  {
+    id: 1,
+    title: "First Note",
+    content: placeHolder + placeHolder
+  },
+  {
+    id: 2,
+    title: "Second Note",
+    content: placeHolder + placeHolder
+  },
+  {
+    id: 3,
+    title: "Third Note",
+    content: placeHolder + placeHolder + placeHolder
+  },
+  {
+    id: 4,
+    title: "Fourth Note",
+    content: placeHolder + placeHolder + placeHolder + placeHolder
+  }
 ];
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       notes: initialNotes,
     };
+  }
+  deleteNote(id) {
+    this.setState({
+      notes: this.state.notes.filter(note => {
+        return note.id !== id;
+      })
+    })
+  }
+
+  addNote(newNote) {
+    var id = 1;
+    if (this.state.notes.length > 0) {
+      let notes = this.state.notes;
+      for (let i = 0; i < notes.length; i++) {
+        if (id < notes[i].id) {
+          id = notes[i].id;
+        }
+      }
+      id++
+    }
+    const addedNote = {
+      id: id,
+      title: newNote.title,
+      content: newNote.content
+    }
+    this.setState({ notes: [...this.state.notes, addedNote] });
   }
 
   render() {
@@ -47,24 +81,25 @@ class App extends Component {
         </header>
         <Container>
           <Col sm="9">
-            <Route exact path="/" 
+            <Route exact path="/"
               render={props => {
-                return <NoteList notes={this.state.notes} />;  
-              }}/>
+                return <NoteList notes={this.state.notes} />;
+              }} />
             <Route exact path="/note/:id"
               render={props => {
-                return(
+                return (
                   <NoteView {...props}
                     notes={this.state.notes}
+                    deleteNote={this.deleteNote.bind(this)}
                   />
                 );
-            }}/>
+              }} />
             <Route path="/create"
               render={props => {
                 return (
-                  <NewNote 
+                  <NewNote
                     notes={this.state.notes}
-                    addNote={this.addNote}
+                    addNote={this.addNote.bind(this)}
                   />
                 );
               }}
