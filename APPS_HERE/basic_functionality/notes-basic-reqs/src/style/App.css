@@ -32,8 +32,8 @@
 
 .note-container {
   width: 75%;
-  background-color: #F3F3F3; 
-  border: 1px solid red;
+  background-color: #f2f1f2; 
+  border: 1px solid #f2f1f2;
   padding: 2.5%;
   display: flex;
 }
