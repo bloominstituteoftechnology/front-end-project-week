@@ -27,18 +27,8 @@
   to { transform: rotate(360deg); }
 }
 
-.Sidebar {
+.Container {
   display: flex;
-  flex-direction: column;
-  width: 20%;
-  font-size: 2rem
-}
-
-.MainSection {
-  width: 75%;
-  background: #F3F3F3
-}
-
-.Flex {
-  display: flex
+  height: 800px;
+  margin: 20px;
 }

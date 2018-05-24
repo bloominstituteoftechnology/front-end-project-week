@@ -1,13 +1,30 @@
 .button {
     background: #2BC1C4;
     color: #FFFFFF;
-    padding: 10px;
-    margin: 10px;
-    height: 50px;
-    width: 400%
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    height: 35px;
+    width: 97%;
+    font-size: .75rem
 }
 
 .Sidebar {
     background: #D8D8D8;
-
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    font-size: 1.7rem;
+    max-width: 150px;
+    padding: 10px;
+    border: 1px solid grey
 }
+
+.MainSectionContainer {
+    width: 80%;
+    background: #F3F3F3;
+    max-width: 600px;
+    padding: 20px;
+    padding-top: 40px;
+    border: 1px solid grey
+  }
