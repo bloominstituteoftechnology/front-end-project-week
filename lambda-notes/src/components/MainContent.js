@@ -15,7 +15,6 @@ class MainContent extends Component {
           <Route path="/newnote" component={NewNote}></Route>
           <Route path="/noteview" component={NoteView}></Route>          
           <Route path="/editNote" component={EditView}></Route>
-          <Route path="/deleteNote" component={DeleteModal}></Route>          
       </div>
     );
   }

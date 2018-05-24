@@ -28,7 +28,7 @@ class NoteView extends Component {
         <div className="links">
             <Link to="/editNote" className="edit">edit</Link>            
 
-            <Button color="link" onClick={this.toggle}>{this.props.buttonLabel}delete</Button>
+            <Button color="link" className="delete" onClick={this.toggle}>{this.props.buttonLabel}delete</Button>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
               <ModalBody className="modalBody">
                 Are you sure you want to delete this? 
