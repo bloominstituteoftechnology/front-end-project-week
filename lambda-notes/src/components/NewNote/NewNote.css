@@ -15,7 +15,7 @@
 }
 
 .title-input {
-    width: 394px;
+    width: 53.6%; /*394px;*/
     height: 43px;
     display: block;
     margin-bottom: 17px;
@@ -26,7 +26,7 @@
 }
 
 .content-input {
-    width: 612px;
+    width: 83.3%; /*612px;*/
     height: 382px;
     margin-bottom: 17px;
     border: 1px solid #979797;

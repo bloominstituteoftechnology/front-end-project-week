@@ -6,13 +6,14 @@ import './EditNote.css';
 import { editNote } from '../../actions';
 
 class EditNote extends Component {
-    
-    state = {
-        title: "",
-        body: ""
-    }
 
-    matchedNote = this.props.notes.filter((note, index) => 
+        state = {
+            title: "",
+            body: ""
+        }
+    
+
+    matchedNote = this.props.notes.filter((note) => 
         {return note.id == this.props.match.params.id})[0]
    
     indexOfMatched = this.props.notes.map((note, index) => {
@@ -20,22 +21,37 @@ class EditNote extends Component {
             return index;
         }
         })[0]
+
+        
+    
+
+    componentDidMount() {
+        this.setState({title: this.matchedNote.title, body: this.matchedNote.body})
+    }
     
 
     changeHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
+
     }
 
     updateHandler = () => {
-        // this.props.editNote(this.indexOfMatched, this.matchedNote);
-        this.props.history.push('/'); // takes back to list view 
+
+        let updatedNote = {
+            title: this.state.title,
+            body: this.state.body,
+            id: this.matchedNote.id
+        }
+        this.props.editNote(updatedNote);
+        this.props.history.push(`/note/${this.matchedNote.id}`); 
     }
 
     
 
     render() {
         console.log(this.matchedNote)
-        console.log(this.indexOfMatched)
+        // console.log(this.indexOfMatched)
+        console.log(this.indexMatched)
         return (
 
             <div className="editNote-container">
@@ -45,8 +61,8 @@ class EditNote extends Component {
                 <input 
                     onChange={this.changeHandler} 
                     name="title" 
-                    defaultValue={this.matchedNote.title} 
-                    // value={this.state.title}
+                    // defaultValue={this.matchedNote.title} 
+                    value={this.state.title}
                     className="title-input" 
                     type="text" placeholder="Note Title">
                 </input>
@@ -54,8 +70,8 @@ class EditNote extends Component {
                 <textarea
                     onChange={this.changeHandler}
                     name="body" 
-                    defaultValue={this.matchedNote.body} 
-                    // value={this.state.body} 
+                    // defaultValue={this.matchedNote.body} 
+                    value={this.state.body} 
                     className="content-input" 
                     cols="30" 
                     rows="10" 

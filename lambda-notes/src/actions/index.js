@@ -23,10 +23,9 @@ export const deleteNote = id => {
     }
 }
 
-export const editNote = (index, editedNote) => {
+export const editNote = (editedNote) => {
     return {
         type: EDIT_NOTE,
-        payload: index,
-        note: editedNote
+        payload: editedNote
     }
 }

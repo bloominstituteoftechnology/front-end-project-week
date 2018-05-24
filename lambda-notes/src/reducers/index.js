@@ -31,7 +31,8 @@ export const notesReducer = (state = initialState, action) => {
         case DELETE_NOTE:
             return Object.assign({}, state, {notes: state.notes.filter(note => {return note.id !== action.payload})} )
         case EDIT_NOTE:
-            return Object.assign({}, state, {notes: state.notes.slice(action.payload, 1, action.note)})
+            return Object.assign({}, state, {notes: state.notes.filter(note => {return note.id !== action.payload.id}).concat(action.payload)})
+              
         default: 
             return state;
            

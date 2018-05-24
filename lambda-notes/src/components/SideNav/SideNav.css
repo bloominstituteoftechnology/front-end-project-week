@@ -1,6 +1,6 @@
 .nav-container {
     box-sizing: border-box;
-    max-width: 244px;
+    max-width: 25%; /*244px;*/
     width: 100%;
     background-color: #D8D8D8;
     padding: 24px 18px 0px 18px;
