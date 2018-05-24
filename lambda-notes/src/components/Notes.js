@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+// import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
 
@@ -9,7 +9,7 @@ const Notes = () => {
     return (
         <div>
         <div>
-            <h3 className="NotesViewName" style="width:25%">Your Notes:</h3>
+            <h3 className="NotesViewName">Your Notes:</h3>
         </div>
         
         <div className="Note1">
