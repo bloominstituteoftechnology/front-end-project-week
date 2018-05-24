@@ -12,6 +12,7 @@ import NoteEdit from './noteedit/NoteEdit';
 import './App.css';
 
 import data from '../data.json';
+import firebase from '../firebase';
 
 class App extends Component {
   state = {
@@ -123,9 +124,15 @@ class App extends Component {
   // adds data to `this.state.noteList`
   // data currently comes from `/src/data.json`
   componentDidMount() {
-    this.setState({ noteList: data });
+    const notesRef = firebase.database().ref('notes');
+    notesRef.on('value', snapshot => {
+      const noteList = [];
+      for (let note in snapshot.val()) {
+        noteList.push({ id: note, title: snapshot.val()[note].title, content: snapshot.val()[note].content });
+      }
+      this.setState({ noteList });
+    })
   }
-
   
   // render
   render() {
