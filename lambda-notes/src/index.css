@@ -25,7 +25,6 @@ html, body {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  height: 100vh;
   width: 25%;
   min-width: 300px;
   background-color: #D3D2D3;
@@ -61,7 +60,7 @@ html, body {
 }
 
 .notelist {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   flex-flow: row wrap;
@@ -85,7 +84,7 @@ html, body {
   margin: 2%;
   padding: 0;
   background-color: white;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .note h4 {

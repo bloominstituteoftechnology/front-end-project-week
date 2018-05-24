@@ -24,7 +24,7 @@ class Note extends Component {
         console.log(this.matchedNote)
         return (
             <div>
-                <Link to={`/editNote/${this.matchedNote.id}`}>
+                <Link to={`/editNote/${this.matchedNote.id}`} className="button">
                 Edit
                 </Link>
                 <button
