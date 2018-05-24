@@ -46,3 +46,8 @@
     font-size: 14.08px;
     white-space: pre-wrap;
 }
+
+img {
+    height: 100%;
+    width: 100%;
+}
