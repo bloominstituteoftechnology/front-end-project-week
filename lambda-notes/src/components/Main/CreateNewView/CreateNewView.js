@@ -11,9 +11,9 @@ const CreateNewView = (props) => {
           
           <input type="text" name="title" className="form-control mb-3" placeholder="New Title" onChange={(e) => props.handleChange(e)} />
           
-          <textarea type="text" name="message" rows="15" cols="50" className="form-control text-area" placeholder="New Message" onChange={(event) => props.handleChange(event)} />
+          <textarea type="text" name="message" rows="15" cols="50" className="form-control text-area" placeholder="New Message" onChange={(e) => props.handleChange(e)} />
           
-          <button className="btn btn-primary mt-2 float-left ml-0" type="submit" onClick={ props.addNote}> Save </button>
+          <button className="btn btn-primary mt-2 float-left ml-0" type="submit" onClick={props.addNote}> Save </button>
         </div>
       </form>
     </div> 

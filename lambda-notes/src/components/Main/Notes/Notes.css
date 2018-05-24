@@ -1,5 +1,5 @@
 .card-note {
-  max-width: 250px;
+  min-width: 50px;
   margin-bottom: 2em;
 }
 

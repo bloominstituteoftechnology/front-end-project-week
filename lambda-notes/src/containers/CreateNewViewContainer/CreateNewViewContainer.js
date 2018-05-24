@@ -24,7 +24,10 @@ class CreateNewViewContainer extends Component {
     return (
       <div>
         <Aside />
-        <CreateNewView addNote={(e) => this.props.addNote(e, this.state.title, this.state.message)} handleChange={this.handleChange}/>
+        <CreateNewView
+          addNote={(e) => this.props.addNote(e, this.state.title, this.state.message)}
+          handleChange={this.handleChange}
+        />
       </div>  
     );
   }

@@ -10,7 +10,10 @@ class DeleteModalContainer extends Component {
     super(props)
     this.state = {}
   }
+
+
   render() {
+    console.log('props', this.props);
     return (
       <div>
         <Aside />

@@ -19,7 +19,7 @@ const Notes = (props) => {
                 <hr />
                 <p className="card-text">{note.message}</p>
 
-                <Link to="/view-note"><a href="#" class="btn-sm">read more...</a></Link>
+                <Link to="/view-note"><span href="#" class="btn-sm">read more...</span></Link>
 
               </div>
             </div> 

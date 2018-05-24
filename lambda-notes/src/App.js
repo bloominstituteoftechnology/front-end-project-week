@@ -12,7 +12,8 @@ import DeleteModalContainer from './containers/DeleteModalContainer/DeleteModalC
 
 class App extends Component {
   state = {
-    notes: [{
+    notes: [
+      {
         id: 1,
         title: 'CARD title 1',
         message: 'MESSAGE 1 fasdfasdfasfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
@@ -49,7 +50,7 @@ class App extends Component {
     e.preventDefault();
     const newNote = {
       id: this.state.notes.length + 1,
-      title ,
+      title,
       message,
     }
 
@@ -58,20 +59,28 @@ class App extends Component {
     })
   }
 
+
+
   render() {
     return (
       <div className="App container-fluid">
-        <Route exact path="/" render={props => <ListViewContainer {...props} notes={ this.state.notes } />} />
+        <Route
+          exact path="/"
+          render={props => <ListViewContainer {...props} notes={this.state.notes} />}
+        />
         <Route
           path="/create-new-note"
-          render={props => <CreateNewViewContainer {...props} addNote={this.addNewNote} />}
+          render={props => <CreateNewViewContainer {...props} addNewNote={this.addNewNote} />}
         />
         <Route path="/view-note" component={NoteViewContainer} />
         <Route path="/edit-note" component={EditViewContainer} />
-        <Route path="/delete-note" component={DeleteModalContainer} />
+        <Route
+          path="/delete-note"
+          render={props => <DeleteModalContainer {...props}/>} 
+        />
       </div>
     );
   }
 }
 
-export default App;
+export default App; 

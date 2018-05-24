@@ -1,5 +1,5 @@
 input {
-  max-width: 15em;
+  min-width: 15em;
   margin-bottom: 2em;
 }
 
