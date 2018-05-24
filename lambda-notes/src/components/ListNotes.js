@@ -8,12 +8,19 @@ import { fetchNotes } from '../actions/index';
 export default class ListNotes extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            search: ''
+         }
     }
 
     // componentDidMount() {
     //     this.props.fetchNotes();
     // }
+
+    handleSearch = e => {
+        this.setState({ search: e.target.value });
+        console.log(this.state)
+    }
 
     render() { 
         console.log('PROPS:', this.props)
@@ -21,8 +28,19 @@ export default class ListNotes extends Component {
             <div className="main-list-container">
                 <div className="list-header">
                     <form className="search-form"> 
-                        <input className="search" type="text" placeholder="Search..." required />
-                        <input className="search-button" type="button" value="Search" />
+                        <input 
+                            className="search" 
+                            type="text" 
+                            onChange={this.handleSearch}
+                            value={this.state.search}
+                            placeholder="Search..." 
+                            required 
+                        />
+                        <input 
+                            className="search-button" 
+                            type="button" 
+                            value="Search" 
+                        />
                     </form>
                     <div className="header-buttons">
                         <Link className="export" to="/login">
@@ -36,9 +54,19 @@ export default class ListNotes extends Component {
                 
                 <h2 className="main-header">Your Notes:</h2> 
                 <div className="note-list">
-                    {this.props.notes.map(note => (
-                        <NoteDetails key={note.id} note={note} />
-                    ))}
+                    {this.props.notes.map(note => {
+                        if(this.state.search === "") {
+                            return <NoteDetails key={note.id} note={note} />
+                        } else if(
+                            note.title.toLowerCase().includes(this.state.search.toLowerCase()) ||
+                            note.body.toLowerCase().includes(this.state.search.toLowerCase())
+                        ) {
+                            return <NoteDetails key={note.id} note={note} />
+                        } else {
+                            return null;
+                        }
+                        
+                    })}
                 </div>
             </div>
          )
