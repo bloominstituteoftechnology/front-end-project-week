@@ -4,17 +4,44 @@ import { Route, Link } from 'react-router-dom';
 import SideNav from './SideNav.js'
 import noteView from './noteView.css';
 import DeleteModal from './DeleteModal';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class NoteView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     return (
       <div>
         <div className="links">
-            <Link to="/editNote" className="edit">Edit</Link>            
-            <Link to="/deleteNote" className="delete">
-              Delete
-              <DeleteModal />
-            </Link>
+            <Link to="/editNote" className="edit">edit</Link>            
+
+            <Button color="link" onClick={this.toggle}>{this.props.buttonLabel}delete</Button>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalBody className="modalBody">
+                Are you sure you want to delete this? 
+              </ModalBody>
+              <ModalFooter className="modalFooter">
+                <Link to="/">
+                <button className="button4" onClick={this.toggle}>Delete</button>
+                </Link>
+                <Link to="/noteview">
+                <button className="button5" onClick={this.toggle}>No</button>                 
+                </Link>
+              </ModalFooter>
+            </Modal>
         </div>
         <div>
             <h2 className="headerNotes">Card Title</h2>

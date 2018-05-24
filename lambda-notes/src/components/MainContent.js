@@ -5,6 +5,7 @@ import ListView from './ListView.js';
 import NewNote from './NewNote.js';
 import NoteView from './NoteView.js';
 import EditView from './EditView.js';
+import DeleteModal from './DeleteModal';
 
 class MainContent extends Component {
   render() {
@@ -14,7 +15,7 @@ class MainContent extends Component {
           <Route path="/newnote" component={NewNote}></Route>
           <Route path="/noteview" component={NoteView}></Route>          
           <Route path="/editNote" component={EditView}></Route>
-          
+          <Route path="/deleteNote" component={DeleteModal}></Route>          
       </div>
     );
   }

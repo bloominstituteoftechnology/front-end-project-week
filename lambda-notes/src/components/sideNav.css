@@ -41,21 +41,7 @@
     margin-left: 20px;
     margin-top: 20px; 
 } 
-  
-
-
-/* .main {
-    margin-left: 220px; 
-    padding: 0px 10px;    
-} */
-
-/* .header-Notes {
-    text-align: left;              
-    font: Roboto Bold; 
-    margin-top: 70px; 
-    margin-left: 40px; 
-} */
-
+ 
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}

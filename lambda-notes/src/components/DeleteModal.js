@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class DeleteModal extends React.Component {
+class ModalExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,18 +17,18 @@ class DeleteModal extends React.Component {
     });
   }
 
-  render() {    
-    const externalCloseBtn = <button className="close" style={{ position: 'absolute', top: '15px', right: '15px' }} onClick={this.toggle}>&times;</button>;
+  render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
-          <ModalHeader>Modal title</ModalHeader>
+        <Button color="link" onClick={this.toggle}>{this.props.buttonLabel}Delete</Button>
+        {/* <Button color="danger" onClick={this.toggle}>{this.props.buttonLabel}</Button> */}
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
-            <b>Are you sure you want to delete this?</b><br />            
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </ModalBody>
           <ModalFooter>
-            <Button color="danger" onClick={this.toggle}>Delete</Button>{' '}
+            <Button color="primary" onClick={this.toggle}>Delete</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>No</Button>
           </ModalFooter>
         </Modal>
@@ -37,4 +37,4 @@ class DeleteModal extends React.Component {
   }
 }
 
-export default DeleteModal;
+export default ModalExample;
