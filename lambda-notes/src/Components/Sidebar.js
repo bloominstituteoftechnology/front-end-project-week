@@ -1,13 +1,14 @@
 import React from 'react';
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 import "./Components.css";
 
 const SideBar = props => (
     <div className='Sidebar'>
         Lambda Notes
-        <Button text='View Your Notes'/>
-        <Button text='+ Create New Note'/>
+        <Link to="/home" ><Button text='View Your Notes'/> </Link>
+        <Link to="/newnote" ><Button text='+ Create New Note'/> </Link>
     </div>
 )
 

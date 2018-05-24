@@ -21,7 +21,7 @@
     border: 1px solid grey
 }
 
-.MainSectionContainer {
+.TemplateContainer {
     width: 80%;
     background: #F3F3F3;
     max-width: 600px;
@@ -45,6 +45,7 @@
       height: 180px;
       margin: 1.5%;
       padding: 10px;
+      font: black !important
   }
 
   .Line {
