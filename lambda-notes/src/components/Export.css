@@ -1,0 +1,20 @@
+.download-container{
+    margin: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.download-header{
+    color: #4A4A4A;
+    font-weight: bold;
+}
+
+.download {
+    color: #FFF;
+    background-color: #2BC1C4;
+    margin: 10px 15px;
+    padding: 10px;
+    font-weight: 700;
+}

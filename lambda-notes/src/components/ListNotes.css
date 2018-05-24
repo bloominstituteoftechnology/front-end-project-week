@@ -26,3 +26,17 @@
 .note-card p{
     color: #4A4A4A;
 }
+
+.export{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.export button{
+    color: #FFF;
+    background-color: #2BC1C4;
+    margin: 10px 15px;
+    padding: 10px;
+    font-weight: 700;
+}
