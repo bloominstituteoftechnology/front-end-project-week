@@ -30,12 +30,8 @@ class App extends Component {
   addNewNote = (e, props) => {
     e.preventDefault();
     const { noteList, title, content } = this.state;
-    const newNote = {
-      id: '' + noteList.length,
-      title,
-      content,
-    };
-    this.setState({ noteList: [ ...noteList, newNote ] });
+    const notesRef = firebase.database().ref('notes');
+    notesRef.push({ title, content });
     props.history.push('/');
   }
 
