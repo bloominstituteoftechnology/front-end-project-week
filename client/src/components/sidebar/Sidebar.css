@@ -1,0 +1,32 @@
+.navigation {
+  background: #D8D8D8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.4rem 0;
+}
+
+.logo__h1 {
+  color: #4A4A4A;
+  font-family: Roboto, 'sans-serif';
+  font-size: 3rem;
+  margin: 0;
+}
+
+.navigation__button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 150px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 890px) {
+  .navigation {
+    min-height: 100vh;
+    margin-right: 1rem;
+    width: 320px;
+  }
+}

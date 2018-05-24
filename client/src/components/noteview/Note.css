@@ -1,0 +1,61 @@
+.note-container__note-link {
+  flex-grow: 1;
+  text-decoration: none;
+}
+
+.note-link__note-div {
+  background: #fff;
+  border: 2px solid #979797;
+  margin: 10px;
+  padding: 10px;
+}
+
+.note-div__h1 {
+  border-bottom: 1px solid #979797;
+  font-size: 2rem;
+  margin: 0 0 1rem;
+  padding-bottom: 1rem;
+}
+
+.note-div__p {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.note-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.note-wrapper__note-action-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3rem;
+  padding: 3rem 3rem 0 0;
+}
+
+.note-action-wrapper__note-edit-link {
+  margin-right: 4.4rem;
+}
+
+.note-edit-link__edit-button,
+.note-action-wrapper__delete-button {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #979797;
+  font-size: 1.5rem;
+}
+
+.note-wrapper__note-content-wrapper {
+  font-size: 2rem;
+  padding: 0 3rem;
+}
+
+.note-content-wrapper__h2 {
+  margin-bottom: 5rem;
+}
+
+.note-content-wrapper__p {
+  font-size: 1.5rem;
+}
