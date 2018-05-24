@@ -1,15 +1,44 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 import './SingleNoteView.css';
 
 class SingleNoteView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     return (
       <div>
         <div className="links">
             <Link to="/editNote" className="edit">Edit</Link>            
-            <Link to="/deleteNote" className="delete">Delete</Link>
+
+            <Button color="link" onClick={this.toggle}>Delete{this.props.buttonLabel}</Button>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.SingleNoteView}>
+              
+                <ModalBody>
+                  Are you sure you want to delete this?
+                </ModalBody>
+              <ModalFooter>
+              <button className="delete-button" onClick={this.toggle}>Delete</button>
+              <button className="cancel-button" onClick={this.toggle}>Cancel</button>
+              </ModalFooter>
+            </Modal>
+
+            {/* <Link to="/deleteNote" className="delete">Delete</Link> */}
         </div>
         <div>
             <h2 className="headerNotes">Note Name</h2>

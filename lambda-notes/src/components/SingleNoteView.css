@@ -25,3 +25,11 @@
 .edit {
     margin-right: 30px; 
 }
+
+.delete-button {
+    text-align: center;
+}
+
+.cancel-button {
+    text-align: center;
+}
