@@ -12,7 +12,7 @@ const NoteView = props => {
                     <h2 className="modal-text"> Are you sure you want to delete this? </h2>
                     <div className="modalButtons">
                         {console.log('ID?', props.match.params.id)}
-                        <button className="deleteButton" onClick={()=>props.deleteNote(props.match.params.id)}>Delete</button><button className="cancel" onClick={props.toggleModalBack}>Cancel</button>
+                        <NavLink to="/"><button className="deleteButton" onClick={()=>props.deleteNote(props.match.params.id)}>Delete</button></NavLink><button className="cancelButton" onClick={props.toggleModalBack}>Cancel</button>
                     </div>
                 </div> : null}
             <div className="main-text" style={{background: props.deleting ? 'gray' : '#F3F3F3', opacity: props.deleting? '.4' : '1'}}>
@@ -20,7 +20,7 @@ const NoteView = props => {
                     <NavLink to="/edit">edit</NavLink>
                     <span onClick={props.toggleModal} className="delete"> delete </span></div>
                 <div className="row yourNotes" onClick={props.toggleModalBack}>
-                    <h3 style={{ textAlign: "left" }}> Note Name </h3>
+                    <h3 style={{ textAlign: "left" }} className="noteName"> Note Name </h3>
                 </div>
                 <div onClick={props.toggleModalBack}>
                     <div className="note">

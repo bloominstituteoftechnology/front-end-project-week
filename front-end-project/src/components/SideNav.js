@@ -21,7 +21,7 @@ const SideNav = props => {
 }
 const mapStateToProps = state => {
     return {
-        deleting: state.deleting
+        deleting: state.notes.deleting
     }
 }
 export default connect(mapStateToProps, { toggleModalBack })(SideNav)

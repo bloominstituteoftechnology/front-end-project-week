@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
@@ -6,11 +7,12 @@ import { addNote } from '../actions'
 import '../styles/Create.css'
 
 let Create = props => {
-    const { handleSubmit, pristine, submitting } = props
+    const { handleSubmit, submitting } = props
     return (
     <div className="main-text">
-        <h3> Create Note </h3>
+        <h3> Create New Note: </h3>
         <form onSubmit={handleSubmit((val) => props.addNote(val))} className="inputForm">
+        {props.submitSucceeded ? <Redirect to="/"/> : null}
                 <div className="title">
                     <Field
                         name="title"
@@ -32,14 +34,17 @@ let Create = props => {
                     rows="15"
                     cols="110"
                 />
-                <NavLink to="/"><button type="submit" className="saveButton">
+                <button type="submit" disabled={submitting} className="saveButton">
                     Save
-                </button></NavLink>
+                </button>
             </div>
         </form>
+        
     </div>
     )
 }
+
+
 Create = connect(null, { addNote })(Create)
 export default reduxForm({
     form: 'create'

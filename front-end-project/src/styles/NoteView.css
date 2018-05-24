@@ -35,7 +35,7 @@ p {
 
 .noteViewButtons {
     margin-left: 50rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
     font-size: 1.4rem;
     text-decoration: underline;
     font-weight: bold;
@@ -47,16 +47,20 @@ p {
 .modalButtons {
     display: flex;
     justify-content: space-evenly;
-    margin: 2rem 10rem;
-    width: 60%;
+    margin: 2rem 5rem;
 
 }
-.cancel {
-    margin-left: 5rem;
+.cancelButton {
+    margin-left: 1rem;
+    width: 15rem;
 }
 .modal-text {
     margin: 3.5rem 0 0 12rem;
 }
 .deleteButton {
     background: #D0021B;
+    width: 15rem;
+}
+.noteName {
+    margin: 2.7rem 0rem 2rem 4rem;
 }
