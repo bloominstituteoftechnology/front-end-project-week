@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Sidebar from './sidebar/sidebar';
-import ViewNote from './viewnote/viewnote';
+import ViewNote from './createnote/viewnote';
 import CreateNote from './createnote/createnote';
 import EditNote from './editnote/editnote';
 import ListItems from './createnote/listitems';
-import CreateNote2 from './createnote/createnote2';
+// import CreateNote2 from './createnote/createnote2';
+import ListView from './createnote/listview';
  
 
 const initialState = [
@@ -61,7 +62,7 @@ this.setState({ todos: todos, todo: '' })
             <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
              <Route path="/" render={(props) => (
-            <CreateNote2 todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            <ListView todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route component={NoMatch}></Route>
       </Switch>

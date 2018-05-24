@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ListItems from './listitems';
 
 
-class CreateNote2 extends Component {
+class ListView extends Component {
 
     render() {
         return (
@@ -19,4 +19,4 @@ class CreateNote2 extends Component {
     }
 };
 
-export default CreateNote2;
+export default ListView;

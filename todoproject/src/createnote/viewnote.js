@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle } from 'reactstrap';
+
 
 
 class ViewNote extends Component {
@@ -27,11 +30,11 @@ class ViewNote extends Component {
             <div className="container2">    
             <h6>Note Name</h6>
 
+    {/* edit and delete buttons */}
             <Link to="/EditNote">
             <button className="button4">edit</button>
             </Link>
 
-   
         <div>  
        
          <Button className="button5" color="Link" onClick={this.toggle}>delete</Button>
