@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './SingleNote.css';
 
 
 class DeleteNote extends Component {
@@ -22,7 +23,7 @@ class DeleteNote extends Component {
   render() {
     return (
       <div>
-        <button className="close" onClick={this.toggle}>delete</button>
+        <p className='delete-btn' onClick={this.toggle}>delete</p>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <p>Are you sure you want to delete this?</p>
           <div className='modal-btn'>

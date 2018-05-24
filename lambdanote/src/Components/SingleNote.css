@@ -1,0 +1,23 @@
+.click-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.single-note-header {
+    margin-bottom: 3rem;
+}
+
+.content {
+    text-align: left;
+}
+
+.viewNote-btn {
+    color: black;
+    text-decoration-line: underline;
+}
+
+.delete-btn {
+    cursor: pointer;
+    text-decoration-line: underline;
+    margin-left: 1rem;
+}
