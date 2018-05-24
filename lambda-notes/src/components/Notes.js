@@ -26,7 +26,6 @@ class Notes extends Component {
 
     selectNote = (e) => {
         const filteredNote = this.state.notes.filter(note => note.title === e)
-        console.log("Selected Note: ", filteredNote)
         const id = filteredNote[0].id
         setTimeout( () => {
             this.props.history.push(`/note/${id}`)
@@ -43,10 +42,8 @@ class Notes extends Component {
                         onOptionSelected={this.selectNote}
                         onKeyPress={() => {console.log("pressed a key")}}
                         defaultClassNames={false}
-                        custom-classes={{
-                            input: 'search-field'
-                        }}
                         />
+
                 </div>
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">

@@ -83,11 +83,6 @@ h3.heading {
   font-weight: bold;
 }
 
-.btn-link {
-  display: flex;
-  justify-content: center;
-}
-
 .btn-link:hover {
   text-decoration: none !important;
 }
@@ -201,6 +196,14 @@ h3.heading {
   padding-top: 55px;
   text-align: center;
   font-size: 1.7em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #4A4A4A !important;
 }
 
 @media screen and (max-width: 600px) {
