@@ -16,6 +16,7 @@ class NoteEdit extends React.Component {
 
   // setInputVal
   setInputVal = e => {
+    console.log(e.target.name)
     this.setState({ [e.target.name]: e.target.value });
   }
   
@@ -23,9 +24,11 @@ class NoteEdit extends React.Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     for (let note of nextProps.noteList) {
       if (nextProps.match.params.id === note.id) {
+        const title = prevState.title ? prevState.title : note.title;
+        const content = prevState.content ? prevState.content : note.content;
         return {
-          title: note.title,
-          content: note.content,
+          title,
+          content,
         };
       }
     }

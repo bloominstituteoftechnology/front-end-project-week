@@ -11,7 +11,9 @@ import NoteEdit from './noteedit/NoteEdit';
 // presentational
 import './App.css';
 
-import data from '../data.json';
+// database
+import firebase from '../firebase';
+import 'firebase/database';
 
 class App extends Component {
   state = {
@@ -28,26 +30,16 @@ class App extends Component {
   // adds new note to `this.state.noteList`
   addNewNote = (e, props) => {
     e.preventDefault();
-    const { noteList, title, content } = this.state;
-    const newNote = {
-      id: '' + noteList.length,
-      title,
-      content,
-    };
-    this.setState({ noteList: [ ...noteList, newNote ] });
+    const { title, content } = this.state;
+    const notesRef = firebase.database().ref('notes');
+    notesRef.push({ title, content });
     props.history.push('/');
   }
 
   // setEditNoteValues
   setEditNoteValues = (e, props, id, title, content) => {
     e.preventDefault();
-    const noteList = [ ...this.state.noteList ];
-    for (let i = 0; i < noteList.length; i++) {
-      if (id === noteList[i].id) {
-        noteList[i] = { id, title, content }
-      }
-    }
-    this.setState({ title: '', content: '', noteList });
+    firebase.database().ref(`notes/${ id }`).set({ title, content });
     props.history.push('/');
   }
 
@@ -58,13 +50,7 @@ class App extends Component {
 
   // handleDeleteNote
   handleDeleteNote = id => {
-    const noteList = [ ...this.state.noteList ];
-    for (let i = 0; i < noteList.length; i++) {
-      if (id === noteList[i].id) {
-        noteList.splice(i, 1);
-      }
-    }
-    this.setState({ noteList });
+    firebase.database().ref(`notes/${ id }`).remove();
   }
 
   /*****************************************
@@ -123,9 +109,20 @@ class App extends Component {
   // adds data to `this.state.noteList`
   // data currently comes from `/src/data.json`
   componentDidMount() {
-    this.setState({ noteList: data });
+    const notesRef = firebase.database().ref('notes');
+    notesRef.on('value', snapshot => {
+      const noteList = [];
+      const snapshotVal = snapshot.val();
+      for (let note in snapshotVal) {
+        noteList.push({
+          id: note,
+          title: snapshotVal[note].title,
+          content: snapshotVal[note].content
+        });
+      }
+      this.setState({ noteList });
+    })
   }
-
   
   // render
   render() {
