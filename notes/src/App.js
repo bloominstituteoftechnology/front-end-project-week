@@ -2,18 +2,23 @@ import React, { Component } from 'react';
 import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
+import axios from 'axios';
 import { List, Note, NewNote, EditNote, DeleteNote, Test } from './components';
-// import { connect } from 'react-redux';
-// import { fetchNotes } from './actions';
 
 
 class App extends Component {
+  state = {
+    notes: []
+  }
 
-  // componentDidMount() {
-  //   this.props.fetchNotes();
-  // }
+  componentDidMount() {
+    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    .then(res => this.setState({ notes: res.data }))
+    .catch(err => console.log(err))
+  }
 
   render() {
+    console.log("WHERE ARE MY PROPS:", this.props)
     return (
       <div className="App">
         <Container>
@@ -26,14 +31,22 @@ class App extends Component {
               <Link to="/newnote">
                 <button className="new-note-button">+ Create New Note</button>
               </Link>
-              <Link to="/test">
+              {/* <Link to="/test">
                <button className="test-button">Test Zone</button>
-              </Link>
+              </Link> */}
             </Col>
             <Col xs="9" className="content-container">
-              <Route exact path="/" component={List} />
+              <Route exact path="/" render={props =>{
+                return (
+                  <List {...props} list={this.state.notes} />
+                )
+              }} />
               <Route path="/newnote" component={NewNote}/>
-              <Route path="/note" component={Note}/>
+              <Route path="/note/:id" render={props => {
+                return (
+                  <Note {...props} list={this.state.notes} />
+                )
+              }} />
               <Route path="/edit" component={EditNote}/>
               <Route path="/delete" component={DeleteNote}/>
               <Route path="/test" component={Test}/>
@@ -44,15 +57,5 @@ class App extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   console.log("State:", state);
-//   return {
-//       notes: state.notes,
-//       fetching: state.fetching
-//   }
-// }
-
-// export default connect(mapStateToProps, { fetchNotes })(App);
 
 export default App;

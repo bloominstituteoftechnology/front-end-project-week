@@ -2,12 +2,33 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NewNote.css';
+import axios from 'axios';
 
 class Newnote extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            notes:[],
+            title: '',
+            textBody: ''
+         }
     }
+
+    handleInputChange = e => {
+        this.setState({ [e.target.name]: e.target.value });
+      };
+    
+    addNote = note => {
+        axios
+          .post('https://killer-notes.herokuapp.com/note/create', note)
+          .then(response => {
+            this.setState(() =>({ note: [...response.data] }));
+          })
+          .catch(err => {
+              console.log(err);
+          })
+    }
+
     render() { 
         return ( 
             <Container>

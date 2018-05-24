@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class Test extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
-    render() { 
-        return ( 
-            <div></div>
-         )
-    }
-}
+// class Test extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {  }
+//     }
+//     render() { 
+//         return ( 
+//             <div></div>
+//          )
+//     }
+// }
  
-export default Test;
+// export default Test;
 
 
 
@@ -43,41 +43,41 @@ export default Test;
 
 // CODE BELOW IS A REDUX TEST #####################################
 
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { fetchNotes } from '../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchNotes } from '../actions';
 
-// // ########## ^imports^ ################### 
+// ########## ^imports^ ################### 
 
-// class Test extends Component {
+class Test extends Component {
 
-//     componentDidMount() {
-//         this.props.fetchNotes();
-//     }
+    componentDidMount() {
+        this.props.fetchNotes();
+    }
 
-//     render() { 
-//         console.log("Test Props:", this.props)
-//         return (
-//             <div>
-//                 {this.props.notes.map(note => {
-//                     return (
-//                         <div key={note._id}>
-//                             <h5>{note.title}</h5>
-//                             <p>{note.textBody}</p>
-//                         </div>
-//                     )
-//                 })}  
-//             </div>
-//          )
-//     }
-// }
+    render() { 
+        console.log("Test Props:", this.props)
+        return (
+            <div>
+                {this.props.notes.map(note => {
+                    return (
+                        <div key={note._id}>
+                            <h5>{note.title}</h5>
+                            <p>{note.textBody}</p>
+                        </div>
+                    )
+                })}  
+            </div>
+         )
+    }
+}
 
-// const mapStateToProps = state => {
-//     console.log("State:", state);
-//     return {
-//         notes: state.notes,
-//         fetching: state.fetching
-//     }
-// }
+const mapStateToProps = state => {
+    console.log("State:", state);
+    return {
+        notes: state.notes,
+        fetching: state.fetching
+    }
+}
  
-// export default connect(mapStateToProps, { fetchNotes })(Test);
+export default connect(mapStateToProps, { fetchNotes })(Test);
