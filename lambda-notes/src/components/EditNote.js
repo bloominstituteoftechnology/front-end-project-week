@@ -7,7 +7,7 @@ class EditNote extends Component {
     state = {
         title: ``,
         body: ``,
-        id: this.props.match.params.id
+        id: parseInt(this.props.match.params.id)
     };
 
     handleEditNote = (event) => {
@@ -19,7 +19,7 @@ class EditNote extends Component {
         this.props.editNote(this.state);
         this.setState({ title: `${this.props.match.params.title}`,
                         body: `${this.props.match.params.body}` });
-        this.props.history.push(`/notes/${this.state.id}`);
+        this.props.history.push("/");
     };
 
     render() {
