@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
+
 
 class NoteForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
-            content: ''
+            content: '',
+            isUpdated: false
         }
     }
 
@@ -14,7 +17,7 @@ class NoteForm extends Component {
         if(!this.props.match) return;
         const id = this.props.match.params.id;
         this.props.notes.forEach((note) => {
-            if(note.id == id)
+            if(note.id+'' === id)
                 this.setState({title: note.title, content: note.content})
         } )
         
@@ -25,11 +28,15 @@ class NoteForm extends Component {
     }
 
     onSubmitHandler = () => {
-        console.log("Form Updated")
+        this.setState({isUpdated: !this.isUpdated});
     }
 
     render() {
-        {console.log(this.props)} 
+        // Redirect to / if note is deleted true
+        if(this.state.isUpdated) {
+            return <Redirect to="/"/>
+        }
+
         return (
             <div className={this.props.className}>
                 <h2>{this.props.header}</h2>

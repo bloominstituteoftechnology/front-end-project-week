@@ -1,7 +1,5 @@
 .App {
   display: flex;
-
-
 }
 
 .App-logo {
@@ -59,6 +57,8 @@
   padding: 10px;
   margin: 10px 0px;
   font-size: 15px;
+  cursor: pointer;
+
 }
 
 .save-button {
@@ -69,6 +69,29 @@
   padding: 10px;
   margin: 10px 0px;
   font-size: 15px;
+  cursor: pointer;
+}
+
+.delete-button {
+  width: 40%;
+  color: #FFFFFF;
+  background: #D0021B;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  width: 40%;
+  color: #FFFFFF;
+  background: #2BC1C4;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 /* Button font color: #FFFFFF 
@@ -128,4 +151,42 @@ Sidebar background: #D8D8D8
 
 .note-form {
   margin-right: 20px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  padding-top: 10%;
+  cursor: default;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  background: #fff;
+  border: 2px solid #6d6c6c;
+  border-radius: 5px;
+  max-width: 500px;
+  min-width: 200px;
+  padding: 30px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.view-note-nav {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 10px 10px;
 }
