@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notes from './Notes';
+import NavBar from './NavBar';
 
 class NoteList extends Component {
     constructor() {

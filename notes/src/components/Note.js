@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Note = props => {
     return (
-        <Card className='col-12 col-sm-6 col-md-3 note'>
+        <Card className='note'>
             <CardBody>
                 <Link to={`/note/${props.note.id}`}>
                     <CardTitle>{props.note.title}</CardTitle>
