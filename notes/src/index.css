@@ -59,3 +59,7 @@ text-shadow: 1px 1px 5px black;
 .new {
   width: 20vw;
 }
+
+.textarea {
+  padding: 20px;
+}

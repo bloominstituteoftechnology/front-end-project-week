@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default class EditNote extends Component {
     render() {
         return (
             <div className="text-white">
-                <input id="input1" type="text"></input>
+                <h1>Edit Note:</h1>    
+                <input id="input1" type="text" size="45" placeholder="Note Title"></input>
             <div className="text-white">
-                <textarea name="textarea"
-                    rows="10" cols="60">Write something here</textarea> 
+                    <textarea className="textarea" name="textarea"
+                        rows="17" cols="90" placeholder="Note Content"></textarea> 
+                    <Link className="button new" to="/newnote">Update</Link>
                 </div>
             </div>    
         )
