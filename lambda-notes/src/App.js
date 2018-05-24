@@ -12,7 +12,13 @@ import NoteView from './components/NoteView';
 import { Link } from 'react-router-dom';
 
 class App extends Component {
+  constructor(props) { 
+    super();
+    this.state = {
 
+
+    };
+  }
   render() {
     return (
       <div className="container">
@@ -28,13 +34,13 @@ class App extends Component {
           </div>
         </div>
         <Link to="/" >
-          <button type="button" className="Notes-bar-item notes-button1">
+          <button type="button" className="Notesbutton1">
             View Your Notes
             </button>
         </Link >
         <Link to="/newnotes" >
-          <button type="button" className="Notes-bar-item notes-button2">
-            +Create New Note
+          <button type="button" className="Notesbutton2">
+            + Create New Note
             </button>
         </Link >
         </div>
