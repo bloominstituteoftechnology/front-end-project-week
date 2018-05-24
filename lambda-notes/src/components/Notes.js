@@ -43,7 +43,6 @@ class Notes extends Component {
                         onKeyPress={() => {console.log("pressed a key")}}
                         defaultClassNames={false}
                         />
-
                 </div>
                 <h3 className="heading">Your Notes:</h3> 
                 <Row className="notes-section">

@@ -52,7 +52,7 @@ h3.heading {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  margin-top: 30px;
+  margin: 30px 0px -50px 0px;
   width: 40vw;
   max-width: 500px;
 }
@@ -223,11 +223,12 @@ a {
     margin-top: 10px;
     display: flex !important;
     flex-direction: row !important;
+    justify-content: center;
   }
 
   .btn {
-    max-width: 65%;
-    min-width: 50vw;
+    max-width: 40vw;
+    min-width: 40vw;
     height: 45px;
   }
 
@@ -288,6 +289,11 @@ a {
   .nav-container {
     max-width: 50vw;
     min-width: 40vw;
+  }
+
+  .btn {
+    width: 30vw;
+    margin: 15px 5px 15px 5px;
   }
   
   .btn.main {
