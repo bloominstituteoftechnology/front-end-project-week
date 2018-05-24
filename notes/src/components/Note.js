@@ -64,7 +64,7 @@ class Note extends React.Component {
                 {list ? (
                     <div className="note-card">
                         <h3>{title}</h3>
-                        <div className="note-card-text-wrapper"><p className="note-card-text">{body}</p></div>
+                        <p className="note-card-text">{body}</p>
                     </div>
                 ) : (<div className="note-view">
                     {edit ? (

@@ -33,7 +33,7 @@ a:hover {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #4A4A4A;
   line-height: 2.4rem;
   margin: 0;
@@ -45,7 +45,6 @@ p {
   max-width: 880px;
   justify-content: center;
   margin: 0 auto;
-  border: 1px solid #979797;
   font-family: 'Raleway', sans-serif;
   text-rendering: geometricPrecision;
 }
@@ -56,7 +55,7 @@ p {
   margin-bottom: 18px;
   background: #2BC1C4;
   color: white;
-  border: 1px solid #979797;
+  border: none;
   text-decoration: none;
   text-align: center;
   font-size: 1.6rem;
@@ -74,7 +73,6 @@ p {
   flex-flow: column wrap;
   padding: 1.709%;
   background: #D8D8D8;
-  border-right: 1px solid #979797;
   min-height: 100vh;
   width: 100%;
   max-width: 220px;
@@ -112,13 +110,17 @@ p {
 
 .note-card {
   width: 189px;
-  height: 195px;
+  height: 189px;
   overflow: hidden;
   padding: 10px 15px;
   margin: 0 15px 15px 0;
-  border: 1px solid #979797;
   background: white;
   border-radius: 1px;
+}
+
+.note-card:hover {
+  transition: all 0.1s ease;
+  box-shadow: 4px 4px #e0e0e0;
 }
 
 .notes-list > div:nth-child(3n + 4) div.note-card {
@@ -135,13 +137,9 @@ p {
 
 .note-card-text {
   margin: 10px 0 0;
-}
-
-.note-card-text-wrapper {
-  height: calc(100% - 48px);
+  height: 119px;
   overflow: hidden;
 }
-
 
 /* Note View */
 
@@ -195,8 +193,8 @@ p {
   font-size: 1.4rem;
   line-height: 2.4rem;
   color: #4A4A4A;
+  border: none;
   border-radius: 2px;
-  border: 1px solid #979797;
 }
 
 .note-form form input:focus, textarea:focus {
@@ -236,7 +234,6 @@ p {
 }
 
 .modal {
-  border: 1px solid #4A4A4A;
   background: white;
   margin-top: 170px;
   width: 100%;
