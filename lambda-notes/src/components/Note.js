@@ -37,7 +37,7 @@ class Note extends Component {
         console.log(this.props)
         return <div className="col-sm-9 note-view">
             <div className="note-links-wrap">
-              <Link to={`edit/${this.state.note.id}`} className="note-link">
+              <Link to={`/edit/${this.state.note.id}`} className="note-link">
                 edit
               </Link>
               <Link to="/" className="note-link" onClick={this.toggle}>

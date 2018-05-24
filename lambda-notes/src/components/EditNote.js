@@ -14,7 +14,7 @@ class EditNote extends Component {
     });
   };
 
-  handleSave = e => {
+  handleEdit = e => {
     e.preventDefault();
     console.log(this.state);
     this.props.editNote(this.state);
@@ -23,6 +23,7 @@ class EditNote extends Component {
   };
 
   render() {
+      console.log('ddd')
     return (
       <div className="col-sm-9 create-div">
         <div className="create-form">
