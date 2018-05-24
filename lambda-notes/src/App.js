@@ -15,7 +15,8 @@ class App extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      userNotes: []
+      userNotes: [],
+      selectedNote: {}
   }
 }
 
@@ -26,30 +27,44 @@ componentDidMount () {
 }
 
 
+viewCurrentNote = (noteID) => {
+  return this.setState({selectedNote: noteID}) 
+  
+}
+
+
   render() {
 
-    
     return (
       <div className="App">
-
+        {/* <row>
+          <div className ="sidebar col-md-3">
+            <Route path="/" component={ SideBar } />
+          </div>
+          <div className="contentContainer col-md-9">
+            <Route exact path="/" render={(props) => { return <NotesContainer notes={this.state.userNotes}/>}} />
+          </div>
+        </row> */}
+        
   
-       <Container fluid>
+       <Container fluid style={{height: `100%`}}> 
           <Row>
             <Col className="sidebar" sm="3">
               <Route path="/" component={ SideBar } />
             </Col>
-            <Col className="content-container" sm="9">
+            <Col className="content-container" sm="9" >
              
-              <Route exact path="/" render={(props) => { return <NotesContainer notes={this.state.userNotes}/>}} />
+              <Route exact path="/" render={(props) => { return <NotesContainer {...props} notes={this.state.userNotes} viewCurrentNote = {() => this.state.viewCurrentNote} />}} />
 
               <Route path="/createNote" render={(props) => <CreateNote notes={this.state.userNotes}/>} />
 
-              <Route path='/noteView/:noteID' render={ (props) => {return <NoteView notes={this.state.userNotes}/>}} />
+              <Route path='/noteView/:noteID' render={ (props) => {return <NoteView currentNote={this.state.selectedNote}/>}} />
+              {/* notes={this.state.userNotes} */}
 
             </Col>
           </Row>
        </Container>
-
+  
       </div>
     );
   }

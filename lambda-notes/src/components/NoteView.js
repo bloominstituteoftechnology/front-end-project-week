@@ -13,7 +13,7 @@ class NoteView extends Component {
   render () {
     return (
             <div className="singleNote">
-            <h1>{this.props.notes.noteTitle}</h1>
+            <h1>{this.props.selectedNote}</h1>
                 <div className="features">
                     <p className="edit"><a href="#">edit</a></p>
                     

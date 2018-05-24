@@ -1,4 +1,6 @@
 .App {
+  
+  flex-direction: row-reverse;
   background-color: #F3F3F3; 
 }
 
@@ -26,5 +28,11 @@
 }
 
 .side-bar {
+
   height: 100vh;
 }
+
+.content-container {
+  
+  flex-direction: column-reverse;
+} 

@@ -1,13 +1,12 @@
 .side-bar {
     display: flex;
     flex-direction: column;
-    
+    height: 100%;
     background-color: #D8D8D8;
 }
 
-Button {
-    /* margin-left: 100px; */
-    
-    justify-content: center;
-    justify-content: center;
+button {
+    width: 240px;
+    background-color: #2BC1C4;
+    color: #FFFFFF;
 }
