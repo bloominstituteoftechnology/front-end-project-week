@@ -1,7 +1,26 @@
 .NoteContainer{
-    width:80%;
+    width:1000px;
+    display: flex;
+    flex-wrap: wrap;
+   
 }
 
-.card{
+.Notes{
+    display: flex;
+    width:1000px;
+
+}
+
+.Card{
     height: 200px;
+    width: 200px;
+}
+
+
+.CardText{
+
+    height: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, CardText, CardBody, CardTitle, Button } from 'reactstrap';
 import NoteContainer from './NoteContainer';
+import {Link} from 'react-router-dom';
 
 
 
@@ -8,16 +9,18 @@ import NoteContainer from './NoteContainer';
 const NoteCard = (props) => {
     console.log("PROPS:", props);
     return (
-        <div>
+        <div className="Notes">
             {props.noteData.map(note =>{
                 return(
                 <div key={note.title}>
-                <Card>
-                    <CardBody>
-                        <CardTitle> {note.title} </CardTitle>
-                        <CardText>{note.body}</CardText>
-                    </CardBody>
-                </Card>
+                <Link to={'/NoteView'}>
+                    <Card className="Card">
+                        <CardBody className="CardBody">
+                            <CardTitle className="CardTitle"> {note.title} </CardTitle>
+                            <CardText className="CardText">{note.body}</CardText>
+                        </CardBody>
+                    </Card>
+                </Link>
                 </div>
                 );
             })}

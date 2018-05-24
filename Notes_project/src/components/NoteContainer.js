@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './NoteContainer.css';
 import dummyData from '../dummydata';
 import NoteCard from './NoteCard';
+import CreateCard from './CreateCard';
 
 class NoteContainer extends Component {
     constructor(){
@@ -18,10 +19,10 @@ class NoteContainer extends Component {
     render() {
         console.log(this.state);
         return(
-            <div className="Notes">
+            <div className="NoteContainer">
                 
                 <NoteCard noteData={this.state.noteData}/>
-                    
+                
             </div>
         )
         

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 import  NoteCard  from './components/NoteCard';
 import Sidebar from './components/Sidebar';
 import NoteContainer from './components/NoteContainer';
 import dummyData from './dummydata';
+import NoteView from './components/NoteView';
+import EditCard from './components/EditCard';
+import CreateCard from './components/CreateCard';
+
 
 class App extends Component {
   
@@ -16,16 +21,15 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Container">
-
-          <Sidebar/>
-          <NoteContainer/>
+          <Route path= '/' component={Sidebar}></Route>
+          <Route path='/NoteContainer' component={NoteContainer}></Route>
+          <Route path='/CreateCard' component={CreateCard} ></Route>
+          <Route path='/EditCard' component={EditCard} ></Route>
+          <Route path='/NoteView' component={NoteView} ></Route>
+          {/* <Sidebar/>
+          <NoteContainer/> */}
           
         </div>
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <NoteCard/>
-        <NoteCard/> */}
       </div>
     );
   }
