@@ -1,63 +1,44 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  display:flex;
-  background-color: #222;
-  flex-direction: row;
-  
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.container{
+  max-width: 880px;
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
   text-align: center;
-  
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  
-  
-  -webkit-flex-flow: row wrap;
-  
+  margin: 0 auto;
+}
 
+.nav-container {
+  width: 25%;  
+  border-right: 1px solid #979797;
+  background-color: #D8D8D8;
+  display: block;
+  text-align: left;
+  padding: 2%;
+}
 
+.header {
+  font-family: 'Roboto', 
+}
 
-  background: tomato;
-  padding: 5px;
-  width: 100px;
-  height: 100px;
-  margin-top: 10px;
-  
-  line-height: 10px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
+.nav-btn {
+  width: 100%;
+  height: 3.5rem;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  border: 1px solid #979797;
   text-align: center;
+  font-size: 1.4rem;
+  margin-top: 2rem;  
+}
+
+.note-container {
+  width: 75%;
+  background-color: #F3F3F3; 
+  border: 1px solid red;
+  padding: 2.5%;
+  display: flex;
+}
+
+.notelist-header {
+  text-align: left;
+  margin: 3rem 0;
 }

@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
+import { Container, Row, Col, Button } from 'reactstrap';
+
 import './App.css';
-import ListView from './components/ListView';
-import LeftNav from './components/LeftNav';
+import NoteList from './components/NoteList';
 
 class App extends Component {
   render() {
     return (
-
-      <div ClassName="app">
-        <div ClassName="nav">
-          <LeftNav />
-        </div>
-        <div ClassName="container-fluid">
-          <ListView />
-</div>          
+      <div className="App">
+        <Container>
+          <Row>
+            <div className='nav-container col-3'>
+              <h3>Lambda Notes</h3>
+              <Button className='nav-btn' block>View Your Notes</Button>
+              <Button className='nav-btn' block>Create New Note</Button>
+            </div>
+            <div className='note-container col-9'>
+              <NoteList />
+            </div>
+          </Row>
+        </Container>
       </div>
     );
   }
 }
 
 export default App;
+
+
