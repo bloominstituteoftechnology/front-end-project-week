@@ -31,7 +31,7 @@ class CreateNote extends Component {
               <h4>Create New Note:</h4>
             </div>
             <div className="form-group">
-              <input className="form-title" placeholder="Note Title" name='title' type="text" value={this.state.title} onChange={this.handleNoteInput} />
+              <input className="form-title form-control" placeholder="Note Title" name='title' type="text" value={this.state.title} onChange={this.handleNoteInput} />
             </div>
             <div className="form-group">
               <textarea className="form-control form-content" rows="9" placeholder="Note Content" name='content' type="text" value={this.state.content} onChange={this.handleNoteInput} />
