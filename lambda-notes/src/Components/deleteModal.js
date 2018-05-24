@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import { Link } from 'react-router-dom';
 class DeleteModal extends React.Component {
   constructor(props) {
     super(props);
@@ -25,8 +25,9 @@ class DeleteModal extends React.Component {
           
           <h4>Are you sure you want to delete this?</h4>
           <ModalFooter>
-
+              <Link to="/">
             <Button color="danger" onClick={this.toggle}>Delete</Button>{' '}
+            </Link>
             <Button color="primary" onClick={this.toggle}>No</Button>
             </ModalFooter>
         </Modal>

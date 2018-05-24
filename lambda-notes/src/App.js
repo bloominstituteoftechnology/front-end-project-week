@@ -6,11 +6,12 @@ import "./App.css";
 import { Row, Col, Card, Container, Button } from "reactstrap";
 import { Route, Link, Switch } from "react-router-dom";
 
+import EditNote from './Components/EditNote';
 import NoteCard from "./Components/NoteCard";
 import NavBar from "./Components/NavBar";
 import NoteList from "./Components/NoteList";
 import NewNote from "./Components/NewNote";
-import Note from './Components/Note';
+import Note from "./Components/Note";
 
 class App extends Component {
   constructor() {
@@ -106,33 +107,30 @@ class App extends Component {
 
     return (
       <div>
-        
         {/* <NavBar /> */}
         <Switch>
-          
-        <Route
-          exact
-          path="/"
-          render={props => {
-            return <NoteList {...props} notes={this.state.notes} />;
-          }}
-        />
-          <Route exact path="/Note" component={Note}/>
-          
-        <Route
-          path="/notes/:id"
-          render={props => {
-            return <NoteCard {...props} notes={this.state.notes}/>
-          }}
-        />
-        <Route 
-        path="/NewNote"
-        render={props => {
-          return <NewNote {...props} notes={this.state.notes} />
-        }}
-        />
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return <NoteList {...props} notes={this.state.notes} />;
+            }}
+          />
+          <Route exact path="/Note" component={Note} />
+          <Route exact path ='/edit' component={EditNote} /> 
+          <Route
+            path="/notes/:id"
+            render={props => {
+              return <NoteCard {...props} notes={this.state.notes} />;
+            }}
+          />
+          <Route
+            path="/NewNote"
+            render={props => {
+              return <NewNote {...props} notes={this.state.notes} />;
+            }}
+          />
         </Switch>
-        
       </div>
     );
   }
