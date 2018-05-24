@@ -143,6 +143,7 @@ const mapStateToProps = () => {
     const searchNoteByText = makeSearchNoteByText()
     const sortNoteBy = makeSortNoteBy()
     return (state) => {
+        console.log(state)
         if (state.toolsReducer.searchBoxOpen) {
             const { notes } = searchNoteByText(state.notesReducer.notes, state.toolsReducer.searchText)
             return {

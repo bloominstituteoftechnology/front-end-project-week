@@ -1,4 +1,5 @@
 import db from '../firebase';
+import firebase from 'firebase';
 
 export const FETCHING_NOTES = 'FETCHING_NOTES'
 export const FETCHED_NOTES = 'FETCHED_NOTES'
@@ -22,6 +23,7 @@ export const FETCHED_TAGS = 'FETCHED_TAGS'
 export const SHOW_EDIT_TAG_BOX = 'SHOW_EDIT_TAG_BOX'
 export const HIDE_EDIT_TAG_BOX = 'HIDE_EDIT_TAG_BOX'
 export const FETCHED_TAG_OF_NOTE = 'FETCH_TAG_OF_NOTE'
+export const GET_AUTH_STATE = 'GET_AUTH_STATE'
 export const ERROR = 'ERROR'
 
 export const getNotes = () => {
@@ -32,6 +34,7 @@ export const getNotes = () => {
         
         ref.on("value", 
         response => {
+            console.log(response.val())
             dispatch({ type: FETCHED_NOTES, notes: response.val()})
         }, 
         error => {
@@ -326,4 +329,19 @@ export const applyTag = ({noteId, tagId, tagName}) => {
             dispatch({ type: ERROR, error: error.code })
         })
     }
+}
+
+export const getAuthState = () => {
+    return (dispatch) => {
+        firebase.auth().onAuthStateChanged(
+        res => { 
+            res? 
+            dispatch({ type: GET_AUTH_STATE, isSignedIn: true, user: res.providerData[0] })
+            :
+            dispatch({ type: GET_AUTH_STATE, isSignedIn: false, user: {} })
+        },
+        error => {
+            dispatch({ type: ERROR, error: error.code })
+        })
+    }    
 }

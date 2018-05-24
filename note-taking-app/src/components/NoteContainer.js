@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 
 import Notes from './Notes';
 import AddNoteForm from './AddNoteForm';
 import UpdateNoteForm from './UpdateNoteForm';
 import Note from './Note';
 
-import { getNotes, getTags } from '../actions';
+import { getNotes, getTags, getAuthState } from '../actions';
 
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
+import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { Panel } from 'office-ui-fabric-react/lib/Panel';
+import { Persona, PersonaSize } from 'office-ui-fabric-react/lib/Persona';
 
 const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isDeleting }) => {
   if (!isFetching) {
@@ -25,12 +26,12 @@ const NoteContainerChild = ({ isFetching, isSelecting, isAdding, isUpdating, isD
 
 class NoteContainer extends React.Component {
   state = {
-    openPanel: false,
-    isSignedIn: false
+    openPanel: false
   }
   componentDidMount = () => {
     this.props.getNotes()
     this.props.getTags()
+    this.props.getAuthState()
   }
   showPanel = () => {
     this.setState({ openPanel: true })
@@ -50,54 +51,78 @@ class NoteContainer extends React.Component {
     ],
     callbacks: {
       // Avoid redirects after sign-in.
-      signInSuccessWithAuthResult: () => {
-        this.hidePanel()
-        return false
-      }
+      signInSuccessWithAuthResult: () => false,
     }
   }
-  // Listen to the Firebase Auth state and set the local state.
-  componentDidMount() {
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
-        (user) => {
-          console.log(user)
-        }
-    );
+  signOut = () => {
+    this.hidePanel()
+    firebase.auth().signOut()
   }
-
-  // Make sure we un-register Firebase observers when the component unmounts.
-  // componentWillUnmount() {
-  //   this.unregisterAuthObserver();
-  // }
   render () {
     const { openPanel, hidePanel } = this.state
-    console.log(this.state)
+    const { getAuthState, notesReducer } = this.props
+    const { isSignedIn, user } = this.props.userReducer
     return (
       <div style={style.root}>
-        {
-          !this.state.isSignedIn?
-          <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+        { !isSignedIn?
+          <PrimaryButton
+            iconProps={ { iconName: 'ContactCard' } }
+            text='Sign In'
+            onClick={this.showPanel}
+            style={style.signInButton}
+          />
           :
-          <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+          <div style={style.accountNameDisplay} onClick={this.showPanel}>
+            <Persona
+              imageUrl={user.photoURL}
+            />
+          </div>
         }
-        <NoteContainerChild {...this.props}/>
+        { isSignedIn ? 
+          <NoteContainerChild {...notesReducer}/>
+          :
+          <div>Please sign in to view notes</div>
+        }
         
-        
+        <Panel
+          isOpen={ openPanel }
+          isLightDismiss={ true }
+          headerText={isSignedIn? user.displayName : 'Sign In'}
+          onDismiss={ this.hidePanel }
+        >
+          {!isSignedIn?
+            <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+            :
+            <div>
+              <DefaultButton
+                text='Sign Out'
+                onClick={this.signOut}
+              />
+            </div>
+          }
+        </Panel>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  const { notesReducer } = state
-  return notesReducer
+  return {
+    notesReducer: state.notesReducer,
+    userReducer: state.userReducer
+  }
 }
 
 const style = {
-  authButton: {
+  signInButton: {
     position: 'absolute',
     top: 10,
-    right: 10
+    right: 10,
+  },
+  accountNameDisplay: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
   },
   root: {
     paddingTop: 55,
@@ -107,4 +132,4 @@ const style = {
   }
 }
 
-export default connect(mapStateToProps, { getNotes, getTags })(NoteContainer);
+export default connect(mapStateToProps, { getNotes, getTags, getAuthState })(NoteContainer);
