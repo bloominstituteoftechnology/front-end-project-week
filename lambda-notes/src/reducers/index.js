@@ -30,14 +30,7 @@ let initialState = [
     },
     {
         title: "Gluten-Free",
-        body: "Pok pok single-origin coffee salvia, beard fanny pack plaid \
-            yuccie lomo swag austin tousled slow-carb. Dreamcatcher +1 \
-            health goth tote bag humblebrag, poke lo-fi austin whatever \
-            synth fingerstache la croix activated charcoal gochujang af. \
-            Readymade vice meditation health goth, chicharrones cold-pressed \
-            squid. YOLO twee marfa you probably haven't heard of them scenester \
-            selfies slow-carb. Small batch tacos tofu unicorn. Taxidermy copper \
-            mug photo booth organic.",
+        body: "Pok pok single-origin coffee salvia, beard fanny pack plaid yuccie lomo swag austin tousled slow-carb. Dreamcatcher +1 health goth tote bag humblebrag, poke lo-fi austin whatever synth fingerstache la croix activated charcoal gochujang af. Readymade vice meditation health goth, chicharrones cold-pressed squid. YOLO twee marfa you probably haven't heard of them scenester selfies slow-carb. Small batch tacos tofu unicorn. Taxidermy copper mug photo booth organic.",
         id: 3
     },
     {

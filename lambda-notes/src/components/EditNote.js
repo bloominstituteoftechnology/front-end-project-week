@@ -10,6 +10,14 @@ class EditNote extends Component {
         id: parseInt(this.props.match.params.id)
     };
 
+    matchedNote = this.props.notes.filter(note => {
+        return note.id == this.props.match.params.id
+    })[0];
+
+    componentDidMount() {
+        this.setState({title: this.matchedNote.title, body: this.matchedNote.body})
+    };
+
     handleEditNote = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };

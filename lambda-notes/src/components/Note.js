@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addNote, editNote, removeNote } from '../actions';
+import { removeNote } from '../actions';
 
 class Note extends Component {
     state = {
@@ -50,4 +50,4 @@ const mapStateToProps = store => {
     };
 };
 
-export default connect(mapStateToProps, { addNote, editNote, removeNote })(Note);
+export default connect(mapStateToProps, { removeNote })(Note);
