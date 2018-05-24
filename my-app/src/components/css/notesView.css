@@ -37,3 +37,15 @@ h4 {
 .col-1 {
     padding-right: 4%;
 }
+#pInModal{
+    text-align: center;
+}
+.btn {
+    margin-left: 10%;
+}
+.modal-footer {
+    border-top: none;
+}
+.modal-header {
+    border-bottom: none;
+}
