@@ -6,11 +6,13 @@ const SideMenu = (props) => {
 
   let buttonArray = [];
 
-  if (props.appState !== "list") buttonArray.push(<LambdaButton key="0" text="View Your Notes" color="green" myFunc={props.listMethod} />);
+  if (props.error) buttonArray.push(<LambdaButton key="0" text="Reload" color="red" myFunc={() => props.fetcher("https://killer-notes.herokuapp.com/note/get/all")} />);
 
-  if (props.appState !== "create") buttonArray.push(<LambdaButton key="1" text="+ Create New Note" color="green" myFunc={props.createMethod} />);
+  if (props.appState !== "list") buttonArray.push(<LambdaButton key="1" text="View Your Notes" color="green" myFunc={props.listMethod} />);
 
-  if (props.appState === "list") buttonArray.push(<LambdaButton key="2" text="Alphabetize Notes" color="green" myFunc={props.alphabetizeNotes} />);
+  if (props.appState !== "create") buttonArray.push(<LambdaButton key="2" text="+ Create New Note" color="green" myFunc={props.createMethod} />);
+
+  if (props.appState === "list") buttonArray.push(<LambdaButton key="3" text="Alphabetize Notes" color="green" myFunc={props.alphabetizeNotes} />);
 
   return (
     <div className="side-menu">

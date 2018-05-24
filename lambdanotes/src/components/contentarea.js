@@ -40,6 +40,14 @@ const ContentArea = (props) => {
           Loading ...
         </Alert>
       );
+    case "error":
+      return (
+        <div className="mt-5 mr-5 ml-5">
+          <Alert color="danger">
+            {props.error.message}
+          </Alert>
+        </div>
+      );
     default:
       return (
         <div>

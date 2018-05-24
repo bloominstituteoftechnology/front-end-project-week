@@ -21,7 +21,9 @@ class App extends Component {
               <SideMenu listMethod={this.props.goToList}
               createMethod={this.props.startCreate}
               alphabetizeNotes={this.props.alphabetizeNotes}
-              appState={this.props.appState} />
+              appState={this.props.appState}
+              error={this.props.error}
+              fetcher={this.props.fetcher} />
             </Col>
             <Col className="content" xs="9">
               <ContentArea
@@ -36,7 +38,8 @@ class App extends Component {
                 saveEditMethod={this.props.saveEdit}
                 saveNewMethod={this.props.saveNew}
                 fetcher={this.props.fetcher}
-                 />
+                error={this.props.error}
+              />
             </Col>
           </Row>
       </div>
@@ -49,7 +52,7 @@ const mapStateToProps = (state) => {
     notes: state.notes,
     appState: state.appState,
     viewId: state.viewId,
-    newId: state.newId
+    error: state.error
   }
 }
 
