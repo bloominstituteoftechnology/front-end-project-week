@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
-
-
 class deleteCard extends React.Component {
     constructor(props) {
     super(props);
@@ -20,6 +18,7 @@ toggle() {
 render() {
     return (
         <div>
+        <Button color="danger" onClick={this.toggle}>Delete{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalBody>
             Are you sure you want to delete this?
