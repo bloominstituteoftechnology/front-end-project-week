@@ -8,7 +8,7 @@ import EditNote from './editnote/editnote';
 import ListItems from './createnote/listitems';
 // import CreateNote2 from './createnote/createnote2';
 import ListView from './createnote/listview';
- 
+import MyFilteredNote from './createnote/individualnotes';
 
 const initialState = [
   {id: 1,

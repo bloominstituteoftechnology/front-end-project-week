@@ -187,3 +187,13 @@ Button {
     border: 1px solid darkgray;
     margin: 10px 0 0 0;
 }
+.display-content {
+    display: inline-block;
+    width:800px;
+    position: absolute;
+    margin: 30px 0px 0px 38px; 
+    line-height: 2.1;  
+    font: Raleway Medium;
+    font-size: 15px;
+    color: #4A4A4A;
+}
