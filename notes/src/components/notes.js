@@ -8,24 +8,30 @@ export default class Notes extends Component {
             <div className="App-noteCards">
                 <div className="card">
                     <div class="container">
+                        <Link to="/noteview">    
                         <h4><b>Note Title</b></h4>
                         <hr />
+                        <Link to="/noteview"></Link>
                         <p>Architect & Engineer<br /> Travel & Food<br /> Travel & Food<br /> Travel & Food</p>
-                        <Link to="/editnote">Edit</Link>
+                        </Link>
                     </div>
                 </div>
                 <div className="card">
                     <div class="container">
+                        <Link to="/noteview">    
                         <h4><b>Note Title</b></h4>
                         <hr />
-                        <p>Architect & Engineer<br/> Travel & Food<br/> Travel & Food<br/> Travel & Food</p>
+                            <p>Architect & Engineer<br /> Travel & Food<br /> Travel & Food<br /> Travel & Food</p>
+                        </Link>    
                     </div>
                 </div>
                 <div className="card">
                     <div class="container">
+                        <Link to="/noteview">   
                         <h4><b>Note Title</b></h4>
                         <hr />
-                        <p>Architect & Engineer<br/> Travel & Food<br/> Travel & Food<br/> Travel & Food</p>
+                            <p>Architect & Engineer<br /> Travel & Food<br /> Travel & Food<br /> Travel & Food</p>
+                        </Link>    
                     </div>
                 </div>
             </div>

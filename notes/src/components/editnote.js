@@ -11,7 +11,7 @@ export default class EditNote extends Component {
             <div className="text-white">
                     <textarea className="textarea" name="textarea"
                         rows="17" cols="90" placeholder="Note Content"></textarea> 
-                    <Link className="button new" to="/newnote">Update</Link>
+                    <Link className="button new" to="/noteview">Update</Link>
                 </div>
             </div>    
         )

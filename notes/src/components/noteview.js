@@ -7,7 +7,7 @@ export default class NoteView extends Component {
         return (
             <div className="text-white">
             <div>
-                    <Link to="/editnote" className="editLink text-white">Edit</Link> <Link to="/noteview" className="editLink text-white">Delete</Link>  
+                    <Link to="/editnote" className="editLink text-white">Edit</Link>  <Link to="/noteview" className="editLink text-white">Delete</Link>  
                 </div>
                 <div>
                 <h1>Note Name</h1>
@@ -32,7 +32,7 @@ export default class NoteView extends Component {
 خطّة للحكومة فعل إذ, غير تحرير أسابيع بالجانب إذ, لان ثم الإتحاد التغييرات. عل العظمى العسكري فصل, إيو عقبت إعمار عل, ان الغالي الأثنان فقد. اكتوبر وأكثرها تم ضرب. من فرنسية ألمانيا الا, نفس الطريق حاملات بمحاولة و, مع بقعة بمباركة الصفحات بال. ضرب القوى استراليا، هو.</p>
 </div>                    
                     
-                <Link className="button new" to="/newnote">Save</Link>
+                <Link className="button new" to="/">Save</Link>
             </div>
         );
     }
