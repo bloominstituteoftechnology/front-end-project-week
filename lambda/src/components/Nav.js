@@ -10,18 +10,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 //statless componet for Navbar, which will be exported to App.js to render NavBar
 const NavBar = () => {
-    return(
-      <Container className="container">
-        <Row>
-        <Col md="3">
-        <div className="Nav align-self-start">
+    return (
+          <div className="Nav">
             <h1>Lambda Notes</h1>
             <Link to="/"><Button className="button" color="info">View Your Note</Button>{' '}</Link>
             <Link to="/note"> <Button className="button1" color="info">+Create New Note</Button>{' '}</Link>  
-        </div>
-        </Col>
-        </Row>
-      </Container>
+          </div>
+
     );
 };
 
