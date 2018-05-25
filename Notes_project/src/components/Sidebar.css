@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     height: 1000px;
-    width: 180px;
+    width: 220px;
     background-color: #D8D8D8;
     font-family: 'Roboto Bold';
     border-right: 1px solid gray;
@@ -31,7 +31,8 @@
     margin-right: 10px;
     background-color: #2BC1C4;
     color: #FFFFFF;
-    font-size: .8rem
+    font-size: .8rem;
+    width:80%;
 
 }
 
@@ -42,5 +43,6 @@
     background-color: #2BC1C4;
     color: #FFFFFF;
     font-size: .8rem;
+    width: 80%;
     
 }

@@ -1,12 +1,17 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Delete from './Delete';
+
 
 const NoteView = () => {
     return(
-        <div>
-            <Link to={'/EditCard'}><h6> Edit </h6></Link>
-            <h6> Delete </h6>
-            <h1>Note View </h1>
+        <div className="ViewForm">
+            <div className="ButtonContainer">
+                <Link to={'/EditCard'}><h6 className="Edit"> Edit </h6></Link>
+                <Delete/>
+            </div>
+            <h1 className="NoteView">Note View </h1>
         </div>
     )
 }

@@ -27,21 +27,23 @@ class CreateCard extends Component {
         return(
 
             <div className="NoteForm">
-                <h4> Create New Note: </h4>
-                {/* <form onSubmit={}> */}
-                    <input className="TitleForm"
-                        // onChange={}
-                        placeholder="Note Title"
-                        value={this.state.title}
-                        name="title"
-                    />
-                    <input className="BodyForm"
-                        // onChange={}
-                        placeholder="Insert Notes"
-                        value={this.state.body}
-                        name="body"
-                    />
-                    <button className="SaveButton" type="submit"> Save </button>
+                <div className="FormContents">
+                    <h4 className="FormHeader"> Create New Note: </h4>
+                    {/* <form onSubmit={}> */}
+                        <input className="TitleForm"
+                            onChange={this.handleInputChange}
+                            placeholder="Note Title"
+                            value={this.state.title}
+                            name="title"
+                        />
+                        <input className="BodyForm"
+                            onChange={this.handleInputChange}
+                            placeholder="Insert Notes"
+                            value={this.state.body}
+                            name="body"
+                        />
+                        <button className="SaveButton" type="submit"> Save </button>
+                </div>
             </div>
 
 

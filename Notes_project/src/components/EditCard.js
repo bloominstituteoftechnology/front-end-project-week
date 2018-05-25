@@ -22,21 +22,23 @@ class EditCard extends Component {
         return(
 
             <div className="NoteForm">
-                <h2> Edit Note: </h2>
-                {/* <form onSubmit={}> */}
-                    <input className="TitleForm"
-                        // onChange={}
-                        placeholder="Note Title"
-                        value={this.state.title}
-                        name="title"
-                    />
-                    <input className="BodyForm"
-                        // onChange={}
-                        placeholder="Insert Notes"
-                        value={this.state.body}
-                        name="body"
-                    />
-                    <button className="SaveButton" type="submit"> Save </button>
+                <div className="FormContents">
+                    <h4 className="FormHeader"> Edit Note: </h4>
+                    {/* <form onSubmit={}> */}
+                        <input className="TitleForm"
+                            // onChange={}
+                            placeholder="Note Title"
+                            value={this.state.title}
+                            name="title"
+                        />
+                        <input className="BodyForm"
+                            // onChange={}
+                            placeholder="Insert Notes"
+                            value={this.state.body}
+                            name="body"
+                        />
+                        <button className="SaveButton" type="submit"> Save </button>
+                </div>
             </div>
 
 
