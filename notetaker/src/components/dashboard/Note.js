@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
-import { Route } from 'react-router-dom';
-import NoteView from '../noteview/NoteView';
 import './dashboard.css';
 
 export default class Note extends Component {

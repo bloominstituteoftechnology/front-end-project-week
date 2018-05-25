@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col, Button, Input, InputGroup } from 'reactstrap';
+import { Container, Row, Col, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './newnote.css';
 import { Redirect } from 'react-router';
@@ -32,12 +31,6 @@ export default class NewNote extends Component {
             body: this.state.newNoteBody,
           }
         notesRef.push(note);
-        this.state.notes.push({
-            title: this.state.newNoteTitle, 
-            body: this.state.newNoteBody, 
-        });
-        console.log(this.state.notes);
-        this.props.handleSubmit(this.state.notes);
         this.setState({
             redirect: true
         })

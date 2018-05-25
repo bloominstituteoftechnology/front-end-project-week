@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import { Container, Row, Col, } from 'reactstrap';
 import './dashboard.css';
 import { Link } from 'react-router-dom';
 import Note from './Note';
@@ -32,31 +31,6 @@ export default class Dashboard extends Component {
       });  
     }); 
   }
-
-  /*componentWillMount() {
-    if (typeof this.props.location.state != "undefined") {
-        if (typeof this.props.location.state.deleteID != "undefined") {
-            console.log(this.props.location.state.deleteID.id.toString());
-            for (let i = 0; i < this.state.notes.length; i++) {
-                if (this.state.notes[i].id === this.props.location.state.deleteID.id.toString()) {
-                    console.log(this.state.notes[i].id);
-                    const itemRef = fire.database().ref(`/items/${this.state.notes[i].id}`);
-                    itemRef.remove();
-                }
-            }
-        }
-        if (typeof this.props.location.state.id != "undefined") {
-            let newNotes = [];
-            newNotes = [...this.state.notes];
-            for (let i = 0; i < this.state.notes.length; i++) {
-                if (newNotes[i].id === this.props.location.state.id.id) {
-                    this.state.notes[i][0].title = this.props.location.state.newTitle;
-                    this.state.notes[i][0].body = this.props.location.state.newBody;
-                }
-            }
-        }
-     }
-  }*/
 
   render() {
     return (

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col, Jumbotron, Button, Input, InputGroup } from 'reactstrap';
+import { Container, Row, Col, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import fire from '../../components/newnote/fire.js';
 import { Redirect } from 'react-router';

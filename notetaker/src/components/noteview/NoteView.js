@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardFooter, CardBody,
-    CardTitle, CardText, Container, Row, Col, Jumbotron, Button, Input, InputGroup,
-    Modal, ModalHeader, ModalBody, ModalFooter  } from 'reactstrap';
+import { Container, Row, Col, Button, Modal, ModalBody, ModalFooter  } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import './noteview.css';
