@@ -33,7 +33,7 @@ export default class Dashboard extends Component {
     }); 
   }
 
-  componentWillMount() {
+  /*componentWillMount() {
     if (typeof this.props.location.state != "undefined") {
         if (typeof this.props.location.state.deleteID != "undefined") {
             console.log(this.props.location.state.deleteID.id.toString());
@@ -56,7 +56,7 @@ export default class Dashboard extends Component {
             }
         }
      }
-  }
+  }*/
 
   render() {
     return (

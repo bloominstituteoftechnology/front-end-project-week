@@ -24,21 +24,14 @@ export default class NoteView extends Component {
     });
   }
 
-   removeNote = e => {    
-    e.preventDefault();
-    console.log('hello');  
+  removeNote = e => {    
+    e.preventDefault(); 
     const notesRef = fire.database().ref(`/notes/${this.props.location.state.id}`);
     notesRef.remove();
     this.setState({
         redirect: true
     })
   }
-
-  /*deleteHandler = e => {
-    e.preventDefault();
-    let id = this.props.location.state.id;
-    this.props.location.state.handleDelete(id);
-  }*/
 
   render() {
     if (this.state.redirect === true) return <Redirect to="/" />;     

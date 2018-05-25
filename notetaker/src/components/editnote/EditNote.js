@@ -3,6 +3,7 @@ import { Card, CardHeader, CardFooter, CardBody,
     CardTitle, CardText, Container, Row, Col, Jumbotron, Button, Input, InputGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import fire from '../../components/newnote/fire.js';
+import { Redirect } from 'react-router';
 
 export default class EditNote extends Component {
 
@@ -12,6 +13,7 @@ export default class EditNote extends Component {
         this.state = {
             newTitle: this.props.location.state.title.title,
             newBody: this.props.location.state.body.body,
+            redirect: false
         };
     }
 
@@ -26,7 +28,20 @@ export default class EditNote extends Component {
         this.setState({ [e.target.name] : e.target.value });
       };
 
+    editNote = e => {    
+      e.preventDefault(); 
+      const notesRef = fire.database().ref(`/notes/${this.props.location.state.id.id}`);
+      notesRef.set({
+          title: this.state.newTitle,
+          body:this.state.newBody
+      });
+      this.setState({
+          redirect: true
+      })
+    }
+
   render() {
+    if (this.state.redirect === true) return <Redirect to="/" />;       
     return (
     <Container>
         <Row className="border">
@@ -60,16 +75,11 @@ export default class EditNote extends Component {
                         name="newBody"></textarea>
                     </Col>
                     <Col xs="4" className="ml-3">
-                        <Link to={{
-                                    pathname:`/`,
-                                    state: {
-                                        id: this.state.id,
-                                        newTitle: this.state.newTitle,
-                                        newBody: this.state.newBody
-                                    }
-                                }}>
-                            <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">Update</button>
-                        </Link>
+                        <button type="button" 
+                        className="mt-4 btn btn-lg btn-block rounded-0"
+                        onClick={this.editNote}>
+                            Update
+                        </button>
                     </Col>
                 </Row>
             </Col>
