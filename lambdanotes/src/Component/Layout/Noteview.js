@@ -20,8 +20,12 @@ export default class Noteview extends Component {
         this.setState({
           modal: !this.state.modal
         });
+        
       }
 
+      delete(){
+        this.props.handleDelete(this.props.note[0].id.toString());
+      }
     //   componentDidMount() {
     //     this.fetch(this.props.match.params.id)
     //   }
@@ -54,7 +58,7 @@ export default class Noteview extends Component {
                     <h1> Lambda Notes</h1>
                 </div>
                 <div>
-                    <Link to="/note">
+                    <Link to="/">
                         <Mybutton className="btn" text = "View your notes"/>
                     </Link>
                     <Link to="/create">
@@ -76,7 +80,7 @@ export default class Noteview extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>No</Button>
-                        <Button color="secondary" onClick={this.toggle}>Yes</Button>
+                        <Button color="secondary" href = "/" onClick={() => {this.props.handleDelete(this.props.note[0].id)}}>Yes</Button>
                     </ModalFooter>
                     </Modal>
                 </div >

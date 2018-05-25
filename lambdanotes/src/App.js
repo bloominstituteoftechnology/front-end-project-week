@@ -62,6 +62,16 @@ class App extends Component {
     })
     }
 
+  handleDelete = (id) => {
+    var newList = this.state.notes;
+    newList = newList.filter(item => (item.id.toString() !==  id.toString()) )
+    console.log('newlist', newList);
+    this.setState({
+      notes: newList
+    });
+  }
+
+
   
 
   render() {
@@ -71,7 +81,7 @@ class App extends Component {
           <Route exact path="/edit" component={ Editview }/>
           <Route exact path="/note" component={ Noteview }/>
           {console.log('notes', this.props )}
-          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} id = {console.log('id',props.match.params.id)} note={this.state.notes.filter(item => (item.id.toString() ===  props.match.params.id) )} />  )  } />
+          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} handleDelete={this.handleDelete}    note={this.state.notes.filter(item => (item.id.toString() ===  props.match.params.id) )} />  )  } />
           <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.handleRequest}  handleTaskChange= {this.handleTaskChange}/> } />    
       </div>
     );

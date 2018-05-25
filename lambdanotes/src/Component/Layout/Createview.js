@@ -38,7 +38,7 @@ export default class Createview extends Component {
                     </div>
                     
                     <div className = "submitButton">
-                        <Mybutton type="submit" onClick={this.props.handleRequest}  className="btn" text = "Save"/>
+                        <Mybutton type="submit" href = "/" onClick={this.props.handleRequest}  className="btn" text = "Save"/>
                     </div>
              
 
