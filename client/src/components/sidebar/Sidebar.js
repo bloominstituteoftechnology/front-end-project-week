@@ -50,7 +50,7 @@ const Sidebar = props => {
             inputClassName='button-container__input-search-notes'
             inputName='search'
             inputOnChange={ props.setInputVal }
-            inputPlaceHolder='Search Notes'
+            inputPlaceholder='Search Notes'
             inputType='text'
             inputVal={ props.search }
           />
