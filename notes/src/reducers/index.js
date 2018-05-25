@@ -1,7 +1,11 @@
 import {
+    ADDING_NOTE,
     NOTE_ADDED,
+    UPDATING_NOTE,
     NOTE_UPDATED,
-    NOTE_DELETED
+    DELETING_NOTE,
+    NOTE_DELETED,
+    ERROR
 } from "../actions";
 
 const initialState = {
@@ -41,12 +45,23 @@ const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case ADDING_NOTE:
+            return { ...state, addingNote: true};
         case NOTE_ADDED:
-            return {...state, noteAdded: true, notes: state.notes.concat(action.payload)};
+            return { ...state, addingNote: false, noteAdded: true, notes: state.notes.concat(action.payload)};
+
+        case UPDATING_NOTE:
+            return { ...state, updatingNote: true};
         case NOTE_UPDATED:
-            return {...state, noteUpdated: true, notes: action.payload };
+            return { ...state, updatingNote: false, noteUpdated: true, notes: action.payload };
+
+        case DELETING_NOTE:
+            return { ...state, deletingNote: true};
         case NOTE_DELETED:
-            return {...state, noteDeleted: true, notes: action.payload };
+            return { ...state, deletingNote: false, noteDeleted: true, notes: action.payload };
+
+        case ERROR:
+            return { ...state, error: action.payload};
         default:
             return state;
     }
