@@ -16,7 +16,7 @@ class Notes extends Component {
                 <div className="card mb-sm-4 col-sm-3 ui-state-default" key={note.id}>
                   <div className="card-head no-bg">
                     <h5 className="d-sm-inline">
-                      #{note.id} {note.title}
+                      {note.title}
                     </h5>
                   </div>
                   <div className="list-group list-group-flush">

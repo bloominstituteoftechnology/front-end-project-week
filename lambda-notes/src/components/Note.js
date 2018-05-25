@@ -45,7 +45,7 @@ class Note extends Component {
               </Link>
             </div>
             <div>
-              <h4 className="mb-sm-3">#{this.state.note.id} {this.state.note.title}</h4>
+              <h4 className="mb-sm-3">{this.state.note.title}</h4>
               <p>{this.state.note.content}</p>
             </div>
 

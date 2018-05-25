@@ -29,7 +29,7 @@ class EditNote extends Component {
       <div className="col-sm-9 create-div">
         <div className="create-form">
           <div className="form-group">
-            <h4>Edit Note #{this.props.match.params.id}:</h4>
+            <h4>Edit Note:</h4>
           </div>
           <div className="form-group">
             <input
