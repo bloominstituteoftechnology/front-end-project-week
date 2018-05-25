@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 import "./NoteCard.css";
+import Markdown from 'markdown-to-jsx';
 
 const NoteCard = (props) => {
     return (
@@ -10,7 +11,7 @@ const NoteCard = (props) => {
                 <Link to={`note/${props.note.id}`}>{props.note.title} </Link>
             </CardHeader>
             <CardBody className="card-body">
-                <CardText>{props.note.content}</CardText>
+                <Markdown>{props.note.content}</Markdown>
             </CardBody>
         </Card>
     )

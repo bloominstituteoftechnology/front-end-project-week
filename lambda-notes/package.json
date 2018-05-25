@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "markdown-to-jsx": "^6.6.5",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-native-elements": "^0.19.1",
