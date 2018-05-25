@@ -70,7 +70,8 @@ class App extends Component {
            <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes}  /> } />
           <Route exact path="/edit" component={ Editview }/>
           <Route exact path="/note" component={ Noteview }/>
-          <Route path="/note/:id" render={ (props) =>  <Noteview {...props} id = {props.match.id} />  } />
+          {console.log('notes', this.props )}
+          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} id = {console.log('id',props.match.params.id)} note={this.state.notes.filter(item => (item.id.toString() ===  props.match.params.id) )} />  )  } />
           <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.handleRequest}  handleTaskChange= {this.handleTaskChange}/> } />    
       </div>
     );

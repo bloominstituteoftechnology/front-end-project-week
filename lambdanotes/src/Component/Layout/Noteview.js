@@ -48,6 +48,7 @@ export default class Noteview extends Component {
   render() {
     return (
         <div className="BigContainer">
+        {console.log(this.props)}
             <div className="sidebar">
                 <div className="sidebarname">
                     <h1> Lambda Notes</h1>
@@ -81,11 +82,11 @@ export default class Noteview extends Component {
                 </div >
 
                 <div className = "mainbarHeading">
-                    <h2>{this.state.title}</h2>
+                    <h2>{this.props.note[0].title}</h2>
                 </div>
 
                 <div className = "mainbarParagraph">
-                    <p> {this.state.textBody}</p>
+                    <p> {this.props.note[0].textBody}</p>
                     
                 </div>
             </div>

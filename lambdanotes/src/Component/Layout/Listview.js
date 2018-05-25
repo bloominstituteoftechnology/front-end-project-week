@@ -31,7 +31,6 @@ export default class Listview extends Component {
   render() {
     return (
         <div className="BigContainer">
-          {console.log(this.props)}
             <div className="sidebar">
                 <div className="sidebarname">
                     <h1> Lambda Notes</h1>
