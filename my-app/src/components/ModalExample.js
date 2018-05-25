@@ -43,9 +43,9 @@ class ModalExample extends Component{
                                         <p id="pInModal">Are you sure you want to delete this?</p><br />
                                         <Row>
                                         <Col md={6}>
-                                              <button className='btn btn-danger'>
-                                              <Link to="/">Delete</Link>
-                                              </button>
+                                        <Link to="/"><button className='btn btn-danger'>
+                                              Delete
+                                              </button></Link>
                                         </Col>
                                         <Col md={6}>
                                         <Link to="/"><button type="button" className="btn btn-secondary" data-dismiss="modal">No</button></Link>
