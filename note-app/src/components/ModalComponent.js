@@ -4,6 +4,36 @@ import { addNote, deleteNote, addTag } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+let defaultColor = "red";
+let defaultComplete = "NOT COMPLETE";
+let tempVal;
+let displayValue = "beige";
+let tagOneStyle = {
+  cursor: "context-menu",
+  color: "black",
+  backgroundColor: displayValue
+};
+let tagTwoStyle = {
+  cursor: "crosshair",
+  display: "inline-flex",
+  marginLeft: 20,
+  paddingLeft: 15,
+  paddingRight: 15,
+  backgroundColor: "beige",
+  border: "2px solid yellow",
+  fontWeight: "bold",
+  fontSize: 18 
+};
+let linkStyle = {
+  cursor: "context-menu",
+  display: "inline-flex",
+  color: "black",
+  paddingLeft: 2,
+  paddingRight: 2,
+  backgroundColor: "beige",
+  border: "2px solid yellow"
+};
+
 const inContainerStyle = {
   display: "inline-flex",
   backgroundColor: "white",
@@ -33,25 +63,7 @@ const noteStyle = {
   paddingBottom: 8,
   borderBottom: "1px solid gray"
 };
-let displayValue = "beige";
 
-let tagOneStyle = {
-  cursor: "context-menu",
-  color: "black",
-  backgroundColor: displayValue
-};
-let tagTwoStyle = {
-  cursor: "crosshair",
-  display: "inline-flex",
-  marginLeft: 20,
-  paddingLeft: 15,
-  paddingRight: 15,
-  backgroundColor: "beige",
-  border: "2px solid yellow",
-  fontWeight: "bold",
-  fontSize: 18
- 
-};
 const aprompt = {
   width: "400%",
   padding: 100
@@ -60,19 +72,6 @@ const labelStyle = {
   marginTop: 10
 };
 
-let tempVal;
-let linkStyle = {
-  cursor: "context-menu",
-  display: "inline-flex",
-  color: "black",
-  paddingLeft: 2,
-  paddingRight: 2,
-  backgroundColor: "beige",
-  border: "2px solid yellow"
-};
-
-let defaultColor = "red";
-let defaultComplete = "NOT COMPLETE";
 class ModalComponent extends Component {
   constructor(props) {
     super(props);

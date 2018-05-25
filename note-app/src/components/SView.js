@@ -4,7 +4,13 @@ import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import { addNote, deleteNote, checkUpdate } from "../actions/action";
 import { connect } from "react-redux";
 
-const bStylec = {
+let noteOne = [];
+let titleOne = [];
+let defaultcheck;
+let defaultColor = 'red';
+let defaultComplete = 'NOT COMPLETE';
+
+const buttonStyleOne = {
 	marginTop: 20,
 	width: '40%',
 	backgroundColor: '#25b8bd',
@@ -16,7 +22,7 @@ const bStylec = {
 	marginLeft: '8%',
 	marginRight: '10%'
 };
-const bStyled = {
+const buttonStyleTwo = {
 	marginTop: 20,
 	width: '100%',
 	paddingRight: 60,
@@ -33,10 +39,10 @@ const bStyled = {
 const warning = {
 	textAlign: 'center'
 };
-const noteSt = {
+const noteStyle = {
 	padding: 30
 };
-const linkSte = {
+const linkStyle = {
 	justifyContent: 'center',
 	marginLeft: '87%',
 	marginRight: '2%',
@@ -46,18 +52,13 @@ const linkSte = {
 const hide = {
 	display: 'none'
 };
-const inpSt = {
+const inputStyle = {
 	width:50,
 	 height:50
 }
-const lst = {
+const subLinkStyle = {
 	fontSize: 24
 }
-let noteI = [];
-let titleI = [];
-let dcheck;
-let dcolor = 'red';
-let dcomplete = 'NOT COMPLETE';
 
 class SView extends React.Component {
 	constructor(props) {
@@ -85,8 +86,8 @@ class SView extends React.Component {
 	}
 	handleDelete = (id) => {
 		this.props.deleteNote(this.props.notes[id]);
-		noteI = [];
-		titleI = [];
+		noteOne = [];
+		titleOne = [];
 		this.refresh();
 		this.setState({
 			modal: !this.state.modal
@@ -101,45 +102,45 @@ class SView extends React.Component {
 	}
 
 	render() {
-		noteI = [];
-		titleI = [];
-		dcheck = [];
-		dcomplete = '';
+		noteOne = [];
+		titleOne = [];
+		defaultcheck = [];
+		defaultComplete = '';
 		return (
 			<div>
 				<div>
-					<Link to={`/notes/edit/${this.props.id}`} style={linkSte}>
-						<span style={lst} >edit</span>
+					<Link to={`/notes/edit/${this.props.id}`} style={linkStyle}>
+						<span style={subLinkStyle} >edit</span>
 					</Link>
 
 					<Link to={`#`} onClick={this.toggle} >
-						<span style={lst} >delete</span>
+						<span style={subLinkStyle} >delete</span>
 					</Link>
 
 					{this.props.notes.map((note, i) => {
 						return (
 							<div style={hide} key={note + i}>
-								{noteI.push(note.note)}
-								{titleI.push(note.title)}
-								{dcheck.push(note.check)}
+								{noteOne.push(note.note)}
+								{titleOne.push(note.title)}
+								{defaultcheck.push(note.check)}
 							</div>
 						);
 					})}
 					<div style={hide}>
-					{dcheck[this.props.id] === false ? dcolor = 'red' : dcolor = 'blue'};
-					{dcheck[this.props.id] === false ? dcomplete = 'NOT COMPLETE' : dcomplete = 'COMPLETED'};
+					{defaultcheck[this.props.id] === false ? defaultColor = 'red' : defaultColor = 'blue'};
+					{defaultcheck[this.props.id] === false ? defaultComplete = 'NOT COMPLETE' : defaultComplete = 'COMPLETED'};
 					</div>
-					<div style={noteSt}>
-						<h1>{titleI[this.props.id]}</h1>
-						<h4>Complete Status: <span style={{color : dcolor}}> {dcomplete} </span> </h4>
+					<div style={noteStyle}>
+						<h1>{titleOne[this.props.id]}</h1>
+						<h4>Complete Status: <span style={{color : defaultColor}}> {defaultComplete} </span> </h4>
 							<input
 								name="checkedB"
 								type="checkbox"
-								checked={dcheck[this.props.id]}
+								checked={defaultcheck[this.props.id]}
 								onChange={this.handleInputChange}
-								style={inpSt}
+								style={inputStyle}
 							/>
-						{noteI[this.props.id]}
+						{noteOne[this.props.id]}
 						<label>
 
 						</label>
@@ -150,11 +151,11 @@ class SView extends React.Component {
 					<ModalBody style={warning}>Are you sure you want to delete this?</ModalBody>
 					<ModalFooter>
 						<Link to={`/`} onClick={() => this.handleDelete(this.props.id)}>
-							<Button color="primary" style={bStyled}>
+							<Button color="primary" style={buttonStyleTwo}>
 								Delete
 							</Button>
 						</Link>
-						<Button color="secondary" onClick={this.toggle} style={bStylec}>
+						<Button color="secondary" onClick={this.toggle} style={buttonStyleOne}>
 							No
 						</Button>
 					</ModalFooter>

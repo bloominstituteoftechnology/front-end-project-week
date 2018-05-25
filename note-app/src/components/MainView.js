@@ -5,6 +5,11 @@ import { addNote, deleteNote, reorderState, addTag } from "../actions/action";
 import { connect } from "react-redux";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
+let defaultColor = "red";
+let defaultComplete = "NOT COMPLETE";
+let changeOrder = "Descending";
+let originalNotes;
+
 const noteView = {
   display: "inline-flex",
   backgroundColor: "white",
@@ -73,11 +78,6 @@ let tempVal;
 const hide = {
   display: "none"
 };
-
-let defaultColor = "red";
-let defaultComplete = "NOT COMPLETE";
-let changeOrder = "Descending";
-let originalNotes;
 
 class MainView extends React.Component {
   constructor(props) {
