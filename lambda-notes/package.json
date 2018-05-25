@@ -4,13 +4,15 @@
   "private": true,
   "dependencies": {
     "jquery": "^3.3.1",
-    "react": "^16.3.2",
+    "react": "^16.4.0",
     "react-csv": "^1.0.14",
-    "react-dom": "^16.3.2",
+    "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
+    "react-strap": "^0.0.1",
+    "reactstrap": "^6.0.1",
     "redux": "^4.0.0"
   },
   "scripts": {
