@@ -6,9 +6,9 @@ import ViewNote from './createnote/viewnote';
 import CreateNote from './createnote/createnote';
 import EditNote from './editnote/editnote';
 import ListItems from './createnote/listitems';
-// import CreateNote2 from './createnote/createnote2';
 import ListView from './createnote/listview';
 import MyFilteredNote from './createnote/individualnotes';
+
 
 const initialState = [
   {id: 1,
@@ -18,6 +18,15 @@ const initialState = [
   title: "Note 2",
   content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
   {id: 3,
+  title: "Note 3",
+  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
+  {id: 4,
+  title: "Note 3",
+  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
+  {id: 5,
+  title: "Note 3",
+  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
+  {id: 6,
   title: "Note 3",
   content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
 ]
@@ -41,6 +50,7 @@ const todo = {
     title: this.state.title,
     content: this.state.content,
 };
+
 todos.push(todo);
 this.setState({ todos: todos, todo: '' })
 };
@@ -50,15 +60,18 @@ this.setState({ todos: todos, todo: '' })
     const NoMatch = () => (
       <h3>This page does not exist - Sorry!</h3>
   )
-
+  
     return (
       <div className="App">
       
 {/* Routes */}
       <Switch>
-            <Route path="/EditNote" component={EditNote}></Route>
+          
+            <Route path="/EditNote" render={(props) => (
+            <EditNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            )} />
             <Route path="/ViewNote/:id" render={(props) => (
-            <ViewNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            <ViewNote {...props} deleteNotecard={this.deleteNotecard} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route path="/CreateNewNote" render={(props) => (
             <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 

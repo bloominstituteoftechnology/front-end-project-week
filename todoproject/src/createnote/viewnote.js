@@ -25,14 +25,12 @@ class ViewNote extends Component {
             modal: !this.state.modal
         });
     }
+  
 
-    render() {
+  render() {
 
         let MyNote = this.props.todos.filter((todo) => this.props.match.params.id == todo.id);
         MyNote = MyNote[0];
-
-        // let DeleteMyNote = this.props.todos.filter((todo) => this.props.match.params.id !== todo.id);
-        // MyNote = MyNote[0];
 
         return (
             <div className="container2">
