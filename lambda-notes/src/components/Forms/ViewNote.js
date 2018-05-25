@@ -81,8 +81,8 @@ class ViewNote extends React.Component {
           <hr style={{borderColor:'var(--color--main)'}} />
           <div className="mt-2 mb-3">
             { 
-              tags ? 
-              tags.split(',').map(tag => tag.trim()).map((tag, i) => <Link to={`/notes/tag/${tag}`}><Tag key={i}>{tag}</Tag></Link>) 
+              tags.length > 0 ? 
+              tags.map((tag, i) => <Link to={`/notes/tag/${tag}`}><Tag key={i}>{tag}</Tag></Link>) 
               : 
               <p><em>No tags</em></p> 
             }
