@@ -29,7 +29,7 @@ class DeleteNote extends React.Component {
                               </button>;
     return (
       <div>
-        <div className="modul-link" onClick={this.toggle}>delete</div>
+        <h5 className="modul-link" onClick={this.toggle}>delete</h5>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
           <ModalFooter className="delete-modul">
               <span className="want-to-delete">Are you sure you want to delete this?</span>

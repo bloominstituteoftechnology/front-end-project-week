@@ -22,7 +22,7 @@ class Note extends Component {
                     
                     <div className="edit-delete">
                         <Link to={`/edit/${note._id}`}>
-                            <div className="edit">edit</div>
+                            <h5 className="edit">edit</h5>
                         </Link>
                         <DeleteNote noteID={note._id} removeNote={this.props.removeNote}/>
                     </div>
