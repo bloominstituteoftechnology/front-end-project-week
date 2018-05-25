@@ -7,16 +7,17 @@ import { Link } from "react-router-dom";
 const inContainerStyle = {
   display: "inline-flex",
   backgroundColor: "white",
-  width: "22%",
-  marginLeft: "3%",
-  marginRight: "3%",
-  border: "1px solid gray",
   padding: 10,
   height: 200,
   cursor: "pointer",
   marginTop: 10,
   marginBottom: 10,
-  overflow: "hidden"
+  overflow: "hidden",
+  width: "22%",
+  marginLeft: "3%",
+  marginRight: "3%",
+  border: "1px solid gray"
+ 
 };
 const headerStyle = {
   fontWeight: "bold",
@@ -42,13 +43,14 @@ let tagOneStyle = {
 let tagTwoStyle = {
   cursor: "crosshair",
   display: "inline-flex",
-  fontWeight: "bold",
-  fontSize: 18,
   marginLeft: 20,
   paddingLeft: 15,
   paddingRight: 15,
   backgroundColor: "beige",
-  border: "2px solid yellow"
+  border: "2px solid yellow",
+  fontWeight: "bold",
+  fontSize: 18
+ 
 };
 const aprompt = {
   width: "400%",
