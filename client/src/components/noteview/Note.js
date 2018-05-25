@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Markdown from 'markdown-to-jsx';
 
 // components
 import Button from '../misc/Button';
@@ -9,6 +10,7 @@ import DeleteModal from './DeleteModal';
 import './Note.css';
 
 const Note = props => {
+  console.log('Hello')
   if (props.match) {
     return (
       <React.Fragment>
@@ -36,7 +38,9 @@ const Note = props => {
                   </div>
                   <div className='note-wrapper__note-content-wrapper'>
                     <h2 className='note-content-wrapper__h2'>{ title }</h2>
-                    <p className='note-content-wrapper__p'>{ content }</p>
+                    <Markdown>
+                      { content }
+                    </Markdown>
                   </div>
                 </div>
               )
@@ -56,7 +60,11 @@ const Note = props => {
     <Link to={ `note/${ props.ID }` } className='note-container__note-link'>
       <div className='note-link__note-div'>
         <h2 className='note-div__h1'>{ props.title }</h2>
-        <p className='note-div__p'>{ props.content }</p>
+        <p className='note-div__p'>
+          <Markdown>
+            { props.content }
+          </Markdown>
+        </p>
       </div>
     </Link>
   )

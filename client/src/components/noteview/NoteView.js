@@ -12,7 +12,6 @@ const NoteView = ({ noteList, setSelectedNote }) => {
       {
         noteList.map(note => {
           const { id, title, content } = note;
-          
           return (
             <Note
               key={ id }
