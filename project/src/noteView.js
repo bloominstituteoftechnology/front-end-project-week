@@ -30,16 +30,20 @@ class noteView extends Component {
                     <p className='NVtitle'><strong>Lambda Notes</strong></p>
                 </div>
                 <div>
-                    <button className='NVbutton'>View Your Notes</button>
+                <button className='button'>
+                    <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
+                </button>
                 </div>
-                <div>
-                    <button className='NVbutton'>+ Create New Notes</button>
+                    <div>
+                         <button className='button'>
+                            <NavLink className='Navbutton' to='/createNew'>+ Create New Notes</NavLink>
+                         </button>
+                    </div>
                 </div>
-            </div>
 
             <div className="NVnoteContainer">
                 <div className="NVheader">
-                    <NavLink className="navLinkEdit"to='/createNew'><Button color="link">edit</Button></NavLink>
+                    <NavLink className="navLinkEdit"to='/editView'><Button color="link">edit</Button></NavLink>
                
                     {/*Modal*/}
                 <div>

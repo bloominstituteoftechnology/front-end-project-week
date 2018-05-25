@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class createNew extends Component {
     render() {
@@ -11,11 +12,15 @@ class createNew extends Component {
                     </p>
                     </div>
                     
-                    <div>
-                        <button className='button'>View Your Notes</button>
-                    </div>
-                    <div>
-                        <button className='DL button'>+ Create New Notes</button>
+                      <div>
+                            <button className='button'>
+                                <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
+                            </button>
+                        </div>
+                        <div>
+                        <button className='button'>
+                            <NavLink className='Navbutton' to='/noteView'>+ Create New Notes</NavLink>
+                        </button>
                     </div>
                 </div>
 
@@ -26,7 +31,6 @@ class createNew extends Component {
                                 <input type="email" name="email" id="exampleEmail" placeholder="New Title" />
                             </div>
                             <div>
-                                {/* <Input className="comment" type="text" name="new comment" id="new comment" placeholder="New Comment" />*/}
                                 <textarea className="CNcomment">New Comment</textarea>
                             </div>
                             <div>

@@ -17,12 +17,12 @@ class displayList extends Component {
                         
                         <div>
                             <button className='button'>
-                                <NavLink className='Navbutton' to='/noteView'>View Your Notes</NavLink>
+                                <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
                             </button>
                         </div>
                         <div>
                             <button className='button'>
-                                <NavLink className='Navbutton' to='/editView'>+ Create New Notes</NavLink>
+                                <NavLink className='Navbutton' to='/createNew'>+ Create New Notes</NavLink>
                             </button>
                         </div>
                     </div>
