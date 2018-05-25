@@ -1,5 +1,5 @@
 import React from "react";
-import { updateNote, editNote } from "../actions/action";
+import { updateNote } from "../actions/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
