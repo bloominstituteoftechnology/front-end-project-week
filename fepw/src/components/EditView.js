@@ -38,7 +38,7 @@ class EditNote extends Component {
 					</FormGroup>
 						<Link to='/' onClick={() => this.handleSubmit() }>
 						<br />
-						<button class='createButton'>Update</button>
+						<button className='createButton'>Update</button>
 						</Link>
 				</Form>
 			</div>

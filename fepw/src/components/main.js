@@ -27,9 +27,6 @@ newNotecard = (addNewNotecard) => {
 	this.setState({ cards: [...this.state.cards, addNewNotecard]});
 }
 
-updateNotecard = (addNotecard) => {
-	this.setState({ cards: [...this.state.cards, addNotecard]});
-}
 
 updatedNotecard = (updatedNC) => {
 	const updatedNotes = this.state.cards.map(note => {
@@ -57,7 +54,7 @@ render () {
 	return (
 		<div>
 			<Route exact path = '/' render={() => <ListView updateSelectedNotecard={this.updateSelectedNotecard} {...this.state} />} />
-			<Route path = '/CreateNote' render={() => <CreateNote newNotecard = {this.newNotecard} updateNotecard = {this.updateNotecard} />} />
+			<Route path = '/CreateNote' render={() => <CreateNote newNotecard = {this.newNotecard} />} />
 			<Route path = '/NoteView' render={(props) => <NoteView {...this.state} deleteNotecard={this.deleteNotecard} {...props} />} />
 			<Route path = '/EditView' render={() => <EditNote {...this.state} updatedNotecard={this.updatedNotecard} />} />
 		</div>
