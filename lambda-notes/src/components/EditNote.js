@@ -19,7 +19,8 @@ class EditNote extends Component {
     e.preventDefault();
     this.props.editNote(this.state);
     this.setState({ title: "Note Title", content: "Note Content" });
-    this.props.history.push(`/notes/${this.state.id}`);
+    // this.props.history.push(`/notes/${this.state.id}`);
+    window.location.href="/";
   };
 
   render() {

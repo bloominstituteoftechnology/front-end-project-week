@@ -7,6 +7,9 @@ import { CSVLink } from "react-csv";
 // navTo = address => {
 //     props.history.push
 // }
+function homeLink() {
+  return (window.location.href = "/");
+}
 
 class Sidebar extends Component {
     render() {
@@ -16,11 +19,11 @@ class Sidebar extends Component {
               {" "}
               Lambda<br />Notes
             </h2>
-            <Link to="/">
-              <button className="mr-sm-2 ml-sm-3 mb-sm-3 sidebar-item pt-sm-1">
+
+              <button onClick={homeLink} className="mr-sm-2 ml-sm-3 mb-sm-3 sidebar-item pt-sm-1">
                 View Your Notes
               </button>
-            </Link>
+
             <Link to="/create">
               <button className="mr-sm-2 ml-sm-3 mb-sm-3 sidebar-item pt-sm-1">
                 + Create New Note

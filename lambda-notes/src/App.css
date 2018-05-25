@@ -94,11 +94,6 @@ body, html {
   margin-top: 2.5%;
 }
 
-.create-form {
-  margin-left: 5%;
-  margin-top: 6%;
-}
-
 .create-button {
   background: #2BC1C4;
   color: white;
@@ -118,6 +113,9 @@ body, html {
   background: #F3F3F3;
   height: 100vh;
   color: #4A4A4A;
+  display: flex;
+  justify-content: center;
+  padding-top: 4%;
 }
 
 .note-view {

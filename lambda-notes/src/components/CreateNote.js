@@ -21,12 +21,13 @@ class CreateNote extends Component {
       e.preventDefault();
       this.props.createNote(this.state);
       this.setState({ title: "", content: ""});
-      this.props.history.push('/');
+    //   this.props.history.push('/');
+    window.location.href="/";
   }
 
   render() {
       return <div className="col-sm-9 create-div">
-          <div className="create-form">
+          <div>
             <div className="form-group">
               <h4>Create New Note:</h4>
             </div>

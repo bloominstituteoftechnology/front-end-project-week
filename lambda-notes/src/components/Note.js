@@ -24,7 +24,7 @@ class Note extends Component {
     handleDeleteButton = (e, id) => {
         e.preventDefault();
         this.props.deleteNote(id);
-        this.props.history.push("/");
+        window.location.href="/";
     }
 
     componentDidMount() {
