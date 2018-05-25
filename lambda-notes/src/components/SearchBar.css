@@ -1,0 +1,9 @@
+.search-bar-container {
+    margin: 20px 0 0 12px;
+}
+
+.search-display {
+    background: white;
+    width: 100%;
+    color: #2BC1C4;
+}
