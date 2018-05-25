@@ -24,6 +24,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 200px;
+    height: 100px;
     display: block;
     overflow: hidden;
 }

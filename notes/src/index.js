@@ -5,6 +5,20 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+);
+
+
+
+
+
+
+
+
 // REDUX --------------------------------------------------
 // -Comment out the code between the lines to remove redux  
 //  from the build.
@@ -28,12 +42,3 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 // ^REDUX^------------------------------------------------------
-// -This code is without redux.
-
-
-ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById('root')
-);

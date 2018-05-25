@@ -33,7 +33,7 @@ class EditNote extends Component {
                             <input 
                                 className="edit-note"
                                 onChange={this.handleInputChange} 
-                                style={{ marginBottom:'10px' }} 
+                                style={{ marginBottom:'20px' }} 
                                 placeholder="Note Title"
                                 name="title"
                                 value={this.state.title}

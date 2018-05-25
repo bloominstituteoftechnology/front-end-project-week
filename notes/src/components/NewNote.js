@@ -8,12 +8,12 @@ class Newnote extends Component {
         this.state = { 
             title: '',
             textBody: ''
-         }
+        }
     }
 
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
-      };
+    };
     
     addNote = () => {
         const noteInfo={ title: this.state.title, textBody: this.state.textBody }
@@ -47,13 +47,13 @@ class Newnote extends Component {
                             />
                         </div>
                         <span>
-                                <button 
-                                    className="save-button"
-                                    type="submit"
-                                    onClick={() => this.addNote()}
-                                >
-                                Save
-                                </button>
+                            <button 
+                                className="save-button"
+                                type="submit"
+                                onClick={() => this.addNote()}
+                            >
+                            Save
+                            </button>
                         </span>
                     </Col>
                 </Row>

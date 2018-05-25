@@ -69,13 +69,15 @@ class App extends Component {
         <Container>
           <Row>
             <Col xs="3" className="sidebar">
-              <h1>Lambda Notes</h1>
-              <Link to="/">
-                <button className="list-button">View Your Notes</button>
-              </Link>
-              <Link to="/newnote">
-                <button className="new-note-button">+ Create New Note</button>
-              </Link>
+              <div className="the-real-sidebar">
+                <h1 className="sidebar-header">Lambda Notes</h1>
+                <Link to="/">
+                  <button className="list-button">View Your Notes</button>
+                </Link>
+                <Link to="/newnote">
+                  <button className="new-note-button">+ Create New Note</button>
+                </Link>
+              </div>
             </Col>
             <Col xs="9" className="content-container">
               <Route exact path="/" render={props =>{
