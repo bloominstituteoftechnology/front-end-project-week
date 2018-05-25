@@ -35,6 +35,7 @@ class App extends Component {
     const { title, content } = this.state;
     const notesRef = firebase.database().ref('notes');
     notesRef.push({ title, content });
+    this.setState({ title: '', content: '' });
     props.history.push('/');
   }
 
