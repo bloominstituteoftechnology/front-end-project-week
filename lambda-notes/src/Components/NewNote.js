@@ -35,7 +35,7 @@ class NewNote extends Component {
 
         <Col sm="9" className="notesContainer">
           <Form style={{ padding: "20px", marginTop: "35px" }}>
-            <h3>Create New Note:</h3>
+            <h3 style={{ fontFamily: "Roboto", fontWeight: 'bold'}} >Create New Note:</h3>
             <FormGroup style={{ marginTop: "35px" }}>
               <Input style={{ paddingTop: "10px", paddingLeft: "20px", width: "60%"}}
                 type="text"

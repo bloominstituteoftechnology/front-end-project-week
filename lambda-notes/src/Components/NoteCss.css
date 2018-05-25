@@ -21,14 +21,19 @@
 }
 
 .noteCard {
-  padding: 10px;
+  
   margin-top: 10px;
+  margin-bottom: 15px;
   height: 230px;
   width: 230px;
+}
+.modal-content {
+    width: 830px;
 }
 
 .notesContainer {
   background-color: #f3f3f3;
+  padding-left: 25px !important
 }
 .mainContainer {
   height: 1000px;
@@ -41,4 +46,10 @@
 .editLink {
   margin-left: 600px;
   color: #4a4a4a;
+}
+
+.cardRow {
+   
+    justify-content: center;
+    align-items: center;
 }

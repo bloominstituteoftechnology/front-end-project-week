@@ -23,7 +23,7 @@ const NoteList = props => {
           
         <Row className="cardRow">
           <Col sm="4">
-            <NoteCard />
+            <NoteCard/>
           </Col>
           <Col sm="4">
             <NoteCard />

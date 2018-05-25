@@ -37,7 +37,7 @@ const EditNote = () => {
                 
               />
               <br />
-              <Link to="/">
+              <Link to="/Note">
                 <Button
                   style={{
                     fontSize: "18px",
