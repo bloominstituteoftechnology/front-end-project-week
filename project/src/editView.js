@@ -31,7 +31,7 @@ class editView extends Component {
                             <div className="CNnewTitle">
                                 <input className="CNinput" type="email" name="email" id="exampleEmail" placeholder="New Title" />
                             </div>
-                            <div>
+                            <div className="CNcommentContainer">
                                 <textarea className="CNcomment">New Comment</textarea>
                             </div>
                             <div className='CNbuttonContainer'>

@@ -34,7 +34,7 @@
   .NVcontainer {
     display: flex;
     box-sizing: border-box;
-    height: 980px;
+    height: 100vh;
     
 }
 
