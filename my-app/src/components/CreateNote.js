@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Notes from './Note';
 import './css/createNote.css';
+import { Link } from 'react-router-dom';
 
 export default class CreateNote extends Component {
     constructor(props) {
@@ -44,10 +45,10 @@ export default class CreateNote extends Component {
                     <div className="form-group">
                         <textarea rows="21" name="comment" value={this.state.comment} placeholder="Note Content" onChange={this.handelTodoChange}></textarea>
                     </div>
-                    <button onClick={this.handleAddNote} className="buttonStyle"><h5>Save</h5></button>
+                    <Link to="/"><button className="buttonStyle"><h5>Save</h5></button></Link>
                 </form>
                 {/* <Notes /> should redirect to ListView page */}
-                <Notes listOfNotes={this.state.objectHolder} />
+                {/* <Notes listOfNotes={this.state.objectHolder} /> */}
                 {/* <ListView listOfViews={this.state.listOfNotes} /> */}
             </div>
         )
