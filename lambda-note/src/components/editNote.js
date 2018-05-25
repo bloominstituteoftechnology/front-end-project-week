@@ -10,7 +10,7 @@ const EditNote = () => {
                   <Input  className = "form-control form-control-lg col-md-9" type="text" placeholder = "Note Title"/>
                 </FormGroup>
                 <FormGroup ClassName = "input-large">
-                  <Input className = "form-control form-control-lg " type="textarea" placeholder = "Note Content"/>
+                  <Input className = "form-control form-control-lg " style ={{"height" : "500px"}} type="textarea" placeholder = "Note Content"/>
                 </FormGroup>
                 <FormGroup>
                   <Button color ="info" >UPDATE</Button>

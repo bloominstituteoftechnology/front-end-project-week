@@ -1,19 +1,25 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-const CreateNote = () => {
+const CreateNote = (props) => {
+    const mainBar = {
+        backgroundColor: "#F3F3F3",
+        height: "100vh",
+        width: "75vw",
+
+    }
     return (
-        <div>
+        <div className="col-md-9" style={mainBar}>
             <h1 className ="m-4 font-weight-bold" > CREATE NEW NOTE :</h1>
             <Form>
                 <FormGroup>
-                  <Input  className = "form-control form-control-lg col-md-9" type="text" placeholder = "Note Title"/>
+                  <Input  className = "form-control form-control-lg col-md-9" type="text" placeholder = "Note Title" onChange ={props.handleInput} name='title'/>
                 </FormGroup>
-                <FormGroup ClassName = "input-large">
-                  <Input className = "form-control form-control-lg " type="textarea" placeholder = "Note Content"/>
+                <FormGroup className = "input-large">
+                    <Input className="form-control form-control-lg " style={{ "height": "400px" }} type="textarea" placeholder="Note Content" onChange={props.handleInput} name='noteBody'/>
                 </FormGroup>
                 <FormGroup>
-                  <Button color ="info" >SAVE</Button>
+                  <Button color ="info" onClick ={props.addNote} >SAVE</Button>
                 </FormGroup>
             </Form>
         </div>
