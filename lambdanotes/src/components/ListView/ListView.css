@@ -1,3 +1,21 @@
+.searchContainer {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 26px;
+    height: 100%;
+    width: 100%;
+
+}
+
+.search {
+    width: 100%;
+    max-width: 250px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    border: 1px solid #979797;
+    padding-left: 5px;
+}
+
 .sortingOptions {
     display: flex;
     justify-content: flex-end;
@@ -10,6 +28,7 @@
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .sortingOptions .sortOption {
@@ -21,7 +40,7 @@
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
-    margin: 18px 0 6px 26px;
+    margin: 14px 0 6px 26px;
     font-size: 21px;
 }
 
@@ -41,6 +60,7 @@
 
 .entireNoteCardLink {
     width: 192px;
+    height: 194px;
     margin: 12px 8px;
 }
 

@@ -21,7 +21,7 @@ class ListView extends Component {
     }
 
     filterBySearch = (note) => {
-        if((note).title.indexOf(this.state.search) >= 0 || (note).textBody.indexOf(this.state.search) >= 0 || this.state.search === '') return 'entireNoteCardLink';
+        if((note).title.toUpperCase().indexOf(this.state.search.toUpperCase()) >= 0 || (note).textBody.toUpperCase().indexOf(this.state.search.toUpperCase()) >= 0 || this.state.search === '') return 'entireNoteCardLink';
         else return 'hiddenCard';
     }
 
@@ -29,7 +29,9 @@ class ListView extends Component {
         return (
             <div className='listViewContainer'>
                 <div className='sortingOptions'>
-                    <input onChange={this.updateSearch} value={this.state.search} type='search' className='search' placeholder='search' />
+                    <div className='searchContainer'>
+                        <input onChange={this.updateSearch} value={this.state.search} type='search' className='search' placeholder='search' />
+                    </div>
                     <p>sort by:</p>
                     <p className='sortOption' onClick={() => this.props.sortNotesList('title')}>title</p>
                     <p className='sortOption' onClick={() => this.props.sortNotesList('textBody')}>body</p>
