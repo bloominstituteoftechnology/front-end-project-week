@@ -156,7 +156,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Sidebar setInputVal={ this.setInputVal } search={ this.state.search }/>
+        <Sidebar setInputVal={ this.setInputVal } search={ this.state.search } noteList={ this.handleSearchNotes() }/>
 
         {/* NoteView */}
         <Route
