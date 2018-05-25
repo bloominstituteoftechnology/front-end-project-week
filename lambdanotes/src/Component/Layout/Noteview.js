@@ -69,7 +69,7 @@ export default class Noteview extends Component {
 
             <div className="mainbar">
                 <div className="mainbarNav">
-                    <Link to = "/edit">
+                    <Link to = {`/edit/${this.props.note[0].id}`}>
                         edit 
                     </Link>
                     <a href = "#close" onClick={this.toggle}>delete</a>

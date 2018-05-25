@@ -5,6 +5,9 @@ import Mybutton from '../Reusables/Mybutton';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 export default class Editview extends Component {
+    componentDidMount(){
+        this.props.handleEdit(this.props.id)
+    }
   render() {
     console.log('props',this.props)
     return (
@@ -26,22 +29,20 @@ export default class Editview extends Component {
 
             <div className="mainbar">
 
- 
                 <div className = "mainbarHeading">
                     <h2>Edit Note: </h2>
                 </div>
-
                 <div className = "titleInput">
-                    <Input placeholder="Note Title" />
+                    <Input type="text" name="title" placeholder="Note Title" onChange={this.props.handleTaskChange}  value={this.props.title}  />
                 </div>
 
                 <div className = "noteInput">
-                    <Input placeholder="Note Content" />
+                    <Input type="text" name="textBody" placeholder="Note Content" onChange={this.props.handleTaskChange} value={this.props.textBody} />
                 </div>
                 
                 <div className = "submitButton">
                 
-                    <Mybutton className="btn" text = "Update"/>
+                    <Mybutton  type="submit" href = "/" onClick={() => this.props.handleUpdate(this.props.id.toString())} className="btn" text = "Update"/>
          
                 </div>
 

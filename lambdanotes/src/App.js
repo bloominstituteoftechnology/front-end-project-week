@@ -71,16 +71,37 @@ class App extends Component {
     });
   }
 
+  handleEdit = (id) => {
+    let note = this.state.notes.filter(item => (item.id.toString() ===  id) )
+    console.log("not",note)
+    this.setState({
+      title: note[0].title,
+      textBody: note[0].textBody,
+      id: note[0].id
+    })
+  }
 
   
+  handleUpdate = (id) =>{ 
+    let newNotes = [...this.state.notes];
+      newNotes[id].title = this.state.title;
+      newNotes[id].textBody = this.state.textBody;
+    console.log('nn2',newNotes)
+    this.setState({
+      notes: newNotes,
+      title: '',
+      text: ''
+    });
+      
+  }
+  
+
 
   render() {
     return (
       <div className="container-fluid">
            <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes}  /> } />
-          <Route exact path="/edit" component={ Editview }/>
-          <Route exact path="/note" component={ Noteview }/>
-          {console.log('notes', this.props )}
+          <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} id={props.match.params.id} handleUpdate={this.handleUpdate} handleRequest = {this.handleRequest}   handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
           <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} handleDelete={this.handleDelete}    note={this.state.notes.filter(item => (item.id.toString() ===  props.match.params.id) )} />  )  } />
           <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.handleRequest}  handleTaskChange= {this.handleTaskChange}/> } />    
       </div>
