@@ -7,8 +7,9 @@ import { editNote } from '../actions'
 
 let Edit = props => {
     const { handleSubmit, submitting, pristine } = props
+    
     const title = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.title : 'Oh well'
-const content = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.content : 'Oh well'
+    const content = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.content : 'Oh well'
     return (
     <div className="main-text">
         <h3> Edit Note: </h3>
@@ -20,6 +21,7 @@ const content = (props.notes[0].id.toString() === props.match.params.id) ? props
                         component="textarea"
                         type="text"
                         placeholder={title}
+                        defaultValue={title}
                         className="title"
                         rows="1"
                         cols="40"
@@ -30,6 +32,7 @@ const content = (props.notes[0].id.toString() === props.match.params.id) ? props
                     name="content"
                     component="textarea"
                     type="text"
+                    defaultValue={content}
                     placeholder={content}
                     className="content"
                     rows="15"
