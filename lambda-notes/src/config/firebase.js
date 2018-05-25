@@ -13,6 +13,10 @@ export const notesRef = (uid) => {
     databaseRef.child("notes");
 };
 
+export const userRef = (uid) => {
+  return databaseRef.child(`/users/${uid}/userpref`);
+}
+
 // Authorization
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();

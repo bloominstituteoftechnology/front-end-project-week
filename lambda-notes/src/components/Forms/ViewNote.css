@@ -1,6 +1,7 @@
 .view-note {
   font-family: 'Roboto', sans-serif;
   color: var(--color--main);
+  white-space: pre-line;
 }
 
 .view-note hr {

@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 // import { auth } from '../../config/firebase';
 // Redux actions
-import { loginUser, logoutUser } from '../Actions';
+import { loginUser, logoutUser, fetchTheme } from '../Actions';
 // Components
 import { Button, RLink } from '../Button';
 // CSS
@@ -19,7 +19,7 @@ class Navbar extends Component {
                 { this.props.user ?
                     (<Fragment>
                         <div className="w-100">
-                            <img className="d-block img-fluid rounded-circle w-50 mx-auto" src={this.props.user.photoURL} />
+                            <img className="d-block img-fluid rounded-circle mx-auto" src={this.props.user.photoURL} />
                             <h3 style={{fontSize:"16px"}} className="m-2 text-center">{this.props.user.displayName}</h3>
                         </div>
                         <RLink className="mt-2" to="/notes"><Button>View Your Notes</Button></RLink>
@@ -43,4 +43,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps, { loginUser, logoutUser })(Navbar);
+export default connect(mapStateToProps, { loginUser, logoutUser, fetchTheme })(Navbar);

@@ -10,7 +10,7 @@ const themes = {
     '--color-border': '#979797',
   },
   dark: {
-    '--color--main': '#B6B6B6',
+    '--color--main': '#D6D6D6',
     '--color--button': '#200000',
     '--color-bg': '#000000',
     '--color-bg--side': '#282828',

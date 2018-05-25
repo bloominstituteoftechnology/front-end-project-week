@@ -15,16 +15,23 @@
 html {
   height: 100%;
   background-color: var(--color-bg);
-  white-space: pre-line;
-  /* https://stackoverflow.com/a/44413780 */
-  /* Preserves new lines in text input */
 }
 
 body {
   background-color: var(--color-bg);
+  max-width: 1716px;
+  margin: 1rem auto;
   height: 100%;
 }
 
 #root {
   height: 100%;
+  border: 0.5px solid var(--color-border);
+  border-collapse: collapse;
+}
+
+@media (max-width: 768px) { 
+  html {
+    height: auto;
+  }
 }

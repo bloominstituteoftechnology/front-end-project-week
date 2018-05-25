@@ -9,11 +9,12 @@ const LoginPage = (props) => {
   const pgStyl = {
     background:"var(--color-bg--main)",
     height:"100%",
-    
+
   }
   return (
-    <div style={{background: "var(--color-bg--main)", height: "100%"}} className="login-page text-center pa-5">
-      <h3> Welcome to LambdaNotes</h3>
+    <div style={{background: "var(--color-bg--main)", height: "100%", paddingTop:"5rem",color:"var(--color--main)"}} 
+      className="login-page text-center pa-5">
+      <h3>Welcome to LambdaNotes</h3>
       <p>Log on in to get started!</p>
     </div>
   );

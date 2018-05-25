@@ -25,11 +25,13 @@ const buttonMod = {
 
 const ThemePicker = (props) => {
   if (!props.user) return <Redirect to ="/" />;
+  const uid = props.user.uid;
+  console.log("ThemesPicker UID",uid);
   return(
     <div style={styles} >
     <h4>What's your style?</h4>
-      <Button style={buttonMod} onClick={() => props.changeTheme("default")}>Default</Button>
-      <Button style={buttonMod} onClick={() => props.changeTheme("dark")}>Dark</Button>
+      <Button style={buttonMod} onClick={() => props.changeTheme(uid,"default")}>Default</Button>
+      <Button style={buttonMod} onClick={() => props.changeTheme(uid,"dark")}>Dark</Button>
     </div>
   );
 }

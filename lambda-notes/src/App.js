@@ -26,14 +26,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container">
+      <div className="App container-fluid">
         <CustomProperties global properties={themes[this.props.theme]} />
         <div className="row">
-          <Navbar classes="col-md-3" />
-          <div className="main-view col-md-9">
+          <Navbar classes="col-md-4 col-lg-3 col-xl-2" />
+          <div className="main-view col-md-8 col-lg-9 col-xl-10">
             <Switch>
               <Route exact path="/" component={LoginPage} />
               <Route exact path="/notes" component={NoteList} />
+              <Route path="/notes/tag/:tag" render={props => <NoteList match={props.match} />} />
               <Route path="/notes/new" render={props => <InputForm match={props.match} />} />
               <Route path="/notes/edit/:id" render={props => <InputForm match={props.match} />} />
               <Route path="/notes/:id" render={props => <ViewNote id={props.match.params.id} />} />

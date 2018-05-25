@@ -1,4 +1,4 @@
-import { notesRef, provider, auth } from '../../config/firebase';
+import { notesRef, userRef, provider, auth } from '../../config/firebase';
 
 export const ERROR = "ERROR";
 export const FETCH = "FETCH";
@@ -17,12 +17,6 @@ export const editNote = (uid, id, note) => async dispatch => {
 };
 
 export const fetchNotes = (uid) => dispatch => {
-  // notesRef(uid).on("value", snapshot => {
-  //   dispatch({
-  //     type: FETCH,
-  //     payload: snapshot.val(),
-  //   });
-  // });
   notesRef(uid).once("value")
     .then(res => dispatch({
       type: FETCH,
@@ -87,9 +81,59 @@ export const logoutUser = () => {
   };
 };
 
-export const changeTheme = (theme) => {
+export const changeTheme = (uid, theme) => {
+  userRef(uid).child("theme").set(theme);
+
   return {
     type: THEME,
     payload: theme,
   }
 }
+
+
+export const fetchTheme = (uid) => dispatch => {
+  userRef(uid).once("value")
+  .then(res => {
+    console.log("FETCH_THEME VALUE:",res.val());
+    return res;
+  })
+  .then(res => dispatch({
+    type: THEME,
+    payload: res.val().theme,
+  }))
+  .catch(err => dispatch({
+    type: ERROR,
+    payload: `FETCH_THEME: ${err}`,
+  }))
+}
+
+// export const fetchNotes = (uid) => dispatch => {
+//   notesRef(uid).once("value")
+//     .then(res => {
+//       console.log("THEME FETCH:",res);
+//       return dispatch({
+//         type: THEME,
+//         payload: res.val(),
+//       });
+//     })
+//     .catch(err => dispatch({
+//       type: ERROR,
+//       payload: `FETCH: ${err}`,
+//     }))
+// };
+
+// export const addNote = (uid, note) => async dispatch => {
+//   note = { ...note, date: Date.now() }
+//   notesRef(uid).push().set(note);
+// };
+
+/* Code I'm keeping around:
+
+  notesRef(uid).on("value", snapshot => {
+    dispatch({
+      type: FETCH,
+      payload: snapshot.val(),
+    });
+  });
+
+*/

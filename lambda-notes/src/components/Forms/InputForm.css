@@ -1,0 +1,18 @@
+.input-form h3 {
+  color: var(--color--main);
+}
+
+.inputform input[name="tags"] {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.input-form input, .input-form textarea {
+  background-color: var(--color-bg--side);
+  color: var(--color--main);
+}
+
+.input-form input:focus, .input-form textarea:focus {
+  background-color: var(--color-bg--side);
+  color: var(--color--main);
+}
+
