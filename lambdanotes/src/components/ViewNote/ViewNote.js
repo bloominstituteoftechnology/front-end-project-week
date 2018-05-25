@@ -20,7 +20,7 @@ class ViewNote extends Component {
                             <p className='edit'>edit</p>
                         </Link>
                     </div>
-                    <DeleteNote currentNoteID={this.props.currentNote._id} />
+                    <DeleteNote updateState={this.props.updateState} currentNoteID={this.props.currentNote._id} />
                 </div>
                 <div className='entireNote'>
                     <h3 dangerouslySetInnerHTML={this.getMarkdownText(this.props.currentNote.title)} className='viewNoteHeader'>{}</h3>

@@ -27,6 +27,15 @@ class App extends Component {
     this.setCurrentNote(this.state.currentNote._id);
   }
 
+  updateState = () => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+        .then(res => {this.setState({notesList: res.data})})
+        .catch(err => {console.log(err)})
+
+    this.setCurrentNote(this.state.currentNote._id);
+  }
+
   setCurrentNote = (noteID) => {
     console.log(`setCurrentNote ran, noteID= ${noteID}`)
     axios
@@ -39,12 +48,12 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='sidebarContainer'>
-          <Route path='/' component={Sidebar} />
+          <Route path='/' render={ (props) => { return(<Sidebar {...props} updateState={this.updateState} />)}} />
         </div>
         <div className='viewContainer'>
           <Route exact path='/' render={ (props) => { return(<ListView {...props} notesList={this.state.notesList} setCurrentNote={this.setCurrentNote}/>)}} />
-          <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
-          <Route exact path='/:_id' render={ (props) => { return(<ViewNote {...props} currentNote={this.state.currentNote} />)}} />
+          <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
+          <Route exact path='/:_id' render={ (props) => { return(<ViewNote {...props} updateState={this.updateState} currentNote={this.state.currentNote} />)}} />
           <Route path='/:_id/edit' render={ (props) => { return(<EditNote {...props} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
         </div>
       </div>

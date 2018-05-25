@@ -26,7 +26,7 @@ class DeleteNote extends Component {
       .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
         .then(res => {
           console.log(res);
-          window.location.reload();
+          this.props.updateState();
         })
         .catch(err => {console.log(err)})
   }
