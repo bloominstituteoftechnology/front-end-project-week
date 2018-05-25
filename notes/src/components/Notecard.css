@@ -1,9 +1,9 @@
-.noteCard {
+.noteTitle {
     color: #4A4A4A;
     text-decoration: none;
 }
 
-noteCard:hover 
+noteTitle:hover 
 {
      color:#00A0C6; 
      text-decoration:none; 

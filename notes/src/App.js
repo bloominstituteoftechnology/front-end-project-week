@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import './App.css';
 import staticData from './staticData';
-import { Row, Col, Container} from 'reactstrap';
+import { Row, Col, Container } from 'reactstrap';
 import NotesList from './components/NotesList';
 import Nav from './components/Nav';
 import AddNote from './components/AddNote';
@@ -31,21 +31,21 @@ class App extends Component {
         <Container fluid>
           <Row>
             <Col sm="3" >
-              
-             <Route path="/" component={Nav} />  
-          
+
+              <Route path="/" component={Nav} />
+
             </Col>
             {this.state.notes.map((note, index) => {
               return (
                 <Col sm="3" >
                   <NotesList key={index} note={note} />
-                </Col> 
+                </Col>
               )
             })}
 
           </Row>
           {/* passing props to add note */}
-          < AddNote notes={this.state.notes}/> 
+          < AddNote notes={this.state.notes} />
         </Container>
       </div>
     );
@@ -55,4 +55,4 @@ class App extends Component {
 export default App;
 
 
-// main place 
+// main place

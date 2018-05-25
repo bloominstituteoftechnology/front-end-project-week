@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardBody, CardText } from 'reactstrap';
 import { Container, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import Notecard from './Notecard.css';
 
 const NoteCard = props => {
     return (

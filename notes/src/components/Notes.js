@@ -17,6 +17,6 @@ const Note = props => {
 }
 
 
-export default Note;
+export default Notes;
 
 // imports my notelist 
