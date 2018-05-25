@@ -6,7 +6,7 @@ import './SideBar.css';
 
 const SideBar = () => {
   return(
-    <div className="side-bar col-12 col-sm-3">
+    <div className="side-bar col-12 col-md-3">
       <div className="row justify-content-center">
         <h2>Lambda Notes</h2>
         <NavLink to="/" className="w-100">

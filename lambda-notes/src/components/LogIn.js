@@ -8,9 +8,9 @@ const Login = (props) => {
     <div>
       {props.auth 
         ? 
-          <Button className="side-button col-2 float-right" onClick={props.logOut}>Sign-Out</Button> 
+          <Button className="side-button col-sm-6 col-md-4 float-right" onClick={props.logOut}>Sign-Out</Button> 
         :
-          <Button className="side-button col-2 float-right" onClick={props.fbAuth}>Sign-in With Facebook</Button>
+          <Button className="side-button col-sm-6 col-md-4 float-right" onClick={props.fbAuth}>Sign-in With Facebook</Button>
       }
       
     </div>

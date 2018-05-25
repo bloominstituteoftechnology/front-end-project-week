@@ -144,16 +144,19 @@ class AllNotes extends Component {
   render() { 
     // console.log(this.state.notes)
     return (  
-      <div className="col-9 mt-5">
+      <div className="col-sm-12 col-md-9">
         <Route path="/" render={() => <LogIn  auth={this.state.authenticated} logOut={this.logOut} fbAuth={this.authWithFacebook}/>}/>
-        {this.state.authenticated 
-          ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} />} />
-          : <h1>Log-In you must</h1>
-        }
-        
-        <Route path="/add" render={(props) => <NoteEdit {...props} add={this.addNote}/>} />
-        <Route path="/edit/:id" render={(props) => <NoteEdit {...props} notes={this.state.notes} add={this.editNote}/>} />
-        <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
+
+        <div className="mt-5">
+          {this.state.authenticated 
+            ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} />} />
+            : <h1>Log-In you must</h1>
+          }
+          
+          <Route path="/add" render={(props) => <NoteEdit {...props} add={this.addNote}/>} />
+          <Route path="/edit/:id" render={(props) => <NoteEdit {...props} notes={this.state.notes} add={this.editNote}/>} />
+          <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
+        </div>
       </div>
     )
   }
