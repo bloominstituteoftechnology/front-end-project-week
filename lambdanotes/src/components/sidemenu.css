@@ -1,0 +1,11 @@
+/*Align the title to the left  */
+.side-menu {
+  text-align: left;
+}
+
+/*Style the title  */
+.lambda-title {
+  font-family: 'Roboto', sans-serif;
+  line-height: 80%;
+  margin: 20px 0 30px;
+}

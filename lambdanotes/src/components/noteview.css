@@ -1,0 +1,62 @@
+/*Style for the main view  */
+.note-view {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+/*The container div for the links  */
+.note-view-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*The links themselves  */
+.note-view-link {
+  margin: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-size: .9rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*The title of the note  */
+.note-view-title {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+}
+
+/*The text of the note  */
+.note-view-content {
+  text-align: left;
+  margin: 20px 0;
+  white-space: pre-line;
+}
+
+/*Style for the modal body  */
+.delete-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 20px 20px !important;
+}
+
+/*Container div for the buttons on the modal  */
+.delete-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+/*Move the entire modal down a bit  */
+.my-modal {
+  margin-top: 200px !important;
+}
+
+/*Messing with a bootstrap classname to remove border radius  */
+.modal-content  {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}

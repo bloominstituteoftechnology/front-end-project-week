@@ -1,0 +1,21 @@
+/* Style the title of the form */
+.form-heading {
+  font-family: 'Roboto', sans-serif;
+  text-align: left;
+  padding-bottom: 24px;
+}
+
+/* Stop the title input from spanning the whole screen */
+#title-input {
+  max-width: 360px;
+}
+
+/* Make the text input taller */
+#content-input {
+  height: 350px;
+}
+
+/* We need some padding */
+#note-form {
+  padding: 56px 24px;
+}
