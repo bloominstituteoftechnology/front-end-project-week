@@ -58,6 +58,7 @@ class ViewNote extends React.Component {
     // Some variable management
     const note = this.props.notes.filter(note => note.id === this.props.id)[0];
     const { title, text, tags } = note; 
+    console.log("ViewNote.js tags",tags);
 
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="pr-3">

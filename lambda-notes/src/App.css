@@ -7,10 +7,7 @@ p {
 }
 
 .App {
-  max-width: 1280px;
   height: 100%;
-  border: 0.5px solid var(--color-border);
-  border-collapse: collapse;
 }
 
 .App .row {

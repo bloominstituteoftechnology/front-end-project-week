@@ -2,6 +2,8 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button } from 'reactstrap';
 // CSS
 import './NoteList.css';
 // Components
@@ -60,17 +62,36 @@ class NoteList extends Component {
 
 const NoteCard = (props) => {
   const { id, title, text } = props;
-  const truncTitle = title.length > 12 ? title.substring(0,10) + '...' : title;
-  const truncText = text.length > 82 ? text.substring(0,80) + '...' : text;
+    const truncTitle = title.length > 20 ? title.substring(0,17) + '...' : title;
+    const truncText = text.length > 82 ? text.substring(0,72) + '...' : text;
   return (
-    <Link to={`/notes/${id}`} className="note-card">
-      <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
-      <hr style={{borderColor:'var(--color--main)'}} />
-      <p>{truncText}</p>
-      {/* <ReactMarkdown source={truncText} /> */}
-    </Link>
+    <div>
+      <Link to={`/notes/${id}`}>
+        <Card className="note-card">
+          <CardBody>
+            <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
+            <hr style={{borderColor:'var(--color--main)'}} />
+            <CardText>{truncText}</CardText>
+          </CardBody>
+        </Card>
+      </Link>
+    </div>
   );
-}
+};
+
+// const NoteCard = (props) => {
+//   const { id, title, text } = props;
+//   const truncTitle = title.length > 12 ? title.substring(0,10) + '...' : title;
+//   const truncText = text.length > 82 ? text.substring(0,80) + '...' : text;
+//   return (
+//     <Link to={`/notes/${id}`} className="note-card">
+      // <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
+      // <hr style={{borderColor:'var(--color--main)'}} />
+//       <p>{truncText}</p>
+//       {/* <ReactMarkdown source={truncText} /> */}
+//     </Link>
+//   );
+// }
 
 const mapStateToProps = (state) => {
   return {
