@@ -21,6 +21,7 @@ class App extends Component {
     search: '',
     title: '',
     noteList: [],
+    showDeleteModal: false
   };
 
   // setInputVal
@@ -49,9 +50,15 @@ class App extends Component {
     this.setState({ title, content });
   }
 
+  // setShowDeleteModal
+  setShowDeleteModal = () => {
+    this.setState({ showDeleteModal: !this.state.showDeleteModal });
+  }
+
   // handleDeleteNote
   handleDeleteNote = id => {
-    firebase.database().ref(`notes/${ id }`).remove();
+    firebase.database().ref(`notes/${ id }`).remove()
+    this.setShowDeleteModal();
   }
 
   // handleSearchNotes
@@ -80,13 +87,18 @@ class App extends Component {
   
   // <Note />
   returnNoteComponent = props => {
-    const { state: { noteList }, setEditValues, handleDeleteNote } = this;
+    const {
+      state: { noteList, showDeleteModal },
+      setEditValues, handleDeleteNote
+    } = this;
     return (
       <Note
         { ...props }
         noteList={ noteList }
         setEditValues={ setEditValues }
         handleDeleteNote={ handleDeleteNote }
+        showDeleteModal={ showDeleteModal }
+        setShowDeleteModal={ this.setShowDeleteModal }
       />
     );
   }

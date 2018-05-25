@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 // components
 import Button from '../misc/Button';
+import DeleteModal from './DeleteModal';
 
 // style
 import './Note.css';
@@ -10,37 +11,44 @@ import './Note.css';
 const Note = props => {
   if (props.match) {
     return (
-      props.noteList.filter(note => {
-        return note.id === props.match.params.id;
-      })
-        .map(note => {
-          const { id, title, content } = note;
-          return (
-            <div key={ Date.now() } className='note-wrapper'>
-              <div className='note-wrapper__note-action-wrapper'>
-                <Link to={ `edit/${ id }` } className='note-action-wrapper__note-edit-link'>
-                  <Button
-                    buttonClassName='note-edit-link__edit-button'
-                    buttonContent={ 'Edit' }
-                  />
-                </Link>
-
-                <Link to='/'>
-                  <Button
-                    buttonClassName='note-action-wrapper__delete-button'
-                    buttonContent='Delete'
-                    buttonOnClick={ () => props.handleDeleteNote(id) }
-                  />
-                </Link>
-              </div>
-              
-              <div className='note-wrapper__note-content-wrapper'>
-                <h2 className='note-content-wrapper__h2'>{ title }</h2>
-                <p className='note-content-wrapper__p'>{ content }</p>
-              </div>
-            </div>
-          )
-        })
+      <React.Fragment>
+        {
+          props.noteList.filter(note => {
+            return note.id === props.match.params.id;
+          })
+            .map(note => {
+              const { id, title, content } = note;
+              return (
+                <div key={ Date.now() } className='note-wrapper'>
+                  <div className='note-wrapper__note-action-wrapper'>
+                    <Link to={ `edit/${ id }` } className='note-action-wrapper__note-edit-link'>
+                      <Button
+                        buttonClassName='note-edit-link__edit-button'
+                        buttonContent={ 'Edit' }
+                      />
+                    </Link>
+                    
+                      <Button
+                        buttonClassName='note-action-wrapper__delete-button'
+                        buttonContent='Delete'
+                        buttonOnClick={ () => props.setShowDeleteModal() }
+                      />
+                  </div>
+                  <div className='note-wrapper__note-content-wrapper'>
+                    <h2 className='note-content-wrapper__h2'>{ title }</h2>
+                    <p className='note-content-wrapper__p'>{ content }</p>
+                  </div>
+                </div>
+              )
+            })
+        }
+        
+        <DeleteModal
+          showDeleteModal={ props.showDeleteModal }
+          handleDeleteNote={ () => props.handleDeleteNote(props.noteList[0].id) }
+          setShowDeleteModal={ () => props.setShowDeleteModal() }
+        />
+      </React.Fragment>
     )
   }
   
