@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { addNote } from '../actions'
 import '../styles/Create.css'
 
+
 let Create = props => {
     const { handleSubmit, submitting, pristine } = props
     return (
@@ -20,7 +21,7 @@ let Create = props => {
                         placeholder="Note title"
                         className="title"
                         rows="1"
-                        cols="60"
+                        cols="40"
                         />
                     </div>
             <div className="content">
@@ -31,7 +32,7 @@ let Create = props => {
                     placeholder="Note content"
                     className="content"
                     rows="15"
-                    cols="145"
+                    cols="98"
                 />
                 <div>
                 <button type="submit" disabled={submitting || pristine} className="saveButton">

@@ -1,13 +1,13 @@
 .note {
-    margin: 0rem 10rem 0rem 4rem;
-    line-height: 3;
+    line-height: 2.5;
+    margin: 0 3.5vw 0 3.5vw;
     white-space: pre-line;
-    font-size: 1.2rem;
+    font-size: 2.2vh;
     z-index: 1;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 3vh;
     font-weight: bold;
 }
 
@@ -16,51 +16,45 @@ h3 {
     background: #2BC1C4;
 }
 
-p {
-    margin-top: 1.5rem;
-}
-
-.modal-body {
-    background: white;
-    z-index: 5;
-    margin: 10rem 0 0 35rem;
-    width: 50rem;
-    height: 15rem;
-    position: fixed;
-    
-    border: 1.5px solid  #979797;
-    opacity: 1;
-}
-
-
 .noteViewButtons {
-    margin-left: 80rem;
-    padding-top: 4rem;
-    font-size: 1.4rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 12vw;
+    height: 3.5vh;
+    padding-top: 5vh;
+    padding-bottom: 3.5vh;
+    font-size: 2.5vh;
     text-decoration: underline;
     font-weight: bold;
 }
 .delete {
     margin-left: 2rem;
 }
-
-.modalButtons {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 2rem 5rem;
-
-}
-.cancelButton {
-    margin-left: 1rem;
-    width: 15rem;
+.modal-body {
+    background: white;
+    z-index: 100;
+    margin: 15vh 0 0 25vw;
+    width: 50vw;
+    height: 28vh;
+    font-size: 2.5vh;
+    position: fixed;
+    border: .1vw solid  #979797;
+    opacity: 1;
 }
 .modal-text {
-    margin: 3.5rem 0 0 0rem;
+    margin: 7vh 0 0 0;
     text-align: center;
+}
+.modalButtons {
+    display: flex;
+    justify-content: center;
+}
+.deleteButton, .cancelButton {
+    margin: 5vh 2vw;
+    width: 18vw;
 }
 .deleteButton {
     background: #D0021B;
-    width: 15rem;
 }
 .noteName {
     margin: 0rem 0rem 2rem 4rem;

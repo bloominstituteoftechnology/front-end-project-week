@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -52,4 +52,5 @@ table {
   margin: 0;
   position: fixed;
   background: #F3F3F3;
+  box-sizing: border-box;
 }

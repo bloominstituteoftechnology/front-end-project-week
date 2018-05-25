@@ -6,10 +6,8 @@ import '../styles/ListView.css'
 
 const ListView = props => {
     return (
-        <div className="main-text container">
-            <div className="row yourNotes">
+            <div className="main-text">
                 <h3 style={{ textAlign: "left" }}> Your Notes: </h3>
-            </div>
         <CardGroup className="allNotes">
             {props.notes.length > 0 ? props.notes.map(note => {
             let wiggleRoom = 150 - 3

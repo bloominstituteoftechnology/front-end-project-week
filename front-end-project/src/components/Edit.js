@@ -3,10 +3,12 @@ import { Redirect, withRouter } from 'react-router'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { editNote } from '../actions'
-import '../styles/Edit.css'
+
 
 let Edit = props => {
     const { handleSubmit, submitting, pristine } = props
+    const title = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.title : 'Oh well'
+const content = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.content : 'Oh well'
     return (
     <div className="main-text">
         <h3> Edit Note: </h3>
@@ -17,10 +19,10 @@ let Edit = props => {
                         name="title"
                         component="textarea"
                         type="text"
-                        placeholder="Note title"
+                        placeholder={title}
                         className="title"
                         rows="1"
-                        cols="60"
+                        cols="40"
                         />
                     </div>
             <div className="content">
@@ -28,10 +30,10 @@ let Edit = props => {
                     name="content"
                     component="textarea"
                     type="text"
-                    placeholder="Note content"
+                    placeholder={content}
                     className="content"
                     rows="15"
-                    cols="145"
+                    cols="98"
                 />
                 <div>
                 <button type="submit" disabled={submitting || pristine} className="saveButton">
@@ -45,8 +47,12 @@ let Edit = props => {
     )
 }
 
-
-Edit = withRouter(connect(null, { editNote })(Edit))
+const mapStateToProps = state => {
+    return {
+        notes: state.notes.notes
+    }
+}
+Edit = withRouter(connect(mapStateToProps, { editNote })(Edit))
 export default reduxForm({
     form: 'edit'
     })(Edit)

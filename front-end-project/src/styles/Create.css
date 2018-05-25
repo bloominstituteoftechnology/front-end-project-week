@@ -3,17 +3,22 @@ h3 {
 }
 
 .content {
-    padding: 1rem;
-    font-size: 1.2rem;
+    padding: 1.5vh;
+    font-size: 2vh;
 }
 .title {
-    padding: 1rem;
-    font-size: 1.2rem;
+    padding: 1.5vh;
+    font-size: 2vh;
+
 }
 .saveButton {
-    width: 15rem;
-    margin-top: 1.5rem;
+    margin-top: 2vh;
 }
 .inputForm {
-    margin: 1rem 2rem;
+    margin: 2vh 2.5vw;
+    text-align: start;
+}
+input {
+    margin: .5vh 0 3vh 0;
+    padding: 2vh;
 }

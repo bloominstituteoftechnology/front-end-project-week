@@ -1,26 +1,24 @@
 .sideNav {
-    width: 10%;
-    min-width: 15rem;
-    padding: 30px 32px;
-    height: 960px;
+    width: 17.1vw;
+    height: 89.65vh;
     position: fixed;
     z-index: 10;
-    border: 1px #979797 solid;
+    border: 0.1vw #979797 solid;
+    padding: 5vh 2vw;
 }
 .headingforSideNav {
     font-family: Roboto Bold;
     color: #4A4A4A;
-    font-size: 3rem;
+    font-size: 6vh;
     font-weight: bold;
 }
 button {
-    width: 100%;
-    min-width: 2rem;
-    height: 3.5rem;
-    margin: 1rem 0;
+    width: 15vw;
+    height: 6vh;
+    margin: 2vh 0;
     color: #FFFFFF;
     background: #2BC1C4;
-    font-size: 1.2rem;
-    outline-width: 1rem;
+    font-size: 2.1vh;
+    outline-width: .1vh;
     border-color: #979797;
 }
