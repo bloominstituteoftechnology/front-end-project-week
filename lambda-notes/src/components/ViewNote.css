@@ -9,7 +9,7 @@
     }
     
 .edit-link {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Bold', sans-serif;
         color: #4A4A4A;
         font-size: 14px;
         text-decoration: underline;
@@ -17,7 +17,7 @@
     }
     
 .delete {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Bold', sans-serif;
         color: #4A4A4A;
         font-size: 14px;
         text-decoration: underline;
@@ -25,7 +25,7 @@
     }
     
 .view-header {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Bold', sans-serif;
         color: #4A4A4A;
         text-align: start;
         margin: 2px 0 8px 25px;

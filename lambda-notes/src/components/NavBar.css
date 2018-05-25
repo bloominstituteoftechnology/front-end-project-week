@@ -1,16 +1,16 @@
 .title {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Bold', sans-serif;
         color: #4A4A4A;
         text-align: start;
-        margin: 21px 0 18px 13px;
+        margin: 20px 0 20px 15px;
         font-size: 36px;
         line-height: 30px;
     }
     
 .link {
-        margin: 12px 20px 0 15px;
+        margin: 10px 20px 0 15px;
         width: 87%;
-        min-height: 42px;
+        min-height: 40px;
         height: 100%;
     }
     
