@@ -18,7 +18,7 @@ toggle() {
 render() {
     return (
         <div>
-        <Button color="danger" onClick={this.toggle}>Delete{this.props.buttonLabel}</Button>
+        <Button color="danger"className='singleDeleteBtn' onClick={this.toggle}>Delete{this.props.buttonLabel}</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalBody>
             Are you sure you want to delete this?

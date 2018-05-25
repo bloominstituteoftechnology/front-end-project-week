@@ -17,13 +17,18 @@
     flex-flow: row wrap;
 }
 
-.navLink {
+ a:link {
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 .noteCard {
     border: 1px solid #979797;
     border-radius: 2px;
     background-color: white;
+    color: #4A4A4A;
     width: 200px;
     margin: 15px 10px;
     padding: 10px 20px;
