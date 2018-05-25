@@ -5,8 +5,8 @@ import './NotesList.css'
 
 const NotesList = (props) => {
     return (
-        <Card className="notes-List" key={props.note.id}>
-            <CardBody className="text-left" className="solo-card">
+        <Card className="notes-List row col-md-16" key={props.note.id}>
+            <CardBody  className="text-left" className="solo-card">
                 <CardTitle>
                     {props.note.noteTitle}
                 </CardTitle>

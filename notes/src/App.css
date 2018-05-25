@@ -27,12 +27,17 @@
   to { transform: rotate(360deg); }
 }
 
-.Nav {
-
+.notelist {
+flex-direction: row;
+display: flex;
   height: 100vh;
+  flex-wrap:wrap;
 }
 
-.NoteList {
+.Notecard {
   
   flex-direction: column-reverse;
 } 
+.nav{
+  height:100vh;
+}

@@ -30,11 +30,12 @@ class App extends Component {
         <h5 className="App-header">Your Notes:</h5>
         <Container fluid>
           <Row>
-            <Col sm="3" >
+            <Col className = "nav" sm="3" >
 
               <Route path="/" component={Nav} />
 
             </Col>
+            <Col sm="9" className = "notelist">
             {this.state.notes.map((note, index) => {
               return (
                 <Col sm="3" >
@@ -42,10 +43,10 @@ class App extends Component {
                 </Col>
               )
             })}
-
+</Col>
           </Row>
           {/* passing props to add note */}
-          < AddNote notes={this.state.notes} />
+          {/* < AddNote notes={this.state.notes} /> */}
         </Container>
       </div>
     );
@@ -55,4 +56,4 @@ class App extends Component {
 export default App;
 
 
-// main place
+// main placeyarn add bootstrap@4.1.1
