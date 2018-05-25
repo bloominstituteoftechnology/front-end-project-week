@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 // components
 import Button from '../misc/Button';
+import DeleteModal from './DeleteModal';
 
 // style
 import './Note.css';
@@ -42,17 +43,11 @@ const Note = props => {
             })
         }
         
-        <div className={'note-action-wrapper__delete-modal-wrapper' + (props.showDeleteModal ? ' note-action-wrapper__delete-modal-wrapper--show' : ' null')}>
-          <div>
-            <h2>Are you sure you want to delete this?</h2>
-          </div>
-          <div className='delete-modal-wrapper__button-wrapper'>
-            <Link className='button-wrapper__delete-note-link' to='/'>
-              <button className='delete-note-link__button' onClick={ () => props.handleDeleteNote(props.noteList[0].id) }>DELETE</button>
-            </Link>
-            <button className='button-wrapper__no-button' onClick={ () => props.setShowDeleteModal() }>No</button>
-          </div>
-        </div>
+        <DeleteModal
+          showDeleteModal={ props.showDeleteModal }
+          handleDeleteNote={ () => props.handleDeleteNote(props.noteList[0].id) }
+          setShowDeleteModal={ () => props.setShowDeleteModal() }
+        />
       </React.Fragment>
     )
   }
