@@ -22,3 +22,26 @@
      text-decoration:none; 
      cursor:pointer;  
 }
+
+
+.modal-content {
+    border-radius: 0px;
+    border: 1px solid #979797;
+}
+
+.modal-body-text {
+    text-align: center;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.save-btn {
+    background-color: #2BC1C4; 
+}
+
+.close-btn {
+    background-color: #D0021B;
+}
+
