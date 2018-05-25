@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './CreateCard.css';
+import './NoteContainer.css';
 
 
 
@@ -43,6 +43,7 @@ class CreateCard extends Component {
                             name="body"
                         />
                         <button className="SaveButton" type="submit"> Save </button>
+                    {/* </form> */}
                 </div>
             </div>
 

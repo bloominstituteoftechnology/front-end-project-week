@@ -16,23 +16,26 @@
 
 .YourNotes{
     margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     margin-left: 15px;
+    color: #4A4A4A;
+    font-weight: bold;
 }
 .Card{
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     
 }
 
 .CardBody{
     border: 1px solid #979797;
+    color: #4A4A4A;
 }
 
 
 .CardText{
 
-    height: 120px;
+    height: 140px;
     overflow: hidden;
     text-overflow: ellipsis;
 
@@ -40,18 +43,21 @@
 
 .CardTitle{
     border-bottom: 1px solid #979797;
+    font-weight: bold;
 }
 
-.NoteForm{
-    background-color: #F3F3F3;
-}
+
 
 .FormHeader{
     margin-top: 30px;
+    color: #4A4A4A;
+    font-weight: bold;
 }
 
 .FormContents{
     margin-left: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .ViewForm{
@@ -67,22 +73,54 @@
 
 .Edit{
     margin-right: 15px;
-    color: gray;
+    color: #4A4A4A;
 }
 
 .Delete{
     margin-right: 15px;
+    color: #4A4A4A;
 }
 
-.DeleteButton{
-    color: red;
-}
 
 .NoteView{
     margin-left: 15px;
     margin-bottom: 15px;
+    color: #4A4A4A;
 }
 
 .ViewBody{
     margin-left: 15px;
+    margin-right: 30px;
 }
+
+
+
+.SaveButton{
+    background-color: #2BC1C4;
+    color: #FFFFFF;
+    font-size: .8rem;
+    width: 200px;
+    height: 35px;
+}
+
+
+.BodyForm{
+    height: 400px;
+    width: 600px;
+    margin-bottom: 15px;
+}
+
+.TitleForm{
+    width: 350px;
+    margin-bottom: 15px;
+}
+
+.NoteForm{
+    display:flex;
+    flex-direction: column;
+    background-color: #F3F3F3;
+    width: 100%;
+}
+
+
+
