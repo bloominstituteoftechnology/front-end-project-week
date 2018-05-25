@@ -1,6 +1,6 @@
 .note {
-    margin: 0rem 5rem 0rem 4rem;
-    line-height: 2.5;
+    margin: 0rem 10rem 0rem 4rem;
+    line-height: 3;
     white-space: pre-line;
     font-size: 1.2rem;
     z-index: 1;
@@ -17,25 +17,25 @@ h3 {
 }
 
 p {
-    margin-top: 0rem;
-    margin-bottom: 3rem;
+    margin-top: 1.5rem;
 }
 
 .modal-body {
     background: white;
     z-index: 5;
-    margin: 10rem 0 0 20rem;
+    margin: 10rem 0 0 35rem;
     width: 50rem;
     height: 15rem;
     position: fixed;
+    
     border: 1.5px solid  #979797;
     opacity: 1;
 }
 
 
 .noteViewButtons {
-    margin-left: 50rem;
-    padding-top: 2rem;
+    margin-left: 80rem;
+    padding-top: 4rem;
     font-size: 1.4rem;
     text-decoration: underline;
     font-weight: bold;
@@ -55,12 +55,13 @@ p {
     width: 15rem;
 }
 .modal-text {
-    margin: 3.5rem 0 0 12rem;
+    margin: 3.5rem 0 0 0rem;
+    text-align: center;
 }
 .deleteButton {
     background: #D0021B;
     width: 15rem;
 }
 .noteName {
-    margin: 2.7rem 0rem 2rem 4rem;
+    margin: 0rem 0rem 2rem 4rem;
 }

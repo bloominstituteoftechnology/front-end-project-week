@@ -1,40 +1,27 @@
 .main-text {
-    width: 75%;
-    margin-left: 29.5%;
-    margin-top: -104vh;
-    height: 100vh;
+    width: 84%;
+    margin-left: 305px;
+    height: 100%;
+    position: fixed;
+    border: 1px solid #979797;
     color: #4A4A4A;
     font: Raleway Medium;
-}
-
-.mein-row {
-    justify-content: space-evenly;
+    background: #F3F3F3
 }
 
 .mein-card {
-    width: 16rem;
-    height: 16rem;
-    font-size: 1.5rem;
-    margin: 2rem;
+    font-size: 1.3rem;
+    margin: 1rem 1rem 0rem 1rem;
     padding: 2rem;
+    overflow: visible;
+    width: 190px;
+    height: 190px;
+    flex: 1;
     background: white;
     border: 1px solid #979797;
 }
-.listViewNote {
-    margin-top: -1.5rem;
-}
-.truncate {
-    overflow: hidden;
-    position: relative;
-    text-overflow: ellipsis;
-    width: 15rem;
-    max-height: 14rem;
-}
-.truncate:before {
-    content: '...';
-    position: absolute;
-    right: 0;
-    bottom: 0;
+a {
+    height: 275px;
 }
 h5 {
     padding-bottom: .5rem;
@@ -46,4 +33,10 @@ a {
 } 
 a:hover {
     color: #4A4A4A;
+}
+.allNotes {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
 }

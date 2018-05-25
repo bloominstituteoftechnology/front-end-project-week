@@ -9,16 +9,17 @@ const ListView = props => {
         <div className="main-text container">
             <div className="row yourNotes">
                 <h3 style={{ textAlign: "left" }}> Your Notes: </h3>
-                {console.log('Props of ListView?', props)}
             </div>
-        <CardGroup>
-            {props.notes.length > 0 ? props.notes.map(note => {console.log('Note', note)
+        <CardGroup className="allNotes">
+            {props.notes.length > 0 ? props.notes.map(note => {
+            let wiggleRoom = 150 - 3
+            const maxLength = wiggleRoom;
                 return (
                         <NavLink to={`/note/${note.id}`} style={{textDecoration: 'none'}} key={note.id}>
                         <Card className="card mein-card">
                             <CardBody className="card-body">
-                                <CardTitle className="card-title" style={{fontSize: '1.7rem', marginTop: '-1rem'}}> {note.title.title} </CardTitle>
-                                <CardText className="card-text listViewNote truncate"> {note.title.content} </CardText>
+                                <CardTitle className="card-title" style={{fontSize: '1.7rem', marginTop: '-1rem', fontWeight: 'bold'}}> {note.title.title.length > 12 ? note.title.title.slice(0, 12) + '...' : note.title.title} </CardTitle>
+                                <CardText className="card-text card-content" style={{marginTop: '.5rem', paddingTop: '.5rem'}}> {note.title.content.length > maxLength ? note.title.content.slice(0, maxLength) + '...' : note.title.content} </CardText>
                             </CardBody>
                         </Card>
                         </NavLink>

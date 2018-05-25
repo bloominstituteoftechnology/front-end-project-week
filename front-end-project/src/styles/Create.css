@@ -4,13 +4,15 @@ h3 {
 
 .content {
     padding: 1rem;
+    font-size: 1.2rem;
 }
 .title {
     padding: 1rem;
+    font-size: 1.2rem;
 }
 .saveButton {
     width: 15rem;
-    margin: 2rem 15rem 0rem 0rem;
+    margin-top: 1.5rem;
 }
 .inputForm {
     margin: 1rem 2rem;

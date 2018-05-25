@@ -32,15 +32,12 @@ const noteReducer = (state = initialState, action) => {
             notes: addingNote 
         })
         case EDIT_NOTE:
-        const id = action.payload.id;
-        const title = action.payload.title;
-        const content = action.payload.content;
-        if (id === currentNotes.id) {
-            currentNotes.title = title;
-            currentNotes.content = content;
-        }
-        return Object.assign({}, state, { 
-            notes: currentNotes,
+        let unchangedNotes = state.notes.filter(note => {
+            return note.id.toString() !== action.payload.id
+        })
+        let newNotes = unchangedNotes.concat(action.payload)
+        return Object.assign({}, state, {
+            notes: newNotes
         })
         case DELETE_NOTE:
         if (state.notes.length > 0) {

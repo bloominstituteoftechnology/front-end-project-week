@@ -1,13 +1,12 @@
 import React from 'react'
 import { Redirect } from 'react-router'
-import { NavLink } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { addNote } from '../actions'
 import '../styles/Create.css'
 
 let Create = props => {
-    const { handleSubmit, submitting } = props
+    const { handleSubmit, submitting, pristine } = props
     return (
     <div className="main-text">
         <h3> Create New Note: </h3>
@@ -32,11 +31,13 @@ let Create = props => {
                     placeholder="Note content"
                     className="content"
                     rows="15"
-                    cols="110"
+                    cols="145"
                 />
-                <button type="submit" disabled={submitting} className="saveButton">
+                <div>
+                <button type="submit" disabled={submitting || pristine} className="saveButton">
                     Save
                 </button>
+                </div>
             </div>
         </form>
         

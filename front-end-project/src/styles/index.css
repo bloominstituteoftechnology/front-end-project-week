@@ -1,6 +1,5 @@
-body {
+#root {
+    position: fixed;
+    top: 0;
     height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #F3F3F3;
 }

@@ -15,10 +15,14 @@ export const addNote = (title, content) => {
         }
     }
 }
-export const editNote = id => {
+export const editNote = (id, title, content) => {
     return {
         type: EDIT_NOTE,
-        payload: id,
+        payload: {
+            id: id,
+            title: title,
+            content: content
+        }
     }
 }
 export const toggleModal = () => {
