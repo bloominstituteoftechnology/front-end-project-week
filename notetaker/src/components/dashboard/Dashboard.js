@@ -43,7 +43,7 @@ export default class Dashboard extends Component {
                             View Your Notes
                         </button>
                         <Link to="/create" className="create-link">
-                            <button type="button" className="mt-4 btn btn-lg btn-block rounded-0 create-link">
+                            <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">
                                 + Create New Note
                             </button>
                         </Link>
