@@ -2,8 +2,12 @@ export const ADDNOTE = "ADDNOTE";
 export const EDITNOTE = "EDITNOTE";
 export const DELETENOTE = "DELETENOTE";
 export const UPDATENOTE = "UPDATENOTE";
+export const ADDTAG = "ADDTAG";
 export const CHECKUPDATE = "CHECKUPDATE";
 export const REORDERSTATE = "REORDERSTATE";
+
+let notes = [];
+let titles = [];
 
 export const addNote = note => {
   return {
@@ -47,5 +51,13 @@ export const reorderState = completeObject => {
   return {
     type: REORDERSTATE,
     payload: completeObject
+  };
+};
+
+export const addTag = (tag, i) => {
+  return {
+    type: ADDTAG,
+    payload: tag,
+    index: i
   };
 };
