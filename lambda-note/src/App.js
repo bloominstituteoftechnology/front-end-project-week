@@ -7,6 +7,7 @@ import NoteListView from './components/NoteListView';
 import EditNote from './components/editNote';
 import CreateNote from './components/createNote';
 import NoteView from './components/noteView';
+import DeleteConfirm from './components/deleteConfirm';
 
 class App extends Component {
   constructor(props) {
@@ -48,10 +49,11 @@ addNote = () => {
         <Switch>
           <Route exact path = "/" render ={() => <NoteListView noteList ={this.state.noteList}/>}/>
           <Route path="/create" render={() => <CreateNote handleInput={this.handleInput} addNote={this.addNote} />}/>
-          
-
+          <Route path="/viewNote" render={() => <NoteView />}/>
+          <Route path = "/editNote" render ={() => <EditNote />}/>
+          <Route path="/delete" component = { DeleteConfirm } />
        </Switch>
-      </div>
+    </div>
 
       </Row>
       </Container >

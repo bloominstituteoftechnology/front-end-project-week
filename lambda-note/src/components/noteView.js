@@ -1,12 +1,19 @@
 import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Link } from "react-router-dom";
 
 const NoteView = () => {
     return (
-          <div className="container-fluid">
-
+        <div>
+            <Nav className="justify-content-end">
+                  <NavItem>
+                      <Link to ="/editNote">edit</Link>
+                  </NavItem>
+                <NavItem>
+                      <Link to = "/delete">delete</Link>
+                  </NavItem>
+              </Nav>
           </div>
-
     )
 }
 
