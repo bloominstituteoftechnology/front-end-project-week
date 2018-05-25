@@ -36,6 +36,7 @@ html, body {
   margin: 2%;
   margin-left: 10%;
   color: #484748;
+  text-shadow: 2px 2px 2px gray;
 }
 
 .sidebar .button {
