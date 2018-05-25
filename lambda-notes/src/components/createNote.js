@@ -4,37 +4,58 @@ import Sidebar from './Sidebar/sidebar';
 class CreateNote extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {valueTitle: '',
+      this.state = {
+      valueTitle: '',
       valueBody:''};
   
       this.handleChangeTitle = this.handleChangeTitle.bind(this);
       this.handleChangeBody = this.handleChangeBody.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleSubmitNote = this.handleSubmitNote.bind(this);
     }
   
-    handleChangeTitle(event) {
-      this.setState({valueTitle: event.target.value});
+    handleChangeTitle(e) {
+      this.setState({valueTitle: e.target.value});
     }
 
-    handleChangeBody(event) {
-        this.setState({valueBody: event.target.value});
+    handleChangeBody(e) {
+        this.setState({valueBody: e.target.value});
       }
   
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.valueTitle);
-      event.preventDefault();
+    handleSubmitNote(e) {
+      const newNote = this.state;
+      this.props.notes.push(newNote);
+      this.setState({
+        valueTitle: '',
+        valueBody:''
+      })
+      e.preventDefault();
     }
   
     render() {
       return (
             <div>
             <Sidebar />
+            <br/>
+            <br/>
         <form onSubmit={this.handleSubmit}>
           <label>
-            <input type="text" value={this.state.value} onChange={this.handleChangeTitle} />
-            <input type="text" value={this.state.value} onChange={this.handleChangeBody} />
+            <input 
+            type="text" 
+            value={this.state.valueTitle} 
+            onChange={this.handleChangeTitle} 
+            placeholder="Note Title"
+            />
+            <br/>
+            <br/>
+            <input 
+            type="text" 
+            value={this.state.valueBody} 
+            onChange={this.handleChangeBody} 
+            placeholder="Note Content"  />
           </label>
-          <input type="submit" value="Save" />
+          <br/>
+          <br/>
+          <button type="button" onClick={this.handleSubmitNote}>Save</button>
         </form>
             </div>
       );

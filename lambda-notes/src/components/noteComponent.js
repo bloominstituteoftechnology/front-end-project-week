@@ -10,7 +10,7 @@ const NoteComponent = (props) => {
                 return <Note
                     key={index}
                     note={note}
-                    handleDeleteOption={props.handleDeleteOption}
+                    handleDeleteOption={() => props.handleDeleteOption(note)}
                 />
             })}
         </div>

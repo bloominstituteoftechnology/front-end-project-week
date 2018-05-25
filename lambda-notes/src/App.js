@@ -16,7 +16,7 @@ class App extends Component {
 
   handleDeleteOption = (noteToRemove) => {
     this.setState((prevState) => ({
-      notesMadeByUser: prevState.options.filter((noteMadeByUser) => noteToRemove !== noteMadeByUser)
+      notesMadeByUser: prevState.notesMadeByUser.filter((noteMadeByUser) => noteToRemove.noteID !== noteMadeByUser.noteID)
     }));
   };
 

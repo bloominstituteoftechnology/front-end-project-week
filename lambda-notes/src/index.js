@@ -10,7 +10,7 @@ import CreateNote from './components/createNote'
 ReactDOM.render(
     <Router>
     <div>
-      <Route path="/" component={App}/>
+      <Route exact path="/" component={App}/>
       <Route path="/create" component={CreateNote}/>
     </div>
       </Router>
