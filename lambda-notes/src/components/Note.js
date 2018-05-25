@@ -16,9 +16,7 @@ class Note extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id
-        console.log(id)
         this.props.fetchNote(id);
-        this.setState({deleted: this.props.deleted})
     }
 
     toggleModal = () => {
@@ -30,52 +28,46 @@ class Note extends Component {
         this.props.removeNote(id)
         setTimeout(() => {
             this.props.history.push("/");
-        }, 200);
+        }, 10);
     }
 
     render() { 
         return (
-            this.props.singleNote ? (
-                <Container fluid={true}>
-                    <div className="edit-delete">
-                        <Link to={`edit/${this.props.match.params.id}`}>edit</Link>
-                        <a onClick={this.toggleModal}>delete</a>
-                        <Modal isOpen={this.state.modal}
-                            toggle={this.toggleModal}
-                            size="lg"
-                            className="delete-modal">
-                            <ModalBody>
-                                <p className="confirm">Are you sure you want to delete this?</p>
-                                <div className="btn-container">
-                                    <NoteButton color="danger" value="Delete" onClick={this.deleteNote}/>
-                                    <NoteButton color="main" value="No" onClick={this.toggleModal}/>
-                                </div>
-                            </ModalBody>
-                        </Modal>
-                    </div>
-                    <Row className="single-note">
-                        <Col sm="12" xl="9">
-                            <h3 className="heading">{this.props.currentNote.title}</h3>
-                        </Col>
-                        <Col sm="12" xl="9">
-                            <div  className="note-content">
-                                <ReactMarkdown source={this.props.currentNote.content}/>
+            <Container fluid={true}>
+                <div className="edit-delete">
+                    <Link to={`edit/${this.props.match.params.id}`}>edit</Link>
+                    <a onClick={this.toggleModal}>delete</a>
+                    <Modal isOpen={this.state.modal}
+                        toggle={this.toggleModal}
+                        size="lg"
+                        className="delete-modal">
+                        <ModalBody>
+                            <p className="confirm">Are you sure you want to delete this?</p>
+                            <div className="btn-container">
+                                <NoteButton color="danger" value="Delete" onClick={this.deleteNote}/>
+                                <NoteButton color="main" value="No" onClick={this.toggleModal}/>
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
-            ) : (
-                null
-            )
+                        </ModalBody>
+                    </Modal>
+                </div>
+                <Row className="single-note">
+                    <Col sm="12" xl="9">
+                        <h3 className="heading">{this.props.currentNote.title}</h3>
+                    </Col>
+                    <Col sm="12" xl="9">
+                        <div  className="note-content">
+                            <ReactMarkdown source={this.props.currentNote.content}/>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        currentNote: state.currentNote,
-        singleNote: state.singleNote,
-        deleted: state.deleted
+        currentNote: state.currentNote
     }
 }
  

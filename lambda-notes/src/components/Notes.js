@@ -25,11 +25,9 @@ class Notes extends Component {
     }
 
     selectNote = (e) => {
-        const filteredNote = this.state.notes.filter(note => note.title === e)
-        const id = filteredNote[0].id
-        setTimeout( () => {
-            this.props.history.push(`/note/${id}`)
-        }, 10)
+        const filteredNote = this.state.notes.find(note => note.title === e);
+        const id = filteredNote.id;
+        this.props.history.push(`/note/${id}`);
     }
 
     render() { 

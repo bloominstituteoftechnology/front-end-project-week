@@ -50,13 +50,13 @@ class NewNote extends Component {
             this.props.createNote(newNote);
             setTimeout(() => {
                 this.props.history.push("/");
-            }, 200);
+            }, 100);
         } else {
             const updatedNote = Object.assign({}, newNote, {id: this.props.currentNote.id})
             this.props.updateNote(updatedNote);
             setTimeout(() => {
                 this.props.history.push(`/note/${this.props.currentNote.id}`);
-            }, 200);
+            }, 100);
         }
     }
 

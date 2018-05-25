@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Notes from './components/Notes';
@@ -21,4 +20,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App; 

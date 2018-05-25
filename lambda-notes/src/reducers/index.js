@@ -28,35 +28,34 @@ export default (state=initialState, action) => {
                 notes: action.payload,
                 pending: false,
                 error: false,
-                fetched: true
             })
         case CREATED:
             return Object.assign({}, state, {
                 notes: action.payload,
                 pending: false,
-                error: false,
                 created: true,
+                error: false,
             })
         case UPDATED:
             return Object.assign({}, state, {
                 notes: action.payload,
                 pending: false,
-                error: false,
                 updated: true,
+                error: false,
             })
         case DELETED:
             return Object.assign({}, state, {
                 notes: action.payload,
                 pending: false,
+                deleted: true,
                 error: false,
-                deleted: true
             })
         case SINGLE_NOTE: 
             return Object.assign({}, state, {
                 currentNote: action.payload,
                 pending: false,
-                error: false,
                 singleNote: true,
+                error: false,
             })
         case ERROR:
             return Object.assign({}, state, {

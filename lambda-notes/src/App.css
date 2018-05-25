@@ -29,8 +29,7 @@ h3.heading {
 }
 
 .nav-container {
-  max-width: 50vw;
-  min-width: 350px;
+  width: 350px;
   background-color: #D8D8D8;
   display: flex;
   align-items: flex-start !important;
@@ -63,11 +62,11 @@ h3.heading {
   width: 8%;
 }
 
-.search-field {
-  width: 92%;
+input {
+  width: 300px;
   height: 40px;
   font-size: 1em;
-  /* padding-left: 10px; */
+  padding-left: 10px;
   border-radius: 0px;
   border: 1px solid #979797;
 }
@@ -215,8 +214,8 @@ a {
     min-width: 100vw !important;
     border-right: none;
     border-bottom: 1px solid #979797;
-    max-height: 40vh;
-    min-height: 10vh;
+    min-height: 200px;
+    max-height: 50vh;
   }
 
   .nav-section {
@@ -248,6 +247,7 @@ a {
 
   .search-bar {
     width: 80vw;
+    margin: 30px 10px 10px 10px;
   }
 
   .notes-container {
@@ -311,7 +311,7 @@ a {
   .btn-container {
     flex-direction: column;
     align-items: center;
-  }
+  } 
 
   .search-bar {
     width: 90%;
