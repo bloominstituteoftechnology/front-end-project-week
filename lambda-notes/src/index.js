@@ -17,12 +17,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 ReactDOM.render(
     <Provider store={store}>
       <Router>
-        <div>
-          <Switch>
-            <Route path="/" component={App} exact />
-            <Route path="/new" component={AddNoteForm} exact />
-          </Switch>
-        </div>
+        <App />
       </Router>
     </Provider>,
     document.getElementById('root')

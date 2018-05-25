@@ -38,6 +38,9 @@ body {
   font-size: 25px;
 }
 
+pre {
+  font-family: sans-serif;
+}
 
 header nav {
   display: flex;
@@ -108,6 +111,8 @@ header nav a {
   color: white;
   min-height: 89vh;
   overflow: scroll;
+  flex-wrap: wrap;
+  align-item: flex-start;
 }
 
 .note-card {
@@ -132,3 +137,67 @@ header nav a {
   text-decoration: none;
 }
 
+.add-note {
+  background-color: black;
+  color: white;
+  height: 89vh;
+  flex: 1;
+  padding: 20px 30px;
+}
+
+.add-title {
+  padding: 5px;
+  font-size: 16px;
+  width: 60%;
+}
+
+.add-body {
+  margin-top: 30px;
+  font-size: 16px;
+  width: 100%;
+  height: 400px;
+  padding: 5px;
+}
+
+.add-btn {
+  margin-top: 30px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+}
+
+.show-wrapper {
+  flex: 1;
+  background-color: black;
+  color: white;
+  min-height: 89vh;
+  overflow: scroll;
+  padding: 30px;
+}
+
+.edit-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-delete button {
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 5px 15px;
+  margin-right: 20px;
+}
+
+.show-content {
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.show-content h2 {
+  font-size: 25px;
+}
+
+.show-content p {
+  font-size: 16px;
+}

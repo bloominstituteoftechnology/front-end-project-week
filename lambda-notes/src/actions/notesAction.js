@@ -19,6 +19,12 @@ export const addNote = (note) => {
   };
 };
 
+export const editNote = (id, note) => {
+  return () => {
+    return database.child(id).update(note);
+  }
+}
+
 export const deleteNote = (id) => {
   return () => {
     return database.child(id).remove();

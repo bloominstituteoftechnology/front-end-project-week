@@ -10,6 +10,8 @@ import NotesList from "./components/NotesList";
 import Note from "./components/Note";
 import Login from "./components/Login";
 import SideBar from './components/SideBar';
+import ShowNote from "./components/ShowNote";
+import NoteEdit from "./components/NoteEdit";
 
 class App extends Component {
   constructor(props) {
@@ -29,7 +31,10 @@ class App extends Component {
               <Header />
               <section className="main">
               <SideBar />
-              <NotesList />
+                  <Route path="/" component={() => <NotesList myNotes={this.props.notes}/>} exact/>
+                  <Route path="/new" component={AddNoteForm} exact/>
+                  <Route path="/show/:id" component={ShowNote} />
+                  <Route path="/edit/:id" component={NoteEdit} />
               </section>
             </div>
             )}
@@ -40,7 +45,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    notes: state.notes
   }
 }
 

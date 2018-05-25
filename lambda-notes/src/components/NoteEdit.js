@@ -28,7 +28,6 @@ class NoteEdit extends React.Component {
     this.props.editNote(this.props.match.params.id ,note);
     this.setState({title: "", body: ""});
     this.props.history.push("/");
-    // this.reload();
   }
 
   render() {
