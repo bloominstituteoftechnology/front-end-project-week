@@ -36,6 +36,7 @@ class NoteView extends Component {
             delete: !this.state.delete
         });
     };
+
     handleDelete = () => {
         this.props.deleteNote(this.state.id);
         this.setState({
@@ -43,24 +44,24 @@ class NoteView extends Component {
         });
     };
 
-    render() {
-        return (
-            <div className="note-view">
-                <div>
-                    <Button><div onClick={this.deleteToggle}>Delete</div></Button>
-                </div>
-                <Modal isOpen={this.state.delete} toggle={this.deleteToggle}>
-                    <ModalBody>
-                        Do you want to delete this note?
-                </ModalBody>
-                    <Link to="/"><Button onClick={this.handleDelete}>Delete</Button></Link>
-                    <Button onClick={this.deleteToggle}>No</Button>
-                </Modal>
-                <h3 className="note-title">{this.state.title}</h3>
-                <div className="note-content">{this.state.content}</div>
+render() {
+    return (
+        <div className="note-view">
+            <div>
+                <Button><div onClick={this.deleteToggle}>Delete</div></Button>
             </div>
-        )
-    }
+            <Modal isOpen={this.state.delete} toggle={this.deleteToggle}>
+                <ModalBody>
+                    Do you want to delete this note?
+                    <Link to="/"><Button onClick={this.handleDelete}>Delete</Button></Link>
+                    <Link to="note/:id"><Button onClick={this.deleteToggle}>No</Button></Link>
+                </ModalBody>
+            </Modal>
+            <h3 className="note-title">{this.state.title}</h3>
+            <div className="note-content">{this.state.content}</div>
+        </div>
+    )
+}
 };
 
 export default NoteView;

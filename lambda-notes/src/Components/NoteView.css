@@ -15,3 +15,7 @@
 .note-view .note-content {
     word-break: break-word;
 }
+
+button {
+    text-align: center;
+}

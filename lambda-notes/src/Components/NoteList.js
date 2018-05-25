@@ -18,7 +18,6 @@ class NoteList extends Component {
     };
 
     render() {
-        console.log(this.state);
         return (
             <div>
                 {/* <Icon name='rowing' /> */}
