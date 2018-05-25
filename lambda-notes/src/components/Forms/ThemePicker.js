@@ -9,8 +9,6 @@ import { Button, RLink } from '../Button';
 const styles = {
   height: `100%`,
   padding: `2rem`,
-  /* border: 0.5px solid var(--color-border);
-  border-collapse: collapse; */
   backgroundColor: `var(--color-bg--main)`,
   fontFamily: `'Roboto', sans-serif`,
   color: `var(--color--main)`,

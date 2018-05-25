@@ -12,9 +12,9 @@ import { Button } from '../Button';
 import './ViewNote.css';
 
 const cssMakesMeCry = {
-  color: "black",
+  color: `var(--color-bg--button-main)`,
   fontFamily: `'Roboto', sans-serif`,
-  textDecoration: "underline",
+  textDecoration: `underline`,
 };
 
 
@@ -28,7 +28,9 @@ class ViewNote extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchNotes(this.props.user.uid);
+    if (this.props.user) {
+      this.props.fetchNotes(this.props.user.uid);
+    }
   }
 
   toggle = (e) => {
@@ -77,7 +79,7 @@ class ViewNote extends React.Component {
           <h3>{title}</h3>
           <hr style={{borderColor:'var(--color--main)'}} />
           <div className="mt-2 mb-3">
-            { tags ? tags.split(', ').map((tag, i) => <Tag key={i}>{tag}</Tag>) : <p><em>No tags</em></p> }
+            { tags ? tags.split(',').map((tag, i) => <Tag key={i}>{tag}</Tag>) : <p><em>No tags</em></p> }
           </div>
           <br />
           <ReactMarkdown source={text} />

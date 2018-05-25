@@ -44,7 +44,7 @@ class InputForm extends Component {
       title: this.state.title,
       text: this.state.text,
       date: this.state.date,
-      tags: this.state.tags,
+      tags: this.state.tags.trim(),
     }
 
     const myResetObj = {
