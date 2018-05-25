@@ -47,7 +47,7 @@ class NewNotes extends Component {
                     <form>
                         <textarea> Note Content </textarea>
                     </form>
-                    <a href="/newnotes" >
+                    <a href="/notes" >
                         <button type="button" className="SaveButton">
                             Save
                         </button>

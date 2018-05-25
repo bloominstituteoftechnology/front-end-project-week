@@ -4,13 +4,15 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Alert } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 
 
 class NoteView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            modal: false
             
         };
        
