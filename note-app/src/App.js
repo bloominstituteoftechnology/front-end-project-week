@@ -66,10 +66,10 @@ const View = props => {
 //Edit
 
 export const Edit = props => {
-  let idE = props.match.params.idE;
+  let id = props.match.params.id;
   return (
     <div style={{ height: "100%" }}>
-      <SplitScreen left={<ContentLeft />} right={<EditRight idE={idE} />} />
+      <SplitScreen left={<ContentLeft />} right={<EditRight id={id} />} />
     </div>
   );
 };
@@ -97,7 +97,7 @@ const RightView = props => {
 const EditRight = props => {
   return (
     <div className="RightSide">
-      <EditNote idE={props.idE} />
+      <EditNote idE={props.id} />
     </div>
   );
 };
@@ -123,7 +123,7 @@ const App = props => {
     <div style={{ height: '100%' }}>
       <Route exact path="/" component={Home} />
       <Route path="/notes/new" component={New} />
-      <Route path="/notes/edit:idE" component={Edit} />
+      <Route path="/notes/edit/:id" component={Edit} />
       <Route path="/notes/view/:id" component={View} />
       <Route path="/notes/view/delete/:idE" component={Delete} />
     </div>

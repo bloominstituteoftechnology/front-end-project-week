@@ -108,12 +108,9 @@ export const notesReducer = (state = intialState, action) => {
           ...state.notes,
           (state.notes[action.index].tag = action.payload)
         ]
-        // notes: [...state.notes]
       });
     case REORDERSTATE:
-      // console.log()
       return Object.assign({}, state, {
-        // notes: [],
         notes: [...action.payload]
       });
     default:

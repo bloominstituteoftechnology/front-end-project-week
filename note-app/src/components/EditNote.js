@@ -57,7 +57,7 @@ class EditNote extends React.Component {
       title: this.state.title,
       note: this.state.note
     };
-    this.props.updateNote(this.state.title, this.state.note, this.props.idX);
+    this.props.updateNote(this.state.title, this.state.note, this.props.idE);
     this.setState({
       title: "",
       note: ""
