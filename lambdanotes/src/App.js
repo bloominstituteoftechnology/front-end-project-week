@@ -58,7 +58,7 @@ class App extends Component {
     this.setState({
       notes: newNoteArray,
       title: '',
-      text: ''
+      textBody: ''
     })
     }
 
@@ -90,7 +90,7 @@ class App extends Component {
     this.setState({
       notes: newNotes,
       title: '',
-      text: ''
+      textBody: ''
     });
       
   }
