@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col } from 'reactstrap';
 
-//importing Form CSS
- import '../components/Form.css';
- import From from '../components/Form';
 
 //Class Component that will render NoteForm and its props
 // class EditNote extends Component {
@@ -72,7 +69,21 @@ import { Button, Form, FormGroup, Label, Input, FormText, Container, Row, Col } 
 const EditNote = () => {
   return(
     <div>
-      <Form />
+        <Form>
+        <FormGroup row>
+          <Label for="Note Title" sm={2}></Label>
+          <Col sm={10}>
+            <Input type="text" name="note" id="title" placeholder="Note Title:" />
+          </Col>
+        </FormGroup>
+         <FormGroup row>
+          <Label for="exampleText" sm={2}></Label>
+          <Col sm={10}>
+            <Input type="textarea" name="text" id="exampleText" placeholder="Note content" />
+          </Col>
+        </FormGroup>
+        <Link to="/"><Button>Save</Button></Link>
+        </Form>
     </div>
   )
 };
