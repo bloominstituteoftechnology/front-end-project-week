@@ -4,11 +4,11 @@ import { Form, FormGroup, Input } from 'reactstrap';
 import './index.css';
 
 class EditNote extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-			title: '',
-			content: ''
+			title: this.props.selectedNotecard.title,
+			content: this.props.selectedNotecard.content
 		}
 	}
 
