@@ -34,6 +34,11 @@
     overflow: scroll;
 }
 
+.hiddenCard {
+    display: none;
+    margin: 0;
+}
+
 .entireNoteCardLink {
     width: 192px;
     margin: 12px 8px;

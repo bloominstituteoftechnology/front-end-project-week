@@ -4,16 +4,32 @@ import './ListView.css';
 import marked from 'marked';
 
 class ListView extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            search: ''
+        }
+    }
 
     getMarkdownText(text) {
         var rawMarkup = marked(`${text}`, {sanitize: true});
         return { __html: rawMarkup };
     }
 
+    updateSearch = (e) => {
+        this.setState({ search: e.target.value });
+    }
+
+    filterBySearch = (note) => {
+        if((note).title.indexOf(this.state.search) >= 0 || (note).textBody.indexOf(this.state.search) >= 0 || this.state.search === '') return 'entireNoteCardLink';
+        else return 'hiddenCard';
+    }
+
     render() {
         return (
             <div className='listViewContainer'>
                 <div className='sortingOptions'>
+                    <input onChange={this.updateSearch} value={this.state.search} type='search' className='search' placeholder='search' />
                     <p>sort by:</p>
                     <p className='sortOption' onClick={() => this.props.sortNotesList('title')}>title</p>
                     <p className='sortOption' onClick={() => this.props.sortNotesList('textBody')}>body</p>
@@ -22,7 +38,7 @@ class ListView extends Component {
                 <h3 className='listViewHeader'>Your Notes:</h3>
                 <div className='noteCardsCollection'>
                     {this.props.notesList.map(note => (
-                        <div onClick={() => this.props.setCurrentNote(note._id)} key={note._id} className='entireNoteCardLink'>
+                        <div onClick={() => this.props.setCurrentNote(note._id)} key={note._id} className={this.filterBySearch(note)}>
                             <Link to={`/${note._id}`} className='noteCardLink'>
                                 <div className='noteCard'>
                                     <h6 dangerouslySetInnerHTML={this.getMarkdownText(note.title)} className='noteTitle'></h6>

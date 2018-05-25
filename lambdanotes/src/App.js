@@ -14,7 +14,8 @@ class App extends Component {
     super();
     this.state = {
       notesList: [],
-      currentNote: {}
+      currentNote: {},
+      currentSort: '',
     }
   }
 
@@ -34,6 +35,7 @@ class App extends Component {
         .catch(err => {console.log(err)})
 
     this.setCurrentNote(this.state.currentNote._id);
+    this.setState({currentSort: ''});
   }
 
   setCurrentNote = (noteID) => {
@@ -44,10 +46,15 @@ class App extends Component {
   }
 
   sortNotesList = (property) => {
-    console.log('sortNotesList Ran')
     let sortedNotesList = this.state.notesList;
-    sortedNotesList = sortedNotesList.sort(function(a,b) {return (a[property].toUpperCase() > b[property].toUpperCase()) ? 1 : ((b[property].toUpperCase() > a[property].toUpperCase()) ? -1 : 0);} );
-    this.setState({notesList: sortedNotesList});
+    if (this.state.currentSort === property) {
+      sortedNotesList = sortedNotesList.sort(function(a,b) {return (a[property].toUpperCase() > b[property].toUpperCase()) ? -1 : ((b[property].toUpperCase() > a[property].toUpperCase()) ? 1 : 0);} );
+      this.setState({notesList: sortedNotesList, currentSort: `reverse${property}`});
+    }
+    else {
+      sortedNotesList = sortedNotesList.sort(function(a,b) {return (a[property].toUpperCase() > b[property].toUpperCase()) ? 1 : ((b[property].toUpperCase() > a[property].toUpperCase()) ? -1 : 0);} );
+      this.setState({notesList: sortedNotesList, currentSort: property});
+    }
   }
 
   render() {
