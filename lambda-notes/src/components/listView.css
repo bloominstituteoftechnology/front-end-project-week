@@ -4,7 +4,7 @@
     margin-top: 70px; 
     margin-left: 270px;  
     font: Roboto Bold;              
-    color: #4A4A4A;
+    color: #4F9D69;
 }
 
 .cardColumns {    
@@ -25,7 +25,7 @@
 
 .cardTitle {
     /* margin-bottom: 1px solid #979797;  */
-    color: #4A4A4A;
+    color: #4F9D69;
     text-align: left;     
     border-bottom: 1px solid #979797; 
     padding: 0 0 10px 0; 
@@ -35,5 +35,5 @@
 .cardText {
     text-align: left;
     /* margin-top: 1px solid #979797;  */
-    color: #4A4A4A;
+    color: #4F9D69;
 }

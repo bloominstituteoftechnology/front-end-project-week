@@ -4,7 +4,7 @@
     margin-top: 25px;     
     margin-left: 270px;  
     font: Roboto Bold;              
-    color: #4A4A4A;
+    color: #4F9D69;
 }
 
 .content {
@@ -14,7 +14,7 @@
     margin-bottom: 200px;     
     text-align: justify; 
     font: Raleway Medium; 
-    color: #4A4A4A;
+    color: #4F9D69;
 }
 
 .links {
@@ -29,12 +29,12 @@
     display: flex;
     flex-direction: column; 
     justify-content: center; 
-    color: #4A4A4A; 
+    color: #68D89B; 
     text-decoration-line: underline; 
 }
 
 .delete {
-    color: #4A4A4A;
+    color: #68D89B;
     text-decoration-line: underline; 
 }
 

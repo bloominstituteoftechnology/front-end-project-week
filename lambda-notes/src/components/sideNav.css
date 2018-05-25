@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #D8D8D8;
+    background-color: #BEE6CE;
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -15,7 +15,7 @@
     font: Roboto Bold;
     text-align: left; 
     margin-left: 20px;
-    color: #4A4A4A;         
+    color: #4F9D69;         
 }
 
 .button1 {
@@ -24,7 +24,7 @@
     text-decoration-line: none; 
     font-size: 16px;
     font: Raleway Medium;
-    background-color: #2BC1C4; 
+    background-color: #68D89B; 
     color: #FFFFFF;
     display: block;
     margin-left: 20px; 
@@ -36,7 +36,7 @@
     text-decoration-line: none; 
     font-size: 16px;
     font: Raleway Medium;
-    background-color: #2BC1C4; 
+    background-color: #68D89B; 
     color: #FFFFFF;
     display: block;
     margin-left: 20px;
