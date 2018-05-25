@@ -5,3 +5,11 @@ p {
 .delete-button {
     margin-top: -3px;
 }
+
+.delete-button:hover{
+    cursor:pointer;
+}
+
+.buttons {
+    width: 37%;
+}

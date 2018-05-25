@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './dashboard.css';
-import './dashboard.css';
 
 export default class Note extends Component {
   constructor(props) {
@@ -32,7 +31,7 @@ export default class Note extends Component {
                     </CardTitle>
                 </Link>
                 <CardText className="text-left">
-                {this.state.body.substring(0, 150)}...
+                    {this.state.body.substring(0, 146)}...
                 </CardText>
             </CardBody>
         </Card>

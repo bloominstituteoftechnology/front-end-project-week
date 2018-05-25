@@ -7,8 +7,8 @@ import fire from '../../components/newnote/fire.js';
 
 export default class Dashboard extends Component {
     
-  constructor(props){
-      super(props);
+  constructor(){
+      super();
       this.state = {
           notes: []
       };
@@ -42,8 +42,8 @@ export default class Dashboard extends Component {
                         <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">
                             View Your Notes
                         </button>
-                        <Link to="/create">
-                            <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">
+                        <Link to="/create" className="create-link">
+                            <button type="button" className="mt-4 btn btn-lg btn-block rounded-0 create-link">
                                 + Create New Note
                             </button>
                         </Link>

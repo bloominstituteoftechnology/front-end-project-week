@@ -16,23 +16,16 @@ export default class EditNote extends Component {
         };
     }
 
-    componentDidMount () {
-        const { id } = this.props.location.state.id;
-        this.setState({
-            id: { id }
-        });
-    }
-
     handleInputChange = e => {
         this.setState({ [e.target.name] : e.target.value });
-      };
+    }
 
     editNote = e => {    
       e.preventDefault(); 
       const notesRef = fire.database().ref(`/notes/${this.props.location.state.id.id}`);
       notesRef.set({
           title: this.state.newTitle,
-          body:this.state.newBody
+          body: this.state.newBody
       });
       this.setState({
           redirect: true
