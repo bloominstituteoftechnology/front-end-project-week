@@ -7,6 +7,7 @@ import CreateNote from './components/CreateNote'
 import { connect } from 'react-redux'
 import { fetchNotes, deleteNote, editNote, addNote } from './components/Actions/index'
 import { withRouter } from 'react-router-dom';
+import requireAuth from './components/auth/requireAuth'
 
 class App extends Component {
   constructor(props) {
@@ -61,7 +62,8 @@ class App extends Component {
     return (
       <div className="wrapper">
         <Route path="/" component={SideBar} />
-        <Route exact path="/" render={(props) => (<NoteList notes={this.props.notes} />)} />
+        {/* <Route path="/" component={SignIn} */}
+        <Route exact path="/" component={requireAuth(NoteList)} />
 
         {/* Render Note component with the note we are filtering for:  */}
         <Route exact path="/notes/:id" render={(props) => {
@@ -84,7 +86,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes
+    notes: state.notes.notes
   }
 }
 

@@ -2,11 +2,12 @@ import React from 'react';
 import { CSVLink } from 'react-csv';
 import { ListComponent } from './ListComponent'
 import Button from './Button'
+import { connect } from 'react-redux'
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
 
-export default class NoteList extends React.Component {
+class NoteList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,11 +15,21 @@ export default class NoteList extends React.Component {
             search: ''
         };
     }
+
+    // Lifecycle-Methods to render the App a after receiving the initial Notes by firebase
     componentDidMount = () => {
         this.setState({
             notes: this.props.notes
         })
     }
+    // And every time firebase updates our Store
+    componentWillReceiveProps = (newProps) => {
+        this.setState({
+            notes: newProps.notes
+        })
+    }
+
+    // Sorting function for the Sort btn, sorts ascending / descending
     sort = () => {
         let newState = [...this.state.notes]
         newState = newState.reverse()
@@ -28,6 +39,8 @@ export default class NoteList extends React.Component {
             search: ''
         })
     }
+
+    // onClick function for the search button -- kind of redundant
     searchNow = () => {
         console.log("fire", this.state.search)
         let newState = [...this.state.notes]
@@ -38,6 +51,8 @@ export default class NoteList extends React.Component {
             search: ''
         })
     }
+
+    // OnChange handler for the search box 
     onChange = (event) => {
         let newState = [...this.props.notes]
         newState = newState.filter(e => e.title.includes(this.state.search) || e.text.includes(this.state.search))
@@ -47,16 +62,16 @@ export default class NoteList extends React.Component {
             search: event.target.value
         })
     }
-    componentWillReceiveProps = (newProps) => {
-        this.setState({
-            notes: newProps.notes
-        })
-    }
+
+
+    // Start of the Drag and Drop
     dragStart(e) {
         this.dragged = e.currentTarget;
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/html', this.dragged);
     }
+
+    // End of the Drag and Drop
     dragEnd(e) {
         this.dragged.style.display = 'block';
         this.dragged.parentNode.removeChild(placeholder);
@@ -69,6 +84,8 @@ export default class NoteList extends React.Component {
         data.splice(to, 0, data.splice(from, 1)[0]);
         this.setState({ notes: data });
     }
+
+    // Creating the placeholder under the hovering element
     dragOver(e) {
         e.preventDefault();
         this.dragged.style.display = "none";
@@ -76,12 +93,17 @@ export default class NoteList extends React.Component {
         this.over = e.target;
         e.target.parentNode.insertBefore(placeholder, e.target);
     }
+
     render() {
+
+        // Creates our Listelements 
         var listItems = this.state.notes.map((item, i) => {
             return (
                 <ListComponent onDragEnd={this.dragEnd.bind(this)} onDragStart={this.dragStart.bind(this)} index={i} key={i} item={item} />
             )
         });
+
+        //Displays our Listelements
         return (
             <div className="notelist">
                 <div className="search-field"><div><input onChange={this.onChange} id="searchbox" value={this.state.search} type="text" placeholder="Search" /><Button text="search!" class="search-button" function={this.searchNow} /></div><Button class="sort-button" text="Sort Ascending or Descending" function={this.sort} /></div>
@@ -93,3 +115,12 @@ export default class NoteList extends React.Component {
         )
     }
 }
+
+// Mapping our Store information to the props of this component
+const mapStateToProps = state => {
+    return {
+        notes: state.notes.notes
+    }
+}
+
+export default connect(mapStateToProps)(NoteList)

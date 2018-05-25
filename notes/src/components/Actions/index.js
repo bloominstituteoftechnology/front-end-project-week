@@ -1,8 +1,9 @@
-import { notesRef } from '../config/firebase'
+import { notesRef, authRef } from '../config/firebase'
 
 export const FETCH_NOTES = 'FETCH_NOTES'
 export const ADD_NOTE = 'ADD_NOTE'
 export const DELETE_NOTE = 'DELETE_NOTE'
+export const FETCH_USER = 'FETCH_USER'
 
 export const addNote = newNote => async dispatch => {
     notesRef.push().set(newNote)
@@ -35,3 +36,21 @@ export function fetchNotes() {
 export const editNote = (key, newNote) => async dispatch => {
     notesRef.child(key).set(newNote)
 }
+
+// Fetches the user and either logs them in or sets our authState to null
+
+export const fetchUser = () => dispatch => {
+    authRef.onAuthStateChanged(user => {
+        if (user) {
+            dispatch({
+                type: FETCH_USER,
+                payload: user
+            });
+        } else {
+            dispatch({
+                type: FETCH_USER,
+                payload: null
+            });
+        }
+    });
+};

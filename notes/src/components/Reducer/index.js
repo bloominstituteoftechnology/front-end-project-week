@@ -1,17 +1,9 @@
-import { FETCH_NOTES, DELETE_NOTE } from '../Actions'
+import { combineReducers } from "redux";
 
-const initialState = {
-    notes: []
-}
+import notes from "./notesReducer";
+import auth from "./authReducer";
 
-export default (state = initialState, action) => {
-    switch (action.type) {
-        case FETCH_NOTES:
-            return {
-                ...state,
-                notes: action.payload
-            }
-        default:
-            return state;
-    }
-};
+export default combineReducers({
+    notes,
+    auth
+});
