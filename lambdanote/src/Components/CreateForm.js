@@ -38,7 +38,7 @@ export default class CreateForm extends Component {
                                 placeholder='Note Title'
                                 value={this.state.title}
                                 onChange={this.handdleInputChange}
-                                />
+                            />
                         </FormGroup>
                         <FormGroup>
                             <Input className='text-input' 
@@ -47,7 +47,7 @@ export default class CreateForm extends Component {
                                 placeholder ='Note Content' 
                                 value={this.state.text}
                                 onChange={this.handdleInputChange}
-                                /> 
+                            /> 
                         </FormGroup>
                         <Link to='/'>
                             <button onClick={this.createNewInput} className='content-btn'>
