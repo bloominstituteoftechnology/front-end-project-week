@@ -2,6 +2,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     width: 30px;
+    cursor: pointer;
 }
 
 .delete-modal {

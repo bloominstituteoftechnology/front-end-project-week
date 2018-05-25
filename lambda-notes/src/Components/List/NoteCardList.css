@@ -14,3 +14,14 @@
     
 
 }
+.note-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    margin:0px;
+    padding-left: 35px;
+    background-color: #F0F0F0;
+
+
+}

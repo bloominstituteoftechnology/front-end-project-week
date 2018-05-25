@@ -6,8 +6,10 @@
     "bootstrap": "^4.1.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "reactstrap-pager": "^1.0.1"
+    "reactstrap-pager": "^1.0.1",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,7 +8,7 @@ const Sidebar = () => {
                 <h1 className = "sidebar-header">Lambda Notes</h1>
             </header>
             <Link to = '/'><button className = "button-view">View Your Notes</button></Link>
-            <Link to = '/create'><button className = "button-create"> + Create New Note</button></Link>
+            <Link to = '/create'><button onClick={this.createNoteHandler} className = "button-create"> + Create New Note</button></Link>
         </div>
     )
 }

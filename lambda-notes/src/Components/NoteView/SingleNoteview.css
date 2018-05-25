@@ -1,16 +1,13 @@
-.note-wrapper{
-    display:flex;
-    max-width: 1200px;
-    width:1200px;
-    margin: 0 auto;
-    border: 1px solid #979797
+.list-wrapper{
+
+    border: 1px solid #979797;
 }
 .noteview-header{
     margin: 15px;
     margin-top: 80px;
     font-size: .7rem;
     display: block;
-    width: 700px;
+    width: 900px;
     text-align: right;
 }
 .header-link{
@@ -21,11 +18,12 @@
     
 }
 .header-wrapper{
-    width: 100%;
+    width:965px;
 }
 
-h1{
+.note-name{
     text-align: left;
+    margin-left:15px;
 }
 
 .note-body{
