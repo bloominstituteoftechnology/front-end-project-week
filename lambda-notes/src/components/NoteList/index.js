@@ -81,7 +81,7 @@ const NoteCard = (props) => {
           <CardBody>
             <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
             <hr style={{borderColor:'var(--color--main)',margin:'0'}} />
-            { tags.map((tag, i) => <Link to={`/notes/tag/${tag}`}><Tag key={i} style={styl}>{tag}</Tag></Link>) }
+            { tags.map((tag, i) => <Link key={id} to={`/notes/tag/${tag}`}><Tag key={i} style={styl}>{tag}</Tag></Link>) }
             <br />
             <CardText>{truncText}</CardText>
           </CardBody>

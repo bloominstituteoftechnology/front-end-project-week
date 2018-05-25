@@ -30,3 +30,9 @@
   font-family: 'Raleway', sans-serif;
   font-size: 0.8rem;
 }
+
+@media (max-width: 768px) { 
+  .note-view {
+    justify-content: center;
+  }
+}

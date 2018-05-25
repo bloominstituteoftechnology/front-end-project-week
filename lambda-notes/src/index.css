@@ -29,3 +29,9 @@ body {
   border: 0.5px solid var(--color-border);
   border-collapse: collapse;
 }
+
+@media (max-width: 768px) { 
+  html {
+    height: auto;
+  }
+}
