@@ -148,6 +148,16 @@ html, body {
   font-size: 1.6rem;
   margin: 10px;
   margin-right: 20px;
+  border: none;
+  box-shadow: 2px 2px 4px gray;
+  border-radius: 5px;
+}
+
+.button-group button:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 4px 4px 6px gray;
+  border: none;
 }
 
 .note-view .note-title {
