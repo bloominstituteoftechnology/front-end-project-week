@@ -1,8 +1,27 @@
+.sortingOptions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 15px 34px 0 0;
+}
+
+.sortingOptions p {
+    margin: 0px 0 0 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    font-size: 14px;
+}
+
+.sortingOptions .sortOption {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .listViewHeader {
     font-family: 'Roboto', sans-serif;
     color: #4A4A4A;
     text-align: start;
-    margin: 54px 0 6px 26px;
+    margin: 18px 0 6px 26px;
     font-size: 21px;
 }
 

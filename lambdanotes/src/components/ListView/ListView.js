@@ -13,6 +13,12 @@ class ListView extends Component {
     render() {
         return (
             <div className='listViewContainer'>
+                <div className='sortingOptions'>
+                    <p>sort by:</p>
+                    <p className='sortOption' onClick={() => this.props.sortNotesList('title')}>title</p>
+                    <p className='sortOption' onClick={() => this.props.sortNotesList('textBody')}>body</p>
+                    <p className='sortOption' onClick={() => this.props.sortNotesList('_id')}>id</p>
+                </div>
                 <h3 className='listViewHeader'>Your Notes:</h3>
                 <div className='noteCardsCollection'>
                     {this.props.notesList.map(note => (
