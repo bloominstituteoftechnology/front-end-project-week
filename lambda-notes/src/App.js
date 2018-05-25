@@ -11,6 +11,9 @@ import EditNote from './components/EditNote/EditNote';
 
 class App extends Component {
   render() {
+   
+
+    
     return (
       
       <div className="App">
@@ -21,7 +24,7 @@ class App extends Component {
         <Route path="/create" component={NewNote} />
         <Route exact path="/note/:id" component={NoteView}/>
         <Route path="/note/edit/:id" component={EditNote}/>
-        
+      
       </div>
       
     );

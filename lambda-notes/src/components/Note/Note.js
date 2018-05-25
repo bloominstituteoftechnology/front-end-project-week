@@ -8,17 +8,17 @@ const Note = props => {
 
     return (
 
-       <Link className="ui-state-default" style={{textDecoration: "none", color: "black"}} to={`/note/${props.note.id}`}>
+    <Link style={{textDecoration: "none", color: "black"}} to={`/note/${props.note.id}`}>
 
-            <div className="note">
-
+            <div className="note ui-state-default">{/*ui-state-default..jQuery class for drag & drop*/}
+ 
                 <div className="note-title">{props.note.title}</div>
                 
                 <p className="note-body">{props.note.body}</p>
-
+             
             </div>
 
-       </Link>
+    </Link> 
 
     )
 

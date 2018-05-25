@@ -29,6 +29,13 @@ class NoteView extends Component {
     matchedNote = this.props.notes.filter(note => {return note.id == this.props.match.params.id})[0] 
     // [0] is the one element in the filtered Array that has the matched id
 
+    //   handleRemove = () => {
+    //     this.props.deleteNote(this.matchedNote.id)
+    //        return window.location.href = "/"
+    //     }
+      
+
+
     render() {
      
         return (
