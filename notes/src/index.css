@@ -81,13 +81,6 @@ a:visited {
     text-decoration: none;
 }
 
-.card-text {
-    border-top: 1.5px solid lightgray;
-    padding-top: 5px;
-    font-size: 0.7rem;
-    text-overflow: ellipsis;
-}
-
 .card-body {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,6 +111,7 @@ a:visited {
 
 .download-link {
     color: black;
+    margin-left: 20px;
 }
 
 ul {
@@ -165,4 +159,11 @@ li:hover {
     padding: 0px 20px;
     justify-content: space-between;
     max-width: 1000px;
+}
+
+.note-list-body {
+    border-top: 1.5px solid lightgray;
+    padding-top: 5px;
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
 }

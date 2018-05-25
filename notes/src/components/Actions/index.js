@@ -17,10 +17,9 @@ export function fetchNotes() {
     return dispatch => {
         notesRef.on("value", snapshot => {
             let newState = []
-            console.log(snapshot.val())
+            // Turn the received object into a corresponding array for ease of use
             if (snapshot.val().length === undefined) {
                 for (let key in snapshot.val()) {
-                    console.log(key)
                     newState.push({ key: key, title: snapshot.val()[key].title, text: snapshot.val()[key].text, id: key })
                 }
             }
@@ -32,7 +31,6 @@ export function fetchNotes() {
         })
     }
 }
-// export const for edit 
 
 export const editNote = (key, newNote) => async dispatch => {
     notesRef.child(key).set(newNote)
