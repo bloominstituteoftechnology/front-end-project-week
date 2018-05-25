@@ -5,12 +5,18 @@ import { connect } from "react-redux";
 
 class Header extends React.Component {
 
+  reload = () => {
+    window.location.reload()
+  }
+
   render() {
     return (
       <header>
         <nav>
           <div className="logo">
-            <Link to="/">Lambda Notes</Link>
+            <Link to="/"
+
+            ><span onClick={this.reload}>Lambda Notes</span></Link>
           </div>
           <div className="filter-wrapper">
             <input
@@ -21,9 +27,6 @@ class Header extends React.Component {
          <div onClick={this.props.logout} className="logout">
             <button>logout</button>
          </div>
-       {/*  <div>
-          <Link to="/new">New Note</Link>
-         </div> */}
         </nav>
       </header>
     );

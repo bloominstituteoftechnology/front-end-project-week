@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 
 class Note extends React.Component {
 
+  reload = () => {
+    window.location.reload();
+  }
+
   render() {
     return (
       <div key={this.props.id} className="note-card">
-        <Link to ={`/notes/${this.props.id}`} >
-          <h2>{this.props.title}</h2>
+        <Link to={`/show/${this.props.id}`} >
+          <h2 onClick={this.reload}>{this.props.title}</h2>
         </Link>
         <p>{this.props.body}</p>
-        <button
-          onClick={() => this.props.deleteNote(this.props.id)}
-        >
-          X
-        </button>
       </div>
     );
   }

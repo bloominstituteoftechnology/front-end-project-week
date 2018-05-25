@@ -9,7 +9,7 @@ class Login extends React.Component {
     return (
       <div className="login-page">
         <div className="login-wrapper">
-          <h1>Welecome To Lambda Note Taking App</h1>
+          <h1>Welcome To Lambda Note Taking App</h1>
           <p>Please login with your google account</p>
           <button
                 onClick={this.props.googleLogin}
