@@ -2,14 +2,8 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const CreateNote = (props) => {
-    const mainBar = {
-        backgroundColor: "#F3F3F3",
-        height: "100vh",
-        width: "75vw",
-
-    }
     return (
-        <div className="col-md-9" style={mainBar}>
+        <div>
             <h1 className ="m-4 font-weight-bold" > CREATE NEW NOTE :</h1>
             <Form>
                 <FormGroup>

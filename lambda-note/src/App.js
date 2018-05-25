@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import {Route,Switch} from 'react-router-dom';
 import SideBar from './components/sideBar';
 import MainBar from './components/MainBar';
 import NoteListView from './components/NoteListView';
@@ -14,7 +15,8 @@ class App extends Component {
         noteList : [{'title': "Card Title",
                     "noteBody" : "App State With supporting text below as a natural lead-in to additional content."}],
         title : '',
-        noteBody : ''
+        noteBody : '',
+
      }
 }
 
@@ -23,7 +25,7 @@ handleInput = (e) =>{
 }
 
 addNote = () => {
-  const newNote = {title : this.state.title , noteBody : this.state.noteBody}
+  const newNote = {title : this.state.title , noteBody : this.state.noteBody, id: Date.now()}
   const noteList = [...this.state.noteList];
   noteList.push(newNote);
   this.setState({title : '', noteBody : '', noteList })
@@ -31,13 +33,26 @@ addNote = () => {
 }
 
   render() {
+    const mainBar = {
+      backgroundColor: "#F3F3F3",
+      height: "100vh",
+      width: "75vw",
 
+    }
     return (
       <div className = "App">
       <Container className = "container">
       <Row>
         <SideBar />
-        <CreateNote handleInput ={this.handleInput} addNote ={this.addNote} />
+        <div className="col-md-9" style={mainBar} >
+        <Switch>
+          <Route exact path = "/" render ={() => <NoteListView noteList ={this.state.noteList}/>}/>
+          <Route path="/create" render={() => <CreateNote handleInput={this.handleInput} addNote={this.addNote} />}/>
+          
+
+       </Switch>
+      </div>
+
       </Row>
       </Container >
       </div>
