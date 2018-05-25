@@ -5,7 +5,6 @@ import ListView from './ListView.js';
 import NewNote from './NewNote.js';
 import NoteView from './NoteView.js';
 import EditView from './EditView.js';
-import DeleteModal from './DeleteModal';
 
 class MainContent extends Component {
   render() {

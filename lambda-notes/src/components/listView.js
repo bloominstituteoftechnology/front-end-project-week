@@ -14,85 +14,85 @@ class ListView extends Component {
           <CardColumns className="cardColumns">
             <Card className="card">        
               <CardBody className="cardBody">
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
             </Card>
+
             <Card className="card">        
               <CardBody className="cardBody">
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
             </Card>
+
             <Card className="card">        
               <CardBody className="cardBody">
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
-              </CardBody>
-            </Card>      
-            <Card className="card">        
-              <CardBody>
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-                <Link to="/noteview">
-                <Button>View</Button>
-                </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
             </Card>
+
             <Card className="card">        
-              <CardBody>
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
+              <CardBody className="cardBody">
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
             </Card>
+
             <Card className="card">        
-              <CardBody>
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
+              <CardBody className="cardBody">
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
-              </CardBody>
-            </Card>      
-            <Card className="card">        
-              <CardBody>
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
-                <Link to="/noteview">
-                <Button>View</Button>
-                </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
             </Card>
+
             <Card className="card">        
-              <CardBody>
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
+              <CardBody className="cardBody">
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
             </Card>
+
             <Card className="card">        
-              <CardBody>
-                <CardTitle>Note title</CardTitle>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla.</CardText>
+              <CardBody className="cardBody">
                 <Link to="/noteview">
-                <Button>View</Button>
+                <CardTitle className="cardTitle">Note title</CardTitle>              
                 </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
               </CardBody>
-            </Card>      
+            </Card>
+
+            <Card className="card">        
+              <CardBody className="cardBody">
+                <Link to="/noteview">
+                <CardTitle className="cardTitle">Note title</CardTitle>              
+                </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
+              </CardBody>
+            </Card>
+
+            <Card className="card">        
+              <CardBody className="cardBody">
+                <Link to="/noteview">
+                <CardTitle className="cardTitle">Note title</CardTitle>              
+                </Link>
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum. Ut molestie, ex at efficitur aliquet, dui justo venenatis augue, in dignissim lectus justo ut nulla. </CardText>                      
+              </CardBody>
+            </Card>
+
           </CardColumns>
         </div> 
     );

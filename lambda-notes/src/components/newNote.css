@@ -3,7 +3,8 @@
     justify-content: flex-start; 
     margin-top: 70px;     
     margin-left: 270px;  
-    font: Roboto Bold;              
+    font: Roboto Bold;    
+    color: #4A4A4A;          
 }
 
 .form {
@@ -17,13 +18,16 @@
     align-items: flex-start;     
     padding: 2px 200px 2px 0; 
     margin-bottom: 20px;  
+    color: #4A4A4A;
 }
 
 .body {
     display: flex; 
     align-items: flex-start; 
-    padding: 0 800px 300px 0; 
+    padding: 0 620px 300px 0; 
     margin-bottom: 30px;  
+    color: #4A4A4A;
+
 }
 
 .button3 {
