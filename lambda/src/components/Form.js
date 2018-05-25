@@ -36,9 +36,13 @@ class NoteForm extends Component {
   render() {
     console.log("Render STATE", this.state);
     return (
+      <div>
         <div>
+          <Link to="/note/edit"><h4>Edit</h4></Link>
+          <Delete />
+        </div>
         <Form>
-          <FormGroup>
+        <FormGroup>
             <Label>Create Note:</Label>
             <Input 
               type="text" 
@@ -55,8 +59,6 @@ class NoteForm extends Component {
               onChange={this.updateInput.bind(this)} />
               <Link to="/"> <Button onClick={() => this.props.renderNoteList(this.state.title, this.state.note)} color="info">Save</Button></Link>
           </Form>
-          <Link to="note/edit/"><Button color="info">Edit</Button></Link>
-          <Link to="/"> <Delete /> </Link>
         </div> 
       );
   }

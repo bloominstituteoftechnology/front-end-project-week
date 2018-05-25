@@ -13,3 +13,10 @@ h4{
   justify-content: end;
   padding-top:30px;
 }
+
+.delete{
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
+}
+

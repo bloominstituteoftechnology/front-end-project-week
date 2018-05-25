@@ -13,16 +13,22 @@ import '../components/Delete'
 //Stateless function that renders Navbar from components file
 const ListView = (props) => {
     // console.log("PROPS",props.notes);
+
+
     return(
         props.notes.map(note =>{
             return (
                 <div key={note.id}>
                     <Container className="form-container">
-                        <Row >
-                            <Card body>
-                                <CardTitle className="tcard">{note.title}</CardTitle>
-                                <CardText className="ctext">{note.note}</CardText>
-                            </Card>
+                        <Row>
+                            <Col md="3">
+                                <Link to="/note/view">
+                                    <button className="card">
+                                        <p className="tcard">{note.title}</p>
+                                        <CardText className="ctext">{note.note}</CardText>
+                                    </button>
+                                </Link>
+                            </Col>
                         </Row>
                     </Container>
                 </div>

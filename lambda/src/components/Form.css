@@ -5,19 +5,11 @@
     margin-right:30px;
   }
 
-  .card-body{
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0;
-      width:100%;
-  }
-
   .card{
-      width: 100%;
+      width: 150px;
+      height: 200px;
   }
-
 
   .tcard{
-    border-bottom: 1px solid grey;
-    width: 100%;
-}
+      border-bottom: 1px solid grey;
+  }
