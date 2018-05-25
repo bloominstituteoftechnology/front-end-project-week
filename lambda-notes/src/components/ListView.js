@@ -12,7 +12,7 @@ class ListView extends Component {
           <CardColumns className="card-columns">
             <Card className="card">        
               <CardBody className="card-body">
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
                 </Link>
@@ -20,7 +20,7 @@ class ListView extends Component {
             </Card>
             <Card className="card">        
               <CardBody className="card-body">
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>               
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
                 </Link>
@@ -28,7 +28,30 @@ class ListView extends Component {
             </Card>
             <Card className="card">        
               <CardBody className="card-body">
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
+                <Link to="/noteview">
+                </Link>
+              </CardBody>
+            </Card>      
+            <Card className="card">        
+              <CardBody>
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
+                <Link to="/noteview">
+                </Link>
+              </CardBody>
+            </Card>
+            <Card className="card">        
+              <CardBody>
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>               
+                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
+                <Link to="/noteview">
+                </Link>
+              </CardBody>
+            </Card>
+            <Card className="card">        
+              <CardBody>
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
                 </Link>
@@ -36,7 +59,7 @@ class ListView extends Component {
             </Card>      
             <Card className="card">        
               <CardBody>
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
                 </Link>
@@ -44,7 +67,7 @@ class ListView extends Component {
             </Card>
             <Card className="card">        
               <CardBody>
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
                 </Link>
@@ -52,31 +75,7 @@ class ListView extends Component {
             </Card>
             <Card className="card">        
               <CardBody>
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-                <Link to="/noteview">
-                </Link>
-              </CardBody>
-            </Card>      
-            <Card className="card">        
-              <CardBody>
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-                <Link to="/noteview">
-                </Link>
-              </CardBody>
-            </Card>
-            <Card className="card">        
-              <CardBody>
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
-                <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
-                <Link to="/noteview">
-                </Link>
-              </CardBody>
-            </Card>
-            <Card className="card">        
-              <CardBody>
-                <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
+                <Link to="/singlenote" style={{ textDecoration: "none" }}><CardTitle className="cardTitle">Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
                 </Link>

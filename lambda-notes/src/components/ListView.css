@@ -22,7 +22,11 @@
 }
 
 .cardTitle {
-    margin-bottom: 1px solid #979797; 
+    /* margin-bottom: 1px solid #979797;  */
+    color: #4A4A4A;
+    text-align: left;
+    border-bottom: 1px solid #979797;
+    padding: 0 0 10px 0;
 }
 
 .cardText {
