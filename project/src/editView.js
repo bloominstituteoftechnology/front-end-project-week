@@ -6,43 +6,40 @@ class editView extends Component {
     render() {
         return (
             <div>
-            <container className='EVcontainer'>
-            <div className='sidebar'>
-            <div className='heading-container'>
-                <p className='heading-font'><strong>Lambda Notes</strong>
-            </p>
-            </div>
-            
-            <div>
-                <button className='button'>
-                    <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
-                </button>
-            </div>
-            <div>
-                <button className='button'>
-                    <NavLink className='Navbutton' to='/createNew'>+ Create New Notes</NavLink>
-                </button>
-            </div>
-            </div>
-                 
-
-
-                <div className='EVmainBody'>
-                    <div className='EVmainTitle'>
-                    <p>Edit Note:</p>
+            <container className='CNcontainer'>
+                <div className='sidebar'>
+                    <div className='heading-container'>
+                        <p className='heading-font'><strong>Lambda Notes</strong>
+                    </p>
                     </div>
-                    <div className='EVnewTitleContainer'>
-                    <input className='EVnewTitle' type="title" name="title" id="exampleTitle" placeholder="New Title" />
-                    </div>
-                    <div className='EVnewContentContainer'>
-                    <textarea className='EVnewContent'>New Content</textarea>
-                    </div>
-                    <div className='EVbuttonContainer'>
-                        <button className='EVbutton'>Update</button>
+                    
+                      <div>
+                            <button className='button'>
+                                <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
+                            </button>
+                        </div>
+                        <div>
+                        <button className='button'>
+                            <NavLink className='Navbutton' to='/noteView'>+ Create New Notes</NavLink>
+                        </button>
                     </div>
                 </div>
-                 
-            </container>
+
+                <div className='createNew-Form'>
+                    <form className="form">
+                        <div className="CNtitle"><strong>Edit Note:</strong></div>
+                            <div className="CNnewTitle">
+                                <input className="CNinput" type="email" name="email" id="exampleEmail" placeholder="New Title" />
+                            </div>
+                            <div>
+                                <textarea className="CNcomment">New Comment</textarea>
+                            </div>
+                            <div className='CNbuttonContainer'>
+                                <button className="CNbutton">Save</button>
+                            </div>
+                    </form>
+                </div>
+        </container>
             
             </div>
         );

@@ -28,12 +28,12 @@ class createNew extends Component {
                     <form className="form">
                         <div className="CNtitle"><strong>Create New Note:</strong></div>
                             <div className="CNnewTitle">
-                                <input type="email" name="email" id="exampleEmail" placeholder="New Title" />
+                                <input className="CNinput" type="email" name="email" id="exampleEmail" placeholder="New Title" />
                             </div>
                             <div>
                                 <textarea className="CNcomment">New Comment</textarea>
                             </div>
-                            <div>
+                            <div className='CNbuttonContainer'>
                                 <button className="CNbutton">Save</button>
                             </div>
                     </form>

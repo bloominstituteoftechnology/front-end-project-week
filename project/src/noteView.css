@@ -1,3 +1,9 @@
+.NVcontainer {
+    display: flex;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+}
+
 .NVsidebar {
     background: #D8D8D8;
     display: flex;
@@ -12,6 +18,7 @@
     flex-direction: column;
     padding: 0px;
     text-align: left;
+    
   }
 
   .NVtitle {
@@ -28,30 +35,30 @@
     display: flex;
     box-sizing: border-box;
     height: 980px;
+    
 }
 
 .NVbutton {
     width: 200px;
     color: #FFFFFF;
-    background: #2BC1C4;
     margin-bottom: 10px;
     border: #979797 1px solid;
   }
 
   .NVnoteContainer {
       padding: 20px;
-      background: #F3F3F3;
+      background: rgb(173, 165, 177);
       border: 1px solid #979797;
   }
 
   .navLinkEdit {
       padding-right: 10px;
-      color: rgb(43, 43, 43);
+      color: black !important;
       text-decoration: underline;
   }
 
   .navLinkDelete {
-    color: rgb(43, 43, 43);
+    color: black !important;
     text-decoration: underline;
   }
 

@@ -1,6 +1,7 @@
 .container {
     display: flex;
-    font-family: 'Kalam', cursive;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
   }
   
   .sidebar {

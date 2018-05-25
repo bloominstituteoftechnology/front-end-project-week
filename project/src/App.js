@@ -4,6 +4,7 @@ import './displayList.css';
 import './createNew.css';
 import './noteView.css';
 import './editView.css';
+import './Error.css'
 
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route , Switch } from 'react-router-dom';

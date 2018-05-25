@@ -1,0 +1,24 @@
+.errorContainer {
+    height: 100vh;
+    font-family: 'Gaegu', cursive;
+}
+
+.error404 {
+    padding-top: 30px;
+    font-size: 100px;
+    color: rgb(150, 135, 194);
+    font-family: 'Sacramento', cursive;
+
+}
+
+.error {
+    font-size: 40px;
+    color: #4A4A4A;
+    
+    
+}
+
+.errorButton {
+    color: white;
+    font-size: 24px;
+}

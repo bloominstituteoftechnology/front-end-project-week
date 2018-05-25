@@ -1,7 +1,7 @@
 .CNcontainer {
     display: flex;
-    box-sizing: border-box;
-    
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
 }
 
 .CNtitle {
@@ -16,26 +16,41 @@
     text-align: left;
 }
 
+.CNinput {
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
 .CNcomment {
     width: 500px;
     height: 300px;
     padding-bottom: 10px;
+    border-radius: 5px;
+    color: grey;
+    border: 1px solid grey;
+
+
 }
 
 .form {
-    background:  #F3F3F3;
+    background: rgb(173, 165, 177);
     padding: 15px;
     border: 1px solid #979797;
     height: 980px;
 }
 
+.CNbuttonContainer {
+    text-align: left;
+}
+
 .CNbutton {
     width: 200px;
     color: #FFFFFF;
-    background: #2BC1C4;
     margin-bottom: 10px;
+    width: 200px;
+    background: rgb(150, 135, 194);
     border: #979797 1px solid;
-    text-align: left;
+    border-radius: 3px;
     
 }
 

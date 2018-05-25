@@ -1,5 +1,7 @@
 .EVcontainer {
     display: flex;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
 }
 
 .EVsideNav {

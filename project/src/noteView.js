@@ -45,7 +45,7 @@ class noteView extends Component {
 
             <div className="NVnoteContainer">
                 <div className="NVheader">
-                    <NavLink className="navLinkEdit"to='/editView'><Button color="link">edit</Button></NavLink>
+                    <NavLink to='/editView'><Button className="navLinkEdit" color="link">edit</Button></NavLink>
                
                     {/*Modal*/}
                 <div>
