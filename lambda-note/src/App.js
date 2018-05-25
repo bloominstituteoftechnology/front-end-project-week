@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
         noteList : [{'title': "Card Title",
-                    "noteBody" : "App State With supporting text below as a natural lead-in to additional content."}],
+                    "noteBody" : "App State With supporting text below as a natural lead-in to additional content.",id:13636663},{'title': "Card Title",
+                    "noteBody" : "App State With supporting text below as a natural lead-in to additional content.",id:13636665}],
         title : '',
         noteBody : '',
 
@@ -33,6 +34,10 @@ addNote = () => {
   console.log(this.state)
 }
 
+expandNote = (e) => {
+  console.log(e.target.value)
+}
+
   render() {
     const mainBar = {
       backgroundColor: "#F3F3F3",
@@ -49,7 +54,7 @@ addNote = () => {
         <Switch>
           <Route exact path = "/" render ={() => <NoteListView noteList ={this.state.noteList}/>}/>
           <Route path="/create" render={() => <CreateNote handleInput={this.handleInput} addNote={this.addNote} />}/>
-          <Route path="/viewNote" render={() => <NoteView />}/>
+          <Route path="/viewNote/:id" render={(props) => <NoteView {...props} state = {this.state}  />}/>
           <Route path = "/editNote" render ={() => <EditNote />}/>
           <Route path="/delete" component = { DeleteConfirm } />
        </Switch>

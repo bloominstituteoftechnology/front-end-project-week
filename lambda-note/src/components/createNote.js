@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Link} from 'react-router-dom'
 
 const CreateNote = (props) => {
     return (
@@ -13,7 +14,7 @@ const CreateNote = (props) => {
                     <Input className="form-control form-control-lg " style={{ "height": "400px" }} type="textarea" placeholder="Note Content" onChange={props.handleInput} name='noteBody'/>
                 </FormGroup>
                 <FormGroup>
-                  <Button color ="info" onClick ={props.addNote} >SAVE</Button>
+                  <Link to="/"><Button color ="info" onClick ={props.addNote} >SAVE</Button></Link>
                 </FormGroup>
             </Form>
         </div>
