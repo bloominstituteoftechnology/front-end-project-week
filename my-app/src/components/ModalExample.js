@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col,  Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class ModalExample extends Component{
   constructor(props) {
@@ -43,11 +44,11 @@ class ModalExample extends Component{
                                         <Row>
                                         <Col md={6}>
                                               <button className='btn btn-danger'>
-                                                  Delete
+                                              <Link to="/">Delete</Link>
                                               </button>
                                         </Col>
                                         <Col md={6}>
-                                              <button type="button" className="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <Link to="/"><button type="button" className="btn btn-secondary" data-dismiss="modal">No</button></Link>
                                         </Col>
                                       </Row>
                                     </Modal.Body>

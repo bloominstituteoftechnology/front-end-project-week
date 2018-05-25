@@ -40,6 +40,9 @@ h4 {
 .btn {
     margin-left: 10%;
 }
+.btn a {
+    color: white;
+}
 .modal-footer {
     border-top: none;
 }
