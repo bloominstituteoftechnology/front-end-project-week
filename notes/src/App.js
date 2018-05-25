@@ -39,10 +39,13 @@ class App extends Component {
             {this.state.notes.map((note, index) => {
               return (
                 <Col sm="3" >
-                  <NotesList key={index} note={note} />
+                  <Route exact path="/" render ={()=>< NotesList key={index} note={note} />}/>
                 </Col>
               )
-            })}
+              })}
+              <Route path="/AddNote" render={(props) => < AddNote notes={this.state.notes} />}/>
+
+            
 </Col>
           </Row>
           {/* passing props to add note */}
