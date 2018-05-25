@@ -8,10 +8,10 @@ class ListView extends Component {
   render() {
     return (
       <div>
-          <h2 className="headerListView">Your Notes:</h2>
-          <CardColumns className="cardColumns">
+          <h2 className="header-list-view">Your Notes:</h2>
+          <CardColumns className="card-columns">
             <Card className="card">        
-              <CardBody className="cardBody">
+              <CardBody className="card-body">
                 <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
@@ -19,7 +19,7 @@ class ListView extends Component {
               </CardBody>
             </Card>
             <Card className="card">        
-              <CardBody className="cardBody">
+              <CardBody className="card-body">
                 <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">
@@ -27,7 +27,7 @@ class ListView extends Component {
               </CardBody>
             </Card>
             <Card className="card">        
-              <CardBody className="cardBody">
+              <CardBody className="card-body">
                 <Link to="/singlenote"><CardTitle>Note Title</CardTitle></Link>              
                 <CardText className="cardText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam finibus feugiat vestibulum.</CardText>
                 <Link to="/noteview">

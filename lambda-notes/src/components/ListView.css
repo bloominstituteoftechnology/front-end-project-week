@@ -1,4 +1,4 @@
-.headerListView {
+.header-list-view {
     display: flex;     
     justify-content: flex-start; 
     margin-top: 70px; 
@@ -6,7 +6,7 @@
     font: Roboto Bold;              
 }
 
-.cardColumns {    
+.card-columns {    
     margin-top: 20px; 
     margin-left: 270px; 
     margin-right: 20px; 
@@ -17,7 +17,7 @@
     margin-bottom: 30px;     
 };
 
-.cardBody {   
+.card-body {   
     margin-bottom: 1px solid #979797;
 }
 

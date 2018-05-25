@@ -43,7 +43,7 @@ class SingleNoteView extends Component {
             {/* <Link to="/deleteNote" className="delete">Delete</Link> */}
         </div>
         <div>
-            <h2 className="headerNotes">Note Name</h2>
+            <h2 className="header-notes">Note Name</h2>
             <p className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet elit imperdiet, volutpat sapien aliquet, condimentum libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin ac velit massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus massa in sodales lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin aliquet ipsum et arcu sollicitudin ornare. Nulla egestas consequat pellentesque. Proin accumsan maximus congue. Nulla eget varius mauris. Integer suscipit ex in semper tristique. Nam in tincidunt libero.
             <br />
             <br />        
