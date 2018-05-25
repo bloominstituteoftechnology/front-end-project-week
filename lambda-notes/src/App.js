@@ -10,6 +10,7 @@ import NotesContainer from './components/NotesContainer';
 import SideBar from './components/SideBar';
 import CreateNote from './components/CreateNote';
 import NoteView from './components/NoteView';
+import EditNote from './components/EditNote';
 
 class App extends Component {
   constructor (props) {
@@ -60,6 +61,8 @@ viewCurrentNote = (noteID) => {
 
               <Route path='/noteView/:noteID' render={ (props) => {return <NoteView currentNote={this.state.selectedNote}/>}} />
               {/* notes={this.state.userNotes} */}
+
+              <Route path="/editNote" render={(props) => <EditNote notes={this.state.userNotes}/>} />
 
             </Col>
           </Row>
