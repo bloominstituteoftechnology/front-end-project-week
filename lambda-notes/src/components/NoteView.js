@@ -8,7 +8,6 @@ class NoteView extends Component {
       super(props);
   }
 
-
 handleDeleteClick = () => {
     return document.getElementById('viewNoteModal').setAttribute("style",  "display: block")
 }
@@ -22,7 +21,7 @@ handleModelNoClick = () => {
         <div className="singleNoteWrapper pr-3">
            <row>  
                 <div className="features d-flex justify-content-end pr-1">
-                    <button type="button" className="btn btn-link">edit</button>
+                <Link to="/editNote"> <button type="button" className="btn btn-link">edit</button></Link>
                     <button onClick={ this.handleDeleteClick } type="button" className="btn btn-link">delete</button>
                 </div>   
                 <h1>{this.props.selectedNote}</h1>
