@@ -10,6 +10,21 @@
   min-height: 100vh;
 }
 
+.check-list {
+  max-width: 1500px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start;
+  width: 100%;
+  margin: 30px 20px;
+}
+
+.checkbox {
+  padding: 10px !important;
+  display: flex;
+  align-items: flex-end;
+}
+
 .heading {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
