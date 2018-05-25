@@ -15,7 +15,7 @@ class NewNote extends Component {
             <textarea name="body" className="body" placeholder="Note content" />
           </form>          
           <Link to="/">
-          <button className="button3">Save</button>
+          <button className="button3">Update</button>
           </Link>
       </div>
     );
