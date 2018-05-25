@@ -3,7 +3,7 @@ import { CSVLink } from 'react-csv';
 import { ListComponent } from './ListComponent'
 import Button from './Button'
 import { connect } from 'react-redux'
-import { fetchNotes, sort } from './Actions'
+import { fetchNotes } from './Actions'
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
@@ -132,4 +132,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchNotes, sort })(NoteList)
+export default connect(mapStateToProps, { fetchNotes })(NoteList)
