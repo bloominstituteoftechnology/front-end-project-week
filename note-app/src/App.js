@@ -16,6 +16,7 @@ function LeftSide() {
     </div>
   );
 }
+
 //RightSide
 function RightSide() {
   return (
