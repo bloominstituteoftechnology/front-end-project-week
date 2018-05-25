@@ -10,7 +10,6 @@ import DeleteModal from './DeleteModal';
 import './Note.css';
 
 const Note = props => {
-  console.log('Hello')
   if (props.match) {
     return (
       <React.Fragment>
