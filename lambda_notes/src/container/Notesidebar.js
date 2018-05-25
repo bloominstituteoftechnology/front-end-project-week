@@ -7,7 +7,7 @@ import Notes from './func/Notes.js';
 import SingleNote from './func/SingleNote.js';
 
 
-import './sidebar.css';
+import './component.css';
 
 class Notesidebar extends Component{
     constructor(){
@@ -28,7 +28,23 @@ class Notesidebar extends Component{
                     "title": "Card_3",
                     "content": "fvgbhnjnhbgvfcd",
                     id: 1527057950123
-                }
+                },
+                {
+                    "title": "Card_4",
+                    "content": "fvgbhnjnhbgvfcd",
+                    id: 1527057950224
+                },
+                {
+                    "title": "Card_5",
+                    "content": "fvgbhnjnhbgvfcd",
+                    id: 1527057950749
+                },
+                {
+                    "title": "Card_6",
+                    "content": "fvgbhnjnhbgvfcd",
+                    id: 1527057950123
+                },
+                
             ],
         }
     }
@@ -46,13 +62,15 @@ class Notesidebar extends Component{
         return newArr[0];
     }
 
-    deleteNotes = (index) => {
-        this.setState({ notesList: this.state.notesList.concat(this.state.notesList.slice(0, index), this.state.notesList.slice(index)) })
-        }
-
-    
+    deleteNotes = (id) => {
+        const newIds = this.state.notesList.filter(note => {
+        return note.id !== id
+        })
+        this.setState({ notesList : newIds})
+    }
     
     render() {
+        console.log("NSB",this.props)
         return(
             <React.Fragment >
                 <div className="sidebar">
@@ -62,12 +80,17 @@ class Notesidebar extends Component{
                     </div>
                     <Route exact path="/Notes" render={props => <NoteList {...props} NoteData={this.state.notesList}/>} />
                     <Route exact path="/Create" render={props => <CreateNote fetch={this.fetchData} />} />
-                    <Route path="/Notes/:title" render={props => <SingleNote NoteData={this.filterNotes(props)} DeleteData={this.deleteNotes(props)} />} />
+                    <Route path="/Notes/:title" render={props => <SingleNote NoteData={this.filterNotes(props)} DeleteData={this.deleteNotes} />} />
                 </div>
             </React.Fragment>
                 
             )
         }
+
+        
     
     }
+
+    // var Arr = this.state.notesList.filter( note => note.title !== index );
+        // this.setState({ notesList: Arr });
 export default Notesidebar;

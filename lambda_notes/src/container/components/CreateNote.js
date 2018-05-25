@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Notes from '../func/Notes';
 
-import './components.css';
+import '../component.css';
  
 class CreateNote extends Component{
     constructor(){
@@ -24,8 +24,25 @@ class CreateNote extends Component{
                     "title": "Card_3",
                     "content": "fvgbhnjnhbgvfcd",
                     id: 1527057950123
-                }
-            ]
+                },
+                {
+                    "title": "Card_4",
+                    "content": "fvgbhnjnhbgvfcd",
+                    id: 1527057950224
+                },
+                {
+                    "title": "Card_5",
+                    "content": "fvgbhnjnhbgvfcd",
+                    id: 1527057950749
+                },
+                {
+                    "title": "Card_6",
+                    "content": "fvgbhnjnhbgvfcd",
+                    id: 1527057950194
+                },
+                
+            ],
+           
         }
     }
 
@@ -36,18 +53,31 @@ class CreateNote extends Component{
 
     submitNote = (e) => {
         e.preventDefault();
-        const newNote = this.state.notesList;
-        const item = {title: this.state.title, content: this.state.content, id: Date.now()};
-        newNote.push(item);
-        console.log(newNote);
-        this.props.fetch(this.state.notesList);
-        this.setState({ title: "", content: "", newNote })
-
+        console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
+        if(this.props.match.path === `/Create/edit/:title`){
+            const title = this.props.match.params.title;
+            console.log("title", title)
+            const updNote = {title: this.state.title, content: this.state.content};
+            this.props.EditData(title, updNote);
+        }else{
+            const newNote = this.state.notesList;
+            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
+            newNote.push(item);
+            console.log("CreateNote line 65", newNote);
+            this.props.fetch(this.state.notesList);
+            this.setState({ title: "", content: "", newNote })
+        }
+        
     }
 
-    
+    // editNote = (e) => {
+    //     const updNote = { title, content } 
+    //     this.setState({ title: this.state.title, content: this.state.content })
+    //     this.props.EditData(title, updNote)
+    // }
 
     render() {
+        console.log(this.props)
         return(
             <div>
                 <form>

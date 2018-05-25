@@ -2,11 +2,11 @@ import React from 'react';
 import { Card, CardBody, CardTitle, } from 'reactstrap';
 import { Button } from 'react-bootstrap'; 
 import { Link } from 'react-router-dom';
-import '../components/components.css';
+import '../component.css';
 
 const Notes = props =>{
         return (
-            <div className="note-container">
+            <div className="note-card">
             <Card>
                     <CardBody>
                         <CardTitle>{props.NoteData.title} </CardTitle>
