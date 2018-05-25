@@ -31,13 +31,26 @@ const ContentArea = (props) => {
     //Invoke NoteForm with props that allow creation of a new note
     case "create":
       return (
-        <NoteForm fetcher={props.fetcher} topText="Create New Note:" myTitle="" myContent="" myMethod={props.saveNewMethod} />
+        <NoteForm
+          fetcher={props.fetcher}
+          topText="Create New Note:"
+          myTitle=""
+          myContent=""
+          myMethod={props.saveNewMethod}
+        />
       );
     //Invoke NoteForm with props that allow editing an existing note.
     case "edit":
       myNote = props.notes.filter((note) => note._id === props.viewId)[0];
       return (
-        <NoteForm fetcher={props.fetcher} topText="Edit A Note:" myTitle={myNote.title} myContent={myNote.textBody} myMethod={props.saveEditMethod} myId={props.viewId} />
+        <NoteForm
+          fetcher={props.fetcher}
+          topText="Edit A Note:"
+          myTitle={myNote.title}
+          myContent={myNote.textBody}
+          myMethod={props.saveEditMethod}
+          myId={props.viewId}
+        />
       );
     //Display a loading message while waiting for server response.
     case "fetching":

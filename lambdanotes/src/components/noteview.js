@@ -12,7 +12,8 @@ const NoteView = (props) => {
   return (
     <div className="note-view">
       <div className="note-view-links">
-        <div className="note-view-link" onClick={props.editMethod}>edit</div><div onClick={props.deleteMethod} className="note-view-link">delete</div>
+        <div className="note-view-link" onClick={props.editMethod}>edit</div>
+        <div onClick={props.deleteMethod} className="note-view-link">delete</div>
       </div>
       <h5 className="note-view-title">{props.note.title}</h5>
       <p className="note-view-content">{props.note.textBody}</p>
@@ -20,7 +21,15 @@ const NoteView = (props) => {
         <ModalBody className="delete-modal">
           Are you sure you want to delete this?
           <div className="delete-buttons">
-            <LambdaButton color="red" text="Delete" myFunc={() => props.reallyDeleteMethod(props.fetcher, "https://killer-notes.herokuapp.com/note/", props.note._id)} />
+            <LambdaButton
+              color="red"
+              text="Delete"
+              myFunc={() => props.reallyDeleteMethod(
+                props.fetcher,
+                "https://killer-notes.herokuapp.com/note/",
+                props.note._id
+              )}
+            />
             <LambdaButton color="green" text="No" myFunc={props.cancelDeleteMethod} />
           </div>
         </ModalBody>

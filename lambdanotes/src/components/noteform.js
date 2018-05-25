@@ -35,12 +35,31 @@ class NoteForm extends React.Component {
       <Form id="note-form" >
         <h5 className="form-heading">{this.props.topText}</h5>
         <FormGroup>
-          <Input name="myTitle" onChange={this.handleFormType} id="title-input" placeholder="Note Title" value={this.state.myTitle} />
+          <Input
+            name="myTitle"
+            onChange={this.handleFormType}
+            id="title-input"
+            placeholder="Note Title"
+            value={this.state.myTitle}
+          />
         </FormGroup>
         <FormGroup>
-          <Input type="textarea" onChange={this.handleFormType} name="myContent" id="content-input" placeholder="Note Content" value={this.state.myContent} />
+          <Input
+            type="textarea"
+            onChange={this.handleFormType}
+            name="myContent" id="content-input"
+            placeholder="Note Content"
+            value={this.state.myContent}
+          />
         </FormGroup>
-        <LambdaButton myFunc={() => this.props.myMethod(this.props.fetcher, "https://killer-notes.herokuapp.com/note/", {title: this.state.myTitle, textBody: this.state.myContent}, this.props.myId)} text="Save" color="green" />
+        <LambdaButton
+          myFunc={() => this.props.myMethod(this.props.fetcher,
+            "https://killer-notes.herokuapp.com/note/",
+            {title: this.state.myTitle, textBody: this.state.myContent},
+            this.props.myId)}
+          text="Save"
+          color="green"
+          />
       </Form>
     );
   }
