@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Note from './Note';
 import './ListView.css';
 
 const ListView = (props) => {
     return (
         <div className='list-container'>
-            <div className='list-header'>
-                <h4>Your Notes:</h4>
-            </div>
-            <div className='note-list'>
-                {props.noteList.map(note => (
-                    <div onClick={() => 
-                        props.setCurrentNote(note.id)} key={note.id} className='note-card-link'> 
-                        <Link to={`/${note.id}`} className='note-link'>
+            <h3 className='list-header'>Your Notes:</h3>
+            <div className='note-collection'>
+                {props.notesList.map(note => (
+                    <div onClick={() => props.switchNote(note._id)} key={note._id} className='note-link-container'>
+                        <Link to={`/${note._id}`} className='note-link'>
                             <div className='note-card'>
-                                <h4 className='note-title'>{note.title}</h4>
-                                <p className='note-content'>{note.textBody}</p>
+                                <h6 className='note-title'>{note.title}</h6>
+                                <span className='note-content'>{note.textBody}</span>
                             </div>
                         </Link>
                     </div>
                 ))}
+
             </div>
         </div>
     )
 }
 
-export default ListView;
+export default ListView; 

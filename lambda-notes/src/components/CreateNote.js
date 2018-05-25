@@ -1,68 +1,64 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../App.css';
+import { Link } from 'react-router-dom';
 import './CreateNote.css';
 
 class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
             title: '',
-            content: ''
+            textBody: '',
         }
     }
 
-    handleInputChange = e => {
+    handleTitleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleNoteSave = () => {
+    handleSaveNote = () => {
+        console.log('handleCreateNote Fired')
         axios
-            .post(
-                `https://killer-notes.herokuapp.com/note/create`, this.state)
-            .then(
-                res => {console.log(res)}
-            )
-            .catch(
-                err => {console.log(err)}
-            )
-        window.location.reload();
-
+            .post(`https://killer-notes.herokuapp.com/note/create`, this.state)
+                .then(res => {
+                    console.log(res);
+                    window.location.reload();                
+                })
+                .catch(err => {console.log(err)})
     }
-    
+
     render() {
         return (
-            <div className='create-note-container'>
-                <div className='header'>
-                    <h4 className='create-note-header'>Create New Note:</h4>
+            <div className='create-container'>
+                <div>
+                    <h3 className='create-header'>Create New Note:</h3>
                 </div>
-                <form className='create-note-form'>
+                <form className='create-form'>
                     <input 
-                        type='text'
-                        className='crate-note-input-title'
+                        onChange={this.handleTitleChange} 
+                        type='text' 
+                        className='create-input-title' 
                         name='title'
-                        placeholder='Note Title'
-                        value='{this.state.title}'
-                        onChange='{this.state.handleInputChange}'
+                        value={this.state.noteTitle}
+                        placeholder='Note Title' 
                     />
                     <textarea
-                        className="content-input"
-                        placeholder='Note Content'
-                        name='content'
-                        value='{this.state.content}'
-                        onChange='{this.handleInputChange}'
-                    ></textarea>
+                        onChange={this.handleTitleChange}
+                        type='text' 
+                        className='create-input-content' 
+                        name='textBody'
+                        value={this.state.noteContent}
+                        placeholder='Note Content'>
+                    </textarea>
+                    <div className='create-link'>
+                        <Link to={`/`}>
+                            <input onClick={this.handleSaveNote} className='create-save-btn' type='button' value='Save' />
+                        </Link>
+                    </div>
                 </form>
-                <Link to='/'>
-                    <button onClick={this.submitInputChange} className='create-view-button' >
-                        Save
-                    </button>
-                </Link>
             </div>
-        );
+        )
     }
 }
 
-export default CreateNote;
+export default CreateNote; 

@@ -1,64 +1,51 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
 import { Route } from 'react-router-dom';
-import ListView from './components/ListView';
-import NavBar from './components/NavBar';
-import CreateNote from './components/CreateNote';
-import ViewNote from './components/ViewNote';
-import EditNote from './components/EditNote';
-import note from './components/dummyData';
-
+import axios from 'axios';
+import NavBar from './components/NavBar.js';
+import ListView from './components/ListView.js';
+import CreateNote from './components/CreateNote.js';
+import ViewNote from './components/ViewNote.js';
+import EditNote from './components/EditNote.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      noteList: [],
-      current: {}
+      notesList: [],
+      currentNote: {}
     }
   }
 
   componentDidMount() {
     axios
-        .get(
-            `https://killer-notes.herokuapp.com/note/get/all`)
-        .then(
-            res => {this.setState({ noteList: res.data })})
-        .catch(
-            err => {console.log(err)})
+      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+        .then(res => {this.setState({notesList: res.data})})
+        .catch(err => {console.log(err)})
   }
 
-  setCurrentNote = (noteID) => {
-      axios
-        .get(
-            `https://killer-List.herokuapp.com/note/get/${noteID}`
-        )
-        .then(
-            res => {this.setState({ current: res.data })}
-        )
-        .catch(
-            err => {console.log(err)}
-        )
+  switchNote = (noteID) => {
+    axios
+      .get(`https://killer-notes.herokuapp.com/note/get/${noteID}`)
+        .then(res => {this.setState({currentNote: res.data})})
+        .catch(err => {console.log(err)})
   }
 
   render() {
     return (
-        <div className='App'>
-            <div className='nav-bar'>
-                <Route path='/' component={ NavBar } />    
-            </div>
-            <div className='note-container'>
-                <Route exact path='/' render={ (props) => {
-                    return (<ListView { ...props } noteList={this.state.noteList} />)}} />
-                <Route path='/note/create' component={CreateNote} />
-                <Route exact path='/:id' render={ (props) => {
-                    return (<ViewNote {...props} current={this.state.current} />)}} />
-                <Route path='/:id/edit' component={EditNote} />
-            </div>
+      <div className='App'>
+        <div className='nav-bar-container'>
+          <Route path='/' component={NavBar} />
         </div>
+        <div className='note-container'>
+          <Route exact path='/' render={ (props) => { return(<ListView {...props} notesList={this.state.notesList} switchNote={this.switchNote}/>)}} />
+          <Route path='/note/create' component={CreateNote} />
+          <Route exact path='/:_id' render={ (props) => { return(<ViewNote {...props} currentNote={this.state.currentNote} />)}} />
+          <Route path='/:_id/edit' render={ (props) => { return(<EditNote {...props} currentNote={this.state.currentNote} />)}} />
+        </div>
+      </div>
     );
-}
+  }
 }
 
-export default App;
+export default App; 

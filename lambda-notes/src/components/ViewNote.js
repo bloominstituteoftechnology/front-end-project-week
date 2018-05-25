@@ -1,22 +1,24 @@
 import React from 'react';
+import './ViewNote.css';
 import { Link } from 'react-router-dom';
-import DeleteNote from './DeleteNote';
+import DeleteNote from './DeleteNote.js';
 
-const ViewNote = props => {
+const ViewNote = (props) => {
     return (
         <div>
-            <div>
-                <div>
-                    <Link to={`/${props.current.id}/edit`}>
+            <div className='edit-delete-container'>
+                <div className='edit-segment'>
+                    <Link to={`/${props.currentNote._id}/edit`}>
                         <p className='edit-link'>edit</p>
                     </Link>
                 </div>
-                <DeleteNote currentNoteID={props.current.id} />
+                <DeleteNote currentNoteID={props.currentNote._id} />
             </div>
-            <h4>{props.current.title}</h4>
-            <div className='view-note-content'>{props.current.textBody}</div>
+            <h3 className='view-header'>{props.currentNote.title}</h3>
+            <span className='view-content'>{props.currentNote.textBody}</span>
         </div>
+                
     )
 }
 
-export default ViewNote;
+export default ViewNote; 

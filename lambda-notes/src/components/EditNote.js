@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import '../App.css';
-
-
+import { Link } from 'react-router-dom';
 import './EditNote.css';
 
 class EditNote extends Component {
@@ -32,15 +29,15 @@ class EditNote extends Component {
 
     render() {
         return (
-            <div className='editNoteContainer'>
+            <div className='edit-container'>
                 <div>
-                    <h3 className='editNoteHeader'>Edit Note:</h3>
+                    <h3 className='edit-header'>Edit Note:</h3>
                 </div>
-                <form className='editNoteForm'>
+                <form className='edit-form'>
                     <input 
                         onChange={this.handleTitleChange} 
                         type='text' 
-                        className='edit-note-title' 
+                        className='edit-input-title' 
                         name='title'
                         value={this.state.title}
                         placeholder='Note Title'
@@ -48,14 +45,14 @@ class EditNote extends Component {
                     <textarea
                         onChange={this.handleTitleChange}
                         type='text' 
-                        className='edit-note-content' 
+                        className='edit-input-content' 
                         name='textBody'
                         value={this.state.textBody}
                         placeholder='Note Content'>
                     </textarea>
-                    <div className='save-btn-link'>
+                    <div className='save-link'>
                         <Link to={`/`}>
-                            <input onClick={this.handleUpdateNote} className='editNoteSaveButton' type='button' value='Update' />
+                            <input onClick={this.handleUpdateNote} className='save-button' type='button' value='Update' />
                         </Link>
                     </div>
                 </form>
@@ -64,4 +61,4 @@ class EditNote extends Component {
     }
 }
 
-export default EditNote;
+export default EditNote; 

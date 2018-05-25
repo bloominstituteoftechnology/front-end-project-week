@@ -1,0 +1,54 @@
+.delete {
+        font-family: 'Roboto', sans-serif;
+        color: #4A4A4A;
+        font-size: 14px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+.delete-modal {
+        margin: 169px auto !important;
+        max-width: 533px !important;
+        width: 100% !important;
+        border-radius: 0 !important;
+        border: 2px !important;
+    }
+    
+.warning {
+        margin: 41px auto 0;
+        font-family: 'Roboto', sans-serif;
+        color: #4A4A4A;
+        font-size: 15.3px;
+    }
+    
+.delete-modal-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin: 29px 50px 43px;
+    }
+    
+.delete-button-link {
+        width: 189px;
+        height: 42px;
+    }
+    
+.delete-button {
+        padding-top: 3px;
+        font-weight: 550;
+        color: white;
+        background: #D0021B;
+        border: 1px solid #979797;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    
+.cancel-button {
+        font-weight: 500;
+        color: white;
+        background: #2BC1C4;
+        border: 1px solid #979797;
+        width: 189px;
+        height: 42px;
+        cursor: pointer;
+    } 
