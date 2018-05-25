@@ -18,6 +18,10 @@
     color: black; 
 }
 
+.app-links {
+    margin-top: 20px;
+}
+
 .button1 {
     padding: 6px 60px 6px 60px;
     text-decoration: none;

@@ -11,7 +11,7 @@ class SideBar extends Component {
                     <h1 className="app-name">
                         Lambda Notes
                     </h1>
-                    <br />
+                    {/* <br /> */}
                     <div className="app-links">
                         <Link to="/" style={{ textDecoration: "none" }}>
                             <button className="button1">View Notes</button>
