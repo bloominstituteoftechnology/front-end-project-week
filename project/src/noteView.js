@@ -25,21 +25,23 @@ class noteView extends Component {
         return (
             <div>
             <container className='NVcontainer'>
-            <div className='NVsidebar'>
-                <div className='NVtitleContainer'>
-                    <p className='NVtitle'><strong>Lambda Notes</strong></p>
-                </div>
-                <div>
+            <div className='sidebar'>
+            <div className='heading-container'>
+                <p className='heading-font'><strong>Lambda Notes</strong>
+            </p>
+            </div>
+            
+            <div>
                 <button className='button'>
                     <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
                 </button>
-                </div>
-                    <div>
-                         <button className='button'>
-                            <NavLink className='Navbutton' to='/createNew'>+ Create New Notes</NavLink>
-                         </button>
-                    </div>
-                </div>
+            </div>
+            <div>
+                <button className='button'>
+                    <NavLink className='Navbutton' to='/createNew'>+ Create New Notes</NavLink>
+                </button>
+            </div>
+        </div>
 
             <div className="NVnoteContainer">
                 <div className="NVheader">

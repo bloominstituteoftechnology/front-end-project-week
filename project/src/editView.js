@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class editView extends Component {
@@ -6,17 +7,23 @@ class editView extends Component {
         return (
             <div>
             <container className='EVcontainer'>
-                <div className='EVsideNav'>
-                    <div className='EVnavTitleContainer'>
-                    <p className='EVsideNavTitle'>Lambda Notes</p>
-                    </div>
-                    <div className='EVbuttonContainer'>
-                    <button className='EVbutton'>View Your Notes</button>
-                </div>
-                <div className='EVbuttonContainer'>
-                    <button className='EVbutton'>+ Create New Note</button>
-                </div>
-                </div>
+            <div className='sidebar'>
+            <div className='heading-container'>
+                <p className='heading-font'><strong>Lambda Notes</strong>
+            </p>
+            </div>
+            
+            <div>
+                <button className='button'>
+                    <NavLink className='Navbutton' to='/'>View Your Notes</NavLink>
+                </button>
+            </div>
+            <div>
+                <button className='button'>
+                    <NavLink className='Navbutton' to='/createNew'>+ Create New Notes</NavLink>
+                </button>
+            </div>
+            </div>
                  
 
 
