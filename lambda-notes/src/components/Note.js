@@ -44,7 +44,7 @@ class Note extends Component {
                         >Remove Note
                     </button>
                 </div>
-                <div>
+                <div className="full-note">
                     <h4 className="note-title">{this.matchedNote.title}</h4>
                     <p className="note-body">{this.matchedNote.body}</p>
                 </div>

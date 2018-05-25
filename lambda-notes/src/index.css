@@ -138,6 +138,16 @@ html, body {
   flex-direction: column;
 }
 
+.full-note {
+  background-color: rgb(255, 253, 253);
+  margin-top: 30px;
+}
+
+.full-note .note-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(185, 183, 183);
+}
+
 .button-group {
   width: 100%;
   display: flex;
@@ -146,8 +156,7 @@ html, body {
 
 .button-group button{
   font-size: 1.6rem;
-  margin: 10px;
-  margin-right: 20px;
+  margin: 20px 20px 0 0;
   border: none;
   box-shadow: 2px 2px 4px gray;
   border-radius: 5px;
@@ -162,14 +171,13 @@ html, body {
 
 .note-view .note-title {
   font-size: 3rem;
-  margin: 20px;
+  margin: 20px 20px 10px 20px;
   color: #484748;
 }
 
 .note-view .note-body {
   font-size: 2rem;
-  margin: 20px;
-  margin-top: 35px;
+  margin: 0 20px 20px 20px;
   line-height: 35px;
 }
 
