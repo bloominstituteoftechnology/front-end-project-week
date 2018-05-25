@@ -3,9 +3,11 @@ import './noteform.css';
 import { Form, FormGroup, Input} from 'reactstrap';
 import LambdaButton from './lambdabutton.js';
 
-
+//This form is able to create or edit depending on its props, and could do other
+//things as well if new callback functions were made for it.
 class NoteForm extends React.Component {
 
+  //Store the inputs on local component state for the moment.
   constructor(props) {
     super(props);
     this.state = {
@@ -14,18 +16,20 @@ class NoteForm extends React.Component {
     }
   }
 
+  //Update component state as user types.
   handleFormType = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  //This component needs to update its state when it gets new props.
   componentWillReceiveProps(newprops) {
-    console.log(this.props.myMethod);
     this.setState({
       myTitle: newprops.myTitle,
       myContent: newprops.myContent
     });
   }
 
+  //The HTML:
   render() {
     return (
       <Form id="note-form" >

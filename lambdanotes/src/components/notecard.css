@@ -1,3 +1,4 @@
+/* Stle for the entire card. */
 .note-card {
   overflow: hidden;
   width: 100%;
@@ -9,7 +10,7 @@
 }
 
 
-
+/* Style for the title of the note. */
 .note-title {
   font-family: 'Roboto', sans-serif;
   font-size: 1.1rem;
@@ -19,12 +20,14 @@
   height: 1.5rem;
 }
 
+/* Show an ellipsis at the end of the title. */
 .note-title:before {
   content: "...";
   position: absolute;
   right: 10px;
 }
 
+/* Hide the ellipsis if the title doesn't overflow. */
 .note-title:after {
   content: "";
   position: absolute;
@@ -35,6 +38,7 @@
   background: white;
 }
 
+/* Style for the main note text */
 .note-text {
   font-size: .8rem;
   text-align: left;
@@ -43,6 +47,7 @@
   white-space: pre-line;
 }
 
+/* Show an ellipsis at the end of the text */
 .note-text:before {
   content: "...";
   position: absolute;
@@ -50,6 +55,7 @@
   bottom: 0;
 }
 
+/* Hide the ellipsis if text doesn't overflow */
 .note-text:after {
   content: "";
   position: absolute;
@@ -60,6 +66,7 @@
   background: white;
 }
 
+/* This is the container div for the text */
 .note-text-container {
   overflow: hidden;
   position: relative;
@@ -67,7 +74,7 @@
   max-height: 165px;
 }
 
-
+/* The line between title and text */
 .horizontal-line {
   height: 0;
   border: solid #979797 .5px;

@@ -6,13 +6,16 @@ import SideMenu from './components/sidemenu.js';
 import { connect } from 'react-redux';
 import { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit, alphabetizeNotes, shortestNotes, longestNotes, revAlphabetizeNotes } from './actions';
 
+//The main app.
 class App extends Component {
 
-
+  //Get initial data from the server after the app mounts
   componentDidMount() {
     this.props.fetcher("https://killer-notes.herokuapp.com/note/get/all");
   }
 
+  //Render the two main subcomponents, SideMenu and ContentArea, and pass them
+  //their props.
   render() {
     return (
       <div className="App">
@@ -50,6 +53,7 @@ class App extends Component {
   }
 }
 
+//tells connect how the contents of its store can be made into props
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
@@ -59,4 +63,5 @@ const mapStateToProps = (state) => {
   }
 }
 
+//Redux magic
 export default connect(mapStateToProps, { fetcher, startCreate, goToList, viewNote, startDelete, saveNew, reallyDelete, cancelDelete, editNote, saveEdit, alphabetizeNotes, shortestNotes, longestNotes, revAlphabetizeNotes })(App);

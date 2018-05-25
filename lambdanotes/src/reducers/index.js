@@ -9,6 +9,9 @@ const initialState = {
 
 const noteReducer = (state = initialState, action) => {
   switch (action.type) {
+
+
+    //These types all do the same thing, but I wanted to distinguish them in the logger / dev tools
     case SAVE_NEW:
     case SAVE_EDIT:
     case FETCHING_NOTES:
@@ -16,6 +19,8 @@ const noteReducer = (state = initialState, action) => {
     case DONE_SAVING:
     case DONE_DELETING:
       return Object.assign({}, state, {appState: "fetching", error: null});
+
+    //appState changing action types.
     case FETCHED_NOTES:
       return Object.assign({}, state, {appState: "list", notes: action.payload});
     case START_CREATE:
@@ -32,6 +37,9 @@ const noteReducer = (state = initialState, action) => {
       return Object.assign({}, state, {appState: "edit"});
     case ERROR:
       return Object.assign({}, state, {appState: "error", error: action.payload});
+
+
+    //Sorting action types.
     case ALPHABETIZE_NOTES: {
       let sortedNotes = state.notes.slice(0).sort((a, b) => a.title.localeCompare(b.title));
       return Object.assign({}, state, {notes: sortedNotes});
@@ -48,6 +56,8 @@ const noteReducer = (state = initialState, action) => {
       let sortedNotes = state.notes.slice(0).sort((a, b) => b.textBody.length - a.textBody.length);
       return Object.assign({}, state, {notes: sortedNotes});
     }
+
+    //default
     default:
       return state;
   }

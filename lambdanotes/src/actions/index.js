@@ -20,6 +20,10 @@ export const LONGEST_NOTES = "LONGEST_NOTES";
 export const REV_ALPHABETIZE_NOTES = "REV_ALPHABETIZE_NOTES";
 
 
+//Asynchronus actions.  These issue actions specific to their operation that put
+//the app in a loading state, then when the request is complete send a payload
+//to the reducer to update the store.
+
 
 export const fetcher = (url) => {
   const request = axios.get(url);
@@ -34,30 +38,21 @@ export const fetcher = (url) => {
   };
 };
 
-
-export const startCreate = () => {
+export const saveEdit = (nextAct, url, note, id) => {
+  let newNote = Object.assign({}, note, {_id: id})
+  const request = axios.put(url + `edit/${id}`, newNote);
   return (dispatch) => {
-    dispatch({type: START_CREATE});
-  }
-}
-
-export const goToList = () => {
-  return (dispatch) => {
-    dispatch({type: GO_TO_LIST});
-  }
-}
-
-export const viewNote = (id) => {
-  return (dispatch) => {
-    dispatch({type: VIEW_NOTE, payload: id});
-  }
-}
-
-export const startDelete = () => {
-  return (dispatch) => {
-    dispatch({type: START_DELETE});
-  }
-}
+    dispatch({type: SAVE_EDIT});
+    request.then((data) => {
+      dispatch({type: DONE_SAVING});
+      console.log(data);
+      nextAct(url + "get/all");
+    })
+    .catch(err => {
+      dispatch({type: ERROR, payload: err});
+    });
+  };
+};
 
 export const reallyDelete = (nextAct, url, id) => {
   const request = axios.delete(url + "delete/" + id);
@@ -87,6 +82,34 @@ export const saveNew = (nextAct, url, note) => {
   };
 };
 
+
+//Simple actions; all the real work is done by the reducer
+
+
+export const startCreate = () => {
+  return (dispatch) => {
+    dispatch({type: START_CREATE});
+  }
+}
+
+export const goToList = () => {
+  return (dispatch) => {
+    dispatch({type: GO_TO_LIST});
+  }
+}
+
+export const viewNote = (id) => {
+  return (dispatch) => {
+    dispatch({type: VIEW_NOTE, payload: id});
+  }
+}
+
+export const startDelete = () => {
+  return (dispatch) => {
+    dispatch({type: START_DELETE});
+  }
+}
+
 export const cancelDelete = () => {
   return (dispatch) => {
     dispatch({type: CANCEL_DELETE});
@@ -98,22 +121,6 @@ export const editNote = () => {
     dispatch({type: EDIT_NOTE});
   }
 }
-
-export const saveEdit = (nextAct, url, note, id) => {
-  let newNote = Object.assign({}, note, {_id: id})
-  const request = axios.put(url + `edit/${id}`, newNote);
-  return (dispatch) => {
-    dispatch({type: SAVE_EDIT});
-    request.then((data) => {
-      dispatch({type: DONE_SAVING});
-      console.log(data);
-      nextAct(url + "get/all");
-    })
-    .catch(err => {
-      dispatch({type: ERROR, payload: err});
-    });
-  };
-};
 
 export const alphabetizeNotes = () => {
   return (dispatch) => {

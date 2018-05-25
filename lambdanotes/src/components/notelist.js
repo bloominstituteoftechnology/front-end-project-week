@@ -3,8 +3,11 @@ import './notelist.css';
 import NoteCard from './notecard.js';
 import { Row, Col } from 'reactstrap';
 
-
+//The note list component shows as many notes as are in the notes array in
+//rows of 3.
 const NoteList = (props) => {
+
+  //Nested loops are used to compose three reactstrap columns into each row
   let cardArr = [];
   for (let i = 0; i < props.notes.length; i = i + 3) {
     let subArr = [];
@@ -21,6 +24,8 @@ const NoteList = (props) => {
       </Row>
     );
   }
+
+  //The resulting component array is placed in a div
   return (
     <div className="notes-view">
       <div className="heading">

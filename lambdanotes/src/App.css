@@ -1,3 +1,5 @@
+/*This is the only place I set the Raleway font; it cascades down to everything
+else from here.  Also setting the size and position of main app display. */
 .App {
   text-align: center;
   font-family: 'Raleway', sans-serif;
@@ -9,6 +11,7 @@
 
 }
 
+/*Handle the styling of the side menu  */
 .left-side {
   background: #D8D8D8;
   border-top: solid #979797 1px;
@@ -17,6 +20,7 @@
   min-height: 900px !important;
 }
 
+/*Styling for the main content area  */
 .content {
   background: #F3F3F3;
   border: solid #979797 1px;

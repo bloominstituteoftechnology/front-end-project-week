@@ -3,8 +3,11 @@ import './noteview.css';
 import { Modal, ModalBody } from 'reactstrap';
 import LambdaButton from './lambdabutton.js';
 
-
+//The component for viewing an individual note.
 const NoteView = (props) => {
+  //This component is state aware; if the state is view, then the component shows
+  //a view of the selected note.  If the state is deleting, the component shows
+  //a modal asking the user for confirmation.
   let deleting = (props.appState === "deleting");
   return (
     <div className="note-view">

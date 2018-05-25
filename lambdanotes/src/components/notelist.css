@@ -1,3 +1,4 @@
+/*Style the container component  */
 .notes-view {
   display: flex;
   padding: 50px 24px;
@@ -5,16 +6,17 @@
   align-items: flex-start;
 }
 
+/*Make the title the right font / bold  */
 .heading {
   font-family: 'Roboto', sans-serif;
 }
 
+/*Tweak the rows an columns to get them jsut right  */
 .note-row {
   width: 100%;
   padding: 0 8px;
 }
 
 .my-column {
-
   padding: 12px 8px !important;
 }

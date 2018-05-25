@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-
+//"I'll wager 400 quatloos on the newcomer"
 const quatloo = createStore(noteReducer, composeEnhancers(
   applyMiddleware(thunk, logger)
 ));
