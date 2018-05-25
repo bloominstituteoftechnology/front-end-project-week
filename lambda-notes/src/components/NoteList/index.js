@@ -7,34 +7,52 @@ import './NoteList.css';
 // Components
 import connect from 'react-redux/lib/connect/connect';
 import { fetchNotes } from '../Actions';
+import { Tag } from '../Forms/ViewNote';
 
 class NoteList extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   componentDidMount() {
     console.log("Does this.props.user exist?",this.props.user ? "YES":"NO");
     if (this.props.user) this.props.fetchNotes(this.props.user.uid);
   }
 
-  displayNotes = () => {
-    return (
-      <Fragment>
-        <h4>Your Notes:</h4>
-        <div className={`note-view d-flex flex-wrap`}>
-          { this.props.notes.map(obj => <NoteCard key={obj.id} {...obj} />)}
-        </div>
-      </Fragment>
-    );
-  }
-
   render() {
-    if (!this.props.user) return <Redirect to ="/" />;
+    console.log(this.props.match? this.props.match : "undefined");
     const { classes } = this.props;
+
+    // If you're not logged in, you can't be here.
+    if (!this.props.user) return <Redirect to ="/" />;
+
+    // If you don't have any notes, let's make some!
+    if (this.props.notes.length === 0) {
+      return (
+        <div className={`note-list ${classes}`}>
+          <h3>You don't have any notes.</h3>
+          <p>Let's get started by clicking on "Create New Note"!</p>
+        </div>
+      );
+    }
+    
+    // Note list
+    const path = this.props.match.path;
+    const tag = this.props.match.params.tag;
     return (
       <div className={`note-list ${classes}`}>
-      { this.displayNotes() }
+      {
+        path === "/notes/tag/:tag" ?
+          <h4>Notes with <Tag>{tag}</Tag></h4>
+        :
+          <h4>Your Notes:</h4>
+      }
+        <div className={`note-view d-flex flex-wrap`}>
+          { 
+            path === "/notes/tag/:tag" ?
+              this.props.notes.filter(obj => obj.tags.includes(tag))
+                .map(obj => <NoteCard key={obj.id} {...obj} />)
+            :
+              this.props.notes.map(obj => <NoteCard key={obj.id} {...obj} />)
+          }
+        </div>
       </div>
     );
   }

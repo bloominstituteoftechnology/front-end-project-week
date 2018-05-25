@@ -17,12 +17,6 @@ export const editNote = (uid, id, note) => async dispatch => {
 };
 
 export const fetchNotes = (uid) => dispatch => {
-  // notesRef(uid).on("value", snapshot => {
-  //   dispatch({
-  //     type: FETCH,
-  //     payload: snapshot.val(),
-  //   });
-  // });
   notesRef(uid).once("value")
     .then(res => dispatch({
       type: FETCH,
@@ -93,3 +87,14 @@ export const changeTheme = (theme) => {
     payload: theme,
   }
 }
+
+/* Code I'm keeping around:
+
+  notesRef(uid).on("value", snapshot => {
+    dispatch({
+      type: FETCH,
+      payload: snapshot.val(),
+    });
+  });
+
+*/

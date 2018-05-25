@@ -61,7 +61,7 @@ class ViewNote extends React.Component {
 
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="pr-3">
-        {/* Delete Modal */}
+      {/* Delete Modal */}
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalBody>
             <h5 className="text-center">Are you sure you want to delete this?</h5>
@@ -70,7 +70,8 @@ class ViewNote extends React.Component {
             <Button delete onClick={this.deleteMethod}>Delete</Button>{' '}
             <Button onClick={this.toggle}>No</Button>
           </ModalFooter>
-        </Modal>{/* End of Delete Modal */}
+        </Modal>
+      {/* End of Delete Modal */}
         <div className="actions d-flex pt-3 justify-content-end">
           <Link style={cssMakesMeCry} to={`/notes/edit/${this.props.id}`} className="mx-2">edit</Link>
           <a style={cssMakesMeCry} href="" onClick={this.toggle} className="mx-2">delete</a>
@@ -79,7 +80,12 @@ class ViewNote extends React.Component {
           <h3>{title}</h3>
           <hr style={{borderColor:'var(--color--main)'}} />
           <div className="mt-2 mb-3">
-            { tags ? tags.split(',').map((tag, i) => <Tag key={i}>{tag}</Tag>) : <p><em>No tags</em></p> }
+            { 
+              tags ? 
+              tags.split(',').map(tag => tag.trim()).map((tag, i) => <Link to={`/notes/tag/${tag}`}><Tag key={i}>{tag}</Tag></Link>) 
+              : 
+              <p><em>No tags</em></p> 
+            }
           </div>
           <br />
           <ReactMarkdown source={text} />

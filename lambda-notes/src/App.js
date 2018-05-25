@@ -34,6 +34,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={LoginPage} />
               <Route exact path="/notes" component={NoteList} />
+              <Route path="/notes/tag/:tag" render={props => <NoteList match={props.match} />} />
               <Route path="/notes/new" render={props => <InputForm match={props.match} />} />
               <Route path="/notes/edit/:id" render={props => <InputForm match={props.match} />} />
               <Route path="/notes/:id" render={props => <ViewNote id={props.match.params.id} />} />
