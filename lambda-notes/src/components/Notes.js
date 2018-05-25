@@ -12,7 +12,7 @@ class Notes extends Component {
         <h4 className="your-notes">Your notes:</h4>
         <div className="notes-list" id="sortable">
           {this.props.notes.map(note => {
-            return <Link to={`notes/${note.id}`} key={note.id}>
+            return <Link to={`notes/${note.id}`} key={note.id} className='link-wrap'>
                 <div className="card mb-sm-4 col-sm-3 ui-state-default" key={note.id}>
                   <div className="card-head no-bg">
                     <h5 className="d-sm-inline">
