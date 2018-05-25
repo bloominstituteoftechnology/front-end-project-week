@@ -14,7 +14,9 @@ class AddNote extends Component {
     
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
+      console.log(e.target.name)
     }
+   
 
     handleSubmit = () => {
         this.props.addNewCard(this.state);

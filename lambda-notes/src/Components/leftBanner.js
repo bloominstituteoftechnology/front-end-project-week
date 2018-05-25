@@ -11,7 +11,7 @@ class LeftBanner extends Component {
                         <button className='navButton1 mt-3'>View Your Notes</button>
                     </Link>
 
-                    <Link className='navLink' to='/AddNote'>
+                    <Link className='navLink' to='/addNote'>
                         <button className='navButton2 mt-2'>+ Create New Note</button>
                     </Link>
             </nav>

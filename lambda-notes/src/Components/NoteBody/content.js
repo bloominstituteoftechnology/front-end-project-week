@@ -11,15 +11,15 @@ import { Route } from 'react-router-dom';
 class Content extends Component {
     state={
             cards: [ 
-                { title: "Note 1", content: " MVP is Done, I except Paypal/Bitcoin/Cash/ and Food" },
-                { title: "Note 2", content: "Figuring this stuff out." },
-                { title: "Note 4", content: "Figuring this stuff out. " },
-                { title: "Note 4", content: "Figuring this stuff out. " },
-                { title: "Note 5", content: "Figuring this stuff out. " },
-                { title: "Note 6", content: "Figuring this stuff out. " },
-                { title: "Note 7", content: "Figuring this stuff out." },
-                { title: "Note 8", content: "Figuring this stuff out." },
-                { title: "Note 9", content: "Figuring this stuff out." },
+                { title: "Note 1", content: "Hello World" },
+                { title: "Note 2", content: " " },
+                { title: "Note 4", content: " " },
+                { title: "Note 4", content: " " },
+                { title: "Note 5", content: " " },
+                { title: "Note 6", content: " " },
+                { title: "Note 7", content: " " },
+                { title: "Note 8", content: " " },
+                { title: "Note 9", content: " " },
 
         
         ], 

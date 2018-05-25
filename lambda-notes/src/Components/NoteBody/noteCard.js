@@ -3,7 +3,7 @@ import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
 
 class NoteCard extends Component {
-    state = {updateSelectedNote: this.props.updateSelectedNote}
+    state = {updateSelectedNote: this.props.updateSelectedNote,}
     
 
     handleClickNote = () => {
