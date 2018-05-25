@@ -3,6 +3,7 @@ import { CSVLink } from 'react-csv';
 import { ListComponent } from './ListComponent'
 import Button from './Button'
 import { connect } from 'react-redux'
+import { fetchNotes } from './Actions'
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
@@ -18,16 +19,15 @@ class NoteList extends React.Component {
 
     // Lifecycle-Methods to render the App a after receiving the initial Notes by firebase
     componentDidMount = () => {
-        this.setState({
-            notes: this.props.notes
-        })
+        this.props.notes.length === 0 ? this.props.fetchNotes(this.props.auth.uid) : null
+        // this.props.fetchNotes(this.props.auth.uid)
     }
     // And every time firebase updates our Store
-    componentWillReceiveProps = (newProps) => {
-        this.setState({
-            notes: newProps.notes
-        })
-    }
+    // componentWillReceiveProps = (newProps) => {
+    //     this.setState({
+    //         notes: newProps.notes
+    //     })
+    // }
 
     // Sorting function for the Sort btn, sorts ascending / descending
     sort = () => {
@@ -95,32 +95,38 @@ class NoteList extends React.Component {
     }
 
     render() {
-
         // Creates our Listelements 
-        var listItems = this.state.notes.map((item, i) => {
+        var listItems = this.props.notes.map((item, i) => {
             return (
                 <ListComponent onDragEnd={this.dragEnd.bind(this)} onDragStart={this.dragStart.bind(this)} index={i} key={i} item={item} />
             )
         });
 
         //Displays our Listelements
-        return (
-            <div className="notelist">
-                <div className="search-field"><div><input onChange={this.onChange} id="searchbox" value={this.state.search} type="text" placeholder="Search" /><Button text="search!" class="search-button" function={this.searchNow} /></div><Button class="sort-button" text="Sort Ascending or Descending" function={this.sort} /></div>
-                <ul onDragOver={this.dragOver.bind(this)}>
-                    {listItems}
-                </ul>
-                <h6><CSVLink className="download-link" seperator="," data={this.props.notes} target="_blank">Download</CSVLink></h6>
-            </div>
-        )
+        {
+            if (listItems.length === 0) {
+                return (
+                    <div><h6 className="no-notes">Please Start by Creating Your First Note!</h6></div>
+                )
+            } else {
+                return (
+                    <div className="notelist">
+                        <div className="search-field"><div><input onChange={this.onChange} id="searchbox" value={this.state.search} type="text" placeholder="Search" /><Button text="search!" class="search-button" function={this.searchNow} /></div><Button class="sort-button" text="Sort Ascending or Descending" function={this.sort} /></div>
+                        <ul onDragOver={this.dragOver.bind(this)}>
+                            {listItems}
+                        </ul>
+                        <h6><CSVLink className="download-link" seperator="," data={this.props.notes} target="_blank">Download</CSVLink></h6>
+                    </div>);
+            }
+        }
     }
 }
-
 // Mapping our Store information to the props of this component
 const mapStateToProps = state => {
     return {
-        notes: state.notes.notes
+        notes: state.notes.notes,
+        auth: state.auth.user
     }
 }
 
-export default connect(mapStateToProps)(NoteList)
+export default connect(mapStateToProps, { fetchNotes })(NoteList)

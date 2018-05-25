@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
 import Button from './Button'
 import Markdown from 'markdown-to-jsx';
+import { fetchNotes } from './Actions'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 
 class Note extends Component {
     constructor(props) {
@@ -24,7 +27,7 @@ class Note extends Component {
         return (
             <div className="note-view">
                 <div className="navL">
-                    <Link to={`/edit/${this.props.note.id}`} onClick={this.props.edit} className="nview">edit</Link>
+                    <Link to={`/edit/${this.props.note.id}`}><Button class="edit-button" text="edit" function={() => this.props.edit(this.props.note.id)} className="nview" /></Link>
                     <Link to="/" onClick={this.toggle} className="nview">delete</Link>
                 </div>
                 <h3>{this.props.note.title}</h3>
@@ -34,7 +37,11 @@ class Note extends Component {
                         <h6>Are you sure you want to delete this?</h6>
                     </ModalBody>
                     <ModalFooter>
-                        <Link to="/"><Button text="Delete" class="delete" function={() => this.props.delete(this.props.note.id)} /></Link>
+                        <Link to="/notes"><Button text="Delete" class="delete" function={() => {
+                            this.props.delete(this.props.note.id)
+                            this.props.fetchNotes(this.props.auth.uid)
+                        }
+                        } /></Link>
                         <Button text="No" class="no" function={this.toggle} />
                     </ModalFooter>
                 </Modal>
@@ -44,4 +51,8 @@ class Note extends Component {
     }
 }
 
-export default Note;
+const mapStateToProps = state => {
+    return { auth: state.auth.user }
+}
+
+export default withRouter(connect(mapStateToProps, { fetchNotes })(Note));

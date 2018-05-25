@@ -11,7 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-    font: Roboto;
+    font: Roboto-Bold;
 }
 
 button {
@@ -166,4 +166,37 @@ li:hover {
     padding-top: 5px;
     font-size: 0.7rem;
     text-overflow: ellipsis;
+}
+
+.no-notes {
+    text-align: center;
+    margin: 30px 0 0 30px;
+    font-weight: bold;
+}
+
+.portrait {
+    border-radius: 50%;
+    max-width: 120px;
+    margin: auto;
+    margin-left: 25px;
+    border: 1px solid gray;
+}
+
+.display-name {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.edit-button {
+    color: black;
+    background: #2BC1C4;
+    background: #F3F3F3;
+    border: none;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.body-p {
+    margin-top: 15px;
 }

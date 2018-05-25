@@ -29,7 +29,7 @@ export default function (ComposedComponent) {
     }
 
     function mapStateToProps(state) {
-        return { authenticated: state.auth };
+        return { authenticated: state.auth.user };
     }
 
     return connect(mapStateToProps)(Authentication);

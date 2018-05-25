@@ -18,7 +18,7 @@ export const ListComponent = (props) => {
 
                     <CardBody>
                         <CardTitle>{props.item.title}</CardTitle>
-                        <div className="note-list-body"><Markdown>{props.item.text}</Markdown></div>
+                        <div className="note-list-body"><Markdown className="body-p">{props.item.text}</Markdown></div>
                     </CardBody>
 
                 </Card>
