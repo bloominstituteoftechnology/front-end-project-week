@@ -82,6 +82,11 @@ body, html {
   width: 90%;
 }
 
+.sidebar-item:hover {
+  background: white;
+  color: #2BC1C4;
+}
+
 .sidebar-header {
   margin-left: 4%;
   margin-top: 6%;
