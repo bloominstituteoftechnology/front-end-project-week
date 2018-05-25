@@ -12,8 +12,8 @@ class EditNote extends Component {
             <input name="title" className="title" placeholder="Note Title"/>              
             <textarea name="body" className="body" placeholder="Note content" />
           </form>          
-          <Link to="/">
-          <button className="button3">Save</button>
+          <Link to="/" style={{ textDecoration: "none" }}>
+          <button className="button3">Update</button>
           </Link>
       </div>
     );
