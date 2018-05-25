@@ -44,7 +44,7 @@ class ViewNote extends Component {
                    }} >Delete</button>
                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                         <ModalHeader toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
-                        <ModalBody style={{justifyContent: 'justify'}}>
+                        <ModalBody className='ModalDelete' >
                             <Link to='/'><button className='button' style={{background: 'red'}} onClick={this.toggle}>Delete</button> </Link>
                             <button className='button' onClick={this.toggle}>No</button>
                         </ModalBody>

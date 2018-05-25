@@ -56,7 +56,7 @@
   }
 
   .TopInput {
-      width: 400px;
+      width: 350px !important;
       padding: 10px;
   }
 
@@ -76,4 +76,9 @@
      margin-top: -20px;
      margin-bottom: 10px;
      text-decoration: underline;
+ }
+
+ .ModalDelete {
+     display: flex;
+     margin-left: 65px
  }
