@@ -117,6 +117,16 @@ button {
 	bottom: 0;
 }
 
+.truncate:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	width: 1em;
+	height: 1em;
+	margin-top: 0.2em;
+	background: white;
+}
+
 /* NoteView css */
 
 .viewNote {
