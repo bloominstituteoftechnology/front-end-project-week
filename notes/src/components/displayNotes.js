@@ -9,13 +9,15 @@ class DisplayNotes extends Component {
     constructor(props) {
     super(props);
     this.state = {
-        noteArr: [],
+       /*noteArr: [],
         noteObj:{
             },
         notes: []
-    }
-
+    }*/
+      notes: [],
     };
+}
+
     componentDidMount(){
         const myPromise = axios.get(URL);
         myPromise
@@ -57,7 +59,7 @@ class DisplayNotes extends Component {
         <div className="mainBody">
             <h4 className="mainBodyTitle1">Your Notes:</h4>
             <div className="cardContainer">
-            {noteArr.map(({noteTitle, noteContent}, i) => (
+            {this.state.notes.map(({noteTitle, noteContent}, i) => (
             <Link to="/viewNote">
             <div className="noteCard" key={i}>
                 <h5 className="noteTitle1">{noteTitle}</h5>
