@@ -8,11 +8,10 @@
     font: Raleway Medium;
     background: #F3F3F3
 }
-
 .mein-card {
     font-size: 2.5vh;
     margin: 2.5vh 3vw 2.5vh 3vw;
-    padding: 2rem;
+    padding: 4vh;
     overflow: visible;
     width: 15vw;
     height: 20vh;
@@ -20,6 +19,7 @@
     background: white;
     border: .1vh solid #979797;
 }
+
 h5 {
     padding-bottom: 1vh;
     border-bottom: .1vh solid #979797;
@@ -27,6 +27,7 @@ h5 {
 
 a {
     color: #4A4A4A;
+    height: 35vh;
 } 
 a:hover {
     color: #4A4A4A;
@@ -36,4 +37,7 @@ a:hover {
     height: 85.7vh;
     width: 78.62vw;
     flex-wrap: wrap;
+}
+.card-text {
+    font-size: 2.5vh;
 }

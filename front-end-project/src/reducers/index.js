@@ -1,7 +1,6 @@
 import { ADD_NOTE, EDIT_NOTE, DELETING_NOTE, DELETE_NOTE, NOT_DELETING_NOTE } from '../actions'
 
 const initialState = {
-    input: '',
     deleting: false,
     notes: [
         {
@@ -28,7 +27,6 @@ const noteReducer = (state = initialState, action) => {
         let currentNotes = state.notes.slice();
         let addingNote = currentNotes.concat(action.payload);
         return Object.assign({}, state, { 
-            input: '', 
             notes: addingNote 
         })
         case EDIT_NOTE:
