@@ -9,6 +9,7 @@ import NoteView from './components/noteview';
 import EditNote from './components/editnote';
 import { Route } from 'react-router-dom';
 
+
 class App extends Component {
   // constructor(props) {
   //   super(props);
@@ -39,6 +40,7 @@ class App extends Component {
           <Route exact path="/newnote" component={NewNote} />
           <Route exact path="/editnote" component={EditNote} />
           <Route exact path="/noteview" component={NoteView} />
+          <Route exact path="/notes" component={Notes} />
         </div>
       </div>
     );

@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import deleteModal from './deletemodal';
+import DeleteModal from './deletemodal';
 
 
 export default class NoteView extends Component {
     render() {
         return (
-            <div className="text-white">
             <div>
-                    <Link to="/editnote" className="editLink text-white">Edit</Link>  <Link to="/noteview" className="editLink text-white">Delete</Link>  
+            <div>
+                    {/* <button to="/editnote" className="editLink text-white">Edit</button> */}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Edit
+                        </button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                        </button>
+                    
                 </div>
                 <div>
                 <h1>Note Name</h1>
@@ -33,6 +42,7 @@ export default class NoteView extends Component {
 </div>                    
                     
                 <Link className="button new" to="/">Save</Link>
+                <DeleteModal />
             </div>
         );
     }
