@@ -104,7 +104,7 @@ Sidebar background: #D8D8D8
 .NotesList-container {
 	display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+
 }
 
 .NotesList-container h2{
@@ -116,6 +116,7 @@ Sidebar background: #D8D8D8
   color: #4A4A4A;
   background: white;
   margin-bottom: 20px;
+  margin-left: 20px;
   padding: 20px;
   border: 1px solid #979797;
   width: 27%;
