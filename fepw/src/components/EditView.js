@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
 import './index.css';
 
@@ -48,6 +48,7 @@ class EditNote extends Component {
 	}
 }
 
-export default withRouter(EditNote);
+export default EditNote;
 
-//22 May - I dug deep into the React documentation to find this withRouter thing which is what I think I need to make sure the Router has access to the props it needs to do things correctly. It seems to work. Fingers crossed. 
+//22 May - I dug deep into the React documentation to find this withRouter thing which is what I think I need to make sure the Router has access to the props it needs to do things correctly. It seems to work. Fingers crossed.
+//25 May - refactored to exclude withRouter - forgot that I figured out how to pass props in Router using render, and now that that's working I don't really need withRouter. I removed it and it still works.
