@@ -137,6 +137,7 @@ Sidebar background: #D8D8D8
   border: 1px solid #979797;
   padding: 10px;
   width: 50%;
+  font-family: Roboto;
 }
 
 .input-content {
@@ -146,7 +147,8 @@ Sidebar background: #D8D8D8
   width: 100%;
   height: 400px;
   resize: none;
-
+  font-family: Raleway;
+  font-weight: 500;
 }
 
 .note-form {
