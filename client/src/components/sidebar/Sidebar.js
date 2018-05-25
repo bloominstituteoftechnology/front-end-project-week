@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { CSVLink } from 'react-csv';
 
 // components
 import Button from '../misc/Button';
@@ -32,6 +33,15 @@ const Sidebar = props => {
               buttonClassName='button button-container_create-new-note-button'
             />
           </Link>
+        </li>
+
+        <li>
+          <CSVLink data={ props.noteList } separator=','>
+            <Button
+              buttonClassName='button'
+              buttonContent='Download Notes'
+            />
+          </CSVLink>
         </li>
 
         <li>
