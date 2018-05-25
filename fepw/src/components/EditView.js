@@ -12,6 +12,8 @@ class EditNote extends Component {
 		}
 	}
 
+	//I initially had this zeroed out since in the assignment, the edit view is blank. But I thought it was kind of silly to have someone click on edit and then have to retype the whole thing if they only wanted to fix a typo or something, so I changed the edit view to show the current values (title, content) of the notecard.
+
 	handleInput = event => {
 		this.setState({ [event.target.name]: event.target.value});
 	}

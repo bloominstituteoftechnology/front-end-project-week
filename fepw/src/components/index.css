@@ -7,11 +7,14 @@
 	background-color: #F3F3F3;
 }
 
+
 .head h5{
 	padding: 50px 0 25px 25px;
 	font-size: 1.5rem;
 	font-weight: bold;
 }
+
+/*reused wrapper and head in other views, since most of the pages look very similar */
 
 .cards {
 	display: flex;
@@ -127,6 +130,8 @@ button {
 	background: white;
 }
 
+/* If only I were smart enough to come up with this truncate stuff all by myself. No, I'm afraid this was just google-fu: http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
+
 /* NoteView css */
 
 .viewNote {
@@ -158,7 +163,7 @@ button {
 	margin-right: 20px;
 }
 
-/* EditView css - same as CreateView */
+/* EditView css - same as CreateView - used the same class names in my js and everything */
 
 /* Delete Modal */
 
@@ -167,6 +172,8 @@ button {
  	-moz-border-radius: 0px !important;
   	border-radius: 0px !important;
 }
+
+/* agonized over this stupid border radius for about forever before realizing that I had named one of my classes modal-content, which was screwing everything up. Changed the name and started using camelcase instead of hyphens, which helped. */
 
 .modalForm {
 	text-align: center;

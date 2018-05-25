@@ -23,7 +23,7 @@ class Main extends Component {
 	}
 
 
-newNotecard = addNewNotecard => {
+newNotecard = (addNewNotecard) => {
 	this.setState({ cards: [...this.state.cards, addNewNotecard]});
 }
 
