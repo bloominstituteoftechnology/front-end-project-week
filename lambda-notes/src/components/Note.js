@@ -52,13 +52,13 @@ class Note extends Component {
                     <ModalBody className="modal-body">
                         Are you sure you want to delete this?
                     </ModalBody>
-                    <ModalFooter className="but-wrapper">
-                        <button color="danger" className="modal-but" onClick={event => {
+                    <ModalFooter className="button-wrapper">
+                        <button style={{ backgroundColor: "#D1001A"}} className="modal-button1 modal-button" onClick={event => {
                             this.handleRemoveNote(event, this.matchedNote.id);
                         }}>
                             Delete
                         </button> 
-                        <button className="no-button modal-but" onClick={this.toggle}>
+                        <button style={{ backgroundColor: "#00B9BD"}} className="modal-button2 modal-button" onClick={this.toggle}>
                             No
                         </button>
                     </ModalFooter>

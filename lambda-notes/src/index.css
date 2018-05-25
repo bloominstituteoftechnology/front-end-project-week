@@ -35,6 +35,7 @@ html, body {
   font-size: 5rem;
   margin: 2%;
   margin-left: 10%;
+  color: #484748;
 }
 
 .sidebar .button {
@@ -48,6 +49,14 @@ html, body {
   margin: 3%;
   background-color: #00B9BD;
   color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px black;
+  border: none;
+}
+
+.sidebar .button:hover {
+  background-color: white !important;
+  color: #00B9BD;
 }
 
 .app-container {
@@ -75,6 +84,7 @@ html, body {
   height: 40px;
   font-size: 2.5rem;
   width: 100%;
+  color: #484748;
 }
 
 .note {
@@ -85,6 +95,19 @@ html, body {
   padding: 0;
   background-color: white;
   overflow-y: scroll;
+}
+
+.note:hover {
+  box-shadow: 4px 4px 7px gray;
+}
+
+.note:hover p {
+  font-size: 1.6rem;
+}
+
+.note:hover h4 {
+  background-color: #00B9BD;
+  color: white;
 }
 
 .note h4 {
@@ -129,6 +152,7 @@ html, body {
 .note-view .note-title {
   font-size: 3rem;
   margin: 20px;
+  color: #484748;
 }
 
 .note-view .note-body {
@@ -170,4 +194,55 @@ html, body {
   font-size: 2rem;
   width: 20%;
   margin: 20px;
+  border-radius: 5px;
+}
+
+.edit-view button:hover, .create-view button:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 4px 4px 7px gray;
+}
+
+.modal-content {
+  height: 165px;
+}
+
+.modal-style {
+  margin-top: 35vh;
+  background-color: #FBFAFB;
+}
+
+.modal-body {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.button-wrapper .modal-button {
+  font-size: 1.6rem;
+  width: 160px;
+  height: 40px;
+  margin: 0 10px 30px 10px;
+  color: white;
+  box-shadow: 1px 1px 2px gray;
+}
+
+.button-wrapper .modal-button1:hover {
+  width: 165px;
+  height: 45px;
+  background-color: #FF000F !important;
+  box-shadow: 3px 3px 6px gray;
+}
+
+.button-wrapper .modal-button2:hover {
+  width: 165px;
+  height: 45px;
+  background-color: #3AEFFC !important;
+  box-shadow: 3px 3px 6px gray;
 }
