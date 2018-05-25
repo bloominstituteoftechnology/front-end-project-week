@@ -18,7 +18,7 @@ class NoteList extends Component {
                         <Link 
                         style={{textDecoration: "none", color: "black"}} 
                         key={note.id} to={`/note/${note.id}`} 
-                            className="note-link note ui-state-default">
+                        className="note-link note ui-state-default">
                         <div>
                             <h4>{note.title}</h4>
                             <p>{note.body}</p>

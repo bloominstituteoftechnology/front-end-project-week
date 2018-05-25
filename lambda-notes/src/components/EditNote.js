@@ -27,7 +27,7 @@ class EditNote extends Component {
         this.props.editNote(this.state);
         this.setState({ title: `${this.props.match.params.title}`,
                         body: `${this.props.match.params.body}` });
-        this.props.history.push("/");
+        window.location.href = "/";
     };
 
     render() {

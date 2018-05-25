@@ -135,6 +135,7 @@ html, body {
   font-size: 2rem;
   margin: 20px;
   margin-top: 35px;
+  line-height: 35px;
 }
 
 .edit-view, .create-view {

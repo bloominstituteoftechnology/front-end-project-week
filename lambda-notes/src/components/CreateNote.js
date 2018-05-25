@@ -19,7 +19,8 @@ class CreateNote extends Component {
         let noteObj = { title: this.state.title, body: this.state.body, id: this.state.id }
         this.props.addNote(noteObj);
         this.setState({title: '', body: ''});
-        this.props.history.push('/');
+        // this.props.history.push('/');
+        window.location.href="/";
     }
 
     render() {

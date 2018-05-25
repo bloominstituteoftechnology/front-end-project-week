@@ -16,7 +16,7 @@ class Note extends Component {
     handleRemoveNote = (event, id) => {
         event.preventDefault();
         this.props.removeNote(id)
-        this.props.history.push('/');
+        window.location.href = "/";
     };
 
     render() {
