@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../App.css';
 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
@@ -6,26 +7,59 @@ import { Link } from 'react-router-dom';
 
 
 
-const NewNotes = () => {
-    
-    return (
-    
-        <Form>
-            <FormGroup>
-                <Label for="newNote"><h3>Create New Note:</h3></Label>
-            </FormGroup>
-            <FormGroup>
-                <Label for="noteTitle">Note Title</Label>
-                <Input type="newnote" name="newnote" id="newNote" placeholder="with a placeholder" />
-            </FormGroup>
-            <FormGroup>
-                <Label for="Text">Note Content</Label>
-                <Input type="textarea" name="text" id="Text" />
-            </FormGroup>
-            <Button className="SaveButton">Save</Button>
-        </Form >
+class NewNotes extends Component {
+    constructor(props) {
+        super();
+        this.state = {
+            
+        };
+    }
+    render(){
+        return (
+            <div className="container">
+
+
+                <div className="Notes-sidebar">
+                    <div className="SideBarTitle" >
+                        <h1 className="Notes-bar-item1" > Lambda </h1>
+                        <h1 className="Notes-bar-item2" > Notes </h1>
+
+                        <a href="/" >
+                            <button type="button" className="Notes-button-one">
+                                View Your Notes
+            </button>
+                </a>
+                <a href="/newnotes" >
+                <button type="button" className="Notes-button-two">
+                    + Create New Note
+            </button>
+                </a>
+                    </div>
+                </div>
+                <div className="NewNote">
+                    <h2>Create New Note:</h2>
+                    <div className="NoteTitle">
+                        <form action="/action_page.php">
+                            <label for="ntitle"></label>
+                            <input type="text" id="ntitle" name="notetitle" placeholder="Note Title" />
+                        </form>
+                    </div>
+                    <form>
+                        <textarea> Note Content </textarea>
+                    </form>
+                    <a href="/newnotes" >
+                        <button type="button" className="SaveButton">
+                            Save
+                        </button>
+                    </a>
+
+                </div>
+
+            </div>
+
     
     );
+    }
 };
 
 

@@ -23,14 +23,18 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* css added */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .Notes-sidebar {
@@ -46,22 +50,21 @@
   padding-top: 20px;
 }
 
-.Notes-bar-item1{
-  line-height: 15%;
-  margin-left: 5.0%;
-  font: Roboto Bold;
-  font-weight: bold;
-}
-  
-.Notes-bar-item2{
+.Notes-bar-item1 {
   line-height: 15%;
   margin-left: 5.0%;
   font: Roboto Bold;
   font-weight: bold;
 }
 
+.Notes-bar-item2 {
+  line-height: 15%;
+  margin-left: 5.0%;
+  font: Roboto Bold;
+  font-weight: bold;
+}
 
- .Notes-button-one {
+.Notes-button-one {
   background-color: #00B2B2;
   border: none;
   color: white;
@@ -71,34 +74,34 @@
   display: inline-block;
   font-size: 10px;
   margin: 10px;
-  
-  }
+}
 
- .Notes-button-two {
-background-color: #00B2B2;
-border: none;
-color: white;
-padding: 15px 20px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 10px;
-margin: 10px;
+.Notes-button-two {
+  background-color: #00B2B2;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 10px;
 }
 
 .sidenav a:hover {
   color: #f1f1f1;
 }
 
-.NewNote{
-   margin-left: 160px;
-   font-size: 10px;
-   padding: 0px 10px
+.NewNote {
+  text-align: left;
+  margin-left: 160px;
+  font-size: 10px;
+  padding: 0px 10px;
 }
 
 input[type=text],
 select {
-  width: 60%;
+  width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -115,7 +118,7 @@ textarea {
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
-  font-size: 16px;
+  font-size: 10px;
   resize: none;
 }
 
@@ -126,7 +129,8 @@ textarea {
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: block;
+  display: inline-block;
+  margin: 10px;
 }
 
 .UpdateButton {
@@ -136,10 +140,49 @@ textarea {
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: block;
+  display: inline-block;
+  margin: 10px;
 }
 
-.EditDelete-TopNavRight{
-color: black;
-float:right;
+.EditDelete-TopNavRight {
+  color: black;
+  float: right;
+}
+
+.EditNote {
+  text-align: left;
+  margin-left: 160px;
+  font-size: 10px;
+  padding: 0px 10px;
+}
+.NotesViewName{
+text-align: left;
+margin-left: 160px;
+font-size: 10px;
+padding: 0px 10px;
+
+}
+.NoteViewName{
+  text-align: left;
+  margin-left: 160px;
+  font-size: 10px;
+  padding: 0px 10px;
+}
+
+.Ipsum{
+  margin-left: 160px;
+  font-size: 10px;
+  padding: 0px 10px;
+}
+
+.Ipsum2 {
+  margin-left: 160px;
+  font-size: 10px;
+  padding: 0px 10px;
+}
+
+.Ipsums {
+  margin-left: 160px;
+  font-size: 10px;
+  padding: 0px 10px;
 }

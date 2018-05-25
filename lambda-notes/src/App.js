@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import logo from './logo.svg';
+import { Route } from 'react-router-dom';
 import './App.css';
 import './Notes.css';
 
@@ -21,42 +21,13 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className="App">
+        <Route path='/' component={NewNotes} /> 
+        <Route exact path="/editnote" component={EditNote} />
+        <Route exact path="/notes" component={Notes} />
+        <Route exact path="/noteview" component={NoteView} />
 
-      
-       <div className="Notes-sidebar">
-          <div className="SideBarTitle" >
-            <h1 className="Notes-bar-item1" > Lambda </h1>
-            <h1 className="Notes-bar-item2" > Notes </h1>
-
-            <a href="/" >
-              <button type="button" className="Notes-button-one">
-                View Your Notes
-            </button>
-            </a>
-            <a href="/newnotes" >
-              <button type="button" className="Notes-button-two">
-                + Create New Note
-            </button>
-            </a>
-          </div>
-        </div>
-        <div className="NewNote">
-          <h2>Create New Note:</h2>
-          <div className= "NoteTitle">
-            <form action="/action_page.php">
-              <label for="ntitle"></label>
-              <input type="text" id="ntitle" name="notetitle" placeholder="Note Title"/>
-             </form>       
-          </div>  
-          <form>
-            <textarea> Note Content </textarea>
-          </form>  
-        
-        </div>
-          
-        </div>
-      
+      </div>  
 
     );
   }
