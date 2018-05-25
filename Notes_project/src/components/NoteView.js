@@ -1,17 +1,19 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import Delete from './Delete';
+// import dummyData from '../dummydata';
 
-
-const NoteView = () => {
+const NoteView = (props) => {
+    console.log('PROPSMATCH', props.match)
     return(
         <div className="ViewForm">
             <div className="ButtonContainer">
                 <Link to={'/EditCard'}><h6 className="Edit"> Edit </h6></Link>
                 <Delete/>
             </div>
-            <h1 className="NoteView">Note View </h1>
+            <h4 className="NoteView">Note View </h4>
+            <p className="ViewBody"> {props.match.params.id} </p>
         </div>
     )
 }

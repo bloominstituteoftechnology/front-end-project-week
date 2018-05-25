@@ -25,7 +25,7 @@ class App extends Component {
           <Route path='/NoteContainer' component={NoteContainer}></Route>
           <Route path='/CreateCard' component={CreateCard} ></Route>
           <Route path='/EditCard' component={EditCard} ></Route>
-          <Route path='/NoteView' component={NoteView} ></Route>
+          <Route path='/NoteView/:id' component={NoteView} ></Route>
           {/* <Sidebar/>
           <NoteContainer/> */}
           

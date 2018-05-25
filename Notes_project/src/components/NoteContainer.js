@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './NoteContainer.css';
 import dummyData from '../dummydata';
 import NoteCard from './NoteCard';
-import CreateCard from './CreateCard';
+
 
 class NoteContainer extends Component {
     constructor(){

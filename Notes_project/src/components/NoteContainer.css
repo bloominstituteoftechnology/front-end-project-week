@@ -67,6 +67,7 @@
 
 .Edit{
     margin-right: 15px;
+    color: gray;
 }
 
 .Delete{
@@ -75,4 +76,13 @@
 
 .DeleteButton{
     color: red;
+}
+
+.NoteView{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.ViewBody{
+    margin-left: 15px;
 }

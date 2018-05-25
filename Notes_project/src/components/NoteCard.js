@@ -16,7 +16,7 @@ const NoteCard = (props) => {
                 {props.noteData.map(note =>{
                     return(
                     <div key={note.title}>
-                    <Link to={'/NoteView'}>
+                    <Link to={`/NoteView/${note.body}`}>
                         <Card className="Card">
                             <CardBody className="CardBody">
                                 <CardTitle className="CardTitle"> {note.title} </CardTitle>
