@@ -18,7 +18,7 @@ const NoteList = props => {
       <Container className="notesContainer">
           <br/>
           <br/>
-          <h3>Your Notes:</h3>
+          <h3 style={{ paddingTop: '10px', marginBottom: '-1px' }} >Your Notes:</h3>
           <br/>
           
         <Row className="cardRow">

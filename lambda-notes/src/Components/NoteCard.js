@@ -1,15 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Col,
-  Row,
-  Card,
-  CardBody,
-  Button,
-  CardTitle,
-  CardText,
-  CardHeader
-} from "reactstrap";
+import { Card, CardBody, CardTitle, CardText, CardHeader } from "reactstrap";
 import { connect } from "react-redux";
 import "./NoteCss.css";
 
@@ -21,9 +12,17 @@ const NoteCard = props => {
       <Card className="noteCard">
         <CardBody>
           <CardHeader style={{ padding: "0px", backgroundColor: "white" }}>
-            <CardTitle style={{ fontFamily: 'Roboto', fontWeight: 'bold'}} >Note Title</CardTitle>
+            <CardTitle style={{ fontFamily: "Roboto", fontWeight: "bold" }}>
+              Note Title
+            </CardTitle>
           </CardHeader>
-          <CardText style={{ paddingTop: "10px", fontFamily: 'Raleway', fontWeight: 'medium' }}>
+          <CardText
+            style={{
+              paddingTop: "10px",
+              fontFamily: "Raleway",
+              fontWeight: "medium"
+            }}
+          >
             Basketball ipsum dolor sit amet free throw basketball basket bank
             shot, outlet power forward flop zone defense Duncan. ...
           </CardText>
