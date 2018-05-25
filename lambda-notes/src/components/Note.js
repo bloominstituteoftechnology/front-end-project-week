@@ -16,9 +16,14 @@ class Note extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id
+        const id = this.props.match.params.id;
         this.props.fetchNote(id);
-        this.setState({checklist: this.props.currentNote.checklist})
+        setTimeout(() => {
+            
+            this.setState({checklist: this.props.currentNote.checklist})
+        }, 100);
+        
+        console.log("checklist:", this.state.checklist)
     }
 
     toggleModal = () => {
@@ -30,7 +35,7 @@ class Note extends Component {
         this.props.removeNote(id)
         setTimeout(() => {
             this.props.history.push("/");
-        }, 100);
+        }, 500);
     }
 
     handleCheckBox = (values) => {
@@ -39,7 +44,7 @@ class Note extends Component {
 
     render() { 
         return (
-            this.state.checklist ? (
+            this.state.checklist.length > 0 ? (
                 <Container fluid={true}> 
                     <DeleteModal 
                         id={this.props.match.params.id}
@@ -47,7 +52,9 @@ class Note extends Component {
                         toggle={this.toggleModal}
                         deleteNote={this.deleteNote}/>
                     <NoteCard note={this.props.currentNote}/>
-                    <CheckList checklist={this.state.checklist}/>
+                    <CheckList 
+                        checklist={this.state.checklist}
+                        id={this.props.match.params.id}/>
                 </Container>
             ) : (
                 <Container fluid={true}> 

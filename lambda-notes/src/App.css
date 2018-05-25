@@ -172,6 +172,13 @@ input {
   border-color: #979797 !important;
 }
 
+.form-checklist {
+  margin-top: 20px;
+  padding: 30px !important;
+  font-size: 1em !important;
+  border-color: #979797 !important;
+}
+
 .note-content {
   margin: 35px 30px;
   line-height: 1.5em;

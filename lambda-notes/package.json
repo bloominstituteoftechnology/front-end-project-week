@@ -8,6 +8,7 @@
     "checkbox-group": "^2.0.0",
     "history": "^4.7.2",
     "js-search": "^1.4.2",
+    "level": "^4.0.0",
     "react": "^16.3.2",
     "react-bootstrap-typeahead": "^3.1.3",
     "react-checkbox-group": "^4.0.1",

@@ -14,13 +14,13 @@ class NewNote extends Component {
             submitted: false,
             heading: '',
             button: '',
-            link: ''
+            link: '',
+            checklistString: ''
         }
     }
 
     componentDidMount() {
         if (this.props.match.path === '/new') {
-            console.log("Creating a new note")
             this.setState({ 
                 heading: 'Create New Note:', 
                 new: true,
@@ -28,24 +28,35 @@ class NewNote extends Component {
                 link: "/"
             })
         } else {
-            console.log("Updating an existing note")
+             
+            const str = this.props.currentNote.checklist ? (
+                this.props.currentNote.checklist.join(', ')
+            ) : (
+                ''
+            )
             this.setState({
                 heading: 'Edit Note:',
                 title: this.props.currentNote.title,
                 content: this.props.currentNote.content,
                 button: "Update",
-                link: `/note/${this.props.currentNote.id}`
+                link: `/note/${this.props.currentNote.id}`,
+                checklistString: str
             });
         }
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
+        console.log(e.target.value)
     }
 
     saveNote = (e) => {
         e.preventDefault();
-        const newNote = {title: this.state.title, content: this.state.content};
+        // const newChecklist = this.state.checklistString.length > 0 ?
+        const newNote = {
+            title: this.state.title, 
+            content: this.state.content,
+            checklist: this.state.checklistString.split(',')};
         if (this.state.new) {
             this.props.createNote(newNote);
             setTimeout(() => {
@@ -81,6 +92,13 @@ class NewNote extends Component {
                                 value={this.state.content}
                                 onChange={this.handleChange}
                                 className="form-content"/>
+                            <Input
+                                type="textarea"
+                                name="checklistString"
+                                placeholder="Add tasks separated with commas"
+                                value={this.state.checklistString}
+                                onChange={this.handleChange}
+                                className="form-checklist"/>
                             <NoteButton 
                                 color="main" 
                                 value={this.state.button}/>

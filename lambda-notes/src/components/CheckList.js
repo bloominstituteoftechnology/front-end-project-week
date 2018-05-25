@@ -10,7 +10,7 @@ const CheckList = (props) => {
                 <FormGroup check className="check-list">
                     {props.checklist.map(value => {
                         return (
-                            <Label check className="checkbox">
+                            <Label check className="checkbox" key={value}>
                                 <Input type="checkbox"/>{' '}
                                 {value}
                             </Label>
