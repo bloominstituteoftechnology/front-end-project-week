@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import Markdown from 'markdown-to-jsx';
 import { Card, CardTitle, CardText } from "reactstrap";
 
@@ -16,3 +17,6 @@ const NoteCard_ = ({card}) => {
 
 export default NoteCard_;
  
+NoteCard_.propTypes = {
+  card: PropTypes.objectOf(PropTypes.any).isRequired
+}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import { Route, Switch, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { CSVLink, CSVDownload } from "react-csv";
@@ -96,3 +97,12 @@ const mapStateToProps = state => {
   };
 };
 export default withRouter(connect(mapStateToProps, { fetchingItems })(Main_));
+
+Main_.propTypes = {
+  fetched_Item: PropTypes.bool.isRequired,
+  updating: PropTypes.bool.isRequired,
+  notes: PropTypes.array.isRequired,
+  fetchingItems: PropTypes.func.isRequired,
+  PageUpdating: PropTypes.node,
+  Page404: PropTypes.node
+}

@@ -19,4 +19,3 @@ class SideBar_ extends Component {
 }
 
 export default SideBar_;
- 

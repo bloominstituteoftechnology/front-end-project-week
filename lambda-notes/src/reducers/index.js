@@ -105,17 +105,28 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         updating_Item: false,
         updated_Item: true,
-        //OPTION-1 -> discourage: this just overwrite all the state.
+        /**
+         * OPTION-1: discourage: this just overwrite all the state. (State 'must be cloned first).then(modify the new cloned state)
+         */
           // data: action.allItems
-        //OPTION-2  => to review with real data -> DO NOT WORKS
+        /**
+         * OPTION-2: DO NOT WORKS
+         * todo: refactor this implementation.
+         */
           // data: [
           //   ...state.data.slice(0, action.index),
           //   (state.data[action.index] = action.content),
           //   ...state.data.slice(action.index + 1)
           // ]
-        // OPTION-3 -> both works as expected
-          data: Object.assign([...state.data], { [index]: action.content })
-          // data: Object.assign([...state.data], { [index]: Object.assign({}, state.data[index], action.content ) })
+        /**
+         * OPTION-3: both works as expected
+         * 3.1: discourage => this option do not first 'clone' the object into the array that needs to be modified.
+         * 3.2: The proper approach!
+         */
+          /** 3.1 */ 
+          // data: Object.assign([...state.data], { [index]: action.content })
+          /** 3.2 */
+          data: Object.assign([...state.data], { [index]: Object.assign({}, state.data[index], action.content ) })
       };
     case DELETING_ITEM:
       return {

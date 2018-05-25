@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import SideBar_ from "../SideBar_/SideBar_";
 import Main_ from "../Main_/Main_";
 
