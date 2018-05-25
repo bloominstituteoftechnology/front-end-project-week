@@ -35,7 +35,7 @@ const dataSet1 = [
 class ExcelNote extends Component {
     render() {
         return (
-            <ExcelFile element={<Button color="info" >Download Data</Button>}>
+            <ExcelFile element={<Button className="download" color="info" >Download Data</Button>}>
                 <ExcelSheet data={dataSet1} name="Notes">
                     <ExcelColumn label="Note" value="note"/>
                     <ExcelColumn label="Item" value="amount"/>

@@ -9,9 +9,16 @@
 }
 
 .button{
- margin: 1px;
+    margin: 4px;
+    padding: 4px;
 }
 
 .button1{
-    margin: 1px;
+    margin: 4px;
+    padding-top: 4px;
+}
+
+.download{
+    margin: 4px;
+    padding-top: 4px;
 }
