@@ -4,14 +4,14 @@
     border: 2px solid #979997;
     width: 20%;
     height: 90%;
-    margin: 10px;
     font: #4a4a4a;
+    background: #D8D8D8;
 }
 
 .button{
-    margin:10%;
+ margin: 1px;
 }
 
 .button1{
-    margin: 5%;
+    margin: 1px;
 }
