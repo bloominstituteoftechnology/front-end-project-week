@@ -32,7 +32,6 @@ body {
   height: 50px;
   width: 80%;
   margin-bottom: 20px;
-  box-shadow: 1px 1px 10px black;
 }
 
 
@@ -75,13 +74,13 @@ justify-content: flex-end;
 }
 
 button {
-  float: right;
+  /* float: right; */
   margin-left: 20px;
 
 }
 
 .view {
-  margin-top: 90px;
+  margin-top: 0;
 }
 
 .pri {
@@ -97,7 +96,8 @@ button {
   border-radius: 6px;
   height: 37px;
   width: 70px;
-  float: right;
+  /* float: right; */
+  box-shadow: 1px 1px 10px black;
 }
 
 .modal-title {
@@ -107,4 +107,17 @@ button {
 .search {
   width: 15vw;
   margin-bottom: 5vh;
+}
+
+.EditDel_Wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.mainNoteWrapper {
+  height: 100%;
+  overflow: auto;
 }
