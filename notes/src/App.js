@@ -3,10 +3,7 @@ import { Route } from 'react-router-dom';
 
 import './App.css';
 import staticData from './staticData';
-import {
-    
-     Row, Col, Container
-} from 'reactstrap';
+import { Row, Col, Container} from 'reactstrap';
 import NotesList from './components/NotesList';
 import Nav from './components/Nav';
 import AddNote from './components/AddNote';
@@ -42,7 +39,7 @@ class App extends Component {
               return (
                 <Col sm="3" >
                   <NotesList key={index} note={note} />
-                </Col>
+                </Col> 
               )
             })}
 
@@ -56,3 +53,6 @@ class App extends Component {
 }
 
 export default App;
+
+
+// main place 

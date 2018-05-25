@@ -1,4 +1,6 @@
 .App {
+  
+  flex-direction: row-reverse;
   background-color: #F3F3F3; 
 }
 
@@ -25,7 +27,12 @@
   to { transform: rotate(360deg); }
 }
 
-.side-bar {
-  border: 2px solid red;
+.Nav {
+
   height: 100vh;
 }
+
+.NoteList {
+  
+  flex-direction: column-reverse;
+} 

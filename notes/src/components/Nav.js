@@ -18,3 +18,5 @@ const Nav = () => {
 }
 
 export default Nav;
+
+// makes lambda Note and view btn and create new note

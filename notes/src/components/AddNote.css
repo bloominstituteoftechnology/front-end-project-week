@@ -1,0 +1,12 @@
+.AddNoteWrapper {
+    height: 900px;
+}
+
+.textAreaInput {
+    height: 400px;
+    /* border: 1px solid #979797 */
+}
+
+.titleAreaInput {
+    height: 40px;
+}

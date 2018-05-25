@@ -1,8 +1,6 @@
 import React from 'react';
-import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Row, Col, CardColumns, Container
-} from 'reactstrap';
+import {Card,
+      CardText, CardBody, CardTitle} from 'reactstrap';
 import './NotesList.css'
 
 const NotesList = (props) => {
@@ -22,3 +20,6 @@ const NotesList = (props) => {
 }
 
 export default NotesList;
+
+
+//this is my lambda notes box

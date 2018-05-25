@@ -1,0 +1,24 @@
+ .features {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: flex-end
+} 
+
+.singleNoteWrapper {
+    height: 900px;
+}
+
+.btn-link  {
+    width: 55px;
+    color: #4A4A4A;
+    text-decoration: underline;
+    font-weight:bold;
+}
+
+.btn-link:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}

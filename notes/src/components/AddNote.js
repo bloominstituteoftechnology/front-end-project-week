@@ -2,6 +2,8 @@
 
 
 import React, { Component } from 'react';
+import './AddNote.css';
+
 
 
 
@@ -13,7 +15,7 @@ class AddNote extends Component {
         super(props);
         this.state = {
             ID: "",
-            noteTitle:"",
+            noteTitle: "",
             noteText: ""
         }
 
@@ -22,7 +24,7 @@ class AddNote extends Component {
     handleNoteInput = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
-// handles button click
+    // handles button click
     handleSaveNoteButton = () => {
         const newNote = this.state;
         this.props.notes.push(newNote);
@@ -36,17 +38,17 @@ class AddNote extends Component {
         return (
             <div>
                 <div className='TitleField'>
-                {/* input field     */}
-                    <input onChange={this.handleNoteInput} type="text" name="noteTitle" id={this.state.noteID} placeholder="Note Title" value={this.state.noteTitle} /> 
-                    
+                    {/* input field     */}
+                    <input onChange={this.handleNoteInput} type="text" name="noteTitle" id={this.state.noteID} placeholder="Note Title" value={this.state.noteTitle} />
+
                 </div>
                 <div>
                     {/* note text */}
-                    <input onChange={this.handleNoteInput} type="text" name="noteText" id={this.state.ID} placeholder="Note Text" value={this.state.noteText} /> 
+                    <input onChange={this.handleNoteInput} type="text" name="noteText" id={this.state.ID} placeholder="Note Text" value={this.state.noteText} />
                 </div>
                 <div>
-                    <button type="button"  onClick={this.handleSaveNoteButton}>Save</button>
-                </div> 
+                    <button type="button" onClick={this.handleSaveNoteButton}>Save</button>
+                </div>
             </div>
         )
     }
@@ -56,3 +58,6 @@ class AddNote extends Component {
 
 
 export default AddNote;
+// add newnote information
+
+// make addnote fields and input fields
