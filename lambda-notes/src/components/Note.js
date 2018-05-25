@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Modal, ModalBody } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import NoteButton from './NoteButton';
 import { connect } from 'react-redux';
 import { fetchNote, removeNote } from '../actions';
-import ReactMarkdown from 'react-markdown';
+import { Container } from 'reactstrap';
+import NoteCard from './NoteCard';
+import DeleteModal from './DeleteModal';
+import CheckList from './CheckList';
 
 class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            checklist: []
         }
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id
+        const id = this.props.match.params.id;
         this.props.fetchNote(id);
+        setTimeout(() => {
+            
+            this.setState({checklist: this.props.currentNote.checklist})
+        }, 100);
+        
+        console.log("checklist:", this.state.checklist)
     }
 
     toggleModal = () => {
@@ -28,39 +35,37 @@ class Note extends Component {
         this.props.removeNote(id)
         setTimeout(() => {
             this.props.history.push("/");
-        }, 10);
+        }, 500);
+    }
+
+    handleCheckBox = (values) => {
+        values.forEach(value => console.log(value));
     }
 
     render() { 
         return (
-            <Container fluid={true}>
-                <div className="edit-delete">
-                    <Link to={`edit/${this.props.match.params.id}`}>edit</Link>
-                    <a onClick={this.toggleModal}>delete</a>
-                    <Modal isOpen={this.state.modal}
+            this.state.checklist.length > 0 ? (
+                <Container fluid={true}> 
+                    <DeleteModal 
+                        id={this.props.match.params.id}
+                        modal={this.state.modal}
                         toggle={this.toggleModal}
-                        size="lg"
-                        className="delete-modal">
-                        <ModalBody>
-                            <p className="confirm">Are you sure you want to delete this?</p>
-                            <div className="btn-container">
-                                <NoteButton color="danger" value="Delete" onClick={this.deleteNote}/>
-                                <NoteButton color="main" value="No" onClick={this.toggleModal}/>
-                            </div>
-                        </ModalBody>
-                    </Modal>
-                </div>
-                <Row className="single-note">
-                    <Col sm="12" xl="9">
-                        <h3 className="heading">{this.props.currentNote.title}</h3>
-                    </Col>
-                    <Col sm="12" xl="9">
-                        <div  className="note-content">
-                            <ReactMarkdown source={this.props.currentNote.content}/>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+                        deleteNote={this.deleteNote}/>
+                    <NoteCard note={this.props.currentNote}/>
+                    <CheckList 
+                        checklist={this.state.checklist}
+                        id={this.props.match.params.id}/>
+                </Container>
+            ) : (
+                <Container fluid={true}> 
+                    <DeleteModal 
+                        id={this.props.match.params.id}
+                        modal={this.state.modal}
+                        toggle={this.toggleModal}
+                        deleteNote={this.deleteNote}/>
+                    <NoteCard note={this.props.currentNote}/>
+                </Container>
+            )
         )
     }
 }

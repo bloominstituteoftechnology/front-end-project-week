@@ -10,6 +10,21 @@
   min-height: 100vh;
 }
 
+.check-list {
+  max-width: 1500px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start;
+  width: 100%;
+  margin: 30px 20px;
+}
+
+.checkbox {
+  padding: 10px !important;
+  display: flex;
+  align-items: flex-end;
+}
+
 .heading {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
@@ -151,6 +166,13 @@ input {
 
 .form-content {
   height: 575px;
+  margin-top: 20px;
+  padding: 30px !important;
+  font-size: 1em !important;
+  border-color: #979797 !important;
+}
+
+.form-checklist {
   margin-top: 20px;
   padding: 30px !important;
   font-size: 1em !important;
