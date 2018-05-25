@@ -24,7 +24,6 @@ class EditNote extends Component {
   };
 
   render() {
-    //   console.log(this.props)
     return (
       <div className="col-sm-9 create-div">
         <div className="create-form">
