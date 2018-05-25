@@ -42,11 +42,17 @@ p {
 .App {
   display: flex;
   width: 100%;
-  max-width: 880px;
   justify-content: center;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
   text-rendering: geometricPrecision;
+}
+
+@media (max-width: 767px) {
+  .App {
+    flex-flow: column wrap;
+    align-content: center;
+  }
 }
 
 .button {
@@ -62,6 +68,16 @@ p {
   font-family: 'Roboto', sans-serif;
 }
 
+.button:hover {
+  background: rgb(16, 211, 214);
+}
+
+@media (max-width: 767px) {
+  .button {
+    width: 160px;
+  }
+}
+
 .delete {
   background: #D0021B;
 }
@@ -74,8 +90,7 @@ p {
   padding: 1.709%;
   background: #D8D8D8;
   min-height: 100vh;
-  width: 100%;
-  max-width: 220px;
+  flex: 0;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -83,6 +98,24 @@ p {
   margin: 5px 0 30px;
   line-height: 2.8rem;
   color: #4A4A4A;
+}
+
+@media (max-width: 767px) {
+  .nav-sidebar {
+    min-height: auto;
+    min-width: 100%;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-sidebar h1 {
+    width: 100%;
+    margin: 14px 0 8px;
+    font-size: 2.8rem;
+  }
+  .nav-sidebar a {
+    margin: 10px;
+  }
 }
 
 
@@ -94,8 +127,7 @@ p {
   justify-content: flex-start;
   align-content: flex-start;
   padding: 0 3.417% 3.417%;
-  width: 100%;
-  max-width: 660px;
+  flex: 1;
   background: #F3F3F3;
 }
 
@@ -123,13 +155,15 @@ p {
   box-shadow: 4px 4px #e0e0e0;
 }
 
-.notes-list > div:nth-child(3n + 4) div.note-card {
-  margin-right: 0;
-}
-
-@media (min-width:600px) and (max-width: 879px) {
-  .notes-list>div:nth-child(3n + 4) div.note-card {
-    margin-right: 15px;
+@media (max-width: 767px) {
+  .notes-list h2 {
+    margin: 18px 0 30px;
+  }
+  
+  .note-card {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 30px;
   }
 }
 
@@ -151,15 +185,17 @@ p {
 /* Note View */
 
 .note-flex-props {
-  flex-grow: 3;
+  flex: 1;
 }
 
 .note-view {
   padding: 20px 30px;
   background: #F3F3F3;
   min-height: 100vh;
-  width: 100%;
-  max-width: 660px;
+}
+
+.note-view div {
+  max-width: 600px;
 }
 
 .note-view-actions {
@@ -183,6 +219,12 @@ p {
 
 
 /* Note Edit */
+
+.note-form {
+  display: flex;
+  flex-flow: column wrap;
+  max-width: 600px;
+}
 
 .note-form h3 {
   margin: 35px 0 30px;
@@ -215,6 +257,13 @@ p {
 .note-form form textarea {
   height: 346px;
   resize: none;
+}
+
+@media (max-width: 767px) {
+  .note-form form input:first-child {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 /* Note Delete Modal */

@@ -22,7 +22,6 @@ class Note extends React.Component {
 
     fetchNote = id => {
         id = parseInt(id, 10);
-        console.log(id);
         const note = this.props.notes.filter(note => note.id === id)[0];
         this.setState({
             title: note.title,

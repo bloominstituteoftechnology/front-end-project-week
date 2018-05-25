@@ -19,6 +19,7 @@ export const ERROR = 'ERROR';
 
 export const addNote = note => {
     return function(dispatch) {
+        dispatch({ type: ADDING_NOTE });
         dispatch({ type: NOTE_ADDED, payload: note });  
     }
 };
