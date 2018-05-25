@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { removeNote } from '../../actions';
+import _ from "lodash";
+
 
 import NoteCard from './NoteCard';
 import DeleteNoteModal from './DeleteNoteModal';
@@ -10,6 +14,7 @@ class VieNote extends Component {
         super(props);
         this.state = {
             note: '',
+            id: '',
             isOpen: false,
             isDeleted: false,
         }
@@ -20,6 +25,7 @@ class VieNote extends Component {
     }
 
     onDelete = () => {
+        this.props.removeNote(this.state.id);
         this.setState({isDeleted: !this.state.isDeleted});
     }
 
@@ -27,9 +33,10 @@ class VieNote extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        this.props.notes.forEach((note) => {
-            if(note.id+'' === id)
-                this.setState({note: note})
+        const { data } = this.props;
+        _.forEach(data, (note, key) => {
+            if( key === id)
+                this.setState({note: note, id: id})
         } )
       }
     
@@ -37,12 +44,12 @@ class VieNote extends Component {
         return (
             <div className="App-content-container">
                 <div className="nav">
-                    <Link to={`/editnote/${this.state.note.id}`} className="view-note-nav">edit</Link>
+                    <Link to={`/editnote/${this.state.id}`} className="view-note-nav">edit</Link>
                     <div className="view-note-nav" onClick={this.toggleModal}>
                         delete
                     </div>
                     <DeleteNoteModal show={this.state.isOpen} isDeleted={this.state.isDeleted} onDelete={this.onDelete} onClose={this.toggleModal}>
-                        Are you sure you want to delete this?
+                        <div> Are you sure you want to delete this? </div>
                     </DeleteNoteModal>
                 </div>
                 <NoteCard note={this.state.note}/>
@@ -51,4 +58,9 @@ class VieNote extends Component {
     }
 }
  
-export default VieNote;
+const mapStateToProps = state => {
+    const props = state;
+    return props;
+} 
+
+export default connect(mapStateToProps, { removeNote })(VieNote);

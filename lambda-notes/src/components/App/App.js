@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+// Very important when you work with React Router Redux
+
+import { withRouter } from 'react-router-dom'
+
 
 import './App.css';
 
@@ -12,7 +18,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      show : true,
       notes: [
         {
           id: 1,
@@ -52,10 +57,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header> */}
         <Route path="/" component={Nav} />
         <Route exact path="/" render={() => (<NotesList notes={this.state.notes} />)}/>
         <Route exact path="/newnote" render={() => (<NoteForm className="App-content-container" header="Create New Note:" button="Save" />)}/>
@@ -66,4 +67,22 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  const props = state;
+  return props;
+}
+
+export default withRouter(connect(mapStateToProps)(App))
+
+
+
+/*
+    Very important when you work with React Router Redux
+    // before
+    export default connect(mapStateToProps)(Something)
+
+    // after
+    import { withRouter } from 'react-router-dom'
+    export default withRouter(connect(mapStateToProps)(Something))
+
+  */

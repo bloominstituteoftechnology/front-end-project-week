@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchNotes } from '../../actions';
+import _ from "lodash";
+
+
 
 import NoteCard from './NoteCard';
 
 class NotesList extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
+    componentDidMount() {
+        this.props.fetchNotes();
+    }
+
     render() { 
+        const { data } = this.props;
         return (
             <div className="App-content-container">
                 <h2>Your Notes:</h2>
                 <div className="NotesList-container">
-                    {this.props.notes.map( (note) => <Link to={`/note/${note.id}`} className="NoteCard-list" key={note.id}> <NoteCard note={note} /> </Link>) }
+                {_.map(data, (note, id) => <Link to={`/note/${id}`} className="NoteCard-list" key={id}> <NoteCard note={note} /> </Link>) }
                 </div>
             </div>
         )
     }
 }
  
-export default NotesList;
+const mapStateToProps = state => {
+    const props = state;
+    return props;
+} 
+
+export default connect(mapStateToProps, { fetchNotes })(NotesList);

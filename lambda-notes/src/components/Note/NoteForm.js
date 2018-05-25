@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
-
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addNote, updateNote } from '../../actions';
+import _ from "lodash";
 
 class NoteForm extends Component {
     constructor(props) {
@@ -8,6 +10,7 @@ class NoteForm extends Component {
         this.state = {
             title: '',
             content: '',
+            id: '',
             isUpdated: false
         }
     }
@@ -16,21 +19,30 @@ class NoteForm extends Component {
         // change this line to grab the id passed on the URL
         if(!this.props.match) return;
         const id = this.props.match.params.id;
-        this.props.notes.forEach((note) => {
-            if(note.id+'' === id)
-                this.setState({title: note.title, content: note.content})
+        const { data } = this.props;
+        _.forEach(data, (note, key) => {
+            if( key === id)
+                this.setState({title: note.title, content: note.content, id: id})
         } )
-        
     }
 
     onChangeHandler = (event) => {
         this.setState({[event.target.name]: event.target.value});
     }
 
-    onSubmitHandler = () => {
+    onSubmitHandler = (event) => {
+        event.preventDefault();
+        const note = {title: this.state.title, content: this.state.content};
+        if(this.state.id)
+        {
+            this.props.updateNote(this.state.id, note);
+        } else {
+            this.props.addNote(note);
+        }
         this.setState({isUpdated: !this.isUpdated});
     }
 
+    
     render() {
         // Redirect to / if note is deleted true
         if(this.state.isUpdated) {
@@ -66,4 +78,11 @@ class NoteForm extends Component {
     }
 }
  
-export default NoteForm;
+
+const mapStateToProps = state => {
+    console.log("mapStateToProps List", state);
+    const props = state;
+    return props;
+} 
+
+export default connect(mapStateToProps, { addNote, updateNote })(NoteForm);
