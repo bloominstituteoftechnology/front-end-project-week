@@ -3,7 +3,7 @@ import { CSVLink } from 'react-csv';
 import { ListComponent } from './ListComponent'
 import Button from './Button'
 import { connect } from 'react-redux'
-import { fetchNotes } from './Actions'
+import { fetchNotes, sort } from './Actions'
 
 var placeholder = document.createElement("li");
 placeholder.className = "placeholder";
@@ -21,6 +21,9 @@ class NoteList extends React.Component {
     componentDidMount = () => {
         this.props.notes.length === 0 ? this.props.fetchNotes(this.props.auth.uid) : null
         // this.props.fetchNotes(this.props.auth.uid)
+        this.setState({
+            notes: this.props.notes
+        })
     }
     // And every time firebase updates our Store
     // componentWillReceiveProps = (newProps) => {
@@ -96,7 +99,7 @@ class NoteList extends React.Component {
 
     render() {
         // Creates our Listelements 
-        var listItems = this.props.notes.map((item, i) => {
+        var listItems = this.state.notes.map((item, i) => {
             return (
                 <ListComponent onDragEnd={this.dragEnd.bind(this)} onDragStart={this.dragStart.bind(this)} index={i} key={i} item={item} />
             )
@@ -129,4 +132,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchNotes })(NoteList)
+export default connect(mapStateToProps, { fetchNotes, sort })(NoteList)

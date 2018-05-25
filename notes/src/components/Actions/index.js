@@ -7,6 +7,7 @@ export const FETCH_USER = 'FETCH_USER'
 export const LOG_IN = 'LOG_IN'
 export const LOG_OUT = 'LOG_OUT'
 export const ERROR = 'ERROR'
+export const SORT = 'SORT'
 
 export const addNote = (uid, id, newNote) => async dispatch => {
     notesRef(uid).child(id).set(newNote)
@@ -115,3 +116,11 @@ export const signOut = () => dispatch => {
             console.log(error);
         });
 };
+
+export const sort = () => {
+    return (dispatch) => {
+        dispatch({
+            type: SORT
+        })
+    }
+}

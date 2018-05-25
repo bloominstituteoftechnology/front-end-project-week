@@ -1,4 +1,4 @@
-import { FETCH_NOTES, DELETE_NOTE, ERROR } from '../Actions'
+import { FETCH_NOTES, DELETE_NOTE, ERROR, SORT } from '../Actions'
 
 const initialState = {
     notes: []
@@ -19,6 +19,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 notes: []
+            }
+        case SORT:
+            let sortedState = [...state]
+            sortedState.reverse()
+            return {
+                notes: sortedState
             }
         default:
             return state;
