@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import { Route, Switch, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { CSVLink, CSVDownload } from "react-csv";
@@ -89,14 +89,6 @@ class Main_ extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    fetched_Item: state.fetched_Item,
-    updating: state.updating_Item,
-    notes: state.data
-  };
-};
-export default withRouter(connect(mapStateToProps, { fetchingItems })(Main_));
 
 Main_.propTypes = {
   fetched_Item: PropTypes.bool.isRequired,
@@ -105,4 +97,13 @@ Main_.propTypes = {
   fetchingItems: PropTypes.func.isRequired,
   PageUpdating: PropTypes.node,
   Page404: PropTypes.node
-}
+};
+
+const mapStateToProps = state => {
+  return {
+    fetched_Item: state.fetched_Item,
+    updating: state.updating_Item,
+    notes: state.data
+  };
+};
+export default withRouter(connect(mapStateToProps, { fetchingItems })(Main_));

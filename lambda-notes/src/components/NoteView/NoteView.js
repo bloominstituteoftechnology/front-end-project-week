@@ -85,7 +85,18 @@ const mapStateToProps = state => {
     notes: state.data
   };
 };
+
+NoteView.proptypes = {
+  state: PropTypes.object.isRequired,
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  index: PropTypes.number.isRequired,
+  note: PropTypes.object.isRequired,
+  content: PropTypes.string.isRequired,
+  deletingItem: PropTypes.bool.isRequired
+}
+
 // export default connect(mapStateToProps, { deletingItem })(NoteView)
 export default withRouter(
   connect(mapStateToProps, { deletingItem })(NoteView)
 );
+

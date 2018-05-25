@@ -10,7 +10,7 @@ let notes = [
   {
     id: 0,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 0",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:
@@ -19,7 +19,7 @@ let notes = [
   {
     id: 1,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 1",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:
@@ -28,7 +28,7 @@ let notes = [
   {
     id: 2,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 2",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:
@@ -37,7 +37,7 @@ let notes = [
   {
     id: 3,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 3",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:
@@ -46,7 +46,7 @@ let notes = [
   {
     id: 4,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 4",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:
@@ -55,7 +55,7 @@ let notes = [
   {
     id: 5,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 5",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:
@@ -64,7 +64,7 @@ let notes = [
   {
     id: 6,
     date: "Date created",
-    title: "Note title",
+    title: "Note title 6",
     shortContent:
       "Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis .",
     content:

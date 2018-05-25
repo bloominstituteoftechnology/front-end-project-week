@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { addingItem, updatingItem } from "../../actions/index";
@@ -15,23 +16,23 @@ class Form_ extends Component {
   getNoteData = () => {
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
-    const {title} = note;
-    const {content} = note
+    const { title } = note;
+    const { content } = note;
     this.setState({ title, content });
   };
   componentDidMount() {
-    const {path} = this.props.match;
+    const { path } = this.props.match;
     path === "/edit/:index" && this.getNoteData();
   }
   handleInput = e => {
-    e.key === "Enter" ? e.preventDefault() : console.log();;
+    e.key === "Enter" ? e.preventDefault() : console.log();
     this.setState({ [e.target.name]: e.target.value });
   };
-  newNote = (e) => {
+  newNote = e => {
     // e.preventDefault();
     const newItem = this.state;
     this.props.addingItem(newItem);
-    this.setState({ title: '', content: '' });
+    this.setState({ title: "", content: "" });
     setTimeout(() => {
       alert(`Note: ${newItem.title} added.`);
     }, 500);
@@ -42,15 +43,21 @@ class Form_ extends Component {
     const id = note.id;
     // console.log("UPDATE",index,id,this.state);
     this.props.updatingItem(index, id, this.state);
-  }
-  
+  };
+
   render() {
     const index = this.props.match.params.index;
-    const button = this.props.match.path === "/edit/:index" ? (
-      <Link to={`/note/${index}`} ><Button_ text="Update" action={this.updateNote} /></Link>
-    ) : (
-      <Link to="/" ><Button_ text="Save" action={this.newNote} /></Link>
-    );
+    const text = this.props.match.path === "/edit/:index" ? "Update" : "Save";
+    const button =
+      this.props.match.path === "/edit/:index" ? (
+        <Link to={`/note/${index}`}>
+          <Button_ text={text} action={this.updateNote} />
+        </Link>
+      ) : (
+        <Link to="/">
+          <Button_ text={text} action={this.newNote} />
+        </Link>
+      );
     // console.log("UPDATE-RENDER: index,this.state, this.props.notes",index,this.state, this.props.notes[index]);
     return (
       <form className="custom-form">
@@ -87,6 +94,14 @@ const mapStateToProps = state => {
     added: state.added_Item
   };
 };
+
+export const propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updated: PropTypes.bool.isRequired,
+  added: PropTypes.bool.isRequired
+};
+Form_.propTypes = Object.assign({}, propTypes);
+
 export default withRouter(
   connect(mapStateToProps, { addingItem, updatingItem })(Form_)
 );
