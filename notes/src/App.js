@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import { Navigation, NotesList, AddNote, Note } from "./components";
+import { connect } from "react-redux";
 
 class App extends Component {
 
@@ -19,4 +20,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return state;
+}
+
+export default withRouter(connect(mapStateToProps)(App));

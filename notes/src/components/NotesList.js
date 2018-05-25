@@ -1,5 +1,4 @@
 import React from "react";
-import Note from "./Note.js";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 

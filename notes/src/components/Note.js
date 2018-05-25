@@ -22,6 +22,7 @@ class Note extends React.Component {
 
     fetchNote = id => {
         id = parseInt(id, 10);
+        console.log(id);
         const note = this.props.notes.filter(note => note.id === id)[0];
         this.setState({
             title: note.title,
@@ -34,7 +35,8 @@ class Note extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleUpdate = (note) => {
+    handleUpdate = (e, note) => {
+        e.preventDefault();
         this.props.updateNote(note);
         this.setState({edit: false})
     }
@@ -59,7 +61,7 @@ class Note extends React.Component {
                             <form>
                                 <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
                                 <textarea name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                                <button className="button" onClick={() => this.handleUpdate({title, body, id})}>Save</button>
+                                <button className="button" onClick={(e) => this.handleUpdate(e, {title, body, id})}>Save</button>
                             </form>
                         </div>
                     ) : (
