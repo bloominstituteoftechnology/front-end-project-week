@@ -26,12 +26,12 @@ class EditNote extends Component {
                             <Input 
                                 type="text" 
                                 name="title"
-                                value={this.state.notes[this.props.match.params.id].title}                                 
+                                defaultValue={this.state.notes[this.props.match.params.id].title}                                 
                                 className="TopInput"/>
                             <Input 
                                 type="textarea" 
                                 name="content" 
-                                value={this.state.notes[this.props.match.params.id].content}
+                                defaultValue={this.state.notes[this.props.match.params.id].content}
                                 onChange={this.handleChange}
                                 className="BottomInput"/>
                                 <Button link='/' text='Save' />
