@@ -47,6 +47,7 @@ class App extends Component {
         return note.id !== id;
       })
     })
+    localStorage.setItem("notes", JSON.stringify(this.state.notes));
   }
 
   addNote(newNote) {
@@ -66,6 +67,24 @@ class App extends Component {
       content: newNote.content
     }
     this.setState({ notes: [...this.state.notes, addedNote] });
+    localStorage.setItem("notes", JSON.stringify(this.state.notes));
+  }
+
+  hydrateStateWithLocalStorage() {
+    for ( let notes in this.state.notes){
+      if(localStorage.hasOwnProperty(notes)){
+        let value = localStorage.getItem(notes);
+        try {
+          value = JSON.parse(this.state.notes);
+          this.setState({[notes]: this.state.notes});
+        } catch (e){
+          this.setState({[notes]: this.state.notes});
+        }
+      }
+    }
+  }
+  componentDidMount() {
+    this.hydrateStateWithLocalStorage();
   }
 
   render() {
