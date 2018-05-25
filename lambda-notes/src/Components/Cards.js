@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardTitle, CardText } from "reactstrap";
-import './Components.css'
 import { Link } from "react-router-dom";
+import './Components.css'
 
 class Cards extends Component {
     constructor(props) {
@@ -12,13 +12,16 @@ class Cards extends Component {
         return (
             <div className='Cards'>{this.props.notesFromState.map( (item, index)=> {
                 return (
-                    <Link to={`note${item.id}`} className='Card'>
-                    <Card key={item.id}  >
-                        <CardTitle>{item.title}</CardTitle>
-                        <div className='Line'></div>
-                        <CardText>{item.content}</CardText>
-                    </Card>
-                    </Link>
+
+                        <Card key={item.id} className='Card'>
+                            <Link to={`note/${item.id}`} style={{color:'black'}}>
+                                <CardTitle>{item.title}</CardTitle>
+                                <div className='Line'></div>
+                                <CardText>{ (item.content.length>110) ? <div>{item.content.substring(0,110)}...</div> : <div>{item.content}</div>}
+                                </CardText>
+                            </Link>
+                        </Card>
+
                 )
             })}</div>
         );

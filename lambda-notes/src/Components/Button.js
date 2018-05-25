@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './Components.css';
 
-const button = props => <button className='button'>{props.text}</button>
+const Button = props => <Link to={props.link}><button className='button'>{props.text}</button></Link>
 
-export default button;
+export default Button;

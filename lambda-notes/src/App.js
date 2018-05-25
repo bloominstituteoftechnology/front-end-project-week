@@ -5,6 +5,8 @@ import './App.css';
 import Sidebar from "./Components/Sidebar";
 import MainSection from "./Components/MainSection";
 import NewNote from "./Components/NewNote";
+import ViewNote from "./Components/ViewNote";
+import EditNote from "./Components/EditNote";
 
 
 class App extends Component {
@@ -17,9 +19,13 @@ class App extends Component {
 
         <Route path="/" component={Sidebar} />
 
-        <Route path="/home" component={MainSection} />
+        <Route exact path="/" component={MainSection} />
 
         <Route path="/newnote" component={NewNote} />
+
+        <Route path="/note/:id" component={ViewNote} />
+
+        <Route path="/edit/:id" component={EditNote} />
 
       </div>
 
