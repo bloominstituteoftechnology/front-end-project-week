@@ -1,0 +1,43 @@
+.sideNav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #D8D8D8;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.button1 {
+    margin-top: 30px;  
+    padding: 15px 20px 15px 20px; 
+ 
+}
+
+.button2 {
+    margin-top: 30px;  
+    padding: 15px 20px 15px 20px; 
+}
+
+
+.header-Title {
+    font-size: 40px; 
+    font: 'Roboto';
+    text-align: left; 
+    margin-left: 20px;         
+}
+
+.main {
+    margin-left: 220px; 
+    font-size: 16px; 
+    padding: 0px 10px;    
+}
+
+.header-Notes {
+    text-align: left;              
+    font: 'Roboto'; 
+    margin-top: 70px; 
+    margin-left: 40px; 
+}
