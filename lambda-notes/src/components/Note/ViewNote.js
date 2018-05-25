@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { removeNote } from '../../actions';
-import _ from "lodash";
-
 
 import NoteCard from './NoteCard';
 import DeleteNoteModal from './DeleteNoteModal';
@@ -34,10 +32,10 @@ class VieNote extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         const { data } = this.props;
-        _.forEach(data, (note, key) => {
+        for (const [key, note] of Object.entries(data)) {
             if( key === id)
                 this.setState({note: note, id: id})
-        } )
+        }
       }
     
     render() {
