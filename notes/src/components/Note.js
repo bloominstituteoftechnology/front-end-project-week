@@ -9,24 +9,13 @@ class Note extends React.Component {
             body: '',
             id: '',
             edit: false,
-            modal: false,
-            list: true
+            modal: false
         }
     }
     
     componentDidMount() {
-        if (this.props.note) {
-            const note = this.props.note;
-            this.setState({ 
-                title: note.title,
-                body: note.body,
-                id: note.id
-             });
-        } else {
-            const id = this.props.match.params.id;
-            this.fetchNote(id);
-            this.setState({ list: false })
-        }
+        const id = this.props.match.params.id;
+        this.fetchNote(id);
     }
 
     fetchNote = id => {
@@ -58,15 +47,10 @@ class Note extends React.Component {
     }
 
     render() {
-        const { title, body, id, edit, modal, list } = this.state;
+        const { title, body, id, edit, modal } = this.state;
         return (
             <div className="note-flex-props">
-                {list ? (
-                    <div className="note-card">
-                        <h3>{title}</h3>
-                        <p className="note-card-text">{body}</p>
-                    </div>
-                ) : (<div className="note-view">
+                <div className="note-view">
                     {edit ? (
                         <div className="note-form">
                             <h3>Edit Note:</h3>
@@ -101,8 +85,7 @@ class Note extends React.Component {
                             </div>
                         </div>
                     ) : (null)}
-                    </div>
-                )}
+                </div>
             </div>
         );
     }
