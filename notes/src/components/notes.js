@@ -14,7 +14,7 @@ export default class Notes extends Component {
             <div className="App-noteCards">
                 <div className="card">
                     <div class="container">
-                        <Link className="ink" to="/noteview">    
+                        <Link className="ink" to="/noteview">       
                         <h4><b>Note Title</b></h4>
                         <hr />
                         <p>Architect & Engineer<br /> Travel & Food<br /> Travel & Food<br /> Travel & Food</p>

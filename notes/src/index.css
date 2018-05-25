@@ -99,3 +99,12 @@ button {
   width: 70px;
   float: right;
 }
+
+.modal-title {
+  margin-left: 80px;
+}
+
+.search {
+  width: 15vw;
+  margin-bottom: 5vh;
+}

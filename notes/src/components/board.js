@@ -13,6 +13,7 @@ export default class Board extends Component {
     render() {
             return (
                 <div className="App-main">
+                    <input className="search" type="text" placeholder="Search...."></input>    
                     <h3 className="main-header">Your Notes:</h3>
                     <div className="board-notes">
                         <Notes />
