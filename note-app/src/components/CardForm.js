@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './cardForm.css';
 
 
 const cardForm = () => {
     return (
     <div className='createContainer'>
         <div>
-            <h2 className='header'>Create New Note:</h2>
+            <h2 className='createHeader'>Create New Note:</h2>
         </div>
             <form className='form'>
                 <input type='text' className ='insertTitle' placeholder='Note Title' />

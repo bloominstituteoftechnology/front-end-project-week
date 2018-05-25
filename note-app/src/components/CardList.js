@@ -1,91 +1,70 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Col, Row } from 'reactstrap';
+import './cardList.css';
 
 
 const cardList = () => {
         return (
-            <Container className='listContainer'>
-                <Row>
-                    <Col>
+            <div className='listContainer'>
                         <h4 className='listHeader'>Your Notes:</h4>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
+                <div className='allCards'>
+                <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
+                    <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
+                    <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
+                    <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
+                    <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
+                    <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
+                    <Link to='/card' className='cardLink'>
+                    <div className='noteCard'>
+                        <h6 className='cardTitle'>Note Title</h6>
+                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
+                    </div>
+                    </Link>
                     <Link to='/card' className='cardLink'>
                     <div className='noteCard'>
                         <h6 className='cardTitle'>Note Title</h6>
                         <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
                     </div>
                 </Link>
-                    </Col>
-                    <Col>
                     <Link to='/card' className='cardLink'>
                     <div className='noteCard'>
                         <h6 className='cardTitle'>Note Title</h6>
                         <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
                     </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                    <Col>
-                    <Link to='/card' className='cardLink'>
-                    <div className='noteCard'>
-                        <h6 className='cardTitle'>Note Title</h6>
-                        <p className='cardContent'>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this...</p>
-                    </div>
-                </Link>
-                    </Col>
-                </Row>
-            </Container>
+                    </Link>
+           </div>
+           </div>
 
         )
     }

@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './editCard.css';
 
 
 const editCard = () => {
     return (
         <div className='editContainer'>
             <div> 
-                <h4>Edit Note</h4>
+                <h4 className='editHeader'>Edit Note</h4>
                 </div>
-                <form>
+                <form className='editForm'>
                     <input type='text' className='editInput' name='title' placeholder='Note Title' />
                     <textarea type = 'text' className='editContent' name='content' placeholder='Note Content'></textarea>
                     <div>

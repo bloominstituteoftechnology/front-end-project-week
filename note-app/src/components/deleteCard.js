@@ -23,7 +23,7 @@ render() {
           <ModalBody>
             Are you sure you want to delete this?
           </ModalBody>
-          <ModalFooter>
+          <ModalFooter className= 'modalFooter'>
             <Button color="danger" onClick={this.toggle}>Yes</Button>{' '}
             <Button color="primary" onClick={this.toggle}>No</Button>
           </ModalFooter>
