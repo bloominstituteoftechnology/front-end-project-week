@@ -22,7 +22,7 @@ let notes = [
 server.get('/notes', (req, res) => {
   res.json(notes);
 });
-let noteId = 0;
+let noteId = 1;
 
 server.post('/notes', (req, res) => {
   const { noteTitle, noteContent } = req.body;
@@ -36,7 +36,7 @@ server.post('/notes', (req, res) => {
   const findNoteByTitle = note => {
     return note.noteTitle === noteTitle;
   };
-  if (note.find(findNoteByTitle)) {
+  if (notes.find(findNoteByTitle)) {
     return sendUserError(
       `Ya gone did smurfed! ${noteTitle} already exists in the notes DB.`,
       res

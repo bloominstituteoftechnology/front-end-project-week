@@ -1,43 +1,63 @@
 import React,  { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './createNote.css';
-
+import axios from 'axios';
+const URL = 'http://localhost:3333/notes'
 
 class CreateNote extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
-        noteList: [],
-        fields:{
-          noteTitle: '',
-          noteContent: ''
-        },
-
-        note: "",
-        error: false
+        noteTitle: '',
+        noteContent: '',
       };
     }
-  
-   /* handleRemoveNote = noteId => {
-      const noteList = this.state.noteList.map(note => {
-        if (noteId === note.id) {
-          note.completed = !note.completed;
-        }
-        return note;
-      });
-      this.setState({ noteList });
-    };*/
-   /* handleNoteChange = event => {
-      this.setState({ [event.target.name]: event.target.value });
-    };*/
 
-    handleNoteChange = event => {
+    addNote = event => {
+      event.preventDefault();
+      // add code to create the smurf using the api
+      const { noteTitle, noteContent } = this.state;
+      const noteData = { noteTitle, noteContent };
+      this.props.addNote(noteData);
+      this.setState({
+        noteTitle: '',
+        noteContent: '',
+      });
+    } 
+  
+      addNote = note => {
+      const myPromise = axios.post(URL, note);
+      myPromise
+        .then(response => {
+          this.setState({ notes: response.data}); 
+        })
+        .catch(err => {
+          console.error(err);
+        });
+  }
+
+  handleAddNote = event => {
+    event.preventDefault();
+    const { noteTitle, noteContent } = this.state;
+    const noteData = { noteTitle, noteContent };
+    this.addNote(noteData);
+    this.setState({
+      noteTitle: '',
+      noteContent: ''
+    });
+    event.preventDefault();
+  }
+
+  handleNoteChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+    /*handleNoteChange = event => {
       const fields = Object.assign({}, this.state.fields);
       fields[event.target.name] = event.target.value;
       this.setState({fields});
-    };
+    };*/
 
-    handleAddNote = event => {
+    /*handleAddNote = event => {
       const noteList = [...this.state.noteList, this.state.fields];
       this.setState({
         noteList,
@@ -47,26 +67,6 @@ class CreateNote extends Component {
         }
       });
       event.preventDefault();
-    };
-  
-    /*handleAddNote = () => {
-      if (this.state.note === "") {
-        this.setState({ error: true });
-        setTimeout(() => {
-          this.setState({ error: false });
-        }, 2400);
-      } else {
-        const noteList = this.state.noteList.slice(); //reference note array
-        const fields = {
-          build  note object
-          id: this.state.noteList.length + this.state.note,
-          noteTitle: this.state.fields.noteTitle,
-          noteContent: this.state.fields.noteContent,
-          completed: false
-        };
-        noteList.push(fields); // add note to note list
-        this.setState({ noteList, note: "" });
-      }
     };*/
   
     render() {
@@ -75,7 +75,7 @@ class CreateNote extends Component {
         <div className="container">
           <div className="sideBar">
             <div className="sideBarTitle">
-            <h1 className="sideBarTitle1">Lambda</h1>
+            <h1 className="sideBarTitle1">Lonnie's</h1>
             <h1 className="sideBarTitle2">Notes</h1>
             </div>
             <Link to="/">
@@ -95,7 +95,7 @@ class CreateNote extends Component {
             <input className="noteTitle"
               placeholder="Note Title"
               type="text"
-              value={this.state.fields.noteTitle}
+              value={this.state.noteTitle}
               name="noteTitle"
               onChange={this.handleNoteChange}
             />
@@ -105,33 +105,22 @@ class CreateNote extends Component {
             <textarea className="createNewNote"
               placeholder="Note Content"
               type="text"
-              value={this.state.fields.noteContent}
+              value={this.state.noteContent}
               name="noteContent"
               onChange={this.handleNoteChange}
           />
-
           </div>
           <div>
             {this.state.error ? <div>Error note must not be empty text</div> : null}
-            <Link to="/">
-            <button type="button" className="saveButton" /*onClick={this.handleAddNote}*/>
+            <button type="button" className="saveButton" onClick={this.handleAddNote}>
             Save
             </button>
-            </Link>
           </div>
-          <div>
-          <ul>
-            {this.state.noteList.map(({noteTitle, noteContent}, i) => (
-              <li key={i}>
-                <h4>{noteTitle}</h4>
-                <h4>{noteContent}</h4>
-              </li>
-            ))}
-          </ul>
-        </div>
-        </div>
-        </div>
-      </body>
+        <div>
+      </div>
+    </div>
+    </div>
+  </body>
       );
     }
   }

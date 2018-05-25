@@ -24,7 +24,7 @@ class ViewNote extends Component {
         <div className="container">
             <div className="sideBar">
                 <div className="sideBarTitle">
-                    <h1 className="sideBarTitle1">Lambda</h1>
+                    <h1 className="sideBarTitle1">Lonnie's</h1>
                     <h1 className="sideBarTitle2">Notes</h1>
                 </div>
                 <Link to="/">
@@ -49,7 +49,7 @@ class ViewNote extends Component {
             <ModalHeader className="modalHeader" toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
             {/*<ModalBody className="modalBody">
             </ModalBody>*/}
-            <ModalFooter className="modalBody">
+            <ModalFooter className="modalFooter">
                 <Link to="/">
                 <Button  className="modalDelete" onClick={this.toggle}>Delete</Button>{' '}
                 </Link>
@@ -67,9 +67,8 @@ class ViewNote extends Component {
                     jowl beye spare ribs prosciutto turkey brisket meatball shank burgdoggen cupim ground round. Chuck 
                     shankle pork loin ribeye pork belly jerky short ribs pork porchetta flank pastrami venison sirloin. Shank pig 
                     short ribs bacon pork loin venison leberkas. Ribeye burgdoggen tongue kevin bresaola venison jerky. 
-                </p>T-bone doner pastrami pancetta chuck shank cupim, frankfurter jowl alcatra ground round filet mignon.
-
-                <p>Bacon ipsum dolor amet shankle andouille t-bone tongue chuck hamburger. Andouille meatball jowl, shankle
+                </p>T-bone doner pastrami pancetta chuck shank cupim, frankfurter jowl alcatra ground round filet.
+                <p> Bacon ipsum dolor amet shankle andouille t-bone tongue chuck hamburger. Andouille meatball jowl, shankle
                     ball tip t-bone spare ribs burgdoggen short ribs. Cow kevin shankle meatball, corned beef prosciutto porchetta. 
                     Ground round salami short ribs flank picanha kielbasa pork turkey t-bone jowl turducken frankfurter tail. Tail 
                     pork chop chuck ground round, tenderloin ribeye fatback landjaeger pancetta cow pork belly meatloaf andouille. 

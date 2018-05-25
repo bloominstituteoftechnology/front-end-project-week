@@ -40,7 +40,7 @@ class DisplayNotes extends Component {
         <div className="container">
             <div className="sideBar">
                 <div className="sideBarTitle">
-                    <h1 className="sideBarTitle1">Lambda</h1>
+                    <h1 className="sideBarTitle1">Lonnie's</h1>
                     <h1 className="sideBarTitle2">Notes</h1>
                 </div>
                 <Link to="/">
