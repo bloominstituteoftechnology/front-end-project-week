@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
 
-class EditNote extends Component {
+class UpdateNote extends Component {
     constructor() {
         super();
         this.state = {

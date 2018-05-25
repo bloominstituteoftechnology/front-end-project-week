@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+// import { Router, Link } from 'react-router-dom';
 import { withRouter, Link } from 'react-router-dom';
 import { Form, Input, Row, Col, Button, Modal, ModalBody } from 'reactstrap';
 
@@ -27,7 +28,26 @@ class ViewNote extends Component {
             <div>
                 <Row>
                     <Col className='col-3 ml-auto'>
-                        Edit Delete
+                        <Link to='/edit-note'>
+                            <Button className='mr-2' size='sm'>
+                            Edit
+                            </Button>
+                        </Link>
+                        <Button onClick={ () => 
+                        this.toggleModal()} size='sm'>
+                        Delete 
+                        </Button>
+                        {this.state.modal ? <Modal isOpen={this.state.modal}>
+                        <ModalBody>
+                            Are you sure you want to delete?
+                            <Link to='/' onClick={() => this.handleDelete()}>
+                            <Button className='delete'>Delete</Button>
+                            </Link>
+                            <Button className='modeButton_no' onClick={() => this.toggleModal()}>
+                            Cancel
+                            </Button>
+                            </ModalBody>
+                            </Modal> : null}
                     </Col>
                 </Row>
                 <Row className='mt-4'>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NoteList from './NoteList';
 import AddNote from './AddNote';
 import ViewNote from './ViewNote';
-//import EditNote from './EditNote';
+// import EditNote from './EditNote';
 import { Route } from 'react-router-dom';
 
 class NoteContent extends Component {
@@ -42,7 +42,7 @@ class NoteContent extends Component {
                 <div className='col-12'>
                     <Route exact path='/' render={() => <NoteList updateSelectedNote={this.updateSelectedNote} {...this.state} />} />
                     <Route path='/AddNote' render={() => <AddNote addNewCard={this.addNewCard} updateNewNote={this.updateNewNote} />} />
-                    <Route path='/ViewNote' render={() => <ViewNote {...this.state} />} />
+                    <Route path='/ViewNote' render={(props) => <ViewNote {...this.state} deleteNote={this.deleteNote} {...props} />} />
                     <Route path='/NoteList' render={() => <NoteList updateSelectedNote= {this.updateSelectedNote} {...this.state} />} />
                 </div>
             </div>

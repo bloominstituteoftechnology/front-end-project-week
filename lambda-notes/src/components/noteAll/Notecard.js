@@ -30,4 +30,4 @@ class Notecard extends Component {
     }
 }
 
-export default withRouter (Notecard);
+export default withRouter(Notecard);
