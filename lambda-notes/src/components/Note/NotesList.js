@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../../actions';
-import _ from "lodash";
-
 
 
 import NoteCard from './NoteCard';
@@ -17,15 +15,19 @@ class NotesList extends Component {
         this.props.fetchNotes();
     }
 
-    render() { 
-        const { data } = this.props;
-        return (
+    render() {
+        console.log("notes data ", this.props.data.isFetching);
+        if(this.props.data.fetched)
+            return (
             <div className="App-content-container">
                 <h2>Your Notes:</h2>
                 <div className="NotesList-container">
-                {_.map(data, (note, id) => <Link to={`/note/${id}`} className="NoteCard-list" key={id}> <NoteCard note={note} /> </Link>) }
+                    {this.props.data.notes.map( note => <Link to={`/note/${note.id}`} className="NoteCard-list" key={note.id}> <NoteCard note={note} /> </Link>) }
                 </div>
             </div>
+        )
+        return (
+            <div className="App-content-container"> 'Loading...' </div>
         )
     }
 }

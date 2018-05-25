@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+
 import { removeNote } from '../../actions';
 
 import NoteCard from './NoteCard';
@@ -32,10 +34,16 @@ class VieNote extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         const { data } = this.props;
-        for (const [key, note] of Object.entries(data)) {
-            if( key === id)
-                this.setState({note: note, id: id})
+        console.log("view note ", data);
+        if(!data.fetched) {
+            return <Redirect to="/"/>
         }
+
+        data.notes.forEach(note => {       
+            if( note.id === id)
+                this.setState({note: note, id: id})
+            }
+        )
       }
     
     render() {

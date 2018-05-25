@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNote, updateNote } from '../../actions';
-import _ from "lodash";
 
 class NoteForm extends Component {
     constructor(props) {
@@ -20,10 +19,15 @@ class NoteForm extends Component {
         if(!this.props.match) return;
         const id = this.props.match.params.id;
         const { data } = this.props;
-        _.forEach(data, (note, key) => {
-            if( key === id)
-                this.setState({title: note.title, content: note.content, id: id})
-        } )
+        if(!data.fetched) {
+            return <Redirect to="/"/>
+        }
+
+        data.notes.forEach(note => {       
+            if( note.id === id)
+            this.setState({title: note.title, content: note.content, id: id})
+        }
+        )
     }
 
     onChangeHandler = (event) => {
@@ -80,7 +84,6 @@ class NoteForm extends Component {
  
 
 const mapStateToProps = state => {
-    console.log("mapStateToProps List", state);
     const props = state;
     return props;
 } 
