@@ -1,4 +1,4 @@
-/*import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
 
@@ -49,4 +49,4 @@ type='text-area' name='content' value={this.state.content} placeholder='Content'
     }
 }
 
-export default EditNote;*/
+export default EditNote;
