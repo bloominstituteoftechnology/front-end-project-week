@@ -200,3 +200,11 @@ li:hover {
 .body-p {
     margin-top: 15px;
 }
+
+.sign-in {
+    padding: 70px;
+}
+
+.sign-in-header {
+    margin-left: 15px;
+}
