@@ -1,0 +1,25 @@
+.note {
+    width: 28%;
+    border: 1px solid #979797; 
+    margin: 2.4% 0 5%;
+    background-color: white;
+    text-decoration: none;
+    color: #4A4A4A;
+}
+.itemFlex {
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-left: 3%; */
+    justify-content: space-around;
+    padding-bottom: 17%;
+}
+.cardBody {
+    margin: 5%;
+}
+h5 {
+    padding-left: 4%;
+}
+hr {
+    margin: 0;
+    padding: 0;
+}

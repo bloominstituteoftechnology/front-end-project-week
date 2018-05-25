@@ -1,0 +1,30 @@
+.createNote {
+    width: 100%;
+    background-color: #F3F3F3;
+    text-align: left;
+    padding-bottom: 15%;
+}
+.formStyle {
+    margin-left: 5%;
+    padding: 3% 0 10% 0;
+}
+.formStyle button{
+    width: 30.3%;
+}
+.form-group input {
+    width: 30%;
+    padding: 1.8% 54% 1.8% 0;
+}
+.form-group input, textarea {
+    font-size: 1.1rem;
+    padding-left: 1.8%;
+}
+h3{
+    padding-top: 5%;
+    padding-left: 2.2%;
+    font-size: 2rem;
+}
+.form-group textarea {
+    width: 96%;
+    padding: 3% 0 0 3%;
+}

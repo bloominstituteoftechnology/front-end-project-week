@@ -1,0 +1,26 @@
+.wrapper {
+    width: 33%;
+    background-color: #D8D8D8;
+}
+.buttonStyle {
+    border: none;
+}
+
+.buttonStyle a {
+    color: #FFFFFF;
+}
+
+h1, h2, h3 {
+    margin-left: 3%;
+}
+h1{
+    margin-left: 5%;
+}
+.buttonStyle {
+    padding: .6% 12%;
+}
+
+.buttonStyle h5 {
+    text-align: center;
+    
+}
