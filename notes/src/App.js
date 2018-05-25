@@ -3,7 +3,7 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import { List, Note, NewNote, EditNote } from './components';
+import { List, Note, NewNote, EditNote, Test } from './components';
 
 
 class App extends Component {
@@ -77,6 +77,9 @@ class App extends Component {
                 <Link to="/newnote">
                   <button className="new-note-button">+ Create New Note</button>
                 </Link>
+                <Link to="/test">
+                  <button className="test-portal"></button>
+                </Link>
               </div>
             </Col>
             <Col xs="9" className="content-container">
@@ -100,6 +103,7 @@ class App extends Component {
                   <EditNote {...props} updateNote={this.updateNote} />
                 )
               }} />
+              <Route path="/test" component={Test} />
             </Col>
           </Row>
         </Container>

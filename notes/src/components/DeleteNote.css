@@ -8,7 +8,6 @@
 .want-to-delete {
     display: flex;
     justify-content: center;
-    align-content: center;
 }
 .modul-delete { 
   height: 50px;

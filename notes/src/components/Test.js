@@ -1,46 +1,3 @@
-// import React, { Component } from 'react';
-
-// class Test extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return ( 
-//             <div></div>
-//          )
-//     }
-// }
- 
-// export default Test;
-
-
-
-
-
-
-
-
-
-// Code Below is a blank Test template for if I cut+paste ^this code out into a new component.
-
-// import React, { Component } from 'react';
-
-// class Test extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {  }
-//     }
-//     render() { 
-//         return ( 
-//             <div></div>
-//          )
-//     }
-// }
- 
-// export default Test;
-
-
 // CODE BELOW IS A REDUX TEST #####################################
 
 import React, { Component } from 'react';
@@ -59,6 +16,7 @@ class Test extends Component {
         console.log("Test Props:", this.props)
         return (
             <div>
+                <h1>REDUX EASTER EGG LAND</h1>
                 {this.props.notes.map(note => {
                     return (
                         <div key={note._id}>
