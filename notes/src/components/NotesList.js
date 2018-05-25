@@ -1,6 +1,7 @@
 import React from "react";
 import Note from "./Note.js";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const NotesList = props => {
     return (
@@ -17,4 +18,8 @@ const NotesList = props => {
     );
 }
 
-export default NotesList;
+const mapStateToProps = state => {
+    return state;
+}
+
+export default connect(mapStateToProps)(NotesList);

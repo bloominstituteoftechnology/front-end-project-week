@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { updateNote, deleteNote } from "../actions";
 
 class Note extends React.Component {
     constructor(props) {
@@ -108,4 +110,8 @@ class Note extends React.Component {
     }
 }
 
-export default Note;
+const mapStateToProps = state => {
+    return state;
+}
+
+export default connect(mapStateToProps, { updateNote, deleteNote })(Note);

@@ -1,5 +1,7 @@
 import React,{ Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addNote } from "../actions";
 
 class AddNote extends Component {
     constructor(props){
@@ -38,4 +40,8 @@ class AddNote extends Component {
     }
 }
 
-export default AddNote;
+const mapStateToProps = state => {
+    return state;
+}
+
+export default connect(mapStateToProps, { addNote })(AddNote);
