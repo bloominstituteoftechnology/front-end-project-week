@@ -2,10 +2,23 @@
   height: fit-content;
 }
 
+.note-container-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  padding: 1rem;
+}
+
 @media (min-width: 625px) {
   .noteview__note-container {
     display:flex;
     flex-grow: 1;
     flex-wrap: wrap;
+  }
+
+  .note-container-empty {
+    align-items: flex-start;
+    margin-left: 5rem;
   }
 }
