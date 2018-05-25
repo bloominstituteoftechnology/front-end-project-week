@@ -33,7 +33,8 @@ export default class CreateForm extends Component {
                     <Form>
                         <FormGroup>
                             <Input className='title-input'
-                                type='text' 
+                                type='text'
+                                required 
                                 name='title' 
                                 placeholder='Note Title'
                                 value={this.state.title}
@@ -43,6 +44,7 @@ export default class CreateForm extends Component {
                         <FormGroup>
                             <Input className='text-input' 
                                 type='textarea' 
+                                required
                                 name='text' 
                                 placeholder ='Note Content' 
                                 value={this.state.text}
