@@ -30,8 +30,6 @@ class NoteList extends Component {
   }
 
   render() {
-    console.log("NoteList props.notes",this.props.notes);
-    console.log("Notelist props.user.",this.props.user);
     if (!this.props.user) return <Redirect to ="/" />;
     const { classes } = this.props;
     return (

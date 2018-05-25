@@ -38,12 +38,13 @@ export const notesReducer = ( state = initialState, action ) => {
     case FETCH:
       let newState = [];
       for (let key in action.payload) {
-        const { title, text, date } = action.payload[key];
+        const { title, text, date, tags } = action.payload[key];
         newState.push({
           id: key,
           title: title,
           text: text,
           date: date,
+          tags: tags,
         });
       }
       return {

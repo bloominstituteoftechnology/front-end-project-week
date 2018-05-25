@@ -4,8 +4,9 @@ import { withRouter, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
 // Components
-import { deleteNote } from '../Actions';
+import { fetchNotes, deleteNote } from '../Actions';
 import { Button } from '../Button';
 // CSS
 import './ViewNote.css';
@@ -24,6 +25,10 @@ class ViewNote extends React.Component {
       modal: false,
       go: false,
     }
+  }
+
+  componentDidMount() {
+    this.props.fetchNotes(this.props.user.uid);
   }
 
   toggle = (e) => {
@@ -50,8 +55,7 @@ class ViewNote extends React.Component {
     if (this.state.go === true) return <Redirect to="/notes" />;
     // Some variable management
     const note = this.props.notes.filter(note => note.id === this.props.id)[0];
-    console.log("ViewNote",note);
-    const { title, text } = note; 
+    const { title, text, tags } = note; 
 
     return (
       <div style={{background: "var(--color-bg--main)", height: "100%"}} className="pr-3">
@@ -72,6 +76,9 @@ class ViewNote extends React.Component {
         <div className="view-note p-4">
           <h3>{title}</h3>
           <hr style={{borderColor:'var(--color--main)'}} />
+          <div className="mt-2 mb-3">
+            { tags ? tags.split(', ').map((tag, i) => <Tag key={i}>{tag}</Tag>) : <p><em>No tags</em></p> }
+          </div>
           <br />
           <ReactMarkdown source={text} />
         </div>
@@ -80,6 +87,22 @@ class ViewNote extends React.Component {
   }
 }
 
+export const Tag = styled.button`
+  /* colors */
+  background-color: var(--color-bg--button-main);
+  color: var(--color--button);
+  /* sizing */
+  height: 26px;
+  /* box model */
+  margin: 0 0.3rem;
+  border: 0.5px solid var(--color-border);
+  border-radius: 6px;
+  border-collapse: collapse;
+  /* text */
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+`;
+
 const mapDispatchToProps = state => {
   return {
     notes: state.notesReducer.notes,
@@ -87,4 +110,4 @@ const mapDispatchToProps = state => {
   };
 };
 
-export default withRouter(connect(mapDispatchToProps, { deleteNote })(ViewNote));
+export default withRouter(connect(mapDispatchToProps, { fetchNotes, deleteNote })(ViewNote));
