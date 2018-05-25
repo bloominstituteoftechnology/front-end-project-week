@@ -74,7 +74,6 @@ export default class NoteList extends React.Component {
         this.dragged.style.display = "none";
         if (e.target.className === 'placeholder') return;
         this.over = e.target;
-        console.log(e.target)
         e.target.parentNode.insertBefore(placeholder, e.target);
     }
     render() {

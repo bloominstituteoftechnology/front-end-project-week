@@ -35,8 +35,7 @@ class App extends Component {
   }
   edit = (id) => {
     // Filter for the intended element
-
-    console.log("fire", id)
+    // console.log("fire", id)
     let element = this.state.notes.filter(e => id === e.id)
     // Load text and title into state
     console.log(element)
@@ -47,14 +46,15 @@ class App extends Component {
     })
   }
 
-  handleEdit = () => {
+  handleEdit = (id) => {
+    console.log("fire", id)
     let newNote = {
       title: this.state.title,
       text: this.state.text,
-      id: this.state.id,
-      key: this.state.id
+      id: id,
+      key: id
     }
-    this.props.editNote(this.state.id, newNote)
+    this.props.editNote(id, newNote)
   }
   render() {
 
@@ -66,7 +66,6 @@ class App extends Component {
         {/* Render Note component with the note we are filtering for:  */}
         <Route exact path="/notes/:id" render={(props) => {
           let newNote = []
-          console.log("props", this.props)
           newNote = this.props.notes.filter(e => {
             if (e.id.toString() === props.match.params.id) {
               return e
@@ -77,7 +76,7 @@ class App extends Component {
 
 
         <Route exact path="/create" render={(props) => (<CreateNote pageTitle="Create New Note:" onSubmit={this.handleSubmit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
-        <Route exact path="/edit:id" render={(props) => (<CreateNote pageTitle="Edit Your Note:" onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
+        <Route exact path="/edit/:id" render={(props) => (<CreateNote pageTitle="Edit Your Note:" {...props} onSubmit={this.handleEdit} onChange={this.onChange} text={this.state.text} title={this.state.title} />)} />
       </div>
     );
   }

@@ -24,7 +24,7 @@ class Note extends Component {
         return (
             <div className="note-view">
                 <div className="navL">
-                    <Link to={`/edit/${this.props.note.id}`} onClick={() => this.props.edit(this.props.note.id)} className="nview">edit</Link>
+                    <Link to={`/edit/${this.props.note.id}`} onClick={this.props.edit} className="nview">edit</Link>
                     <Link to="/" onClick={this.toggle} className="nview">delete</Link>
                 </div>
                 <h3>{this.props.note.title}</h3>
