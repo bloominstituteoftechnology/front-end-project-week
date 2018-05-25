@@ -7,6 +7,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.3",
     "express": "^4.15.2",
+    "markdown-to-jsx": "^6.6.5",
     "react-sortable": "^2.0.0"
   },
   "devDependencies": {

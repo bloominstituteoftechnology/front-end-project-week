@@ -44,7 +44,7 @@ class Note extends Component {
               style={{ marginTop: "12px",  }}
             />Note Name
           </h3>
-          <p className="noteP">
+          <p className="noteP" style={{ textDecoration: `${this.state.completed}` }} >
             Basketball ipsum dolor sit amet free throw basketball basket bank
             shot, outlet power forward flop zone defense Duncan. Nowitzki James
             Duncan rip alley-oop three. Bryant swish power forward center post
@@ -60,7 +60,7 @@ class Note extends Component {
             alley-oop three. Bryant swish power forward center post Barkley key{" "}
           </p>
 
-          <p className="noteP">
+          <p className="noteP" style={{ textDecoration: `${this.state.completed}` }} >
             Basketball ipsum dolor sit amet free throw basketball basket bank
             shot, outlet power forward flop zone defense Duncan. Nowitzki James
             Duncan rip alley-oop three. Bryant swish power forward center post
