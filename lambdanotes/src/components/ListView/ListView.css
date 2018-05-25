@@ -1,7 +1,7 @@
 .searchContainer {
     display: flex;
     justify-content: flex-start;
-    margin: 0 26px;
+    margin: 0 0 0 26px;
     height: 100%;
     width: 100%;
 
@@ -49,6 +49,7 @@
     height: 793px;
     display: flex;
     flex-flow: row wrap;
+    align-content: flex-start;
     justify-content: space-around;
     overflow: scroll;
 }
@@ -61,7 +62,7 @@
 .entireNoteCardLink {
     width: 192px;
     height: 194px;
-    margin: 12px 8px;
+    margin: 12px 8px 16px;
 }
 
 .noteCardLink:hover {
