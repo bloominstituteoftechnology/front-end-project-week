@@ -73,3 +73,29 @@ justify-content: flex-end;
 .ink {
   text-decoration: none;
 }
+
+button {
+  float: right;
+  margin-left: 20px;
+
+}
+
+.view {
+  margin-top: 90px;
+}
+
+.pri {
+  background-color: #00cccc;
+}
+
+
+#btnone, #btntwo {
+  width: 50%;
+}
+
+.edit {
+  border-radius: 6px;
+  height: 37px;
+  width: 70px;
+  float: right;
+}

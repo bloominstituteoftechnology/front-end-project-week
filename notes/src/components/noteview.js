@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import deleteModal from './deletemodal';
 import DeleteModal from './deletemodal';
 
 
@@ -8,18 +7,14 @@ export default class NoteView extends Component {
     render() {
         return (
             <div>
-            <div>
-                    {/* <button to="/editnote" className="editLink text-white">Edit</button> */}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Edit
-                        </button>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                <div>
+                    <button type="button" id="dan" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                         Delete
                         </button>
-                    
+                    <Link className="button edit" to="/editnote">Edit</Link>
                 </div>
-                <div>
-                <h1>Note Name</h1>
+            <div>
+                <h1 className="view">Note Name</h1>
                 <p>إذ وشعار إحتار الإنزال كلّ. عرض ان تسمّى الطريق, ثم دار وقبل كردة مهمّات, فصل مع وزارة وأكثرها الإحتفاظ. على وعلى تحرّك بل, قد إعادة كنقطة الثقيل ذات, وبعد يعبأ مكثّفة الا إذ. عل مدن ليركز إختار العصبة, قد كما وبدون إستيلاء.
 
 وعُرفت الإثنان أي قبل, ما بحث الدمج وشعار. أم قام ويعزى مسؤولية الإتحاد, بالولايات الاندونيسية بها عل. الله دأبوا اتّجة تم شيء. بـ بين وكسبت وقوعها، بالتوقيع, في عرض فقامت الوراء الإمتعاض. ذلك ٣٠ الجو الأوضاع, تم ذات أسيا تشكيل الشتاء،. أخذ لغزو المارق ثم.

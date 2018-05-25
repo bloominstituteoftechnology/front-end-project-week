@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 
 export default class Notes extends Component {
+
+    saveNote = () => {
+        const addToSaved = this.props.addToSaved;
+        addToSaved(this.state.notes);
+    };
+
     render() {
         return (
             <div className="App-noteCards">
