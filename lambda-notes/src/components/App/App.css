@@ -104,6 +104,8 @@ Sidebar background: #D8D8D8
 .NotesList-container {
 	display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+
 
 }
 
@@ -116,14 +118,14 @@ Sidebar background: #D8D8D8
   color: #4A4A4A;
   background: white;
   margin-bottom: 20px;
-  margin-left: 20px;
   padding: 20px;
   border: 1px solid #979797;
-  width: 27%;
+  /* width: 27%; */
+  flex: 0 1 27%;
 }
-
+ 
 .NoteCard-list .scroll {
-  height: 204px;
+  height: 200px;
   overflow: hidden;
 }
 
@@ -192,4 +194,17 @@ Sidebar background: #D8D8D8
   text-decoration: underline;
   cursor: pointer;
   margin: 10px 10px;
+}
+
+
+@media screen and (max-width: 60em) {
+  .NoteCard-list {
+    flex: 0 1 40%;
+  }
+}
+
+@media screen and (max-width: 45em) {
+  .NoteCard-list {
+    flex: 0 1 100%;
+  }
 }
