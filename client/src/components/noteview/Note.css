@@ -48,6 +48,55 @@
   font-size: 1.5rem;
 }
 
+.note-action-wrapper__delete-modal-wrapper {
+  background: #fff;
+  border: 2px solid #979797;
+  padding: 1rem;
+  position: absolute;
+  top: 360px;
+  right: 30px;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: transform .15s;
+}
+
+.note-action-wrapper__delete-modal-wrapper--show {
+  transform: scale(1);
+}
+
+.delete-modal-wrapper__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-wrapper__delete-note-link {
+  flex-grow: 1;
+  max-width: 45%;
+}
+
+.delete-note-link__button {
+  background: #EC2845;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.button-wrapper__no-button {
+  background: #2BC1C4;
+  border: none;
+  color: #fff;
+  flex-grow: 1;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-width: 45%;
+}
+
 .note-wrapper__note-content-wrapper {
   font-size: 2rem;
   padding: 0 3rem;
@@ -59,4 +108,10 @@
 
 .note-content-wrapper__p {
   font-size: 1.5rem;
+}
+
+@media (min-width: 890px) {
+  .note-action-wrapper__delete-modal-wrapper {
+    top: 60px;
+  }
 }
