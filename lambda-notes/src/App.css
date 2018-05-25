@@ -1,11 +1,16 @@
-.App {
-  text-align: center;  
-  background-color: #F3F3F3;
-  font: 'Raleway';  
-  width: 100%; 
-  height: 100%;
-  border: 1px solid #F3F3F3; 
-}                                                                                                 
-.App-intro {
-  font-size: large;
+.App{
+  display: flex;
+  max-width: 2000px;
+  width: 100%;
+  background-color: #F3F3F3; 
+  height: 1000px; 
+  border: 1px solid gray;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h4{
+  display: flex;
+  justify-content: end;
+  padding-top:30px;
 }
