@@ -10,17 +10,16 @@ class NewNote extends Component {
             title: '',
             content: '',
             submitted: false,
+            edit: false,
             id: ''
         }
-    }
-     
+    }   
 
     handleChange = (e) => {
-        this.setState({[e.target.name]: e.target.value})
-       
+        this.setState({[e.target.name]: e.target.value})       
     } 
-
     submitNote = (event) => {
+        console.log(this.props);
         event.preventDefault();
         const newNote = {
             title: this.state.title,
@@ -34,7 +33,6 @@ class NewNote extends Component {
             submitted: true
         });
     }
-
     render() {
         
         return (

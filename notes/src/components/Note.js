@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader, Card, CardBody, CardTitle, CardText } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import NewNote from './NewNote';
 import NoteButton from './NoteButton';
+
 
 class Note extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class Note extends Component {
             note: null,
             title: '',
             content: '',
+            id: '',
             edit: false,           
             modal: false,
             delete: false
@@ -18,7 +20,21 @@ class Note extends Component {
     } 
 
     editNote = () => {
-        this.setState({edit: true})
+       const element = this.props.state.notes.map((note) => {
+           console.log("Element", element);
+            if(this.props.match.params.id === note.id.toString()) { 
+               return note;
+
+              }
+
+            })
+             return <Redirect to={`/edit/${element[0].id}`}  />         
+            // this.setState({
+            //     title: element[0].title,
+            //     content: element[0].content,
+            //     id: element[0].id,
+            //     edit: true
+            // })
     }
 
     toggleModal = () => {
@@ -33,43 +49,42 @@ class Note extends Component {
             }            
         }) 
         this.setState({delete: true});      
-      }
+      }       
+
     render() { 
+        console.log("Notejs State", this.state.id);
         return ( 
             this.state.delete ? (
            <Redirect to="/" />
-         ) : ( this.state.edit ? (
-                    <NewNote 
-                        edit={true} 
-                        note={this.state.note} 
-                        title={this.state.title}
-                        content={this.state.content}/>
-                ) : (
-                    <Container>
-                        <div className="edit-delete">
-                            <a onClick={this.editNote}>edit</a>
-                            <a onClick={this.toggleModal}>delete</a>
-                            <Modal isOpen={this.state.modal}
-                                toggle={this.toggleModal}
-                                size="lg"
-                                className="delete-modal">
-                                <ModalBody>
-                                    <p className="confirm">Are you sure you want to delete this?</p>
-                                    <div className="btn-container">
-                                        <div 
-                                            onClick={this.deleteNote} 
-                                            className="btn-holder">
-                                            <NoteButton color="danger" value="Delete"/>
-                                        </div>
-                                        <div 
-                                            onClick={this.toggleModal} 
-                                            className="btn-holder">
-                                            <NoteButton color="main" value="No"/>
-                                        </div>
-                                    </div>
-                                </ModalBody>
-                            </Modal>                            
-                        </div>
+         ) :  (                            
+              
+                <Container>                        
+                         <div className="edit-delete"> </div>
+                             <div className="edit-delete">
+                             <Link to={`/edit/${this.props.match.params.id}`}>edit </Link>                           
+                             <a onClick={this.toggleModal}>delete</a>
+                             <Modal isOpen={this.state.modal}
+                                 toggle={this.toggleModal}
+                                 size="lg"
+                                 className="delete-modal">
+                                 <ModalBody>
+                                     <p className="confirm">Are you sure you want to delete this?</p>
+                                     <div className="btn-container">
+                                         <div 
+                                             onClick={this.deleteNote} 
+                                             className="btn-holder">
+                                             <NoteButton color="danger" value="Delete"/>
+                                         </div>
+                                         <div 
+                                             onClick={this.toggleModal} 
+                                             className="btn-holder">
+                                             <NoteButton color="main" value="No"/>
+                                         </div>
+                                     </div>
+                                 </ModalBody>
+                             </Modal>                            
+                         </div>                       
+                       
                          {this.props.state.notes.map((note) => {                            
                             if(this.props.match.params.id === note.id.toString()) {                           
                            return (  <div key={note.id}>                                
@@ -81,7 +96,7 @@ class Note extends Component {
                                                <CardText>
                                             {note.content}
                                         </CardText>                                    
-                                    </CardBody>
+                                     </CardBody>
                                     </Card>                                
                                 </div>)
                                }           
@@ -89,7 +104,7 @@ class Note extends Component {
                     </Container>
                 )
             )
-        )
+        
     }
 }
  
