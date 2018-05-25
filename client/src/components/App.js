@@ -81,8 +81,8 @@ class App extends Component {
   *****************************************/
   // <NoteView />
   returnNoteView = props => {
-    const { state: { noteList }, setSelectedNote } = this;
-    return <NoteView { ...props } noteList={ this.handleSearchNotes() } setSelectedNote={ setSelectedNote }/>;
+    const { handleSearchNotes, setSelectedNote } = this;
+    return <NoteView { ...props } noteList={ handleSearchNotes() } setSelectedNote={ setSelectedNote }/>;
   }
   
   // <Note />
