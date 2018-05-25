@@ -11,7 +11,7 @@
 
 .heading {
   font-family: 'Roboto', sans-serif;
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1.7em;
 }
 
@@ -23,6 +23,9 @@ h3.heading {
   color: black;
 }
 
+.note-link {
+  color: rgb(82, 80, 80);
+}
 .nav-heading {
   font-size: 2.8em;
   line-height: 0.9em;
@@ -67,6 +70,11 @@ h3.heading {
   border: 1px solid #979797;
   border-radius: 0px;
   font-size: 1.3em;
+
+}
+
+.btn.main:hover {
+  background: darkcyan
 }
 
 .btn.danger {
@@ -82,7 +90,7 @@ h3.heading {
   max-width: 300px;
   height: 300px;
   border: 1px solid #979797 !important;
-  border-radius: 0px !important;
+  border-radius: 5px !important;
 }
 
 /* .note-thumbnail:before {
@@ -91,12 +99,23 @@ h3.heading {
   padding-top: 10%;
 } */
 
+.edit-delete {
+  display: flex;
+  justify-content: flex-end; 
+  margin: 20px 28px 0 0;
+}
+
+.edit {
+  margin-right: 20px;
+  color: rgb(104, 90, 90);
+}
 .note-title {
   width: 95%;
   padding-bottom: 5px;
   border-bottom: 1px solid #979797;
   font-size: 1.4em;
 }
+
 
 .notes-section {
   padding: 30px 30px;
@@ -126,3 +145,18 @@ h3.heading {
   font-size: 1em !important;
   border-color: #979797 !important;
 }
+   @media(max-width: 800px) {
+   
+    .note {
+      display: flex;
+      flex-wrap: wrap;
+    }
+ 
+
+  .note-title {
+   width: 95%;
+   padding-bottom: 5px;
+   border-bottom: 1px solid #979797;
+   font-size: 1.0em;
+      }
+ }

@@ -8,7 +8,7 @@ const NoteThumbnail = (props) => {
         <Col sm="4">
             <Card className="note-thumbnail">
                 <CardBody>
-                    <CardTitle className="note-title heading"> <Link to={`note/${props.note.id}`}> {props.note.title} </Link></CardTitle>
+                    <CardTitle className="note-title heading"> <Link className="note-link" to={`note/${props.note.id}`}> {props.note.title} </Link></CardTitle>
                     <CardText>{props.note.content}</CardText>
                 </CardBody>
             </Card>

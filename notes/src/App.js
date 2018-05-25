@@ -14,27 +14,27 @@ class App extends Component {
     this.state={
         notes: [{
           id: 0,
-          title: 'Note Title',
+          title: 'Whatcha Title',
           content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
         }, {
           id: 1,
-          title: 'Note Title',
+          title: 'Second Title',
           content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
         }, {
           id: 2,
-          title: 'Note Title',
+          title: 'Third Title',
           content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
        }, {
          id: 3,
-          title: 'Note Title',
+          title: 'Me Title',
           content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
         }, {
           id: 4,
-          title: 'Note Title',
+          title: 'You Title',
           content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
         }, {
           id: 5,
-          title: 'Note Title',
+          title: 'Hehe Title',
           content:'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
         }]
       }

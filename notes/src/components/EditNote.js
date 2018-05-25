@@ -43,7 +43,6 @@ class EditNote extends Component {
               }            
          }
      })
-
      console.log("MY object", myobj )
      this.props.edit(myobj);
         this.setState({edit: true})

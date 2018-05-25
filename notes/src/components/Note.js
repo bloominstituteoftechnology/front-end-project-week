@@ -24,17 +24,10 @@ class Note extends Component {
            console.log("Element", element);
             if(this.props.match.params.id === note.id.toString()) { 
                return note;
-
               }
-
             })
              return <Redirect to={`/edit/${element[0].id}`}  />         
-            // this.setState({
-            //     title: element[0].title,
-            //     content: element[0].content,
-            //     id: element[0].id,
-            //     edit: true
-            // })
+           
     }
 
     toggleModal = () => {
@@ -59,10 +52,11 @@ class Note extends Component {
          ) :  (                            
               
                 <Container>                        
-                         <div className="edit-delete"> </div>
+                         <div className="edit-delete">
                              <div className="edit-delete">
-                             <Link to={`/edit/${this.props.match.params.id}`}>edit </Link>                           
-                             <a onClick={this.toggleModal}>delete</a>
+                             <Link  className="edit" to={`/edit/${this.props.match.params.id}`}>edit </Link>                           
+                             <a className="delete" onClick={this.toggleModal}>delete</a>
+                             </div>
                              <Modal isOpen={this.state.modal}
                                  toggle={this.toggleModal}
                                  size="lg"
