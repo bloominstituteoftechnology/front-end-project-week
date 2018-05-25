@@ -6,74 +6,89 @@
 
 
 .Note1{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
-justify-content: flex-start;
-margin: 10px;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
+margin-left: 160px;;
 }
 
+
 .Note2{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
 justify-content: flex-center;
-margin: 10px;
+
 }
 
 .Note3{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
 justify-content: flex-end;
-margin: 10px;
 }
 .Note4{
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
-justify-content: flex-start;
-margin: 10px;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
+margin-left: 160px;
 }
 
 .Note5{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
 justify-content: flex-center;
-margin: 10px;
+
 }
 .Note6{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
 justify-content: flex-end;
-margin: 10px;
 }
 
 .Note7{
-border: 5px;
+background-color: white;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
+margin-left: 160px;
 }
 .Note8{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
 justify-content: flex-center;
-margin: 10px;
 }
 
 .Note9{
+background-color: #f0f7fb;
 background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
+width: 25%;
+float: left;
+padding: 15px;
+border: 1px solid black;
 justify-content: flex-end;
-margin: 10px;
 }

@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { Alert } from 'reactstrap';
 
 
 class NoteView extends Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
 
+            
         };
+       
     }
     render() {
         return (
@@ -18,7 +22,7 @@ class NoteView extends Component {
             
                 <div className="EditDelete-TopNavRight">
                     <Button color="link">edit</Button>
-                    <Button color="link">delete</Button>
+                    <Button className='navLinkDelete' color="link" onClick={this.toggle}>{this.props.buttonLabel}delete</Button>
                 </div>
 
 
