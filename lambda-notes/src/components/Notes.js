@@ -25,7 +25,7 @@ class Notes extends Component {
                         <h1 className="Notes-bar-item1" >Lambda</h1>
                         <h1 className="Notes-bar-item2" >Notes</h1>
 
-                        <a href="/" >
+                        <a href="/notes" >
                             <button type="button" className="Notes-button-one">
                                 View Your Notes
             </button>

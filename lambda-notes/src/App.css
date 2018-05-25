@@ -68,7 +68,7 @@
   background-color: #00B2B2;
   border: none;
   color: white;
-  padding: 15px 20px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -78,9 +78,8 @@
 
 .Notes-button-two {
   background-color: #00B2B2;
-  border: none;
   color: white;
-  padding: 15px 20px;
+  padding: 10px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -126,7 +125,7 @@ textarea {
   font: Raleway Medium;
   background-color: #00B2B2;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

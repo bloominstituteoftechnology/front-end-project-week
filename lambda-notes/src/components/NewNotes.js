@@ -24,12 +24,12 @@ class NewNotes extends Component {
                         <h1 className="Notes-bar-item1" > Lambda </h1>
                         <h1 className="Notes-bar-item2" > Notes </h1>
 
-                        <a href="/" >
+                        <a href="/notes" >
                             <button type="button" className="Notes-button-one">
                                 View Your Notes
             </button>
                 </a>
-                <a href="/newnotes" >
+                <a href="/noteview" >
                 <button type="button" className="Notes-button-two">
                     + Create New Note
             </button>

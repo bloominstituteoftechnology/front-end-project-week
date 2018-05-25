@@ -1,4 +1,6 @@
-* {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
@@ -56,12 +58,7 @@ margin: 10px;
 }
 
 .Note7{
-background-color: white;
-height: 100px;
-width: 100px;
-border: 1 px lightgrey;
-justify-content: flex-start;
-margin: 10px;
+border: 5px;
 }
 .Note8{
 background-color: white;
