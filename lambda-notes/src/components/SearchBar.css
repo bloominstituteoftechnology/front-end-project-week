@@ -4,6 +4,7 @@
 
 .search-display {
     background: white;
-    width: 100%;
+    max-width: 100%;
     color: #2BC1C4;
+    margin: 20px 6px 0 1px;
 }
