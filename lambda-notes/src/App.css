@@ -34,48 +34,96 @@
 }
 
 .Notes-sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
   background-color: #D8D8D8;
   border: 2px solid #979797;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
 .Notes-bar-item1{
-  margin-top: 15px;
-  margin-left: 20px;
+  line-height: 15%;
+  margin-left: 5.0%;
   font: Roboto Bold;
   font-weight: bold;
 }
   
 .Notes-bar-item2{
-  line-height: 20%;
-  margin-left: 7.5%;
+  line-height: 15%;
+  margin-left: 5.0%;
   font: Roboto Bold;
   font-weight: bold;
 }
 
 
-.Notes-sidebar-Notesbutton1 {
-  background-color: #FFFFFF;
+ .Notes-button-one {
+  background-color: #00B2B2;
+  border: none;
   color: white;
-  padding: 14px 25px;
+  padding: 15px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  font-size: 10px;
+  margin: 10px;
+  
+  }
+
+ .Notes-button-two {
+background-color: #00B2B2;
+border: none;
+color: white;
+padding: 15px 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 10px;
+margin: 10px;
 }
 
-.Notes-sidebar-Notesbutton2 {
-  background-color: #FFFFFF;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.NewNote{
+   margin-left: 160px;
+   font-size: 10px;
+   padding: 0px 10px
+}
+
+input[type=text],
+select {
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 0;
   display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
 }
 
 .SaveButton {
   font: Raleway Medium;
-  background-color: #FFFFFF;
+  background-color: #00B2B2;
   color: white;
-  padding: 14px 25px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: block;
@@ -83,9 +131,9 @@
 
 .UpdateButton {
   font: Raleway Medium;
-  background-color: #FFFFFF;
+  background-color: #00B2B2;
   color: white;
-  padding: 14px 25px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: block;

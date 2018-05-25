@@ -9,7 +9,7 @@ import NewNotes from './components/NewNotes';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-native';
 
 class App extends Component {
   constructor(props) { 
@@ -22,27 +22,39 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-{/*       
-      <div>
-        <h2>Sticky Notes App</h2>
-      </div>  */}
+
       
        <div className="Notes-sidebar">
           <div className="SideBarTitle" >
             <h1 className="Notes-bar-item1" > Lambda </h1>
             <h1 className="Notes-bar-item2" > Notes </h1>
+
+            <a href="/" >
+              <button type="button" className="Notes-button-one">
+                View Your Notes
+            </button>
+            </a>
+            <a href="/newnotes" >
+              <button type="button" className="Notes-button-two">
+                + Create New Note
+            </button>
+            </a>
           </div>
         </div>
-        <Link to="/" >
-          <button type="button" className="Notesbutton1">
-            View Your Notes
-            </button>
-        </Link >
-        <Link to="/newnotes" >
-          <button type="button" className="Notesbutton2">
-            + Create New Note
-            </button>
-        </Link >
+        <div className="NewNote">
+          <h2>Create New Note:</h2>
+          <div className= "NoteTitle">
+            <form action="/action_page.php">
+              <label for="ntitle"></label>
+              <input type="text" id="ntitle" name="notetitle" placeholder="Note Title"/>
+             </form>       
+          </div>  
+          <form>
+            <textarea> Note Content </textarea>
+          </form>  
+        
+        </div>
+          
         </div>
       
 
