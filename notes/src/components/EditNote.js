@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import './EditNote.css';
 
 class EditNote extends Component {
@@ -9,20 +8,20 @@ class EditNote extends Component {
         this.state = { 
             title: '',
             textBody: ''
-         }
+        }
     }
 
     handleInputChange = e => {
         this.setState({ [e.target.name]: e.target.value });
-      };
+    };
 
     editNote = (_id) => {
-        console.log("UPDATE THIS NOTE: ",_id)
         const editedNote={ _id, title: this.state.title, textBody: this.state.textBody }
         this.props.updateNote(editedNote)
         this.setState({ title:'', textBody:'' })
         this.props.history.push('/')
     }
+
     render() { 
         console.log("Edit Note Props:", this.props);
         return (
@@ -51,15 +50,13 @@ class EditNote extends Component {
                             />
                         </div>
                         <span>
-                            {/* <Link to="/"> */}
-                                <button 
-                                    className="edit-button"
-                                    type="submit"
-                                    onClick={()=> this.editNote(this.props.match.params.id)}
-                                >
-                                Update
-                                </button>
-                            {/* </Link> */}
+                            <button 
+                                className="edit-button"
+                                type="submit"
+                                onClick={()=> this.editNote(this.props.match.params.id)}
+                            >
+                            Update
+                            </button>
                         </span>
                     </Col>
                 </Row>

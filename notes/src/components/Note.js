@@ -10,8 +10,6 @@ class Note extends Component {
         this.state = {  }
     }
     render() { 
-        console.log("Note Props:", this.props.match.params.id)
-        console.log(this.props)
         const whatever = this.props.list.filter(note => {
            return note._id === this.props.match.params.id;
         })
@@ -30,7 +28,7 @@ class Note extends Component {
                     </div>
                     <h1>{note.title}</h1>
                     <p className="single-note-body">{note.textBody}</p>
-                </Col>)
+                        </Col>)
                         :
                         ('')
                     }

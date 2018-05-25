@@ -3,7 +3,7 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import { List, Note, NewNote, EditNote, DeleteNote } from './components';
+import { List, Note, NewNote, EditNote } from './components';
 
 
 class App extends Component {

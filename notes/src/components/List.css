@@ -5,12 +5,19 @@
 }
 
 .note-card {
-    margin-bottom: 2rem;
+    margin: 2rem;
     text-align: left;
+    background-color: white;
+    color: black !important;
 }
 
 .note-title {
     border-bottom: 1px solid gray;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
+    display: block;
+    overflow: hidden;
 }
 
 .card-body {
@@ -18,5 +25,5 @@
     text-overflow: ellipsis;
     width: 200px;
     display: block;
-    overflow: hidden
+    overflow: hidden;
 }

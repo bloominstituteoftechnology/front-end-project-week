@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import './NewNote.css';
 
 class Newnote extends Component {
@@ -18,11 +17,8 @@ class Newnote extends Component {
     
     addNote = () => {
         const noteInfo={ title: this.state.title, textBody: this.state.textBody }
-        console.log(noteInfo);
         this.props.postNote(noteInfo);
         this.setState({ title: '', textBody: '' })
-        //redirect to home
-        console.log(this.props)
         this.props.history.push('/')
     }
 
@@ -51,7 +47,6 @@ class Newnote extends Component {
                             />
                         </div>
                         <span>
-                            {/* <Link to="/"> */}
                                 <button 
                                     className="save-button"
                                     type="submit"
@@ -59,7 +54,6 @@ class Newnote extends Component {
                                 >
                                 Save
                                 </button>
-                            {/* </Link> */}
                         </span>
                     </Col>
                 </Row>
