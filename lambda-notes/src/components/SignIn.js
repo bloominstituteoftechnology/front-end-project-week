@@ -17,27 +17,29 @@ class SignIn extends Component {
 
     render() { 
         return ( 
-            <form className="login-form">
-                <h3>Sign In</h3>
-                <input
-                    type="text"
-                    onChange={this.handleInput}
-                    name="username"
-                    value={this.state.username}
-                    placeholder="Username"
-                />
-                <input
-                    type="text"
-                    onChange={this.handleInput}
-                    name="password"
-                    value={this.state.password}
-                    placeholder="Password"
-                />
-                <Link to="/">
-                    <button>Sign In</button>
-                </Link>
-            </form>
-         )
+            <div className="login-container">
+                <form className="login-form">
+                    <h3>Sign In</h3>
+                    <input
+                        type="text"
+                        onChange={this.handleInput}
+                        name="username"
+                        value={this.state.username}
+                        placeholder="Username"
+                    />
+                    <input
+                        type="text"
+                        onChange={this.handleInput}
+                        name="password"
+                        value={this.state.password}
+                        placeholder="Password"
+                    />
+                    <Link to="/">
+                        <button>Sign In</button>
+                    </Link>
+                </form>
+            </div>
+        )
     }
 }
  

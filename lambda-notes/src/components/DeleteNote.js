@@ -33,8 +33,10 @@ class DeleteNote extends Component {
                     style={{
                         backgroundColor: 'transparent', 
                         border: 'none', 
-                        color:  '#4A4A4A', 
-                        padding: '5px' 
+                        color:  '#2BC1C4', 
+                        padding: '5px',
+                        margin: '5px',
+                        textAlign: 'center' 
                     }} 
                     onClick={this.toggle}>
                     Delete

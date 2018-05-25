@@ -7,14 +7,17 @@
 }
 
 .download-header{
-    color: #4A4A4A;
+    /* color: #4A4A4A; */
+    color: hotpink;
     font-weight: bold;
+    box-shadow: -3px -3px 10px #2BC1C4, 3px 3px 10px #2BC1C4;
+    padding: 10px;
 }
 
 .download {
     color: #FFF;
     background-color: #2BC1C4;
-    margin: 10px 15px;
+    margin: 30px 15px;
     padding: 10px;
     font-weight: 700;
 }

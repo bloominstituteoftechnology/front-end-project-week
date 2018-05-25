@@ -23,3 +23,19 @@
     font-weight: 700;
     width: 300px;
 }
+
+.new-note-container{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-note-container h2{
+    padding: 10px 20px;
+    color: hotpink;
+    box-shadow: -5px -5px 10px #2BC1C4, 5px 5px 10px #2BC1C4;
+    border-radius: 10%;
+    text-align: center;
+    width: 400px;
+}

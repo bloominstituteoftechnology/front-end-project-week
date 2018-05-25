@@ -2,6 +2,15 @@
     width: 100%;
 }
 
+.main-header{
+    color: hotpink;
+    box-shadow: -5px -5px 10px #2BC1C4, 5px 5px 10px #2BC1C4;
+    border-radius: 100%;
+    padding: 10px;
+    text-align: center;
+    width: 250px;
+}
+
 .list-header{
     display: flex;
     justify-content: flex-end;
@@ -37,6 +46,12 @@
     background-color: white;
     overflow: hidden;
     margin-top: 20px;
+    box-shadow: -3px -3px 10px #2BC1C4, 3px 3px 10px #2BC1C4;
+    border-radius: 5%;
+}
+
+.note-card:hover{
+    background-color: #f1f1f1;
 }
 
 .note-card h2{
@@ -56,3 +71,14 @@
     font-weight: 700;
 }
 
+button{
+    box-shadow: 5px;
+}
+
+button:hover {
+    background-color: rgb(31, 148, 150);
+}
+
+.search-button:hover{
+    background-color: rgb(31, 148, 150);
+}

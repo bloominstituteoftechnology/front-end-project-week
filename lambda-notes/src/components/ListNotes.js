@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 import './ListNotes.css';
-import { connect } from 'react-redux';
-import { fetchNotes } from '../actions/index';
+// import { connect } from 'react-redux';
+// import { fetchNotes } from '../actions/index';
 
 export default class ListNotes extends Component {
     constructor(props) {
