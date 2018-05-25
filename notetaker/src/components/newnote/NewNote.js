@@ -45,10 +45,10 @@ export default class NewNote extends Component {
                 <Col xs="3" className="sidebar">
                     <h1 className="mt-3 text-left heading">Lambda Notes</h1>
                     <Link to="/">
-                        <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">View Your Notes</button>
+                        <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">View Your Notes</button>
                     </Link>
                     <Link to="/">
-                        <button type="button" class="mt-4 btn btn-lg btn-block rounded-0">+ Create New Note</button>
+                        <button type="button" className="mt-4 btn btn-lg btn-block rounded-0">+ Create New Note</button>
                     </Link>
                 </Col>
                 <Col xs="9" className="main">
@@ -75,7 +75,7 @@ export default class NewNote extends Component {
                         <Col xs="4" className="ml-3">
                             <button
                             type="submit"
-                            class="button mt-4 btn btn-lg btn-block rounded-0" 
+                            className="button mt-4 btn btn-lg btn-block rounded-0" 
                             onClick={this.submitHandler}> 
                             Save</button>
                         </Col>

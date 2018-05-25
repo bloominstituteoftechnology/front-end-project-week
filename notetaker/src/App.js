@@ -12,13 +12,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" 
-          render={props => <Dashboard {...props} />}
-        />
-        <Route
-          path="/create"
-          render={props => <NewNote {...props} />}
-        />
+        <Route exact path="/" component={ Dashboard }/>
+        <Route path="/create" component={ NewNote }/>
         <Route path="/note/:id" component={ NoteView }/>
         <Route path="/edit/:id" component={ EditNote }/>
         <Route path="/delete" component={ DeleteNote }/>
