@@ -1,10 +1,5 @@
 {
-  "rules": {
-    "posts": {
-       "$uid": {
-         ".read": "$uid === auth.uid",
-         ".write": "$uid === auth.uid"
-       }
-     }
-   }
+  "projects": {
+    "default": "lambdanotes-724b7"
+  }
 }
