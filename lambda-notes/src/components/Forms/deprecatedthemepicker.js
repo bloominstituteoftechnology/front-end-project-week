@@ -21,12 +21,20 @@ const buttonMod = {
 }
 
 const ThemePicker = (props) => {
+  const uid = this.props.user.uid;
   return(
     <div style={styles} >
     <h4>What's your style?</h4>
-      <Button style={buttonMod} onClick={() => props.changeTheme("default")}>Default</Button>
-      <Button style={buttonMod} onClick={() => props.changeTheme("dark")}>Dark</Button>
+      <Button style={buttonMod} onClick={() => props.changeTheme(uid, "default")}>Default</Button>
+      <Button style={buttonMod} onClick={() => props.changeTheme(uid, "dark")}>Dark</Button>
     </div>
   );
 }
-export default connect(null, { changeTheme })(ThemePicker);
+
+const mapStateToProps = state => {
+  return {
+    user: state.userReducer.user,
+  }
+}
+
+export default connect(mapStateToProps, { changeTheme })(ThemePicker);

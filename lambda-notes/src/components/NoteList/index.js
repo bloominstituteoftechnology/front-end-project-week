@@ -8,7 +8,7 @@ import { Card, CardImg, CardText, CardBody,
 import './NoteList.css';
 // Components
 import connect from 'react-redux/lib/connect/connect';
-import { fetchNotes } from '../Actions';
+import { fetchNotes, fetchTheme } from '../Actions';
 import { Tag } from '../Forms/ViewNote';
 
 class NoteList extends Component {
@@ -16,6 +16,10 @@ class NoteList extends Component {
   componentDidMount() {
     console.log("Does this.props.user exist?",this.props.user ? "YES":"NO");
     if (this.props.user) this.props.fetchNotes(this.props.user.uid);
+    if (this.props.user) {
+        console.log("It's happening at NotesList");
+        this.props.fetchTheme(this.props.user.uid);
+    }
   }
 
   render() {
@@ -61,7 +65,13 @@ class NoteList extends Component {
 }
 
 const NoteCard = (props) => {
-  const { id, title, text } = props;
+  const styl = {
+    margin: `0 0.25rem 1rem 0.25rem`,
+    height: `16px`,
+    fontSize: `10px`,
+  }
+
+  const { id, title, text, tags } = props;
     const truncTitle = title.length > 20 ? title.substring(0,17) + '...' : title;
     const truncText = text.length > 82 ? text.substring(0,72) + '...' : text;
   return (
@@ -70,7 +80,9 @@ const NoteCard = (props) => {
         <Card className="note-card">
           <CardBody>
             <h3 style={{color:'var(--color-bg--button-main)'}}>{truncTitle}</h3>
-            <hr style={{borderColor:'var(--color--main)'}} />
+            <hr style={{borderColor:'var(--color--main)',margin:'0'}} />
+            { tags.map((tag, i) => <Link to={`/notes/tag/${tag}`}><Tag key={i} style={styl}>{tag}</Tag></Link>) }
+            <br />
             <CardText>{truncText}</CardText>
           </CardBody>
         </Card>
@@ -100,4 +112,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { fetchNotes })(NoteList));
+export default withRouter(connect(mapStateToProps, { fetchNotes, fetchTheme })(NoteList));

@@ -26,7 +26,7 @@ class InputForm extends Component {
     // If there's no notes, set "go" to "new". This wil trigger the redirect in `render`, and get you outta here.
     // This might happen when you refresh at the edit page, and the data has not yet been retrieved from Firebase.
     // Without the redirect, the lines below this conditional will throw an error.
-    if (this.props.notes.length <= 0) {
+    if (this.props.notes.length <= 0 && this.props.match.path === "/notes/edit/:id") {
       this.setState({ go: "new" });
       return;
     }
