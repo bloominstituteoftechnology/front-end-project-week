@@ -116,11 +116,3 @@ export const signOut = () => dispatch => {
             console.log(error);
         });
 };
-
-export const sort = () => {
-    return (dispatch) => {
-        dispatch({
-            type: SORT
-        })
-    }
-}
