@@ -1,17 +1,17 @@
 import React from 'react';
-import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { Card, CardBody, CardText } from 'reactstrap';
 import { Container, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-const Note = props => {
+const NoteCard = props => {
     return (
-        <Card className='note'>
+        <Card className='notecard'>
             <CardBody>
-                <Link to={`/note/${props.note.id}`}>
+                <Link to={`/notecard/${props.note.id}`}>
                     <CardTitle>{props.note.title}</CardTitle>
                 </Link>
                 <hr />
-                <CardText>{props.note.text}</CardText>
+                <CardText>{props.notecard.text}</CardText>
             </CardBody>
         </Card>
     )
@@ -19,3 +19,4 @@ const Note = props => {
 
 
 export default Note;
+

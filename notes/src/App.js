@@ -1,24 +1,54 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Route } from 'react-router-dom';
 
 import './App.css';
-import NoteList from './components/NoteList';
+import staticData from './staticData';
+import {
+    
+     Row, Col, Container
+} from 'reactstrap';
+import NotesList from './components/NotesList';
+import Nav from './components/Nav';
+import AddNote from './components/AddNote';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      notes: []
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      notes: staticData
+    })
+  }
+
   render() {
+
+
     return (
       <div className="App">
-        <Container>
+        <h5 className="App-header">Your Notes:</h5>
+        <Container fluid>
           <Row>
-            <div className='nav-container col-3'>
-              <h3>Lambda Notes</h3>
-              <Button className='nav-btn' block>View Your Notes</Button>
-              <Button className='nav-btn' block>Create New Note</Button>
-            </div>
-            <div className='note-container col-9'>
-              <NoteList />
-            </div>
+            <Col sm="3" >
+              
+             <Route path="/" component={Nav} />  
+          
+            </Col>
+            {this.state.notes.map((note, index) => {
+              return (
+                <Col sm="3" >
+                  <NotesList key={index} note={note} />
+                </Col>
+              )
+            })}
+
           </Row>
+          {/* passing props to add note */}
+          < AddNote notes={this.state.notes}/> 
         </Container>
       </div>
     );
@@ -26,5 +56,3 @@ class App extends Component {
 }
 
 export default App;
-
-
