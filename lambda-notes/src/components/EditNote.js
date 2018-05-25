@@ -33,7 +33,7 @@ class EditNote extends Component {
           </div>
           <div className="form-group">
             <input
-              className="form-title"
+              className="form-title form-control"
               placeholder="Note Title"
               name="title"
               type="text"
