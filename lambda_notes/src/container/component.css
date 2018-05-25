@@ -50,3 +50,11 @@
     display: flex;
     border: 1px solid black;
 }
+
+.note-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+
+}
