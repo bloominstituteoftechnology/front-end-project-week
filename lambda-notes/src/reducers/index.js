@@ -1,9 +1,6 @@
 import { ADD_NOTE, EDIT_NOTE, REMOVE_NOTE } from '../actions';
 import { v4 } from 'node-uuid';
 
-
-// { noteText: 'Stuff', edited: false}
-
 let initialState = [
     {
         title: "Hipster Ipsum",
@@ -51,6 +48,7 @@ let initialState = [
         id: v4()
     }
 ]
+
 
 const saveData = (array) => {
     return localStorage.setItem('array', JSON.stringify(array));
