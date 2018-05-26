@@ -74,9 +74,7 @@ justify-content: flex-end;
 }
 
 button {
-  /* float: right; */
   margin-left: 20px;
-
 }
 
 .view {
@@ -96,7 +94,6 @@ button {
   border-radius: 6px;
   height: 37px;
   width: 70px;
-  /* float: right; */
   box-shadow: 1px 1px 10px black;
 }
 

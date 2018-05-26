@@ -9,9 +9,12 @@ export default class NoteView extends Component {
           <div className='mainNoteWrapper'>
                 <div className='EditDel_Wrap'>
               <Link className="btn btn-primary edit" to="/editnote">Edit</Link>
-                    <button type="button " id="dan" className="btn btn-danger edit" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" className="btn btn-danger edit" data-toggle="modal" data-target="#exampleModalCenter">
                         Delete
-                    </button>
+                </button>
+                    {/* <button type="button " id="dan" className="btn btn-danger edit" data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button> */}
                     
                 </div>
                   <div >
