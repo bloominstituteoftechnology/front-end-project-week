@@ -7,7 +7,11 @@
    margin-bottom: 29px; 
    padding: 11px 20px 34px 20px;
    font-family: 'Raleway';
-   
+   border-radius: 5px;
+}
+
+.note:hover {
+    box-shadow: 3px 3px 3px 3px gray;
 }
 
 .note-title {
