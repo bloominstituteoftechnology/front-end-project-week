@@ -39,7 +39,9 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 * [ ] Fill in the `To Do` list with the MVP features listed below
 * [ ] Fill in the `backlog` list with all the extra features listed below
 * [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
-* [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+* [X] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
+
+****TRELLO LINK <!-- https://trello.com/b/rYk7Vrfe/lambda-notes-lavell-burton --> ******
 
 ## MVP Features:
 

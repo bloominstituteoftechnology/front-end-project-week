@@ -1,0 +1,57 @@
+.App {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.App-sideBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 240px;
+  width: 20vw;
+  height: 100vh;
+  padding: 1rem;
+  background-color: rgba(92, 92, 92, 0.514);
+  border: 1px solid white;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-width: 320px;
+  width: 100%; 
+  padding: 1rem;
+  background-color: rgba(211, 211, 211, 0.404);
+  border: 1px solid white;
+}
+
+.board-notes {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.cardflow {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.App-noteCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow: auto;
+  height: 80vh;
+  justify-content: space-between;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
