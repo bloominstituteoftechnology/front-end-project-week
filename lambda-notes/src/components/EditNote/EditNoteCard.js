@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Popover, PopoverBody } from "reactstrap";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./EditNote.css";
 
 class EditNoteCard extends Component {
@@ -67,4 +69,4 @@ class EditNoteCard extends Component {
     }
 }
 
-export default EditNoteCard; 
+export default withRouter(connect(null)(EditNoteCard)); 

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./NotesContainer.css";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
@@ -28,4 +30,4 @@ class NotesContainer extends Component {
     }
 }
 
-export default NotesContainer; 
+export default withRouter(connect(null)(NotesContainer)); 

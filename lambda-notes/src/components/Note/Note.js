@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import Navigation from "../Navigation/Navigation";
 import NoteCard from "./NoteCard";
+import {getNotes} from "../../actions"; 
+import { deleteNote } from "../../actions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class Note extends Component {
     constructor(props) {
@@ -12,7 +16,8 @@ class Note extends Component {
         };
     }
 
-    componentDidMount() {
+    componentWillMount() {
+        this.props.getNotes(); 
         this.fetchNote(this.props.match.params.id);
         this.setState({ id: this.props.match.params.id })
     }
@@ -47,4 +52,4 @@ class Note extends Component {
     }
 }
 
-export default Note; 
+export default withRouter(connect(null, { getNotes, deleteNote })(Note)); 

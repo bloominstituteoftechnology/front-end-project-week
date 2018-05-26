@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Navigation = (props) => {
+const Navigation = () => {
     return (
         <div className="navigation">
             <Link to="/">
@@ -15,4 +17,4 @@ const Navigation = (props) => {
     )
 }
 
-export default Navigation; 
+export default withRouter(connect(null)(Navigation)); 

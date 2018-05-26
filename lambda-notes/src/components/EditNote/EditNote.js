@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import Navigation from "../Navigation/Navigation";
 import EditNoteCard from "./EditNoteCard";
+import { updateNote } from "../../actions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import "./EditNote.css";
 
 class EditNote extends Component {
@@ -32,7 +35,7 @@ class EditNote extends Component {
     }
 
     modifyNote = (id, obj) => {
-        this.props.changeNote(id, obj);
+        this.props.updateNote(id, obj);
     }
 
     render() {
@@ -48,4 +51,4 @@ class EditNote extends Component {
     }
 }
 
-export default EditNote; 
+export default withRouter(connect(null, { updateNote })(EditNote)); 

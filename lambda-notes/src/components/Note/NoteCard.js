@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Modal, ModalBody, ModalFooter, Button } from "reactstrap";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import './Note.css'
 
 class NoteCard extends Component {
@@ -37,4 +39,4 @@ class NoteCard extends Component {
     }
 }
 
-export default NoteCard; 
+export default withRouter(connect(null)(NoteCard)); 

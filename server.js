@@ -13,11 +13,6 @@ const sendUserError = (msg, res) => {
 };
 
 let notes = [
-    {
-        id: 0,
-        title: 'First Note',
-        text: 'Hello Eddy!'
-    }
 ];
 
 server.get('/api/notes', (req, res) => {
@@ -29,7 +24,7 @@ server.get('/api/notes/:id', (req, res) => {
     res.status(200).json(note);
 });
 
-let noteId = 1;
+let noteId = 0;
 
 server.post('/api/notes', (req, res) => {
     const { title, text } = req.body;
