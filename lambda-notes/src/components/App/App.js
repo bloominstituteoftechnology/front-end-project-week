@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import SideBar_ from "../SideBar_/SideBar_";
-import Main_ from "../Main_/Main_";
+import Main_Connected from "../Main_/Main_";
 
 class App extends Component {
   render() {
@@ -8,7 +9,7 @@ class App extends Component {
       <div className="container custom-container">
         <div className="row">
           <SideBar_ />
-          <Main_ />
+          <Route component={Main_Connected} />
         </div>
       </div>
     );
@@ -16,4 +17,3 @@ class App extends Component {
 }
 
 export default App;
- 

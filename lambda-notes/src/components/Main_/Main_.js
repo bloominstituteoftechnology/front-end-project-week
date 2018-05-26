@@ -14,7 +14,7 @@ class Main_ extends Component {
     this.props.fetchingItems();
   }
   render() {
-    const { notes, fetched_Item, updating } = this.props;
+    const { notes, fetched_Item, updating, dispatch } = this.props;
     console.log(fetched_Item);
     const PageUpdating = (
       <div>
@@ -70,15 +70,19 @@ class Main_ extends Component {
           <Route component={() => <h1 className="text-capitalize">Oops!</h1>} />
         </Switch>
         <Switch>
+          {/* ListView */}
           <Route exact path="/" component={ListView} />
+          {/* NoteView */}
           <Route
             path="/note/:index"
             render={props => (!updating ? <NoteView /> : PageUpdating)}
           />
+          {/* Form_ */}
           <Route
             path="/edit/:index"
             render={props => <Form_ {...props} type="editNote" />}
           />
+          {/* Form_ */}
           <Route
             path="/new"
             render={props => <Form_ {...props} type="newNote" />}
@@ -106,4 +110,4 @@ const mapStateToProps = state => {
     notes: state.data
   };
 };
-export default withRouter(connect(mapStateToProps, { fetchingItems })(Main_));
+export default connect(mapStateToProps, { fetchingItems })(Main_);
