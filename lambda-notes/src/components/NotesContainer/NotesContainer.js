@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import Note from '../Note/Note';
 import './NotesContainer.css';
 
-class NotesContainer extends Component {
 
-  
+class NotesContainer extends Component {
+ 
+
     render() {
-        //  console.log(this.props)
+      
 
         let notesArr = [];
         for (let i = this.props.notes.length -1; i >= 0; i--) {
@@ -16,15 +17,17 @@ class NotesContainer extends Component {
         } /*looping backwards and pushing into empty array to display 
             notes with most recent added/edited note on top of list-view */
 
-        return (
+    
 
+        return (
+            
             <div id="sortable" className="notes-container">
+              
 
                 <div className="your-notes">Your Notes:</div>
-                
-                {/* {this.props.notes.map(note => <Note key={note.id} note={note}/>)} */}
 
                 {notesArr.map(note => <Note key={note.id} note={note}/>)} 
+
 
             </div>
         )
@@ -33,7 +36,6 @@ class NotesContainer extends Component {
 
 }
 
-
 const mapStateToProps = state => {
     
     return {
@@ -41,5 +43,6 @@ const mapStateToProps = state => {
     }
    
 }
+
 
 export default connect(mapStateToProps)(NotesContainer);

@@ -57,6 +57,21 @@
     border-top: none !important;
 }
 
-.red-btn {
-    background-color: #D9001E;
+.delete-btn {
+    background-color: rgb(184, 8, 31);
 }
+
+.delete-btn:hover {
+   background-color: #ff0011;
+   color: white;
+   width: 320px;
+   box-shadow: 3px 3px 3px gray;
+}
+
+.cancel-btn:hover {
+    background-color: #00fbff;
+    color: white;
+   box-shadow: 3px 3px 3px gray;
+}
+
+

@@ -29,3 +29,4 @@ export const editNote = editedNote => {
         payload: editedNote
     }
 }
+

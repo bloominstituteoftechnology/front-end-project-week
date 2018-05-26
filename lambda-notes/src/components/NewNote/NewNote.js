@@ -33,6 +33,7 @@ class NewNote extends Component {
         this.setState({title: "", body: ""})
 
         this.props.history.push('/'); // takes back to list view 
+        
     }
 
     render() {

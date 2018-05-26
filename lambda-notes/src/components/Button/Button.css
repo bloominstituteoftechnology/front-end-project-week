@@ -12,5 +12,17 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: #979797;
+    background-color: #fff4ff;
+    color: #2BC1C4;
+    box-shadow: 3px 3px 3px gray;
+}
+
+.csv-btn {
+    background-color: #800080;
+}
+
+.csv-btn:hover {
+    background-color: #fff4ff;
+    color: #800080;
+    box-shadow: 3px 3px 3px gray;
 }
