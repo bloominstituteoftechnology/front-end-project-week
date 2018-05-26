@@ -1,0 +1,13 @@
+.view-note {
+  font-family: 'Roboto', sans-serif;
+  color: var(--color--main);
+  white-space: pre-line;
+}
+
+.view-note hr {
+  color: var(--color--main);
+}
+
+.view-note p, .view-note span, .view-note li, .view-note a {
+  font-family: 'Raleway', sans-serif;
+}

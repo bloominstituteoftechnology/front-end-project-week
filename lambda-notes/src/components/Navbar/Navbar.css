@@ -1,0 +1,24 @@
+.navbar {
+  height: 100%;
+  border-left: 0.5px solid var(--color-border);
+  border-right: 0.5px solid var(--color-border);
+  /* border-collapse: collapse; */
+  align-content: flex-start;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--color-bg--side);
+  color: var(--color--main);
+}
+
+.navbar img {
+  width: 50%;
+}
+
+@media (max-width: 768px) { 
+  .navbar {
+    height: auto;
+  }
+
+  .navbar img {
+    width: 10%;
+  }
+}

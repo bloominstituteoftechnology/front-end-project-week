@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:500|Roboto:700');
+/* Import design fonts from Google Fonts */
+
+:root {
+  --color--main: #4A4A4A;
+  --color--button: #FFFFFF;
+  --color-bg: white;
+  --color-bg--side: #D8D8D8;
+  --color-bg--main:  #F3F3F3;
+  --color-bg--button-main: #2bc1c4;
+  --color-bg--button-del: #D0021b;
+  --color-border: #979797; 
+}
+
+html {
+  height: 100%;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  max-width: 1716px;
+  margin: 1rem auto;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  border: 0.5px solid var(--color-border);
+  border-collapse: collapse;
+}
+
+@media (max-width: 768px) { 
+  html {
+    height: auto;
+  }
+}

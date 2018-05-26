@@ -1,0 +1,38 @@
+.note-list {
+  height: 100%;
+  padding: 2rem;
+  /* border: 0.5px solid var(--color-border);
+  border-collapse: collapse; */
+  background-color: var(--color-bg--main);
+  font-family: 'Roboto', sans-serif;
+  color: var(--color--main);
+}
+
+.note-list a {
+  text-decoration: none;
+  color: var(--color--main);
+}
+
+.note-card {
+  width: 318px;
+  height: 180px;
+  background-color: var(--color-bg);
+  border: 0.5px solid var(--color-border);
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.note-card h3 {
+  font-size: 1.2rem;
+}
+
+.note-card p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) { 
+  .note-view {
+    justify-content: center;
+  }
+}
