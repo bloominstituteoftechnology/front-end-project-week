@@ -1,0 +1,210 @@
+body {
+    font: Roboto-Bold;
+    color: #4A4A4A;
+    background: #F3F3F3;
+    border: 1px solid #979797;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: Roboto-Bold;
+}
+
+button {
+    color: #FFFFFF;
+}
+
+.sidebar {
+    background: #D8D8D8;
+    height: 100vh;
+    border-right: 1px solid #979797;
+    min-width: 200px;
+    padding: 15px;
+    max-width: 200px;
+}
+
+.main-button {
+    background: #2BC1C4;
+    border: 1px solid #979797;
+    width: 100%;
+    height: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#top-button {
+    margin-top: 20px;
+}
+
+.notelist {
+    padding: 25px 15px;
+    max-width: 1100px;
+}
+
+.nlist-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.delete-button {
+    background: #D0021B;
+}
+
+.wrapper {
+    display: flex;
+}
+
+#root {
+    padding: 0px;
+}
+
+.card {
+    border: 1.5px solid lightgray;
+    border-radius: 1px;
+    width: 200px;
+    margin: 5px;
+    height: 200px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    color: black;
+    pointer-events: none;
+}
+
+.noDecoration,
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+.card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note-view {
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nview {
+    color: black;
+    text-decoration: underline !important;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.navL {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 7px;
+}
+
+.note-body {
+    margin-top: 15px;
+}
+
+.download-link {
+    color: black;
+    margin-left: 20px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li {
+    padding: 10px 15px;
+}
+
+li:hover {
+    background: darken(#eee, 5%);
+}
+
+.placeholder {
+    background: lightgray;
+}
+
+.placeholder:before {
+    content: "Drop here";
+    color: white;
+}
+
+.search-button {
+    color: white;
+    margin-left: 10px;
+    background: #2BC1C4;
+    border: 1px solid #979797;
+}
+
+.sort-button {
+    color: black;
+    background: #2BC1C4;
+    background: #F3F3F3;
+    border: none;
+    font-size: 0.8rem;
+}
+
+.search-field {
+    display: flex;
+    padding: 0px 20px;
+    justify-content: space-between;
+    max-width: 1000px;
+}
+
+.note-list-body {
+    border-top: 1.5px solid lightgray;
+    padding-top: 5px;
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+}
+
+.no-notes {
+    text-align: center;
+    margin: 30px 0 0 30px;
+    font-weight: bold;
+}
+
+.portrait {
+    border-radius: 50%;
+    max-width: 120px;
+    margin: auto;
+    margin-left: 25px;
+    border: 1px solid gray;
+}
+
+.display-name {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.edit-button {
+    color: black;
+    background: #2BC1C4;
+    background: #F3F3F3;
+    border: none;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.body-p {
+    margin-top: 15px;
+}
+
+.sign-in {
+    padding: 70px;
+}
+
+.sign-in-header {
+    margin-left: 15px;
+}

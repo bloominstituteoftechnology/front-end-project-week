@@ -1,0 +1,25 @@
+.delete {
+    background: #D0021B;
+    width: 40%;
+    min-width: 172px;
+    border: 1px solid #979797;
+    height: 40px;
+    margin-right: 7px;
+}
+
+.no {
+    background: #2BC1C4;
+    min-width: 172px;
+    border: 1px solid #979797;
+    width: 40%;
+    height: 40px;
+    margin-left: 7px;
+}
+
+.modal-footer {
+    justify-content: center;
+}
+
+.note-view {
+    width: 100%;
+}
