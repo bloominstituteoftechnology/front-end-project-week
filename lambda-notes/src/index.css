@@ -69,15 +69,22 @@ html, body {
     width: 100vw;
 }
 
+.notelist-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
 .notelist {
   height: 100%;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-.notelist h1 {
+.notelist-container h1 {
   flex-wrap: nowrap;
   margin-left: 4%;
   margin-top: 80px;
@@ -92,7 +99,7 @@ html, body {
   height: 40px;
 }
 
-.note {
+.notelist .note {
   width: 28%;
   min-width: 230px;
   height: 300px;
@@ -106,9 +113,9 @@ html, body {
   box-shadow: 4px 4px 7px gray;
 }
 
-.note:hover p {
+/* .note:hover p {
   font-size: 1.6rem;
-}
+} */
 
 .note:hover h4 {
   background-color: #00B9BD;
