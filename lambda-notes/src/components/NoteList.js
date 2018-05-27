@@ -6,7 +6,7 @@ import { addNote } from '../actions';
 class NoteList extends Component {
     state = {
         search: '',
-        titleCheck: false,
+        titleCheck: true,
         bodyCheck: false
     }
 
@@ -56,6 +56,7 @@ class NoteList extends Component {
                             value={this.state.titleCheck}
                             name="search"
                             onChange={this.updateTitle.bind(this)}
+                            defaultChecked
                             /><label>Search Title</label>
                         <input 
                             className="radio-button body-button"
