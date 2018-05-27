@@ -29,7 +29,6 @@ class Note extends Component {
 
     componentDidMount() {
         let result = this.props.notes.filter(note => note.id == this.props.match.params.id);      
-        // console.log(result) 
         let found = result[0]
         this.setState({note: found});
     }

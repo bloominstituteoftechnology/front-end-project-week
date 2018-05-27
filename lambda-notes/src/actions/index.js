@@ -1,28 +1,29 @@
+import { v4 } from "node-uuid";
+
 export const CREATE_NOTE = "CREATE_NOTE";
 export const EDIT_NOTE = "EDIT_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 
-let ls = JSON.parse(localStorage.getItem('array'))
+// let ls = JSON.parse(localStorage.getItem('array'))
 
-const greatestId = obj => {
-    if(obj !== null){
-        return obj.reduce((greatest, item) => {
-            return item.id > greatest ? item.id : greatest;
-        }, 0);
-    } else {
-        return 3
-    }
-};
+// const greatestId = obj => {
+//     if(obj !== null){
+//         return obj.reduce((greatest, item) => {
+//             return item.id > greatest ? item.id : greatest;
+//         }, 0);
+//     } else {
+//         return 3
+//     }
+// };
 
-let noteId = parseInt(greatestId(ls))
+// let noteId = parseInt(greatestId(ls))
 
 export const createNote = note => {
-    console.log(ls, noteId)
-  noteId += 1;
+//   noteId += 1;
   return {
     type: CREATE_NOTE,
     payload: {
-      id: noteId,
+      id: v4(),
       title: note.title,
       content: note.content
     }

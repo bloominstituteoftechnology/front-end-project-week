@@ -13,7 +13,6 @@ function homeLink() {
 
 class Sidebar extends Component {
     render() {
-        console.log(this.props.notes)
         return <div className="sidebar col-sm-3">
             <h2 className="sidebar-header">
               {" "}
