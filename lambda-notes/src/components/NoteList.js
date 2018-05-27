@@ -7,7 +7,7 @@ class NoteList extends Component {
     state = {
         search: '',
         titleCheck: false,
-        bodyCheck: false,
+        bodyCheck: false
     }
 
     updateSearch(event) {
@@ -25,16 +25,16 @@ class NoteList extends Component {
     }
     render() {
         // console.log(this.props.notes)
-        console.log('body',this.state.bodyCheck)
-        console.log('title',this.state.titleCheck)
+        // console.log('body',this.state.bodyCheck)
+        // console.log('title',this.state.titleCheck)
         let filteredNotes = this.props.notes.filter((note) => {
             if (this.state.search === '') {
                 return this.props.notes;
             }
             if (this.state.titleCheck) {
-                return note.title.toLowerCase().indexOf(this.state.search) !== -1 ? note : null;
+                return note.title.toLowerCase().indexOf(this.state.search) !== -1;
             } else if (this.state.bodyCheck) {
-                return note.body.toLowerCase().indexOf(this.state.search) !== -1 ? note : null;
+                return note.body.toLowerCase().indexOf(this.state.search) !== -1;
             }
             return this.props.notes;
         });
@@ -43,23 +43,26 @@ class NoteList extends Component {
                 <h1>Your Notes:</h1>
                 <form>
                     <input 
-                        placeholder="Search for note..."
+                        placeholder="Select Search Type..."
                         type="text"
                         value={this.state.search}
                         onChange={this.updateSearch.bind(this)}
                     />
-                    <div>
+                    <div className="radio-container">
                         <input 
+                            className="radio-button"
                             type="radio"
                             value={this.state.titleCheck}
                             name="search"
                             onChange={this.updateTitle.bind(this)}
                             /><label>Search Title</label>
                         <input 
+                            className="radio-button"
                             type="radio"
                             value={this.state.bodyCheck}
                             name="search"
-                            onChange={this.updateBody.bind(this)}/><label>Search Body</label>
+                            onChange={this.updateBody.bind(this)}
+                            /><label>Search Body</label>
                     </div>
                 </form>
                 <div className="notelist" id="sortable">

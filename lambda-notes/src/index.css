@@ -105,6 +105,24 @@ html, body {
   overflow-y: scroll;
 }
 
+.notelist-container .radio-container {
+  display: flex;
+}
+
+.notelist-container .radio-container .radio-button {
+  height: 29.33px;
+  width: 20px !important;
+  margin: 0;
+  padding: 0;
+}
+
+.radio-container label {
+  font-size: 2rem;
+  width: 150px;
+  margin: 0;
+  padding: 0;
+}
+
 .notelist-container input {
   font-size: 2rem;
   margin: 4%;
