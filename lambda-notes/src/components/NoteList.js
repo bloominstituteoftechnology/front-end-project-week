@@ -5,18 +5,19 @@ import { addNote } from '../actions';
 
 class NoteList extends Component {
     state = {
-        notes: []
+        search: ''
     }
 
     updateSearch(event) {
         this.setState({ search: event.target.value.toLowerCase().substr(0,
             20)});
+        event.preventDefault();
     }
 
     render() {
         // console.log(this.props.notes)
         let filteredNotes = this.props.notes.filter((note) => {
-            if (this.state.search === undefined) {
+            if (this.state.search === '') {
                 return this.props.notes;
             }
             return note.title.toLowerCase().indexOf(this.state.search) !== -1;
