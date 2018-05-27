@@ -8,18 +8,29 @@ class NoteList extends Component {
         notes: []
     }
 
-    // updateSearch(event) {
-    //     this.setState({ search: event.target.value.substr(0,
-    //         20)});
-    // }
+    updateSearch(event) {
+        this.setState({ search: event.target.value.toLowerCase().substr(0,
+            20)});
+    }
 
     render() {
         console.log(this.props.notes)
+        let filteredNotes = this.props.notes.filter((note) => {
+            if (this.state.search === undefined) {
+                return this.props.notes;
+            }
+            return note.title.toLowerCase().indexOf(this.state.search) !== -1;
+        });
         return (
             <div className="notelist-container">
                 <h1>Your Notes:</h1>
+                <input 
+                    type="text"
+                    value={this.state.search}
+                    onChange={this.updateSearch.bind(this)}
+                />
                 <div className="notelist" id="sortable">
-                    {this.props.notes.map(note => {
+                    {filteredNotes.map(note => {
                         return (
                             <Link 
                             style={{textDecoration: "none", color: "black"}} 
