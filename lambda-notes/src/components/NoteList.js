@@ -14,7 +14,7 @@ class NoteList extends Component {
     }
 
     render() {
-        console.log(this.props.notes)
+        // console.log(this.props.notes)
         let filteredNotes = this.props.notes.filter((note) => {
             if (this.state.search === undefined) {
                 return this.props.notes;
@@ -25,7 +25,7 @@ class NoteList extends Component {
             <div className="notelist-container">
                 <h1>Your Notes:</h1>
                 <input 
-                    type="text"
+                    text="text"
                     value={this.state.search}
                     onChange={this.updateSearch.bind(this)}
                 />
