@@ -188,3 +188,17 @@ body, html {
   background: white;
   color: #2BC1C4;
 }
+
+.search-content {
+  margin-left: 2%
+}
+
+.search-label {
+  margin-left: 0.3%
+}
+
+.search-input {
+  border-radius: 3px;
+  width: 20%;
+  margin-top: 1%;
+}

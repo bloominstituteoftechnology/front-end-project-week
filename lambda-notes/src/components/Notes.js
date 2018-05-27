@@ -55,12 +55,12 @@ class Notes extends Component {
         </div>
         <h4 className="your-notes">Your notes:</h4>
         <form>
-          <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+          <input className='search-input' type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
           <div>
-            <input type="radio" value={this.state.titleCheck} name="search" onChange={this.updateTitle.bind(this)} />
-            <label>Search Title</label>
-            <input type="radio" value={this.state.contentCheck} name="search" onChange={this.updateContent.bind(this)} />
-            <label>Search Content</label>
+            <input className='search-title' type="radio" value={this.state.titleCheck} name="search" onChange={this.updateTitle.bind(this)} />
+            <label className='search-label'>Search Title</label>
+            <input className='search-content' type="radio" value={this.state.contentCheck} name="search" onChange={this.updateContent.bind(this)} />
+            <label className='search-label'>Search Content</label>
           </div>
         </form>
         <div className="notes-list" id="sortable">
