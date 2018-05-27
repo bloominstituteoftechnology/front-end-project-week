@@ -43,6 +43,7 @@ class NoteList extends Component {
                 <h1>Your Notes:</h1>
                 <form>
                     <input 
+                        className="search-input"
                         placeholder="Select Search Type..."
                         type="text"
                         value={this.state.search}
@@ -50,14 +51,14 @@ class NoteList extends Component {
                     />
                     <div className="radio-container">
                         <input 
-                            className="radio-button"
+                            className="radio-button title-button"
                             type="radio"
                             value={this.state.titleCheck}
                             name="search"
                             onChange={this.updateTitle.bind(this)}
                             /><label>Search Title</label>
                         <input 
-                            className="radio-button"
+                            className="radio-button body-button"
                             type="radio"
                             value={this.state.bodyCheck}
                             name="search"

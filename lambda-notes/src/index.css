@@ -107,13 +107,16 @@ html, body {
 
 .notelist-container .radio-container {
   display: flex;
+  flex-flow: row wrap;
+  margin-left: 4%;
+  width: 400px;
 }
 
 .notelist-container .radio-container .radio-button {
   height: 29.33px;
-  width: 20px !important;
   margin: 0;
   padding: 0;
+  width: 29.33px;
 }
 
 .radio-container label {
@@ -123,7 +126,7 @@ html, body {
   padding: 0;
 }
 
-.notelist-container input {
+.notelist-container .search-input {
   font-size: 2rem;
   margin: 4%;
   width: 20vw;
