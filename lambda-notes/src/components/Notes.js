@@ -5,10 +5,11 @@ import { connect } from "react-redux";
 
 
 class Notes extends Component {
-
   state = {
-    notes: []
-  }
+    search: "",
+    titleCheck: false,
+    ContentCheck: false
+  };
 
   updateSearch(event) {
     this.setState({
@@ -16,17 +17,48 @@ class Notes extends Component {
     });
   }
 
+  updateContent(event) {
+    this.setState({
+      contentCheck: !this.state.contentCheck,
+      titleCheck: this.state.contentCheck
+    });
+  }
+
+  updateTitle(event) {
+    this.setState({
+      titleCheck: !this.state.titleCheck,
+      contentCheck: this.state.titleCheck
+    });
+  }
+
   render() {
     let filteredNotes = this.props.notes.filter(note => {
-      if (this.state.search === undefined) {
+      if (this.state.search === "") {
         return this.props.notes;
       }
-      return note.title.toLowerCase().indexOf(this.state.search) !== -1
+      if (this.state.titleCheck) {
+        return note.title
+          .toLowerCase()
+          .indexOf(this.state.search) !== -1 ? note : null;
+      } else if (this.state.contentCheck) {
+        return note.content
+          .toLowerCase()
+          .indexOf(this.state.search) !== -1 ? note : null;
+      }
+      return this.props.notes;
     });
-    
+
     return <div className="col-sm-9 cards">
         <h4 className="your-notes">Your notes:</h4>
-        <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+        <form>
+          <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+          <div>
+            <input type="radio" value={this.state.titleCheck} name="search" onChange={this.updateTitle.bind(this)} />
+            <label>Search Title</label>
+            <input type="radio" value={this.state.contentCheck} name="search" onChange={this.updateContent.bind(this)} />
+            <label>Search Content</label>
+          </div>
+        </form>
         <div className="notes-list" id="sortable">
           {filteredNotes
             .map(note => {
