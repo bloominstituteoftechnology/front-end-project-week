@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import {Route,Switch} from 'react-router-dom';
-import SideBar from './components/sideBar';
-import MainBar from './components/MainBar';
-import NoteListView from './components/NoteListView';
-import EditNote from './components/editNote';
-import CreateNote from './components/createNote';
-import NoteView from './components/noteView';
-import DeleteConfirm from './components/deleteConfirm';
+
+import {
+  NoteList,
+  SideBar,
+  NoteView,
+  EditNote,
+  DeleteConfirm,
+  CreateNote
+} from './components'
+
 
 class App extends Component {
   constructor(props) {
@@ -52,7 +55,7 @@ expandNote = (e) => {
         <SideBar />
         <div className="col-md-9" style={mainBar} >
         <Switch>
-          <Route exact path = "/" render ={() => <NoteListView noteList ={this.state.noteList}/>}/>
+          <Route exact path = "/" render ={() => <NoteList noteList ={this.state.noteList}/>}/>
           <Route path="/create" render={() => <CreateNote handleInput={this.handleInput} addNote={this.addNote} />}/>
           <Route path="/viewNote/:id" render={(props) => <NoteView {...props} state = {this.state}  />}/>
           <Route path = "/editNote" render ={() => <EditNote />}/>

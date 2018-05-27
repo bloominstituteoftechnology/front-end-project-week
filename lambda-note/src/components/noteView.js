@@ -42,9 +42,7 @@ class NoteView extends Component {
                   <NavItem>
                        <Link to = "/delete">delete</Link>
                    </NavItem>
-                 `</Nav>
-
-
+            </Nav>
 
             <Button color="danger" onClick={this.toggle}>Delete</Button>
               {this.props.state.noteList.map(note => {
