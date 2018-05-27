@@ -5,7 +5,9 @@ import { addNote } from '../actions';
 
 class NoteList extends Component {
     state = {
-        search: ''
+        search: '',
+        titleCheck: false,
+        bodyCheck: false,
     }
 
     updateSearch(event) {
@@ -14,23 +16,52 @@ class NoteList extends Component {
         event.preventDefault();
     }
 
+    updateBody(event) {
+        this.setState({ bodyCheck: !this.state.bodyCheck, titleCheck: this.state.bodyCheck})
+    }
+
+    updateTitle(event) {
+        this.setState({ titleCheck: !this.state.titleCheck, bodyCheck: this.state.titleCheck})
+    }
     render() {
         // console.log(this.props.notes)
+        console.log('body',this.state.bodyCheck)
+        console.log('title',this.state.titleCheck)
         let filteredNotes = this.props.notes.filter((note) => {
             if (this.state.search === '') {
                 return this.props.notes;
             }
-            return note.title.toLowerCase().indexOf(this.state.search) !== -1;
+            if (this.state.titleCheck) {
+                return note.title.toLowerCase().indexOf(this.state.search) !== -1 ? note : null;
+            } else if (this.state.bodyCheck) {
+                return note.body.toLowerCase().indexOf(this.state.search) !== -1 ? note : null;
+            }
+            return this.props.notes;
         });
         return (
             <div className="notelist-container">
                 <h1>Your Notes:</h1>
-                <input 
-                    placeholder="Search for note..."
-                    text="text"
-                    value={this.state.search}
-                    onChange={this.updateSearch.bind(this)}
-                />
+                <form>
+                    <input 
+                        placeholder="Search for note..."
+                        type="text"
+                        value={this.state.search}
+                        onChange={this.updateSearch.bind(this)}
+                    />
+                    <div>
+                        <input 
+                            type="radio"
+                            value={this.state.titleCheck}
+                            name="search"
+                            onChange={this.updateTitle.bind(this)}
+                            /><label>Search Title</label>
+                        <input 
+                            type="radio"
+                            value={this.state.bodyCheck}
+                            name="search"
+                            onChange={this.updateBody.bind(this)}/><label>Search Body</label>
+                    </div>
+                </form>
                 <div className="notelist" id="sortable">
                     {filteredNotes.map(note => {
                         return (
