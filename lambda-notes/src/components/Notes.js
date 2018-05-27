@@ -8,27 +8,36 @@ class Notes extends Component {
   state = {
     search: "",
     titleCheck: false,
-    ContentCheck: false
+    contentCheck: false
   };
 
-  updateSearch(event) {
+  clickSearch(event) {
     this.setState({
       search: event.target.value.toLowerCase().substr(0, 20)
     });
   }
 
-  updateContent(event) {
+  clickContent(event) {
     this.setState({
       contentCheck: !this.state.contentCheck,
-      titleCheck: this.state.contentCheck
+      titleCheck: this.state.contentCheck,
     });
+    // document.getElementsByClassName("search-title").checked = false;
+    // document.getElementsByClassName("search-content").checked = true;
+    // console.log(document.getElementsByClassName("search-title"));    
+    // console.log(document.getElementsByClassName("search-content"));
+    // console.log(event.target)
   }
 
-  updateTitle(event) {
+  clickTitle(event) {
     this.setState({
       titleCheck: !this.state.titleCheck,
-      contentCheck: this.state.titleCheck
+      contentCheck: this.state.titleCheck,
     });
+    // document.getElementsByClassName("search-content").checked = false;
+    // document.getElementsByClassName("search-title").checked = true;
+    // console.log(document.getElementsByClassName("search-content"));
+    // console.log(document.getElementsByClassName("search-title"));
   }
 
   render() {
@@ -39,11 +48,11 @@ class Notes extends Component {
       if (this.state.titleCheck) {
         return note.title
           .toLowerCase()
-          .indexOf(this.state.search) !== -1 ? note : null;
+          .indexOf(this.state.search) !== -1;
       } else if (this.state.contentCheck) {
         return note.content
           .toLowerCase()
-          .indexOf(this.state.search) !== -1 ? note : null;
+          .indexOf(this.state.search) !== -1;
       }
       return this.props.notes;
     });
@@ -55,12 +64,12 @@ class Notes extends Component {
         </div>
         <h4 className="your-notes">Your notes:</h4>
         <form>
-          <input className='search-input' type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+          <input className="search-input" type="text" value={this.state.search} onChange={this.clickSearch.bind(this)} placeholder="Please choose a search type" />
           <div>
-            <input className='search-title' type="radio" value={this.state.titleCheck} name="search" onChange={this.updateTitle.bind(this)} />
-            <label className='search-label'>Search Title</label>
-            <input className='search-content' type="radio" value={this.state.contentCheck} name="search" onChange={this.updateContent.bind(this)} />
-            <label className='search-label'>Search Content</label>
+            <input className="search-title" defaultChecked type="radio" value={this.state.titleCheck} name="search" onChange={this.clickTitle.bind(this)} />
+            <label className="search-label">Search Title</label>
+            <input className="search-content" type="radio" value={this.state.contentCheck} name="search" onChange={this.clickContent.bind(this)} />
+            <label className="search-label">Search Content</label>
           </div>
         </form>
         <div className="notes-list" id="sortable">
@@ -81,6 +90,7 @@ class Notes extends Component {
         </div>
       </div>;
   }
+  
 };
 
 const mapStateToProps = state => {
