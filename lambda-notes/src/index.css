@@ -86,7 +86,7 @@ html, body {
 
 .notelist-container h1 {
   flex-wrap: nowrap;
-  margin-left: 4%;
+  margin-left: 2%;
   margin-top: 80px;
   padding: 0;
   height: 40px;
@@ -105,11 +105,15 @@ html, body {
   overflow-y: scroll;
 }
 
+.notelist-container form {
+  width: 100%;
+}
+
 .notelist-container .radio-container {
   display: flex;
   flex-flow: row wrap;
-  margin-left: 4%;
-  width: 400px;
+  margin: 0 0 4% 4%;
+  width: 100%;
 }
 
 .notelist-container .radio-container .radio-button {
@@ -121,14 +125,13 @@ html, body {
 
 .radio-container label {
   font-size: 2rem;
-  width: 150px;
-  margin: 0;
+  margin: 0 30px 0 5px;
   padding: 0;
 }
 
 .notelist-container .search-input {
   font-size: 2rem;
-  margin: 4%;
+  margin: 2% 0 2% 4%;
   width: 20vw;
   min-width: 200px;
 }
