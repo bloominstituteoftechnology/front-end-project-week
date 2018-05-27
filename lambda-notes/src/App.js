@@ -10,36 +10,38 @@ import NewNote from './Components/NewNote';
 
 const placeHolder = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-const initialNotes = [
+const initialNotes =   [
   {
-    id: 1,
-    title: "First Note",
-    content: placeHolder + placeHolder
-  },
-  {
-    id: 2,
-    title: "Second Note",
-    content: placeHolder + placeHolder
-  },
-  {
-    id: 3,
-    title: "Third Note",
-    content: placeHolder + placeHolder + placeHolder
-  },
-  {
-    id: 4,
-    title: "Fourth Note",
-    content: placeHolder + placeHolder + placeHolder + placeHolder
-  }
+  id: 1,
+  title: "First Note",
+  content: placeHolder + placeHolder
+},
+{
+  id: 2,
+  title: "Second Note",
+  content: placeHolder + placeHolder
+},
+{
+  id: 3,
+  title: "Third Note",
+  content: placeHolder + placeHolder + placeHolder
+},
+{
+  id: 4,
+  title: "Fourth Note",
+  content: placeHolder + placeHolder + placeHolder + placeHolder
+}
 ];
+
 
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      notes: initialNotes,
-    };
+    let currentNotes = localStorage.getItem("notes") ? JSON.parse(localStorage.getItem("notes")) : initialNotes;
+      this.state = {
+        notes: currentNotes,
+      };
   }
   deleteNote(id) {
     this.setState({
@@ -66,26 +68,16 @@ class App extends Component {
       title: newNote.title,
       content: newNote.content
     }
-    this.setState({ notes: [...this.state.notes, addedNote] });
-    localStorage.setItem("notes", JSON.stringify(this.state.notes));
+    let newNotes = [...this.state.notes, addedNote];
+    this.setState({ notes: newNotes });
+    localStorage.setItem("notes", JSON.stringify(newNotes));
   }
+  // componentDidMount() {
+  //   let value = JSON.parse(localStorage.getItem("notes"));
+  //   console.log(value);
+  //   this.setState({notes: value});
 
-  hydrateStateWithLocalStorage() {
-    for ( let notes in this.state.notes){
-      if(localStorage.hasOwnProperty(notes)){
-        let value = localStorage.getItem(notes);
-        try {
-          value = JSON.parse(this.state.notes);
-          this.setState({[notes]: this.state.notes});
-        } catch (e){
-          this.setState({[notes]: this.state.notes});
-        }
-      }
-    }
-  }
-  componentDidMount() {
-    this.hydrateStateWithLocalStorage();
-  }
+  // }
 
   render() {
     return (
