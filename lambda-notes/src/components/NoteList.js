@@ -26,6 +26,7 @@ class NoteList extends Component {
             <div className="notelist-container">
                 <h1>Your Notes:</h1>
                 <input 
+                    placeholder="Search for note..."
                     text="text"
                     value={this.state.search}
                     onChange={this.updateSearch.bind(this)}
