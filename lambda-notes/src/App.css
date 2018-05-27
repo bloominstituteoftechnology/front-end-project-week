@@ -168,3 +168,23 @@ body, html {
   display: flex;
   justify-content: space-around
 }
+
+.sort-div {
+  display: flex;
+  justify-content: flex-end
+}
+
+.sort-but {
+  border-radius: 3px;
+  background: #2BC1C4;
+  color: white;
+  width: 9%;
+  height: 9%;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.sort-but:hover {
+  background: white;
+  color: #2BC1C4;
+}

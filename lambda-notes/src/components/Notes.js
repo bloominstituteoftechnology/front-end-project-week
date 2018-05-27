@@ -49,6 +49,10 @@ class Notes extends Component {
     });
 
     return <div className="col-sm-9 cards">
+        <div className="sort-div">
+          <button className="sort-but pt-sm-1">sort by date</button>
+          <button className="sort-but pt-sm-1">sort by title</button>
+        </div>
         <h4 className="your-notes">Your notes:</h4>
         <form>
           <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
