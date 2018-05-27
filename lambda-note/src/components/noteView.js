@@ -42,7 +42,7 @@ class NoteView extends Component {
                   <NavItem>
                        <Link to = "/delete">delete</Link>
                    </NavItem>
-                 </Nav>
+                 `</Nav>
 
 
 

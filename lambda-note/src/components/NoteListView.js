@@ -14,4 +14,3 @@ const NoteListView = (props) => {
          )
 }
 export default NoteListView;
-
