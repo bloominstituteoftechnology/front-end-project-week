@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter} from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 import noteReducer from "./Reducers"
 

@@ -16,7 +16,7 @@ class Login extends Component {
     }
 
     handleKeyPress = (e) => {
-        if(e.key == 'Enter' || e.charCode == 13 || e.keyCode == 13){
+        if(e.key === 'Enter' || e.charCode === 13 || e.keyCode === 13){
             this.check();
         }
       }
@@ -28,7 +28,7 @@ class Login extends Component {
       }
 
       check = () => {
-        {this.state.Username === this.state.loginUser.Username
+        this.state.Username === this.state.loginUser.Username
             &&
        this.state.Password === this.state.loginUser.Password
        ? (
@@ -37,7 +37,7 @@ class Login extends Component {
            this.setState({
                link: '#'
            })
-       )}
+       )
       }
 
     handleInputChange = e => {

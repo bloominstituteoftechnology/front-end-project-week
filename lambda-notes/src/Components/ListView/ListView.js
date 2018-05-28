@@ -7,10 +7,6 @@ import {newNote} from "../../Actions"
 
 import "./ListView.css";
 class ListView extends Component {
-    constructor() {
-        super();
-    }
-
 
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});

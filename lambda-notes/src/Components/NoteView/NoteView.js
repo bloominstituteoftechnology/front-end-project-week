@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
-import {Route} from 'react-router-dom'
 import "./NoteView.css"
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
