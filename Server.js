@@ -25,6 +25,17 @@ server.get("/notes", (req, res) => {
     })
 })
 
+server.post("/notes", (req, res) => {
+    const newNote = req.body;
+    const note = new Note(newNote);
+
+    note.save().then(note => {
+        res.status(200).json(note);
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
+
 server.get("/notes/:id", (req, res) => {
     const id = req.params.id;
 
@@ -45,17 +56,17 @@ server.delete("/notes/:id", (req, res) => {
     })
 })
 
-
-server.post("/notes", (req, res) => {
+server.put("/notes/:id", (req, res) => {
+    const id = req.params.id;
     const newNote = req.body;
-    const note = new Note(newNote);
 
-    note.save().then(note => {
-        res.status(200).json(note);
+    Note.findByIdAndUpdate(id, newNote).then(updatedNote => {
+        res.status(200).json(updatedNote)
     }).catch(err => {
-        res.status(500).json(err)
+        res.status(404).json(err)
     })
 })
+
 
 server.listen(process.env.PORT || 5000)
 
