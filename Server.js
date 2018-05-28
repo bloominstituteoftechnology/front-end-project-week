@@ -35,6 +35,16 @@ server.get("/notes/:id", (req, res) => {
     })
 })
 
+server.delete("/notes/:id", (req, res) => {
+    const id = req.params.id;
+
+    Note.findByIdAndRemove(id).then(deleted => {
+        res.status(200).json({Message: "Note has been deleted"})
+    }).catch(err => {
+        res.status(404).json(err)
+    })
+})
+
 
 server.post("/notes", (req, res) => {
     const newNote = req.body;
