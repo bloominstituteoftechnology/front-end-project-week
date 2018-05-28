@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node server.js"
+    "start": "node Server.js"
   },
   "engines": {
     "node": "9.7.1"
