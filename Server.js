@@ -61,7 +61,9 @@ server.put("/notes/:id", (req, res) => {
     const newNote = req.body;
 
     Note.findByIdAndUpdate(id, newNote).then(updatedNote => {
-        res.status(200).json(updatedNote)
+        res.status(200).json({
+            Message: "Note has been updated"
+        })
     }).catch(err => {
         res.status(404).json(err)
     })
