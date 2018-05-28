@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-import { addNote } from '../actions';
+import { addNote, noteOrder } from '../actions';
 
 class NoteList extends Component {
     state = {
         search: '',
         titleCheck: true,
         bodyCheck: false,
-        order: []
+        order: {}
     }
 
     updateSearch = (event) => {
@@ -29,40 +29,44 @@ class NoteList extends Component {
 
     handleAlphaSort = (event) => {
         event.preventDefault();
+        let noteOrder = {}
         let noteTitles = this.props.notes.map(note => {
             return note.title;
         })
         noteTitles = noteTitles.sort();
         // console.log(noteTitles);
         for (let i = 0; i < noteTitles.length; i++) {
-            this.state.order[this.props.notes[i].title] = this.props.notes[i];
+            noteOrder[this.props.notes[i].title] = this.props.notes[i];
             // console.log(this.state.order)
         }
         for (let i = 0; i < noteTitles.length; i++) {
-            this.props.notes[i] = this.state.order[noteTitles[i]];
+            this.props.notes[i] = noteOrder[noteTitles[i]];
             // console.log(this.props.notes)
         }
-        this.state.order = [];
     }
-
-    // handleAlphaSort = (event) => {
-    //     event.preventDefault();
-    //     let noteTitles = this.props.notes.map(note => {
-    //         return note.title;
-    //     })
-    //     console.log(noteTitles.sort());
-    // }
 
     savedPosition = () => {
         setTimeout(() => {
             let source = Array.from(document.getElementsByClassName('note'));
-            let order = [];
+            let currentOrder = [];
+            let savedOrder = {};
             source.forEach((item, index) => {
-                order.push(item.id)
+                currentOrder.push(item.id)
             });
-            this.setState({ order });
-            console.log(order);
-        }, 500);
+            this.setState({ order: currentOrder });
+            console.log(typeof this.state.order);
+            
+            for (let i = 0; i < this.state.order.length; i++) {
+                savedOrder[this.props.notes[i].id] = this.props.notes[i];
+                console.log(this.state.order)
+            }
+            for (let i = 0; i < this.state.order.length; i++) {
+                this.props.notes[i] = savedOrder[this.state.order[i]];
+                console.log(this.props.notes)
+            }
+        }, 200);
+        this.setState(this.state);
+        this.noteOrder
     }
 
     render() {
@@ -128,7 +132,8 @@ class NoteList extends Component {
                         return (
                         <Link 
                             style={{textDecoration: "none", color: "black"}} 
-                            key={note.id} to={`/note/${note.id}`} 
+                            key={note.id} 
+                            to={`/note/${note.id}`} 
                             id = {note.id}
                             className="note-link note ui-state-default"
                             onMouseUp={this.savedPosition}>
@@ -152,4 +157,4 @@ const mapStateToProps = store => {
     };
 };
 
-export default connect(mapStateToProps, { addNote })(NoteList);
+export default connect(mapStateToProps, { addNote, noteOrder })(NoteList);

@@ -1,4 +1,4 @@
-import { ADD_NOTE, EDIT_NOTE, REMOVE_NOTE } from '../actions';
+import { ADD_NOTE, EDIT_NOTE, REMOVE_NOTE, NOTE_ORDER } from '../actions';
 import { v4 } from 'node-uuid';
 
 let initialState = [
@@ -74,6 +74,11 @@ export default (state = retrieveData(), action) => {
             editNoteState.push(action.payload);
             saveData(editNoteState);
             return(editNoteState);
+        case NOTE_ORDER:
+            let noteOrderState = Array.from(state);
+            noteOrderState.push(action.payload);
+            saveData(noteOrderState);
+            return noteOrderState;
         case REMOVE_NOTE:
             // console.log(typeof action.payload)
             let removeNoteState = Array.from(state);
