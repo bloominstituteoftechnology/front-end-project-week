@@ -21,7 +21,6 @@ class NoteView extends Component {
     return (
         <div>
             <div>
-
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
                     <ModalBody>
