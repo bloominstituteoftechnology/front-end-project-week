@@ -1,0 +1,48 @@
+
+.loginBody {
+    background-color: white;
+    height: 100vh;
+}
+
+.loginCard {
+    text-align: center;
+    background-color: rgba(224, 223, 223, 0.383);
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    top: 15%;
+    padding-top: 3%;
+    padding-bottom: 8%;
+}
+
+.loginCard h1 {
+font-size: 2.2rem;
+color: rgb(93, 196, 196)
+}
+
+.inputs {
+    margin-top: 5%;
+    font-size: 1.5rem;
+    color: rgb(144, 146, 146)
+}
+
+.loginCard input {
+    width: 60%;
+    height: 2rem;
+    margin: 0 auto;
+}
+
+.inputs input {
+    margin-bottom: 3%;
+}
+
+.loginCard a {
+    display: block;
+    color: white;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
+.loginCard a:hover {
+    font-size: 1.1rem;
+}
