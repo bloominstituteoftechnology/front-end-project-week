@@ -25,18 +25,18 @@ class NoteList extends Component {
         this.setState({ titleCheck: !this.state.titleCheck, bodyCheck: this.state.titleCheck})
     }
 
-    savedPosition = () => {
-        let source = Array.from(document.getElementsByClassName('note'));
-        let order = [];
-        source.forEach((item, index) => {
-            order.push(item.id)
-        });
-        this.setState({order});
-        // console.log(order);
-    }
+    // savedPosition = () => {
+    //     let source = Array.from(document.getElementsByClassName('note'));
+    //     let order = [];
+    //     source.forEach((item, index) => {
+    //         order.push(item.id)
+    //     });
+    //     this.setState({order});
+    //     // console.log(order);
+    // }
 
     render() {
-        console.log(document.getElementsByClassName("note"))
+        // console.log(document.getElementsByClassName("note"))
         // console.log('body',this.state.bodyCheck)
         // console.log('title',this.state.titleCheck)
         let filteredNotes = this.props.notes.filter((note) => {
