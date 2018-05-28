@@ -1,0 +1,25 @@
+.mainBodyTitle2 {
+    color: #FFFFFF;
+    font: Raleway Medium;
+    margin-left: 5%;
+    margin-top: 7%;
+}
+
+.noteTitle {
+    
+    background-color: #AEBD38;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font: Raleway Medium;
+
+
+    
+}
+
+.createNewNote {
+    background-color: #AEBD38;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font: Raleway Medium;
+}
+

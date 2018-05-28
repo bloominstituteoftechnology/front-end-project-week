@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    display: flex;
+    margin: auto;
+    height: 900px;
+}
+
+.sideBar {
+    width: 25%;
+    /*background-color: #D8D8D8;*/
+    background-color: #68829E;
+    border: 2px solid #979797;
+}
+
+.mainBody {
+    border: 2px solid #979797;
+    /*background-color:#F3F3F3;*/
+    background-color: #505160;
+    width: 75%; 
+}
+
+.createNoteButton {
+    font: Raleway Medium;
+    color: #FFFFFF;
+    /*background-color: #2BC1C4;*/
+    background-color: #598234;
+    border-radius: 10px;
+    width: 80%;
+    height: 6%;
+    margin-top: 7%;
+    margin-left: 9%;
+}
+.viewNotesButton {
+    font: Raleway Medium;
+    color: #FFFFFF;
+    /*background-color: #2BC1C4;*/
+    background-color: #598234;
+    border-radius: 10px;
+    width: 80%;
+    height: 6%;
+    margin-top: 12%;
+    margin-left: 9%;
+}
+
+.saveButton {
+    font: Raleway Medium;
+    color: #FFFFFF;
+    /*background-color: #2BC1C4;*/
+    background-color: #598234;
+    border-radius: 10px;
+    width: 25%;
+    height: 45px;
+    margin-top: 2%;
+    margin-left: 5%;   
+}
+
+.noteTitle {
+    font: Raleway Medium;
+    margin-left: 5%;
+    margin-top: 2.3%;
+    width: 50%;
+    height: 55px;
+    padding-left:20px;
+    border: 2px solid #979797;
+}
+
+.createNewNote {
+    font: Raleway Medium;
+    margin-left: 5%;
+    margin-top: 2.8%;
+    width: 90%;
+    height: 400px;
+    text-align: left;
+    padding-bottom: 325px;
+    padding-left: 20px;
+    border: 2px solid #979797;
+
+}
+
+.editButton {
+    width: 60px;
+    font: Raleway Medium;
+    color: #FFFFFF;
+    /*color: #4A4A4A;*/
+    border-radius: 10px;
+    /*background-color:#F3F3F3;*/
+    background-color:#598234;
+    margin-left: 85%;
+    text-decoration: underline;
+    border: none;
+}
+
+.deleteButton {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font: Raleway Medium;
+    color: #FFFFFF;
+    /*color: #4A4A4A;*/
+    border-radius: 10px;
+    /*background-color:#F3F3F3;*/
+    background-color: #598234; 
+    text-decoration: underline;
+    border: none;
+}
+
+.mainBodyTitle {
+    color: #FFFFFF;
+    font: Raleway Medium;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.noteBody {
+    font: Raleway Medium;
+    width: 85%;
+    margin-top: 3%;
+    margin-left: 5%;
+    color: #FFFFFF;
+}
+
+.sideBarTitle1 {
+    color: #FFFFFF;
+    margin-top: 15px;
+    margin-left: 20px;
+    font: Roboto Bold;
+    font-weight: bold;
+}
+.sideBarTitle2 {
+    color: #FFFFFF;
+    line-height: 20%;
+    margin-left: 7.5%;
+    font: Roboto Bold;
+    font-weight: bold;
+}
+
+.modalDelete {
+    /*background-color: #D0021B;*/
+    background-color: #598234;
+    width: 228px;
+    margin-bottom: 20px;
+}
+
+.modalNo {
+    /*background-color: #2BC1C4;*/
+    background-color: #AEBD38;
+    width: 228px;
+    margin-bottom: 20px;
+}
+
+.modalHeader {
+    padding-left: 70px;
+    background-color: #68829E;
+    color: #FFFFFF;
+    width: 498px;
+    
+    
+}
+
+
+.modalFooter {
+    background-color: #68829E;
+    height: 200px;
+}
+
+
+
