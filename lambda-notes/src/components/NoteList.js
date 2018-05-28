@@ -53,15 +53,17 @@ class NoteList extends Component {
     //     console.log(noteTitles.sort());
     // }
 
-    // savedPosition = () => {
-    //     let source = Array.from(document.getElementsByClassName('note'));
-    //     let order = [];
-    //     source.forEach((item, index) => {
-    //         order.push(item.id)
-    //     });
-    //     this.setState({order});
-    //     // console.log(order);
-    // }
+    savedPosition = () => {
+        setTimeout(() => {
+            let source = Array.from(document.getElementsByClassName('note'));
+            let order = [];
+            source.forEach((item, index) => {
+                order.push(item.id)
+            });
+            this.setState({ order });
+            console.log(order);
+        }, 500);
+    }
 
     render() {
         // console.log(document.getElementsByClassName("note"))
@@ -128,7 +130,8 @@ class NoteList extends Component {
                             style={{textDecoration: "none", color: "black"}} 
                             key={note.id} to={`/note/${note.id}`} 
                             id = {note.id}
-                            className="note-link note ui-state-default">
+                            className="note-link note ui-state-default"
+                            onMouseUp={this.savedPosition}>
                             <div>
                                 <h4>{note.title}</h4>
                                 <p>{note.body}</p>
