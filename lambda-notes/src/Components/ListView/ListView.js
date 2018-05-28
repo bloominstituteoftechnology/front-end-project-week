@@ -10,6 +10,9 @@ import "./ListView.css";
 class ListView extends Component {
     constructor() {
         super();
+        this.state = {
+            notes: [],
+        }
     }
 
     // handleInputChange = e => {
@@ -24,7 +27,10 @@ class ListView extends Component {
     fetchData() {
         axios.get('https://noteslambda.herokuapp.com/notes')
         .then(response => {
-            console.log(response);
+            this.setState({
+                notes: response.data
+            })
+            console.log(this.state.notes)
         }).catch(err => {
             console.log(err)
         })
@@ -41,24 +47,18 @@ class ListView extends Component {
                     </div>
 
                     <div>
-                        {this.props.notes.notes.length === 1 ? (
-                            <h1>Make a note</h1>
+                        {this.state.notes.length < 1 ? (
+                            <div>Please Make A note</div>
                         ) : (
-                            <div className = "row">
-                                {this.props.notes.notes.map((note, index) => {
-                                    console.log('index',index)
-                                return (
-                                    <Link className="card" to={{
-                                        pathname: `/note/${index}`,
-                                        state: {
-                                            index: index
-                                        }
-                                    }}>
-                                        <h1 className="underline" key={index}>{note.title}</h1>
-                                        <p key={index}>{note.note}</p>
+                            <div className="row">
+                            {this.state.notes.map(note => {
+                                return(
+                                    <Link to="/home" key={note._id} className="card">
+                                        <h1 className="underline">{note.title}</h1>
+                                        <h4>{note.content}</h4>
                                     </Link>
                                 )
-                            })} 
+                            })}
                             </div>
                         )}
                     </div>
