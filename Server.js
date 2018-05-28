@@ -52,12 +52,12 @@ server.get("/notes/:id", (req, res) => {
 })
 
 server.delete("/notes/:id", (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id
 
-    if(Note.findById(id) === null) {
-        res.send('hello')
+    if(id === undefined || id === null) {
+        res.json({Message: "Please give an id"});
+        return;
     }
-
 
     Note.findByIdAndRemove(id).then(deleted => {
         res.status(200).json({Message: "Note has been deleted"})
