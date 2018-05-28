@@ -2,6 +2,9 @@
   "scripts": {
     "start": "nodemon server.js"
   },
+  "engines": {
+    "node": "9.7.1"
+  },
   "name": "front-end-project-week",
   "description": "Trello Board: https://trello.com/b/MxggaAnm/lambda-notesbackend-cristian-garcia",
   "version": "1.0.0",
