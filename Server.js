@@ -20,6 +20,18 @@ server.get("/", (req,res) => {res.send('API RUNNING')})
 server.get("/notes", (req, res) => {
     Note.find().then(notes => {
         res.status(200).json(notes)
+    }).catch(err => {
+        res.status(404).json(err)
+    })
+})
+
+server.get("/notes/:id", (req, res) => {
+    const id = req.query.id;
+
+    Note.findById(id).then(note => {
+        res.status(200).json(note)
+    }).catch(err => {
+        res.status(404).json(err)
     })
 })
 
