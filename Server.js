@@ -29,11 +29,16 @@ server.post("/notes", (req, res) => {
     const newNote = req.body;
     const note = new Note(newNote);
 
-    note.save().then(note => {
-        res.status(200).json(note);
-    }).catch(err => {
-        res.status(500).json(err)
-    })
+    if(newNote.title.length < 1 || newNote.content.length < 1) {
+        res.json({Message: "Input title and content"});
+        return;
+    } else {
+        note.save().then(note => {
+            res.status(200).json(note);
+        }).catch(err => {
+            res.status(500).json(err)
+        })
+    }
 })
 
 server.get("/notes/:id", (req, res) => {
