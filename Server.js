@@ -53,16 +53,10 @@ server.get("/notes/:id", (req, res) => {
 
 server.delete("/notes/:id", (req, res) => {
     const id = req.params.id
-
-    if(id === undefined || id === null) {
-        res.json({Message: "Please give an id"});
-        return;
-    }
-
     Note.findByIdAndRemove(id).then(deleted => {
         res.status(200).json({Message: "Note has been deleted"})
     }).catch(err => {
-        res.status(404).json({Message: ""})
+        res.status(404).json({Message: "User with that Id could not be found"})
     })
 })
 
@@ -70,13 +64,18 @@ server.put("/notes/:id", (req, res) => {
     const id = req.params.id;
     const newNote = req.body;
 
+    if(newNote.title.length < 1 || newNote.content.length < 1) {
+        res.json({Message: "Input title and content"});
+        return;
+    } else {
+
     Note.findByIdAndUpdate(id, newNote).then(updatedNote => {
         res.status(200).json({
             Message: "Note has been updated"
         })
     }).catch(err => {
         res.status(404).json(err)
-    })
+    })}
 })
 
 
