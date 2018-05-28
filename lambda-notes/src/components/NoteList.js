@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+
 import { addNote } from '../actions';
 
 class NoteList extends Component {
@@ -18,12 +20,36 @@ class NoteList extends Component {
     }
 
     updateBody = (event) => {
-        this.setState({ bodyCheck: !this.state.bodyCheck, titleCheck: this.state.bodyCheck})
+        this.setState({ bodyCheck: !this.state.bodyCheck, titleCheck: this.state.bodyCheck});
     }
 
     updateTitle = (event) => {
-        this.setState({ titleCheck: !this.state.titleCheck, bodyCheck: this.state.titleCheck})
+        this.setState({ titleCheck: !this.state.titleCheck, bodyCheck: this.state.titleCheck});
     }
+
+    handleAlphaSort = (event) => {
+        event.preventDefault();
+        let noteTitles = this.props.notes.map(note => {
+            return note.title;
+        })
+        noteTitles = noteTitles.sort();
+        // console.log(noteTitles);
+        for (let i = 0; i < noteTitles.length; i++) {
+            this.state.order[this.props.notes[i].title] = this.props.notes[i];
+        }
+        for (let i = 0; i < noteTitles.length; i++) {
+            this.props.notes[i] = this.state.order[noteTitles[i]];
+        }
+        this.state.order = [];
+    }
+
+    // handleAlphaSort = (event) => {
+    //     event.preventDefault();
+    //     let noteTitles = this.props.notes.map(note => {
+    //         return note.title;
+    //     })
+    //     console.log(noteTitles.sort());
+    // }
 
     // savedPosition = () => {
     //     let source = Array.from(document.getElementsByClassName('note'));
@@ -77,6 +103,20 @@ class NoteList extends Component {
                             name="search"
                             onChange={this.updateBody}
                             /><label>Search Body</label>
+                    </div>
+                    <div className="dropdown-sort">
+                        <Dropdown 
+                            direction="right" 
+                            isOpen={this.state.btnDropright} 
+                            toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
+                            <DropdownToggle caret>
+                                Sort Notes
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem onClick={this.handleAlphaSort}>Sort By A to Z</DropdownItem>
+                                <DropdownItem onClick={console.log('sort2')}>Sort by Date</DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
                     </div>
                 </form>
                 <div className="notelist" id="sortable">
