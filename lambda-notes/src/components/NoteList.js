@@ -36,9 +36,11 @@ class NoteList extends Component {
         // console.log(noteTitles);
         for (let i = 0; i < noteTitles.length; i++) {
             this.state.order[this.props.notes[i].title] = this.props.notes[i];
+            // console.log(this.state.order)
         }
         for (let i = 0; i < noteTitles.length; i++) {
             this.props.notes[i] = this.state.order[noteTitles[i]];
+            // console.log(this.props.notes)
         }
         this.state.order = [];
     }
