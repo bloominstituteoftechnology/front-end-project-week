@@ -1,5 +1,27 @@
 {
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "front-end-project-week",
+  "description": "Trello Board: https://trello.com/b/MxggaAnm/lambda-notesbackend-cristian-garcia",
+  "version": "1.0.0",
+  "main": "Server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2940cristian/front-end-project-week.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2940cristian/front-end-project-week/issues"
+  },
   "dependencies": {
+    "express": "^4.16.3",
     "mongoose": "^5.1.2"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  },
+  "homepage": "https://github.com/2940cristian/front-end-project-week#readme"
 }
