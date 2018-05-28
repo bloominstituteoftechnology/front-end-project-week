@@ -26,7 +26,7 @@ server.get("/notes", (req, res) => {
 })
 
 server.get("/notes/:id", (req, res) => {
-    const id = req.query.id;
+    const id = req.params.id;
 
     Note.findById(id).then(note => {
         res.status(200).json(note)
