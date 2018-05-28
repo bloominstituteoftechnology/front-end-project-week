@@ -8,6 +8,7 @@ import {
   Row,
   InputGroup,
   InputGroupAddon,
+  Form
  
 } from "reactstrap";
 import axios from "axios";
@@ -33,6 +34,7 @@ class NoteForm extends Component {
     axios
       .post("http://localhost:5000/notes", note)
       .then(response => {
+        this.props.toggle()
     this.props.updateGet()
       })
       .catch(err => {
@@ -50,27 +52,42 @@ class NoteForm extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <InputGroup onSubmit={this.addNote}>
+      <React.Fragment> 
+        
+        <Form onSubmit={this.addNote} className="form-styles">
+        <InputGroup >
+       
           <InputGroupAddon addonType="prepend">Title</InputGroupAddon>
           <Input
            onChange={this.handleInputChange}
            placeholder="title..."
            value={this.state.title}
+           onSubmit={this.addNote}
            name="title"
           />
         </InputGroup>
       
         <InputGroup size="sm">
           <InputGroupAddon addonType="prepend">Text</InputGroupAddon>
-          <Input  className="textarea-styles" type="textarea" 
+          <Input 
+           className="textarea-styles"
+           type="textarea" 
            onChange={this.handleInputChange}
            placeholder="Text..."
+           onSubmit={this.addNote}
            value={this.state.textbody}
            name="textbody"/>
         </InputGroup>
-        <Button color="success" className="friendBtn-style" onClick={this.addNote} type="submit">Add Friend</Button>
-
+        <Row className="modalBtn-styles">
+          <Col xs="auto">
+        <Button color="success" className="noteBtn-style" onClick={this.addNote} type="submit">Add Note</Button>
+            </Col>
+          <Col xs="auto">
+        <Button color="danger" className="noteBtn-style" onClick={this.toggle} >Cancel</Button>
+        </Col>
+        
+        </Row>
+</Form>
       </React.Fragment>
     );
   }

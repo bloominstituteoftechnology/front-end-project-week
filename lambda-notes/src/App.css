@@ -1,11 +1,11 @@
+
 .App {
   text-align: center;
+width:100%;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+
 
 .App-header {
   background-color: #222;
@@ -31,18 +31,90 @@
 }
 .home-styles{
   margin-bottom:100px;
+  color:white;
+}
+.navbar{
+width:100%;
+ background: #6B5B95
+}
+.navbar-brand{
+  color:white !important;
+}
+.nav-link{
+  color:white !important;
+text-align: center;
+  margin-left: 30%;
+}
+.modal-content{
+  width:100%;
+  height: 40%;
+ margin-top: 30%;
+ display:flex;
+ justify-content: center;
+}
+.modal-title{
+  text-align: center;
+}
+.modal-footer{
+width:100%;
 
 }
+.btnDelete-styles{
+padding:4%;
+  width:100%;
+
+}
+.components{
+  height:700px;
+  height:auto;
+
+}
+.list-styles{
+  height: 350px;
+   
+}
 .card{
-
+ background:  #95DEE3;
   min-height:226px;
- 
-  min-width:80%;
-  max-width:80%;
-  color:black;
-  margin:0 auto;
+ color:rgb(255, 255, 255);
+  width:100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+margin: 3%;
   margin-bottom: 22px;
+  margin-top:20px;
+  font-size: 1.2rem;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 0px 0px 9px #888888;
+ 
 
+
+}
+.card-title{
+  font-size:1.6rem;
+font-weight: bold;
+text-decoration: none;
+ 
+
+}
+.card-title:hover{
+
+text-decoration: none;
+
+}
+.cardtext-styles{
+border-top: 1px solid white;
+}
+.noteTitle-styles{
+  font-size: 2.6rem;
+}
+.noteText-styles{
+  border-top:2px solid white;
+  font-size: 1.6rem;
+}
+.form-control{
+margin-bottom:2%
 }
 .note-styles{
   width:80%;
@@ -55,21 +127,55 @@
   display:flex;
 
 }
+.form-styles{
+  padding:10px;
+  height:auto;
+}
+
 .input-group{
-  margin-bottom:4px;
+  margin-bottom:20px;
+}
+.input-group-sm{
+  height:232px;
+}
+.modalBtn-styles{
+display:flex;
+justify-content: center;
+}
+.noteBtn-style{
+  width:100%;
 }
 .components{
-  max-width: ;
+
+  margin-top:10px;
 display:flex;
 justify-content: center;
 
 }
 .fa-eraser{
   color:red;
+  display:flex;
+margin-left: 95%;
+width: 17px;
 }
 .fa-edit{
   color:green
 }
+.label-styles{
+  font-size:15px;
+  width:100%;
+  text-align: left;
+}
+.textarea-styles{
+  height:232px;
+  margin-bottom: 5%;
+  resize: none;
+}
+.mBtn-styles{
+width:100%;
+margin-left:.2%;
+}
+
 
 /* 
 .home-styles{

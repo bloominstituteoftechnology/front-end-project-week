@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import axios from 'axios'
-import{Tooltip,Input,Label,Form,Collapse,Col,Row } from 'reactstrap'
+import{Tooltip,Input,Label,Form,Collapse,Col,Row,FormGroup } from 'reactstrap'
 
 class Update extends Component{
 constructor(props){
@@ -55,10 +55,12 @@ render(){
           <Col xs="12">    
         <Collapse className="updateInput-styles" isOpen={this.state.collapse}>
      <Col xs ="12">
-        <Form className="inputForm-styles" onSubmit={this.update}>
+        <Form className="inputForm-styles" onSubmit={()=>this.update(this.props.id)}>
 <Col xs="12">
-        <Label>Title</Label>
+        <Label className="label-styles">Title:</Label>
+  
     <Input
+  
      onChange={this.handleInputChange}
      placeholder="title..."
      value={this.state.title}
@@ -67,7 +69,7 @@ render(){
 
      <Col xs="12">
 
-    <Label>Text</Label>
+    <Label className="label-styles">Text:</Label>
     <Input
     className="textarea-styles" type="textarea" 
     onChange={this.handleInputChange}

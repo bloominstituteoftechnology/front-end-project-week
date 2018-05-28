@@ -14,7 +14,10 @@ import {
   Card,
   InputGroup,
   InputGroupAddon,
-  Input
+  Input,
+  Modal,
+  Col,
+  Row
 } from "reactstrap";
 import { Link } from "react-router-dom";
 class Home extends Component {
@@ -22,33 +25,50 @@ class Home extends Component {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      collapse: false
+      Modal: false
     };
   }
 
   toggle() {
-    this.setState({ collapse: !this.state.collapse });
+    this.setState({ Modal: !this.state.Modal });
   }
   render() {
       console.log(this.props.updateGet)
     return (
       <React.Fragment>
         <div className="home-styles">
-          <Navbar fixed={"top"} color="info" light expand="md">
-            <NavbarBrand  href="/">Lambda School</NavbarBrand>
-            <Nav className="ml-auto" navbar>
+        
+        <Row>
+        <Row>
+
+          <Navbar fixed={"top"}  light expand="md">
+    
+        <Col sm="auto"md="auto">
+            <NavbarBrand   href="/">Lambda School</NavbarBrand>
+            </Col>
+          
+
+            <Nav  navbar>
+            <Col sm="auto"md="6">
               <NavItem>
                 <NavLink href="/">Components</NavLink>
               </NavItem>
+              </Col>
+              <Col sm="auto"md="6">
               <NavItem>
                 <NavLink onClick={this.toggle}>create</NavLink>
-                <Collapse isOpen={this.state.collapse}>
-           <NoteForm updateGet={this.props.updateGet}/>
+                <Modal isOpen={this.state.Modal}>
+                
+           <NoteForm toggle={this.toggle} updateGet={this.props.updateGet}/>
  
-                </Collapse>
+                </Modal>
               </NavItem>
+              </Col>
             </Nav>
+    
           </Navbar>
+            </Row>
+            </Row>
         </div>
       </React.Fragment>
     );

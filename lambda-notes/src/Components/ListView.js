@@ -7,13 +7,13 @@ import { Card, CardImg, CardText, CardBody,
     return(<React.Fragment>
 <Row>
      {props.notes.map(note =>(
-       <Col xs="4" >
-       <Link to={`/notes/${note._id}`} className="card-styles">
+       <Col  sm={{size:12, margin:"1000px"}} md="6" lg="6" xl="4" >
+       <Link to={`/notes/${note._id}`} className="card-styles" style={{ textDecoration: 'none' }} >
          
-        <Card className="card-styles" key={note._id}>
+        <Card className="card-style list-styles" key={note._id}>
        <CardBody className="body-styles">
-        <CardTitle>{note.title}</CardTitle>
-        <CardText className="cardtext-styles">{note.textbody}</CardText>
+        <CardTitle>{    props.titleTrim(note.title)     }</CardTitle>
+        <CardText className="cardtext-styles">{ props.trimmer(note.textbody) }</CardText>
         </CardBody>
         </Card>
         

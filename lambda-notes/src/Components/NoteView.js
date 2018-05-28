@@ -38,11 +38,11 @@ render(){
         <Card className="note-styles" key={this.state.note._id}>
          <Delete id={this.state.note._id}/>
         <CardBody className="body-styles">
-         <CardTitle>{this.state.note.title}</CardTitle>
-         <CardText className="cardtext-styles">{this.state.note.textbody}</CardText>
+         <CardTitle className="noteTitle-styles">{this.state.note.title}</CardTitle>
+         <CardText className="noteText-styles">{this.state.note.textbody}</CardText>         
+         <Update id={this.state.note._id}/> 
          </CardBody>
         
-         <Update id={this.state.note._id}/> 
       
         
         
