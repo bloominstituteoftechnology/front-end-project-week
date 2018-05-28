@@ -15,7 +15,6 @@ class CreateNote extends Component {
 
     addNote = event => {
       event.preventDefault();
-      // add code to create the smurf using the api
       const { noteTitle, noteContent } = this.state;
       const noteData = { noteTitle, noteContent };
       this.props.addNote(noteData);
@@ -112,9 +111,11 @@ class CreateNote extends Component {
           </div>
           <div>
             {this.state.error ? <div>Error note must not be empty text</div> : null}
+            
             <button type="button" className="saveButton" onClick={this.handleAddNote}>
             Save
             </button>
+          
           </div>
         <div>
       </div>

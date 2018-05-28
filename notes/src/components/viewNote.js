@@ -2,13 +2,30 @@ import React,  { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './viewNote.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import axios from 'axios';
+const URL = 'http://localhost:3333/notes'
 
 class ViewNote extends Component {
     constructor(props) {
     super(props);
     this.state = {
         modal : false
+    
     };
+    /*deleteNote = id => {
+        const myPromise = axios.delete(`${URL}/${id}`);
+        myPromise
+          .then(response => {
+            this.setState({ notes: response.data}); 
+          })
+          .catch(err => {
+            console.error(err);
+          });
+      }*/
+      
+      /*deleteNote = event => {
+          event.preventDefault();
+      }*/
 
     this.toggle = this.toggle.bind(this);
 }
@@ -18,6 +35,7 @@ class ViewNote extends Component {
         modal: !this.state.modal
         });
     };
+
     render() {
     return (
     <body>  
@@ -44,7 +62,7 @@ class ViewNote extends Component {
             edit
             </button>
             </Link>
-            <button className="deleteButton" onClick={this.toggle}>{this.props.buttonLabel}delete</button>
+            <button className="deleteButton" onClick={this.toggle}>{/*props.deletNote(props.id)*/}delete</button>
             <Modal className="modalBody" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
             <ModalHeader className="modalHeader" toggle={this.toggle}>Are you sure you want to delete this?</ModalHeader>
             {/*<ModalBody className="modalBody">

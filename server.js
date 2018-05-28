@@ -16,7 +16,7 @@ let notes = [
   {
     id: 0,
     noteTitle: 'React Styles',
-    noteContent: 'Implement React styling changes'
+    noteContent: 'Implement React styling changes with css and jsx'
   }
 ];
 server.get('/notes', (req, res) => {
