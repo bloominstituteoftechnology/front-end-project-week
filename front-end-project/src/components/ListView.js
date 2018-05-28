@@ -1,35 +1,39 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Card, CardBody, CardTitle, CardText, CardGroup } from 'reactstrap'
+import { Card, CardHeader, CardContent, Typography, Grid } from '@material-ui/core'
+import { SideNav } from '../components'
 import '../styles/ListView.css'
 
 const ListView = props => {
-    return (
-            <div className="main-text">
-                <h3 style={{ textAlign: "left" }}> Your Notes: </h3>
-        <CardGroup className="allNotes">
-            {props.notes.length > 0 ? props.notes.map(note => {
-            let wiggleRoom = 150 - 3
-            const maxLength = wiggleRoom;
-                return (
-                        <NavLink to={`/note/${note.id}`} style={{textDecoration: 'none'}} key={note.id}>
-                        <Card className="card mein-card">
-                            <CardBody className="card-body">
-                                <CardTitle className="card-title" style={{fontSize: '1.7rem', marginTop: '-1rem', fontWeight: 'bold'}}> {note.title.title.length > 12 ? note.title.title.slice(0, 12) + '...' : note.title.title} </CardTitle>
-                                <CardText className="card-text card-content" style={{marginTop: '.5rem', paddingTop: '.5rem'}}> {note.title.content.length > maxLength ? note.title.content.slice(0, maxLength) + '...' : note.title.content} </CardText>
-                            </CardBody>
-                        </Card>
+    return (    
+    <div>
+        <Grid container spacing={40}>
+            <Grid item xs={1} sm={3}>
+                <SideNav />
+            </Grid>
+    <div style={{overflow: 'scroll', marginLeft: '25%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: '100vh'}}>
+        {props.notes.map(note => {
+            return (
+            <Grid item xs={11} sm={11} lg={3} key={note.id} style={{margin: '2vh', height: '25%'}}>
+                <Card className="mein-card">
+                    <NavLink to={`/note/${note.id}`} style={{textDecoration: 'none'}} key={note.id}>     
+                        <CardHeader title={`${note.title.title}`} />
+                        <CardContent>
+                            <Typography component="p" style={{overflow: 'hidden', height: '100px'}}>
+                                {note.title.content}
+                            </Typography>
+                        </CardContent>
                         </NavLink>
-                    )
-                }
-            ) : null
-        } 
-        </CardGroup>
+                    </Card>
+                </Grid>
+          )
+        })}
+        </div>
+    </Grid>
     </div>
     )
 }
-
 const mapStateToProps = state => {
     return {
         notes: state.notes.notes

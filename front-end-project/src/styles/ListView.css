@@ -1,43 +1,23 @@
-.main-text {
-    margin-left: 21.178vw;
-    height: 99.7vh;
-    width: 78.65vw;
+.listView {
     position: fixed;
-    border: .1vw solid #979797;
+    margin-left: 21vw;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+    border-top: .1vw solid #979797;
     color: #4A4A4A;
     font: Raleway Medium;
     background: #F3F3F3
 }
 .mein-card {
     font-size: 2.5vh;
-    margin: 2.5vh 3vw 2.5vh 3vw;
-    padding: 4vh;
-    overflow: visible;
-    width: 15vw;
-    height: 20vh;
+    margin: 2vh;
+    padding: 2vh;
+    height: 25vh;
+    min-width: 20vw;
     flex: 1;
     background: white;
     border: .1vh solid #979797;
-}
-
-h5 {
-    padding-bottom: 1vh;
-    border-bottom: .1vh solid #979797;
-}
-
-a {
-    color: #4A4A4A;
-    height: 35vh;
-} 
-a:hover {
-    color: #4A4A4A;
-}
-.allNotes {
-    display: flex;
-    height: 85.7vh;
-    width: 78.62vw;
-    flex-wrap: wrap;
-}
-.card-text {
-    font-size: 2.5vh;
 }

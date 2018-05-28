@@ -1,38 +1,56 @@
 import React from 'react'
-import { Redirect } from 'react-router'
+import { Redirect, withRouter } from 'react-router'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { addNote } from '../actions'
-import '../styles/Create.css'
+import { Grid, TextField } from '@material-ui/core'
+import { SideNav } from '../components'
 
+const required = (value) => (value ? undefined : 'This is a required field')
+const renderCreateTextField = ({ input, placeholder, type, meta: { touched, error }, ...custom
+}) => (
+    <div>
+        <TextField {...input} placeholder={placeholder} type={type} {...custom}/>
+        {touched && error && <p><strong> {error} </strong></p>}
+        </div>
+)
 
 let Create = props => {
     const { handleSubmit, submitting, pristine } = props
     return (
-    <div className="main-text">
-        <h3> Create New Note: </h3>
-        <form onSubmit={handleSubmit((val) => props.addNote(val))} className="inputForm">
+<div>
+    <Grid container spacing={40}>
+        <Grid item xs={3}>
+            <SideNav />
+        </Grid>
+    <Grid item xs={9}>
+    <h3 style={{marginLeft: '2vw'}}> Create Note: </h3>
+        <form onSubmit={handleSubmit((val) => props.addNote(val))} className="inputForm" style={{marginLeft: '2vw'}}>
         {props.submitSucceeded ? <Redirect to="/"/> : null}
                 <div className="title">
                     <Field
                         name="title"
-                        component="textarea"
+                        component={renderCreateTextField}
                         type="text"
                         placeholder="Note title"
+                        style={{border: '1px solid gray', background: 'white', width: '40vw'}}
                         className="title"
-                        rows="1"
-                        cols="40"
+                        validate={required}
+                        margin="normal"
                         />
                     </div>
-            <div className="content">
+            <div>
                 <Field
                     name="content"
-                    component="textarea"
+                    component={renderCreateTextField}
                     type="text"
                     placeholder="Note content"
-                    className="content"
-                    rows="15"
-                    cols="98"
+                    style={{border: '1px solid gray', background: 'white', width: '70vw'}}
+                    validate={required}
+                    margin="normal"
+                    multiline={true}
+                    rows={14}
+                    fullWidth
                 />
                 <div>
                 <button type="submit" disabled={submitting || pristine} className="saveButton">
@@ -41,13 +59,12 @@ let Create = props => {
                 </div>
             </div>
         </form>
-        
+        </Grid>
+        </Grid>
     </div>
     )
 }
-
-
-Create = connect(null, { addNote })(Create)
+Create = withRouter(connect(null, { addNote })(Create))
 export default reduxForm({
     form: 'create'
     })(Create)

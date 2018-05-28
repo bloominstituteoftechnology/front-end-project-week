@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import '../src/styles/App.css'
 import { Route } from "react-router-dom";
-import { SideNav, ListView, NoteView, Edit, Create } from './components'
+import { ListView, NoteView, Edit, Create } from './components'
 import { connect } from 'react-redux'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 
 const routes = [
   {
     path: "/",
     exact: true,
-    sidebar: () => <SideNav />,
     main: () => <ListView />,
   },
   {
     path: "/note/:id",
-    sidebar: () => <SideNav />,
     main: () => <NoteView />,
   },
   {
     path: "/create",
-    sidebar: () => <SideNav />,
     main: () => <Create />,
   },
   {
     path: "/edit/:id",
-    sidebar: () => <SideNav />,
     main: () => <Edit />,
   }
 ]
@@ -33,15 +29,8 @@ const routes = [
 class App extends Component {
   render() {
     return (
-      <div className="container-fluid noteApp">
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.sidebar}
-              />
-            ))}
+      <React.Fragment>
+        <CssBaseline />
             {routes.map((route, index) => (
               <Route
                 key={index}
@@ -50,7 +39,7 @@ class App extends Component {
                 component={route.main}
               />
             ))}
-          </div>
+          </React.Fragment>
     )
   }
 }

@@ -3,6 +3,7 @@ export const EDIT_NOTE = "EDIT_NOTE"
 export const DELETE_NOTE = "DELETE_NOTE"
 export const DELETING_NOTE = "DELETING_NOTE"
 export const NOT_DELETING_NOTE = "NOT_DELETING_NOTE"
+export const LOAD = "LOAD"
 
 let nextId = 1;
 export const addNote = (title, content) => {

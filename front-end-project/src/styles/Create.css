@@ -1,24 +1,5 @@
-h3 {
-    margin: 6rem 0rem 0rem 3rem;
-}
 
 .content {
-    padding: 1.5vh;
-    font-size: 2vh;
-}
-.title {
-    padding: 1.5vh;
-    font-size: 2vh;
-
-}
-.saveButton {
-    margin-top: 2vh;
-}
-.inputForm {
-    margin: 2vh 2.5vw;
-    text-align: start;
-}
-input {
-    margin: .5vh 0 3vh 0;
-    padding: 2vh;
+    border-radius: 4;
+    border: 1px solid #ced4da;
 }

@@ -1,7 +1,5 @@
-.note {
+.noteText {
     line-height: 2.5;
-    margin: 0 3.5vw 0 3.5vw;
-    white-space: pre-line;
     font-size: 2.2vh;
     z-index: 1;
 }
@@ -17,45 +15,38 @@ h3 {
 }
 
 .noteViewButtons {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 12vw;
     height: 3.5vh;
     padding-top: 5vh;
-    padding-bottom: 3.5vh;
     font-size: 2.5vh;
     text-decoration: underline;
     font-weight: bold;
+    text-align: right;
 }
-.delete {
-    margin-left: 2rem;
+
+/* New things */
+.noteViewButtonWrap {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 2vh;
 }
-.modal-body {
-    background: white;
-    z-index: 100;
-    margin: 15vh 0 0 25vw;
-    width: 50vw;
-    height: 28vh;
-    font-size: 2.5vh;
+.note {
+    margin: 0 0 0 -12.5%;
+    padding: 4vh 6vw;
+    height: 110vh;
+    overflow: scroll
+}
+.modalWrapper {
+    max-width: 50% !important;
+    width: 50%;
     position: fixed;
-    border: .1vw solid  #979797;
-    opacity: 1;
-}
-.modal-text {
-    margin: 7vh 0 0 0;
     text-align: center;
+    margin: 5% 25% 0 25% !important;
+    background: white;
+    z-index: 1000;
+    padding: 2%;
 }
-.modalButtons {
-    display: flex;
-    justify-content: center;
-}
-.deleteButton, .cancelButton {
-    margin: 5vh 2vw;
+.button2 {
     width: 18vw;
-}
-.deleteButton {
-    background: #D0021B;
-}
-.noteName {
-    margin: 0 0 2vh 3.5vw;
+    margin: 2vh 2vw;
 }
