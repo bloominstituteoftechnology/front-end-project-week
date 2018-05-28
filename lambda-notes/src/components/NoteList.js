@@ -7,24 +7,36 @@ class NoteList extends Component {
     state = {
         search: '',
         titleCheck: true,
-        bodyCheck: false
+        bodyCheck: false,
+        order: []
     }
 
-    updateSearch(event) {
+    updateSearch = (event) => {
         this.setState({ search: event.target.value.toLowerCase().substr(0,
             20)});
         event.preventDefault();
     }
 
-    updateBody(event) {
+    updateBody = (event) => {
         this.setState({ bodyCheck: !this.state.bodyCheck, titleCheck: this.state.bodyCheck})
     }
 
-    updateTitle(event) {
+    updateTitle = (event) => {
         this.setState({ titleCheck: !this.state.titleCheck, bodyCheck: this.state.titleCheck})
     }
+
+    savedPosition = () => {
+        let source = Array.from(document.getElementsByClassName('note'));
+        let order = [];
+        source.forEach((item, index) => {
+            order.push(item.id)
+        });
+        this.setState({order});
+        // console.log(order);
+    }
+
     render() {
-        // console.log(this.props.notes)
+        console.log(document.getElementsByClassName("note"))
         // console.log('body',this.state.bodyCheck)
         // console.log('title',this.state.titleCheck)
         let filteredNotes = this.props.notes.filter((note) => {
@@ -47,7 +59,7 @@ class NoteList extends Component {
                         placeholder="Select Search Type..."
                         type="text"
                         value={this.state.search}
-                        onChange={this.updateSearch.bind(this)}
+                        onChange={this.updateSearch}
                     />
                     <div className="radio-container">
                         <input 
@@ -55,7 +67,7 @@ class NoteList extends Component {
                             type="radio"
                             value={this.state.titleCheck}
                             name="search"
-                            onChange={this.updateTitle.bind(this)}
+                            onChange={this.updateTitle}
                             defaultChecked
                             /><label>Search Title</label>
                         <input 
@@ -63,16 +75,17 @@ class NoteList extends Component {
                             type="radio"
                             value={this.state.bodyCheck}
                             name="search"
-                            onChange={this.updateBody.bind(this)}
+                            onChange={this.updateBody}
                             /><label>Search Body</label>
                     </div>
                 </form>
                 <div className="notelist" id="sortable">
-                    {filteredNotes.map(note => {
+                    {filteredNotes.map((note) => {
                         return (
-                            <Link 
+                        <Link 
                             style={{textDecoration: "none", color: "black"}} 
                             key={note.id} to={`/note/${note.id}`} 
+                            id = {note.id}
                             className="note-link note ui-state-default">
                             <div>
                                 <h4>{note.title}</h4>
@@ -82,6 +95,7 @@ class NoteList extends Component {
                         )
                     })}
                 </div>
+                {/* <button onClick={this.savedPosition}>test</button> */}
             </div>
         )
     }
