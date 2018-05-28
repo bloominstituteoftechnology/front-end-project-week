@@ -3,15 +3,33 @@ import SideBar from "../SideBar/SideBar"
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {newNote} from "../../Actions"
+import axios from "axios"
 
 
 import "./ListView.css";
 class ListView extends Component {
+    constructor() {
+        super();
+    }
 
-    handleInputChange = e => {
-        this.setState({[e.target.name]: e.target.value});
-        return e.target.value;
-      }
+    // handleInputChange = e => {
+    //     this.setState({[e.target.name]: e.target.value});
+    //     return e.target.value;
+    //   }
+
+    componentDidMount() {
+        this.fetchData()
+    }
+
+    fetchData() {
+        axios.get('https://noteslambda.herokuapp.com/notes')
+        .then(response => {
+            console.log(response);
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+    
 
     render() {
         return (

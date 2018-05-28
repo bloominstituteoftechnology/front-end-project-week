@@ -2,7 +2,8 @@
 const express = require('express');
 const server = express();
 const mongoose = require('mongoose');
-const Note = require('./Database/Notes/Note')
+const Note = require('./Database/Notes/Note');
+const cors = require('cors');
 //Database
 let uri = 'mongodb://2940cristian:dance360@ds235840.mlab.com:35840/noteslambda';
 mongoose.connect(uri, function(err, success) {
@@ -12,6 +13,7 @@ mongoose.connect(uri, function(err, success) {
 
 //Middleware
 server.use(express.json());
+server.use(cors());
 
 
 //Routers
