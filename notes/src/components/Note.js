@@ -64,7 +64,7 @@ class Note extends React.Component {
                             </form>
                         </div>
                     ) : (
-                        <div>
+                        <div className="display">
                             <div className="note-view-actions">
                                 <a onClick={() => this.setState({edit: true})}>edit</a>
                                 <a onClick={() => this.toggleModal()}>delete</a>

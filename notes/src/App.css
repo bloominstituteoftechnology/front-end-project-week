@@ -82,6 +82,10 @@ p {
   background: #D0021B;
 }
 
+.delete:hover {
+  background: rgb(255, 0, 30);
+}
+
 /* Navigation */
 
 .nav-sidebar {
@@ -135,7 +139,7 @@ p {
   font-size: 1.8rem;
   font-family: 'Roboto', sans-serif;
   width: 100%;
-  margin: 55px 0 30px;
+  margin: 65px 0 30px;
   color: #4A4A4A;
 
 }
@@ -194,8 +198,9 @@ p {
   min-height: 100vh;
 }
 
-.note-view div {
+.note-view .display {
   max-width: 600px;
+  margin: 10px 0 0;
 }
 
 .note-view-actions {
@@ -224,6 +229,7 @@ p {
   display: flex;
   flex-flow: column wrap;
   max-width: 600px;
+  margin: 10px 0 0;
 }
 
 .note-form h3 {
@@ -293,6 +299,7 @@ p {
   background: white;
   margin-top: 170px;
   width: 100%;
+  padding: 0 20px;
   max-width: 530px;
   height: 175px;
   text-align: center;
