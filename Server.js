@@ -17,6 +17,13 @@ server.use(express.json());
 //Routers
 server.get("/", (req,res) => {res.send('API RUNNING')})
 
+server.get("/notes", (req, res) => {
+    Note.find().then(notes => {
+        res.status(200).json(notes)
+    })
+})
+
+
 server.post("/notes", (req, res) => {
     const newNote = req.body;
     const note = new Note(newNote);
