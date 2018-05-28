@@ -30,7 +30,7 @@ class CreateNote extends Component {
                 <div className = "sideBar_pop create">
                     <h1>Create New Note:</h1>
                     <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
-                    <textarea onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
+                    <textarea onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
                     <button onClick={this.handleData}>Save</button>
                 </div>
             </div>
