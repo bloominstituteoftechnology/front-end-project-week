@@ -41,12 +41,13 @@ class EditNote extends Component {
             content: this.state.note
         }
 
-        axios.post("https://noteslambda.herokuapp.com/notes", newNote)
+        axios.put(`https://noteslambda.herokuapp.com/notes/${this.props.location.state}`, newNote)
         .then(response => {
             this.setState({
                 title: "",
                 note: "",
             })
+            this.props.history.push('/home')
         }).catch(err => {
             alert("Error creating new note")
         })
