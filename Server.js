@@ -36,7 +36,7 @@ server.post("/notes", (req, res) => {
     const note = new Note(newNote);
 
     if(newNote.title.length < 1 || newNote.content.length < 1) {
-        res.json({Message: "Input title and content"});
+        res.json({Message: "Input title and content"})
         return;
     } else {
         note.save().then(note => {
@@ -106,16 +106,23 @@ server.post("/users", (req, res) => {
     }).catch(err => {
         res.status(500).json({Message: "Error creating user"})
     })
-})
+});
 
 server.post("/users/login", (req, res) => {
     const {email, password} = req.body;
 
     User.findOne({email: email}, (err, user) => {
         if(err) {res.send(err)}
-        
-        else {res.status(200).json(user)}})
-})
 
-server.listen(process.env.PORT || 5000)
+        else if(password === user.password) {
+            res.status(200).json({Message: "Signing in"});
+        }
+
+        else {
+            res.status(500).json({Message: "Incorrect Password"});
+        }
+    })
+});
+
+server.listen(process.env.PORT || 5000);
 
