@@ -4,6 +4,7 @@ const server = express();
 const mongoose = require('mongoose');
 const Note = require('./Database/Notes/Note');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 //Database
 let uri = 'mongodb://2940cristian:dance360@ds235840.mlab.com:35840/noteslambda';
 mongoose.connect(uri, function(err, success) {
