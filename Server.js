@@ -6,6 +6,7 @@ const Note = require('./Database/Notes/Note');
 const User = require('./Database/Users/User')
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 //Database
 let uri = 'mongodb://2940cristian:dance360@ds235840.mlab.com:35840/noteslambda';
 mongoose.connect(uri, function(err, success) {
@@ -120,7 +121,8 @@ server.post("/users/login", (req, res) => {
                 return res.status(422).json({ error: 'Passwords do not match' });
             }
             if (isMatch) {
-                res.status(200).json({Message: "Logging in"})
+                const token = jwt.sign({user}, "testingSecret");
+                res.status(200).json({token: token})
             } 
             else {
                 res.status(422).json({ error: 'passwords dont match' });
