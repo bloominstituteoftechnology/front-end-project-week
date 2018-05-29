@@ -1,7 +1,8 @@
 import {
   EDIT_NOTE,
   CREATE_NOTE,
-  DELETE_NOTE
+  DELETE_NOTE,
+  ORDER_NOTE
 } from "../actions";
 
 import { v4 } from 'node-uuid';
@@ -41,9 +42,15 @@ export const notesReducer = (notes = retrieveData(), action) => {
         tempArray = notes.filter(note => {
             return note.id !== action.payload.id
         })
-        tempArray.push(action.payload)
+        tempArray.unshift(action.payload)
         saveData(tempArray);
         return tempArray;
+    case ORDER_NOTE:
+    console.log(noteOrderState)
+        let noteOrderState = Array.from(notes);
+        noteOrderState.push(action.payload);
+        saveData(noteOrderState);
+        return noteOrderState;
     default:
       return notes;
   }

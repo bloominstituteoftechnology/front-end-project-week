@@ -4,10 +4,21 @@ import { editNote } from "../actions";
 
 class EditNote extends Component {
   state = {
-    id: parseInt(this.props.match.params.id),
+    id: this.props.match.params.id,
     title: "",
     content: ""
   };
+
+  matchedNote = this.props.notes.filter(note => {
+    return note.id == this.props.match.params.id;
+  })[0];
+
+  componentDidMount() {
+    this.setState({
+      title: this.matchedNote.title,
+      content: this.matchedNote.content
+    });
+  }
 
   handleNoteInput = e => {
     this.setState({
@@ -18,9 +29,13 @@ class EditNote extends Component {
   handleEdit = e => {
     e.preventDefault();
     this.props.editNote(this.state);
-    this.setState({ title: "Note Title", content: "Note Content" });
+    this.setState({
+      id: `${this.props.match.params.id}`,
+      title: `${this.props.match.params.title}`,
+      content: `${this.props.match.params.content}`
+    });
     // this.props.history.push(`/notes/${this.state.id}`);
-    window.location.href="/";
+    window.location.href = "/";
   };
 
   render() {
@@ -33,7 +48,6 @@ class EditNote extends Component {
           <div className="form-group">
             <input
               className="form-title form-control"
-              placeholder="Note Title"
               name="title"
               type="text"
               value={this.state.title}
