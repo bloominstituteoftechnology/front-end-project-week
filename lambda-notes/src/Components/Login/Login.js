@@ -6,13 +6,13 @@ import "./Login.css"
 class Login extends Component {
     constructor() {
         super();
-        this.state = {
-            loginUser: {
-                Username: "Admin",
-                Password: "Password"
-            },
-            link: "#"
-        }
+        // this.state = {
+        //     loginUser: {
+        //         Username: "Admin",
+        //         Password: "Password"
+        //     },
+        //     link: "#"
+        // }
     }
 
     handleKeyPress = (e) => {
@@ -21,35 +21,35 @@ class Login extends Component {
         }
       }
 
-      linkChange = () => {
-        this.setState ({
-            link: "/home"
-        })
-      }
+    //   linkChange = () => {
+    //     this.setState ({
+    //         link: "/home"
+    //     })
+    //   }
 
-      check = () => {
-        this.state.Username === this.state.loginUser.Username
-            &&
-       this.state.Password === this.state.loginUser.Password
-       ? (
-           this.linkChange()
-       ) : (
-           this.setState({
-               link: '#'
-           })
-       )
-      }
+    //   check = () => {
+    //     this.state.Username === this.state.loginUser.Username
+    //         &&
+    //    this.state.Password === this.state.loginUser.Password
+    //    ? (
+    //        this.linkChange()
+    //    ) : (
+    //        this.setState({
+    //            link: '#'
+    //        })
+    //    )
+    //   }
 
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
         return e.target.value;
       }
 
-    display = () => {
-        this.setState({
-            display: !this.state.display
-        })
-    }
+    // display = () => {
+    //     this.setState({
+    //         display: !this.state.display
+    //     })
+    // }
 
     render() {
         return(
@@ -61,7 +61,7 @@ class Login extends Component {
                         Username: <input onChange={this.handleInputChange} name="Username" type="text"></input>
                         Password: <input  onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} name="Password" type="password"></input>
                     </div>
-                    <Link to={`${this.state.link}`}  onClick={this.check} style={login}>Login</Link>
+                    <button style={login}>Login</button>
                 </div>
             </div>
     </div>
