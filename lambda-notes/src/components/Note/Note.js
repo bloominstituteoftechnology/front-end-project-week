@@ -1,38 +1,28 @@
 import React, { Component } from "react";
-import axios from "axios";
 import Navigation from "../Navigation/Navigation";
 import NoteCard from "./NoteCard";
-import {getNotes} from "../../actions"; 
+import { getSingleNote } from "../../actions";
 import { deleteNote } from "../../actions";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
 class Note extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            note: null,
             id: null
         };
     }
 
     componentWillMount() {
-        this.props.getNotes(); 
-        this.fetchNote(this.props.match.params.id);
+        this.props.getSingleNote(this.props.match.params.id);
         this.setState({ id: this.props.match.params.id })
     }
 
     componentWillReceiveProps(newProps) {
         if (this.props.match.params.id !== newProps.match.params.id) {
-            this.fetchNote(newProps.match.params.id);
+            this.props.getSingleNote(newProps.match.params.id);
             this.setState({ id: this.props.match.params.id })
         }
-    }
-
-    fetchNote = (id) => {
-        axios.get(`http://localhost:5000/api/notes/${id}`)
-            .then(response => this.setState({ note: response.data }))
-            .catch(error => console.log(error))
     }
 
     removeNote = (id) => {
@@ -40,16 +30,24 @@ class Note extends Component {
     }
 
     render() {
-        if (!this.state.note) {
+        if (!this.props.note) {
             return <div>Loading note information...</div>
         }
         return (
             <div className="noteContainer">
                 <Navigation />
-                <NoteCard note={this.state.note} id={this.state.id} removeNote={this.removeNote} />
+                <NoteCard note={this.props.note} id={this.state.id} removeNote={this.removeNote} />
             </div>
         )
     }
 }
 
-export default withRouter(connect(null, { getNotes, deleteNote })(Note)); 
+const mapStateToProps = (state) => {
+    return (
+        {
+            note: state.note
+        }
+    )
+}
+
+export default connect(mapStateToProps, { getSingleNote, deleteNote })(Note); 
