@@ -58,8 +58,8 @@ class Note extends React.Component {
                         <div className="note-form">
                             <h3>Edit Note:</h3>
                             <form>
-                                <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                                <textarea name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
+                                <input name="title" value={title} placeholder="Title" onChange={(e) => this.handleChange(e)}/>
+                                <textarea name="body" value={body} placeholder="Content" onChange={(e) => this.handleChange(e)}/>
                                 <button className="button" onClick={(e) => this.handleUpdate(e, {title, body, id})}>Save</button>
                             </form>
                         </div>

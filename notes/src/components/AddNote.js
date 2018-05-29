@@ -29,8 +29,8 @@ class AddNote extends Component {
                     <div className="note-form">
                     <h3>Create New Note:</h3>
                         <form>
-                            <input name="title" value={title} placeholder="Note Title" onChange={(e) =>     this.handleChange(e)}/>
-                            <textarea name="body" value={body} placeholder="Note Content" onChange={(e) =>     this.handleChange(e)}/>
+                            <input name="title" value={title} placeholder="Title" onChange={(e) =>     this.handleChange(e)}/>
+                            <textarea name="body" value={body} placeholder="Content" onChange={(e) =>     this.handleChange(e)}/>
                             <Link className="button" to="/" onClick={() => this.props.addNote({id, title, body})}>Save</Link>
                         </form>
                     </div>
