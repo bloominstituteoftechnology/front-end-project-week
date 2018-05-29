@@ -83,7 +83,7 @@ class NoteForm extends Component {
         <Button color="success" className="noteBtn-style" onClick={this.addNote} type="submit">Add Note</Button>
             </Col>
           <Col xs="auto">
-        <Button color="danger" className="noteBtn-style" onClick={this.toggle} >Cancel</Button>
+        <Button color="danger" className="noteBtn-style cancelBtn-styles" onClick={this.props.toggle} >Cancel</Button>
         </Col>
         
         </Row>

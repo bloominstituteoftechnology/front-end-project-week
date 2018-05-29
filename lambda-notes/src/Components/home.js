@@ -44,19 +44,19 @@ class Home extends Component {
           <Navbar fixed={"top"}  light expand="md">
     
         <Col sm="auto"md="auto">
-            <NavbarBrand   href="/">Lambda School</NavbarBrand>
+            <NavbarBrand   href="/"><i class="far fa-sticky-note"></i>Lambda Notes</NavbarBrand>
             </Col>
           
 
             <Nav  navbar>
             <Col sm="auto"md="6">
               <NavItem>
-                <NavLink href="/">Components</NavLink>
+                <NavLink href="/">Home</NavLink>
               </NavItem>
               </Col>
               <Col sm="auto"md="6">
               <NavItem>
-                <NavLink onClick={this.toggle}>create</NavLink>
+                <NavLink onClick={this.toggle}>Create</NavLink>
                 <Modal isOpen={this.state.Modal}>
                 
            <NoteForm toggle={this.toggle} updateGet={this.props.updateGet}/>

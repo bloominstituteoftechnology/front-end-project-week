@@ -44,11 +44,11 @@ class App extends Component {
       });
   };
   trimmer = input => {
-    if (input.length > 100) {
+    if (input.length > 300) {
       let modi = input;
       modi = modi
         .split("")
-        .splice(0, 97)
+        .splice(0, 297)
         .join("");
       return modi + "...";
     } else {
@@ -56,11 +56,11 @@ class App extends Component {
     }
   };
   titleTrimmer = input => {
-    if (input.length > 15) {
+    if (input.length > 22) {
       let modi = input;
       modi = modi
         .split("")
-        .splice(0, 12)
+        .splice(0, 19)
         .join("");
       return modi + "...";
     } else {

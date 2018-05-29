@@ -40,6 +40,10 @@ width:100%;
 .navbar-brand{
   color:white !important;
 }
+.fa-sticky-note{
+  margin-top: 5px;
+  margin-right:1%;
+}
 .nav-link{
   color:white !important;
 text-align: center;
@@ -51,6 +55,10 @@ text-align: center;
  margin-top: 30%;
  display:flex;
  justify-content: center;
+ border: 1px solid;
+ background:#6B5B95;
+  padding: 10px;
+  box-shadow: 0px 0px 95px;
 }
 .modal-title{
   text-align: center;
@@ -58,6 +66,10 @@ text-align: center;
 .modal-footer{
 width:100%;
 
+}
+.input-group-text{
+  background: #95DEE3;
+  color:white;
 }
 .btnDelete-styles{
 padding:4%;
@@ -69,18 +81,15 @@ padding:4%;
   height:auto;
 
 }
-.list-styles{
-  height: 350px;
-   
-}
+
 .card{
  background:  #95DEE3;
-  min-height:226px;
+  min-height:auto;
  color:rgb(255, 255, 255);
-  width:100%;
+  width:80%;
   text-overflow: ellipsis;
   overflow: hidden;
-margin: 3%;
+
   margin-bottom: 22px;
   margin-top:20px;
   font-size: 1.2rem;
@@ -90,6 +99,11 @@ margin: 3%;
  
 
 
+}
+.list-styles{
+  min-height:300px;
+
+margin: 16%;
 }
 .card-title{
   font-size:1.6rem;
@@ -143,7 +157,8 @@ display:flex;
 justify-content: center;
 }
 .noteBtn-style{
-  width:100%;
+  width:150px;
+  margin-bottom:2px;
 }
 .components{
 
@@ -171,12 +186,44 @@ width: 17px;
   margin-bottom: 5%;
   resize: none;
 }
+.modal-header{
+  background:#6B5B95;
+  color:white;
+}
 .mBtn-styles{
 width:100%;
 margin-left:.2%;
 }
+.cancelBtn-styles{
+background:#6F9FD8;
+border:none;
+}
+.cancelBtn-styles:hover{
+  
+  background:#95DEE3;
+  }
+  .cancelBtn-styles:active{
+    border:none;
+  }
+ 
+@media(max-width: 390px){
+
+  .navbar-brand{
+
+    margin-left:20px;
+    border-bottom:2px solid white
+  }
+  .nav-link{
 
 
+
+    margin-left:80px;
+  }
+  .card{
+font-size:10px;
+
+  }
+}
 /* 
 .home-styles{
   width: 200px;

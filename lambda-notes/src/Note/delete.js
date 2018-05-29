@@ -86,8 +86,9 @@ class Delete extends Component {
               <Col sm="6">
                 <Button
                   color="secondary"
-                  className="btnDelete-styles"
+                  className="btnDelete-styles cancelBtn-styles"
                   onClick={this.toggle}
+                  
                 >
                   Cancel
                 </Button>
