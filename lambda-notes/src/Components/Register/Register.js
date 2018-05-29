@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from "axios";
-import "./Login.css"
+import axios from 'axios'
+import "./Register.css"
 
 
-class Login extends Component {
+class Register extends Component {
     constructor() {
         super();
+        this.state = {
+            Email: "",
+            Password: ""
+        }
     }
 
     handleKeyPress = (e) => {
         if(e.key === 'Enter' || e.charCode === 13 || e.keyCode === 13){
-            this.handleFormSubmit();
+            this.handleFormSubmit
         }
       }
-
 
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
@@ -22,33 +25,38 @@ class Login extends Component {
       }
 
       handleFormSubmit = (e) => {
-        e.preventDefault();
+          e.preventDefault();
 
-        const user = {
-            email: this.state.Email,
-            password: this.state.Password
-        }
+          const newUser = {
+              email: this.state.Email,
+              password: this.state.Password
+          }
 
-        axios.post("https://noteslambda.herokuapp.com/users/login", user)
-        .then(response => {
-            console.log(response);
-            alert("Logged in");
-        }).catch(err => {
-            console.log(err);
-        })
+          axios.post("https://noteslambda.herokuapp.com/users", newUser)
+          .then(response => {
+              console.log(response);
+              alert("User created");
+              this.props.history.push('/login')
+          }).catch(err => {
+              console.log(err);
+          })
 
-    }
+      }
+
+
+
+
     render() {
         return(
             <div>
-            <div className="loginBody">
-                <form className="loginCard" onSubmit={this.handleFormSubmit}>
-                    <h1>Sign in</h1>
+            <div className="registerBody">
+                <form className="registerCard" onSubmit={this.handleFormSubmit}>
+                    <h1>Register</h1>
                     <div className="inputs">
                         Email: <input onChange={this.handleInputChange} name="Email" type="text"></input>
                         Password: <input  onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} name="Password" type="password"></input>
                     </div>
-                    <button style={login}>Login</button>
+                    <button style={register}>Login</button>
                 </form>
             </div>
     </div>
@@ -56,7 +64,7 @@ class Login extends Component {
     }
 }
 
-const login = {
+const register = {
     textDecoration: "none",
     backgroundColor: "rgb(110, 200, 200)",
     border: "none",
@@ -66,4 +74,4 @@ const login = {
     cursor: "pointer"
 }
 
-export default Login;
+export default Register;
