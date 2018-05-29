@@ -81,7 +81,10 @@ class NoteView extends Component {
                                 <SideBar/>
                                 <div className="sideBar_pop noteCard">
                                     <div className = "links">
-                                        <Link to="/home">edit</Link>
+                                    <Link to={{
+                                            pathname: `/edit/${this.props.location.state}`,
+                                            state: this.props.location.state
+                                        }}>edit</Link>
                                         <button onClick={this.display}>delete</button>
                                     </div>
                                     <h1>{this.state.title}</h1>
