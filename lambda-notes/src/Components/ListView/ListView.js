@@ -15,11 +15,6 @@ class ListView extends Component {
         }
     }
 
-    // handleInputChange = e => {
-    //     this.setState({[e.target.name]: e.target.value});
-    //     return e.target.value;
-    //   }
-
     componentDidMount() {
         this.fetchData()
     }
@@ -55,7 +50,7 @@ class ListView extends Component {
                                 return(
                                     <Link to="/home" key={note._id} className="card">
                                         <h1 className="underline">{note.title}</h1>
-                                        <h4>{note.content}</h4>
+                                        <p>{note.content}</p>
                                     </Link>
                                 )
                             })}
