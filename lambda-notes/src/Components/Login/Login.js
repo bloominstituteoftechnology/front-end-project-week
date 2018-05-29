@@ -9,13 +9,6 @@ class Login extends Component {
         super();
     }
 
-    handleKeyPress = (e) => {
-        if(e.key === 'Enter' || e.charCode === 13 || e.keyCode === 13){
-            this.handleFormSubmit();
-        }
-      }
-
-
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
         return e.target.value;
@@ -31,10 +24,11 @@ class Login extends Component {
 
         axios.post("https://noteslambda.herokuapp.com/users/login", user)
         .then(response => {
-            console.log(response);
             alert("Logged in");
+            this.props.history.push('/home')
         }).catch(err => {
-            console.log(err);
+            alert("Email and password are incorrect")
+            this.props.history.push('/login')
         })
 
     }
@@ -46,7 +40,7 @@ class Login extends Component {
                     <h1>Sign in</h1>
                     <div className="inputs">
                         Email: <input onChange={this.handleInputChange} name="Email" type="text"></input>
-                        Password: <input  onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} name="Password" type="password"></input>
+                        Password: <input onChange={this.handleInputChange} name="Password" type="password"></input>
                     </div>
                     <button style={login}>Login</button>
                 </form>

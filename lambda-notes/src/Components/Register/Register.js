@@ -13,12 +13,6 @@ class Register extends Component {
         }
     }
 
-    handleKeyPress = (e) => {
-        if(e.key === 'Enter' || e.charCode === 13 || e.keyCode === 13){
-            this.handleFormSubmit
-        }
-      }
-
     handleInputChange = e => {
         this.setState({[e.target.name]: e.target.value});
         return e.target.value;
@@ -54,7 +48,7 @@ class Register extends Component {
                     <h1>Register</h1>
                     <div className="inputs">
                         Email: <input onChange={this.handleInputChange} name="Email" type="text"></input>
-                        Password: <input  onChange={this.handleInputChange} onKeyPress={this.handleKeyPress} name="Password" type="password"></input>
+                        Password: <input  onChange={this.handleInputChange} name="Password" type="password"></input>
                     </div>
                     <button style={register}>Login</button>
                 </form>
