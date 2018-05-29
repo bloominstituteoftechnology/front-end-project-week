@@ -108,5 +108,14 @@ server.post("/users", (req, res) => {
     })
 })
 
+server.post("/users/login", (req, res) => {
+    const {email, password} = req.body;
+
+    User.findOne({email: email}, (err, user) => {
+        if(err) {res.send(err)}
+        
+        else {res.status(200).json(user)}})
+})
+
 server.listen(process.env.PORT || 5000)
 
