@@ -115,13 +115,17 @@ server.post("/users/login", (req, res) => {
     User.findOne({email: email}, (err, user) => {
         if(err) {res.send(err)}
 
-        else if(password === user.password) {
-            res.status(200).json({Message: "Signing in"});
-        }
-
-        else {
-            res.status(500).json({Message: "Incorrect Password"});
-        }
+        user.checkPassword(password, (err, isMatch) => {
+            if (err) {
+                return res.status(422).json({ error: 'Passwords do not match' });
+            }
+            if (isMatch) {
+                res.status(200).json({Message: "Logging in"})
+            } 
+            else {
+                res.status(422).json({ error: 'passwords dont match' });
+            }
+        })
     })
 });
 
