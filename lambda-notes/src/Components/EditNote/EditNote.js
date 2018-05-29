@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
-import "../CreateNote/CreateNote.css"
-import {Link} from 'react-router-dom'
-import { connect } from 'react-redux';
-import {updateNote} from "../../Actions"
+import "../CreateNote/CreateNote.css";
+import axios from "axios";
 class EditNote extends Component {
     constructor() {
         super();
-
         this.state = {
-            index: 0,
-            mounted: false,
+            title: "",
+            note: ""
         }
-    }
-
-    componentDidMount() {
-        this.setState({
-            index: this.props.location.state.index,
-            mounted: true,
-        })
     }
 
     handleInputChange = e => {
@@ -26,43 +16,57 @@ class EditNote extends Component {
         return e.target.value;
       }
 
+    checkToken = () => {
+        const token = localStorage.getItem('token');
+
+        if(token === null || token === undefined) {
+            this.props.history.push('/login');
+        }
+    }
+
+    componentWillMount() {
+        this.checkToken()
+    }
+
+    handleFormSubmit = e => {
+        e.preventDefault();
+
+        if(this.state.title.length < 1 || this.state.note.length < 1) {
+            alert("Please fill in both fields");
+            return;
+        }
+
+        const newNote = {
+            title: this.state.title,
+            content: this.state.note
+        }
+
+        axios.post("https://noteslambda.herokuapp.com/notes", newNote)
+        .then(response => {
+            this.setState({
+                title: "",
+                note: "",
+            })
+        }).catch(err => {
+            alert("Error creating new note")
+        })
+    }
+
     render() {
         return (
-            <div>
-                {this.state.mounted === false ? (
-                    <div>
-                        Fetching Note....
-                    </div>
-                ) : (
-                    <div className="body">
-                    <SideBar/>
-                        <div className = "sideBar_pop create">
-                            <h1>Edit Note: </h1>
-                            <input 
-                            defaultValue={this.props.notes.notes[this.state.index].title}
-                            onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
-                            <textarea 
-                            defaultValue={this.props.notes.notes[this.state.index].note}
-                            onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
-                            <Link to="/home" style={noDecoration}><button onClick={() => this.props.updateNote({title: this.state.title, note: this.state.note}, {index: this.state.index})}>Save</button></Link>
-                        </div>
-                    </div>
-                )}
+            <div className="body">
+                <SideBar/>
+                <form className = "sideBar_pop create" onSubmit={this.handleFormSubmit}>
+                    <h1>Edit your note:</h1>
+                    <input value={this.state.title} onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
+                    <textarea value={this.state.note} onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
+                    <button>Save</button>
+                </form>
             </div>
         )
     }
 }
 
-const noDecoration = {
-    textDecoration: "none"
-}
 
-const mapStateToProps = state => {
-    return {
-        notes: state
-    }
-  }
-
-export default connect(mapStateToProps, {
-    updateNote
-})(EditNote);
+export default EditNote
+  
