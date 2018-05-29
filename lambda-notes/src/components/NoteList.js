@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-import { addNote, noteOrder } from '../actions';
+import { noteOrder } from '../actions';
 
 class NoteList extends Component {
     state = {
@@ -54,19 +54,19 @@ class NoteList extends Component {
                 currentOrder.push(item.id)
             });
             this.setState({ order: currentOrder });
-            console.log(typeof this.state.order);
+            // console.log(typeof this.state.order);
             
             for (let i = 0; i < this.state.order.length; i++) {
                 savedOrder[this.props.notes[i].id] = this.props.notes[i];
-                console.log(this.state.order)
+                // console.log(this.state.order)
             }
             for (let i = 0; i < this.state.order.length; i++) {
                 this.props.notes[i] = savedOrder[this.state.order[i]];
-                console.log(this.props.notes)
+                // console.log(this.props.notes)
             }
         }, 200);
+        // return this.noteOrder;
         this.setState(this.state);
-        this.noteOrder
     }
 
     render() {
@@ -126,6 +126,7 @@ class NoteList extends Component {
                             </DropdownMenu>
                         </Dropdown>
                     </div>
+                    <button onClick={this.savedPosition}>Save Note Order</button>
                 </form>
                 <div className="notelist" id="sortable">
                     {filteredNotes.map((note) => {
@@ -136,7 +137,7 @@ class NoteList extends Component {
                             to={`/note/${note.id}`} 
                             id = {note.id}
                             className="note-link note ui-state-default"
-                            onMouseUp={this.savedPosition}>
+                            >
                             <div>
                                 <h4>{note.title}</h4>
                                 <p>{note.body}</p>
@@ -157,4 +158,4 @@ const mapStateToProps = store => {
     };
 };
 
-export default connect(mapStateToProps, { addNote, noteOrder })(NoteList);
+export default connect(mapStateToProps, { noteOrder })(NoteList);

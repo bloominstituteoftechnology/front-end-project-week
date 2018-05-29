@@ -25,8 +25,11 @@ class EditNote extends Component {
     edit = (event) => {
         event.preventDefault();
         this.props.editNote(this.state);
-        this.setState({ title: `${this.props.match.params.title}`,
-                        body: `${this.props.match.params.body}` });
+        this.setState({ 
+            id: `${'' + this.props.match.params.id}`,
+            title: `${this.props.match.params.title}`,
+            body: `${this.props.match.params.body}` });
+        console.log("params id", this.props.match.params.id);
         window.location.href = "/";
     };
 
@@ -34,14 +37,11 @@ class EditNote extends Component {
         return (
             <div className="edit-view">
                 <form>
-                    <input 
-                        placeholder="Title"
+                    <input
                         name="title"
                         value={this.state.title}
-                        onChange={this.handleEditNote}
                     />
-                    <textarea 
-                        placeholder="Write note here"
+                    <textarea
                         name="body"
                         value={this.state.body}
                         onChange={this.handleEditNote}

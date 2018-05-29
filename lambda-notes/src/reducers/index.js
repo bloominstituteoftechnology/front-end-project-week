@@ -63,20 +63,22 @@ export default (state = retrieveData(), action) => {
     switch (action.type) {
         case ADD_NOTE:
             const addNoteState = Array.from(state);
-            addNoteState.push(action.payload);
+            addNoteState.unshift(action.payload);
             saveData(addNoteState);
             return addNoteState;
         case EDIT_NOTE:
             let editNoteState = Array.from(state);
-            editNoteState = state.filter(note => {
-                return note.id !== action.payload.id;
+            // console.log('editnotestate: ', editNoteState);
+            editNoteState = state.filter((note) => {
+                // console.log('action payload id', action.payload.id);
+                // console.log("note id: ", note.id)
+                return note.title !== action.payload.title;
             })
-            editNoteState.push(action.payload);
+            editNoteState.unshift(action.payload);
             saveData(editNoteState);
-            return(editNoteState);
+            return editNoteState;
         case NOTE_ORDER:
             let noteOrderState = Array.from(state);
-            noteOrderState.push(action.payload);
             saveData(noteOrderState);
             return noteOrderState;
         case REMOVE_NOTE:

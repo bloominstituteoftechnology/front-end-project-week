@@ -25,7 +25,11 @@ export const noteOrder = note => {
 export const editNote = (note) => {
     return {
         type: EDIT_NOTE,
-        payload: note
+        payload: {
+            id: v4(),
+            title: note.title,
+            body: note.body
+        }
     };
 };
 
