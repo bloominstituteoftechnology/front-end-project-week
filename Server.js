@@ -3,6 +3,7 @@ const express = require('express');
 const server = express();
 const mongoose = require('mongoose');
 const Note = require('./Database/Notes/Note');
+const User = require('./Database/Users/User')
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 //Database
@@ -18,6 +19,8 @@ server.use(cors());
 
 
 //Routers
+
+//NOTES ROUTERS
 server.get("/", (req,res) => {res.send('API RUNNING')})
 
 server.get("/notes", (req, res) => {
@@ -80,7 +83,23 @@ server.put("/notes/:id", (req, res) => {
         res.status(404).json(err)
     })}
 })
+///////////////////////////////////////////////
 
+//USER ROUTER
+
+server.get("/users", (req, res) => {res.send("USERS RUNNING")})
+
+
+server.post("/users", (req, res) => {
+    const newUser = req.body; 
+    const user = new User(newUser);
+
+    user.save().then(user => {
+        res.status(200).json(user)
+    }).catch(err => {
+        res.status(500).json({Message: "Error creating user"})
+    })
+})
 
 server.listen(process.env.PORT || 5000)
 
