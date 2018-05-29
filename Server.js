@@ -71,7 +71,7 @@ server.post("/notes", (req, res) => {
     }
 })
 
-server.get("/notes/:id", (req, res) => {
+server.get("/notes/:id",  (req, res) => {
     const id = req.params.id;
 
     Note.findById(id).then(note => {

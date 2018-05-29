@@ -36,6 +36,17 @@ class NoteView extends Component {
         })
     }
 
+    handleDelete = () => {
+        const id = this.props.location.state;
+
+        axios.delete(`https://noteslambda.herokuapp.com/notes/${id}`)
+        .then(response => {
+            this.props.history.push('/home')
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
     render() {
         return(
             <div>
@@ -53,11 +64,10 @@ class NoteView extends Component {
                             <div className="modalQuestion">Are you sure you want to delete this?
                             </div>
                             <div className="modalButtons">        
-                                <Link to="/home"><button style={red} onClick={() => {
-                                    this.display();
-                                    this.props.deleteNote(this.state.index)
-                                }}>Delete</button>
-                                </Link>
+                                <button style={red} onClick={() => {
+                                    this.handleDelete()
+                                }}>Delete
+                                </button>
                                 <button onClick={this.display}>No</button>
                             </div>
                         </div>
