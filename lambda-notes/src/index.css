@@ -1,0 +1,316 @@
+/* Heading font: Roboto Bold
+Everything else font: Raleway Medium
+
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797 */
+
+html, body {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+#root {
+  max-width: 1200px;
+  min-height: 100%;
+	margin: 0 auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-height: 100vh;
+  width: 25%;
+  min-width: 300px;
+  background-color: #D3D2D3;
+}
+
+.sidebar h1 {
+  align-self: flex-start;
+  font-size: 5rem;
+  margin: 2%;
+  margin-left: 10%;
+  color: #484748;
+  text-shadow: 2px 2px 2px gray;
+}
+
+.sidebar .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  height: 40px;
+  font-size: 2.5rem;
+  width: 80%;
+  margin: 3%;
+  background-color: #00B9BD;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px black;
+  border: none;
+}
+
+.sidebar .button:hover {
+  background-color: white !important;
+  color: #00B9BD;
+}
+
+.app-container {
+    display: flex;
+    background-color: #F2F1F2;
+}
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.notelist-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.notelist {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.notelist-container h1 {
+  flex-wrap: nowrap;
+  margin-left: 2%;
+  margin-top: 80px;
+  padding: 0;
+  height: 40px;
+  font-size: 2.5rem;
+  width: 100%;
+  color: #484748;
+}
+
+.notelist .note {
+  width: 28%;
+  min-width: 230px;
+  height: 300px;
+  margin: 2%;
+  padding: 0;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.notelist-container form {
+  width: 100%;
+}
+
+.notelist-container .radio-container {
+  display: flex;
+  margin: 0 0 4% 4%;
+  width: 100%;
+  align-items: center;
+}
+
+.radio-container .drop-down:hover, .radio-container .drop-down:hover {
+  background-color: white !important;
+  color: #00BABD;
+}
+
+.radio-container .dropdown-item:hover {
+  color: #00BABD !important;
+}
+
+.notelist-container .radio-container .radio-button {
+  height: 29.33px;
+  margin: 0;
+  padding: 0;
+  width: 29.33px;
+}
+
+.radio-container label {
+  font-size: 2rem;
+  margin: 0 30px 0 5px;
+  padding: 0;
+}
+
+.notelist-container .search-input {
+  font-size: 2rem;
+  margin: 2% 0 2% 4%;
+  width: 20vw;
+  min-width: 200px;
+}
+
+.note:hover {
+  box-shadow: 4px 4px 7px gray;
+}
+
+/* .note:hover p {
+  font-size: 1.6rem;
+} */
+
+.note:hover h4 {
+  background-color: #00B9BD;
+  color: white;
+}
+
+.note h4 {
+  text-align: center;
+  font-size: 2.5rem;
+  border-bottom: 1px solid rgb(190, 190, 190);
+  padding: 10px;
+  margin: 15px;
+}
+
+.note p {
+  font-size: 2rem;
+  padding: 10px;
+  margin: 15px;
+}
+
+.create-note {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.note-view {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.full-note {
+  background-color: rgb(255, 253, 253);
+  margin-top: 30px;
+}
+
+.full-note .note-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(185, 183, 183);
+}
+
+.button-group {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-group button{
+  font-size: 1.6rem;
+  margin: 20px 20px 0 0;
+  border: none;
+  box-shadow: 2px 2px 4px gray;
+  border-radius: 5px;
+}
+
+.button-group button:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 4px 4px 6px gray;
+  border: none;
+}
+
+.note-view .note-title {
+  font-size: 3rem;
+  margin: 20px 20px 10px 20px;
+  color: #484748;
+}
+
+.note-view .note-body {
+  font-size: 2rem;
+  margin: 0 20px 20px 20px;
+  line-height: 35px;
+}
+
+.edit-view, .create-view {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-view form, .create-view form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-view form input, .create-view form input {
+  width: 50%;
+  font-size: 2rem;
+  margin: 20px;
+  margin-top: 60px;
+}
+
+.edit-view form textarea, .create-view form textarea {
+  width: 80%;
+  height: 50vh;
+  font-size: 1.6rem;
+  margin: 20px;
+  margin-top: 30px;
+}
+
+.edit-view form button, .create-view form button {
+  height: 40px;
+  font-size: 2rem;
+  width: 20%;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+.edit-view button:hover, .create-view button:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 4px 4px 7px gray;
+}
+
+.modal-content {
+  height: 165px;
+}
+
+.modal-style {
+  margin-top: 35vh;
+  background-color: #FBFAFB;
+}
+
+.modal-body {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.button-wrapper .modal-button {
+  font-size: 1.6rem;
+  width: 160px;
+  height: 40px;
+  margin: 0 10px 30px 10px;
+  color: white;
+  box-shadow: 1px 1px 2px gray;
+}
+
+.button-wrapper .modal-button1:hover {
+  width: 165px;
+  height: 45px;
+  background-color: #FF000F !important;
+  box-shadow: 3px 3px 6px gray;
+}
+
+.button-wrapper .modal-button2:hover {
+  width: 165px;
+  height: 45px;
+  background-color: #3AEFFC !important;
+  box-shadow: 3px 3px 6px gray;
+}
