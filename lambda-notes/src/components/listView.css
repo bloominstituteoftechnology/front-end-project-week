@@ -1,0 +1,39 @@
+.header{
+    display: flex;     
+    justify-content: flex-start; 
+    margin-top: 70px; 
+    margin-left: 270px;  
+    font: Roboto Bold;              
+    color: #4F9D69;
+}
+
+.cardColumns {    
+    margin-top: 20px; 
+    margin-left: 270px; 
+    margin-right: 20px;    
+    margin-bottom: 120px; 
+}
+
+.card {    
+    margin-right: 50px;    
+    margin-bottom: 30px;       
+};
+
+.cardBody {   
+    /* margin-bottom: 1px solid #979797; */
+}
+
+.cardTitle {
+    /* margin-bottom: 1px solid #979797;  */
+    color: #4F9D69;
+    text-align: left;     
+    border-bottom: 1px solid #979797; 
+    padding: 0 0 10px 0; 
+    
+}
+
+.cardText {
+    text-align: left;
+    /* margin-top: 1px solid #979797;  */
+    color: #4F9D69;
+}
