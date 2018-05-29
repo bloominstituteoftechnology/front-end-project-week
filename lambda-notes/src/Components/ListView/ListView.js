@@ -65,7 +65,10 @@ class ListView extends Component {
                                 <div className="row">
                                 {this.state.notes.map(note => {
                                     return(
-                                        <Link to="/home" key={note._id} className="card">
+                                        <Link to={{
+                                            pathname: `/note/${note._id}`,
+                                            state: note._id
+                                        }} key={note._id} className="card">
                                             <h1 className="underline">{note.title}</h1>
                                             <p>{note.content}</p>
                                         </Link>

@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
+import {Link} from "react-router-dom"
 import "./NoteView.css"
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux';
-import {deleteNote} from "../../Actions"
+import axios from "axios";
 
 
 class NoteView extends Component {
     constructor() {
         super();
         this.state = {
-            index: 0,
-            mounted: false,
             display: false,
+            title: "",
+            content: "",
         }
     }
 
@@ -22,17 +21,25 @@ class NoteView extends Component {
         })
     }
 
-    componentDidMount() {
-        this.setState({
-            index: this.props.location.state.index,
-            mounted: true,
+    componentWillMount() {
+        const id = this.props.location.state;
+
+        axios.get(`https://noteslambda.herokuapp.com/notes/${id}`)
+        .then(response => {
+            console.log(response.data);
+            this.setState({
+                title: response.data.title,
+                content: response.data.content
+            })
+        }).catch(err => {
+            console.log(err)
         })
     }
 
     render() {
         return(
             <div>
-                {this.state.mounted === false ? (
+                {this.state.title.length < 0 ? (
                     <div className = "links">
                             <p>Please hold......</p>
                     </div>
@@ -64,20 +71,16 @@ class NoteView extends Component {
                                 <SideBar/>
                                 <div className="sideBar_pop noteCard">
                                     <div className = "links">
-                                        <Link to={{
-                                            state: {
-                                                index: this.state.index
-                                            },
-                                            pathname: `/edit/${this.state.index}`}}>edit</Link>
+                                        <Link to="/home">edit</Link>
                                         <button onClick={this.display}>delete</button>
                                     </div>
-                                    <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>
-                                    <p className="note">{this.props.notes.notes[this.state.index].note}</p>
+                                    <h1>{this.state.title}</h1>
+                                    <p>{this.state.content}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                )}
+                 )} 
 
             </div>
         )
@@ -86,13 +89,5 @@ class NoteView extends Component {
 const red = {
     backgroundColor: "#D0011B",
 }
-const mapStateToProps = state => {
-    console.log('NoteView', state)
-    return {
-        notes: state
-    }
-  }
 
-export default connect(mapStateToProps, {
-    deleteNote
-})(NoteView);
+export default NoteView;
