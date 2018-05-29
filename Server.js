@@ -47,7 +47,7 @@ const validateToken = (req, res, next) => {
 //NOTES ROUTERS
 server.get("/", (req,res) => {res.send('API RUNNING')})
 
-server.get("/notes", validateToken, (req, res) => {
+server.get("/notes", (req, res) => {
     Note.find().then(notes => {
         res.status(200).json(notes)
     }).catch(err => {

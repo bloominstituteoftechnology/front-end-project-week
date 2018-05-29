@@ -86,14 +86,5 @@ class ListView extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log('list', state)
-    return {
-        notes: state
-    }
-  }
-
-export default connect(mapStateToProps, {
-    newNote,
-  })(ListView);
+export default ListView
   
