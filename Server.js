@@ -104,6 +104,7 @@ server.post("/users", (req, res) => {
     user.save().then(user => {
         res.status(200).json(user)
     }).catch(err => {
+        console.log(err)
         res.status(500).json({Message: "Error creating user"})
     })
 });
