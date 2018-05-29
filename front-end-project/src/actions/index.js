@@ -6,7 +6,6 @@ export const NOT_DELETING_NOTE = "NOT_DELETING_NOTE"
 export const LOAD = "LOAD"
 
 let nextId = 1;
-let id = nextId++
 export const addNote = (note) => {
     return {
         type: ADD_NOTE,
