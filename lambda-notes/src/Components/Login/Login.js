@@ -25,6 +25,8 @@ class Login extends Component {
         axios.post("https://noteslambda.herokuapp.com/users/login", user)
         .then(response => {
             alert("Logged in");
+            const token = response.data.token
+            localStorage.setItem("token", token)
             this.props.history.push('/home')
         }).catch(err => {
             alert("Email and password are incorrect")

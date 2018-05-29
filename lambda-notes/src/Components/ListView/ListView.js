@@ -20,6 +20,7 @@ class ListView extends Component {
     }
 
     fetchData() {
+        const token = localStorage.getItem('token')
         axios.get('https://noteslambda.herokuapp.com/notes')
         .then(response => {
             this.setState({
