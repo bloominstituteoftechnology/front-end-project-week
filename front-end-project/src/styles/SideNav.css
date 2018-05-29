@@ -1,24 +1,26 @@
 .sideNav {
-    max-width: 25vw;
+    width: calc(150px + 2vw);
     height: 100vh;
     position: fixed;
     z-index: 10;
     border: 0.1vw #979797 solid;
-    padding: 2%;
+    padding: 1vh;
 }
 .headingforSideNav {
     font-family: Roboto Bold;
     color: #4A4A4A;
     font-weight: bold;
-    font-size: 4vw;
+    word-wrap: break-word;
+    font-size: calc(20px + 1.3vw)
 }
 button {
-    width: 20vw;
-    height: 5vh;
+    width: calc(130px + 2vw);
+    max-width: 180px;
+    height: calc(55px + 1vh);
     margin: 2vh 0;
     color: #FFFFFF;
     background: #2BC1C4;
-    font-size: 1.5vw;
+    font-size: calc(10px + .5vw);
     outline-width: .1vh;
     border-color: #979797;
 }

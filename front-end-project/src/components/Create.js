@@ -20,12 +20,13 @@ let Create = props => {
     return (
 <div>
     <Grid container spacing={40}>
-        <Grid item xs={3}>
+        <Grid item xs={4} sm={3}>
             <SideNav />
         </Grid>
-    <Grid item xs={9}>
-    <h3 style={{marginLeft: '2vw'}}> Create Note: </h3>
-        <form onSubmit={handleSubmit((val) => props.addNote(val))} className="inputForm" style={{marginLeft: '2vw'}}>
+    <Grid item xs={12}>
+    <div style={{marginLeft: 'calc(5vw + (150px + 2vw))'}}>
+    <h3> Create Note: </h3>
+        <form onSubmit={handleSubmit((val) => props.addNote(val))}>
         {props.submitSucceeded ? <Redirect to="/"/> : null}
                 <div className="title">
                     <Field
@@ -45,7 +46,7 @@ let Create = props => {
                     component={renderCreateTextField}
                     type="text"
                     placeholder="Note content"
-                    style={{border: '1px solid gray', background: 'white', width: '70vw'}}
+                    style={{border: '1px solid gray', background: 'white', width: 'calc(90%)'}}
                     validate={required}
                     margin="normal"
                     multiline={true}
@@ -59,6 +60,7 @@ let Create = props => {
                 </div>
             </div>
         </form>
+        </div>
         </Grid>
         </Grid>
     </div>

@@ -8,20 +8,20 @@ import '../styles/ListView.css'
 const ListView = props => {
     return (    
     <div>
-        <Grid container spacing={40}>
-            <Grid item xs={1} sm={3}>
+        <Grid container spacing={40} style={{overflow: 'scroll'}}>
+            <Grid item xs={4} sm={3}>
                 <SideNav />
             </Grid>
-    <div style={{overflow: 'scroll', marginLeft: '25%', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: '100vh'}}>
+    <div style={{marginLeft: 'calc(20px + (150px + 2vw))', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: '100vh'}}>
         {props.notes.map(note => {
             return (
-            <Grid item xs={11} sm={11} lg={3} key={note.id} style={{margin: '2vh', height: '25%'}}>
+            <Grid item xs={12} sm={6} lg={4} key={note.id} style={{ height: '33%'}}>
                 <Card className="mein-card">
                     <NavLink to={`/note/${note.id}`} style={{textDecoration: 'none'}} key={note.id}>     
-                        <CardHeader title={`${note.title.title}`} />
+                        <CardHeader title={`${note.note.title}`} />
                         <CardContent>
-                            <Typography component="p" style={{overflow: 'hidden', height: '100px'}}>
-                                {note.title.content}
+                            <Typography component="p" style={{overflow: 'hidden', height: '10vh'}}>
+                                {note.note.content}
                             </Typography>
                         </CardContent>
                         </NavLink>

@@ -19,17 +19,22 @@ const renderTextField = ({ input, placeholder, type, meta: { touched, error }, .
 let Edit = props => {
     const { handleSubmit, submitting, pristine } = props
 
-    const title = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.title : 'Oh well'
-    const content = (props.notes[0].id.toString() === props.match.params.id) ? props.notes[0].title.content : 'Oh well'
+console.log('What is this?', props.notes)
+console.log('Map maybe?', props.notes.map(note => note.id))
+    const currentNote = (props.notes.filter(note => (note.id.toString() === props.match.params.id)))[0]
+    const title = currentNote.note.title
+    const content = currentNote.note.content
+    console.log('currentNote', currentNote)
     return (
-    <div style={{position: 'fixed'}}>
+    <div style={{overflowY: 'scroll', overflowX: 'hidden'}}>
     <Grid container spacing={40}>
-        <Grid item xs={3}>
+        <Grid item xs={4} sm={3}>
             <SideNav />
         </Grid>
-    <Grid item xs={9}>
-        <h3 style={{marginLeft: '2vw'}}> Edit Note: </h3>
-        <form onSubmit={handleSubmit((val, id) => props.editNote(props.match.params.id, val))} style={{marginLeft: '2vw'}}>
+    <Grid item xs={12}>
+        <div style={{marginLeft: 'calc(5vw + (150px + 2vw))'}}>
+        <h3> Edit Note: </h3>
+        <form onSubmit={handleSubmit((val, id) => props.editNote(props.match.params.id, val))}>
         {props.submitSucceeded ? <Redirect to="/"/> : null}
                 <div className="title">
                     <Field
@@ -45,7 +50,7 @@ let Edit = props => {
                         />
                     </div>
                     <p> Previous Title: </p>
-                    {title}
+                    <p style={{marginRight: '2vw'}}> {title} </p>
             <div className="content">
                 <Field
                     required
@@ -55,13 +60,13 @@ let Edit = props => {
                     rows={14}
                     component={renderTextField}
                     type="text"
-                    style={{border: '1px solid gray', background: 'white', width: '70vw'}}
+                    style={{border: '1px solid gray', background: 'white', width: 'calc(90% - 1vw)'}}
                     multiline={true}
                     fullWidth
                     validate={required}
                 />
                 <p> Previous Content: </p>
-                {content}
+                <p style={{marginRight: '2vw'}}>{content}</p>
                 <div>
                 <button type="submit" disabled={submitting || pristine} className="saveButton">
                     Update
@@ -69,6 +74,7 @@ let Edit = props => {
                 </div>
             </div>
         </form>
+        </div>
         </Grid>
         </Grid>
     </div>

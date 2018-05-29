@@ -31,10 +31,8 @@ h3 {
     margin-right: 2vh;
 }
 .note {
-    margin: 0 0 0 -12.5%;
     padding: 4vh 6vw;
     height: 110vh;
-    overflow: scroll
 }
 .modalWrapper {
     max-width: 50% !important;

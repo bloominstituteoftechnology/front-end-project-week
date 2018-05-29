@@ -6,23 +6,23 @@ export const NOT_DELETING_NOTE = "NOT_DELETING_NOTE"
 export const LOAD = "LOAD"
 
 let nextId = 1;
-export const addNote = (title, content) => {
+let id = nextId++
+export const addNote = (note) => {
     return {
         type: ADD_NOTE,
         payload: {
             id: nextId++,
-            title: title,
-            content: content,
+            note
+            }
         }
     }
-}
-export const editNote = (id, title, content) => {
+
+export const editNote = (id, note) => {
     return {
         type: EDIT_NOTE,
         payload: {
             id: id,
-            title: title,
-            content: content
+            note
         }
     }
 }
