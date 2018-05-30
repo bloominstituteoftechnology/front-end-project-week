@@ -1,16 +1,22 @@
-import React from "react";
+import React, { Component } from 'react';
 import './Sidebar.css';
-import { Link } from 'react-router-dom';
-const Sidebar = () => {
+
+const Button = (props) => {
     return (
-        <div className = "sidebar-wrapper">
-            <header>
-                <h1 className = "sidebar-header">Lambda Notes</h1>
-            </header>
-            <Link to = '/'><button className = "button-view">View Your Notes</button></Link>
-            <Link to = '/create'><button onClick={this.createNoteHandler} className = "button-create"> + Create New Note</button></Link>
-        </div>
+        <button className = {`${props.className}`}>{props.text}</button>
     )
 }
- 
+
+class Sidebar extends Component {
+    render() {
+        return (
+            <div className = "sidebar-wrapper">
+                <h1 className = "app-header">Lambda <br/>Notes</h1>
+                <Button className="button-view" text={`View Your Notes`}/>
+                <Button className = "button-create" text ={`+ Create a Note`}/>
+            </div>
+        );
+    }
+}
+
 export default Sidebar;

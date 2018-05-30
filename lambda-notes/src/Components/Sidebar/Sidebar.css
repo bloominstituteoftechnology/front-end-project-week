@@ -1,11 +1,17 @@
+.app-header{
+    margin:30px;
+}
+
+
 .sidebar-wrapper{
     display:flex;
     flex-direction: column;
     background-color:#D8D8D8;
     color: #4A4A4A;
-    width: 235px;
+    width: 20%;
     border-right: 1px solid #979797;
     height: 1200px;
+    margin: 10px;
 }
 
 .button-view, .button-create{
@@ -15,12 +21,12 @@
     font-size: 1rem;
     height: 40px;
     width: 200px;
-    margin:25px;
+    margin:10px auto;
+    
     
 }
-.sidebar-header{
-    font-size:2rem;
-    padding-top: 55px;
-    padding-left: 25px;
-    width: 80%;
+.app-header{
+ font-size: 32px;
+ margin: 25px auto;
+ text-align:center;
 }

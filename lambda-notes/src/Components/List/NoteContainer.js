@@ -1,20 +1,25 @@
-import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import './NoteContainer.css';
-import { dummydata } from '../../dummydata/dummydata';
+import { dummydata as notes} from '../../dummydata/dummydata';
 import NoteCardList from './NoteCardList';
-import { connect } from 'react-redux';
-import { createNote, readNote, updateNote, deleteNote } from '../../JS/actions/index-a';
+import React, { Component } from 'react';
 
 class NoteContainer extends Component {
-
-    render(){
-        return(
-            <div className = 'list-wrapper'>
-            <Sidebar />
-            <NoteCardList className = "card-container"/>
+    constructor(props){
+        super(props);
+        this.state = {
+            notes:[{notes}]
+        }
+    }
+    render() {
+        console.log(this.state);
+        return (
+            <div className = "note-container">
+                <Sidebar />
+                <NoteCardList notes={notes}/>
             </div>
-        )
+        );
     }
 }
+
 export default NoteContainer;

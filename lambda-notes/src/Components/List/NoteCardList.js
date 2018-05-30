@@ -1,35 +1,50 @@
-import React from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './NoteCardList.css';
 
-
-const mapStateToProps = (state) => {
-    return {notes: state.notes};
-};
-
-const NoteCardList = (props)=>{
-    console.log("NOTES",props.notes[0].note);
-    return(
-        <div className = "note-wrapper">
-        <h1 className = "header">Your Notes:</h1>
-        <ul className = "card-container">
-            
-            {props.notes[0].note.map(el => {
-                return(
-                 <Card  key={el.id} className = "card">
-                 <CardTitle key={el.note_title} className = "card-title">
-                    <Link to = '/list/number'>{el.note_title}</Link></CardTitle>
-                    <hr />
-                    <CardText key={el.note_body} className = "card-body">{el.note_body}</CardText>
-                 </Card>
-                )
-            })}
-        </ul>
-        </div>
-    );  
+function mapStateToProps(state) {
+    return {
+        state:state.notes
+    };
 }
-export default connect(mapStateToProps)(NoteCardList);
 
-    
+export const HeaderName = (props) => {
+    return (
+        <h3>{props.text}</h3>
+    )
+}
+
+export const Card = (props) => {
+    return(
+        <div>
+            <h5>header placeholder</h5>
+            <hr />
+            <p>I'm a body placeholder</p>
+
+        </div>
+    )
+}
+class NoteCardList extends Component {
+    render() {
+        return (
+            <div>
+                <HeaderName text = "Your Notes" />
+                <Card className="card-container"/>
+                {/*
+
+                    div=============
+                        card========
+                            h5======
+                            hr======
+                            p ======
+                
+                
+                */}
+            </div>
+        );
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+)(NoteCardList);
