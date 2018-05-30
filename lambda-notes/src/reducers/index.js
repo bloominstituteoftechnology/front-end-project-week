@@ -73,7 +73,7 @@ export default (state = retrieveData(), action) => {
             editNoteState = state.filter((note) => {
                 // console.log('action payload id', action.payload.id);
                 // console.log("note id: ", note.id)
-                return note.title !== action.payload.title;
+                return note.id !== action.payload.id;
             })
             editNoteState.unshift(action.payload);
             saveData(editNoteState);

@@ -26,7 +26,7 @@ export const editNote = (note) => {
     return {
         type: EDIT_NOTE,
         payload: {
-            id: v4(),
+            id: note.id,
             title: note.title,
             body: note.body
         }

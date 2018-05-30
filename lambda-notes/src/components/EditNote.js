@@ -7,7 +7,7 @@ class EditNote extends Component {
     state = {
         title: ``,
         body: ``,
-        id: parseInt(this.props.match.params.id)
+        id: this.props.match.params.id
     };
 
     matchedNote = this.props.notes.filter(note => {
@@ -26,7 +26,7 @@ class EditNote extends Component {
         event.preventDefault();
         this.props.editNote(this.state);
         this.setState({ 
-            id: `${'' + this.props.match.params.id}`,
+            id: `${this.props.match.params.id}`,
             title: `${this.props.match.params.title}`,
             body: `${this.props.match.params.body}` });
         // console.log("params id", this.props.match.params.id);
@@ -40,6 +40,7 @@ class EditNote extends Component {
                     <input
                         name="title"
                         value={this.state.title}
+                        onChange={this.handleEditNote}
                     />
                     <textarea
                         name="body"
