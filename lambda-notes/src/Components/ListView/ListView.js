@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {newNote} from "../../Actions"
 import axios from "axios"
 
 

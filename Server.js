@@ -111,15 +111,15 @@ server.put("/notes/:id", (req, res) => {
 
 //USER ROUTER
 
-server.get("/user", (req, res) => {res.send("USERS RUNNING")})
+// server.get("/user", (req, res) => {res.send("USERS RUNNING")})
 
-server.get("/users", (req, res) => {
-    User.find().then(users => {
-        res.status(200).json(users)
-    }).catch(err => {
-        res.status(500).json({Message: "Error fetching users"})
-    })
-})
+// server.get("/users", (req, res) => {
+//     User.find().then(users => {
+//         res.status(200).json(users)
+//     }).catch(err => {
+//         res.status(500).json({Message: "Error fetching users"})
+//     })
+// })
 
 server.post("/users", (req, res) => {
     const newUser = req.body; 
