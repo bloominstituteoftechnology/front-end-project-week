@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {withRouter} from "react-router-dom"
 import "./Register.css"
 
 
@@ -33,7 +34,10 @@ class Register extends Component {
           }).catch(err => {
               console.log(err);
           })
+      }
 
+      sendToLogin = () => {
+          this.props.history.push("login")
       }
 
 
@@ -50,6 +54,7 @@ class Register extends Component {
                         Password: <input  onChange={this.handleInputChange} name="Password" type="password"></input>
                     </div>
                     <button style={register}>Login</button>
+                    <button onClick={this.sendToLogin} style={register}>Sign In</button>
                 </form>
             </div>
     </div>
@@ -67,4 +72,4 @@ const register = {
     cursor: "pointer"
 }
 
-export default Register;
+export default withRouter(Register);
