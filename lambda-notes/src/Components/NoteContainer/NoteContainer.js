@@ -1,7 +1,9 @@
 import Sidebar from '../Sidebar/Sidebar';
 import './NoteContainer.css';
 import { dummydata as notes} from '../../dummydata/dummydata';
-import NoteCardList from './NoteCardList';
+import NoteCards from '../NoteCard/NoteCard';
+import { HeaderName } from '../List/NoteCardList';
+
 import React, { Component } from 'react';
 
 class NoteContainer extends Component {
@@ -16,7 +18,11 @@ class NoteContainer extends Component {
         return (
             <div className = "note-container">
                 <Sidebar />
-                <NoteCardList notes={notes}/>
+                <div className="main-container">
+                <HeaderName text = "Your Notes" />
+                <NoteCards notes = {notes} />
+                </div>
+
             </div>
         );
     }

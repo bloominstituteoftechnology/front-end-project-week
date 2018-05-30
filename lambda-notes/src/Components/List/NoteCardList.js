@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {dummydata as notes} from '../../dummydata/dummydata';
 import './NoteCardList.css';
+import NoteCards from '../NoteCard/NoteCard';
 
-function mapStateToProps(state) {
-    return {
-        state:state.notes
-    };
-}
+// function mapStateToProps(state) {
+//     return {
+//         state:state.notes
+//     };
+// }
 
 export const HeaderName = (props) => {
     return (
@@ -14,29 +16,16 @@ export const HeaderName = (props) => {
     )
 }
 
-class NoteCardList extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            notes:[],
-        };
-    }
-    render() {
-        return (
-            <div className = "main-container">
-                <HeaderName text = "Your Notes" />
-                <div className="card-container">
-                    <div className="text-wrapper">
-                        <h4>header placeholder</h4>
-                        <p>I'm a body placeholder</p>
-                    </div>
-                </div>            
-            </div>
-        );
-    }
+const NoteCardList = (props)=>{
+    return(
+        <div className = "main-container">
+            
+            <NoteCards notes={notes}/>
+        </div>
+    );
 }
 
 
-export default connect(
-    mapStateToProps,
-)(NoteCardList);
+
+
+export default NoteCardList;

@@ -1,0 +1,24 @@
+.main-container{
+    display:flex;
+    flex-wrap:wrap;
+    background-color: #d3d3d3;
+    color:#4A4A4A;
+    margin:0px;
+    border:1px solid #979797;
+    width:100%;
+    list-style: none;
+    height: auto;
+}
+.card-container{
+    height:200px;
+    width:200px;
+    background-color:whitesmoke;
+    margin:10px auto;
+    padding:10px;
+    text-overflow: clip;
+    overflow: hidden;
+}
+.text-wrapper{
+    margin:10px;
+
+}
