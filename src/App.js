@@ -19,11 +19,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("i mounted");
+    console.log("got data from heroku");
     this.updateGet();
   }
   updateGet = () => {
-    console.log("checking netlify");
     axios
       .get(url)
       .then(response => {
