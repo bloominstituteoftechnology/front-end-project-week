@@ -5,31 +5,3 @@
     margin: 0 auto;
 
 }
-.card-container-header{
-    margin-left: 15px;
-    margin-top: 110px;
-    font-size: 1.4rem;
-}
-.card-container{
-    background-color: #F0F0F0;
-    width:965px;
-    padding-left:20px;
-    margin-top:0px;
-}
-.card{
-    height: 200px;
-    width: 200px;
-    border: 1px solid #979797;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top:25px;
-    margin-left:15px;
-    background-color: #F3F3F3;
-
-}
-.card-title{
-    margin:10px;
-}
-.card-body{
-    margin: 10px;
-}

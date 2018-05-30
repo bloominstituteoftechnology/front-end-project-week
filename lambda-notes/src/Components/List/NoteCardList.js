@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './NoteCardList.css';
 
 function mapStateToProps(state) {
     return {
@@ -13,32 +14,23 @@ export const HeaderName = (props) => {
     )
 }
 
-export const Card = (props) => {
-    return(
-        <div>
-            <h5>header placeholder</h5>
-            <hr />
-            <p>I'm a body placeholder</p>
-
-        </div>
-    )
-}
 class NoteCardList extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            notes:[],
+        };
+    }
     render() {
         return (
-            <div>
+            <div className = "main-container">
                 <HeaderName text = "Your Notes" />
-                <Card className="card-container"/>
-                {/*
-
-                    div=============
-                        card========
-                            h5======
-                            hr======
-                            p ======
-                
-                
-                */}
+                <div className="card-container">
+                    <div className="text-wrapper">
+                        <h4>header placeholder</h4>
+                        <p>I'm a body placeholder</p>
+                    </div>
+                </div>            
             </div>
         );
     }

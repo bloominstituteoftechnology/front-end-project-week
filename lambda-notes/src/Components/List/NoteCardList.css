@@ -1,0 +1,17 @@
+.main-container{
+    background-color: #d3d3d3;
+    color:#4A4A4A;
+    margin:0px;
+    border:1px solid #979797;
+    width:80%;
+}
+.card-container{
+    background-color:whitesmoke;
+    border: 1px solid #979797;
+    width: 200px;
+    height:200px;
+    margin:10px;
+}
+.text-wrapper{
+    margin:10px;
+}
