@@ -34,7 +34,6 @@ class Home extends Component {
     this.setState({ Modal: !this.state.Modal });
   }
   render() {
-      console.log(this.props.updateGet)
     return (
       <React.Fragment>
         <div className="home-styles">
