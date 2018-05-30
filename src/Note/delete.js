@@ -34,7 +34,7 @@ class Delete extends Component {
   }
   delete = id => {
     axios
-      .delete(`https://notes-back-end.herokuapp.com/notes${id}`)
+      .delete(`https://notes-back-end.herokuapp.com/notes/${id}`)
       .then(response => {
         window.location.reload();
       })

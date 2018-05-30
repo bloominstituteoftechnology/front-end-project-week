@@ -23,7 +23,7 @@ componentDidMount(){
 getNote =id=>{
 
     axios
-    .get(`https://notes-back-end.herokuapp.com/notes${id}`)
+    .get(`https://notes-back-end.herokuapp.com/notes/${id}`)
     .then(response =>{
         console.log(response)
         this.setState(()=>({note:response.data}))
