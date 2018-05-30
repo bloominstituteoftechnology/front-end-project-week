@@ -43,6 +43,7 @@ class NoteList extends Component {
             this.props.notes[i] = noteOrder[noteTitles[i]];
             // console.log(this.props.notes)
         }
+        localStorage.setItem('array', JSON.stringify(this.props.notes));
     }
 
     savedPosition = () => {
@@ -58,15 +59,14 @@ class NoteList extends Component {
             
             for (let i = 0; i < this.state.order.length; i++) {
                 savedOrder[this.props.notes[i].id] = this.props.notes[i];
-                // console.log(this.state.order)
+                // console.log("order notes", this.state.order)
             }
             for (let i = 0; i < this.state.order.length; i++) {
                 this.props.notes[i] = savedOrder[this.state.order[i]];
-                // console.log(this.props.notes)
+                // console.log("prop notes", this.props.notes)
             }
-        }, 200);
-        // return this.noteOrder;
-        this.setState(this.state);
+            localStorage.setItem('array', JSON.stringify(this.props.notes));
+        }, 500);
     }
 
     render() {
@@ -82,7 +82,8 @@ class NoteList extends Component {
             } else if (this.state.bodyCheck) {
                 return note.body.toLowerCase().indexOf(this.state.search) !== -1;
             }
-            return this.props.notes;
+            // return this.props.notes;
+            return JSON.parse(localStorage.getItem('array'));
         });
         return (
             <div className="notelist-container">
@@ -126,7 +127,7 @@ class NoteList extends Component {
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-                    <button onClick={this.savedPosition}>Save Note Order</button>
+                    <button >Save Note Order</button>
                 </form>
                 <div className="notelist" id="sortable">
                     {filteredNotes.map((note) => {
@@ -136,6 +137,7 @@ class NoteList extends Component {
                             key={note.id} 
                             to={`/note/${note.id}`} 
                             id = {note.id}
+                            onMouseUp={this.savedPosition}
                             className="note-link note ui-state-default"
                             >
                             <div>

@@ -29,7 +29,7 @@ class EditNote extends Component {
             id: `${'' + this.props.match.params.id}`,
             title: `${this.props.match.params.title}`,
             body: `${this.props.match.params.body}` });
-        console.log("params id", this.props.match.params.id);
+        // console.log("params id", this.props.match.params.id);
         window.location.href = "/";
     };
 

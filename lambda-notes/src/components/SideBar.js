@@ -9,7 +9,7 @@ function homeLink() {
 
 class SideBar extends Component {
     render() {
-        console.log(this.props.notes)
+        // console.log(this.props.notes)
         return (
             <div className="sidebar"> 
                 <h1>Lamda<br/>Notes</h1>
