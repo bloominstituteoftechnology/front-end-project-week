@@ -21,6 +21,7 @@ const NoteCardList = (props)=>{
                  <Card  key={el.id} className = "card">
                  <CardTitle key={el.note_title} className = "card-title">
                     <Link to = '/list/number'>{el.note_title}</Link></CardTitle>
+                    <hr />
                     <CardText key={el.note_body} className = "card-body">{el.note_body}</CardText>
                  </Card>
                 )
