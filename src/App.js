@@ -23,7 +23,7 @@ class App extends Component {
     this.updateGet();
   }
   updateGet = () => {
-    console.log("is netlify working");
+    console.log("checking netlify");
     axios
       .get(url)
       .then(response => {
