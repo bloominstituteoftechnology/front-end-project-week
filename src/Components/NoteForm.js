@@ -34,8 +34,8 @@ class NoteForm extends Component {
     axios
       .post("https://notes-back-end.herokuapp.com/notes", note)
       .then(response => {
-        this.props.toggle()
-    this.props.updateGet()
+    //     this.props.toggle()
+    // this.props.updateGet()
       })
       .catch(err => {
         console.log(err);
