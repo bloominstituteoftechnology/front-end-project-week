@@ -127,7 +127,6 @@ class NoteList extends Component {
                             </DropdownMenu>
                         </Dropdown>
                     </div>
-                    <button >Save Note Order</button>
                 </form>
                 <div className="notelist" id="sortable">
                     {filteredNotes.map((note) => {
