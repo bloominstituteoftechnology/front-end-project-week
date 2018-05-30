@@ -9,7 +9,7 @@ import Home from "./Components/home";
 import Note from "./Components/NoteView";
 import CreateView from "./Components/CreateView";
 import EditView from "./Components/EditView";
-const url = "http://localhost:5000/notes";
+const url = "https://notes-back-end.herokuapp.com/notes";
 class App extends Component {
   constructor() {
     super();
