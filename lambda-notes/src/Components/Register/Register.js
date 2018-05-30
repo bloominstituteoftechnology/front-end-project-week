@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {withRouter} from "react-router-dom"
+import {ClipLoader} from "react-spinners"
 import "./Register.css"
 
 
@@ -9,7 +10,8 @@ class Register extends Component {
         super();
         this.state = {
             Email: "",
-            Password: ""
+            Password: "",
+            loading: false,
         }
     }
 
@@ -19,6 +21,9 @@ class Register extends Component {
       }
 
       handleFormSubmit = (e) => {
+        this.setState({
+            loading: true
+        })
           e.preventDefault();
 
           const newUser = {
@@ -29,10 +34,11 @@ class Register extends Component {
           axios.post("https://noteslambda.herokuapp.com/users", newUser)
           .then(response => {
               console.log(response);
-              alert("User created");
               this.props.history.push('/login')
           }).catch(err => {
               console.log(err);
+              window.location.reload(true);
+              alert("Error creating user")
           })
       }
 
@@ -53,8 +59,16 @@ class Register extends Component {
                         Email: <input onChange={this.handleInputChange} name="Email" type="text"></input>
                         Password: <input  onChange={this.handleInputChange} name="Password" type="password"></input>
                     </div>
-                    <button style={register}>Login</button>
+                    <button style={register}>Register</button>
                     <button onClick={this.sendToLogin} style={register}>Sign In</button>
+
+                    <div className="sweet-loading">
+                        <ClipLoader
+                        color={"#666"}
+                        size={80}
+                        loading={this.state.loading}
+                        />
+                    </div>
                 </form>
             </div>
     </div>

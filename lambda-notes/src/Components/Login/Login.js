@@ -11,7 +11,7 @@ class Login extends Component {
         this.state = {
             Email: "",
             Password: "",
-            loading: true,
+            loading: false,
         }
     }
 
@@ -21,6 +21,9 @@ class Login extends Component {
       }
 
       handleFormSubmit = (e) => {
+        this.setState({
+            loading: true
+        })
         e.preventDefault();
 
         const user = {
@@ -30,13 +33,13 @@ class Login extends Component {
 
         axios.post("https://noteslambda.herokuapp.com/users/login", user)
         .then(response => {
-            alert("Logged in");
             const token = response.data.token
             localStorage.setItem("token", token)
             this.props.history.push('/home')
         }).catch(err => {
             alert("Email and password are incorrect")
-            this.props.history.push('/login')
+            window.location.reload(true)
+            
         })
     }
 

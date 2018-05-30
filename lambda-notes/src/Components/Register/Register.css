@@ -48,3 +48,8 @@ button {
 .registerCard a:hover {
     font-size: 1.1rem;
 }
+
+.sweet-loading {
+    height: 10vh;
+    padding-top: 8vh;
+}
