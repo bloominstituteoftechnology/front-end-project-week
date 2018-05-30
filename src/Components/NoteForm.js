@@ -32,7 +32,7 @@ class NoteForm extends Component {
       note.textbody = this.state.textbody;
     }
     axios
-    console.log("got here")
+    console.log(note)
       .post("https://notes-back-end.herokuapp.com/notes", note)
       .then(response => {
         console.log(response)
