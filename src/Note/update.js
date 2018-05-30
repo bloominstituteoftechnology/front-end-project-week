@@ -34,7 +34,7 @@ update = id=>{
         note.textbody = this.state.textbody
     }
     axios
-    .put(`https://notes-back-end.herokuapp.com/notes/${id}`,note)
+    .put(`http://localhost:5000/notes/${id}`,note)
     .then(response=>{
         this.setState({title:'',textbody:''})
         window.location.reload()

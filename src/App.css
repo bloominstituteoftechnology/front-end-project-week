@@ -208,7 +208,9 @@ border:none;
   .close{
     color:white;
   }
- 
+  .close:hover{
+    color:#DC3545;
+  } 
 @media(max-width: 390px){
 
   .navbar-brand{
