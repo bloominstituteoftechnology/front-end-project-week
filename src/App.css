@@ -205,6 +205,9 @@ border:none;
   .cancelBtn-styles:active{
     border:none;
   }
+  .close{
+    color:white;
+  }
  
 @media(max-width: 390px){
 
