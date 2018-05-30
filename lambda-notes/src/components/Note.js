@@ -30,8 +30,8 @@ class Note extends Component {
     };
 
     render() {
-        console.log(this.props.notes)
-        console.log(this.matchedNote)
+        // console.log(this.props.notes)
+        // console.log(this.matchedNote)
         return (
             <div className="note-view">
                 <div className="button-group">

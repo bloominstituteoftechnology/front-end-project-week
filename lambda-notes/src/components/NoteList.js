@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
-import { noteOrder } from '../actions';
-
 class NoteList extends Component {
     state = {
         search: '',
@@ -45,6 +43,25 @@ class NoteList extends Component {
         }
         localStorage.setItem('array', JSON.stringify(this.props.notes));
     }
+
+    // handleDateSort = (event) => {
+    //     event.preventDefault();
+    //     let dateOrder = {}
+    //     let noteDates = this.props.notes.map(note => {
+    //         return note.createdAt;
+    //     })
+    //     noteDates = noteDates.sort();
+    //     // console.log(noteTitles);
+    //     for (let i = 0; i < noteDates.length; i++) {
+    //         dateOrder[this.props.notes[i].createdAt] = this.props.notes[i];
+    //         // console.log(this.state.order)
+    //     }
+    //     for (let i = 0; i < noteDates.length; i++) {
+    //         this.props.notes[i] = dateOrder[noteDates[i]];
+    //         // console.log(this.props.notes)
+    //     }
+    //     localStorage.setItem('array', JSON.stringify(this.props.notes));
+    // }
 
     savedPosition = () => {
         setTimeout(() => {
@@ -148,7 +165,8 @@ class NoteList extends Component {
                                 <DropdownItem 
                                     className="dropdown-item"
                                     style={{ fontSize: "1.8rem", color: "white" }}
-                                    onClick={console.log('sort2')}>
+                                    //onClick={this.handleDateSort}
+                                    >
                                     Sort by Date
                                 </DropdownItem>
                             </DropdownMenu>
@@ -186,4 +204,4 @@ const mapStateToProps = store => {
     };
 };
 
-export default connect(mapStateToProps, { noteOrder })(NoteList);
+export default connect(mapStateToProps)(NoteList);
