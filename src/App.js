@@ -19,10 +19,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log("got data from heroku");
+    console.log("i mounted");
     this.updateGet();
   }
   updateGet = () => {
+    console.log("i worked");
     axios
       .get(url)
       .then(response => {

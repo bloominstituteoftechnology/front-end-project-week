@@ -30,7 +30,7 @@ class Home extends Component {
   }
 
   toggle() {
-    console.log('got here')
+    console.log('toggled')
     this.setState({ Modal: !this.state.Modal });
   }
   render() {
