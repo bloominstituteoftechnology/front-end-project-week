@@ -8,6 +8,26 @@
     max-height: 100%;
 }
 
+.sideBar_pop {
+    left: 19%;
+}
+
+.sideBar_logout {
+    position: relative;
+    left: 80%;
+    height: 100%;
+}
+
+.sideBar_logout button {
+    color: white;
+    background-color: rgb(231, 87, 62);
+    border: none;
+    width: 100%;
+    font-size: 1.7rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .row {
     display: flex;
     flex-wrap: wrap;

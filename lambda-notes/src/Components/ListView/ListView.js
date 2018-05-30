@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
-import { Link } from 'react-router-dom';
+import { Link , withRouter} from 'react-router-dom';
 import axios from "axios"
 
 
@@ -40,6 +40,11 @@ class ListView extends Component {
             this.props.history.push('/')
         })
     }
+
+    signOut() {
+        localStorage.removeItem('token');
+        window.location.reload(true)
+    }
     
 
     render() {
@@ -51,6 +56,9 @@ class ListView extends Component {
             ) : (
                 <div className = "body">
                     <SideBar/>
+                    <div className="sideBar_logout">
+                        <button onClick={this.signOut}>Sign out</button>
+                    </div>
                     <div className = "sideBar_pop notes">
                         <div className = "list">
                             <h2>Your Notes:</h2>
@@ -87,5 +95,5 @@ class ListView extends Component {
     }
 }
 
-export default ListView
+export default withRouter(ListView)
   
