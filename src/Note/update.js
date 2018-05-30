@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import axios from 'axios'
-import{Tooltip,Input,Label,Form,Collapse,Col,Row,FormGroup } from 'reactstrap'
+import{Input,Label,Form,Collapse,Col,Row, } from 'reactstrap'
 
 class Update extends Component{
 constructor(props){

@@ -44,7 +44,7 @@ class Delete extends Component {
   };
   render() {
     return (
-      <div>
+      <div className='inputdiv-styles'>
         <i
           className="delete-styles"
           onClick={this.toggle}

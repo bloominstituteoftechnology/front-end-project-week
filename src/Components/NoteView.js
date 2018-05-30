@@ -1,12 +1,11 @@
 import React,  { Component } from "react";
 import axios from 'axios'
-import {notes} from '../Notes/notes'
+
 import Delete from '../Note/delete'
 import Update from '../Note/update'
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Row,Col,  Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
-    import{ Link } from 'react-router-dom'
-import Axios from "axios";
+import {  CardText,CardBody, Card,
+    CardTitle,  } from 'reactstrap';
+
 class Note extends Component{
 constructor(props){
     super(props)

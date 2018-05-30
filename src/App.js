@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import "./App.css";
-import { notes } from "./Notes/notes";
 import { Route } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 import axios from "axios";
 import Notes from "./Components/ListView";
 import Home from "./Components/home";
 import Note from "./Components/NoteView";
-import CreateView from "./Components/CreateView";
-import EditView from "./Components/EditView";
 const url = "https://notes-back-end.herokuapp.com/notes";
 class App extends Component {
   constructor() {
+ 
     super();
     this.state = {
       notes: []
     };
+    // this.setState = this.setState.bind(this)
   }
 
   componentDidMount() {
@@ -26,7 +25,10 @@ class App extends Component {
     axios
       .get(url)
       .then(response => {
+         
         this.setState({ notes: response.data });
+
+    
       })
       .catch(err => {
         console.log(err);
@@ -74,7 +76,7 @@ class App extends Component {
         <Col xs="12">
           <Route
             path="/"
-            render={props => <Home updateGet={this.updateGet} />}
+            render={props => <Home updateGet={this.updateGet}/>}
           />
         </Col>
         <Col xs="12" className="components">

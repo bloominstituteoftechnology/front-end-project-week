@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import {
-  Collapse,
   Button,
-  FormGroup,
   Input,
   Col,
   Row,
@@ -34,7 +34,13 @@ class NoteForm extends Component {
     axios
       .post('https://notes-back-end.herokuapp.com/notes', note)
       .then(response => {
-    this.props.updateGet()
+      this.props.updateGet()
+// this.props.notes.push(response.data)
+console.log(this.props.notes)
+        console.log(response)
+         this.props.toggle()
+     this.props.updateGet()
+    
       })
       .catch(err => {
         console.log(err);
@@ -79,7 +85,7 @@ class NoteForm extends Component {
         </InputGroup>
         <Row className="modalBtn-styles">
           <Col xs="auto">
-        <Button color="success" className="noteBtn-style" onClick={this.addNote} type="submit">Add Note</Button>
+      <Link to="/">  <Button color="success" className="noteBtn-style" onClick={this.addNote} type="submit">Add Note</Button></Link>
             </Col>
           <Col xs="auto">
         <Button color="danger" className="noteBtn-style cancelBtn-styles" onClick={this.props.toggle} >Cancel</Button>

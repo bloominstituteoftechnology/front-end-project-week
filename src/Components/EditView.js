@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText, } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, } from 'reactstrap';
 import{ Link } from 'react-router-dom'
 import {notes} from '../Notes/notes'
-import NoteView from './NoteView'
+
 
 class EditView extends Component {
     constructor(props){
