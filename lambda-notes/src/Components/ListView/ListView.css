@@ -8,7 +8,7 @@
     max-height: 100%;
 }
 
-.sideBar_pop {
+.listView {
     left: 19%;
 }
 
@@ -32,9 +32,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-}
-.card:first-of-type {
-    display: none;
 }
 
 .card {

@@ -59,7 +59,7 @@ class ListView extends Component {
                     <div className="sideBar_logout">
                         <button onClick={this.signOut}>Sign out</button>
                     </div>
-                    <div className = "sideBar_pop notes">
+                    <div className = "sideBar_pop notes listView">
                         <div className = "list">
                             <h2>Your Notes:</h2>
                         </div>
