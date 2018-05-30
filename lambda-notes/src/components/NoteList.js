@@ -143,7 +143,7 @@ class NoteList extends Component {
                                     className="dropdown-item"
                                     style={{ fontSize: "1.8rem", color: "white" }}
                                     onClick={this.handleAlphaSort}>
-                                    Sort By A to Z
+                                    Sort - A to Z
                                 </DropdownItem>
                                 <DropdownItem 
                                     className="dropdown-item"
