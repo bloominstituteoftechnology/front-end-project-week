@@ -112,18 +112,45 @@ class NoteList extends Component {
                             name="search"
                             onChange={this.updateBody}
                             /><label>Search Body</label>
-                    </div>
-                    <div className="dropdown-sort">
-                        <Dropdown 
-                            direction="right" 
-                            isOpen={this.state.btnDropright} 
-                            toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}>
-                            <DropdownToggle caret>
+                        <Dropdown
+                            className="drop-down"
+                            direction="right"
+                            isOpen={this.state.btnDropright}
+                            toggle={() => { this.setState({ btnDropright: !this.state.btnDropright }); }}
+                            style={{ 
+                                backgroundColor: "#00BABD", 
+                                border: "none", 
+                                borderRadius: "5px",
+                                boxShadow: "2px 2px 4px black" }} >
+                            <DropdownToggle 
+                                className="drop-down"
+                                style={{ 
+                                    backgroundColor: "#00BABD", 
+                                    fontSize: "2rem", 
+                                    height: "40px",
+                                    border: "none",
+                                    borderRadius: "5px"
+                                    }}
+                                caret>
                                 Sort Notes
                             </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={this.handleAlphaSort}>Sort By A to Z</DropdownItem>
-                                <DropdownItem onClick={console.log('sort2')}>Sort by Date</DropdownItem>
+                            <DropdownMenu style={{ 
+                                width: "150px", 
+                                backgroundColor: "#00BABD", 
+                                borderRadius: "5px",
+                                boxShadow: "1px 1px 2px black" }}>
+                                <DropdownItem 
+                                    className="dropdown-item"
+                                    style={{ fontSize: "1.8rem", color: "white" }}
+                                    onClick={this.handleAlphaSort}>
+                                    Sort By A to Z
+                                </DropdownItem>
+                                <DropdownItem 
+                                    className="dropdown-item"
+                                    style={{ fontSize: "1.8rem", color: "white" }}
+                                    onClick={console.log('sort2')}>
+                                    Sort by Date
+                                </DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                     </div>

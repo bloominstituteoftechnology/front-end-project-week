@@ -113,9 +113,18 @@ html, body {
 
 .notelist-container .radio-container {
   display: flex;
-  flex-flow: row wrap;
   margin: 0 0 4% 4%;
   width: 100%;
+  align-items: center;
+}
+
+.radio-container .drop-down:hover, .radio-container .drop-down:hover {
+  background-color: white !important;
+  color: #00BABD;
+}
+
+.radio-container .dropdown-item:hover {
+  color: #00BABD !important;
 }
 
 .notelist-container .radio-container .radio-button {
