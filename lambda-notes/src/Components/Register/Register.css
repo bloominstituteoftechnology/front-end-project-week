@@ -38,11 +38,13 @@
 
 .registerCard a {
     display: block;
-    color: white;
     margin: 0 auto;
     background-color: aqua;
 }
 
+button {
+    color: white;
+}
 .registerCard a:hover {
     font-size: 1.1rem;
 }

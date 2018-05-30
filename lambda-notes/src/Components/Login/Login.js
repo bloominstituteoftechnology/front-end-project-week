@@ -36,8 +36,12 @@ class Login extends Component {
             alert("Email and password are incorrect")
             this.props.history.push('/login')
         })
-
     }
+
+    sendToRegister = () => {
+        this.props.history.push('/')
+    }
+
     render() {
         return(
             <div>
@@ -49,6 +53,7 @@ class Login extends Component {
                         Password: <input onChange={this.handleInputChange} name="Password" type="password"></input>
                     </div>
                     <button style={login}>Login</button>
+                    <button onClick={this.sendToRegister} style={login}>Register</button>
                 </form>
             </div>
     </div>
