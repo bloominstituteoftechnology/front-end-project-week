@@ -47,6 +47,22 @@ class NoteView extends Component {
         })
     }
 
+    cloneNote = (e) => {
+        e.preventDefault();
+
+        const copiedNote = {
+            title: this.state.title,
+            content: this.state.content
+        }
+
+        axios.post("https://noteslambda.herokuapp.com/notes", copiedNote)
+        .then(response => {
+            this.props.history.push('/home')
+        }).catch(err => {
+            alert("Note could not be copied")
+        })
+    }
+
     render() {
         return(
             <div>
@@ -81,6 +97,7 @@ class NoteView extends Component {
                                 <SideBar/>
                                 <div className="sideBar_pop noteCard">
                                     <div className = "links">
+                                    <button onClick={this.cloneNote}>clone</button>
                                     <Link to={{
                                             pathname: `/edit/${this.props.location.state}`,
                                             state: this.props.location.state

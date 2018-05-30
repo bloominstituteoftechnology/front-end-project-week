@@ -9,7 +9,8 @@
 }
 
 .listView {
-    left: 19%;
+    left: 20%;
+
 }
 
 .sideBar_logout {
@@ -17,6 +18,12 @@
     left: 80%;
     height: 100%;
 }
+
+/* .sideBar_logout input {
+    position: relative;
+    right: 50vw;
+    width: 100%;
+} */
 
 .sideBar_logout button {
     color: white;
