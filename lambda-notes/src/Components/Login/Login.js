@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import {ClipLoader} from "react-spinners"
 import "./Login.css"
 
 
@@ -9,7 +10,8 @@ class Login extends Component {
 
         this.state = {
             Email: "",
-            Password: ""
+            Password: "",
+            loading: true,
         }
     }
 
@@ -45,18 +47,28 @@ class Login extends Component {
     render() {
         return(
             <div>
-            <div className="loginBody">
-                <form className="loginCard" onSubmit={this.handleFormSubmit}>
-                    <h1>Sign in</h1>
-                    <div className="inputs">
-                        Email: <input onChange={this.handleInputChange} name="Email" type="text"></input>
-                        Password: <input onChange={this.handleInputChange} name="Password" type="password"></input>
+                <div className="loading">
+                    <div className="loginBody">
+                        <form className="loginCard" onSubmit={this.handleFormSubmit}>
+                            <h1>Sign in</h1>
+                            <div className="inputs">
+                                Email: <input onChange={this.handleInputChange} name="Email" type="text"></input>
+                                Password: <input onChange={this.handleInputChange} name="Password" type="password"></input>
+                            </div>
+                            <button style={login}>Login</button>
+                            <button onClick={this.sendToRegister} style={login}>Register</button>
+
+                            <div className="sweet-loading">
+                                <ClipLoader
+                                color={"#666"}
+                                size={80}
+                                loading={this.state.loading}
+                                />
+                            </div>
+                        </form>
                     </div>
-                    <button style={login}>Login</button>
-                    <button onClick={this.sendToRegister} style={login}>Register</button>
-                </form>
+                </div>
             </div>
-    </div>
         )
     }
 }
@@ -70,5 +82,13 @@ const login = {
     height: "5vh",
     cursor: "pointer"
 }
+
+// const displayNone = {
+//     display: "none"
+// }
+
+// const display = {
+//     display: "block"
+// }
 
 export default Login;

@@ -46,3 +46,14 @@ color: rgb(93, 196, 196)
 .loginCard a:hover {
     font-size: 1.1rem;
 }
+
+.loading {
+    background-color: black;
+    z-index: 2;
+    height: 100vh;
+}
+
+.sweet-loading {
+    height: 10vh;
+    padding-top: 8vh;
+}
