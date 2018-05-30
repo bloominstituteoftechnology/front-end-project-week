@@ -1,23 +1,5 @@
 import React, { Component } from 'react'
 import { ActionButton } from '.'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  display: flex
-  flex-direction: column
-  input, textarea {
-    padding: 15px
-    border-radius: 5px
-    border: 1px solid #AEAEAE
-    font-size: 1.1rem
-    margin-bottom: 15px
-    resize: none
-  }
-`
-
-const Control = styled.div`
-  align-self: flex-end
-`
 
 class NoteForm extends Component {
   constructor(props) {
@@ -40,7 +22,7 @@ class NoteForm extends Component {
   render() {
     console.log(this.state)
     return (
-      <Container>
+      <div className="note-form">
         <h1>{this.promptText()}</h1>
         <input 
           name='title'
@@ -53,12 +35,12 @@ class NoteForm extends Component {
           placeholder='Note content'
           value = {this.state.content}
           onChange={this.handleChange} />
-        <Control>
+        <div className="control">
           <ActionButton 
             onClick={this.handleSubmit}
             text={this.buttonText()} />
-        </Control>
-      </Container>
+        </div>
+      </div>
     )
   }
 }

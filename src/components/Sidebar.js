@@ -1,34 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
 import { LinkButton } from '.'
 
-const Container = styled.div`
-  background-color: #D2D1D2
-  width: 280px
-  display: flex
-  flex-direction: column
-  align-items: center
-  border-right: 1px solid #AEAEAE
-  padding: 15px
-  
-  a { width: 100% }
-`
-
-const Header = styled.h1`
-  align-self: flex-start
-  font-size: 2.5rem
-`
-
 const Sidebar = () => (
-  <Container>
-    <Header>Lambda Notes</Header>
+  <div className="sidebar-container">
+    <h1>Lambda Notes</h1>
     <LinkButton
       to='/'
       text='View Your Notes' />
     <LinkButton
       to='/create'
       text='+ Create New Note' />
-  </Container>
+  </div>
 )
 
 export default Sidebar

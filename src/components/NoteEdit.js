@@ -3,7 +3,6 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase'
 import { NoteForm } from '.'
-import styled from 'styled-components'
 
 const NoteEdit = ({ firebase, note, match, history }) => {
   const handleSubmit = (note) => {

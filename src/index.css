@@ -10,3 +10,208 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.app {
+  display: flex;
+  border: 1px solid #AEAEAE;
+  width: 1000px;
+}
+
+.app * {
+  font-family: sans-serif;
+  color: #434343;
+}
+
+.main-container {
+  background-color: #F2F1F2;
+  width: 100%;
+  padding: 30px 30px 5px 30px;
+}
+
+.main-container h1 {
+  font-size: 2.3rem;
+}
+
+.sidebar-container {
+  background-color: #D2D1D2;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #AEAEAE;
+  padding: 15px;
+}
+
+.sidebar-container h1 {
+  align-self: flex-start;
+  font-size: 2.5rem;
+}
+
+.sidebar-container a { 
+  width: 100%;
+}
+
+.notes-list-view {
+  display: flex;
+  flex-direction: column; 
+}
+
+.notes-list-view div:last-child {
+  align-self: center
+}
+
+.notes-list-view .controls {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.notes-list-view .controls input {
+  margin-right: 20px
+}
+
+.notes-list-view .controls label {
+  margin-right: 10px
+}
+
+.notes-list-view .list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.notes-list-view .note {
+  width: 49%;
+  height: 200px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #AEAEAE;
+  padding: 10px;
+  margin-bottom: 25px;
+
+}
+
+.notes-list-view .note h2 {
+  border-bottom: 1px solid #AEAEAE;
+  padding-bottom: 10px;
+  margin: 0 0 10px;
+}
+
+.note-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-form input, .note-form textarea {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #AEAEAE;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  resize: none;
+}
+
+.note-form .control {
+  align-self: flex-end;
+}
+
+.note-detail-view a {
+  width: 200px;
+  margin-right: 15px;
+}
+
+.note-detail-view .controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-detail-view .controls a {
+  margin-left: 20px
+}
+
+.note-detail-view .note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.markdown h1 {
+  font-size: 1.5rem
+}
+.markdown h2 {
+  font-size: 1.2rem
+}
+.markdown h3 {
+  font-size: 1.1rem
+}
+
+.link-button {
+  margin-bottom: 20px;
+  background-color: #30B7BB;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid #AEAEAE;
+  text-align: center;
+  font-weight: bold;
+}
+
+.link-button:hover {
+  background-color: white;
+  color: #30B7BB;
+}
+
+.modal-mat {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7); 
+}
+
+.modal-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 200px;
+  background-color: white;
+  border: 1px solid #AEAEAE;
+}
+
+.modal-dialog .controls {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.action-button {
+  width: 200px;
+  margin-bottom: 20px;
+  background-color: #30B7BB;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid #AEAEAE;
+  text-align: center;
+  font-weight: bold;
+}
+
+.action-button:hover {
+  background-color: white;
+  color: #30B7BB;
+}
+
+.action-button.delete {
+  background-color: #C70024;
+}
+
+.action-button.delete:hover {
+  color: #C70024;
+}

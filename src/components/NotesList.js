@@ -9,51 +9,6 @@ import {
   arrayMove
 } from 'react-sortable-hoc'
 import { Markdown, DownloadButton } from '.'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  display: flex
-  flex-direction: column
-
-  div:last-child {
-    align-self: center
-  }
-`
-
-const Controls = styled.div`
-  display: flex
-  align-items: center
-  align-self: flex-end
-  label {
-    margin-right: 10px
-  }
-  input {
-    margin-right: 20px
-  }
-`
-
-const ListContainer = styled.div`
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
-  width: 100%
-`
-
-const NoteContainer = styled.div`
-  width: 49%
-  height: 200px
-  overflow: hidden
-  background-color: white
-  border: 1px solid #AEAEAE
-  padding: 10px
-  margin-bottom: 25px
-
-  h2 {
-    border-bottom: 1px solid #AEAEAE
-    padding-bottom: 10px
-    margin: 0 0 10px
-  }
-`
 
 class NotesList extends Component {
   state = {
@@ -116,8 +71,8 @@ class NotesList extends Component {
 
   render() {
     return (
-      <Container>
-        <Controls>
+      <div className="notes-list-view">
+        <div className="controls">
           <label>Search for text: </label>
           <input onChange={this.handleFilter} />
           <label>Sort by:</label>
@@ -125,21 +80,21 @@ class NotesList extends Component {
             <option value="newest">Newest</option>
             <option value="byTitle">By Title</option>
           </select>
-        </Controls>
+        </div>
         <h1>Your notes:</h1>
         {this.noteElements()}
         <DownloadButton genFile={this.makeCSV} downloadTitle="Export to CSV" />
-      </Container>
+      </div>
     )
   }
 }
 
 const SortableNotesList = SortableContainer(({ notes }) => (
-  <ListContainer>
+  <div class="list-container">
     {notes.map((note, index) => {
       return <SortableNote key={`note-${index}`} index={index} note={note} />
     })}
-  </ListContainer>
+  </div>
 ))
 
 const SortableNote = SortableElement(({ note: { key, value } }) => (
@@ -150,12 +105,12 @@ const SortableNote = SortableElement(({ note: { key, value } }) => (
 ))
 
 const Note = ({ id, title, content }) => (
-  <NoteContainer>
+  <div className="note">
     <Link to={`/show/${id}`}>
       <h2>{title}</h2>
     </Link>
     <Markdown noteId={id} markdown={content} />
-  </NoteContainer>
+  </div>
 )
 
 const mapStateToProps = (state) => ({

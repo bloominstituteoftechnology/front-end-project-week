@@ -4,27 +4,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase'
 import { Markdown, LinkButton, ActionButton, DeleteModal } from '.'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  a { 
-    width: 200px 
-    margin-right: 15px
-  }
-`
-
-const Controls = styled.div`
-  display: flex
-  justify-content: flex-end
-  a {
-    margin-left: 20px
-  }
-`
-const NoteContainer = styled.div`
-  display: flex
-  flex-direction: column
-  align-items: flex-start
-`
 
 class Note extends Component {
   state = {
@@ -45,12 +24,12 @@ class Note extends Component {
       : isEmpty(note)
         ? <h1>No Note with id "{match.params.id}"</h1>
         : (
-            <Container>
+            <div className="note-detail-view">
               <DeleteModal 
                 hidden={this.state.modalHidden} 
                 deleteNote={this.deleteNote}
                 hideSelf={this.toggleModal} />
-              <Controls>
+              <div className="controls">
                 <LinkButton 
                   to={`/edit/${match.params.id}`}
                   text='Edit' />
@@ -58,14 +37,14 @@ class Note extends Component {
                   type='delete'
                   text='Delete'
                   onClick={this.toggleModal} />
-              </Controls>
-              <NoteContainer>
+              </div>
+              <div className="note">
                 <h1>{note.title}</h1>
                 <Markdown 
                   noteId={match.params.id}
                   markdown={note.content} />
-              </NoteContainer>
-            </Container>
+              </div>
+            </div>
           )
   }
 }
