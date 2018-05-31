@@ -45,6 +45,10 @@ body {
     align-items: center;
 }
 
+.sideBar a:last-of-type {
+    margin-bottom: 30%;
+}
+
 .sideBar a:hover {
     font-size: 1.6rem;
     height: 10.5vh;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar"
 import { Link , withRouter} from 'react-router-dom';
+import Checkout from "../Checkout/Checkout"
 import axios from "axios"
 
 
@@ -55,7 +56,7 @@ class ListView extends Component {
                 <div></div>
             ) : (
                 <div className = "body">
-                    <SideBar/>
+                    <SideBar/>                    
                     <div className="sideBar_logout">
                         <button onClick={this.signOut}>Sign out</button>
                         {/* <input type="text"/> */}

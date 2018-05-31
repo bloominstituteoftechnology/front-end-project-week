@@ -25,7 +25,8 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",
-    "mongoose": "^5.1.2"
+    "mongoose": "^5.1.2",
+    "react-stripe-checkout": "^2.6.3"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
