@@ -22,6 +22,10 @@ class NoteList extends Component {
       notes: nextProps.notes[prevState.orderBy]
     }
   }
+
+  componentDidMount() {
+    this.props.fetchUserNotes()
+  }
   
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.setState({ notes: arrayMove(this.state.notes, oldIndex, newIndex) })
@@ -58,7 +62,7 @@ class NoteList extends Component {
 
   notes = (orderBy, filter) => (
     this.props.notes[orderBy]
-      .filter(({ value: { title, content } }) => (
+      .filter(({ title, content  }) => (
         title.toLowerCase().includes(filter) ||
         content.toLowerCase().includes(filter)
       ))
@@ -92,11 +96,11 @@ const SortableNotesList = SortableContainer(({ notes }) => (
   </div>
 ))
 
-const SortableNote = SortableElement(({ note: { key, value } }) => (
+const SortableNote = SortableElement(({ note }) => (
   <Note
-    id={key}
-    title={value.title}
-    content={value.content} />
+    id={note._id}
+    title={note.title}
+    content={note.content} />
 ))
 
 const Note = ({ id, title, content }) => (
@@ -104,7 +108,7 @@ const Note = ({ id, title, content }) => (
     <Link to={`/show/${id}`}>
       <h2>{title}</h2>
     </Link>
-    <Markdown noteId={id} markdown={content} />
+    <Markdown noteid={id} markdown={content} />
   </div>
 )
 
