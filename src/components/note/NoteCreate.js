@@ -1,17 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import NoteForm from './NoteForm'
+import { createNote } from '../../state/actions'
 
 const blankNote = { title: '', content: '' }
 
-const NoteCreate = ({ history }) => {
-  const handleSubmit = (note) => {
-    history.push('/')
-  }
-  return (
-    <NoteForm 
-      handleSubmit={handleSubmit}
-      note={blankNote} />
-  )
-}
+const NoteCreate = ({ createNote }) => (
+  <NoteForm 
+    handleSubmit={createNote}
+    note={blankNote} />
+)
 
-export default NoteCreate
+const dispatchToProps = { createNote }
+
+export default connect(null, dispatchToProps)(NoteCreate)

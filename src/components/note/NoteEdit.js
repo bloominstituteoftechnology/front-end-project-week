@@ -1,22 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import NoteForm from './NoteForm'
+import { updateNote } from '../../state/actions'
 
-const NoteEdit = ({ firebase, note, match, history }) => {
-  const handleSubmit = (note) => {
-    
-  }
+const NoteEdit = ({ currentNote, updateNote }) => (
+  <NoteForm
+    editingNote
+    handleSubmit={updateNote}
+    note={currentNote} />
+)
 
-  return (
-    <NoteForm 
-      editingNote
-      handleSubmit={handleSubmit}
-      note={note} />
-  )
-}
+const stateToProps = ({ currentNote }) => ({ currentNote })
+const dispatchToProps = { updateNote }
 
-const mapStateToProps = (state, props) => ({
-  
-})
-
-export default connect(mapStateToProps)(NoteEdit)
+export default connect(stateToProps, dispatchToProps)(NoteEdit)
