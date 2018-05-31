@@ -17,9 +17,9 @@ export class NoteEditor extends Component {
 
   getNote = () => {
     axios
-      .get(`http://localhost:3333/notes/${this.props.match.params.id}`)
+      .get(`https://shawn-stewarts-private-data.herokuapp.com/notes/${this.props.match.params.id}`)
       .then(response => {
-        this.setState({ id: response.data.id, title: response.data.title, content: response.data.content })
+        this.setState({ id: response.data.note._id, title: response.data.note.title, content: response.data.note.contents })
       })
       .catch(err => {
         console.log('Error fetching notes', err);
@@ -31,10 +31,12 @@ export class NoteEditor extends Component {
   }
 
   handleUpdate = () => {
+    console.log('update - props', this.props);
+    console.log('update - state', this.state);
     axios
-      .put(`http://localhost:3333/notes/${this.props.match.params.id}`, { title: this.state.title, content: this.state.content })
+      .put(`https://shawn-stewarts-private-data.herokuapp.com/notes/${this.state.id}`, { "title": this.state.title, "contents": this.state.content })
       .then(response => {
-        console.log('Update response', response);
+        console.log('Update - response', response);
       })
       .catch(err => {
         console.log('Error updating note', err);
@@ -42,6 +44,7 @@ export class NoteEditor extends Component {
   }
 
   render() {
+    console.log('render - state', this.state);
     return(
       <div className='Content__Wrapper'>
         <h3 className='Content__Heading'>Edit Note:</h3>

@@ -27,9 +27,10 @@ export class Note extends Component {
 
   getNote = () => {
     axios
-      .get(`http://localhost:3333/notes/${this.props.match.params.id}`)
+      .get(`https://shawn-stewarts-private-data.herokuapp.com/notes/${this.props.match.params.id}`)
       .then(response => {
-        this.setState({ note: response.data })
+        console.log(response);
+        this.setState({ note: response.data.note })
       })
       .catch(err => {
         console.log('Error fetching notes', err);
@@ -50,7 +51,7 @@ export class Note extends Component {
 
   handleDelete = () => {
     axios
-      .delete(`http://localhost:3333/notes/${this.props.match.params.id}`)
+      .delete(`https://shawn-stewarts-private-data.herokuapp.com/notes/${this.props.match.params.id}`)
       .then(response => {
         console.log('Delete response', response);
       })
@@ -60,14 +61,15 @@ export class Note extends Component {
   }
   
   render() {
+    console.log(this.state);
     return(
       <div className='Content__Wrapper'>
         <div className='Content__Heading NoHeading'></div>
         <div className='Content ViewNote'>
           <div className='ViewNote__Title'><p className='NoMargin'>{this.state.note.title}</p></div>
-          <div className='ViewNote__Content'><p className='NoMargin'>{this.state.note.content}</p></div>
+          <div className='ViewNote__Content'><p className='NoMargin'>{this.state.note.contents}</p></div>
           <div className='ViewNote__Buttons'>
-            <NavLink to={`/note-editor/${this.state.note.id}`} className='ViewNote__Link'>
+            <NavLink to={`/note-editor/${this.state.note._id}`} className='ViewNote__Link'>
               <button className='ViewNote__Edit'>Edit</button>
             </NavLink>
             <button className='ViewNote__Delete' onClick={this.OpenModal}>Delete</button>

@@ -27,9 +27,10 @@ export class NotesList extends Component {
 
   getNotes = () => {
     axios
-    .get('http://localhost:3333/notes')
+    .get('https://shawn-stewarts-private-data.herokuapp.com/notes')
     .then(response => {
-      this.setState({ notes: response.data })
+      console.log(response);
+      this.setState({ notes: response.data.notes })
     })
     .catch(err => {
       console.log('Error fetching notes', err);
@@ -43,9 +44,9 @@ export class NotesList extends Component {
         <div className='Content NotesList'>
           {this.state.notes.map(aNote => {
             return(
-              <NavLink to={`/notes/${aNote.id}`} className='Link Note' key={aNote.id}><div>
+              <NavLink to={`/notes/${aNote._id}`} className='Link Note' key={aNote._id}><div>
                 <h4 className='Note__Heading'>{aNote.title}</h4>
-                <p className='Note__Content'>{aNote.content}</p>
+                <p className='Note__Content'>{aNote.contents}</p>
               </div></NavLink>
             );
           })}

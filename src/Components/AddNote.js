@@ -20,7 +20,7 @@ export class AddNote extends Component {
 
   handleSubmit = e => {
     axios
-      .post('http://localhost:3333/notes', this.state)
+      .post('https://shawn-stewarts-private-data.herokuapp.com/notes', { "title": this.state.title, "contents": this.state.content })
       .then(response => {
         console.log('post response', response);
       })
