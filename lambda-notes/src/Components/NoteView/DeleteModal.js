@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './DeleteModal.css';
-import NoteContainer from '../List/NoteContainer';
+import NoteContainer from '../NoteContainer/NoteContainer';
 import SingleNoteView from './SingleNoteView';
 
 

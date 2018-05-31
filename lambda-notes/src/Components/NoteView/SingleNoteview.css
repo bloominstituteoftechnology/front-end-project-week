@@ -1,0 +1,18 @@
+.single-note-wrapper{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    background-color:#F3F3F3;
+    color:#4A4A4A;
+    padding:20px;
+    height: auto;
+}
+.link-wrapper{
+    display:flex;
+    justify-content:flex-end;
+}
+.link-button{
+    padding:20px;
+    text-decoration:underline;
+    color: #4A4A4A;
+}

@@ -47,7 +47,7 @@ class EditNote extends Component {
 
                             />
                         <Button className = 'button-save'>
-                            <Link to = '/' component = {NoteContainer}>
+                            <Link to = '/' component = {NoteContainer} className="link">
                             {/* /*onSubmit for this button to come later*/}
 
                             Save

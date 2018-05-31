@@ -17,6 +17,7 @@ class CreateNote extends Component {
             <Sidebar />
             <Form className = "main-container form-create">
                 <HeaderName text="Create Note:"/>
+                
                     <Input 
                         type="text" 
                         name="title" 
