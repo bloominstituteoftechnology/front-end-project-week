@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ActionButton } from '.'
+import ActionButton from '../buttons/ActionButton'
 
 const DeleteModal = ({ hidden, deleteNote, hideSelf }) => {
   const display = hidden ? 'hidden' : 'flex'

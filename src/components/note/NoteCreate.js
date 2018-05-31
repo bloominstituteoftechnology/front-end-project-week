@@ -1,6 +1,6 @@
 import React from 'react'
 import { withFirebase } from 'react-redux-firebase'
-import { NoteForm } from '.'
+import NoteForm from './NoteForm'
 
 const blankNote = { title: '', content: '' }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase'
-import { NoteForm } from '.'
+import NoteForm from './NoteForm'
 
 const NoteEdit = ({ firebase, note, match, history }) => {
   const handleSubmit = (note) => {

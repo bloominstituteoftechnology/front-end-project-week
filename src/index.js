@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider, combineReducers } from 'react-redux'
 import { createStore, compose } from 'redux'
-import { App } from './components'
+import App from './components/App'
 import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 

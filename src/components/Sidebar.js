@@ -1,5 +1,5 @@
 import React from 'react'
-import { LinkButton } from '.'
+import LinkButton from './buttons/LinkButton'
 
 const Sidebar = () => (
   <div className="sidebar-container">

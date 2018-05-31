@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ActionButton } from '.'
+import ActionButton from '../buttons/ActionButton'
 
 class NoteForm extends Component {
   constructor(props) {

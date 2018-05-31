@@ -8,9 +8,10 @@ import {
   SortableElement,
   arrayMove
 } from 'react-sortable-hoc'
-import { Markdown, DownloadButton } from '.'
+import Markdown from './Markdown'
+import DownloadButton from '../buttons/DownloadButton'
 
-class NotesList extends Component {
+class NoteList extends Component {
   state = {
     orderBy: 'newest',
     filter: ''
@@ -126,4 +127,4 @@ export default compose(
     { path: 'notes', queryParams: ['orderByChild=title'], storeAs: 'byTitle' }
   ]),
   connect(mapStateToProps)
-)(NotesList)
+)(NoteList)

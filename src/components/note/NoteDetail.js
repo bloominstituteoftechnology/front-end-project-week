@@ -3,7 +3,10 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { firebaseConnect, isLoaded, isEmpty, getVal } from 'react-redux-firebase'
-import { Markdown, LinkButton, ActionButton, DeleteModal } from '.'
+import Markdown from './Markdown'
+import LinkButton from '../buttons/LinkButton'
+import ActionButton from '../buttons/ActionButton'
+import DeleteModal from './DeleteModal'
 
 class Note extends Component {
   state = {

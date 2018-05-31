@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActionButton } from '.'
+import ActionButton from './ActionButton'
 
 function saveAs(uri, filename) {
   var link = document.createElement('a')
