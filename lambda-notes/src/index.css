@@ -1,3 +1,9 @@
+*{
+  box-sizing:border-box;
+  /* border:1px solid orangered;  */
+}
+/* the border will go around every single element and show your separation of concerns */
+
 body {
   margin: 0;
   padding: 0;

@@ -20,5 +20,13 @@
 }
 .text-wrapper{
     margin:10px;
+    padding-bottom:10px;
+    overflow: hidden;
 
+}
+.link-card{
+    color:#4A4A4A;
+}
+.link-card:hover{
+    color:purple;
 }

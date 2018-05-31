@@ -14,7 +14,7 @@ const NoteCards = props =>{
             <li key={note.id} className ="card-container">
                 <div className="text-wrapper">
                     <h4 className="text-title">
-                        <Link to= {`/notes/1`} component={SingleNoteView}>
+                        <Link to= {`/notes/1`} component={SingleNoteView} className="link-card">
                             {note.note_title}
                        </Link></h4>
                        <hr />

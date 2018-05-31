@@ -1,5 +1,7 @@
-.app-header{
-    margin:30px;
+.nav-header{
+    padding-left: 25px;
+    text-align:left;
+
 }
 
 
@@ -7,16 +9,15 @@
     display:flex;
     flex-direction: column;
     background-color:#D8D8D8;
-    color: #4A4A4A;
-    width: 300px;
-    height: 1200px;
+    max-width: 240px;
+    width:100%;
+    height: auto;
     border-right:1px solid #979797;
-    
+    margin: 0
 }
 
 .button-view, .button-create{
     background-color:#2BC1C4;
-    color: white;
     font-weight: bolder;
     font-size: 1rem;
     height: 40px;
@@ -24,11 +25,19 @@
     margin: 20px;
     
 }
-.app-header{
- font-size: 32px;
- text-align:left;
- text-decoration:none;
- color:#4A4A4A;
+.link{
+    color: white;
+    text-decoration:none; 
+}
+.link:hover{
+    color:purple;
+    }
 
- 
+.home-link{
+    text-decoration: none;
+    color: #4A4A4A;
+    cursor: pointer;
+    font-size: 2.5rem;
+    font-weight:600;
+
 }
