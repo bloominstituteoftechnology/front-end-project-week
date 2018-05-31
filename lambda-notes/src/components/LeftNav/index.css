@@ -1,0 +1,7 @@
+.nav_container {
+    display: flex;
+    padding: 1rem;
+    min-width: 220px;
+    height: 100vh;
+    background-color: #D3D3D3;
+}

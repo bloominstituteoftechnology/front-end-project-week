@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class MainContent extends Component {
     render() {
         return (
-            <div>
+            <div className='main-container'>
                 MAIN CONTENT PLACEHOLDER
             </div>
         );
