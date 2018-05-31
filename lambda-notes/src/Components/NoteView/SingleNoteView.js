@@ -2,18 +2,42 @@ import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { Link } from 'react-router-dom';
 import './SingleNoteview.css';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 
-const SingleNoteView = (props) => {
-    console.log(props);
-    return (
+
+class SingleNoteView extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            modal: false
+        }
+        this.toggle = this.toggle.bind(this);
+    }
+  
+    toggle() {
+      this.setState({
+        modal: !this.state.modal
+      });
+    }
+  
+    render(){
+        return(
         <div className = "note-container">
             <Sidebar/>
-                <div className="single-note-wrapper">
-                    <div className="link-wrapper">
-                        <a href="#" className ="link-button">edit</a>
-                        <a href="#" className ="link-button">delete</a>
-                    </div>    
+            <div className="single-note-wrapper">
+                <div className="link-wrapper">
+                    <Button 
+                        className ="link-button"
+                        >edit</Button>
+                    <Button
+                        className ="link-button"
+                        onClick={this.toggle}
+                        buttonLabel="delete"
+                        >delete</Button>
+
+                </div>    
+                <div>
                     <h4 className="text-title">
                             I'm a title placeholder
                         </h4>
@@ -24,9 +48,22 @@ const SingleNoteView = (props) => {
                     </p>
                     <p>adgadfgafdg.</p>
                 </div>
+                <div>
+                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                        <ModalHeader >Are You Sure You Want To Delete This Note?</ModalHeader>
+                        <ModalFooter>
+                            <Button className="delete-button" onClick={this.toggle}>Delete</Button>
+                            <Button className="no-button" onClick={this.toggle}>No</Button>
+                        </ModalFooter>
+                    </Modal>
+                </div>
             </div>
+        </div>
     );
+  }
 }
+
+        
 
 
 export default SingleNoteView;

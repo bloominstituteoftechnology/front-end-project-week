@@ -1,6 +1,5 @@
 import React from 'react';
 import './NoteCard.css';
-import SingleNoteCard from './SingleNoteCard';
 import SingleNoteView from '../NoteView/SingleNoteView';
 import { Link } from 'react-router-dom';
 

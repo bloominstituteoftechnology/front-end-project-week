@@ -15,4 +15,54 @@
     padding:20px;
     text-decoration:underline;
     color: #4A4A4A;
+    background-color: #F3F3F3;
+    font-family: Raleway, sans-serif;
+    height: 50px;
+    width:75px;
+    display:flex;
+    justify-content: center;
+}
+.delete-wrapper{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position: fixed;
+    width:50%;
+    height:40%;
+    max-width: 1000px;
+    max-height:600px;
+    background-color:white;
+    z-index:1000;
+    border:1px solid #979797;
+    box-shadow:1px 1px 8px #979797;
+    margin: 80px;
+    margin-left:-100px;
+       /*remove hackiness*/
+
+}
+.modal-header{
+    text-align:center;
+}
+.modal-buttons{
+    display:flex;
+    justify-content: center;
+}
+
+.delete-button{
+    width:100px;
+    height:40px;
+    color:white;
+    background-color:red;
+    margin:20px;
+}
+.no-button{
+    width:100px;
+    height:40px;
+    color:white;
+    background-color:#2BC1C4;
+    margin:20px;
+}
+
+.hidden{
+    display:none;
 }
