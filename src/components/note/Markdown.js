@@ -6,7 +6,7 @@ const renderer = md({ html: true, typographer: true }).use(checkbox)
 
 const Markdown = (props) => {
   const markdown = renderer.render(props.markdown)
-  return <div className="markdown" noteId={props.noteId} dangerouslySetInnerHTML={{ __html: markdown }} />
+  return <div className="markdown" noteid={props.noteid} dangerouslySetInnerHTML={{ __html: markdown }} />
 }
 
 export default Markdown
