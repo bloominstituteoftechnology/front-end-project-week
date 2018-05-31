@@ -19,7 +19,7 @@ class NoteContainer extends Component {
             <div className = "note-container">
                 <Sidebar />
                 <div className="main-container">
-                <HeaderName text = "Your Notes" />
+                <HeaderName text = "Your Notes" className = "note-header" />
                 <NoteCards notes = {notes} />
                 </div>
 

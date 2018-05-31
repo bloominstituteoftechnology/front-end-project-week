@@ -8,9 +8,9 @@
     flex-direction: column;
     background-color:#D8D8D8;
     color: #4A4A4A;
-    width: 20%;
-    border: 1px solid #979797;
+    width: 300px;
     height: 1200px;
+    border-right:1px solid #979797;
     
 }
 
@@ -21,12 +21,14 @@
     font-size: 1rem;
     height: 40px;
     width: 200px;
-    margin:10px auto;
-    
+    margin: 20px;
     
 }
 .app-header{
  font-size: 32px;
- margin: 25px auto;
- text-align:center;
+ text-align:left;
+ text-decoration:none;
+ color:#4A4A4A;
+
+ 
 }

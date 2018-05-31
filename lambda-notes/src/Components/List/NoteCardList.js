@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {dummydata as notes} from '../../dummydata/dummydata';
 import './NoteCardList.css';
 import NoteCards from '../NoteCard/NoteCard';
@@ -12,7 +11,7 @@ import NoteCards from '../NoteCard/NoteCard';
 
 export const HeaderName = (props) => {
     return (
-        <h3>{props.text}</h3>
+        <h3 className ={`${props.className}`}>{props.text}</h3>
     )
 }
 
