@@ -17,7 +17,7 @@ const errorPayment = data => {
 };
 
 const onToken = (amount, description) => token =>
-  axios.post("https://adoring-cori-0557e7.netlify.com/charge",
+  axios.post("https://noteslambda.herokuapp.com/charge",
     {
       description,
       source: token.id,
