@@ -1,4 +1,4 @@
-const PAYMENT_SERVER_URL = process.env.NODE_ENV === 'production'
+const PAYMENT_SERVER_URL = 'production'
   ? 'https://noteslambda.herokuapp.com/'
   : 'http://localhost:5000';
 
