@@ -1,21 +1,17 @@
 import { combineReducers } from 'redux'
 import {
   USER_REGISTER_SUCCESS,
+  USER_REGISTER_FAILURE,
   USER_LOGIN_SUCCESS,
+  USER_LOGIN_FAILURE,
   USER_LOGOUT_SUCCESS,
   USER_SET_TOKEN,
   USER_NOTES_FETCH_SUCCESS,
-  NOTE_FETCH_SUCCESS
-} from './actions'
+  NOTE_FETCH_SUCCESS,
+  CLEAR_FLASH_MESSAGE
+} from './actionTypes'
 
-const initialState = {
-  sessionToken: null,
-  currentUser: null,
-  userNotes: [],
-  currentNote: null,
-}
-
-const sessionToken = (token, action) => {
+const sessionToken = (token = null, action) => {
   switch (action.type) {
     case USER_SET_TOKEN:
       return action.payload
@@ -26,7 +22,7 @@ const sessionToken = (token, action) => {
   }
 }
 
-const currentUser = (user, action) => {
+const currentUser = (user = null, action) => {
   switch (action.type) {
     case USER_REGISTER_SUCCESS:
     case USER_LOGIN_SUCCESS:
@@ -38,7 +34,7 @@ const currentUser = (user, action) => {
   }
 }
 
-const userNotes = (notes, action) => {
+const userNotes = (notes = [], action) => {
   switch (action.type) {
     case USER_NOTES_FETCH_SUCCESS:
       return action.payload
@@ -49,7 +45,7 @@ const userNotes = (notes, action) => {
   }
 }
 
-const currentNote = (note, action) => {
+const currentNote = (note = null, action) => {
   switch (action.type) {
     case NOTE_FETCH_SUCCESS:
       return action.payload
@@ -60,9 +56,24 @@ const currentNote = (note, action) => {
   }
 }
 
+const flashMessage = (message = '', action) => {
+  switch(action.type) {
+    case CLEAR_FLASH_MESSAGE:
+    case USER_LOGIN_SUCCESS:
+    case USER_REGISTER_SUCCESS:
+      return ''
+    case USER_LOGIN_FAILURE:
+    case USER_REGISTER_FAILURE:
+      return action.payload
+    default:
+      return message
+  }
+}
+
 export default combineReducers({
   sessionToken,
   currentUser,
   userNotes,
-  currentNote
+  currentNote,
+  flashMessage
 })
