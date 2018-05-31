@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { firebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 import {
   SortableContainer,
   SortableElement,
@@ -114,17 +113,3 @@ const Note = ({ id, title, content }) => (
   </div>
 )
 
-const mapStateToProps = (state) => ({
-  notes: {
-    newest: state.ordered.newest,
-    byTitle: state.ordered.byTitle
-  }
-})
-
-export default compose(
-  firebaseConnect([
-    { path: 'notes', queryParams: [], storeAs: 'newest' },
-    { path: 'notes', queryParams: ['orderByChild=title'], storeAs: 'byTitle' }
-  ]),
-  connect(mapStateToProps)
-)(NoteList)
