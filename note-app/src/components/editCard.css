@@ -1,0 +1,50 @@
+.editHeader {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 55px 0 8px 25px;
+    font-size: 20px;
+}
+
+.editForm {
+    margin: 25px 3px 10px 25px;
+    display: flex;
+    flex-flow: column;
+    align-content: flex-end;
+
+}
+
+.editInput {
+    width: 59%;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid #979797;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.editContent {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    min-height: 56px;
+    height: 347px;
+    max-height: 650px;
+    margin-top: 13px;
+    border: 2px solid #979797;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 15px 20px;
+}
+
+.editSave {
+    width: 190px;
+    height: 41px;
+    background-color: #2BC1C4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+.listHeader {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 55px 0 10px 30px;
+    font-size: 20px;
+}
+
+.listcontainer {
+    margin: 16px 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.allCards {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+ a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.noteCard {
+    border: 1px solid #979797;
+    border-radius: 2px;
+    background-color: white;
+    color: #4A4A4A;
+    width: 200px;
+    margin: 15px 10px;
+    padding: 10px 20px;
+}
+
+.cardTitle {
+    font-family: 'Roboto', sans-serif;
+    text-align: start;
+    font-size: 20px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #979797;
+}
+
+.cardContent {
+   
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    text-align: start;
+}

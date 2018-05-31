@@ -1,0 +1,30 @@
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 20px 0 8px 12px;
+    font-size: 36px;
+    line-height: 30px;
+}
+
+.navContainer {
+    margin: 12px 20px 0 15px;
+    width: 87%;
+    min-height: 42px;
+    height: 100%;
+}
+
+.navButton {
+
+    background-color: #2BC1C4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-top: 8px;
+    height: 100%;
+    width: 200px;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
+    cursor: pointer;
+}
