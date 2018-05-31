@@ -4,19 +4,22 @@ import CreateNote from '../CreateNote/CreateNote';
 import NoteContainer from '../NoteContainer/NoteContainer';
 import './Sidebar.css';
 
-const Button = (props) => {
-    return (
-        <button className = {`${props.className}`}>{props.text}</button>
-    )
-}
-
 class Sidebar extends Component {
     render() {
         return (
             <div className = "sidebar-wrapper">
-                <Link to = '/notes'component={NoteContainer}><h1 className = "app-header">Lambda <br/>Notes</h1></Link>
-                <Link to = '/notes/create' component={CreateNote} ><Button className="button-view" text={`+ Create a New Note`}/></Link>
-                <Link to ='/notes'component={NoteContainer}><Button className = "button-create" text ={`View Your Notes`}/></Link>
+                    <h1 className = "app-header">
+                        Lambda <br/>Notes</h1>               
+                        <button className = "button-view">
+                            <Link to="/notes" component={NoteContainer}>
+                                <div>View Your Notes</div>
+                            </Link>
+                        </button>
+                        <button className = "button-create">
+                            <Link to="/notes/create" component={CreateNote}>
+                                + Create a New Note
+                            </Link>
+                        </button>
             </div>
         );
     }

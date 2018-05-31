@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button, Form,  Input } from 'reactstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import './EditNote.css';
-import NoteCardList from "../List/NoteCardList";
+import NoteContainer from "../NoteContainer/NoteContainer";
+import { HeaderName } from '../List/NoteCardList';
 
 class EditNote extends Component {
     constructor(props){
@@ -20,26 +21,41 @@ class EditNote extends Component {
           modal: !this.state.modal
         });
       }
-
-    render() { 
+    render() {
         return(
-            <div className = 'edit-wrapper'>
-            <Sidebar />
-            <Form className = "form-wrapper">
-            <h1 className = "form-part">Edit Note:</h1>
-                <Input type="text" name="title" id="notetitle" placeholder="Note Title" className ="input-title form-part"/>
-                <Input type="textarea-lg" name="text" id="notebody" placeholder ="Note Content" className="input-content form-part"/>
-            <Link to = '/' component = {NoteCardList}>
-                <Button className = 'update-button form-part'>Update</Button>
-            </Link>
-        </Form>
-        </div>
-        )
-        //this probably should take the data from the note class and consume it so they can truly edit it
-        
-        
-  }
+            <div className = 'create-wrapper'>
+                <Sidebar />
+                <Form className = "main-container form-create">
+                    <HeaderName text="Edit Note:"/>
+                        <Input 
+                            type="text" 
+                            name="title" 
+                            id="notetitle" 
+                            placeholder="Note Title" 
+                            className ="input-title form-part"
+                            /*onChange for each of these inputs to come later*/
+                            />
+                            <br/>
+                            <br/>
+                        <Input 
+                            type="textarea" 
+                            name="text" 
+                            id="notebody" 
+                            placeholder ="Note Content" 
+                            className="input-content form-part"
+                            /*onChange for each of these inputs to come later*/
 
-}
- 
-export default EditNote;
+                            />
+                        <Button className = 'button-save'>
+                            <Link to = '/' component = {NoteContainer}>
+                            {/* /*onSubmit for this button to come later*/}
+
+                            Save
+                            </Link>
+                        </Button>
+                </Form>
+            </div>
+                );
+        }
+    }
+    export default EditNote;
