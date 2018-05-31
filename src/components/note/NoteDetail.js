@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { Link } from 'react-router-dom'
+// import { withRouter } from 'react-router'
 import Markdown from './Markdown'
 import LinkButton from '../buttons/LinkButton'
 import ActionButton from '../buttons/ActionButton'
 import DeleteModal from './DeleteModal'
+import { fetchNote, deleteNote } from '../../state/actions'
 
 class Note extends Component {
   state = {
     modalHidden: true
   }
 
+  componentDidMount() {
+    this.props.fetchNote(this.props.match.params.id)
+  }
+
   deleteNote = () => {
-    const { firebase, match, history } = this.props
-    firebase.remove(`notes/${match.params.id}`, () => history.push('')) // Change history in a callback to avoid arriving home before store update
+    this.props.deleteNote(this.props.note._id)
+    this.props.history.push('')
   }
 
   toggleModal = () => this.setState({ modalHidden: !this.state.modalHidden })
@@ -46,6 +51,7 @@ class Note extends Component {
   }
 }
 
-const mapStateToProps = (state, props) => ({})
+const stateToProps = ({ currentNote }) => ({ note: currentNote })
+const dispatchToProps = { fetchNote, deleteNote }
 
-export default connect(mapStateToProps)(Note)
+export default connect(stateToProps, dispatchToProps)(Note)
