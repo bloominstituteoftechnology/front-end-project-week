@@ -17,7 +17,7 @@ const errorPayment = data => {
 };
 
 const onToken = (amount, description) => token =>
-  axios.post(PAYMENT_SERVER_URL,
+  axios.post("https://adoring-cori-0557e7.netlify.com/charge",
     {
       description,
       source: token.id,
