@@ -8,6 +8,10 @@ import {
   USER_LOGIN_FAILURE,
   USER_SET_TOKEN,
   USER_NOTES_FETCH_SUCCESS,
+  NOTE_CREATE_SUCCESS,
+  NOTE_UPDATE_SUCCESS,
+  NOTE_FETCH_SUCCESS,
+  NOTE_DELETE_SUCCESS,
   FETCH_REQUEST,
   FETCH_FAILURE,
   CLEAR_FLASH_MESSAGE
@@ -41,13 +45,59 @@ export const loginUser = (username, password) => async dispatch => {
   }
 }
 
+const options = (getState) => ({ headers: { token: getState().sessionToken } })
+
 export const fetchUserNotes = (userId) => async (dispatch, getState) => {
   dispatch(fetchRequest())
   try {
-    const { data } = await api.get('/note').set('token', getState().sessionToken)
+    const { data } = await api.get('/note', options(getState))
     dispatch(userNotesFetchSuccess(data.notes))
   } catch (err) {
-    dispatch(fetchFailure(err.response.data))
+    console.log(err)
+    // dispatch(fetchFailure(err.response.data))
+  }
+}
+
+export const createNote = (note) => async (dispatch, getState) => {
+  dispatch(fetchRequest())
+  try {
+    const { data } = await api.post('/note', note, options(getState))
+    dispatch(noteCreateSuccess(data.note))
+  } catch (err) {
+    console.log(err)
+    // dispatch(fetchFailure(err.response.data))
+  }
+}
+
+export const updateNote = (note) => async (dispatch, getState) => {
+  dispatch(fetchRequest())
+  try {
+    const { data } = await api.put(`/note/${note._id}`, note, options(getState))
+    dispatch(noteUpdateSuccess(data.note))
+  } catch (err) {
+    console.log(err)
+    // dispatch(fetchFailure(err.response.data))
+  }
+}
+
+export const fetchNote = (id) => async (dispatch, getState) => {
+  dispatch(fetchRequest())
+  try {
+    const { data } = await api.get(`/note/${id}`, options(getState))
+    dispatch(noteFetchSuccess(data.note))
+  } catch (err) {
+    console.log(err)
+    // dispatch(fetchFailure(err.response.data))
+  }
+}
+
+export const deleteNote = (id) => async (dispatch, getState) => {
+  dispatch(fetchRequest())
+  try {
+    const { data } = await api.delete(`/note/${id}`, options(getState))
+    dispatch(noteDeleteSuccess(data.note))
+  } catch (err) {
+    console.log(err)
   }
 }
 
@@ -64,5 +114,9 @@ export const fetchRequest = () => ({ type: FETCH_REQUEST })
 export const fetchFailure = (err) => ({ type: FETCH_FAILURE, payload: err })
 
 export const userNotesFetchSuccess = (notes) => ({ type: USER_NOTES_FETCH_SUCCESS, payload: notes })
+export const noteCreateSuccess = (note) => ({ type: NOTE_CREATE_SUCCESS, payload: note })
+export const noteUpdateSuccess = (note) => ({ type: NOTE_UPDATE_SUCCESS, payload: note })
+export const noteFetchSuccess = (note) => ({ type: NOTE_FETCH_SUCCESS, payload: note })
+export const noteDeleteSuccess = () => ({ type: NOTE_DELETE_SUCCESS })
 
 export const clearFlashMessage = () => ({ type: CLEAR_FLASH_MESSAGE })
