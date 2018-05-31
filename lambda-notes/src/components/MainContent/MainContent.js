@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import './index.css';
+import NotesList from '../NotesList/NotesList';
 
 class MainContent extends Component {
     render() {
         return (
-            <div className='main-container'>
-                MAIN CONTENT PLACEHOLDER
+            <div className='main_container'>
+                <NotesList/>
             </div>
         );
     }

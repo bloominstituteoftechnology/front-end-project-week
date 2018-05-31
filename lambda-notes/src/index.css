@@ -15,3 +15,7 @@ body {
   justify-content: center;
   min-width: 900px;
 }
+
+.content_header {
+  margin: 1rem 0.5rem;
+}
