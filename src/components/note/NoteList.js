@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
@@ -9,6 +8,7 @@ import {
 } from 'react-sortable-hoc'
 import Markdown from './Markdown'
 import DownloadButton from '../buttons/DownloadButton'
+import { fetchUserNotes } from '../../state/actions'
 
 class NoteList extends Component {
   state = {
@@ -29,11 +29,7 @@ class NoteList extends Component {
 
   noteElements = () => {
     const { notes } = this.state
-    if (isLoaded(notes) && !isEmpty(notes)) {
-      return <SortableNotesList notes={notes} onSortEnd={this.onSortEnd} distance={50} axis='xy' />
-    }
-
-    return <h3>Loading...</h3>
+    return <SortableNotesList notes={notes} onSortEnd={this.onSortEnd} distance={50} axis='xy' />
   }
 
   makeCSV = () => ({
@@ -61,8 +57,7 @@ class NoteList extends Component {
   }
 
   notes = (orderBy, filter) => (
-    this.props.notes
-      [orderBy]
+    this.props.notes[orderBy]
       .filter(({ value: { title, content } }) => (
         title.toLowerCase().includes(filter) ||
         content.toLowerCase().includes(filter)
@@ -90,7 +85,7 @@ class NoteList extends Component {
 }
 
 const SortableNotesList = SortableContainer(({ notes }) => (
-  <div class="list-container">
+  <div className="list-container">
     {notes.map((note, index) => {
       return <SortableNote key={`note-${index}`} index={index} note={note} />
     })}
@@ -113,3 +108,11 @@ const Note = ({ id, title, content }) => (
   </div>
 )
 
+const mapStateToProps = state => ({ 
+  notes: {
+    newest: state.userNotes
+  } 
+})
+const mapDispatchToProps = { fetchUserNotes }
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteList)
