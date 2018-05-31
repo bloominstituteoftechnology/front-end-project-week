@@ -7,7 +7,10 @@ import {
   USER_LOGOUT_SUCCESS,
   USER_SET_TOKEN,
   USER_NOTES_FETCH_SUCCESS,
+  NOTE_CREATE_SUCCESS,
   NOTE_FETCH_SUCCESS,
+  NOTE_UPDATE_SUCCESS,
+  NOTE_DELETE_SUCCESS,
   CLEAR_FLASH_MESSAGE
 } from './actionTypes'
 
@@ -38,19 +41,23 @@ const userNotes = (notes = [], action) => {
   switch (action.type) {
     case USER_NOTES_FETCH_SUCCESS:
       return action.payload
+    case NOTE_CREATE_SUCCESS:
+      return notes.concat(action.payload)
     case USER_LOGOUT_SUCCESS:
       return []
     default:
       return notes
   }
 }
-
-const currentNote = (note = null, action) => {
+const blankNote = { title: '', content: '' }
+const currentNote = (note = blankNote, action) => {
   switch (action.type) {
     case NOTE_FETCH_SUCCESS:
       return action.payload
     case USER_LOGOUT_SUCCESS:
-      return null
+    case NOTE_DELETE_SUCCESS:
+    case NOTE_UPDATE_SUCCESS:
+      return blankNote
     default:
       return note
   }
