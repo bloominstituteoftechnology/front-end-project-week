@@ -7,6 +7,7 @@ const User = require('./Database/Users/User')
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
+const userRouter = require("./Routers/UserRouter")
 //Database
 let uri = 'mongodb://2940cristian:dance360@ds235840.mlab.com:35840/noteslambda';
 mongoose.connect(uri, function(err, success) {
@@ -107,38 +108,9 @@ server.put("/notes/:id", (req, res) => {
 
 //USER ROUTER
 
-server.post("/users", (req, res) => {
-    const newUser = req.body; 
-    const user = new User(newUser);
+server.use('/users', userRouter)
 
-    user.save().then(user => {
-        res.status(200).json(user)
-    }).catch(err => {
-        console.log(err)
-        res.status(500).json({Message: "Error creating user"})
-    })
-});
 
-server.post("/users/login", (req, res) => {
-    const {email, password} = req.body;
-
-    User.findOne({email: email}, (err, user) => {
-        if(err) {res.send(err)}
-
-        user.checkPassword(password, (err, isMatch) => {
-            if (err) {
-                return res.status(422).json({ error: 'Passwords do not match' });
-            }
-            if (isMatch) {
-                const token = jwt.sign({user}, "testingSecret");
-                res.status(200).json({token: token})
-            } 
-            else {
-                res.status(422).json({ error: 'passwords dont match' });
-            }
-        })
-    })
-});
 
 server.listen(process.env.PORT || 5000);
 
