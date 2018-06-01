@@ -41,5 +41,11 @@
 
   .Navigation__Buttons {
     height: 60%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .NavLink {
+    width: 48%;
   }
 }
