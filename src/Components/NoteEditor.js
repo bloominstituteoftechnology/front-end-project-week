@@ -19,7 +19,7 @@ export class NoteEditor extends Component {
     axios
       .get(`https://shawn-stewarts-private-data.herokuapp.com/notes/${this.props.match.params.id}`)
       .then(response => {
-        this.setState({ id: response.data.note._id, title: response.data.note.title, content: response.data.note.contents })
+        this.setState({ id: response.data.note._id, title: response.data.note.title, content: response.data.note.contents });
       })
       .catch(err => {
         console.log('Error fetching notes', err);
@@ -30,10 +30,12 @@ export class NoteEditor extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleUpdate = () => {
-    console.log('update - props', this.props);
-    console.log('update - state', this.state);
-    axios
+  handleUpdate = e => {
+    if (this.state.title.length < 1 || this.state.content.length < 1) {
+      alert('A note requires a title and contents.');
+      e.preventDefault();
+    } else {
+      axios
       .put(`https://shawn-stewarts-private-data.herokuapp.com/notes/${this.state.id}`, { "title": this.state.title, "contents": this.state.content })
       .then(response => {
         console.log('Update - response', response);
@@ -41,6 +43,7 @@ export class NoteEditor extends Component {
       .catch(err => {
         console.log('Error updating note', err);
       });
+    }
   }
 
   render() {

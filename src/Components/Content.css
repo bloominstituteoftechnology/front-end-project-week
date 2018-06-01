@@ -18,4 +18,8 @@
   .Content__Wrapper {
     width: 100%;
   }
+
+  .Content__Heading {
+    margin-top: 0;
+  }
 }

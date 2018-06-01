@@ -10,7 +10,8 @@ export class AddNote extends Component {
     super(props);
     this.state = {
       title: '',
-      content: '' 
+      content: '',
+      isBlocking: true
     }
   }
 
@@ -19,7 +20,11 @@ export class AddNote extends Component {
   }
 
   handleSubmit = e => {
-    axios
+    if (this.state.title.length < 1 || this.state.content.length < 1) {
+      alert('A note requires a title and contents.');
+      e.preventDefault();
+    } else {
+      axios
       .post('https://shawn-stewarts-private-data.herokuapp.com/notes', { "title": this.state.title, "contents": this.state.content })
       .then(response => {
         console.log('post response', response);
@@ -27,6 +32,7 @@ export class AddNote extends Component {
       .catch(err => {
         console.log('Error posting note', err);
       });
+    }
   }
 
   render() {

@@ -63,6 +63,9 @@
 }
 
 .Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -73,10 +76,7 @@
 
 .Modal {
   box-sizing: border-box;
-  position: fixed;
   z-index: 1;
-  top: 25%;
-  left: 40%;
   width: 100%;
   max-width: 525px;
   height: 175px;
