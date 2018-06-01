@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LeftNav from './components/LeftNav/LeftNav.js';
-import MainContent from './components/MainContent/MainContent.js';
+import LeftNav from './components/LeftNav/LeftNav';
+import MainContent from './components/MainContent/MainContent';
 
 class App extends Component {
   render() {
@@ -14,3 +14,4 @@ class App extends Component {
 }
 
 export default App;
+
