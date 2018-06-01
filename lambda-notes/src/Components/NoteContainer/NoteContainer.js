@@ -2,7 +2,7 @@ import Sidebar from '../Sidebar/Sidebar';
 import './NoteContainer.css';
 import { dummydata as notes} from '../../dummydata/dummydata';
 import NoteCards from '../NoteCard/NoteCard';
-import { HeaderName } from '../List/NoteCardList';
+import { HeaderName } from '../NoteCard/NoteCard';
 
 import React, { Component } from 'react';
 

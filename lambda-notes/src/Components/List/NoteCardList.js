@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {dummydata as notes} from '../../dummydata/dummydata';
 import './NoteCardList.css';
 import NoteCards from '../NoteCard/NoteCard';
@@ -9,11 +9,7 @@ import NoteCards from '../NoteCard/NoteCard';
 //     };
 // }
 
-export const HeaderName = (props) => {
-    return (
-        <h3 className ={`${props.className}`}>{props.text}</h3>
-    )
-}
+
 
 const NoteCardList = (props)=>{
     return(

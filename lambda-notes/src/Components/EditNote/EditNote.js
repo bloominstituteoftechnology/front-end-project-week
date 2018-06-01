@@ -4,13 +4,11 @@ import { Button, Form,  Input } from 'reactstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import './EditNote.css';
 import NoteContainer from "../NoteContainer/NoteContainer";
-import { HeaderName } from '../List/NoteCardList';
+import { HeaderName } from '../NoteCard/NoteCard';
 
 class EditNote extends Component {
-    constructor(props){
-        super(props);
-    }
-    
+
+
     render() {
         return(
             <div className = 'create-wrapper'>

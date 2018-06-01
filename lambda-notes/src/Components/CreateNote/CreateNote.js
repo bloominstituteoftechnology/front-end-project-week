@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { createNote } from "../../JS/actions/index-a";
 import Sidebar from "../Sidebar/Sidebar";
 import { Form, Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { HeaderName } from '../List/NoteCardList';
+import { HeaderName } from '../NoteCard/NoteCard';
 import './CreateNote.css';
 import NoteCardList from "../List/NoteCardList";
 import NoteContainer from "../NoteContainer/NoteContainer";
