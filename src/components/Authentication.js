@@ -15,8 +15,7 @@ const Authentication = ({ registerUser, loginUser }) => {
           onClick={() => registerUser(username.value, password.value)} />
         <ActionButton
           text='Log in'
-          onClick={() => loginUser(username.value, password.value)} /
-        <GithubButton />
+          onClick={() => loginUser(username.value, password.value)} />
       </div>
     </div>
   )
