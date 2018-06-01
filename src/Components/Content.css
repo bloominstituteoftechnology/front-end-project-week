@@ -13,3 +13,9 @@
 .Content {
   margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .Content__Wrapper {
+    width: 100%;
+  }
+}

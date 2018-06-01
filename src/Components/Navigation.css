@@ -25,3 +25,21 @@
   height: 40px;
   margin: 10px 0;
 }
+
+@media (max-width: 768px) {
+  .Navigation {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid rgb(152, 174, 175);
+    text-align: center;
+  }
+
+  .Navigation__Heading {
+    height: auto;
+  }
+
+  .Navigation__Buttons {
+    height: 60%;
+  }
+}

@@ -3,3 +3,9 @@
   margin-top: 20px;
   line-height: 40px;
 }
+
+@media (max-width: 768px) {
+  .Greeting, .Greeting__Message {
+    text-align: center;
+  }
+}
