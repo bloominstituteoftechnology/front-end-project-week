@@ -82,8 +82,8 @@ class SingleNoteView extends Component{
                         </div>
                     </div>
                     <div className="text-wrapper">
-                        <h4 className="text-title">I'm a title placeholder</h4>
-                        <p className = "text-body">I'm a paragraph placeholder. Lorem ipsum blah blah blah. Lorem ipsum blah blah blah. Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.adfahpodifhapodifh;dfnadkljnfakldnfvdjknaf;fjandjvmdv .zdjvnaluvha;odfnjvk .mzczv .cm,x vznxcjkvnbuparbgja;kvdf v jfo ahgfapod;fndsmav afh aeghj </p>
+                        <h4 className="text-title">{notes[0].note_title}</h4>
+                        <p className = "text-body">{notes[0].note_body}</p>
                         <p>adgadfgafdg.</p>
                     </div>
                 </div>
