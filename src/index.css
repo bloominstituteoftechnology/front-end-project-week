@@ -103,7 +103,7 @@ body {
   flex-direction: column;
 }
 
-.note-form input, .note-form textarea {
+.note-form input, .user-authentication input, textarea {
   padding: 15px;
   border-radius: 5px;
   border: 1px solid #AEAEAE;
@@ -190,6 +190,21 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+}
+
+.user-authentication {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-authentication .controls {
+  display: flex;
+  justify-content: center;
+}
+
+.user-authentication .controls .action-button {
+  margin: 20px;
 }
 
 .action-button {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import ActionButton from './buttons/ActionButton'
 import { registerUser, loginUser } from '../state/actions'
 
 const Authentication = ({ registerUser, loginUser }) => {
@@ -8,12 +9,15 @@ const Authentication = ({ registerUser, loginUser }) => {
     <div className="user-authentication">
       <input ref={node => username = node} placeholder="Username" />
       <input ref={node => password = node} placeholder="Password" />
-      <button onClick={() => registerUser(username.value, password.value)}>
-        Sign up
-      </button>
-      <button onClick={() => loginUser(username.value, password.value)}>
-        Log in
-      </button>
+      <div className="controls">
+        <ActionButton 
+          text='Sign up'
+          onClick={() => registerUser(username.value, password.value)} />
+        <ActionButton
+          text='Log in'
+          onClick={() => loginUser(username.value, password.value)} /
+        <GithubButton />
+      </div>
     </div>
   )
 }
