@@ -3,17 +3,26 @@ import {
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAILURE,
+
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAILURE,
+
+  USER_LOGOUT_REQUEST,
+  USER_LOGOUT_SUCCESS,
+  USER_LOGOUT_FAILURE,
+
   USER_SET_TOKEN,
+
   USER_NOTES_FETCH_SUCCESS,
+
   NOTE_CREATE_SUCCESS,
   NOTE_UPDATE_SUCCESS,
   NOTE_FETCH_SUCCESS,
   NOTE_DELETE_SUCCESS,
+  
   FETCH_REQUEST,
-  FETCH_FAILURE,
+  // FETCH_FAILURE,
   CLEAR_FLASH_MESSAGE
 } from './actionTypes'
 
@@ -42,6 +51,16 @@ export const loginUser = (username, password) => async dispatch => {
     dispatch(userSetToken(data.token))
   } catch (err) {
     dispatch(userLoginFailure(err.response.data))
+  }
+}
+
+export const logoutUser = () => async dispatch => {
+  dispatch(userLogoutRequest())
+  try {
+    // log the user out on the server
+    dispatch(userLogoutSuccess())
+  } catch (err) {
+    dispatch(userLogoutFailure(err.response.data))
   }
 }
 
@@ -107,21 +126,25 @@ export const userSetToken = (token) => {
   return { type: USER_SET_TOKEN, payload: token }
 }
 
-export const userRegisterRequest = (user) => ({ type: USER_REGISTER_REQUEST, payload: user })
-export const userRegisterSuccess = (user) => ({ type: USER_REGISTER_SUCCESS, payload: user })
-export const userRegisterFailure = (err) => ({ type: USER_REGISTER_FAILURE, payload: err })
-
-export const userLoginRequest = (user) => ({ type: USER_LOGIN_REQUEST, payload: user })
-export const userLoginSuccess = (user) => ({ type: USER_LOGIN_SUCCESS, payload: user })
-export const userLoginFailure = (err) => ({ type: USER_LOGIN_FAILURE, payload: err })
-
-export const fetchRequest = () => ({ type: FETCH_REQUEST })
-export const fetchFailure = (err) => ({ type: FETCH_FAILURE, payload: err })
-
-export const userNotesFetchSuccess = (notes) => ({ type: USER_NOTES_FETCH_SUCCESS, payload: notes })
-export const noteCreateSuccess = (note) => ({ type: NOTE_CREATE_SUCCESS, payload: note })
-export const noteUpdateSuccess = (note) => ({ type: NOTE_UPDATE_SUCCESS, payload: note })
-export const noteFetchSuccess = (note) => ({ type: NOTE_FETCH_SUCCESS, payload: note })
-export const noteDeleteSuccess = () => ({ type: NOTE_DELETE_SUCCESS })
-
 export const clearFlashMessage = () => ({ type: CLEAR_FLASH_MESSAGE })
+
+const userRegisterRequest = (user) => ({ type: USER_REGISTER_REQUEST, payload: user })
+const userRegisterSuccess = (user) => ({ type: USER_REGISTER_SUCCESS, payload: user })
+const userRegisterFailure = (err) => ({ type: USER_REGISTER_FAILURE, payload: err })
+
+const userLoginRequest = (user) => ({ type: USER_LOGIN_REQUEST, payload: user })
+const userLoginSuccess = (user) => ({ type: USER_LOGIN_SUCCESS, payload: user })
+const userLoginFailure = (err) => ({ type: USER_LOGIN_FAILURE, payload: err })
+
+const userLogoutRequest = () => ({ type: USER_LOGOUT_REQUEST })
+const userLogoutSuccess = () => ({ type: USER_LOGOUT_SUCCESS })
+const userLogoutFailure = (err) => ({ type: USER_LOGOUT_FAILURE, payload: err })
+
+const fetchRequest = () => ({ type: FETCH_REQUEST })
+// const fetchFailure = (err) => ({ type: FETCH_FAILURE, payload: err })
+
+const userNotesFetchSuccess = (notes) => ({ type: USER_NOTES_FETCH_SUCCESS, payload: notes })
+const noteCreateSuccess = (note) => ({ type: NOTE_CREATE_SUCCESS, payload: note })
+const noteUpdateSuccess = (note) => ({ type: NOTE_UPDATE_SUCCESS, payload: note })
+const noteFetchSuccess = (note) => ({ type: NOTE_FETCH_SUCCESS, payload: note })
+const noteDeleteSuccess = () => ({ type: NOTE_DELETE_SUCCESS })
