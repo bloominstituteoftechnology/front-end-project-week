@@ -4,6 +4,7 @@ import EditNote from '../EditNote/EditNote';
 import { Link } from 'react-router-dom';
 import './SingleNoteview.css';
 import {connect} from 'react-redux';
+import {readNote} from '../../JS/actions/index-a';
 
 const mapStateToProps = (state) =>{
    return {reduxState:state}
@@ -34,17 +35,20 @@ class SingleNoteView extends Component{
         let matched = this.props.reduxState.notes.note.filter((noteItem)=> 
           noteItem.id === Number(routeId)
      );
-     return matched;
+     console.log(matched);
+     this.setState(matched);
     }
 
     render(){
     console.log("REDUX STORE ARRAY OF NOTE OBJ",this.props.reduxState.notes.note);
-        return(
+    const shortenedVar =  this.props.reduxState.notes.note;
+    console.log("shortened",shortenedVar);
+    return(
             <div className="single-note-container">
                 <Sidebar />
                 <div className="single-note-wrapper">
                     <div className="link-wrapper">
-                        <Link to = {`/edit/${this.state.matched.id}`} component={EditNote}>
+                        <Link to = {`/edit/${this.props.match.params.id}`} component={EditNote}>
                         <div className="link-button">edit</div>
                         </Link>
                         <div 
@@ -67,8 +71,8 @@ class SingleNoteView extends Component{
                         </div>
                     </div>
                     <div className="text-wrapper">
-                        <h4 className="text-title">{"placeholder title"}</h4>
-                        <p className = "text-body">{"placeholder for body"}</p>
+                        <h4 className="text-title">this is where we need to read title from note</h4>
+                        <p className = "text-body">this is where we need to read body</p>
                     </div>
                 </div>
                 
@@ -81,5 +85,5 @@ class SingleNoteView extends Component{
         
 
 
-export default connect(mapStateToProps, {/*actions go here*/})(SingleNoteView);
+export default connect(mapStateToProps, {readNote})(SingleNoteView);
 
