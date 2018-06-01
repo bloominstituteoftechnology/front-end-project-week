@@ -101,6 +101,12 @@ export const deleteNote = (id) => async (dispatch, getState) => {
   }
 }
 
+export const userSetToken = (token) => {
+  // persist the token before sending to reducers
+  localStorage.setItem('token', token)
+  return { type: USER_SET_TOKEN, payload: token }
+}
+
 export const userRegisterRequest = (user) => ({ type: USER_REGISTER_REQUEST, payload: user })
 export const userRegisterSuccess = (user) => ({ type: USER_REGISTER_SUCCESS, payload: user })
 export const userRegisterFailure = (err) => ({ type: USER_REGISTER_FAILURE, payload: err })
@@ -108,7 +114,6 @@ export const userRegisterFailure = (err) => ({ type: USER_REGISTER_FAILURE, payl
 export const userLoginRequest = (user) => ({ type: USER_LOGIN_REQUEST, payload: user })
 export const userLoginSuccess = (user) => ({ type: USER_LOGIN_SUCCESS, payload: user })
 export const userLoginFailure = (err) => ({ type: USER_LOGIN_FAILURE, payload: err })
-export const userSetToken = (token) => ({ type: USER_SET_TOKEN, payload: token })
 
 export const fetchRequest = () => ({ type: FETCH_REQUEST })
 export const fetchFailure = (err) => ({ type: FETCH_FAILURE, payload: err })

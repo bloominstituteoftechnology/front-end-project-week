@@ -14,7 +14,8 @@ import {
   CLEAR_FLASH_MESSAGE
 } from './actionTypes'
 
-const sessionToken = (token = null, action) => {
+const localToken = localStorage.getItem('token')
+const sessionToken = (token = localToken, action) => {
   switch (action.type) {
     case USER_SET_TOKEN:
       return action.payload
