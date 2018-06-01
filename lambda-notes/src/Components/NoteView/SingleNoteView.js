@@ -23,42 +23,36 @@ class SingleNoteView extends Component{
   
     render(){
         return(
-        <div className = "note-container">
-            <Sidebar/>
-            <div className="single-note-wrapper">
-                <div className="link-wrapper">
-                    <Button 
-                        className ="link-button"
-                        >edit</Button>
-                    <Button
-                        className ="link-button"
-                        onClick={this.toggle}
-                        buttonLabel="delete"
-                        >delete</Button>
-
-                </div>    
-                <div>
-                    <h4 className="text-title">
-                            I'm a title placeholder
-                        </h4>
-                        <hr />
-                    <p className = "text-body">I'm a paragraph placeholder.
-                    
-                    Lorem ipsum blah blah blah. Lorem ipsum blah blah blah. Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.adfahpodifhapodifh;dfnadkljnfakldnfvdjknaf;fjandjvmdv .zdjvnaluvha;odfnjvk .mzczv .cm,x vznxcjkvnbuparbgja;kvdf v jfo ahgfapod;fndsmav afh aeghj 
-                    </p>
-                    <p>adgadfgafdg.</p>
+            <div className="single-note-container">
+                <Sidebar />
+                <div className="single-note-wrapper">
+                    <div className="link-wrapper">
+                        <Button className="link-button">edit</Button>
+                        <Button className="link-button" onClick={this.toggle} toggle={this.state.modal}>delete</Button>
+                        <div>
+                            <div 
+                                className={this.state.modal? "modal-content": "hidden"} 
+                                onClick={this.toggle} toggle={this.state.modal}>
+                                <h5 className="modal-header">Are you sure you want to delete this note?</h5>
+                                    <div className="modal-footer">
+                                        <button className="delete-button">Delete</button>
+                                        <button className="no-button">No</button>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div className="text-wrapper">
+                        <h4 className="text-title">I'm a title placeholder</h4>
+                        <p className = "text-body">I'm a paragraph placeholder. Lorem ipsum blah blah blah. Lorem ipsum blah blah blah. Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.Lorem ipsum blah blah blah.adfahpodifhapodifh;dfnadkljnfakldnfvdjknaf;fjandjvmdv .zdjvnaluvha;odfnjvk .mzczv .cm,x vznxcjkvnbuparbgja;kvdf v jfo ahgfapod;fndsmav afh aeghj </p>
+                        <p>adgadfgafdg.</p>
+                    </div>
                 </div>
-                <div>
-                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                        <ModalHeader >Are You Sure You Want To Delete This Note?</ModalHeader>
-                        <ModalFooter>
-                            <Button className="delete-button" onClick={this.toggle}>Delete</Button>
-                            <Button className="no-button" onClick={this.toggle}>No</Button>
-                        </ModalFooter>
-                    </Modal>
-                </div>
+                
             </div>
-        </div>
+        
+
+
     );
   }
 }

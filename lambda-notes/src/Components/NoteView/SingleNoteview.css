@@ -1,7 +1,17 @@
+
+.single-note-container{
+    display:flex;
+    max-width:975px;
+    width:100%;
+    margin: 0 auto;
+    height:auto;
+
+
+
+}
 .single-note-wrapper{
     display:flex;
     flex-direction:column;
-    flex-wrap:wrap;
     background-color:#F3F3F3;
     color:#4A4A4A;
     padding:20px;
@@ -9,7 +19,9 @@
 }
 .link-wrapper{
     display:flex;
-    justify-content:flex-end;
+    width:100%;
+    height:75px;
+    justify-content: flex-end;
 }
 .link-button{
     padding:20px;
@@ -21,29 +33,29 @@
     width:75px;
     display:flex;
     justify-content: center;
+    margin:20px;
 }
-.delete-wrapper{
+.modal-content {
     display:flex;
     flex-direction:column;
     justify-content:center;
-    position: fixed;
-    width:50%;
-    height:40%;
-    max-width: 1000px;
-    max-height:600px;
+    position:fixed;
+    top:30%;
+    left:35%;
+    width:100%;
+    height:100%;
+    max-width: 600px;
+    max-height:250px;
     background-color:white;
-    z-index:1000;
+    z-index:10000;
     border:1px solid #979797;
     box-shadow:1px 1px 8px #979797;
-    margin: 80px;
-    margin-left:-100px;
        /*remove hackiness*/
-
 }
 .modal-header{
     text-align:center;
 }
-.modal-buttons{
+.modal-footer{
     display:flex;
     justify-content: center;
 }
