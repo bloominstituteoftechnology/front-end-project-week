@@ -1,0 +1,21 @@
+.noteView-content {
+    line-height: 1.6;
+    font-size: 1.2rem;
+}
+
+.noteView-selector {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+}
+
+.edit-click {
+    margin-right: 1.5rem;
+}
+
+.noteView-header {
+    margin-top: 3.5rem;
+}
+

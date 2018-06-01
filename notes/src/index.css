@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.content-header {
+  font-size: 1.4rem;
+  margin-top: 5.2rem;
+  margin-bottom: 3rem;
+}
+
+.App {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;  
+}
+
+.btn {
+  height: 3.8rem;
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  border: 1px solid #979797;
+  border-radius: 0%;
+  text-align: center;
+  font-size: 1.4rem;
+}
