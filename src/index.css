@@ -163,6 +163,7 @@ body {
 }
 
 .modal-mat {
+  display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -213,5 +214,6 @@ body {
 }
 
 .action-button.delete:hover {
+  background-color: white;
   color: #C70024;
 }
