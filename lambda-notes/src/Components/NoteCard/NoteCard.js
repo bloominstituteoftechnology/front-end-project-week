@@ -32,10 +32,10 @@ class NoteCards extends Component {
     render(){
         console.log(this.state);
         return(
-            <div className = "main-container">
+            <div className = "container">
             {this.props.notes.notes.note.map(note =>{
                 return(
-                    <div className="card-container">
+                    <div className="note-wrapper-container">
                     <div className="text-wrapper">
                     <Link to= {`/notes/${note.id}`} key={note.id} component={SingleNoteView}>
                         <h4 className="link-card">{note.note_title}</h4>

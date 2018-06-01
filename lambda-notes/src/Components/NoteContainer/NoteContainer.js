@@ -20,7 +20,7 @@ class NoteContainer extends Component {
                 <Sidebar />
                 <div className="main-container">
                 <HeaderName text = "Your Notes" className = "note-header" />
-                <NoteCards notes = {notes} />
+                <NoteCards notes = {notes} className="note-cards"/>
                 </div>
 
             </div>

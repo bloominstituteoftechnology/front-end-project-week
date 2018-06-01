@@ -9,14 +9,14 @@
 
 
 }
-.single-note-wrapper, .text-wrapper{
+.single-note-wrapper{
     display:flex;
     flex-direction:column;
-    background-color:#F3F3F3;
     color:#4A4A4A;
     padding:20px;
     height: auto;
     width:100%;
+    background-color:#F3F3F3;
 }
 .link-wrapper{
     display:flex;
