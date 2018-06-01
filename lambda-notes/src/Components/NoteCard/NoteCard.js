@@ -12,10 +12,9 @@ const NoteCards = props =>{
             return(
             <li key={note.id} className ="card-container">
                 <div className="text-wrapper">
-                    <h4 className="text-title">
-                        <Link to= {`/notes/${note.id}`} component={SingleNoteView}>
+                       <Link to= {`/notes/${note.id}`} component={SingleNoteView}>
                        <h4 className="link-card">{note.note_title}</h4>
-                       </Link></h4>
+                       </Link>
                        <hr />
                     <p className = "text-body">{note.note_body}</p>
                 </div>

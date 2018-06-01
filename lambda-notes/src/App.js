@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Route, Switch } from 'react-router-dom';
 
 import CreateNote from './Components/CreateNote/CreateNote';
 import SingleNoteView from './Components/NoteView/SingleNoteView';
@@ -11,15 +11,15 @@ class App extends Component {
   render() {
     return (
       
-      <Router>
+   
         <Switch>
           <Route exact path='/' component={NoteContainer}/>
           <Route exact path= '/notes' component={NoteContainer}/>
           <Route path= '/notes/create' component={CreateNote}/>
           <Route path= '/notes/:id' component={SingleNoteView}/>
-          <Route path= '/notes/:id/edit' component={EditNote}/>
+          <Route path= '/notes/edit/:id' component={EditNote}/>
         </Switch>
-        </Router>
+     
  
     );
   }
