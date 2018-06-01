@@ -4,13 +4,14 @@
 }
 
 .NotesList {
-  max-height: 750px;
   display: grid;
   grid-template-columns: 31% 31% 31%;
   grid-column-gap: 3%;
   grid-auto-rows: 200px;
-  grid-row-gap: 20px; 
+  grid-row-gap: 20px;
+  height: 91%;
   overflow: auto;
+  box-sizing: border-box;
 }
 
 .Note {
@@ -34,4 +35,23 @@
 .Note__Content {
   margin-top: 10px;
   margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .NotesList {
+    height: ;
+  }
+}
+
+@media (max-width: 550px) {
+  .NotesList {
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+  }
+}
+
+@media (max-width: 400px) {
+  .NotesList {
+    grid-template-columns: 100%;
+  }
 }

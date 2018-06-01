@@ -1,18 +1,19 @@
 .App {
   width: 96%;
   max-width: 885px;
-  height: 885px;
-  margin: 25px auto;
-  border: 2px solid rgb(152, 174, 175);
+  height: 100vh;
+  margin: 0px auto;
+  border-left: 2px solid rgb(152, 174, 175);
+  border-right: 2px solid rgb(152, 174, 175);
   background-color: rgb(242, 241, 242);
   display: flex;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .App {
     flex-direction: column;
     width: 100%;
-    height: 100%;
     border: none;
     border-bottom: 2px solid rgb(152, 174, 175);
     margin: 0;

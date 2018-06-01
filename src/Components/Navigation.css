@@ -5,7 +5,7 @@
 .Navigation {
   box-sizing: border-box;
   width: 25%;
-  height: 100%;
+  height: auto;
   padding: 15px;
   border-right: 2px solid rgb(152, 174, 175);
   background-color: rgb(211, 210, 211);
@@ -29,7 +29,7 @@
 @media (max-width: 768px) {
   .Navigation {
     width: 100%;
-    height: auto;
+    height: 20%;
     border-right: none;
     border-bottom: 2px solid rgb(152, 174, 175);
     text-align: center;
