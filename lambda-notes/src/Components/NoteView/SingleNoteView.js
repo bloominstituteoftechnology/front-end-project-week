@@ -35,13 +35,20 @@ class SingleNoteView extends Component{
         let matched = this.props.reduxState.notes.note.filter((noteItem)=> 
           noteItem.id === Number(routeId)
      );
-     console.log(matched);
-     this.setState(matched);
+     console.log ("this matches", matched);
+     this.setState({matched});
+     console.log(this.state.matched);
+
     }
 
     render(){
+        const shortenedVar =  this.props.reduxState.notes.note;
+
+    console.log("this.state.matched", this.state.matched);
+    console.log("note_title", this.state.matched[0].note_title)
+        const note_title = this.state.matched[0].note_title;
+        const note_body = this.state.matched[0].note_body;
     console.log("REDUX STORE ARRAY OF NOTE OBJ",this.props.reduxState.notes.note);
-    const shortenedVar =  this.props.reduxState.notes.note;
     console.log("shortened",shortenedVar);
     return(
             <div className="single-note-container">
@@ -71,8 +78,8 @@ class SingleNoteView extends Component{
                         </div>
                     </div>
                     <div className="text-wrapper">
-                        <h4 className="text-title">this is where we need to read title from note</h4>
-                        <p className = "text-body">this is where we need to read body</p>
+                        <h4 className="text-title"><h4>{note_title}</h4></h4>
+                        <p className = "text-body">{note_body}</p>
                     </div>
                 </div>
                 
