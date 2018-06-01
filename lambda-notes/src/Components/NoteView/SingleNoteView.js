@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import { Link } from 'react-router-dom';
 import './SingleNoteview.css';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 
 
@@ -27,8 +27,8 @@ class SingleNoteView extends Component{
                 <Sidebar />
                 <div className="single-note-wrapper">
                     <div className="link-wrapper">
-                        <Button className="link-button">edit</Button>
-                        <Button className="link-button" onClick={this.toggle} toggle={this.state.modal}>delete</Button>
+                        <div className="link-button">edit</div>
+                        <div className="link-button" onClick={this.toggle} toggle={this.state.modal}>delete</div>
                         <div>
                             <div 
                                 className={this.state.modal? "modal-content": "hidden"} 
