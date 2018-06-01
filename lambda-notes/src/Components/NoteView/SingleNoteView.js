@@ -21,17 +21,25 @@ class SingleNoteView extends Component{
         this.toggle = this.toggle.bind(this);
     }
 
-    componentWillMount(){
-        console.log(notes);
-        const routeId=this.props.match.params.id;
-        const matched = notes.filter((note)=>{
-            if(note.id===routeId){
-               return this.setState(matched);
-            }
-            console.log('Matched Obj', matched)
 
-        })
-    }
+    // componentDidMount(){
+    //     console.log("notes",notes);
+    //     const routeId=this.props.match.params.id;
+    //     const matched = notes.filter((note)=>{
+    //         note.id===routeId;
+    //         return this.setState(matched);
+    //     });
+    // componentWillMount(){
+    //     console.log(notes);
+    //     const routeId=this.props.match.params.id;
+    //     const matched = notes.filter((note)=>{
+    //         if(note.id===routeId){
+    //            return this.setState(matched);
+    //         }
+    //         console.log('Matched Obj', matched)
+
+    //     })
+    // }
             
    
 
@@ -51,13 +59,15 @@ class SingleNoteView extends Component{
     }
   
     render(){
-        console.log('render',this.state.notes);
+        console.log('NoteView State',this.state.notes);
+        console.log('NoteView Props',this.props)
+        const id=this.props.match.params.id //this id is referring to the word 'edit' and not the number of the id...
         return(
             <div key = {this.state.notes.note_body}className="single-note-container">
                 <Sidebar />
                 <div className="single-note-wrapper">
                     <div className="link-wrapper">
-                        <Link to = {`/notes/edit/`} component={EditNote}>
+                        <Link to = {`/edit/${id}`} component={EditNote}>
                         
                             <div className="link-button">edit</div>
                         </Link>
@@ -84,7 +94,6 @@ class SingleNoteView extends Component{
                     <div className="text-wrapper">
                         <h4 className="text-title">{notes[0].note_title}</h4>
                         <p className = "text-body">{notes[0].note_body}</p>
-                        <p>adgadfgafdg.</p>
                     </div>
                 </div>
                 
