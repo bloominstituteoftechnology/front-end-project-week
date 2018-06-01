@@ -1,12 +1,13 @@
 .notesList_container {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .notesList {
     display: flex;
     flex-wrap: wrap;
-    width: 660px;
+    width: 100%;
 }
 
 .note {
@@ -21,6 +22,10 @@
 
 .note h4 {
     margin: 0;
+}
+
+.note hr {
+    margin: 0.25rem 0 0.5rem 0;
 }
 
 .note p {
