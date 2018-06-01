@@ -13,6 +13,7 @@
 
 .Content {
   margin-top: 20px;
+  height: 91%;
 }
 
 @media (max-width: 768px) {

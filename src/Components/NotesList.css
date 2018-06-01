@@ -9,7 +9,6 @@
   grid-column-gap: 3%;
   grid-auto-rows: 200px;
   grid-row-gap: 20px;
-  height: 91%;
   overflow: auto;
   box-sizing: border-box;
 }

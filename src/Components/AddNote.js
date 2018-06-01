@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 import './Content.css';
 import './AddNote.css';
+import './Modal.css';
 
 export class AddNote extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ export class AddNote extends Component {
     this.state = {
       title: '',
       content: '',
-      isBlocking: true
+      modal: false
     }
   }
 
@@ -21,7 +22,8 @@ export class AddNote extends Component {
 
   handleSubmit = e => {
     if (this.state.title.length < 1 || this.state.content.length < 1) {
-      alert('A note requires a title and contents.');
+      // alert('A note requires a title and contents.');
+      this.OpenModal();
       e.preventDefault();
     } else {
       axios
@@ -32,6 +34,18 @@ export class AddNote extends Component {
       .catch(err => {
         console.log('Error posting note', err);
       });
+    }
+  }
+
+  OpenModal = () => {
+    this.setState({ modal: true });
+  }
+
+  CloseModal = event => {
+    var modal = document.getElementById('ModalOverlay');
+    var confirm = document.getElementById('ConfirmButton');
+    if (event.target === modal || event.target === confirm) {
+      this.setState({ modal: false });
     }
   }
 
@@ -58,6 +72,17 @@ export class AddNote extends Component {
           />
           <NavLink to='/notes' onClick={this.handleSubmit} className='AddNote__Link'><button className='AddNote__Save'>Save</button></NavLink>
         </div>
+
+        {this.state.modal === true ? 
+        <div id='ModalOverlay' className='Overlay' onClick={this.CloseModal}>
+          <div className='Modal'>
+            <div className='Modal__Message'><h5>A note requires a title and contents.</h5></div>
+            <div className='Modal__Buttons'>
+              <button id='ConfirmButton' className='ViewNote__Edit' onClick={this.CloseModal}>Ok</button>
+            </div>
+          </div>
+        </div> : null }
+
       </div>
     );
   }

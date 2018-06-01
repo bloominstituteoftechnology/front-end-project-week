@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import './Content.css';
 import './Note.css';
+import './Modal.css';
 
 export class Note extends Component {
   constructor(props) {
@@ -61,7 +62,6 @@ export class Note extends Component {
   }
   
   render() {
-    console.log(this.state);
     return(
       <div className='Content__Wrapper'>
         <div className='Content__Heading NoHeading'></div>
