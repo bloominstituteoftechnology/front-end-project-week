@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* border: 1px solid navy; */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.app_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 900px;
+}
+
+.content_header {
+  margin: 1rem 0.5rem;
+}
+
+.button_link {
+  text-decoration: none;
+}
+
+.unstyled_link {
+  text-decoration: none;
+}
+
+.unstyled_link:visited {
+  text-decoration: none;
+  color: rgb(66,66,66);
+}
+
+
