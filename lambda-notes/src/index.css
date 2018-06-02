@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* border: 1px solid red; */
+}
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(66,66,66);
+  height: 100vh;
+}
+
+.app_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 450px;
+}
+
+.content_header {
+  margin: 1rem 0.5rem;
+}
+
+.button_link {
+  text-decoration: none;
+}
+
+.unstiledLink {
+  text-decoration: none;
+  color: rgb(66,66,66);
+}
+
+.unstiledLink :visited{
+  text-decoration: none;
+  color: rgb(66,66,66);
+}
+
+.button {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    background-color: #23B8BE;
+    border: 1px solid #86AEB1;
+    /*      TB   LR */
+    margin: 0.5rem 0.5rem;
+    height: 40px;
+    border-radius: 0.1rem;
+}
+
+.button--danger {
+    background-color: red;
+}
