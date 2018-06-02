@@ -15,7 +15,7 @@ class NoteView extends Component {
         super()
         this.state = {
             displayDelete: false,
-            matched: [],
+            match: [],
         }
     }
 
@@ -40,7 +40,6 @@ class NoteView extends Component {
                     <div>
                         <Link to={`/edit/${this.props.match.params.id}`} className='edit_delete'>edit</Link>
                         <a
-                            href='#'
                             className='edit_delete'
                             onClick={this.showModal}
                         >
@@ -64,4 +63,4 @@ class NoteView extends Component {
     }
 }
 
-export default connect(mapStateToProps, {/*Actions Here*/ })(NoteView);
+export default connect(mapStateToProps, {/*Actions Here*/})(NoteView);

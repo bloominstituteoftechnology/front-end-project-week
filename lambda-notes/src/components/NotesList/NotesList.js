@@ -17,7 +17,7 @@ class NotesList extends Component {
         }
     }
 
-    componentWillMount() {
+    componentWillMount() { 
         let reversed = Array.from(this.props.notesArray).reverse();
         this.setState({ notesArray: reversed });
     }
@@ -49,4 +49,4 @@ class NotesList extends Component {
     }
 }
 
-export default connect(mapStateToProps, {/*ActionsHere*/})(NotesList);
+export default connect(mapStateToProps, {})(NotesList);

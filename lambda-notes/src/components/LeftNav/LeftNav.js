@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 class LeftNav extends Component {

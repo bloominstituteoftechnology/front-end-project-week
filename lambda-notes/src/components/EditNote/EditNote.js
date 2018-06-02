@@ -13,7 +13,7 @@ class EditNote extends Component {
     constructor() {
         super();
         this.state = {
-            matched: [],
+
         }
     }
 
