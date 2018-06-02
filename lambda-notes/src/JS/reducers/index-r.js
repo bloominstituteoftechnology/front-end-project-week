@@ -5,6 +5,7 @@ import { CREATE_NOTE, READ_NOTE, UPDATE_NOTE, DELETE_NOTE } from '../actions/ind
 const initialState = {notes: {note}};
 
 const noteReducer = (state = initialState, action) =>{
+    console.log("state", state.notes.note);
     switch (action.type) {
         case CREATE_NOTE:
             Object.assign({}, state, {note:action.payload});
@@ -16,7 +17,7 @@ const noteReducer = (state = initialState, action) =>{
             Object.assign({}, state, {note:action.payload});
             return;
         case DELETE_NOTE:
-            Object.assign({}, state, {note:state.notes.slice(note.id).concat(state.notes.slice(note.id+1))});  
+            Object.assign({}, state, {note:state.notes.note.slice(action.payload).concat(state.notes.note.slice(action.payload+1))});  
             return;  
         default:
             return state;

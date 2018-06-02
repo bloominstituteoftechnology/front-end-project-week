@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps=(state) =>{
     return(
-        {notes: state}
+        {notesRedux: state}
     )
 }
 
@@ -17,23 +17,24 @@ export const HeaderName = (props) => {
 }
 
 class NoteCards extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state ={
         }
     }
 
         componentWillMount(){
-            let reversed=Array.from(this.props.notes.notes.note).reverse();
+            console.log("CWM",this);
+            let reversed=Array.from(this.props.notes).reverse();
             console.log('reversed in CWM', reversed);
             this.setState({notes:reversed});
         }
     
     render(){
-        console.log(this.state);
+       
         return(
             <div className = "container">
-            {this.props.notes.notes.note.map(note =>{
+            {this.props.notes.map(note =>{
                 return(
                     <div className="note-wrapper-container">
                     <div className="text-wrapper">

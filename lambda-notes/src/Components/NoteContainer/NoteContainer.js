@@ -14,13 +14,13 @@ class NoteContainer extends Component {
         }
     }
     render() {
-        console.log(this.state);
+        console.log("NoteContainer", this.props);
         return (
             <div className = "note-container">
                 <Sidebar />
                 <div className="main-container">
                 <HeaderName text = "Your Notes" className = "note-header" />
-                <NoteCards notes = {notes} className="note-cards"/>
+                <NoteCards notes = {notes} className="note-cards" history={this.props.history}/>
                 </div>
 
             </div>

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './SingleNoteview.css';
 import {connect} from 'react-redux';
 import {readNote} from '../../JS/actions/index-a';
+import {deleteNote} from '../../JS/actions/index-a';
 
 const mapStateToProps = (state) =>{
    return {reduxState:state}
@@ -28,6 +29,13 @@ class SingleNoteView extends Component{
         modal: !this.state.modal
       });
     }
+
+    handleDelete = ()=> {
+        let todelete = this.state.matched[0].id;
+        this.props.deleteNote(todelete);
+        this.props.history.push('/');
+
+    }
     componentWillMount(){
         console.log("THIS",this.props.reduxState.notes.note); //this directly accesses the array of note objects
         let routeId = this.props.match.params.id;
@@ -43,7 +51,6 @@ class SingleNoteView extends Component{
 
     render(){
         const shortenedVar =  this.props.reduxState.notes.note;
-
     console.log("this.state.matched", this.state.matched);
     console.log("note_title", this.state.matched[0].note_title)
         const note_title = this.state.matched[0].note_title;
@@ -70,7 +77,7 @@ class SingleNoteView extends Component{
                                 onClick={this.toggle} toggle={this.state.modal}>
                                 <h5 className="modal-header">Are you sure you want to delete this note?</h5>
                                     <div className="modal-footer">
-                                        <button className="delete-button">Delete</button>
+                                        <button className="delete-button" onClick ={this.handleDelete} todelete = {`${this.state.matched[0].id}`}>Delete</button>
                                         <button className="no-button">No</button>
                                     </div>
                                 {/* This div contains all the components of the modal */}
@@ -92,5 +99,5 @@ class SingleNoteView extends Component{
         
 
 
-export default connect(mapStateToProps, {readNote})(SingleNoteView);
+export default connect(mapStateToProps, {readNote, deleteNote})(SingleNoteView);
 
