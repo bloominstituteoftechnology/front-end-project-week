@@ -1,47 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import DeleteNote from '../DeleteNote/DeleteNote';
 import './index.css';
+
+const mapStateToProps = state => {
+  return {
+    notesArray: state
+  }
+}
 
 class NoteView extends Component {
   constructor() {
     super();
     this.state = {
       displayDelete: false,
-      matched: [],
-      notesArray: [
-        {
-          _id: 'qazwsx',
-          title: 'First Note',
-          body: 'First lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.',
-          createdAt: 1527789175361
-        },
-        {
-          _id: 'plmokn',
-          title: 'Second Note',
-          body: 'Second, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.',
-          createdAt: 1527789175370
-        },
-        {
-          _id: 'ijnuhb',
-          title: 'Third Note',
-          body: 'Third tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.',
-          createdAt: 1527789175375
-        },
-        {
-          _id: 'edcrfv',
-          title: 'Forth Note',
-          body: 'Third tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.',
-          createdAt: 1527789175390
-        },
-      ]
+      matched: []
     }
   }
 
   componentWillMount() {
-    let routeId = this.props.match.params.id;
-    let matched = this.state.notesArray.filter(item => item._id === routeId);
-    console.log('Matched: ', matched);
+    let routeId = this.props.match.params.id; 
+    // console.log('props',this.props)
+    let matched = this.props.notesArray.filter(item => item._id === routeId);
+    //the props above from mapStateToProps which is different from the props in line24.
+    // console.log('Matched: ', matched);
     this.setState({ matched });
   }
 
@@ -73,10 +56,12 @@ class NoteView extends Component {
         <DeleteNote 
           toggle={this.state.displayDelete}
           showModal={this.showModal}
+          toDelete={this.state.matched[0]._id}
+          history={this.props.history}
         />
       </div>
     )
   }
 };
 
-export default NoteView;
+export default connect(mapStateToProps, {/*action if needed*/})(NoteView);

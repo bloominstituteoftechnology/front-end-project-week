@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { deleteNote } from '../../actions';
+import { connect } from 'react-redux';
 import './index.css';
 
 class DeleteNote extends Component {
+
+    handleDelete = () => {
+        this.props.deleteNote(this.props.toDelete)
+        this.props.history.push('/');
+    }
     render() {
+        console.log('delete-props', this.props)
         let toggle = this.props.toggle;
         // console.log(this.props);
         return (
@@ -12,14 +20,14 @@ class DeleteNote extends Component {
                     <h4>Are you sure you want to delete this?</h4>
                 </div>
                 <div>
-                    <Link to='/'>
+                    
                     <button 
                         className='btn modal-btn delete-btn'
-                        onClick={this.props.showModal}
+                        onClick={this.handleDelete}
                         >
                         Delete
                     </button>
-                    </Link>
+                    
                     <button 
                         className='btn modal-btn'
                         onClick={this.props.showModal}
@@ -31,4 +39,4 @@ class DeleteNote extends Component {
     }
 }
 
-export default DeleteNote;
+export default connect(null, {deleteNote})(DeleteNote);
