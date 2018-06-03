@@ -11,5 +11,6 @@
 .note-header{
     background-color: #F3F3F3;
     margin:0;
-    padding: 20px;
+    padding: 20px 0px 0px 20px;
+    margin-bottom:0px;
 }

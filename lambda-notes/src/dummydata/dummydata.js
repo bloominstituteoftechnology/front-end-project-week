@@ -8,22 +8,4 @@ export const dummydata = [
 {"id":7,"note_title":"sed lacus morbi","note_body":"In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl."},
 {"id":8,"note_title":"in libero ut massa","note_body":"Nunc rhoncus dui vel sem."},
 {"id":9,"note_title":"dolor sit amet consectetuer","note_body":"In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet."},
-{"id":10,"note_title":"consequat dui nec nisi","note_body":"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros."},
-{"id":11,"note_title":"lectus in quam fringilla","note_body":"Nulla tempus. Vivamus in felis eu sapien cursus vestibulum."},
-{"id":12,"note_title":"in purus eu magna","note_body":"Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis."},
-{"id":13,"note_title":"consequat metus sapien ut","note_body":"Nullam varius."},
-{"id":14,"note_title":"at velit eu est congue","note_body":"Quisque ut erat."},
-{"id":15,"note_title":"sapien arcu sed","note_body":"Curabitur gravida nisi at nibh. In hac habitasse platea dictumst."},
-{"id":16,"note_title":"duis consequat dui nec","note_body":"Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis."},
-{"id":17,"note_title":"semper interdum mauris","note_body":"Vestibulum ac est lacinia nisi venenatis tristique."},
-{"id":18,"note_title":"vulputate luctus cum","note_body":"Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis."},
-{"id":19,"note_title":"ante vivamus tortor duis","note_body":"Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo."},
-{"id":20,"note_title":"in tempus sit","note_body":"Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus."},
-{"id":21,"note_title":"id mauris vulputate elementum","note_body":"Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet."},
-{"id":22,"note_title":"volutpat in congue","note_body":"Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum."},
-{"id":23,"note_title":"molestie hendrerit at","note_body":"Duis mattis egestas metus. Aenean fermentum."},
-{"id":24,"note_title":"lobortis ligula sit","note_body":"Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia."},
-{"id":25,"note_title":"eget eleifend luctus","note_body":"Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis."},
-
-
 ];

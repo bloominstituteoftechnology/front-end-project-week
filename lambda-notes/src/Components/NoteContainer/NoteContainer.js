@@ -1,6 +1,5 @@
 import Sidebar from '../Sidebar/Sidebar';
 import './NoteContainer.css';
-import { dummydata as notes} from '../../dummydata/dummydata';
 import NoteCards from '../NoteCard/NoteCard';
 import { HeaderName } from '../NoteCard/NoteCard';
 
@@ -10,7 +9,7 @@ class NoteContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-            notes:[{notes}]
+           
         }
     }
     render() {
@@ -20,7 +19,7 @@ class NoteContainer extends Component {
                 <Sidebar />
                 <div className="main-container">
                 <HeaderName text = "Your Notes" className = "note-header" />
-                <NoteCards notes = {notes} className="note-cards" history={this.props.history}/>
+                <NoteCards className="note-cards" history={this.props.history}/>
                 </div>
 
             </div>

@@ -3,15 +3,16 @@
     max-width:745px;
     flex-wrap:wrap;
     background-color:#F3F3F3;
+
 }
 .note-wrapper-container{
     display:flex;
     height: 200px;
     width:200px;
     border: 1px solid #979797;
-    margin: 5rem 1rem 1rem 1rem ;
+    margin: 2rem 1rem 2rem 1rem ;
     background-color:white;
-    overflow:auto;
+    overflow:hidden;
     padding:10px;
     justify-content:center;
     
@@ -19,6 +20,13 @@
 
 .link-card{
     color:#4A4A4A;
+}
+.title{
+    text-align:center;
+    margin-bottom:0px;
+}
+.body-note{
+    line-height: 1.6rem;
 }
 .link-card:hover{
     color:purple;

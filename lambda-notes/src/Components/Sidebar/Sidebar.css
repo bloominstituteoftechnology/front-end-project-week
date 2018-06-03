@@ -17,6 +17,13 @@
     margin: 0
 }
 
+.quill{
+    display:flex;
+    width:25%;
+    justify-content: flex-end;
+    margin-top:-50px;
+    margin-left: 120px;
+}
 .button-view, .button-create{
     background-color:#2BC1C4;
     font-weight: bolder;
