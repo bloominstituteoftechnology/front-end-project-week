@@ -1,0 +1,28 @@
+.delete_wrapper {
+    z-index:1000;
+    position:fixed;
+    margin-top:80px;
+    margin-left:-70px;
+    
+    /*standard Styles*/
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:600px;
+    height:200px;
+    border:1px solid  rgb(66,66,66);
+    box-shadow: 1px 1px 8px rgb(66,66,66);
+    background-color:white;
+
+}
+
+.delete_buttons_wrapper {
+
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+.hidden{
+    display:none;
+}

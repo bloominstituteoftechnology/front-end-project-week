@@ -1,0 +1,10 @@
+.main_container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    min-width: 660px;
+    height: 100vh;
+    background-color: #F1F1F1;
+}
+
+/* //look at the resolution how many pixels and size/ */
