@@ -22,8 +22,11 @@ class NoteView extends Component {
   componentWillMount() {
     let routeId = this.props.match.params.id; 
     // console.log('props',this.props)
+    
     let matched = this.props.notesArray.filter(item => item._id === routeId);
-    //the props above from mapStateToProps which is different from the props in line24.
+
+    //the props above is different from the props in line24.  Once it's connected with redux, the notesArray which is now kept in reducers as initial state is brought over here and act as a props by mapStateToProps method(line7).  If I use react and have notesArray = [] in the this.state, so this line(25) shoud be "this.state.notesArray..." 
+
     // console.log('Matched: ', matched);
     this.setState({ matched });
   }
@@ -38,9 +41,13 @@ class NoteView extends Component {
     return (
       <div className='noteView-container'>
         <div className='noteView-selector'>
-          <Link to={`/edit/${this.props.match.params.id}`} className='edit-click'>edit</Link>
-          <a 
-            href='#' 
+          <Link to={`/edit/${this.props.match.params.id}`} 
+            className='edit-click'
+            >
+            edit
+            </Link>
+          <a
+            href='#'
             className='delete-click'
             onClick={this.showModal}
             >

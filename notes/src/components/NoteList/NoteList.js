@@ -17,6 +17,11 @@ class NoteList extends Component {
     }
   }
 
+  componentWillMount() {
+    let reversedOrder = Array.from(this.props.notesArray).reverse();
+    this.setState({ notesArray: reversedOrder });
+  }
+
   selectedNote = (note, index) => {
     return (
       <div className='note' key={note._id}>

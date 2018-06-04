@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { deleteNote } from '../../actions';
 import { connect } from 'react-redux';
 import './index.css';
@@ -19,15 +18,13 @@ class DeleteNote extends Component {
                 <div className='modal-header'>
                     <h4>Are you sure you want to delete this?</h4>
                 </div>
-                <div>
-                    
+                <div>                    
                     <button 
                         className='btn modal-btn delete-btn'
                         onClick={this.handleDelete}
                         >
                         Delete
-                    </button>
-                    
+                    </button>                    
                     <button 
                         className='btn modal-btn'
                         onClick={this.props.showModal}

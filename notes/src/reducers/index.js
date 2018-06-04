@@ -1,4 +1,4 @@
-import { DELETE } from '../actions'; 
+import { DELETE, EDIT, CREATE } from '../actions'; 
 
 const initialState = [
     {
@@ -28,16 +28,31 @@ const initialState = [
 ];
 
 const noteReducer = (state = initialState, action) => {
+    let copyArray = Array.from(state);
     switch (action.type) {
         case DELETE:
-            let copyArray = Array.from(state);
             state.forEach((item, index) => {
                 if (item._id === action.payload) {
                     copyArray.splice(index, 1);
                     return;
                 }
-            })
+            });
             return copyArray;
+
+        case EDIT:
+            state.forEach((item, index) => {
+                if (item._id === action.payload._id) {
+                    copyArray.splice(index, 1);
+                    return;
+            }
+        });
+        copyArray.push(action.payload);
+        return copyArray;
+
+        case CREATE:
+            copyArray.push(action.payload);
+            return copyArray;
+
         default:
             return state;
     } 
