@@ -1,0 +1,24 @@
+.side-nav {
+    width: 225px;
+    width: 25%;
+    height: 100vh;
+    background-color: #D8D8D8;
+    border-right: 1px solid #979797;
+    display: block;
+    text-align: left;
+    padding: 2%;
+}
+
+h1 {
+    font-size: 3.6rem;
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.nav-btn {
+    width: 100%;
+}
+
+.bottom-btn {
+    margin-top: 2rem;
+}

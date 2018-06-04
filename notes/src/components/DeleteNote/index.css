@@ -1,0 +1,34 @@
+.modal-wrapper {
+    z-index: 1000;
+    position: fixed;
+    margin-left: -85px;
+    border: 1px solid black;
+    width: 57rem;
+    height: 19rem;
+    box-shadow: 1px 1px 8px #666666;
+    text-align: center;
+    background-color: white;
+}
+
+.delete-btn {
+    background-color: red;
+    margin-right: 2.3rem;
+}
+
+.modal-btn {
+    height: 3.8rem;
+    width: 33%;
+}
+
+.modal-header {
+    margin-top: 5.2rem;
+    margin-bottom: 2.5rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+.hidden {
+    display: none;
+}

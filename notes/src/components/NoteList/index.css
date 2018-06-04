@@ -1,0 +1,30 @@
+.noteList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1.2rem;
+
+}
+.note {
+    border: 1px solid #979797;
+    width: 30%;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1.3rem;
+    overflow: hidden;
+    background-color: white;
+    line-height: 1.6;
+}
+
+.note-header {
+    margin: 0.5rem 0;
+    font-size: 1.6rem;
+    color: black;
+    text-decoration: none;
+}
+
+.note p {
+    height: 10rem;
+    overflow: hidden;
+    margin: 0.5rem 0;
+}
