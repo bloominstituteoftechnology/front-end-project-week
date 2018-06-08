@@ -19,12 +19,16 @@ const noteReducer = (state = initialState, action) =>{
             return;
         case DELETE_NOTE: {
             console.log(this.newState, "DELETE_NOTE");
-                const indexOfNoteToDelete = state.note.findIndex((note) => {
-                  return(note.id);
-                })
-                newState.splice(indexOfNoteToDelete, 1);
-                return;
-              }
+                state.forEach((item, index)=>{
+                    if(item.id === action.payload){
+                        newState.splice(index, 1);
+                        return;
+                    
+                    }
+                });
+            }
+            return newState;
+
         default:
             return state;
         }

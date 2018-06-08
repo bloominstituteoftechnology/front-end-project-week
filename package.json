@@ -1,7 +1,27 @@
 {
+
+  "name": "front-end-project-week",
+  "version": "1.0.0",
+  "description": "front-end-project back-end",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  
+  "repository": "https://github.com/ckopecky/front-end-project-week.git",
+  "author": "CMVNK <Kopecky12112@gmail.com>",
+  "license": "MIT",
+
   "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "reactstrap": "^6.0.1"
+    "reactstrap": "^6.0.1",
+    "scripts": "^0.1.0"
+  },
+  
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
