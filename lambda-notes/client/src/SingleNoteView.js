@@ -14,7 +14,6 @@ class SingleNoteView extends Component{
     }
 
     componentWillMount(){
-        console.log("THIS",this.props.location.state[0].dummydata); //this directly accesses the array of note objects
         let routeId = this.props.match.params.id;
         console.log("THISFORID",this.props.match.params.id);
         let matched = this.props.location.state[0].dummydata.filter((noteItem)=> 
@@ -34,8 +33,10 @@ class SingleNoteView extends Component{
             <Sidebar />
             <div className="singular-note-container">
                 <div className="edit-delete-bar">
-                   <Link to={`/notes/${this.state[0].id}/edit`}component={EditNote}> <div className="link edit-link">Edit</div></Link>
-                    <div className="link delete-link">Delete</div>
+                   <Link to={`/notes/${this.state[0].id}/edit`}component={EditNote} className="link-edit-delete"> 
+                    <div className="link edit-link"><p className="text-for-link">Edit</p></div>
+                    </Link>
+                    <div className="link delete-link"><p className="text-for-link">Delete</p></div>
                 </div>
                 <Header text={this.state[0].note_title}/>
                 <p className="note-body-single">{this.state[0].note_body}</p>

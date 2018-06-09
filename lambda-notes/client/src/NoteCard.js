@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { dummydata } from './dummydata/dummydata';
 import { Link } from 'react-router-dom';
-import SingleNoteView from './SingleNoteView';
 
 class NoteCard extends Component {
     constructor(props){
@@ -21,8 +20,7 @@ class NoteCard extends Component {
                       return(
                           <li className="card" key={element.id}>
                          <Link 
-                            to={{pathname:`/notes/${element.id}`, state: this.state.notes}}
-                            component={SingleNoteView}>
+                            to={{pathname:`/notes/${element.id}`, state: this.state.notes}}>
                             {element.note_title}
                         </Link>
                             <hr/>
