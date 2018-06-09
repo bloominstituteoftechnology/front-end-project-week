@@ -10,8 +10,8 @@ h1, h2, h3, h4, h5{
 }
 .notelist-wrapper{
   display:flex;
-  max-width: 1200px;
-  width:1200px;
+  width:100%;
+  max-width:1200px;
   margin: 0 auto;
 }
 .app-header{
@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5{
 }
 .button{
   height:40px;
-  width:75%;
+  width:90%;
   background-color:#2BC1C4;
   color:white;
   margin:20px auto;
@@ -70,27 +70,30 @@ h1, h2, h3, h4, h5{
 .card-list{
   display:flex;
   flex-wrap: wrap;
+  width:75%;
 }
 .card{
-  height:175px;
-  width:175px;
+  height:150px;
+  width:150px;
   background-color:white;
   padding:15px;
   border: 4px double #979797;
   list-style-type: none;
-  margin: 25px;
+  margin: 10px 18px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 .single-note-component-wrapper{
   display:flex;
+  max-width:1200px;
+  width:100%;
+  margin: 0 auto;
 }
 .singular-note-container{
   display:flex;
   flex-direction:column;
-  padding:80px;
-  margin: 0 auto;
-  width:75%;
+  padding:60px;
+  width:65%;
   background-color:#F3F3F3;
   height:100vmax;
 
@@ -103,7 +106,7 @@ h1, h2, h3, h4, h5{
 }
 .edit-delete-bar{
   display:flex;
-  width:100%;
+  width:75%;
   justify-content: flex-end;
   text-decoration:none;
 
@@ -120,12 +123,14 @@ h1, h2, h3, h4, h5{
 .note-component-wrapper{
   display:flex;
   background-color:#F3F3F3;
+  max-width:1200px;
+  width:100%;
+  margin: 0 auto;
 }
+
 .create-header{
-  margin:25px;;
   display:flex;
   flex-direction:column;
-  width:100%;
 }
 .input-text{
   margin-bottom:25px;
