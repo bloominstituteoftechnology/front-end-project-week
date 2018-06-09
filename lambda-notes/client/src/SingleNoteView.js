@@ -34,26 +34,30 @@ class SingleNoteView extends Component{
 
 
     render(){
-        console.log(this.state);
+        console.log(this.state[0]);
         return(
             <div className="single-note-component-wrapper">
             <Sidebar />
             <div className="singular-note-container">
                 <div className="edit-delete-bar">
-                   <Link to={`/notes/${this.state[0].id}/edit`} className="link-edit-delete"> 
-                    <div className="link edit-link">Edit</div>
+                   <Link 
+                        to={{pathname:`/notes/${this.state[0].id}/edit`, state: this.state[0]}} 
+                        className="link-edit-delete"> 
+                            <div className="link edit-link">Edit</div>
                     </Link>
-                    <div className="link delete-link" onClick={this.toggle}>Delete</div>
+                    <div 
+                        className="link" 
+                        onClick={this.toggle}>Delete</div>
                     <div /*This div contains all the components of the modal*/
-                                className={this.state.modal? "modal-content": "hidden"} 
-                                onClick={this.toggle}>
-                                <h5 className="modal-header">Are you sure you want to delete this note?</h5>
-                                    <div className="modal-footer">
-                                        <button className="delete-button">Delete</button>
-                                        <button className="no-button">No</button>
-                                    </div>
-                                {/* This div contains all the components of the modal */}
+                        className={this.state.modal? "modal-content": "hidden"} 
+                        onClick={this.toggle}>
+                        <h5 className="modal-header">Are you sure you want to delete this note?</h5>
+                            <div className="modal-footer">
+                                <button className="delete-button">Delete</button>
+                                <button className="no-button">No</button>
                             </div>
+                                {/* This div contains all the components of the modal */}
+                    </div>
                 </div>
                 <Header text={this.state[0].note_title}/>
                 <p className="note-body-single">{this.state[0].note_body}</p>

@@ -119,6 +119,8 @@ h1, h2, h3, h4, h5{
 .link{
   padding:20px;
   text-decoration:none;
+  cursor: pointer;
+  color:black;
 }
 .note-component-wrapper{
   display:flex;
@@ -181,6 +183,7 @@ h1, h2, h3, h4, h5{
   color:white;
   background-color:red;
   margin:20px;
+  cursor: pointer;
 }
 .no-button{
   width:100px;
@@ -188,6 +191,7 @@ h1, h2, h3, h4, h5{
   color:white;
   background-color:#2BC1C4;
   margin:20px;
+  cursor: pointer;
 }
 
 .hidden{
