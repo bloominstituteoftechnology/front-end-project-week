@@ -3,14 +3,21 @@ import './index.css';
 import Sidebar from './Sidebar';
 import { Header } from './NoteList';
 import { Link } from 'react-router-dom';
-import EditNote from './EditNote';
 
 
 class SingleNoteView extends Component{
     constructor(props){
         super(props);
         this.state ={
+            modal:false,
         };
+        this.toggle=this.toggle.bind(this);
+    }
+
+    toggle() {
+      this.setState({
+        modal: !this.state.modal
+      });
     }
 
     componentWillMount(){
@@ -33,10 +40,20 @@ class SingleNoteView extends Component{
             <Sidebar />
             <div className="singular-note-container">
                 <div className="edit-delete-bar">
-                   <Link to={`/notes/${this.state[0].id}/edit`}component={EditNote} className="link-edit-delete"> 
-                    <div className="link edit-link"><p className="text-for-link">Edit</p></div>
+                   <Link to={`/notes/${this.state[0].id}/edit`} className="link-edit-delete"> 
+                    <div className="link edit-link">Edit</div>
                     </Link>
-                    <div className="link delete-link"><p className="text-for-link">Delete</p></div>
+                    <div className="link delete-link" onClick={this.toggle}>Delete</div>
+                    <div /*This div contains all the components of the modal*/
+                                className={this.state.modal? "modal-content": "hidden"} 
+                                onClick={this.toggle}>
+                                <h5 className="modal-header">Are you sure you want to delete this note?</h5>
+                                    <div className="modal-footer">
+                                        <button className="delete-button">Delete</button>
+                                        <button className="no-button">No</button>
+                                    </div>
+                                {/* This div contains all the components of the modal */}
+                            </div>
                 </div>
                 <Header text={this.state[0].note_title}/>
                 <p className="note-body-single">{this.state[0].note_body}</p>
@@ -47,6 +64,8 @@ class SingleNoteView extends Component{
 }
 
 
+                 
+                           
 
 
 

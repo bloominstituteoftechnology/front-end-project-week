@@ -131,12 +131,14 @@ h1, h2, h3, h4, h5{
 .create-header{
   display:flex;
   flex-direction:column;
+  padding-left:25px;
+  width:75%;
 }
 .input-text{
   margin-bottom:25px;
   border-radius:5px;
   height:30px;
-  width:50%;
+  width:60%;
 }
 .input-text-area{
   margin-bottom:25px;
@@ -147,4 +149,47 @@ h1, h2, h3, h4, h5{
 .save-button{
   margin:0px;
   width:20%;
+}
+.modal-content {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:fixed;
+  top:30%;
+  left:35%;
+  width:100%;
+  height:100%;
+  max-width: 600px;
+  max-height:250px;
+  background-color:white;
+  z-index:10000;
+  border:1px solid #979797;
+  box-shadow:1px 1px 8px #979797;
+     /*remove hackiness*/
+}
+.modal-header{
+  text-align:center;
+}
+.modal-footer{
+  display:flex;
+  justify-content: center;
+}
+
+.delete-button{
+  width:100px;
+  height:40px;
+  color:white;
+  background-color:red;
+  margin:20px;
+}
+.no-button{
+  width:100px;
+  height:40px;
+  color:white;
+  background-color:#2BC1C4;
+  margin:20px;
+}
+
+.hidden{
+  display:none;
 }
