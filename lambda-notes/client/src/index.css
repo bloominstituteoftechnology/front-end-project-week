@@ -85,4 +85,17 @@ h1, h2, h3, h4, h5{
   height:100vmax;
 
 }
-
+.single-note-header{
+  margin-left:0px;
+}
+.note-body-single{
+  width:75%;
+}
+.edit-delete-bar{
+  display:flex;
+  width:100%;
+  justify-content: flex-end;
+}
+.link{
+  padding:20px;
+}
