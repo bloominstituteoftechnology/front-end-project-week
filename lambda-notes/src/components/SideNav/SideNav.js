@@ -5,12 +5,17 @@ import { CSVLink } from 'react-csv';
 
 import './SideNav.css';
 import Button from '../Button/Button';
+import { fetchNotes } from '../../actions';
 
 function homeLink() {
     return window.location.href = "/"
 }
 
+
+
 const SideNav = (props) => {
+
+
 
     return (
 
@@ -18,7 +23,7 @@ const SideNav = (props) => {
 
             <h1 className="lambdaNotes">Lambda Notes</h1>
 
-           <Link style={{textDecoration: 'none'}} to="/"><Button style={{width: "100%"}} text="View Your Notes" /></Link>
+           <Link style={{textDecoration: 'none'}} to="/"><Button onClick={() => props.fetchNotes()} style={{width: "100%"}} text="View Your Notes" /></Link>
            
            <Link style={{textDecoration: 'none'}} to="/create"><Button style={{width: "100%"}} link="/create" text="+ Create New Note"/></Link>
 
@@ -36,4 +41,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(SideNav);
+export default connect(mapStateToProps, {fetchNotes})(SideNav);

@@ -30,11 +30,15 @@ export const notesReducer = (state = initialState, action) => {
         case ADD_NOTE:
             return Object.assign({}, state, {notes: state.notes.concat(action.payload)})
         case DELETE_NOTE:
-            return Object.assign({}, state, {notes: state.notes.filter(note => 
-                {return note.id !== action.payload})} )
+            return Object.assign({}, state, {notes: state.notes.filter(note => {
+                return note.id !== action.payload})} )
         case EDIT_NOTE:
-            return Object.assign({}, state, {notes: state.notes.filter(note => 
-                {return note.id !== action.payload.id}).concat(action.payload)})
+            return Object.assign({}, state, {notes: state.notes.filter(note => {
+                return note.id !== action.payload.id}).concat(action.payload)})
+        case SEARCH_NOTE: 
+            return Object.assign({}, state, {notes: state.notes.filter(note => {
+                return note.title == action.payload
+                })})
         default: 
             return state;
            

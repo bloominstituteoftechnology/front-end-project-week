@@ -2,6 +2,7 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const ADD_NOTE = 'ADD_NOTE';
 export const DELETE_NOTE = 'DELETE_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
+export const SEARCH_NOTE = 'SEARCH_NOTE';
 
 export const fetchNotes = () => {
     return {
@@ -27,6 +28,13 @@ export const editNote = editedNote => {
     return {
         type: EDIT_NOTE,
         payload: editedNote
+    }
+}
+
+export const searchNote =  title => {
+    return {
+        type: SEARCH_NOTE,
+        payload: title
     }
 }
 
