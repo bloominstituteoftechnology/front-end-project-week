@@ -34,7 +34,7 @@ class NotesContainer extends Component {
             <div id="sortable" className="notes-container">
 
                 <div>
-                    <input onChange={(e) => {this.props.notes.filter((note) => note.title == e.target.value)}} type=""text placeholder="search for a note.."></input>
+                    <input className="search-input" onChange={(e) => {this.props.notes.filter((note) => note.title == e.target.value)}} type=""text placeholder="search for a note.."></input>
                 </div>
 
                 <div className="your-notes">Your Notes:</div>

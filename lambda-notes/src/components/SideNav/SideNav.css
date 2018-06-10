@@ -12,6 +12,12 @@
     display: flex;
     flex-direction: column;
 }
+@media (max-width: 400px) {
+    .nav-container{
+      max-width: 100%;
+      font-size: 30px;
+    }
+  }
 
 .lambdaNotes {
     padding-bottom: 14px;
@@ -20,5 +26,14 @@
     width: 100%;
     display: flex;
 }
+
+@media (max-width: 400px) {
+    .lambdaNotes{
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 
 

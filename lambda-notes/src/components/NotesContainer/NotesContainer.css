@@ -8,7 +8,13 @@
     padding: 73px 32px 0px 32px;
     box-sizing: border-box;
 }
-
+@media (max-width: 400px) {
+    .notes-container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+    }
+}
 .your-notes {
     display: block;
     font-size: 22px;
@@ -17,4 +23,22 @@
     font-family: 'Roboto', sans-serif;
     color: #4A494A;
     margin-bottom: 27px;
+}
+
+@media (max-width: 400px) {
+    .your-notes {
+       margin-top: 40px;
+       text-align: center;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .search-input {
+       margin-top: 0px;
+       width: 250px;
+       border: 5px solid #D8D8D8;
+       height: 50px;
+       text-align: center;
+    }
 }

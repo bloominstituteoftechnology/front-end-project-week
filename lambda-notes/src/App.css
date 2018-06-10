@@ -7,6 +7,12 @@
   /* height: 980px; */
 }
 
+@media (max-width: 400px) {
+  .App {
+    display: block;
+  }
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
