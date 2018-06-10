@@ -11,6 +11,8 @@
     border-right: 2px solid #BCBCBC;
     display: flex;
     flex-direction: column;
+    /* height: 100vh; */
+    /* height: 100%; */
 }
 @media (max-width: 400px) {
     .nav-container{

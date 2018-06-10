@@ -1,13 +1,19 @@
 .noteView-container {
     width: 100%;
-    height: 980px;
     box-sizing: border-box;
     text-align: start;
     padding: 30px 31px 0px 31px;
     font-size: 20px;
     color: #4A4A4A;
     background-color: #F3F3F3;
+    height: 100vh;
 }
+@media (max-width: 400px) {
+    .noteView-container {
+       height: 100%;;
+    }
+}
+
 
 .noteView-title{
     padding-bottom: 20px;
