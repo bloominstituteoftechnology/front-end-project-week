@@ -14,8 +14,6 @@ server.use(express.json());
 const noteController = require("./notes/notesController.js");
 
 server.use("/notes", noteController);
-server.use("/expenses", expenseController);
-server.use("/categories", categoryController);
 
 server.get("/", (req, res) => res.send("API Running..."));
 
