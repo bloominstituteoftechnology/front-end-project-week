@@ -1,10 +1,11 @@
 import React from 'react';
 import './EditView.css';
+import '../Main.css'
 
 const EditView = (props) => { 
   console.log('EditView', props)
   return (
-    <div className="container">  
+    <div className="main-container">  
       <form onSubmit={() => this.handleSubmit()}>
         <div className="float-left">
           <h4 className="text-left edit-header mb-4" > Edit Note: </h4>

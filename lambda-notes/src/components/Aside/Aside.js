@@ -13,7 +13,7 @@ const Aside = (props) => {
 
   return (
     <aside> 
-      <div className="bg-secondary float-left aside">
+      <div className="float-left aside">
         <h3 className="float-left ml-4 mt-3">Lambda <br />Notes</h3>
 
           <Link exact to="/">

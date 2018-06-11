@@ -1,5 +1,6 @@
 .aside {
-  height: 600px;
+  height: 100vh;
   clear: left;
   margin-right: 2em;
+  background-color: #D8D8D8;
 }

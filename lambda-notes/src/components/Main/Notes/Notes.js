@@ -4,11 +4,12 @@ import {
 } from 'react-router-dom';
 
 import './Notes.css';
+import '../Main.css';
 
 const Notes = (props) => { 
   console.log('ListView', props.notes)
   return (
-    <div className="container"> 
+    <div className="main-container container"> 
       <h4 className="heading text-left">Your Notes:</h4>
       <div class="row">
         {props.notes.map(note => (

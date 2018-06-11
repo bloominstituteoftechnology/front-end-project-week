@@ -11,15 +11,14 @@ class NoteViewContainer extends Component {
   }
   
   render() {
-    console.log('NoteViewContainer', this.props.notes)
-    console.log('Just one note', this.props.params)
+    console.log('NoteViewContainer', this.props.match)
     return (
       <div>
         <Aside />
-        <NoteView notes={this.props.notes}/>
+        <NoteView notes={this.props}/>
       </div>  
     );
   }
 }
 
-export default NoteViewContainer;
+export default NoteViewContainer; 

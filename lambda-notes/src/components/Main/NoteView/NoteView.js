@@ -17,8 +17,8 @@ const NoteView = (props) => {
           <span className="delete" data-toggle="modal" data-target="#exampleModal">delete</span>
         </Link>
       </span>
-      <h4 className="text-left pt-5">Title: {props.notes.title}</h4>
-      <p className="text-left mt-4">Message: {props.notes.message}</p>
+      <h4 className="text-left pt-5">Title: </h4>
+      <p className="text-left mt-4">Message: </p>
     </div> 
   );
 }
