@@ -9,8 +9,10 @@
     width: 660px;
 }
 .note {
+    margin: 0.5rem 0.5rem;
     width: 200px;
-    height: 250px;
+    min-height: 170px;
+    padding: 0.5rem 1rem;
     overflow: hidden;
     border: 1px solid black; 
     background-color: white;
@@ -26,6 +28,6 @@
 
 .note p {
     margin: 0;
-    height: 6.5rem;
+    height: 6.8rem;
     overflow: hidden;
 }
