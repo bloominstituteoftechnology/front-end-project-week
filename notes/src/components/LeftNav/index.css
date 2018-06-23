@@ -1,0 +1,39 @@
+.nav_container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    /*min-width: 220px;*/
+    /*width: 220px;*/
+    width: 25%;
+    height: 95vh;
+    background-color: #d3d3d3;
+}
+
+.nav_header {
+   margin: 0px;
+   padding: 0px; 
+}
+
+.nav_buttons_container {
+/*          T    R B L    */ 
+    margin: .5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    background-color: #23BBBE;
+    border: 1px solid #86AEB1;
+    /*      TB  LR    */ 
+    margin: .5rem 0;
+    height: 40px;
+    border-radius: 0.1rem;
+}
+
+
+
