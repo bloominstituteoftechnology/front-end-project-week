@@ -64,7 +64,7 @@ body {
     /*      TB  LR    */ 
     margin: .5rem .5rem;
     height: 40px;
-    border-radius: 0.1rem;
+    border-radius: 1rem;
 }
 
 .button--danger {

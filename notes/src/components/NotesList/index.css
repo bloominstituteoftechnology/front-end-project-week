@@ -21,6 +21,23 @@
     background-color: rgba(173, 189, 56, 0.50);
 }
 
+
+.note:link,
+.note:visited {
+  transition: all .2s;  
+}
+
+.note:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgb(0,0,0,.3);
+}
+
+.note:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgb(0,0,0,.1);
+}
+
+
 .note hr {
     margin: 0.25rem 0 0.5rem 0;
 }

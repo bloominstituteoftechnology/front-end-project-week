@@ -33,8 +33,23 @@
     /*      TB  LR    */ 
     margin: .5rem 0;
     height: 40px;
-    border-radius: 0.1rem;
+    border-radius: 1rem;
 }
 
+
+.nav_button:link,
+.nav_button:visited {
+  transition: all .2s;  
+}
+
+.nav_button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgb(0,0,0,.3);
+}
+
+.nav_button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgb(0,0,0,.1);
+}
 
 
