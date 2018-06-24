@@ -16,7 +16,9 @@
     border: 1px solid black;
     padding: .5rem 1rem;
     margin: .5rem 0.5rem;
-    background: white;
+    color: rgba(255, 255, 255, 0.774);
+    font-weight: 600;
+    background-color: rgba(173, 189, 56, 0.50);
 }
 
 .note hr {

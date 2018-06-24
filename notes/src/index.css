@@ -7,17 +7,30 @@
 
 
 body {
-  margin: 0 auto;
-  padding: 0;
-  color: rgb(66, 66, 66);
+  /*color: rgb(66, 66, 66);*/
+ /* background-color: /*#598234 #68829E;*/
   font-family: Roboto;
   /*max-width: 1024px;  min-width? my addition*/
   padding: 20px;
   height: 95vh;
 }
 
-.app_container {
+.container {
   display: flex;
+  height: 95vh;
+    background-image: /*linear-gradient(
+      to right bottom,
+       rgba(104, 130, 158, 0.726)
+        ,rgba(80, 81, 96, 0.753)),*/ 
+        url(./img/hero.jpg);
+    background-size: cover;
+    background-position: top;/*could also be center; or bottom;*/
+    /*position: relative;/*parent element of .logo-box so it is set to relative*/
+
+    /*clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)*/
+   /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85vh);*/
+    /*clip-path: polygon(0 0, 100% 0%, 89% 100%, 0 66%);*/
+
 }
 
 .content_header {
@@ -46,7 +59,7 @@ body {
     align-items: center;
     color: white;
     font-weight: 600;
-    background-color: #23BBBE;
+    background-color: #598234;
     border: 1px solid #86AEB1;
     /*      TB  LR    */ 
     margin: .5rem .5rem;

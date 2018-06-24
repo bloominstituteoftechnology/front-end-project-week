@@ -6,7 +6,8 @@
     /*width: 220px;*/
     width: 25%;
     height: 95vh;
-    background-color: #d3d3d3;
+    /*background-color: #d3d3d3;*/
+    background-image: linear-gradient(to right bottom, rgba(104, 130, 158, 0.65));
 }
 
 .nav_header {
@@ -27,7 +28,7 @@
     align-items: center;
     color: white;
     font-weight: 600;
-    background-color: #23BBBE;
+    background-color: rgba(88, 130, 52, 0.527);
     border: 1px solid #86AEB1;
     /*      TB  LR    */ 
     margin: .5rem 0;
