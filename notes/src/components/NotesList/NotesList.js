@@ -21,7 +21,7 @@ class NotesList extends Component {
 render() {
     return (
     <div className="notesList_container">
-        <div><h3 className="content_header">Your Notes:</h3></div>
+        <div><h2 className="content_header">Your Notes:</h2></div>
             <div className="notesList">
                 {this.state.notesArray.map((note,index) => {
                   return(

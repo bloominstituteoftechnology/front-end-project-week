@@ -14,7 +14,7 @@
 .nav_header {
     margin: 0px;
     padding: 0px;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 2.5rem;
 }
 
@@ -66,7 +66,7 @@
     align-items: center;
     color: white;
     font-weight: 600;
-    background-color: rgba(88, 130, 52, 0.527);
+    background-color: rgba(88, 130, 52, 0.7);
     border: 1px solid #86AEB1;
     /*      TB  LR    */ 
     margin: .5rem 0;
@@ -93,3 +93,12 @@
 }
 
 
+/*.nav_button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: rgba(88, 130, 52, 0.7); 
+    
+}*/

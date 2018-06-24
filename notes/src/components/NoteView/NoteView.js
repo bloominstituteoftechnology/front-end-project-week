@@ -32,9 +32,9 @@ render() {
     return (
     <div className="noteView_container">
         <div className="noteView_topContent">
-            <h3 className="content_header">
+            <h2 className="content_header">
             {this.state.matched[0].title}
-        </h3>
+        </h2>
         <div>
             <Link to={`/edit/${this.props.match.params.id}`} className="edit_Delete unlistedlink">edit</Link>
             <a href='#' className="edit_Delete"
