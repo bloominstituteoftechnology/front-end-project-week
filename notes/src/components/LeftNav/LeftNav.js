@@ -7,8 +7,8 @@ class LeftNav extends Component {
         return (
             <div className='nav_container'>
                 <div>
-                    <h1 className="nav_header">Lambda</h1>
-                    <h1 className="nav_header">Notes</h1>
+                    <h1 className="nav_header name">Lonnie's</h1>
+                    <h1 className="nav_header title">Notes</h1>
                 </div>
                 <div className="nav_buttons_container">
                 <Link to='/' className="button_link">

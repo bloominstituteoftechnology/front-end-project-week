@@ -10,10 +10,48 @@
     background-image: linear-gradient(to right bottom, rgba(104, 130, 158, 0.65));
 }
 
+
 .nav_header {
-   margin: 0px;
-   padding: 0px; 
+    margin: 0px;
+    padding: 0px;
+    font-weight: 600;
+    font-size: 2.5rem;
 }
+
+.name {
+    animation-name: moveInLeft;
+    animation-duration: 2s;
+}
+
+.title {
+    animation-name: moveInRight;
+    animation-duration: 2s;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 
 .nav_buttons_container {
 /*          T    R B L    */ 
@@ -32,7 +70,9 @@
     border: 1px solid #86AEB1;
     /*      TB  LR    */ 
     margin: .5rem 0;
+    margin-left: 2.1rem;
     height: 40px;
+    width: 70%;
     border-radius: 1rem;
 }
 
