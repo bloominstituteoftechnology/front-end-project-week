@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "helmet": "^3.12.1",
     "markdown-to-jsx": "^6.6.5",
+    "mongoose": "^5.1.6",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-native-elements": "^0.19.1",
@@ -16,5 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
