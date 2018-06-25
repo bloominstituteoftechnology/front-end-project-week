@@ -18,7 +18,7 @@ class App extends Component {
     return (
       
       <div className="App">
-       
+      
         <SideNav />
 
         <Route exact path="/" component={NotesContainer} />

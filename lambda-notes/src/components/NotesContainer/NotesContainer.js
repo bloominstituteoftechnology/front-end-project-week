@@ -9,12 +9,12 @@ import SearchNote from '../SearchNote/SearchNote';
 
 
 class NotesContainer extends Component {
-   constructor(props) {
-       super(props);
-       this.state = {
-           search: ""
-       }
-   }
+    constructor(props) {
+        super(props);
+        this.state = {
+            search: ""
+        }
+    }
 
 
 
