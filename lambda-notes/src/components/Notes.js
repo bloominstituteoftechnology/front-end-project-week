@@ -26,7 +26,7 @@ class Notes extends Component {
 
     selectNote = (e) => {
         const filteredNote = this.state.notes.find(note => note.title === e);
-        const id = filteredNote.id;
+        const id = filteredNote._id;
         this.props.history.push(`/note/${id}`);
     }
 
@@ -38,7 +38,6 @@ class Notes extends Component {
                     <Typeahead 
                         options={this.state.titles}
                         onOptionSelected={this.selectNote}
-                        onKeyPress={() => {console.log("pressed a key")}}
                         defaultClassNames={false}
                         />
                 </div>
@@ -47,7 +46,7 @@ class Notes extends Component {
                     {this.state.notes.map( note => {
                         const summary = note.content.substring(0,145) + '...';
                         const thumbnailNote = Object.assign({}, note, {content: summary})
-                        return <NoteThumbnail note={thumbnailNote} key={note.id}/>
+                        return <NoteThumbnail note={thumbnailNote} key={note._id}/>
                     })}
                 </Row>
             </Container>

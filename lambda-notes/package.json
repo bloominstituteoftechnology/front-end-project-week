@@ -21,6 +21,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.1.4",
     "react-search": "^2.0.5",
+    "react-typeahead": "^2.0.0-alpha.8",
     "reactstrap": "^6.0.1",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",

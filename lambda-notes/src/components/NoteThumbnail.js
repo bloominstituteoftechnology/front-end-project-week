@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 const NoteThumbnail = (props) => {
     
     return (
-        <Link to={`/note/${props.note.id}`} className="note-link">
+        <Link to={`/note/${props.note._id}`} className="note-link">
             <Card className="note-thumbnail">
                 <CardBody>
                     <CardTitle className="note-title heading">{props.note.title}</CardTitle>
