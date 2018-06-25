@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import ReactMarkdown  from 'react-markdown';
 
 // Very important when you work with React Router Redux
 
@@ -18,7 +19,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
     }
   }
 
@@ -30,6 +30,7 @@ class App extends Component {
         <Route exact path="/newnote" render={() => (<NoteForm className="App-content-container" header="Create New Note:" button="Save" />)}/>
         <Route exact path="/note/:id" render={(props) => (<ViewNote {...props}/>)}/>
         <Route exact path="/editnote/:id" render={(props) => (<NoteForm {...props} className="App-content-container" header="Edit Note:" button="Update" />)}/>
+        {/* <ReactMarkdown source={'# This is a header\n\nAnd this is a paragraph'} /> */}
       </div>
     );
   }

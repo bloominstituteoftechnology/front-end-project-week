@@ -16,7 +16,6 @@ class NotesList extends Component {
     }
 
     render() {
-        console.log("notes data ", this.props.data.isFetching);
         if(this.props.data.fetched)
             return (
             <div className="App-content-container">
