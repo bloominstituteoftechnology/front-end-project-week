@@ -6,7 +6,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "helmet": "^3.12.1",
-    "markdown-to-jsx": "^6.6.5",
+    "markdown-to-jsx": "^6.6.8",
     "mongoose": "^5.1.6",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -16,7 +16,7 @@
     "reactstrap": "^6.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
