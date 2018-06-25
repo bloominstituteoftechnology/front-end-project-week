@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -15,8 +16,21 @@ class NoteCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      notes: [],
       completed: ""
     };
+  }
+
+  componentDidMount() {
+    axios
+    .get('http://localhost:5000/api/notes')
+    .then(notes => {
+      console.log("notesAxios", notes)
+      this.setState(() => ({ notes: notes.data }));
+    })
+    .catch(err => {
+      console.error("Server Error", err);
+    })
   }
 
   completeHandler = () => {
@@ -28,6 +42,7 @@ class NoteCard extends Component {
   };
 
   render() {
+    console.log("notes1", this.state.notes)
     return (
       <div>
           <Card className="noteCard">
@@ -53,8 +68,7 @@ class NoteCard extends Component {
                   fontWeight: "medium"
                 }}
               >
-                Basketball ipsum dolor sit amet free throw basketball basket
-                bank shot, outlet power forward flop zone defense Duncan. ...
+               
               </CardText>
         </Link>
             </CardBody>
