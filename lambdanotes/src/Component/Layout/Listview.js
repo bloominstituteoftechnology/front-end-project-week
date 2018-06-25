@@ -53,9 +53,9 @@ export default class Listview extends Component {
                     <Col>
                     {console.log('list', this.props)}
                     {this.props.notes.map(note => (
-                      <div key={note.id}>
-                      <Link to={`/note/${note.id}`}>
-                        <Notecard key={note.id} note={note} />
+                      <div key={note._id}>
+                      <Link to={`/note/${note._id}`}>
+                        <Notecard key={note._id} note={note} />
                       </Link>
                       </div>
                     ))}

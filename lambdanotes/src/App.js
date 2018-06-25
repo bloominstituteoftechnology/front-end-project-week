@@ -7,6 +7,13 @@ import Editview from './Component/Layout/Editview';
 import Createview from './Component/Layout/Createview';
 import Noteview from './Component/Layout/Noteview';
 
+
+// axios
+
+import axios from 'axios'
+
+
+
 import Rebase from 're-base';
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -32,35 +39,111 @@ class App extends Component {
       textBody:''
     };
   }
+
+  
+  componentDidUpdate = () => {
+    // this.read();
+  }
+
   componentDidMount = () => {
-    base.syncState('notes', {
-      context: this,
-      state: 'notes',
-      asArray: true
+    // base.syncState('notes', {
+    //   context: this,
+    //   state: 'notes',
+    //   asArray: true
+    // })
+
+    this.read();
+  }
+
+  //mongo
+
+  create = event => {
+    event.preventDefault();
+
+    axios({
+      method: 'post',
+      url: 'http://localhost:5000/api/notes',
+      data: {
+        title: this.state.title,
+        note: this.state.textBody
+      }
+    });
+
+    this.setState({
+      title: '',
+      textBody: ''
+    });
+
+  }
+
+  
+  read = () => {
+    axios
+      .get('http://localhost:5000/api/notes')
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          notes: response.data
+        })
+      })
+      .catch(error => {
+        console.log(error)
+      });
+  }
+
+  update = (_id) =>{
+    console.log(_id)
+    axios
+      .put(`http://localhost:5000/api/notes/${_id}`, {
+          title: this.state.title,
+          note: this.state.textBody
+      })
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log(error)
+      });
+      
+  }
+
+  delete = (_id) => {
+    axios
+    .delete(`http://localhost:5000/api/notes/${_id}`)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.log(err)
     })
   }
+
+
+
+  //mono ends
 
   handleTaskChange = event => {
     event.preventDefault();
     this.setState({[event.target.name] : event.target.value});
   } 
 
-  handleRequest = () =>{ 
-    console.log('fire')
-    let newNote = {
-      title: this.state.title,
-      textBody: this.state.textBody,
-      id: this.state.notes.length
-    }
 
-    let newNoteArray = [...this.state.notes]
-    newNoteArray.push(newNote)
-    this.setState({
-      notes: newNoteArray,
-      title: '',
-      textBody: ''
-    })
-    }
+  // handleRequest = () =>{ 
+  //   console.log('fire')
+  //   let newNote = {
+  //     title: this.state.title,
+  //     textBody: this.state.textBody,
+  //     id: this.state.notes.length
+  //   }
+
+  //   let newNoteArray = [...this.state.notes]
+  //   newNoteArray.push(newNote)
+  //   this.setState({
+  //     notes: newNoteArray,
+  //     title: '',
+  //     textBody: ''
+  //   })
+  //   }
 
   handleDelete = (id) => {
     var newList = this.state.notes;
@@ -72,11 +155,11 @@ class App extends Component {
   }
 
   handleEdit = (id) => {
-    let note = this.state.notes.filter(item => (item.id.toString() ===  id) )
+    let note = this.state.notes.filter(item => (item._id.toString() ===  id) )
     console.log("not",note)
     this.setState({
       title: note[0].title,
-      textBody: note[0].textBody,
+      textBody: note[0].note,
       id: note[0].id
     })
   }
@@ -101,9 +184,9 @@ class App extends Component {
     return (
       <div className="container-fluid">
            <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes}  /> } />
-          <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} id={props.match.params.id} handleUpdate={this.handleUpdate} handleRequest = {this.handleRequest}   handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
-          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} handleDelete={this.handleDelete}    note={this.state.notes.filter(item => (item.id.toString() ===  props.match.params.id) )} />  )  } />
-          <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.handleRequest}  handleTaskChange= {this.handleTaskChange}/> } />    
+          <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} id={props.match.params.id} handleUpdate={this.update}  handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
+          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} delete={this.delete}    note={this.state.notes.filter(item => (item._id.toString() ===  props.match.params.id) )} />  )  } />
+          <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.create}  handleTaskChange= {this.handleTaskChange}/> } />    
       </div>
     );
   }

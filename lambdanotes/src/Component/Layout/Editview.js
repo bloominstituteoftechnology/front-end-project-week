@@ -6,6 +6,7 @@ import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 export default class Editview extends Component {
     componentDidMount(){
+        console.log(this.props)
         this.props.handleEdit(this.props.id)
     }
   render() {
@@ -41,9 +42,9 @@ export default class Editview extends Component {
                 </div>
                 
                 <div className = "submitButton">
-                
+                <Link to="/">
                     <Mybutton  type="submit" href = "/" onClick={() => this.props.handleUpdate(this.props.id.toString())} className="btn" text = "Update"/>
-         
+                    </Link>
                 </div>
 
 

@@ -69,7 +69,7 @@ export default class Noteview extends Component {
 
             <div className="mainbar">
                 <div className="mainbarNav">
-                    <Link to = {`/edit/${this.props.note[0].id}`}>
+                    <Link to = {`/edit/${this.props.note[0]._id}`}>
                         edit 
                     </Link>
                     <a href = "#close" onClick={this.toggle}>delete</a>
@@ -80,7 +80,7 @@ export default class Noteview extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>No</Button>
-                        <Button color="secondary" href = "/" onClick={() => {this.props.handleDelete(this.props.note[0].id)}}>Yes</Button>
+                        <Button color="secondary" href = "/" onClick={() => {this.props.delete(this.props.note[0]._id)}}>Yes</Button>
                     </ModalFooter>
                     </Modal>
                 </div >
@@ -90,7 +90,7 @@ export default class Noteview extends Component {
                 </div>
 
                 <div className = "mainbarParagraph">
-                    <p> {this.props.note[0].textBody}</p>
+                    <p> {this.props.note[0].note}</p>
                     
                 </div>
             </div>
