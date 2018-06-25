@@ -198,3 +198,17 @@ button {
 .noModal {
 	width: 200px;
 }
+
+/* main.css */
+
+.registerButton {
+	background-color: #F3F3F3;
+	border: none;
+	color: black;
+	text-decoration: underline;
+	width: 125px;
+}
+
+.alignLeft {
+	text-align: left;
+}

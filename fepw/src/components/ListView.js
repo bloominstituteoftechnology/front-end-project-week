@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NoteCard from './NoteCard.js';
+import { Row, Col } from 'reactstrap';
 import './index.css';
 
 class ListView extends Component {
 	render() {
 		return (
 			<div className='wrapper'>
-				<div className='head'>
-					<h5> Your Notes:</h5>
-				</div>
-				<br />
-				<div className='cards'>
-					{ this.props.cards.map( (card, index) => <div><Link to='/NoteView' style={{ textDecoration: 'none' }}><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /><br /></Link></div>)}
+				<div>
+					<Row>
+						<Col className='alignRight'>
+							<span className='toplinks'><Link to =''><button className='registerButton' color='link'>Register</button></Link></span>
+							<span><Link to =''><button className='editButton' color='link'>Login</button></Link></span>
+						</Col>
+					</Row>
+					<Row>
+						<Col>
+							<div className='head'>
+								<h5> Your Notes:</h5>
+							</div>
+							<br />
+							<div className='cards'>
+								{ this.props.cards.map( (card, index) => <div><Link to='/NoteView' style={{ textDecoration: 'none' }}><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...card} /><br /></Link></div>)}
+							</div>
+						</Col>
+					</Row>
 				</div>
 			</div>
 		)
