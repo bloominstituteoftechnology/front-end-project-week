@@ -12,7 +12,7 @@ const ListView = props => {
             <Grid item xs={4} sm={3}>
                 <SideNav />
             </Grid>
-    <div style={{marginLeft: 'calc(20px + (150px + 2vw))', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: '100vh'}}>
+    <div style={{marginLeft: 'calc(20px + (150px + 2vw))', marginRight: '20px', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', height: '100vh'}}>
         {props.notes.map(note => {
             return (
             <Grid item xs={12} sm={6} lg={4} key={note.id} style={{ height: '33%'}}>
