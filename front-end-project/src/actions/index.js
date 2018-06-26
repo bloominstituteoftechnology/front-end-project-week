@@ -32,7 +32,7 @@ export const fetchNote = (id) => {
     }
 }
 export const refresh = () => {
-    const fetchAllNotes = axios.get(`http://localhost:5000/notes`)
+    const fetchAllNotes = axios.get(`https://loving-lovelace-40f390.netlify.com/notes`)
     return function(dispatch) {
         dispatch({
             type: FETCHING_NOTES
@@ -54,7 +54,7 @@ export const refresh = () => {
 }
 
 export const fetchNotes = () => {
-    const fetchAllNotes = axios.get(`http://localhost:5000/notes`)
+    const fetchAllNotes = axios.get(`https://loving-lovelace-40f390.netlify.com/notes`)
     return function(dispatch) {
         dispatch({
             type: FETCHING_NOTES
@@ -75,7 +75,7 @@ export const fetchNotes = () => {
     }
 }
 export const addNote = (note) => {
-    const addANote = axios.post(`http://localhost:5000/notes`)
+    const addANote = axios.post(`https://loving-lovelace-40f390.netlify.com/notes`)
     return function(dispatch) {
         dispatch({
             type: ADDING_NOTE,
@@ -98,7 +98,7 @@ export const addNote = (note) => {
 
 export const editNote = (note) => {
     const id = note.id
-    const editANote = axios.put(`http://localhost:5000/notes/${id}`, { note })
+    const editANote = axios.put(`https://loving-lovelace-40f390.netlify.com/notes/${id}`, { note })
     return function(dispatch) {
         dispatch({
             type: EDITING_NOTE
@@ -129,7 +129,7 @@ export const cancelDelete = () => {
     }
 }
 export const deleteNote = id => {
-    const deleteANote = axios.delete(`http://localhost:5000/notes/${id}`)
+    const deleteANote = axios.delete(`https://loving-lovelace-40f390.netlify.com/notes/${id}`)
     return function(dispatch) {
         dispatch({
             type: DELETING_NOTE

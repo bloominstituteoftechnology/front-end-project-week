@@ -115,7 +115,7 @@ const noteReducer = (state = initialState, action) => {
         case FETCH_NOTE:
         return Object.assign({}, state, {
             fetching_note: false,
-            current_note: action.payload.note
+            current_note: action.payload
         })
         case DELETING_NOTE:
         return Object.assign({}, state, {
@@ -150,15 +150,9 @@ const noteReducer = (state = initialState, action) => {
             deleting_note: true
         })
         case DELETE_NOTE:
-        if (state.notes.length > 0) {
-        let sparedNotes = state.notes.filter(note => {
-            return note._id !== state.current_note._id
-        }) // Realized after a bit of confusion that action.payload was returning a string and the input in state was returning a number.
         return Object.assign({}, state, {
-            notes: sparedNotes,
             deleting_note: false,
         })
-    }
         case NOT_DELETING_NOTE:
         return Object.assign({}, state, {
             deleting_note: false,
