@@ -8,13 +8,8 @@ class AddNote extends Component {
         super(props)
         this.state= {
             title: '',
-            body: '',
-            id: ''
+            body: ''
         }
-    }
-
-    componentDidMount() {
-        this.setState({id: Date.now()});
     }
 
     handleChange = e => {
@@ -22,7 +17,7 @@ class AddNote extends Component {
     }
 
     render() {
-        const { title, body, id } = this.state;
+        const { title, body } = this.state;
         return (
             <div className="note-flex-props">
                 <div className="note-view">
@@ -31,7 +26,7 @@ class AddNote extends Component {
                         <form>
                             <input name="title" value={title} placeholder="Title" onChange={(e) =>     this.handleChange(e)}/>
                             <textarea name="body" value={body} placeholder="Content" onChange={(e) =>     this.handleChange(e)}/>
-                            <Link className="button" to="/" onClick={() => this.props.addNote({id, title, body})}>Save</Link>
+                            <Link className="button" to="/" onClick={() => this.props.addNote({title, body})}>Save</Link>
                         </form>
                     </div>
                 </div>
