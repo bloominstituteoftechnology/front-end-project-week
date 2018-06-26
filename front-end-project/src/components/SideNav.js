@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { cancelDelete } from '../actions'
 import '../styles/SideNav.css'
@@ -22,4 +22,4 @@ const mapStateToProps = state => {
         deleting: state.notes.deleting
     }
 }
-export default connect(mapStateToProps, { cancelDelete })(SideNav)
+export default withRouter(connect(mapStateToProps, { cancelDelete })(SideNav))

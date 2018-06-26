@@ -75,7 +75,7 @@ export const fetchNotes = () => {
     }
 }
 export const addNote = (note) => {
-    const addANote = axios.post(`https://lambda-take-note.herokuapp.com/notes`)
+    const addANote = axios.post("https://lambda-take-note.herokuapp.com/notes/create")
     return function(dispatch) {
         dispatch({
             type: ADDING_NOTE,
@@ -99,7 +99,7 @@ export const addNote = (note) => {
 
 export const editNote = (note) => {
     const id = note.id
-    const editANote = axios.put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { note })
+    const editANote = axios.put(`https://lambda-take-note.herokuapp.com/notes/edit/${id}`, { note })
     return function(dispatch) {
         dispatch({
             type: EDITING_NOTE
