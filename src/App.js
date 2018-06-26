@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/" render={() => <div><Link to="/login">Login</Link></div>}/>
         )}
         <div>
-          <Route exact path="/" component={NotesList}/>
+          <Route exact path="/notes" component={NotesList}/>
           <Route path="/addnote" component={AddNote}/>
           <Route path="/note/:id" component={Note}/>
           <Route path="/login" component={Login}/>
