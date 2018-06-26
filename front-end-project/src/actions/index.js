@@ -17,7 +17,7 @@ export const REFRESH = "REFRESH"
 export const ERROR = "ERROR"
 
 export const fetchNote = (id) => {
-    const fetchANote = axios.get(`http://localhost:5000/notes/${id}`)
+    const fetchANote = axios.get(`https://lambda-take-note.herokuapp.com/notes/${id}`)
     return function(dispatch) {
         dispatch({
             type: FETCHING_NOTE,
@@ -32,7 +32,7 @@ export const fetchNote = (id) => {
     }
 }
 export const refresh = () => {
-    const fetchAllNotes = axios.get(`https://loving-lovelace-40f390.netlify.com/notes`)
+    const fetchAllNotes = axios.get(`https://lambda-take-note.herokuapp.com/notes`)
     return function(dispatch) {
         dispatch({
             type: FETCHING_NOTES
@@ -54,7 +54,7 @@ export const refresh = () => {
 }
 
 export const fetchNotes = () => {
-    const fetchAllNotes = axios.get(`https://loving-lovelace-40f390.netlify.com/notes`)
+    const fetchAllNotes = axios.get(`https://lambda-take-note.herokuapp.com/notes`)
     return function(dispatch) {
         dispatch({
             type: FETCHING_NOTES
@@ -75,7 +75,7 @@ export const fetchNotes = () => {
     }
 }
 export const addNote = (note) => {
-    const addANote = axios.post(`https://loving-lovelace-40f390.netlify.com/notes`)
+    const addANote = axios.post(`https://lambda-take-note.herokuapp.com/notes`)
     return function(dispatch) {
         dispatch({
             type: ADDING_NOTE,
@@ -98,7 +98,7 @@ export const addNote = (note) => {
 
 export const editNote = (note) => {
     const id = note.id
-    const editANote = axios.put(`https://loving-lovelace-40f390.netlify.com/notes/${id}`, { note })
+    const editANote = axios.put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { note })
     return function(dispatch) {
         dispatch({
             type: EDITING_NOTE
@@ -129,7 +129,7 @@ export const cancelDelete = () => {
     }
 }
 export const deleteNote = id => {
-    const deleteANote = axios.delete(`https://loving-lovelace-40f390.netlify.com/notes/${id}`)
+    const deleteANote = axios.delete(`https://lambda-take-note.herokuapp.com/notes/${id}`)
     return function(dispatch) {
         dispatch({
             type: DELETING_NOTE
