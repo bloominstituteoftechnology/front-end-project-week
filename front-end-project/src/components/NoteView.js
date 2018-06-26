@@ -39,7 +39,7 @@ class NoteView extends Component {
         
             <div className="note" style={{background: this.props.deleting ? 'gray' : '#F3F3F3', opacity: this.props.deleting ? '.4' : '1'}}>
                 <div className="noteViewButtonWrap">
-                    <NavLink to={`/edit/${this.props.match.params.id.toString()}`}>edit</NavLink>
+                    <NavLink to={`/edit/${this.props.match.params.id}`}>edit</NavLink>
                     <span onClick={() => this.props.confirmDelete()} style={{marginLeft: '4vh'}}> delete </span></div>
                 <div onClick={() => this.props.cancelDelete()}>
                     <h3> {this.props.note.title} </h3>
