@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const NOTES_FETCHED = 'NOTES_FETCHED';
 
