@@ -19,11 +19,8 @@ const renderTextField = ({ input, placeholder, type, meta: { touched, error }, .
 let Edit = props => {
     const { handleSubmit, submitting, pristine } = props
 
-console.log('What is this?', props.notes)
-console.log('Map maybe?', props.notes.map(note => note.id))
-    const currentNote = (props.notes.filter(note => (note.id.toString() === props.match.params.id)))[0]
-    const title = currentNote.note.title
-    const content = currentNote.note.content
+    const title = currentNote.title
+    const content = currentNote.content
     console.log('currentNote', currentNote)
     return (
     <div style={{overflowY: 'scroll', overflowX: 'hidden'}}>
@@ -83,7 +80,7 @@ console.log('Map maybe?', props.notes.map(note => note.id))
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes.notes
+        currentNote: state.notes.current_note
     }
 }
 Edit = withRouter(connect(mapStateToProps, { editNote })(Edit))

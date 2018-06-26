@@ -66,7 +66,11 @@ let Create = props => {
     </div>
     )
 }
-Create = withRouter(connect(null, { addNote })(Create))
+
+const mapStateToProps = state => {
+    currentNote: state.notes.current_note
+}
+Create = withRouter(connect(mapStateToProps, { addNote })(Create))
 export default reduxForm({
     form: 'create'
     })(Create)
