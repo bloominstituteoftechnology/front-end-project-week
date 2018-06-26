@@ -1,4 +1,6 @@
 import {
+    FETCHING_NOTES,
+    NOTES_FETCHED,
     ADDING_NOTE,
     NOTE_ADDED,
     UPDATING_NOTE,
@@ -10,6 +12,8 @@ import {
 
 const initialState = {
     notes: [],
+    fetchingNotes: false,
+    notesFetched: false,
     addingNote: false,
     noteAdded: false,
     updatingNote: false,
