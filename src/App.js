@@ -16,8 +16,7 @@ class App extends Component {
       <div className="App">
         {localStorage.getItem('jwt') ? (
           <div>
-            <Navigation />
-            <button onClick={this.signoutHandler}>Sign Out</button>
+            <Navigation signoutHandler={this.signoutHandler}/>
           </div>
         ) : (
           <Route exact path="/" render={() => <div><Link to="/login">Login</Link></div>}/>
