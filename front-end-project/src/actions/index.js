@@ -26,7 +26,7 @@ export const fetchNote = (id) => {
             .then(response => {
                 dispatch({
                     type: FETCH_NOTE,
-                    payload: response.data
+                    payload: response.data.note
                 })
             })
     }
@@ -75,7 +75,7 @@ export const fetchNotes = () => {
     }
 }
 export const addNote = (note) => {
-    const addANote = axios.post("https://lambda-take-note.herokuapp.com/notes/create")
+    const addANote = axios.post("https://lambda-take-note.herokuapp.com/notes")
     return function(dispatch) {
         dispatch({
             type: ADDING_NOTE,
@@ -93,13 +93,13 @@ export const addNote = (note) => {
                     payload: error
                 })
             })
-            refresh()
+            
         }
     }
 
 export const editNote = (note) => {
     const id = note.id
-    const editANote = axios.put(`https://lambda-take-note.herokuapp.com/notes/edit/${id}`, { note })
+    const editANote = axios.put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { note })
     return function(dispatch) {
         dispatch({
             type: EDITING_NOTE
@@ -117,7 +117,7 @@ export const editNote = (note) => {
                     payload: error
                 })
             })
-            refresh()
+            
         }
     }
 export const confirmDelete = () => {
@@ -149,5 +149,6 @@ export const deleteNote = id => {
                     payload: error
                 })
             })
+            
     }
 }

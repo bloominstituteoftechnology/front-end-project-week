@@ -21,6 +21,7 @@ inputChangeHandler = (event) => {
 }
 
 render() {
+    console.log('create is rendering')
     return (
 <div>
     <Grid container spacing={40}>
@@ -31,7 +32,6 @@ render() {
     <div style={{marginLeft: 'calc(5vw + (150px + 2vw))'}}>
     <h3> Create Note: </h3>
         <form onSubmit={(val) => this.props.addNote(this.state)}>
-        {this.props.submitSucceeded ? <Redirect to="/"/> : null}
                 <div className="title">
                     <input
                         name="title"

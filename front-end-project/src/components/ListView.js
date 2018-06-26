@@ -7,6 +7,7 @@ import '../styles/ListView.css'
 
 const ListView = props => {
 
+
     return (        
 
     <div>
@@ -24,11 +25,12 @@ const ListView = props => {
                     </CardContent>
                 </Card> ) :
         <React.Fragment>
-            {props.notes.map(note => {
+            {props.notes ?
+            props.notes.map(note => {
             return (
             <Grid item xs={12} sm={6} lg={4} key={note._id} style={{ height: '33%'}}>
                 <Card className="mein-card">
-                    <NavLink to={`/${note._id}`} style={{textDecoration: 'none'}} key={note._id}>     
+                    <NavLink to={`/notes/${note._id}`} style={{textDecoration: 'none'}} key={note._id}>     
                         <CardHeader title={`${note.title}`} />
                         <CardContent>
                             <Typography component="p" style={{overflow: 'hidden', height: '10vh'}}>
@@ -38,9 +40,14 @@ const ListView = props => {
                         </NavLink>
                     </Card>
                 </Grid>
-            
-            )})}
-        </React.Fragment> }
+            )}) : <Card className="mein-card">
+                    <CardContent>
+                        <Typography component="p">
+                            No note for you.
+                            </Typography>
+                        </CardContent>
+                    </Card>}
+        </React.Fragment>}
         </div>
     </Grid>
     </div>
