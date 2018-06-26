@@ -1,0 +1,12 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Raleway;
+  font-weight: 500;
+  color: #4A4A4A;
+  background: #F3F3F3 ;
+}
+
+h1, h2, h3, h4 {
+  font-family: Roboto;
+}

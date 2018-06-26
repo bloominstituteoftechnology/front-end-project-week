@@ -1,0 +1,210 @@
+.App {
+  display: flex;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.App-content-container {
+  flex: 10;
+  padding: 25px;
+  border: 1px solid #979797;
+}
+
+.App-content-container .nav{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.App-content-container .nav a{
+  margin-left: 15px;
+}
+
+.Nav-container {
+  flex: 2;
+  background: #D8D8D8;
+  padding: 25px;
+  border: 1px solid #979797;
+}
+
+.main-button {
+  width: 100%;
+  color: #FFFFFF;
+  background: #2BC1C4;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 0px;
+  font-size: 15px;
+  cursor: pointer;
+
+}
+
+.save-button {
+  width: 20%;
+  color: #FFFFFF;
+  background: #2BC1C4;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 0px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.delete-button {
+  width: 40%;
+  color: #FFFFFF;
+  background: #D0021B;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  width: 40%;
+  color: #FFFFFF;
+  background: #2BC1C4;
+  border: 1px solid #979797;
+  padding: 10px;
+  margin: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Button font color: #FFFFFF 
+Sidebar background: #D8D8D8
+ Main background: #F3F3F3 
+ Main button background: #2BC1C4 
+ Delete button background: #D0021B 
+ Border color used throughout: #979797 */
+
+.NotesList-container {
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+
+}
+
+.NotesList-container h2{
+  font-size: 20px;
+}
+
+.NoteCard-list {
+  text-decoration: none;
+  color: #4A4A4A;
+  background: white;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #979797;
+  /* width: 27%; */
+  flex: 0 1 27%;
+}
+ 
+.NoteCard-list .scroll {
+  height: 200px;
+  overflow: hidden;
+}
+
+.NoteCard-tittle {
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #979797;
+  padding-bottom: 10px;
+}
+
+.input-tittle {
+  margin: 0 0 20px 0;
+  border: 1px solid #979797;
+  padding: 10px;
+  width: 50%;
+  font-family: Roboto;
+}
+
+.input-content {
+  margin: 0 20px 20px 0;
+  border: 1px solid #979797;
+  padding: 10px;
+  width: 100%;
+  height: 400px;
+  resize: none;
+  font-family: Raleway;
+  font-weight: 500;
+}
+
+.note-form {
+  margin-right: 20px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  padding-top: 10%;
+  cursor: default;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  background: #fff;
+  border: 2px solid #6d6c6c;
+  border-radius: 5px;
+  max-width: 500px;
+  min-width: 200px;
+  padding: 30px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.view-note-nav {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 10px 10px;
+}
+
+
+@media screen and (max-width: 60em) {
+  .NoteCard-list {
+    flex: 0 1 40%;
+  }
+}
+
+@media screen and (max-width: 45em) {
+  .NoteCard-list {
+    flex: 0 1 100%;
+  }
+}
