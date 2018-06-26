@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Card, CardHeader, CardContent, Typography, Grid } from '@material-ui/core'
 import { SideNav } from '../components'
@@ -28,7 +28,7 @@ const ListView = props => {
             return (
             <Grid item xs={12} sm={6} lg={4} key={note._id} style={{ height: '33%'}}>
                 <Card className="mein-card">
-                    <NavLink to={`/note/${note._id}`} style={{textDecoration: 'none'}} key={note._id}>     
+                    <NavLink to={`/${note._id}`} style={{textDecoration: 'none'}} key={note._id}>     
                         <CardHeader title={`${note.title}`} />
                         <CardContent>
                             <Typography component="p" style={{overflow: 'hidden', height: '10vh'}}>
@@ -53,4 +53,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ListView)
+export default withRouter(connect(mapStateToProps)(ListView))

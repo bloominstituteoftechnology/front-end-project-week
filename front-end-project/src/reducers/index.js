@@ -1,4 +1,4 @@
-import { FETCHING_NOTE, FETCH_NOTE, FETCHING_NOTES, FETCH_NOTES, ADDING_NOTE, ADD_NOTE, EDITING_NOTE, EDIT_NOTE, DELETING_NOTE, DELETE_NOTE, NOT_DELETING_NOTE } from '../actions'
+import { REFRESH, FETCHING_NOTE, FETCH_NOTE, FETCHING_NOTES, FETCH_NOTES, ADDING_NOTE, ADD_NOTE, EDITING_NOTE, EDIT_NOTE, CONFIRM_DELETE, DELETING_NOTE, DELETE_NOTE, NOT_DELETING_NOTE } from '../actions'
 
 const initialState = {
     fetching_notes: false,
@@ -6,6 +6,7 @@ const initialState = {
     adding_note: false,
     editing_note: false,
     deleting_note: false,
+    current_note: [],
     notes: [
         {
             id: 0,
@@ -93,6 +94,10 @@ const initialState = {
 
 const noteReducer = (state = initialState, action) => {
     switch (action.type) {
+        case REFRESH:
+        return Object.assign({}, state, {
+            notes: action.payload
+        })
         case FETCHING_NOTES:
         return Object.assign({}, state, {
             fetching_notes: true
@@ -110,7 +115,7 @@ const noteReducer = (state = initialState, action) => {
         case FETCH_NOTE:
         return Object.assign({}, state, {
             fetching_note: false,
-            notes: action.payload
+            current_note: action.payload.note
         })
         case DELETING_NOTE:
         return Object.assign({}, state, {
@@ -133,25 +138,27 @@ const noteReducer = (state = initialState, action) => {
         })
         case EDIT_NOTE:
         let unchangedNotes = state.notes.filter(note => {
-            return note.id !== action.payload.id
+            return note._id !== action.payload.notes._id
         })
         let newNotes = unchangedNotes.concat(action.payload)
         return Object.assign({}, state, {
             notes: newNotes,
             editing_note: false,
         })
+        case CONFIRM_DELETE:
+        return Object.assign({}, state, {
+            deleting_note: true
+        })
         case DELETE_NOTE:
         if (state.notes.length > 0) {
         let sparedNotes = state.notes.filter(note => {
-            return note.id !== action.payload.id
+            return note._id !== state.current_note._id
         }) // Realized after a bit of confusion that action.payload was returning a string and the input in state was returning a number.
         return Object.assign({}, state, {
             notes: sparedNotes,
             deleting_note: false,
-        })}
-        return Object.assign({}, state, {
-            deleting_note: false,
         })
+    }
         case NOT_DELETING_NOTE:
         return Object.assign({}, state, {
             deleting_note: false,

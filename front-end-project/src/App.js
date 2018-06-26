@@ -13,7 +13,7 @@ const routes = [
     main: () => <ListView />,
   },
   {
-    path: "/note/:id",
+    path: "/:id",
     main: () => <NoteView />,
   },
   {

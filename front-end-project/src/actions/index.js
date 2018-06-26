@@ -8,14 +8,16 @@ export const ADDING_NOTE = "ADDING_NOTE"
 export const ADD_NOTE = "ADD_NOTE"
 export const EDITING_NOTE = "EDITING_NOTE"
 export const EDIT_NOTE = "EDIT_NOTE"
+export const CONFIRM_DELETE = "CONFIRM_DELETE"
 export const DELETING_NOTE = "DELETING_NOTE"
 export const DELETE_NOTE = "DELETE_NOTE"
 export const NOT_DELETING_NOTE = "NOT_DELETING_NOTE"
+export const REFRESH = "REFRESH"
 
 export const ERROR = "ERROR"
 
 export const fetchNote = (id) => {
-    const fetchANote = axios.get(`http://localhost:5000/${id}`)
+    const fetchANote = axios.get(`http://localhost:5000/notes/${id}`)
     return function(dispatch) {
         dispatch({
             type: FETCHING_NOTE,
@@ -24,7 +26,28 @@ export const fetchNote = (id) => {
             .then(response => {
                 dispatch({
                     type: FETCH_NOTE,
+                    payload: response.data
+                })
+            })
+    }
+}
+export const refresh = () => {
+    const fetchAllNotes = axios.get(`http://localhost:5000/notes`)
+    return function(dispatch) {
+        dispatch({
+            type: FETCHING_NOTES
+        });
+        fetchAllNotes
+            .then(response => {
+                dispatch({
+                    type: FETCH_NOTES,
                     payload: response.data.notes
+                })
+            })
+            .catch(error => {
+                dispatch({
+                    type: ERROR,
+                    payload: error
                 })
             })
     }
@@ -73,7 +96,8 @@ export const addNote = (note) => {
         }
     }
 
-export const editNote = (note, id) => {
+export const editNote = (note) => {
+    const id = note.id
     const editANote = axios.put(`http://localhost:5000/notes/${id}`, { note })
     return function(dispatch) {
         dispatch({
@@ -94,7 +118,11 @@ export const editNote = (note, id) => {
             })
         }
     }
-
+export const confirmDelete = () => {
+    return {
+        type: CONFIRM_DELETE
+    }
+}
 export const cancelDelete = () => {
     return {
         type: NOT_DELETING_NOTE
@@ -110,7 +138,7 @@ export const deleteNote = id => {
             .then(response => {
                 dispatch({
                     type: DELETE_NOTE,
-                    payload: response.notes
+                    payload: response.data
                 })
             })
             .catch(error => {
