@@ -42,7 +42,7 @@ render() {
 						</div>
 						<br />
 						<div className='cards'>
-							{ this.state.notes.map( (note, index) => <div><Link to='/NoteView' style={{ textDecoration: 'none' }}><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...note} /><br /></Link></div>)};
+							{ this.state.notes.map( (note, index) => <div><Link to='/NoteView' style={{ textDecoration: 'none' }}><NoteCard className='eachcard' key={index} updateSelectedNotecard={this.props.updateSelectedNotecard} { ...note} /><br /></Link></div>)}
 						</div>
 					</Col>
 				</Row>

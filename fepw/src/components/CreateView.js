@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './index.css';
+import axios from 'axios';
 
 class CreateNote extends Component {
 	constructor() {
@@ -12,39 +13,49 @@ class CreateNote extends Component {
 		};
 	}
 
+addNote = event => {
+	event.preventDefault();
+	const newNote = {
+		title: this.state.title,
+		content: this.state.content
+	};
 
-	handleInput = event => {
-		this.setState({ [event.target.name]: event.target.value });
-	}
 
-	handleSubmit = () => {
-		this.props.newNotecard(this.state);
-	}
+axios.post('https://blooming-dusk-34216.herokuapp.com/notes/', newNote)
+	.then(newNote  => {
+		this.setState({ title:'', content:'' });
+	})
+	.catch(error => console.log(error));
+}
 
-	render() {
-		return(
-			<div className='wrapper'>
-				<div className='head'>
-					<h5>Create New Note:</h5>
-				</div>
-			<div className='createForm'>
-				<Form>
-					<FormGroup>
-						<Input type='textarea' onChange={this.handleInput} name='title' id='noteTitle' placeholder='Note Title' />
-					</FormGroup>
-					<FormGroup>
-						<Input type='textarea' onChange={this.handleInput} name='content' id='noteContent' placeholder='Note Content' />
-					</FormGroup>
-					<FormGroup>
-						<Link to='/'>
-						<button className='createButton' onClick={this.handleSubmit}>Save</button>
-						</Link>
-					</FormGroup>
-				</Form>
+handleInput = event => {
+	this.setState({ [event.target.name]: event.target.value });
+}
+
+render() {
+	return(
+		<div className='wrapper'>
+			<div className='head'>
+				<h5>Create New Note:</h5>
 			</div>
-			</div>
-		)
-	}
+		<div className='createForm'>
+			<Form>
+				<FormGroup>
+					<Input type='textarea' onChange={this.handleInput} name='title' id='noteTitle' value={this.state.title} placeholder='Note Title' />
+				</FormGroup>
+				<FormGroup>
+					<Input type='textarea' onChange={this.handleInput} name='content' id='noteContent' value={this.state.content} placeholder='Note Content' />
+				</FormGroup>
+				<FormGroup>
+					<Link to='/'>
+					<button className='createButton' onClick={this.addNote}>Save</button>
+					</Link>
+				</FormGroup>
+			</Form>
+		</div>
+		</div>
+	)
+}
 }
 
 export default CreateNote;
