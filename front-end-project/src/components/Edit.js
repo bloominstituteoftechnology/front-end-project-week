@@ -19,9 +19,9 @@ const renderTextField = ({ input, placeholder, type, meta: { touched, error }, .
 let Edit = props => {
     const { handleSubmit, submitting, pristine } = props
 
-    const title = currentNote.title
-    const content = currentNote.content
-    console.log('currentNote', currentNote)
+    const title = props.currentNote.title
+    const content = props.currentNote.content
+    console.log('currentNote', props.currentNote)
     return (
     <div style={{overflowY: 'scroll', overflowX: 'hidden'}}>
     <Grid container spacing={40}>
