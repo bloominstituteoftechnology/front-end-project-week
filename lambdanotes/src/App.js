@@ -12,8 +12,6 @@ import Noteview from './Component/Layout/Noteview';
 import axios from 'axios'
 
 
-import firebase from 'firebase/app';
-import 'firebase/database';
 
 class App extends Component {
   constructor(props) {
