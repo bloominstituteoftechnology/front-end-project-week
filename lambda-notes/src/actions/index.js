@@ -101,10 +101,12 @@ export const fetchNotes = () => {
       dispatch(fetching());
       promise
           .then( res => {
-              //Simulates delay on server response
-              setTimeout(() => {
-                  dispatch(fetched(res.data));
-              }, 1000);
+              // //Simulates delay on server response
+              // setTimeout(() => {
+              //     dispatch(fetched(res.data));
+              // }, 0);
+              dispatch(fetched(res.data));
+
           })
           .catch( err => {
               dispatch(error(err));
