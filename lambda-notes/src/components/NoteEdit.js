@@ -21,14 +21,14 @@ class NoteEdit extends Component {
     // console.log("filtered note",editNote[0].title)
     if(this.props.match.path === "/edit/:id"){
       const editNote = this.props.notes.filter((current) => {
-        return current.id === this.props.match.params.id
+        return current._id === this.props.match.params.id
       })
       console.log(editNote)
       this.setState({ 
         edit: true, 
         title: editNote[0].title,
         body: editNote[0].body,
-        id: editNote[0].id
+        id: editNote[0]._id
       })
     }
     

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 
 const Login = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     
     <div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import axios from 'axios';
 import NoteCards from './NoteCards';
 import NoteEdit from './NoteEdit';
 import NoteView from './NoteView';
@@ -13,16 +14,35 @@ class AllNotes extends Component {
       notes: [],
       authenticated: true,
       loading: true,
+      username: '',
+      userID: '5b31478b6cad790d6b69216c'
 
-    }
-    
+    };
+    this.backend = `https://tuesday-taco.herokuapp.com/api/`;
     
   }
   
 
+  getUserNotes = () => {
+    if(this.state.authenticated){
+      axios
+        .get(this.backend +'user/' + this.state.userID)
+          .then(response => {
+            // console.log("response",response)
+            const username  = response.data[0].createdBy.username;
+            
+            this.setState(() => ({ 
+              notes: response.data,
+              username: username
+            }))
+          })
+          .catch(err => {
+            console.log("error:", err.message)
+          });
+    }
+  }
   
-  
-  componentWillMount(){
+  componentDidMount(){
     // this.removeAuthListener = fire.auth().onAuthStateChanged(user => {
     //   if(user){
     //     this.notesRef = fire.database().ref(`notes/${user.uid}`)
@@ -36,6 +56,8 @@ class AllNotes extends Component {
     //     })
     //   }
     // })
+    this.getUserNotes()
+    
     
   }
 
@@ -86,28 +108,41 @@ class AllNotes extends Component {
   
   // this is going to be the add for firebase
   addNote = (note) => {
-    const newNotes = { title: note.title, body: note.body }
-    this.notesRef.push({
-      title: note.title,
-      body: note.body
-    })
-    console.log("add",newNotes)
+    const newNote = { title: note.title, body: note.body, createdBy: this.state.userID }
+    axios
+      .post(this.backend + 'note', newNote)
+        .then(() => {
+          this.getUserNotes()
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    console.log("add",newNote)
   }
 
   editNote = note => { 
+    const newNote = { title: note.title, body: note.body }
     console.log("edit",note.id)
-    this.notesRef.update({
-      [note.id]: {
-        title: note.title,
-        body: note.body
-      }
-    })    
+    axios 
+      .put(this.backend + 'note/' + note.id, newNote)
+        .then(response => {
+          this.getUserNotes()
+        })
+        .catch(err => {
+          console.log(err.message)
+        })  
   }
 
   deleteNote = note => {
-    this.notesRef.update({
-      [note]: null
-    })
+    axios
+      .delete(this.backend + 'note/' + note)
+        .then(response => {
+          console.log("deleted",response)
+          this.getUserNotes()
+        })
+        .catch(err => {
+          console.log(err.message)
+        });
   }
 
 
@@ -150,7 +185,7 @@ class AllNotes extends Component {
 
         <div className="mt-5">
           {this.state.authenticated 
-            ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} />} />
+            ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} user={this.state.username}/>} />
             : <h1>Log-In you must</h1>
           }
           
