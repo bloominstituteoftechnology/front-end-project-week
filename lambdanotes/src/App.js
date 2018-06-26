@@ -91,6 +91,7 @@ class App extends Component {
   }
 
   delete = (_id) => {
+    console.log("hr")
     axios
     .delete(`https://thawing-stream-63814.herokuapp.com/api/notes/${_id}`)
     .then(response => {

@@ -23,9 +23,9 @@ export default class Noteview extends Component {
         
       }
 
-      delete(){
-        this.props.handleDelete(this.props.note[0].id.toString());
-      }
+    //   delete(){
+    //     this.props.handleDelete(this.props.note[0].id.toString());
+    //   }
     //   componentDidMount() {
     //     this.fetch(this.props.match.params.id)
     //   }
@@ -80,7 +80,12 @@ export default class Noteview extends Component {
                     </ModalBody>
                     <ModalFooter>
                         <Button color="primary" onClick={this.toggle}>No</Button>
-                        <Button color="secondary" href = "/" onClick={() => {this.props.delete(this.props.note[0]._id)}}>Yes</Button>
+                        <Link to="/">
+                            <Button color="secondary" onClick={() => {
+                                console.log("hr2")
+                                this.props.delete(this.props.note[0]._id) }
+                                }>Yes</Button>
+                        </Link>
                     </ModalFooter>
                     </Modal>
                 </div >
