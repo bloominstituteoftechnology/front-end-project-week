@@ -1,6 +1,5 @@
 [build]
     base = "./front-end-project/"
-    publish = "./front-end-project/"
     comamnd = "yarn build"
 
 [[redirects]]
