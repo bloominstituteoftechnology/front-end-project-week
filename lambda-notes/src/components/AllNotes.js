@@ -4,15 +4,16 @@ import NoteCards from './NoteCards';
 import NoteEdit from './NoteEdit';
 import NoteView from './NoteView';
 import LogIn from './LogIn';
-import { fire, facebookProvider } from '../fire';
+
 
 class AllNotes extends Component {
   constructor(props) {
     super(props);
     this.state = {  
       notes: [],
-      authenticated: false,
+      authenticated: true,
       loading: true,
+
     }
     
     
@@ -22,66 +23,66 @@ class AllNotes extends Component {
   
   
   componentWillMount(){
-    this.removeAuthListener = fire.auth().onAuthStateChanged(user => {
-      if(user){
-        this.notesRef = fire.database().ref(`notes/${user.uid}`)
-        this.notesRef.on('value', data => {
-          this.snapshotToArray(data.val())
-        })
-      } else{
-        this.setState({
-          authenticated: false,
-          loading: false,
-        })
-      }
-    })
+    // this.removeAuthListener = fire.auth().onAuthStateChanged(user => {
+    //   if(user){
+    //     this.notesRef = fire.database().ref(`notes/${user.uid}`)
+    //     this.notesRef.on('value', data => {
+    //       this.snapshotToArray(data.val())
+    //     })
+    //   } else{
+    //     this.setState({
+    //       authenticated: false,
+    //       loading: false,
+    //     })
+    //   }
+    // })
     
   }
 
-  snapshotToArray = snapshot => {
-    if(snapshot !== null){
-      const notes = Object.entries(snapshot).map(notes => {
-        return Object.assign({}, { id: notes[0] }, notes[1]);
-      });  
-      this.setState({
-        notes: notes,
-        authenticated: true,
-        loading: false,
-      });
-    }else{
-      this.setState({
-        notes: [{
-          id: "0",
-          title: "you have no notes!!",
-          body: "This is a note to let you know that you have no notes. if you delete this note, it will rise again in less than 3 days"
-        }]
-      })
-    }
-  };
+  // snapshotToArray = snapshot => {
+  //   if(snapshot !== null){
+  //     const notes = Object.entries(snapshot).map(notes => {
+  //       return Object.assign({}, { id: notes[0] }, notes[1]);
+  //     });  
+  //     this.setState({
+  //       notes: notes,
+  //       authenticated: true,
+  //       loading: false,
+  //     });
+  //   }else{
+  //     this.setState({
+  //       notes: [{
+  //         id: "0",
+  //         title: "you have no notes!!",
+  //         body: "This is a note to let you know that you have no notes. if you delete this note, it will rise again in less than 3 days"
+  //       }]
+  //     })
+  //   }
+  // };
 
-  componentWillUnmount(){
-    fire.removeBinding(this.notesRef)
-  }
+  // componentWillUnmount(){
+  //   fire.removeBinding(this.notesRef)
+  // }
 
-  authWithFacebook=()=>{
-    fire.auth().signInWithPopup(facebookProvider)
-      .then((result,error) => {
-        if(error){
-          console.log('unable to signup with firebase')
-        } else {
-          this.setState({authenticated: true })
-        }
-      }) 
-  }
+  // authWithFacebook=()=>{
+  //   fire.auth().signInWithPopup(facebookProvider)
+  //     .then((result,error) => {
+  //       if(error){
+  //         console.log('unable to signup with firebase')
+  //       } else {
+  //         this.setState({authenticated: true })
+  //       }
+  //     }) 
+  // }
 
-  logOut=()=>{
-    fire.auth().signOut().then((user)=> {
-      this.setState({
-        notes: [],
-        authenticated: false,
-      })   
-    })
-  }
+  // logOut=()=>{
+  //   fire.auth().signOut().then((user)=> {
+  //     this.setState({
+  //       notes: [],
+  //       authenticated: false,
+  //     })   
+  //   })
+  // }
   
   // this is going to be the add for firebase
   addNote = (note) => {
