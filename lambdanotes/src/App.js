@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 import Listview from './Component/Layout/Listview';
@@ -13,22 +12,8 @@ import Noteview from './Component/Layout/Noteview';
 import axios from 'axios'
 
 
-
-import Rebase from 're-base';
 import firebase from 'firebase/app';
 import 'firebase/database';
-
-var app = firebase.initializeApp({
-    apiKey: "AIzaSyC9GArQo09ELDhdx5ChO-FF2ENA0Xnx8ak",
-    authDomain: "dromo-733c8.firebaseapp.com",
-    databaseURL: "https://dromo-733c8.firebaseio.com",
-    projectId: "dromo-733c8",
-    storageBucket: "dromo-733c8.appspot.com",
-    messagingSenderId: "195416214925"
-});
-
-var db = firebase.database(app);
-var base = Rebase.createClass(db);
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +47,7 @@ class App extends Component {
 
     axios({
       method: 'post',
-      url: 'http://localhost:5000/api/notes',
+      url: 'https://thawing-stream-63814.herokuapp.com/api/notes',
       data: {
         title: this.state.title,
         note: this.state.textBody
@@ -79,7 +64,7 @@ class App extends Component {
   
   read = () => {
     axios
-      .get('http://localhost:5000/api/notes')
+      .get('https://thawing-stream-63814.herokuapp.com/api/notes')
       .then(response => {
         console.log(response.data)
         this.setState({
@@ -94,7 +79,7 @@ class App extends Component {
   update = (_id) =>{
     console.log(_id)
     axios
-      .put(`http://localhost:5000/api/notes/${_id}`, {
+      .put(`https://thawing-stream-63814.herokuapp.com/api/notes/${_id}`, {
           title: this.state.title,
           note: this.state.textBody
       })
@@ -109,7 +94,7 @@ class App extends Component {
 
   delete = (_id) => {
     axios
-    .delete(`http://localhost:5000/api/notes/${_id}`)
+    .delete(`https://thawing-stream-63814.herokuapp.com/api/notes/${_id}`)
     .then(response => {
       console.log(response)
     })
