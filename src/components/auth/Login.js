@@ -16,18 +16,18 @@ class Login extends React.Component {
         axios.post('https://notesmtm.herokuapp.com/api/auth/login', this.state)
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
-                this.props.history.push('/');
+                this.props.history.push('/notes');
            })
             .catch(err => console.log(err));
     }
 
     render() {
-        const { username, password } = this.state;
+        const { email, password } = this.state;
         return (
             <div>
                 <form>
                     <h3>Sign In</h3>
-                    <input type="text" name="username" value={username} placeholder="username" onChange={this.handleChange}/>
+                    <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>
                     <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
                     <button onClick={this.handleSubmit}>Sign In</button>
                 </form>
