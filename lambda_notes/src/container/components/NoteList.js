@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Notes from '../func/Notes';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 import '../component.css';
 
 
@@ -8,10 +10,22 @@ import '../component.css';
 
 class NoteList extends Component{
     constructor(){
-        super();
-}
-
-    
+        super()
+        this.state = {
+            notesList: [],
+            note: {},
+        }
+    }
+    componentDidMount = () => {
+        axios.get('http://localhost:5000/api/get/')
+            .then(response => {
+                console.log(response)
+                this.setState({ notesList: response.data.note })
+            })
+            .catch(err => {
+                console.log("errorMessage : ", err)
+            })
+    }
     render(){
     console.log("NoteListProps", this.props)
 

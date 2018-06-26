@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Notesidebar from './container/Notesidebar.js';
 import { Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import axios from 'axios';
+
 import NoteList from './container/components/NoteList.js';
 import CreateNote from './container/components/CreateNote.js';
-import Notes from './container/func/Notes.js';
 import SingleNote from './container/func/SingleNote.js';
 
 import './App.css';
@@ -15,41 +15,20 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      notesList: [
-        {
-          "title": "Card_1",
-          "content": "fvgbhnjnhbgvfcd",
-          id: 1527057950536
-        },
-        {
-          "title": "Card_2",
-          "content": "fvgbhnjnhbgvfcd",
-          id: 1527057950457
-        },
-        {
-          "title": "Card_3",
-          "content": "fvgbhnjnhbgvfcd",
-          id: 1527057950123
-        },
-        {
-          "title": "Card_4",
-          "content": "fvgbhnjnhbgvfcd",
-          id: 1527057950224
-        },
-        {
-          "title": "Card_5",
-          "content": "fvgbhnjnhbgvfcd",
-          id: 1527057950749
-        },
-        {
-          "title": "Card_6",
-          "content": "fvgbhnjnhbgvfcd",
-          id: 1527057950194
-        },
-
-      ],
+      notesList: [],
       note: {},
     }
+  }
+
+  componentDidMount = () => {
+    axios.get('http://localhost:5000/api/get/')
+    .then(response => {
+      console.log(response)
+      this.setState({ notesList : response.data.note })
+    })
+    .catch(err => {
+      console.log("errorMessage : ", err)
+    })
   }
 
   fetchData = (dataFromChild) => {
@@ -110,7 +89,6 @@ class App extends Component {
             </div>
           </div>
       </React.Fragment>
-
     )
   }
 }

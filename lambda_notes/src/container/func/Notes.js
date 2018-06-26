@@ -1,7 +1,5 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, } from 'reactstrap';
-import { Button } from 'react-bootstrap'; 
-import { Link } from 'react-router-dom';
 import '../component.css';
 
 const Notes = props =>{

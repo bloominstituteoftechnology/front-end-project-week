@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notes from '../func/Notes';
+import axios from 'axios';
 
 import '../component.css';
  
@@ -9,39 +9,7 @@ class CreateNote extends Component{
         this.state = {
             title: "",
             content: "",
-            notesList: [
-                {
-                    "title": "Card_1",
-                    "content": "fvgbhnjnhbgvfcd",
-                    id: 1527057950536
-                },
-                {
-                    "title": "Card_2",
-                    "content": "fvgbhnjnhbgvfcd",
-                    id: 1527057950457
-                },
-                {
-                    "title": "Card_3",
-                    "content": "fvgbhnjnhbgvfcd",
-                    id: 1527057950123
-                },
-                {
-                    "title": "Card_4",
-                    "content": "fvgbhnjnhbgvfcd",
-                    id: 1527057950224
-                },
-                {
-                    "title": "Card_5",
-                    "content": "fvgbhnjnhbgvfcd",
-                    id: 1527057950749
-                },
-                {
-                    "title": "Card_6",
-                    "content": "fvgbhnjnhbgvfcd",
-                    id: 1527057950194
-                },
-                
-            ],
+            notesList: [],
            
         }
     }
@@ -58,23 +26,30 @@ class CreateNote extends Component{
             const title = this.props.match.params.title;
             console.log("title", title)
             const updNote = {title: this.state.title, content: this.state.content};
-            this.props.EditData(title, updNote);
+            axios.put(`http://localhost:5000/api/edit/:id`, this.state)
+                .then(response => {
+                    console.log('response', response.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+            this.setState({ title: "", content: ""})
         }else{
             const newNote = this.state.notesList;
             const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
             console.log("CreateNote line 65", newNote);
-            this.props.fetch(this.state.notesList);
+            axios.post('http://localhost:5000/api/create/note', this.state)
+                .then(response => {
+                    console.log('response',response.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
             this.setState({ title: "", content: "", newNote })
         }
         
     }
-
-    // editNote = (e) => {
-    //     const updNote = { title, content } 
-    //     this.setState({ title: this.state.title, content: this.state.content })
-    //     this.props.EditData(title, updNote)
-    // }
 
     render() {
         console.log(this.props)

@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, } from 'reactstrap';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 import '../component.css';
 
 class SingleNote extends Component{
 
     deleteNote = (e) => {
         e.preventDefault();
-        this.props.DeleteData(this.props.NoteData.id)
+        axios.delete(`http://localhost:5000/api/delete/${this.props.NoteData._id}`)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log("errorMessage : ", err)
+            })
     }
 
     render() {
