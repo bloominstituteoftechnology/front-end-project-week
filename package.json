@@ -1,7 +1,10 @@
 {
   "name": "front-end-project-week",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "repository": "https://github.com/erinc35/front-end-project-week.git",
   "license": "MIT",
   "dependencies": {

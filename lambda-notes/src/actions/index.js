@@ -23,6 +23,7 @@ export const ORDER_NOTE = "ORDER_NOTE";
 
 export const createNote = note => {
 //   noteId += 1;
+
   return {
     type: CREATE_NOTE,
     payload: {

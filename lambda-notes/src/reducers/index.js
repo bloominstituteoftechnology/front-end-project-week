@@ -22,7 +22,6 @@ const retrieveData = () => {
   return initialNotes === null ? [] : initialNotes;
 };
 
-
 export const notesReducer = (notes = retrieveData(), action) => {
   switch (action.type) {
     case CREATE_NOTE:
