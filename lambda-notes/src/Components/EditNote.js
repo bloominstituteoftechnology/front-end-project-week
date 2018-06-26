@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
 import {
     Form,
     Input,
@@ -11,7 +12,46 @@ import {
   } from "reactstrap";
   import NavBar from './NavBar';
 
-const EditNote = () => {
+class EditNote extends Component {
+  constructor() {
+    super();
+  this.state = {
+    note: {},
+    title: '',
+    content: '',
+    }
+  }
+  componentWillMount() {
+    const id = this.props.match.params.id
+    axios.get(`http://localhost:5000/api/notes/${id}`)
+    .then(response => {
+      this.setState(() => ({ note: response.data }))
+      console.log(this.state.note)
+    })
+  };
+
+  editNote = e => {
+    e.preventDefault();
+    const  id  = this.props.match.params.id
+    axios.put(`http://localhost:5000/api/notes/${id}`, {
+      title: this.state.title,
+      content: this.state.content
+    })
+    .then(response => {
+      
+      this.props.history.push('/')
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value})
+  }
+
+  render(){
+    
     return (
         <Container className="mainContainer" style={{ display: "flex" }}>
         <Col sm="3" className="navCol">
@@ -26,19 +66,22 @@ const EditNote = () => {
                 type="text"
                 name="title"
                 placeholder="Note Title"
-               
+               onChange={this.handleChange}
+               value={this.state.title}
               />
               <br />
               <Input
                 style={{ paddingBottom: "400px", paddingTop: "20px", paddingLeft: "20px" }}
                 type="textarea"
                 name="content"
-                placeholder="Note Content"
-                
+                placeholder="Note"
+                onChange={this.handleChange}
+                value={this.state.content}
               />
               <br />
-              <Link to="/Note">
+              {/* <Link  to={`/note/${this.state.note._id}`}> */}
                 <Button
+                onClick={this.editNote}
                   style={{
                     fontSize: "18px",
                     fontWeight: "bold",
@@ -51,12 +94,13 @@ const EditNote = () => {
                 >
                   Update
                 </Button>
-              </Link>
+              {/* </Link> */}
             </FormGroup>
           </Form>
         </Col>
       </Container>
     )
+  }
 }
  
 export default EditNote;

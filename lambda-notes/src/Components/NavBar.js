@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Nav, Navbar, Button } from "reactstrap";
 import { withRouter, Link } from "react-router-dom";
 import "./NoteCss.css";
+import axios from 'axios';
 class NavBar extends Component {
   render() {
     return (

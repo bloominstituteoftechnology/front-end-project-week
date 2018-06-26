@@ -21,17 +21,17 @@ class NoteCard extends Component {
     };
   }
 
-  componentDidMount() {
-    axios
-    .get('http://localhost:5000/api/notes')
-    .then(notes => {
-      console.log("notesAxios", notes)
-      this.setState(() => ({ notes: notes.data }));
-    })
-    .catch(err => {
-      console.error("Server Error", err);
-    })
-  }
+  // componentDidMount() {
+  //   axios
+  //   .get('http://localhost:5000/api/notes')
+  //   .then(notes => {
+  //     console.log("notesAxios", notes)
+  //     this.setState(() => ({ notes: notes.data }));
+  //   })
+  //   .catch(err => {
+  //     console.error("Server Error", err);
+  //   })
+  // }
 
   completeHandler = () => {
     if (this.state.completed === "") {
@@ -42,13 +42,13 @@ class NoteCard extends Component {
   };
 
   render() {
-    console.log("notes1", this.state.notes)
+    console.log("notes1", this.props)
     return (
       <div>
           <Card className="noteCard">
             <CardBody>
         <Input type="checkbox" onClick={this.completeHandler} style={{ marginLeft: '-15px'}} />
-        <Link to="/Note" style={{ textDecoration: "none", color: "black" }}>
+        {/* <Link to="/note/:id" params={{ testvalue: "Hello" }} style={{ textDecoration: "none", color: "black" }}> */}
               <CardHeader style={{ padding: "0px", backgroundColor: "white" }}>
                 <CardTitle
                   style={{
@@ -57,7 +57,7 @@ class NoteCard extends Component {
                     textDecoration: `${this.state.completed}`
                   }}
                 >
-                  Note Title
+                  {this.props.title}
                 </CardTitle>
               </CardHeader>
               <CardText
@@ -68,9 +68,9 @@ class NoteCard extends Component {
                   fontWeight: "medium"
                 }}
               >
-               
+               {this.props.content}
               </CardText>
-        </Link>
+        {/* </Link> */}
             </CardBody>
           </Card>
       </div>

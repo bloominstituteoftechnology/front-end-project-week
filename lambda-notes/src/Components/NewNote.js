@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import NavBar from "./NavBar";
 import {
   Form,
@@ -13,17 +14,31 @@ import './NoteCss.css'
 import { Link } from "react-router-dom";
 
 class NewNote extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       title: "",
-      note: ""
+      content: ""
     };
+  }
+
+  newNote = () => {
+    axios.post('http://localhost:5000/api/notes', 
+    {
+      title: this.state.title,
+      content: this.state.content
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
   }
 
   addNewNoteHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
-    this.props.notes.push(this.state);
   };
 
   render() {
@@ -36,11 +51,12 @@ class NewNote extends Component {
         <Col sm="9" className="notesContainer">
           <Form style={{ padding: "20px", marginTop: "35px" }}>
             <h3 style={{ fontFamily: "Roboto", fontWeight: 'bold'}} >Create New Note:</h3>
-            <FormGroup style={{ marginTop: "35px" }}>
+            <FormGroup onSubmit={this.newNote} style={{ marginTop: "35px" }}>
               <Input style={{ paddingTop: "10px", paddingLeft: "20px", width: "60%"}}
                 type="text"
                 name="title"
                 placeholder="Note Title"
+                onChange={this.addNewNoteHandler}
                 value={this.state.title}
               />
               <br />
@@ -49,11 +65,13 @@ class NewNote extends Component {
                 type="textarea"
                 name="content"
                 placeholder="Note Content"
-                valid={this.state.note}
+                onChange={this.addNewNoteHandler}
+                value={this.state.content}
               />
               <br />
-              <Link to="/">
+              <Link onClick={this.forceUpdate} to="/">
                 <Button
+                onClick={this.newNote}
                   style={{
                     fontSize: "18px",
                     fontWeight: "bold",

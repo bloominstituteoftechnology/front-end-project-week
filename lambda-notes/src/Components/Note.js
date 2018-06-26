@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NoteCard from "./NoteCard";
+import axios from 'axios';
 import { Col, Row, Container, Input } from "reactstrap";
 import NavBar from "./NavBar";
 import "./NoteCss.css";
@@ -7,11 +8,21 @@ import { Link } from "react-router-dom";
 import DeleteModal from "./deleteModal";
 
 class Note extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
+      note: {},
       completed: ""
     };
+  }
+
+  componentWillMount() {
+    const id = this.props.match.params.id
+    axios.get(`http://localhost:5000/api/notes/${id}`)
+    .then(response => {
+      this.setState(() => ({ note: response.data }))
+      console.log(this.state.note)
+    })
   }
 
   completeHandler = () => {
@@ -23,6 +34,7 @@ class Note extends Component {
     }
   };
   render() {
+    console.log("note props", this.props)
     return (
       <Container className="mainContainer" style={{ display: "flex" }}>
         <Col sm="3" className="navCol">
@@ -32,48 +44,20 @@ class Note extends Component {
         <Container className="notesContainer">
           <br />
           <Row style={{ display: "flex" }}>
-            <Link className="editLink" to="/edit">
+            <Link className="editLink" note={this.props} to={`/edit/${this.state.note._id}`}>
               edit
             </Link>
-            <DeleteModal />
+            <DeleteModal note={this.state.note} props={this.props}/>
           </Row>
           <h3 className="noteP" style={{ textDecoration: `${this.state.completed}`}} >
             <Input
               type="checkbox"
               onClick={this.completeHandler}
               style={{ marginTop: "12px",  }}
-            />Note Name
+            />{this.state.note.title}
           </h3>
           <p className="noteP" style={{ textDecoration: `${this.state.completed}` }} >
-            Basketball ipsum dolor sit amet free throw basketball basket bank
-            shot, outlet power forward flop zone defense Duncan. Nowitzki James
-            Duncan rip alley-oop three. Bryant swish power forward center post
-            Barkley key. Basketball ipsum dolor sit amet free throw basketball
-            basket bank shot, outlet power forward flop zone defense Duncan.
-            Nowitzki James Duncan rip alley-oop three. Bryant swish power
-            forward center post Barkley key Basketball ipsum dolor sit amet free
-            throw basketball basket bank shot, outlet power forward flop zone
-            defense Duncan. Nowitzki James Duncan rip alley-oop three. Bryant
-            swish power forward center post Barkley key. Basketball ipsum dolor
-            sit amet free throw basketball basket bank shot, outlet power
-            forward flop zone defense Duncan. Nowitzki James Duncan rip
-            alley-oop three. Bryant swish power forward center post Barkley key{" "}
-          </p>
-
-          <p className="noteP" style={{ textDecoration: `${this.state.completed}` }} >
-            Basketball ipsum dolor sit amet free throw basketball basket bank
-            shot, outlet power forward flop zone defense Duncan. Nowitzki James
-            Duncan rip alley-oop three. Bryant swish power forward center post
-            Barkley key. Basketball ipsum dolor sit amet free throw basketball
-            basket bank shot, outlet power forward flop zone defense Duncan.
-            Nowitzki James Duncan rip alley-oop three. Bryant swish power
-            forward center post Barkley key Basketball ipsum dolor sit amet free
-            throw basketball basket bank shot, outlet power forward flop zone
-            defense Duncan. Nowitzki James Duncan rip alley-oop three. Bryant
-            swish power forward center post Barkley key. Basketball ipsum dolor
-            sit amet free throw basketball basket bank shot, outlet power
-            forward flop zone defense Duncan. Nowitzki James Duncan rip
-            alley-oop three. Bryant swish power forward center post Barkley key{" "}
+            {this.state.note.content}
           </p>
         </Container>
       </Container>

@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, propTypes} from "re
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import './NoteCss.css';
+import axios from 'axios';
 
 class DeleteModal extends React.Component {
   constructor(props) {
@@ -15,13 +16,31 @@ class DeleteModal extends React.Component {
     this.toggle = this.toggle.bind(this);
   }
 
+
+
   toggle() {
     this.setState({
       modal: !this.state.modal
     });
   }
 
+deleteHandle = e => {
+  
+  this.setState({
+    modal: !this.state.modal
+  })
+  const id = this.props.note._id
+  axios.delete(`http://localhost:5000/api/notes/${id}`)
+  .then(response => {
+    console.log(response)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
   render() {
+    console.log("modal:", this.props.note._id)
     return (
       <div>
         <a
@@ -43,7 +62,7 @@ class DeleteModal extends React.Component {
             <br/>
             <br/>
             
-            <Link to="/">
+            <Link onClick={this.forceUpdate} to="/">
               <Button
                 color="danger"
                 style={{
@@ -55,7 +74,7 @@ class DeleteModal extends React.Component {
                   padding: "8px",
                   marginRight: '10px'
                 }}
-                onClick={this.toggle}
+                onClick={this.deleteHandle}
               >
                 Delete
               </Button>{" "}

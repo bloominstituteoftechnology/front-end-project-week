@@ -112,16 +112,13 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={props => {
-              return <NoteList {...props} notes={this.state.notes} />;
-            }}
+            component={NoteList}
           />
-          <Route exact path="/Note" component={Note} />
-          <Route exact path ='/edit' component={EditNote} /> 
+          <Route path="/note/:id" component={Note} />
+          <Route exact path ='/edit/:id' component={EditNote} /> 
           <Route
             path="/notes/:id"
-            render={props => {
-              return <NoteCard {...props} notes={this.state.notes} />;
+            component={NoteCard} />;
             }}
           />
           <Route
