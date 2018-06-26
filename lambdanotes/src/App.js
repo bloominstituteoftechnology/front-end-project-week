@@ -21,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(`https://lamb-danotes.herokuapp.com/note/get/all`)
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
@@ -30,7 +30,7 @@ class App extends Component {
 
   updateState = () => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(`https://lamb-danotes.herokuapp.com/note/get/all`)
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
@@ -40,7 +40,7 @@ class App extends Component {
 
   setCurrentNote = (noteID) => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${noteID}`)
+      .get(`https://lamb-danotes.herokuapp.com/note/get/${noteID}`)
         .then(res => {this.setState({currentNote: res.data})})
         .catch(err => {console.log(err)})
   }

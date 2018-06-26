@@ -16,10 +16,16 @@ class CreateNote extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
+    preventSubmit = (e) => {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+        }
+    }
+
     handleSaveNote = () => {
         console.log('handleCreateNote Fired')
         axios
-            .post(`https://killer-notes.herokuapp.com/note/create`, this.state)
+            .post(`https://lamb-danotes.herokuapp.com/note/create`, this.state)
                 .then(res => {
                     console.log(res);
                     this.props.updateState();
@@ -36,6 +42,7 @@ class CreateNote extends Component {
                 </div>
                 <form className='createNoteForm'>
                     <input 
+                        onKeyPress={this.preventSubmit}
                         onChange={this.handleTitleChange} 
                         type='text' 
                         className='createNoteInputTitle' 
@@ -53,7 +60,7 @@ class CreateNote extends Component {
                     </textarea>
                     <div className='cnEntireLink'>
                         <Link to={`/`}>
-                            <input onClick={this.handleSaveNote} className='createNoteSaveButton' type='button' value='Save' />
+                            <button onClick={this.handleSaveNote} className='createNoteSaveButton' type='submit'>Save</button>
                         </Link>
                     </div>
                 </form>

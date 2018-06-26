@@ -30,7 +30,7 @@ class ListView extends Component {
             <div className='listViewContainer'>
                 <div className='sortingOptions'>
                     <div className='searchContainer'>
-                        <input onChange={this.updateSearch} value={this.state.search} type='search' className='search' placeholder='search' />
+                        <input onChange={this.updateSearch} value={this.state.search} type='search' name='q' className='search' placeholder='search' />
                     </div>
                     <p>sort by:</p>
                     <p className='sortOption' onClick={() => this.props.sortNotesList('title')}>title</p>

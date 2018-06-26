@@ -19,7 +19,7 @@ class EditNote extends Component {
     handleUpdateNote = () => {
         console.log('handleUpdateNote Fired')
         axios
-            .put(`https://killer-notes.herokuapp.com/note/edit/${this.props.currentNote._id}`, this.state)
+            .put(`https://lamb-danotes.herokuapp.com/note/edit/${this.props.currentNote._id}`, this.state)
                 .then(res => {
                     console.log(res);
                     this.props.setCurrentNote(res.data._id);

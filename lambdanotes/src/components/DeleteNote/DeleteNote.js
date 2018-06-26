@@ -23,7 +23,7 @@ class DeleteNote extends Component {
   handleDeleteNote = (id) => {
     console.log('handleDeleteNoteFired');
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+      .delete(`https://lamb-danotes.herokuapp.com/note/delete/${id}`)
         .then(res => {
           console.log(res);
           this.props.updateState();
