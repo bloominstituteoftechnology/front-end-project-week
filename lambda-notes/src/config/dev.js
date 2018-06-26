@@ -1,5 +1,5 @@
 export const FirebaseConfig = {
-  apiKey: "key",
+  apiKey: "apikey",
   authDomain: "lambda-notes-8ecdf.firebaseapp.com",
   databaseURL: "https://lambda-notes-8ecdf.firebaseio.com"
 };
