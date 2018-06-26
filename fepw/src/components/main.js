@@ -9,7 +9,7 @@ class Main extends Component {
 	constructor() {
 		super();
 		this.state = {
-			cards: [{ title: 'Note Title', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}],
+			notes: [{ title: '', content: ''}],
 	
 			addNotecard: {
 				title:'',
@@ -24,12 +24,12 @@ class Main extends Component {
 
 
 newNotecard = (addNewNotecard) => {
-	this.setState({ cards: [...this.state.cards, addNewNotecard]});
+	this.setState({ notes: [...this.state.notes, addNewNotecard]});
 }
 
 
 updatedNotecard = (updatedNC) => {
-	const updatedNotes = this.state.cards.map(note => {
+	const updatedNotes = this.state.notes.map(note => {
 		if (note.title === this.state.selectedNotecard.title) {
 			return { title: updatedNC.title, content: updatedNC.content };
 		} else {
@@ -37,7 +37,7 @@ updatedNotecard = (updatedNC) => {
 		}
 	});
 
-	this.setState({ cards: updatedNotes });
+	this.setState({ notes: updatedNotes });
 }
 
 updateSelectedNotecard = (selectedNotecard) => {
@@ -45,8 +45,8 @@ updateSelectedNotecard = (selectedNotecard) => {
 }
 
 deleteNotecard = title => {
-	const updatedNotes = this.state.cards.filter(card => card.title !== title);
-	this.setState({ cards: updatedNotes });
+	const updatedNotes = this.state.notes.filter(note => note.title !== title);
+	this.setState({ notes: updatedNotes });
 
 }
 

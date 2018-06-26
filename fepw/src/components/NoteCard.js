@@ -5,12 +5,14 @@ import './index.css';
 class NoteCard extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {updateSelectedNotecard: this.props.updateSelectedNotecard}
+		this.state = {
+			updateSelectedNotecard: this.props.updateSelectedNotecard
+		}
 	}
 
-	handleSelectNote = () => {
-		this.state.updateSelectedNotecard({ title: this.props.title, content: this.props.content });
-	}
+handleSelectNote = () => {
+	this.state.updateSelectedNotecard({ title: this.props.title, content: this.props.content });
+}
 
 	render() {
 		return (
