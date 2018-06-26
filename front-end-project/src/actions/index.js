@@ -93,6 +93,7 @@ export const addNote = (note) => {
                     payload: error
                 })
             })
+            refresh()
         }
     }
 
@@ -116,6 +117,7 @@ export const editNote = (note) => {
                     payload: error
                 })
             })
+            refresh()
         }
     }
 export const confirmDelete = () => {
