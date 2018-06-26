@@ -13,9 +13,9 @@ class NotesList extends Component {
     }
     componentDidMount() {
       //Delays because is not in sync
-      setTimeout(() => {
-        this.props.fetchNotes();
-      }, 500);
+      // setTimeout(() => {
+      //   this.props.fetchNotes();
+      // }, 500);
       this.props.fetchNotes();
     }
 
