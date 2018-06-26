@@ -46,7 +46,7 @@ class NewNote extends Component {
       <Container className="mainContainer" style={{ display: "flex" }}>
         <Col sm="3" className="navCol">
           <NavBar className="navBar" />
-        </Col>
+        </Col> 
 
         <Col sm="9" className="notesContainer">
           <Form style={{ padding: "20px", marginTop: "35px" }}>
