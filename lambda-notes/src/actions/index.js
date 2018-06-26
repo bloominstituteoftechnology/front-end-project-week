@@ -1,37 +1,158 @@
-import { notesRef } from "../config/firebase";
+import axios from 'axios';
 
-import { FETCHING_NOTES, FETCHED_NOTES, ERROR } from "./types";
+import { ADD, EDIT, CANCEL, FETCH, FETCHED, FETCHING, SAVING, SAVED, UPDATING, UPDATED, DELETING, DELETED, ERROR } from "./types";
 
-export const addNote = newNote => async dispatch => {
-  notesRef.push().set(newNote);
-};
+// const host = 'http://localhost:5000';
+const host = 'https://young-coast-73926.herokuapp.com';
+const fetch = () => {
+  return {
+      type: FETCH
+  }
+}
 
-export const updateNote = (updateNoteId, note) => async dispatch => {
-    notesRef.child(updateNoteId).update(note);
-  };
-  
-export const removeNote = removeNoteId => async dispatch => {
-  notesRef.child(removeNoteId).remove();
-};
+const add = () => {
+  return {
+      type: ADD
+  }
+}
+
+const edit = () => {
+  return {
+      type: EDIT
+  }
+}
+
+const cancel = () => {
+  return {
+      type: CANCEL
+  }
+}
+
+
+const fetching = () => {
+  return {
+      type: FETCHING
+  }
+}
+
+const fetched = (data) => {
+  return {
+      type: FETCHED,
+      payload: data
+  }
+}
+
+const saving = () => {
+  return {
+      type: SAVING
+  }
+}
+
+const saved = (data) => {
+  return {
+      type: SAVED,
+      payload: data
+  }
+}
+
+const updating = () => {
+  return {
+      type: UPDATING
+  }
+}
+
+const updated = (data) => {
+  return {
+      type: UPDATED,
+      payload: data
+  }
+}
+
+const deleting = () => {
+  return {
+      type: DELETING
+  }
+}
+
+const deleted = (data) => {
+  return {
+      type: DELETED,
+      payload: data
+  }
+}
+
+const error = (err) => {
+  return {
+      type: ERROR,
+      payload: err
+  }
+}
+
+const cancelEdit = () => {
+  return function(dispatch) {
+      dispatch(cancel());
+  }
+}
 
 export const fetchNotes = () => {
-    return (dispatch) => {
-        dispatch({ type: FETCHING_NOTES })
-        
-        notesRef.on("value", 
-        response => {
-            const data = response.val();
-            const notes = Object.keys(data).map(key => {
-                    return ({
-                        id: key,
-                        title: data[key].title,
-                        content: data[key].content
-                    })
-            });
-            dispatch({ type: FETCHED_NOTES, notes: notes})
-        }, 
-        error => {
-            dispatch({ type: ERROR, error: error.code })
-        });
-    }
+  const promise = axios.get(`${host}/api/notes/`);
+  console.log("fetching notes... ")
+  return function(dispatch) {
+      dispatch(fetching());
+      promise
+          .then( res => {
+              //Simulates delay on server response
+              setTimeout(() => {
+                  dispatch(fetched(res.data));
+              }, 1000);
+          })
+          .catch( err => {
+              dispatch(error(err));
+          })
+  }
+}
+
+export const addNote = (note) => {
+  const promise = axios.post(`${host}/api/notes/`, note);
+  return function(dispatch) {
+      dispatch(saving());
+      promise
+          .then( res => {
+              dispatch(saved(res.data))
+              dispatch(cancelEdit());
+          })
+          .catch( err => {
+              dispatch(error(err));
+          })
+  }
+}
+
+export const removeNote = (note) => {
+  const promise = axios.delete(`${host}/api/notes/${note}`)
+  return function(dispatch) {
+      dispatch(deleting())
+      promise 
+          .then( res => {
+              dispatch(deleted(res.data));
+          })
+          .catch( err => {
+              dispatch(error(err));
+          })
+  }
+}
+
+export const updateNote = (updateNoteId, note) => {
+  console.log("update this note :", note)
+  const promise = axios.put(`${host}/api/notes/${updateNoteId}`, note)
+  return function(dispatch) {
+      dispatch(updating())
+      promise
+          .then( res  => {
+              dispatch(updated(res.data));
+              dispatch(cancelEdit());
+          })
+          .catch( err => {
+              dispatch(error(err));
+          })
+  }
 }

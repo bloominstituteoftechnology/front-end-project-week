@@ -34,13 +34,12 @@ class VieNote extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         const { data } = this.props;
-        console.log("view note ", data);
         if(!data.fetched) {
             return <Redirect to="/"/>
         }
 
         data.notes.forEach(note => {       
-            if( note.id === id)
+            if( note._id === id)
                 this.setState({note: note, id: id})
             }
         )

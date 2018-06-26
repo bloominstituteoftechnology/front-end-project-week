@@ -24,7 +24,7 @@ class NoteForm extends Component {
         }
 
         data.notes.forEach(note => {       
-            if( note.id === id)
+            if( note._id === id)
             this.setState({title: note.title, content: note.content, id: id})
         }
         )
@@ -42,7 +42,7 @@ class NoteForm extends Component {
             this.props.updateNote(this.state.id, note);
         } else {
             this.props.addNote(note);
-        }
+        }      
         this.setState({isUpdated: !this.isUpdated});
     }
 
