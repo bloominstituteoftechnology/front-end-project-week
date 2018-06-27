@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { deletingItem } from "../../actions/index";
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deletingItem } from '../../actions/index';
 import Markdown from 'markdown-to-jsx';
-import { Modal, ModalHeader, ModalFooter, Button } from "reactstrap";
+import { Modal, ModalHeader, ModalFooter, Button } from 'reactstrap';
 
 class NoteView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
     };
 
     this.toggle = this.toggle.bind(this);
@@ -18,7 +18,7 @@ class NoteView extends Component {
 
   toggle() {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
     });
   }
 
@@ -34,15 +34,15 @@ class NoteView extends Component {
   };
 
   render() {
-    console.log("STATE", this.props.state);
-    console.log("NOTES", this.props.notes);
+    console.log('STATE', this.props.state);
+    console.log('NOTES', this.props.notes);
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
-    const content = note.content;
+    const content = note.note;
     // const content = note.content
     //   .split("\n")
     //   .map((paragraph, index) => <Markdown key={index}>{paragraph}</Markdown>);
-    console.log("note", note);
+    console.log('note', note);
     return (
       <React.Fragment>
         <div className="d-flex position-absolute edition">
@@ -53,13 +53,11 @@ class NoteView extends Component {
         </div>
         <h5 className="text-capitalize">{note.title}</h5>
         {/* <div className="">{content}</div> */}
-        <Markdown options={{ forceBlock: true }} className="">{content}</Markdown>
+        <Markdown options={{ forceBlock: true }} className="">
+          {content}
+        </Markdown>
 
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}
-        >
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>
             Are you sure you want to delete this?
             <div className="d-fles">
@@ -67,7 +65,7 @@ class NoteView extends Component {
                 <Button color="danger" onClick={this.delete}>
                   Delete
                 </Button>
-              </Link>{" "}
+              </Link>{' '}
               <Button color="secondary" onClick={this.toggle}>
                 No
               </Button>
@@ -82,7 +80,7 @@ class NoteView extends Component {
 const mapStateToProps = state => {
   return {
     state: state,
-    notes: state.data
+    notes: state.data,
   };
 };
 
@@ -92,11 +90,13 @@ NoteView.proptypes = {
   index: PropTypes.number.isRequired,
   note: PropTypes.object.isRequired,
   content: PropTypes.string.isRequired,
-  deletingItem: PropTypes.bool.isRequired
-}
+  deletingItem: PropTypes.bool.isRequired,
+};
 
 // export default connect(mapStateToProps, { deletingItem })(NoteView)
 export default withRouter(
-  connect(mapStateToProps, { deletingItem })(NoteView)
+  connect(
+    mapStateToProps,
+    { deletingItem }
+  )(NoteView)
 );
-

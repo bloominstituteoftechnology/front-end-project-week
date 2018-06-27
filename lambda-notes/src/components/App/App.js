@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Route } from "react-router-dom";
-import SideBar_ from "../SideBar_/SideBar_";
-import Main_Connected from "../Main_/Main_";
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import SideBar_ from '../SideBar_/SideBar_';
+import Main_Connected from '../Main_/Main_';
 
 class App extends Component {
   render() {

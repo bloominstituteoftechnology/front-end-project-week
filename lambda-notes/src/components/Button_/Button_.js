@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Button_ = ({ text, action }) => {
   // const {text} = props;
@@ -12,7 +12,7 @@ const Button_ = ({ text, action }) => {
 
 Button_.propTypes = {
   text: PropTypes.string.isRequired,
-  action: PropTypes.func
+  action: PropTypes.func,
 };
 
 export default Button_;

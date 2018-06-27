@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { addingItem, updatingItem } from "../../actions/index";
-import Button_ from "../Button_/Button_";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addingItem, updatingItem } from '../../actions/index';
+import Button_ from '../Button_/Button_';
 
 class Form_ extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      content: ""
+      title: '',
+      content: '',
     };
   }
   getNoteData = () => {
@@ -22,17 +22,17 @@ class Form_ extends Component {
   };
   componentDidMount() {
     const { path } = this.props.match;
-    path === "/edit/:index" && this.getNoteData();
+    path === '/edit/:index' && this.getNoteData();
   }
   handleInput = e => {
-    e.key === "Enter" ? e.preventDefault() : console.log();
+    e.key === 'Enter' ? e.preventDefault() : console.log();
     this.setState({ [e.target.name]: e.target.value });
   };
   newNote = e => {
     // e.preventDefault();
     const newItem = this.state;
     this.props.addingItem(newItem);
-    this.setState({ title: "", content: "" });
+    this.setState({ title: '', content: '' });
     setTimeout(() => {
       alert(`Note: ${newItem.title} added.`);
     }, 500);
@@ -47,9 +47,9 @@ class Form_ extends Component {
 
   render() {
     const index = this.props.match.params.index;
-    const text = this.props.match.path === "/edit/:index" ? "Update" : "Save";
+    const text = this.props.match.path === '/edit/:index' ? 'Update' : 'Save';
     const button =
-      this.props.match.path === "/edit/:index" ? (
+      this.props.match.path === '/edit/:index' ? (
         <Link to={`/note/${index}`}>
           <Button_ text={text} action={this.updateNote} />
         </Link>
@@ -91,17 +91,20 @@ const mapStateToProps = state => {
   return {
     notes: state.data,
     updated: state.updated_Item,
-    added: state.added_Item
+    added: state.added_Item,
   };
 };
 
 export const propTypes = {
   notes: PropTypes.arrayOf(PropTypes.object).isRequired,
   updated: PropTypes.bool.isRequired,
-  added: PropTypes.bool.isRequired
+  added: PropTypes.bool.isRequired,
 };
 Form_.propTypes = Object.assign({}, propTypes);
 
 export default withRouter(
-  connect(mapStateToProps, { addingItem, updatingItem })(Form_)
+  connect(
+    mapStateToProps,
+    { addingItem, updatingItem }
+  )(Form_)
 );

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Button_ from "../Button_/Button_";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Button_ from '../Button_/Button_';
 
 class SideBar_ extends Component {
   render() {

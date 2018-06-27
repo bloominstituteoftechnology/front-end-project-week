@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Route, Switch, Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import { CSVLink, CSVDownload } from "react-csv";
-import { fetchingItems } from "../../actions/index";
-import ListView from "../ListView/ListView";
-import NoteView from "../NoteView/NoteView";
-import Form_ from "../Form_/Form_";
-import Button_ from "../Button_/Button_";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Route, Switch, Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { CSVLink, CSVDownload } from 'react-csv';
+import { fetchingItems } from '../../actions/index';
+import ListView from '../ListView/ListView';
+import NoteView from '../NoteView/NoteView';
+import Form_ from '../Form_/Form_';
+import Button_ from '../Button_/Button_';
 
 class Main_ extends Component {
   componentDidMount() {
@@ -40,7 +40,7 @@ class Main_ extends Component {
         </Link>
       </div>
     );
-
+    console.log(this.props.dispatch);
     if (!fetched_Item) return <div>{PageUpdating}</div>;
     return (
       <div className="col-9 position-relative custom-main">
@@ -57,36 +57,19 @@ class Main_ extends Component {
             )}
           />
           <Route path="/note/:id" component={() => null} />
-          <Route
-            path="/edit/:id"
-            component={() => <h5 className="text-capitalize">Edit Note:</h5>}
-          />
-          <Route
-            path="/new"
-            component={() => (
-              <h5 className="text-capitalize">Create new note</h5>
-            )}
-          />
+          <Route path="/edit/:id" component={() => <h5 className="text-capitalize">Edit Note:</h5>} />
+          <Route path="/new" component={() => <h5 className="text-capitalize">Create new note</h5>} />
           <Route component={() => <h1 className="text-capitalize">Oops!</h1>} />
         </Switch>
         <Switch>
           {/* ListView */}
           <Route exact path="/" component={ListView} />
           {/* NoteView */}
-          <Route
-            path="/note/:index"
-            render={props => (!updating ? <NoteView /> : PageUpdating)}
-          />
+          <Route path="/note/:index" render={props => (!updating ? <NoteView /> : PageUpdating)} />
           {/* Form_ */}
-          <Route
-            path="/edit/:index"
-            render={props => <Form_ {...props} type="editNote" />}
-          />
+          <Route path="/edit/:index" render={props => <Form_ {...props} type="editNote" />} />
           {/* Form_ */}
-          <Route
-            path="/new"
-            render={props => <Form_ {...props} type="newNote" />}
-          />
+          <Route path="/new" render={props => <Form_ {...props} type="newNote" />} />
           <Route component={() => Page404} />
         </Switch>
       </div>
@@ -100,14 +83,18 @@ Main_.propTypes = {
   notes: PropTypes.array.isRequired,
   fetchingItems: PropTypes.func.isRequired,
   PageUpdating: PropTypes.node,
-  Page404: PropTypes.node
+  Page404: PropTypes.node,
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, dispatch) => {
   return {
     fetched_Item: state.fetched_Item,
     updating: state.updating_Item,
-    notes: state.data
+    notes: state.data,
+    dispatch,
   };
 };
-export default connect(mapStateToProps, { fetchingItems })(Main_);
+export default connect(
+  mapStateToProps,
+  { fetchingItems }
+)(Main_);
