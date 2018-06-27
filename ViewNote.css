@@ -1,0 +1,42 @@
+.edit-delete-container {
+        display: flex;
+        justify-content: flex-end;
+        margin: 15px 34px 0 0;
+    }
+    
+.edit-segment {
+        margin-right: 14px;
+    }
+    
+.edit-link {
+        font-family: 'Roboto Bold', sans-serif;
+        color: #4A4A4A;
+        font-size: 14px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+.delete {
+        font-family: 'Roboto Bold', sans-serif;
+        color: #4A4A4A;
+        font-size: 14px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
+.view-header {
+        font-family: 'Roboto Bold', sans-serif;
+        color: #4A4A4A;
+        text-align: start;
+        margin: 2px 0 8px 25px;
+        font-size: 21px;
+    }
+    
+.view-content {
+        display: block;
+        text-align: start;
+        margin: 25px;
+        line-height: 25px;
+        font-size: 14.08px;
+        white-space: pre-wrap;
+    } 
