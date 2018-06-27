@@ -2,93 +2,94 @@ import axios from 'axios';
 
 import { ADD, EDIT, CANCEL, FETCH, FETCHED, FETCHING, SAVING, SAVED, UPDATING, UPDATED, DELETING, DELETED, ERROR } from "./types";
 
-// const host = 'http://localhost:5000';
-const host = 'https://young-coast-73926.herokuapp.com';
-const fetch = () => {
+const host = 'http://localhost:5000';
+// const host = 'https://young-coast-73926.herokuapp.com';
+
+export const fetch = () => {
   return {
       type: FETCH
   }
 }
 
-const add = () => {
+export const add = () => {
   return {
       type: ADD
   }
 }
 
-const edit = () => {
+export const edit = () => {
   return {
       type: EDIT
   }
 }
 
-const cancel = () => {
+export const cancel = () => {
   return {
       type: CANCEL
   }
 }
 
 
-const fetching = () => {
+export const fetching = () => {
   return {
       type: FETCHING
   }
 }
 
-const fetched = (data) => {
+export const fetched = (data) => {
   return {
       type: FETCHED,
       payload: data
   }
 }
 
-const saving = () => {
+export const saving = () => {
   return {
       type: SAVING
   }
 }
 
-const saved = (data) => {
+export const saved = (data) => {
   return {
       type: SAVED,
       payload: data
   }
 }
 
-const updating = () => {
+export const updating = () => {
   return {
       type: UPDATING
   }
 }
 
-const updated = (data) => {
+export const updated = (data) => {
   return {
       type: UPDATED,
       payload: data
   }
 }
 
-const deleting = () => {
+export const deleting = () => {
   return {
       type: DELETING
   }
 }
 
-const deleted = (data) => {
+export const deleted = (data) => {
   return {
       type: DELETED,
       payload: data
   }
 }
 
-const error = (err) => {
+export const error = (err) => {
   return {
       type: ERROR,
       payload: err
   }
 }
 
-const cancelEdit = () => {
+export const cancelEdit = () => {
   return function(dispatch) {
       dispatch(cancel());
   }
@@ -96,7 +97,6 @@ const cancelEdit = () => {
 
 export const fetchNotes = () => {
   const promise = axios.get(`${host}/api/notes/`);
-  console.log("fetching notes... ")
   return function(dispatch) {
       dispatch(fetching());
       promise

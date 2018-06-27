@@ -47,7 +47,6 @@ export const reducer = (state=initialState, action) => {
                 fetched: false,
             })
         case FETCHED:
-            console.log("My data : ", action.payload);
             return Object.assign({}, state, {
                 fetched: true,
                 fetching: false,
