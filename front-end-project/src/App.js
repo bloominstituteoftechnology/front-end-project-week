@@ -1,55 +1,88 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import { Route, withRouter } from "react-router-dom";
-import { ListView, NoteView, Edit, Create } from './components'
-import { connect } from 'react-redux'
-import CssBaseline from '@material-ui/core/CssBaseline'
-
-
-const routes = [
-  {
-    path: "/",
-    exact: true,
-    main: () => <ListView />,
-  },
-  {
-    path: "/notes/:id",
-    main: () => <NoteView />,
-  },
-  {
-    path: "/create",
-    exact: false,
-    main: () => <Create />,
-  },
-  {
-    path: "/edit/:id",
-    exact: false,
-    main: () => <Edit />,
-  }
-]
+import { Switch, Route } from 'react-router'
+import { CssBaseline } from '@material-ui/core'
+import axios from 'axios'
+import { ListView, NoteView, Create, Edit } from './components/index'
+import '../src/styling/App.css'
 
 class App extends Component {
+  state = {
+    notes: [],
+    currentNote: null,
+    deleting: false,
+  }
 
+  componentDidMount() {
+    axios.get('https://lambda-take-note.herokuapp.com/notes')
+      .then(response => {
+        this.setState({ 
+          notes: response.data.notes
+        })
+      })
+  }
+
+  fetchNote(id) {
+    axios.get(`https://lambda-take-note.herokuapp.com/notes/${id}`)
+      .then(response => {
+        this.setState({
+          currentNote: response.data.note
+        })
+      })
+  }
+
+  addNote(note) {
+    axios.post('https://lambda-take-note.herokuapp.com/notes', note)
+      .then(response => {
+        let notes = this.state.notes
+        console.log('notes', notes)
+        let moreNotes = notes.concat(response.data.savedNote)
+        console.log('moreNotes', moreNotes)
+        this.setState({
+          notes: moreNotes
+          
+        })
+        console.log(this.state, 'this.state after AddNote' )
+      })
+  }
+
+  editNote(id, note) {
+    axios.put(`https://lambda-take-note.herokuapp.com/notes/${id}`, note)
+      .then(response => {
+        let currentState = this.state.notes
+        let lessNote = currentState.filter(note => note._id !== response.data.updatedNote._id )
+        let newState = lessNote.concat(response.data.updatedNote)
+        this.setState({
+          notes: newState,
+          currentNote: response.data.note
+        })
+      })
+  }
+
+  deleteNote(id) {
+    axios.delete(`https://lambda-take-note.herokuapp.com/notes/${id}`)
+      .then(response => {
+        let sparedNotes = this.state.notes.filter(note => note._id !== response.data.deletedNote._id)
+        this.setState({
+          notes: sparedNotes,
+          currentNote: null,
+          deleting: false
+        })
+      })
+  }
   render() {
-    console.log("I am going crazy.")
     return (
       <React.Fragment>
-        <CssBaseline />
-            {routes.map((route, index) => (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.main}
-              />
-            ))}
-          </React.Fragment>
-    )
+      <CssBaseline />
+      <Switch>
+        <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} current_note={this.state.currentNote} fetchNote={this.fetchNote.bind(this)}/> } />
+        <Route path="/notes/:id" render={(props) => <NoteView {...props} notes={this.state.notes} current_note={this.state.currentNote} deleteNote={this.deleteNote.bind(this)}/>} />
+        <Route path="/create" render={(props) => <Create {...props} notes={this.state.notes} current_note={this.state.currentNote} addNote={this.addNote.bind(this)}/>} />
+        <Route path="/edit/:id" render={(props) => <Edit {...props} notes={this.state.notes} current_note={this.state.currentNote} editNote={this.editNote.bind(this)}/>} />
+      </Switch>
+      </React.Fragment>
+    );
   }
 }
-const mapStateToProps = state => {
-  return {
-    deleting: state.deleting
-  }
-}
-export default withRouter(connect(mapStateToProps)(App))
+
+
+export default App

@@ -1,29 +1,25 @@
-import React from 'react'
-import { Redirect, withRouter } from 'react-router'
-import { connect } from 'react-redux'
-import { addNote } from '../actions'
-import { Grid, TextField } from '@material-ui/core'
+import React, { Component } from 'react';
+import { Grid } from '@material-ui/core'
 import { SideNav } from '../components'
 
-
-class Create extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+class Create extends Component {
     state = {
         title: '',
-        content: ''
+        body: ''
     }
-
-inputChangeHandler = (event) => {
-    const { name, value } = event.target
-    this.setState({ [name]: value })
-}
-
-render() {
-    console.log('create is rendering')
-    return (
-<div>
+    handleSubmit = event => {
+        console.log('this.state', this.state)
+        event.preventDefault()
+        this.props.addNote(this.state)
+        this.props.history.push('/')
+    }
+    inputChangeHandler = event => {
+        const { name, value } = event.target
+        this.setState({ [name]: value })
+    }
+    render() {
+        return (
+            <div>
     <Grid container spacing={40}>
         <Grid item xs={4} sm={3}>
             <SideNav />
@@ -31,7 +27,7 @@ render() {
     <Grid item xs={12}>
     <div style={{marginLeft: 'calc(5vw + (150px + 2vw))'}}>
     <h3> Create Note: </h3>
-        <form onSubmit={(val) => this.props.addNote(this.state)}>
+        <form onSubmit={this.handleSubmit}>
                 <div className="title">
                     <input
                         name="title"
@@ -46,16 +42,15 @@ render() {
                     </div>
             <div>
                 <input
-                    name="content"
+                    name="body"
                     type="text"
-                    value={this.state.content}
-                    placeholder="Note content"
+                    value={this.state.body}
+                    placeholder="Note body"
                     style={{border: '1px solid gray', background: 'white', width: 'calc(90%)'}}
                     margin="normal"
-                    multiline={true}
+                    multiline={"true"}
                     onChange={this.inputChangeHandler}
                     rows={14}
-                    fullWidth
                 />
                 <div>
                 <button type="submit" className="saveButton">
@@ -72,5 +67,4 @@ render() {
     }
 }
 
-
-export default withRouter(connect(null, { addNote })(Create))
+export default Create

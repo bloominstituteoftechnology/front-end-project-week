@@ -1,7 +1,7 @@
-import ListView from './ListView.js'
-import NoteView from './NoteView.js'
-import Edit from './Edit.js'
-import SideNav from './SideNav.js'
-import Create from './Create.js'
+import Create from './Create'
+import Edit from './Edit'
+import ListView from './ListView'
+import NoteView from './NoteView'
+import SideNav from './SideNav'
 
-export { ListView, NoteView, Edit, SideNav, Create }
+export { Create, Edit, ListView, NoteView, SideNav }

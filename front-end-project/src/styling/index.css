@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+#root {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background: #F3F3F3;
+}

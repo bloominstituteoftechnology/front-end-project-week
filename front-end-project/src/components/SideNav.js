@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { cancelDelete } from '../actions'
-import '../styles/SideNav.css'
+import { Link } from 'react-router-dom'
+import '../styling/SideNav.css'
 
 const SideNav = props => {
     return (
@@ -12,14 +10,10 @@ const SideNav = props => {
             <Link to="/"> <button> View Your Notes </button></Link>
             </div>
             <div className="buttonStyle" style={{opacity: props.deleting ? '.6' : '1'}}>
-            <Link to="/create"> <button>+Create New Note </button></Link>
+            <Link to="/create/"> <button>+Create New Note </button></Link>
             </div>
         </div>
     )
 }
-const mapStateToProps = state => {
-    return {
-        deleting: state.notes.deleting
-    }
-}
-export default withRouter(connect(mapStateToProps, { cancelDelete })(SideNav))
+
+export default SideNav

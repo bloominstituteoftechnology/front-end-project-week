@@ -1,13 +1,11 @@
 import React from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { Card, CardHeader, CardContent, Typography, Grid } from '@material-ui/core'
 import { SideNav } from '../components'
-import '../styles/ListView.css'
+import '../styling/ListView.css'
 
 const ListView = props => {
-
-
+let k = 77
     return (        
 
     <div>
@@ -28,9 +26,9 @@ const ListView = props => {
             {props.notes ?
             props.notes.map(note => {
             return (
-            <Grid item xs={12} sm={6} lg={4} key={note._id} style={{ height: '33%'}}>
+            <Grid item xs={12} sm={6} lg={4} key={note._id + k} style={{ height: '33%'}}> 
                 <Card className="mein-card">
-                    <NavLink to={`/notes/${note._id}`} style={{textDecoration: 'none'}} key={note._id}>     
+                    <NavLink to={`/notes/${note._id}`} onClick={() => props.fetchNote(note._id)} style={{textDecoration: 'none'}} >     
                         <CardHeader title={`${note.title}`} />
                         <CardContent>
                             <Typography component="p" style={{overflow: 'hidden', height: '10vh'}}>
@@ -53,11 +51,5 @@ const ListView = props => {
     </div>
     )
 }
-const mapStateToProps = state => {
-    return {
-        notes: state.notes.notes,
-        fetching: state.notes.fetching_notes
-    }
-}
 
-export default withRouter(connect(mapStateToProps)(ListView))
+export default ListView
