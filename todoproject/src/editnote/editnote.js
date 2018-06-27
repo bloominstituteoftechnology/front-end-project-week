@@ -19,7 +19,7 @@ class EditNote extends Component {
                 <Input onChange={this.props.handleEventChange}  value={this.props.content} type="noteContent" name="content" id="note-content" placeholder="Note Content" />
                 </FormGroup>
                 <Link to="/">
-                <button onClick= { () => this.props.handleEditSubmit(this.props.match.params._id)} className="button3">Save</button>
+                <button onClick= { () => this.props.handleEditSubmit(this.props.match.params.id)} className="button3">Save</button>
                 </Link>
             </Form>
         

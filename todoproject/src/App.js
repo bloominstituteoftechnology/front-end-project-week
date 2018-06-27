@@ -61,14 +61,15 @@ axios
 .post('http://localhost:5000/api/notes', todo)
 .then(res => {
 const currentState = this.state.todos;
-currentState.concat(res.data.savedNote)
 
+const freshNote = res.data.savedNote
+currentState.unshift(freshNote)
 this.setState({ todos: currentState })
 })
 }
 
 
-handleEditSubmit = (_id) => {
+handleEditSubmit (_id) {
   console.log("im submitting")
   const todo = {
     title: this.state.title,
@@ -77,16 +78,35 @@ handleEditSubmit = (_id) => {
 axios
 .put(`http://localhost:5000/api/notes/${_id}`, todo)
 .then(res => {
-  console.log("hello", res)
-  this.setState({ todo: res.data })
+  console.log(res)
 })
 .catch(err => {console.log(err)})
+const newState = this.state.todos;
 
-const newNote = this.state.todos.filter(item => item._id !== _id)
-newNote.push(todo)
-
-this.setState({ todos: newNote, todo: '' })
+const newNote = newState.filter(item => item._id !== _id)
+newNote.unshift(todo)
+this.setState({ 
+  todos: newNote, 
+  todo: '' 
+})
 };
+
+handleDeleteSubmit (_id) {
+const todo = {
+    title: this.state.title,
+    content: this.state.content,
+}
+axios
+.delete(`http://localhost:5000/api/notes/${_id}`)
+.then(res => {
+ console.log(res)
+})
+const keptNotes = this.state.todos.filter(todo => todo._id !== _id)
+this.setState({
+  todos: keptNotes, 
+  todo: '' 
+})
+}
 
 
   render() {
@@ -101,16 +121,16 @@ this.setState({ todos: newNote, todo: '' })
       <Switch>
           
             <Route path="/EditNote/:id" render={(props) => (
-            <EditNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleEditSubmit.bind(this)}/> 
+            <EditNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleEditSubmit={this.handleEditSubmit.bind(this)}/> 
             )} />
             <Route path="/ViewNote/:id" render={(props) => (
-            <ViewNote {...props} deleteNotecard={this.deleteNotecard} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            <ViewNote {...props} handleDeleteSubmit={this.handleDeleteSubmit.bind(this)} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route path="/CreateNewNote" render={(props) => (
             <CreateNote todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
              <Route exact path="/" render={(props) => (
-            <ListView todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            <ListView {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route component={NoMatch}></Route>
       </Switch>
