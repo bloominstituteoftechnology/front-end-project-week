@@ -14,7 +14,7 @@ import {
 
 const initialState = {
     notes: [],
-    email: '',
+    id: '',
     updatingAccount: false,
     accountUpdated: false,
     fetchingNotes: false,
@@ -51,7 +51,7 @@ export const rootReducer = (state = initialState, action) => {
         case UPDATING_ACCOUNT:
             return {...state, updatingAccount: true, error: null};
         case ACCOUNT_UPDATED:
-            return {...state, updatingAccount: false, accountUpdated: true, email: state.email.concat(action.payload)};
+            return {...state, updatingAccount: false, accountUpdated: true, id: state.id.concat(action.payload)};
 
         case ERROR:
             return { ...state, error: action.payload, noteAdded: false, noteUpdated: false, noteDeleted: false, accountUpdated: false };
