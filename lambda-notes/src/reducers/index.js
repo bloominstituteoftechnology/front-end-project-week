@@ -77,7 +77,6 @@ const mainReducer = (state = initialState, action) => {
         error: null,
       };
     case ADDED_ITEM:
-      console.log([...state.data].push(action.newItem));
       return {
         ...state,
         adding_Item: false,

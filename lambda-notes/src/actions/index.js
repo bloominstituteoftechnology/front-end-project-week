@@ -48,7 +48,7 @@ export const addingItem = newItem => {
     });
     addItem
       .then(response => {
-        // console.log("POST response.data", response.data);
+        console.log('POST response.data', response.data);
         // console.log("newItem", newItem);
         dispatch({
           type: ADDED_ITEM,

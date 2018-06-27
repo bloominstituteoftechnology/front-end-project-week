@@ -10,7 +10,7 @@ class Form_ extends Component {
     super(props);
     this.state = {
       title: '',
-      note: '',
+      content: '',
     };
   }
   getNoteData = () => {
@@ -18,7 +18,7 @@ class Form_ extends Component {
     const note = this.props.notes[index];
     const { title } = note;
     const { content } = note;
-    this.setState({ title, note });
+    this.setState({ title, content });
   };
   componentDidMount() {
     const { path } = this.props.match;
@@ -31,7 +31,7 @@ class Form_ extends Component {
   newNote = e => {
     // e.preventDefault();
     const newItem = this.state;
-    this.props.addingItem(newItem);
+    this.props.addingItem({ ...newItem, users: ['5b34055f8b029533430c8e1c'] });
     this.setState({ title: '', content: '' });
     setTimeout(() => {
       alert(`Note: ${newItem.title} added.`);
@@ -79,7 +79,7 @@ class Form_ extends Component {
             rows="13"
             placeholder="Note Content"
             onChange={this.handleInput}
-            value={this.state.note}
+            value={this.state.content}
           />
         </div>
         {button}
