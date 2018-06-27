@@ -34,28 +34,28 @@ export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case ADDING_NOTE:
-            return { ...state, addingNote: true};
+            return { ...state, addingNote: true, error: null};
         case NOTE_ADDED:
             return { ...state, addingNote: false, noteAdded: true, notes: state.notes.concat(action.payload)};
 
         case UPDATING_NOTE:
-            return { ...state, updatingNote: true};
+            return { ...state, updatingNote: true, error: null};
         case NOTE_UPDATED:
             return { ...state, updatingNote: false, noteUpdated: true, notes: state.notes.slice(0, state.notes.findIndex(note => note.id === action.payload.id)).concat(action.payload).concat(state.notes.slice(state.notes.findIndex(note => note.id === action.payload.id) + 1))};
 
         case DELETING_NOTE:
-            return { ...state, deletingNote: true};
+            return { ...state, deletingNote: true, error: null};
         case NOTE_DELETED:
             return { ...state, deletingNote: false, noteDeleted: true, notes: state.notes.slice(0, state.notes.findIndex(note => note.id === action.payload)).concat(state.notes.slice(state.notes.findIndex(note => note.id === action.payload) + 1))};
 
         case UPDATING_ACCOUNT:
-            return {...state, updatingAccount: true};
+            return {...state, updatingAccount: true, error: null};
         case ACCOUNT_UPDATED:
             return {...state, updatingAccount: false, accountUpdated: true, email: state.email.concat(action.payload)};
 
         case ERROR:
-            return { ...state, error: action.payload};
-            
+            return { ...state, error: action.payload, noteAdded: false, noteUpdated: false, noteDeleted: false, accountUpdated: false };
+
         default:
             return state;
     }
