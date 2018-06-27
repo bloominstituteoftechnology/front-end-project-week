@@ -7,27 +7,15 @@ import {Container, Row, Col} from 'reactstrap'
 import axios from 'axios';
 
 export default class Listview extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     notes: []
-  //   };
-  // }
+  
+    componentDidMount(){
+        this.props.fetch();
+    }
 
-//   componentDidMount() {
-//     this.fetch();
-// }
-
-// fetch = () => {
-//     axios
-//       .get(`https://killer-notes.herokuapp.com/note/get/all`)
-//       .then(response => {
-//         this.setState(() => ({ notes: response.data }));
-//       })
-//       .catch(error => {
-//         console.error(error);
-//       });
-//   };
+    signout = () => {
+        localStorage.removeItem('token');
+        this.props.logOut();
+      }
   render() {
     return (
         <div className="BigContainer">
@@ -42,6 +30,7 @@ export default class Listview extends Component {
                     <Link to="/create">
                         <Mybutton className="btn" text = "+ Create new notes"/>
                     </Link>
+                    <Mybutton className="btn" onClick={this.signout} text = "sign out"/>
                 </div>
             </div>
             <div className="mainbar">

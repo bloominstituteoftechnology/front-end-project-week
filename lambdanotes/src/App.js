@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Listview from './Component/Layout/Listview';
 import Editview from './Component/Layout/Editview';
 import Createview from './Component/Layout/Createview';
 import Noteview from './Component/Layout/Noteview';
-
+import Loginview from './Component/Layout/Loginview';
 
 // axios
 
@@ -19,7 +19,10 @@ class App extends Component {
     this.state = {
       notes: [],
       title: '',
-      textBody:''
+      textBody:'',
+      username: '',
+      password: '',
+      isSignedIn: false
     };
   }
 
@@ -29,14 +32,95 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    // base.syncState('notes', {
-    //   context: this,
-    //   state: 'notes',
-    //   asArray: true
-    // })
-
     this.read();
   }
+
+  //auth
+  
+  handNewUser = (event) => {
+    event.preventDefault();
+
+    axios
+      .post('http://localhost:5000/api/auth/register', {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then(response => {
+
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+      this.setState({
+        username: '',
+        password: '',
+      })
+
+  }
+
+
+  handleReturningUser = (event) => {
+    event.preventDefault();
+
+    axios
+      .post('http://localhost:5000/api/auth/login', {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then(response => {
+        localStorage.setItem('token', response.data.token)
+        this.loginHandler('Logged In')
+        // document.window.sessionStorage.accessToken = response.body.access_token;
+        console.log(localStorage.getItem('token'))
+      })
+      .catch(err => {
+        console.log(err)
+      })
+
+      this.setState({
+        username: '',
+        password: '',
+      })
+
+  }
+
+
+  fetch = () => {
+    console.log("fetching")
+    axios
+      .get('http://localhost:5000/api/users', {
+        headers: { "authorization": localStorage.getItem('token')}
+      })
+        .then(response => {
+          console.log(response)
+          if(response.data){
+            this.setState({
+              isSignedIn: true
+            })
+          }
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+  }
+
+  loginHandler = (loginBool) =>{
+    if(loginBool === 'Logged In'){
+      this.setState({
+        isSignedIn: true,
+      })
+    }
+  }
+
+  logOut = () =>{
+    console.log("logged out")
+    this.setState({
+      isSignedIn: false,
+    })
+  }
+  //authout
 
   //mongo
 
@@ -165,15 +249,47 @@ class App extends Component {
 
 
   render() {
-    return (
-      <div className="container-fluid">
-           <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes}  /> } />
-          <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} id={props.match.params.id} handleUpdate={this.update}  handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
-          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} delete={this.delete}    note={this.state.notes.filter(item => (item._id.toString() ===  props.match.params.id) )} />  )  } />
-          <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.create}  handleTaskChange= {this.handleTaskChange}/> } />    
-      </div>
-    );
+    if(this.state.isSignedIn){
+      return(
+        <div className="container-fluid">
+          <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes} fetch={this.fetch} logOut={this.logOut} /> } />
+          <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} fetch={this.fetch} logOut={this.logOut} id={props.match.params.id} handleUpdate={this.update}  handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
+          <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} fetch={this.fetch} logOut={this.logOut} delete={this.delete}    note={this.state.notes.filter(item => (item._id.toString() ===  props.match.params.id) )} />  )  } />
+          <Route path="/create" render={ (props) =>  <Createview {...props} fetch={this.fetch} logOut={this.logOut} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.create}  handleTaskChange= {this.handleTaskChange}/> } />
+        </div>
+      );
+    }
+    else{
+      return(
+        <div>
+          <Loginview fetch={this.fetch} username={this.state.username} password={this.state.password}  handleTaskChange={this.handleTaskChange} handNewUser={this.handNewUser} handleReturningUser={this.handleReturningUser} loginHandler={this.loginHandler} />
+        </div>
+      )
+    }
   }
 }
 
 export default App;
+
+
+// return (
+//   <div className="container-fluid">
+
+//       <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes}  /> } />
+//       <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} id={props.match.params.id} handleUpdate={this.update}  handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
+//       <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} delete={this.delete}    note={this.state.notes.filter(item => (item._id.toString() ===  props.match.params.id) )} />  )  } />
+//       <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.create}  handleTaskChange= {this.handleTaskChange}/> } />
+
+   
+//    {
+//       this.state.isSignedIn
+//       ? <div>
+//         <Link to="/"> </Link>
+//         </div>
+//       :
+//         <Loginview username={this.state.username} password={this.state.password}  handleTaskChange={this.handleTaskChange} handNewUser={this.handNewUser} handleReturningUser={this.handleReturningUser} loginHandler={this.loginHandler} />        
+//   }
+
+      
+// </div>
+// );

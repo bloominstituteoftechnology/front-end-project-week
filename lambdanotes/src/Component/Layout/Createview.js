@@ -5,6 +5,9 @@ import Mybutton from '../Reusables/Mybutton';
 import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
 export default class Createview extends Component {
+    componentDidMount(){
+        this.props.fetch();
+    }
     
   render() {
     return (
