@@ -1,4 +1,6 @@
 import {
+    UPDATING_ACCOUNT,
+    ACCOUNT_UPDATED,
     FETCHING_NOTES,
     NOTES_FETCHED,
     ADDING_NOTE,
@@ -12,6 +14,9 @@ import {
 
 const initialState = {
     notes: [],
+    email: '',
+    updatingAccount: false,
+    accountUpdated: false,
     fetchingNotes: false,
     notesFetched: false,
     addingNote: false,
@@ -27,6 +32,7 @@ const initialState = {
 export const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
+
         case ADDING_NOTE:
             return { ...state, addingNote: true};
         case NOTE_ADDED:
@@ -42,8 +48,14 @@ export const rootReducer = (state = initialState, action) => {
         case NOTE_DELETED:
             return { ...state, deletingNote: false, noteDeleted: true, notes: state.notes.slice(0, state.notes.findIndex(note => note.id === action.payload)).concat(state.notes.slice(state.notes.findIndex(note => note.id === action.payload) + 1))};
 
+        case UPDATING_ACCOUNT:
+            return {...state, updatingAccount: true};
+        case ACCOUNT_UPDATED:
+            return {...state, updatingAccount: false, accountUpdated: true, email: state.email.concat(action.payload)};
+
         case ERROR:
             return { ...state, error: action.payload};
+            
         default:
             return state;
     }

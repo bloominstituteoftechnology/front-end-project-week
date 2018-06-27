@@ -12,6 +12,9 @@ export const NOTE_UPDATED = 'NOTE_UPDATED';
 export const DELETING_NOTE = 'DELETING_NOTE';
 export const NOTE_DELETED = 'NOTE_DELETED';
 
+export const UPDATING_ACCOUNT = 'UPDATING_ACCOUNT';
+export const ACCOUNT_UPDATED = 'ACCOUNT_UPDATED';
+
 export const ERROR = 'ERROR';
 
 
@@ -70,3 +73,10 @@ export const deleteNote = id => {
             });
     }
 };
+
+export const setAccount = email => {
+    return function (dispatch) {
+        dispatch({ type: UPDATING_ACCOUNT });
+        dispatch({ type: ACCOUNT_UPDATED, payload: email });
+    }
+}
