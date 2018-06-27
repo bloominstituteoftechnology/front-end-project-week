@@ -1,7 +1,11 @@
 {
-  "name": "lambda-notes",
+  "name": "deploy",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "babel": "^6.23.0",
@@ -14,7 +18,7 @@
     "reactstrap": "^6.0.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
