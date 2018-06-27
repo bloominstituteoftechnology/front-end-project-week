@@ -15,6 +15,8 @@ export const NOTE_DELETED = 'NOTE_DELETED';
 export const UPDATING_ACCOUNT = 'UPDATING_ACCOUNT';
 export const ACCOUNT_UPDATED = 'ACCOUNT_UPDATED';
 
+export const RESET_STORE = 'RESET_STORE';
+
 export const ERROR = 'ERROR';
 
 
@@ -78,5 +80,11 @@ export const setAccount = id => {
     return function (dispatch) {
         dispatch({ type: UPDATING_ACCOUNT });
         dispatch({ type: ACCOUNT_UPDATED, payload: id });
+    }
+}
+
+export const resetStore = () => {
+    return function (dispatch) {
+        dispatch({ type: RESET_STORE });
     }
 }

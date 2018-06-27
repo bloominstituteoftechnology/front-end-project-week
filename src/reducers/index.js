@@ -1,4 +1,5 @@
 import {
+    RESET_STORE,
     UPDATING_ACCOUNT,
     ACCOUNT_UPDATED,
     FETCHING_NOTES,
@@ -33,6 +34,11 @@ export const rootReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
+        case FETCHING_NOTES:
+            return { ...state, fetchingNotes: true, error: null};
+        case NOTES_FETCHED:
+            return { ...state, fetchingNotes: false, notesFetched: true, notes: state.notes.concat(action.payload)}
+
         case ADDING_NOTE:
             return { ...state, addingNote: true, error: null};
         case NOTE_ADDED:
@@ -53,6 +59,9 @@ export const rootReducer = (state = initialState, action) => {
         case ACCOUNT_UPDATED:
             return {...state, updatingAccount: false, accountUpdated: true, id: state.id.concat(action.payload)};
 
+        case RESET_STORE:
+            return {...initialState };
+        
         case ERROR:
             return { ...state, error: action.payload, noteAdded: false, noteUpdated: false, noteDeleted: false, accountUpdated: false };
 
