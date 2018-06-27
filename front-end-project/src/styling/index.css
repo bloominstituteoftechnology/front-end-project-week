@@ -11,3 +11,14 @@ body {
   box-sizing: border-box;
   background: #F3F3F3;
 }
+
+textarea {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+input {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
