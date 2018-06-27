@@ -8,8 +8,13 @@ class AddNote extends Component {
         super(props)
         this.state= {
             title: '',
-            body: ''
+            body: '',
+            email: ''
         }
+    }
+
+    componentDidMount() {
+        this.setState({ email: this.props.email });
     }
 
     handleChange = e => {
@@ -26,7 +31,7 @@ class AddNote extends Component {
                         <form>
                             <input name="title" value={title} placeholder="Title" onChange={(e) =>     this.handleChange(e)}/>
                             <textarea name="body" value={body} placeholder="Content" onChange={(e) =>     this.handleChange(e)}/>
-                            <Link className="button" to="/" onClick={() => this.props.addNote({title, body})}>Save</Link>
+                            <Link className="button" to="/notes" onClick={() => this.props.addNote(this.state)}>Save</Link>
                         </form>
                     </div>
                 </div>
