@@ -9,6 +9,7 @@ class NoteView extends Component {
     state = {
         deleting: false
     }
+
     confirmDelete() {
         this.setState({ 
           deleting: true
@@ -22,9 +23,13 @@ class NoteView extends Component {
       }
 
     render() {
+        let note = this.props.notes.filter(note => note._id === this.props.match.params.id)
+        note = note[0]
     return (
         
-        <div>  
+        <div>
+            {console.log(this.props.currentNote, 'currentNote')}        
+        {note ?
             <Grid container spacing={0} style={{height: '100%', overflow: 'scroll'}}>       
                 {this.state.deleting ?
                     <Grid item xs className="modalWrapper">
@@ -44,21 +49,20 @@ class NoteView extends Component {
                     <div className="noteViewButtonWrap">
                         <NavLink to={`/edit/${this.props.match.params.id}`}>edit</NavLink>
                         <span onClick={() => this.confirmDelete()} style={{marginLeft: '4vh'}}> delete </span></div>
-                   {this.props.current_note ?
                 <React.Fragment>
                    <div onClick={() => this.cancelDelete()}>
-                         <h3> {this.props.current_note.title} </h3>
+                         <h3> {note.title} </h3>
                     </div>
                     <div onClick={() => this.props.cancelDelete()} className="noteText">
                         <div>
-                            <p>{this.props.current_note.body}</p>
+                            <p>{note.body}</p>
                         </div>
                     </div> 
-                    </React.Fragment> : null}
+                    </React.Fragment> 
                 </div>
                 </Grid>            
                 </div> 
-                </Grid>
+                </Grid> : null}
                 </div>
             )
         }

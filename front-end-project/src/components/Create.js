@@ -33,7 +33,7 @@ class Create extends Component {
                         name="title"
                         value={this.state.title}
                         type="text"
-                        placeholder="Note title"
+                        placeholder={this.props.currentNote.title}
                         style={{border: '1px solid gray', background: 'white', width: '40vw'}}
                         className="title"
                         onChange={this.inputChangeHandler}
@@ -41,11 +41,11 @@ class Create extends Component {
                         />
                     </div>
             <div>
-                <input
+                <textarea
                     name="body"
                     type="text"
                     value={this.state.body}
-                    placeholder="Note body"
+                    placeholder={this.props.currentNote.body}
                     style={{border: '1px solid gray', background: 'white', width: 'calc(90%)'}}
                     margin="normal"
                     multiline={"true"}

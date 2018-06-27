@@ -6,10 +6,11 @@ import { ListView, NoteView, Create, Edit } from './components/index'
 import '../src/styling/App.css'
 
 class App extends Component {
+
   state = {
     notes: [],
-    currentNote: null,
     deleting: false,
+    currentNote: {}
   }
 
   componentDidMount() {
@@ -52,8 +53,7 @@ class App extends Component {
         let lessNote = currentState.filter(note => note._id !== response.data.updatedNote._id )
         let newState = lessNote.concat(response.data.updatedNote)
         this.setState({
-          notes: newState,
-          currentNote: response.data.note
+          notes: newState
         })
       })
   }
@@ -64,7 +64,6 @@ class App extends Component {
         let sparedNotes = this.state.notes.filter(note => note._id !== response.data.deletedNote._id)
         this.setState({
           notes: sparedNotes,
-          currentNote: null,
           deleting: false
         })
       })
@@ -74,10 +73,10 @@ class App extends Component {
       <React.Fragment>
       <CssBaseline />
       <Switch>
-        <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} current_note={this.state.currentNote} fetchNote={this.fetchNote.bind(this)}/> } />
-        <Route path="/notes/:id" render={(props) => <NoteView {...props} notes={this.state.notes} current_note={this.state.currentNote} deleteNote={this.deleteNote.bind(this)}/>} />
-        <Route path="/create" render={(props) => <Create {...props} notes={this.state.notes} current_note={this.state.currentNote} addNote={this.addNote.bind(this)}/>} />
-        <Route path="/edit/:id" render={(props) => <Edit {...props} notes={this.state.notes} current_note={this.state.currentNote} editNote={this.editNote.bind(this)}/>} />
+        <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} currentNote={this.state.currentNote} fetchNote={this.fetchNote.bind(this)}/> } />
+        <Route path="/notes/:id" render={(props) => <NoteView {...props} notes={this.state.notes} currentNote={this.state.currentNote} deleteNote={this.deleteNote.bind(this)}/>} />
+        <Route path="/create" render={(props) => <Create {...props} notes={this.state.notes} currentNote={this.state.currentNote} addNote={this.addNote.bind(this)}/>} />
+        <Route path="/edit/:id" render={(props) => <Edit {...props} notes={this.state.notes} currentNote={this.state.currentNote} editNote={this.editNote.bind(this)}/>} />
       </Switch>
       </React.Fragment>
     );
