@@ -1,4 +1,4 @@
 [build]
 	base = './fepw'
 	publish = './fepw/build'
-	command = 'yarn build'
+	command = 'npm start'
