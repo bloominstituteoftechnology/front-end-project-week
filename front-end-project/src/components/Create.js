@@ -33,6 +33,7 @@ class Create extends Component {
                         name="title"
                         value={this.state.title}
                         type="text"
+                        required
                         placeholder="Note title"
                         style={{border: '1px solid gray', background: 'white', width: '40vw'}}
                         className="title"
@@ -48,6 +49,7 @@ class Create extends Component {
                     placeholder="Note body"
                     style={{border: '1px solid gray', background: 'white', width: 'calc(90%)'}}
                     margin="normal"
+                    required
                     multiline={"true"}
                     onChange={this.inputChangeHandler}
                     rows={14}

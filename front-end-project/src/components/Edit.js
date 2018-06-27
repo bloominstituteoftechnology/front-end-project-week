@@ -34,6 +34,7 @@ class Edit extends Component {
                         name="title"
                         value={this.state.title}
                         type="text"
+                        required
                         placeholder={this.props.currentNote.title}
                         style={{border: '1px solid gray', background: 'white', width: '40vw'}}
                         className="title"
@@ -50,6 +51,7 @@ class Edit extends Component {
                     style={{border: '1px solid gray', background: 'white', width: 'calc(90%)'}}
                     margin="normal"
                     multiline={"true"}
+                    required
                     onChange={this.inputChangeHandler}
                     rows={14}
                 />
