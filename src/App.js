@@ -1,30 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import jwt from "jsonwebtoken";
 import { Route, withRouter, Link } from "react-router-dom";
 import { Navigation, NotesList, AddNote, Note, Login, Register } from "./components";
 import { connect } from "react-redux";
-import { setAccount } from "./actions";
+import { resetStore } from "./actions";
 
 class App extends Component {
 
-  componentDidMount() {
-    const token = localStorage.getItem('jwt');
-    if (token) {
-      jwt.verify(token, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
-      if (err) {
-          console.log(err);
-        } else {
-          console.log(decoded);
-          const { id } = decoded;
-          this.props.setAccount(id);
-        }
-      })
-    }
-  }
 
   signoutHandler = () => {
     localStorage.removeItem('jwt');
+    this.props.resetStore();
     this.props.history.push('/login');
   }
 
@@ -52,4 +38,4 @@ const mapStateToProps = state => {
   return state;
 }
 
-export default withRouter(connect(mapStateToProps, { setAccount })(App));
+export default withRouter(connect(mapStateToProps, { resetStore })(App));
