@@ -133,7 +133,7 @@ class App extends Component {
           {localStorage.getItem('authorization')
             ? <Link className='btnLink' to='/login'>
               <div
-                onClick={() => localStorage.clear()}
+                onClick={() => localStorage.removeItem('jwt')}
                 className='btnSideNav'
               >
                   Logout
