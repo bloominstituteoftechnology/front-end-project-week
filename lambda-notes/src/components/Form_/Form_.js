@@ -10,7 +10,7 @@ class Form_ extends Component {
     super(props);
     this.state = {
       title: '',
-      content: '',
+      note: '',
     };
   }
   getNoteData = () => {
@@ -18,7 +18,7 @@ class Form_ extends Component {
     const note = this.props.notes[index];
     const { title } = note;
     const { content } = note;
-    this.setState({ title, content });
+    this.setState({ title, note });
   };
   componentDidMount() {
     const { path } = this.props.match;
@@ -79,7 +79,7 @@ class Form_ extends Component {
             rows="13"
             placeholder="Note Content"
             onChange={this.handleInput}
-            value={this.state.content}
+            value={this.state.note}
           />
         </div>
         {button}

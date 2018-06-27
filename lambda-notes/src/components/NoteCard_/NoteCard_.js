@@ -14,7 +14,7 @@ const NoteCard_ = ({ card }) => {
       </CardTitle>
       <hr className="custom-hr" />
       <CardText>
-        <Markdown>{card.note.substring(0, 118)}</Markdown>
+        <Markdown>{card.content.substring(0, 118)}</Markdown>
       </CardText>
     </Card>
   );
