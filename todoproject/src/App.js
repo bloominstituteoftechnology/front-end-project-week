@@ -8,7 +8,7 @@ import EditNote from './editnote/editnote';
 import ListItems from './createnote/listitems';
 import ListView from './createnote/listview';
 import MyFilteredNote from './createnote/individualnotes';
-
+import axios from 'axios';
 
 const initialState = [
   {id: 1,
@@ -39,20 +39,38 @@ class App extends Component {
         todo: '',
     };
 }
+
+componentDidMount()  {
+  axios
+  .get("http://localhost:5000/api/notes")
+  .then(res => {this.setState({ todos: res.data })})
+  .catch(err => {console.log(err)})
+ }
+
+
 handleEventChange = event => {
 this.setState({ [event.target.name]: event.target.value })
 };
 
-handleSubmit = () => {
-const todos = this.state.todos;
-const todo = {
-    id: this.state.todo + todos.length,
+handleSubmit = (_id) => {
+  console.log("im submitting")
+  const todo = {
     title: this.state.title,
     content: this.state.content,
-};
+}
 
-todos.push(todo);
-this.setState({ todos: todos, todo: '' })
+axios
+.put(`http://localhost:5000/api/notes/${_id}`, todo)
+.then(res => {
+  console.log("hello", res)
+  this.setState({ todos: res.data })
+})
+.catch(err => {console.log(err)})
+
+const newNote = this.state.todos.filter(item => item._id !== _id)
+newNote.push(todo)
+
+this.setState({ todos: newNote, todo: '' })
 };
 
 
@@ -60,14 +78,14 @@ this.setState({ todos: todos, todo: '' })
     const NoMatch = () => (
       <h3>This page does not exist - Sorry!</h3>
   )
-  
+
     return (
       <div className="App">
       
 {/* Routes */}
       <Switch>
           
-            <Route path="/EditNote" render={(props) => (
+            <Route path="/EditNote/:id" render={(props) => (
             <EditNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
             )} />
             <Route path="/ViewNote/:id" render={(props) => (

@@ -8,7 +8,7 @@ const ListItems = (props) => {
     <div>
         {props.todos.map(todo => {
           return (
-          <Link to={`/ViewNote/${todo.id}`}>     
+          <Link to={`/ViewNote/${todo._id}`}>     
           <Card className="card" key={todo.title}>
             <CardBody>
                 <CardTitle className="cardtitle">{todo.title}</CardTitle>
@@ -23,4 +23,3 @@ const ListItems = (props) => {
   };
   
   export default ListItems;
-

@@ -29,7 +29,7 @@ class ViewNote extends Component {
 
   render() {
 
-        let MyNote = this.props.todos.filter((todo) => this.props.match.params.id == todo.id);
+        let MyNote = this.props.todos.filter((todo) => this.props.match.params.id == todo._id);
         MyNote = MyNote[0];
 
         return (
@@ -39,7 +39,7 @@ class ViewNote extends Component {
 
 
                 {/* edit and delete buttons */}
-                <Link to="/EditNote">
+                <Link to={`/EditNote/${MyNote._id}`}>
                     <button className="button4">edit</button>
                 </Link>
 

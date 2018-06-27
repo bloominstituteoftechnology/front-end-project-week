@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class EditNote extends Component {
     render() {
@@ -11,12 +12,14 @@ class EditNote extends Component {
 
             <Form className="Form1">
                 <FormGroup>
-                <Input type="noteTitle" name="noteTitle" id="note-title" placeholder="Note Title" />
+                <Input onChange={this.props.handleEventChange} value={this.props.title} type="noteTitle" name="noteTitle" id="note-title" placeholder="Note Title" />
                 </FormGroup>
                 <FormGroup>
-                <Input type="noteContent" name="noteContent" id="note-content" placeholder="Note Content" />
+                <Input onChange={this.props.handleEventChange}  value={this.props.content} type="noteContent" name="noteContent" id="note-content" placeholder="Note Content" />
                 </FormGroup>
-                <button className="button3">Save</button>
+                <Link to="/">
+                <button onClick= { () => this.props.handleSubmit(this.props.match.params._id)} className="button3">Save</button>
+                </Link>
             </Form>
         
             </div>
