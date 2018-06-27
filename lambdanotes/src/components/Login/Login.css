@@ -1,0 +1,75 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 200px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    border: solid #2BC1C4 1px;
+    border-radius: 2px;
+    padding: 20px;
+    margin: 30px 0 10px;
+    background: #e9f8f9;
+}
+
+.usernameDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.usernameLabel {
+    color: #2BC1C4;
+}
+
+.usernameInput {
+    border: 1px solid #2BC1C4;
+    border-radius: 2px;
+    color: #2BC1C4;
+    padding: 0 0 0 5px;
+}
+
+.passwordDiv {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.passwordLabel {
+    color: #2BC1C4;
+}
+
+.passwordInput {
+    border: 1px solid #2BC1C4;
+    border-radius: 2px;
+    color: #2BC1C4;
+    padding-left: 5px;
+}
+
+.loginButton {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    background: #2BC1C4;
+    color: #e9f8f9;
+    border: none;
+    border-radius: 2px;
+}
+
+.loginButton:hover {
+    cursor: pointer;
+}
+
+.signupLink {
+    font-size: 10px;
+    color: #2BC1C4;
+}

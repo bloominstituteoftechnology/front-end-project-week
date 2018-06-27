@@ -19,7 +19,7 @@ class EditNote extends Component {
     handleUpdateNote = () => {
         console.log('handleUpdateNote Fired')
         axios
-            .put(`https://lamb-danotes.herokuapp.com/note/edit/${this.props.currentNote._id}`, this.state)
+            .put(`https://lamb-danotes.herokuapp.com/note/edit/${this.props.currentNote._id}`, this.state, { headers: { Authorization: (localStorage.getItem('jwt')) } })
                 .then(res => {
                     console.log(res);
                     this.props.setCurrentNote(res.data._id);
@@ -51,7 +51,7 @@ class EditNote extends Component {
                         placeholder='Note Content'>
                     </textarea>
                     <div className='enEntireLink'>
-                        <Link to={`/${this.props.currentNote._id}`}>
+                        <Link to={`/${this.props.currentNote._id}/view`}>
                             <input onClick={this.handleUpdateNote} className='editNoteSaveButton' type='button' value='Update' />
                         </Link>
                     </div>

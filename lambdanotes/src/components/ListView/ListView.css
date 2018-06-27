@@ -44,6 +44,16 @@
     font-size: 21px;
 }
 
+.noNotes {
+    margin:26px;
+    font-size: 20px;
+    line-height: 44px;
+}
+
+.clickThere {
+    margin-left: -24px;
+}
+
 .noteCardsCollection {
     margin: 14px 20px;
     height: 793px;

@@ -9,6 +9,9 @@ import CreateNote from './components/CreateNote/CreateNote.js';
 import ViewNote from './components/ViewNote/ViewNote.js';
 import EditNote from './components/EditNote/EditNote.js';
 
+import Register from './components/Register/Register.js';
+import Login from './components/Login/Login.js';
+
 class App extends Component {
   constructor() {
     super();
@@ -19,9 +22,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     axios
-      .get(`https://lamb-danotes.herokuapp.com/note/get/all`)
+      .get(`https://lamb-danotes.herokuapp.com/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
@@ -30,7 +33,7 @@ class App extends Component {
 
   updateState = () => {
     axios
-      .get(`https://lamb-danotes.herokuapp.com/note/get/all`)
+      .get(`https://lamb-danotes.herokuapp.com/note/get/all`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
 
@@ -40,7 +43,7 @@ class App extends Component {
 
   setCurrentNote = (noteID) => {
     axios
-      .get(`https://lamb-danotes.herokuapp.com/note/get/${noteID}`)
+      .get(`https://lamb-danotes.herokuapp.com/note/get/${noteID}`, { headers: { Authorization: (localStorage.getItem('jwt')) } })
         .then(res => {this.setState({currentNote: res.data})})
         .catch(err => {console.log(err)})
   }
@@ -66,8 +69,11 @@ class App extends Component {
         <div className='viewContainer'>
           <Route exact path='/' render={ (props) => { return(<ListView {...props} notesList={this.state.notesList} setCurrentNote={this.setCurrentNote} sortNotesList={this.sortNotesList} />)}} />
           <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
-          <Route exact path='/:_id' render={ (props) => { return(<ViewNote {...props} updateState={this.updateState} currentNote={this.state.currentNote} />)}} />
+          <Route exact path='/:_id/view' render={ (props) => { return(<ViewNote {...props} updateState={this.updateState} currentNote={this.state.currentNote} />)}} />
           <Route path='/:_id/edit' render={ (props) => { return(<EditNote {...props} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
+          
+          <Route path='/register' component={Register} />
+          <Route path='/login' component={Login} />
         </div>
       </div>
     );

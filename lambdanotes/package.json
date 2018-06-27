@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "marked": "^0.4.0",
+    "netlify-cli": "^1.2.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-marked": "^0.3.1",

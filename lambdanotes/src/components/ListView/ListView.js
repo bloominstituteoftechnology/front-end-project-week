@@ -38,18 +38,27 @@ class ListView extends Component {
                     <p className='sortOption' onClick={() => this.props.sortNotesList('_id')}>id</p>
                 </div>
                 <h3 className='listViewHeader'>Your Notes:</h3>
-                <div className='noteCardsCollection'>
-                    {this.props.notesList.map(note => (
-                        <div onClick={() => this.props.setCurrentNote(note._id)} key={note._id} className={this.filterBySearch(note)}>
-                            <Link to={`/${note._id}`} className='noteCardLink'>
-                                <div className='noteCard'>
-                                    <h6 dangerouslySetInnerHTML={this.getMarkdownText(note.title)} className='noteTitle'></h6>
-                                    <span dangerouslySetInnerHTML={this.getMarkdownText(note.textBody)} className='noteContent'></span>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
 
+                <div>
+                    {( this.props.notesList == '' ?
+                    <div className='noNotes'>
+                        <p>You dont have any notes :(</p>
+                        <p className='clickThere'>&larr; Click there to add a note</p>
+                    </div>
+                    :
+                    <div className='noteCardsCollection'>
+                        {this.props.notesList.map(note => (
+                            <div onClick={() => this.props.setCurrentNote(note._id)} key={note._id} className={this.filterBySearch(note)}>
+                                <Link to={`/${note._id}/view`} className='noteCardLink'>
+                                    <div className='noteCard'>
+                                        <h6 dangerouslySetInnerHTML={this.getMarkdownText(note.title)} className='noteTitle'></h6>
+                                        <span dangerouslySetInnerHTML={this.getMarkdownText(note.textBody)} className='noteContent'></span>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                    )}
                 </div>
             </div>
         )

@@ -25,7 +25,7 @@ class CreateNote extends Component {
     handleSaveNote = () => {
         console.log('handleCreateNote Fired')
         axios
-            .post(`https://lamb-danotes.herokuapp.com/note/create`, this.state)
+            .post(`https://lamb-danotes.herokuapp.com/note/create`, this.state, { headers: { Authorization: (localStorage.getItem('jwt')) } })
                 .then(res => {
                     console.log(res);
                     this.props.updateState();
