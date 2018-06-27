@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './index.css';
 import axios from 'axios';
 
@@ -22,8 +22,9 @@ addNote = event => {
 	};
 
 	axios.post('https://blooming-dusk-34216.herokuapp.com/notes/', newNote)
-		.then(newNote  => {
-			this.setState({ _id: '', title:'', content:'' });
+		.then(response => {
+			console.log(response);
+			this.props.history.push('/');
 		})
 		.catch(error => console.log(error));
 	}
@@ -48,9 +49,7 @@ render() {
 					<Input type='textarea' onChange={this.handleInput} name='content' id='noteContent' value={this.state.content} placeholder='Note Content' />
 				</FormGroup>
 				<FormGroup>
-					<Link to='/'>
-					<button className='createButton' onClick={this.addNote}>Save</button>
-					</Link>
+					<button className='createButton' onClick = {this.addNote}>Save</button>
 				</FormGroup>
 			</Form>
 		</div>
@@ -59,7 +58,7 @@ render() {
 }
 }
 
-export default CreateNote;
+export default withRouter(CreateNote);
 
 //21May This is the first component I finished because I needed to start with something and this seemed like something I could build around. I will probably keep at least part of this one - we'll see.
 

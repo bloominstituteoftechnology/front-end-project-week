@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
 import './index.css';
 import axios from 'axios';
@@ -27,6 +27,7 @@ editingNotes = event => {
 	axios.put(`https://blooming-dusk-34216.herokuapp.com/notes/${this.state._id}`, editedNote)
 		.then(response => {
 			console.log(response);
+			this.props.history.push('/');
 		})
 		.catch(error => console.log(error));
 	}
@@ -50,9 +51,10 @@ render() {
 				<FormGroup>
 					<Input onChange={this.handleInput} name='content' type='textarea' value={this.state.content} id='noteContent' placeholder='Note Content' />
 				</FormGroup>
-					<Link to='/'>
-						<button className='createButton' onClick={this.editingNotes}>Update</button>
-					</Link>
+				<FormGroup>
+					<button className='createButton' onClick={this.editingNotes}>Update</button>
+				</FormGroup>
+
 			</Form>
 		</div>
 	</div>
@@ -61,7 +63,7 @@ render() {
 }
 }
 
-export default EditNote;
+export default withRouter(EditNote);
 
 //22 May - I dug deep into the React documentation to find this withRouter thing which is what I think I need to make sure the Router has access to the props it needs to do things correctly. It seems to work. Fingers crossed.
 //25 May - refactored to exclude withRouter - forgot that I figured out how to pass props in Router using render, and now that that's working I don't really need withRouter. I removed it and it still works.

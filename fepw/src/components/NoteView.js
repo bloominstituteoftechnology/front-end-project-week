@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Row, Col, Modal, ModalBody } from 'reactstrap';
 import axios from 'axios';
 
@@ -26,7 +26,7 @@ deletingNotes = event => {
 	axios.delete(`https://blooming-dusk-34216.herokuapp.com/notes/${this.state._id}`, deletedNote)
 		.then(response => {
 			console.log(response)
-			console.log(response.data)
+			this.props.history.push('/');	
 		})
 		.catch(error => console.log(error));
 	}
@@ -80,7 +80,7 @@ render() {
 }
 }
 
-export default NoteView;
+export default withRouter(NoteView);
 
 //22 May This is another file that took me a long time to figure out because of the modal. Decided to use reactstrap for that and it seems to work. I had to use the internet as my "phone a friend" for the syntax of the modal. That null killed me. The other thing that took me awhile was the handleDelete. It wouldn't go back to the home page without reloading the whole thing after deleting without the history.push part, which is related to the withRouter. If you wrap your NoteView with withRouter, it will be able to access the history properties. This stuff is really useful in a project with a lot of components. It would probably be more useful with Redux, but one thing at a time.
 //25 May I must have done something right because I was able to take out the history.push and withRouter part and it is now working. I think this is a case of several things being wrong at the same time and I fixed the wrong one or something. Probably is the result of me figuring out how to pass props to the Router using render.
