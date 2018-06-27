@@ -19,14 +19,14 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/all`)
+      .get(`https://https://lambdanotesbyhonda.herokuapp.com/note/get/all`)
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
   }
 
   switchNote = (noteID) => {
     axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${noteID}`)
+      .get(`https://lambdanotesbyhonda.herokuapp.com/note/get/${noteID}`)
         .then(res => {this.setState({currentNote: res.data})})
         .catch(err => {console.log(err)})
   }

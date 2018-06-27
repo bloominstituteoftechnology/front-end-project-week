@@ -19,7 +19,7 @@ class CreateNote extends Component {
     handleSaveNote = () => {
         console.log('handleCreateNote Fired')
         axios
-            .post(`https://killer-notes.herokuapp.com/note/create`, this.state)
+            .post(`https://lambdanotesbyhonda.herokuapp.com/note/create`, this.state)
                 .then(res => {
                     console.log(res);
                     window.location.reload();                
