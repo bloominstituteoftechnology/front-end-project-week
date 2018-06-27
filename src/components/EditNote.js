@@ -19,7 +19,7 @@ class EditNote extends Component {
     handleUpdateNote = () => {
         console.log('handleUpdateNote Fired')
         axios
-            .put(`https://lambdanotesbyhonda.herokuapp.com/note/edit/${this.props.currentNote._id}`, this.state)
+            .put(`https://lambdanotesbyhonda.herokuapp.com/notes/${this.props.currentNote._id}`, this.state)
                 .then(res => {
                     console.log(res);
                     window.location.reload();                

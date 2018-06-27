@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://https://lambdanotesbyhonda.herokuapp.com/note/get/all`)
+      .get(`https://https://lambdanotesbyhonda.herokuapp.com/notes/get/all`)
         .then(res => {this.setState({notesList: res.data})})
         .catch(err => {console.log(err)})
   }

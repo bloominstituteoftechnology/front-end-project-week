@@ -23,7 +23,7 @@ class DeleteNote extends Component {
   handleDeleteNote = (id) => {
     console.log('handleDeleteNoteFired');
     axios
-      .delete(`https://lambdanotesbyhonda.herokuapp.com/note/delete/${id}`)
+      .delete(`https://lambdanotesbyhonda.herokuapp.com/notes/${id}`)
         .then(res => {
           console.log(res);
           window.location.reload();
