@@ -1,0 +1,4 @@
+[build]
+  base    = "subDirectory"
+  publish = "dist/"
+  command = "npm run build"
