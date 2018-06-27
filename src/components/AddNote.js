@@ -9,12 +9,12 @@ class AddNote extends Component {
         this.state= {
             title: '',
             body: '',
-            email: ''
+            id: ''
         }
     }
 
     componentDidMount() {
-        this.setState({ email: this.props.email });
+        this.setState({ id: this.props.id });
     }
 
     handleChange = e => {
