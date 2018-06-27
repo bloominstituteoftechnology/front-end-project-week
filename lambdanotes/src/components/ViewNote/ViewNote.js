@@ -6,6 +6,13 @@ import marked from 'marked';
 
 class ViewNote extends Component {
 
+    componentDidMount() {
+        const isAuthorized = localStorage.getItem('jwt')
+        if (!isAuthorized) {
+            this.props.history.push('/login');
+        }
+    }
+
     getMarkdownText(text) {
         var rawMarkup = marked(`${text}`, {sanitize: true});
         return { __html: rawMarkup };

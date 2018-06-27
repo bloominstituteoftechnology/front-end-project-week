@@ -14,6 +14,13 @@ class DeleteNote extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentDidMount() {
+    const isAuthorized = localStorage.getItem('jwt')
+    if (!isAuthorized) {
+        this.props.history.push('/login');
+    }
+  }
+
   toggle() {
     this.setState({
       modal: !this.state.modal

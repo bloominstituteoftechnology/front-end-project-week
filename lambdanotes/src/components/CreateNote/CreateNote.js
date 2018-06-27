@@ -12,6 +12,13 @@ class CreateNote extends Component {
         }
     }
 
+    componentDidMount() {
+        const isAuthorized = localStorage.getItem('jwt')
+        if (!isAuthorized) {
+            this.props.history.push('/login');
+        }
+    }
+
     handleTitleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }

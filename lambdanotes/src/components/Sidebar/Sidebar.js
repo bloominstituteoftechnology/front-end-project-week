@@ -3,6 +3,16 @@ import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
 const Sidebar = (props) => {
+
+    const logout = () => {
+        if(localStorage.getItem('jwt')) {
+            localStorage.removeItem('jwt');
+            props.history.push('/login');
+        } else {
+            props.history.push('/login');
+        }
+    }
+
     return (
         <div>
             <h1 className='sidebarTitle'>Lambda Notes</h1>
@@ -15,6 +25,13 @@ const Sidebar = (props) => {
                 <Link to='/note/create'>
                     <button block='true' className='sidebarButton'>+ Create New Note</button>
                 </Link>
+            </div>
+            <div className='logoutContainer'>
+                {
+                    localStorage.getItem('jwt') 
+                    &&
+                    <button className='logout' onClick={() => logout()}>Log Out</button>
+                }
             </div>
         </div>
     )

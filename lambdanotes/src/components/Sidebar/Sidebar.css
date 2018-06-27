@@ -27,3 +27,23 @@
     color: #FFFFFF;
     cursor: pointer;
 }
+
+.logoutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 656px;
+}
+
+.logout {
+    background-color: #2BC1C4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    min-height: 42px;
+    width: 50%;
+    margin-left: 20px;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
+    cursor: pointer;
+}

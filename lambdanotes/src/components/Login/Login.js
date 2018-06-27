@@ -53,7 +53,7 @@ class Login extends Component {
                         <button className='loginButton' type='submit'>Log In</button>
                     </div>
                 </form>
-                <Link className='signupLink' to='/register'>Don't have an account? Sign Up Here</Link>
+                <Link className='signupLink' to='/register'>Don't have an account? Register Here</Link>
             </div>
         );
     }
