@@ -11,7 +11,7 @@ class EditNote extends Component {
 			_id: this.props.selectedNotecard._id,
 			title: this.props.selectedNotecard.title,
 			content: this.props.selectedNotecard.content,
-			redirect: false
+			//redirect: false
 		}
 	}
 
