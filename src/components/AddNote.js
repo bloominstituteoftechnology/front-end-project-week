@@ -9,7 +9,7 @@ class AddNote extends Component {
         this.state= {
             title: '',
             body: '',
-            id: ''
+            userId: ''
         }
     }
 
