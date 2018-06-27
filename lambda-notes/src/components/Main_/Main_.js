@@ -14,7 +14,7 @@ class Main_ extends Component {
     this.props.fetchingItems();
   }
   render() {
-    const { notes, fetched_Item, updating, dispatch } = this.props;
+    const { notes, fetched_Item, adding_Item, updating, dispatch } = this.props;
     console.log(fetched_Item);
     const PageUpdating = (
       <div>
@@ -41,7 +41,7 @@ class Main_ extends Component {
       </div>
     );
     console.log(this.props.dispatch);
-    if (!fetched_Item) return <div>{PageUpdating}</div>;
+    if (!fetched_Item || adding_Item) return <div>{PageUpdating}</div>;
     return (
       <div className="col-9 position-relative custom-main">
         <Switch>
@@ -92,6 +92,7 @@ const mapStateToProps = (state, dispatch) => {
     updating: state.updating_Item,
     notes: state.data,
     dispatch,
+    adding_Item: state.adding_Item,
   };
 };
 export default connect(
