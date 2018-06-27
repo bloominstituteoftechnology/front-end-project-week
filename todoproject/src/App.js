@@ -52,18 +52,33 @@ handleEventChange = event => {
 this.setState({ [event.target.name]: event.target.value })
 };
 
-handleSubmit = (_id) => {
+handleSubmit = () => {
+const todo = {
+  title: this.state.title,
+  content: this.state.content,
+}
+axios
+.post('http://localhost:5000/api/notes', todo)
+.then(res => {
+const currentState = this.state.todos;
+currentState.concat(res.data.savedNote)
+
+this.setState({ todos: currentState })
+})
+}
+
+
+handleEditSubmit = (_id) => {
   console.log("im submitting")
   const todo = {
     title: this.state.title,
     content: this.state.content,
 }
-
 axios
 .put(`http://localhost:5000/api/notes/${_id}`, todo)
 .then(res => {
   console.log("hello", res)
-  this.setState({ todos: res.data })
+  this.setState({ todo: res.data })
 })
 .catch(err => {console.log(err)})
 
@@ -86,7 +101,7 @@ this.setState({ todos: newNote, todo: '' })
       <Switch>
           
             <Route path="/EditNote/:id" render={(props) => (
-            <EditNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
+            <EditNote {...props} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleEditSubmit.bind(this)}/> 
             )} />
             <Route path="/ViewNote/:id" render={(props) => (
             <ViewNote {...props} deleteNotecard={this.deleteNotecard} todos={this.state.todos} handleEventChange={this.handleEventChange.bind(this)} handleSubmit={this.handleSubmit.bind(this)}/> 
