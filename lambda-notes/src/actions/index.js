@@ -95,8 +95,23 @@ export const cancelEdit = () => {
   }
 }
 
+const requestOptions = () => {
+    // get the token from somewhere
+    const token = localStorage.getItem('jwt');
+
+    // attach the token as the Authorization header
+    const requestOptions = {
+      headers: {
+        Authorization: token,
+      },
+    };
+    return requestOptions;
+}
+
+
 export const fetchNotes = () => {
-  const promise = axios.get(`${host}/api/notes/`);
+
+  const promise = axios.get(`${host}/api/notes/`, requestOptions());
   return function(dispatch) {
       dispatch(fetching());
       promise
@@ -113,7 +128,7 @@ export const fetchNotes = () => {
 }
 
 export const addNote = (note) => {
-  const promise = axios.post(`${host}/api/notes/`, note);
+  const promise = axios.post(`${host}/api/notes/`, note, requestOptions());
   return function(dispatch) {
       dispatch(saving());
       promise
@@ -128,7 +143,7 @@ export const addNote = (note) => {
 }
 
 export const removeNote = (note) => {
-  const promise = axios.delete(`${host}/api/notes/${note}`)
+  const promise = axios.delete(`${host}/api/notes/${note}`, requestOptions())
   return function(dispatch) {
       dispatch(deleting())
       promise 
@@ -143,7 +158,7 @@ export const removeNote = (note) => {
 
 export const updateNote = (updateNoteId, note) => {
   console.log("update this note :", note)
-  const promise = axios.put(`${host}/api/notes/${updateNoteId}`, note)
+  const promise = axios.put(`${host}/api/notes/${updateNoteId}`, note, requestOptions())
   return function(dispatch) {
       dispatch(updating())
       promise

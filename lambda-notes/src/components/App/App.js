@@ -19,7 +19,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLogged: false,
+      message: '',
+      notes: []  
     }
+  }
+
+  componentDidMount() {
+    // get the token from somewhere
+    const token = localStorage.getItem('jwt');
+    const msg = localStorage.getItem('msg');
+
+    this.setState({ isLogged: token, message: msg});
   }
 
   render() {
