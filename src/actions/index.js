@@ -74,9 +74,9 @@ export const deleteNote = id => {
     }
 };
 
-export const setAccount = email => {
+export const setAccount = id => {
     return function (dispatch) {
         dispatch({ type: UPDATING_ACCOUNT });
-        dispatch({ type: ACCOUNT_UPDATED, payload: email });
+        dispatch({ type: ACCOUNT_UPDATED, payload: id });
     }
 }
