@@ -16,7 +16,7 @@ const initialState = {
         {title: 'Note Title', body: body, id: 7},
         {title: 'Note Title', body: body, id: 8},
         {title: 'Note Title Last', body: body, id: 9}
-     ],
+    ],
     pending: false,
     error: null
 }
@@ -41,6 +41,6 @@ export const notesReducer = (state = initialState, action) => {
                 })})
         default: 
             return state;
-           
+        
     }
 }
