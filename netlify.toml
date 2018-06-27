@@ -1,4 +1,4 @@
 [build]
   base    = "lambda-notes"
-  publish = "dist/"
+  publish = "build"
   command = "npm run build"
