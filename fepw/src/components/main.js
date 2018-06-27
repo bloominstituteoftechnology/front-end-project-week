@@ -9,13 +9,15 @@ class Main extends Component {
 	constructor() {
 		super();
 		this.state = {
-			notes: [{ title: '', content: ''}],
+			notes: [{ _id: '', title: '', content: ''}],
 	
 			addNotecard: {
+				_id:'',
 				title:'',
 				content:''
 			},
 			selectedNotecard: {
+				_id:'',
 				title:'',
 				content:''
 			},

@@ -11,7 +11,7 @@ class NoteCard extends Component {
 	}
 
 handleSelectNote = () => {
-	this.state.updateSelectedNotecard({ title: this.props.title, content: this.props.content });
+	this.state.updateSelectedNotecard({ _id: this.props._id, title: this.props.title, content: this.props.content });
 }
 
 	render() {

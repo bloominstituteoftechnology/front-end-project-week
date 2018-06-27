@@ -11,6 +11,7 @@ class NoteView extends Component {
 		};
 	}
 
+
 	handleDelete = () => {
 		this.toggleModal();
 		this.props.deleteNotecard(this.props.selectedNotecard.title);

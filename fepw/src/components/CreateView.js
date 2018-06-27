@@ -16,17 +16,18 @@ class CreateNote extends Component {
 addNote = event => {
 	event.preventDefault();
 	const newNote = {
+		_id: this.state._id,
 		title: this.state.title,
 		content: this.state.content
 	};
 
+	axios.post('https://blooming-dusk-34216.herokuapp.com/notes/', newNote)
+		.then(newNote  => {
+			this.setState({ _id: '', title:'', content:'' });
+		})
+		.catch(error => console.log(error));
+	}
 
-axios.post('https://blooming-dusk-34216.herokuapp.com/notes/', newNote)
-	.then(newNote  => {
-		this.setState({ title:'', content:'' });
-	})
-	.catch(error => console.log(error));
-}
 
 handleInput = event => {
 	this.setState({ [event.target.name]: event.target.value });
