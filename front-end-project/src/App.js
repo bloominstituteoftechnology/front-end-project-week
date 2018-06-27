@@ -36,7 +36,7 @@ class App extends Component {
       .then(response => {
         let notes = this.state.notes
         console.log('notes', notes)
-        let moreNotes = notes.concat(response.data.savedNote)
+        let moreNotes = notes.unshift(response.data.savedNote)
         console.log('moreNotes', moreNotes)
         this.setState({
           notes: moreNotes
@@ -49,9 +49,10 @@ class App extends Component {
   editNote(id, note) {
     axios.put(`https://lambda-take-note.herokuapp.com/notes/${id}`, note)
       .then(response => {
+        console.log('hello')
         let currentState = this.state.notes
         let lessNote = currentState.filter(note => note._id !== response.data.updatedNote._id )
-        let newState = lessNote.concat(response.data.updatedNote)
+        let newState = lessNote.unshift(response.data.updatedNote)
         this.setState({
           notes: newState
         })
