@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import './CreateNew.css'
 
 class CreateNew extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       title: '',
@@ -19,14 +19,14 @@ class CreateNew extends React.Component {
     this.setState({ content: event.target.value })
   }
 
-  submitNote(event) {
+  submitNote (event) {
     event.preventDefault()
     const newNote = {
       title: this.state.title,
       content: this.state.content
     }
     console.log('newNote', newNote)
-    if (newNote.title != '' && newNote.content != '') {
+    if (newNote.title !== '' && newNote.content !== '') {
       // eslint-disable-line
       this.props.createNote(newNote)
       this.props.history.push('/')
@@ -37,32 +37,32 @@ class CreateNew extends React.Component {
     }
   }
 
-  render() {
+  render () {
     return (
-      <div className="newContainer">
-        <form className="newForm" onSubmit={this.submitNote.bind(this)}>
-          <div className="labelName">
+      <div className='newContainer'>
+        <form className='newForm' onSubmit={this.submitNote.bind(this)}>
+          <div className='labelName'>
             {' '}<h3>Create New Note:</h3>
           </div>
           <label />
           <input
-            className="inputText"
+            className='inputText'
             onChange={this.newTitle}
-            type="text"
-            name="Note"
-            id="noteId"
-            placeholder="Note Title"
+            type='text'
+            name='Note'
+            id='noteId'
+            placeholder='Note Title'
           />
           <textarea
-            className="textarea"
+            className='textarea'
             onChange={this.newContent}
-            type="textarea"
-            name="text"
-            id="Text"
-            placeholder="Note Content"
+            type='textarea'
+            name='text'
+            id='Text'
+            placeholder='Note Content'
           />
 
-          <button className="formButton" type="submit">
+          <button className='formButton' type='submit'>
             Save
           </button>
         </form>
