@@ -19,7 +19,7 @@ export const ERROR = 'ERROR';
 
 
 export const fetchNotes = id => {
-    const getNotes = axios.get(`https://notesmtm.herokuapp.com/api/users/${id}/notes`);
+    const getNotes = axios.get(`${process.env.REACT_APP_API_USERS}/${id}/notes`);
     return function(dispatch) {
         dispatch({ type: FETCHING_NOTES });
         getNotes
@@ -33,7 +33,7 @@ export const fetchNotes = id => {
 }
 
 export const addNote = note => {
-    const postNote = axios.post('https://notesmtm.herokuapp.com/api/notes/', note);
+    const postNote = axios.post(`${process.env.REACT_APP_API_NOTES}`, note);
     return function(dispatch) {
         dispatch({ type: ADDING_NOTE });
         postNote
@@ -47,7 +47,7 @@ export const addNote = note => {
 };
 
 export const updateNote = (id, note) => {
-    const putNote = axios.put(`https://notesmtm.herokuapp.com/api/notes/${id}`, note);
+    const putNote = axios.put(`${process.env.REACT_APP_API_NOTES}/${id}`, note);
     return function(dispatch) {
         dispatch({ type: UPDATING_NOTE });
         putNote
@@ -61,7 +61,7 @@ export const updateNote = (id, note) => {
 };
 
 export const deleteNote = id => {
-        const delNote = axios.put(`https://notesmtm.herokuapp.com/api/notes/${id}`);
+        const delNote = axios.put(`${process.env.REACT_APP_API_NOTES}/${id}`);
     return function(dispatch) {
         dispatch({ type: DELETING_NOTE });
         delNote
