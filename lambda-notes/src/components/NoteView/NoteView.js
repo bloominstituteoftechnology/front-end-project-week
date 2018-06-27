@@ -38,11 +38,12 @@ class NoteView extends Component {
     console.log('NOTES', this.props.notes);
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
-    const content = note.note;
+    const content = note.content;
     // const content = note.content
     //   .split("\n")
     //   .map((paragraph, index) => <Markdown key={index}>{paragraph}</Markdown>);
     console.log('note', note);
+    console.log({ content });
     return (
       <React.Fragment>
         <div className="d-flex position-absolute edition">
