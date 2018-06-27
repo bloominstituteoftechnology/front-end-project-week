@@ -15,7 +15,7 @@ class Register extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        axios.post('https://notesmtm.herokuapp.com/api/auth/register', this.state)
+        axios.post(`${process.env.REACT_APP_API_AUTH}/register`, this.state)
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
                 this.props.history.push('/notes');

@@ -3,8 +3,8 @@ import axios from "axios";
 
 class Login extends React.Component {
     state = {
-        email: '',
-        password: ''
+        email: 'test@test.com',
+        password: '12345678'
     }
 
     handleChange = e => {
@@ -13,7 +13,7 @@ class Login extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        axios.post('https://notesmtm.herokuapp.com/api/auth/login', this.state)
+        axios.post(`${process.env.REACT_APP_API_AUTH}/login`, this.state)
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
                 this.props.history.push('/notes');
