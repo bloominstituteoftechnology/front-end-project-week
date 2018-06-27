@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Note from '../Note/Note';
 import './NotesContainer.css';
-import { searchNote } from '../../actions';
+import { fetchNotes } from '../../actions';
 import SearchNote from '../SearchNote/SearchNote';
 
 
@@ -14,6 +14,10 @@ class NotesContainer extends Component {
         this.state = {
             search: ""
         }
+    }
+
+    componentDidMount() {
+        this.props.fetchNotes();
     }
 
 
@@ -56,7 +60,7 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {searchNote})(NotesContainer);
+export default connect(mapStateToProps, {fetchNotes})(NotesContainer);
 
 
 

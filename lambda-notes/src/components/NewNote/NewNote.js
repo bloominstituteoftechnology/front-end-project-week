@@ -16,16 +16,16 @@ class NewNote extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    count = 9;
+    // count = 9;
     submitNewNote = (e) => {
 
-       this.count++;
+    //    this.count++;
 
-       let { title, body } = this.state
+        let { title, body } = this.state
         let newNote = {
             title, 
             body, 
-            id: this.count
+            // id: this.count
     }
 
         e.preventDefault();

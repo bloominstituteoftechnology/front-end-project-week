@@ -26,7 +26,7 @@ class NoteView extends Component {
       }
 
 
-    matchedNote = this.props.notes.filter(note => {return note.id == this.props.match.params.id})[0] 
+    matchedNote = this.props.notes.filter(note => {return note._id == this.props.match.params.id})[0] 
     // [0] is the one element in the filtered Array that has the matched id
 
     //   handleRemove = () => {
@@ -45,13 +45,13 @@ class NoteView extends Component {
                     <Link 
                         onClick={this.toggle} 
                         className="link" 
-                        to={`/note/${this.matchedNote.id}`}
+                        to={`/note/${this.matchedNote._id}`}
                     >delete
                     </Link>
 
                     <Link 
                         className="link" 
-                        to={`/note/edit/${this.matchedNote.id}`}
+                        to={`/note/edit/${this.matchedNote._id}`}
                     >edit
                     </Link>
                 </div>
@@ -82,14 +82,14 @@ class NoteView extends Component {
                                     
                                     <Button style={{width: "211px"}} className="delete-btn" 
                                     text="Delete" 
-                                    onClick={() => this.props.deleteNote(this.matchedNote.id)}
+                                    onClick={() => this.props.deleteNote(this.matchedNote._id)}
                                 >
                                     </Button>
                                 {' '}</Link>
 
                                 <Link 
                                     style={{textDecoration: "none"}} 
-                                    to={`/note/${this.matchedNote.id}`}
+                                    to={`/note/${this.matchedNote._id}`}
                                 >
                                     <Button className="cancel-btn" style={{width: "211px"}} text="Cancel" onClick={this.toggle}></Button>
                                 </Link>
