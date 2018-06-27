@@ -12,11 +12,12 @@ class App extends Component {
     const token = localStorage.getItem('jwt');
     if (token) {
       jwt.verify(token, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
-        if (err) {
+      if (err) {
           console.log(err);
         } else {
-          const { email } = decoded;
-          this.props.setAccount(email);
+          console.log(decoded);
+          const { id } = decoded;
+          this.props.setAccount(id);
         }
       })
     }
