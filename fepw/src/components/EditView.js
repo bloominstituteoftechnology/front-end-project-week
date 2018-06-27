@@ -10,7 +10,8 @@ class EditNote extends Component {
 		this.state = {
 			_id: this.props.selectedNotecard._id,
 			title: this.props.selectedNotecard.title,
-			content: this.props.selectedNotecard.content
+			content: this.props.selectedNotecard.content,
+			redirect: false
 		}
 	}
 
@@ -25,8 +26,7 @@ editingNotes = event => {
 	};
 	axios.put(`https://blooming-dusk-34216.herokuapp.com/notes/${this.state._id}`, editedNote)
 		.then(response => {
-			console.log(response)
-			this.setState({ _id:'', title:'', content:'' });
+			console.log(response);
 		})
 		.catch(error => console.log(error));
 	}
@@ -51,7 +51,7 @@ render() {
 					<Input onChange={this.handleInput} name='content' type='textarea' value={this.state.content} id='noteContent' placeholder='Note Content' />
 				</FormGroup>
 					<Link to='/'>
-					<button className='createButton' onClick={this.editingNotes}>Update</button>
+						<button className='createButton' onClick={this.editingNotes}>Update</button>
 					</Link>
 			</Form>
 		</div>

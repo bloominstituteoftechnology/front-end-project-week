@@ -1,70 +1,84 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Modal, ModalBody } from 'reactstrap';
-
+import axios from 'axios';
 
 class NoteView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modal: false
+			modal: false,
+			_id: this.props.selectedNotecard._id,
+			title: this.props.selectedNotecard.title,
+			content: this.props.selectedNotecard.content
 		};
 	}
 
-
-	handleDelete = () => {
-		this.toggleModal();
-		this.props.deleteNotecard(this.props.selectedNotecard.title);
+deletingNotes = event => {
+	event.preventDefault();
+	this.toggleModal();
+	this.props.deleteNotecard(this.props.selectedNotecard.title);
+	const deletedNote = {
+		_id: this.state._id,
+		title: this.state.title,
+		content: this.state.content
+	};
+	axios.delete(`https://blooming-dusk-34216.herokuapp.com/notes/${this.state._id}`, deletedNote)
+		.then(response => {
+			console.log(response)
+			console.log(response.data)
+		})
+		.catch(error => console.log(error));
 	}
 
-	toggleModal = () => {
-		this.setState({
-			modal: !this.state.modal
-		});
-	}
-	//this is a toggle, so whatever the current state of the modal is, we want it to do the opposite when triggered		
-	render() {
-		return (
-			<div className='wrapper'>
-				<Row>
-					<Col className='alignRight'>
-						<span className='toplinks'>
-							<Link to ='/EditView'><button className='editButton' color='link'>edit</button></Link></span>
-							{/* link appears on screen and routes user to EditView page */}
-						<span><button className='delButton' onClick={ () => this.toggleModal() }>delete</button></span>
-							{this.state.modal ? <Modal isOpen={this.state.modal}>
-							{/* modal initially set to false - if toggled to true, then open it up and reset state */}
-								<ModalBody className='modalForm'>
-									Are you sure you want to delete this?
-								</ModalBody>
-								<div className='alignCenter'>
-									<span className='modalButtons'>
-										<Link to='/' onClick={() => this.handleDelete() }>
-											<button className='deleteModal'>Delete</button>
-										</Link> 
-									</span>
-									<span className='modalButtons'>
-										<button className='noModal' onClick={() => this.toggleModal()}>No</button>
-									</span>
-								</div>
-							</Modal> : null} {/* resets the modal */}
 
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<div className='head'>
-							<h5>{this.props.selectedNotecard.title}</h5>
-						</div>
-						<div className='viewNote'>
-							<p>{this.props.selectedNotecard.content}</p>
-						</div>
-					</Col>
-				</Row>
-			</div>
-			);
-				}
-				}
+toggleModal = () => {
+	this.setState({
+		modal: !this.state.modal
+	});
+
+}
+render() {
+	return (
+		<div className='wrapper'>
+			<Row>
+				<Col className='alignRight'>
+					<span className='toplinks'>
+						<Link to ='/EditView'><button className='editButton' color='link'>edit</button></Link></span>
+						{/* link appears on screen and routes user to EditView page */}
+					<span><button className='delButton' onClick={ () => this.toggleModal() }>delete</button></span>
+						{this.state.modal ? <Modal isOpen={this.state.modal}>
+						{/* modal initially set to false - if toggled to true, then open it up and reset state */}
+							<ModalBody className='modalForm'>
+								Are you sure you want to delete this?
+							</ModalBody>
+							<div className='alignCenter'>
+								<span className='modalButtons'>
+									<Link to='/' onClick={this.deletingNotes}>
+										<button className='deleteModal'>Delete</button>
+									</Link> 
+								</span>
+								<span className='modalButtons'>
+									<button className='noModal' onClick={() => this.toggleModal()}>No</button>
+								</span>
+							</div>
+						</Modal> : null} {/* resets the modal */}
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<div className='head'>
+						<h5>{this.props.selectedNotecard.title}</h5>
+					</div>
+					<div className='viewNote'>
+						<p>{this.props.selectedNotecard.content}</p>
+					</div>
+				</Col>
+			</Row>
+		</div>
+	);
+}
+}
 
 export default NoteView;
 
