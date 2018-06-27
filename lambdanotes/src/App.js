@@ -41,7 +41,7 @@ class App extends Component {
     event.preventDefault();
 
     axios
-      .post('http://localhost:5000/api/auth/register', {
+      .post('https://thawing-stream-63814.herokuapp.com/api/auth/register', {
         username: this.state.username,
         password: this.state.password,
       })
@@ -65,7 +65,7 @@ class App extends Component {
     event.preventDefault();
 
     axios
-      .post('http://localhost:5000/api/auth/login', {
+      .post('https://thawing-stream-63814.herokuapp.com/api/auth/login', {
         username: this.state.username,
         password: this.state.password,
       })
@@ -90,7 +90,7 @@ class App extends Component {
   fetch = () => {
     console.log("fetching")
     axios
-      .get('http://localhost:5000/api/users', {
+      .get('https://thawing-stream-63814.herokuapp.com/api/users', {
         headers: { "authorization": localStorage.getItem('token')}
       })
         .then(response => {
