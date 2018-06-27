@@ -13,7 +13,7 @@
     "reactstrap": "^6.0.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.html",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
