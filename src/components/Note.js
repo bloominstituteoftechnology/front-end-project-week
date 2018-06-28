@@ -17,10 +17,14 @@ class Note extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
+        console.log("id: ", id)
         this.props.fetchNote(id);
+        console.log("current note checklist: ", this.props.currentNote.checklist)
         setTimeout(() => {
+          if (this.props.currentNote.checklist) {
+            this.setState({checklist: this.props.currentNote.checklist.split(',')})
+          }
             
-            this.setState({checklist: this.props.currentNote.checklist})
         }, 100);
         
         console.log("checklist:", this.state.checklist)
@@ -31,7 +35,7 @@ class Note extends Component {
     }
 
     deleteNote = () => {
-        const id = this.props.match.params.id
+        const id = this.props.match.params._id
         this.props.removeNote(id)
         setTimeout(() => {
             this.props.history.push("/");
@@ -43,6 +47,7 @@ class Note extends Component {
     }
 
     render() { 
+      console.log("length of checklist: ", this.state.checklist)
         return (
             this.state.checklist.length > 0 ? (
                 <Container fluid={true}> 
