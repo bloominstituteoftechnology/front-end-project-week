@@ -42,8 +42,8 @@ class App extends Component {
         authorization: `${token}`
       }
     }
-    // const myURL = 'http://localhost:5000'
-    const myURL = 'https://radiant-earth-25724.herokuapp.com'
+    const myURL = 'http://localhost:5000'
+    // const myURL = 'https://radiant-earth-25724.herokuapp.com'
     axios.delete(`${myURL}/api/notes/${_id}`, requestOptions)
     // use filter to evalute on current copy of state
     let filteredNotes = this.state.notes.filter(note => note._id != _id) // eslint-disable-line
@@ -54,12 +54,12 @@ class App extends Component {
   }
 
   getNotes (requestOptions) {
-    const myURL = 'https://radiant-earth-25724.herokuapp.com'
-    // const myURL = 'http://localhost:5000'
+    // const myURL = 'https://radiant-earth-25724.herokuapp.com'
+    const myURL = 'http://localhost:5000'
     axios
       .get(`${myURL}/api/notes`, requestOptions)
       .then(res => {
-        // console.log(res.data)
+        console.log(res.data)
         this.setState({ notes: res.data })
         console.log(requestOptions)
       })
@@ -75,8 +75,8 @@ class App extends Component {
         authorization: `${token}`
       }
     }
-    // const myURL = 'http://localhost:5000'
-    const myURL = 'https://radiant-earth-25724.herokuapp.com'
+    const myURL = 'http://localhost:5000'
+    // const myURL = 'https://radiant-earth-25724.herokuapp.com'
     axios
       .put(`${myURL}/api/notes/${id}`, note, requestOptions)
       .then(res => {
@@ -103,8 +103,8 @@ class App extends Component {
       }
     }
 
-    // const myURL = 'http://localhost:5000'
-    const myURL = 'https://radiant-earth-25724.herokuapp.com'
+    const myURL = 'http://localhost:5000'
+    // const myURL = 'https://radiant-earth-25724.herokuapp.com'
     axios
       .post(`${myURL}/api/notes`, note, requestOptions)
       .then(res => {
@@ -133,7 +133,7 @@ class App extends Component {
           {localStorage.getItem('authorization')
             ? <Link className='btnLink' to='/login'>
               <div
-                onClick={() => localStorage.removeItem('jwt')}
+                onClick={() => localStorage.removeItem('authorization')}
                 className='btnSideNav'
               >
                   Logout
@@ -141,15 +141,6 @@ class App extends Component {
             </Link>
             : <div />}
         </div>
-        <Route
-          path='/register'
-          render={props =>
-            <Register {...props} onSignin={this.signinSuccess} />}
-        />
-        <Route
-          path='/login'
-          render={props => <Login {...props} onLogin={this.signinSuccess} />}
-        />
 
         <Route
           exact
@@ -181,7 +172,7 @@ class App extends Component {
           render={props =>
             <Update id={props.match.params.id} updateNote={this.newUpdate} />}
         />
-        {/* <Route
+        <Route
           path='/register'
           render={props =>
             <Register {...props} onSignin={this.signinSuccess} />}
@@ -189,7 +180,7 @@ class App extends Component {
         <Route
           path='/login'
           render={props => <Login {...props} onLogin={this.signinSuccess} />}
-        /> */}
+        />
       </div>
     )
   }

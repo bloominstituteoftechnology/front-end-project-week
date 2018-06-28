@@ -20,7 +20,7 @@ class CreateNew extends React.Component {
   }
 
   submitNote (event) {
-    event.preventDefault()
+    // event.preventDefault()
     const newNote = {
       title: this.state.title,
       content: this.state.content

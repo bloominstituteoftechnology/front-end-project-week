@@ -44,7 +44,8 @@ class Register extends React.Component {
     event.preventDefault()
     axios
       .post(
-        'https://radiant-earth-25724.herokuapp.com/api/register',
+        // 'https://radiant-earth-25724.herokuapp.com/api/register',
+        'http://localhost:5000/api/register',
         this.state
       )
       .then(response => {

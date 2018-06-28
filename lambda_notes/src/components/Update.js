@@ -23,7 +23,7 @@ class Update extends Component {
   }
 
   updateNoteChild (event) {
-    event.preventDefault()
+    // event.preventDefault()
     console.log(this.props.match.params.id)
     const UpdatedNote = {
       title: this.state.title,
