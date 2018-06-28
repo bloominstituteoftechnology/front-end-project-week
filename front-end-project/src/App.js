@@ -28,7 +28,6 @@ class App extends Component {
           currentNote: response.data.note
         });
       });
-    console.log("fetchNote", this.state.currentNote);
   }
 
   addNote(note) {
@@ -36,14 +35,12 @@ class App extends Component {
       .post("https://lambda-take-note.herokuapp.com/notes", note)
       .then(response => {
         let notes = this.state.notes;
-        console.log("notes", notes);
         let savedNote = response.data.savedNote;
         notes.unshift(savedNote);
         this.setState({
           notes: notes
         });
       });
-    console.log(this.state.notes, "notes after adding");
   }
 
   editNote(id, note) {

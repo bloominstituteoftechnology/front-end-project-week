@@ -12,7 +12,6 @@ so that it can execute the onClick function to close the modal for delete.
 const SideNav = props => {
   return (
     <React.Fragment>
-      {console.log("Sidenav props", props)}
       {props.match ? (
         <div
           className="nav sideNav"

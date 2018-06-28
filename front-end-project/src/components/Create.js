@@ -8,7 +8,6 @@ class Create extends Component {
     body: ""
   };
   handleSubmit = event => {
-    console.log("this.state", this.state);
     event.preventDefault();
     this.props.addNote(this.state);
     this.props.history.push("/");
