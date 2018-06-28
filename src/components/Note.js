@@ -29,6 +29,10 @@ class Note extends Component {
         console.log("checklist:", this.state.checklist)
     }
 
+    selectNote = (note) => {
+        this.props.history.push(`/note/${props.note._id}`)
+    }
+
     toggleModal = () => {
         this.setState({modal: !this.state.modal});
     }
