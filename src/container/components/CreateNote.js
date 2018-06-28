@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+
 
 import '../component.css';
  
@@ -30,7 +32,7 @@ class CreateNote extends Component{
 
             //const title = this.props.match.params.title;
             console.log(this.props.NoteData._id)
-            axios.put(`http://localhost:5000/api/edit/${this.props.NoteData._id}`, this.state)
+            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state)
                 .then(response => {
                     console.log('response', response.data);
                     this.props.history.push('/')
@@ -44,7 +46,7 @@ class CreateNote extends Component{
             const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
             console.log("CreateNote line 65", newNote);
-            axios.post('http://localhost:5000/api/create/note', this.state)
+            axios.post(`${api}/api/create/note`, this.state)
                 .then(response => {
                     console.log('response',response.data)
                     this.props.history.push('/')

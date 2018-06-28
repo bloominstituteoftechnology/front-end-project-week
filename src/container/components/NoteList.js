@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import '../component.css';
 
-
+const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
 
 
 class NoteList extends Component{
@@ -17,7 +17,7 @@ class NoteList extends Component{
         }
     }
     componentDidMount = () => {
-        axios.get('http://localhost:5000/api/user/list')
+        axios.get(`${api}/api/user/list`)
             .then(response => {
                 console.log(response)
                 this.setState({ notesList: response.data.note })
