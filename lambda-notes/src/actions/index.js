@@ -63,7 +63,7 @@ export const addingItem = newItem => {
   };
 };
 export const updatingItem = (index, id, content) => {
-  console.log('PUT', index, id, content);
+  console.log('PUT', { index, id, content });
   const updateItem = axios.put(`${URL}/${id}`, content);
   return dispatch => {
     dispatch({

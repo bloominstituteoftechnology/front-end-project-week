@@ -15,7 +15,7 @@ class Main_ extends Component {
   }
   render() {
     const { notes, fetched_Item, adding_Item, updating, dispatch } = this.props;
-    console.log(fetched_Item);
+    console.log({ fetched_Item });
     const PageUpdating = (
       <div>
         <br />

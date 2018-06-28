@@ -96,8 +96,8 @@ const mainReducer = (state = initialState, action) => {
         error: null,
       };
     case UPDATED_ITEM:
-      console.log('action.content', action.content);
-      console.log('action.allItems', action.allItems);
+      console.log('REDUCER: UPDATED_ITEM action.content', action.content);
+      console.log('REDUCER: UPDATED_ITEM action.allItems', action.allItems);
       const index = Number(action.index);
       console.log('action.index', index, typeof index, typeof Number(action.index));
       return {
