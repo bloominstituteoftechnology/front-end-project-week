@@ -30,7 +30,7 @@ class Note extends Component {
     }
 
     selectNote = (note) => {
-        this.props.history.push(`/note/${props.note._id}`)
+        this.props.history.push(`/note/${note._id}`)
     }
 
     toggleModal = () => {
@@ -57,7 +57,9 @@ class Note extends Component {
                         modal={this.state.modal}
                         toggle={this.toggleModal}
                         deleteNote={this.deleteNote}/>
-                    <NoteCard note={this.props.currentNote}/>
+                    <NoteCard 
+                        note={this.props.currentNote}
+                        selectNote={this.props.selectNote}/>
                     <CheckList 
                         checklist={this.state.checklist}
                         id={this.props.match.params.id}/>
@@ -69,7 +71,9 @@ class Note extends Component {
                         modal={this.state.modal}
                         toggle={this.toggleModal}
                         deleteNote={this.deleteNote}/>
-                    <NoteCard note={this.props.currentNote}/>
+                    <NoteCard 
+                        note={this.props.currentNote}
+                        selectNote={this.props.selectNote}/>
                 </Container>
             )
         )
