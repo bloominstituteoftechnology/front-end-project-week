@@ -9,7 +9,6 @@ class Edit extends Component {
     }
     handleSubmit = event => {
         console.log('this.state', this.state)
-        event.preventDefault()
         this.props.editNote(this.props.match.params.id, this.state)
         this.props.history.push('/')
     }
