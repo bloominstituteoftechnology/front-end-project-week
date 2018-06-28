@@ -7,7 +7,7 @@ const NoteThumbnail = (props) => {
     
     return (
         // <Link to={`/note/${props.note._id}`} className="note-link">
-            <Card className="note-thumbnail" onClick={props.selectNote()}>
+            <Card className="note-thumbnail" onClick={props.selectNote}>
                 <CardBody>
                     <CardTitle className="note-title heading">{props.note.title}</CardTitle>
                     <ReactMarkdown source={props.note.content} className="thumbnail-content"/>
