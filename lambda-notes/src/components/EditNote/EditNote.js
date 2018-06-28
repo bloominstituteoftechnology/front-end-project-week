@@ -14,7 +14,7 @@ class EditNote extends Component {
     
 
     matchedNote = this.props.notes.filter((note) => 
-        {return note.id == this.props.match.params.id})[0]
+        {return note._id == this.props.match.params.id})[0]
    
         
     componentDidMount() {
@@ -31,11 +31,11 @@ class EditNote extends Component {
         let updatedNote = {
             title: this.state.title,
             body: this.state.body,
-            id: this.matchedNote.id
         }
+        let id = this.matchedNote._id
 
-        this.props.editNote(updatedNote);
-        this.props.history.push(`/note/${this.matchedNote.id}`); 
+        this.props.editNote(id, updatedNote);
+        this.props.history.push(`/note/${this.matchedNote._id}`); 
     }
 
     

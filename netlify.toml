@@ -1,4 +1,4 @@
 [build]
   base    = "lambda-notes"
-  publish = "public"
+  publish = "build"
   command = "npm run build"

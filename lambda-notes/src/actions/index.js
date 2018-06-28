@@ -78,7 +78,7 @@ export const deleteNote = id => {
 // }
 
 export const editNote = editedNote => {
-    const modifyNote = axios.put('https://lambda-note.herokuapp.com/api/notes', editedNote)
+    const modifyNote = axios.put('https://lambda-note.herokuapp.com/api/notes/', editNote)
     return function(dispatch) {
         modifyNote 
             .then(response => {
