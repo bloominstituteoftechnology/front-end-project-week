@@ -42,7 +42,7 @@ class App extends Component {
 
 componentDidMount()  {
   axios
-  .get("https://vibrant-darwin-54252a.netlify.com/api/notes")
+  .get("https://arcane-dawn-82898.herokuapp.com/api/notes")
   .then(res => {this.setState({ todos: res.data })})
   .catch(err => {console.log(err)})
  }
@@ -58,7 +58,7 @@ const todo = {
   content: this.state.content,
 }
 axios
-.post('https://vibrant-darwin-54252a.netlify.com/api/notes', todo)
+.post('https://arcane-dawn-82898.herokuapp.com/api/notes', todo)
 .then(res => {
 const currentState = this.state.todos;
 
@@ -76,7 +76,7 @@ handleEditSubmit (_id) {
     content: this.state.content,
 }
 axios
-.put(`https://vibrant-darwin-54252a.netlify.com/api/notes/${_id}`, todo)
+.put(`https://arcane-dawn-82898.herokuapp.com/api/notes/${_id}`, todo)
 .then(res => {
   console.log(res)
 })
@@ -97,7 +97,7 @@ const todo = {
     content: this.state.content,
 }
 axios
-.delete(`https://vibrant-darwin-54252a.netlify.com/api/notes/${_id}`)
+.delete(`https://arcane-dawn-82898.herokuapp.com/api/notes/${_id}`)
 .then(res => {
  console.log(res)
 })
