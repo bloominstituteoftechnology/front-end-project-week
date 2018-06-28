@@ -15,14 +15,10 @@ class NotesList extends Component {
         
     }
 
-    /*componentDidMount() {
-        this.props.fetchNotes();
-    }*/
-
     componentWillMount() {
         let reversed = Array.from(this.props.notesArray).reverse();
          this.setState({notesArray: reversed });
-        this.props.fetchNotes();
+          this.props.fetchNotes();
     }
     
 render() {
@@ -51,5 +47,5 @@ render() {
 
 
 
-export default connect(mapStateToProps, { fetchNotes })(NotesList);
+export default connect(mapStateToProps, { fetchNotes } )(NotesList);
 
