@@ -51,7 +51,7 @@ class EditNote extends Component {
                         </div>
                         <span>
                             <button 
-                                className="edit-button"
+                                className="button-template"
                                 type="submit"
                                 onClick={()=> this.editNote(this.props.match.params.id)}
                             >

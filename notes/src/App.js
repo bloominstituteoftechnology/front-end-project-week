@@ -3,7 +3,9 @@ import './App.css';
 import { Container, Row, Col } from 'reactstrap';
 import { Route, Link } from 'react-router-dom';
 import axios from 'axios';
-import { List, Note, NewNote, EditNote, Test } from './components';
+import Registration from './auth/registration';
+import Login from './auth/login';
+import { List, Note, NewNote, EditNote } from './components';
 
 
 class App extends Component {
@@ -12,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:5555/api/notes')
     .then(res => this.setState({ notes: res.data }))
     .catch(err => {
       console.log(err);
@@ -22,7 +24,7 @@ class App extends Component {
   postNote = note => {
     console.log("NOTE:", note)
     axios
-      .post('https://killer-notes.herokuapp.com/note/create', note)
+      .post('http://localhost:5555/api/notes', note)
       .then(response => {
         this.refresh()
         
@@ -33,7 +35,7 @@ class App extends Component {
   }
 
   refresh() {
-    axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    axios.get('http://localhost:5555/api/notes')
     .then(res => this.setState({ notes: res.data }))
     .catch(err => {
       console.log(err);
@@ -42,7 +44,7 @@ class App extends Component {
 
   removeNote = (_id) => {
     axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${_id}`)
+      .delete(`http://localhost:5555/api/notes/${_id}`)
       .then(response => {
         this.refresh()
       })
@@ -53,7 +55,7 @@ class App extends Component {
 
   updateNote = (editedNote) => {
     axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${editedNote._id}`, editedNote)
+      .put(`http://localhost:5555/api/notes/${editedNote._id}`, editedNote)
       .then(response => {
         this.refresh()
       })
@@ -62,8 +64,14 @@ class App extends Component {
       })
   }
 
+  logout = () => {
+    if(localStorage.getItem("jwt")) {
+      localStorage.removeItem("jwt");
+      this.props.history.push('/register')
+    }
+  };
+
   render() {
-    console.log("WHERE ARE MY PROPS:", this.props)
     return (
       <div className="App">
         <Container>
@@ -71,14 +79,18 @@ class App extends Component {
             <Col xs="3" className="sidebar">
               <div className="the-real-sidebar">
                 <h1 className="sidebar-header">Lambda Notes</h1>
+                <Link to="/register">
+                  <button style={{ marginBottom: '50px' }} className="button-template">Home</button>
+                </Link>
+                <Link to="/login">
+                  <button className="button-template">Login</button>
+                </Link>
+                {/* <button style={{ marginBottom: '25px' }} className="button-template" onClick={this.logout}>Logout</button> */}
                 <Link to="/">
-                  <button className="list-button">View Your Notes</button>
+                  <button className="button-template">View Your Notes</button>
                 </Link>
                 <Link to="/newnote">
-                  <button className="new-note-button">+ Create New Note</button>
-                </Link>
-                <Link to="/test">
-                  <button className="test-portal"></button>
+                  <button className="button-template">+ Create New Note</button>
                 </Link>
               </div>
             </Col>
@@ -103,7 +115,8 @@ class App extends Component {
                   <EditNote {...props} updateNote={this.updateNote} />
                 )
               }} />
-              <Route path="/test" component={Test} />
+              <Route path="/register" component={Registration}/>
+              <Route path="/login" component={Login}/>
             </Col>
           </Row>
         </Container>

@@ -48,7 +48,7 @@ class Newnote extends Component {
                         </div>
                         <span>
                             <button 
-                                className="save-button"
+                                className="button-template"
                                 type="submit"
                                 onClick={() => this.addNote()}
                             >

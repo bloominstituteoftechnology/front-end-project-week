@@ -1,16 +1,17 @@
 /* App-wide Styles */
 
 .App {
-  background-color: #F3F3F3;
+  background-color: rgb(133, 133, 133);
   width:100%;
-  /* max-width: 1000px; */
-  color: #4A4A4A;
+  height: 720px;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 1px black;
 }
 
 /* Sidebar Styles*/
 
 .the-real-sidebar {
-  background-color:#D8D8D8;
+  background-color:rgb(85, 85, 85);
   border-right: 1px solid gray;
   height: 1000px;
   top: 0;
@@ -21,39 +22,40 @@
   display: flex;
   flex-direction: column;
   align-content: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
 .sidebar-header {
   width: 100px;
 }
 
-.list-button {
-  
-    height: 50px;
-    width: 200px;
-    border-color: #979797;
-    background-color: rgb(43, 193, 196);
-    color: #FFFFFF;
-    margin-top:10px;
-    margin-bottom: 10px;
-
-
-}
-
-.new-note-button {
-
+.button-template {
   height: 50px;
   width: 200px;
   border-color: #979797;
-  background-color: rgb(43, 193, 196);
+  background-color: rgb(196, 43, 43);
   color: #FFFFFF;
   margin-top:10px;
   margin-bottom: 10px;
-  
 }
 
-/* Test Button  */
+.input {
+  height: 40px;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
 
-.test-portal {
-  visibility: hidden;
+/* register/login containers */
+.box1 {
+  padding-left: 200px;
+  margin-top: 100px;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+.box2 {
+  padding-left: 300px;
+  padding-top: 150px;
 }

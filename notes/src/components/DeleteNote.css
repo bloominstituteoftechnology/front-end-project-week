@@ -6,8 +6,9 @@
 
 
 .want-to-delete {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
+    border: 1px solid black;
 }
 .modul-delete { 
   height: 50px;

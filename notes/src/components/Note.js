@@ -26,7 +26,7 @@ class Note extends Component {
                         </Link>
                         <DeleteNote noteID={note._id} removeNote={this.props.removeNote}/>
                     </div>
-                    <h1>{note.title}</h1>
+                    <h1 style={{textShadow: '1px 1px 1px black'}}>{note.title}</h1>
                     <p className="single-note-body">{note.textBody}</p>
                         </Col>)
                         :
