@@ -1,0 +1,41 @@
+.Form1 {
+    display: inline-block;
+    width: 500px;
+    position: absolute;
+    margin: 38px 0px 0px 38px;  
+}
+
+.container2 {
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+    height: 1200px;
+    width: 1000px;
+    margin-left: 265px;
+}
+#note-title {
+    height: 45px;
+    border-radius: 0;
+    border: 1px solid darkgray;
+}
+#note-content {
+    padding-bottom: 400px;
+    width: 600px;
+    border-radius: 0;
+    border: 1px solid darkgray;
+
+}
+.button3 {
+    display: block;
+    background-color:#DF8383;
+    color: #FFFF;
+    border: 1px solid darkgray;
+    font: Raleway Medium;
+    font-size: 15px;
+    padding: 10px;
+    position: absolute;
+    width: 200px;
+}
+.button3:hover {
+    background-color: #26acaf;
+}

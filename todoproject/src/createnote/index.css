@@ -1,0 +1,250 @@
+.Form1 {
+    display: inline-block;
+    width: 500px;
+    position: absolute;
+    margin: 38px 0px 0px 38px;  
+}
+
+#note-title {
+    height: 45px;
+    border-radius: 1;
+    border: 1px solid darkgray;
+}
+#note-content {
+    padding-bottom: 400px;
+    width: 750px;
+    border-radius: 1;
+    border: 1px solid #81807F;;
+
+}
+.button3 {
+    display: block;
+    background-color:#2BC1C4;
+    color: #FFFF;
+    border: 1px solid #81807F;;
+    font: Raleway Medium;
+    font-size: 15px;
+    padding: 10px;
+    position: absolute;
+    width: 200px;
+}
+.button3:hover {
+    background-color: #26acaf;
+}
+.container1 {
+    display: inline-block;
+    position: absolute;
+    background-color: #fafafa;
+    width: 1000px;
+    margin-left: 265px;
+}
+h2 {
+    font: Roboto;
+    color: #4d4c4c;
+    margin-left: 47px;
+    margin-top: 80px;
+    font-size: 25px;
+}
+.card {
+    display: inline-flex;
+    width: 210px;
+    height: 220px;
+    font: Raleway Medium;
+    color: #4A4A4A;
+    margin: 39px 50px;
+    border-radius: 0px 34px 0px 0px;
+    border: none;
+    background-color: white;
+    box-shadow: 10px 32px 90px -10px rgba(214,214,214,1);
+}
+.cardtitle {
+    padding-top: 0;
+    font-size: 19px;
+    color: #4d4c4c;
+}
+.cardtext {
+    font-size: 15px;
+    line-height: 26px;
+    border-top: 1px solid darkgray;
+    color: #4d4c4c;
+}
+
+
+
+/* View note */
+.content {
+    display: inline-block;
+    width:800px;
+    position: absolute;
+    margin: 38px 0px 0px 38px; 
+    line-height: 2.1; 
+    font: Raleway Medium;
+    font-size: 15px;
+    color: #4A4A4A;
+}
+.content2 {
+    display: inline-block;
+    width:800px;
+    position: absolute;
+    margin: 390px 0px 0px 38px; 
+    line-height: 2.1;  
+    font: Raleway Medium;
+    font-size: 15px;
+    color: #4A4A4A;
+}
+
+h6 {
+    font: Roboto;
+    color: #4A4A4A;
+    margin-left: 38px;
+    margin-top: 80px;
+    font-size: 25px;
+}
+.button4 {
+    position: absolute;
+    margin-left: 700px;
+    margin-top: -70px;
+    border: none;
+    background-color: white;
+    color: #4A4A4A;
+    font: Raleway Medium;
+    font-size: 17px;
+}
+.button5 {
+    position: absolute;
+    margin-left: 750px;
+    margin-top: -74px;
+    border: none;
+    background-color: white;
+    color: #4A4A4A;
+    font: Raleway Medium;
+}
+Button {
+    background-color: #F3F3F3;
+
+}
+.my-modal {
+    margin-top: 200px !important;
+
+}
+.modal-content  {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+  }
+.modalheader {
+    border-bottom: none;
+    padding-left: 82px;
+}
+.modalfooter {
+    border-top: none;
+    justify-content: center;
+}   
+.button6 {
+    width: 190px;
+    border-radius: 0px;
+    border: 1px solid darkgray;
+    margin: 10px 0 0 0;
+
+}
+.button7 {
+    width: 190px;
+    background-color: #2BC1C4;
+    border-radius: 0px;
+    border: 1px solid darkgray;
+    margin: 10px 0 0 0;
+}
+.display-content {
+    display: inline-block;
+    width:800px;
+    position: absolute;
+    margin: 30px 0px 0px 38px; 
+    line-height: 2.1;  
+    font: Raleway Medium;
+    font-size: 15px;
+    color: #4A4A4A;
+}
+.Form1 {
+    display: inline-block;
+    width: 500px;
+    position: absolute;
+    margin: 38px 0px 0px 38px;  
+}
+
+#note-title {
+    height: 45px;
+    border-radius: 1;
+    border: 1px solid darkgray;
+}
+#note-content {
+    padding-bottom: 400px;
+    width: 750px;
+    border-radius: 1;
+    border: 1px solid darkgray;
+
+}
+.button3 {
+    display: block;
+    background-color:#2BC1C4;
+    color: #FFFF;
+    border: 1px solid darkgray;
+    font: Raleway Medium;
+    font-size: 15px;
+    padding: 10px;
+    position: absolute;
+    width: 200px;
+}
+.button3:hover {
+    background-color: #26acaf;
+}
+
+h1 {
+    display: block;
+    font: Roboto;
+    color: #4d4c4c;
+    text-align: left;
+    height: 1200px;
+    width: 250px;
+    background-color: white;
+    padding-top: 15px;
+    padding-left: 30px;
+    position: relative;
+    margin-left: 15px;
+    box-shadow: 10px 24px 90px -25px rgba(214,214,214,0.64);
+
+}
+.button1 {
+    display: block;
+    background-color: #FBD950;
+    color: white;
+    font: Raleway Medium;
+    font-size: 18px;
+    margin-top: -1050px;
+    margin-left: 40px;
+    padding: 10px;
+    position: absolute;
+    width: 150px;
+}
+.button1:hover {
+    background-color: rgb(241, 201, 40);
+}
+
+.button2 {
+    display: block;
+    position: absolute;
+    background-color: #DF8383; 
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font: Raleway Medium;
+    margin-top: -1150px;
+    margin-left: 1080px;
+    padding: 10px;
+    position: absolute;
+    width: 53px;
+    border-radius: 200px;
+}
+.button2:hover {
+    background-color: rgb(196, 116, 116);
+    border-radius: 200px;
+}
