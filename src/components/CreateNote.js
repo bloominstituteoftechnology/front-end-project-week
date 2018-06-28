@@ -8,7 +8,7 @@ class CreateNote extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: '',
+            contents: '',
         }
     }
 
@@ -46,7 +46,7 @@ class CreateNote extends Component {
                         onChange={this.handleTitleChange}
                         type='text' 
                         className='create-input-content' 
-                        name='textBody'
+                        name='contents'
                         value={this.state.noteContent}
                         placeholder='Note Content'>
                     </textarea>
