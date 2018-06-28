@@ -62,4 +62,4 @@ class ViewNote extends Component {
     }
 };
 
-export default ViewNote; //export
+export default ViewNote; //exports
