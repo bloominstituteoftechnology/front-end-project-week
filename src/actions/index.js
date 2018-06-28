@@ -56,7 +56,7 @@ const singleNote = (data) => {
 }
 
 export const fetchNotes = () => {
-    const getNotes = axios.get('http://localhost:5000/api/notes')
+    const getNotes = axios.get(`https://powerful-oasis-55066.herokuapp.com/api/notes`)
     return function(dispatch) {
         dispatch(pending())
         getNotes
@@ -70,7 +70,7 @@ export const fetchNotes = () => {
 }
 
 export const fetchNote = (id) => {
-    const getNote = axios.get(`http://localhost:5000/api/notes/${id}`)
+    const getNote = axios.get(`https://powerful-oasis-55066.herokuapp.com/api/notes/${id}`)
     return function(dispatch) {
         dispatch(pending())
         getNote
@@ -84,7 +84,7 @@ export const fetchNote = (id) => {
 }
 
 export const createNote = (note) => {
-    const postNote = axios.post('http://localhost:5000/api/notes', note)
+    const postNote = axios.post(`https://powerful-oasis-55066.herokuapp.com/api/notes`, note)
     return function(dispatch) {
         dispatch(pending())
         postNote
@@ -98,7 +98,7 @@ export const createNote = (note) => {
 }
 
 export const updateNote = (note) => {
-    const putNote = axios.put(`http://localhost:5000/api/notes/${note._id}`, note)
+    const putNote = axios.put(`https://powerful-oasis-55066.herokuapp.com/api/notes/${note._id}`, note)
     return function(dispatch) {
         dispatch(pending())
         putNote
@@ -112,7 +112,7 @@ export const updateNote = (note) => {
 }
 
 export const removeNote = (id) => {
-    const deleteNote = axios.delete(`http://localhost:5000/api/notes/${id}`)
+    const deleteNote = axios.delete(`https://powerful-oasis-55066.herokuapp.com/api/notes/${id}`)
     return function(dispatch) {
         dispatch(pending())
         deleteNote

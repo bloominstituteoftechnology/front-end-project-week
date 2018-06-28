@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.1.1",
     "checkbox-group": "^2.0.0",
+    "getconfig": "^4.5.0",
     "history": "^4.7.2",
     "js-search": "^1.4.2",
     "level": "^4.0.0",
