@@ -37,7 +37,7 @@ export const rootReducer = (state = initialState, action) => {
         case FETCHING_NOTES:
             return { ...state, fetchingNotes: true, error: null};
         case NOTES_FETCHED:
-            return { ...state, fetchingNotes: false, notesFetched: true, notes: state.notes.concat(action.payload)}
+            return { ...state, fetchingNotes: false, notesFetched: true, notes: action.payload}
 
         case ADDING_NOTE:
             return { ...state, addingNote: true, error: null};
