@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Route, Switch, Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CSVLink, CSVDownload } from 'react-csv';
-import { fetchingItems } from '../../actions/index';
+import { fetchingItems, ifLoggedInAuthUser } from '../../actions/index';
 import ListView from '../ListView/ListView';
 import NoteView from '../NoteView/NoteView';
 import Form_ from '../Form_/Form_';
@@ -13,6 +13,7 @@ import Auth from '../Auth/Auth';
 class Main_ extends Component {
   componentDidMount() {
     this.props.fetchingItems();
+    localStorage.getItem('chachi') && this.props.ifLoggedInAuthUser();
   }
   render() {
     const { notes, fetched_Item, adding_Item, updating, dispatch } = this.props;
@@ -118,5 +119,5 @@ const mapStateToProps = (state, dispatch) => {
 };
 export default connect(
   mapStateToProps,
-  { fetchingItems }
+  { fetchingItems, ifLoggedInAuthUser }
 )(Main_);

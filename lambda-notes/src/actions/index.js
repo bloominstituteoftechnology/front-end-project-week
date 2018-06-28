@@ -116,6 +116,13 @@ export const deletingItem = (index, id) => {
       });
   };
 };
+export const ifLoggedInAuthUser = () => {
+  return distpatch => {
+    distpatch({
+      type: AUTH_USER,
+    });
+  };
+};
 export const registerUser = newUser => {
   const createUser = axios.post(URL_REGISTER, newUser);
   return dispatch => {
