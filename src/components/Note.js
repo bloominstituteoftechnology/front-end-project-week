@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchNote, removeNote } from '../actions';
 import { Container } from 'reactstrap';
@@ -81,4 +82,4 @@ const mapStateToProps = (state) => {
     }
 }
  
-export default connect(mapStateToProps, { fetchNote, removeNote })(Note);
+export default withRouter(connect(mapStateToProps, { fetchNote, removeNote })(Note));

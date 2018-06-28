@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { fetchNotes } from '../actions';
 import NoteThumbnail from './NoteThumbnail';
 import { Container, Row } from 'reactstrap';
@@ -17,6 +18,7 @@ class Notes extends Component {
     componentDidMount() {
         this.props.fetchNotes();
         this.setState({notes: this.props.notes});
+        console.log(this.props.notes)
         const titles = []
         this.props.notes.forEach( note => {
             titles.push(note.title);
@@ -60,4 +62,4 @@ const mapStateToProps = (state) => {
     }
 }
  
-export default connect(mapStateToProps, { fetchNotes })(Notes);
+export default withRouter(connect(mapStateToProps, { fetchNotes })(Notes));
