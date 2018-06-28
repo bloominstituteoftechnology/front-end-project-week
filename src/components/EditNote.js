@@ -8,7 +8,7 @@ class EditNote extends Component {
         super(props);
         this.state = {
             title: props.currentNote.title,
-            textBody: props.currentNote.textBody
+            contents: props.currentNote.contents
         }
     }
 
@@ -46,8 +46,8 @@ class EditNote extends Component {
                         onChange={this.handleTitleChange}
                         type='text' 
                         className='edit-input-content' 
-                        name='textBody'
-                        value={this.state.textBody}
+                        name='contents'
+                        value={this.state.contents}
                         placeholder='Note Content'>
                     </textarea>
                     <div className='save-link'>
