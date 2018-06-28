@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { fetchNotes } from '../../actions';
 import './index.css';
 
 const mapStateToProps = (state) => {
     return {
-        notesArray: state
+        notesArray: state,
     }
 }
 
@@ -13,9 +14,15 @@ class NotesList extends Component {
     state = {
         
     }
+
+    /*componentDidMount() {
+        this.props.fetchNotes();
+    }*/
+
     componentWillMount() {
         let reversed = Array.from(this.props.notesArray).reverse();
-        this.setState({notesArray: reversed });
+         this.setState({notesArray: reversed });
+        this.props.fetchNotes();
     }
     
 render() {
@@ -42,5 +49,7 @@ render() {
 }};
 
 
-export default connect(mapStateToProps, {/*ActionsHere*/})(NotesList);
+
+
+export default connect(mapStateToProps, { fetchNotes })(NotesList);
 
