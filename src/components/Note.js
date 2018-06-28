@@ -21,12 +21,10 @@ class Note extends Component {
         console.log("id: ", id)
         this.props.fetchNote(id);
         console.log("current note checklist: ", this.props.currentNote.checklist)
-        setTimeout(() => {
-          if (this.props.currentNote.checklist) {
-            this.setState({checklist: this.props.currentNote.checklist.split(',')})
-          }
-            
-        }, 100);
+
+        if (this.props.currentNote.checklist) {
+          this.setState({checklist: this.props.currentNote.checklist.split(',')})
+        };
         
         console.log("checklist:", this.state.checklist)
     }
@@ -38,9 +36,7 @@ class Note extends Component {
     deleteNote = () => {
         const id = this.props.match.params._id
         this.props.removeNote(id)
-        setTimeout(() => {
-            this.props.history.push("/");
-        }, 500);
+        this.props.history.push("/");
     }
 
     handleCheckBox = (values) => {
