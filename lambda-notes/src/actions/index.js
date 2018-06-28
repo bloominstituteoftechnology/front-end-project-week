@@ -6,7 +6,7 @@ export const EDIT_NOTE = 'EDIT_NOTE';
 export const SEARCH_NOTE = 'SEARCH_NOTE';
 export const PENDING = 'PENDING';
 export const ERROR = 'ERROR';
-
+export const ADD_USER = 'ADD_USER';
 
 // export const fetchNotes = () => {
 //     return {
@@ -96,6 +96,20 @@ export const searchNote =  title => {
     return {
         type: SEARCH_NOTE,
         payload: title
+    }
+}
+// USER ACTIONS
+export const registerUser = newUser => {
+    const addNewUser = axios.post('https://lambda-note.herokuapp.com/api/users/register', newUser);
+    return function(dispatch) {
+        dispatch({type: PENDING})
+        addNewUser  
+            .then((response) => {
+                dispatch({type: ADD_USER, payload: response.data});
+            })
+            .catch(err => {
+                dispatch({type: ERROR, payload: err})
+            })
     }
 }
 
