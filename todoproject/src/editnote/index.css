@@ -8,37 +8,26 @@
 .container2 {
     display: inline-block;
     position: absolute;
-    background-color: #F3F3F3;
+    background-color: white;
     height: 1200px;
     width: 1000px;
-    border-top: 1px solid darkgray;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
     margin-left: 265px;
-}
-h6 {
-    font: Roboto Bold;
-    font-weight: bold;
-    color: #4A4A4A;
-    margin-left: 38px;
-    margin-top: 80px;
-    font-size: 25px;
 }
 #note-title {
     height: 45px;
-    border-radius: 1;
+    border-radius: 0;
     border: 1px solid darkgray;
 }
 #note-content {
     padding-bottom: 400px;
-    width: 750px;
-    border-radius: 1;
+    width: 600px;
+    border-radius: 0;
     border: 1px solid darkgray;
 
 }
 .button3 {
     display: block;
-    background-color:#2BC1C4;
+    background-color:#DF8383;
     color: #FFFF;
     border: 1px solid darkgray;
     font: Raleway Medium;

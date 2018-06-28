@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './index.css';
 import { Link } from 'react-router-dom';
 
 
@@ -10,11 +9,11 @@ class Sidebar extends Component {
             <h1>Lambda Notes</h1>
             
             <Link to="/">
-            <button className="button1">View Your Notes</button>
+            <button className="button1">View Notes</button>
             </Link>
 
             <Link to="/CreateNewNote">
-            <button className="button2">+ Create New Note</button>
+            <button className="button2">+</button>
             </Link>
             </div>
         )

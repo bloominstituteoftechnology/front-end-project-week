@@ -5,25 +5,6 @@
     margin: 38px 0px 0px 38px;  
 }
 
-.container2 {
-    display: inline-block;
-    position: absolute;
-    background-color: #F3F3F3;
-    height: 1200px;
-    width: 1000px;
-    border-top: 1px solid darkgray;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-    margin-left: 265px;
-}
-h6 {
-    font: Roboto Bold;
-    font-weight: bold;
-    color: #4A4A4A;
-    margin-left: 38px;
-    margin-top: 80px;
-    font-size: 25px;
-}
 #note-title {
     height: 45px;
     border-radius: 1;
@@ -33,14 +14,14 @@ h6 {
     padding-bottom: 400px;
     width: 750px;
     border-radius: 1;
-    border: 1px solid darkgray;
+    border: 1px solid #81807F;;
 
 }
 .button3 {
     display: block;
     background-color:#2BC1C4;
     color: #FFFF;
-    border: 1px solid darkgray;
+    border: 1px solid #81807F;;
     font: Raleway Medium;
     font-size: 15px;
     padding: 10px;
@@ -53,42 +34,42 @@ h6 {
 .container1 {
     display: inline-block;
     position: absolute;
-    background-color: #F3F3F3;
-    height: 1200px;
+    background-color: #fafafa;
     width: 1000px;
-    border-top: 1px solid darkgray;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
     margin-left: 265px;
 }
 h2 {
-    font: Roboto Bold;
-    font-weight: bold;
-    color: #4A4A4A;
-    margin-left: 38px;
+    font: Roboto;
+    color: #4d4c4c;
+    margin-left: 47px;
     margin-top: 80px;
     font-size: 25px;
 }
 .card {
-    display: inline-block;
-    width: 250px;
-    height: 260px;
-    border: 1px solid darkgrey;
+    display: inline-flex;
+    width: 210px;
+    height: 220px;
     font: Raleway Medium;
     color: #4A4A4A;
-    margin: 39px 41px;
-    border-radius: 0;
+    margin: 39px 50px;
+    border-radius: 0px 34px 0px 0px;
+    border: none;
+    background-color: white;
+    box-shadow: 10px 32px 90px -10px rgba(214,214,214,1);
 }
 .cardtitle {
     padding-top: 0;
-    font-weight: bold;
     font-size: 19px;
+    color: #4d4c4c;
 }
 .cardtext {
     font-size: 15px;
-    line-height: 30px;
+    line-height: 26px;
     border-top: 1px solid darkgray;
+    color: #4d4c4c;
 }
+
+
 
 /* View note */
 .content {
@@ -112,20 +93,8 @@ h2 {
     color: #4A4A4A;
 }
 
-.container2 {
-    display: inline-block;
-    position: absolute;
-    background-color: #F3F3F3;
-    height: 1200px;
-    width: 1000px;
-    border-top: 1px solid darkgray;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-    margin-left: 265px;
-}
 h6 {
-    font: Roboto Bold;
-    font-weight: bold;
+    font: Roboto;
     color: #4A4A4A;
     margin-left: 38px;
     margin-top: 80px;
@@ -135,9 +104,8 @@ h6 {
     position: absolute;
     margin-left: 700px;
     margin-top: -70px;
-    text-decoration: underline;
     border: none;
-    background-color: #F3F3F3;
+    background-color: white;
     color: #4A4A4A;
     font: Raleway Medium;
     font-size: 17px;
@@ -146,9 +114,8 @@ h6 {
     position: absolute;
     margin-left: 750px;
     margin-top: -74px;
-    text-decoration: underline;
     border: none;
-    background-color: #F3F3F3;
+    background-color: white;
     color: #4A4A4A;
     font: Raleway Medium;
 }
@@ -204,25 +171,6 @@ Button {
     margin: 38px 0px 0px 38px;  
 }
 
-.container2 {
-    display: inline-block;
-    position: absolute;
-    background-color: #F3F3F3;
-    height: 1200px;
-    width: 1000px;
-    border-top: 1px solid darkgray;
-    border-right: 1px solid darkgray;
-    border-bottom: 1px solid darkgray;
-    margin-left: 265px;
-}
-h6 {
-    font: Roboto Bold;
-    font-weight: bold;
-    color: #4A4A4A;
-    margin-left: 38px;
-    margin-top: 80px;
-    font-size: 25px;
-}
 #note-title {
     height: 45px;
     border-radius: 1;
@@ -252,51 +200,51 @@ h6 {
 
 h1 {
     display: block;
-    font: Roboto Bold;
-    font-weight: bold;
-    color: #4A4A4A;
-    border: 1px solid darkgray;
+    font: Roboto;
+    color: #4d4c4c;
     text-align: left;
     height: 1200px;
     width: 250px;
-    background-color: #D8D8D8;
+    background-color: white;
     padding-top: 15px;
     padding-left: 30px;
-    position:relative;
+    position: relative;
     margin-left: 15px;
+    box-shadow: 10px 32px 90px -10px rgba(214,214,214,1);
 
 }
 .button1 {
     display: block;
-    background-color:#2BC1C4;
-    color: #FFFF;
-    border: 1px solid darkgray;
+    background-color: #FBD950;
+    color: white;
     font: Raleway Medium;
-    font-size: 15px;
+    font-size: 18px;
     margin-top: -1050px;
     margin-left: 40px;
     padding: 10px;
     position: absolute;
-    width: 200px;
+    width: 150px;
 }
 .button1:hover {
-    background-color: #26acaf;
+    background-color: rgb(241, 201, 40);
 }
 
 .button2 {
     display: block;
     position: absolute;
-    background-color:#2BC1C4; 
-    color: #FFFF;
-    border: 1px solid darkgray;
-    font-size: 15px;
+    background-color: #DF8383; 
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
     font: Raleway Medium;
-    margin-top: -980px;
-    margin-left: 40px;
+    margin-top: -1150px;
+    margin-left: 1080px;
     padding: 10px;
     position: absolute;
-    width: 200px;
+    width: 53px;
+    border-radius: 200px;
 }
 .button2:hover {
-    background-color: #26acaf;
+    background-color: rgb(196, 116, 116);
+    border-radius: 200px;
 }

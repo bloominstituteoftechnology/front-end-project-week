@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
-import Sidebar from './sidebar/sidebar';
+import Sidebar from './createnote/sidebar';
 import ViewNote from './createnote/viewnote';
 import CreateNote from './createnote/createnote';
 import EditNote from './editnote/editnote';
