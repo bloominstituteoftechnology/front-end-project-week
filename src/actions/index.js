@@ -26,25 +26,31 @@ export const fetchNotes = id => {
         dispatch({ type: FETCHING_NOTES });
         getNotes
             .then(response => {
+                if (response.data === null) return;
                 dispatch({ type: NOTES_FETCHED, payload: response.data });
             })
             .catch(err => {
                 dispatch({ type: ERROR, payload: err.message });
             });
     }
-}
+};
 
 export const addNote = note => {
     const postNote = axios.post(`${process.env.REACT_APP_API_NOTES}`, note);
     return function(dispatch) {
-        dispatch({ type: ADDING_NOTE });
-        postNote
-            .then(response => {
-                dispatch({ type: NOTE_ADDED, payload: response.data });  
-            })
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err.message });
-            });
+        return new Promise((resolve, reject) => {
+            dispatch({ type: ADDING_NOTE });
+            postNote
+                .then(response => {
+                    if (response.data === null) return;
+                    dispatch({ type: NOTE_ADDED, payload: response.data });
+                    resolve();
+                })
+                .catch(err => {
+                    dispatch({ type: ERROR, payload: err.message });
+                    reject(err);
+                })
+        });
     }
 };
 
@@ -81,10 +87,10 @@ export const setAccount = id => {
         dispatch({ type: UPDATING_ACCOUNT });
         dispatch({ type: ACCOUNT_UPDATED, payload: id });
     }
-}
+};
 
 export const resetStore = () => {
     return function (dispatch) {
         dispatch({ type: RESET_STORE });
     }
-}
+};
