@@ -16,6 +16,7 @@ class ListView extends Component {
         if (!isAuthorized) {
             this.props.history.push('/login');
         }
+        this.props.updateState();
     }
 
     getMarkdownText(text) {

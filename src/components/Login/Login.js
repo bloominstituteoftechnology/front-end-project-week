@@ -20,6 +20,7 @@ class Login extends Component {
         axios.post('https://lamb-danotes.herokuapp.com/user/login', this.state)
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
+                this.props.setCurrentUser(response.data.user);
 
                 console.log('Log in props: ', this.props);
                 this.props.history.push('/');

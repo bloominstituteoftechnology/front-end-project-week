@@ -16,6 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      currentUser: {},
       notesList: [],
       currentNote: {},
       currentSort: '',
@@ -39,6 +40,10 @@ class App extends Component {
 
     this.setCurrentNote(this.state.currentNote._id);
     this.setState({currentSort: ''});
+  }
+
+  setCurrentUser = (user) => {
+    this.setState({currentUser: user});
   }
 
   setCurrentNote = (noteID) => {
@@ -67,13 +72,13 @@ class App extends Component {
           <Route path='/' render={ (props) => { return(<Sidebar {...props} updateState={this.updateState} />)}} />
         </div>
         <div className='viewContainer'>
-          <Route exact path='/' render={ (props) => { return(<ListView {...props} notesList={this.state.notesList} setCurrentNote={this.setCurrentNote} sortNotesList={this.sortNotesList} />)}} />
-          <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
+          <Route exact path='/' render={ (props) => { return(<ListView {...props} updateState={this.updateState} notesList={this.state.notesList} setCurrentNote={this.setCurrentNote} sortNotesList={this.sortNotesList} />)}} />
+          <Route path='/note/create' render={ (props) => { return(<CreateNote {...props} updateState={this.updateState} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} currentUser={this.state.currentUser} />)}} />
           <Route exact path='/:_id/view' render={ (props) => { return(<ViewNote {...props} updateState={this.updateState} currentNote={this.state.currentNote} />)}} />
           <Route path='/:_id/edit' render={ (props) => { return(<EditNote {...props} setCurrentNote={this.setCurrentNote} currentNote={this.state.currentNote} />)}} />
           
           <Route path='/register' component={Register} />
-          <Route path='/login' component={Login} />
+          <Route path='/login' render={ (props) => { return(<Login {...props} setCurrentUser={this.setCurrentUser} />)}} />
         </div>
       </div>
     );
