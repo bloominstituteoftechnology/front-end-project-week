@@ -32,7 +32,7 @@ class NewNote extends Component {
         this.props.addNote(newNote);
         this.setState({title: "", body: ""})
 
-        this.props.history.push('/'); // takes back to list view 
+        this.props.history.push('/notes'); // takes back to list view 
         
     }
 

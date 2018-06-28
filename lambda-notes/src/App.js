@@ -7,6 +7,7 @@ import SideNav from './components/SideNav/SideNav';
 import NewNote from './components/NewNote/NewNote';
 import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditNote/EditNote';
+import RegisterLogin from './components/RegisterLogin/RegisterLogin';
 
 
 
@@ -20,11 +21,12 @@ class App extends Component {
       <div className="App">
       
         <SideNav />
-
-        <Route exact path="/" component={NotesContainer} />
-        <Route path="/create" component={NewNote} />
-        <Route exact path="/note/:id" component={NoteView}/>
-        <Route path="/note/edit/:id" component={EditNote}/>
+        <Route exact path ='/' component={RegisterLogin}/>
+        <Route exact path="/notes" component={NotesContainer} />
+        <Route path="/notes/create" component={NewNote} />
+        <Route exact path="/notes/note/:id" component={NoteView}/>
+        {/* <Route path="/notes/note/delete/:id" component={NoteView}/> */}
+        <Route path="/notes/note/edit/:id" component={EditNote}/>
       
       </div>
       

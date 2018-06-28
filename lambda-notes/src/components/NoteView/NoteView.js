@@ -46,13 +46,13 @@ class NoteView extends Component {
                     <Link 
                         onClick={this.toggle} 
                         className="link" 
-                        to={`/note/${this.matchedNote._id}`}
+                        to={`/notes/note/${this.matchedNote._id}`}
                     >delete
                     </Link>
 
                     <Link 
                         className="link" 
-                        to={`/note/edit/${this.matchedNote._id}`}
+                        to={`/notes/note/edit/${this.matchedNote._id}`}
                     >edit
                     </Link>
                 </div>
@@ -79,7 +79,7 @@ class NoteView extends Component {
 
                                 <Link 
                                     style={{textDecoration: "none"}} 
-                                    to="/">
+                                    to="/notes">
                                     
                                     <Button style={{width: "211px"}} className="delete-btn" 
                                     text="Delete" 
@@ -90,7 +90,7 @@ class NoteView extends Component {
 
                                 <Link 
                                     style={{textDecoration: "none"}} 
-                                    to={`/note/${this.matchedNote._id}`}
+                                    to={`/notes/note/${this.matchedNote._id}`}
                                 >
                                     <Button className="cancel-btn" style={{width: "211px"}} text="Cancel" onClick={this.toggle}></Button>
                                 </Link>

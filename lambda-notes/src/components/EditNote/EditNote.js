@@ -40,7 +40,7 @@ class EditNote extends Component {
 
         this.props.editNote(id, updatedNote);
         // this.props.history.push(`/note/${this.matchedNote._id}`);   // coming back to noteView after Edit has bugs - does not show the update on noteView
-        this.props.history.push('/'); 
+        this.props.history.push('/notes'); 
     }
 
     

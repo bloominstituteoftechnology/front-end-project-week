@@ -25,25 +25,33 @@ const initialState = {
 
 export const notesReducer = (state = initialState, action) => {
     // console.log(state)
-    switch(action.type) {
+    switch (action.type) {
         case FETCH_NOTES:
-        const notes = state.notes.slice()
-            return (Object.assign({}, state, {notes: action.payload}))
+            const notes = state.notes.slice()
+            return (Object.assign({}, state, { notes: action.payload }))
         case ADD_NOTE:
-            return Object.assign({}, state, {notes: state.notes.concat(action.payload)})
+            return Object.assign({}, state, { notes: state.notes.concat(action.payload) })
             console.log(action.payload)
         case DELETE_NOTE:
-            return Object.assign({}, state, {notes: state.notes.filter(note => {
-                return note._id !== action.payload})} )
+            return Object.assign({}, state, {
+                notes: state.notes.filter(note => {
+                    return note._id !== action.payload
+                })
+            })
         case EDIT_NOTE:
-            return Object.assign({}, state, {notes: state.notes.filter(note => {
-                return note._id !== action.payload._id}).concat(action.payload)})
-        case SEARCH_NOTE: 
-            return Object.assign({}, state, {notes: state.notes.filter(note => {
-                return note.title == action.payload
-                })})
-        default: 
+            return Object.assign({}, state, {
+                notes: state.notes.filter(note => {
+                    return note._id !== action.payload._id
+                }).concat(action.payload)
+            })
+        case SEARCH_NOTE:
+            return Object.assign({}, state, {
+                notes: state.notes.filter(note => {
+                    return note.title == action.payload
+                })
+            })
+        default:
             return state;
-        
+
     }
 }
