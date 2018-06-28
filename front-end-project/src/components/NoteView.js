@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import { SideNav } from "../components";
 import { Grid } from "@material-ui/core";
 import "../styling/NoteView.css";
@@ -67,7 +67,7 @@ class NoteView extends Component {
               <span />
             )}
             <Grid item xs={1}>
-              <SideNav cancelDelete={this.cancelDelete.bind(this)} />
+              <Route path="/notes/:id" render={(props) => <SideNav {...props} cancelDelete={this.cancelDelete.bind(this)} />}/>
             </Grid>
             <div
               style={{
