@@ -22,17 +22,19 @@ class App extends Component {
       textBody:'',
       username: '',
       password: '',
-      isSignedIn: false
+      isSignedIn: false,
+      uid: ''
     };
   }
 
   
   componentDidUpdate = () => {
-    // this.read();
+    //this.readOne(this.state.uid)
   }
 
   componentDidMount = () => {
-    this.read();
+    console.log(this.state.uid)
+    this.readOne(this.state.uid);
   }
 
   //auth
@@ -46,7 +48,6 @@ class App extends Component {
         password: this.state.password,
       })
       .then(response => {
-
         console.log(response)
       })
       .catch(err => {
@@ -65,12 +66,16 @@ class App extends Component {
     event.preventDefault();
 
     axios
-      .post('https://thawing-stream-63814.herokuapp.com/api/auth/login', {
+      .post('http://localhost:5000/api/auth/login', {
         username: this.state.username,
         password: this.state.password,
       })
       .then(response => {
         localStorage.setItem('token', response.data.token)
+        this.setState({
+          uid: response.data.uid
+        })
+        this.readOne(this.state.uid);
         this.loginHandler('Logged In')
         // document.window.sessionStorage.accessToken = response.body.access_token;
         console.log(localStorage.getItem('token'))
@@ -129,10 +134,11 @@ class App extends Component {
 
     axios({
       method: 'post',
-      url: 'https://thawing-stream-63814.herokuapp.com/api/notes',
+      url: 'http://localhost:5000/api/notes',
       data: {
         title: this.state.title,
-        note: this.state.textBody
+        note: this.state.textBody,
+        uid: this.state.uid,
       }
     });
 
@@ -144,9 +150,23 @@ class App extends Component {
   }
 
   
-  read = () => {
+  // read = () => {
+  //   axios
+  //     .get('https://thawing-stream-63814.herokuapp.com/api/notes')
+  //     .then(response => {
+  //       console.log(response.data)
+  //       this.setState({
+  //         notes: response.data
+  //       })
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     });
+  // }
+
+  readOne = (_id) => {
     axios
-      .get('https://thawing-stream-63814.herokuapp.com/api/notes')
+      .get(`http://localhost:5000/api/notes/${_id}`)
       .then(response => {
         console.log(response.data)
         this.setState({
@@ -250,9 +270,10 @@ class App extends Component {
 
   render() {
     if(this.state.isSignedIn){
+      console.log(this.state.uid);
       return(
         <div className="container-fluid">
-          <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes} fetch={this.fetch} logOut={this.logOut} /> } />
+          <Route exact path="/" render={ (props) =>  <Listview {...props} readOne={this.readOne} uid={this.state.uid} notes={this.state.notes} fetch={this.fetch} logOut={this.logOut} /> } />
           <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} fetch={this.fetch} logOut={this.logOut} id={props.match.params.id} handleUpdate={this.update}  handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
           <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} fetch={this.fetch} logOut={this.logOut} delete={this.delete}    note={this.state.notes.filter(item => (item._id.toString() ===  props.match.params.id) )} />  )  } />
           <Route path="/create" render={ (props) =>  <Createview {...props} fetch={this.fetch} logOut={this.logOut} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.create}  handleTaskChange= {this.handleTaskChange}/> } />
@@ -270,26 +291,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// return (
-//   <div className="container-fluid">
-
-//       <Route exact path="/" render={ (props) =>  <Listview {...props} notes={this.state.notes}  /> } />
-//       <Route path="/edit/:id" render={ (props) =>  (<Editview {...props} id={props.match.params.id} handleUpdate={this.update}  handleTaskChange= {this.handleTaskChange} handleEdit={this.handleEdit} title={this.state.title} textBody={this.state.textBody} />  )  } />
-//       <Route path="/note/:id" render={ (props) =>  (<Noteview {...props} delete={this.delete}    note={this.state.notes.filter(item => (item._id.toString() ===  props.match.params.id) )} />  )  } />
-//       <Route path="/create" render={ (props) =>  <Createview {...props} title={this.state.title} textBody={this.state.textBody} handleRequest = {this.create}  handleTaskChange= {this.handleTaskChange}/> } />
-
-   
-//    {
-//       this.state.isSignedIn
-//       ? <div>
-//         <Link to="/"> </Link>
-//         </div>
-//       :
-//         <Loginview username={this.state.username} password={this.state.password}  handleTaskChange={this.handleTaskChange} handNewUser={this.handNewUser} handleReturningUser={this.handleReturningUser} loginHandler={this.loginHandler} />        
-//   }
-
-      
-// </div>
-// );

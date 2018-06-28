@@ -10,6 +10,7 @@ export default class Listview extends Component {
   
     componentDidMount(){
         this.props.fetch();
+        this.props.readOne(this.props.uid)
     }
 
     signout = () => {
