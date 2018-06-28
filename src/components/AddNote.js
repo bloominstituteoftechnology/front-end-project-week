@@ -1,5 +1,4 @@
 import React,{ Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addNote } from "../actions";
 
@@ -14,11 +13,18 @@ class AddNote extends Component {
     }
 
     componentDidMount() {
-        this.setState({ id: this.props.id });
+        this.setState({ userId: this.props.id });
     }
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value});
+    }
+
+    handleSubmit = (e, note) => {
+        e.preventDefault();
+        this.props.addNote(note)
+            .then(() => this.props.history.push('/notes'))
+            .catch(err => console.log(err));
     }
 
     render() {
@@ -31,7 +37,7 @@ class AddNote extends Component {
                         <form>
                             <input name="title" value={title} placeholder="Title" onChange={(e) =>     this.handleChange(e)}/>
                             <textarea name="body" value={body} placeholder="Content" onChange={(e) =>     this.handleChange(e)}/>
-                            <Link className="button" to="/notes" onClick={() => this.props.addNote(this.state)}>Save</Link>
+                            <button className="button" to="/notes" onClick={(e) => this.handleSubmit(e, this.state)}>Save</button>
                         </form>
                     </div>
                 </div>
