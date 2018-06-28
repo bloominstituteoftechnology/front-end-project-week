@@ -14,6 +14,7 @@ const ListView = props => {
   let k = 77;
   return (
     <div>
+    {/* This ternary is used to ensure that the application does not act on resources not yet loaded */}
       {props.notes ? (
         <Grid container spacing={40} style={{ overflow: "scroll" }}>
           <Grid item xs={4} sm={3}>

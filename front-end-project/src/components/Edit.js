@@ -19,6 +19,8 @@ class Edit extends Component {
   render() {
     return (
       <div>
+    {/* Ternary to ensure application does not perform functions on resources not yet loaded
+    This is necessary only because the placeholder relies on the state's currentNote value */}
         {this.props.currentNote ? (
           <Grid container spacing={40}>
             <Grid item xs={4} sm={3}>
