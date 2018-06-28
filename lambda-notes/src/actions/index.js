@@ -58,11 +58,12 @@ export const addNote = newNote => {
 // }
 
 export const deleteNote = id => {
-    const noteDeletion = axios.delete('https://lambda-note.herokuapp.com/api/notes', id)
+    const noteDeletion = axios.delete(`https://lambda-note.herokuapp.com/api/notes/${id}`)
     return function(dispatch) {
         noteDeletion
             .then((response) => {
                 dispatch({type: DELETE_NOTE, payload: response.data})
+                // console.log(response.data)
             })
             .catch(err => {
                 dispatch({type: ERROR, payload: err})
@@ -77,12 +78,13 @@ export const deleteNote = id => {
 //     }
 // }
 
-export const editNote = editedNote => {
-    const modifyNote = axios.put('https://lambda-note.herokuapp.com/api/notes/', editNote)
+export const editNote = (id, editedNote) => {
+    const modifyNote = axios.put(`https://lambda-note.herokuapp.com/api/notes/${id}`, editedNote)
     return function(dispatch) {
         modifyNote 
             .then(response => {
                 dispatch({type: EDIT_NOTE, payload: response.data})
+                console.log(response.data)
             })
             .catch(err => {
                 dispatch({type: ERROR, payload: err})

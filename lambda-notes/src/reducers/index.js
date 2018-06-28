@@ -37,7 +37,7 @@ export const notesReducer = (state = initialState, action) => {
                 return note._id !== action.payload})} )
         case EDIT_NOTE:
             return Object.assign({}, state, {notes: state.notes.filter(note => {
-                return note._id !== action.payload.id}).concat(action.payload)})
+                return note._id !== action.payload._id}).concat(action.payload)})
         case SEARCH_NOTE: 
             return Object.assign({}, state, {notes: state.notes.filter(note => {
                 return note.title == action.payload

@@ -13,20 +13,21 @@ class NoteView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          modal: false
-        };
+            modal: false
+            };
+        
+            this.toggle = this.toggle.bind(this);
+        }
+
+        toggle() {
+            this.setState({
+            modal: !this.state.modal
+            });
+        }
+
+
+    matchedNote = this.props.notes.filter(note => {return note._id == this.props.match.params.id})[0]
     
-        this.toggle = this.toggle.bind(this);
-      }
-
-      toggle() {
-        this.setState({
-          modal: !this.state.modal
-        });
-      }
-
-
-    matchedNote = this.props.notes.filter(note => {return note._id == this.props.match.params.id})[0] 
     // [0] is the one element in the filtered Array that has the matched id
 
     //   handleRemove = () => {
@@ -37,7 +38,7 @@ class NoteView extends Component {
 
 
     render() {
-     
+        
         return (
             <div className="noteView-container">
 
@@ -102,7 +103,7 @@ class NoteView extends Component {
             </div>
         )
 
-  }
+}
     
 } 
 

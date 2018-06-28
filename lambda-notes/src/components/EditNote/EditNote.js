@@ -15,10 +15,11 @@ class EditNote extends Component {
 
     matchedNote = this.props.notes.filter((note) => 
         {return note._id == this.props.match.params.id})[0]
-   
+
         
     componentDidMount() {
         this.setState({title: this.matchedNote.title, body: this.matchedNote.body})
+        // console.log(this.matchedNote)
     }
     
 
@@ -32,16 +33,20 @@ class EditNote extends Component {
             title: this.state.title,
             body: this.state.body,
         }
+
         let id = this.matchedNote._id
+        // console.log(id)
+        
 
         this.props.editNote(id, updatedNote);
-        this.props.history.push(`/note/${this.matchedNote._id}`); 
+        // this.props.history.push(`/note/${this.matchedNote._id}`);   // coming back to noteView after Edit has bugs - does not show the update on noteView
+        this.props.history.push('/'); 
     }
 
     
 
     render() {
-       
+    
         return (
 
             <div className="editNote-container">
