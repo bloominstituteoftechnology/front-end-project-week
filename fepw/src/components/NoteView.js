@@ -56,9 +56,7 @@ render() {
 							</ModalBody>
 							<div className='alignCenter'>
 								<span className='modalButtons'>
-									//<Link to='/' onClick={this.deletingNotes}>
 									<button className='deleteModal' onClick={this.deletingNotes}>Delete</button>
-									//</Link> 
 								</span>
 								<span className='modalButtons'>
 									<button className='noModal' onClick={() => this.toggleModal()}>No</button>

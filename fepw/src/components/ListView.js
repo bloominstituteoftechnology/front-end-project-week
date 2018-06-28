@@ -32,12 +32,12 @@ gatherNotes = () => {
 render() {
 	return (<div className='wrapper'>
 			<div>
-			//	<Row>
-			//		<Col className='alignRight'>
+				<Row>
+					<Col className='alignRight'>
 			//			<span className='toplinks'><Link to =''><button className='registerButton' color='link'>Register</button></Link></span>
 			//			<span><Link to =''><button className='editButton' color='link'>Login</button></Link></span>
-			//		</Col>
-			//	</Row>
+					</Col>
+				</Row>
 				<Row>
 					<Col>
 						<div className='head'>
