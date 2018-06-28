@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createNote } from '../../actions';
+import { postNote } from '../../actions';
 import './index.css';
 
 class CreateNote extends Component {
@@ -20,6 +21,7 @@ class CreateNote extends Component {
         createdNote.createdAt = Date.now();
         this.props.createNote(createdNote);
         this.props.history.push('/');
+        
 
     }
 

@@ -1,5 +1,5 @@
 import { DELETE_NOTE, EDIT_NOTE, CREATE_NOTE, FETCH_NOTES } from '../actions';
-
+import { postNote } from '../actions';
 
 
 const initialState = [];
@@ -27,6 +27,7 @@ const notesReducer = (state = initialState, action) => {
         return temp;
         case CREATE_NOTE:
             temp.push(action.payload);
+            postNote(temp);
             return temp;
         case FETCH_NOTES:
             return state.initialState = action.payload;

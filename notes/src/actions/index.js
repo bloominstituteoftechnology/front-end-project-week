@@ -4,6 +4,7 @@ export const EDIT_NOTE = 'EDIT_NOTE';
 export const CREATE_NOTE = 'CREATE_NOTE';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
+export const POST_NOTE = 'POST_NOTE';
 
 export const deleteNote = (id) => {
     return {
@@ -35,10 +36,42 @@ export const fetchNotes = () => {
         console.log(someData);
         setTimeout(() => {
         dispatch({type: FETCH_NOTES, payload: someData.data});
-        }, 3000);
+        }, 2000);
     })
         .catch(err => {
             console.log(err)
         })
     }
 };
+
+
+export const postNote = (temp) => {
+    const postNote = axios.post('http://localhost:5001/api/note',//promise
+    /*return function(dispatch) { // instead of our action returning a flat object we are returning a function of dispatch which taps into the api straight from redux
+    //dispatch({ type: FETCHING_NOTES });
+    postNote
+    .then(someData => {
+        console.log('post', someData);
+        setTimeout(() => {
+        dispatch({type: CREATE_NOTE, payload: someData.data});
+        }, 2000);
+    })
+        .catch(err => {
+            console.log(err)
+        })
+    }*/
+    {title: temp[temp.length -1].title,
+    body: temp[temp.length-1].body})
+};
+/*axios
+      .post("http://localhost:8000/login",{
+        username: this.state.loginUsername,
+        password: this.state.loginPassword,
+        withCredentials: true
+      })
+      .then(res => {
+          console.log("RESPONSE", res);
+          this.setState({loginUsername, loginPassword});
+      })
+      .catch(err => console.log(err));
+  }*/
