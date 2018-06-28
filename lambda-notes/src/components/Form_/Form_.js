@@ -40,7 +40,7 @@ class Form_ extends Component {
   updateNote = () => {
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
-    const id = note.id;
+    const id = note._id;
     // console.log("UPDATE",index,id,this.state);
     this.props.updatingItem(index, id, this.state);
   };
