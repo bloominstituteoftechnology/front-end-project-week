@@ -67,7 +67,7 @@ render() {
 			</Row>
 			<Row>
 				<Col>
-					<div className='head'> //this part just displays the individual note as per the design instructions
+					<div className='head'> {/*this part just displays the individual note as per the design instructions*/}
 						<h5>{this.props.selectedNotecard.title}</h5>
 					</div>
 					<div className='viewNote'>
