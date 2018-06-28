@@ -6,6 +6,8 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 
+const URL = 'http://localhost:5001/api/note';
+
 export const deleteNote = (id) => {
     return {
         type: DELETE_NOTE,
@@ -74,4 +76,26 @@ export const postNote = (temp) => {
           this.setState({loginUsername, loginPassword});
       })
       .catch(err => console.log(err));
+  }*/
+
+  export const removeNote = (temp) => {
+      console.log('temp', temp);
+    const myPromise = axios.delete(`${URL}/${temp}`);
+    myPromise
+      .then(response => {
+        //this.setState({ temp: response.data}); 
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+  /*removeSmurf = id => {
+    const myPromise = axios.delete(`${URL}/${id}`);
+    myPromise
+      .then(response => {
+        this.setState({ smurfs: response.data}); 
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }*/
