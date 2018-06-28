@@ -14,6 +14,7 @@ class AllNotes extends Component {
     super(props);
     this.state = {  
       notes: [],
+      sharedNotes: [],
       authenticated: false,
       loading: true,
       username: '',
@@ -45,15 +46,56 @@ class AllNotes extends Component {
           });
     } else{
       console.log('tried to get notes while auth was set to false')
+    };
+    this.getSharedNotes()
+  }
+
+  getSharedNotes = () => {
+    console.log('getting shared notes')
+    console.log(this.state.userID)
+    const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
+    if(this.state.authenticated){
+      axios
+        .get(process.env.REACT_APP_BACKEND +'sharedNotes/' + this.state.userID, config)
+          .then(response => {
+            // console.log("response",response)
+                        
+            this.setState(() => ({ 
+              sharedNotes: response.data,
+              
+            }))
+          })
+          .catch(err => {
+            console.log("error:", err.message)
+          });
+    } else{
+      console.log('tried to get notes while auth was set to false')
     }
   }
-  
-  componentDidMount(){
-   
-    // this.getUserNotes()
-    
-    
+
+  addSharedNote = (noteId, userToShare) => {
+    console.log(noteId, userToShare)
+    axios
+      .put(process.env.REACT_APP_BACKEND + 'sharedNotes/' + noteId, {username: userToShare})
+        .then(response => {
+          console.log("worked")
+        })
+        .catch(err => {
+          console.log("adding shared didn't work", err.message)
+        })
   }
+  
+  // componentWillMount(){
+  //   if(window.localStorage.getItem('token')){
+  //     console.log('has a token')
+  //     this.setState({authenticated: true})
+  //     this.getUserNotes()
+    
+  //   }
+    
+    
+    
+  // }
 
 
   register = user => {
@@ -97,6 +139,7 @@ class AllNotes extends Component {
       userID: ''
 
     });
+    this.props.history.push('/')
 
   }
   
@@ -157,8 +200,9 @@ class AllNotes extends Component {
           <Route path="/login" render={() => <LogginIn login={this.login} buttonText='Login'/> } />
           <Route path="/register" render={() => <LogginIn login={this.register} buttonText='Register'/> } />
           <Route path="/add" render={(props) => <NoteEdit {...props} add={this.addNote}/>} />
-          <Route path="/edit/:id" render={(props) => <NoteEdit {...props} notes={this.state.notes} add={this.editNote}/>} />
+          <Route path="/edit/:id" render={(props) => <NoteEdit {...props} notes={this.state.notes} add={this.editNote} addSharedNote={this.addSharedNote}/>} />
           <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
+          <Route path="/shared" render={() => <NoteCards notes={this.state.sharedNotes} user={this.state.username}/>} />
         </div>
       </div>
     )

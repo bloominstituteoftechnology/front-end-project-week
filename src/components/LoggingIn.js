@@ -5,8 +5,8 @@ class LoggingIn extends Component {
   constructor(props) {
     super(props);
     this.state = {         
-      username:"",
-      password:"",
+      username:"wvandolah",
+      password:"test12345",
       
      }
   }
