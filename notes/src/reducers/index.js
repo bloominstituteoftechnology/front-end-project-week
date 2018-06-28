@@ -1,6 +1,8 @@
 import { DELETE_NOTE, EDIT_NOTE, CREATE_NOTE, FETCH_NOTES } from '../actions';
 import { postNote } from '../actions';
 import { removeNote } from '../actions';
+import { updateNote } from '../actions';
+
 
 const initialState = [];
 //                    Current application state, {action object}
@@ -21,6 +23,7 @@ const notesReducer = (state = initialState, action) => {
         state.forEach((item, index) => {
             if (item._id === action.payload._id) {
                 temp.splice(index, 1);
+                updateNote(action.payload);
                 return;
             }
         });

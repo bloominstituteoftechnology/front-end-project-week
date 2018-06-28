@@ -79,7 +79,7 @@ export const postNote = (temp) => {
   }*/
 
   export const removeNote = (temp) => {
-      console.log('temp', temp);
+
     const myPromise = axios.delete(`${URL}/${temp}`);
     myPromise
       .then(response => {
@@ -89,13 +89,18 @@ export const postNote = (temp) => {
         console.error(err);
       });
   };
-  /*removeSmurf = id => {
-    const myPromise = axios.delete(`${URL}/${id}`);
-    myPromise
-      .then(response => {
-        this.setState({ smurfs: response.data}); 
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }*/
+
+  export const updateNote = (temp) => {
+  const myPromise = axios.put(`${URL}/${temp._id}`, {
+      title: temp.title,
+      body: temp.body
+});
+  myPromise
+    .then(response => {
+      //this.setState({ temp: response.data}); 
+    })
+    .catch(err => {
+      console.error(err);
+    });
+};
+  
