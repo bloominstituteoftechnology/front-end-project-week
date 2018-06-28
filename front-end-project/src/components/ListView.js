@@ -29,16 +29,6 @@ const ListView = props => {
               height: "100vh"
             }}
           >
-            <Card className="mein-card">
-              <CardContent>
-                <Typography
-                  component="p"
-                  style={{ overflow: "hidden", height: "10vh" }}
-                >
-                  This page is currently loading.
-                </Typography>
-              </CardContent>
-            </Card>
             <React.Fragment>
               {props.notes.map(note => {
                 return (
@@ -73,7 +63,18 @@ const ListView = props => {
             </React.Fragment>
           </div>
         </Grid>
-      ) : null}
+      ) : (
+        <Card className="mein-card">
+          <CardContent>
+            <Typography
+              component="p"
+              style={{ overflow: "hidden", height: "10vh" }}
+            >
+              This page is currently loading.
+            </Typography>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 };

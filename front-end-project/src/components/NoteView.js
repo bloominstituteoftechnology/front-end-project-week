@@ -5,15 +5,13 @@ import { Grid } from "@material-ui/core";
 import "../styling/NoteView.css";
 
 class NoteView extends Component {
-    constructor(props) {
-        super(props)
-        this.cancelDelete = this.cancelDelete.bind(this)    
-        this.state = {
-                deleting: false
-            };
-    }  
- 
-
+  constructor(props) {
+    super(props);
+    this.cancelDelete = this.cancelDelete.bind(this);
+    this.state = {
+      deleting: false
+    };
+  }
 
   confirmDelete() {
     this.setState({
@@ -66,10 +64,10 @@ class NoteView extends Component {
                 </div>
               </Grid>
             ) : (
-              <span/>
-            )} 
+              <span />
+            )}
             <Grid item xs={1}>
-              <SideNav cancelDelete={this.cancelDelete.bind(this)}/>
+              <SideNav cancelDelete={this.cancelDelete.bind(this)} />
             </Grid>
             <div
               style={{
@@ -96,7 +94,10 @@ class NoteView extends Component {
                       delete
                     </span>
                   </div>
-                  <div onClick={() => this.cancelDelete()} style={{height: "100vh"}}>
+                  <div
+                    onClick={() => this.cancelDelete()}
+                    style={{ height: "100vh" }}
+                  >
                     <div onClick={() => this.cancelDelete()}>
                       <h3> {note.title} </h3>
                     </div>
