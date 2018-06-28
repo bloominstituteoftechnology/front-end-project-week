@@ -8,8 +8,8 @@ import { setAccount, fetchNotes } from "../actions";
 class NotesList extends React.Component {
 
     componentDidMount() {
-        const token = localStorage.getItem('jwt');
-        if (token) {
+        if (!this.props.id) {
+            const token = localStorage.getItem('jwt');
             jwt.verify(token, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
                 if (err) {
                     console.log(err);
@@ -21,14 +21,17 @@ class NotesList extends React.Component {
                     this.props.fetchNotes(id);
                 }
             })
+        } else {
+            this.props.fetchNotes(this.props.id);
         }
     }
+
     render() {
         const { notes } = this.props;
         return (
             <div className="notes-list">
             <h2>Your Notes:</h2>
-            {notes.length === 0 ? (
+            {notes.length !== 0 ? (
                 <div>
                     {notes.map(note => {
                         return (
