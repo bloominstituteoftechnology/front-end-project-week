@@ -28,3 +28,4 @@ class Sidebar extends Component {
 export default Sidebar;
 
 //22May created this today but it's looking pretty ugly so there will be some styling later
+//28June this component was pretty straightforward, required basically no react (I did use the Link to from react-router, but that's all), and just needed some styling.

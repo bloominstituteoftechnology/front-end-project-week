@@ -29,3 +29,5 @@
   to { transform: rotate(360deg); }
 }
 */
+
+/*NOTE: I commented out most of this file because the styling pertained to the default header and logo that I think comes with react automatically when you run create-react-app. It was unnecessary for this project and I didn't want to take the chance that it would interfere with my Lambda Notes styling. It could probably be deleted, but I left it here just in case someone finds the original styling useful. */

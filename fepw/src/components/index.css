@@ -1,3 +1,5 @@
+/* I originally had separate css files for everything, but then quickly realized how redundant that was, especially since CreateView and EditView are exactly the same design-wise. So I put everything here.*/
+
 /*ListView css*/
 
 .wrapper {

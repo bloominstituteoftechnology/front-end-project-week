@@ -1,3 +1,5 @@
+## I needed to set this file up so that netlify could correctly deploy my site. Apparently, if your package.json is not in the root directory, you have to tell netlify. I have also been advised that moving everything to the root directory would also work without this file but it's only 4 lines long and I didn't want to take the chance that moving things would cause problems.
+
 [build]
 	base = './fepw'
 	publish = './fepw/build'

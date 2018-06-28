@@ -23,7 +23,7 @@ class Main extends Component {
 			},
 		}
 	}
-
+//28 June added the mongo _id numbers to state for axios.put and .delete purposes. Otherwise the back end would not edit or delete notecards.
 
 newNotecard = (addNewNotecard) => {
 	this.setState({ notes: [...this.state.notes, addNewNotecard]});
@@ -52,6 +52,9 @@ deleteNotecard = title => {
 
 }
 
+//28 June I guess this is most of the stuff that I would have put into my App.js if I had been thinking straight. Also, I would have made my components so that I didn't have to have a constructor in all of them, but hindsight is always 20-20. All of the above code specifies what should happen (and be put into state) when someone adds, edits, or deletes a notecard.
+
+
 render () {
 	return (
 		<div>
@@ -63,6 +66,8 @@ render () {
 	)
 }
 }
+
+//28 June Look at me, rendering functions to my routes like a maniac. But this all makes sure that each time the user gets rerouted, an event takes place that sets state and passes the necessary props to run the component correctly. I did this mostly by trial and error and basically kept trying different things until everything finally worked. I'm sure there is probably a better way to accomplish all this. If I had to do it over again I think I would try to simplify it a bit, or at least map it out so that I'm only setting state here or in App.js and then just passing props around the various components.
 
 export default Main;
 

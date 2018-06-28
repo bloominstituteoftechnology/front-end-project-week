@@ -40,8 +40,9 @@ Upon your first commit, please submit a Pull Request and add _both_ the **Trello
 * [ ] Fill in the `backlog` list with all the extra features listed below
 * [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
 * [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
-https://trello.com/invite/b/awu9YDIP/d9a905180293bc9edbd94e3eb3325b41/lambda-notes-kelly-f
-
+-----
+TRELLO URL: https://trello.com/invite/b/awu9YDIP/d9a905180293bc9edbd94e3eb3325b41/lambda-notes-kelly-f
+-----
 ## MVP Features:
 
 * [ ] Display a list of notes
@@ -56,7 +57,8 @@ https://trello.com/invite/b/awu9YDIP/d9a905180293bc9edbd94e3eb3325b41/lambda-not
 ## Once you have completed the Minimum Viable Product requirements, direct message your project manager for approval. If approved, you may continue working on the Extra Features.
 
 Once your MVP has been approved, you have been given a feature list that the client would love to have completed. Your goal would be to finish MVP as soon as you can and get working the list of features.
-
+#### MVP LINK: https://nostalgic-kilby-8372d8.netlify.com/
+-----
 ## Extra Features:
 
 * [ ] Re-factor your code to include redux for your state-management

@@ -7,3 +7,5 @@ import App from './App';
 //  ReactDOM.render(<App />, div);
 //  ReactDOM.unmountComponentAtNode(div);
 //});
+
+//I was going to delete this file as I was told that App.test.js and registerServiceWorker were unnecessary for the projects we do for this course. However, this might come in handy later if I get to the testing and authentication stretch goal so I am leaving it here, just commented out for now.
