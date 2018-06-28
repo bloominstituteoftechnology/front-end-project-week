@@ -22,7 +22,7 @@ class ViewNote extends Component {
 
     toggle() {
         this.setState({
-            modal: !this.state.modal
+            modal: !this.state.modal 
         });
     }
   
@@ -62,4 +62,4 @@ class ViewNote extends Component {
     }
 };
 
-export default ViewNote;
+export default ViewNote; //export
