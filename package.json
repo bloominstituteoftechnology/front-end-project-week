@@ -20,7 +20,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "dotenv": "6.0.0"
-  }
+  "devDependencies": {}
 }
