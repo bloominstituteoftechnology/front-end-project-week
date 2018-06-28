@@ -44,7 +44,7 @@ class Note extends Component {
     }
 
     render() { 
-      console.log("length of checklist: ", this.state.checklist)
+      console.log("state: ", this.state)
         return (
             this.state.checklist.length > 0 ? (
                 <Container fluid={true}> 
