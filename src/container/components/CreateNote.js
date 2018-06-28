@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../component.css';
+
 const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
 
 
-import '../component.css';
  
 class CreateNote extends Component{
     constructor(){

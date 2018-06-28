@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Notes from '../func/Notes';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
+import axios from 'axios'
 import '../component.css';
 
 const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
