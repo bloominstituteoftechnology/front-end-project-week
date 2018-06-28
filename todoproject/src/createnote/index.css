@@ -210,7 +210,7 @@ h1 {
     padding-left: 30px;
     position: relative;
     margin-left: 15px;
-    box-shadow: 10px 32px 90px -10px rgba(214,214,214,1);
+    box-shadow: 10px 24px 90px -25px rgba(214,214,214,0.64);
 
 }
 .button1 {
