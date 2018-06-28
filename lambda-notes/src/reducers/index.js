@@ -133,7 +133,6 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         deleting_Item: true,
         deleted_Item: false,
-        // fetched_Item: false,
         error: null,
       };
     case DELETED_ITEM:
