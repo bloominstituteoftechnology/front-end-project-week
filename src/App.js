@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('http://localhost:5000/api/get/')
+    axios.get('https://sheltered-sands-52060.herokuapp.com/api/get')
     .then(response => {
       console.log(response)
       this.setState({ notesList : response.data.note })
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    axios.get('http://localhost:5000/api/get/')
+    axios.get('https://sheltered-sands-52060.herokuapp.com/api/get')
       .then(response => {
         this.setState({ notesList: response.data.note })
       })
