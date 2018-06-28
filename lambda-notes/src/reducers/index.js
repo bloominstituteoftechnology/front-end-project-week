@@ -8,6 +8,10 @@ import {
   DELETING_ITEM,
   DELETED_ITEM,
   ERROR,
+  CREATING_USER,
+  CREATED_USER,
+  AUTH_USER,
+  CREATE_USER_ERROR,
 } from '../actions';
 
 const mockData = [
@@ -41,6 +45,10 @@ const mockData = [
 ];
 const initialState = {
   data: [],
+  user: {},
+  creating_user: false,
+  created_user: false,
+  authUser: false,
   fetching_Items: false,
   fetched_Item: false,
   adding_Item: false,
@@ -96,10 +104,10 @@ const mainReducer = (state = initialState, action) => {
         error: null,
       };
     case UPDATED_ITEM:
-      console.log('REDUCER: UPDATED_ITEM action.content', action.content);
-      console.log('REDUCER: UPDATED_ITEM action.allItems', action.allItems);
+      console.log('REDUCER UPDATED_ITEM: action.content', action.content);
+      console.log('REDUCER UPDATED_ITEM: action.allItems', action.allItems);
       const index = Number(action.index);
-      console.log('action.index', index, typeof index, typeof Number(action.index));
+      console.log('REDUCER UPDATED_ITEM: action.index', index, typeof index, typeof Number(action.index));
       return {
         ...state,
         updating_Item: false,
@@ -161,6 +169,30 @@ const mainReducer = (state = initialState, action) => {
         adding_Item: false,
         updating_Item: false,
         deleting_Item: false,
+      };
+    case CREATING_USER:
+      return {
+        ...state,
+        creating_user: true,
+      };
+    case CREATED_USER:
+      return {
+        ...state,
+        user: action.user,
+        creating_user: false,
+        created_user: true,
+      };
+    case AUTH_USER:
+      return {
+        ...state,
+        authUser: true,
+      };
+    case CREATE_USER_ERROR:
+      return {
+        ...state,
+        error: { message: action.message, type: action.eType },
+        creating_user: false,
+        authUser: false,
       };
     default:
       return state;

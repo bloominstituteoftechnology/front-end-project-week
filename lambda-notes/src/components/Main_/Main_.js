@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch, Link, withRouter } from 'react-router-dom';
+import { Route, Switch, Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { CSVLink, CSVDownload } from 'react-csv';
 import { fetchingItems } from '../../actions/index';
@@ -8,6 +8,7 @@ import ListView from '../ListView/ListView';
 import NoteView from '../NoteView/NoteView';
 import Form_ from '../Form_/Form_';
 import Button_ from '../Button_/Button_';
+import Auth from '../Auth/Auth';
 
 class Main_ extends Component {
   componentDidMount() {
@@ -41,13 +42,15 @@ class Main_ extends Component {
       </div>
     );
     console.log(this.props.dispatch);
+    console.log('this.props.loggedIn', this.props.loggedIn);
     if (!fetched_Item || adding_Item) return <div>{PageUpdating}</div>;
     return (
       <div className="col-9 position-relative custom-main">
         <Switch>
+          <Route path="/" component={() => null} />
           <Route
             exact
-            path="/"
+            path="/notes"
             component={() => (
               <div>
                 <h5 className="text-capitalize">Your Notes:</h5>
@@ -62,8 +65,25 @@ class Main_ extends Component {
           <Route component={() => <h1 className="text-capitalize">Oops!</h1>} />
         </Switch>
         <Switch>
+          {/* HOME - background and Login and Register options */}
+          <Route
+            exact
+            path="/"
+            render={() =>
+              this.props.loggedIn ? (
+                <Redirect to="/notes" />
+              ) : (
+                <img src="http://jogorku.sot.kg/sites/default/files/photos/15va4gb0_0.jpg" width="100%" />
+              )
+            }
+          />
+          {/* Register */}
+          <Route path="/register" component={Auth} />
+          {/* Login */}
+          <Route path="/login" component={Auth} />
+
           {/* ListView */}
-          <Route exact path="/" component={ListView} />
+          <Route exact path="/notes" component={ListView} />
           {/* NoteView */}
           <Route path="/note/:index" render={props => (!updating ? <NoteView /> : PageUpdating)} />
           {/* Form_ */}
@@ -93,6 +113,7 @@ const mapStateToProps = (state, dispatch) => {
     notes: state.data,
     dispatch,
     adding_Item: state.adding_Item,
+    loggedIn: state.authUser,
   };
 };
 export default connect(
