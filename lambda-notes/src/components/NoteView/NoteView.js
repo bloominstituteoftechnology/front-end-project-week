@@ -25,7 +25,8 @@ class NoteView extends Component {
   delete = e => {
     const index = this.props.match.params.index;
     const note = this.props.notes[index];
-    const id = note.id;
+    const id = note._id;
+    console.log('DELETING', id);
     this.props.deletingItem(index, id);
     this.toggle();
     setTimeout(() => {
@@ -43,7 +44,7 @@ class NoteView extends Component {
     //   .split("\n")
     //   .map((paragraph, index) => <Markdown key={index}>{paragraph}</Markdown>);
     console.log('note', note);
-    console.log({ content });
+    console.log({ note_id: note._id });
     return (
       <React.Fragment>
         <div className="d-flex position-absolute edition">

@@ -133,21 +133,26 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         deleting_Item: true,
         deleted_Item: false,
+        // fetched_Item: false,
         error: null,
       };
     case DELETED_ITEM:
       // console.log("action.toDelete", action.toDelete);
+      const newStateData = [...state.data];
+      newStateData.splice(action.index, 1);
       return {
         ...state,
         deleting_Item: false,
         deleted_Item: true,
         //OPTION-1
-        data: action.allItems,
+        // data: action.allItems, // do not works connected to API for the BAckendproject, in Heroku
         //OPTION-2  => to review with real data
         // data: [
         //   ...state.data.slice(0, action.index),
         //   ...state.data(index + 1)
         // ]
+        // OPTION-3
+        data: newStateData,
       };
     case ERROR:
       return {
