@@ -25,7 +25,7 @@ class App extends Component {
 
   componentDidMount = () => {
     const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-    axios.get(`${api}/api/get`)
+    axios.get(`${api}api/get`)
     .then(response => {
       console.log(response)
       this.setState({ notesList : response.data.note })
@@ -37,7 +37,7 @@ class App extends Component {
 
   componentDidUpdate() {
     const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-    axios.get(`${api}/api/get`)
+    axios.get(`${api}api/get`)
       .then(response => {
         this.setState({ notesList: response.data.note })
       })
