@@ -16,12 +16,13 @@ export const UPDATING_ACCOUNT = 'UPDATING_ACCOUNT';
 export const ACCOUNT_UPDATED = 'ACCOUNT_UPDATED';
 
 export const RESET_STORE = 'RESET_STORE';
+export const LOGGED_IN = 'LOGGED_IN';
 
 export const ERROR = 'ERROR';
 
 
-export const fetchNotes = id => {
-    const getNotes = axios.get(`${process.env.REACT_APP_API_USERS}/${id}/notes`);
+export const fetchNotes = (id, requestOptions) => {
+    const getNotes = axios.get(`${process.env.REACT_APP_API_USERS}/${id}/notes`, requestOptions);
     return function(dispatch) {
         dispatch({ type: FETCHING_NOTES });
         getNotes
@@ -35,8 +36,8 @@ export const fetchNotes = id => {
     }
 };
 
-export const addNote = note => {
-    const postNote = axios.post(`${process.env.REACT_APP_API_NOTES}`, note);
+export const addNote = (note, requestOptions) => {
+    const postNote = axios.post(`${process.env.REACT_APP_API_NOTES}`, note, requestOptions);
     return function(dispatch) {
         return new Promise((resolve, reject) => {
             dispatch({ type: ADDING_NOTE });
@@ -54,8 +55,8 @@ export const addNote = note => {
     }
 };
 
-export const updateNote = (id, note) => {
-    const putNote = axios.put(`${process.env.REACT_APP_API_NOTES}/${id}`, note);
+export const updateNote = (id, note, requestOptions) => {
+    const putNote = axios.put(`${process.env.REACT_APP_API_NOTES}/${id}`, note, requestOptions);
     return function(dispatch) {
         dispatch({ type: UPDATING_NOTE });
         putNote
@@ -68,8 +69,8 @@ export const updateNote = (id, note) => {
     }
 };
 
-export const deleteNote = id => {
-        const delNote = axios.delete(`${process.env.REACT_APP_API_NOTES}/${id}`);
+export const deleteNote = (id, requestOptions) => {
+        const delNote = axios.delete(`${process.env.REACT_APP_API_NOTES}/${id}`, requestOptions);
     return function(dispatch) {
         return new Promise((resolve, reject) => {
             dispatch({ type: DELETING_NOTE });
@@ -96,5 +97,11 @@ export const setAccount = id => {
 export const resetStore = () => {
     return function (dispatch) {
         dispatch({ type: RESET_STORE });
+    }
+};
+
+export const loggedIn = () => {
+    return function (dispatch) {
+        dispatch({ type: LOGGED_IN });
     }
 };
