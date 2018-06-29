@@ -157,7 +157,7 @@ Button {
     color: white;
 }
 .button7:hover {
-    background-color: rgb(241, 201, 40);
+    background-color: #dab317;
 }
 .display-content {
     display: inline-block;
