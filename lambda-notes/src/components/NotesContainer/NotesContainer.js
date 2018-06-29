@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom';
 
 import Note from '../Note/Note';
 import './NotesContainer.css';
-import { fetchNotes } from '../../actions';
+import { fetchNotes, saveFilteredNotesForCSV } from '../../actions';
 import SearchNote from '../SearchNote/SearchNote';
+
 
 
 class NotesContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            search: ""
+            search: "",
+            filteredCSV: []
         }
     }
 
@@ -25,11 +27,6 @@ class NotesContainer extends Component {
             }
         };
 
-        // let loggedInUser = localStorage.getItem('userId'); 
-        // console.log(loggedInUser)
-        // console.log(typeof loggedInUser)
-        // console.log(loggedInUser)
-        // let loggedInUserStringify = toString(loggedInUser)
         this.props.fetchNotes(requestOptions);
     }
     
@@ -37,7 +34,6 @@ class NotesContainer extends Component {
 
     render() {
 
-        // console.log(loggedInUser)
         let loggedInUser = localStorage.getItem('userId'); 
         // console.log(loggedInUser)
         // console.log(typeof loggedInUser)
@@ -57,6 +53,9 @@ class NotesContainer extends Component {
             notes with most recent added/edited note on top of list-view */
 
         console.log(notesArr)
+
+        this.props.saveFilteredNotesForCSV(notesArr)
+
         return (
             
             <div id="sortable" className="notes-container">
@@ -79,12 +78,12 @@ class NotesContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notes,
     }
 }
 
 
-export default connect(mapStateToProps, {fetchNotes})(NotesContainer);
+export default connect(mapStateToProps, {fetchNotes, saveFilteredNotesForCSV})(NotesContainer);
 
 
 

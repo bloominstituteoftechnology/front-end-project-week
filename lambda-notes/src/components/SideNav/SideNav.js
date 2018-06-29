@@ -21,6 +21,12 @@ const SideNav = (props) => {
         props.history.push('/');
     }
 
+    let loggedInUser = localStorage.getItem('userId')
+    let filteredCSV = props.notes.filter(note => {
+        console.log(note.user == loggedInUser) 
+    })
+    console.log(filteredCSV)
+
 
     return (
 
@@ -32,7 +38,7 @@ const SideNav = (props) => {
         
             <Link style={{textDecoration: 'none'}} to="/notes/create"><Button style={{width: "100%"}} link="/create" text="+ Create New Note"/></Link>
 
-            <CSVLink style={{textDecoration: 'none'}} data={props.notes} ><Button className="csv-btn" style={{width: "100%"}} text="CSV Export"></Button> </CSVLink>
+            <CSVLink style={{textDecoration: 'none'}} data={props.filteredCSV} ><Button className="csv-btn" style={{width: "100%"}} text="CSV Export"></Button> </CSVLink>
 
             <Link style={{textDecoration: 'none'}} to="/"><Button onClick={signout} className="logoutBtn" style={{width: "100%"}} link="/" text="Logout"/></Link>
 
@@ -44,7 +50,8 @@ const SideNav = (props) => {
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notes,
+        filteredCSV: state.filteredCSV
     }
 }
 

@@ -7,6 +7,7 @@ export const SEARCH_NOTE = 'SEARCH_NOTE';
 export const PENDING = 'PENDING';
 export const ERROR = 'ERROR';
 export const ADD_USER = 'ADD_USER';
+export const CSV = 'CSV';
 // export const LOGIN_USER = 'LOGIN_USER';
 
 // export const fetchNotes = () => {
@@ -99,6 +100,14 @@ export const searchNote =  title => {
         payload: title
     }
 }
+
+export const saveFilteredNotesForCSV = csvArr => {
+    return {
+        type: CSV,
+        payload: csvArr
+    }
+}
+
 // USER ACTIONS
 export const registerUser = newUser => {
     const addNewUser = axios.post('https://lambda-note.herokuapp.com/api/users/register', newUser);
