@@ -87,12 +87,12 @@ class NoteView extends Component {
                   }}
                 >
                   <div className="noteViewButtonWrap">
-                    <NavLink to={`/edit/${this.props.match.params.id}`} style={{textDecoration: 'none', color: 'black'}}>
+                    <NavLink to={`/edit/${this.props.match.params.id}`} style={{textDecoration: 'none', color: 'black', textShadow: '2px 2px 4px white'}}>
                       edit
                     </NavLink>
                     <span
                       onClick={() => this.confirmDelete()}
-                      style={{ marginLeft: "4vh" }}
+                      style={{ marginLeft: "4vh", textShadow: '2px 2px 4px white'}}
                     >
                       delete
                     </span>
