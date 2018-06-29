@@ -80,10 +80,10 @@ class App extends Component {
               <div className="the-real-sidebar">
                 <h1 className="sidebar-header">Lambda Notes</h1>
                 <Link to="/register">
-                  <button style={{ marginBottom: '50px' }} className="button-template">Home</button>
+                  {/* <button style={{ marginBottom: '50px' }} className="button-template">Home</button> */}
                 </Link>
                 <Link to="/login">
-                  <button className="button-template">Login</button>
+                  {/* <button className="button-template">Login</button> */}
                 </Link>
                 {/* <button style={{ marginBottom: '25px' }} className="button-template" onClick={this.logout}>Logout</button> */}
                 <Link to="/">
