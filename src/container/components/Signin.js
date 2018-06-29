@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+
+
 class Signin extends Component {
     constructor(props){
         super(props)
@@ -13,7 +16,7 @@ class Signin extends Component {
     submitHandler = e => {
         e.preventDefault();
         //submit the form
-        axios.post(`http://localhost:5000/api/user/signin`, this.state )
+        axios.post(`${api}/api/user/signin`, this.state )
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
                 this.props.history.push('/');

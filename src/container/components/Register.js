@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+
+
 class Register extends Component {
     constructor(props) {
         super(props)
@@ -13,7 +16,7 @@ class Register extends Component {
     submitHandler = e => {
         e.preventDefault();
         //submit the form
-        axios.post(`http://localhost:5000/api/user/register`, this.state)
+        axios.post(`${api}/api/user/register`, this.state)
             .then(response => {
                 console.log('response : ', response.data)
                 this.props.history.push('/')
