@@ -17,21 +17,16 @@ class NewNote extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    // count = 9;
     submitNewNote = (e) => {
 
-    //    this.count++;
         let userId = localStorage.getItem('userId')
         console.log(userId)
 
-        // let { title, body } = this.state
         let newNote = {
             title: this.state.title, 
             body: this.state.body,
             user: userId
-            // id: this.count
-    }
-    console.log(newNote)
+        }
 
         e.preventDefault();
 
@@ -41,7 +36,7 @@ class NewNote extends Component {
             this.props.addNote(newNote);
             this.setState({title: "", body: ""})
 
-            this.props.history.push('/notes'); // takes back to list view 
+            this.props.history.push('/notes'); 
         }
         
     }
