@@ -7,7 +7,7 @@ const Navigation = props => {
             <h1>Lambda Notes</h1>
             <NavLink className="button" to="/notes">View Your Notes</NavLink>
             <NavLink className="button" to="/addnote">+ Create New Note</NavLink>
-            <button onClick={props.signoutHandler}>Sign Out</button>
+            <button className="button" onClick={props.signoutHandler}>Sign Out</button>
         </div>
     );
 }
