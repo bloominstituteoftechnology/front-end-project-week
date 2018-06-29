@@ -9,10 +9,7 @@ import NoteView from './components/NoteView/NoteView';
 import EditNote from './components/EditNote/EditNote';
 import RegisterLogin from './components/RegisterLogin/RegisterLogin';
 
-
-
 class App extends Component {
-
 
   render() {
   
@@ -24,7 +21,6 @@ class App extends Component {
         <Route exact path="/notes" component={NotesContainer} />
         <Route path="/notes/create" component={NewNote} />
         <Route exact path="/notes/note/:id" component={NoteView}/>
-        {/* <Route path="/notes/note/delete/:id" component={NoteView}/> */}
         <Route path="/notes/note/edit/:id" component={EditNote}/>
       
       </div>

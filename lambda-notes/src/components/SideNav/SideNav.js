@@ -11,8 +11,6 @@ function homeLink() {
     return window.location.href = "/"
 }
 
-
-
 const SideNav = (props) => {
 
     const signout = () => {
@@ -26,7 +24,6 @@ const SideNav = (props) => {
         console.log(note.user == loggedInUser) 
     })
     console.log(filteredCSV)
-
 
     return (
 
