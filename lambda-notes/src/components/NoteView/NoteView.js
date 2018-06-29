@@ -30,11 +30,11 @@ class NoteView extends Component {
     
     // [0] is the one element in the filtered Array that has the matched id
 
-    //   handleRemove = () => {
+    // handleRemove = () => {
     //     this.props.deleteNote(this.matchedNote.id)
-    //        return window.location.href = "/"
+    //     return window.location.href = "/notes"
     //     }
-      
+    
 
 
     render() {
@@ -84,6 +84,7 @@ class NoteView extends Component {
                                     <Button style={{width: "211px"}} className="delete-btn" 
                                     text="Delete" 
                                     onClick={() => this.props.deleteNote(this.matchedNote._id)}
+                                
                                 >
                                     </Button>
                                 {' '}</Link>

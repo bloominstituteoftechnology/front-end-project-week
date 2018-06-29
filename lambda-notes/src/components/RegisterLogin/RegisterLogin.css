@@ -16,7 +16,7 @@
     background-color: rgb(22, 20, 20);
     width: 100%;
     padding-top: 80px;
-    padding-left: 350px;
+    padding-left: 50%;
 }
 
 .login-input {
@@ -37,13 +37,33 @@
     box-shadow: none;
 }
 
+/* The animation code */
+/* @keyframes heading {
+    0%   {color: #990099; left:0px; top:0px}
+    25%  {color: #660066; left:200px; top:0px;}
+    50%  {color: #4d004d; left:200px; top:200px;}
+    100% {color: #330033; left:0px; top:200px;}
+} */
+
+.LambdaNotes {
+    color: #660066;
+    margin-top: 30px;
+    font-size: 80px;
+    font-weight: bold;
+    /* animation-name: heading;
+    animation-duration: 4s;
+    animation-iteration-count: 10; */
+}
+
+
+
 .register-form {
     width: 50%;
     background-color: lightgray;
     margin-top: 60px;
-    border: 5px solid navy;
+    
     border-radius: 5px;
-    padding: 5%;
+    padding: 3%;
 }
 
 .register-form input {

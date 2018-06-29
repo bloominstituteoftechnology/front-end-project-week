@@ -26,3 +26,11 @@ button:hover {
     color: #800080;
     box-shadow: 3px 3px 3px gray;
 }
+
+.logoutBtn {
+    background-color: black;
+}
+
+.logoutBtn:hover {
+    color: black;
+}

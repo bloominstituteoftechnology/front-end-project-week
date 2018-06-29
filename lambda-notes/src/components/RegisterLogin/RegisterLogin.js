@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -14,7 +15,7 @@ class RegisterLogin extends Component {
         loginPassword: ""
     }
 
-    changeHandler = (e) => {
+    inputChangeHandler = (e) => {
         this.setState({[e.target.name]: e.target.value})
     }
 
@@ -28,7 +29,26 @@ class RegisterLogin extends Component {
         e.preventDefault();
         this.props.registerUser(newUser);
         this.setState({email: "", username: "", password: ""})
+    }
 
+    loginUser = (e) => {
+        e.preventDefault();
+        const user = {
+            username: this.state.loginUsername,
+            password: this.state.loginPassword
+        }
+        axios
+            .post('https://lambda-note.herokuapp.com/api/users/login', user)
+            .then(response => {
+                console.log(response)
+                localStorage.setItem('token', response.data.token);
+                this.props.history.push('/notes')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+
+        this.setState({loginUsername: "", loginPassword: ""})
     }
 
     render() {
@@ -36,26 +56,28 @@ class RegisterLogin extends Component {
             <div className="homePage">
                 <div className="login-register">
                     <div className="login-header">
-                    <input className="login-input" onChange={this.changeHandler} placeholder="username" type="text" name="loginUsername" value={this.state.loginUsername}></input>
-                    <input className="login-input"  onChange={this.changeHandler} placeholder="password" type="password" name="loginPassword" value={this.state.loginPassword}></input>
-                    <button className="loginBtn">Login</button>
+                    <input className="login-input" onChange={this.inputChangeHandler} placeholder="username" type="text" name="loginUsername" value={this.state.loginUsername}></input>
+                    <input className="login-input"  onChange={this.inputChangeHandler} placeholder="password" type="password" name="loginPassword" value={this.state.loginPassword}></input>
+                    <button onClick={this.loginUser}className="loginBtn">Login</button>
                     </div>
                 </div>
+                {/* {req.status == 401 && (<div>Hi</div>)} */}
+                <h1 className="LambdaNotes">LAMBDA NOTES</h1>
                 <div className="register-form">
                     <Form>
                         <FormGroup>
-                        <Label for="exampleEmail">Email</Label>
-                        <Input onChange={this.changeHandler} type="email" name="email" id="exampleEmail" placeholder="enter your email" value={this.state.email} />
+                            <Label for="exampleEmail">Email</Label>
+                            <Input onChange={this.inputChangeHandler} type="email" name="email" id="exampleEmail" placeholder="enter your email" value={this.state.email} />
                         </FormGroup>
                         <FormGroup>
-                        <Label for="exampleText">Username</Label>
-                        <Input onChange={this.changeHandler} type="text" name="username" placeholder="select a username" value={this.state.username} />
+                            <Label for="exampleText">Username</Label>
+                            <Input onChange={this.inputChangeHandler} type="text" name="username" placeholder="select a username" value={this.state.username} />
                         </FormGroup>
                         <FormGroup>
-                        <Label for="examplePassword">Password</Label>
-                        <Input onChange={this.changeHandler} type="password" name="password" id="examplePassword" placeholder="select a password" value={this.state.password}/>
+                            <Label for="examplePassword">Password</Label>
+                            <Input onChange={this.inputChangeHandler} type="password" name="password" id="examplePassword" placeholder="select a password" value={this.state.password}/>
                         </FormGroup>
-                        <Button onClick={this.saveUser}>Register</Button>
+                            <Button onClick={this.saveUser}>Register</Button>
                     </Form>
                 </div>
             </div>

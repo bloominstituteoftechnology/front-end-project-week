@@ -19,9 +19,8 @@ class App extends Component {
     return (
       
       <div className="App">
-      
-        <SideNav />
         <Route exact path ='/' component={RegisterLogin}/>
+        <Route path="/notes" component={SideNav} />
         <Route exact path="/notes" component={NotesContainer} />
         <Route path="/notes/create" component={NewNote} />
         <Route exact path="/notes/note/:id" component={NoteView}/>

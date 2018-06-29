@@ -7,6 +7,7 @@ export const SEARCH_NOTE = 'SEARCH_NOTE';
 export const PENDING = 'PENDING';
 export const ERROR = 'ERROR';
 export const ADD_USER = 'ADD_USER';
+// export const LOGIN_USER = 'LOGIN_USER';
 
 // export const fetchNotes = () => {
 //     return {
@@ -14,8 +15,8 @@ export const ADD_USER = 'ADD_USER';
 //     }
 // }
 
-export const fetchNotes = () => {
-    const getNotes = axios.get('https://lambda-note.herokuapp.com/api/notes')
+export const fetchNotes = (requestOptions) => {
+    const getNotes = axios.get('https://lambda-note.herokuapp.com/api/notes', requestOptions)
     return function(dispatch) {
         
         getNotes
@@ -112,4 +113,18 @@ export const registerUser = newUser => {
             })
     }
 }
+
+// export const loginUser = user => {
+//     const userAttempt = axios.post('https://lambda-note.herokuapp.com/api/users/login', user);
+//     return function(dispatch) {
+//         dispatch({type: PENDING}) 
+//             userAttempt 
+//                 .then(response => {
+//                     dispatch({type: LOGIN_USER, payload: response.data})
+//                 })
+//                 .catch(err => {
+//                     dispatch({type: ERROR, payload: err})
+//                 })
+//         }
+// }
 

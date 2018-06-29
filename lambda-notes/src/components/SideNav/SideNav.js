@@ -15,6 +15,10 @@ function homeLink() {
 
 const SideNav = (props) => {
 
+    const signout = () => {
+        localStorage.removeItem('token');
+        props.history.push('/');
+    }
 
 
     return (
@@ -23,11 +27,13 @@ const SideNav = (props) => {
 
             <h1 className="lambdaNotes">Lambda Notes</h1>
 
-           <Link style={{textDecoration: 'none'}} to="/notes"><Button onClick={() => props.fetchNotes()} style={{width: "100%"}} text="View Your Notes" /></Link>
-           
-           <Link style={{textDecoration: 'none'}} to="/notes/create"><Button style={{width: "100%"}} link="/create" text="+ Create New Note"/></Link>
+            <Link style={{textDecoration: 'none'}} to="/notes"><Button onClick={() => props.fetchNotes()} style={{width: "100%"}} text="View Your Notes" /></Link>
+        
+            <Link style={{textDecoration: 'none'}} to="/notes/create"><Button style={{width: "100%"}} link="/create" text="+ Create New Note"/></Link>
 
-           <CSVLink style={{textDecoration: 'none'}} data={props.notes} ><Button className="csv-btn" style={{width: "100%"}} text="CSV Export"></Button> </CSVLink>
+            <CSVLink style={{textDecoration: 'none'}} data={props.notes} ><Button className="csv-btn" style={{width: "100%"}} text="CSV Export"></Button> </CSVLink>
+
+            <Link style={{textDecoration: 'none'}} to="/"><Button onClick={signout} className="logoutBtn" style={{width: "100%"}} link="/" text="Logout"/></Link>
 
         </div>
 

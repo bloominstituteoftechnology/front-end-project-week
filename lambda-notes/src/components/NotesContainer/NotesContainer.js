@@ -17,7 +17,15 @@ class NotesContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchNotes();
+        const token = localStorage.getItem('token');
+        const authToken = `Bearer ${token}`;
+        const requestOptions = {
+            headers: {
+                Authorization: authToken,
+            }
+        };
+
+        this.props.fetchNotes(requestOptions);
     }
 
 
