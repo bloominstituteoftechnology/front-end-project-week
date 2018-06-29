@@ -1,39 +1,60 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-// import NoteCard from '../NoteCard/NoteCard';
-import '../NoteView/NoteView.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import DeleteNote from "../DeleteNote/DeleteNote";
+import "../NoteView/NoteView.css";
 
 class NoteView extends Component {
-  // constructor(props) {
-  //   super(props);
-  //     this.state = { 
-  //       note: null 
-  //     );
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      note: []
+    };
+  }
 
-  // componentDidMount(){
-  //   const id = this.props.params.id;
-  //   this.fetchMovie(id);
-  // }
-    
-  // fetchMovie = id => {
-  //   this.setState(() => ({ movie: id }));  
-  // };
+  matchedNote = this.props.notes.filter(note => {
+    return note._id === this.props.match.params.id;
+  })[0];
+
+  componentDidMount() {
+    this.setState({ note: this.matchedNote });
+  }
 
   render() {
     return (
-      <div>
-        <Link to="/note/edit" className="Noteview-Link" style={{color: 'black'}}>Edit</Link>
-      {/* <NoteCard movie={this.state.note}/> */}
-        <div className="NoteView-Container">
-          <h4 className="NoteView-Header">Note Title</h4>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam iusto maxime dolores at accusamus sapiente, reiciendis labore, et sit consectetur nobis numquam a eaque omnis laudantium nesciunt dolor eos expedita! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis est earum laborum modi voluptates. Fugiat adipisci dolore accusamus enim facilis saepe, sint modi recusandae harum illo molestias ducimus suscipit veritatis.</p>
-
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis est earum laborum modi voluptates. Fugiat adipisci dolore accusamus enim facilis saepe, sint modi recusandae harum illo molestias ducimus suscipit veritatis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis est earum laborum modi voluptates. Fugiat adipisci dolore accusamus enim facilis saepe, sint modi recusandae harum illo molestias ducimus suscipit veritatis.</p>
+      <div className="noteView-Container">
+        <div className="noteView-Header">
+          <h4>{this.state.note.title}</h4>
+          <div>
+            <Link
+              to={`/edit/${this.props.match.params.id}`}
+              className="links"
+              style={{ color: "black" }}
+            >
+              edit
+            </Link>
+            <DeleteNote
+              className="links"
+              toDelete={this.state.note._id}
+              history={this.props.history}
+            />
+          </div>
+        </div>
+        <div className="noteView-Content">
+          <p>{this.state.note.content}</p>
         </div>
       </div>
     );
   }
 }
 
-export default NoteView;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes.notes
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(NoteView);
