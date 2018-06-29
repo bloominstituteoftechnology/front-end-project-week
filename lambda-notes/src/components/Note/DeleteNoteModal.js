@@ -10,7 +10,8 @@ class DeleteNoteModal extends Component {
     
     // Redirect to / if note is deleted true
     if(this.props.isDeleted) {
-        return <Redirect to="/"/>
+      console.log('here the problem')
+        return <Redirect to="/notes"/>
     }
 
     return (

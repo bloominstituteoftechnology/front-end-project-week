@@ -9,8 +9,7 @@ class NoteForm extends Component {
         this.state = {
             title: '',
             content: '',
-            id: '',
-            isUpdated: false
+            id: ''
         }
     }
 
@@ -43,15 +42,18 @@ class NoteForm extends Component {
         } else {
             this.props.addNote(note);
         }      
-        this.setState({isUpdated: !this.isUpdated});
     }
 
     
     render() {
         // Redirect to / if note is deleted true
-        if(this.state.isUpdated) {
-            return <Redirect to="/"/>
-        }
+        // if(this.state.isUpdated) {
+        //     return <Redirect to="/notes"/>
+        // }
+        console.log("updated ", this.props.data.updated);
+        if(this.props.data.updated) {
+          return <Redirect to="/notes"/>
+      }
 
         return (
             <div className={this.props.className}>
@@ -74,9 +76,9 @@ class NoteForm extends Component {
                         />
                      </div>
                 </form>
-                <button className="save-button" onClick={this.onSubmitHandler}>
+                {this.state.title && this.state.content && <button className="save-button" onClick={this.onSubmitHandler}>
                     {this.props.button}
-                </button>
+                </button>}
             </div>
         )
     }

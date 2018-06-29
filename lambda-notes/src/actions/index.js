@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import { ADD, EDIT, CANCEL, FETCH, FETCHED, FETCHING, SAVING, SAVED, UPDATING, UPDATED, DELETING, DELETED, ERROR } from "./types";
 
-const host = 'http://localhost:5000';
-// const host = 'https://young-coast-73926.herokuapp.com';
+// const host = 'http://localhost:5000';
+const host = 'https://young-coast-73926.herokuapp.com';
 
 export const fetch = () => {
   return {
@@ -113,13 +113,11 @@ export const fetchNotes = () => {
 
   const promise = axios.get(`${host}/api/notes/`, requestOptions());
   return function(dispatch) {
+      dispatch(cancelEdit());
       dispatch(fetching());
       promise
           .then( res => {
-              //Simulates delay on server response
-              setTimeout(() => {
                   dispatch(fetched(res.data));
-              }, 500);
           })
           .catch( err => {
               dispatch(error(err));
@@ -130,11 +128,11 @@ export const fetchNotes = () => {
 export const addNote = (note) => {
   const promise = axios.post(`${host}/api/notes/`, note, requestOptions());
   return function(dispatch) {
-      dispatch(saving());
-      promise
+    dispatch(cancelEdit());
+    dispatch(updating())
+    promise
           .then( res => {
-              dispatch(saved(res.data))
-              dispatch(cancelEdit());
+            dispatch(updated(res.data));
           })
           .catch( err => {
               dispatch(error(err));
@@ -145,6 +143,7 @@ export const addNote = (note) => {
 export const removeNote = (note) => {
   const promise = axios.delete(`${host}/api/notes/${note}`, requestOptions())
   return function(dispatch) {
+      dispatch(cancelEdit());
       dispatch(deleting())
       promise 
           .then( res => {
@@ -160,11 +159,11 @@ export const updateNote = (updateNoteId, note) => {
   console.log("update this note :", note)
   const promise = axios.put(`${host}/api/notes/${updateNoteId}`, note, requestOptions())
   return function(dispatch) {
+      dispatch(cancelEdit());
       dispatch(updating())
       promise
           .then( res  => {
               dispatch(updated(res.data));
-              dispatch(cancelEdit());
           })
           .catch( err => {
               dispatch(error(err));

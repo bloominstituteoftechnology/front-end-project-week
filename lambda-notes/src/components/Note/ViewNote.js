@@ -16,7 +16,6 @@ class VieNote extends Component {
             note: '',
             id: '',
             isOpen: false,
-            isDeleted: false,
         }
     }
 
@@ -26,7 +25,6 @@ class VieNote extends Component {
 
     onDelete = () => {
         this.props.removeNote(this.state.id);
-        this.setState({isDeleted: !this.state.isDeleted});
     }
 
 
@@ -53,7 +51,7 @@ class VieNote extends Component {
                     <div className="view-note-nav" onClick={this.toggleModal}>
                         delete
                     </div>
-                    <DeleteNoteModal show={this.state.isOpen} isDeleted={this.state.isDeleted} onDelete={this.onDelete} onClose={this.toggleModal}>
+                    <DeleteNoteModal show={this.state.isOpen} isDeleted={this.props.data.deleted} onDelete={this.onDelete} onClose={this.toggleModal}>
                         <div> Are you sure you want to delete this? </div>
                     </DeleteNoteModal>
                 </div>

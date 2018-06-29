@@ -39,7 +39,21 @@ export const reducer = (state=initialState, action) => {
         case CANCEL:
         return Object.assign({}, state, {
             add: false,
-            edit: false
+            edit: false,
+
+            fetching: false,
+            fetched: false,
+          
+            saving: false,
+            saved: false,
+          
+            updating: false,
+            updated: false,
+          
+            deleting: false,
+            deleted: false,
+          
+            error: null
         })
         case FETCHING:
             return Object.assign({}, state, {

@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchNotes } from '../../actions';
 
+import { fetchNotes } from '../../actions';
 
 import NoteCard from './NoteCard';
 
 class NotesList extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+        };
     }
+
     componentDidMount() {
-      //Delays because is not in sync
-      setTimeout(() => {
-        this.props.fetchNotes();
-      }, 500);
+
       this.props.fetchNotes();
+
     }
 
     render() {

@@ -7,10 +7,10 @@ import ReactMarkdown  from 'react-markdown';
 
 import { withRouter } from 'react-router-dom'
 
-
 import './App.css';
 
 import Nav from '../Nav/Nav';
+import UserLogin from '../User/UserLogin';
 import NotesList from '../Note/NotesList';
 import NoteForm from '../Note/NoteForm';
 import ViewNote from '../Note/ViewNote';
@@ -22,7 +22,7 @@ class App extends Component {
       isLogged: false,
       message: '',
       notes: []  
-    }
+    };
   }
 
   componentDidMount() {
@@ -31,16 +31,31 @@ class App extends Component {
     const msg = localStorage.getItem('msg');
 
     this.setState({ isLogged: token, message: msg});
+    if(token)
+      this.props.history.push('/notes');
   }
+
+  handleSubmitLogin = (msg) => {
+    this.setState({ isLogged: true, message: msg});
+    this.props.history.push('/notes');
+  };
+
+  handleSubmitLogout = (msg) => {
+    this.setState({ isLogged: false, message: msg});
+    this.props.history.push('/');
+  };
 
   render() {
     return (
       <div className="App">
-        <Route path="/" component={Nav} />
-        <Route exact path="/" render={() => (<NotesList/>)}/>
+        <Route path="/" render={() => (<Nav isLogged={this.state.isLogged} onClickLogout={this.handleSubmitLogout}/>)} />
+        <Route path="/login" render={() => <UserLogin isLogin={true} onClickLogin={this.handleSubmitLogin}/>} />
+        <Route path="/register" render={() => <UserLogin isLogin={false} onClickLogin={this.handleSubmitLogin}/>} />
+
+        <Route exact path="/notes" render={() => (<NotesList/>)}/>
         <Route exact path="/newnote" render={() => (<NoteForm className="App-content-container" header="Create New Note:" button="Save" />)}/>
         <Route exact path="/note/:id" render={(props) => (<ViewNote {...props}/>)}/>
-        <Route exact path="/editnote/:id" render={(props) => (<NoteForm {...props} className="App-content-container" header="Edit Note:" button="Update" />)}/>
+        <Route exact path="/editnote/:id" render={(props) => (<NoteForm {...props} className="App-content-container" header="Edit Note:" button="Update" />)}/> */}
         {/* <ReactMarkdown source={'# This is a header\n\nAnd this is a paragraph'} /> */}
       </div>
     );
