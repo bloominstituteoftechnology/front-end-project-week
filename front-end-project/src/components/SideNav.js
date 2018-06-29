@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styling/SideNav.css";
-import { create } from '@material-ui/icons'
+import { Create } from '@material-ui/icons'
 
 /* top half of ternary is specifically for the SideNav mounted on the NoteView page
 so that it can execute the onClick function to close the modal for delete.
@@ -77,7 +77,7 @@ const SideNav = props => {
             style={{ opacity: props.deleting ? ".6" : "1" }}
           >
             <Link to="/create/">
-              <i class="material-icons create"/>
+              <Create />
             </Link>
           </div>
         </div>
