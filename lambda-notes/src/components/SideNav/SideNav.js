@@ -17,7 +17,7 @@ const SideNav = (props) => {
 
     const signout = () => {
         localStorage.removeItem('token');
-        localStorage.removeItem('userId')
+        localStorage.removeItem('userId');
         props.history.push('/');
     }
 

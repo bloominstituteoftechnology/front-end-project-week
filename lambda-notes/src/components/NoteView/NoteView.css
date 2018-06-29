@@ -10,7 +10,7 @@
 }
 @media (max-width: 400px) {
     .noteView-container {
-       height: 100%;;
+        height: 100%;;
     }
 }
 
@@ -39,7 +39,7 @@
 
 .modal-body {
     border: none;
-    width: 584px;
+    width: 117%; /*584px*/
     height: 100px;
     background-color: #FFFFFF;
     text-align: center;
@@ -49,13 +49,14 @@
 }
 
 .modal {
+    margin-left: 10%; /*120px*/
     padding: 165px 75px 0px 0px; 
     max-width: 980px;
     width: 100%;
 }
 
 .modal-footer {
-    width: 584px;
+    width: 117%;
     height: 100px;
     background-color: #FFFFFF;
     padding-right: 80px !important;
@@ -68,16 +69,16 @@
 }
 
 .delete-btn:hover {
-   background-color: #ff0011;
-   color: white;
-   width: 320px;
-   box-shadow: 3px 3px 3px gray;
+    background-color: #ff0011;
+    color: white;
+    width: 320px;
+    box-shadow: 3px 3px 3px gray;
 }
 
 .cancel-btn:hover {
     background-color: #00fbff;
     color: white;
-   box-shadow: 3px 3px 3px gray;
+    box-shadow: 3px 3px 3px gray;
 }
 
 
