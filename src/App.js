@@ -110,7 +110,7 @@ class App extends Component {
             <Route exact path="/Create" render={props => <CreateNote {...props} fetch={this.fetchData} />} />
             <Route path="/Notes/:title" render={props => <SingleNote {...props} NoteData={this.filterNotes(props)} DeleteData={this.deleteNotes} />} />
             <Route path="/Create/edit/:title" render={props => <CreateNote {...props} NoteData={this.filterNotes(props)} EditData={this.editNotes} fetch={this.fetchData} />} />
-            <Route path="/login" component={Signin} />
+            <Route path="/Login" component={Signin} />
             <Route path="/Register" component={Register} />
             </div>
           </div>
