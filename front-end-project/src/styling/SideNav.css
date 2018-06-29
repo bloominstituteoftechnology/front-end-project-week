@@ -21,6 +21,7 @@ button {
     height: calc(55px + 1vh);
     margin: 2vh 0;
     color: black;
+    font-weight: bold;
     background:rgb(140, 2, 2);
     box-shadow: -2px -1px 30px -5px rgba(255,255,255,1)!important;
     font-size: calc(10px + .5vw);

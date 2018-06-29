@@ -11,7 +11,8 @@ h3 {
 
 .button {
     color: #FFFFFF;
-    background: #2BC1C4;
+    background:rgb(140, 2, 2);
+    font-weight: bold;
 }
 
 .noteViewButtons {
@@ -48,4 +49,5 @@ h3 {
     width: 18vw;
     margin: 2vh 2vw;
     box-shadow: -2px -1px 30px -5px rgba(255,255,255,1)!important;
+    font-weight: bold;
 }
