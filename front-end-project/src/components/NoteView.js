@@ -47,7 +47,7 @@ class NoteView extends Component {
                   Are you sure you want to delete this?{" "}
                 </h2>
                 <div className="modalButtons modal">
-                  <NavLink to="/" className="modal">
+                  <NavLink to="/notes" className="modal">
                     <button
                       onClick={() =>
                         this.props.deleteNote(this.props.match.params.id)

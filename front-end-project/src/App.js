@@ -5,11 +5,13 @@ import axios from "axios";
 import { ListView, NoteView, Create, Edit, Login, Home, Register } from "./components/index";
 import "../src/styling/App.css";
 
+
+
 const token = localStorage.getItem('token')
 
 const requestOptions = {
       headers: {
-        authorization: token
+        Authorization: token
       }
     }
 
@@ -23,7 +25,7 @@ class App extends Component {
   componentDidMount() {
 
 
-    axios.get("https://lambda-take-note.herokuapp.com/notes", requestOptions).then(response => {
+    axios.get("https://lambda-take-note.herokuapp.com/notes", { requestOptions }).then(response => {
       this.setState({
         notes: response.data.notes
       }).catch(err => {
@@ -34,7 +36,7 @@ class App extends Component {
 
   fetchNote(id) {
     axios
-      .get(`https://lambda-take-note.herokuapp.com/notes/${id}`, requestOptions)
+      .get(`https://lambda-take-note.herokuapp.com/notes/${id}`, { requestOptions })
       .then(response => {
         this.setState({
           currentNote: response.data.note
@@ -46,6 +48,7 @@ class App extends Component {
     axios
       .post("https://lambda-take-note.herokuapp.com/notes", { note, requestOptions })
       .then(response => {
+        console.log('response', response)
         let notes = this.state.notes;
         let savedNote = response.data.savedNote;
         notes.unshift(savedNote);
@@ -72,7 +75,7 @@ class App extends Component {
 
   deleteNote(id) {
     axios
-      .delete(`https://lambda-take-note.herokuapp.com/notes/${id}`, requestOptions)
+      .delete(`https://lambda-take-note.herokuapp.com/notes/${id}`, { requestOptions })
       .then(response => {
         let sparedNotes = this.state.notes.filter(
           note => note._id !== response.data.deletedNote._id

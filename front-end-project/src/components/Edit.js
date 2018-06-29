@@ -10,7 +10,7 @@ class Edit extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.editNote(this.props.match.params.id, this.state);
-    this.props.history.push("/");
+    this.props.history.push("/notes");
   };
   inputChangeHandler = event => {
     const { name, value } = event.target;

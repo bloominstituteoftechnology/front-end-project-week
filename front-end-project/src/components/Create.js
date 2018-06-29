@@ -10,7 +10,7 @@ class Create extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.addNote(this.state);
-    this.props.history.push("/");
+    this.props.history.push("/notes");
   };
   inputChangeHandler = event => {
     const { name, value } = event.target;

@@ -37,7 +37,7 @@ const SideNav = props => {
             style={{ opacity: props.deleting ? ".6" : "1" }}
             onClick={() => props.cancelDelete()}
           >
-            <Link to="/">
+            <Link to="/notes">
               <button> View Your Notes </button>
             </Link>
           </div>
@@ -67,7 +67,7 @@ const SideNav = props => {
             className="buttonStyle"
             style={{ opacity: props.deleting ? ".6" : "1" }}
           >
-            <Link to="/">
+            <Link to="/notes">
               <button> View Your Notes </button>
             </Link>
           </div>
