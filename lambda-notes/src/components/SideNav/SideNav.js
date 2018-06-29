@@ -19,12 +19,6 @@ const SideNav = (props) => {
         props.history.push('/');
     }
 
-    let loggedInUser = localStorage.getItem('userId')
-    let filteredCSV = props.notes.filter(note => {
-        console.log(note.user == loggedInUser) 
-    })
-    console.log(filteredCSV)
-
     return (
 
         <div className="nav-container">
