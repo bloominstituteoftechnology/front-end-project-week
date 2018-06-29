@@ -17,7 +17,7 @@ export const CSV = 'CSV';
 // }
 
 export const fetchNotes = (requestOptions) => {
-    const getNotes = axios.get(`${process.env.api_url}`, requestOptions)
+    const getNotes = axios.get('https://lambda-note.herokuapp.com/api/notes', requestOptions)
     return function(dispatch) {
         
         getNotes
@@ -37,7 +37,7 @@ export const fetchNotes = (requestOptions) => {
 // }
 
 export const addNote = newNote => {
-    const addNewNote = axios.post(`${process.env.api_url}`, newNote);
+    const addNewNote = axios.post('https://lambda-note.herokuapp.com/api/notes', newNote);
     return function(dispatch) {
         dispatch({type: PENDING})
         addNewNote  
@@ -58,7 +58,7 @@ export const addNote = newNote => {
 // }
 
 export const deleteNote = id => {
-    const noteDeletion = axios.delete(`${process.env.api_url}/${id}`)
+    const noteDeletion = axios.delete(`https://lambda-note.herokuapp.com/api/notes/${id}`)
     return function(dispatch) {
         noteDeletion
             .then((response) => {
@@ -79,7 +79,7 @@ export const deleteNote = id => {
 // }
 
 export const editNote = (id, editedNote) => {
-    const modifyNote = axios.put(`${process.env.api_url}/${id}`, editedNote)
+    const modifyNote = axios.put(`https://lambda-note.herokuapp.com/api/notes/${id}`, editedNote)
     return function(dispatch) {
         modifyNote 
             .then(response => {
@@ -108,7 +108,7 @@ export const saveFilteredNotesForCSV = csvArr => {
 
 // USER ACTIONS
 export const registerUser = newUser => {
-    const addNewUser = axios.post(`${process.env.api_url}/register`, newUser);
+    const addNewUser = axios.post('https://lambda-note.herokuapp.com/api/notes/register', newUser);
     return function(dispatch) {
         dispatch({type: PENDING})
         addNewUser  
