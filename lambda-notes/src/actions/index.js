@@ -18,9 +18,9 @@ export const LOG_IN_USER_ERROR = 'LOG_IN_USER_ERROR';
 export const AUTH_USER = 'AUTH_USER';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 
-const URL = 'https://jesuarva-lambda-notes.herokuapp.com/api/notes';
-const URL_REGISTER = 'https://jesuarva-lambda-notes.herokuapp.com/api/register';
-const URL_LOGIN = 'https://jesuarva-lambda-notes.herokuapp.com/api/login';
+const URL = process.env.REACT_APP_API_NOTES;
+const URL_REGISTER = process.env.REACT_APP_API_REGISTER;
+const URL_LOGIN = process.env.REACT_APP_API_LOGIN;
 const errorAction = error => {
   return {
     type: ERROR,
