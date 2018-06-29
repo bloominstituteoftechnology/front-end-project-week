@@ -47,11 +47,11 @@ const ListView = props => {
                         onClick={() => props.fetchNote(note._id)}
                         style={{ textDecoration: "none" }}
                       >
-                        <CardHeader title={`${note.title}`} style={{textShadow: '-5px 5px 15px #FFFFFF'}}/>
+                        <CardHeader title={`${note.title}`} style={{textShadow: '2px 2px 4px white'}}/>
                         <CardContent>
                           <Typography
                             component="p"
-                            style={{ overflow: "hidden", height: "10vh", textShadow: '-5px 5px 15px #FFFFFF'}}
+                            style={{ overflow: "hidden", height: "10vh", textShadow: '2px 2px 4px white'}}
                           >
                             {note.body}
                           </Typography>
@@ -69,7 +69,7 @@ const ListView = props => {
           <CardContent>
             <Typography
               component="p"
-              style={{ overflow: "hidden", height: "10vh", textShadow: '-5px 5px 15px #FFFFFF'}}
+              style={{ overflow: "hidden", height: "10vh", textShadow: '2px 2px 4px white'}}
             >
               This page is currently loading.
             </Typography>

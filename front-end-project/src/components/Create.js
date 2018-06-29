@@ -25,7 +25,7 @@ class Create extends Component {
           </Grid>
           <Grid item xs={12}>
             <div style={{ marginLeft: "calc(5vw + (150px + 2vw))" }}>
-              <h3 style={{textShadow: '-5px 5px 15px #FFFFFF'}}> Create Note: </h3>
+              <h3 style={{textShadow: '2px 2px 4px white'}}> Create Note: </h3>
               <form onSubmit={this.handleSubmit}>
                 <div className="title">
                   <input
