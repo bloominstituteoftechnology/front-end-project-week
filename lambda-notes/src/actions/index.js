@@ -26,8 +26,6 @@ export const fetchNotes = (requestOptions) => {
                 dispatch({type: FETCH_NOTES, payload: response.data})
             })
             .catch(err => {dispatch({type: ERROR, payload: err})})
-        
-
     }
 }
 

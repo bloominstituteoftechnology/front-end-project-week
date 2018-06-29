@@ -37,25 +37,12 @@
     box-shadow: none;
 }
 
-/* The animation code */
-/* @keyframes heading {
-    0%   {color: #990099; left:0px; top:0px}
-    25%  {color: #660066; left:200px; top:0px;}
-    50%  {color: #4d004d; left:200px; top:200px;}
-    100% {color: #330033; left:0px; top:200px;}
-} */
-
 .LambdaNotes {
     color: #660066;
     margin-top: 30px;
     font-size: 80px;
     font-weight: bold;
-    /* animation-name: heading;
-    animation-duration: 4s;
-    animation-iteration-count: 10; */
 }
-
-
 
 .register-form {
     width: 50%;
@@ -69,4 +56,34 @@
 .register-form input {
     width: 70%;
     margin-left: 15%;
+}
+
+@media (max-width: 980px) {
+    .login-header {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-header {
+        padding-left: 0px;
+        padding-top: 0px;
+    }
+    .login-input {
+        display: block;
+        margin-top: 5px;
+    }
+    .loginBtn {
+        display: block;
+        margin-left: 0px;
+        margin-top: 5px;
+        width: 173px;
+    }
+    .login-header {
+        padding-top: 33px;
+        padding-left: 110px;
+    }
+    .LambdaNotes {
+        font-size: 60px;
+    }
 }
