@@ -6,7 +6,6 @@
     border: 0.1vw #979797 solid;
     padding: 1vh;
     background: #a60c07 !important;
-    box-shadow: 2px 8px 20px 17px rgba(0,0,0,0.75) !important;
 }
 .headingforSideNav {
     font-family: Roboto Bold;
@@ -20,8 +19,9 @@ button {
     max-width: 180px;
     height: calc(55px + 1vh);
     margin: 2vh 0;
-    color: #FFFFFF;
-    background: #2BC1C4;
+    color: black;
+    background:rgb(140, 2, 2);
+    box-shadow: 2px 8px 50px 5px rgba(0,0,0,0.75) !important;
     font-size: calc(10px + .5vw);
     outline-width: .1vh;
     border-color: #979797;

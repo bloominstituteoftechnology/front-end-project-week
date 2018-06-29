@@ -47,7 +47,7 @@ render() {
         </form>
         </div>
         <br/>
-        <NavLink to="/register" style={{fontSize: '1.5rem', color: 'red', textDecoration: 'none', display: 'block', textAlign: 'center', bottom: '0'}}>Realized you don't have an account?  Click to Register! </NavLink>
+        <NavLink to="/register" style={{fontSize: '1.5rem', color: 'red', textDecoration: 'none', display: 'block', textAlign: 'center', bottom: '0', textShadow: '2px 8px 20px rgba(0,0,0,0.75)'}}>Realized you don't have an account?  Click to Register! </NavLink>
         </div>
         )
     }

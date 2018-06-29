@@ -46,7 +46,7 @@ render() {
         </form>
         </div>
         <br/>
-        <NavLink to="/login" style={{fontSize: '1.5rem', color: 'red', textDecoration: 'none', display: 'block', textAlign: 'center', bottom: '0'}}> Realized you have an account?  Click to log in! </NavLink>
+        <NavLink to="/login" style={{fontSize: '1.5rem', color: 'red', textDecoration: 'none', display: 'block', textAlign: 'center', bottom: '0', textShadow: '2px 8px 20px rgba(0,0,0,0.75)' }}> Realized you have an account?  Click to log in! </NavLink>
         </div>
         )
     }
