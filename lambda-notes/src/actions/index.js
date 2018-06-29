@@ -16,7 +16,6 @@ export const fetchNotes = (requestOptions) => {
         
         getNotes
             .then(response => {
-                console.log(response);
                 dispatch({type: FETCH_NOTES, payload: response.data})
             })
             .catch(err => {dispatch({type: ERROR, payload: err})})
@@ -45,7 +44,6 @@ export const deleteNote = id => {
                 dispatch({type: DELETE_NOTE, payload: response.data})
             })
             .catch(err => {
-                console.log(err)
                 dispatch({type: ERROR, payload: err.error})
             })
     }
@@ -57,7 +55,6 @@ export const editNote = (id, editedNote) => {
         modifyNote 
             .then(response => {
                 dispatch({type: EDIT_NOTE, payload: response.data})
-                console.log(response.data)
             })
             .catch(err => {
                 dispatch({type: ERROR, payload: err})
