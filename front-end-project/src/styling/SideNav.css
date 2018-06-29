@@ -24,7 +24,7 @@ button {
     font-weight: bold;
     background:rgb(140, 2, 2);
     text-shadow: 2px 2px 4px #000000;
-    box-shadow: -2px -1px 30px -5px rgba(255,255,255,1)!important;
+    box-shadow: -2px -1px 30px -5px black !important;
     font-size: calc(10px + .5vw);
     outline-width: .1vh;
     border-color: #979797;
