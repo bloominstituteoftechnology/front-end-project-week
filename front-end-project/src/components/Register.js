@@ -43,6 +43,7 @@ render() {
         )
     }
     submitHandler = (event) => {
+        event.preventDefault()
         axios.post('https://lambda-take-note.herokuapp.com/auth/register', this.state)
             .then(response => {
                 console.log(response, 'response from register post')

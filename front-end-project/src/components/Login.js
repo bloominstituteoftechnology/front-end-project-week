@@ -11,7 +11,7 @@ class Login extends React.Component {
 render() {
     return (
         <div>
-        <NavLink to="/register">Realized you don't have an account?  Click to Register! </NavLink>
+        <NavLink to="/auth/register">Realized you don't have an account?  Click to Register! </NavLink>
     <div style={{textAlign: 'center', marginTop: '30vh'}}>
         <form onSubmit={this.submitHandler}>
             <div>
@@ -49,6 +49,7 @@ render() {
         )
     }
     submitHandler = (event) => {
+        event.preventDefault()
         axios.post('https://lambda-take-note.herokuapp.com/auth/login', this.state)
             .then(response => { 
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
