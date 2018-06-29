@@ -7,14 +7,6 @@ import "../src/styling/App.css";
 
 
 
-const token = localStorage.getItem('token')
-
-const requestOptions = {
-      headers: {
-        Authorization: token
-      }
-    }
-
 class App extends Component {
   state = {
     notes: [],
