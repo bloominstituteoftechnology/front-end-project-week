@@ -69,16 +69,20 @@ export const updateNote = (id, note) => {
 };
 
 export const deleteNote = id => {
-        const delNote = axios.put(`${process.env.REACT_APP_API_NOTES}/${id}`);
+        const delNote = axios.delete(`${process.env.REACT_APP_API_NOTES}/${id}`);
     return function(dispatch) {
-        dispatch({ type: DELETING_NOTE });
-        delNote
-            .then(response => {
-                dispatch({ type: NOTE_DELETED, payload: response.data });
-            })
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err.message });
-            });
+        return new Promise((resolve, reject) => {
+            dispatch({ type: DELETING_NOTE });
+            delNote
+                .then(response => {
+                    dispatch({ type: NOTE_DELETED, payload: response.data });
+                    resolve();
+                })
+                .catch(err => {
+                    dispatch({ type: ERROR, payload: err.message });
+                    reject(err);
+                })
+        });
     }
 };
 
