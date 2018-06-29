@@ -9,8 +9,10 @@ class Register extends React.Component {
 
 render() {
     return (
-<div style={{textAlign: 'center', marginTop: '30vh'}}>
+<div>
     <NavLink to="/login">Realized you have an account?  Click to log in! </NavLink>
+    <div style={{textAlign: 'center', marginTop: '30vh'}}>
+    
         <form onSubmit={this.submitHandler}>
             <div>
                 <input
@@ -40,6 +42,7 @@ render() {
                 <button type="submit"> Signin</button>
                 </div>
         </form>
+        </div>
         </div>
         )
     }
