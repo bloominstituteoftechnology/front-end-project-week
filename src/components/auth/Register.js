@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { loggedIn } from "../../actions";
 
 class Register extends React.Component {
     state = {
@@ -29,6 +31,7 @@ class Register extends React.Component {
         return (
             <div>
                 <form>
+                    <h3>Register</h3>
                     <input type="email" name="email" value={email} placeholder="email" onChange={this.onChange}/>
                     <input type="password" name="password" value={password} placeholder="password" onChange={this.onChange}/>
                     <input type="text" name="firstName" value={firstName} placeholder="First Name" onChange={this.onChange}/>
@@ -41,4 +44,8 @@ class Register extends React.Component {
     }
 }
 
-export default withRouter(Register);
+const mapStateToProps = state => {
+  return state;
+}
+
+export default withRouter(connect(mapStateToProps, { loggedIn })(Register));

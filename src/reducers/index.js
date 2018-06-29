@@ -1,4 +1,5 @@
 import {
+    LOGGED_IN,
     RESET_STORE,
     UPDATING_ACCOUNT,
     ACCOUNT_UPDATED,
@@ -16,6 +17,7 @@ import {
 const initialState = {
     notes: [],
     id: '',
+    userLoggedIn: false,
     updatingAccount: false,
     accountUpdated: false,
     fetchingNotes: false,
@@ -61,6 +63,8 @@ export const rootReducer = (state = initialState, action) => {
 
         case RESET_STORE:
             return {...initialState };
+        case LOGGED_IN:
+            return {...state, userLoggedIn: !state.userLoggedIn }
         
         case ERROR:
             return { ...state, error: action.payload, noteAdded: false, noteUpdated: false, noteDeleted: false, accountUpdated: false };
