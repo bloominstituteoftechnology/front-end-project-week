@@ -57,7 +57,7 @@ render() {
                 localStorage.setItem('token', response.data.token) // setting the token as an item on the window's localStorage
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
-                console.log('sad')
+                console.log('Sad')
             })
     }
     inputChangeHandler = (event) => {

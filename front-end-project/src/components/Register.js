@@ -51,7 +51,9 @@ render() {
                 localStorage.setItem('token', response.data.token) // setting the token as an item on the window's localStorage
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
-                console.log(err) // if credentials are invalid, destroy token
+                localstorage.removeItem('token')
+                this.props.history.push('/register')
+                 // if credentials are invalid, destroy token
             })
     }
     inputChangeHandler = (event) => {
