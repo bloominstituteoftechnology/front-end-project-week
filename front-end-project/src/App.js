@@ -35,7 +35,7 @@ class App extends Component {
 
   addNote(note) {
     axios
-      .post("https://lambda-take-note.herokuapp.com/notes", { note, withCredentials: true })
+      .post("https://lambda-take-note.herokuapp.com/notes", { title: note.title, body: note.body, withCredentials: true })
       .then(response => {
         console.log('response', response)
         let notes = this.state.notes;
@@ -49,7 +49,7 @@ class App extends Component {
 
   editNote(id, note) {
     axios
-      .put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { note, withCredentials: true })
+      .put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { title: note.title, body: note.body, withCredentials: true })
       .then(response => {
         let currentState = this.state.notes;
         let lessNote = currentState.filter(
