@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, withRouter, Link } from "react-router-dom";
-import { Navigation, NotesList, AddNote, Note, Login, Register } from "./components";
+import { Route, withRouter } from "react-router-dom";
+import { Navigation, NotesList, AddNote, Note, Landing } from "./components";
 import { connect } from "react-redux";
 import { resetStore } from "./actions";
 
@@ -11,7 +11,7 @@ class App extends Component {
   signoutHandler = () => {
     localStorage.removeItem('jwt');
     this.props.resetStore();
-    this.props.history.push('/login');
+    this.props.history.push('/');
   }
 
   render() {
@@ -22,13 +22,14 @@ class App extends Component {
             <Navigation signoutHandler={this.signoutHandler}/>
           </div>
         ) : (
-          <Route exact path="/" render={() => <div><Link to="/login">Login</Link></div>}/>
+          <Route exact path="/" render={() => 
+          <div>
+            <Landing />
+          </div>}/>
         )}
         <Route exact path="/notes" component={NotesList}/>
         <Route path="/addnote" component={AddNote}/>
         <Route path="/note/:id" component={Note}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
       </div>
     );
   }
