@@ -3,13 +3,14 @@
     height: 100vh;
     position: fixed;
     z-index: 10;
-    border: 0.1vw #979797 solid;
+    border: 0.1vw #4A4A4A solid;
     padding: 1vh;
-    background: #a60c07 !important;
+    background: black !important;
 }
 .headingforSideNav {
     font-family: Roboto Bold;
-    color: #4A4A4A;
+    color: white;
+    text-shadow: 2px 8px 20px rgba(0,0,0,0.75);
     font-weight: bold;
     word-wrap: break-word;
     font-size: calc(20px + 1.3vw)
@@ -21,7 +22,7 @@ button {
     margin: 2vh 0;
     color: black;
     background:rgb(140, 2, 2);
-    box-shadow: 2px 8px 50px 5px rgba(0,0,0,0.75) !important;
+    box-shadow: 2px 8px 50px 5px white !important;
     font-size: calc(10px + .5vw);
     outline-width: .1vh;
     border-color: #979797;

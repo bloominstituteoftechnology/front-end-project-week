@@ -78,7 +78,7 @@ const SideNav = props => {
           >
             <Link to="/create/">
               <Create>
-                <i className="material-icons" style={{ color: 'white'}}>create</i>
+                <i className="material-icons" style={{ color: 'white', textDecoration: 'none', fontSize: '3.0rem', textAlign: 'center'}}>create</i>
                 </Create>
             </Link>
           </div>
