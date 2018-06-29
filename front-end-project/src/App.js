@@ -25,7 +25,7 @@ class App extends Component {
   componentDidMount() {
 
 
-    axios.get("https://lambda-take-note.herokuapp.com/notes", { requestOptions })
+    axios.get("https://lambda-take-note.herokuapp.com/notes")
     .then(response => {
       this.setState({
         notes: response.data.notes
@@ -37,7 +37,7 @@ class App extends Component {
 
   fetchNote(id) {
     axios
-      .get(`https://lambda-take-note.herokuapp.com/notes/${id}`, { requestOptions })
+      .get(`https://lambda-take-note.herokuapp.com/notes/${id}`)
       .then(response => {
         this.setState({
           currentNote: response.data.note
@@ -49,7 +49,7 @@ class App extends Component {
 
   addNote(note) {
     axios
-      .post("https://lambda-take-note.herokuapp.com/notes", { note, requestOptions })
+      .post("https://lambda-take-note.herokuapp.com/notes", note)
       .then(response => {
         console.log('response', response)
         let notes = this.state.notes;
@@ -65,7 +65,7 @@ class App extends Component {
 
   editNote(id, note) {
     axios
-      .put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { note, requestOptions })
+      .put(`https://lambda-take-note.herokuapp.com/notes/${id}`, note)
       .then(response => {
         let currentState = this.state.notes;
         let lessNote = currentState.filter(
@@ -82,7 +82,7 @@ class App extends Component {
 
   deleteNote(id) {
     axios
-      .delete(`https://lambda-take-note.herokuapp.com/notes/${id}`, { requestOptions })
+      .delete(`https://lambda-take-note.herokuapp.com/notes/${id}`)
       .then(response => {
         let sparedNotes = this.state.notes.filter(
           note => note._id !== response.data.deletedNote._id
