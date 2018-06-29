@@ -15,6 +15,9 @@ const SideBar = () => {
         <NavLink to="/add" className="w-100">
           <Button className="side-button">+ Create New Note</Button>
         </NavLink>
+        <NavLink to="/shared" className="w-100">
+          <Button className="side-button">View Shared</Button>
+        </NavLink>
       </div>
     </div>
   ) 
