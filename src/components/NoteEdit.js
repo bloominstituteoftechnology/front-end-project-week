@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Input, } from 'reactstrap';
+import axios from 'axios';
 
 class NoteEdit extends Component {
   constructor(props) {
@@ -21,19 +22,33 @@ class NoteEdit extends Component {
     // })
     // console.log("filtered note",editNote[0].title)
     if(this.props.match.path === "/edit/:id"){
-      const editNote = this.props.notes.filter((current) => {
-        return current._id === this.props.match.params.id
-      })
-      console.log(editNote)
-      this.setState({ 
-        edit: true, 
-        title: editNote[0].title,
-        body: editNote[0].body,
-        id: editNote[0]._id
-      })
+      // const editNote = this.props.notes.filter((current) => {
+      //   return current._id === this.props.match.params.id
+      // })
+      
+      // console.log(editNote)
+      // this.setState({ 
+      //   edit: true, 
+      //   title: editNote[0].title,
+      //   body: editNote[0].body,
+      //   id: editNote[0]._id
+      // })
+      const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
+      axios 
+        .get(process.env.REACT_APP_BACKEND + 'note/' + this.props.match.params.id, config)
+          .then(response => {
+            
+            this.setState({
+              edit: true, 
+              title: response.data.title,
+              body: response.data.body,
+              id: response.data._id
+            })
+          })
     }
-    
   }
+    
+  
 
   handleInput = e => {
     this.setState({ [e.target.name]: e.target.value})

@@ -18,7 +18,8 @@ const NoteCards = (props) => {
   return(
     
     <React.Fragment>
-      <h3>{props.user}'s Notes:</h3>
+      
+      <h3>{props.user}:</h3>
       <div className="row justify-content-between mt-4">      
         {props.notes.map(note => {
           return (

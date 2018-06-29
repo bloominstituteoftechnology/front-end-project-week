@@ -21,19 +21,19 @@ class AllNotes extends Component {
       userID: ''
 
     };
-    
+    this.config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
   }
   
 
   getUserNotes = () => {
     console.log('getting notes')
     console.log(this.state.userID)
-    const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
+    // const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
     if(this.state.authenticated){
       axios
-        .get(process.env.REACT_APP_BACKEND +'user/' + this.state.userID, config)
+        .get(process.env.REACT_APP_BACKEND +'user/' + this.state.userID, this.config)
           .then(response => {
-            // console.log("response",response)
+            console.log("response",response)
             const username  = response.data[0].createdBy.username;
             
             this.setState(() => ({ 
@@ -53,10 +53,10 @@ class AllNotes extends Component {
   getSharedNotes = () => {
     console.log('getting shared notes')
     console.log(this.state.userID)
-    const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
+    // const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
     if(this.state.authenticated){
       axios
-        .get(process.env.REACT_APP_BACKEND +'sharedNotes/' + this.state.userID, config)
+        .get(process.env.REACT_APP_BACKEND +'sharedNotes/' + this.state.userID, this.config)
           .then(response => {
             // console.log("response",response)
                         
@@ -85,17 +85,22 @@ class AllNotes extends Component {
         })
   }
   
-  // componentWillMount(){
-  //   if(window.localStorage.getItem('token')){
-  //     console.log('has a token')
-  //     this.setState({authenticated: true})
-  //     this.getUserNotes()
+  componentDidMount(){
+    // const config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
+    // axios  
+    //   .get(process.env.REACT_APP_BACKEND +'user/' + this.state.userID, this.config)
+    //     .then(response => {
+    //       console.log("mounting", response)
+    //     })
+    //     .catch(err => {
+    //       if(err){
+    //         this.props.history.push('/')
+    //       }
+
+    //     })
+    this.props.history.push('/')
     
-  //   }
-    
-    
-    
-  // }
+  }
 
 
   register = user => {
@@ -147,7 +152,7 @@ class AllNotes extends Component {
   addNote = (note) => {
     const newNote = { title: note.title, body: note.body, createdBy: this.state.userID }
     axios
-      .post(process.env.REACT_APP_BACKEND + 'note', newNote)
+      .post(process.env.REACT_APP_BACKEND + 'note', newNote, this.config)
         .then(() => {
           this.getUserNotes()
         })
@@ -161,7 +166,7 @@ class AllNotes extends Component {
     const newNote = { title: note.title, body: note.body }
     console.log("edit",note.id)
     axios 
-      .put(process.env.REACT_APP_BACKEND  + 'note/' + note.id, newNote)
+      .put(process.env.REACT_APP_BACKEND  + 'note/' + note.id, newNote, this.config)
         .then(response => {
           this.getUserNotes()
         })
@@ -172,7 +177,7 @@ class AllNotes extends Component {
 
   deleteNote = note => {
     axios
-      .delete(process.env.REACT_APP_BACKEND + 'note/' + note)
+      .delete(process.env.REACT_APP_BACKEND + 'note/' + note, this.config)
         .then(response => {
           console.log("deleted",response)
           this.getUserNotes()
@@ -194,7 +199,7 @@ class AllNotes extends Component {
 
         <div className="mt-5">
           {this.state.authenticated 
-            ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} user={this.state.username}/>} />
+            ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} user={`${this.state.username}'s Notes`}/>} />
             : <div>You need to sign-in or register before you can see notes</div>
           }
           <Route path="/login" render={() => <LogginIn login={this.login} buttonText='Login'/> } />
@@ -202,7 +207,7 @@ class AllNotes extends Component {
           <Route path="/add" render={(props) => <NoteEdit {...props} add={this.addNote}/>} />
           <Route path="/edit/:id" render={(props) => <NoteEdit {...props} notes={this.state.notes} add={this.editNote} addSharedNote={this.addSharedNote}/>} />
           <Route path="/note/:id" render={(props) => <NoteView {...props} notes={this.state.notes} delete={this.deleteNote}/>} />
-          <Route path="/shared" render={() => <NoteCards notes={this.state.sharedNotes} user={this.state.username}/>} />
+          <Route path="/shared" render={() => <NoteCards notes={this.state.sharedNotes} user={`Notes Shared with ${this.state.username}`} />} />
         </div>
       </div>
     )
