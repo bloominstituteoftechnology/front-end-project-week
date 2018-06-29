@@ -7,7 +7,6 @@ import { deleteNote } from '../../actions';
 import './NoteView.css';
 import Button from '../Button/Button';
 
-
 class NoteView extends Component {
 
     constructor(props) {
@@ -35,8 +34,6 @@ class NoteView extends Component {
     //     return window.location.href = "/notes"
     //     }
     
-
-
     render() {
         
         return (
