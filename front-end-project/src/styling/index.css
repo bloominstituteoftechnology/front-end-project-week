@@ -9,16 +9,20 @@ body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  background: #F3F3F3;
+  background: #a60c07 !important;
 }
 
 textarea {
   margin-top: 2rem;
   font-size: 1.2rem;
   padding: 1rem;
+  background: black;
+  color: white
 }
 
 input {
   font-size: 1.2rem;
   padding: 1rem;
+  background: black;
+  color: white
 }
