@@ -21,3 +21,7 @@
     box-shadow: 2px 8px 20px 17px rgba(0,0,0,0.75) !important;
     border: .1vh solid #979797;
 }
+.noteTitle {
+    text-shadow: 2px 2px 4px #000000;
+    color: white
+}
