@@ -11,11 +11,16 @@ export const DELETED_ITEM = 'DELETED_ITEM';
 export const ERROR = 'ERROR';
 export const CREATING_USER = 'CREATING_USER';
 export const CREATED_USER = 'CREATED_USER';
-export const AUTH_USER = 'AUTH_USER';
 export const CREATE_USER_ERROR = 'CREATE_USER_ERROR';
+export const LOG_IN_USER = 'LOG_IN_USER';
+export const LOGGED_IN_USER = 'LOGGED_IN_USER';
+export const LOG_IN_USER_ERROR = 'LOG_IN_USER_ERROR';
+export const AUTH_USER = 'AUTH_USER';
+export const LOG_OUT_USER = 'LOG_OUT_USER';
 
 const URL = 'https://jesuarva-lambda-notes.herokuapp.com/api/notes';
 const URL_REGISTER = 'https://jesuarva-lambda-notes.herokuapp.com/api/register';
+const URL_LOGIN = 'https://jesuarva-lambda-notes.herokuapp.com/api/login';
 const errorAction = error => {
   return {
     type: ERROR,
@@ -131,10 +136,11 @@ export const registerUser = newUser => {
     });
     createUser
       .then(response => {
-        console.log('response', response);
         const { name, username, jwt } = response.data;
-        console.log(jwt.length !== 196);
-        if (!jwt) return new Error('Ups, seems taht you are registered but no logged in.');
+        if (!jwt) {
+          throw new Error('Ups, seems that you are registered but no logged in.');
+          return;
+        }
         localStorage.setItem('chachi', jwt);
         dispatch({
           type: CREATED_USER,
@@ -153,5 +159,48 @@ export const registerUser = newUser => {
           eType: e.type,
         });
       });
+  };
+};
+export const logInUser = credentials => {
+  console.log({ credentials });
+  const logInUser = axios.post(URL_LOGIN, credentials);
+  return dispatch => {
+    dispatch({
+      type: LOG_IN_USER,
+    });
+    logInUser
+      .then(response => {
+        console.log('response', response);
+        const { name, username, jwt } = response.data;
+        if (!jwt) {
+          throw new Error('Ups, seems that you are registered but no logged in.');
+          return;
+        }
+        localStorage.setItem('chachi', jwt);
+        dispatch({
+          type: LOGGED_IN_USER,
+          user: { name, username },
+        });
+        dispatch({
+          type: AUTH_USER,
+        });
+      })
+      .catch(e => {
+        console.log('error', e);
+        e.type = registerUser;
+        dispatch({
+          type: LOG_IN_USER_ERROR,
+          message: 'e.message',
+          eType: e.type,
+        });
+      });
+  };
+};
+export const logOutUser = () => {
+  localStorage.removeItem('chachi');
+  return dispatch => {
+    dispatch({
+      type: LOG_OUT_USER,
+    });
   };
 };

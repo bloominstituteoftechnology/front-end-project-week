@@ -10,8 +10,12 @@ import {
   ERROR,
   CREATING_USER,
   CREATED_USER,
-  AUTH_USER,
+  LOG_IN_USER,
+  LOGGED_IN_USER,
+  LOG_IN_USER_ERROR,
   CREATE_USER_ERROR,
+  AUTH_USER,
+  LOG_OUT_USER,
 } from '../actions';
 
 const mockData = [
@@ -48,6 +52,8 @@ const initialState = {
   user: {},
   creating_user: false,
   created_user: false,
+  loggin_in_user: false,
+  logged_in_user: false,
   authUser: false,
   fetching_Items: false,
   fetched_Item: false,
@@ -192,6 +198,33 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         error: { message: action.message, type: action.eType },
         creating_user: false,
+        authUser: false,
+      };
+    case LOG_IN_USER:
+      return {
+        ...state,
+        loggin_in_user: true,
+      };
+    case LOGGED_IN_USER:
+      return {
+        ...state,
+        user: action.user,
+        loggin_in_user: false,
+        logged_in_user: true,
+      };
+    case LOG_IN_USER_ERROR:
+      return {
+        ...state,
+        error: { message: action.message, type: action.eType },
+        loggin_in_user: false,
+        logged_in_user: false,
+      };
+    case LOG_OUT_USER:
+      return {
+        ...state,
+        user: {},
+        created_user: false,
+        logged_in_user: false,
         authUser: false,
       };
     default:

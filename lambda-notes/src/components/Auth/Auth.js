@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Button_ from '../Button_/Button_';
-import { registerUser } from '../../actions/index';
+import { registerUser, logInUser } from '../../actions/index';
 
 class Auth extends Component {
   constructor(props) {
@@ -21,7 +21,11 @@ class Auth extends Component {
     this.props.registerUser(this.state);
     this.setState({ name: '', username: '', password: '' });
   };
-  logIn = e => {};
+  logIn = e => {
+    const { username, password } = this.state;
+    this.props.logInUser({ username, password });
+    this.setState({ name: '', username: '' });
+  };
 
   render() {
     const register = (
@@ -72,5 +76,5 @@ const mapStateToProps = state => {
 
 export default connect(
   () => {},
-  { registerUser }
+  { registerUser, logInUser }
 )(Auth);
