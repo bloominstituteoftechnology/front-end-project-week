@@ -44,6 +44,7 @@ render() {
                 <button type="submit"> Signin</button>
                 </div>
         </form>
+        <a href="/auth/facebook">Login with Facebook</a>
         </div>
         </div>
         )
