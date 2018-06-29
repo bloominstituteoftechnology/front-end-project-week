@@ -10,7 +10,7 @@
 .headingforSideNav {
     font-family: Roboto Bold;
     color: white;
-    text-shadow: -5px 5px 15px black;
+    text-shadow: 2px 2px 4px #000000;
     font-weight: bold;
     word-wrap: break-word;
     font-size: calc(20px + 1.3vw)
@@ -20,9 +20,10 @@ button {
     max-width: 180px;
     height: calc(55px + 1vh);
     margin: 2vh 0;
-    color: black;
+    color: white;
     font-weight: bold;
     background:rgb(140, 2, 2);
+    text-shadow: 2px 2px 4px #000000;
     box-shadow: -2px -1px 30px -5px rgba(255,255,255,1)!important;
     font-size: calc(10px + .5vw);
     outline-width: .1vh;
