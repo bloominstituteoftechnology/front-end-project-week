@@ -1,17 +1,22 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 
 const Home = props => {
-    return (
-    <div style={{ padding: 20 }}>
-        <Grid container spacing={40}>
-            <h1> Welcome to Lambda Take Note! </h1>
-            <NavLink to="/login"> <button> Click to Log in </button> </NavLink>
-            <NavLink to="/register"> <button> Click to Register </button> </NavLink>
-        </Grid>
+  return (
+    <div  style={{textAlign: 'center', marginTop: '35vh'}}>
+        <h1> Welcome to Lambda Take Note! </h1>
+        <br/>
+        <div>
+          <NavLink to="/login">
+            <button className="button2"> Click to Log in </button>
+          </NavLink>
+          <NavLink to="/register">
+            <button className="button2"> Click to Register </button>
+          </NavLink>
+          </div>
     </div>
-    )
-}
+  );
+};
 
-export default Home
+export default Home;

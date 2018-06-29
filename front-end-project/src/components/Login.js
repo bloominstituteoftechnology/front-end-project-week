@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { NavLink } from 'react-router-dom'
 
 class Login extends React.Component {
     state = {
@@ -9,21 +10,32 @@ class Login extends React.Component {
 
 render() {
     return (
+        <div>
+        <NavLink to="/register">Realized you don't have an account?  Click to Register! </NavLink>
+    <div style={{textAlign: 'center', marginTop: '30vh'}}>
         <form onSubmit={this.submitHandler}>
             <div>
                 <input
+                    style={{textAlign: 'center'}}
                     type="text"
                     value={this.state.username}
                     name="username"
+                    placeholder="Username"
+                    required
                     onChange={this.inputChangeHandler}
                     />
                 <label htmlFor="username" />
                 </div>
+                <br/>
+                <br/>
                 <div>
-                    <input 
+                    <input
+                        style={{textAlign: 'center'}}
                         type="password"
                         value={this.state.password}
                         name="password"
+                        placeholder="password"
+                        required
                         onChange={this.inputChangeHandler} 
                         />
                     <label htmlFor="password" />
@@ -32,6 +44,8 @@ render() {
                 <button type="submit"> Signin</button>
                 </div>
         </form>
+        </div>
+        </div>
         )
     }
     submitHandler = (event) => {
