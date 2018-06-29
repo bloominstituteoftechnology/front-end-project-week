@@ -27,7 +27,7 @@ class NoteList extends Component{
     }
 
     componentDidUpdate() {
-        axios.get('http://localhost:5000/api/get/')
+        axios.get(`${api}/api/get/`)
             .then(response => {
                 this.setState({ notesList: response.data.note })
             })
