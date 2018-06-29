@@ -48,10 +48,9 @@ render() {
         axios.post('https://lambda-take-note.herokuapp.com/register', this.state)
             .then(response => {
                 console.log(response, 'response from register post')
-                localStorage.setItem('token', response.data.token) // setting the token as an item on the window's localStorage
+                
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
-                localStorage.removeItem('token')
                 this.props.history.push('/register')
                  // if credentials are invalid, destroy token
             })

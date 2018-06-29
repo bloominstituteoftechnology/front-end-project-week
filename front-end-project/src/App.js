@@ -25,13 +25,14 @@ class App extends Component {
   componentDidMount() {
 
 
-    axios.get("https://lambda-take-note.herokuapp.com/notes", { requestOptions }).then(response => {
+    axios.get("https://lambda-take-note.herokuapp.com/notes", { requestOptions })
+    .then(response => {
       this.setState({
         notes: response.data.notes
-      }).catch(err => {
+      })
+    }).catch(err => {
         this.props.history.push('/login')
       })
-    });
   }
 
   fetchNote(id) {
@@ -41,7 +42,9 @@ class App extends Component {
         this.setState({
           currentNote: response.data.note
         });
-      });
+      }).catch(err => {
+        this.props.history.push('/login')
+      })
   }
 
   addNote(note) {
@@ -55,7 +58,9 @@ class App extends Component {
         this.setState({
           notes: notes
         });
-      });
+      }).catch(err => {
+        this.props.history.push('/login')
+      })
   }
 
   editNote(id, note) {
@@ -70,7 +75,9 @@ class App extends Component {
         this.setState({
           notes: lessNote
         });
-      });
+      }).catch(err => {
+        this.props.history.push('/login')
+      })
   }
 
   deleteNote(id) {
@@ -84,7 +91,9 @@ class App extends Component {
           notes: sparedNotes,
           deleting: false
         });
-      });
+      }).catch(err => {
+        this.props.history.push('/login')
+      })
   }
   render() {
     return (
