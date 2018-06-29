@@ -41,8 +41,3 @@ input {
   white-space: nowrap;
   direction: ltr;
 }
-
-input:focus {
-  background: gray !important;
-  color: black !important;
-}
