@@ -17,7 +17,7 @@ class Registration extends Component {
     addUser = () => {
         const userInfo={ username: this.state.username, password: this.state.password }
         axios
-            .post('https://lambda-notes-kolumbic.herokuapp.com//students/register', userInfo)
+            .post('https://lambda-notes-kolumbic.herokuapp.com/students/register', userInfo)
             .then(response => {
                 this.setState({ username: '', password: '' })
                 this.props.history.push('/login');
