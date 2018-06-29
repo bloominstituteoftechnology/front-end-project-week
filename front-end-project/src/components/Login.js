@@ -11,7 +11,7 @@ class Login extends React.Component {
 render() {
     return (
         <div>
-        <NavLink to="/auth/register">Realized you don't have an account?  Click to Register! </NavLink>
+        <NavLink to="/register">Realized you don't have an account?  Click to Register! </NavLink>
     <div style={{textAlign: 'center', marginTop: '30vh'}}>
         <form onSubmit={this.submitHandler}>
             <div>
@@ -54,7 +54,7 @@ render() {
             .then(response => { 
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
-                console.log('Sad')
+                alert(err.message)
             })
     }
     inputChangeHandler = (event) => {
