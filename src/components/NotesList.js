@@ -14,9 +14,7 @@ class NotesList extends React.Component {
                 if (err) {
                     console.log(err);
                 } else {
-                    const {
-                        id
-                    } = decoded;
+                    const { id } = decoded;
                     this.props.setAccount(id);
                     this.props.fetchNotes(id);
                 }
@@ -36,7 +34,7 @@ class NotesList extends React.Component {
                     {notes.map(note => {
                         return (
                             <div key={note._id}>
-                                <Link to={`/${note._id}`}>
+                                <Link to={`/note/${note._id}`}>
                                     <div className="note-card">
                                         <h3>{note.title}</h3>
                                         <p className="note-card-text">{note.body}</p>
