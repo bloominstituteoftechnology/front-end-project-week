@@ -14,8 +14,6 @@ class RegisterLogin extends Component {
         loginUsername: "",
         loginPassword: "",
         registerError: "",
-        // emailValidation: "",
-        // successfulRegistration: ""
     }
 
     inputChangeHandler = (e) => {
@@ -23,13 +21,10 @@ class RegisterLogin extends Component {
     }
 
     saveUser = (e) => {
-        // if(!(this.state.email.includes('@'))) {
-        //     this.setState({emailValidation: "Please provide a valid email Address"})
-        // }
 
-        // if(!this.state.email || !this.state.username || !this.state.password) {
-        //     this.setState({registerError: 'Please provide all required fields.'})
-        // }
+        if(!this.state.email || !this.state.username || !this.state.password) {
+            this.setState({registerError: 'Please provide all required fields.'})
+        }
 
         const newUser = {
             email: this.state.email,
@@ -78,17 +73,13 @@ class RegisterLogin extends Component {
             <div className="homePage">
                 <div className="login-register">
                     <div className="login-header">
-                    {/* {this.state.error && (<div style={errorStyle}>{this.state.error}</div>)} */}
                     <input className="login-input" onChange={this.inputChangeHandler} placeholder="username" type="text" name="loginUsername" value={this.state.loginUsername}></input>
                     <input className="login-input"  onChange={this.inputChangeHandler} placeholder="password" type="password" name="loginPassword" value={this.state.loginPassword}></input>
                     <button onClick={this.loginUser}className="loginBtn">Login</button>
                     </div>
                 </div>
-                {/* {req.status == 401 && (<div>Hi</div>)} */}
                 <h1 className="LambdaNotes">LAMBDA NOTES</h1>
-                {/* {this.state.registerError && (<div style={errorStyle}>{this.state.registerError}</div>)} */}
-                {/* {this.state.emailValidation && (<div style={errorStyle}>{this.state.emailValidation}</div>)} */}
-                {/* {this.props.user.length > 0 && (<div>Successful</div>)} */}
+                {this.state.registerError && (<div style={errorStyle}>{this.state.registerError}</div>)}
                 <div className="register-form">
                     <Form>
                         <FormGroup>
