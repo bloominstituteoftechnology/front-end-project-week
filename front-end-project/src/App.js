@@ -20,9 +20,7 @@ class App extends Component {
       this.setState({
         notes: response.data.notes
       })
-    }).catch(err => {
-      this.props.history.push('/register')
-      })
+    })
   }
 
   fetchNote(id) {
@@ -32,8 +30,6 @@ class App extends Component {
         this.setState({
           currentNote: response.data.note
         });
-      }).catch(err => {
-        this.props.history.push('/register')
       })
   }
 
@@ -48,8 +44,6 @@ class App extends Component {
         this.setState({
           notes: notes
         });
-      }).catch(err => {
-        this.props.history.push('/register')
       })
   }
 
@@ -65,8 +59,6 @@ class App extends Component {
         this.setState({
           notes: lessNote
         });
-      }).catch(err => {
-        this.props.history.push('/register')
       })
   }
 
@@ -81,8 +73,6 @@ class App extends Component {
           notes: sparedNotes,
           deleting: false
         });
-      }).catch(err => {
-        this.props.history.push('/login')
       })
   }
   render() {
