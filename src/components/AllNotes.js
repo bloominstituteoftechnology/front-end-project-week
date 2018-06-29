@@ -21,7 +21,8 @@ class AllNotes extends Component {
       userID: ''
 
     };
-    this.config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}}
+    this.config = {headers: { "Authorization": `Bearer ${window.localStorage.getItem("token")}`}};
+    
   }
   
 
@@ -141,7 +142,8 @@ class AllNotes extends Component {
       authenticated: false,
       loading: true,
       username: '',
-      userID: ''
+      userID: '',
+      errorMessage:''
 
     });
     this.props.history.push('/')
@@ -153,13 +155,17 @@ class AllNotes extends Component {
     const newNote = { title: note.title, body: note.body, createdBy: this.state.userID }
     axios
       .post(process.env.REACT_APP_BACKEND + 'note', newNote, this.config)
-        .then(() => {
+        .then((r) => {
+          console.log(r)
           this.getUserNotes()
         })
         .catch(err => {
-          console.log(err.message)
+          console.log(err.response.data)
+          this.setState({errorMessage: err.response.data})
+          setTimeout(() => this.setState({errorMessage: ''}),5000)
         })
     console.log("add",newNote)
+    // setTimeout(() => this.setState({errorMessage: ''}),5000)
   }
 
   editNote = note => { 
@@ -196,7 +202,7 @@ class AllNotes extends Component {
     return (  
       <div className="col-sm-12 col-md-9">
         <Route path="/" render={() => <LogIn  auth={this.state.authenticated} logOut={this.logOut} fbAuth={this.authWithFacebook}/>}/>
-
+        <h1>{this.state.errorMessage}</h1>
         <div className="mt-5">
           {this.state.authenticated 
             ? <Route exact path="/" render={() => <NoteCards notes={this.state.notes} user={`${this.state.username}'s Notes`}/>} />
