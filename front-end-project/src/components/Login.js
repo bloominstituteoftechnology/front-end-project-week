@@ -53,7 +53,7 @@ render() {
     }
     submitHandler = (event) => {
         event.preventDefault()
-        axios.post(`${url}/auth/register`, { username: this.state.username, password: this.state.password, withCredentials: true })
+        axios.post(`${url}/auth/login`, { username: this.state.username, password: this.state.password, withCredentials: true })
             .then(response => { 
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
