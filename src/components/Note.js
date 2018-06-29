@@ -17,10 +17,10 @@ class Note extends React.Component {
     
     componentDidMount() {
         const id = this.props.match.params.id;
-        this.fetchNote(id);
+        this.mountNote(id);
     }
 
-    fetchNote = id => {
+    mountNote = id => {
         const note = this.props.notes.filter(note => note._id === id)[0];
         this.setState({
             title: note.title,
@@ -33,15 +33,17 @@ class Note extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleUpdate = (e, note) => {
+    handleUpdate = (e, id, note) => {
         e.preventDefault();
-        this.props.updateNote(note);
+        this.props.updateNote(id, note);
         this.setState({edit: false})
     }
 
     handleDelete = (id) => {
         this.toggleModal();
-        this.props.deleteNote(id);
+        this.props.deleteNote(id)
+            .then(() => this.props.history.push('/notes'))
+            .catch(err => console.log(err));
     }
 
     toggleModal() {
@@ -59,7 +61,7 @@ class Note extends React.Component {
                             <form>
                                 <input name="title" value={title} placeholder="Title" onChange={(e) => this.handleChange(e)}/>
                                 <textarea name="body" value={body} placeholder="Content" onChange={(e) => this.handleChange(e)}/>
-                                <button className="button" onClick={(e) => this.handleUpdate(e, {title, body, id})}>Save</button>
+                                <button className="button" onClick={(e) => this.handleUpdate(e, id, {title, body})}>Save</button>
                             </form>
                         </div>
                     ) : (
