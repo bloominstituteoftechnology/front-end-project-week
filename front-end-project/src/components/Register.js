@@ -10,6 +10,7 @@ class Register extends React.Component {
 render() {
     return (
 <div style={{textAlign: 'center', marginTop: '30vh'}}>
+    <NavLink to="/login">Realized you have an account?  Click to log in! </NavLink>
         <form onSubmit={this.submitHandler}>
             <div>
                 <input
