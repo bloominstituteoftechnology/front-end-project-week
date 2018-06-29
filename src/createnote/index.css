@@ -145,11 +145,12 @@ Button {
     border-radius: 0px;
     border: 1px solid darkgray;
     margin: 10px 0 0 0;
+    background-color: #DF8383;
 
 }
 .button7 {
     width: 190px;
-    background-color: #2BC1C4;
+    background-color: #FBD950;
     border-radius: 0px;
     border: 1px solid darkgray;
     margin: 10px 0 0 0;

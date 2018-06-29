@@ -10,32 +10,12 @@ import ListView from './createnote/listview';
 import MyFilteredNote from './createnote/individualnotes';
 import axios from 'axios';
 
-const initialState = [
-  {id: 1,
-  title: "Note 1",
-  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-  {id: 2,
-  title: "Note 2",
-  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-  {id: 3,
-  title: "Note 3",
-  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-  {id: 4,
-  title: "Note 3",
-  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-  {id: 5,
-  title: "Note 3",
-  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-  {id: 6,
-  title: "Note 3",
-  content: "Some quick example text to build on the card title and make up the bulk of the card's content."},
-]
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-        todos: initialState,
+        todos: [],
         todo: '',
     };
 }
