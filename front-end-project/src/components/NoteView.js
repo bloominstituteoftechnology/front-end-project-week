@@ -87,7 +87,7 @@ class NoteView extends Component {
                   }}
                 >
                   <div className="noteViewButtonWrap">
-                    <NavLink to={`/edit/${this.props.match.params.id}`}>
+                    <NavLink to={`/edit/${this.props.match.params.id}`} style={{textDecoration: 'none', color: 'black'}}>
                       edit
                     </NavLink>
                     <span
