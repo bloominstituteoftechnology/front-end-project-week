@@ -10,8 +10,7 @@ class NewNote extends Component {
             title: '',
             content: '',
             submitted: false,
-            edit: false,
-            id: ''
+            edit: false,                       
         }
     }   
 
@@ -23,8 +22,7 @@ class NewNote extends Component {
         event.preventDefault();
         const newNote = {
             title: this.state.title,
-            content: this.state.content,
-            id:  Date.now()
+            content: this.state.content,          
         };
         this.props.save(newNote);
         this.setState({
@@ -32,12 +30,13 @@ class NewNote extends Component {
             content: '',
             submitted: true
         });
-    }
+     }
     render() {
         
         return (
             this.state.submitted ? (
-                <Redirect to="/"/>
+                
+                    <Redirect to="/"/>            
             ) : (
                 <Container className="form-section">
                     <h3 className="heading">Create New Note: </h3>

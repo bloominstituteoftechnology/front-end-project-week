@@ -12,7 +12,7 @@ class Note extends Component {
             note: null,
             title: '',
             content: '',
-            id: '',
+            _id: '',
             edit: false,           
             modal: false,
             delete: false
@@ -22,11 +22,11 @@ class Note extends Component {
     editNote = () => {
        const element = this.props.state.notes.map((note) => {
            console.log("Element", element);
-            if(this.props.match.params.id === note.id.toString()) { 
+            if(this.props.match.params._id === note._id.toString()) { 
                return note;
               }
             })
-             return <Redirect to={`/edit/${element[0].id}`}  />         
+             return <Redirect to={`/edit/${element[0]._id}`}  />         
            
     }
 
@@ -37,15 +37,17 @@ class Note extends Component {
     deleteNote = () => {
        
         this.props.state.notes.map((note, index) => {
-            if(this.props.match.params.id === note.id.toString()) { 
-                this.props.state.notes.splice(index, 1);
+            if(this.props.match.params._id === note._id.toString()) { 
+         const element =  this.props.state.notes.splice(index, 1);
+         console.log("Deleted Note", element)
+         this.props.delete(element[0]);
             }            
         }) 
         this.setState({delete: true});      
       }       
 
-    render() { 
-        console.log("Notejs State", this.state.id);
+    render() {         
+        console.log("ID", this.props.match.params._id)
         return ( 
             this.state.delete ? (
            <Redirect to="/" />
@@ -54,7 +56,7 @@ class Note extends Component {
                 <Container>                        
                          <div className="edit-delete">
                              <div className="edit-delete">
-                             <Link  className="edit" to={`/edit/${this.props.match.params.id}`}>edit </Link>                           
+                             <Link  className="edit" to={`/edit/${this.props.match.params._id}`}>edit </Link>                           
                              <a className="delete" onClick={this.toggleModal}>delete</a>
                              </div>
                              <Modal isOpen={this.state.modal}
@@ -79,9 +81,10 @@ class Note extends Component {
                              </Modal>                            
                          </div>                       
                        
-                         {this.props.state.notes.map((note) => {                            
-                            if(this.props.match.params.id === note.id.toString()) {                           
-                           return (  <div key={note.id}>                                
+                         {
+                             this.props.state.notes.map((note) => {                            
+                            if(this.props.match.params._id === note._id.toString()) {                           
+                           return (  <div key={note._id}>                                
                                     <Card className ="note-thumbnail">
                                         <CardBody>
                                             <CardTitle className="note-title heading">

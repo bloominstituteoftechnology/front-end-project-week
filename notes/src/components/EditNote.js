@@ -9,15 +9,15 @@ class EditNote extends Component {
         this.state = {
             title: '',
             content: '',           
-            id: '',
+            _id: '',
             edit: false
         }
     }   
 
     componentDidMount() {
-        console.log("This Element", this.props.state.notes);
+        // console.log("This Element", this.props.state.notes);
         const element = this.props.state.notes.filter((note) => {
-            return (this.props.match.params.id === note.id.toString())          
+            return (this.props.match.params._id === note._id.toString())          
                        
         })[0]
         console.log("Element", element);
@@ -25,7 +25,8 @@ class EditNote extends Component {
            this.setState({
                title: element.title,
                content: element.content,
-               id: element.id
+               _id: element._id,
+            
            })
     }    
     handleChange = (event) => {
@@ -35,11 +36,11 @@ class EditNote extends Component {
     editNote = () => {
         let myobj = {};
       this.props.state.notes.map((note) => {
-         if(note.id === this.state.id) {
+         if(note._id === this.state._id) {
              myobj = {
                  title: this.state.title,
-                 content: this.state.content,
-                 id: this.state.id
+                 content: this.state.content, 
+                 _id: this.state._id,              
               }            
          }
      })

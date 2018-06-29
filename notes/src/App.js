@@ -7,61 +7,99 @@ import Note from './components/Note';
 import NewNote from './components/NewNote';
 import NavNotes from './components/NavNotes';
 import EditNote from './components/EditNote.js';
+import LogingForm from "./components/LoginForm";
+import SignUpForm from "./components/SignUpForm";
+import Home from "./components/Home";
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
     super();
     this.state={
-        notes: [{
-          id: 0,
-          title: 'Whatcha Title',
-          content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
-        }, {
-          id: 1,
-          title: 'Second Title',
-          content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
-        }, {
-          id: 2,
-          title: 'Third Title',
-          content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
-       }, {
-         id: 3,
-          title: 'Me Title',
-          content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
-        }, {
-          id: 4,
-          title: 'You Title',
-          content: 'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
-        }, {
-          id: 5,
-          title: 'Hehe Title',
-          content:'Bacon ipsum dolor amet ball tip pork belly ribeye cupim shankle picanha. Boudin turducken sirloin bresaola, pig alcatra hamburger'
-        }]
+        notes: [],
+        title: '',
+        content: ''
       }
     }
 
-SaveNote = (note) => {  
-   const notes = [...this.state.notes, note];
-   this.setState({notes: notes});     
+    componentDidMount() {
+      const token = localStorage.getItem('token');
+      const header = { "headers": { "authorization": token } };
+      axios.get('http://localhost:5000/api/notes', header)
+      .then(notes => {             
+
+        this.setState({notes: notes.data })
+      })
+      .catch(err => {
+        console.log("Error", err);
+      })
+
+    }
+    SaveNote = (note) => {  
+      // const notes = [...this.state.notes, note];
+      axios.post('http://localhost:5000/api/notes', note)
+      .then(notes => {
+        console.log("New Note", note);
+        this.setState({ notes: [...this.state.notes, note]});
+           
+      })
+      .catch(err => {
+        console.log(err);
+      })
 }
 
 handleEdit = (element) => { 
- this.state.notes.filter((note, index) => {
-   if ( note.id === element.id) {
-     this.state.notes.splice(index, 1, element);
+//  this.state.notes.filter((note, index) => {
+//    if ( note._id === element._id) {
+//      this.state.notes.splice(index, 1, element);
+//   }
+// })
+let token = localStorage.getItem('token');
+  let header = {
+    headers: {
+      Authorization: token
+    }
   }
+axios.put(`http://localhost:5000/api/notes/${element._id}`, element, header)
+.then(result => {
+  console.log("Result", result)
+  this.setState({ notes: [...this.state.notes, result]});  
+   
 })
-// console.log("My notes", this.state.notes)
-  this.setState({notes: this.state.notes});   
+.catch(err => {
+  console.log("MY error Message", err);
+})
+ }
+ handleDelete = (element) => {
+  let token = localStorage.getItem('token');
+  let header = {
+    headers: {
+      Authorization: token
+    }
+  }
+   axios.delete(`http://localhost:5000/api/notes/${element._id}`, header)
+   .then(response => {
+    console.log("Handle Delete res", element._id)
+   })
+   .catch(err => {
+     console.log("Delete error", err);
+   })
+ }
+
+ logOut = () => {
+   this.setState({ notes: null});
  }
   render() {
     return (
       <div className="App">
         <NavNotes />
-        <Route exact path="/" render={() => <Notes state={this.state} />}/>
+        <Route exact path="/" render={(props) => <Notes {...props} state={this.state} logout={this.logOut} />}/>
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={LogingForm} />
+        <Route path="/register" component={SignUpForm} />
         <Route path="/new" render={(props) => <NewNote  {...props} save={this.SaveNote}/>} />        
-        <Route path="/note/:id" render={(props) => <Note {...props}state={this.state} />} />     
-        <Route path="/edit/:id" render={(props) => <EditNote {...props}state={this.state} edit={this.handleEdit} />}/>        
+        <Route path="/note/:_id" render={(props) => <Note {...props}state={this.state} delete={this.handleDelete}/>} />     
+        <Route path="/edit/:_id" render={(props) => <EditNote {...props}state={this.state} edit={this.handleEdit} />}/>        
       </div>
 
     );
