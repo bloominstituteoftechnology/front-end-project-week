@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { Grid } from "@material-ui/core";
+
 
 const Home = props => {
   return (

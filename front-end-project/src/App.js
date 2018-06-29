@@ -5,6 +5,14 @@ import axios from "axios";
 import { ListView, NoteView, Create, Edit, Login, Home, Register } from "./components/index";
 import "../src/styling/App.css";
 
+const token = localStorage.getItem('token')
+
+const requestOptions = {
+      headers: {
+        authorization: token
+      }
+    }
+
 class App extends Component {
   state = {
     notes: [],
@@ -13,12 +21,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const token = localStorage.getItem('token')
-    const requestOptions = {
-      headers: {
-        authorization: token
-      }
-    }
+
+
     axios.get("https://lambda-take-note.herokuapp.com/notes", requestOptions).then(response => {
       this.setState({
         notes: response.data.notes
