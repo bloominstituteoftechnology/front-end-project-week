@@ -28,7 +28,7 @@ class Edit extends Component {
             </Grid>
             <Grid item xs={12}>
               <div style={{ marginLeft: "calc(5vw + (150px + 2vw))" }}>
-                <h3 style={{textShadow: '3px 3px 13px rgba(255,255,255,0.57)'}}> Edit Note: </h3>
+                <h3 style={{textShadow: '-5px 5px 15px #FFFFFF'}}> Edit Note: </h3>
                 <form onSubmit={this.handleSubmit}>
                   <div className="title">
                     <input

@@ -102,14 +102,14 @@ class NoteView extends Component {
                     style={{ height: "100vh", background: '#a60c07'}}
                   >
                     <div onClick={() => this.cancelDelete()}>
-                      <h3 style={{textShadow: '-2px -1px 30px -5px rgba(255,255,255,1)'}}> {note.title} </h3>
+                      <h3 style={{textShadow: '-5px 5px 15px #FFFFFF'}}> {note.title} </h3>
                     </div>
                     <div
                       onClick={() => this.cancelDelete()}
                       className="noteText"
                     >
                       <div onClick={() => this.cancelDelete()}>
-                        <p style={{textShadow: '-2px -1px 30px -5px rgba(255,255,255,1)'}}>{note.body}</p>
+                        <p style={{textShadow: '-5px 5px 15px #FFFFFF'}}>{note.body}</p>
                       </div>
                     </div>
                   </div>
