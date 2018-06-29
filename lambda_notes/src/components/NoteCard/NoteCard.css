@@ -1,6 +1,8 @@
 .Card-Style {
-  margin: 20px;
-  /* width: 25%; */
+  margin: 1rem 1rem;
+  width: 200px;
+  min-height: 170px;
+  overflow: hidden;
 }
 
 .Card-Body {
@@ -8,14 +10,14 @@
 }
 
 .Card-Title {
-font-size: 1.8rem;
-border-bottom: 1px solid #979797;
-text-align: left;
-font-weight: bold;
-color: black;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #979797;
+  text-align: left;
+  font-weight: bold;
+  color: black;
 }
 
 .Card-Text {
-font-size: 1.3rem;
-color: black;
+  font-size: 1.3rem;
+  color: black;
 }

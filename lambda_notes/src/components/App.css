@@ -1,8 +1,19 @@
 .App {
-  text-align: center;
+  margin: 0 auto;
   display: flex;
+  justify-content: center;
   font-family: 'Raleway', sans-serif;
   color: #4A4A4A;
+  height: 100vh;
+  min-width: 450px;
+}
+
+.mainViews {
+  display: flex;
+  flex-direction: column;
+  max-width: 681px;
+  min-width: 260px;
+  width: 100%;
+  overflow: auto;
   background-color: #F3F3F3;
-  height: 986px;
 }

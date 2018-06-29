@@ -1,13 +1,20 @@
-.NoteView-Container {
-  margin: 45px 0 30px 30px;
+.noteView-Container {
+  margin: 70px 0 30px 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.NoteView-Header {
+.noteView-Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noteView-Header h4 {
   font-size: 2.0rem;
   text-align: left;
   font-weight: bold;
   color: black;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 p {
@@ -17,10 +24,9 @@ p {
   text-align: left;
 }
 
-.Noteview-Link {
+.links {
+  padding: 1rem 0.5rem;
   text-decoration: underline;
-  color: black; 
+  color: black;
   font-size: 1.3rem;
-  text-align: right;
-  margin-left: 590px;
 }
