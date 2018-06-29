@@ -49,7 +49,7 @@ class NewNote extends Component {
     render() {
 
         const errorStyle = {
-            color: "red"
+            color: "#cc0000"
         }
 
         return (
