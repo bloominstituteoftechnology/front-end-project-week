@@ -47,7 +47,7 @@ const ListView = props => {
                         onClick={() => props.fetchNote(note._id)}
                         style={{ textDecoration: "none", textShadow: '2px 2px 4px #000000', color: 'white'}}
                       >
-                        <CardHeader title={`${note.title}`}/>
+                        <CardHeader title={`${note.title}`} className="noteTitle"/>
                         <CardContent>
                           <Typography
                             component="p"
