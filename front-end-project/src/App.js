@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route } from "react-router";
 import { CssBaseline } from "@material-ui/core";
 import axios from "axios";
-import { ListView, NoteView, Create, Edit } from "./components/index";
+import { ListView, NoteView, Create, Edit, Login, Home, Register } from "./components/index";
 import "../src/styling/App.css";
 
 class App extends Component {
@@ -77,8 +77,29 @@ class App extends Component {
         <CssBaseline />
         <Switch>
           <Route
+            exact path="/"
+            render={props => (
+              <Home
+                {...props}
+                />
+            )}/>
+        <Route
+            path="/login"
+            render={props => (
+              <Login
+              {...props}
+              />
+            )}/>
+        <Route
+            path="/register"
+            render={props => (
+            <Register
+            {...props}
+            />
+            )}/>
+          <Route
             exact
-            path="/"
+            path="/notes"
             render={props => (
               <ListView
                 {...props}
