@@ -41,7 +41,7 @@ render() {
                     <label htmlFor="password" />
                 </div>
                 <div>
-                <button type="submit"> Signin</button>
+                <button type="submit"> Log In </button>
                 </div>
         </form>
         </div>
