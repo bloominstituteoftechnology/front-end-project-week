@@ -39,7 +39,7 @@ class NoteView extends Component {
           <Grid
             container
             spacing={0}
-            style={{ height: "100%", overflow: "scroll" }}
+            style={{ height: "100%", overflow: "scroll", background: "#a60c07" }}
           >
             {this.state.deleting ? (
               <Grid item xs className="modalWrapper modal" id="deleteModal">
