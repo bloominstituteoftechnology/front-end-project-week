@@ -14,7 +14,8 @@ class RegisterLogin extends Component {
         loginUsername: "",
         loginPassword: "",
         registerError: "",
-        emailValidation: "",
+        // emailValidation: "",
+        // successfulRegistration: ""
     }
 
     inputChangeHandler = (e) => {
@@ -22,13 +23,13 @@ class RegisterLogin extends Component {
     }
 
     saveUser = (e) => {
-        if(!(this.state.email.includes('@'))) {
-            this.setState({emailValidation: "Please provide a valid email Address"})
-        }
+        // if(!(this.state.email.includes('@'))) {
+        //     this.setState({emailValidation: "Please provide a valid email Address"})
+        // }
 
-        if(!this.state.email || !this.state.username || !this.state.password) {
-            this.setState({registerError: 'Please provide all required fields.'})
-        }
+        // if(!this.state.email || !this.state.username || !this.state.password) {
+        //     this.setState({registerError: 'Please provide all required fields.'})
+        // }
 
         const newUser = {
             email: this.state.email,
@@ -85,8 +86,9 @@ class RegisterLogin extends Component {
                 </div>
                 {/* {req.status == 401 && (<div>Hi</div>)} */}
                 <h1 className="LambdaNotes">LAMBDA NOTES</h1>
-                {this.state.registerError && (<div style={errorStyle}>{this.state.registerError}</div>)}
-                {this.state.emailValidation && (<div style={errorStyle}>{this.state.emailValidation}</div>)}
+                {/* {this.state.registerError && (<div style={errorStyle}>{this.state.registerError}</div>)} */}
+                {/* {this.state.emailValidation && (<div style={errorStyle}>{this.state.emailValidation}</div>)} */}
+                {/* {this.props.user.length > 0 && (<div>Successful</div>)} */}
                 <div className="register-form">
                     <Form>
                         <FormGroup>
@@ -109,5 +111,11 @@ class RegisterLogin extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
 
-export default connect(null, { registerUser })(RegisterLogin);
+
+export default connect(mapStateToProps, { registerUser })(RegisterLogin);

@@ -18,7 +18,7 @@ const initialState = {
     //     {title: 'Note Title Last', body: body, id: 9}
     // ],
     notes: [],
-    users: [],
+    user: [],
     filteredCSV: [],
     pending: false,
     error: {}
@@ -54,6 +54,8 @@ export const notesReducer = (state = initialState, action) => {
             })
         case CSV:
             return Object.assign({}, state, {filteredCSV: action.payload})
+        case ADD_USER: 
+            return Object.assign({}, state, {user: action.payload})
         // case ERROR: 
         //     return Object.assign({}. state, {error: action.payload})
         default:

@@ -109,7 +109,7 @@ export const saveFilteredNotesForCSV = csvArr => {
 
 // USER ACTIONS
 export const registerUser = newUser => {
-    const addNewUser = axios.post('https://lambda-note.herokuapp.com/api/notes/register', newUser);
+    const addNewUser = axios.post('https://lambda-note.herokuapp.com/api/users/register', newUser);
     return function(dispatch) {
         dispatch({type: PENDING})
         addNewUser  
