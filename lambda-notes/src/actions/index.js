@@ -66,7 +66,8 @@ export const deleteNote = id => {
                 // console.log(response.data)
             })
             .catch(err => {
-                dispatch({type: ERROR, payload: err})
+                console.log(err)
+                dispatch({type: ERROR, payload: err.error})
             })
     }
 }

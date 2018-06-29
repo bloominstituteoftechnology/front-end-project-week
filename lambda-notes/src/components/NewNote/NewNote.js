@@ -9,7 +9,8 @@ class NewNote extends Component {
     
     state ={
         title: "",
-        body: ""
+        body: "",
+        error: ""
     }
 
     newNoteHandler = (e) => {
@@ -33,18 +34,28 @@ class NewNote extends Component {
     console.log(newNote)
 
         e.preventDefault();
-        this.props.addNote(newNote);
-        this.setState({title: "", body: ""})
 
-        this.props.history.push('/notes'); // takes back to list view 
+        if(!this.state.title || !this.state.body) {
+            this.setState({error: 'Title and Content are both required for a new note.'})
+        } else {
+            this.props.addNote(newNote);
+            this.setState({title: "", body: ""})
+
+            this.props.history.push('/notes'); // takes back to list view 
+        }
         
     }
 
     render() {
 
+        const errorStyle = {
+            color: "red"
+        }
+
         return (
 
             <div className="newNote-container">
+            {this.state.error && (<div style={errorStyle}>{this.state.error}</div>)}
 
                 <div className="create-newNote">Create New Note:</div>
 

@@ -62,7 +62,7 @@ class NotesContainer extends Component {
         return (
             
             <div id="sortable" className="notes-container">
-
+            {/* {this.props.error && alert(<div>{this.state.error}</div>)} */}
                 <div>
                     <input className="search-input" type="text" name="search" placeholder="search for a note.."></input>
                 </div>
@@ -82,6 +82,7 @@ class NotesContainer extends Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
+        error: state.error
     }
 }
 
