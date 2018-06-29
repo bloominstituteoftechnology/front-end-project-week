@@ -1,0 +1,55 @@
+.createNoteHeader {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 54px 0 8px 26px;
+    font-size: 21px;
+}
+
+.createNoteForm {
+    margin: 28px 29px 10px 26px;
+    display: flex;
+    flex-flow: column;
+    align-content: flex-end;
+}
+
+.createNoteInputTitle {
+    width: 59%;
+    height: 44px;
+    font-family: 'Roboto', sans-serif;
+    border: 2px solid #979797;
+    border-radius: 3px;
+    padding: 11px;
+    font-size: 12px;
+}
+
+.createNoteInputContent {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    min-height: 56px;
+    height: 347px;
+    max-height: 650px;
+    margin-top: 13px;
+    border: 2px solid #979797;
+    border-radius: 3px;
+    font-size: 12px;
+    padding: 17px 20px;
+}
+
+.cnEntireLink {
+    margin: 14px 0 0 2px;
+    width: 190px;
+    height: 41px;
+}
+
+.createNoteSaveButton {
+    width: 190px;
+    height: 41px;
+    background-color: #2BC1C4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
+    cursor: pointer;
+}

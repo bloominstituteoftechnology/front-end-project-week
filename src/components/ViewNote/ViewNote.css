@@ -1,0 +1,54 @@
+.optionsContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 34px 0 0;
+}
+
+.entireEditLink {
+    margin-right: 14px;
+}
+
+.edit {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.delete {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.entireNote {
+    overflow: auto;
+    height: 834px;
+}
+
+.viewNoteHeader {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 2px 25px 8px;
+    font-size: 21px;
+}
+
+.viewNoteContent {
+    font-family: 'Raleway', sans-serif;
+    display: block;
+    text-align: start;
+    margin: 25px;
+    line-height: 25px;
+    font-size: 14.08px;
+    white-space: pre-wrap;
+}
+
+img {
+    display: inline;
+    max-height: 100%;
+    max-width: 100%;
+}

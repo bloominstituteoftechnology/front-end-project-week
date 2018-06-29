@@ -1,0 +1,49 @@
+.sidebarTitle {
+    font-family: 'Roboto', sans-serif;
+    color: #4A4A4A;
+    text-align: start;
+    margin: 21px 0 18px 13px;
+    font-size: 36px;
+    line-height: 30px;
+}
+
+.sbEntireLink {
+    margin: 12px 20px 0 15px;
+    width: 87%;
+    min-height: 42px;
+    height: 100%;
+}
+
+.sidebarButton {
+    background-color: #2BC1C4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-top: 8px;
+    min-height: 42px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.logoutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 656px;
+}
+
+.logout {
+    background-color: #2BC1C4;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    min-height: 42px;
+    width: 50%;
+    margin-left: 20px;
+    border: none;
+    border: 1px solid #979797;
+    color: #FFFFFF;
+    cursor: pointer;
+}
