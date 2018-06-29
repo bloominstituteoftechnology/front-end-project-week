@@ -77,7 +77,9 @@ const SideNav = props => {
             style={{ opacity: props.deleting ? ".6" : "1" }}
           >
             <Link to="/create/">
-              <Create />
+              <Create>
+                <i className="material-icons" style={{ color: 'white'}}>create</i>
+                </Create>
             </Link>
           </div>
         </div>
