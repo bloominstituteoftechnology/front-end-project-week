@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 
+const url = "https://lambda-take-note.herokuapp.com/notes" || 'localhost:5000'
+
 class Login extends React.Component {
     state = {
         username: '',
@@ -50,7 +52,7 @@ render() {
     }
     submitHandler = (event) => {
         event.preventDefault()
-        axios.post('https://lambda-take-note.herokuapp.com/auth/login', { username: this.state.username, password: this.state.password, withCredentials: true })
+        axios.post(`${url}/auth/register`, { username: this.state.username, password: this.state.password, withCredentials: true })
             .then(response => { 
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {

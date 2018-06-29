@@ -6,6 +6,7 @@ import { ListView, NoteView, Create, Edit, Login, Home, Register } from "./compo
 import "../src/styling/App.css";
 axios.defaults.withCredentials = true
 
+const url = "https://lambda-take-note.herokuapp.com/notes" || 'localhost:5000'
 
 class App extends Component {
   state = {
@@ -15,7 +16,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get("https://lambda-take-note.herokuapp.com/notes", { withCredentials: true })
+    axios.get(`${url}/notes`, { withCredentials: true })
     .then(response => {
       this.setState({
         notes: response.data.notes
@@ -25,7 +26,7 @@ class App extends Component {
 
   fetchNote(id) {
     axios
-      .get(`https://lambda-take-note.herokuapp.com/notes/${id}`, { withCredentials: true })
+      .get(`${url}/notes/${id}`, { withCredentials: true })
       .then(response => {
         this.setState({
           currentNote: response.data.note
@@ -35,7 +36,7 @@ class App extends Component {
 
   addNote(note) {
     axios
-      .post("https://lambda-take-note.herokuapp.com/notes", { title: note.title, body: note.body, withCredentials: true })
+      .post(`${url}/notes`, { title: note.title, body: note.body, withCredentials: true })
       .then(response => {
         console.log('response', response)
         let notes = this.state.notes;
@@ -49,7 +50,7 @@ class App extends Component {
 
   editNote(id, note) {
     axios
-      .put(`https://lambda-take-note.herokuapp.com/notes/${id}`, { title: note.title, body: note.body, withCredentials: true })
+      .put(`${url}/notes/${id}`, { title: note.title, body: note.body, withCredentials: true })
       .then(response => {
         let currentState = this.state.notes;
         let lessNote = currentState.filter(
@@ -64,7 +65,7 @@ class App extends Component {
 
   deleteNote(id) {
     axios
-      .delete(`https://lambda-take-note.herokuapp.com/notes/${id}`, { withCredentials: true })
+      .delete(`${url}/notes/${id}`, { withCredentials: true })
       .then(response => {
         let sparedNotes = this.state.notes.filter(
           note => note._id !== response.data.deletedNote._id
