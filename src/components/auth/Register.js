@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 class Register extends React.Component {
     state = {
@@ -34,9 +35,10 @@ class Register extends React.Component {
                     <input type="text" name="lastName" value={lastName} placeholder="Last Name" onChange={this.onChange}/>
                     <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
+                <a onClick={this.props.changeComponent}>Login</a>
             </div>
         );
     }
 }
 
-export default Register;
+export default withRouter(Register);
