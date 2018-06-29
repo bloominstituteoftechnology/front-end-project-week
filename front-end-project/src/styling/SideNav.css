@@ -5,6 +5,8 @@
     z-index: 10;
     border: 0.1vw #979797 solid;
     padding: 1vh;
+    background: #a60c07 !important;
+    box-shadow: 2px 8px 43px 17px rgba(0,0,0,0.75) !important;
 }
 .headingforSideNav {
     font-family: Roboto Bold;
