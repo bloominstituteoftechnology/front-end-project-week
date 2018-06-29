@@ -6,7 +6,7 @@ import { ListView, NoteView, Create, Edit, Login, Home, Register } from "./compo
 import "../src/styling/App.css";
 axios.defaults.withCredentials = true
 
-const url = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://lambda-take-note.herokuapp.com"
+const url = "https://lambda-take-note.herokuapp.com"
 
 class App extends Component {
   state = {

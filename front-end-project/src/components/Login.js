@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
 
-const url = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://lambda-take-note.herokuapp.com"
+const url = "https://lambda-take-note.herokuapp.com"
 
 class Login extends React.Component {
     state = {
