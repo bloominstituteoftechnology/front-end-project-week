@@ -27,3 +27,9 @@ button {
     outline-width: .1vh;
     border-color: #979797;
 }
+.createNote {
+    text-align: center;
+    font-size: 5vh;
+    color: white;
+    box-shadow: -2px -1px 30px -5px white !important;
+}

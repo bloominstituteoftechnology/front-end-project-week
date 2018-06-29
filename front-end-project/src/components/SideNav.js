@@ -48,7 +48,7 @@ const SideNav = props => {
           >
             <Link to="/create" style={{textDecoration: 'none'}}>
             <i className="material-icons" style={{ color: 'white', textDecoration: 'none', fontSize: '10vh', textAlign: 'center'}}>create</i>
-            <p style={{color: white}}> Create New Note </p>
+            <p className="createNote" style={{color: white}}> Create New Note </p>
             </Link>
           </div>
         </div>
@@ -79,7 +79,7 @@ const SideNav = props => {
           >
           <Link to="/create" style={{textDecoration: 'none'}}>
             <i className="material-icons" style={{ color: 'white', textDecoration: 'none', fontSize: '5vh', textAlign: 'center'}}>create</i>
-            <p style={{color: white}}> Create New Note </p>
+            <p className="createNote" style={{color: white}}> Create New Note </p>
             </Link>
           </div>
         </div>

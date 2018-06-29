@@ -75,7 +75,8 @@ class NoteView extends Component {
             <div
               style={{
                 marginLeft: "calc(150px + 2vw)",
-                width: "calc(100% - (150px + 2vw)"
+                width: "calc(100% - (150px + 2vw)",
+                background: "#a60c07"
               }}
             >
               <Grid item xs={12}>
