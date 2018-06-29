@@ -42,22 +42,22 @@ export const rootReducer = (state = initialState, action) => {
         case ADDING_NOTE:
             return { ...state, addingNote: true, error: null};
         case NOTE_ADDED:
-            return { ...state, addingNote: false, noteAdded: true, notes: state.notes.concat(action.payload)};
+            return { ...state, addingNote: false, noteAdded: true };
 
         case UPDATING_NOTE:
             return { ...state, updatingNote: true, error: null};
         case NOTE_UPDATED:
-            return { ...state, updatingNote: false, noteUpdated: true, notes: state.notes.slice(0, state.notes.findIndex(note => note.id === action.payload.id)).concat(action.payload).concat(state.notes.slice(state.notes.findIndex(note => note.id === action.payload.id) + 1))};
-
+            return { ...state, updatingNote: false, noteUpdated: true };
+            
         case DELETING_NOTE:
             return { ...state, deletingNote: true, error: null};
         case NOTE_DELETED:
-            return { ...state, deletingNote: false, noteDeleted: true, notes: state.notes.slice(0, state.notes.findIndex(note => note.id === action.payload)).concat(state.notes.slice(state.notes.findIndex(note => note.id === action.payload) + 1))};
+            return { ...state, deletingNote: false, noteDeleted: true };
 
         case UPDATING_ACCOUNT:
             return {...state, updatingAccount: true, error: null};
         case ACCOUNT_UPDATED:
-            return {...state, updatingAccount: false, accountUpdated: true, id: state.id.concat(action.payload)};
+            return {...state, updatingAccount: false, accountUpdated: true, id: action.payload};
 
         case RESET_STORE:
             return {...initialState };
