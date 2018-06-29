@@ -18,6 +18,6 @@
     height: 25vh;
     min-width: 20vw;
     flex: 1;
-    box-shadow: 2px 8px 43px 17px rgba(0,0,0,0.75);
+    box-shadow: 2px 8px 43px 17px rgba(0,0,0,0.75) !important;
     border: .1vh solid #979797;
 }
