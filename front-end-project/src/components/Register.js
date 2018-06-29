@@ -43,13 +43,13 @@ render() {
         )
     }
     submitHandler = (event) => {
-        axios.post('https://lambda-take-note.herokuapp.com/register', this.state)
+        axios.post('https://lambda-take-note.herokuapp.com/auth/register', this.state)
             .then(response => {
                 console.log(response, 'response from register post')
                 
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
-                this.props.history.push('/register')
+                this.props.history.push('/auth/register')
             })
     }
     inputChangeHandler = (event) => {

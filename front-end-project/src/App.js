@@ -23,7 +23,7 @@ class App extends Component {
         notes: response.data.notes
       })
     }).catch(err => {
-        this.props.history.push('/login')
+        this.props.history.push('/auth/login')
       })
   }
 
@@ -35,7 +35,7 @@ class App extends Component {
           currentNote: response.data.note
         });
       }).catch(err => {
-        this.props.history.push('/login')
+        this.props.history.push('/auth/login')
       })
   }
 
@@ -68,7 +68,7 @@ class App extends Component {
           notes: lessNote
         });
       }).catch(err => {
-        this.props.history.push('/login')
+        this.props.history.push('/auth/login')
       })
   }
 
@@ -84,7 +84,7 @@ class App extends Component {
           deleting: false
         });
       }).catch(err => {
-        this.props.history.push('/login')
+        this.props.history.push('/auth/login')
       })
   }
   render() {
