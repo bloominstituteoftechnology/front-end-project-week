@@ -83,7 +83,6 @@ class NoteView extends Component {
                 <div
                   className="note"
                   style={{
-                    background: this.state.deleting ? "gray" : "#F3F3F3",
                     opacity: this.state.deleting ? ".4" : "1"
                   }}
                 >
