@@ -12,6 +12,7 @@
 }
 @media (max-width: 400px) {
     .notes-container {
+        display: block;
         flex-direction: column;
         align-items: center;
         padding-top: 40px;
@@ -38,10 +39,10 @@
 
 @media (max-width: 400px) {
     .search-input {
-       margin-top: 0px;
-       width: 250px;
-       border: 5px solid #D8D8D8;
-       height: 50px;
-       text-align: center;
+        margin-top: 0px;
+        width: 250px;
+        border: 5px solid #D8D8D8;
+        height: 50px;
+        text-align: center;
     }
 }

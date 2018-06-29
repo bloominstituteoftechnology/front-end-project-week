@@ -26,9 +26,10 @@ class NotesContainer extends Component {
                 Authorization: authToken,
             }
         };
-
         this.props.fetchNotes(requestOptions);
     }
+    
+
     
 
 
@@ -56,14 +57,16 @@ class NotesContainer extends Component {
 
         this.props.saveFilteredNotesForCSV(notesArr)
 
+
+
         return (
             
             <div id="sortable" className="notes-container">
 
                 <div>
-                    <input className="search-input" type="text" placeholder="search for a note.."></input>
+                    <input className="search-input" type="text" name="search" placeholder="search for a note.."></input>
                 </div>
-
+        
                 <div className="your-notes">Your Notes:</div>
 
                 {notesArr.map(note => <Note key={note._id} note={note}/>)}
