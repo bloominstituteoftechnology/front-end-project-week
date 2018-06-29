@@ -9,7 +9,7 @@ body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  background: #F3F3F3;
+  background: black !important;
 }
 
 textarea {

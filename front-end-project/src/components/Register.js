@@ -13,7 +13,6 @@ class Register extends React.Component {
 render() {
     return (
 <div>
-    <NavLink to="/login"> Realized you have an account?  Click to log in! </NavLink>
     <div style={{textAlign: 'center', marginTop: '30vh'}}>
     
         <form onSubmit={this.submitHandler}>
@@ -46,6 +45,8 @@ render() {
                 </div>
         </form>
         </div>
+        <br/>
+        <NavLink to="/login" style={{fontSize: '1.5rem', color: 'red', textDecoration: 'none', display: 'block', textAlign: 'center', bottom: '0'}}> Realized you have an account?  Click to log in! </NavLink>
         </div>
         )
     }

@@ -13,7 +13,6 @@ class Login extends React.Component {
 render() {
     return (
         <div>
-        <NavLink to="/register">Realized you don't have an account?  Click to Register! </NavLink>
     <div style={{textAlign: 'center', marginTop: '30vh'}}>
         <form onSubmit={this.submitHandler}>
             <div>
@@ -36,7 +35,7 @@ render() {
                         type="password"
                         value={this.state.password}
                         name="password"
-                        placeholder="password"
+                        placeholder="Password"
                         required
                         onChange={this.inputChangeHandler} 
                         />
@@ -47,6 +46,8 @@ render() {
                 </div>
         </form>
         </div>
+        <br/>
+        <NavLink to="/register" style={{fontSize: '1.5rem', color: 'red', textDecoration: 'none', display: 'block', textAlign: 'center', bottom: '0'}}>Realized you don't have an account?  Click to Register! </NavLink>
         </div>
         )
     }
