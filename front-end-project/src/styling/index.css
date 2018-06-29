@@ -33,8 +33,10 @@ input {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 30px;  /* Preferred icon size */
+  font-size: 24px;  /* Preferred icon size */
   line-height: 1;
+  height: calc(55px + 1vh);
+  width: calc(130px + 2vw);
   text-transform: none;
   text-align: center;
   letter-spacing: normal;

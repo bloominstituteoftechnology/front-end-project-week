@@ -29,7 +29,7 @@ button {
 }
 .createNote {
     text-align: center;
-    font-size: 5vh;
+    font-size: calc(20px + 1.3vw);
     color: white;
     box-shadow: -2px -1px 30px -5px white !important;
 }

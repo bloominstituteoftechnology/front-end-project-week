@@ -31,7 +31,7 @@ class NoteView extends Component {
     );
     note = note[0];
     return (
-      <div>
+      <div style={{background: "#a60c07"}}>
         {/* This ternary is to ensure that this page only loads if there is a note
         This is to prevent the app crashing trying to perform functions on resources
         not yet loaded into the system */}
