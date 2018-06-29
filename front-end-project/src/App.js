@@ -4,7 +4,7 @@ import { CssBaseline } from "@material-ui/core";
 import axios from "axios";
 import { ListView, NoteView, Create, Edit, Login, Home, Register } from "./components/index";
 import "../src/styling/App.css";
-
+axios.defaults.withCredentials = true
 
 
 class App extends Component {
