@@ -6,7 +6,7 @@ class Sidebar extends Component {
     render() {
         return (
             <div>
-            <h1>Lambda Notes</h1>
+            <h1>Daily Notes</h1>
             
             <Link to="/">
             <button className="button1">View Notes</button>
