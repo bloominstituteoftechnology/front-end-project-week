@@ -20,7 +20,7 @@ class Login extends Component {
         event.preventDefault();
         const credentials={ username: this.state.username, password: this.state.password }
         axios
-            .post('http://localhost:5555/students/login', credentials)
+            .post('https://lambda-notes-kolumbic.herokuapp.com//students/login', credentials)
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
                 this.setState({ username: '', password: '', responseMessage: response.data, loggedIn: true })
