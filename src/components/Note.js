@@ -9,23 +9,25 @@ class Note extends React.Component {
         this.state = {
             title: '',
             body: '',
-            id: '',
+            noteId: '',
             edit: false,
             modal: false
         }
     }
     
     componentDidMount() {
-        const id = this.props.match.params.id;
-        this.mountNote(id);
+        const id = this.props.id;
+        if (!id) this.props.history.push('/');
+        const noteId = this.props.match.params.id;
+        this.mountNote(noteId);
     }
 
-    mountNote = id => {
-        const note = this.props.notes.filter(note => note._id === id)[0];
+    mountNote = noteId => {
+        const note = this.props.notes.filter(note => note._id === noteId)[0];
         this.setState({
             title: note.title,
             body: note.body,
-            id: note._id
+            noteId: note._id
         })
     }
 
@@ -33,15 +35,19 @@ class Note extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleUpdate = (e, id, note) => {
+    handleUpdate = (e, noteId, note) => {
         e.preventDefault();
-        this.props.updateNote(id, note);
+        const token = localStorage.getItem('jwt');
+        const requestOptions = { headers: { Authorization: token } };
+        this.props.updateNote(noteId, note, requestOptions);
         this.setState({edit: false})
     }
 
-    handleDelete = (id) => {
+    handleDelete = (noteId) => {
         this.toggleModal();
-        this.props.deleteNote(id)
+        const token = localStorage.getItem('jwt');
+        const requestOptions = { headers: { Authorization: token } };
+        this.props.deleteNote(noteId, requestOptions)
             .then(() => this.props.history.push('/notes'))
             .catch(err => console.log(err));
     }
@@ -51,7 +57,7 @@ class Note extends React.Component {
     }
 
     render() {
-        const { title, body, id, edit, modal } = this.state;
+        const { title, body, noteId, edit, modal } = this.state;
         return (
             <div className="note-flex-props">
                 <div className="note-view">
@@ -61,7 +67,7 @@ class Note extends React.Component {
                             <form>
                                 <input name="title" value={title} placeholder="Title" onChange={(e) => this.handleChange(e)}/>
                                 <textarea name="body" value={body} placeholder="Content" onChange={(e) => this.handleChange(e)}/>
-                                <button className="button" onClick={(e) => this.handleUpdate(e, id, {title, body})}>Save</button>
+                                <button className="button" onClick={(e) => this.handleUpdate(e, noteId, {title, body})}>Save</button>
                             </form>
                         </div>
                     ) : (
@@ -81,7 +87,7 @@ class Note extends React.Component {
                                 <div className="modal">
                                     <p>Are you sure you want to delete this?</p>
                                         <div className="modal-actions">
-                                            <Link className="button delete" to="/" onClick={() =>   this.handleDelete(id)}>Delete</Link>
+                                            <Link className="button delete" to="/" onClick={() =>   this.handleDelete(noteId)}>Delete</Link>
                                             <div className="modal-divider"></div>
                                             <button className="button" onClick={() => this.toggleModal()}   >Cancel</button>
                                         </div>

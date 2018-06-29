@@ -13,7 +13,9 @@ class AddNote extends Component {
     }
 
     componentDidMount() {
-        this.setState({ userId: this.props.id });
+        const id = this.props.id;
+        if (!id) this.props.history.push('/');
+        this.setState({ userId: id });
     }
 
     handleChange = e => {
@@ -22,7 +24,9 @@ class AddNote extends Component {
 
     handleSubmit = (e, note) => {
         e.preventDefault();
-        this.props.addNote(note)
+        const token = localStorage.getItem('jwt');
+        const requestOptions = { headers: { Authorization: token } };
+        this.props.addNote(note, requestOptions)
             .then(() => this.props.history.push('/notes'))
             .catch(err => console.log(err));
     }
