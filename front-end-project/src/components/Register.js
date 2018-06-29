@@ -48,7 +48,7 @@ render() {
             .then(response => {                
                 this.props.history.push('/notes'); // using the redirection abilities of react-router to send user to the /users page
             }).catch( err => {
-                alert(err.message)
+                alert('Username has already been taken')
             })
     }
     inputChangeHandler = (event) => {
