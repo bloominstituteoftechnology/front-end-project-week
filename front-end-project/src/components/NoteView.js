@@ -70,7 +70,7 @@ class NoteView extends Component {
               <span />
             )}
             <Grid item xs={1}>
-              <Route path="/notes/:id" render={(props) => <SideNav {...props} cancelDelete={this.cancelDelete.bind(this)} />}/>
+              <Route path="/notes/:id" render={(props) => <SideNav {...props} cancelDelete={this.cancelDelete.bind(this)} deleting={this.state.deleting}/>}/>
             </Grid>
             <div
               style={{

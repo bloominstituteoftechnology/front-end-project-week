@@ -17,7 +17,7 @@ const SideNav = props => {
         <div
           className="nav sideNav"
           style={{
-            background: props.deleting ? "gray" : "#D8D8D8",
+            background: props.deleting ? "#a60c07" : "rgb(209, 136, 133)",
             opacity: props.deleting ? ".5" : "1",
             borderRight: props.deleting
               ? "1px solid gray"
@@ -55,18 +55,12 @@ const SideNav = props => {
         <div
           className="nav sideNav"
           style={{
-            background: props.deleting ? "gray" : "#D8D8D8",
-            opacity: props.deleting ? ".5" : "1",
-            borderRight: props.deleting
-              ? "1px solid gray"
-              : "#979797 1px solid",
             height: "100vh"
           }}
         >
           <h1 className="headingforSideNav"> Lambda Notes </h1>
           <div
             className="buttonStyle"
-            style={{ opacity: props.deleting ? ".6" : "1" }}
           >
             <Link to="/notes">
               <button> View Your Notes </button>
@@ -74,7 +68,6 @@ const SideNav = props => {
           </div>
           <div
             className="buttonStyle"
-            style={{ opacity: props.deleting ? ".6" : "1" }}
           >
           <Link to="/create" style={{textDecoration: 'none'}}>
             <i className="material-icons" style={{ color: 'white', textDecoration: 'none', fontSize: '5vh', textAlign: 'center'}}>create</i>
