@@ -45,9 +45,9 @@ const ListView = props => {
                       <NavLink
                         to={`/notes/${note._id}`}
                         onClick={() => props.fetchNote(note._id)}
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: "none", textShadow: '2px 2px 4px #000000', color: 'white'}}
                       >
-                        <CardHeader title={`${note.title}`} className="noteTitle"/>
+                        <CardHeader title={`${note.title}`}/>
                         <CardContent>
                           <Typography
                             component="p"
