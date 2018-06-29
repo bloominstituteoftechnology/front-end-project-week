@@ -1,9 +1,9 @@
 /* App-wide Styles */
 
 .App {
-  background-color: rgb(133, 133, 133);
+  background-color: rgb(160, 160, 160);
   width:100%;
-  height: 720px;
+  height: 737px;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 1px black;
 }
@@ -11,7 +11,7 @@
 /* Sidebar Styles*/
 
 .the-real-sidebar {
-  background-color:rgb(85, 85, 85);
+  background-color:rgb(80, 80, 80);
   border-right: 1px solid gray;
   height: 1000px;
   top: 0;
@@ -33,9 +33,10 @@
 .button-template {
   height: 50px;
   width: 200px;
-  border-color: #979797;
+  border-color: black;
   background-color: rgb(196, 43, 43);
   color: #FFFFFF;
+  text-shadow: 1px 1px 1px solid black;
   margin-top:10px;
   margin-bottom: 10px;
 }
@@ -46,6 +47,7 @@
   margin-top: 10px;
   margin-bottom: 5px;
   margin-right: 10px;
+  border: 1px solid black;
 }
 
 /* register/login containers */

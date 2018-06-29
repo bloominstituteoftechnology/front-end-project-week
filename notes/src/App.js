@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5555/api/notes')
+    axios.get('https://lambda-notes-kolumbic.herokuapp.com/api/notes')
     .then(res => this.setState({ notes: res.data }))
     .catch(err => {
       console.log(err);
@@ -24,7 +24,7 @@ class App extends Component {
   postNote = note => {
     console.log("NOTE:", note)
     axios
-      .post('http://localhost:5555/api/notes', note)
+      .post('https://lambda-notes-kolumbic.herokuapp.com/api/notes', note)
       .then(response => {
         this.refresh()
         
@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   refresh() {
-    axios.get('http://localhost:5555/api/notes')
+    axios.get('https://lambda-notes-kolumbic.herokuapp.com/api/notes')
     .then(res => this.setState({ notes: res.data }))
     .catch(err => {
       console.log(err);
@@ -44,7 +44,7 @@ class App extends Component {
 
   removeNote = (_id) => {
     axios
-      .delete(`http://localhost:5555/api/notes/${_id}`)
+      .delete(`https://lambda-notes-kolumbic.herokuapp.com/api/notes/${_id}`)
       .then(response => {
         this.refresh()
       })
@@ -55,7 +55,7 @@ class App extends Component {
 
   updateNote = (editedNote) => {
     axios
-      .put(`http://localhost:5555/api/notes/${editedNote._id}`, editedNote)
+      .put(`https://lambda-notes-kolumbic.herokuapp.com/api/notes/${editedNote._id}`, editedNote)
       .then(response => {
         this.refresh()
       })
@@ -64,12 +64,12 @@ class App extends Component {
       })
   }
 
-  logout = () => {
-    if(localStorage.getItem("jwt")) {
-      localStorage.removeItem("jwt");
-      this.props.history.push('/register')
-    }
-  };
+  // logout = () => {
+  //   if(localStorage.getItem("jwt")) {
+  //     localStorage.removeItem("jwt");
+  //     this.props.history.push('/register')
+  //   }
+  // };
 
   render() {
     return (

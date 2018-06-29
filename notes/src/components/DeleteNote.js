@@ -32,24 +32,24 @@ class DeleteNote extends React.Component {
         <h5 className="modul-link" onClick={this.toggle}>delete</h5>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} external={externalCloseBtn}>
           <ModalFooter className="delete-modul">
-              <div className="want-to-delete">Are you sure you want to delete this?</div>
+              {/* <div className="want-to-delete">Are you sure you want to delete this?</div> */}
             <Link to="/">
               <Button 
                 xs="6"
-                className="modul-delete" 
-                style={{ backgroundColor: 'orange'}} 
+                 
+                style={{ backgroundColor: 'white'}} 
                 onClick={()=>this.props.removeNote(this.props.noteID)}
               >
-              Delete
+              <img className="delete-button" src="https://cdn4.iconfinder.com/data/icons/generic-interaction/143/close-x-cross-multiply-delete-cancel-modal-error-no-512.png" alt="delete logo"/>
               </Button>{' '}
             </Link>
             <Button 
               xs="6" 
               className="modul-cancel" 
-              style={{ backgroundColor:'blue' }} 
+              style={{ backgroundColor:'white' }} 
               onClick={this.toggle}
               >
-              No
+              Cancel
               </Button>
           </ModalFooter>
         </Modal>

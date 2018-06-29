@@ -1,8 +1,9 @@
 .single-note-body {
-    border-top: 1px solid black;
+    border-top: 1px solid rgb(94, 94, 94);
     padding-top: 20px;
     padding-left: 50px;
-    /* text-shadow: 1px 1px 1px black; */
+    color: white;
+    font-size: 110%;
 }
 
 .edit-delete {
