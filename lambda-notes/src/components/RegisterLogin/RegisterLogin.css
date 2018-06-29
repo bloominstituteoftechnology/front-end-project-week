@@ -38,10 +38,13 @@
 }
 
 .LambdaNotes {
+    font-family: 'Acme', sans-serif;
     color: #660066;
     margin-top: 30px;
-    font-size: 80px;
+    font-size: 85px;
     font-weight: bold;
+    letter-spacing: 2px;
+    word-spacing: 1.5rem;
 }
 
 .register-form {
@@ -80,7 +83,7 @@
         width: 173px;
     }
     .login-header {
-        padding-top: 33px;
+        padding-top: 28px;
         padding-left: 110px;
     }
     .LambdaNotes {

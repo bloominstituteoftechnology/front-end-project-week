@@ -13,7 +13,8 @@ class RegisterLogin extends Component {
         password: "",
         loginUsername: "",
         loginPassword: "",
-        registerError: ""
+        registerError: "",
+        emailValidation: "",
     }
 
     inputChangeHandler = (e) => {
@@ -21,9 +22,14 @@ class RegisterLogin extends Component {
     }
 
     saveUser = (e) => {
+        if(!(this.state.email.includes('@'))) {
+            this.setState({emailValidation: "Please provide a valid email Address"})
+        }
+
         if(!this.state.email || !this.state.username || !this.state.password) {
             this.setState({registerError: 'Please provide all required fields.'})
         }
+
         const newUser = {
             email: this.state.email,
             username: this.state.username,
@@ -80,6 +86,7 @@ class RegisterLogin extends Component {
                 {/* {req.status == 401 && (<div>Hi</div>)} */}
                 <h1 className="LambdaNotes">LAMBDA NOTES</h1>
                 {this.state.registerError && (<div style={errorStyle}>{this.state.registerError}</div>)}
+                {this.state.emailValidation && (<div style={errorStyle}>{this.state.emailValidation}</div>)}
                 <div className="register-form">
                     <Form>
                         <FormGroup>
@@ -91,7 +98,7 @@ class RegisterLogin extends Component {
                             <Input onChange={this.inputChangeHandler} type="text" name="username" placeholder="select a username" value={this.state.username} />
                         </FormGroup>
                         <FormGroup>
-                            <Label for="examplePassword">Password*</Label>
+                            <Label for="examplePassword">Password* (min 10 characters)</Label>
                             <Input onChange={this.inputChangeHandler} type="password" name="password" id="examplePassword" placeholder="select a password" value={this.state.password}/>
                         </FormGroup>
                             <Button onClick={this.saveUser}>Register</Button>
