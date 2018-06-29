@@ -40,12 +40,14 @@ class RegisterLogin extends Component {
         axios
             .post('https://lambda-note.herokuapp.com/api/users/login', user)
             .then(response => {
-                console.log(response)
+                
                 localStorage.setItem('token', response.data.token);
+                console.log(response.data.user._id)
+                localStorage.setItem('userId', response.data.user._id)
                 this.props.history.push('/notes')
             })
             .catch(err => {
-                console.log(err)
+                localStorage.removeItem('token');
             })
 
         this.setState({loginUsername: "", loginPassword: ""})

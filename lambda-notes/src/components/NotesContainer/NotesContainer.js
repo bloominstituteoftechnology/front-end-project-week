@@ -25,22 +25,38 @@ class NotesContainer extends Component {
             }
         };
 
+        // let loggedInUser = localStorage.getItem('userId'); 
+        // console.log(loggedInUser)
+        // console.log(typeof loggedInUser)
+        // console.log(loggedInUser)
+        // let loggedInUserStringify = toString(loggedInUser)
         this.props.fetchNotes(requestOptions);
     }
-
+    
 
 
     render() {
-        
+
+        // console.log(loggedInUser)
+        let loggedInUser = localStorage.getItem('userId'); 
+        // console.log(loggedInUser)
+        // console.log(typeof loggedInUser)
+
+
+        let notesForLoggedInUser = this.props.notes.filter(note => {
+            // console.log(typeof note.user)
+            // console.log(note.user == loggedInUser);
+            return (note.user == loggedInUser)
+        })       
+        // console.log(notesForLoggedInUser.length)
 
         let notesArr = [];
-        for (let i = this.props.notes.length -1; i >= 0; i--) {
-            notesArr.push(this.props.notes[i])
+        for (let i = notesForLoggedInUser.length -1; i >= 0; i--) {
+            notesArr.push(notesForLoggedInUser[i])
         } /*looping backwards and pushing into empty array to display 
             notes with most recent added/edited note on top of list-view */
 
-    
-
+        console.log(notesArr)
         return (
             
             <div id="sortable" className="notes-container">

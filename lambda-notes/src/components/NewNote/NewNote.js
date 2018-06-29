@@ -20,13 +20,17 @@ class NewNote extends Component {
     submitNewNote = (e) => {
 
     //    this.count++;
+        let userId = localStorage.getItem('userId')
+        console.log(userId)
 
-        let { title, body } = this.state
+        // let { title, body } = this.state
         let newNote = {
-            title, 
-            body, 
+            title: this.state.title, 
+            body: this.state.body,
+            user: userId
             // id: this.count
     }
+    console.log(newNote)
 
         e.preventDefault();
         this.props.addNote(newNote);

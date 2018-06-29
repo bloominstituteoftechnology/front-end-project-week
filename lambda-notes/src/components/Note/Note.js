@@ -5,7 +5,7 @@ import './Note.css';
 
 
 const Note = props => {
-
+console.log(props)
     return (
 
     <Link style={{textDecoration: "none", color: "black"}} to={`/notes/note/${props.note._id}`}>
