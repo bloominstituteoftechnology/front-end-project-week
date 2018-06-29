@@ -10,7 +10,7 @@
 .headingforSideNav {
     font-family: Roboto Bold;
     color: white;
-    text-shadow: 2px 8px 20px rgba(0,0,0,0.75);
+    text-shadow: -5px 5px 15px white;
     font-weight: bold;
     word-wrap: break-word;
     font-size: calc(20px + 1.3vw)
