@@ -23,6 +23,23 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem('jwt');
+    //attach the token as the Authorization header
+    const requestOptions = {
+      headers: {
+        Authorization: token
+      },
+    }
+    axios.get(`${api}/api/get`, requestOptions)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
   componentDidMount = () => {
     const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
     axios.get(`${api}/api/get`)
