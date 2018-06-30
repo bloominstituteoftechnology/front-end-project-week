@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from "react-router-dom";
-import { Navigation, NotesList, AddNote, Note, Landing, NoMatch } from "./components";
+import { Sidebar, NotesList, AddNote, Note, Landing, NoMatch } from "./components";
 import { connect } from "react-redux";
-import { resetStore, loggedIn } from "./actions";
+import { loggedIn } from "./actions";
 
 class App extends Component {
 
@@ -15,17 +15,11 @@ class App extends Component {
     }
   }
 
-  signoutHandler = () => {
-    localStorage.removeItem('jwt');
-    this.props.resetStore();
-    this.props.history.push('/');
-  }
-
   render() {
     return (
       <div className="App">
         {this.props.userLoggedIn ? (
-          <Navigation signoutHandler={this.signoutHandler}/>
+          <Sidebar />
         ) : (null)}
         <Switch>
           <Route exact path="/" component={Landing} />
@@ -43,4 +37,4 @@ const mapStateToProps = state => {
   return state;
 }
 
-export default withRouter(connect(mapStateToProps, { resetStore, loggedIn })(App));
+export default withRouter(connect(mapStateToProps, { loggedIn })(App));
