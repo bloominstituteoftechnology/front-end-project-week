@@ -23,28 +23,28 @@ class App extends Component {
     }
   }
 
-  // componentDidMount = () => {
-  //   const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-  //   axios.get(`${api}/api/get`)
-  //   .then(response => {
-  //     console.log(response)
-  //     this.setState({ notesList : response.data.note })
-  //   })
-  //   .catch(err => {
-  //     console.log("errorMessage : ", err)
-  //   })
-  // }
+  componentDidMount = () => {
+    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+    axios.get(`${api}/api/get`)
+    .then(response => {
+      console.log(response)
+      this.setState({ notesList : response.data.note })
+    })
+    .catch(err => {
+      console.log("errorMessage : ", err)
+    })
+  }
 
-  // componentDidUpdate() {
-  //   const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-  //   axios.get(`${api}/api/get`)
-  //     .then(response => {
-  //       this.setState({ notesList: response.data.note })
-  //     })
-  //     .catch(err => {
-  //       console.log("errorMessage : ", err)
-  //     })  
-  //   }
+  componentDidUpdate() {
+    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+    axios.get(`${api}/api/get`)
+      .then(response => {
+        this.setState({ notesList: response.data.note })
+      })
+      .catch(err => {
+        console.log("errorMessage : ", err)
+      })  
+    }
 
   fetchData = (dataFromChild) => {
     console.log("fetchData", dataFromChild);
