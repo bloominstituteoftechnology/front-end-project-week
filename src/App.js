@@ -23,28 +23,28 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
-    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-    axios.get(`${api}/api/get`)
-    .then(response => {
-      console.log(response)
-      this.setState({ notesList : response.data.note })
-    })
-    .catch(err => {
-      console.log("errorMessage : ", err)
-    })
-  }
+  // componentDidMount = () => {
+  //   const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+  //   axios.get(`${api}/api/get`)
+  //   .then(response => {
+  //     console.log(response)
+  //     this.setState({ notesList : response.data.note })
+  //   })
+  //   .catch(err => {
+  //     console.log("errorMessage : ", err)
+  //   })
+  // }
 
-  componentDidUpdate() {
-    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-    axios.get(`${api}/api/get`)
-      .then(response => {
-        this.setState({ notesList: response.data.note })
-      })
-      .catch(err => {
-        console.log("errorMessage : ", err)
-      })  
-    }
+  // componentDidUpdate() {
+  //   const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+  //   axios.get(`${api}/api/get`)
+  //     .then(response => {
+  //       this.setState({ notesList: response.data.note })
+  //     })
+  //     .catch(err => {
+  //       console.log("errorMessage : ", err)
+  //     })  
+  //   }
 
   fetchData = (dataFromChild) => {
     console.log("fetchData", dataFromChild);
@@ -105,7 +105,7 @@ class App extends Component {
               <Button className="sidebar-button" ><Link to="/Register" >Register</Link></Button>
               <Button className="sidebar-button" onClick={this.logout}><Link to="/" >Sign Out</Link></Button>  
               </div>
-            <Route exact path="/" render={props => <NoteList {...props} NoteData={this.state.notesList} />} />
+            <Route exact path="/" component={NoteList}/>
             <Route exact path="/Notes" render={props => <NoteList {...props} NoteData={this.state.notesList} />} />
             <Route exact path="/Create" render={props => <CreateNote {...props} fetch={this.fetchData} />} />
             <Route path="/Notes/:title" render={props => <SingleNote {...props} NoteData={this.filterNotes(props)} DeleteData={this.deleteNotes} />} />

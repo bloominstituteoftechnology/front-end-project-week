@@ -16,7 +16,7 @@ class NoteList extends Component{
         }
     }
     componentDidMount = () => {
-        axios.get(`${api}/api/user/list`)
+        axios.get(`${api}/api/get`)
             .then(response => {
                 console.log(response)
                 this.setState({ notesList: response.data.note })
