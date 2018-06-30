@@ -35,6 +35,7 @@ class App extends Component {
     axios.get(`${api}/api/get`, requestOptions)
       .then(response => {
         console.log(response.data)
+        this.setState({ notesList: response.data.note })
       })
       .catch(err => {
         console.log(err)
