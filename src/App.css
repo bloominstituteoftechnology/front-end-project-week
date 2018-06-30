@@ -14,6 +14,12 @@ h1, h2, h3 {
   color: #4A4A4A;
 }
 
+ul, li, a, button {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 a {
   text-decoration: none;
   color: #4A4A4A;
@@ -57,12 +63,11 @@ p {
 }
 
 .button {
-  width: 190px;
-  padding: 12px 0 11px;
-  margin-bottom: 18px;
+  padding: 12px 12px 11px;
   background: #2BC1C4;
   color: white;
   border: none;
+  border-radius: 4px;
   text-decoration: none;
   text-align: center;
   text-rendering: geometricPrecision;
@@ -72,7 +77,7 @@ p {
 }
 
 .button:hover {
-  background: rgb(16, 211, 214);
+  background: #10d3d6;
 }
 
 @media (max-width: 767px) {
@@ -87,6 +92,17 @@ p {
 
 .delete:hover {
   background: rgb(255, 0, 30);
+}
+
+.secondary {
+  background: none;
+  padding: 5px;
+  color: #979797;
+}
+
+.secondary:hover {
+  background: none;
+  color: #3cc5c8;
 }
 
 
@@ -165,7 +181,7 @@ p {
   width: 50%;
   padding: 10px 5px;
   align-self: flex-end;
-  color: #222;
+  color: #383838;
   font-size: 1.4rem;
   border-radius: 4px;
   background: radial-gradient(circle at -60% -120%, #ffffff4f, #3cc5c8);
@@ -202,6 +218,14 @@ p {
   margin: 5px 0 30px;
   line-height: 2.8rem;
   color: #4A4A4A;
+}
+
+.nav-sidebar a {
+  width: 150px;
+}
+
+.nav-sidebar .button {
+  margin-bottom: 18px;
 }
 
 @media (max-width: 767px) {
