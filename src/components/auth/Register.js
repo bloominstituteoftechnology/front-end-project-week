@@ -29,7 +29,7 @@ class Register extends React.Component {
     render() {
         const { email, password, firstName, lastName } = this.state;
         return (
-            <div>
+            <div className="register-form">
                 <form>
                     <h3>Register</h3>
                     <input type="email" name="email" value={email} placeholder="email" onChange={this.onChange}/>

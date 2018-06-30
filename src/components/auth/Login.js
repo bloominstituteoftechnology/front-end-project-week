@@ -28,7 +28,7 @@ class Login extends React.Component {
     render() {
         const { email, password } = this.state;
         return (
-            <div>
+            <div className="login-form">
                 <form>
                     <h3>Login</h3>
                     <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>

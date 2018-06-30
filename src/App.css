@@ -46,6 +46,7 @@ p {
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
   text-rendering: geometricPrecision;
+  background: #4A4A4A;
 }
 
 @media (max-width: 767px) {
@@ -64,7 +65,9 @@ p {
   border: none;
   text-decoration: none;
   text-align: center;
+  text-rendering: geometricPrecision;
   font-size: 1.6rem;
+  font-weight: 700;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -85,6 +88,103 @@ p {
 .delete:hover {
   background: rgb(255, 0, 30);
 }
+
+
+/* Landing Page */
+
+.landing-page {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.landing-page h2 {
+  margin: 15vh 0 0 20vh;
+  font-size: 3.2rem;
+  color: white;
+}
+
+.landing-page > div {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  margin-top: 22vh;
+  min-height: 100vh;
+}
+
+@media (max-width: 767px) {
+  .landing-page > div {
+    width: 100%;
+    min-height: 50vh;
+    margin-top: 0;
+  }
+  .landing-page h2 {
+    font-size: 2.2rem;
+  }
+}
+
+.login-form, .register-form {
+  text-align: center;
+  margin: 0 10vh 0 0;
+}
+
+.login-form form, .register-form form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 280px;
+  background: white;
+  padding: 10px 18px 22px;
+  border-radius: 4px;
+  box-shadow: 10px 10px #2BC1C4;
+}
+
+.login-form h3, .register-form h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.login-form input, .register-form input {
+  margin: 0 0 14px;
+  width: 100%;
+  background: #eee;
+  border-radius: 2px;
+  border: none;
+  border-left: 2px solid #eee;
+  padding: 12px 7px;
+  font-size: 1.4rem;
+}
+
+.login-form input:focus, .register-form input:focus {
+  outline: none;
+  border-left: 2px solid #2BC1C4;
+  background: white;
+  transition: all .07s ease-out;
+}
+
+.login-form button, .register-form button {
+  width: 50%;
+  padding: 10px 5px;
+  align-self: flex-end;
+  color: #222;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  background: radial-gradient(circle at -60% -120%, #ffffff4f, #3cc5c8);
+  border: none;
+}
+
+.login-form button:hover, .register-form button:hover {
+  color: white;
+  background: radial-gradient(circle at 10% 400%, #ffffff4f, #3cc5c8);
+}
+
+.login-form a, .register-form a {
+  color: white;
+  text-decoration: underline;
+  font-size: 1.4rem;
+  margin-top: 18px;
+  display: inline-block;
+}
+
 
 /* Navigation */
 
@@ -127,7 +227,7 @@ p {
 
 .notes-list {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: flex-start;
   align-content: flex-start;
   padding: 0 3.417% 3.417%;
@@ -141,7 +241,11 @@ p {
   width: 100%;
   margin: 65px 0 30px;
   color: #4A4A4A;
+}
 
+.notes-list > div {
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .note-card {

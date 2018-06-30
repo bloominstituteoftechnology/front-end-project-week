@@ -15,7 +15,7 @@ class Landing extends React.Component {
     
     render() {
         return (
-            <div>
+            <div className="landing-page">
                 <div>
                     <h2>Welcome to Lambda Notes</h2>
                 </div>
