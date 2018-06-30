@@ -105,7 +105,7 @@ class App extends Component {
               <Button className="sidebar-button" ><Link to="/Register" >Register</Link></Button>
               <Button className="sidebar-button" onClick={this.logout}><Link to="/" >Sign Out</Link></Button>  
               </div>
-            <Route exact path="/" component={NoteList}/>
+            <Route exact path="/" />
             <Route exact path="/Notes" render={props => <NoteList {...props} NoteData={this.state.notesList} />} />
             <Route exact path="/Create" render={props => <CreateNote {...props} fetch={this.fetchData} />} />
             <Route path="/Notes/:title" render={props => <SingleNote {...props} NoteData={this.filterNotes(props)} DeleteData={this.deleteNotes} />} />
