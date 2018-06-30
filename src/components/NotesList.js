@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAccount, fetchNotes, loggedIn } from "../actions";
-
+import { Menu } from "./index";
 
 class NotesList extends React.Component {
 
@@ -35,24 +35,25 @@ class NotesList extends React.Component {
         const { notes } = this.props;
         return (
             <div className="notes-list">
-            <h2>Your Notes:</h2>
-            {notes.length !== 0 ? (
-                <div>
-                    {notes.map(note => {
-                        return (
-                            <div key={note._id}>
-                                <Link to={`/note/${note._id}`}>
-                                    <div className="note-card">
-                                        <h3>{note.title}</h3>
-                                        <p className="note-card-text">{note.body}</p>
-                                    </div>
-                                </Link>
-                            </div>
-                        );
-                    })}
-                </div>
-            ) : (
-                null)}
+                <Menu />
+                <h2>Your Notes:</h2>
+                {notes.length !== 0 ? (
+                    <div>
+                        {notes.map(note => {
+                            return (
+                                <div key={note._id}>
+                                    <Link to={`/note/${note._id}`}>
+                                        <div className="note-card">
+                                            <h3>{note.title}</h3>
+                                            <p className="note-card-text">{note.body}</p>
+                                        </div>
+                                    </Link>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    null)}
             </div>    
         );
     }
