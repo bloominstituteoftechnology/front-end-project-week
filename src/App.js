@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
     const token = localStorage.getItem('jwt');
     //attach the token as the Authorization header
     const requestOptions = {
