@@ -118,7 +118,7 @@ class App extends Component {
               <h1>Lambda Notes</h1>
               <Button className="sidebar-button" ><Link to="/Notes" >View Notes</Link></Button>
               <Button className="sidebar-button" ><Link to="/Create" >+Create Notes</Link></Button>
-              <Button className="sidebar-button" ><Link to="/Login" >Login</Link></Button>
+              <Button className="sidebar-button" ><Link to="/Login" >+Login</Link></Button>
               <Button className="sidebar-button" ><Link to="/Register" >Register</Link></Button>
               <Button className="sidebar-button" onClick={this.logout}><Link to="/" >Sign Out</Link></Button>  
               </div>
