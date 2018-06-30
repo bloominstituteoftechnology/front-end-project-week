@@ -21,6 +21,7 @@ class Register extends React.Component {
         axios.post(`${process.env.REACT_APP_API_AUTH}/register`, this.state)
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
+                this.props.loggedIn();
                 this.props.history.push('/notes');
             })
             .catch(err => console.log(err.message));
