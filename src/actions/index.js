@@ -7,7 +7,7 @@ export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 require('dotenv').config();
 
-const URL = (process.env.serverURL);
+const URL = process.env.REACT_APP_API;
 
 
 export const deleteNote = (id) => {
