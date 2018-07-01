@@ -5,9 +5,9 @@ export const CREATE_NOTE = 'CREATE_NOTE';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
-import { serverURL } from '../config/keys';
 
-const URL = serverURL;
+const URL = process.env.serverURL;
+
 
 export const deleteNote = (id) => {
     return {
