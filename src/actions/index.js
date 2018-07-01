@@ -6,7 +6,7 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 
-const URL = 'https://notes-dev-app.herokuapp.com/';
+const URL = 'https://notes-dev-app.herokuapp.com';
 
 export const deleteNote = (id) => {
     return {
