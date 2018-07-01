@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import LeftNav from './components/LeftNav/LeftNav.js';
 import MainContent from './components/MainContent/MainContent';
-import { connect } from 'react-redux';
-import { fetchNotes } from './actions';
 
 
 
