@@ -6,8 +6,8 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 
-const URL = 'http://localhost:5001/api/note';
-//const URL = 'https://lambda-notes-dev.herokuapp.com/api/note';
+//const URL = 'http://localhost:5001/api/note';
+const URL = 'https://lambda-notes-dev.herokuapp.com/api/note';
 export const deleteNote = (id) => {
     return {
         type: DELETE_NOTE,
