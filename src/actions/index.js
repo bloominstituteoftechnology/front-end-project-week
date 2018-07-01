@@ -6,7 +6,7 @@ export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 
-const URL = process.env.URL;
+const URL = process.env.HURL;
 export const deleteNote = (id) => {
     return {
         type: DELETE_NOTE,
