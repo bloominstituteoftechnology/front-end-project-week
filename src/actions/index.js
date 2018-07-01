@@ -7,7 +7,7 @@ export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 
 //const URL = 'http://localhost:5001/api/note';
-const URL = 'https://create-notes.herokuapp.com/api/note';
+const URL = process.env.URL;
 export const deleteNote = (id) => {
     return {
         type: DELETE_NOTE,
