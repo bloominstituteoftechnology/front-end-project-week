@@ -7,7 +7,7 @@ export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
 
 const URL = 'http://localhost:5001/api/note';
-
+//const URL = 'https://lambda-notes-dev.herokuapp.com/api/note';
 export const deleteNote = (id) => {
     return {
         type: DELETE_NOTE,
@@ -30,7 +30,7 @@ export const createNote = (noteData) => {
 }
 
 export const fetchNotes = () => {
-    const getNotes = axios.get('http://localhost:5001/api/note')//promise
+    const getNotes = axios.get(`${URL}`)//promise
     return function(dispatch) { // instead of our action returning a flat object we are returning a function of dispatch which taps into the api straight from redux
     dispatch({ type: FETCHING_NOTES });
     getNotes
@@ -47,7 +47,7 @@ export const fetchNotes = () => {
 
 
 export const postNote = (temp) => {
-    const myPromise = axios.post('http://localhost:5001/api/note',//promise
+    const myPromise = axios.post(`${URL}`,//promise
     /*return function(dispatch) { // instead of our action returning a flat object we are returning a function of dispatch which taps into the api straight from redux
     //dispatch({ type: FETCHING_NOTES });
     postNote

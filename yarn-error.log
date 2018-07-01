@@ -1,8 +1,8 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn start
+  /usr/local/bin/node /usr/local/bin/yarn build
 
 PATH: 
-  /Users/macbookpro/mongodb/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/macbookpro/mongodb/bin:/usr/local/mongodb/bin:/usr/local/mongodb/bin
+  /Users/macbookpro/mongodb/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mongodb/bin
 
 Yarn version: 
   1.5.1
