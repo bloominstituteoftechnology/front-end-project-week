@@ -1,42 +1,9 @@
 import React, { Component } from 'react';
 import Notes from '../func/Notes';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
 import '../component.css';
 
-const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-
-
 class NoteList extends Component{
-    constructor(){
-        super()
-        this.state = {
-            notesList: [],
-            note: {},
-        }
-    }
-    componentDidMount = () => {
-        axios.get(`${api}/api/get`)
-            .then(response => {
-                console.log(response)
-                this.setState({ notesList: response.data.note })
-            })
-            .catch(err => {
-                console.log("errorMessage : ", err)
-            })
-    }
-
-    componentDidUpdate() {
-        axios.get(`${api}/api/get/`)
-            .then(response => {
-                this.setState({ notesList: response.data.note })
-            })
-            .catch(err => {
-                console.log("errorMessage : ", err)
-            })
-    }
-
-
     render(){
         return (
             <div className="nL-container" >

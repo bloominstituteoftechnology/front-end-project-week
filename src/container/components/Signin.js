@@ -8,8 +8,8 @@ class Signin extends Component {
     constructor(props){
         super(props)
         this.state = {
-            username: '',
-            password: ''
+            username: 'test1',
+            password: '123456'
         };
     }
 
@@ -19,7 +19,7 @@ class Signin extends Component {
         axios.post(`${api}/api/user/signin`, this.state )
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
-                this.props.history.push('/');
+                this.props.history.push('/Notes');
                 console.log('response : ', response.data)
             })
             .catch(err => {

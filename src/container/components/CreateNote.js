@@ -33,7 +33,14 @@ class CreateNote extends Component{
 
             //const title = this.props.match.params.title;
             console.log(this.props.NoteData._id)
-            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state)
+            
+            const token = localStorage.getItem('jwt');
+            const requestOptions = {
+                headers: {
+                    Authorization: token
+                },
+            }
+            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, requestOptions, this.state)
                 .then(response => {
                     console.log('response', response.data);
                     this.props.history.push('/')
@@ -47,7 +54,15 @@ class CreateNote extends Component{
             const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
             console.log("CreateNote line 65", newNote);
-            axios.post(`${api}/api/create/note`, this.state)
+
+            const token = localStorage.getItem('jwt');
+            const requestOptions = {
+                headers: {
+                    Authorization: token
+                },
+            }
+
+            axios.post(`${api}/api/create/note`, requestOptions, this.state)
                 .then(response => {
                     console.log('response',response.data)
                     this.props.history.push('/')

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 import NoteList from './container/components/NoteList.js';
 import CreateNote from './container/components/CreateNote.js';
@@ -13,6 +14,9 @@ import Register from './container/components/Register.js';
 import './App.css';
 import './container/component.css';
 
+const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+
+
 
 class App extends Component {
   constructor() {
@@ -20,11 +24,12 @@ class App extends Component {
     this.state = {
       notesList: [],
       note: {},
+      username: "test1",
+      password: "123456"
     }
   }
 
   componentDidMount() {
-    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
     const token = localStorage.getItem('jwt');
     //attach the token as the Authorization header
     const requestOptions = {
@@ -34,36 +39,60 @@ class App extends Component {
     }
     axios.get(`${api}/api/get`, requestOptions)
       .then(response => {
-        console.log(response.data)
+        console.log("Making axios call", response.data)
         this.setState({ notesList: response.data.note })
+      })
+      .catch(err => {
+        this.setState({ notesList: []})
+        console.log("errorMessage : ", err)
+      })
+  }
+
+  
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevState)
+    if(this.state.notesList == prevState.notesList){
+      const token = localStorage.getItem('jwt');
+      const requestOptions = {
+        headers: {
+          Authorization: token
+        },
+      }
+      axios.get(`${api}/api/get`, requestOptions)
+        .then(response => {
+          this.setState({ notesList: response.data.note })
+        })
+        .catch(err => {
+          console.log("errorMessage : ", err)
+        })
+    } else {
+      console.log("matching states")
+      }
+    } 
+
+  submitHandler = e => {
+    e.preventDefault();
+    //submit the form
+    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
+
+    axios.post(`${api}/api/user/signin`, this.state)
+      .then(response => {
+        localStorage.setItem('jwt', response.data.token);
+        this.props.history.push('/Notes');
+        console.log('response : ', response.data)
       })
       .catch(err => {
         console.log(err)
       })
   }
 
-  componentDidMount = () => {
-    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-    axios.get(`${api}/api/get`)
-    .then(response => {
-      console.log(response)
-      this.setState({ notesList : response.data.note })
-    })
-    .catch(err => {
-      console.log("errorMessage : ", err)
-    })
+  inputChangeHandler = event => {
+    console.log('changing ', event.target.name);
+    const { name, value } = event.target;
+    this.setState({ [name]: value })
   }
 
-  componentDidUpdate() {
-    const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
-    axios.get(`${api}/api/get`)
-      .then(response => {
-        this.setState({ notesList: response.data.note })
-      })
-      .catch(err => {
-        console.log("errorMessage : ", err)
-      })  
-    }
 
   fetchData = (dataFromChild) => {
     console.log("fetchData", dataFromChild);
@@ -104,10 +133,10 @@ class App extends Component {
   }
 
   logout = (event) => {
-    if(localStorage.getItem('jwt')){
+    if (localStorage.getItem('jwt')) {
       console.log("logging out now", event)
       localStorage.removeItem('jwt');
-      this.props.history.push('/');
+      return this.props.history.push('/');
     }
   }
 
@@ -124,7 +153,7 @@ class App extends Component {
               <Button className="sidebar-button" ><Link to="/Register" >Register</Link></Button>
               <Button className="sidebar-button" onClick={this.logout}><Link to="/" >Sign Out</Link></Button>  
               </div>
-            <Route exact path="/" />
+            <Route exact path="/" component={Signin} />
             <Route exact path="/Notes" render={props => <NoteList {...props} NoteData={this.state.notesList} />} />
             <Route exact path="/Create" render={props => <CreateNote {...props} fetch={this.fetchData} />} />
             <Route path="/Notes/:title" render={props => <SingleNote {...props} NoteData={this.filterNotes(props)} DeleteData={this.deleteNotes} />} />
@@ -138,4 +167,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
