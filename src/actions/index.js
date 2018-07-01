@@ -5,7 +5,7 @@ export const CREATE_NOTE = 'CREATE_NOTE';
 export const FETCH_NOTES = 'FETCH_NOTES';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const POST_NOTE = 'POST_NOTE';
-require('dotenv').config();
+//require('dotenv').config();
 
 const URL = process.env.REACT_APP_API;
 
