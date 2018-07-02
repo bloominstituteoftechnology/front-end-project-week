@@ -21,10 +21,14 @@ class Menu extends React.Component {
         this.setState({ active: !this.state.active })
     }
 
+    closeMenu = () => {
+        this.setState({ active: false });
+    }
+
     render() {
         const { active } = this.state;
         return (
-            <div className="nav-menu">
+            <div className="nav-menu" onMouseLeave={this.closeMenu}>
                     <a onClick={this.toggleMenu}><img src={gear} className="gear" alt="settings icon"/></a>
                     {active ? (
                         <ul>
