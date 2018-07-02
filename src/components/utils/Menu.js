@@ -1,9 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter, Link } from "react-router-dom";
 import gear from "../../assets/gear.svg";
+import nightmode from "../../assets/nightmode.svg";
 import { resetStore } from "../../actions";
 
-class Sidebar extends React.Component {
+class Menu extends React.Component {
+
+    state = {
+        active: false
+    }
 
     signoutHandler = () => {
         localStorage.removeItem('jwt');
@@ -11,14 +17,22 @@ class Sidebar extends React.Component {
         this.props.history.push('/');
     }
 
+    toggleMenu = () => {
+        this.setState({ active: !this.state.active })
+    }
+
     render() {
+        const { active } = this.state;
         return (
             <div className="nav-menu">
-                    <a><img src={gear} alt="settings-icon"/></a>
-                    <ul>
-                        <li><button className="button secondary">Account</button></li>
-                        <li><button className="button secondary" onClick={this.signoutHandler}>Log Out</button></li>
-                    </ul>
+                    <a onClick={this.toggleMenu}><img src={gear} className="gear" alt="settings icon"/></a>
+                    {active ? (
+                        <ul>
+                            <li><Link to="/account" className="button secondary">Account</Link></li>
+                            <li><button className="button secondary" onClick={this.signoutHandler}>Log     Out</button></li>
+                            <li><a /*onClick={}*/><img src={nightmode} alt="night mode"/></a></li>
+                        </ul>
+                    ) : (null)}
             </div>
         );
     }
@@ -28,4 +42,4 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default connect(mapStateToProps, { resetStore })(Sidebar);
+export default withRouter(connect(mapStateToProps, { resetStore })(Menu));
