@@ -51,8 +51,6 @@ class App extends Component {
   
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(prevState)
-    if(this.state.notesList == prevState.notesList){
       const token = localStorage.getItem('jwt');
       const requestOptions = {
         headers: {
@@ -61,14 +59,16 @@ class App extends Component {
       }
       axios.get(`${api}/api/get`, requestOptions)
         .then(response => {
+          if (response.data.note === prevState.notesList) {
           this.setState({ notesList: response.data.note })
+          } else {
+            console.log("matching states")
+          }
         })
         .catch(err => {
           console.log("errorMessage : ", err)
         })
-    } else {
-      console.log("matching states")
-      }
+    
     } 
 
   submitHandler = e => {

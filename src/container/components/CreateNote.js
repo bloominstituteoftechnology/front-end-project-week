@@ -5,6 +5,7 @@ import '../component.css';
 const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
 
 
+
  
 class CreateNote extends Component{
     constructor(){
@@ -15,7 +16,17 @@ class CreateNote extends Component{
             notesList: [],
            
         }
+        
     }
+    // componentDidMount() {
+    //     const token = localStorage.getItem('jwt');
+    //     const requestOptions = {
+    //         headers: {
+    //             Authorization: token
+    //         }
+    //     }
+    // }
+
 
     handleInputChange = (e) => {
         e.preventDefault();
@@ -33,14 +44,7 @@ class CreateNote extends Component{
 
             //const title = this.props.match.params.title;
             console.log(this.props.NoteData._id)
-            
-            const token = localStorage.getItem('jwt');
-            const requestOptions = {
-                headers: {
-                    Authorization: token
-                },
-            }
-            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, requestOptions, this.state)
+            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state)
                 .then(response => {
                     console.log('response', response.data);
                     this.props.history.push('/')
@@ -53,14 +57,13 @@ class CreateNote extends Component{
             const newNote = this.state.notesList;
             const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
-            console.log("CreateNote line 65", newNote);
-
             const token = localStorage.getItem('jwt');
             const requestOptions = {
                 headers: {
                     Authorization: token
-                },
+                }
             }
+            console.log("requestOptions : ", requestOptions);
 
             axios.post(`${api}/api/create/note`, requestOptions, this.state)
                 .then(response => {
@@ -68,6 +71,7 @@ class CreateNote extends Component{
                     this.props.history.push('/')
                 })
                 .catch(err => {
+                    console.log("requestOptions : ", requestOptions);
                     console.log(err)
                 })
             this.setState({ title: "", content: "", newNote })

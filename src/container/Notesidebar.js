@@ -3,7 +3,6 @@ import { Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap'; 
 import NoteList from './components/NoteList.js';
 import CreateNote from './components/CreateNote.js';
-import Notes from './func/Notes.js';
 import SingleNote from './func/SingleNote.js';
 
 
