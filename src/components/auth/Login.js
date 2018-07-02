@@ -7,7 +7,8 @@ import { loggedIn } from "../../actions";
 class Login extends React.Component {
     state = {
         email: 'test@test.com',
-        password: '12345678'
+        password: '12345678',
+        error: null
     }
 
     handleChange = e => {
@@ -18,18 +19,28 @@ class Login extends React.Component {
         e.preventDefault();
         axios.post(`${process.env.REACT_APP_API_AUTH}/login`, this.state)
             .then(response => {
+                this.setState({ error: null })
                 localStorage.setItem('jwt', response.data.token);
                 this.props.loggedIn();
                 this.props.history.push('/notes');
            })
-            .catch(err => console.log(err));
+            .catch(err => {
+                if (err.message.includes('4')) {
+                    this.setState({ error: `Wrong username or password. Try Again.` });
+                } else {
+                    this.setState({ error: `Error processing request. Try Again.`})
+                }
+            });
     }
 
     render() {
-        const { email, password } = this.state;
+        const { email, password, error } = this.state;
         return (
             <div className="login-form">
                 <form>
+                    <div className="message">
+                        <p className="error">{error}</p>
+                    </div>
                     <h3>Login</h3>
                     <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>
                     <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
