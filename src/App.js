@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch, withRouter } from "react-router-dom";
-import { Sidebar, NotesList, AddNote, Note, Landing, NoMatch } from "./components";
+import { Sidebar, Menu, NotesList, AddNote, Note, Landing, Account, NoMatch, Deleted } from "./components";
 import { connect } from "react-redux";
 import { loggedIn } from "./actions";
 
@@ -16,18 +16,26 @@ class App extends Component {
   }
 
   render() {
+    const { userLoggedIn } = this.props;
     return (
       <div className="App">
-        {this.props.userLoggedIn ? (
-          <Sidebar />
+        {userLoggedIn ? (
+            <Sidebar />
+        ) : (null)}
+        <div className="app-main">
+        {userLoggedIn ? (
+            <Menu />
         ) : (null)}
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route path="/notes" component={NotesList}/>
           <Route path="/addnote" component={AddNote}/>
           <Route path="/note/:id" component={Note}/>
+          <Route path="/account" component={Account}/>
+          <Route path="/deleted" component={Deleted}/>
           <Route component={NoMatch}/>
         </Switch>
+        </div>
       </div>
     );
   }
