@@ -7,3 +7,5 @@ export { default as Register } from './auth/Register.js';
 export { default as Landing } from './auth/Landing.js';
 export { default as NoMatch } from './utils/NoMatch.js';
 export { default as Menu } from './utils/Menu.js';
+export { default as Account } from './utils/Account.js';
+export { default as Deleted } from './utils/Deleted.js';
