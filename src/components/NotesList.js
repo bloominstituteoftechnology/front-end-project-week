@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAccount, fetchNotes, loggedIn } from "../actions";
-import { Menu } from "./index";
 
 class NotesList extends React.Component {
 
@@ -35,7 +34,6 @@ class NotesList extends React.Component {
         const { notes } = this.props;
         return (
             <div className="notes-list">
-                <Menu />
                 <h2>Your Notes:</h2>
                 {notes.length !== 0 ? (
                     <div>
