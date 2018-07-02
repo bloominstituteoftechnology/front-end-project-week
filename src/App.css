@@ -10,6 +10,14 @@ h1 {
   font-size: 3.2rem;
 }
 
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
 h1, h2, h3 {
   color: #4A4A4A;
 }
@@ -80,12 +88,12 @@ p {
   text-decoration: underline;
 }
 
-.no-match h3, p, a {
+.no-match h3, .no-match p, .no-match a {
   color: white;
   width: 100%;
 }
 
-.account-deleted h3, p, a {
+.account-deleted h3, .account-deleted p, .account-deleted a {
   color: white;
 }
 
@@ -197,7 +205,6 @@ p {
 }
 
 .login-form h3, .register-form h3 {
-  font-size: 1.8rem;
   font-weight: 400;
 }
 
@@ -430,7 +437,6 @@ p {
 .note-view h3 {
   margin: 0 0 20px;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.8rem;
 }
 
 
@@ -507,7 +513,6 @@ p {
 }
 
 .account-form h3 {
-  font-size: 1.8rem;
   font-weight: 500;
   padding: 0 0 0 10px;
 }
