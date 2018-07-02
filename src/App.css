@@ -26,6 +26,10 @@ a {
   font-size: 1.6rem;
 }
 
+label {
+  font-size: 1.4rem;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -53,6 +57,36 @@ p {
   font-family: 'Raleway', sans-serif;
   text-rendering: geometricPrecision;
   background: #4A4A4A;
+}
+
+.app-main {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1 1;
+  min-height: 100vh;
+}
+
+.no-match, .account-deleted {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 115px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.no-match a, .account-deleted a {
+  text-decoration: underline;
+}
+
+.no-match h3, p, a {
+  color: white;
+  width: 100%;
+}
+
+.account-deleted h3, p, a {
+  color: white;
 }
 
 @media (max-width: 767px) {
@@ -103,6 +137,14 @@ p {
 .secondary:hover {
   background: none;
   color: #3cc5c8;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }
 
 
@@ -221,7 +263,7 @@ p {
 }
 
 .nav-sidebar a {
-  width: 150px;
+  width: 160px;
 }
 
 .nav-sidebar .button {
@@ -244,6 +286,47 @@ p {
   .nav-sidebar a {
     margin: 10px;
   }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  align-self: flex-end;
+  position: absolute;
+  right: 30px;
+}
+
+.nav-menu ul {
+  position: absolute;
+  width: 180px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  top: 45px;
+  right: 0;
+  background: white;
+  box-shadow: 2px 2px 4px #e0e0e0;
+  border-radius: 4px;
+  padding: 15px 0;
+}
+
+.nav-menu li:last-child {
+  width: 88%;
+  padding: 10px 5px 0 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: flex-end;
+  align-content: right;
+  border-top: 1px solid #e0e0e0;
+}
+
+.gear {
+  opacity: 0.6;
+}
+
+.gear:hover {
+  opacity: 1;
 }
 
 
@@ -400,7 +483,75 @@ p {
   }
 }
 
-/* Note Delete Modal */
+/* Account Page */
+
+.account-page {
+  display: flex;
+  justify-content: center;
+  flex: 1 1;
+  background: #F3F3F3;
+}
+
+.account-page .message {
+  position: absolute;
+  top: 40px;
+}
+
+.account-form {
+  display: flex;
+  flex-flow: column wrap;
+  width: 380px;
+  margin: 87px 0 0;
+  padding: 10px 18px 22px;
+  border-radius: 4px;
+}
+
+.account-form h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 0 0 0 10px;
+}
+
+.account-form input {
+  margin: 0 0 14px;
+  width: 100%;
+  background: #e0e0e0;
+  border-radius: 2px;
+  border: none;
+  border-left: 2px solid #e0e0e0;
+  padding: 12px 7px;
+  font-size: 1.4rem;
+}
+
+.account-form input:focus {
+  outline: none;
+  border-left: 2px solid #2BC1C4;
+  background: white;
+  transition: all .07s ease-out;
+}
+
+.account-form label {
+  display: flex;
+  padding: 0 0 5px 10px;
+}
+
+.account-form a {
+  width: 36%;
+  color: white;
+  font-size: 1.4rem;
+  margin-top: 18px;
+  display: inline-block;
+}
+
+.account-form > div:last-child {
+  display: flex;
+  margin: 10px 0 0;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+/* Delete Modal */
 
 .modal-background {
   position: absolute;
