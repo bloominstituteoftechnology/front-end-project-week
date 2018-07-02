@@ -5,7 +5,7 @@ const Sidebar = () => {
     return (
         <div className="nav-sidebar">
             <h1>Lambda Notes</h1>
-            <NavLink className="button" to="/notes">View Your Notes</NavLink>
+            <NavLink className="button" to="/notes">Your Notes</NavLink>
             <NavLink className="button" to="/addnote">+ New Note</NavLink>
         </div>
     );
