@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateNote, deleteNote } from "../actions";
 
@@ -87,9 +86,9 @@ class Note extends React.Component {
                                 <div className="modal">
                                     <p>Are you sure you want to delete this?</p>
                                         <div className="modal-actions">
-                                            <Link className="button delete" to="/" onClick={() =>   this.handleDelete(noteId)}>Delete</Link>
+                                            <a className="button delete" to="/" onClick={() =>   this.handleDelete(noteId)}>Delete</a>
                                             <div className="modal-divider"></div>
-                                            <button className="button" onClick={() => this.toggleModal()}   >Cancel</button>
+                                            <a className="button" onClick={() => this.toggleModal()}>Cancel</a>
                                         </div>
                                 </div>
                             </div>
