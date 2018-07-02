@@ -26,9 +26,9 @@ class Login extends React.Component {
            })
             .catch(err => {
                 if (err.message.includes('4')) {
-                    this.setState({ error: `Wrong username or password. Try Again.` });
+                    this.setState({ error: `Wrong username or password. Please try again.` });
                 } else {
-                    this.setState({ error: `Error processing request. Try Again.`})
+                    this.setState({ error: `Error processing request. Please try again.`})
                 }
             });
     }
