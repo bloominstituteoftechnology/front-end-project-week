@@ -20,6 +20,7 @@ class Signin extends Component {
             .then(response => {
                 localStorage.setItem('jwt', response.data.token);
                 this.props.history.push('/Notes');
+                window.location.reload();
                 console.log('response : ', response.data)
             })
             .catch(err => {

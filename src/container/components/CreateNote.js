@@ -43,8 +43,15 @@ class CreateNote extends Component{
             newNote.push(item);
 
             //const title = this.props.match.params.title;
-            console.log(this.props.NoteData._id)
-            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state)
+            const token = localStorage.getItem('jwt');
+            const requestOptions = {
+                headers: {
+                    Authorization: token
+                },
+            }
+            console.log(token)
+            console.log(requestOptions)
+            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state, requestOptions)
                 .then(response => {
                     console.log('response', response.data);
                     this.props.history.push('/')
