@@ -62,8 +62,9 @@ class CreateNote extends Component{
             newNote.push(item);
             axios.post(`${api}/api/create/note`,  this.state)
                 .then(response => {
-                    console.log('response',response.data)
+                    console.log('response', response.data)
                     this.props.history.push('/Notes');
+                    res.json(201).json({ response})
                     window.location.reload();
                 })
                 .catch(err => {
