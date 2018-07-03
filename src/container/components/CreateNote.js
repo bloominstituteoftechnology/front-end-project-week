@@ -39,8 +39,6 @@ class CreateNote extends Component{
                 Authorization: token
             }
         }
-        const newNote = this.state.notesList;
-        const item = { title: this.state.title, content: this.state.content, id: Date.now() };
         e.preventDefault();
         console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
         if(this.props.match.path === `/Create/edit/:title`){
