@@ -34,6 +34,12 @@ class CreateNote extends Component{
     }
 
     submitNote = (e) => {
+        const token = localStorage.getItem('jwt');
+        const requestOptions = {
+            headers: {
+                Authorization: token
+            }
+        }
         e.preventDefault();
         console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
         if(this.props.match.path === `/Create/edit/:title`){
@@ -41,14 +47,6 @@ class CreateNote extends Component{
             const newNote = this.state.notesList;
             const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
-
-            //const title = this.props.match.params.title;
-            const token = localStorage.getItem('jwt');
-            const requestOptions = {
-                headers: {
-                    Authorization: token
-                },
-            }
             console.log(token)
             console.log(requestOptions)
             axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state, requestOptions)
@@ -64,12 +62,6 @@ class CreateNote extends Component{
             const newNote = this.state.notesList;
             const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
-            const token = localStorage.getItem('jwt');
-            const requestOptions = {
-                headers: {
-                    Authorization: token
-                }
-            }
             console.log("requestOptions : ", requestOptions);
 
             axios.post(`${api}/api/create/note`, requestOptions, this.state)

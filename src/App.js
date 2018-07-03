@@ -73,7 +73,6 @@ class App extends Component {
 
   submitHandler = e => {
     e.preventDefault();
-    //submit the form
     const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
 
     axios.post(`${api}/api/user/signin`, this.state)
