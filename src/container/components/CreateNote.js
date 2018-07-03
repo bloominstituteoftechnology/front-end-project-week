@@ -12,7 +12,8 @@ class CreateNote extends Component{
         super()
         this.state = {
             title: "",
-            content: "",           
+            content: "",  
+            notesList: []         
         }
         
     }
