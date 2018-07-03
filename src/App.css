@@ -373,7 +373,7 @@ p {
 
 .gear {
   opacity: 0.6;
-  padding: 0 0 0 150px;
+  margin: 0 0 0 100px;
 }
 
 .gear:hover {
@@ -548,6 +548,13 @@ p {
 
 .account-page .message {
   top: 40px;
+}
+
+.account-page .tooltip {
+  top: unset;
+  margin: 44px 0px 0;
+  width: 196px;
+  text-align: center;
 }
 
 .account-form {
