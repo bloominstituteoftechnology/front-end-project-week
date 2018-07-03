@@ -49,6 +49,7 @@ class Register extends React.Component {
     passwordChange = e => {
         this.setState({ [e.target.name]: e.target.value });
         if (e.target.value.length >= 8) this.setState({ tooltip: false });
+        else this.setState({ tooltip: true });
     }
 
     render() {
