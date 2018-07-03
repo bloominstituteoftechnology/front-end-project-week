@@ -12,9 +12,7 @@ class CreateNote extends Component{
         super()
         this.state = {
             title: "",
-            content: "",
-            notesList: [],
-           
+            content: "",           
         }
         
     }
@@ -40,33 +38,29 @@ class CreateNote extends Component{
                 Authorization: token
             }
         }
+        const newNote = this.state.notesList;
+        const item = { title: this.state.title, content: this.state.content, id: Date.now() };
         e.preventDefault();
         console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
         if(this.props.match.path === `/Create/edit/:title`){
-            const newNote = this.state.notesList;
-            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
-            console.log(token)
-            console.log(requestOptions)
             axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state, requestOptions)
                 .then(response => {
                     console.log('response', response.data);
-                    this.props.history.push('/')
+                    this.props.history.push('/Notes');
+                    window.location.reload();
                 })
                 .catch(err => {
                     console.log(err)
                 })
             this.setState({ title: "", content: "", newNote})
         }else{
-            const newNote = this.state.notesList;
-            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
-            console.log("requestOptions : ", requestOptions);
-
             axios.post(`${api}/api/create/note`, requestOptions, this.state)
                 .then(response => {
                     console.log('response',response.data)
-                    this.props.history.push('/')
+                    this.props.history.push('/Notes');
+                    window.location.reload();
                 })
                 .catch(err => {
                     console.log("requestOptions : ", requestOptions);
