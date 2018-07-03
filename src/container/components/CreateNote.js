@@ -44,6 +44,8 @@ class CreateNote extends Component{
         e.preventDefault();
         console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
         if(this.props.match.path === `/Create/edit/:title`){
+            const newNote = this.state.notesList;
+            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
             axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state, requestOptions)
                 .then(response => {
@@ -56,6 +58,8 @@ class CreateNote extends Component{
                 })
             this.setState({ title: "", content: "", newNote})
         }else{
+            const newNote = this.state.notesList;
+            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
             newNote.push(item);
             axios.post(`${api}/api/create/note`, requestOptions, this.state)
                 .then(response => {
