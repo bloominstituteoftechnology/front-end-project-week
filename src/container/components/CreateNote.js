@@ -60,32 +60,17 @@ class CreateNote extends Component{
             const newNote = this.state.notesList;
             const item = { title: this.state.title, content: this.state.content };
             newNote.push(item);
-            JSONP() {
-                jsonp(`${api}/api/create/note`, (error, data) => {
-                    if (error) {
-                        console.log(error)
-                        this.setState({
-                            error,
-                        });
-                    } else {
-                        console.log(data)
-                        // this.setState({
-                        //     data: data,
-                        // });
-                    }
-                });
-            }
-            // axios.post(`${api}/api/create/note`,  this.state)
-            //     .then(response => {
-            //         console.log('response',response.data)
-            //         this.props.history.push('/Notes');
-            //         window.location.reload();
-            //     })
-            //     .catch(err => {
-            //         console.log("requestOptions : ", requestOptions);
-            //         console.log(err)
-            //     })
-            // this.setState({ title: "", content: "", newNote })
+            axios.post(`${api}/api/create/note`,  this.state)
+                .then(response => {
+                    console.log('response',response.data)
+                    this.props.history.push('/Notes');
+                    window.location.reload();
+                })
+                .catch(err => {
+                    console.log("requestOptions : ", requestOptions);
+                    console.log(err)
+                })
+            this.setState({ title: "", content: "", newNote })
         }
         
     }
