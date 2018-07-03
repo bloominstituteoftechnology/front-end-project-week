@@ -40,7 +40,6 @@ class CreateNote extends Component{
                 Authorization: token
             }
         }
-        e.preventDefault();
         console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
         if(this.props.match.path === `/Create/edit/:title`){
 
