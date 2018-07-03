@@ -5,9 +5,6 @@ import '../component.css';
 
 const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
 
-
-
- 
 class CreateNote extends Component{
     constructor(){
         super()
@@ -65,7 +62,6 @@ class CreateNote extends Component{
                     console.log('response', response.data)
                     this.props.history.push('/Notes');
                     res.json(201).json({ response})
-                    window.location.reload();
                 })
                 .catch(err => {
                     console.log("requestOptions : ", requestOptions);

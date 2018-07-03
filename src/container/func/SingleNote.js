@@ -22,6 +22,7 @@ class SingleNote extends Component{
             .then(response => {
                 console.log(response)
                 this.props.history.push('/Notes')
+                window.location.reload();
             })
             .catch(err => {
                 console.log("errorMessage : ", err)
