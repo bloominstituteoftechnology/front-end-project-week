@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import jsonp from 'jsonp';
 import '../component.css';
 
 const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
@@ -43,9 +44,9 @@ class CreateNote extends Component{
         console.log("Does it match", this.props.match.path === `/Create/edit/:title` ? "Yes" : "No")
         if(this.props.match.path === `/Create/edit/:title`){
             const newNote = this.state.notesList;
-            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
+            const item = { title: this.state.title, content: this.state.content};
             newNote.push(item);
-            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state, requestOptions)
+            axios.put(`${api}/api/edit/${this.props.NoteData._id}`, this.state)
                 .then(response => {
                     console.log('response', response.data);
                     this.props.history.push('/Notes');
@@ -57,19 +58,34 @@ class CreateNote extends Component{
             this.setState({ title: "", content: "", newNote})
         }else{
             const newNote = this.state.notesList;
-            const item = { title: this.state.title, content: this.state.content, id: Date.now() };
+            const item = { title: this.state.title, content: this.state.content };
             newNote.push(item);
-            axios.post(`${api}/api/create/note`, requestOptions, this.state)
-                .then(response => {
-                    console.log('response',response.data)
-                    this.props.history.push('/Notes');
-                    window.location.reload();
-                })
-                .catch(err => {
-                    console.log("requestOptions : ", requestOptions);
-                    console.log(err)
-                })
-            this.setState({ title: "", content: "", newNote })
+            JSONP() {
+                jsonp(`${api}/api/create/note`, (error, data) => {
+                    if (error) {
+                        console.log(error)
+                        this.setState({
+                            error,
+                        });
+                    } else {
+                        console.log(data)
+                        // this.setState({
+                        //     data: data,
+                        // });
+                    }
+                });
+            }
+            // axios.post(`${api}/api/create/note`,  this.state)
+            //     .then(response => {
+            //         console.log('response',response.data)
+            //         this.props.history.push('/Notes');
+            //         window.location.reload();
+            //     })
+            //     .catch(err => {
+            //         console.log("requestOptions : ", requestOptions);
+            //         console.log(err)
+            //     })
+            // this.setState({ title: "", content: "", newNote })
         }
         
     }
