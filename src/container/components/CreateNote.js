@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import jsonp from 'jsonp';
 import '../component.css';
 
 const api = process.env.REACT_APP_API || 'https://sheltered-sands-52060.herokuapp.com';
@@ -15,14 +14,6 @@ class CreateNote extends Component{
         }
         
     }
-    // componentDidMount() {
-    //     const token = localStorage.getItem('jwt');
-    //     const requestOptions = {
-    //         headers: {
-    //             Authorization: token
-    //         }
-    //     }
-    // }
 
 
     handleInputChange = (e) => {

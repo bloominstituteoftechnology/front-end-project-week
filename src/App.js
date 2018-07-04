@@ -59,7 +59,7 @@ class App extends Component {
       }
       axios.get(`${api}/api/get`, requestOptions)
         .then(response => {
-          if (response.data.note === prevState.notesList) {
+          if (response.data.note !== prevState.notesList) {
           this.setState({ notesList: response.data.note })
           } else {
             console.log("matching states")
