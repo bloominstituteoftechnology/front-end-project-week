@@ -60,14 +60,18 @@ export const addNote = (note, requestOptions) => {
 export const updateNote = (id, note, requestOptions) => {
     const putNote = axios.put(`${process.env.REACT_APP_API_NOTES}/${id}`, note, requestOptions);
     return function(dispatch) {
-        dispatch({ type: UPDATING_NOTE });
-        putNote
-            .then(response => {
-                dispatch({ type: NOTE_UPDATED, payload: response.data });
-            })
-            .catch(err => {
-                dispatch({ type: ERROR, payload: err.message });
-            });
+        return new Promise((resolve, reject) => {
+            dispatch({ type: UPDATING_NOTE });
+            putNote
+                .then(response => {
+                    dispatch({ type: NOTE_UPDATED, payload: response.data });
+                    resolve();
+                })
+                .catch(err => {
+                    dispatch({ type: ERROR, payload: err.message });
+                    reject(err);
+                });
+        });
     }
 };
 
