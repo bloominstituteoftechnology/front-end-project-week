@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { loggedIn } from "../../actions";
+import { logIn } from "../../actions";
 
 class Login extends React.Component {
     state = {
@@ -21,7 +21,7 @@ class Login extends React.Component {
             .then(response => {
                 this.setState({ error: null })
                 localStorage.setItem('jwt', response.data.token);
-                this.props.loggedIn();
+                this.props.logIn();
                 this.props.history.push('/notes');
            })
             .catch(err => {
@@ -56,4 +56,4 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default withRouter(connect(mapStateToProps, { loggedIn })(Login));
+export default withRouter(connect(mapStateToProps, { logIn })(Login));

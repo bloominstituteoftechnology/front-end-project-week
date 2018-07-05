@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { loggedIn } from "../../actions";
+import { logIn } from "../../actions";
 
 class Register extends React.Component {
     state = {
@@ -29,7 +29,7 @@ class Register extends React.Component {
             axios.post(`${process.env.REACT_APP_API_AUTH}/register`, this.state)
                 .then(response => {
                     localStorage.setItem('jwt', response.data.token);
-                    this.props.loggedIn();
+                    this.props.logIn();
                     this.props.history.push('/notes');
                 })
                 .catch(err => {
@@ -84,4 +84,4 @@ const mapStateToProps = state => {
   return state;
 }
 
-export default withRouter(connect(mapStateToProps, { loggedIn })(Register));
+export default withRouter(connect(mapStateToProps, { logIn })(Register));
