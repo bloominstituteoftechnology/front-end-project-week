@@ -2,27 +2,31 @@ import React from "react";
 import jwt from "jsonwebtoken";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { setAccount, fetchNotes, loggedIn } from "../actions";
+import { setAccount, fetchNotes, logOut, resetStore } from "../actions";
 
 class NotesList extends React.Component {
 
     componentDidMount() {
         const token = localStorage.getItem('jwt');
-        if (!token) this.props.history.push('/');
+        if (!token) {
+            this.props.resetStore();
+            this.props.logOut();
+            this.props.history.push('/');
+        }
 
         if (!this.props.id) {
             const requestOptions = { headers: { Authorization: token } };
             jwt.verify(token, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
               if (err || !decoded) {
-                console.log(err);
-                this.props.loggedIn();
+                this.props.resetStore();
+                this.props.logOut();
                 this.props.history.push('/');
               } else {
                 const { id } = decoded;
                 this.props.setAccount(id);
                 this.props.fetchNotes(id, requestOptions);
               }
-            })
+            });
         } else {
             const id = this.props.id;
             const requestOptions = { headers: { Authorization: token } };
@@ -61,4 +65,4 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default connect(mapStateToProps, { setAccount, fetchNotes, loggedIn })(NotesList);
+export default connect(mapStateToProps, { setAccount, fetchNotes, logOut, resetStore })(NotesList);

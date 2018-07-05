@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateNote, deleteNote } from "../actions";
+import { updateNote, deleteNote, resetStore, logOut } from "../actions";
 
 class Note extends React.Component {
     constructor(props) {
@@ -15,10 +15,16 @@ class Note extends React.Component {
     }
     
     componentDidMount() {
-        const id = this.props.id;
-        if (!id) this.props.history.push('/');
-        const noteId = this.props.match.params.id;
-        this.mountNote(noteId);
+        const token = localStorage.getItem('jwt');
+        if (!token) { 
+            this.props.resetStore();
+            this.props.logOut();
+            this.props.history.push('/');
+        } else {
+            const id = this.props.id;
+            const noteId = this.props.match.params.id;
+            this.mountNote(noteId);
+        }
     }
 
     mountNote = noteId => {
@@ -104,4 +110,4 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default connect(mapStateToProps, { updateNote, deleteNote })(Note);
+export default connect(mapStateToProps, { updateNote, deleteNote, resetStore, logOut })(Note);

@@ -20,15 +20,23 @@ class Account extends React.Component {
 
     componentDidMount() {
         const token = localStorage.getItem('jwt');
-        const requestOptions = { headers: { Authorization: token } };
-        axios.get(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, requestOptions)
-            .then(response => {
-                this.setState({
-                    email: response.data.email,
-                    firstName: response.data.firstName,
-                    lastName: response.data.lastName,
+        if (!token) {
+            this.props.history.push('/');
+        } else {
+            const requestOptions = { headers: { Authorization: token } };
+            axios.get(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, requestOptions)
+                .then(response => {
+                    this.setState({
+                        error: null,
+                        email: response.data.email,
+                        firstName: response.data.firstName,
+                        lastName: response.data.lastName,
+                    });
                 })
-            })
+                .catch(err => {
+                    this.setState({ error: `There was an error processing the request. Please try again.` });
+                });
+        }
     }
 
     toggleModal() {
