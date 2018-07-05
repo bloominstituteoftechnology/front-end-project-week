@@ -10,7 +10,9 @@ class Note extends React.Component {
             body: '',
             noteId: '',
             edit: false,
-            modal: false
+            modal: false,
+            success: null,
+            error: null
         }
     }
     
@@ -44,8 +46,34 @@ class Note extends React.Component {
         e.preventDefault();
         const token = localStorage.getItem('jwt');
         const requestOptions = { headers: { Authorization: token } };
-        this.props.updateNote(noteId, note, requestOptions);
-        this.setState({edit: false})
+        this.props.updateNote(noteId, note, requestOptions)
+            .then(() => { 
+                this.setState({ 
+                    error: null,
+                    success: `Note updated!`
+                });
+                setTimeout(() => {
+                    this.setState({ success: null })
+                }, 3000); 
+            })
+            .catch(err => {
+                if (err.message.includes('401')) {
+                    this.setState({
+                        error: `Not Authorized. Please Log In.`
+                    });
+                    setTimeout(() => {
+                        this.props.resetStore();
+                        this.props.logOut();
+                        this.props.history.push('/');
+                    }, 4000);
+                } else {
+                    this.setState({
+                        success: null,
+                        error: `Error updating note. Please try again.`
+                    });
+                }
+            });
+        this.setState({ edit: false });
     }
 
     handleDelete = (noteId) => {
@@ -54,7 +82,23 @@ class Note extends React.Component {
         const requestOptions = { headers: { Authorization: token } };
         this.props.deleteNote(noteId, requestOptions)
             .then(() => this.props.history.push('/notes'))
-            .catch(err => console.log(err));
+            .catch(err => {
+                if (err.message.includes('401')) {
+                    this.setState({
+                        error: `Not Authorized. Please Log In.`
+                    });
+                    setTimeout(() => {
+                        this.props.resetStore();
+                        this.props.logOut();
+                        this.props.history.push('/');
+                    }, 4000);
+                } else {
+                    this.setState({
+                        success: null,
+                        error: `Error updating note. Please try again.`
+                    });
+                }
+            });
     }
 
     toggleModal() {
@@ -62,10 +106,21 @@ class Note extends React.Component {
     }
 
     render() {
-        const { title, body, noteId, edit, modal } = this.state;
+        const { title, body, noteId, edit, modal, success, error } = this.state;
         return (
             <div className="note-flex-props">
                 <div className="note-view">
+
+                    <div className="message">
+                        {success ? (
+                            <p className="success">{success}</p>
+                        ) : (null)}
+
+                        {error ? (
+                            <p className="error">{error}</p>
+                        ) : (null)}
+                    </div>
+
                     {edit ? (
                         <div className="note-form">
                             <h3>Edit Note:</h3>
