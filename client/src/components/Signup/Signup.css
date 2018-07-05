@@ -1,0 +1,85 @@
+.signup {
+    background: #F3F3F3; 
+    margin: 0; 
+    min-height: 100%; 
+    width: 75%; 
+}
+
+.signup form {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    margin: 115px auto; 
+    width: 80%; 
+}
+
+.signup form div {
+    width: 37%;
+    margin: 0 0 14px 0; 
+}
+
+.signup form input {
+    border: 1.5px solid #979797; 
+    font-family: Raleway; 
+    font-weight: bold; 
+    height: 47px;
+    width: 100%;  
+}
+
+.submitButton {
+    cursor: pointer;
+    width: 27% !important; 
+    margin: 0 auto !important; 
+}
+
+.submitButton button {
+    background: #2BC1C4; 
+    border: 1.5px solid #979797; 
+    color: #FFFFFF; 
+    cursor: pointer;
+    display: block; 
+    font-family: Raleway; 
+    font-weight: bold; 
+    width: 70%;
+    margin: 0 auto;  
+}
+
+.firstnameError {
+    color: red; 
+    font-weight: bold; 
+    font-size: 9px; 
+    margin: 0 !important; 
+    width: 100% !important; 
+}
+
+.lastnameError {
+    color: red; 
+    font-weight: bold; 
+    font-size: 9px; 
+    margin: 0 !important;
+    width: 100% !important; 
+}
+
+.usernameError {
+    color: red;
+    font-weight: bold;
+    font-size: 9px;
+    margin: 0 !important;
+    width: 100% !important; 
+}
+
+.emailError {
+    color: red; 
+    font-weight: bold; 
+    font-size: 9px; 
+    margin: 0 !important; 
+    width: 100% !important; 
+}
+
+.passwordError {
+    color: red; 
+    font-weight: bold; 
+    font-size: 9px; 
+    margin: 0 !important; 
+    width: 100% !important; 
+}

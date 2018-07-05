@@ -1,0 +1,58 @@
+.createNote {
+    background: #F3F3F3; 
+    margin: 0; 
+    min-height: 100%;
+    width: 75%; 
+}
+
+.createNote h4 {
+    color: #4A4A4A; 
+    font-family: Raleway; 
+    font-weight: bold; 
+    margin: 60px 0 0 4%; 
+}
+
+.createNote input {
+    border: 1.5px solid #979797; 
+    border-radius: 3px;
+    margin: 28px 0 0 4%; 
+    padding: 10px; 
+    width: 55%; 
+}
+
+.createNote textarea {
+    border: 1.5px solid #979797; 
+    border-radius: 3px; 
+    margin: 14px 0 0 4%; 
+    padding: 10px; 
+    resize: none; 
+    width: 90%; 
+}
+
+.submit {
+    background: #2BC1C4; 
+    border: 1.5px solid #979797;
+    color: #FFFFFF; 
+    cursor: pointer;
+    font-family: Raleway; 
+    font-weight: bold; 
+    margin: 28px 0 28px 4% !important; 
+    padding: 10px; 
+    width: 28% !important;  
+}
+
+.titleError {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 0 4%;
+    width: 55%; 
+}
+
+.textError {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 0 4%;
+    width: 90%; 
+}
