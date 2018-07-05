@@ -23,7 +23,6 @@ class Note extends React.Component {
             this.props.logOut();
             this.props.history.push('/');
         } else {
-            const id = this.props.id;
             const noteId = this.props.match.params.id;
             this.mountNote(noteId);
         }
