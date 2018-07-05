@@ -33,10 +33,14 @@ class Account extends React.Component {
                         lastName: response.data.lastName,
                     });
                 })
-                .catch(err => {
+                .catch(() => {
                     this.setState({ error: `There was an error processing the request. Please try again.` });
                 });
         }
+    }
+
+    componentWillUnmount() {
+        window.clearTimeout(this.timeoutSuccess);
     }
 
     toggleModal() {
@@ -47,11 +51,17 @@ class Account extends React.Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleUpdate = e => {
-        e.preventDefault();
+    timeoutSuccess = () => {
+        setTimeout(() => {
+            this.setState({ success: null })
+        }, 4000);
+    }
+
+    handleUpdate = () => {
         const token = localStorage.getItem('jwt');
         const requestOptions = { headers: { Authorization: token } };
         const { email, firstName, lastName, password, repeatpassword, currentpassword } = this.state;
+        
         if (password.length > 0) {
             if (password.length < 8 || currentpassword.length < 8) {
                 this.setState({
@@ -74,11 +84,12 @@ class Account extends React.Component {
                             localStorage.removeItem('jwt');
                             localStorage.setItem('jwt', response.data.token);
                             axios.put(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, this.state, requestOptions)
-                                .then(response => {
+                                .then(() => {
                                     this.setState({
                                         error: null,
                                         success: 'Successfully Updated',
                                     });
+                                    this.timeoutSuccess();
                                 })
                                 .catch(err => {
                                     this.setState({
@@ -87,7 +98,7 @@ class Account extends React.Component {
                                     });
                                 });
                     })
-                    .catch(err => {
+                    .catch(() => {
                         this.setState({
                             success: null,
                             error: 'Current password is incorrect.'
@@ -95,14 +106,15 @@ class Account extends React.Component {
                     })
             }
         } else {
-            axios.put(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, {email, firstName, lastName} , requestOptions)
-                .then(response => {
+            axios.put(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, {email, firstName, lastName}, requestOptions)
+                .then(() => {
                     this.setState({ 
                         error: null,
                         success: 'Successfully Updated',
                      });
+                     this.timeoutSuccess();
                 })
-                .catch(err => {
+                .catch(() => {
                     this.setState({ 
                         success: null,
                         error: 'Update failed.' 
@@ -116,7 +128,7 @@ class Account extends React.Component {
         const token = localStorage.getItem('jwt');
         const requestOptions = { headers: { Authorization: token } };
         axios.delete(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, requestOptions)
-            .then(response => {
+            .then(() => {
                 localStorage.removeItem('jwt');
                 this.props.resetStore();
                 this.props.history.push('/deleted');
