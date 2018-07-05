@@ -42,8 +42,8 @@ class Login extends React.Component {
                         <p className="error">{error}</p>
                     </div>
                     <h3>Login</h3>
-                    <input type="text" name="email" value={email} placeholder="email" onChange={this.handleChange}/>
-                    <input type="password" name="password" value={password} placeholder="password" onChange={this.handleChange}/>
+                    <input type="text" name="email"  autoComplete="email" value={email} placeholder="email" onChange={this.handleChange}/>
+                    <input type="password" name="password"  autoComplete="password" value={password} placeholder="password" onChange={this.handleChange}/>
                     <button onClick={this.handleSubmit}>Sign In</button>
                 </form>
                 <a onClick={this.props.changeComponent}>Register</a>

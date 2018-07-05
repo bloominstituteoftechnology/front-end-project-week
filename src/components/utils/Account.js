@@ -186,23 +186,24 @@ class Account extends React.Component {
                     </div>
 
                 <form className="account-form">
+
                     <h3>Account Details</h3>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" value={email} placeholder="email" onChange={this.onChange}/>
+                    <input type="email" name="email" autoComplete="email" value={email} placeholder="email" onChange={this.onChange}/>
                     <label htmlFor="firstName">First Name:</label>
-                    <input type="text" name="firstName" value={firstName} placeholder="First Name" onChange={this.onChange}/>
+                    <input type="text" name="firstName" autoComplete="given-name" value={firstName} placeholder="First Name" onChange={this.onChange}/>
                     <label htmlFor="lastName">Last Name:</label>
-                    <input type="text" name="lastName" value={lastName} placeholder="Last Name" onChange={this.onChange}/>
+                    <input type="text" name="lastName" autoComplete="family-name" value={lastName} placeholder="Last Name" onChange={this.onChange}/>
 
                     <h3>Update Password</h3>
-                    <input type="password" name="currentpassword" value={currentpassword} placeholder="Current Password" onChange={this.onChange}/>
+                    <input type="password" name="currentpassword"  autoComplete="off" value={currentpassword} placeholder="Current Password" onChange={this.onChange}/>
                     <div>
                         {tooltip1 ? (
                             <div className="message tooltip">
                                 <p>8 characters minimum</p>
                             </div>
                         ) : (null)}
-                        <input type="password" name="password" value={password} placeholder="New Password" onChange={this.passwordChange1} onFocus={this.showTooltip1} onBlur={this.hideTooltip1}/>
+                        <input type="password" name="password" autoComplete="off" value={password} placeholder="New Password" onChange={this.passwordChange1} onFocus={this.showTooltip1} onBlur={this.hideTooltip1}/>
                     </div>
                     <div>
                         {tooltip2 ? (
@@ -210,13 +211,14 @@ class Account extends React.Component {
                                 <p>8 characters minimum</p>
                             </div>
                         ) : (null)}
-                        <input type="password" name="repeatpassword" value={repeatpassword} placeholder="Repeat New Password" onChange={this.passwordChange2} onFocus={this.showTooltip2} onBlur={this.hideTooltip2}/>
+                        <input type="password" name="repeatpassword" autoComplete="off" value={repeatpassword} placeholder="Repeat New Password" onChange={this.passwordChange2} onFocus={this.showTooltip2} onBlur={this.hideTooltip2}/>
                     </div>
 
                     <div>
                         <a className="button delete" onClick={() => this.toggleModal()}>Delete Account</a>
                         <a className="button" onClick={this.handleUpdate}>Save</a>
                     </div>
+
                 </form>
 
                 {modal ? (

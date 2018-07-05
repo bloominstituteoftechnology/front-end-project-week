@@ -61,17 +61,17 @@ class Register extends React.Component {
                         <p className="error">{error}</p>
                     </div>
                     <h3>Register</h3>
-                    <input type="email" name="email" value={email} placeholder="email" onChange={this.onChange}/>
+                    <input type="email" name="email" autoComplete="email" value={email} placeholder="email" onChange={this.onChange}/>
                     <div>
                         {tooltip ? (
                             <div className="message tooltip">
                                 <p>8 characters minimum</p>
                             </div>
                         ) : (null)}
-                        <input type="password" name="password" value={password} placeholder="password" onChange={this.passwordChange} onFocus={this.showTooltip} onBlur={this.hideTooltip}/>
+                        <input type="password" name="password" autoComplete="off" value={password} placeholder="password" onChange={this.passwordChange} onFocus={this.showTooltip} onBlur={this.hideTooltip}/>
                     </div>
-                    <input type="text" name="firstName" value={firstName} placeholder="First Name" onChange={this.onChange}/>
-                    <input type="text" name="lastName" value={lastName} placeholder="Last Name" onChange={this.onChange}/>
+                    <input type="text" name="firstName" autoComplete="given-name" value={firstName} placeholder="First Name" onChange={this.onChange}/>
+                    <input type="text" name="lastName" autoComplete="family-name" value={lastName} placeholder="Last Name" onChange={this.onChange}/>
                     <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
                 <a onClick={this.props.changeComponent}>Login</a>
