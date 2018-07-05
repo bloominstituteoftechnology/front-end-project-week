@@ -15,8 +15,10 @@ export const NOTE_DELETED = 'NOTE_DELETED';
 export const UPDATING_ACCOUNT = 'UPDATING_ACCOUNT';
 export const ACCOUNT_UPDATED = 'ACCOUNT_UPDATED';
 
+export const LOG_IN = 'LOG_IN';
+export const LOG_OUT = 'LOG_OUT';
+
 export const RESET_STORE = 'RESET_STORE';
-export const LOGGED_IN = 'LOGGED_IN';
 
 export const ERROR = 'ERROR';
 
@@ -100,8 +102,14 @@ export const resetStore = () => {
     }
 };
 
-export const loggedIn = () => {
+export const logIn = () => {
     return function (dispatch) {
-        dispatch({ type: LOGGED_IN });
+        dispatch({ type: LOG_IN });
+    }
+};
+
+export const logOut = () => {
+    return function (dispatch) {
+        dispatch({ type: LOG_OUT });
     }
 };
