@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
-import { resetStore } from "../../actions";
+import { resetStore, logOut } from "../../actions";
 
 class Account extends React.Component {
     state = {
@@ -15,12 +15,15 @@ class Account extends React.Component {
         modal: false,
         error: '',
         tooltip1: false,
-        tooltip2: false
+        tooltip2: false,
+        timeout: null
     }
 
     componentDidMount() {
         const token = localStorage.getItem('jwt');
         if (!token) {
+            this.props.resetStore();
+            this.props.logOut();
             this.props.history.push('/');
         } else {
             const requestOptions = { headers: { Authorization: token } };
@@ -40,7 +43,7 @@ class Account extends React.Component {
     }
 
     componentWillUnmount() {
-        window.clearTimeout(this.timeoutSuccess);
+        window.clearTimeout(this.state.timeout);
     }
 
     toggleModal() {
@@ -52,9 +55,19 @@ class Account extends React.Component {
     }
 
     timeoutSuccess = () => {
-        setTimeout(() => {
-            this.setState({ success: null })
+        const success = setTimeout(() => {
+            this.setState({ success: null });
+        }, 3000);
+        this.setState({ timeout: success });
+    }
+
+    timeoutLogout = () => {
+        const logout = setTimeout(() => {
+            this.props.resetStore();
+            this.props.logOut();
+            this.props.history.push('/');
         }, 4000);
+        this.setState({ timeout: logout });
     }
 
     handleUpdate = () => {
@@ -92,17 +105,54 @@ class Account extends React.Component {
                                     this.timeoutSuccess();
                                 })
                                 .catch(err => {
-                                    this.setState({
-                                        success: null,
-                                        error: 'Update failed.'
-                                    });
+                                    if (err.message.includes('403')) {
+                                        this.setState({ error: `Please log in.`});
+                                        this.timeoutLogout();
+                                    } else if (err.message.includes('409')) {
+                                        this.setState({
+                                            success: null,
+                                            error: 'Email already exists. Please choose another.'
+                                        });
+                                    } else {
+                                        this.setState({
+                                            success: null,
+                                            error: 'Update failed.'
+                                        });
+                                    }
                                 });
                     })
-                    .catch(() => {
-                        this.setState({
-                            success: null,
-                            error: 'Current password is incorrect.'
-                        });
+                    .catch(err => {
+                        if (err.message.includes('401')) {
+                            this.setState({
+                                success: null,
+                                error: 'Current password is incorrect.'
+                            });
+                        } else if (err.message.includes('404')) {
+                            axios.put(`${process.env.REACT_APP_API_USERS}/${this.props.id}`, this.state, requestOptions)
+                                .then(() => {
+                                    this.setState({
+                                        error: null,
+                                        success: 'Successfully Updated',
+                                    });
+                                    this.timeoutSuccess();
+                                })
+                                .catch(err => {
+                                    if (err.message.includes('403')) {
+                                        this.setState({ error: `Please log in.`});
+                                        this.timeoutLogout();
+                                    } else if (err.message.includes('409')) {
+                                        this.setState({
+                                            success: null,
+                                            error: 'Email already exists. Please choose another.'
+                                        });
+                                    } else {
+                                        this.setState({
+                                            success: null,
+                                            error: 'Update failed.'
+                                        });
+                                    }
+                                });
+                        }
                     })
             }
         } else {
@@ -114,11 +164,21 @@ class Account extends React.Component {
                      });
                      this.timeoutSuccess();
                 })
-                .catch(() => {
-                    this.setState({ 
-                        success: null,
-                        error: 'Update failed.' 
-                    });
+                .catch(err => {
+                    if (err.message.includes('403')) {
+                        this.setState({ error: `Please log in.`});
+                        this.timeoutLogout();
+                    } else if (err.message.includes('409')) {
+                        this.setState({
+                            success: null,
+                            error: 'Email already exists. Please choose another.'
+                        });
+                    } else {
+                        this.setState({
+                            success: null,
+                            error: 'Update failed.'
+                        });
+                    }
                 });
         }
     }
@@ -133,7 +193,7 @@ class Account extends React.Component {
                 this.props.resetStore();
                 this.props.history.push('/deleted');
             })
-            .catch(err => {
+            .catch(() => {
                 this.setState({ 
                     success: null,
                     error: 'Delete failed.' 
@@ -246,4 +306,4 @@ const mapStateToProps = state => {
     return state;
 }
 
-export default connect(mapStateToProps, { resetStore })(Account);
+export default connect(mapStateToProps, { resetStore, logOut })(Account);
