@@ -9,6 +9,7 @@ class SignUpForm extends React.Component {
         this.state = {
             username: "",
             password: "",
+            email: "",
             error: false,
             errorMessage: ''
         };
@@ -18,7 +19,9 @@ class SignUpForm extends React.Component {
         event.preventDefault();
         const user = {
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            email: this.state.email,
+
         };
         axios.post("http://localhost:5000/api/users/register", user)
         .then(response => {
@@ -27,10 +30,9 @@ class SignUpForm extends React.Component {
             this.props.history.push(`/login`)           
             this.setState({
                 error: false
-            });
-        })
-            .catch(err => {
-                console.log("My Error", err)
+                });
+            })
+            .catch(err => {              
                 this.setState({
                     error: true,
                     errorMessage: err.response.data.error
@@ -44,9 +46,9 @@ class SignUpForm extends React.Component {
 
     render() {
         return (
-            <div className="col-sm-9">
-                <div className='signup-form-div'>
-                    <h2>Sign Up </h2>
+            <div className="col-sm-3">
+                <div className='signup'>
+                    <h3>Sign up </h3>
                     <div className={this.state.error ? "error" : "hidden"}>
                         {this.state.errorMessage}
                     </div>
@@ -57,8 +59,11 @@ class SignUpForm extends React.Component {
                         <div className="form-group">                            
                             <input className="form-control" placeholder="Password" name='password' type="password" value={this.state.password} onChange={this.handleInputChange} />
                         </div>
-                        <div className='signup-buts'>
-                            <button type="submit" className="signup-button" onClick={this.createUser}>
+                        <div className="form-group">                            
+                            <input className="form-control" placeholder="email" name='email' type="email" value={this.state.email} onChange={this.handleInputChange} />
+                        </div>
+                        <div className='signup-button1'>
+                            <button type="submit" className="signup-button2" onClick={this.createUser}>
                                 Submit
                             </button>
                             <Link to="/">

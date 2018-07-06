@@ -50,7 +50,7 @@ class Note extends Component {
         console.log("ID", this.props.match.params._id)
         return ( 
             this.state.delete ? (
-           <Redirect to="/" />
+           <Redirect to="/notes" />
          ) :  (                            
               
                 <Container>                        

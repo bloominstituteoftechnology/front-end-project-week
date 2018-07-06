@@ -19,7 +19,7 @@ class NewNote extends Component {
     } 
     submitNote = (event) => {
         console.log(this.props);
-        event.preventDefault();
+        event.preventDefault(); 
         const newNote = {
             title: this.state.title,
             content: this.state.content,          
@@ -30,13 +30,13 @@ class NewNote extends Component {
             content: '',
             submitted: true
         });
-     }
+     } 
     render() {
         
         return (
             this.state.submitted ? (
                 
-                    <Redirect to="/"/>            
+                    <Redirect to="/notes"/>            
             ) : (
                 <Container className="form-section">
                     <h3 className="heading">Create New Note: </h3>

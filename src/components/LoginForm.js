@@ -25,7 +25,9 @@ class LoginForm extends React.Component {
                     this.setState({
                         error: false
                     });
-                    this.props.history.push('/');
+                    setTimeout(() => {
+                        this.props.history.push('/notes');
+                    }, 200)
                 })
                 .catch(err => {
                     console.log(err)
@@ -58,7 +60,7 @@ class LoginForm extends React.Component {
                             <button type="submit" className="signup-button" onClick={this.login}>
                                 Login
                             </button>
-                            <Link to="/register">
+                            <Link to="/">
                                 <button className="home-button">
                                     Home
                                 </button>

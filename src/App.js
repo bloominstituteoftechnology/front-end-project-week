@@ -24,8 +24,8 @@ class App extends Component {
 
     componentDidMount() {
       const token = localStorage.getItem('token');
-      const header = { "headers": { "authorization": token } };
-      axios.get('http://localhost:5000/api/notes', header)
+      const headers = { "headers": { "authorization": token } };
+      axios.get('http://localhost:5000/api/notes', headers)
       .then(notes => {             
 
         this.setState({notes: notes.data })
@@ -37,7 +37,9 @@ class App extends Component {
     }
     SaveNote = (note) => {  
       // const notes = [...this.state.notes, note];
-      axios.post('http://localhost:5000/api/notes', note)
+      const token = localStorage.getItem('token');
+      const headers = { "headers": { "authorization": token } };
+      axios.post('http://localhost:5000/api/notes', note, headers)
       .then(notes => {
         console.log("New Note", note);
         this.setState({ notes: [...this.state.notes, note]});
@@ -54,13 +56,9 @@ handleEdit = (element) => {
 //      this.state.notes.splice(index, 1, element);
 //   }
 // })
-let token = localStorage.getItem('token');
-  let header = {
-    headers: {
-      Authorization: token
-    }
-  }
-axios.put(`http://localhost:5000/api/notes/${element._id}`, element, header)
+const token = localStorage.getItem('token');
+const headers = { "headers": { "authorization": token } };
+axios.put(`http://localhost:5000/api/notes/${element._id}`, element, headers)
 .then(result => {
   console.log("Result", result)
   this.setState({ notes: [...this.state.notes, result]});  
@@ -71,13 +69,9 @@ axios.put(`http://localhost:5000/api/notes/${element._id}`, element, header)
 })
  }
  handleDelete = (element) => {
-  let token = localStorage.getItem('token');
-  let header = {
-    headers: {
-      Authorization: token
-    }
-  }
-   axios.delete(`http://localhost:5000/api/notes/${element._id}`, header)
+  const token = localStorage.getItem('token');
+  const headers = { "headers": { "authorization": token } };
+   axios.delete(`http://localhost:5000/api/notes/${element._id}`, headers)
    .then(response => {
     console.log("Handle Delete res", element._id)
    })
@@ -87,13 +81,13 @@ axios.put(`http://localhost:5000/api/notes/${element._id}`, element, header)
  }
 
  logOut = () => {
-   this.setState({ notes: null});
+   this.setState({ notes: null});   
  }
   render() {
     return (
       <div className="App">
         <NavNotes />
-        <Route exact path="/" render={(props) => <Notes {...props} state={this.state} logout={this.logOut} />}/>
+        <Route path="/notes" render={(props) => <Notes {...props} state={this.state} logout={this.logOut} />}/>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={LogingForm} />
         <Route path="/register" component={SignUpForm} />
