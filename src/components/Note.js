@@ -12,7 +12,8 @@ class Note extends React.Component {
             edit: false,
             modal: false,
             success: null,
-            error: null
+            error: null,
+            timeout: null
         }
     }
     
@@ -28,6 +29,10 @@ class Note extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        clearTimeout(this.state.timeout);
+    }
+
     mountNote = noteId => {
         const note = this.props.notes.filter(note => note._id === noteId)[0];
         this.setState({
@@ -35,6 +40,22 @@ class Note extends React.Component {
             body: note.body,
             noteId: note._id
         })
+    }
+
+    timeoutSuccess = () => {
+        const success = setTimeout(() => {
+            this.setState({ success: null });
+        }, 3000);
+        this.setState({ timeout: success });
+    }
+
+    timeoutLogout = () => {
+        const logout = setTimeout(() => {
+            this.props.resetStore();
+            this.props.logOut();
+            this.props.history.push('/');
+        }, 4000);
+        this.setState({ timeout: logout });
     }
 
     handleChange = e => {
@@ -51,20 +72,14 @@ class Note extends React.Component {
                     error: null,
                     success: `Note updated!`
                 });
-                setTimeout(() => {
-                    this.setState({ success: null })
-                }, 3000); 
+                this.timeoutSuccess();
             })
             .catch(err => {
                 if (err.message.includes('401')) {
                     this.setState({
                         error: `Not Authorized. Please Log In.`
                     });
-                    setTimeout(() => {
-                        this.props.resetStore();
-                        this.props.logOut();
-                        this.props.history.push('/');
-                    }, 4000);
+                    this.timeoutLogout();
                 } else {
                     this.setState({
                         success: null,
@@ -86,15 +101,11 @@ class Note extends React.Component {
                     this.setState({
                         error: `Not Authorized. Please Log In.`
                     });
-                    setTimeout(() => {
-                        this.props.resetStore();
-                        this.props.logOut();
-                        this.props.history.push('/');
-                    }, 4000);
+                    this.timeoutLogout();
                 } else {
                     this.setState({
                         success: null,
-                        error: `Error updating note. Please try again.`
+                        error: `Error deleting note. Please try again.`
                     });
                 }
             });
