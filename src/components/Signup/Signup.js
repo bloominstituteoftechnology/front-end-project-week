@@ -33,7 +33,7 @@ class Signup extends Component {
                     this.props.history.push('/login');
                 })
                 .catch(error => {
-                    consoel.log('Error', error);
+                    console.log('Error', error);
                     // if (error.response.status === 400 && error.response.data[0] === 'firstname') {
                     //     this.setState({ firstnameError: error.response.data[1] });
                     // }
