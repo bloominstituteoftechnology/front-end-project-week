@@ -33,24 +33,25 @@ class Signup extends Component {
                     this.props.history.push('/login');
                 })
                 .catch(error => {
-                    if (error.response.status === 400 && error.response.data[0] === 'firstname') {
-                        this.setState({ firstnameError: error.response.data[1] });
-                    }
-                    else if (error.response.status === 400 && error.response.data[0] === 'lastname') {
-                        this.setState({ lastnameError: error.response.data[1] });
-                    }
-                    else if (error.response.status === 400 && error.response.data[0] === 'email') {
-                        this.setState({ emailError: error.response.data[1] });
-                    }
-                    else if (error.response.status === 400 && error.response.data[0] === 'username') {
-                        this.setState({ usernameError: error.response.data[1] });
-                    }
-                    else if (error.response.status === 400 && error.response.data[0] === 'password') {
-                        this.setState({ passwordError: error.response.data[1] });
-                    }
-                    else {
-                        console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
-                    }
+                    consoel.log('Error', error);
+                    // if (error.response.status === 400 && error.response.data[0] === 'firstname') {
+                    //     this.setState({ firstnameError: error.response.data[1] });
+                    // }
+                    // else if (error.response.status === 400 && error.response.data[0] === 'lastname') {
+                    //     this.setState({ lastnameError: error.response.data[1] });
+                    // }
+                    // else if (error.response.status === 400 && error.response.data[0] === 'email') {
+                    //     this.setState({ emailError: error.response.data[1] });
+                    // }
+                    // else if (error.response.status === 400 && error.response.data[0] === 'username') {
+                    //     this.setState({ usernameError: error.response.data[1] });
+                    // }
+                    // else if (error.response.status === 400 && error.response.data[0] === 'password') {
+                    //     this.setState({ passwordError: error.response.data[1] });
+                    // }
+                    // else {
+                    //     console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    // }
                 })
         }
     };
