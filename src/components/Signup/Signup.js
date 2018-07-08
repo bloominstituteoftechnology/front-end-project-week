@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import './Signup.css';
-require('dotenv').config();
 
 class Signup extends Component {
     constructor() {
@@ -29,33 +28,37 @@ class Signup extends Component {
             return;
         }
         else {
-            axios.post(process.env.sp, { firstname: this.state.firstname, lastname: this.state.lastname, email: this.state.email, username: this.state.username, password: this.state.password })
+            axios.post('https://lambda-notes0706.herokuapp.com/api/auth/signup', { firstname: this.state.firstname, lastname: this.state.lastname, email: this.state.email, username: this.state.username, password: this.state.password })
                 .then(response => {
                     this.props.history.push('/login');
                 })
                 .catch(error => {
-                    console.log('Error', error);
-                    // if (error.response.status === 400 && error.response.data[0] === 'firstname') {
-                    //     this.setState({ firstnameError: error.response.data[1] });
-                    // }
-                    // else if (error.response.status === 400 && error.response.data[0] === 'lastname') {
-                    //     this.setState({ lastnameError: error.response.data[1] });
-                    // }
-                    // else if (error.response.status === 400 && error.response.data[0] === 'email') {
-                    //     this.setState({ emailError: error.response.data[1] });
-                    // }
-                    // else if (error.response.status === 400 && error.response.data[0] === 'username') {
-                    //     this.setState({ usernameError: error.response.data[1] });
-                    // }
-                    // else if (error.response.status === 400 && error.response.data[0] === 'password') {
-                    //     this.setState({ passwordError: error.response.data[1] });
-                    // }
-                    // else {
-                    //     console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
-                    // }
+                    if (error.response.status) {
+                        if (error.response.status === 400 && error.response.data[0] === 'firstname') {
+                            this.setState({ firstnameError: error.response.data[1] });
+                        }
+                        else if (error.response.status === 400 && error.response.data[0] === 'lastname') {
+                            this.setState({ lastnameError: error.response.data[1] });
+                        }
+                        else if (error.response.status === 400 && error.response.data[0] === 'email') {
+                            this.setState({ emailError: error.response.data[1] });
+                        }
+                        else if (error.response.status === 400 && error.response.data[0] === 'username') {
+                            this.setState({ usernameError: error.response.data[1] });
+                        }
+                        else if (error.response.status === 400 && error.response.data[0] === 'password') {
+                            this.setState({ passwordError: error.response.data[1] });
+                        }
+                        else {
+                            console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                        }
+                    }
+                    else {
+                        console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    }
                 })
         }
-    };
+    }
 
     handleOnChange = (event) => {
         const { name, value } = event.target;
@@ -77,7 +80,7 @@ class Signup extends Component {
         else {
             this.setState({ [name]: value.replace(' ', '') });
         }
-    };
+    }
 
     render() {
         return (
