@@ -28,7 +28,7 @@ class Signup extends Component {
             return;
         }
         else {
-            axios.post('http://localhost:1433/api/auth/signup', { firstname: this.state.firstname, lastname: this.state.lastname, email: this.state.email, username: this.state.username, password: this.state.password })
+            axios.post('https://lambda-notes0706.herokuapp.com/api/auth/signup', { firstname: this.state.firstname, lastname: this.state.lastname, email: this.state.email, username: this.state.username, password: this.state.password })
                 .then(response => {
                     this.props.history.push('/login');
                 })

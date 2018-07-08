@@ -23,7 +23,7 @@ class CreateNote extends Component {
                 Authorization: token
             }
         }
-        axios.post(`http://localhost:1433/api/users/${localStorage.getItem('userId')}/notes`, { title: this.state.title, text: this.state.text }, requestOptions)
+        axios.post(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, { title: this.state.title, text: this.state.text }, requestOptions)
             .then(response => {
                 this.setState({ notes: response.data.notes });
             })
@@ -68,6 +68,6 @@ class CreateNote extends Component {
             </div>
         )
     }
-}; 
+};
 
 export default withRouter(CreateNote); 

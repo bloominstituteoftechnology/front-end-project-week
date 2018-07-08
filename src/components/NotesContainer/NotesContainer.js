@@ -21,7 +21,7 @@ class NotesContainer extends Component {
                 Authorization: token
             }
         }
-        axios.get(`http://localhost:1433/api/users/${localStorage.getItem('userId')}/notes`, requestOptions)
+        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, requestOptions)
             .then(response => {
                 this.setState({ username: response.data.username, notes: response.data.notes });
             })
@@ -37,7 +37,7 @@ class NotesContainer extends Component {
                 Authorization: token
             }
         }
-        axios.get(`http://localhost:1433/api/users/${localStorage.getItem('userId')}/notes`, requestOptions)
+        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, requestOptions)
             .then(response => {
                 this.setState({ username: response.data.username, notes: response.data.notes });
             })

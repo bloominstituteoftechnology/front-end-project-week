@@ -20,7 +20,7 @@ class Note extends Component {
                 Authorization: token
             }
         }
-        axios.get(`http://localhost:1433/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, requestOptions)
+        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, requestOptions)
             .then(response => {
                 this.setState({ note: response.data })
             })
@@ -40,7 +40,7 @@ class Note extends Component {
                 Authorization: token
             }
         }
-        axios.delete(`http://localhost:1433/api/users/${userId}/notes/${noteId}`, requestOptions)
+        axios.delete(`https://lambda-notes0706.herokuapp.com/api/users/${userId}/notes/${noteId}`, requestOptions)
             .then(response => {
                 this.props.history.push(`/${localStorage.getItem('userId')}`);
             })

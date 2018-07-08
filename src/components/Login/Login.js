@@ -15,7 +15,7 @@ class Login extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:1433/api/auth/login', { username: this.state.usernameOrEmail, email: this.state.usernameOrEmail, password: this.state.password })
+        axios.post('https://lambda-notes0706.herokuapp.com/api/auth/login', { username: this.state.usernameOrEmail, email: this.state.usernameOrEmail, password: this.state.password })
             .then(response => {
                 if (response.data.token) {
                     localStorage.setItem('jwt', response.data.token);
