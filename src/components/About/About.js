@@ -12,6 +12,6 @@ class About extends Component {
             </div>
         )
     }
-}; 
+};
 
 export default withRouter(About); 

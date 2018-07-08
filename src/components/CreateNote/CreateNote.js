@@ -23,19 +23,25 @@ class CreateNote extends Component {
                 Authorization: token
             }
         }
+        
         axios.post(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, { title: this.state.title, text: this.state.text }, requestOptions)
             .then(response => {
                 this.setState({ notes: response.data.notes });
             })
             .catch(error => {
-                if (error.response.status === 400 && error.response.data[0] === 'title') {
-                    this.setState({ titleError: error.response.data[1] });
-                }
-                else if (error.response.status === 400 && error.response.data[0] === 'text') {
-                    this.setState({ textError: error.response.data[1] });
+                if (error.response.status) {
+                    if (error.response.status === 400 && error.response.data[0] === 'title') {
+                        this.setState({ titleError: error.response.data[1] });
+                    }
+                    else if (error.response.status === 400 && error.response.data[0] === 'text') {
+                        this.setState({ textError: error.response.data[1] });
+                    }
+                    else {
+                        console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    }
                 }
                 else {
-                    console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    console.log(`Error: ${error}`);
                 }
             })
     }

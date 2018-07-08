@@ -21,6 +21,7 @@ class EditNote extends Component {
                 Authorization: token
             }
         }
+
         axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, requestOptions)
             .then(response => {
                 this.setState({ title: response.data.title, text: response.data.text })
@@ -51,22 +52,28 @@ class EditNote extends Component {
                 Authorization: token
             }
         }
+
         axios.put(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, { title: this.state.title, text: this.state.text }, requestOptions)
             .then(response => {
                 this.props.history.push(`/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`);
             })
             .catch(error => {
-                if (error.response.status === 400 && error.response.data[0] === 'title') {
-                    this.setState({ titleError: error.response.data[1] });
-                }
-                else if (error.response.status === 400 && error.response.data[0] === 'text') {
-                    this.setState({ textError: error.response.data[1] });
+                if (error.response.status) {
+                    if (error.response.status === 400 && error.response.data[0] === 'title') {
+                        this.setState({ titleError: error.response.data[1] });
+                    }
+                    else if (error.response.status === 400 && error.response.data[0] === 'text') {
+                        this.setState({ textError: error.response.data[1] });
+                    }
+                    else {
+                        console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    }
                 }
                 else {
-                    console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    console.log(`Error: ${error}`);
                 }
             })
-    };
+    }
 
     render() {
         return (

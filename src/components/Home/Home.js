@@ -12,6 +12,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 import './Home.css';
 
 class Home extends Component {
+
     render() {
         return (
             <div className='homeContainer'>
@@ -26,6 +27,6 @@ class Home extends Component {
             </div>
         )
     }
-}; 
+};
 
 export default withRouter(Home); 

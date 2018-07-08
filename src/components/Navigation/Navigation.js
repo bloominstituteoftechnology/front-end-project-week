@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import './Navigation.css';
 
 class Navigation extends Component {
+
     logout = () => {
         if (localStorage.getItem('jwt')) {
             localStorage.removeItem('jwt');
@@ -11,6 +12,7 @@ class Navigation extends Component {
             this.props.history.push('/');
         }
     }
+
     render() {
         return (
             <div className='navigation'>
@@ -21,6 +23,6 @@ class Navigation extends Component {
             </div>
         )
     }
-}; 
+};
 
 export default withRouter(Navigation); 

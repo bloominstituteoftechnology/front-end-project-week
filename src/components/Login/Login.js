@@ -36,10 +36,10 @@ class Login extends Component {
                     }
                 }
                 else {
-                    console.log(`Error: ${error}`); 
+                    console.log(`Error: ${error}`);
                 }
             })
-    };
+    }
 
     handleOnChange = (event) => {
         const { name, value } = event.target;
@@ -49,8 +49,8 @@ class Login extends Component {
         else {
             this.setState({ [name]: value, invalid: null });
         }
-    };
-
+    }
+    
     render() {
         return (
             <div className='login'>
