@@ -20,7 +20,7 @@ class Note extends Component {
                 Authorization: token
             }
         }
-        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, requestOptions)
+        axios.get(`${process.env.sr}/${localStorage.getItem('userId')}/${process.env.ns}/${this.props.match.params.noteId}`, requestOptions)
             .then(response => {
                 this.setState({ note: response.data })
             })
@@ -40,7 +40,7 @@ class Note extends Component {
                 Authorization: token
             }
         }
-        axios.delete(`https://lambda-notes0706.herokuapp.com/api/users/${userId}/notes/${noteId}`, requestOptions)
+        axios.delete(`${process.env.sr}/${userId}/${process.env.ns}/${noteId}`, requestOptions)
             .then(response => {
                 this.props.history.push(`/${localStorage.getItem('userId')}`);
             })
@@ -57,7 +57,7 @@ class Note extends Component {
         return (
             <div className='note'>
                 <div className='noteButtons'>
-                    <Link className='editLink' to={`/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}/editnote`}><span>edit</span></Link>
+                    <Link className='editLink' to={`/${localStorage.getItem('userId')}/${process.env.ns}/${this.props.match.params.noteId}/editnote`}><span>edit</span></Link>
                     <span onClick={this.toggle}>delete</span>
                 </div>
                 <h4>{title}</h4>
@@ -65,7 +65,7 @@ class Note extends Component {
                 <Modal className='popup' isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalBody className='popupBody'>Are you sure you want to delete this?</ModalBody>
                     <ModalFooter className='popupFooter'>
-                        <Link className='deleteLink' to={`/${localStorage.geti}`}><Button className='deleteButton' color='danger' onClick={() => this.removeNote(localStorage.getItem('userId'), this.props.match.params.noteId)}>Delete</Button></Link>
+                        <Link className='deleteLink' to={`/${localStorage.getItem('userId')}`}><Button className='deleteButton' color='danger' onClick={() => this.removeNote(localStorage.getItem('userId'), this.props.match.params.noteId)}>Delete</Button></Link>
                         <Button className='cancelButton' color='info' onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                 </Modal>
