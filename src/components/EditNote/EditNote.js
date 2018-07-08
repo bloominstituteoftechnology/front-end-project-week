@@ -12,7 +12,7 @@ class EditNote extends Component {
             text: '',
             textError: null,
         }
-    };
+    }
 
     componentWillMount() {
         const token = localStorage.getItem('jwt');
@@ -21,7 +21,7 @@ class EditNote extends Component {
                 Authorization: token
             }
         }
-        axios.get(`${process.env.sr}/${localStorage.getItem('userId')}/${process.env.ns}/${this.props.match.params.noteId}`, requestOptions)
+        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, requestOptions)
             .then(response => {
                 this.setState({ title: response.data.title, text: response.data.text })
             })
@@ -51,9 +51,9 @@ class EditNote extends Component {
                 Authorization: token
             }
         }
-        axios.put(`${process.env.sr}/${localStorage.getItem('userId')}/${process.env.ns}/${this.props.match.params.noteId}`, { title: this.state.title, text: this.state.text }, requestOptions)
+        axios.put(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`, { title: this.state.title, text: this.state.text }, requestOptions)
             .then(response => {
-                this.props.history.push(`/${localStorage.getItem('userId')}/${process.env.ns}/${this.props.match.params.noteId}`);
+                this.props.history.push(`/${localStorage.getItem('userId')}/notes/${this.props.match.params.noteId}`);
             })
             .catch(error => {
                 if (error.response.status === 400 && error.response.data[0] === 'title') {

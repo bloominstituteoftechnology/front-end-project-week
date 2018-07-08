@@ -23,7 +23,7 @@ class CreateNote extends Component {
                 Authorization: token
             }
         }
-        axios.post(`${process.env.sr}/${localStorage.getItem('userId')}/${process.env.ns}`, { title: this.state.title, text: this.state.text }, requestOptions)
+        axios.post(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, { title: this.state.title, text: this.state.text }, requestOptions)
             .then(response => {
                 this.setState({ notes: response.data.notes });
             })
@@ -64,7 +64,7 @@ class CreateNote extends Component {
                     {this.state.textError ? <div className='textError'>{this.state.textError}</div> : null}
                     <input className='submit' type='submit' value='Save' />
                 </form>
-                {this.state.notes.length > 0 ? <Redirect to={`/${localStorage.getItem('userId')}/${process.env.ns}/${this.state.notes[this.state.notes.length - 1]._id}`} /> : null}
+                {this.state.notes.length > 0 ? <Redirect to={`/${localStorage.getItem('userId')}/notes/${this.state.notes[this.state.notes.length - 1]._id}`} /> : null}
             </div>
         )
     }

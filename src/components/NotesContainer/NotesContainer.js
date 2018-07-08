@@ -12,7 +12,7 @@ class NotesContainer extends Component {
             username: '',
             notes: []
         }
-    };
+    }
 
     componentWillMount() {
         const token = localStorage.getItem('jwt');
@@ -21,14 +21,14 @@ class NotesContainer extends Component {
                 Authorization: token
             }
         }
-        axios.get(`${process.env.sr}/${localStorage.getItem('userId')}/${process.env.ns}`, requestOptions)
+        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, requestOptions)
             .then(response => {
                 this.setState({ username: response.data.username, notes: response.data.notes });
             })
             .catch(error => {
-                console.log(`Error: ${error}`)
+                console.log(`Error: ${error}`);
             })
-    };
+    }
 
     componentWillReceiveProps() {
         const token = localStorage.getItem('jwt');
@@ -37,14 +37,14 @@ class NotesContainer extends Component {
                 Authorization: token
             }
         }
-        axios.get(`${process.env.sr}/${localStorage.getItem('userId')}/${process.env.ns}`, requestOptions)
+        axios.get(`https://lambda-notes0706.herokuapp.com/api/users/${localStorage.getItem('userId')}/notes`, requestOptions)
             .then(response => {
                 this.setState({ username: response.data.username, notes: response.data.notes });
             })
             .catch(error => {
-                console.log(`Error: ${error}`)
+                console.log(`Error: ${error}`);
             })
-    };
+    }
 
     render() {
         if (!this.state.username) {
@@ -58,7 +58,7 @@ class NotesContainer extends Component {
                     {this.state.notes.length > 0 ?
                         this.state.notes.map(note => {
                             return (
-                                <Link className='link' key={note._id} to={`/${localStorage.getItem('userId')}/${process.env.ns}/${note._id}`}>
+                                <Link className='link' key={note._id} to={`/${localStorage.getItem('userId')}/notes/${note._id}`}>
                                     <Card>
                                         <CardBody>
                                             <CardTitle>{note.title}</CardTitle>

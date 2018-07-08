@@ -15,7 +15,7 @@ class Login extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        axios.post(process.env.lg, { username: this.state.usernameOrEmail, email: this.state.usernameOrEmail, password: this.state.password })
+        axios.post('https://lambda-notes0706.herokuapp.com/api/auth/login', { username: this.state.usernameOrEmail, email: this.state.usernameOrEmail, password: this.state.password })
             .then(response => {
                 if (response.data.token) {
                     localStorage.setItem('jwt', response.data.token);
@@ -24,14 +24,19 @@ class Login extends Component {
                 }
             })
             .catch(error => {
-                if (error.response.status === 401) {
-                    this.setState({ invalid: error.response.data });
-                }
-                else if (error.response.status === 400) {
-                    this.setState({ invalid: error.response.data[1] });
+                if (error.response.status) {
+                    if (error.response.status === 401) {
+                        this.setState({ invalid: error.response.data });
+                    }
+                    else if (error.response.status === 400) {
+                        this.setState({ invalid: error.response.data[1] });
+                    }
+                    else {
+                        console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    }
                 }
                 else {
-                    console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                    console.log(`Error: ${error}`); 
                 }
             })
     };
