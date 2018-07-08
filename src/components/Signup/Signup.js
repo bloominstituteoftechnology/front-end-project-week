@@ -54,7 +54,7 @@ class Signup extends Component {
                         }
                     }
                     else {
-                        console.log(`Error: ${error.response.status} ${error.response.data[1]}`);
+                        console.log(`Error: ${error}`);
                     }
                 })
         }
