@@ -8,6 +8,7 @@ const SideBar = props => (
         Lambda Notes
         <Button link='/' text='View Your Notes'/>
         <Button link='/newnote' text='+ Create New Note'/>
+        <Button text='Signout'/>
     </div>
 )
 

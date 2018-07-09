@@ -11,13 +11,7 @@ class NewNote extends Component {
         return (
             <div className='TemplateContainer'>
 
-
-
-                {/* <div className='TopText'>Create New Note:</div>
-                <input className='TopInput' placeholder='Note Title' />
-                <input className='BottomInput' placeholder='Note Content'/>
-                <Button link='/' text='Save' /> */}
- <Row>
+                 <Row>
                     <Col sm="12">
                         <Form onSubmit={this.saveNote} className="form">
                             <Input 
@@ -39,8 +33,6 @@ class NewNote extends Component {
                         </Form>
                     </Col>
                 </Row>
-
-
 
             </div>
         );
