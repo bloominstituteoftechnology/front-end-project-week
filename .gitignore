@@ -1,1 +1,5 @@
 .DS_Store
+notes/package.json
+notes/package-lock.json
+notes/public/manifest.json
+notes/src/registerServiceWorker.js
