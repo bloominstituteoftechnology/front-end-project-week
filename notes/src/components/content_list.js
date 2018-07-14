@@ -15,11 +15,19 @@ class NotesContent extends Component {
                         notes.map((note) => {
                             return (
                                 <div className="note">
+                                    <div className="note-options">
+                                        <div className="note-option option-delete">
+                                            Delete
+                                        </div>
+                                        <div className="note-option option-edit">
+                                            Edit
+                                        </div>
+                                    </div>
                                     <div className="title">
                                         {note.title}
                                     </div>
                                     <div className="description">
-                                        {note.description}
+                                        {note.desc}
                                     </div>
                                 </div>
                             )

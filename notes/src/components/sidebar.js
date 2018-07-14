@@ -47,10 +47,12 @@ class SideBar extends Component {
         return(
             <div className="sidebar">
                 <h2> Lambda Notes </h2>
-                <div className="sidebar nav">
+                <div className="sidebar-container">
                     <h3> Add A New Note  </h3>
                     <input onChange={this.updateTitleValue} name="title"/>
-                    <input  onChange={this.updateDescValue} name="description" />
+                    <br />
+                    <textarea  onChange={this.updateDescValue} name="description"> </textarea>
+                    <br />
                     <button className="nav-btn" onClick={this.createNote}>Add</button>                    
                 </div> 
             </div>
