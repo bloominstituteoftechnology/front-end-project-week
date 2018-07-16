@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   return (
-    <div>
-      <h2>SideBar</h2>
-    </div>
+    <Fragment>
+      <Link to="/">View Your Notes</Link>
+      <Link to="/notes/new">+ Create a New Note</Link>
+    </Fragment>
   );
 };
 
