@@ -5,8 +5,9 @@ class NotesForm extends React.Component {
         return (
             <form className='notes-form'>
                 <input className='note-title-field' type='text' placeholder='Note Title' />
-                <input className='note-content-field' type='text' placeholder='Note Content' />
-                <button className='main-buttons'>Save</button>
+                <textarea className='note-content-field' type='text' name='Text1' placeholder='Note Content' />
+
+                <button onClick={() => this.props.history.push('/')} className='main-buttons'>Save</button>
             </form>
         );
     }

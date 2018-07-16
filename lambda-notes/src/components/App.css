@@ -11,7 +11,7 @@ html {
   max-width: 889px;
   margin: 0 auto;
   border: 1px solid black;
-  height: 97vh;
+  height: 100vh;
 }
 
 .side-bar-container {
@@ -35,7 +35,7 @@ html {
 .main-buttons {
   background: #2BC1C4;
   color: #FFFFFF;
-  border: 1px solid black;
+  border: 1px solid grey;
   padding: 13px 5px;
   margin: 8.7px 0;
   font-weight: 700;
@@ -108,9 +108,17 @@ html {
   width: 58.5%;
   height: 43px;
   margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  font-size: 13px;
+  padding: 0px 12px;
 }
 
-.note-content-field {
+.note-content-field { 
   width: 99.3%;
   height: 347px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  font: 400 13px Arial;
+  padding: 19px 21px;
 }
