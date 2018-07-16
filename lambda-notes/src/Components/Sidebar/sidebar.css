@@ -26,6 +26,9 @@
     background: #2BC1C4;
     color: #FFFFFF;
     border: unset;
-    border: 2px #979797 solid;
+    border: 1px #979797 solid;
+    width: 85%;
+    margin: 0 7.5% 15px;
+    padding: 8px;
 
 }
