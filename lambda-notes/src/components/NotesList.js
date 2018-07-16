@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import Note from "./Note";
-import { notes } from "../data";
 
 class NotesList extends Component {
   render(props) {
@@ -12,7 +11,7 @@ class NotesList extends Component {
           {this.props.notes.map(note => {
             return (
                 <Link className='note-link'key={note.id} to={`/notes/${note.id}`}>
-              <Note title={note.title}  content={note.content} id={note.id}/>
+              <Note title={note.title}  content={note.content} note= {note} id={note.id}/>
               </Link>
             );
           })}

@@ -59,6 +59,10 @@ class App extends Component {
     
   };
 
+  handleDeleteNote = e => {
+    this.props.deleteNote(e.target.id);
+  }
+
   render() {
     return (
       <div className="App">
@@ -80,7 +84,8 @@ class App extends Component {
             />
           )}
         />
-        <Route path="/notes/:id" component={Note} />
+        <Route path="/notes/:id" render={props => <Note {...props} notes={this.state.notes} /> }
+        />
       </div>
     );
   }

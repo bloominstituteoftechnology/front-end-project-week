@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import {notes} from '../data.js';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
     const NoteForm = props => {
