@@ -55,19 +55,12 @@ html {
   font-size: 1.7rem;
 }
 
-.notes-card:nth-child(3n+3) {
-  margin-right: 0;
-}
-
 .notes-card {
   background: white;
   border: 1px solid black;
   cursor: pointer;
   width: 192px;
   height: 197px;
-  margin-left: 3px;
-  margin-right: 14px;
-  margin-bottom: 24px;
   padding: 9px 10px;
 }
 
@@ -124,4 +117,19 @@ html {
   border: 1px solid grey;
   font: 400 13px Arial;
   padding: 19px 21px;
+}
+
+.notes-card-link {
+  color: black;
+  text-decoration: none;
+  width: 192px;
+  height: 197px;
+  margin-left: 3px;
+  margin-right: 14px;
+  margin-bottom: 24px;
+}
+
+.notes-card-link:nth-child(3n+3) {
+  margin-right: 0;
+
 }
