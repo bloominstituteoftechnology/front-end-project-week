@@ -1,6 +1,8 @@
-
+import { notes } from '../data';
+import { GET_NOTES, ADDING_NOTE } from '../Actions';
 
 const initialState = {
+    notes: notes,
     editingContent: false,
     editingHeader: false,
     isUserLoggedIn: true,
@@ -11,3 +13,15 @@ const initialState = {
     displayingAllNotes: false,
     searchText: ''
 }
+const rootReducer = (state = initialState, action) => {
+  switch(action.type) {
+      case GET_NOTES:
+      return ({type: GET_NOTES});
+      case ADDING_NOTE:
+      return Object.assign({}, state, {notes: action.payload})
+      default:
+      return state;
+  }
+
+}
+export default rootReducer;

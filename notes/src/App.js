@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { connect } from 'react-redux';
 
 class App extends Component {
+  componentDidMount() {
+  
+  }
   render() {
     return (
       <div className="App">
-   
+      
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    state: state.notes,
+    searchText: state.searchText,
+
+  }
+}
+
+export default connect(mapStateToProps, {})(App);
