@@ -15,8 +15,8 @@ const initialState = {
 }
 const rootReducer = (state = initialState, action) => {
   switch(action.type) {
-      case GET_NOTES:
-      return ({type: GET_NOTES});
+    //   case GET_NOTES:
+    //   return console.log('getting notes')
       case ADDING_NOTE:
       return Object.assign({}, state, {notes: action.payload})
       default:

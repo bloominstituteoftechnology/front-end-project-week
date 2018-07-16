@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FlexDiv, MiniBox } from '../StyledComponents/StyledComponents';
 import { getNotes } from '../../Actions/';
+import MiniNote  from '../MiniNote/MiniNote';
 
 class NotesContainer extends Component {
     componentDidMount() {
@@ -11,10 +12,7 @@ class NotesContainer extends Component {
         return (
             <FlexDiv>
             {this.props.notes.map(note => {
-               return <MiniBox>
-                    <h1>{note.title}</h1>
-                    <p>{note.content}</p>
-                </MiniBox>
+               return <MiniNote note = {note}/>
             })}
             </FlexDiv>
         );
