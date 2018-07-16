@@ -11,14 +11,20 @@ class NotesList extends Component {
     render() {
         return (
             <div className='notes-container'>
-                <h1>Your Notes:</h1>
-                {this.props.notes.map(note => {
-                    return (
-                        <Link to={'/note/' + note._id} onClick={() => this.props.fetchNote(URL, note._id)}>
-                            <Note key={note._id} id={note._id} title={note.title} body={note.textBody} />
-                        </Link>
-                    )
-                })}
+               {this.props.fetchingNotes ? (
+                   <h1>... fetching notes ...</h1>
+               ) : (
+                <React.Fragment>
+                    <h1>Your Notes:</h1>
+                    {this.props.notes.map(note => {
+                        return (
+                            <Link to={'/note/' + note._id} onClick={() => this.props.fetchNote(URL, note._id)} key={note._id} >
+                                <Note title={note.title} body={note.textBody} />
+                            </Link>
+                        )
+                    })}
+                </React.Fragment>
+               )}
             </div>
         )
     }
@@ -27,6 +33,7 @@ class NotesList extends Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
+        fetchingNotes: state.fetchingNotes,
     }
 }
 
