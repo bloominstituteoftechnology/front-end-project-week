@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NotesList from './NotesList';
+import Menu from './Menu';
 import '../styles/App.css';
 
 const getURL = 'https://killer-notes.herokuapp.com/note/get/all';
@@ -13,9 +15,12 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <NotesList />
-      </div>
+        <Router>
+            <div className='App'>
+              <Route path='/' component ={Menu} />
+              <Route exact path='/' component={NotesList} />
+            </div>
+        </Router>
     );
   }
 }
