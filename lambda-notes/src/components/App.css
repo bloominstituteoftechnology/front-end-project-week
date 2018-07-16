@@ -32,7 +32,7 @@ html {
   margin: 14px 0;
 }
 
-.side-bar-buttons {
+.main-buttons {
   background: #2BC1C4;
   color: #FFFFFF;
   border: 1px solid black;
@@ -40,6 +40,7 @@ html {
   margin: 8.7px 0;
   font-weight: 700;
   cursor: pointer;
+  width: 191.22px;
 }
 
 .notes-container {
@@ -97,4 +98,19 @@ html {
 .create-notes-container {
   background: #F3F3F3;
   width: 100%;
+}
+
+.notes-form {
+  width: 100%;
+}
+
+.note-title-field {
+  width: 58.5%;
+  height: 43px;
+  margin-bottom: 15px;
+}
+
+.note-content-field {
+  width: 99.3%;
+  height: 347px;
 }
