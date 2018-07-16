@@ -4,6 +4,7 @@ import SideBar from './components/Sidebar';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
 import Notes from "./components/Notes";
+import CreateNote from './components/CreateNote';
 
 const URL = 'http://localhost:4444/notes';
 
@@ -26,11 +27,15 @@ class App extends Component {
       });
   }
 
+  updateNotes = data => this.setState({notes: data})
+
+
   render() {
     return (
       <div className="App">
         <SideBar />
         <Route exact path="/notes" render={(props) => <Notes {...props} notes={this.state.notes} />} />
+        <Route exact path="/create" render={(props) => <CreateNote {...props} addNote={this.addNote} notes={this.state.notes} updateNotes={this.updateNotes} />} />
       </div>
     );
   }
