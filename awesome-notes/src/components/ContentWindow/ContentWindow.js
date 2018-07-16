@@ -25,7 +25,7 @@ class ContentWindow extends React.Component {
     super(props);
     this.state = {
       possibleViews: ["note", "new", "edit", "list"],
-      currentView: "note",
+      currentView: "edit",
       deleteModalVisible: false,
       content: Sample,
       selectedNote: "01"
@@ -37,10 +37,12 @@ class ContentWindow extends React.Component {
         {this.state.currentView === "list" ? (
           <ListView content={this.state.content} />
         ) : null}
+        {/* un-hard-code-me */}
         {this.state.currentView === "note" ? (
           <NoteView selected={this.state.content[0]} />
         ) : null}
         {this.state.currentView === "new" ? <CreateNewView /> : null}
+        {/* un-hard-code-me */}
         {this.state.currentView === "edit" ? (
           <EditView selected={this.state.content[0]} />
         ) : null}

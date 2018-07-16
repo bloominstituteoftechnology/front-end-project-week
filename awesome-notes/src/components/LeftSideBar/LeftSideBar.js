@@ -19,6 +19,7 @@ const MainHeader = styled.h1`
   font-weight: bold;
   margin-left: 1rem;
   line-height: 3.5rem;
+  margin-top: 1rem;
 `;
 
 const LeftSideBar = () => {
