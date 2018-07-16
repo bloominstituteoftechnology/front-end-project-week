@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from './Button'
 
 const StyledSidebar = styled.div`
   position: fixed;
@@ -15,6 +16,8 @@ const StyledSidebar = styled.div`
 export default () =>
   <StyledSidebar>
     <h1>Lambda Notes</h1>
+    <Button>View Your Notes</Button>
+    <Button>+ Create New Note</Button>
   </StyledSidebar>
 
 
