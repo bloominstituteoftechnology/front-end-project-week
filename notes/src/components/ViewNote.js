@@ -40,7 +40,7 @@ class ViewNote extends React.Component {
   fetchNote = id => {
     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
     .then(response => {
-      console.log('booty', response.data);
+      console.log(response.data);
       this.setState({note: response.data})
     })
     .catch(err => {
@@ -48,10 +48,22 @@ class ViewNote extends React.Component {
     })
   }
 
+  deleteNote = id => {
+    console.log(id);
+    axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    .then(response => {
+      console.log("Delete response", response.data);
+      this.props.setData();
+      this.props.history.push("/")
+    })
+    .catch(err => {
+      console.log("err", err);
+    })
+  }
+
 
   render() {
-    console.log("State", this.state);
-    console.log("Note", this.state.note);
+    console.log(this.props);
     return (
     <div className="note-list">
       <div className="list-sidebar">
@@ -60,8 +72,8 @@ class ViewNote extends React.Component {
         <NavLink to="/create"><button className="sidebar-button">+ Create New Note</button></NavLink>
       </div>
       <div className="right-bar">
-        <p>Edit</p>
-        <p>Delete</p>
+        <a href="#">Edit     </a>
+        <a href="#" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</a>
         <h3 className="note-list-header">{this.state.note ? this.state.note.title : "Loading..."}</h3>
         <p>{this.state.note ? this.state.note.textBody : "Loading..."}</p>
       </div>

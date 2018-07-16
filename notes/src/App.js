@@ -26,7 +26,17 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       })
+  }
 
+  setData = () => {
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+        this.setState({notes: response.data})
+      })
+      .catch(err => {
+        console.log("Set Data failed:", err)
+      })
   }
 
   handleCreate() {
@@ -38,8 +48,9 @@ class App extends Component {
         <Route exact path='/' component={props => <NotesList {...props}
           notes={this.state.notes} />} />
         <Route exact path="/create" component={props => <CreateNote {...props}
-        handleCreate={this.handleCreate} />} />
-        <Route exact path="/notes/:id" component={ViewNote} />
+        handleCreate={this.handleCreate} setData={this.setData} />} />
+        <Route exact path="/notes/:id" component={props => <ViewNote {...props}
+        setData={this.setData} />} />
       </div>
     );
   }

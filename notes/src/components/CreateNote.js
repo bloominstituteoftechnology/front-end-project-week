@@ -21,7 +21,9 @@ class CreateNote extends React.Component {
     event.preventDefault();
     axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
     .then(response => {
-      console.log(response)
+      console.log(response);
+      this.props.setData();
+      this.props.history.push("/")
     })
     .catch(err => {
       console.log("Error is:", err);
