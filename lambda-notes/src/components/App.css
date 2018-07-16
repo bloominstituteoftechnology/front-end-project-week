@@ -101,6 +101,10 @@ button:hover {
   margin: 16px auto;
 }
 
+.Nav-buttons button:hover {
+  background: #979797;
+}
+
 /* ListView styles */
 .ListView-container {
   display: flex;
@@ -111,9 +115,8 @@ button:hover {
 .ListView-header {
   font-weight: bold;
   font-size: 20px;
-  margin: 100px auto 27px auto;
+  margin: 100px 0 27px 0;
   display: flex;
-  width: 286px;
 }
 
 .ListView-header h2 {
@@ -152,4 +155,70 @@ button:hover {
 
 .NoteView-note p {
   line-height: 30px;
+}
+
+/* CreateView styles */
+.CreateView-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 46px;
+}
+
+.CreateView-header, .CreateView-content {
+  margin: 8px 30px;
+}
+
+.CreateView-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 100px 0 27px 0;
+  display: flex;
+  width: 286px;
+}
+
+.CreateView-header h2 {
+  margin: 0;
+}
+
+.CreateView-content {
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.CreateView-content input, .CreateView-content textarea {
+  height: 62px;
+  border: 2px solid #979797;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  font-size: 20px;
+}
+
+.CreateView-content input {
+  width: 536px;
+  padding: 0 24px;
+}
+
+.CreateView-content textarea {
+  height: 512px;
+  width: 880px;
+  padding: 10px 32px;
+}
+
+.CreateView-buttons {
+  display: flex;
+}
+
+.CreateView-buttons button {
+  height: 62px;
+  width: 286px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  border: 2px solid #979797;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.CreateView-buttons button:hover {
+  background: #979797;
 }
