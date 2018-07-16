@@ -70,6 +70,8 @@
   padding: 13px 15px;
   margin: 20px 0;
   width: 28%;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Create Note Styles */
@@ -103,3 +105,6 @@
   margin: 20px 0;
   text-align: center;
 }
+
+/* View Note Styles */
+

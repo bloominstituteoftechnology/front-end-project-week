@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ListView = (props) => {
     return (
@@ -7,11 +8,11 @@ const ListView = (props) => {
             <ul className='note-list'>
                 {props.notes.map(note => {
                     return (
-                        <div key={Math.random()} className='note'>
+                        <Link to={`/view/${note.id}`} key={Math.random()} className='note'>
                             <h1>{note.title}</h1>
                             <hr />
                             <p>{note.content}</p>
-                        </div>    
+                        </Link>    
                     )
                 })}
             </ul>
