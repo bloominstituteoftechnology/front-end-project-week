@@ -14,7 +14,11 @@ class App extends Component {
     this.state = {
       notes: [
         { title: 'Note Title 1', content: 'Note Content 1'},
-        { title: 'Note Title 2', content: 'Note Content 2'}
+        { title: 'Note Title 2', content: 'Note Content 2'},
+        { title: 'Note Title 3', content: 'Note Content 3'},
+        { title: 'Note Title 4', content: 'Note Content 4'},
+        { title: 'Note Title 5', content: 'Note Content 5'},
+        { title: 'Note Title 6', content: 'Note Content 6'}
       ]
     }
   }

@@ -1,58 +1,19 @@
-/* CSS Reset */
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 /* Base App Styles */
 .App {
   text-align: left;
   display: flex;
   background: #F3F3F3;
+}
+.App p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #4A4A4A;
+}
+.App h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4A4A4A;
 }
 
 /* Banner Styles */
@@ -68,10 +29,8 @@ table {
   flex-direction: column;
   align-items: center;
 }
-.banner h2 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  color: #4A4A4A;
+.banner h1 {
+  font-size: 1.5rem;
   margin: 0;
   width: 90%;
   text-align: left;
@@ -83,6 +42,7 @@ table {
 }
 .banner .custom-button {
   text-decoration: none;
+  font-size: 1rem;
   border: 1px solid #2BC1C4;
   background: #2BC1C4;
   color: #FFFFFF;
@@ -94,5 +54,19 @@ table {
 
 /* List View Styles */
 .list-view {
-
+  width: 100%;
+  padding: 30px 15px;
+}
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.note {
+  border: 1px solid #979797;
+  background: white;
+  padding: 5px 8px;
+  margin: 20px 0;
+  width: 28%;
 }

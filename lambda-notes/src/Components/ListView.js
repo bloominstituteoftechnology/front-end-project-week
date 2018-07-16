@@ -3,12 +3,13 @@ import React from 'react';
 const ListView = (props) => {
     return (
         <div className='list-view'>
-            <h3>Your Notes:</h3>
-            <ul>
+            <h1>Your Notes:</h1>
+            <ul className='note-list'>
                 {props.notes.map(note => {
                     return (
-                        <div className='note'>
-                            <h5>{note.title}</h5>
+                        <div key={Math.random()} className='note'>
+                            <h1>{note.title}</h1>
+                            <hr />
                             <p>{note.content}</p>
                         </div>    
                     )

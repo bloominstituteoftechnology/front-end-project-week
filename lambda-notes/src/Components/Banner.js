@@ -5,8 +5,8 @@ const Banner = () => {
     return ( 
         <div className='banner'>
             <div className='header'>
-                <h2>Lambda</h2>
-                <h2>Notes</h2>    
+                <h1>Lambda</h1>
+                <h1>Notes</h1>    
             </div>
             
             <div className='banner-btn-list'>
