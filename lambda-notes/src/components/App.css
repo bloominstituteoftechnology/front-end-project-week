@@ -161,6 +161,8 @@ html {
 .delete-link {
   color: black;
   font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .note-header {

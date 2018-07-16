@@ -12,6 +12,9 @@ export const NOTE_CREATED = 'NOTE_CREATED';
 export const EDITING_NOTE = 'EDITING_NOTE';
 export const NOTE_EDITED = 'NOTE_EDITED';
 
+export const DELETING_NOTE = 'DELETING_NOTE';
+export const NOTE_DELETED = 'NOTE_DELETED';
+
 export const SET_NULL = 'SET_NULL';
 
 export const ERROR = 'ERROR';
@@ -49,6 +52,15 @@ export const editNote = note => {
     return dispatch => {
         dispatch({ type: EDITING_NOTE });
         promise.then(response => dispatch({ type: NOTE_EDITED, payload: response.data }))
+            .catch(err => dispatch({ type: ERROR, payload: err }));
+    }
+}
+
+export const deleteNote = id => {
+    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`);
+    return dispatch => {
+        dispatch({ type: DELETING_NOTE });
+        promise.then(dispatch({ type: NOTE_DELETED, payload: id }))
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }
