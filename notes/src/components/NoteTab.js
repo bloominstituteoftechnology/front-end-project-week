@@ -1,7 +1,5 @@
 import React from 'react';
 import '../App.css';
-import axios from 'axios';
-import ViewNote from './ViewNote';
 
 class NoteTab extends React.Component {
   constructor(props) {
