@@ -11,6 +11,7 @@ import {
 import { notesReducer } from "./reducers/reducer";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const composeEnhancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
