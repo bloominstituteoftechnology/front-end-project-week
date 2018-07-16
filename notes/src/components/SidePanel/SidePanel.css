@@ -1,0 +1,33 @@
+.side-panel-ctn {
+    border: 2px solid #979797;
+    height: 950px;
+    width: 250px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #d8d8d8;
+}
+
+.side-panel-ctn .nav-ctn .nav-text {
+    font-size: 3rem;
+    margin: 0 0;
+}
+
+.side-panel-ctn .nav-ctn {
+    display:flex;
+    flex-flow: column nowrap;
+    height: 275px;
+    justify-content: space-between;
+}
+
+.side-panel-ctn .nav-btn {
+    height: 50px;
+    font-size: 1.3rem;
+    font-family: 'Raleway', sans-serif;
+    color: #FFFFFF;
+    background-color: #2bc1c4;
+    border: 2px solid #979797;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
