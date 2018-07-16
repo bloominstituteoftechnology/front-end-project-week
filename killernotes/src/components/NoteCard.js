@@ -9,6 +9,10 @@ const Card = styled.div`
   margin: 8px;
   border: 1px solid #979797;
   background-color: white;
+  word-break: break-all;
+  > h2 {
+    font: Roboto;
+  }
 `;
 
 const NoteCard = props => {
@@ -16,7 +20,7 @@ const NoteCard = props => {
   if (textBody.length > 116) textBody = textBody.slice(0, 116) + ' ...';
   return (
     <Card>
-      {props.note.title}
+      <h2>{props.note.title}</h2>
       <hr />
       {textBody}
     </Card>

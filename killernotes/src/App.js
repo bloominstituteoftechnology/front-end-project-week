@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchData } from './actions';
 import SideBar from './components/SideBar';
@@ -13,9 +14,36 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SideBar />
-        {this.props.fetching ? <h1>Fetching the notes...</h1> : null}
-        <Notes notes={this.props.notes} />
+        <Route path="/" component={SideBar} />
+        <Route
+          path="/"
+          render={() =>
+            this.props.fetching ? (
+              <h1 style={{ marginLeft: '300px', fontSize: '30px' }}>
+                Fetching your notes...
+              </h1>
+            ) : null
+          }
+        />
+        <Route
+          exact
+          path="/"
+          render={() =>
+            this.props.fetched ? <Notes notes={this.props.notes} /> : null
+          }
+        />
+        {this.props.error ? (
+          <div
+            style={{
+              marginLeft: '300px',
+              color: 'red',
+              fontSize: '30px',
+              padding: '20px',
+            }}
+          >
+            {this.props.error}
+          </div>
+        ) : null}
       </div>
     );
   }

@@ -12,6 +12,10 @@ const SideBarDiv = styled.div`
   padding-top: 20px;
   background-color: #d8d8d8;
   border: 1px solid rgb(151, 151, 151);
+  > p {
+    font-family: Roboto;
+    font-size: 23px;
+  }
 `;
 
 const Button = styled.button`
@@ -21,7 +25,7 @@ const Button = styled.button`
 
 const SideBar = () => (
   <SideBarDiv>
-    Lambda Notes
+    <p>Lambda Notes</p>
     <Button>View Your Notes</Button>
     <Button>+Create New Note</Button>
   </SideBarDiv>
