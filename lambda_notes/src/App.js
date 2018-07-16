@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NotesContainer from './containers/NotesContainer';
 import Note from './components/Note';
+import NoteForm from './components/NoteForm';
 
 const StyledApp = styled.div`
   display: flex;
@@ -19,7 +20,8 @@ class App extends Component {
       <StyledApp>
         <Route path='/' component={NavBar} />
         <Route exact path='/' component={NotesContainer} />
-        <Route path="/:id" component={Note} />
+        <Route exact path='/notes/:id' component={Note} />
+        <Route path='/create' component={NoteForm} />
       </StyledApp>
     );
   }

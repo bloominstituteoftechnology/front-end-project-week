@@ -30,7 +30,7 @@ const NoteCard = props => {
     return(
 
             <StyledNoteCard>
-                <Link to={`/${props.note.id}`}
+                <Link to={`/notes/${props.note.id}`}
                     style={{ textDecoration: 'none', color: 'black' }}>
                     <StyledTitle>{props.note.title}</StyledTitle>
                     <StyledText>{props.note.textBody}</StyledText>

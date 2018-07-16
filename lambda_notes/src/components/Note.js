@@ -88,6 +88,7 @@ class Note extends Component {
     }
 
     render(){
+        console.log("match", this.state.match);
         return(
             <StyledNote>
                 <StyledButtons>
