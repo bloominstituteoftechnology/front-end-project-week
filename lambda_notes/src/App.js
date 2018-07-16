@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NotesContainer from './containers/NotesContainer';
+import Note from './components/Note';
 
 const StyledApp = styled.div`
   display: flex;
@@ -18,6 +19,7 @@ class App extends Component {
       <StyledApp>
         <Route path='/' component={NavBar} />
         <Route exact path='/' component={NotesContainer} />
+        <Route path="/:id" component={Note} />
       </StyledApp>
     );
   }
