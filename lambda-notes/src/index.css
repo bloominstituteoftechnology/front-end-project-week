@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.view-header{
+	font-family: Roboto Bold;
+	border-bottom: 1px solid #ebedf0;
+	text-align: left;
+	color: black;
+	height: 30px;
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+h2{
+}
