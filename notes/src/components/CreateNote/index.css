@@ -1,0 +1,27 @@
+.formCreate {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+}
+
+.saveButton {
+    max-width: 30%;
+    max-height: 40px;
+}
+.saveButton:hover {
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+.inputTitle {
+    max-width: 400px;
+    height: 40px;
+}
+.inputText {
+    max-width: 600px;
+    height: 250px;
+    text-align: left;
+}
+.inputField {
+    margin-bottom: 1rem;
+    border-radius: 0.1rem;
+}

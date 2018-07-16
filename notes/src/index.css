@@ -19,6 +19,11 @@ body {
 button {
   color: #FFFFFF;
   background-color: #2BC1C4;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  padding: 0.6rem 0;
+  border: none;
+  font-weight: 600;
 }
 a {
   text-decoration: none;
