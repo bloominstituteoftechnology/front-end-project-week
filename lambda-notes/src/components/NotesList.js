@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Note from "./Note";
 import { notes } from "../data";
 
@@ -10,7 +11,9 @@ class NotesList extends Component {
         <ul className="notes-list">
           {this.props.notes.map(note => {
             return (
-              <Note title={note.title} content={note.content} note={note} />
+                <Link className='note-link'key={note.id} to={`/notes/${note.id}`}>
+              <Note title={note.title}  content={note.content} id={note.id}/>
+              </Link>
             );
           })}
         </ul>
@@ -20,3 +23,4 @@ class NotesList extends Component {
 }
 
 export default NotesList;
+

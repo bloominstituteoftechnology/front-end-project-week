@@ -5,7 +5,6 @@
  color: #4A4A4A;
  margin: 0 auto;
  max-width: 800px;
- height:600px;
 }
 
 .nav {
@@ -28,29 +27,40 @@
   text-align: center;
 }
 
+.save-button{
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  border: 1px solid #979797;
+  width: 100px;
+  height:25px;
+}
+
 .notes-list-div {
   border: 1px solid red;
   background-color: #F3F3F3;
   width: 80%;
 }
 
-
+.note-link{
+  text-decoration: none;
+  display:flex;
+  flex-wrap: wrap;
+  width: 25%;
+  font-size: 12px;
+   padding: 2%;
+  margin: 2%;
+  border: 1px solid #979797;
+  color: #4A4A4A;
+  font-family: 'Raleway';
+}
 .notes-list {
   border: 1px solid blue;
   display:flex;
   flex-wrap: wrap;
   padding: 0;
-}
-
-.note-card {
-  border: 1px solid black;
- max-width: 25%;
- font-size: 12px;
-  padding: 2%;
- margin: 2%;
- border: 1px solid #979797;
 
 }
+
 
 /* Heading font: Roboto Bold
 Everything else font: Raleway Medium
