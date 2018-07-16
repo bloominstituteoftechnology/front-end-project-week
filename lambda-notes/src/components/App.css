@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Roboto Bold';
+}
+
+html {
+  font-size: 62.5%;
+}
+
 .App {
   text-align: center;
   max-width: 913px;
@@ -13,12 +21,26 @@
 .side-bar-container {
   display: flex;
   flex-direction: column;
+  background: #D8D8D8;
+  height: 100%;
   max-width: 220px;
-  border: 1px solid black;
+  border-right: 1px solid black;
   text-align: start;
-  padding: 0 13px;
+  padding: 0 13.9px;
+}
+
+.side-bar-header { 
+  font-size: 3.4rem;
+  line-height: 1;
+  margin: 14px 0;
 }
 
 .side-bar-buttons {
-  
+  background: #2BC1C4;
+  color: #FFFFFF;
+  border: 1px solid black;
+  padding: 13px 5px;
+  margin: 8.7px 0;
+  font-weight: 700;
+  cursor: pointer;
 }
