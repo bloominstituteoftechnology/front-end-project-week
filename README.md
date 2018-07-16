@@ -6,16 +6,20 @@ You are to treat this week as if you are working at a company and the instructor
 
 The main objective of this week is to develop the MVP feature set listed below using react and any other technologies you have learned here at Lambda School. There are design files in this repository you should use as a creative guide.
 
+# Trello Link
+
+[Logan's Trello Board](https://trello.com/b/M4h8NT46/lambda-notes-logan-wright)
+
 ## Git Commits
 
 - You are required to showcase progress with at least 1 commit a day. This will let your project manager know where you are and if you need help. This also allows the client to get progress reports from the company in a real world setting.
 
 ## Trello Set Up:
 
-- [ ] Create a Trello account
-- [ ] Create a new board called "Lambda Notes - {Your Name}"
-- [ ] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
-- [ ] Fill in the `To Do` list with the MVP features listed below
+- [x] Create a Trello account
+- [x] Create a new board called "Lambda Notes - {Your Name}"
+- [x] Create lists titled `backlog`,`To Do`, `In Progress`, and `Done`
+- [x] Fill in the `To Do` list with the MVP features listed below
 - [ ] Fill in the `backlog` list with all the extra features listed below
 - [ ] Share your board with the project manager that has been assigned to you. If you have not been assigned yet, reach out to your lead TA for guidance
 - [ ] Add your Trello URL to your project's README.md file. Commit the change, push it to your repository & submit a pull request
