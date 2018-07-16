@@ -9,7 +9,14 @@ class SideArea extends Component {
     render() { 
         return ( 
             <div className='sideArea'>
-                hi from side Area
+                <div className='sideHeader'>
+                    <h1 className='headings'>Lambda Notes</h1>
+                </div>
+                <div className='sideButtons'>
+                    <button className='sideButton'>View Your Notes</button>
+                    <button className='sideButton'>+ Create New Note</button>
+                </div>
+
             </div> );
     }
 }
