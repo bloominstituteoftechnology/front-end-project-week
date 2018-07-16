@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import Note from './Note';
+import {data} from '../data';
+
 
 class NotesList extends Component {
-    render() { 
+    render(props) { 
         return ( 
             <div>
                 <ul>
                     {this.props.notes.map(note => {
                         return (
                             <Note
-                                name={note.title}
-                                id={note.id}
+                            title={note.title}
                                 content={note.content}
                                 />
                         )

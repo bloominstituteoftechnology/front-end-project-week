@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import NotesList from "./components/NotesList";
+import {notes} from './data';
 import Nav from './components/Nav';
 
 class App extends Component {
@@ -14,11 +15,16 @@ class App extends Component {
      }
   }
 
+  componentDidMount() {
+    this.setState({notes: notes});
+  }
+
 
   render() { 
     return ( 
       <div>
-      <NotesList />
+      <NotesList
+      notes={this.state.notes} />
       </div>
      );
   }
