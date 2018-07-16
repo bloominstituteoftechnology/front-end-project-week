@@ -7,6 +7,12 @@ body {
   padding: 0;
   font-family: "Raleway", sans-serif;
   font-size: 1.6rem;
+  color: #4a4a4a;
+}
+
+button {
+  background-color: #2bc1c4;
+  color: #ffffff;
 }
 
 h1,
