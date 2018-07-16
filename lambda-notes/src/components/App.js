@@ -16,11 +16,11 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.notes);
+    console.log(this.props.fetching);
     return (
       <div className="App">
 
-        {this.props.fetching ? <div>Fetching Notes </div> :
+        {this.props.fetching ? <div>Fetching Notes</div> :
           <React.Fragment>
 
             <Route path='/' component={SideBarContainer} />
@@ -38,9 +38,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.data);
+  console.log(state.error);
   return {
     notes: state.notes,
-
     fetching: state.fetchingNotes
   }
 }
