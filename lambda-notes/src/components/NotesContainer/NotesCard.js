@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 const NotesCard = props => {
     return (
         <Link className='notes-card-link' to={`/notes/${props.note._id}`}>

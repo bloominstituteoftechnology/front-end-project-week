@@ -145,3 +145,27 @@ html {
   line-height: 1.5;
 }
 
+.note-links {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  margin: 19px 34px;
+}
+
+.edit-link {
+  margin-right: 12px;
+  color: black;
+  font-weight: bold;
+}
+
+.delete-link {
+  color: black;
+  font-weight: bold;
+}
+
+.note-header {
+  padding: 0px 27px;
+  margin-top: 23px;
+  font-size: 1.9rem;
+}
+
