@@ -8,8 +8,8 @@ class NotesList extends React.Component {
     <div className="note-list">
       <div className="list-sidebar">
         <h1>Lambda Notes</h1>
-        <button>View Your Notes</button>
-        <button>+ Create New Note</button>
+        <button className="sidebar-button">View Your Notes</button>
+        <button className="sidebar-button">+ Create New Note</button>
       </div>
       <div className="right-bar">
         <h3 className="note-list-header">Your Notes: </h3>

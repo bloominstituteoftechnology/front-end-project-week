@@ -10,43 +10,47 @@ class App extends Component {
     this.state = {
       notes: [
         {
-          title: 'Note 1',
-          body: 'nto ntoeo o teotn eo nto ntoeo o teotn eo nto ntoeo o teotn eo nto ntoeo o teotn eo'
+          title: 'Note Title',
+          body: 'Morbi pettenesque o teotn eo nto ntoeo o teotn eo nto ntoeo o teotn eo nto ntoeo o teotn eo'
         },
         {
-          title: 'Note 2',
+          title: 'Note Title',
           body: 'jgoi gjoaj ojgoa'
         },
         {
-          title: 'Note 3',
+          title: 'Note Title',
           body: 'uo oiutiot giouo oiutiot giouo oiutiot giouo oiutiot giouo oiutiot gio'
         },
         {
-          title: 'Note 4',
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         },
         {
-          title: 'Note 5',
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         }
         ,{
-          title: 'Note 6',
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         },
         {
-          title: 'Note 7',
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         },
         {
-          title: 'Note 7',
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         },
         {
-          title: 'Note 7',
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         },
         {
-          title: 'Note 7',
+          title: 'Note Title',
+          body: 'uo oiutiot gio'
+        },
+        {
+          title: 'Note Title',
           body: 'uo oiutiot gio'
         }
       ]
