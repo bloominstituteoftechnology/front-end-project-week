@@ -1,5 +1,81 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
   font-family: sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+}
+
+.noteList {
+  border: 2px solid red;
+}
+
+.noteCard {
+  border: 2px solid black;
+  width: 280px;
+  height: 270px;
+  display: flex;
+  justify-content: space-around;
+  margin: 1% 0.1%;
+  overflow: hidden;
+  background-color: white;
+  text-align: center;
+}
+
+.yourNotes {
+  margin-left: 2.5%;
+}
+
+.cardTitle {
+  display: inline-block;
+  border-bottom: 1px solid black;
+}
+
+.noteList-container {
+  display: flex;
+  border: 2px solid green;
+  background-color: #f2f1f2;
+}
+
+.notes {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  border: 1px solid black;
+  padding: 6% 0%;
+  text-align: center;
+  background-color: #55b9bd;
+  color: white;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.createNote-btn {
+  margin-top: 12%;
+}
+
+.sideNav {
+  width: 750px;
+  background-color: #d3d2d3;
 }
