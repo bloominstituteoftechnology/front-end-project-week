@@ -38,9 +38,20 @@ export default {
       width: '220px',
       padding: '22px 15px',
       headingFontSize: '36px',
-      headingMargin: '0 0 20px 0',
+      headingMargin: '0 0 15px 0',
       headingLineHeight: `${30 / 36}`,
       borderWidth: '1px',
     },
+    notePreview: {
+      width: '195px',
+      height: '200px',
+      padding: ' 15px 18px',
+      borderWidth: '1px',
+      headingFontSize: '18px',
+      headingPadding: '0 0 4px 0',
+      textPadding: '10px 0 4px 0',
+      textFontSize: '12px',
+      textLineHeight: '2',
+    }
   }
 }
