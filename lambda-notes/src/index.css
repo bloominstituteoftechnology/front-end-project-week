@@ -5,6 +5,8 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow: hidden;
   font-family: 'Raleway Medium', Helvetica, sans-serif;
   color: #4A4A4A;
   background: #F3F3F3;
