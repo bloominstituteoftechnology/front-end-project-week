@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ViewHeader from './components/ViewNotes/ViewHeader';
+import ViewNotesContainer from './components/ViewNotes/ViewNotesContainer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      	<ViewHeader />
+      	<ViewNotesContainer />
 	    
       </div>
     );

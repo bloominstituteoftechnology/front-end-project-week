@@ -4,15 +4,50 @@ body {
   font-family: sans-serif;
 }
 
+.view-list-body{
+	margin: 15px 10px 0px 10px;
+	border: 1px solid gray;
+}
+
+
+.left-div{
+	width: 200px;
+	background-color: #D8D8D8;
+	height: 1000px;
+
+}
+
+.lambda-notes-header{
+	text-align: left;
+	color: #4A4A4A;
+	margin-left: 8px;
+}
+
+.teal-div{
+	height: 30px;
+	width: 180px;
+	border: 1px solid #979797;
+	background-color: #30B8BC;
+	margin-bottom: 4%;
+	margin-left: 8px;
+	color: #fff;
+	font-size: 0.8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .view-header{
 	font-family: Roboto Bold;
-	border-bottom: 1px solid #ebedf0;
+	border-bottom: 1px solid #EBEDF0;
 	text-align: left;
 	color: black;
-	height: 30px;
+	height: 40px;
 	vertical-align: middle;
 	margin-right: 10px;
 	margin-left: 10px;
+	display: flex;
+        align-items: center;
 }
 
 h2{
