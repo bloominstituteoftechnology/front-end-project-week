@@ -11,6 +11,7 @@ import {
 import { notesReducer } from "./reducers/reducer";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const composeEnhancers =
@@ -23,7 +24,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
