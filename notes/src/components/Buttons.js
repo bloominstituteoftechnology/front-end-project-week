@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Buttons extends React.Component {
   constructor() {
@@ -13,7 +14,9 @@ class Buttons extends React.Component {
       <div>
         <h2>Lambda Notes</h2>
         <Button>View Your Notes</Button>
-        <Button>+ Create New Note</Button>
+        <Link exact to="/create">
+          <Button>+ Create New Note</Button>
+        </Link>
       </div>
     );
   }
