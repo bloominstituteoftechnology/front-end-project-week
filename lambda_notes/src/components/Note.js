@@ -8,18 +8,20 @@ const StyledNote = styled.div`
     background: #F3F3F3;
     width: 100%;
     padding: 2%;
-    align-items: flex-end;
+    align-items: flex-start;
 `;
 
 const StyledButtons = styled.div`
     display: flex;
-    align-self: flex-end;
+    justify-content: flex-end;
     width: 100%;
 `;
 
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: black;
+    border-bottom: 1px solid black;
+    margin: 1%;
 `;
 
 class Note extends Component {
@@ -68,14 +70,12 @@ class Note extends Component {
     }
 
     componentDidMount(){
-        console.log("ComponentDidMount");
         const id = this.state.match.params.id;
         this.setState({id: id});
         this.getNote(id);
     }
 
     componentWillReceiveProps(newProps){
-        console.log("componentWillREeiveProps");
         if(this.state.id !== newProps.match.params.id){
             this.getNote(newProps.match.params.id);
         }
@@ -83,13 +83,11 @@ class Note extends Component {
 
     getNote = id => {
         const note = this.state.notes.filter(note => note.id === Number(id));
-        console.log("Note", note);
         this.setState({currentNote: note[0]});
 
     }
 
     render(){
-        console.log("currentNote: ", this.state.currentNote);
         return(
             <StyledNote>
                 <StyledButtons>
