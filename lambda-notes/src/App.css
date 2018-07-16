@@ -5,6 +5,7 @@
  color: #4A4A4A;
  margin: 0 auto;
  max-width: 800px;
+ height:600px;
 }
 
 .nav {
@@ -14,6 +15,18 @@
   width: 20%;
 }
 
+.nav-button {
+  background-color: #2BC1C4;
+  color: #FFFFFF;
+  border: 1px solid #979797;
+  width: 80%;
+  height: 15px;
+  margin: 5%;
+  padding: 4%;
+  padding-top: 5%;
+  font-size: 10px;
+  text-align: center;
+}
 
 .notes-list-div {
   border: 1px solid red;
@@ -26,6 +39,7 @@
   border: 1px solid blue;
   display:flex;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 .note-card {
