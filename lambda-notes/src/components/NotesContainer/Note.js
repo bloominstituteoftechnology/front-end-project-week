@@ -16,8 +16,8 @@ class Note extends React.Component {
 
     render() {
         return (
-   
                 <div className='note-container'>
+                
                     <div className='note-links'>
                         <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
                         <Link className='delete-link' to='/delete'>delete</Link>
@@ -27,7 +27,6 @@ class Note extends React.Component {
                     <p className='notes-paragraph'>{this.props.note.textBody}</p>
 
                 </div>
-       
         );
     }
 }

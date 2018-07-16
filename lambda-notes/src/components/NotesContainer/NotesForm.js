@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote } from '../../actions';
+import { addNote, editNote } from '../../actions';
 
 class NotesForm extends React.Component {
     constructor(props) {
@@ -24,12 +24,20 @@ class NotesForm extends React.Component {
         this.setState({ title: '', content: '' });
     }
 
+    editNote = () => {
+        const note = { title: this.state.title, textBody: this.state.content, id: this.props.id}
+
+        this.props.editNote(note);
+        this.props.history.push('/notes')
+        this.setState({ title: '', content: '' });
+    }
+
     render() {
         return (
             <form className='notes-form' onSubmit={event => event.preventDefault()}>
                 <input className='note-title-field' onChange={this.handleInput} value={this.state.title} name='title' type='text' placeholder='Note Title' />
                 <textarea className='note-content-field' onChange={this.handleInput} value={this.state.content} name='content' type='text' placeholder='Note Content' />
-                <button onClick={this.addNote} className='main-buttons'>Save</button>
+                <button onClick={this.editNote} className='main-buttons'>Save</button>
             </form>
         );
     }
@@ -41,4 +49,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addNote })(NotesForm);
+export default connect(mapStateToProps, { addNote, editNote })(NotesForm);
