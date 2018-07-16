@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-.card-body-title{
+.card-body-title, .new-note-title{
 	text-align: left;
 	color: #4A4A4A;
 	font-size: 1.2rem;
@@ -12,11 +12,17 @@ body {
 }
 
 
+.new-note-title{
+	   margin: 30px 0px 20px 25px;
+
+}
+
 .notes-card-container{
 	/*display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;*/
 	background-color: #F3F3F3;
+	width: 100%;
 }
 
 
@@ -30,6 +36,37 @@ body {
 	
 }
 
+.title-style{
+	width: 400px;
+	height: 30px;
+	border: 1px solid #979797;
+	margin: 0px 0px 1px 25px;
+	padding-left: 4px;
+	font-size: 0.8rem;
+}
+
+.content-style{
+	width: 500px;
+        height: 300px;
+	border: 1px solid #979797;
+        margin: 0px 0px 1px 25px;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: flex-start!important;
+}
+
+.create-note-body{
+	margin: 15px 10px 0px 10px;
+        border: 1px solid #979797;
+        display: flex;
+}
+
+.input-container{
+display: flex;
+flex-direction: column;
+
+
+}
 
 .view-list-body{
 	margin: 15px 10px 0px 10px;
@@ -53,7 +90,8 @@ body {
 	margin: 15px 0px 20px  8px;
 }
 
-.teal-div{
+
+.teal-div, .save-btn{
 	text-decoration: none;
 	height: 35px;
 	width: 160px;
@@ -68,6 +106,17 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.save-btn{
+	margin: 0px 0px 1px 25px;
+}
+
+
+.teal-div:hover{
+	text-decoration: none;
+}
+
+
 
 .view-header-container{
 	font-family: Roboto Bold;
