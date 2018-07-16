@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ViewNotesContainer from './components/ViewNotes/ViewNotesContainer';
+import CreateNoteContainer from './components/CreateNotes/CreateNoteContainer';
 import './App.css';
 import {Route, Link} from 'react-router-dom';
 import axios from "axios";
@@ -24,12 +25,17 @@ componentDidMount() {
       });
   }
 
+addNoteHandler = data =>{
+	 this.setState({ notes: data });
+};
+
+
 	
 render() {
     return (
       <div className="App">
-      	<Route  path="/" render={(props) => <ViewNotesContainer {...props} notes={this.state.notes} />} />
-	    
+      	<Route  exact path="/" render={(props) => <ViewNotesContainer {...props} notes={this.state.notes} />} />
+        <Route exact path="/createnewnote" render={(props) => <CreateNoteContainer {...props} addNoteHandler={this.addNoteHandler} notes={this.state.notes} />} />	    
       </div>
     );
   }

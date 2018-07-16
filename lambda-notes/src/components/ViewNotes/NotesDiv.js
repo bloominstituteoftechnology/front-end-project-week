@@ -10,8 +10,8 @@ const NotesDiv = (props) => {
 	<h3 className="card-body-title">Your Notes:</h3>
 	<CardDeck>{props.notes.map(note =>{
       return(	
-	<div>
-	<Card className="note-card" key={note.id}>
+	<div key={note.title}>
+	<Card className="note-card">
 	  <CardBody>
           <CardTitle>{note.title}</CardTitle>
           <CardSubtitle></CardSubtitle>

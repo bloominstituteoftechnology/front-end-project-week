@@ -6,7 +6,6 @@ const ViewNotesContainer = (props) => {
 
 	return(
 		<div>
-		<ViewHeader />
 		<ViewNotesBody notes={props.notes}/>
 		</div>
 	
