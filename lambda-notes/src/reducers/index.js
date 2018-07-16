@@ -1,11 +1,14 @@
-import { FETCHING_NOTES, NOTES_FETCHED, CREATING_NOTE, NOTE_CREATED, ERROR } from '../actions';
+import { FETCHING_NOTES, NOTES_FETCHED, FETCHING_NOTE, NOTE_FETCHED, CREATING_NOTE, NOTE_CREATED, ERROR } from '../actions';
 
 const initialState = {
     fetchingNotes: false,
     notesFetched: false,
+    fetchingNote: false,
+    noteFetched: false,
     creatingNote: false,
     noteCreated: false,
     notes: [],
+    note: [],
     error: null
 }
 
@@ -16,6 +19,12 @@ export default (state = initialState, action) => {
 
         case NOTES_FETCHED:
             return { ...state, notes: action.payload, fetchingNotes: false, notesFetched: true };
+
+        case FETCHING_NOTE:
+            return { ...state, fetchingNote: true };
+
+        case NOTE_FETCHED:
+            return { ...state, note: action.payload, fetchingNote: false, noteFetched: true };
 
         case CREATING_NOTE:
             return { ...state, creatingNote: true };

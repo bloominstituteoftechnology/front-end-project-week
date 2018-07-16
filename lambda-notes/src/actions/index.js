@@ -3,6 +3,9 @@ import axios from 'axios';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const NOTES_FETCHED = 'NOTES_FETCHED';
 
+export const FETCHING_NOTE = 'FETCHING_NOTE';
+export const NOTE_FETCHED = 'NOTE_FETCHED';
+
 export const CREATING_NOTE = 'CREATING_NOTE';
 export const NOTE_CREATED = 'NOTE_CREATED';
 
@@ -13,6 +16,15 @@ export const getNotes = () => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise.then(response => dispatch({ type: NOTES_FETCHED, payload: response.data }))
+            .catch(err => dispatch({ type: ERROR, payload: err }));
+    }
+}
+
+export const getNote = id => {
+    const promise = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`);
+    return dispatch => {
+        dispatch({ type: FETCHING_NOTE });
+        promise.then(response => dispatch({ type: NOTE_FETCHED, payload: response.data }))
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }

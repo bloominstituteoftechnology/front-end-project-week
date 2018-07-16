@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom';
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import Note from './NotesContainer/Note';
 
 class App extends Component {
   componentDidMount() {
@@ -19,9 +20,12 @@ class App extends Component {
 
         {this.props.fetching ? <div>Fetching Notes </div> :
           <React.Fragment>
+
             <Route path='/' component={SideBarContainer} />
-            <Route exact path='/' render={props => <NotesContainer {...props} notes={this.props.notes} />} />
+            <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} />} />
+            <Route path='/notes/:id' component={Note} />
             <Route path='/create' component={CreateNotesContainer} />
+            
           </React.Fragment>
         }
 
