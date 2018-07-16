@@ -11,13 +11,9 @@ class Notes extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="cards">
         {this.props.notes.map(note => {
-          return (
-            <div>
-              <Note note={note} />
-            </div>
-          );
+          return <Note note={note} />;
         })}
       </div>
     );

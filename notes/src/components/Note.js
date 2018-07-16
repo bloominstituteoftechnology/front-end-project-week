@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, CardTitle, CardText } from "reactstrap";
 
 class Note extends React.Component {
   constructor() {
@@ -9,9 +10,12 @@ class Note extends React.Component {
   }
   render() {
     return (
-      <div>
-        <p>{this.props.note.title}</p>
-        <p>{this.props.note.body}</p>
+      <div className="ind-card">
+        <Card>
+          <CardTitle>{this.props.note.title}</CardTitle>
+          <hr />
+          <CardText>{this.props.note.body}</CardText>
+        </Card>
       </div>
     );
   }
