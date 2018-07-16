@@ -1,10 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 
-export default styled.main`
-  height: 100vh;
-  width: 80%;
-  padding: 50px;
+export default styled.div`
   display: flex;
   flex-wrap: wrap;
 `

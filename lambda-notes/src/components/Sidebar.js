@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import { Link } from 'react-router-dom'
 
 const StyledSidebar = styled.div`
   height: 100vh;
@@ -12,8 +13,12 @@ const StyledSidebar = styled.div`
 export default () =>
   <StyledSidebar>
     <h1>Lambda Notes</h1>
-    <Button>View Your Notes</Button>
-    <Button>+ Create New Note</Button>
+    <Link to='/'>
+      <Button>View Your Notes</Button>
+    </Link>
+    <Link to='/new'>
+      <Button>+ Create New Note</Button>
+    </Link>
   </StyledSidebar>
 
 
