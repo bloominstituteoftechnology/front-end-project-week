@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import List from '../List';
 
-class ListView extends Component {
-  render() {
-    return (
-      <div className="list-view">
-      </div>
-    );
-  }
-}
+const ListView = props => {
+  return (
+    <main className="list-view">
+      <h2 className="list-view__title">Your Notes:</h2>
+      <List notes={props.notes} />
+    </main>
+  );
+};
 
 export default ListView;
