@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Form from '../Form';
 
-class CreateNewView extends Component {
-  render() {
-    return (
-      <main className="create-new-view">
-      </main>
-    );
-  }
-}
+const CreateNewView = props => {
+  return (
+    <main className="create-new-view">
+      <h2>Create New Note:</h2>
+      <Form buttonText='Save' onSubmitNote={props.onSubmitNote} />
+    </main>
+  );
+};
 
 export default CreateNewView;

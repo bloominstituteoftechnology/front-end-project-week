@@ -25,7 +25,7 @@ h1 {
   letter-spacing: .22rem;
 }
 
-.link {
+button, .link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,6 +33,7 @@ h1 {
   margin: 0 0 20px 0;
   padding: 13px;
   border: 1px #979797 solid;
+  border-radius: 3px;
   background-color: #2bc1c4;
   font-family: 'Roboto', sans-serif;
   font-weight: 700; 
@@ -40,9 +41,16 @@ h1 {
   text-decoration: none;
 }
 
+button {
+  max-width: 190px;
+  width: 100%;
+  outline: 0;
+  font-size: 1.6rem;
+}
+
 main {
   grid-area: main;
-  padding: 60px 12px 27px;
+  padding: 60px 12px 27px 27px;
   background-color: #f3f3f3;
 }
 
@@ -89,6 +97,33 @@ h2 {
   text-overflow: ellipsis;
   overflow: hidden;
 } 
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 0 13px 0;
+  padding: 15px;
+  border: 1px #979797 solid;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+textarea {
+  max-width: 610px;
+  width: 100%;
+  margin: 0 0 13px 0;
+  height: 345px;
+  padding: 15px;
+  border: 1px #979797 solid;
+  border-radius: 3px;
+  background-color: #fff;
+  resize: none;
+}
 
 /*
 

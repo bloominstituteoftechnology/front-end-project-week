@@ -18,6 +18,17 @@ class App extends Component {
     };
   }
 
+  onAddNote = note => {
+    axios
+    .post(API_URL, note)
+    .then(response => {
+      console.log('posted', response);
+      this.setState({ notes: response.data});
+      window.location.href = '/';
+    })
+    .catch(error => console.log(error));    
+  }
+
   componentDidMount() {
     axios.get(API_URL)
     .then(response => {
@@ -34,7 +45,7 @@ class App extends Component {
       <div className="app">
         <Route path="/" render={(props) => <Nav {...props} />} />
         <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
-        <Route exact path="/create" render={(props) => <CreateNewView {...props} />} />
+        <Route exact path="/create" render={(props) => <CreateNewView {...props} onSubmitNote={this.onAddNote} />} />
         <Route exact path="/edit/:noteID" render={(props) => <EditView {...props} />} />
         <Route exact path="/note/:noteID" render={(props) => <NoteView {...props} />} />
       </div>
