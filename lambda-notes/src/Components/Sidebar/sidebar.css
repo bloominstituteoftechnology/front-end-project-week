@@ -1,0 +1,31 @@
+.sidebar-container {
+    background: #D8D8D8;
+    width: 20%;
+    height: 1024px;
+    border-right: 1px #979797 solid;
+}
+
+.title {
+    color: #4A4A4A;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-left: 4%;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.title h1 {
+    margin: unset;
+    font-family: 'Roboto', sans-serif;
+    line-height: 0.90;
+}
+
+.sidebar-button {
+    font-family: 'Raleway', sans-serif;
+    background: #2BC1C4;
+    color: #FFFFFF;
+    border: unset;
+    border: 2px #979797 solid;
+
+}
