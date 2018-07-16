@@ -8,22 +8,25 @@ class ViewNote extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            note: {
-            content: '',
+            title: '',
+            body: '',
             id: this.props.id
-            }
         }
     }
 
     render() {
         return (
+            <div> 
+                <Sidebar />
             <div className="ViewNote">
-            <Sidebar />
             <h3>{this.props.title}</h3>
-            <p>{this.props.content}</p>    
+            <p>{this.props.body}</p>    
+            </div>
             </div>
         )
     }
 }
+
+
 
 export default ViewNote;

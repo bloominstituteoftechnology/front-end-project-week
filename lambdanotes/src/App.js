@@ -1,21 +1,46 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
+import { data } from './NoteData';
+// import Sidebar from './components/Sidebar';
 import NoteList from './components/NoteList';
-// import CreateNote from './components/CreateNote';
 import ViewNote from './components/ViewNote';
-// import EditNote from './components/EditNote';
 import './App.css';
+// import axios from 'axios';
+
+// const URL = "http://localhost:3000/"
+
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      notes: []
+    }
+  }
+
+  // handleSetData = () => {
+  //   axios
+  //   .get(URL)
+  //   .then(response => {
+  //     console.log("GET RESPONSE: ", response);
+  //     this.setState({ notes: response.data });
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //   });
+  // }
+
+  componentDidMount() {
+    this.setState({ notes: data })
+  }
+
   render() {
     return (
       <div className="App">
-      <Sidebar />
-      <Route exact path='/' component={NoteList} />
-      {/* <Route exact path='/createNote' component={CreateNote} /> */}
-      <Route exact path='/viewNote/:id' component={ViewNote} />
-      {/* <Route exact path='/editNote/:id' component={EditNote} /> */}
+      {/* <Route exact path='/' component={NoteList} /> */}
+      {this.state.notes.map(note => {
+        return <NoteList key={note.id} note={note} /> 
+      })}
       </div>
     );
   }

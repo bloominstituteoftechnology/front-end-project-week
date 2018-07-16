@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Sidebar from './Sidebar';
 
 const URL = "http://localhost:3000/"
 
@@ -9,7 +10,7 @@ constructor(props) {
     super(props)
     this.state = {
         title: '',
-        note: '',
+        body: '',
     }
 }
 
@@ -17,7 +18,7 @@ createNote = e => {
     e.preventDefault();
     const newNote = {
         title: this.state.title,
-        note: this.state.note
+        body: this.state.body
     };
 axios
 .post(URL, newNote)
@@ -30,7 +31,7 @@ axios
     })
     this.setState({
         title: '',
-        note: ''
+        body: ''
 });
 }
 
@@ -41,18 +42,21 @@ handleInputChange = e => {
 render() {
     return (
         <div className="NoteForm">
+        <Sidebar />
+        <h1>Create New Note:</h1>
         <input
             onChange={this.handleInputChange}
-            placeholder="Title"
+            placeholder="Note Title"
             value={this.state.title}
             name="title"
           />
           <input
             onChange={this.handleInputChange}
-            placeholder="Note"
-            value={this.state.note}
-            name="note"
+            placeholder="Note Content"
+            value={this.state.body}
+            name="body"
           />
+          <button>Save</button>
           </div>
     )
 }

@@ -10,7 +10,7 @@ constructor(props) {
     this.state = {
         note: {
         title: '',
-        content: '',
+        body: '',
     }
 }
 }
@@ -19,7 +19,7 @@ createNote = e => {
     e.preventDefault();
     const newNote = {
         title: this.state.title,
-        content: this.state.content
+        body: this.state.body
     };
 axios
 .post(URL, newNote)
@@ -32,7 +32,7 @@ axios
     })
     this.setState({
         title: '',
-        content: ''
+        body: ''
 });
 }
 
@@ -53,8 +53,8 @@ render() {
           <input
             onChange={this.handleInputChange}
             placeholder="Content"
-            value={this.state.content}
-            name="content"
+            value={this.state.body}
+            name="body"
           />
           </div>
     )
