@@ -80,7 +80,7 @@
   flex-direction: column;
   justify-content: left;
   width: 100%;
-  margin: 30px 35px 30px 25px;
+  padding: 30px 15px;
 }
 .create-note input {
   width: 65%;
