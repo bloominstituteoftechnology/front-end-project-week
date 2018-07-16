@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import { Route } from "react-router-dom";
 import NoteList from "./components/NoteList";
 import Note from "./components/Note";
+import Navbar from "./components/Navbar";
 
 
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
     const notes = this.state.notes;
     return (
       <div className="App">
+      <Navbar />
       <Route exact path="/" render={props => <NoteList notes={notes}/>} />
       </div>
     );
