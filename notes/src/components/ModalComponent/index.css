@@ -1,0 +1,8 @@
+.displayNone {
+    display: none
+}
+.overlayWrapper {
+    z-index: 1;
+    background-color: white;
+    width: 550px;
+}
