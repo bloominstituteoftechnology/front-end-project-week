@@ -5,6 +5,7 @@ import NotesList from './components/NotesList';
 import CreateNote from './components/CreateNote';
 import {Route} from 'react-router-dom';
 import axios from 'axios';
+import ViewNote from './components/ViewNote';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends Component {
           notes={this.state.notes} />} />
         <Route exact path="/create" component={props => <CreateNote {...props}
         handleCreate={this.handleCreate} />} />
+        <Route exact path="/notes/:id" component={ViewNote} />
       </div>
     );
   }
