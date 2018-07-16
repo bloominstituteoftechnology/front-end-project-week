@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBarContainer from './SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer/NotesContainer';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -9,11 +10,11 @@ class App extends Component {
       <div className="App">
 
         <SideBarContainer />
-        <NotesContainer />
+        <Route exact path='/' component={NotesContainer} />
         
       </div>
-    );
+      );
+    }
   }
-}
-
-export default App;
+  
+  export default App;
