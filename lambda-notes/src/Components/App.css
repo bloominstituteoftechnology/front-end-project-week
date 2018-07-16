@@ -22,7 +22,8 @@
   flex-direction: column;
   background: #D8D8D8;
   height: 100vh;
-  width: 25%;
+  width: 28%;
+  padding-top: 10px;
 }
 .banner .header {
   display: flex;
@@ -32,7 +33,7 @@
 .banner h1 {
   font-size: 1.5rem;
   margin: 0;
-  width: 90%;
+  width: 85%;
   text-align: left;
 }
 .banner-btn-list {
@@ -46,9 +47,9 @@
   border: 1px solid #2BC1C4;
   background: #2BC1C4;
   color: #FFFFFF;
-  width: 90%;
+  width: 85%;
   padding: 10px 0;
-  margin-bottom: 10px;
+  margin: 10px 0;
   text-align: center;
 }
 
@@ -66,7 +67,26 @@
 .note {
   border: 1px solid #979797;
   background: white;
-  padding: 5px 8px;
+  padding: 13px 15px;
   margin: 20px 0;
   width: 28%;
+}
+
+/* Create Note Styles */
+.create-note {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30px 15px;
+}
+.create-note .custom-button {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 25%;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  text-align: center;
 }
