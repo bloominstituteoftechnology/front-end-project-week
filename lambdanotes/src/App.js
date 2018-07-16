@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import NoteList from './components/NoteList';
+// import CreateNote from './components/CreateNote';
+import ViewNote from './components/ViewNote';
+// import EditNote from './components/EditNote';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <Sidebar />
+      <Route exact path='/' component={NoteList} />
+      {/* <Route exact path='/createNote' component={CreateNote} /> */}
+      <Route exact path='/viewNote/:id' component={ViewNote} />
+      {/* <Route exact path='/editNote/:id' component={EditNote} /> */}
       </div>
     );
   }
