@@ -1,3 +1,5 @@
+Trello: https://trello.com/b/SexnW6Sk/lambda-notes-front-end-jameson-brown
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
