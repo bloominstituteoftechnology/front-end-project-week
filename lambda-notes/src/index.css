@@ -4,16 +4,45 @@ body {
   font-family: sans-serif;
 }
 
+.card-body-title{
+	text-align: left;
+	color: #4A4A4A;
+	font-size: 1.2rem;
+	margin: 30px 0px 10px 80px;
+}
+
+
+.notes-card-container{
+	/*display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;*/
+	background-color: #F3F3F3;
+}
+
+
+.note-card{
+	height: 220px;
+	width: 200px;
+	margin-top: 20px;
+	margin-left: 85px!important;
+	/*border: 1px solid gray;
+	margin: 15px 5px 10px 5px;*/
+	
+}
+
+
 .view-list-body{
 	margin: 15px 10px 0px 10px;
-	border: 1px solid gray;
+	border: 1px solid #979797;
+	display: flex;
 }
 
 
 .left-div{
 	width: 200px;
 	background-color: #D8D8D8;
-	height: 1000px;
+	height: 2000px;
+	border-right: 1px solid #979797;
 
 }
 
@@ -24,12 +53,14 @@ body {
 }
 
 .teal-div{
+	text-decoration: none;
 	height: 30px;
 	width: 180px;
 	border: 1px solid #979797;
 	background-color: #30B8BC;
 	margin-bottom: 4%;
 	margin-left: 8px;
+	margin-right: 8px;
 	color: #fff;
 	font-size: 0.8rem;
 	display: flex;
@@ -37,18 +68,21 @@ body {
 	align-items: center;
 }
 
-.view-header{
+.view-header-container{
 	font-family: Roboto Bold;
 	border-bottom: 1px solid #EBEDF0;
 	text-align: left;
 	color: black;
 	height: 40px;
-	vertical-align: middle;
 	margin-right: 10px;
 	margin-left: 10px;
 	display: flex;
         align-items: center;
 }
 
-h2{
+.list-view-header{
+	font-size: 1.2rem;
+	font-weight: bold;
 }
+
+
