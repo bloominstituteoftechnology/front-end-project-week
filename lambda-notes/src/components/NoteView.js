@@ -1,13 +1,14 @@
 import React from 'react';
+import Note from './Note';
 
 const NoteView = props => {
     return (
         <div className="NoteView-container">
             <div className="NoteView-header">
-                <h3>Note Title</h3>
+                <h3>{props.note.title}</h3>
             </div>
             <div className="NoteView-note">
-                <p>Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ec purus a, efficitur mollis ...</p>
+                <p>{props.note.textBody}</p>
             </div>
         </div>
     );

@@ -155,9 +155,14 @@ button:hover {
 .NoteView-note {
   font-size: 20px;
   text-align: left;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
 }
 
 .NoteView-note p {
+  height: 170px;
   line-height: 30px;
 }
 
