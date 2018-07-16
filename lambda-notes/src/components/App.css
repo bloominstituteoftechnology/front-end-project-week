@@ -62,16 +62,29 @@ html {
   margin-right: 14px;
   margin-bottom: 24px;
   cursor: pointer;
-  padding: 5px;
+  padding: 9px 10px;
 }
 
 .notes-text {
   padding: 0px 27px;
   margin-top: 58px;
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 .note-title {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid grey;
+  font-size: 1.9rem;
   margin: 0 5px;
+  padding-bottom: 5px;
+}
+
+.note-paragraph {
+  margin: 8px 5px;
+  max-height: 125px;
+  max-width: 121px;
+  word-break: break-all;
+  overflow: hidden;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
