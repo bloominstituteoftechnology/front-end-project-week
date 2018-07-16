@@ -9,7 +9,7 @@ const AppContainer = styled.div`
 
 `;
 const MainContentContainer = styled.div`
-  background: lightblue;
+  background: var(--main-bg);
   position: absolute;
   left: var(--sidebar-width);
   right: 0;
