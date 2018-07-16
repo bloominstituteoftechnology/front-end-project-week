@@ -1,19 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+const styled = {
+    textDecoration: 'none',
+    color: 'rgb(97, 76, 76)'
+}
 const SideNav = () => {
     return (
         <div className="sideNav" >
             <div className="sideNav_directory">
                 <div className="directory_title">
-                    Lambda Notes
+                    <Link to="/" style={styled}>
+                        Lambda Notes
+                    </Link>
                 </div>
-                <div className="directory_link">
-                    <Link to="/notes">
+                <div >
+                    <Link to="/">
                         <button className="link_button">View Your Notes</button>
                     </Link>
                 </div>
-                <div className="directory_link">
+                <div>
                     <Link to="/newNote">
                         <button className="link_button">+ Create New Note</button>
                     </Link>
