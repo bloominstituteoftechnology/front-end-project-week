@@ -1,10 +1,29 @@
 import React from "react";
 import { Form, FormGroup, Input, Button } from "reactstrap";
+import { submitNewNote } from "../actions/action";
+import { connect } from "react-redux";
 
 class Create extends React.Component {
   constructor() {
     super();
+    this.state = {
+      title: "",
+      body: ""
+    };
   }
+  inputNewNote = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
+  submitNewNote = event => {
+    event.preventDefault();
+    let newComment = {
+      title: this.state.title,
+      body: this.state.body
+    };
+    this.props.submitNewNote(newComment);
+  };
   render() {
     return (
       <div>
@@ -12,23 +31,28 @@ class Create extends React.Component {
         <Form>
           <FormGroup>
             <Input
+              onChange={this.inputNewNote}
               type="text"
-              name="note_title"
+              name="title"
               className="createNoteTitle"
               placeholder="Note Title"
             />
             <Input
+              onChange={this.inputNewNote}
               type="text"
-              name="note_comment"
+              name="body"
               className="createNoteComment"
               placeholder="Note Comment"
             />
           </FormGroup>
+          <Button onClick={this.submitNewNote}>Save</Button>
         </Form>
-        <Button>Save</Button>
       </div>
     );
   }
 }
 
-export default Create;
+export default connect(
+  null,
+  { submitNewNote }
+)(Create);

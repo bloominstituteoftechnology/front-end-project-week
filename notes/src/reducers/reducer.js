@@ -1,3 +1,5 @@
+import { SUBMIT_NEW_NOTE } from "../actions/action";
+
 const initialState = {
   notes: [
     {
@@ -28,6 +30,12 @@ export const notesReducer = (
   action
 ) => {
   switch (action.type) {
+    case SUBMIT_NEW_NOTE:
+      let newNote = state.notes.slice();
+      newNote.push(action.payload);
+      return Object.assign({}, state, {
+        notes: newNote
+      });
     default:
       return state;
   }
