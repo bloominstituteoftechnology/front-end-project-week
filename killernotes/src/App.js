@@ -10,7 +10,12 @@ class App extends Component {
   }
 
   render() {
-    return <Notes notes={this.props.notes} />;
+    return (
+      <div>
+        {this.props.fetching ? <h1>Fetching the notes...</h1> : null}
+        <Notes notes={this.props.notes} />
+      </div>
+    );
   }
 }
 
