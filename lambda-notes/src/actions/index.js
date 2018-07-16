@@ -68,7 +68,7 @@ export const deleteNote = noteID => {
     const promise = axios.delete(`http://localhost:5000/notes/${noteID}`)
     return dispatch => {
         dispatch({ type: DELETING_NOTE })
-        promise-then(response => {
+        promise.then(response => {
             dispatch({
                 type: SUCCESS,
                 payload: response.data
