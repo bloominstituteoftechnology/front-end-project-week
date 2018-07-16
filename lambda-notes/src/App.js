@@ -49,18 +49,31 @@ class App extends Component {
       <div style={{display: 'flex'}}>
         <Sidebar />
         <MainContainer>
-          <Route exact path="/" render={() =>
+          <Route exact path='/' render={() =>
             <NoteCardsContainer>
               {notes.map((note, index) =>
                 <NoteCard 
                   key={note.id} 
+                  id={note.id}
                   title={note.title}
                   text={note.text}
                 />
               )}
             </NoteCardsContainer>
           }/>
-          <Route path="/new" render={props =>
+        
+          <Route path='/note/:id' render={props => 
+            notes.filter(note => 
+              String(note.id) === props.match.params.id
+            ).map(note => <div key={note.id}>
+              <h2>{note.title}</h2>
+              <hr />
+              <p>{note.text}</p>
+            </div>
+            )
+          }/>
+        
+          <Route path='/new' render={props =>
             <NewNote {...props} addNote={this.addNote} />
           }/>
         </MainContainer>

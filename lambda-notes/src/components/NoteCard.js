@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Card = styled.div`
   border: 1px solid #979797;
@@ -9,12 +10,14 @@ const Card = styled.div`
   margin: 5px 5px;
 `
 
-const NoteCard = ({ title, text })  => 
-  <Card>
-    <h2>{title}</h2>
-    <hr />
-    <p>{text}</p>
-  </Card>
+const NoteCard = ({ id, title, text })  => 
+  <Link to={`/note/${id}`}>
+    <Card>
+      <h2>{title}</h2>
+      <hr />
+      <p>{text}</p>
+    </Card>
+  </Link>
 
 NoteCard.defaultProps = {
   title: 'Note Title',
