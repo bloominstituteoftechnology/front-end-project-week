@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import CreateNote from '../CreateNote/CreateNote';
 import AllNotes from '../AllNotes/AllNotes';
 import SingleNoteView from '../SingleNoteView/SingleNoteView';
+import EditNote from '../EditNote/EditNote'
 
 class SideArea extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class SideArea extends Component {
                     <Route exact path='/' component={ AllNotes } />
                     <Route path='/create' component={ CreateNote } />
                     <Route path='/note/:id' component={ SingleNoteView } />
+                    <Route path='/edit/:id' component={ EditNote } />
                 </Switch>
             </div> );
     }

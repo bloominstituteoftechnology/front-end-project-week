@@ -25,6 +25,7 @@ class EditNote extends Component {
     }
 
     render() { 
+        console.log('edit response: ', this.props)
         return ( 
             <div className='mainAreawrapper'>
                 <h3 className='headings mainAreaHeading'>Edit Note:</h3>
