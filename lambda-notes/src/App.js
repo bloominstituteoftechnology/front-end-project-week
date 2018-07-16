@@ -14,7 +14,7 @@ class App extends Component {
     textBody: ""
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.updateNotes();
   }
 
@@ -22,8 +22,9 @@ class App extends Component {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/all`)
       .then(response => {
+        console.log("trying to set state to:", response.data)
         this.setState({ notes: response.data });
-      })
+      }, () => console.log("new state: ", this.state.notes))
       .catch(error => console.log(error));
   }
 
@@ -73,7 +74,7 @@ class App extends Component {
           />
 
           <Route path="/notes/:id" render={ props =>
-              <Note {...props} />
+              <Note {...props} updateNotes={this.updateNotes} />
             }
           />
 

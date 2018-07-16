@@ -15,7 +15,7 @@ class Note extends React.Component {
     return this.props.match.params.id;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/${this.id}`)
       .then(response => {
@@ -47,6 +47,7 @@ class Note extends React.Component {
     axios
       .put(`https://killer-notes.herokuapp.com/note/edit/${this.id}`, editedNote)
       .then(response => {
+        this.props.updateNotes();
         this.setState({ isEditing: false,
                         note: response.data,
                         title: response.data.title,
