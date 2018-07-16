@@ -1,5 +1,33 @@
+/*
+  Heading font: Roboto Bold
+  Everything else font: Raleway Medium
+  Heading and main font color: #4A4A4A
+  Button font color: #FFFFFF
+  Sidebar background: #D8D8D8
+  Main background: #F3F3F3
+  Main button background: #2BC1C4
+  Delete button background: #D0021B
+  Border color used throughout: #979797
+*/
+
+.App-container {
+  background: #525659;
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid #979797;
+}
+
 .App {
+  background: white;
   text-align: center;
+  height: 100vh;
+  max-width: 1366px;
+  margin: 0 auto;
+  display: flex;
+  font-family: 'Raleway', sans-serif;
+  color: #4A4A4A;
+  border-left: 2px solid #979797;
+  border-right: 2px solid #979797;
 }
 
 .App-logo {
@@ -11,7 +39,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #FFFFFF;
 }
 
 .App-title {
@@ -25,4 +53,78 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Nav styles */
+.Nav-container {
+  width: 326px;
+  background: #D8D8D8;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #979797;
+}
+
+.Nav-header, .Nav-buttons button {
+  width: 286px;
+  margin: 0 auto;
+}
+
+.Nav-header {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.Nav-header h1 {
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.Nav-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Nav-buttons button {
+  height: 62px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  border: 2px solid #979797;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 16px auto;
+}
+
+/* ListView styles */
+.ListView-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 46px;
+}
+
+.ListView-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 120px auto 20px auto;
+}
+
+.ListView-header h2 {
+  margin: 0;
+}
+
+.ListView-NoteView {
+
+}
+
+/* NoteView styles */
+.NoteView-container {
+  height: 294px;
+  width: 286px;
+  border: 2px solid #979797;
 }
