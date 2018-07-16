@@ -67,6 +67,8 @@ h2 {
 }
 
 .list-item {
+  position: relative;
+  top: 0;
   width: 193px;
   height: 197px;
   margin: 0 15px 23px 0;
@@ -74,6 +76,14 @@ h2 {
   border: 1px #979797 solid;
   overflow: hidden;
   background-color: #fff;
+  cursor: pointer;
+  transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.list-item:hover {
+  -webkit-box-shadow: 0 6px 23px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 6px 23px 0 rgba(0,0,0,0.1);
+  top: -5px;
 }
 
 .list-item__title {
@@ -123,6 +133,15 @@ textarea {
   border-radius: 3px;
   background-color: #fff;
   resize: none;
+}
+
+.note-view__content {
+  max-width: 700px;
+  width: 100%;
+}
+
+.note-view__content {
+  line-height: 3rem;
 }
 
 /*

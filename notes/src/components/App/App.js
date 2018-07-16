@@ -47,7 +47,7 @@ class App extends Component {
         <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
         <Route exact path="/create" render={(props) => <CreateNewView {...props} onSubmitNote={this.onAddNote} />} />
         <Route exact path="/edit/:noteID" render={(props) => <EditView {...props} />} />
-        <Route exact path="/note/:noteID" render={(props) => <NoteView {...props} />} />
+        <Route exact path="/note/:noteID" render={(props) => <NoteView {...props} notes={this.state.notes} />} />
       </div>
     );
   }
