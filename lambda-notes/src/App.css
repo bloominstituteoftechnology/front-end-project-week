@@ -3,6 +3,11 @@
 }
 
 
+.note-card {
+  border: 1px solid black;
+  background: gray;
+}
+
 /* Heading font: Roboto Bold
 Everything else font: Raleway Medium
 

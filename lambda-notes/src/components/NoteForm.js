@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import {notes} from '../data.js';
 
-class NoteForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            title: '',
-            content: ''
-         }
-    }
-    render() { 
+    const NoteForm = props => {
         return ( 
             <div>
                 <form>
                     <input
                     name= 'title'
+                    placeholder= 'title...'
+                    onChange={props.handleInputChange}
+                    value={props.title}
                     />
                     <input 
                     name= 'content'
+                    placeholder='content...'
+                    onChange={props.handleInputChange}
+                    value={props.content}
                     />
+                    <button onClick={props.handleAddNote}>New Note</button>
                 </form>
             </div>
          );
     }
-}
+// }
  
 export default NoteForm;

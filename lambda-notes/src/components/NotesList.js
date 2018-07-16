@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Note from './Note';
-import {data} from '../data';
+import {notes} from '../data';
 
 
 class NotesList extends Component {
@@ -13,6 +13,7 @@ class NotesList extends Component {
                             <Note
                             title={note.title}
                                 content={note.content}
+                                note={note}
                                 />
                         )
                     })}
