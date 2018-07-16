@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import data from '../demoData';
 
 const StyledNote = styled.div`
     display: flex;
@@ -28,41 +29,12 @@ class Note extends Component {
     constructor(props){
         super(props);
         this.state = {
-            notes: [{
-                tags: [],
-                title: "Learn Redux1",
-                textBody: "You should really learn Redux, Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text. Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text.",
-                id: 1,
-            }, 
-            {
-              tags: [],
-              title: "Learn Redux2",
-              textBody: "You should really learn Redux",
-              id: 2,
-            }, 
-            {
-              tags: [],
-              title: "Learn Redux3",
-              textBody: "You should really learn Redux",
-              id: 3,
-            }, 
-            {
-              tags: [],
-              title: "Learn Redux4",
-              textBody: "You should really learn Redux",
-              id: 4,
-            }, 
-            {
-              tags: [],
-              title: "Learn Redux5",
-              textBody: "You should really learn Redux",
-              id: 5,
-            }],
+            notes: data,
             currentNote: {
                 tags: [],
-                title: "Learn Redux0",
-                textBody: "You should really learn Redux, Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text. Here's a note with a lot of text.Here's a note with a lot of text.Here's a note with a lot of text.",
-                id: 1,
+                title: "",
+                textBody: "",
+                id: 0,
             },
             match: props.match,
             id: 1,
@@ -88,7 +60,6 @@ class Note extends Component {
     }
 
     render(){
-        console.log("match", this.state.match);
         return(
             <StyledNote>
                 <StyledButtons>
