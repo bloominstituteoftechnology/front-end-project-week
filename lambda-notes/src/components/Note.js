@@ -56,6 +56,23 @@ class Note extends React.Component {
       .catch(error => console.log(error));
   }
 
+  handleDelete = e => {
+    e.preventDefault();
+
+    axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
+      .then(response => {
+        this.props.updateNotes();
+        this.setState({ isEditing: false,
+                        note: null,
+                        title: "",
+                        textBody: "" });
+      })
+      .catch(error => console.log(error));
+
+    this.props.history.push("/");
+  }
+
   render() {
     if (!this.state.note) {
       return (
@@ -78,6 +95,7 @@ class Note extends React.Component {
         <div>{this.state.title}</div>
         <div>{this.state.textBody}</div>
         <button onClick={this.toggleEditMode}>Edit</button>
+        <button onClick={this.handleDelete}>Delete</button>
       </div>
     )
   }

@@ -18,13 +18,12 @@ class App extends Component {
     this.updateNotes();
   }
 
-  updateNotes() {
+  updateNotes = () => {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/all`)
       .then(response => {
-        console.log("trying to set state to:", response.data)
         this.setState({ notes: response.data });
-      }, () => console.log("new state: ", this.state.notes))
+      })
       .catch(error => console.log(error));
   }
 
