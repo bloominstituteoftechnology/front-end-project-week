@@ -16,3 +16,12 @@ export const getNotes = () => {
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }
+
+export const addNote = note => {
+    const promise = axios.post('https://killer-notes.herokuapp.com/note/create/', note);
+    return dispatch => {
+        dispatch({ type: CREATING_NOTE });
+        promise.then(dispatch({ type: NOTE_CREATED, payload: note }))
+            .catch(err => dispatch({ type: ERROR, payload: err }));
+    }
+}

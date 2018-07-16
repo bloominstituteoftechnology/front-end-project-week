@@ -11,7 +11,7 @@ html {
   max-width: 889px;
   margin: 0 auto;
   border: 1px solid black;
-  height: 100vh;
+  min-height: 891px;
 }
 
 .side-bar-container {
