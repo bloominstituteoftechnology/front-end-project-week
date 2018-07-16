@@ -10,9 +10,11 @@ const AppContainer = styled.div`
 `;
 const MainContentContainer = styled.div`
   background: lightblue;
-  width: 100%;
   position: absolute;
   left: var(--sidebar-width);
+  right: 0;
+  height: 100%;
+  padding: 60px 25px;
 `;
 const App = () => {
   return (
