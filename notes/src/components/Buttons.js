@@ -13,7 +13,9 @@ class Buttons extends React.Component {
     return (
       <div>
         <h2>Lambda Notes</h2>
-        <Button>View Your Notes</Button>
+        <Link exact to="/">
+          <Button>View Your Notes</Button>
+        </Link>
         <Link exact to="/create">
           <Button>+ Create New Note</Button>
         </Link>
