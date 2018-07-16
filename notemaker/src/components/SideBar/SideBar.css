@@ -1,0 +1,47 @@
+.side-bar {
+    width: 222px;
+    color: #4A4A4A;
+    padding-top: 21px;
+    padding-left: 13px;
+}
+
+.side-bar-header {
+    max-width: 150px;
+    font-size: 36px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 900;
+    
+    line-height: 30px;
+
+    padding-bottom: 28px;
+}
+
+.side-bar-button-1 {
+    background: #2BC1C4;
+    border: 1px solid #979797;
+    width: 192px;
+    height: 43px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Roboto", sans-serif;
+    color: white;
+
+    margin-bottom: 18px;
+}
+
+.side-bar-button-2 {
+    background: #2BC1C4;
+    border: 1px solid #979797;
+    width: 192px;
+    height: 43px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Roboto", sans-serif;
+    color: white;
+}

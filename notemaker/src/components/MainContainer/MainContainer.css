@@ -1,0 +1,10 @@
+.main-container {
+    display: flex;
+    max-width: 880px; 
+    min-height: 888px;
+    /* just guessing at dimensions for now; adjust later */
+
+    background: #D8D8D8;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}

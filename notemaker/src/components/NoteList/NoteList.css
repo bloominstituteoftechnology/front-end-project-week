@@ -1,0 +1,16 @@
+.note-list {
+    background: #F3F3F3;   
+    max-width: 666px;
+    min-width: 666px;
+    padding-left: 50px;
+
+}
+
+.note-list h3 {
+
+}
+
+.note-list-preview-container {
+    display: flex;
+    flex-flow: row wrap;
+}
