@@ -20,9 +20,9 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    height: 12%;
+    height: 100%;
     padding: 20px 15px;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 
@@ -32,6 +32,12 @@
     font-weight: bold;
     line-height: 40px;
     max-width: 100%;
+    padding: 10px 0;
+}
+
+.directory__links {
+    margin: 0 auto;
+    width: 100%;
 }
 
 .link_button {

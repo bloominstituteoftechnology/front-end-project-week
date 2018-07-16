@@ -15,7 +15,7 @@ const SideNav = () => {
                         Lambda Notes
                     </Link>
                 </div>
-                <div >
+                <div className="directory__links" >
                     <Link to="/">
                         <button className="link_button">View Your Notes</button>
                     </Link>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Note from './Note';
 
 const Notes = () => {
     return (
@@ -7,7 +8,7 @@ const Notes = () => {
                 Your Notes:
             </div>
             <div className="mainContent_content">
-                Notes
+                <Note />
             </div>
         </div>
     );
