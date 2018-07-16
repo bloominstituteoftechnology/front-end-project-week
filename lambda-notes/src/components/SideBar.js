@@ -10,6 +10,7 @@ const SideBar = styled.div`
   border-width: ${ props => props.theme.dimensions.sideBar.borderWidth };
   border-color: ${ props => props.theme.color.border };
   border-style: solid;
+  border-right: 0;
   
   h1 {
     font-family: ${ props => props.theme.font.heading};

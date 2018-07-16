@@ -43,15 +43,23 @@ export default {
       borderWidth: '1px',
     },
     notePreview: {
-      width: '195px',
+      width: '194px',
       height: '200px',
-      padding: ' 15px 18px',
+      padding: ' 13px 18px',
       borderWidth: '1px',
       headingFontSize: '18px',
-      headingPadding: '0 0 4px 0',
+      headingPadding: '0 0 6px 0',
       textPadding: '10px 0 4px 0',
       textFontSize: '12px',
       textLineHeight: '2',
+    },
+    noteGrid: {
+      headingFontSize: '22px',
+      headingMargin: '0 0 30px 0',
+      padding: '58px 27px',
+      gridGap: '24px 16px',
+      gridPadding: '1px',
+      borderWidth: '1px',
     }
   }
 }

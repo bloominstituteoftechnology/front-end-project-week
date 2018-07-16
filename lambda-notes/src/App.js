@@ -7,12 +7,14 @@ import './App.css';
 
 let StyledApp = styled.div`
   display: flex;
+  justify-content: center;
   font-family: ${ props => props.theme.font.body };
 
   * {
     box-sizing: border-box;
   }
 `;
+
 
 class App extends Component {
   render() {
