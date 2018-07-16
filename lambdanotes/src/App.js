@@ -16,6 +16,14 @@ class App extends Component {
           </h2>
           <div className="notes-container">
             <Notes />
+            <Notes />
+            <Notes />
+            <Notes />
+            <Notes />
+            <Notes />
+            <Notes />
+            <Notes />
+            <Notes />
           </div>
         </main>
       </div>

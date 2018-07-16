@@ -1,4 +1,5 @@
 .note-box {
   border: solid 1px red;
   height: 280px;
+  background-color: white;
 }
