@@ -1,58 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    background-color:#f3f3f3;
-}
-
-.body {
-    display:flex;
-}
-
-.sideBar {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    background-color:#D3d2d3;
-    padding: 2%;
-    height:100vh;
-    max-height: 100%;
-}
-
-.sideBar h1 {
-    color: #4A494A;
-    font-size: 3rem;
-    margin-bottom: 4%;
-}
-
-.sideBar button {
-    background-color: red;
-    border: none;
-    background-color: #2AC0C4;
-    color: white;
-    margin-top: 8%;
-    font-size: 1.4rem;
-    height: 7.5vh;
-}
-
-.sideBar button:hover {
-    font-size: 1.6rem;
-    height: 7.7vh;
-    cursor: pointer;
-}
-
-.logo {
-    width: 90%;
-    text-align: left;
-}
-
-.card:hover {
-    cursor: pointer;
-    background-color:rgb(250,250,250)
-}
 
 .notes {
    
@@ -60,9 +6,18 @@ body {
     width: 69%;
 }
 
+.sideBar {
+    max-height:100%;
+}
+
 .row {
     display: flex;
     justify-content: space-around;
+    flex-wrap:wrap;
+}
+
+.card:first-of-type {
+    display:none;
 }
 
 .card {
@@ -71,12 +26,22 @@ body {
     margin-top: 3%;
     text-align: center;
     padding: 4%;
+    height: 100%;
     padding-top: 2%;
+    display:flex;
+    flex-wrap:wrap;
+    flex-basis:auto;
+}
+
+.card:hover {
+    cursor:pointer;
+    background-color:rgb(250,250, 250)
 }
 
 .card p {
     font-size: 1.3rem;
     margin-top: 5%;
+    justify-content: space-around;
 }
 
 .underline {

@@ -6,6 +6,7 @@
 
 body {
     background-color: #F3F3F3;
+    height: 100%;
 }
 
 .body {
@@ -19,6 +20,7 @@ body {
     width: 25%;
     background-color: #D3D2D3;
     padding: 2%;
+    height:100vh;
     max-height: 100%;
 }
 
@@ -32,6 +34,7 @@ body {
 
 .sideBar a {
     text-decoration: none;
+    width:20vw;
     background-color: red;
     border: none;
     background-color: #2AC0C4;

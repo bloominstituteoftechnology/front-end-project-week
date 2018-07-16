@@ -1,18 +1,28 @@
 .create h1 {
-    color: red;
-    margin-top: 45%;
+    color: #4A494A;
+    margin-top: 10%;
+}
+
+.sideBar a {
+    width:21vw;
 }
 
 input {
     display: block;
-    margin-top: 10%;
+    margin: 3% 0 4% 0;
     font-size: 1rem;
-    padding-left: 3%;
+    padding-left: 2%;
 }
 
 input:first-of-type {
-    width: 250%;
+    width: 60%;
     height: 2rem;
+}
+
+textarea { 
+    padding-left:2%;
+    font-size:1.1rem;
+    font-family: sans-serif;
 }
 
 input:last-of-type {
@@ -23,4 +33,25 @@ input:last-of-type {
 
 .create {
     margin-left: 3%;
+}
+
+.create button {
+    text-decoration: none;
+    background-color: red;
+    border: none;
+    width: 10rem;
+    background-color: #2AC0C4;
+    color: white;
+    margin-top: 2%;
+    font-size: 1.4rem;
+    height: 7.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create button:hover {
+    font-size: 1.6rem;
+    height: 7.7vh;
+    cursor: pointer;
 }
