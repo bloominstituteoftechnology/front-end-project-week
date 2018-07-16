@@ -26,3 +26,34 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.note-list {
+  display: flex;
+  background: silver;
+}
+
+.list-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  height: 100vh;
+}
+
+.right-bar {
+  border: 2px solid yellow;
+  width: 80%;
+}
+
+.note-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  border: 2px solid red;
+  flex-wrap: wrap;
+}
+
+.note {
+  border: 2px solid green;
+  width: 200px;
+  margin: 20px 30px;
+}
