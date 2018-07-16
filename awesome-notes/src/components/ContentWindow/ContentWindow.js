@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+
+import ListView from "../ListView/ListView";
 import NoteView from "../NoteView/NoteView";
+import EditView from "../EditView/EditView";
+import CreateNewView from "../CreateNewView/CreateNewView";
+
+import Sample from "../../placeholder JSON/Sample";
 
 const StyledWindow = styled.div`
   position: relative;
@@ -14,12 +20,28 @@ const StyledWindow = styled.div`
   width: 668px;
 `;
 
-const ContentWindow = () => {
-  return (
-    <StyledWindow>
-      <NoteView />
-    </StyledWindow>
-  );
-};
+class ContentWindow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      possibleViews: ["note", "new", "edit", "list"],
+      currentView: "list",
+      deleteModalVisible: false,
+      content: Sample
+    };
+  }
+  render() {
+    return (
+      <StyledWindow>
+        {this.state.currentView === "list" ? (
+          <ListView content={this.state.content} />
+        ) : null}
+        {this.state.currentView === "note" ? <NoteView /> : null}
+        {this.state.currentView === "new" ? <CreateNewView /> : null}
+        {this.state.currentView === "edit" ? <EditView /> : null}
+      </StyledWindow>
+    );
+  }
+}
 
 export default ContentWindow;
