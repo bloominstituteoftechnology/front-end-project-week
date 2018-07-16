@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Sidebar from "./components/sidebar/Sidebar"
-import Notes from "./components/notes/Notes";
-
+import NewNote from "./components/newnote/NewNote";
+import NoteContainer from "./components/notes/NoteContainer";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class App extends Component {
   render() {
     return (
@@ -10,22 +11,8 @@ class App extends Component {
         <div className="sidebar-container">
           <Sidebar />
         </div>
-        <main>
-          <h2>
-            Your Notes:
-          </h2>
-          <div className="notes-container">
-            <Notes />
-            <Notes />
-            <Notes />
-            <Notes />
-            <Notes />
-            <Notes />
-            <Notes />
-            <Notes />
-            <Notes />
-          </div>
-        </main>
+        <Route exact path="/" component={NoteContainer} />
+        <Route path="/new" component={NewNote} />
       </div>
     );
   }
