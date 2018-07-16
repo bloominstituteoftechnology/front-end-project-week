@@ -25,7 +25,7 @@ h1 {
   letter-spacing: .22rem;
 }
 
-.nav__link {
+.link {
   display: flex;
   align-items: center;
   justify-content: center;
