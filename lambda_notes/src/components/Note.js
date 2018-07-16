@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
 const StyledNote = styled.div`
     display: flex;
     flex-flow: column;
@@ -29,14 +30,15 @@ class Note extends Component {
         super(props);
         this.state = {
             notes: props.notes,
-            currentNote: {
-                tags: [],
-                title: "",
-                textBody: "",
-                id: 0,
-            },
+            currentNote: {},
             match: props.match,
             id: 1,
+            defaultNote:{
+                tags: [],
+                title: "Error With Note, Please return to Homepage",
+                textBody: "",
+                id: 0,
+            }
         }
     }
 
@@ -51,10 +53,12 @@ class Note extends Component {
             this.getNote(newProps.match.params.id);
         }
     }
-
     getNote = id => {
-        const note = this.state.notes.filter(note => note.id === Number(id));
-        this.setState({currentNote: note[0]});
+        const note = this.state.notes.reduce((acc,note) => {
+            note.id === Number(id) ? acc = note : null;
+            return acc;
+        },{})
+        this.setState({currentNote: (note || this.state.defaultNote)});
 
     }
 
@@ -62,8 +66,8 @@ class Note extends Component {
         return(
             <StyledNote>
                 <StyledButtons>
-                    <StyledLink to={'./'}>edit</StyledLink>
-                    <StyledLink to={'./'}>delete</StyledLink>
+                    <StyledLink to={`./`}>edit</StyledLink>
+                    <StyledLink to={`/notes/${this.state.id}/delete`}>delete</StyledLink>
                 </StyledButtons>
                 <h4>{this.state.currentNote.title}</h4>
                 <p>{this.state.currentNote.textBody}</p>
