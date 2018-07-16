@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './index.css';
+import { Switch, Route } from 'react-router-dom';
+import CreateNote from '../CreateNote/CreateNote';
+import AllNotes from '../AllNotes/AllNotes';
 
 class SideArea extends Component {
     constructor(props) {
@@ -9,7 +12,10 @@ class SideArea extends Component {
     render() { 
         return ( 
             <div className='mainArea'>
-                hi from main Area
+                <Switch>
+                    <Route exact path='/' component={ AllNotes } />
+                    <Route path='/create' component={ CreateNote } />
+                </Switch>
             </div> );
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 class SideArea extends Component {
@@ -13,8 +14,8 @@ class SideArea extends Component {
                     <h1 className='headings'>Lambda Notes</h1>
                 </div>
                 <div className='sideButtons'>
-                    <button className='sideButton'>View Your Notes</button>
-                    <button className='sideButton'>+ Create New Note</button>
+                    <button className='sideButton'><Link to='/'>View Your Notes</Link></button>
+                    <button className='sideButton'><Link to='/create'>+ Create New Note</Link></button>
                 </div>
 
             </div> );
