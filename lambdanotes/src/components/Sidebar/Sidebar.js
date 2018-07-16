@@ -7,9 +7,11 @@ const Sidebar = ({props}) => (
     <h1 className="header">
       Lambda Notes
     </h1>
-    <button className="side-button">
-      View Your Notes
-    </button>
+    <Link to="/">
+      <button className="side-button">
+        View Your Notes
+      </button>
+    </Link>
     <Link to="./new">
       <button className="side-button">
         + Create New Note
