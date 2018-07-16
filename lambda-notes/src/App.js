@@ -42,7 +42,7 @@ class App extends Component {
             }
           />
 
-          <Route path="notes/:id" render={ props =>
+          <Route path="/notes/:id" render={ props =>
               <Note {...props} />
             }
           />

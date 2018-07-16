@@ -8,7 +8,7 @@ const NoteList = props => {
     <div>
       {notes.map(note => {
         return (
-          <Link to={`https://killer-notes.herokuapp.com/note/get/${note._id}`} key={Math.random()}>
+          <Link to={`/notes/${note._id}`} key={Math.random()}>
             <div className="note-title">{note.title}</div>
             <div className="note-text-body">{note.textBody}</div>
           </Link>
