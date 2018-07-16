@@ -3,7 +3,14 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 
 const NoteList = props => {
+  if (!props.notes) {
+    return (
+      <div>Notes are loading...</div>
+    )
+  }
+
   const notes = props.notes.slice().reverse();
+
   return (
     <div>
       {notes.map(note => {

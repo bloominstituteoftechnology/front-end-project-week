@@ -15,12 +15,42 @@ class App extends Component {
   }
 
   componentWillMount() {
+    this.updateNotes();
+  }
+
+  updateNotes() {
     axios
       .get(`https://killer-notes.herokuapp.com/note/get/all`)
       .then(response => {
         this.setState({ notes: response.data });
       })
       .catch(error => console.log(error));
+  }
+
+  handleInputChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleFormSubmit = e => {
+    e.preventDefault();
+
+    const newNote = {
+      title: this.state.title,
+      textBody: this.state.textBody
+    }
+
+    const notes = this.state.notes;
+
+    axios
+      .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
+      .then(response => {
+        this.updateNotes();
+        this.setState({ title: "",
+                        textBody: "" });
+      })
+      .catch()
+
+    this.props.history.push("/");
   }
 
   render() {
@@ -38,6 +68,8 @@ class App extends Component {
           <Route path="/notes/add" render={ props =>
               <Form title={this.state.title}
                     textBody={this.state.textBody}
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleInputChange={this.handleInputChange}
               />
             }
           />
@@ -54,4 +86,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

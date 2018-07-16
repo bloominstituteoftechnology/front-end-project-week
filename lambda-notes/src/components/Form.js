@@ -5,8 +5,21 @@ const Form = props => {
   return (
     <div>
       <form>
-        <input />
-        <input />
+        <input
+          type="text"
+          name="title"
+          placeholder="Note Title"
+          value={props.title}
+          onChange={props.handleInputChange}
+        />
+        <input
+          type="text"
+          name="textBody"
+          placeholder="Note Content"
+          value={props.textBody}
+          onChange={props.handleInputChange}
+        />
+        <button onClick={props.handleFormSubmit}>Save</button>
       </form>
     </div>
   );

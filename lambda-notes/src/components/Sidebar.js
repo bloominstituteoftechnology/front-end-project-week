@@ -6,8 +6,8 @@ const Sidebar = props => {
   return (
     <div className="sidebar-container">
       <h1>Lambda Notes</h1>
-      <button>View Your Notes</button>
-      <button>+ Create New Note</button>
+      <button><Link to="/">View Your Notes</Link></button>
+      <button><Link to="/notes/add">+ Create New Note</Link></button>
     </div>
   )
 }
