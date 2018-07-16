@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ContentHeading from "../ContentHeading/ContentHeading";
 import CardContainer from "./CardContainer";
 
-const NoteViewWrapper = styled.div`
+const ListViewWrapper = styled.div`
   width: 610px;
   position: relative;
   top: 0;
@@ -13,13 +13,13 @@ const NoteViewWrapper = styled.div`
 
 // width: 610px
 
-const NoteView = props => {
+const ListView = props => {
   return (
-    <NoteViewWrapper>
+    <ListViewWrapper>
       <ContentHeading message="Your Notes:" />
       <CardContainer content={props.content} />
-    </NoteViewWrapper>
+    </ListViewWrapper>
   );
 };
 
-export default NoteView;
+export default ListView;
