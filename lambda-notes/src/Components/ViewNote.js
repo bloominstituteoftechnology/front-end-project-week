@@ -25,7 +25,7 @@ class ViewNote extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='single-note'>
                 {this.props.notes.map(this.filterNotes)}
             </div>
         )   
