@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+}
+
+.sideNav {
+    flex-grow: 2;
+}
+
+.mainContent {
+    flex-grow: 7;
+}
