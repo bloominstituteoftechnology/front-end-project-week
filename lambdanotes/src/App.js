@@ -6,11 +6,18 @@ import Notes from "./components/notes/Notes";
 class App extends Component {
   render() {
     return (
-      <div className="App container">
+      <div className="App">
         <div className="sidebar-container">
           <Sidebar />
-          <Notes />
         </div>
+        <main>
+          <h2>
+            Your Notes:
+          </h2>
+          <div className="notes-container">
+            <Notes />
+          </div>
+        </main>
       </div>
     );
   }

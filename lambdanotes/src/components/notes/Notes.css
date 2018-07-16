@@ -1,3 +1,4 @@
 .note-box {
-  float: right;
+  border: solid 1px red;
+  height: 280px;
 }

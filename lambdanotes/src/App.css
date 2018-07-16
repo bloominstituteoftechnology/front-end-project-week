@@ -2,7 +2,29 @@
   height: 100%;
   margin-left: 0;
   margin-right: 0;
+  display: grid;
+  grid-template-columns: 25.5% 74.5%;
 }
 .sidebar-container {
   height: 100%;
+}
+.container {
+  display: grid;
+}
+main {
+  font-family: 'Raleway', sans-serif;
+  display: grid;
+  grid-template-rows: 18% 82%;
+}
+h2 {
+  padding-top: 65px;
+  padding-left: 37px;
+  font-size: 30px;
+}
+.notes-container {
+  border: solid 1px green;
+  padding-left: 39px;
+  padding-right: 21px;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
 }

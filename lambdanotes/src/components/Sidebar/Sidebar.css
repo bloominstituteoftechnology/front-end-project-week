@@ -1,7 +1,6 @@
 .Sidebar {
   height: 100%;
   background-color: #D8D8D8;
-  width: 25.5%;
   border-right: solid 1px black;
   display: inline-block;
 }
