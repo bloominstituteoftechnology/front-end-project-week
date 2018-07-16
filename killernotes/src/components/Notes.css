@@ -3,7 +3,10 @@
   flex-wrap: wrap;
 }
 
+.notes {
+  margin-left: 232px;
+}
+
 div {
-  font-family: 'Raleway', sans-serif;
   background-color: #f3f3f3;
 }

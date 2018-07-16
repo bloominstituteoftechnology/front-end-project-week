@@ -5,7 +5,7 @@ import NoteCard from './NoteCard';
 class Notes extends Component {
   render() {
     return (
-      <div className="Notes">
+      <div className="notes">
         Your Notes:
         <div className="container">
           {this.props.notes.map(note => (
