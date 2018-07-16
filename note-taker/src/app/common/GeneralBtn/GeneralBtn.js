@@ -14,6 +14,7 @@ const StyledBtn = styled.button`
   border-color: var(--main-border-color);
   font-size: 2rem;
   font-weight: 700;
+  text-transform: capitalize;
 `;
 
 const GeneralBtn = props => {
@@ -31,7 +32,7 @@ const GeneralBtn = props => {
 };
 
 GeneralBtn.defaultProps = {
-    action: function() {},
+    actionHandler: function() {},
     children: 'Text'
 }
 export default GeneralBtn;
