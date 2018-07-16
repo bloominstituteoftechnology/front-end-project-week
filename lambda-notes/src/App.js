@@ -39,8 +39,6 @@ class App extends Component {
       textBody: this.state.textBody
     }
 
-    const notes = this.state.notes;
-
     axios
       .post(`https://killer-notes.herokuapp.com/note/create`, newNote)
       .then(response => {
