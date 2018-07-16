@@ -47,20 +47,21 @@ body {
 }
 
 .lambda-notes-header{
+	font-size: 1.9rem;
 	text-align: left;
 	color: #4A4A4A;
-	margin-left: 8px;
+	margin: 15px 0px 20px  8px;
 }
 
 .teal-div{
 	text-decoration: none;
-	height: 30px;
-	width: 180px;
+	height: 35px;
+	width: 160px;
 	border: 1px solid #979797;
 	background-color: #30B8BC;
-	margin-bottom: 4%;
-	margin-left: 8px;
-	margin-right: 8px;
+	margin-bottom: 8%;
+	margin-left: 10px;
+	margin-right: 10px;
 	color: #fff;
 	font-size: 0.8rem;
 	display: flex;
