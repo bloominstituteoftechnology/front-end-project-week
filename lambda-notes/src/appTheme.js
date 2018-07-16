@@ -26,6 +26,11 @@ export default {
     border: dustyGray,
   },
   dimensions: {
+    main: {
+      width: '670px',
+      h1FontSize: '22px',
+    },
+
     button: {
       width: '100%',
       height: '42px',
@@ -54,12 +59,21 @@ export default {
       textLineHeight: '2',
     },
     noteGrid: {
-      headingFontSize: '22px',
       headingMargin: '0 0 30px 0',
       padding: '58px 27px',
       gridGap: '24px 16px',
       gridPadding: '1px',
       borderWidth: '1px',
+    },
+    viewNote: {
+      padding: '20px 26px',
+      linkFontSize: '14px',
+      linkPadding: '0 7px',
+      topControlsPadding: '0 0 23px 0',
+      headingPadding: '0 0 32px 0',
+      textFontSize: '14px',
+      textLineHeight: '2',
+
     }
   }
 }

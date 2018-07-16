@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -18,6 +19,12 @@ const SideBar = styled.div`
     margin: ${ props => props.theme.dimensions.sideBar.headingMargin };
     line-height: ${ props => props.theme.dimensions.sideBar.headingLineHeight };
   }
+
+  a.active {
+    button { 
+      box-shadow: inset 0 0 10px white;
+    }
+  }
 `;
 
 
@@ -25,8 +32,12 @@ export default () => {
   return (
     <SideBar>
       <h1>Lambda Notes</h1>
-      <Button>View Your Notes</Button>
-      <Button>+ Create New Note</Button>
+      <NavLink exact to="/">
+        <Button>View Your Notes</Button>
+      </NavLink>
+      <NavLink exact to="/add/">
+        <Button>+ Create New Note</Button>
+      </NavLink>
     </SideBar>
   )
 }
