@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import NoteGrid from './NoteGrid';
 import ViewNote from './ViewNote';
+import NewNote from './NewNote'
+import EditNote from './EditNote'
 import notes from '../dummydata';
 
 
@@ -23,9 +25,9 @@ export default class MainPane extends Component {
     return (
       <StyledMainPane>
         <Route path="/" exact render={ routeProps => <NoteGrid {...routeProps} notes={notes} /> } />
-        <Route path="/add/" />
+        <Route path="/add/" render = { routeProps => <NewNote {...routeProps} notes={[]} /> } />
         <Route path="/view/:id" render={ routeProps => <ViewNote {...routeProps} notes={notes} /> } />
-        <Route path ="/edit/:id" />
+        <Route path ="/edit/:id" render = { routeProps => <EditNote {...routeProps} notes={notes} /> } />
       </StyledMainPane>
     )
   }
