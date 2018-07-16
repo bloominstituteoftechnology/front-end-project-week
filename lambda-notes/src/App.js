@@ -27,6 +27,19 @@ class App extends Component {
       }
     ] 
   }
+
+  addNote = note => {
+    
+    const { notes } = this.state
+   
+    this.setState({
+      notes: notes.concat({ 
+        ...note, 
+        id: notes[notes.length - 1].id + 1 || 0
+      })
+    })
+
+  }
   
   render() {
 
@@ -47,7 +60,9 @@ class App extends Component {
               )}
             </NoteCardsContainer>
           }/>
-          <Route path="/new" component={NewNote} />
+          <Route path="/new" render={props =>
+            <NewNote {...props} addNote={this.addNote} />
+          }/>
         </MainContainer>
       </div>
     );
