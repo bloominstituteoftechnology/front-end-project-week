@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, NOTES_FETCHED, FETCHING_NOTE, NOTE_FETCHED, CREATING_NOTE, NOTE_CREATED, ERROR } from '../actions';
+import { FETCHING_NOTES, NOTES_FETCHED, FETCHING_NOTE, NOTE_FETCHED, CREATING_NOTE, NOTE_CREATED, ERROR, SET_NULL } from '../actions';
 
 const initialState = {
     fetchingNotes: false,
@@ -33,6 +33,9 @@ export default (state = initialState, action) => {
             const createNote = state.notes.slice();
             createNote.push(action.payload);
             return { ...state, notes: createNote, creatingNote: false, noteCreated: true };
+
+        case SET_NULL:
+            return { ...state, note: [] }
 
         case ERROR:
             return { ...state, error: action.payload };

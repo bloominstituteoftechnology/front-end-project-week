@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNote } from '../../actions';
+import { getNote, setNull } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class Note extends React.Component {
@@ -11,22 +11,23 @@ class Note extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.getNote(null);
+        this.props.setNull();
     }
 
     render() {
         return (
-            <div className='note-container'>
-            
-                <div className='note-links'>
-                    <Link className='edit-link' to='/edit'>edit</Link>
-                    <Link className='delete-link' to='/delete'>delete</Link>
+   
+                <div className='note-container'>
+                    <div className='note-links'>
+                        <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
+                        <Link className='delete-link' to='/delete'>delete</Link>
+                    </div>
+
+                    <h3 className='note-header'>{this.props.note.title}</h3>
+                    <p className='notes-paragraph'>{this.props.note.textBody}</p>
+
                 </div>
-
-                <h3 className='note-header'>{this.props.note.title}</h3>
-                <p className='notes-paragraph'>{this.props.note.textBody}</p>
-
-            </div>
+       
         );
     }
 }
@@ -37,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNote })(Note);
+export default connect(mapStateToProps, { getNote, setNull })(Note);

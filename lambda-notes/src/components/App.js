@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import Note from './NotesContainer/Note';
+import UpdateNotesContainer from './NotesContainer/UpdateNotesContainer';
 import SideBarContainer from './SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer/NotesContainer';
 import CreateNotesContainer from './NotesContainer/CreateNotesContainer';
@@ -7,7 +9,6 @@ import { Route } from 'react-router-dom';
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import Note from './NotesContainer/Note';
 
 class App extends Component {
   componentDidMount() {
@@ -23,9 +24,10 @@ class App extends Component {
 
             <Route path='/' component={SideBarContainer} />
             <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} />} />
-            <Route path='/notes/:id' component={Note} />
+            <Route exact path='/notes/:id' component={Note} />
+            <Route path='/notes/:id/edit' component={UpdateNotesContainer} />
             <Route path='/create' component={CreateNotesContainer} />
-            
+
           </React.Fragment>
         }
 
@@ -37,6 +39,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes,
+
     fetching: state.fetchingNotes
   }
 }

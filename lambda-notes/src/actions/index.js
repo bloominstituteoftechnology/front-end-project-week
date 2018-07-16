@@ -9,7 +9,10 @@ export const NOTE_FETCHED = 'NOTE_FETCHED';
 export const CREATING_NOTE = 'CREATING_NOTE';
 export const NOTE_CREATED = 'NOTE_CREATED';
 
+export const SET_NULL = 'SET_NULL';
+
 export const ERROR = 'ERROR';
+
 
 export const getNotes = () => {
     const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
@@ -35,5 +38,12 @@ export const addNote = note => {
         dispatch({ type: CREATING_NOTE });
         promise.then(dispatch({ type: NOTE_CREATED, payload: note }))
             .catch(err => dispatch({ type: ERROR, payload: err }));
+    }
+}
+
+export const setNull = () => {
+    return {
+        type: SET_NULL,
+        payload: null
     }
 }

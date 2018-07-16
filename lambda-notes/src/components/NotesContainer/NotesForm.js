@@ -7,8 +7,8 @@ class NotesForm extends React.Component {
         super(props);
 
         this.state = {
-            title: '',
-            content: ''
+            title: this.props.title || '',
+            content: this.props.content || ''
         }
     }
 
