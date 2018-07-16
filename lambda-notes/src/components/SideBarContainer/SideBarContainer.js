@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SideBarContainer = props => {
-    console.log(props);
     return (
         <div className='side-bar-container' >
 
