@@ -3,14 +3,15 @@ import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NotesList from './NotesList';
+import ViewNote from './ViewNote';
 import Menu from './Menu';
 import '../styles/App.css';
 
-const getURL = 'https://killer-notes.herokuapp.com/note/get/all';
+const URL = 'https://killer-notes.herokuapp.com/note/get/';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchNotes(getURL);
+    this.props.fetchNotes(URL);
   }
 
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <div className='App'>
               <Route path='/' component ={Menu} />
               <Route exact path='/' component={NotesList} />
+              <Route path='/note/:id' component={ViewNote} />
             </div>
         </Router>
     );
