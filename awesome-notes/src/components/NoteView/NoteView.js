@@ -8,9 +8,8 @@ const NoteViewWrapper = styled.div`
   width: 610px;
   position: relative;
   top: 0;
-  border: 1px solid red;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 7rem;
 `;
 
 // width: 610px
