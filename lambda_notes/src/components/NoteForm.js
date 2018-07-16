@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import data from '../demoData';
 
 class NoteForm extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             inputTitle: '',
             inputBody: '',
+            addNote: props.addNote,
         }
     }
 
@@ -14,19 +14,13 @@ class NoteForm extends Component {
         this.setState({[e.target.name] : e.target.value});
     }
 
-    addNote(e){
-        console.log("addNote called!");
+    addNote = (e) => {
         e.preventDefault();
-        data.push({
-            tags: [],
-            title: "YAY!",
-            textBody: "New Shit!!",
-            id: 6,
-        })
+        this.state.addNote(this.state.inputTitle, this.state.inputBody);
+        this.setState({inputTitle: '', inputBody: ''});
     }
 
     render(){
-        console.log(data);
         return (
             <div>
                 <h3>Create New Note:</h3>

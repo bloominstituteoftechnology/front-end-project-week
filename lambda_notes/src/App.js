@@ -19,11 +19,25 @@ class App extends Component {
     super();
     this.state = {
       notes: [],
+      id: 0,
     }
   }
 
   componentDidMount(){
-    this.setState({notes: data});
+    //This is just to set the current id higher than the dummy datas, delete when calling the API for notes
+    let newId = data.reduce((acc,item) => {
+      if(item.id > acc ){
+        acc = item.id + 1
+      }
+      return acc}, 0)
+    // Again, don't forget to remove the id state variable when using the API
+    this.setState({notes: data, id: newId});
+  }
+
+  addNote = (title, body) => {
+    let newNotes = this.state.notes.slice();
+    newNotes.push({tags: [], title: title, textBody: body, id: this.state.id});
+    this.setState({notes: newNotes, id: this.state.id + 1});
   }
 
   render() {
@@ -31,8 +45,8 @@ class App extends Component {
       <StyledApp>
         <Route path='/' component={NavBar} />
         <Route exact path='/' render={props => <NotesContainer {...props} notes={this.state.notes} />} />
-        <Route exact path='/notes/:id' component={Note} />
-        <Route path='/create' component={NoteForm} />
+        <Route exact path='/notes/:id' render={props => <Note {...props} notes={this.state.notes} />} />
+        <Route path='/create' render={props => <NoteForm {...props} addNote={this.addNote} />} />
       </StyledApp>
     );
   }

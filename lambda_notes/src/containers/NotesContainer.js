@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import NoteCard from '../components/NoteCard';
-import data from '../demoData';
 
 const StyledNotesContainer = styled.div`
     padding: 5%;

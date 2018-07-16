@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import data from '../demoData';
 
 const StyledNote = styled.div`
     display: flex;
@@ -29,7 +28,7 @@ class Note extends Component {
     constructor(props){
         super(props);
         this.state = {
-            notes: data,
+            notes: props.notes,
             currentNote: {
                 tags: [],
                 title: "",
