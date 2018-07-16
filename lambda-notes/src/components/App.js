@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SideBarContainer from './SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer/NotesContainer';
-import CreateNotesContainer from './CreateNotesContainer/CreateNotesContainer';
+import CreateNotesContainer from './NotesContainer/CreateNotesContainer';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
         <Route path='/' component={SideBarContainer} />
         <Route exact path='/' component={NotesContainer} />
         <Route path='/create' component={CreateNotesContainer} />
-        
+
       </div>
     );
   }

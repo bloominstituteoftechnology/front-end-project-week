@@ -70,7 +70,7 @@ html {
   padding: 9px 10px;
 }
 
-.notes-text {
+.notes-header {
   padding: 0px 27px;
   margin-top: 58px;
   font-size: 1.9rem;
@@ -94,3 +94,7 @@ html {
   line-height: 1.5;
 }
 
+.create-notes-container {
+  background: #F3F3F3;
+  width: 100%;
+}
