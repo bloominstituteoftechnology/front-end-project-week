@@ -3,6 +3,7 @@ import './index.css';
 import { Switch, Route } from 'react-router-dom';
 import CreateNote from '../CreateNote/CreateNote';
 import AllNotes from '../AllNotes/AllNotes';
+import SingleNoteView from '../SingleNoteView/SingleNoteView';
 
 class SideArea extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class SideArea extends Component {
                 <Switch>
                     <Route exact path='/' component={ AllNotes } />
                     <Route path='/create' component={ CreateNote } />
+                    <Route path='/note/:id' component={ SingleNoteView } />
                 </Switch>
             </div> );
     }
