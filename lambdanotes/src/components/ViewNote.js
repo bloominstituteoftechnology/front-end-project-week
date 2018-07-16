@@ -2,30 +2,19 @@ import React from 'react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 
-const URL = "http://localhost:3000/"
 
-class ViewNote extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            title: '',
-            body: '',
-            id: this.props.id
-        }
-    }
-
-    render() {
+const ViewNote = props => {
+    
         return (
             <div> 
-                <Sidebar />
+                {/* <Sidebar /> */}
             <div className="ViewNote">
-            <h3>{this.props.title}</h3>
-            <p>{this.props.body}</p>    
+            <h3>{props.note.title}</h3>
+            <p>{props.note.body}</p>    
             </div>
             </div>
         )
     }
-}
 
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { data } from './NoteData';
-// import Sidebar from './components/Sidebar';
+import Sidebar from './components/Sidebar';
 import NoteList from './components/NoteList';
 import ViewNote from './components/ViewNote';
 import './App.css';
@@ -37,9 +37,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Sidebar />
       {/* <Route exact path='/' component={NoteList} /> */}
       {this.state.notes.map(note => {
-        return <NoteList key={note.id} note={note} /> 
+        return <ViewNote key={note.id} note={note} /> 
       })}
       </div>
     );
