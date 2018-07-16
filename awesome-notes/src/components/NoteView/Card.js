@@ -11,14 +11,21 @@ const CardWrapper = styled.div`
   border-radius: 2px;
 `;
 
-const CardHeader = styled.h3``;
+const CardHeader = styled.h3`
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+`;
 
-const CardBody = styled.p``;
+const CardBody = styled.p`
+  margin: 0;
+`;
 
 const Card = props => {
   return (
     <CardWrapper>
       <CardHeader>{props.note.title}</CardHeader>
+      <hr />
       <CardBody>{props.note.textBody}</CardBody>
     </CardWrapper>
   );
