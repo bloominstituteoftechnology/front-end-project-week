@@ -27,13 +27,14 @@ a {
   display: flex;
   justify-content: space-around;
   margin: 1% 0.1%;
+  padding: 1%;
   overflow: hidden;
   background-color: white;
-  text-align: center;
+  text-align: left;
 }
 
 .yourNotes {
-  margin-left: 2.5%;
+  margin: 2% 0 0 2.5%;
 }
 
 .cardTitle {
@@ -76,6 +77,6 @@ a {
 }
 
 .sideNav {
-  width: 750px;
+  width: 350px;
   background-color: #d3d2d3;
 }
