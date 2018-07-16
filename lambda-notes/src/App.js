@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 import NotesList from "./components/NotesList";
-import Note from './components/Note';
 import Nav from './components/Nav';
 
 class App extends Component {
@@ -19,7 +18,6 @@ class App extends Component {
   render() { 
     return ( 
       <div>
-      <Nav />
       <NotesList />
       </div>
      );
