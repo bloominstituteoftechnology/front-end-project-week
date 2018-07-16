@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Notes.css';
 import NoteCard from './NoteCard';
 
 class Notes extends Component {
@@ -6,7 +7,7 @@ class Notes extends Component {
     return (
       <div className="Notes">
         Your Notes:
-        <div>
+        <div className="container">
           {this.props.notes.map(note => (
             <NoteCard key={note._id} note={note} />
           ))}

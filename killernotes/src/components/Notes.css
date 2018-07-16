@@ -1,5 +1,9 @@
-.App {
-  font-family: 'Roboto', sans-serif;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+div {
   font-family: 'Raleway', sans-serif;
   background-color: #f3f3f3;
 }

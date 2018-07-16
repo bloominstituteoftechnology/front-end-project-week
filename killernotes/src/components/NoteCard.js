@@ -6,10 +6,13 @@ const NoteCard = props => {
   return (
     <div
       style={{
+        fontFamily: 'raleway',
         width: '190px',
         height: '195px',
         padding: '8px',
+        margin: '8px',
         border: '1px solid #979797',
+        backgroundColor: 'white',
       }}
     >
       {props.note.title}
