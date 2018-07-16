@@ -22,7 +22,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      notes : []
+      notes : [],
     }
   }
 
@@ -94,13 +94,30 @@ class App extends Component {
     })
   }
 
+  saveNewNote = (noteTitle, noteTextBody) => {
+    console.log('save')
+    console.log(noteTitle)
+    console.log(noteTextBody)
+
+    let newNote = {
+      "id":Date.now(),
+      "tags": ["tag", "doctor4"],
+      "title": noteTitle,
+      "textBody":noteTextBody
+    }
+
+    let notes = [...this.state.notes, newNote];
+
+    this.setState({notes})
+  }
+
   render() {
     return (
       <MainContainer>
         <Container>
           <Row>
             <SidebarStyled md="3"><Sidebar/></SidebarStyled>
-            <ContentStyled md="9"><Container><Content notes={this.state.notes}/></Container></ContentStyled>
+            <ContentStyled md="9"><Container><Content notes={this.state.notes} saveNewNote={this.saveNewNote}/></Container></ContentStyled>
           </Row>
         </Container>
       </MainContainer>
