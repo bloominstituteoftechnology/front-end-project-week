@@ -1,8 +1,12 @@
 import React from 'react';
-import "./Notes.css"
+import "./Notes.css";
+import NoteTitle from "./NoteTitle";
+import NoteBody from "./NoteBody";
+
 const Notes = ({props}) => (
   <div className="note-box">
-    Hello World
+    <NoteTitle />
+    <NoteBody />
   </div>
 );
 

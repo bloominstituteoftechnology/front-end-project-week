@@ -22,7 +22,6 @@ h2 {
   font-size: 30px;
 }
 .notes-container {
-  border: solid 1px green;
   padding-left: 39px;
   padding-right: 21px;
   display: grid;
