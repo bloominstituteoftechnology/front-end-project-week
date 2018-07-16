@@ -53,7 +53,7 @@ class App extends Component {
   handleAddNote = e => {
     e.preventDefault();
     const notes = this.state.notes.slice();
-    notes.push({ title: this.state.title, content: this.state.content });
+    notes.push({ title: this.state.title, content: this.state.content, id:Date.now() });
     alert('Note added!')
     this.setState({ notes, title:'', content:'' });
     
