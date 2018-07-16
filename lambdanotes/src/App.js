@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import ListView from './Components/ListView/ListView.js';
-
+import AddNote from './Components/AddNote/AddNote.js';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">My Notes</h1>
-        </header>
-        <ListView />
+      <div>
+        <Switch>
+          <Route exact path='/' component={ListView}/>
+          <Route exact path='/new' component={AddNote}/>
+
+        </Switch>
+       
       </div>
     );
   }
