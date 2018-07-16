@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import { fetchData } from './actions';
 import SideBar from './components/SideBar';
 import Notes from './components/Notes';
 import './App.css';
+
+const Error = styled.div`
+  margin-left: 300px;
+  color: red;
+  font-size: 30px;
+  padding: 20px;
+`;
+
+const Fetching = styled.h1`
+  margin-left: 300px;
+  font-size: 30px;
+`;
 
 class App extends Component {
   componentDidMount() {
@@ -19,9 +32,7 @@ class App extends Component {
           path="/"
           render={() =>
             this.props.fetching ? (
-              <h1 style={{ marginLeft: '300px', fontSize: '30px' }}>
-                Fetching your notes...
-              </h1>
+              <Fetching>Fetching your notes...</Fetching>
             ) : null
           }
         />
@@ -32,18 +43,7 @@ class App extends Component {
             this.props.fetched ? <Notes notes={this.props.notes} /> : null
           }
         />
-        {this.props.error ? (
-          <div
-            style={{
-              marginLeft: '300px',
-              color: 'red',
-              fontSize: '30px',
-              padding: '20px',
-            }}
-          >
-            {this.props.error}
-          </div>
-        ) : null}
+        {this.props.error ? <Error>{this.props.error}</Error> : null}
       </div>
     );
   }

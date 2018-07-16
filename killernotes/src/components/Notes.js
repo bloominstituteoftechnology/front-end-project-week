@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// import './Notes.css';
 import NoteCard from './NoteCard';
 
 const NotesDiv = styled.div`
