@@ -15,31 +15,18 @@ const StyledNotes = styled.div`
 
 `;
 
-class NotesContainer extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          notes: [],
-        }
-      }
-
-    componentDidMount(){
-        this.setState({notes: data});
-    }
-
-    render(){
+const NotesContainer = props => {
         return(
             <StyledNotesContainer>
                 <h3>Your Notes:</h3>
                 <StyledNotes>
-                    {this.state.notes.map(note => {
+                    {props.notes.map(note => {
                         return <NoteCard note={note}
                                         key={note.id} />
                     })}
                 </StyledNotes>
             </StyledNotesContainer>
         );
-    }
 }
 
 export default NotesContainer;

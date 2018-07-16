@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import NotesContainer from './containers/NotesContainer';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
+import data from './demoData';
 
 const StyledApp = styled.div`
   display: flex;
@@ -14,12 +15,22 @@ const StyledApp = styled.div`
 `;
 
 class App extends Component { 
+  constructor(){
+    super();
+    this.state = {
+      notes: [],
+    }
+  }
+
+  componentDidMount(){
+    this.setState({notes: data});
+  }
 
   render() {
     return (
       <StyledApp>
         <Route path='/' component={NavBar} />
-        <Route exact path='/' component={NotesContainer} />
+        <Route exact path='/' render={props => <NotesContainer {...props} notes={this.state.notes} />} />
         <Route exact path='/notes/:id' component={Note} />
         <Route path='/create' component={NoteForm} />
       </StyledApp>
