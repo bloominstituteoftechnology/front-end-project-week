@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const SidebarWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   padding: 20px;
-  width: 300px;
+  width: var(--sidebar-width);
   background: var(--sidebar-bg);
 `;
 const Header = styled.h1`
