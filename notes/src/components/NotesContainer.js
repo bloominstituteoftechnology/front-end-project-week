@@ -1,13 +1,14 @@
 import React from 'react';
 import '../App.css';
-import Note from './Note';
+import NoteTab from './NoteTab';
 
 class NotesContainer extends React.Component {
   render() {
+    console.log(this.props.notes)
     return (
       <div className="note-container">
         {this.props.notes.map(note => {
-          return <Note note={note} />
+          return <NoteTab key={note['_id']} note={note} />
         })}
       </div>
     )

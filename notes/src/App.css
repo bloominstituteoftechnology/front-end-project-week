@@ -66,7 +66,7 @@ body {
 }
 /* May want to come back and replace display flex with inline-block */
 
-.note {
+.note-tab {
   border: 1px solid gray;
   width: 170px;
   height: 175px;
@@ -93,15 +93,31 @@ body {
   font-size: 20px;
 }
 
-.note-header {
+.note-tab-header {
   font-family: 'Roboto', sans-serif;
   border-bottom: 2px solid lightgray;
   font-size: 18px;
 }
 
-.note-body {
+.note-tab-body {
   font-family: 'Raleway', sans-serif;
   font-size: 13px;
   width: 80%;
   line-height: 24px;
+}
+
+.title-input {
+  display: block;
+  height: 50px;
+  width: 400px;
+  margin-left: 100px;
+  font-size: 18px;
+}
+
+.content-input {
+  display: block;
+  height: 200px;
+  width: 400px;
+  margin-left: 100px;
+  font-size: 18px;
 }
