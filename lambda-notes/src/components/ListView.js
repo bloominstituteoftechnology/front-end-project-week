@@ -7,9 +7,7 @@ const ListView = props => {
             <div className="ListView-header">
                 <h2>Your Notes:</h2>
             </div>
-            <div classname="ListView-NoteView">
-                <NoteView />
-            </div>
+            <NoteView />
         </div>
     );
 

@@ -111,15 +111,13 @@ button:hover {
 .ListView-header {
   font-weight: bold;
   font-size: 20px;
-  margin: 120px auto 20px auto;
+  margin: 100px auto 27px auto;
+  display: flex;
+  width: 286px;
 }
 
 .ListView-header h2 {
   margin: 0;
-}
-
-.ListView-NoteView {
-
 }
 
 /* NoteView styles */
@@ -127,4 +125,31 @@ button:hover {
   height: 294px;
   width: 286px;
   border: 2px solid #979797;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteView-header, .NoteView-note {
+  margin: 8px 30px;
+}
+
+.NoteView-header h3, .NoteView-note p {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.NoteView-header {
+  font-weight: bold;
+  font-size: 22px;
+  border-bottom: 1px solid black;
+}
+
+.NoteView-note {
+  font-size: 20px;
+  text-align: left;
+}
+
+.NoteView-note p {
+  line-height: 30px;
 }
