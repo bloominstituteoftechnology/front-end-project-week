@@ -3,9 +3,9 @@ import NotesCard from './NotesCard';
 
 const NotesContainer = () => {
     return (
-        <div>
+        <div className='notes-container' >
             <h3 className='notes-text' >Your Notes:</h3>
-            <div className='notes-container'>
+            <div className='notes-cards'>
 
                 <NotesCard />
                 <NotesCard />
