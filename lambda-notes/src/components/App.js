@@ -10,12 +10,14 @@ import '../styles/App.css';
 const URL = 'https://killer-notes.herokuapp.com/note/get/';
 
 class App extends Component {
+  // fetches notes from api
   componentDidMount() {
     this.props.fetchNotes(URL);
   }
 
   render() {
     return (
+      // handles component routing
         <Router>
             <div className='App'>
               <Route path='/' component ={Menu} />

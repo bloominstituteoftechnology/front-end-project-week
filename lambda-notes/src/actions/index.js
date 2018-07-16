@@ -5,6 +5,7 @@ export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const FETCHED_NOTE = 'FETCHED_NOTE';
 export const ERROR = 'ERROR';
 
+// fetches all notes
 export const fetchNotes = URL => {
     const promise = axios.get(URL + 'all');
     return dispatch => {
@@ -19,6 +20,7 @@ export const fetchNotes = URL => {
     }
 }
 
+// fetches requested note for single note view
 export const fetchNote = (URL, id) => {
     const promise = axios.get(URL + id);
     return dispatch => {
