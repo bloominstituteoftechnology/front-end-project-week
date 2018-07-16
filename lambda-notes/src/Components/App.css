@@ -1,0 +1,41 @@
+.App {
+  text-align: left;
+  display: flex;
+  background: #F3F3F3;
+}
+
+/* Banner Styles */
+.banner {
+  display: flex;
+  flex-direction: column;
+  background: #D8D8D8;
+  height: 100vh;
+  width: 25%;
+}
+.banner .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner h2 {
+  font-family: 'Roboto Bold', sans-serif;
+  color: #4A4A4A;
+  margin: 0;
+  width: 90%;
+  text-align: left;
+}
+.banner-btn-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.banner .custom-button {
+  text-decoration: none;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 90%;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
