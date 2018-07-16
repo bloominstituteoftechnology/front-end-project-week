@@ -12,7 +12,7 @@ class SingleNote extends Component {
             
                 <div className='singleNote'>
                     <Link to={`note/${this.props.item.id}`} className='linksNotes'>
-                    <h4>{this.props.item.title}</h4>
+                    <h4 className='headings'>{this.props.item.title}</h4>
                     <hr />
                     <p>{this.props.item.text}</p>
                     </Link>

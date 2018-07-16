@@ -11,7 +11,8 @@ class SideArea extends Component {
         return ( 
             <div className='sideArea'>
                 <div className='sideHeader'>
-                    <h1 className='headings'>Lambda Notes</h1>
+                    <h1 className='headings'>Lambda</h1> 
+                    <h1 className='headings'>Notes</h1>
                 </div>
                 <div className='sideButtons'>
                     <button className='sideButton'><Link to='/'>View Your Notes</Link></button>

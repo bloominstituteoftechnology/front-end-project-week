@@ -9,7 +9,8 @@
     max-height: 200px;
     overflow: hidden;
     background-color: white;
-    border: 1px solid #979797;
+    border: 1px solid #c4c1c1;
+    border-radius: 0.1rem;
     padding: 0.5rem;
     margin: 0.4rem;
     text-align: left;

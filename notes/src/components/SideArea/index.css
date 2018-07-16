@@ -1,6 +1,5 @@
 .sideArea {
     width: 25%;
-    height: 100vh;
     background-color: #D3D3D3;
 }
 .sideButtons{
@@ -18,4 +17,11 @@
 }
 .sideButton:hover {
     box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
+
+.sideHeader {
+    line-height: 0.4rem;
+    text-align: left;
+    margin-left: 1.5rem;
+    padding: 1rem 0;
 }

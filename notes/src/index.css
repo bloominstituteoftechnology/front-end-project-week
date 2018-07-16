@@ -24,3 +24,9 @@ a {
   text-decoration: none;
   color: white;
 }
+
+.mainAreaHeading {
+  text-align: left;
+  margin-left: 1rem;
+  padding-top: 2rem;
+}

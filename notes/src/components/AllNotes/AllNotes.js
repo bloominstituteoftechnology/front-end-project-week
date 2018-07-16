@@ -48,7 +48,7 @@ class AllNotes extends Component {
     render() { 
         return ( 
             <div>
-                <h3>Your Notes</h3>
+                <h3 className='headings mainAreaHeading'>Your Notes</h3>
                 <div className='notesWrapper'>
                     {this.state.notesArr.map(item => {
                         return <SingleNote key={item.id} item={item} />
