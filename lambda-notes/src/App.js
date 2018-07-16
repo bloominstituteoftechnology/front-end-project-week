@@ -35,13 +35,14 @@ class App extends Component {
 
   render() { 
     return ( 
-      <div>
-        <NoteForm
+      <div className="App">
+        <Nav />
+        {/* <NoteForm
         value={this.state.title}
         handleAddNote={this.handleAddNote}
         handleInputChange={this.handleInputChange}
 
-      />
+      /> */}
       <NotesList
       notes={this.state.notes} />
       </div>

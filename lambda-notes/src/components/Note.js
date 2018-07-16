@@ -6,7 +6,7 @@ const Note = props => {
 
     return ( 
         <div className="note-card">
-            <p>{props.title}</p>
+            <h3>{props.title}</h3>
             <p>{props.content}</p>
         </div>
      );

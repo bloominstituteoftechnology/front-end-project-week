@@ -1,11 +1,41 @@
 .App {
-  text-align: center;
+  display: flex;
+ border: 1px solid black;
+ font-family: 'Raleway';
+ color: #4A4A4A;
+ margin: 0 auto;
+ max-width: 800px;
+}
+
+.nav {
+  font-family: 'Roboto';
+  font-weight: bold;
+  background-color: #D8D8D8;
+  width: 20%;
 }
 
 
+.notes-list-div {
+  border: 1px solid red;
+  background-color: #F3F3F3;
+  width: 80%;
+}
+
+
+.notes-list {
+  border: 1px solid blue;
+  display:flex;
+  flex-wrap: wrap;
+}
+
 .note-card {
   border: 1px solid black;
-  background: gray;
+ max-width: 25%;
+ font-size: 12px;
+  padding: 2%;
+ margin: 2%;
+ border: 1px solid #979797;
+
 }
 
 /* Heading font: Roboto Bold
@@ -18,4 +48,4 @@ Sidebar background: #D8D8D8
 Main background: #F3F3F3
 Main button background: #2BC1C4
 Delete button background: #D0021B
-Border color used throughout: #979797 */
+Border color used throughout:  */
