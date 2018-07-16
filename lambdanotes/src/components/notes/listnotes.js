@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Note from "./note";
 
-class Notes extends Component {
+class ListNotes extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -20,4 +20,4 @@ class Notes extends Component {
   }
 }
 
-export default Notes;
+export default ListNotes;
