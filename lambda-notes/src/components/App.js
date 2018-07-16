@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
 
-        <SideBarContainer />
+        <Route path='/' component={SideBarContainer} />
         <Route exact path='/' component={NotesContainer} />
         
       </div>
