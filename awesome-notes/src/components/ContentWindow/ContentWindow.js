@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import NoteView from "../NoteView/NoteView";
 
 const StyledWindow = styled.div`
   position: relative;
@@ -14,7 +15,11 @@ const StyledWindow = styled.div`
 `;
 
 const ContentWindow = () => {
-  return <StyledWindow>CONTENT WINDOW</StyledWindow>;
+  return (
+    <StyledWindow>
+      <NoteView />
+    </StyledWindow>
+  );
 };
 
 export default ContentWindow;
