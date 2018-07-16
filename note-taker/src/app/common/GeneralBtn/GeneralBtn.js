@@ -8,11 +8,11 @@ const dangerBtnColor = root.getPropertyValue("--danger-btn-bg");
 
 const StyledBtn = styled.button`
   color: var(--btn-font-color);
-  height: ${props => (props.height !== undefined ? props.height : "6rem")};
+  height: ${props => (props.height !== undefined ? props.height : "3rem")};
   width: ${props => (props.width !== undefined ? props.width : "100%")};
   background: ${props => (props.danger ? dangerBtnColor : primaryBtnColor)};
   border-color: var(--main-border-color);
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: capitalize;
 `;

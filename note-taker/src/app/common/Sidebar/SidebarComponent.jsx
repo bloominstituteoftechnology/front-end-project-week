@@ -17,8 +17,9 @@ const SidebarWrapper = styled.div`
 const Header = styled.h1`
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-  font-size: 5rem;
+  font-size: 3rem;
   margin-bottom: 40px;
+  line-height: 2.5rem;
 `;
 
 const ButtonsContainer = styled.div`
