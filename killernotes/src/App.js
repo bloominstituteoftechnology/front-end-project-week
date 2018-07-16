@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchData } from './actions';
+import Notes from './components/Notes';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchData();
+  }
+
   render() {
-    return <div className="App">holla</div>;
+    return <Notes notes={this.props.notes} />;
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    fetching: state.fetchingNotes,
+    fetched: state.fetchedNotes,
+    error: state.error,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchData },
+)(App);
