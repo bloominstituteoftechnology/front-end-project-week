@@ -48,7 +48,7 @@ export default (state = initialState, action) => {
                 {},
                 state,
                 {
-                    NOTEs: [...action.payload],
+                    notes: [...action.payload],
                     fetchingNotes: false,
                     addingNote: false,
                     updatingNotes: false,

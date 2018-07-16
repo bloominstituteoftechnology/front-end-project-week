@@ -1,17 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addNote } from '../../actions';
+import { Link } from 'react-router-dom';
 
 class NewNote extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             noteName: '',
             noteBody: '',
         };
     }
 
+    createNote = event => {
+        event.preventDefault();
+        const { noteName, noteBody } = this.state;
+        const newNote = {
+            name: noteName,
+            body: noteBody
+        }
+        this.props.addNote(newNote);
+        this.setState({ noteName: '', noteBody: '' });
+    }
+
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value })
     }
+
     render() {
         return (
             <div className="mainContent">
@@ -27,14 +42,17 @@ class NewNote extends React.Component {
                             value={this.state.noteName}
                             name="noteName"
                         />
-                        <input
+                        <textarea
                             className="form_input form_input_body"
+                            type="textarea"
                             onChange={this.handleInputChange}
                             placeholder="Note Content"
-                            value={this.state.noteName}
+                            value={this.state.noteBody}
                             name="noteBody"
                         />
-                        <button className="link_button" type="submit">Save</button>
+                        <Link to="/" >
++                            <button className="link__button" type="submit">Save</button>
++                       </Link>
                     </form>
                 </div>
             </div>
@@ -42,4 +60,11 @@ class NewNote extends React.Component {
     }
 }
 
-export default NewNote;
+const stateProps = state => {
+    return {
+        addingNote: state.addingNote,
+        error: state.error
+    }
+}
+
+export default connect(stateProps, { addNote })(NewNote);

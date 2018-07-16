@@ -74,6 +74,8 @@
 
 .mainContent_content {
     padding: 15px 0;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .mainContent__Form {
@@ -94,4 +96,26 @@
 
 .form__input_body {
   margin: 10px 0;
+  height: 350px;
 } 
+
+textarea {
+    resize: none;
+}
+
+.noteCard {
+    width: 175px;
+    height: 200px;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+
+.noteCard_title {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding: 5px 10px;
+}
+
+.noteCard_body {
+    padding: 10px;
+}
