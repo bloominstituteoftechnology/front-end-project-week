@@ -91,6 +91,10 @@ button:hover {
   flex-wrap: wrap;
 }
 
+.Nav-buttons a {
+  margin: 0 auto;
+}
+
 .Nav-buttons button {
   height: 62px;
   background: #2BC1C4;
@@ -192,6 +196,7 @@ button:hover {
   border-radius: 5px;
   margin-bottom: 22px;
   font-size: 20px;
+  font-family: 'Raleway', sans-serif; 
 }
 
 .CreateView-content input {
@@ -201,8 +206,8 @@ button:hover {
 
 .CreateView-content textarea {
   height: 512px;
-  width: 880px;
-  padding: 10px 32px;
+  width: 860px;
+  padding: 32px 32px;
 }
 
 .CreateView-buttons {
@@ -220,5 +225,128 @@ button:hover {
 }
 
 .CreateView-buttons button:hover {
+  background: #979797;
+}
+
+/* Note styles */
+.Note-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 46px;
+}
+
+.Note-header, .Note-content {
+  margin: 8px 30px;
+}
+
+.Note-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 27px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 136px;
+  width: 860px;
+}
+
+.Note-header h2 {
+  display: flex;
+  margin: 0;
+}
+
+.Note-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Note-links p {
+  margin-left: 20px;
+}
+
+.Note-content {
+  width: 860px;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.Note-content p {
+  font-size: 22px;
+  line-height: 40px;
+  margin: 0;
+}
+
+/* EditView styles */
+.EditView-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 46px;
+  width: 860px;
+}
+
+.EditView-header, .EditView-content {
+  margin: 8px 0;
+}
+
+.EditView-header {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 100px 0 27px 0;
+  display: flex;
+  width: 286px;
+}
+
+.EditView-header h2 {
+  margin: 0;
+}
+
+.EditView-content {
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.EditView-header h2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.EditView-content input, .EditView-content textarea {
+  height: 62px;
+  border: 2px solid #979797;
+  border-radius: 5px;
+  margin-bottom: 22px;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif; 
+}
+
+.EditView-content input {
+  width: 536px;
+  padding: 0 24px;
+}
+
+.EditView-content textarea {
+  height: 512px;
+  width: 860px;
+  padding: 32px 32px;
+}
+
+.EditView-buttons {
+  display: flex;
+}
+
+.EditView-buttons button {
+  height: 62px;
+  width: 286px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  border: 2px solid #979797;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.EditView-buttons button:hover {
   background: #979797;
 }

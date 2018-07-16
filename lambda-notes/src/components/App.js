@@ -5,6 +5,8 @@ import Navigation from './Navigation';
 import ListView from './ListView';
 import {Route} from 'react-router-dom';
 import CreateView from './CreateView';
+import Note from './Note';
+import EditView from './EditView';
 
 class App extends Component {
   render() {
@@ -24,6 +26,8 @@ class App extends Component {
           <Navigation />
           <Route exact path="/" component={ListView} />
           <Route path="/create" component={CreateView} />
+          <Route path="/note" component={Note} />
+          <Route path="/edit" component={EditView} />
 
         </div>
       </div>
