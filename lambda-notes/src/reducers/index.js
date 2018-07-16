@@ -34,9 +34,7 @@ export default (state = initialState, action) => {
             return { ...state, creatingNote: true };
 
         case NOTE_CREATED:
-            const createNote = state.notes.slice();
-            createNote.push(action.payload);
-            return { ...state, notes: createNote, creatingNote: false, noteCreated: true };
+            return { ...state, creatingNote: false, noteCreated: true };
 
         case EDITING_NOTE:
             return { ...state, editingNote: true };

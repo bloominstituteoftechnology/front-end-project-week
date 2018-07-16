@@ -19,7 +19,6 @@ export const SET_NULL = 'SET_NULL';
 
 export const ERROR = 'ERROR';
 
-
 export const getNotes = () => {
     const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
     return dispatch => {
@@ -42,7 +41,7 @@ export const addNote = note => {
     const promise = axios.post('https://killer-notes.herokuapp.com/note/create/', note);
     return dispatch => {
         dispatch({ type: CREATING_NOTE });
-        promise.then(dispatch({ type: NOTE_CREATED, payload: note }))
+        promise.then(dispatch({ type: NOTE_CREATED }))
             .catch(err => dispatch({ type: ERROR, payload: err }));
     }
 }
