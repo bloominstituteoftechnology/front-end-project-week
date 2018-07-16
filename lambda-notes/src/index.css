@@ -46,7 +46,7 @@ a {
   display: flex;
   border: 2px solid green;
   background-color: #f2f1f2;
-  height: 100vh;
+  height: 100%;
 }
 
 .notes {
