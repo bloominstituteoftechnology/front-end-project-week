@@ -2,20 +2,16 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Roboto Bold';
-}
-
 html {
   font-size: 62.5%;
 }
 
 .App {
-  text-align: center;
-  max-width: 913px;
+  display: flex;
+  max-width: 889px;
   margin: 0 auto;
   border: 1px solid black;
-  height: 100vh;
+  height: 97vh;
 }
 
 .side-bar-container {
@@ -24,6 +20,7 @@ html {
   background: #D8D8D8;
   height: 100%;
   max-width: 220px;
+  width: 100%;
   border-right: 1px solid black;
   text-align: start;
   padding: 0 13.9px;
@@ -43,4 +40,38 @@ html {
   margin: 8.7px 0;
   font-weight: 700;
   cursor: pointer;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 27px;
+  margin-top: 27px;
+  font-size: 1.7rem;
+}
+
+.notes-card:nth-child(3n+3) {
+  margin-right: 0;
+}
+
+.notes-card {
+  border: 1px solid black;
+  width: 192px;
+  height: 197px;
+  margin-left: 3px;
+  margin-right: 14px;
+  margin-bottom: 24px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.notes-text {
+  padding: 0px 27px;
+  margin-top: 58px;
+  font-size: 2rem;
+}
+
+.note-title {
+  border-bottom: 1px solid black;
+  margin: 0 5px;
 }
