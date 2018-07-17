@@ -1,0 +1,61 @@
+.new-note-form {
+	width: calc(100% - 70px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:  0 auto;
+	&>form {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		&>.input > button {
+			outline:  none;
+			border:  none;
+			height:  50px;
+			width:  40%;
+			color:  #fff;
+			font-size:  1.2em;
+			background-color: #4CD5A4;
+			margin:  0.5em 0;
+			font-family: 'Roboto', sans-serif;
+		}
+	}
+}
+
+.input {
+	width:  100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin:  10px 0;
+	&>input, textarea {
+		width:  100%;
+		background-color: #fff;
+		border:  2px solid gray;
+		border-radius: 5px;
+		height:  40px;
+		padding:  0 10px;
+		font-size:  1em;
+	}
+	&>input {
+		width:  60%;
+	}
+	&>textarea {
+		padding:  20px;
+		height:  300px;
+	}
+}
+
+.nav-to-edit-note {
+	outline:  none;
+	border:  none;
+	height:  50px;
+	width:  40%;
+	color:  #fff;
+	font-size:  1.2em;
+	background-color: #4CD5A4;
+	margin:  1em 3.5%;
+	font-family: 'Roboto', sans-serif;
+}
