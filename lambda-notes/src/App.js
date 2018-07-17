@@ -24,27 +24,14 @@ class App extends Component {
           content:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
         },
-        {
-          title: "Note 3",
-          id: 2,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
-        {
-          title: "Note 4",
-          id: 3,
-          content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        }
+
       ],
       title: "",
       content: ""
     };
   }
 
-  componentDidMount() {
-    this.setState({ notes: this.state.notes });
-  }
+
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -59,19 +46,27 @@ class App extends Component {
     
   };
 
-  handleDeleteNote = e => {
-    this.props.deleteNote(e.target.id);
-  }
+  // handleDeleteNote = e => {
+  //   this.props.deleteNote(e.target.id);
+  // }
 
   render() {
     return (
       <div className="App">
         <Nav />
+
         <Route
           exact
           path="/"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
+          render={() => <NotesList notes={this.state.notes} />}
         />
+
+         <Route path="/notes/:id" render={props => <Note {...props} notes={this.state.notes} /> }
+        />
+
+
+
+
         <Route
           path="/form"
           render={props => (
@@ -84,8 +79,7 @@ class App extends Component {
             />
           )}
         />
-        <Route path="/notes/:id" render={props => <Note {...props} notes={this.state.notes} /> }
-        />
+       
       </div>
     );
   }

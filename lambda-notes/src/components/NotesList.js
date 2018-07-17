@@ -1,25 +1,29 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Note from "./Note";
 
-class NotesList extends Component {
-  render(props) {
+const NotesList = props =>  {
     return (
       <div className="notes-list-div">
         <h3>Your Notes: </h3>
         <ul className="notes-list">
-          {this.props.notes.map(note => {
+          {props.notes.map(note => {
             return (
-                <Link className='note-link'key={note.id} to={`/notes/${note.id}`}>
-              <Note title={note.title}  content={note.content} note= {note} key={note.id}/>
-              </Link>
+              <Link
+                className="note-link"
+                to={`/notes/${note.id}`}
+              >
+              <h1>{note.title.substring(0, 20)}</h1>
+              <hr /> 
+              <p>{note.content.substring(0, 150)}</p>
+            </Link>
             );
           })}
         </ul>
       </div>
     );
   }
-}
+
 
 export default NotesList;
 

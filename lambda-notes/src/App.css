@@ -1,22 +1,22 @@
 .App {
   display: flex;
- border: 1px solid black;
- font-family: 'Raleway';
- color: #4A4A4A;
- margin: 0 auto;
- max-width: 800px;
+  border: 1px solid black;
+  font-family: "Raleway";
+  color: #4a4a4a;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 .nav {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: bold;
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
   width: 20%;
 }
 
 .nav-button {
-  background-color: #2BC1C4;
-  color: #FFFFFF;
+  background-color: #2bc1c4;
+  color: #ffffff;
   border: 1px solid #979797;
   width: 80%;
   height: 15px;
@@ -27,40 +27,40 @@
   text-align: center;
 }
 
-.save-button{
-  background-color: #2BC1C4;
-  color: #FFFFFF;
+.save-button {
+  background-color: #2bc1c4;
+  color: #ffffff;
   border: 1px solid #979797;
   width: 100px;
-  height:25px;
+  height: 25px;
 }
 
 .notes-list-div {
   border: 1px solid red;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   width: 80%;
 }
 
-.note-link{
+.note-link {
   text-decoration: none;
-  display:flex;
+  display: flex;
+  cursor: pointer;
   flex-wrap: wrap;
+  
   width: 25%;
   font-size: 12px;
-   padding: 2%;
+  padding: 2%;
   margin: 2%;
   border: 1px solid #979797;
-  color: #4A4A4A;
-  font-family: 'Raleway';
+  color: #4a4a4a;
+  font-family: "Raleway";
 }
 .notes-list {
   border: 1px solid blue;
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   padding: 0;
-
 }
-
 
 /* Heading font: Roboto Bold
 Everything else font: Raleway Medium
