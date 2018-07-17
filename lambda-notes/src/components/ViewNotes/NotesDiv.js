@@ -15,7 +15,7 @@ const NotesDiv = (props) => {
 	  <CardBody>
           <CardTitle>{note.title}</CardTitle>
           <CardSubtitle></CardSubtitle>
-          <CardText>{note.textBody}</CardText>
+          <CardText>{note.textBody.substring(0, 99)}...</CardText>
 
         </CardBody>
       </Card>
