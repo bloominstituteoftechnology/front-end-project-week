@@ -8,7 +8,8 @@ import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import DeleteModal from './components/DeleteModal';
 import EditNote from './components/EditNote';
-import data from './demoData';
+import { connect } from 'react-redux';
+import { getNotes } from './actions';
 
 const StyledApp = styled.div`
   display: flex;
@@ -17,23 +18,9 @@ const StyledApp = styled.div`
   `;
 
 class App extends Component { 
-  constructor(){
-    super();
-    this.state = {
-      notes: [],
-      id: 0,
-    }
-  }
 
   componentDidMount(){
-    //This is just to set the current id higher than the dummy datas, delete when calling the API for notes
-    let newId = data.reduce((acc,item) => {
-      if(item.id > acc ){
-        acc = item.id + 1
-      }
-      return acc}, 0)
-    // Again, don't forget to remove the id state variable when using the API
-    this.setState({notes: data, id: newId});
+    this.props.getNotes(this.props.URL);
   }
 
   addNote = (title, body) => {
@@ -66,14 +53,23 @@ class App extends Component {
     return (
       <StyledApp>
         <Route path='/' component={NavBar} />
-        <Route exact path='/' render={props => <NotesContainer {...props} notes={this.state.notes} />} />
-        <Route path='/notes/:id' render={props => <Note {...props} notes={this.state.notes} />} />
-        <Route path='/create' render={props => <NoteForm {...props} addNote={this.addNote} />} />
-        <Route exact path='/notes/:id/delete' render={props => <DeleteModal {...props} deleteNote={this.deleteNote} /> } />
-        <Route path='/edit/:id' render={props => <EditNote {...props} editNote={this.editNote} /> } />
+        <Route exact path='/' render={props => <NotesContainer {...props} />} />
+        <Route path='/notes/:id' render={props => <Note {...props} />} />
+        <Route path='/create' render={props => <NoteForm {...props} />} />
+        <Route exact path='/notes/:id/delete' render={props => <DeleteModal {...props} /> } />
+        <Route path='/edit/:id' render={props => <EditNote {...props} /> } />
       </StyledApp>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    URL: state.URL,
+    fetching: state.fetching,
+    fetched: state.fetched,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { getNotes })(App);
