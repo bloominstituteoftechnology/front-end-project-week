@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 
 export default class LeftNav extends Component {
@@ -8,9 +9,13 @@ export default class LeftNav extends Component {
         <div>
           <h1 className='nav-header'>Lambda <br />Notes</h1>
         </div>
-        <div className='nav-button-container'>
-          <button type='button' className="btn btn-large custom-button text-white">View Your Notes</button><br />
-          <button type='button' className="btn btn-large custom-button text-white">+ Create New Note</button>
+        <div className='text-center'>
+          <Link to="/">
+            <button type='button' className="btn btn-block custom-button text-white">View Your Notes</button>
+          </Link>
+          <Link to="/create-note">
+            <button type='button' className="btn btn-block custom-button text-white">+ Create New Note</button>
+          </Link>
         </div>
       </div>
     )

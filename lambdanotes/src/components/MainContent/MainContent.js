@@ -10,10 +10,12 @@ export default class MainContent extends Component {
   render() {
     return (
       <div className="main-container">
-        {/* <NotesList /> */}
-        {/* <NoteView /> */}
-        {/* <CreateNote /> */}
-        <EditNote />
+        <Switch>
+          <Route path='/' exact component={NotesList} />
+          <Route path='/note/:id' exact component={NoteView} />
+          <Route path='/create-note' exact component={CreateNote} />
+          <Route path='/edit-note/:id' exact component={EditNote} />
+        </Switch>
       </div>
     )
   }
