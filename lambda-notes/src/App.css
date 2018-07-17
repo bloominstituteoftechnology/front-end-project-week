@@ -1,6 +1,7 @@
 .app {
   display: flex;
   font-family: 'Raleway', sans-serif;
+  color: #4A4A4A;
 }
 .app .navigation {
   background-color: #D8D8D8;
@@ -15,6 +16,7 @@
   font-weight: bold;
   margin-left: 20px;
   line-height: 52px;
+  color: black;
 }
 .app .navigation .nav-links {
   width: 300px;
@@ -41,4 +43,45 @@
 }
 .app .content {
   background-color: #F3F3F3
+}
+.app .content a:visited {
+  text-decoration: none;
+  color: #4A4A4A;
+}
+.app .content .notes h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin-top: 85px;
+  margin-left: 30px;
+}
+.app .content .notes ul {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+}
+.content .notes ul .note {
+  border:2px #979797 solid;
+  margin-bottom: 40px;
+  background-color: white;
+  width: 280px;
+  height: 300px;
+}
+.content .notes ul .note .note-text {
+  padding-left: 30px;
+  padding-right: 40px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.notes ul .note .note-text h2 {
+  font-size: 22px;
+  border-bottom: 2px #979797 solid;
+  padding-bottom: 15px;
+  color: black;
+}
+.notes ul .note .note-text p {
+  line-height: 30px;
 }

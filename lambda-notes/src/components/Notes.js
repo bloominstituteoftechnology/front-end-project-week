@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 
 const Notes = props => {
       return (
-      <div>
+      <div className='notes'>
         <h1>Your Notes:</h1>
         <ul>
           {props.notes.map(note=>{
             return(
-              <Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} key={Math.random()}>
-                <h2>{note.title}</h2>
-                <p>{note.textBody}</p>
-              </Link>
+              <div className='note'><Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} key={Math.random()}>
+                <div className='note-text'>
+                  <h2>{note.title.substring(0,15)}</h2>
+                  <p>{note.textBody.substring(0,120)}...</p>
+                </div>
+              </Link></div>
             )
           })}
         </ul>
