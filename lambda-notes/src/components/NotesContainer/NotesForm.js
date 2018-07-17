@@ -37,6 +37,7 @@ class NotesForm extends React.Component {
     }
 
     render() {
+        console.log(this.state.content);
         return (
             <form className='notes-form' onSubmit={event => event.preventDefault()}>
                 <input className='note-title-field' onChange={this.handleInput} value={this.state.title} name='title' type='text' placeholder='Note Title' />

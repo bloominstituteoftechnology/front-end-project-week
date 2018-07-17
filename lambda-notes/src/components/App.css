@@ -90,6 +90,7 @@ body {
 .note-paragraph {
   word-wrap: break-word;
   overflow: hidden;
+  white-space: pre-line;
   margin: 8px 5px;
   max-height: 125px;
   max-width: 137px;
@@ -152,6 +153,7 @@ body {
   font-size: 1.5rem;
   line-height: 1.5;
   word-break: break-all;
+  white-space: pre-line;
 }
 
 .note-links {
