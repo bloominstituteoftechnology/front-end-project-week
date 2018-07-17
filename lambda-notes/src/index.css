@@ -7,13 +7,13 @@ body {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  font-family: 'Raleway Medium', Helvetica, sans-serif;
+  font-family: system-ui, Helvetica, sans-serif;
   color: #4A4A4A;
   background: #F3F3F3;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Bold', Helvetica, sans-serif;
+  font-family: system-ui, Helvetica, sans-serif;
 }
 
 a, a:visited {

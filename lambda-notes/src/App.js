@@ -40,6 +40,18 @@ class App extends Component {
     })
 
   }
+
+  deleteNote = id => {
+
+    const { notes } = this.state
+
+    this.setState({
+      notes: notes.filter(note => 
+        String(note.id) !== id 
+      )
+    })
+
+  }
   
   render() {
 
@@ -69,8 +81,14 @@ class App extends Component {
               <h2>{note.title}</h2>
               <hr />
               <p>{note.text}</p>
-            </div>
-            )
+              <br /><br />
+              <span onClick={() => {
+                this.deleteNote(props.match.params.id)
+                props.history.push('/')
+              }}>
+                 [delete] 
+              </span>
+            </div>)
           }/>
         
           <Route path='/new' render={props =>
