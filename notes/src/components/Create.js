@@ -23,6 +23,7 @@ class Create extends React.Component {
       body: this.state.body
     };
     this.props.submitNewNote(newComment);
+    this.props.history.push("/");
   };
   render() {
     return (

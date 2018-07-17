@@ -28,7 +28,9 @@ class EditNote extends React.Component {
       edited,
       this.props.singleNote[0].id
     );
+    this.props.history.push("/");
   };
+
   render() {
     return (
       <div className="editNote">
