@@ -1,30 +1,31 @@
 import {
   SUBMIT_NEW_NOTE,
-  FETCH_SINGLE_NOTE
+  FETCH_SINGLE_NOTE,
+  EDIT_NOTE
 } from "../actions/action";
 
 const initialState = {
   notes: [
     {
-      title: "Note Title1",
+      title: "Note Title 1",
       body:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English.",
       id: 0
     },
     {
-      title: "Note Title2",
+      title: "Note Title 2",
       body:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English.",
       id: 1
     },
     {
-      title: "Note Title3",
+      title: "Note Title 3",
       body:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English.",
       id: 2
     },
     {
-      title: "Note Title4",
+      title: "Note Title 4",
       body:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using , making it look like readable English.",
       id: 3
@@ -54,6 +55,10 @@ export const notesReducer = (
       return Object.assign({}, state, {
         singleNote: singleNote
       });
+    case EDIT_NOTE:
+      let notes = state.notes.slice();
+      notes.push(action.payload);
+      return Object.assign({}, state, { notes: notes });
     default:
       return state;
   }
