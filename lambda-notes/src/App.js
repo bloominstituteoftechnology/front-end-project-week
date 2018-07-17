@@ -56,8 +56,7 @@ class App extends Component {
     return (
       <div className="App">
       <Navbar />
-     <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
-
+      <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
       <Route path="/:id" render={props => <Note {...props} notes={notes}/>}/>
       <Route path="/NewNote" render={props => <NewNote NewNote={this.NewNote} />}/>
       </div>

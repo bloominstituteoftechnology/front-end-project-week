@@ -21,10 +21,13 @@ class NewNote extends Component {
     render() {
         const { title, body, id } = this.state;
         return (
-            <div>
+                <div>
+                <div>
+                <h1>Create New Note:</h1>
+                </div>
                 <form>
                     <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                    <input name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
+                    <textarea name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
                     <button onClick={(e) => this.props.addNote(e, {id, title, body})}>Save</button>
                 </form>
             </div>

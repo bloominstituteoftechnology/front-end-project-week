@@ -1,7 +1,5 @@
-
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-
 import NewNote from './NewNote';
 
 class Note extends Component {
@@ -10,7 +8,7 @@ class Note extends Component {
         this.state = {
             note: null,
             title: '',
-            content: '',
+            body: '',
             edit: false
         }
     }
@@ -30,7 +28,6 @@ class Note extends Component {
         });
     }
 
-
     editNote = () => {
         this.setState({edit: true})
     }
@@ -42,7 +39,7 @@ class Note extends Component {
                     edit={true}
                     note={this.state.note}
                     title={this.state.title}
-                    content={this.state.content}/>
+                    content={this.state.body}/>
             ) : (
                 <Container>
                     <div className="edit-delete">
@@ -53,7 +50,7 @@ class Note extends Component {
                     <Row>
                         <Col sm="12">
                             <div  className="note-content">
-                                {this.state.content}
+                                {this.state.body}
                             </div>
                         </Col>
                     </Row>
