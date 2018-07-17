@@ -45,6 +45,8 @@ class Note extends Component {
         const { title, textBody } = this.state.note;
         return (
             <div className="Note-container">
+                <div>edit</div>
+                <div>delete</div>
                 <NoteView note={this.state.note} />
             </div>
         );

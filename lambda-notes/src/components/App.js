@@ -9,11 +9,25 @@ import Note from './Note';
 import EditView from './EditView';
 import axios from 'axios';
 
-const URL = 'https://killer-notes.herokuapp.com/note/get';
+const URL = 'https://killer-notes.herokuapp.com/note';
 
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      notes: [],
+      fetching: false,
+      fetched: false,
+      saving: false,
+      saved: false,
+      updating: false,
+      updated: false,
+      deleting: false,
+      deleted: false,
+      error: null,
+      "title": "",
+      "textBody": ""
+    };
   }
 
   handleChange = (e) => {
@@ -32,6 +46,7 @@ class App extends Component {
 
     const promise = axios.post(`${URL}/create`, note);
     promise.then(({data}) => {
+      console.log(data);
       this.setState({
         notes: data,
         "title": "",
