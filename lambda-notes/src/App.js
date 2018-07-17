@@ -5,7 +5,8 @@ import "./App.css";
 import NotesList from "./components/NotesList";
 import NoteForm from "./components/NoteForm";
 import Note from "./components/Note";
-import EditNote from './components/EditNote';
+import EditNote from "./components/EditNote";
+import DeleteNote from "./components/DeleteNote";
 import Nav from "./components/Nav";
 
 class App extends Component {
@@ -14,10 +15,28 @@ class App extends Component {
     this.state = {
       notes: [
         {
-          title: "Note 1", id: 0, content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+          title: "Note 1",
+          id: 0,
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
         },
         {
-          title: "Note 2", id: 1,content:  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+          title: "Note 2",
+          id: 1,
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
+        {
+          title: "Note 3",
+          id: 2,
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
+        {
+          title: "Note 4",
+          id: 3,
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
         }
       ],
       title: "",
@@ -37,14 +56,14 @@ class App extends Component {
     notes.push({
       title: this.state.title,
       content: this.state.content,
-      id: Date.now()
+      id: this.state.notes.length
     });
     alert("Note added!");
     this.setState({ notes, title: "", content: "" });
   };
 
   handleSetCurrent = id => {
-    this.setState({ currentNote: this.state.notes[`${id}`]});
+    this.setState({ currentNote: this.state.notes[`${id}`] });
   };
 
   handleEditTitle = e => {
@@ -70,7 +89,6 @@ class App extends Component {
   handleEditNote = e => {
     e.preventDefault();
     const notes = this.state.notes.slice();
-    console.log(notes);
     const id = this.state.currentNote.id;
     notes[id] = {
       id: this.state.currentNote.id,
@@ -81,32 +99,42 @@ class App extends Component {
     alert(`updated`);
   };
 
-  // onDelete = () => {
-  //   let notes = this.state.notes.slice();
-  //   console.log(`notes`, notes);
-  // }
+  toggleDeleting = () => {
+    this.setState({ deleting: !this.state.deleting });
+  };
+
+  handleDeleteNote = e => {
+    e.preventDefault();
+    const notes = this.state.notes.slice();
+    const id = this.state.currentNote.id;
+    const filtered = notes.filter(note => note.id !== id )
+    this.setState({ notes: filtered, currentNote: {} });
+  };
 
   render() {
     return (
       <div className="App">
         <Nav />
+
         <Route
           exact
           path="/"
           render={props => <NotesList {...props} notes={this.state.notes} />}
         />
+
+
         <Route
           path="/notes/:id"
           render={props => (
             <Note
               {...props}
               notes={this.state.notes}
-              title={this.state.title}
-              content={this.state.content}
-              onDelete={this.onDelete}
+              toggleDeleting={this.toggleDeleting}
             />
           )}
         />
+
+
         <Route
           path="/form"
           render={props => (
@@ -119,6 +147,9 @@ class App extends Component {
             />
           )}
         />
+
+
+
         <Route
           path="/edit/:id"
           render={props => (
@@ -133,6 +164,23 @@ class App extends Component {
             />
           )}
         />
+
+
+        {this.state.deleting ? (
+          <Route
+            path="/notes/:id"
+            render={props => (
+              <DeleteNote
+                {...props}
+                toggleDeleting={this.toggleDeleting}
+                handleSetCurrent={this.handleSetCurrent}
+                handleDeleteNote={this.handleDeleteNote}
+              />
+            )}
+          />
+        ) : null}
+
+
       </div>
     );
   }
