@@ -30,7 +30,7 @@ class Note extends React.Component {
     }
 
     toggleModal = () => {
-        this.setState({ modal: false });
+        this.setState({ modal: !this.state.modal });
     }
 
     render() {
@@ -43,7 +43,7 @@ class Note extends React.Component {
 
                         <div className='note-links'>
                             <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
-                            <div onClick={() => this.setState({ modal: !this.state.modal })} className='delete-link' to='/delete'>delete</div>
+                            <div onClick={this.toggleModal} className='delete-link' to='/delete'>delete</div>
                         </div>
 
                         <h3 className='note-header'>{this.props.note.title}</h3>

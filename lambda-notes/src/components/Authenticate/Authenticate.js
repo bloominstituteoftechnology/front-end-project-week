@@ -7,14 +7,13 @@ const Authenticate = App =>
             super();
 
             this.state = {
-                loggedIn: false
+                loggedIn: true
             }
         }
 
-
         render() {
             if(this.state.loggedIn) return <App />
-            return <Login />
+            return <Login />    
         }
     }
 
