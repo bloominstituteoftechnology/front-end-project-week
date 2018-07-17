@@ -7,11 +7,15 @@ html {
   overflow-y: scroll;
 }
 
+body {
+  font-family: 'Raleway Medium', sans-serif;
+}
+
 .App {
   display: flex;
   max-width: 889px;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid #979797;
   min-height: 891px;
 }
 
@@ -22,7 +26,7 @@ html {
   height: 100%;
   max-width: 220px;
   width: 100%;
-  border-right: 1px solid black;
+  border-right: 1px solid #979797;
   text-align: start;
   padding: 0 13.9px;
 }
@@ -31,12 +35,13 @@ html {
   font-size: 3.4rem;
   line-height: 1;
   margin: 14px 0;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .main-buttons {
   background: #2BC1C4;
   color: #FFFFFF;
-  border: 1px solid grey;
+  border: 1px solid #979797;
   padding: 13px 5px;
   margin: 8.7px 0;
   font-weight: 700;
@@ -58,7 +63,7 @@ html {
 
 .notes-card {
   background: white;
-  border: 1px solid black;
+  border: 1px solid#979797;
   cursor: pointer;
   width: 192px;
   height: 197px;
@@ -69,10 +74,11 @@ html {
   padding: 0px 27px;
   margin-top: 58px;
   font-size: 1.9rem;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .note-title {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #979797;
   font-size: 1.9rem;
   margin: 0 5px;
   padding-bottom: 5px;
@@ -84,7 +90,7 @@ html {
 .note-paragraph {
   margin: 8px 5px;
   max-height: 125px;
-  max-width: 121px;
+  max-width: 140px;
   word-break: break-all;
   overflow: hidden;
   width: 100%;
@@ -171,6 +177,7 @@ html {
   padding: 0px 27px;
   margin-top: 23px;
   font-size: 1.9rem;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .modal {
