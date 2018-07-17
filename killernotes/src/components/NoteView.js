@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteNote } from '../actions';
 import styled from 'styled-components';
+import ModalDelete from './ModalDelete';
 
 const SingleNote = styled.div`
   font-family: raleway;
@@ -36,11 +37,17 @@ class NoteView extends React.Component {
         textBody: '',
         id: '',
       },
+      modal: false,
     };
   }
 
+  toggleModal = () => {
+    this.setState({ modal: !this.state.modal });
+  };
+
   deleteClicked = () => {
     this.props.deleteNote(this.state.id);
+    this.props.history.push('/');
   };
 
   componentDidMount() {
@@ -76,20 +83,26 @@ class NoteView extends React.Component {
 
   render() {
     const { title, textBody, id } = this.state;
+    const body = document.body;
+    body.style.backgroundColor = this.state.modal
+      ? 'rgb(100, 100, 100, .9)'
+      : 'rgb(243, 243, 243)';
     return (
-      <React.Fragment>
+      <div>
+        <ModalDelete
+          modal={this.state.modal}
+          delete={this.deleteClicked}
+          toggleModal={this.toggleModal}
+        />
         <Links>
           <Link to={`/edit/${id}`}> edit </Link>
-          <Link to="/" onClick={this.deleteClicked}>
-            {' '}
-            delete{' '}
-          </Link>
+          <button onClick={this.toggleModal}> delete </button>
         </Links>
         <SingleNote>
           <h2>{title}</h2>
           {textBody}
         </SingleNote>
-      </React.Fragment>
+      </div>
     );
   }
 }

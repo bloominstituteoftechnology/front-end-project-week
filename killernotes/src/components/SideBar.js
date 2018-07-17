@@ -6,7 +6,7 @@ const SideBarDiv = styled.div`
   height: 100%;
   width: 221px;
   position: fixed;
-  z-index: 1;
+  z-index: 0;
   top: 16px;
   left: 11px;
   overflow-x: hidden;
