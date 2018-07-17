@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  letter-spacing: -.5px;
+}
+
 .container {
     display: flex;
     min-height:900px;
@@ -104,18 +109,36 @@ textarea {
 }
 
 .noteCard {
-    width: 175px;
+    width: 180px;
     height: 200px;
     border: 1px solid black;
-    margin-right: 20px;
+    margin: 0 10px 20px 10px;
+    background-color: white;
 }
-
-.noteCard_title {
+  
+.noteCard__title {
+    max-height: 40px;
     font-weight: bold;
+    font-weight: 900;
     border-bottom: 1px solid black;
-    padding: 5px 10px;
+    margin: 5px 10px 0 10px;
+    padding: 5px 0;
+    font-size: 20px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    width: 90%;
+    display: inline-block;
+    overflow: hidden;
 }
-
-.noteCard_body {
-    padding: 10px;
-}
+  
+.noteCard__body {
+    max-height: 130px;
+    margin: 5px 10px 15px 10px;
+    line-height: 22px;
+    padding-bottom: 10px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    width: 90%;
+    display: inline-block;
+    overflow: hidden;
+  }

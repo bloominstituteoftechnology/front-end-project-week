@@ -8,7 +8,26 @@ export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 
 export const getNotes = () => {
-    const promise = axios.get('http://localhost:3000/notes')
+    const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    return dispatch => {
+        dispatch({ type: FETCHING_NOTES })
+        promise.then(response => {
+            dispatch({
+                type: SUCCESS,
+                payload: response.data
+            })
+        })
+        .catch(err => {
+            dispatch({
+                type: ERROR,
+                payload: err
+            })
+        })
+    }
+}
+
+export const getNote = id => {
+    const promise = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
@@ -27,7 +46,7 @@ export const getNotes = () => {
 }
 
 export const addNote = note => {
-    const promise = axios.post('http://localhost:3000/notes', note)
+    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', note)
     return dispatch => {
         dispatch({ type: ADDING_NOTE })
         promise.then(response => {
@@ -46,7 +65,7 @@ export const addNote = note => {
 }
 
 export const updateNote = note => {
-    const promise = axios.put(`http://localhost:5000/notes/${note.id}`, note)
+    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
     return dispatch => {
         dispatch({ type: UPDATING_NOTES })
         promise.then(response => {
@@ -65,7 +84,7 @@ export const updateNote = note => {
 }
 
 export const deleteNote = noteID => {
-    const promise = axios.delete(`http://localhost:5000/notes/${noteID}`)
+    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
     return dispatch => {
         dispatch({ type: DELETING_NOTE })
         promise.then(response => {

@@ -2,6 +2,12 @@ import React from 'react';
 import Note from './Note';
 import { connect } from 'react-redux';
 import { getNotes } from '../../actions';
+import { Link } from 'react-router-dom';
+
+const styled = {
+    textDecoration: 'none',
+    color: 'black'
+}
 
 class Notes extends React.Component {
     componentDidMount() {
@@ -9,15 +15,20 @@ class Notes extends React.Component {
     }
 
     render() {
+        console.log('render', this.props)
         return (
             <div className="mainContent" >
                 <div className="directory__title mainContent__title" >
                     Your Notes:
             </div>
-                {console.log('props', this.props)}
                 <div className="mainContent__content" >
-                    {this.props.notes.map(note => {
-                        return <Note title={note.name} body={note.body} key={note.id}/>
+                    {this.props.notes.map((note, index) => {
+                        return (
+                            <div key={note.id + index}>
+                                <Link to={`/notes/${note.id}`} style={styled} >
+                                    <Note title={note.name} body={note.body} id={note.id} key={note.id} />
+                                </Link>
+                            </div>)
                     })}
                 </div>
             </div>
@@ -25,10 +36,10 @@ class Notes extends React.Component {
     }
 };
 
-const stateProps = state => {
-    console.log('state of notes', state.notes)
+const stateProps = (state, ownProps) => {
+    console.log('state props notes', state, 'ownProps', ownProps)
     return {
-        notes: state.notes
+        notes: state.rootReducer.notes
     }
 }
 

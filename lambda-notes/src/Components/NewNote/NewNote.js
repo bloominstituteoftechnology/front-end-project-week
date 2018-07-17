@@ -50,9 +50,7 @@ class NewNote extends React.Component {
                             value={this.state.noteBody}
                             name="noteBody"
                         />
-                        <Link to="/" >
-+                            <button className="link__button" type="submit">Save</button>
-+                       </Link>
+                            <button className="link__button" type="submit">Save</button>
                     </form>
                 </div>
             </div>
