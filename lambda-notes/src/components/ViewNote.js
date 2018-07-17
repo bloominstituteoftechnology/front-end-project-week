@@ -8,20 +8,21 @@
 
  class ViewNote extends Component {
 
-    // grabs newly created note from local storage
+    // parses url path for note id then fetches note from server
      componentDidMount() {
         let id = window.location.pathname.split('/');
-        console.log(id);
-        id = id.filter(id => id.length > 5);
+        id = id[2];
         this.props.fetchNote(URL, id);
      }
 
     render() {
         return (
             <React.Fragment>
-                <div className='options'>
-                    <Link to={`/note/${this.props.singleNote._id}/delete`}>Delete</Link>
-                </div>
+                {this.props.singleNote.errorMessage ? null : (
+                    <div className='options'>
+                        <Link to={`/note/${this.props.singleNote._id}/delete`}>Delete</Link>
+                    </div>
+                )}
                 <React.Fragment>
                     {/* waits for notes to fetch then displays notes */}
                     {this.props.fetchingNotes ? (

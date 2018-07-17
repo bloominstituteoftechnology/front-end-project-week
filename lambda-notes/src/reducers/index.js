@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, FETCHED_NOTE, SET_NEW, FETCHING_NEW, FETCHING_NOT_DELETED, SET_NOT_DELETED, ERROR } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, FETCHED_NOTE, ERROR } from '../actions';
 
 const initialState = {
     fetchingNotes: false,

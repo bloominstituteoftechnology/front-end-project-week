@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import Note from './Note';
 import '../styles/NotesList.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/';
-
 class NotesList extends Component {
     render() {
         return (
