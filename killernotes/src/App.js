@@ -6,6 +6,7 @@ import { fetchData } from './actions';
 import SideBar from './components/SideBar';
 import Notes from './components/Notes';
 import NoteView from './components/NoteView';
+import NoteForm from './components/NoteForm';
 import './App.css';
 
 const Error = styled.div`
@@ -46,6 +47,7 @@ class App extends Component {
         />
         {/* ...props sends match, location, history, etc */}
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
+        <Route path="/add/:id" render={props => <NoteForm {...props} />} />
         {this.props.error ? <Error>{this.props.error}</Error> : null}
       </div>
     );

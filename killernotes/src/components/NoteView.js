@@ -96,7 +96,9 @@ class NoteView extends React.Component {
         />
         <Links>
           <Link to={`/edit/${id}`}> edit </Link>
-          <button onClick={this.toggleModal}> delete </button>
+          <Link to="#" onClick={this.toggleModal}>
+            delete{' '}
+          </Link>
         </Links>
         <SingleNote>
           <h2>{title}</h2>
