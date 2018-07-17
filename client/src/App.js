@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Notes, { NoteNew } from './components/Notes';
+import Notes, { NoteNew, SingleNoteControl } from './components/Notes';
 import SideBar from './components/SideBar';
 // inside of APP, we want to render our sidebar and our NotesList component
 class App extends Component {
@@ -10,6 +10,7 @@ class App extends Component {
         <SideBar />
         <Route exact path="/" component={Notes} />
         <Route exact path="/notes/new" component={NoteNew} />
+        <Route path="/note/get/:id" component={SingleNoteControl} />
       </Fragment>
     );
   }

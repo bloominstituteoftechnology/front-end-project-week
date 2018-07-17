@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { FETCH_NOTES, ADD_NOTE, FETCHING, ERROR } from './types';
+import {
+  FETCH_NOTES,
+  ADD_NOTE,
+  FETCH_SINGLE_NOTE,
+  FETCHING,
+  ERROR
+} from './types';
 
 export const fetchNotes = () => {
   const request = axios.get('https://killer-notes.herokuapp.com/note/get/all');
@@ -47,5 +53,30 @@ export const addNote = note => {
           payload: err
         });
       });
+  };
+};
+
+export const fetchNote = ({ id }) => {
+  const request = axios.get(
+    `https://killer-notes.herokuapp.com/note/get/${id}`
+  );
+
+  return dispatch => {
+    dispatch({
+      type: FETCHING
+    });
+    request
+      .then(res => {
+        dispatch({
+          type: FETCH_SINGLE_NOTE,
+          payload: res.data
+        });
+      })
+      .catch(err =>
+        dispatch({
+          type: ERROR,
+          payload: err
+        })
+      );
   };
 };
