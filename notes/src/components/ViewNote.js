@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
+import {Button, Modal, ModalBody, ModalFooter} from 'reactstrap'
 
 class ViewNote extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class ViewNote extends React.Component {
       note: null,
       editingNote: false,
       title: '',
-      textBody: ''
+      textBody: '',
+      modal: false,
+      tags: []
     }
   }
 
@@ -78,7 +81,7 @@ class ViewNote extends React.Component {
 
   handleEdit = (id) => {
     console.log("haha");
-    const newEdits = {title: this.state.title, textBody: this.state.textBody}
+    const newEdits = {tags: this.state.tags, title: this.state.title, textBody: this.state.textBody}
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newEdits)
     .then(response => {
       console.log(response.data);
@@ -88,6 +91,10 @@ class ViewNote extends React.Component {
     .catch(err => {
       console.log('Edit Error:', err);
     })
+  }
+
+  toggleModal = () => {
+    this.setState({modal: !this.state.modal});
   }
 
 
@@ -101,8 +108,18 @@ class ViewNote extends React.Component {
       </div>
       <div className="right-bar">
         <div className="view-note-buttons">
-        <button className="view-note-button" onClick={this.toggleEdit}>Edit      </button>
-        <button className="view-note-button" href="#" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</button>
+        <button className="view-note-button" onClick={this.toggleEdit}>Edit</button>
+
+        <button className="view-note-button" onClick={this.toggleModal}>Delete</button>
+        <Modal isOpen={this.state.modal} toggle={this.toggleModal}>
+          <ModalBody>
+            <p>Are you sure you want to delete this note?</p>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="danger" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</Button>{' '}
+            <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
         </div>
         <h3 className="view-note-header">{this.state.note ? (this.state.editingNote ? <input name="title" className="title-input" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
         <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : this.state.note.textBody) : "Loading..."}</p>
