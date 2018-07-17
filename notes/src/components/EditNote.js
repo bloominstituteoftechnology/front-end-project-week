@@ -4,11 +4,11 @@ import { Form, FormGroup, Input, Button } from "reactstrap";
 import { editNote } from "../actions/action";
 
 class EditNote extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      editedTitle: "",
-      editedBody: ""
+      editedTitle: this.props.singleNote[0].title,
+      editedBody: this.props.singleNote[0].body
     };
   }
   inputEditNote = event => {
@@ -43,6 +43,7 @@ class EditNote extends React.Component {
               name="editedTitle"
               className="createNoteTitle"
               placeholder="Note Title"
+              value={this.state.editedTitle}
             />
             <textarea
               onChange={this.inputEditNote}
@@ -50,6 +51,7 @@ class EditNote extends React.Component {
               name="editedBody"
               className="createNoteComment"
               placeholder="Note Content"
+              value={this.state.editedBody}
             />
           </FormGroup>
           <Button onClick={this.editNote}>Update</Button>
