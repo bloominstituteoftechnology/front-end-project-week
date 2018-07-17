@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: ${ props => props.theme.color.buttonBG };
+  background-color: ${ props => (props.danger ?
+                                props.theme.color.buttonDangerBG:
+                                props.theme.color.buttonBG) };
   color: ${ props => props.theme.color.buttonText };
   font-size: ${ props => props.theme.dimensions.button.fontSize };
   font-family: ${ props => props.theme.font.heading };
@@ -15,7 +17,7 @@ const Button = styled.button`
 
 export default (props) => {
   return (
-      <Button>
+      <Button {...props}>
         {props.children}
       </Button>
   )

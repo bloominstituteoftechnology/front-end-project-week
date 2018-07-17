@@ -2,16 +2,21 @@ import React from 'react';
 import NoteModal from './NoteModal';
 
 export default ({ match, history }) => {
-  const { id, path } = match.params;
+  const { id } = match.params;
   const deleteNote = () => {
     history.push('/');
   }
   const cancelDeletion = () => {
-    history.push(`/view/${path}`);
+    history.push(`/view/${id}`);
   }
   return (
     <div>
-      <NoteModal yesHandler={ deleteNote } noHandler={ cancelDeletion }/>
+      <NoteModal
+        prompt="Are you sure you want to delete this?"
+        yesHandler={ deleteNote }
+        yesText="Delete"
+        noText="No"
+        noHandler={ cancelDeletion }/>
     </div>
   );
 }

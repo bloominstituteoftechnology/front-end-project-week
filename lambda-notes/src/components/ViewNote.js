@@ -41,7 +41,7 @@ export default ({ match, notes }) => {
     <ViewNote>
       <div className="topControls">
         <Link to={`/edit/${id}`}>edit</Link>
-        <Link to={`/delete/${id}`}>delete</Link>
+        <Link to={`/view/delete/${id}`}>delete</Link>
       </div>
       <div className="note">
         <h1>{title}</h1>
