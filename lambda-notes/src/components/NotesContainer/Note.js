@@ -24,7 +24,6 @@ class Note extends React.Component {
     componentWillUnmount() {
         // Removes note when unmounted
         this.props.setNull();
-        this.props.getNotes();
     }
 
     handleInput = event => {
@@ -32,6 +31,7 @@ class Note extends React.Component {
     }
 
     addTag = () => {
+        // Adds tag with push
         if (this.state.tag === '') return;
 
         const note = { tags: this.props.note.tags, title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
@@ -42,6 +42,7 @@ class Note extends React.Component {
     }
 
     deleteTag = index => {
+        // Deletes tag with splice
         const note = { tags: this.props.note.tags, title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
         note.tags.splice(index, 1);
 
@@ -79,7 +80,7 @@ class Note extends React.Component {
                             <h3 className='note-header'>{this.props.note.title}</h3>
 
                             <div className='note-tags-container'>
-
+                                {/*Maps over tags and displays them on screen along with a close icon from font-awesome*/}
                                 {this.props.note.tags ? this.props.note.tags.map((tag, index) =>
                                     <span className='note-tags' key={tag + index + Math.random()}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </span>) : null}
 
