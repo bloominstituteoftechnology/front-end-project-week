@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 import "../styles/custom-props.css";
-
+import { Link } from "react-router-dom";
 const Card = styled.div`
   height: 250px;
   padding: 10px 20px;
@@ -20,19 +20,19 @@ const CardTitle = styled.h2`
 const CardContent = styled.p`
   font-weight: 200;
   padding: 0.5rem 0;
-  `;
+`;
+const UnstyledLink = styled(Link)`
+  color: inherit;
+`; 
+const Note = props => {
+  return (
+    <UnstyledLink to={`note/get/${props.id}`}>
+      <Card>
+        <CardTitle>{props.title}</CardTitle>
+        <CardContent>{props.textBody}</CardContent>
+      </Card>
+    </UnstyledLink>
+  );
+};
 
-const Note = (props) => {
-    return (
-        <Card>
-            <CardTitle>
-              {props.title}
-            </CardTitle>
-            <CardContent>
-              {props.textBody}
-            </CardContent>
-        </Card>
-    );
-}
- 
 export default Note;

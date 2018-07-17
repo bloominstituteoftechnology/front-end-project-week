@@ -9,7 +9,7 @@ const NotesList = props => {
       {props.notesData.map(note => {
         return (
           <div className="column is-one-third" key={note._id}>
-            <Note title={note.title} textBody={note.textBody} />
+            <Note title={note.title} id = {note._id} textBody={note.textBody} />
           </div>
         );
       })}
