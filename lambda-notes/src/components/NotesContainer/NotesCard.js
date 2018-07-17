@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LinesEllipsis from 'react-lines-ellipsis'
+import LinesEllipsis from 'react-lines-ellipsis';
 
 const NotesCard = props => {
     return (

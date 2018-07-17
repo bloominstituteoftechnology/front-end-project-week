@@ -38,6 +38,11 @@ body {
   font-family: 'Roboto', Arial, sans-serif;
 }
 
+.side-bar-content {
+  position: sticky;
+  top: 0;
+}
+
 .main-buttons {
   background: #2BC1C4;
   color: #FFFFFF;
