@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { fetchData } from './actions';
 import SideBar from './components/SideBar';
 import Notes from './components/Notes';
+import NoteView from './components/NoteView';
 import './App.css';
 
 const Error = styled.div`
@@ -42,6 +43,10 @@ class App extends Component {
           render={() =>
             this.props.fetched ? <Notes notes={this.props.notes} /> : null
           }
+        />
+        <Route
+          path="/note/:id"
+          render={props => <NoteView {...props} notes={this.props.notes} />}
         />
         {this.props.error ? <Error>{this.props.error}</Error> : null}
       </div>
