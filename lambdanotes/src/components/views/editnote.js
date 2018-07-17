@@ -27,7 +27,7 @@ class EditNote extends Component {
                       type="text"
                       name="title"
                       onChange={this.props.editNoteHandler}
-                      placeholder="Note Title"
+                      placeholder={this.props.notes.title}
                     />
                   </FormGroup>
                 </Form>
@@ -40,14 +40,18 @@ class EditNote extends Component {
                       type="textarea"
                       name="textBody"
                       onChange={this.props.editNoteHandler}
-                      placeholder="Note Content"
+                      placeholder={this.props.notes.textBody}
                     />
                   </FormGroup>
                 </Form>
               </Col>
 
               <Col md="3">
-                <Button onClick={this.props.handleSubmitNote}>Save</Button>
+                <Button
+                  onClick={() => this.props.editSubmitHandler(this.props.notes)}
+                >
+                  Save
+                </Button>
               </Col>
             </Row>
           </Col>

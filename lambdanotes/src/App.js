@@ -4,6 +4,7 @@ import ListView from "./components/views/listview";
 import CreateNote from "./components/views/createnote";
 import NoteView from "./components/views/noteview";
 import EditNote from "./components/views/editnote";
+import DeleteNote from "./components/functions/deletenote";
 import { MainBack } from "./ReusableStyles";
 import { Container } from "reactstrap";
 
@@ -64,12 +65,19 @@ class App extends Component {
     filteredNote = filteredNote.filter(
       filtered => filtered.notes === this.state.selected
     );
-
-    console.log(this.state.selected, "filtered note");
-    console.log(this.state.notes, "filtered note 2");
-    console.log(filteredNote, "filtered note 3");
-
+    console.log(this.state.selected);
     return this.state.selected;
+  };
+
+  editSubmitHandler = () => {
+    let editNote = this.state.selected;
+    editNote.title = this.state.title;
+    editNote.textBody = this.state.textBody;
+    this.setState({
+      title: editNote.title,
+      textBody: editNote.textBody
+    });
+    return editNote;
   };
 
   render() {
@@ -90,7 +98,11 @@ class App extends Component {
             handleSubmitNote={this.handleSubmitNote}
           />
           <NoteView notes={this.filterNote()} />
-          <EditNote notes={this.filterNote()} />
+          <EditNote
+            notes={this.filterNote()}
+            editNoteHandler={this.editNoteHandler}
+            editSubmitHandler={this.editSubmitHandler}
+          />
         </Container>
       </MainBack>
     );

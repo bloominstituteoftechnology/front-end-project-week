@@ -10,12 +10,10 @@ import { Row, Col } from "reactstrap";
 
 class NoteView extends Component {
   constructor(props) {
-    console.log(props, "props1");
     super(props);
     this.state = {};
   }
   render() {
-    console.log(this.props, "props2");
     return (
       <div>
         <ViewStyle>Note View</ViewStyle>
