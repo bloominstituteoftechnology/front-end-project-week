@@ -7,7 +7,10 @@ class ViewNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: null
+      note: null,
+      editingNote: false,
+      title: '',
+      textBody: ''
     }
   }
 
@@ -61,9 +64,34 @@ class ViewNote extends React.Component {
     })
   }
 
+  toggleEdit = () => {
+    this.setState({
+      editingNote: !this.state.editingNote,
+      title: this.state.note.title,
+      textBody: this.state.note.textBody
+    });
+  }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleEdit = (id) => {
+    console.log("haha");
+    const newEdits = {title: this.state.title, textBody: this.state.textBody}
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newEdits)
+    .then(response => {
+      console.log(response.data);
+      this.setState({note: response.data, editingNote: false});
+      this.props.setData();
+    })
+    .catch(err => {
+      console.log('Edit Error:', err);
+    })
+  }
+
 
   render() {
-    console.log(this.props);
     return (
     <div className="note-list">
       <div className="list-sidebar">
@@ -72,10 +100,11 @@ class ViewNote extends React.Component {
         <NavLink to="/create"><button className="sidebar-button">+ Create New Note</button></NavLink>
       </div>
       <div className="right-bar">
-        <a href="#">Edit     </a>
+        <button onClick={this.toggleEdit}>Edit      </button>
         <a href="#" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</a>
-        <h3 className="note-list-header">{this.state.note ? this.state.note.title : "Loading..."}</h3>
-        <p>{this.state.note ? this.state.note.textBody : "Loading..."}</p>
+        <h3 className="note-list-header">{this.state.note ? (this.state.editingNote ? <input name="title" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
+        <p>{this.state.note ? (this.state.editingNote ? <input name="textBody" value={this.state.textBody} onChange={this.handleChange}/> : this.state.note.textBody) : "Loading..."}</p>
+        {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}}>Save</button> : null}
       </div>
     </div>
   )
