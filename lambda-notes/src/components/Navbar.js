@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Route} from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Nav, NavItem, NavLink, Button } from 'reactstrap';
 import '../App.css';
 
@@ -10,12 +10,12 @@ const Navbar = (props) => {
             <h1>Lambda Notes</h1>
 	            <NavItem>
 		            <Button color="secondary">
-		            	<NavLink to="/">View Your Notes</NavLink>
+		            	<Link to="/">View Your Notes</Link>
 		            </Button>
 	            </NavItem>
 	            <NavItem>
 	              <Button color="secondary">
-	            	<NavLink to="/NewNote">+ Create New Note</NavLink>
+	            	<Link to="/NewNote">+ Create New Note</Link>
 	            	</Button>
 	            </NavItem>
             </Nav>

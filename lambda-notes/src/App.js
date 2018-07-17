@@ -40,6 +40,11 @@ class App extends Component {
     }
   }
 
+  NewNote = (e, note) => {
+    e.preventDefault();
+    const notes = this.state.notes;
+    this.setState({notes: notes.concat(note)});
+  }
 
 
 
@@ -49,8 +54,8 @@ class App extends Component {
       <div className="App">
       <Navbar />
      <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
-      <Route path="/note/:id" component={Note}/>
-      <Route path="/NewNote" render={props => <NewNote />}/>
+      <Route path="/note/:id" component={Note }/>
+      <Route path="/NewNote" render={props => <NewNote NewNote={this.NewNote} />}/>
       </div>
     );
   }
