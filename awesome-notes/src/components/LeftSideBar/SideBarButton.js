@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavButton = styled.button`
   height: 45px;
@@ -12,7 +13,11 @@ const NavButton = styled.button`
 `;
 
 const SideBarButton = props => {
-  return <NavButton>{props.message}</NavButton>;
+  return (
+    <Link to={props.url}>
+      <NavButton>{props.message}</NavButton>
+    </Link>
+  );
 };
 
 export default SideBarButton;

@@ -32,6 +32,13 @@ class ContentWindow extends React.Component {
       selectedNote: "01"
     };
   }
+
+  handleNewNote = note => {
+    const newContent = this.state.content.map(note => note);
+    newContent.push(note);
+    this.setState({ content: newContent });
+  };
+
   render() {
     return (
       <StyledWindow>

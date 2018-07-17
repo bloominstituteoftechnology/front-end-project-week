@@ -28,8 +28,8 @@ const LeftSideBar = () => {
       <MainHeader>
         Lambda<br />Notes
       </MainHeader>
-      <SideBarButton message="View Your Notes" url="#" />
-      <SideBarButton message="+ Create New Note" url="#" />
+      <SideBarButton message="View Your Notes" url="/" />
+      <SideBarButton message="+ Create New Note" url="/new" />
     </LeftStyled>
   );
 };
