@@ -6,7 +6,7 @@ import { fetchNotes } from './actions';
 
 import NoteList from './components/NoteList';
 import SideBar from './components/SideBar';
-import Note from './components/Note';
+import SingleNote from './components/SingleNote';
 
 const APP = styled.div`
   display: flex;
@@ -28,7 +28,7 @@ class App extends Component {
         <APP className="App">
           <Route path='/' component={SideBar} />
           <Route exact path='/' render={props => <NoteList {...props} notes={this.props.notes} />} />
-          {/* <Route path='/notes/:id' render={props => <Note {...props} notes={this.state.notes}/>} /> */}
+          <Route path='/notes/:id' component={SingleNote}/>
         </APP>
       </Router>
     );

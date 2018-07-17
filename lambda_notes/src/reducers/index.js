@@ -1,13 +1,13 @@
 import { FETCH_NOTES, FETCH_SINGLE_NOTE, FETCH_ERROR } from '../actions';
 
 const initialState = {
-    notes: {
+    notes: [{
         "tags": [],
         "_id": "",
         "title": "",
         "textBody": "",
         "__v": 0
-    },
+    }],
 }
 
 export default (state = initialState, action) => {
