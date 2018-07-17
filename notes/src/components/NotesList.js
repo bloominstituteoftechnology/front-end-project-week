@@ -31,9 +31,18 @@ class NotesList extends React.Component {
     });
     this.setState({searchResults: searchResults})
   }
+
+  exportCSV = dataArray => {
+    let csvContent = "data:text/csv;charset=utf-8,";
+    dataArray.forEach(entry => {
+      return csvContent += entry + "\r\n";
+    })
+    return dataArray;
+  }
   render() {
     let returnedNotes;
     returnedNotes = (this.state.searchResults.length > 0) ? this.state.searchResults: this.props.notes;
+    console.log(this.exportCSV(returnedNotes));
     return (
     <div className="note-list">
       <div className="list-sidebar">
@@ -45,7 +54,7 @@ class NotesList extends React.Component {
       <div className="right-bar">
         <h3 className="note-list-header">Your Notes: </h3>
         <form onChange={this.handleSearch}>
-          <input type="search" name="searchTerm" placeholder="Search" onChange={this.handleChange}/>
+          <input type="search" name="searchTerm" placeholder="Search" onChange={this.handleChange} id="searchBar"/>
         </form>
         <NotesContainer notes={returnedNotes} />
       </div>

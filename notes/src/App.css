@@ -181,3 +181,7 @@ body {
   line-height: 32px;
   font-size: 18px;
 }
+
+#searchBar {
+  border: 1px solid lightblue;
+}
