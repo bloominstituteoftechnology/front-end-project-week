@@ -92,9 +92,9 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value})
   }
 
-  handleAddNote = e => {
+  handleAddnote = e => {
     const notes = this.state.notes.slice();
-    notes.push({title: this.state.title, content: this.state.content, id:Date.now( )});
+    notes.push({title: this.state.title, content: this.state.content, id:Date.now()});
     this.setState({notes,title: '', content: ''});
   }
 
@@ -104,7 +104,7 @@ class App extends Component {
       <LambdaNav />
       <ComponentContainer>
         {this.state.notes.map(notes => {
-          return(
+          return( 
           <NotesContainer key={notes.id}>
           <HeaderStyle>{notes.title}</HeaderStyle>
           <p>{notes.body}</p>
