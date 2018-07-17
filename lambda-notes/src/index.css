@@ -25,16 +25,34 @@ body {
 	width: 100%;
 }
 
+.card-title-div{
+	border-bottom: 1px solid #979797;
+	padding-bottom: 4px;
+
+}
+
+
 
 .note-card{
 	height: 220px;
 	width: 200px;
 	margin-top: 25px;
 	margin-left: 90px!important;
+	text-decoration: none;
+	color: black;
 	/*border: 1px solid gray;
 	margin: 15px 5px 10px 5px;*/
 	
 }
+
+.note-card:hover{
+	color: #30B8BC;
+}
+
+.link-style-new{
+	text-decoration: none;
+}
+
 
 .title-style{
 	width: 400px;

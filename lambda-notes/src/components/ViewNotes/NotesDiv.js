@@ -41,17 +41,17 @@ render() {
 	<div><h3 className="card-body-title">Your Notes:</h3>
 	<CardDeck>{this.props.notes.map(note =>{
       return(	
-	<div key={Math.random()}>
+	<Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`}><div key={note.id}>
 	<Card className="note-card">
 	  <CardBody>
-          <CardTitle>{note.title}</CardTitle>
+          <CardTitle><div className="card-title-div">{note.title}</div></CardTitle>
           <CardSubtitle></CardSubtitle>
           <CardText>{note.textBody.substring(0, 70)}...</CardText>
 
         </CardBody>
 	  
       </Card>
-      </div>)
+      </div></Link>)
 	})}
     </CardDeck>
 		</div>
