@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
+import NavBar from './components/app/NavBar' ;
 import './App.css';
+import Content from './components/app/Content' ;
+//import dummyData from './components/app/dummyData' ;
 
 class App extends Component {
+  constructor() {
+    super() ;
+    this.state = { } ;
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title"></h1>
-        </header>
-
-        
+        <div className="container">
+          <nav className="nav">
+            <NavBar />
+          </nav>
+          <div className="page">
+            <Content />
+          </div>
+        </div>        
       </div>
     );
   }
 }
-
 export default App;

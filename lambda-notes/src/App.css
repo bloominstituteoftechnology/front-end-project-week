@@ -1,10 +1,106 @@
-.App {
-  text-align: center;
+html {
+  font-size: 62.5% ;
 }
-
+body {
+  font-size: 1.6rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold ; 
+}
+h1 {
+  font-size: 2.4rem ;
+}
+h2 {
+  font-size: 2rem ;
+}
+h3 {
+  font-size: 1.4rem ;
+}
+h4 {
+  font-size: 1.2rem ;
+}
+h5 {
+  font-size: 1rem ;
+}
+h6 {
+  font-size: 0.8rem ;
+}
+/* p {
+  font-size: 1.6rem ;
+} */
+.App {
+  /* text-align: center; */
+  margin: 2rem ;
+}
 .App-header {
 }
-
 .App-title {
 }
+/* 
+Heading font: Roboto Bold
+Everything else font: Raleway Medium
 
+Heading and main font color: #4A4A4A
+Button font color: #FFFFFF
+
+Sidebar background: #D8D8D8
+Main background: #F3F3F3
+Main button background: #2BC1C4
+Delete button background: #D0021B
+Border color used throughout: #979797 
+*/
+.container * {
+  padding: 1rem;
+}
+.container {
+  display: flex ;
+  justify-content: center ;
+  max-width: 100vw ;
+  height: 95vh ;
+}
+.nav {
+  display: flex ;
+  flex-direction: column ;
+  background: #D8D8D8 ;
+  width: 15% ;
+}
+.button-nav {
+  background: #2BC1C4 ;
+  margin: 0.5rem auto ;
+  padding: 0 ;
+  width: 80% ;
+  height: 3rem ;
+}
+.page {
+  background: #F3F3F3 ;
+  width: 85% ;
+}
+.page-title {  
+}
+.page-content {
+}
+.notes-list{ 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  /* background: red; */
+
+}
+.note{
+  min-width: 25% ;
+  max-width: 25% ;
+  height: 25vh;
+  border: 1px solid #979797;
+  margin: 1rem;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.note-title{
+  border-bottom: 1px solid #979797;
+}
+.note-body{
+  font-size: 1.2rem;
+}
