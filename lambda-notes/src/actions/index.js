@@ -3,11 +3,12 @@ import axios from 'axios';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const FETCHED_NOTE = 'FETCHED_NOTE';
+export const FETCH_NEW = 'FETCH_NEW';
 export const ERROR = 'ERROR';
 
 // fetches all notes
 export const fetchNotes = URL => {
-    const promise = axios.get(URL + 'all');
+    const promise = axios.get(`${URL}all`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise
@@ -22,16 +23,33 @@ export const fetchNotes = URL => {
 
 // fetches requested note for single note view
 export const fetchNote = (URL, id) => {
-    const promise = axios.get(URL + id);
+    const promise = axios.get(`${URL}get/${id}`);
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
-    promise
-        .then(response => {
-            console.log(response);
-            dispatch({ type: FETCHED_NOTE, payload: response.data });
-        })
-        .catch(err => {
-            dispatch({ type: ERROR, payload: err.message });
-        })
+        promise
+            .then(response => {
+                console.log(response);
+                dispatch({ type: FETCHED_NOTE, payload: response.data });
+            })
+            .catch(err => {
+                dispatch({ type: ERROR, payload: err.message });
+            })
+    }
+}
+
+export const createNote = (URL, note) => {
+    const promise = axios.post(`${URL}create`, note);
+    const path = 'http://localhost:3000/note/';
+    return dispatch => {
+        promise
+            .then(response => {
+                console.log(response.data);
+                const noteId = response.data.success;
+                fetchNote(URL, noteId);
+                window.location.href = `${path}${noteId}`;
+            })
+            .catch(err => {
+                dispatch({ type: ERROR, payload: err.message });
+            })
     }
 }

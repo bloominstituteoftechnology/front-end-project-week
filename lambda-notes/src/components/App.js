@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NotesList from './NotesList';
-import ViewNote from './ViewNote';
 import Menu from './Menu';
+import NotesList from './NotesList';
+import NewNote from './NewNote';
+import ViewNote from './ViewNote';
 import '../styles/App.css';
 
 const URL = 'https://killer-notes.herokuapp.com/note/get/';
@@ -22,6 +23,7 @@ class App extends Component {
             <div className='App'>
               <Route path='/' component ={Menu} />
               <Route exact path='/' component={NotesList} />
+              <Route path='/create-note' component={NewNote} />
               <Route path='/note/:id' component={ViewNote} />
             </div>
         </Router>

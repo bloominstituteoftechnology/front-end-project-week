@@ -5,7 +5,7 @@ import { fetchNote } from '../actions';
 import Note from './Note';
 import '../styles/NotesList.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/get/';
+const URL = 'https://killer-notes.herokuapp.com/note/';
 
 class NotesList extends Component {
     render() {

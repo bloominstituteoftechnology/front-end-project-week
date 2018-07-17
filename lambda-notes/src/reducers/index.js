@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, FETCHED_NOTE, ERROR } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, FETCHED_NOTE, FETCH_NEW, ERROR } from '../actions';
 
 const initialState = {
     fetchingNotes: false,
@@ -18,6 +18,9 @@ export default (state = initialState, action) => {
         // places the note requested by user to state
         case FETCHED_NOTE:
             return { ...state, fetchingNotes: false, singleNote: action.payload };
+        // case FETCH_NEW:
+        //     const newNote = state.notes.filter(note => note._id === action.payload);
+        //     return { ...state, fetchingNotes: false, singleNote: newNote };
         // places server error message on state
         case ERROR:
             return { ...state, fetchingNotes: false, error: action.payload };
