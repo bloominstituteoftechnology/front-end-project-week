@@ -16,7 +16,8 @@ const BaseButton = styled.button`
   text-align:center;
   width:100%;
   margin-top: 24px;
-  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
 `
 
 const HeaderDiv = styled.div`

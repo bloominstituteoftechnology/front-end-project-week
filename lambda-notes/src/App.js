@@ -6,7 +6,6 @@ import Sidebar from '../src/components/Sidebar'
 import Content from '../src/components/Content'
 
 const MainContainer = styled.div`
-  border: 1px solid red;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
