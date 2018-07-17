@@ -1,5 +1,4 @@
 import types from "./types.js";
-import axios from "axios";
 
 const requestNotes= () => {
   return {

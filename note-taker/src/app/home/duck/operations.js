@@ -7,13 +7,14 @@ const receiveNotesAction = Creators.receiveNotes;
 
 const fetchNotes = () => {
   const promise = axios.get("https://killer-notes.herokuapp.com/note/get/all");
+  console.log(promise);
   return dispatch => {
- 
+    console.log('test');
     dispatch(requestNotesAction());
     promise
       .then(response => {
-        console.log(response);
-        dispatch(receiveNotesAction(response));
+
+        dispatch(receiveNotesAction(response.data));
       })
       .catch(err => {
         console.log(err);

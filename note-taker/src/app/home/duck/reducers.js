@@ -1,7 +1,7 @@
 import types from './types';
 
 const initialState = {
-    notes: [],
+    notesData: [],
     fetchingNotes: false,
     error: null
 };
@@ -17,8 +17,10 @@ const homeReducer = (state = initialState, action) => {
         return {
             ...state,
             fetchingNotes: false,
-            notes: action.notesData
+            notesData: action.notesData
         }
+        default:
+        return state;
     }
 }
 
