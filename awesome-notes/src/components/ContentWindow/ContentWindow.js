@@ -25,7 +25,7 @@ class ContentWindow extends React.Component {
     super(props);
     this.state = {
       possibleViews: ["note", "new", "edit", "list"],
-      currentView: "edit",
+      currentView: "list",
       deleteModalVisible: false,
       content: Sample,
       selectedNote: "01"

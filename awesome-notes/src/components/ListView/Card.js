@@ -19,6 +19,12 @@ const CardHeader = styled.h3`
 
 const CardBody = styled.p`
   margin: 0;
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 7em;
+  line-height: 1.8em;
 `;
 
 const Card = props => {
