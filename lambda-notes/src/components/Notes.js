@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Styled from 'styled-components'
 import {Heading} from './../styles/styles';
-import Note from './Note';
 import {data} from './../data';
 import { Link } from 'react-router-dom';
-import EditNote from './EditNote';
 import axios from 'axios';
 
 
@@ -62,6 +60,12 @@ class Notes extends Component {
     this.state = {
         notes: []      
     }
+  }
+
+  deleteNote = (id, e) => {
+        e.preventDefault();
+        const newNotes = this.state.notes.splice(this.state.notes.id-1, 1);
+        this.setState({notes: newNotes})
   }
 
   componentDidMount() {

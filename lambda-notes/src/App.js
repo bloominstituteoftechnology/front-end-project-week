@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Styled from 'styled-components'
 import Note from './components/Note';
-import {data} from './data';
-import { Link, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import NewNote from './components/NewNote';
 import EditNote from './components/EditNote';
 import Notes from './components/Notes';
+
 
 
 const Container = Styled.div`
@@ -18,10 +18,6 @@ const Container = Styled.div`
 
 
 class App extends Component {
-  constructor() {
-    super();
-
-  }
 
 
   render() {

@@ -9,7 +9,7 @@ export const Heading = Styled.div`
 `;
 
 export const Button = Styled.button`
-    background: #2BC1C4;
+    background: ${props => props.delete ? 'red' : '#2BC1C4'};
     color: #FFFFFF;
     border: 1px solid #979797;
     width: 190px;

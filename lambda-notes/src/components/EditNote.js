@@ -60,6 +60,7 @@ class EditNote extends React.Component {
 
     componentDidMount() {
         this.setState({notes: data})
+        console.log(this.props.location.state)
     }
     render() {
         return (
@@ -70,7 +71,7 @@ class EditNote extends React.Component {
                     <InputTitle 
                         type="text"
                         name="title"
-                        placeholder="Note Title"
+                        placeholder={this.props.title}
                         value={this.state.editedNote.title}
                         onChange={this.handleChange.bind(this, 'newNote')}
                         />
