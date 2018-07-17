@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class SingleNote extends Component {
+class MappedItem extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
     render() { 
-        console.log('this props in single note: ', this.props)
+        console.log('this props in a mapped note: ', this.props)
         return ( 
             
                 <div className='singleNote'>
@@ -22,4 +22,4 @@ class SingleNote extends Component {
     }
 }
  
-export default SingleNote;
+export default MappedItem;

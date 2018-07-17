@@ -28,6 +28,7 @@ class CreateNote extends Component {
     }
 
     render() { 
+        console.log('checking props in createnote: ', this.props)
         return ( 
             <div className='mainAreawrapper'>
                 <h3 className='headings mainAreaHeading'>Create New Note:</h3>

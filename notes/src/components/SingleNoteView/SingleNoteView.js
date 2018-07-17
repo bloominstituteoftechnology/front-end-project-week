@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ModalComponent  from '../ModalComponent/ModalComponent';
 import { connect } from 'react-redux';
-import { displayingNote } from '../../actions';
+import { displayingNote, deletingNote } from '../../actions';
 import './index.css';
 
 class SingleNoteView extends Component {
@@ -15,7 +15,7 @@ class SingleNoteView extends Component {
 
     componentDidMount() {
         const  { id }  = this.props.match.params;
-        console.log(' id : ', id);
+       
         this.props.displayingNote(id)
     }
 
@@ -23,7 +23,15 @@ class SingleNoteView extends Component {
         this.setState({ modalForm: !this.state.modalForm })
     }
     handleNo = () => {
-        this.props.history.push('/')
+        setTimeout(() => {
+            this.props.history.push("/");
+        }, 600);
+    }
+    handleDelete = () => {
+        const id = this.props.match.params.id
+        console.log(' id : ', id);
+        this.props.deletingNote(id)
+            this.props.history.push("/");
     }
 
     render() { 
@@ -45,7 +53,8 @@ class SingleNoteView extends Component {
                 <ModalComponent 
                     toggleDisplay={this.state.modalForm}
                     popModal={this.popModal}
-                    onClick={this.handleNo} />
+                    onClick={this.handleNo}
+                    deleteNote={() => this.handleDelete()} />
             </div>
          );
     }
@@ -58,4 +67,4 @@ const mapStateToProps = state => {
     }
 }
  
-export default connect(mapStateToProps, {displayingNote}) (SingleNoteView);
+export default connect(mapStateToProps, {displayingNote, deletingNote}) (SingleNoteView);

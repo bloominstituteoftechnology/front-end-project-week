@@ -3,7 +3,7 @@ import './index.css';
 import { connect } from 'react-redux';
 import { gettingNote } from '../../actions';
 
-import SingleNote from './SingleNote';
+import MappedItem from './MappedItem';
 
 class AllNotes extends Component {
     
@@ -17,7 +17,7 @@ class AllNotes extends Component {
                 <h3 className='headings mainAreaHeading'>Your Notes</h3>
                 <div className='notesWrapper'>
                     {this.props.notes.map(item => {
-                        return <SingleNote key={item._id} item={item} />
+                        return <MappedItem key={item._id} item={item} />
                     })}
                 </div>
             </div>

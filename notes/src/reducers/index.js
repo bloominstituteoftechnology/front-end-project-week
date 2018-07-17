@@ -1,4 +1,4 @@
-import { FETCHING_NOTES, FETCHED_NOTES, ERROR, FETCH_ONE_NOTE, ADDING_NOTES,  ADD_NOTES, DELETING, DELETED, UPDATING, UPDATED } from '../actions';
+import { FETCHING_NOTES, FETCHED_NOTES, ERROR, FETCH_ONE_NOTE, ADD_NOTES, DELETED, UPDATED } from '../actions';
 
  const initialState =
  {
@@ -18,19 +18,13 @@ export const NotesReducer = (state=initialState, action) => {
       return Object.assign({}, state, { loading: false, success: true, notes: action.payload})
     case ERROR:
       return Object.assign({}, state, { error: action.payload, success: false, loading: false })
-    case ADDING_NOTES:
-      return Object.assign({}, state, { loading: true, success: false});
     case ADD_NOTES:
       return Object.assign({}, state, { loading: false, success: true, notes: action.payload });
-    case DELETING:
-      return Object.assign({}, state, { loading: true, success: false })
-    case DELETED:
+   case DELETED:
       return Object.assign({}, state, { loading: false, success: true, notes: action.payload })
-      case UPDATING:
-      return Object.assign({}, state, { loading: true, success: false })
     case UPDATED:
       return Object.assign({}, state, { loading: false, success: true, notes: action.payload })
-      default: 
+    default: 
       return state;
     }
   }

@@ -17,8 +17,8 @@ class SideArea extends Component {
                 <Switch>
                     <Route exact path='/' component={ AllNotes } />
                     <Route path='/create' component={ CreateNote } />
-                    <Route path='/note/get/:id' component={ SingleNoteView } />
-                    <Route path='/edit/:id' component={ EditNote } />
+                    <Route exact path='/note/get/:id' component={ SingleNoteView } />
+                    <Route path='/note/edit/:id' component={ EditNote } />
                 </Switch>
             </div> );
     }
