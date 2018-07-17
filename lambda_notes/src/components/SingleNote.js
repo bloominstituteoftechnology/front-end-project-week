@@ -10,6 +10,10 @@ const Content = styled.div`
     padding-left: 3.48rem;
 `
 
+const NoteBody = styled.div`
+    clear: both
+`
+
 class SingleNote extends React.Component {
     componentDidMount () {
         const id = this.props.match.params.id;
@@ -19,9 +23,11 @@ class SingleNote extends React.Component {
     render() { 
         return (
             <Content>
-                <DeleteModal/>
-                <h1>{this.props.note.title}</h1>
-                <p>{this.props.note.textBody}</p>
+                <DeleteModal id={this.props.note._id}/>
+                <NoteBody>
+                    <h1>{this.props.note.title}</h1>
+                    <p>{this.props.note.textBody}</p>
+                </NoteBody>
             </Content>
         );
     }

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteNote } from '../actions';
+
 
 class DeleteModal extends React.Component {
     constructor(props) {
@@ -21,7 +23,7 @@ class DeleteModal extends React.Component {
         textDecoration: 'underline',
         cursor: 'pointer',
         display: 'inline-block',
-        marginLeft: 'auto'
+        float: 'right'
     }
 
     render() {
@@ -33,7 +35,9 @@ class DeleteModal extends React.Component {
                         Are you sure you want to delete this?
                     </ModalHeader>
                     <ModalFooter>
-                        <Button color="danger" onClick={this.toggle}>Delete</Button>{' '}
+                        <Link to='/'>
+                            <Button color="danger" onClick={() => this.props.deleteNote(this.props.id)}>Delete</Button>
+                        </Link>
                         <Button color="info" onClick={this.toggle}>No</Button>
                     </ModalFooter>
                 </Modal>
@@ -42,4 +46,4 @@ class DeleteModal extends React.Component {
     }
 }
 
-export default DeleteModal;
+export default connect(null, {deleteNote})(DeleteModal);
