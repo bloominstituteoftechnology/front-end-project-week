@@ -18,10 +18,12 @@ const rootReducer = (state = initialState, action) => {
     //   case GET_NOTES:
     //   return console.log('getting notes')
       case ADDING_NOTE:
-      return Object.assign({}, state, {notes: action.payload})
+      return (
+        
+        Object.assign({}, {notes:[...state.notes, {title: action.payload.title, id: action.payload.id, content:action.payload.content}]}))
       default:
       return state;
   }
-
+    
 }
 export default rootReducer;

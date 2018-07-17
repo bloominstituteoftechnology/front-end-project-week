@@ -40,13 +40,13 @@ height:50px;
 `
 
 
-class NewNote extends Component {
+class FullSizeNote extends Component {
     constructor(props) {
         super(props);
         this.state={
             title: '',
             content: '',
-            contentEditable: true,
+            contentEditable: false,
             toNotes: false,
         }
     }
@@ -88,7 +88,7 @@ class NewNote extends Component {
                 </DashedStyleTextArea> <SaveButton onClick={(e)=>{this.props.addNote(e, note, history )}}>save</SaveButton></React.Fragment>
                : 
                <React.Fragment>
-                  <SolidStyleHeader defaultValue='Title...' onDoubleClick={this.editContent}/>
+                  
                  <SolidStyleTextArea name='content' value={this.state.content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
                 </SolidStyleTextArea> <SaveButton onClick={addNote}>save</SaveButton>
                 </React.Fragment>}
@@ -109,4 +109,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes, addNote })(NewNote));
+export default withRouter(connect(mapStateToProps, { getNotes, addNote })(FullSizeNote));

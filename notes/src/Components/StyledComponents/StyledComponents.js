@@ -69,6 +69,8 @@ box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
 
 `
 export const TopBar = styled.div`
+position:relative;
+z-index:25;
 display:flex;
 align-items: center;
 width: 70%;
@@ -101,6 +103,8 @@ box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
 export const TruncatedText = styled.p`
 position: relative;
 width: 200px;
+whitespace: pre-wrap;
+overflow-wrap: break-word;
 overflow: hidden;
 z-index: 5;
 `
@@ -108,6 +112,7 @@ z-index: 5;
 export const MaskText = styled.div`
 width: 100%;
 height: 70px;
+
 z-index: 10;
 position: absolute;
 bottom: 0;
@@ -122,7 +127,7 @@ background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
 `
 
-export const PrimaryButton = styled.div `
+export const PrimaryButton = styled.button `
 min-width: 75px;
 margin-top: 10px;
 display: flex;
@@ -131,6 +136,7 @@ align-items: center;
 background-color: #2BC1C4;
 color: white;
 width: 100%;
+border: none;
 height: 30px;
 box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
             0 5px 15px 0 rgba(0,0,0,0.08);

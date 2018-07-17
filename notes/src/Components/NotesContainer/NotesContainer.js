@@ -4,8 +4,12 @@ import { FlexDiv, MiniBox, FlexNotes } from '../StyledComponents/StyledComponent
 import { getNotes } from '../../Actions/';
 import MiniNote  from '../MiniNote/MiniNote';
 import { Scrollbars } from 'react-custom-scrollbars';
+import {withRouter} from 'react-router-dom';
 
 class NotesContainer extends Component {
+    componentWillMount() {
+        this.props.getNotes();
+    }
     componentDidMount() {
         this.props.getNotes();
     }
@@ -15,6 +19,7 @@ class NotesContainer extends Component {
             <FlexDiv>
             <Scrollbars>
             <FlexNotes>
+                {console.log(this.props.notes)}
             {this.props.notes.map(note => {
                return <MiniNote note = {note}/>
             })}
@@ -32,4 +37,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNotes })(NotesContainer);
+export default withRouter(connect(mapStateToProps, { getNotes })(NotesContainer));

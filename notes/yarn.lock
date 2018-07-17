@@ -5767,6 +5767,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-contenteditable@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-contenteditable/-/react-contenteditable-2.1.0.tgz#943f1fb0c8d059f400b80d10f1632f24905406a6"
+
 react-custom-scrollbars@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/react-custom-scrollbars/-/react-custom-scrollbars-4.2.1.tgz#830fd9502927e97e8a78c2086813899b2a8b66db"

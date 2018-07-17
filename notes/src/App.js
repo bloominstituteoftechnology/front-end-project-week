@@ -9,6 +9,7 @@ import { MiddleSection, Sidebar, TopBar, Main, PrimaryButton, Header, LinkBar } 
 import UserMiniCard from './Components/User/UserMiniCard';
 import NewNote from './Components/NewNote/NewNote';
 import {withRouter} from 'react-router-dom';
+import FullSizeNote from './Components/FullSizeNote/FullSizeNote';
 
 //for API KEY: create a constants.js file, with an export for your google api key 
 //or create a variable below this line that stores your API key.
@@ -29,10 +30,16 @@ class App extends Component {
       <Link style={{textDecoration:'none', width: '100%'}} to='/notes/new'> <PrimaryButton>Create A Note</PrimaryButton> </Link>
       </Sidebar>
       <Route exact path = '/' component = {NotesContainer}/>
-      <Route path ='/notes/new' render={(props)=> {
+      <Route exact path ='/notes/new' render={(props)=> {
       
        return (<NewNote location = {props.history.location}/>)
       }}/>
+      <Route exact path ='/:id' render={(props)=> {
+      
+       return (<FullSizeNote location = {props.history.location}/>)
+      }}/>
+
+
       </MiddleSection>
       </Main>
     );
