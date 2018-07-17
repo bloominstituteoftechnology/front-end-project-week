@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteView from './NoteView';
+import Link from '../../node_modules/react-router-dom/Link';
 
 const ListView = props => {
     return (
@@ -9,10 +10,12 @@ const ListView = props => {
             </div>
             {props.notes.map((note, index) => {
                 return (
-                    <NoteView
-                        key={index}
-                        note={note}
-                    />
+                    <Link to={`/note/${index}`}>
+                        <NoteView
+                            key={index}
+                            note={note}
+                        />
+                    </Link>
                 );
             })}
         </div>
