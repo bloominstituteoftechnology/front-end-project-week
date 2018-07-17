@@ -1,6 +1,6 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const port = 4444;
 
 const server = express();
@@ -23,60 +23,46 @@ let notes = [
   {
     id: 1,
     title: "Sample note",
-    textBody:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 2,
     title: "Sample note",
-    textBody:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 3,
     title: "Sample note",
-    textBody:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 4,
     title: "Sample note",
-    textBody:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   }
 ];
 
-server.get("/notes", (req, res) => {
-  res.json(notes);
-});
 let noteId = 5;
 
-server.post("/notes", (req, res) => {
-  const {
-    title,
-    textBody
-  } = req.body;
-  const newNote = {
-    title,
-    textBody,
-    id: noteId
-  };
-  if (!title || !textBody) {
-    return sendUserError(
-      "A title and text are required to create a new note.",
-      res
-    );
-  }
-  const findNoteByTitle = note => {
-    return note.title === title;
-  };
-  if (notes.find(findNoteByTitle)) {
-    return sendUserError(`${title} already exists, please give your note a unique title.`, res);
-  }
+server.get('/notes', (req, res) => {
+    res.json(notes);
+});
 
-  notes.push(newNote);
-  noteId++;
-  res.json(notes);
+server.get('/notes/:id', (req, res) => {
+
+  if (note = notes.find(f => f.id == req.params.id)) {
+    res.status(200).json(note);
+  } else {
+    res.status(404).send({ msg: 'Note not found' });
+  }
+});
+
+server.post('/notes', (req, res) => {
+  const note = { id: getNoteId(), ...req.body };
+
+  notes = [...notes, note];
+
+  res.send(notes);
 });
 
 server.put("/notes/:id", (req, res) => {
@@ -98,20 +84,18 @@ server.put("/notes/:id", (req, res) => {
   }
 });
 
-server.delete("/notes/:id", (req, res) => {
+server.delete('/notes/:id', (req, res) => {
   const { id } = req.params;
-  const foundNote = notes.find(note => note.id == id);
 
-  if (foundNote) {
-    const NoteRemoved = { ...foundNote };
-    notes = notes.filter(note => note.id != id);
-    res.status(200).json(notes);
-  } else {
-    sendUserError("No note by that ID exists in the note DB", res);
-  }
+  notes = notes.filter(f => f.id !== Number(id));
+
+  res.send(notes);
 });
 
-server.listen(port, err => {
-  if (err) console.log(err);
-  console.log(`server is listening on port ${port}`);
+function getNoteId() {
+  return noteId++;
+}
+
+server.listen(port, () => {
+  console.log(`server listening on port ${port}`);
 });

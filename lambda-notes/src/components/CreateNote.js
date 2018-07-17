@@ -20,7 +20,6 @@ class CreateNote extends Component {
     const { title, textBody } = this.state
     const newNote = { title, textBody }
     
-
     axios
       .post("http://localhost:4444/notes", newNote)
       .then(response => {
