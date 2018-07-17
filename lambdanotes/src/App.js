@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import SideBar from "./components/sidebar/sidebar";
-import { notesData } from "./data";
-import ListNotes from "./components/notes/listnotes";
-import NewNote from "./components/functions/newnote";
+import ListView from "./components/views/listview";
+import CreateNote from "./components/views/createnote";
+import NoteView from "./components/views/noteview";
+import EditNote from "./components/views/editnote";
+import { MainBack } from "./ReusableStyles";
+import { Container } from "reactstrap";
 
 class App extends Component {
   constructor(props) {
@@ -13,12 +15,23 @@ class App extends Component {
         {
           id: 0,
           tags: ["tag", "otherTag"],
-          title: "Note Title",
-          textBody: "Note Body"
+          title: "Note Title 0",
+          textBody: "Note Body 0"
+        },
+        {
+          id: 1,
+          tags: ["tag", "otherTag"],
+          title: "Note Title 1",
+          textBody: "Note Body 1"
+        },
+        {
+          id: 2,
+          tags: ["tag", "otherTag"],
+          title: "Note Title 2",
+          textBody: "Note Body 2"
         }
       ],
-      title: "",
-      textBody: ""
+      selected: ""
     };
   }
 
@@ -42,22 +55,44 @@ class App extends Component {
     this.setState({ notes, title: "", textBody: "" });
   };
 
+  selectHandler = note => {
+    this.setState({ selected: note });
+  };
+
+  filterNote = () => {
+    let filteredNote = this.state.notes.slice();
+    filteredNote = filteredNote.filter(
+      filtered => filtered.notes === this.state.selected
+    );
+
+    console.log(this.state.selected, "filtered note");
+    console.log(this.state.notes, "filtered note 2");
+    console.log(filteredNote, "filtered note 3");
+
+    return this.state.selected;
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Lambda Notes Front-End-Project</h1>
-        </header>
-        <SideBar />
-        <ListNotes notes={this.state.notes} />
-        <NewNote
-          // tvalue={this.state.title}
-          // bvalue={this.state.textBody}
-          editNoteHandler={this.editNoteHandler}
-          handleSubmitNote={this.handleSubmitNote}
-          placeholder={this.state.placeholder}
-        />
-      </div>
+      <MainBack>
+        <Container fluid>
+          <header className="App-header">
+            <h1 className="App-title">Lambda Notes Front-End-Project</h1>
+          </header>
+          <ListView
+            notes={this.state.notes}
+            selectHandler={this.selectHandler}
+            selectedNote={this.state.selected}
+          />
+          <CreateNote
+            notes={this.state.notes}
+            editNoteHandler={this.editNoteHandler}
+            handleSubmitNote={this.handleSubmitNote}
+          />
+          <NoteView notes={this.filterNote()} />
+          <EditNote notes={this.filterNote()} />
+        </Container>
+      </MainBack>
     );
   }
 }
