@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getNote } from '../actions';
 
 
 const StyledNote = styled.div`
@@ -26,55 +28,45 @@ const StyledLink = styled(Link)`
 `;
 
 class Note extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            notes: props.notes,
-            currentNote: {},
-            match: props.match,
-            id: 1,
-            defaultNote:{
-                tags: [],
-                title: "Error With Note, Please return to Homepage",
-                textBody: "",
-                id: 0,
-            }
-        }
-    }
 
     componentDidMount(){
-        const id = this.state.match.params.id;
-        this.setState({id: id});
-        this.getNote(id);
-    }
-
-    componentWillReceiveProps(newProps){
-        if(this.state.id !== newProps.match.params.id){
-            this.getNote(newProps.match.params.id);
-        }
-    }
-    getNote = id => {
-        const note = this.state.notes.reduce((acc,note) => {
-            note.id === Number(id) ? acc = note : null;
-            return acc;
-        },{})
-        this.setState({currentNote: (note || this.state.defaultNote)});
-
+        this.props.getNote(this.props.singleURL, this.props.match.params.id)
     }
 
     render(){
+        console.log("this.props.currentNote", this.props.currrentNote);
         return(
             <StyledNote>
                 <StyledButtons>
-                    <StyledLink to={`/edit/${this.state.id}`}>edit</StyledLink>
-                    <StyledLink to={`/notes/${this.state.id}/delete`}>delete</StyledLink>
+                    <StyledLink to={`/edit/${this.props.currentNote.id}`}>edit</StyledLink>
+                    <StyledLink to={`/notes/${this.props.currentNote.id}/delete`}>delete</StyledLink>
                 </StyledButtons>
-                <h4>{this.state.currentNote.title}</h4>
-                <p>{this.state.currentNote.textBody}</p>
+                    {this.props.fetchingnote ? (
+                        <div>Getting Note</div>
+                    ) : null}
+                    {this.props.fetchednote ? (
+                        <div>
+                            <h4>{this.props.currentNote.title}</h4>
+                            <p>{this.props.currentNote.textBody}</p>
+                        </div>
+                    ) : null}
+   
             </StyledNote>
         );
     }
 
 }
 
-export default Note;
+const mapStateToProps = (state) => {
+    return {
+        notes: state.notes,
+        singleURL: state.singleURL,
+        currentNote: state.currentNote,
+        fetchingnote: state.fetchingnote,
+        fetchednote: state.fetchednote,
+    }
+    
+
+}
+
+export default connect(mapStateToProps, { getNote })(Note);

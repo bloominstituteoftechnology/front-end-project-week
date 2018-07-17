@@ -20,6 +20,7 @@ const StyledSideBar = styled.div`
 
 const StyledButtonLinks = styled.div`
     width: 100%;
+    height: 100vh;
 `;
 
 const StyledButton = styled.button`

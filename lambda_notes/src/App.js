@@ -14,7 +14,8 @@ import { getNotes } from './actions';
 const StyledApp = styled.div`
   display: flex;
   flex-flow: row;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   `;
 
 class App extends Component { 
@@ -66,9 +67,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     URL: state.URL,
-    fetching: state.fetching,
-    fetched: state.fetched,
-    error: state.error
+    notes: state.notes,
   }
 }
 

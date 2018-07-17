@@ -2,6 +2,8 @@ import axios from 'axios';
 // Our actions are FETCHING FETCHED ERROR UPDATING DELETING ADDING
 export const FETCHING = "FETCHING";
 export const FETCHED = "FETCHED";
+export const FETCHINGNOTE = "FETCHINGNOTE";
+export const FETCHEDNOTE = "FETCHEDNOTE";
 export const ERROR = "ERROR";
 export const UPDATING = "UPDATING";
 export const DELETING = "DELETING";
@@ -14,8 +16,7 @@ export const getNotes = (URL) => {
             type: FETCHING,
         })
         request.then(response => {
-            console.log(response);
-            dispatch({type: FETCHED, payload: response.data.results})
+            dispatch({type: FETCHED, payload: response.data})
         })
         .catch(err => {
             dispatch({type: ERROR, error: err.message})
@@ -23,3 +24,18 @@ export const getNotes = (URL) => {
     }
 }
 
+export const getNote = (url, id) => {
+    console.log("Sent request to", `url/${id}`);
+    const request = axios.get(`${url}${id}`);
+    return(dispatch) => {
+        dispatch({
+            type: FETCHINGNOTE,
+        })
+        request.then(response => {
+            dispatch({type: FETCHEDNOTE, payload: response.data})
+        })
+        .catch(err => {
+            dispatch({type: ERROR, error: err.message})
+        })
+    }
+}
