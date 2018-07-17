@@ -44,10 +44,7 @@ class App extends Component {
             this.props.fetched ? <Notes notes={this.props.notes} /> : null
           }
         />
-        <Route
-          path="/note/:id"
-          render={props => <NoteView {...props} notes={this.props.notes} />}
-        />
+        <Route path="/note/:id" render={props => <NoteView {...props} />} />
         {this.props.error ? <Error>{this.props.error}</Error> : null}
       </div>
     );

@@ -16,9 +16,10 @@ class NoteView extends React.Component {
   componentDidMount() {}
 
   componentWillReceiveProps(newProps) {
+    // get the id from the URL
     const id = this.props.match.params.id;
+    // only setState when we actually have data
     if (newProps.notes[id]) {
-      console.log('new props', newProps.notes[id]);
       const note = newProps.notes[id];
       this.setState({ title: note.title, textBody: note.textBody });
     }
