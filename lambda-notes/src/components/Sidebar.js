@@ -9,7 +9,7 @@ const Content = Styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 210px;
+  width: 290px;
   height: 100vh;
   padding: 5px;
 `;
@@ -18,7 +18,7 @@ const Sidebar = () => {
   return(
     <Content>
       <Heading main>Lambda Notes</Heading>
-      <Link to='/'><Button> View Your Notes</Button></Link>
+      <Link to='/notes'><Button> View Your Notes</Button></Link>
       <Link to='/new'><Button>Create New Note</Button></Link>
       </Content>)
 }

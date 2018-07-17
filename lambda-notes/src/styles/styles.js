@@ -13,7 +13,7 @@ export const Button = Styled.button`
     color: #FFFFFF;
     border: 1px solid #979797;
     width: 190px;
-    height: 50px;
+    height: 45px;
     margin-top: 20px;
     font-size: 16px;
 `;

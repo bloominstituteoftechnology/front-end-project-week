@@ -1,5 +1,4 @@
 import React from 'react';
-import Sidebar from './Sidebar';
 import {Heading, Button} from './../styles/styles';
 import Styled from 'styled-components';
 import {data} from './../data';
@@ -10,7 +9,7 @@ display: flex
 
 const NewContainer = Styled.div`
   display: block;
-  width: 75%;
+  width: 100%;
   padding: 50px 25px;
   background: #F3F3F3;
   
@@ -64,8 +63,7 @@ class NewNote extends React.Component {
     }
     render() {
         return (
-           <Container>
-                <Sidebar />
+       
                 <NewContainer>
                 <Heading>Create New Note:</Heading>
                 <FormContainer>
@@ -88,7 +86,7 @@ class NewNote extends React.Component {
                     <Button onClick={this.submitNote}>Save</Button>
                     </FormContainer>
             </NewContainer>
-            </Container>
+ 
         )
     }
 }

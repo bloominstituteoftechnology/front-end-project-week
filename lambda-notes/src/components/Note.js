@@ -1,7 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components';
 import {data} from './../data';
-import Sidebar from './Sidebar';
+import axios from 'axios';
 
 const NoteContainer = Styled.div`
     display: flex;
@@ -33,16 +33,45 @@ const Container = Styled.div`
   display: flex;
 `;
 
-const Note = props => {
+class Note extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            note: null
+        }
+    }
+
+   componentDidMount () {
+    console.log(this.props);
+
+    //console.log(this.props.match.params.id);
+      //  this.fetchNote(this.props.match.params.id);
+     //   console.log(this.props.match.params.id);
+    }
+
+   /* fetchNote = (id) => {
+        axios
+        .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .then(response => {
+            console.log(response);
+            this.setState({note: response.data})
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }*/
+
+    render() {
     return (
         <Container>
-            {console.log(props.title)}
+        
         <NoteContainer>
-        <NoteHeading>{props.title}</NoteHeading>
-        <Body>{props.body}</Body>
+        <NoteHeading>{this.props.location.state.title}</NoteHeading>
+        <Body>{this.props.location.state.body}</Body>
         </NoteContainer>
         </Container>
     )
+}
 }
 
 
