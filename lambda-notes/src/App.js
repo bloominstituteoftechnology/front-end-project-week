@@ -32,11 +32,17 @@ class App extends Component {
   addNote = note => {
     
     const { notes } = this.state
+
+    let id = 0
+
+    if(notes.length !== 0) {
+      id = notes[notes.length - 1].id + 1
+    }
    
     this.setState({
       notes: notes.concat({ 
         ...note, 
-        id: notes[notes.length - 1].id + 1 || 0
+        id
       })
     })
 
