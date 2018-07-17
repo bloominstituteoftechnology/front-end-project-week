@@ -30,38 +30,44 @@ class Note extends React.Component {
 
     render() {
         return (
-            <div className='note-container'>
+            <React.Fragment>
+                {this.props.fetching || this.props.editing ? <div>Loading info...</div> :
+                    <div className='note-container'>
 
-                <div className='modal' style={this.state.modal ? { display: 'block' } : null}>
+                        <div className='modal' style={this.state.modal ? { display: 'block' } : null}>
 
-                    <div className="modal-content">
-                        <p className='modal-text'>Are you sure you want to delete this?</p>
+                            <div className="modal-content">
+                                <p className='modal-text'>Are you sure you want to delete this?</p>
 
-                        <div className='modal-buttons'>
-                            <button onClick={this.deleteNote} className='delete-button'>Delete</button>
-                            <button onClick={() => this.setState({ modal: false })} className='cancel-button'>No</button>
+                                <div className='modal-buttons'>
+                                    <button onClick={this.deleteNote} className='delete-button'>Delete</button>
+                                    <button onClick={() => this.setState({ modal: false })} className='cancel-button'>No</button>
+                                </div>
+
+                            </div>
+
                         </div>
 
+                        <div className='note-links'>
+                            <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
+                            <div onClick={() => this.setState({ modal: !this.state.modal })} className='delete-link' to='/delete'>delete</div>
+                        </div>
+
+                        <h3 className='note-header'>{this.props.note.title}</h3>
+                        <p className='notes-paragraph'>{this.props.note.textBody}</p>
+
                     </div>
-
-                </div>
-
-                <div className='note-links'>
-                    <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
-                    <div onClick={() => this.setState({ modal: !this.state.modal })} className='delete-link' to='/delete'>delete</div>
-                </div>
-
-                <h3 className='note-header'>{this.props.note.title}</h3>
-                <p className='notes-paragraph'>{this.props.note.textBody}</p>
-
-            </div>
+                }
+            </React.Fragment>
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        note: state.note
+        note: state.note,
+        fetching: state.fetchingNote,
+        editing: state.editingNote
     }
 }
 
