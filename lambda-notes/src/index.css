@@ -4,6 +4,17 @@ body {
   font-family: sans-serif;
 }
 
+.cancel-modal-btn{
+	width: 150px;
+	background-color: #30B8BC!important;	
+}
+
+.delete-modal-btn{
+	width: 150px;
+        background-color: red!important;
+
+}
+
 .single-note-container{
 	margin: 30px 0px 10px 0px;
 	display: flex;
@@ -19,13 +30,14 @@ body {
 
 
 .delete-btn{
-	border: none;
+	border: none!important;
 	text-decoration: underline;
 	margin-top: 8px;
 	margin-right: 25px;
 	float: right;
-	background-color: #F3F3F3;
+	/*background-color: #F3F3F3;*/
 }
+
 
 
 .delete-btn:hover{
@@ -43,6 +55,7 @@ body {
 .single-note-title{
         margin-top: 70px;
 	margin-left: 50px;
+	color: black;
 }
 
 
