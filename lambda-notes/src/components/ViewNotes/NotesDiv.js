@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Row, CardImg, Card, CardTitle, CardText, CardDeck,
  CardSubtitle, CardBody } from 'reactstrap';
-
+import {Link} from 'react-router-dom';
 
 const NotesDiv = (props) => {
 	return (
@@ -10,7 +10,7 @@ const NotesDiv = (props) => {
 	<h3 className="card-body-title">Your Notes:</h3>
 	<CardDeck>{props.notes.map(note =>{
       return(	
-	<div key={note.title}>
+	<div key={Math.random()}>
 	<Card className="note-card">
 	  <CardBody>
           <CardTitle>{note.title}</CardTitle>

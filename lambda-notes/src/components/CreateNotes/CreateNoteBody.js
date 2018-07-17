@@ -25,9 +25,7 @@ addNote = event => {
 
        axios.post("https://killer-notes.herokuapp.com/note/create", note)
       .then(response => {
-        console.log("Post Success: ", response);
-        this.props.addNoteHandler(response.data);
-	
+        console.log("Post Success: ", response);      
 	this.setState({title: "", content: ""});
       })
       .catch(err => {
