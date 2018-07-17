@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import "./ListView.css";
 
 // width: 610px
 const CardWrapper = styled.div`
@@ -29,11 +31,13 @@ const CardBody = styled.p`
 
 const Card = props => {
   return (
-    <CardWrapper>
-      <CardHeader>{props.note.title}</CardHeader>
-      <hr />
-      <CardBody>{props.note.textBody}</CardBody>
-    </CardWrapper>
+    <Link to={`/note/${props.note._id}`} className="link">
+      <CardWrapper>
+        <CardHeader>{props.note.title}</CardHeader>
+        <hr />
+        <CardBody>{props.note.textBody}</CardBody>
+      </CardWrapper>
+    </Link>
   );
 };
 

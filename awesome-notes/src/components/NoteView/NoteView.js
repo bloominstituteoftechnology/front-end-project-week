@@ -15,7 +15,7 @@ const NoteViewWrapper = styled.div`
 const ContentParagraph = styled.p``;
 
 const NoteView = props => {
-  console.log("NOTE VIEW PROPS", props);
+  // console.log("NOTE VIEW PROPS", props);
   let currentNote = props.content.find(x => x._id === props.match.params._id);
   return (
     <NoteViewWrapper>
