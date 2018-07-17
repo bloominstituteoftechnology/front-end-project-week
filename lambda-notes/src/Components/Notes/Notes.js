@@ -22,13 +22,14 @@ class Notes extends React.Component {
                     Your Notes:
             </div>
                 <div className="mainContent__content" >
-                    {this.props.notes.map((note, index) => {
+                    {this.props.notes.map((note) => {
                         return (
-                            <div key={note.id + index}>
+                            <div key={note.id}>
                                 <Link to={`/notes/${note.id}`} style={styled} >
-                                    <Note title={note.name} body={note.body} id={note.id} key={note.id} />
+                                    <Note title={note.title} body={note.body} id={note.id}/>
                                 </Link>
-                            </div>)
+                            </div>
+                        )
                     })}
                 </div>
             </div>

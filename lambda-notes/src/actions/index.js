@@ -46,7 +46,7 @@ export const getNote = id => {
 }
 
 export const addNote = note => {
-    const promise = axios.post('https://killer-notes.herokuapp.com/note/create', note)
+    const promise = axios.post('https://killer-notes.herokuapp.com/note/create/', note)
     return dispatch => {
         dispatch({ type: ADDING_NOTE })
         promise.then(response => {
@@ -83,8 +83,8 @@ export const updateNote = note => {
     }
 }
 
-export const deleteNote = noteID => {
-    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${noteID}`)
+export const deleteNote = id => {
+    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
     return dispatch => {
         dispatch({ type: DELETING_NOTE })
         promise.then(response => {

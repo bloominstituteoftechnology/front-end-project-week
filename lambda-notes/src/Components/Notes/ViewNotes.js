@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class ViewNote extends React.Component {
     componentDidMount() {
         this.props.getNote(this.props.id);
-        console.log('cdm state', this.state)
     }
 
     render() {
