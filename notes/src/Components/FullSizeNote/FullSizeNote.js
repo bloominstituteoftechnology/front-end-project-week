@@ -76,6 +76,10 @@ class FullSizeNote extends Component {
             content: this.state.content
         }
         let history = this.props.history;
+        console.log('notes', this.props.notes);
+        let note_id = this.props.match.params.id
+        let thisNote = this.props.notes.filter(note=> note_id == note.id)
+        console.log('thisNote', thisNote);
 
         return (
             
@@ -83,14 +87,14 @@ class FullSizeNote extends Component {
                 
                 {this.state.contentEditable? 
                 <React.Fragment>
-                    <DashedStyleHeader name='title' onChange={this.onChange} defaultValue='Title...'/>
+                    <DashedStyleHeader onDoubleClick={this.editContent} name='title' onChange={this.onChange} defaultValue={thisNote[0].title}/>
                 <DashedStyleTextArea name='content' value={this.state.content} onChange={this.onChange}> 
-                </DashedStyleTextArea> <SaveButton onClick={(e)=>{this.props.addNote(e, note, history )}}>save</SaveButton></React.Fragment>
+                </DashedStyleTextArea></React.Fragment>
                : 
                <React.Fragment>
-                  
+                  <h1 onDoubleClick={this.editContent}>{thisNote[0].title}</h1>
                  <SolidStyleTextArea name='content' value={this.state.content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
-                </SolidStyleTextArea> <SaveButton onClick={addNote}>save</SaveButton>
+                </SolidStyleTextArea> 
                 </React.Fragment>}
 
            
