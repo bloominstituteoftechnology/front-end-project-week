@@ -1,49 +1,12 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.cards {
+.container {
   display: flex;
-}
-
-.ind-card {
-  margin-right: 20px;
 }
 
 .card {
   padding: 10px;
-  max-width: 300px;
-  height: 350px;
-  flex-wrap: wrap;
+  width: 250px;
+  height: 300px;
+  color: black;
 }
 
 .createNoteTitle {
@@ -53,4 +16,63 @@
 .createNoteComment {
   height: 300px;
   margin: 10px 20px;
+}
+
+/* Menu Styling */
+.menu {
+  width: 20%;
+  background-color: #d8d8d8;
+  height: 800px;
+  padding: 20px;
+}
+
+.menu button {
+  background-color: #2bc1c4;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+/* Home Page Notes Styling */
+.notesList {
+  background-color: #f3f3f3;
+  padding-top: 60px;
+  padding-left: 30px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ind-card {
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.card-title {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.452);
+}
+
+/* Single Note View Styling */
+.singleNoteBody {
+  margin-left: 40px;
+}
+
+.singleNoteBody {
+  margin-top: 50px;
+  line-height: 1.9rem;
+}
+
+.singleNoteBody p {
+  margin-top: 20px;
+}
+
+.singleNoteButtons {
+  text-align: right;
+}
+
+.singleNoteButtons a {
+  text-decoration: underline;
+  margin-right: 20px;
 }

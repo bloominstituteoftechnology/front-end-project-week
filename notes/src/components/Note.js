@@ -13,7 +13,6 @@ const Note = props => {
       >
         <Card>
           <CardTitle>{props.note.title}</CardTitle>
-          <hr />
           <CardText>{props.note.body}</CardText>
         </Card>
       </Link>

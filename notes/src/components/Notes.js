@@ -4,10 +4,13 @@ import Note from "./Note";
 
 const Notes = props => {
   return (
-    <div className="cards">
-      {props.notes.map(note => {
-        return <Note key={Math.random()} note={note} />;
-      })}
+    <div className="notesList">
+      <h2>Your Notes: </h2>
+      <div className="cards">
+        {props.notes.map(note => {
+          return <Note key={Math.random()} note={note} />;
+        })}
+      </div>
     </div>
   );
 };

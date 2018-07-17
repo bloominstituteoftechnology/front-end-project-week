@@ -31,7 +31,7 @@ class EditNote extends React.Component {
   };
   render() {
     return (
-      <div>
+      <React.Fragment>
         <h4>Edit Note: </h4>
         <Form>
           <FormGroup>
@@ -52,7 +52,7 @@ class EditNote extends React.Component {
           </FormGroup>
           <Button onClick={this.editNote}>Update</Button>
         </Form>
-      </div>
+      </React.Fragment>
     );
   }
 }

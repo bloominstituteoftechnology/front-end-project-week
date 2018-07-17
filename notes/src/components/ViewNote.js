@@ -30,14 +30,17 @@ class ViewNote extends React.Component {
   };
   render() {
     return (
-      <div>
-        <Link exact to="/edit">
-          Edit
-        </Link>
-        <div>
-          <Button color="danger" onClick={this.toggle}>
+      <div className="singleNote">
+        <div className="singleNoteButtons">
+          <Link exact to="/edit">
+            Edit
+          </Link>
+          <a color="danger" onClick={this.toggle}>
             Delete
-          </Button>
+          </a>
+        </div>
+
+        <div>
           <Modal
             isOpen={this.state.modal}
             toggle={this.toggle}
@@ -64,8 +67,10 @@ class ViewNote extends React.Component {
             </ModalFooter>
           </Modal>
         </div>
-        <p>{this.props.singleNote[0].title}</p>
-        <p>{this.props.singleNote[0].body}</p>
+        <div className="singleNoteBody">
+          <h3>{this.props.singleNote[0].title}</h3>
+          <p>{this.props.singleNote[0].body}</p>
+        </div>
       </div>
     );
   }

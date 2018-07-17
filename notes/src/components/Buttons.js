@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Buttons = () => {
   return (
-    <div>
+    <div className="menu">
       <h2>Lambda Notes</h2>
       <Link exact to="/">
         <Button>View Your Notes</Button>
