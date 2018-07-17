@@ -6,12 +6,7 @@ import { gettingNote } from '../../actions';
 import SingleNote from './SingleNote';
 
 class AllNotes extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            notesArr: ''
-         }
-    }
+    
     componentDidMount() {
         this.props.gettingNote();
     }
@@ -22,7 +17,7 @@ class AllNotes extends Component {
                 <h3 className='headings mainAreaHeading'>Your Notes</h3>
                 <div className='notesWrapper'>
                     {this.props.notes.map(item => {
-                        return <SingleNote key={item.id} item={item} />
+                        return <SingleNote key={item._id} item={item} />
                     })}
                 </div>
             </div>

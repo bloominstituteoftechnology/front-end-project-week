@@ -11,7 +11,7 @@ class SingleNote extends Component {
         return ( 
             
                 <div className='singleNote'>
-                    <Link to={`note/${this.props.item.id}`} className='linksNotes'>
+                    <Link to={`note/get/${this.props.item._id}`} className='linksNotes'>
                     <h4 className='headings'>{this.props.item.title}</h4>
                     <hr />
                     <p>{this.props.item.textBody}</p>

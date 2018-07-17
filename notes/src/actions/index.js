@@ -23,3 +23,16 @@ export const gettingNote = () => {
     })
   }
 }
+export const addingNote = (newNote) => {
+  const promise = axios.post('https://killer-notes.herokuapp.com/note/create', newNote);
+  return dispatch => {
+    dispatch({ type: ADDING_NOTES });
+    promise.then(response => {
+      console.log('response data in adding: ', response.data)
+      dispatch({ type: ADD_NOTES, payload: response.data })
+    })
+    .catch(err => {
+      dispatch({ type: ERROR, payload: err })
+    })
+  }
+}

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-import { connect } from 'react-redux';
-import { addingNote } from '../../actions';
 
 class CreateNote extends Component {
     constructor(props) {
@@ -11,7 +9,6 @@ class CreateNote extends Component {
             text: '',
          }
     }
-    
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value})
@@ -21,9 +18,10 @@ class CreateNote extends Component {
         e.preventDefault();
         const newObj = {
             title: this.state.title,
-            textBody: this.state.text
+            text: this.state.text,
+            id: Math.random(),
         }
-        this.props.addingNote(newObj);
+        
         this.props.history.push('/');
     }
 
@@ -42,5 +40,4 @@ class CreateNote extends Component {
     }
 }
 
-
-export default connect(null, { addingNote })(CreateNote);
+export default CreateNote;
