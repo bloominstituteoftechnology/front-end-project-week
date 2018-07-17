@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ViewNote extends React.Component {
     constructor(props) {
@@ -16,6 +17,10 @@ class ViewNote extends React.Component {
         if (note.id === this.state.id) {
             return (
                 <div key={note.id}>
+                    <div className='note-header'>
+                        <Link to={`/edit/${note.id}`} className='btn'>edit</Link>
+                        <Link to='/' className='btn'>delete</Link>
+                    </div>
                     <h1>{note.title}</h1>
                     <p>{note.content}</p>    
                 </div>

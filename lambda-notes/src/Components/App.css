@@ -114,3 +114,49 @@
 .single-note p {
   margin: 15px 0;
 }
+.note-header {
+  display: flex;
+  justify-content: flex-end;
+}
+.note-header .btn {
+  font-size: 1rem;
+  margin: 0 10px 0 5px;
+  cursor: pointer;
+  text-decoration-line: underline;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #4A4A4A;
+}
+
+/* Edit Note Styles */
+.edit-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 100%;
+  padding: 30px 15px;
+}
+.edit-note input {
+  width: 65%;
+  margin: 20px 0;
+  border-radius: 5px;
+  height: 28px;
+}
+.edit-note textarea {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  height: 50%;
+}
+.edit-note .custom-button {
+  text-decoration: none;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 25%;
+  padding: 10px 0;
+  margin: 20px 0;
+  text-align: center;
+}
