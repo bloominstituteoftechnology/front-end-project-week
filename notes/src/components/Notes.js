@@ -13,7 +13,7 @@ class Notes extends React.Component {
     return (
       <div className="cards">
         {this.props.notes.map(note => {
-          return <Note note={note} />;
+          return <Note key={Math.random()} note={note} />;
         })}
       </div>
     );

@@ -41,6 +41,9 @@
 
 .card {
   padding: 10px;
+  max-width: 300px;
+  height: 350px;
+  flex-wrap: wrap;
 }
 
 .createNoteTitle {

@@ -4,6 +4,7 @@ import Buttons from "./components/Buttons";
 import { Route } from "react-router-dom";
 import Create from "./components/Create";
 import "./App.css";
+import ViewNote from "./components/ViewNote";
 
 class App extends Component {
   render() {
@@ -12,6 +13,11 @@ class App extends Component {
         <Buttons />
         <Route exact path="/" component={Notes} />
         <Route exact path="/create" component={Create} />
+        <Route
+          exact
+          path="/note/:id"
+          component={ViewNote}
+        />
       </div>
     );
   }
