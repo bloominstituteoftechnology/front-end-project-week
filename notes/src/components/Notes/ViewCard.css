@@ -8,3 +8,8 @@
     border: 1px solid #979797;
     border-left: 0px;
 }
+
+.action-ctn {
+    display:flex;
+    flex-flow: row-reverse;
+}

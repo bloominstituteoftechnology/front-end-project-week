@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import './ViewCard.css'
 class ViewCard extends Component {
     constructor(props) {
@@ -27,9 +28,18 @@ class ViewCard extends Component {
         return this.setState({ note: newNote })
     }
     render() {
-
         return (
             <div className='view-ctn'>
+                <div className='action-ctn'>
+                    <Link to={`delete/`} style={{ textDecoration: 'none' }}>
+                        Delete
+                </Link>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link to={`edit/`} style={{ textDecoration: 'none' }}>
+                        Edit
+                    </Link>
+                </div>
+
                 {this.state.note ?
                     <div>
                         <h2>{this.state.note.title}</h2>

@@ -8,7 +8,6 @@ class NoteContainer extends Component {
         this.state = {
         }
     }
-
     render() {
         return (
             <div className="note-ctn">

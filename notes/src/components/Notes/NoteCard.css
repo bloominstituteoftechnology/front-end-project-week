@@ -26,5 +26,22 @@
     margin: 0 10px;
     height: 150px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    position: relative;
 }
+
+.card-ctn p:before{
+    content: '...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.card-btn p:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+  }
