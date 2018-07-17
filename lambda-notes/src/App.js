@@ -64,7 +64,8 @@ class App extends Component {
         <Switch>
 
           <Route path="/notes/add" render={ props =>
-              <Form title={this.state.title}
+              <Form type={"new"}
+                    title={this.state.title}
                     textBody={this.state.textBody}
                     handleFormSubmit={this.handleFormSubmit}
                     handleInputChange={this.handleInputChange}

@@ -80,9 +80,14 @@ class Note extends React.Component {
       )
     }
 
+    if (this.state.title.length > 30) {
+      this.state.title = this.state.title.slice(0, 30) + '...';
+    }
+
     if (this.state.isEditing) {
       return (
-        <Form title={this.state.title}
+        <Form type={"edit"}
+              title={this.state.title}
               textBody={this.state.textBody}
               handleFormSubmit={this.handleEditSubmit}
               handleInputChange={this.handleInputChange}
@@ -91,11 +96,13 @@ class Note extends React.Component {
     }
 
     return (
-      <div>
-        <div>{this.state.title}</div>
-        <div>{this.state.textBody}</div>
-        <button onClick={this.toggleEditMode}>Edit</button>
-        <button onClick={this.handleDelete}>Delete</button>
+      <div className="main-container note">
+        <div className="actions-container">
+          <h5 onClick={this.toggleEditMode}>edit</h5>
+          <h5 onClick={this.handleDelete}>delete</h5>
+        </div>
+        <h2>{this.state.title}</h2>
+        <div className="note-body">{this.state.textBody}</div>
       </div>
     )
   }

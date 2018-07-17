@@ -100,6 +100,7 @@ button a:visited {
   padding: 5px 15px;
   margin: 10px 5px;
   background: #FFFFFF;
+  overflow-wrap: break-word;
 }
 
 .note-preview-container:hover {
@@ -135,8 +136,35 @@ input {
 }
 
 .main-container .text-body {
-  width: 600px;
+  width: 660px;
   height: 350px;
   padding: 10px;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.actions-container h5 {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0 0 0 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.main-container .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.main-container .note-body {
+  width: 700px;
+  margin-bottom: 20px;
+  overflow-wrap: break-word;
 }

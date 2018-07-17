@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import LinesEllipsis from 'react-lines-ellipsis';
 
 const NoteList = props => {
   if (!props.notes) {
@@ -9,6 +8,20 @@ const NoteList = props => {
       <div>Notes are loading...</div>
     )
   }
+
+  props.notes.forEach(note => {
+    if (note.title.length > 12) {
+      note.title = note.title.slice(0, 12) + '...';
+    }
+
+    if (note.textBody.length > 130) {
+      note.textBody = note.textBody.slice(0, 130) + '...';
+    }
+
+    if (note.textBody.length > 130 && note.textBody === note.textBody.toUpperCase()) {
+      note.textBody = note.textBody.slice(0, 110) + '...';
+    }
+  });
 
   const notes = props.notes.slice().reverse();
 
@@ -21,12 +34,7 @@ const NoteList = props => {
               <Link to={`/notes/${note._id}`} key={Math.random()}>
                 <div className="note-preview-container">
                   <h3>{note.title}</h3>
-                  <LinesEllipsis text={note.textBody}
-                                 maxLine='7'
-                                 ellipsis='...'
-                                 trimRight
-                                 basedOn='words'
-                  />
+                  <p>{note.textBody}</p>
                 </div>
               </Link>
             );
