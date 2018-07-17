@@ -2,10 +2,12 @@ import React from 'react';
 import '../App.css';
 import axios from 'axios';
 import Form from './Form';
+import Modal from 'react-modal';
 
 class Note extends React.Component {
   state = {
     isEditing: false,
+    modalIsOpen: false,
     note: null,
     title: "",
     textBody: ""
@@ -56,6 +58,16 @@ class Note extends React.Component {
       .catch(error => console.log(error));
   }
 
+  openModal = e => {
+    e.preventDefault();
+
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  }
+
   handleDelete = e => {
     e.preventDefault();
 
@@ -80,10 +92,6 @@ class Note extends React.Component {
       )
     }
 
-    if (this.state.title.length > 30) {
-      this.state.title = this.state.title.slice(0, 30) + '...';
-    }
-
     if (this.state.isEditing) {
       return (
         <Form type={"edit"}
@@ -97,11 +105,25 @@ class Note extends React.Component {
 
     return (
       <div className="main-container note">
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          className="modal"
+          overlayClassName="overlay"
+        >
+          <h3>Are you sure you want to delete this?</h3>
+          <div className="modal-buttons">
+            <button onClick={this.handleDelete}>Delete</button>
+            <button onClick={this.closeModal}>No</button>
+          </div>
+        </Modal>
+
         <div className="actions-container">
           <h5 onClick={this.toggleEditMode}>edit</h5>
-          <h5 onClick={this.handleDelete}>delete</h5>
+          <h5 onClick={this.openModal}>delete</h5>
         </div>
-        <h2>{this.state.title}</h2>
+        <h2>{this.state.title.length > 30 ? this.state.title.slice(0, 30) + '...' : this.state.title}</h2>
         <div className="note-body">{this.state.textBody}</div>
       </div>
     )
