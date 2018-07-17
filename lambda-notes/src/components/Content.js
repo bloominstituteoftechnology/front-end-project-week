@@ -12,7 +12,7 @@ class Content extends Component {
         {/* Home Page */}
         <Route exact path="" render={(props) => <ListView {...props} notes={this.props.notes} />} /> 
         {/* List Notes View */}
-        <Route exact path="/list-notes" render={(props) => <ListView {...props} notes={this.props.notes} />} /> 
+        <Route exact path="/view-notes" render={(props) => <ListView {...props} notes={this.props.notes} />} /> 
         {/* Create Notes View */}
         <Route exact path="/create-note" render={(props) => <CreateNote {...props} saveNewNote={this.props.saveNewNote}/>} />
         {/* View Note */}
