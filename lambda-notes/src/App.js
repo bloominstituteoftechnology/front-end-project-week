@@ -108,15 +108,17 @@ class App extends Component {
   }
 
   editNote = (id, title, textBody) => {
-    console.log(id)
-    console.log(title)
-    console.log(textBody)
+    // Make a copy of this.state.notes
     let notes = [...this.state.notes]
+    
+    //Grab the index of note we are editing
     let indexOfEditNoteId = notes.findIndex((obj => obj.id == id))
-    console.log(notes[indexOfEditNoteId])
+    
+    // Update the contents
     notes[indexOfEditNoteId].title = title;
     notes[indexOfEditNoteId].textBody = textBody;
-    console.log(notes[indexOfEditNoteId])
+    
+    // Update State
     this.setState({notes})
   }
 
