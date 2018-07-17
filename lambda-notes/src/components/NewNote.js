@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { createNote } from '../actions';
 import '../styles/NewNote.css';
 
@@ -29,9 +28,7 @@ class NewNote extends Component {
             <div className='note-form'>
                 <input name='title' placeholder='Note Title' value={this.state.title} onChange={this.handeInputChange} />
                 <textarea name='body' placeholder='Note Content' value={this.state.body} onChange={this.handeInputChange}></textarea>
-                {/* <Link to='/note' onClick={() => this.handleCreateNote(URL)}> */}
                     <button type='submit' onClick={() => this.handleCreateNote(URL)}>Add Note</button>
-                {/* </Link> */}
             </div>
         )
     }

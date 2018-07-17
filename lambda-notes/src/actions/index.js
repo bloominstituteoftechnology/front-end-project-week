@@ -3,8 +3,6 @@ import axios from 'axios';
 export const FETCHING_NOTES = 'FETCHING_NOTES';
 export const FETCHED_NOTES = 'FETCHED_NOTES';
 export const FETCHED_NOTE = 'FETCHED_NOTE';
-export const SET_NEW = 'SET_NEW';
-export const FETCHING_NEW = 'FETCHING_NEW';
 export const ERROR = 'ERROR';
 
 // fetches all notes
@@ -46,27 +44,12 @@ export const createNote = (URL, note) => {
         dispatch({ type: FETCHING_NOTES });
         promise
             .then(response => {
-                console.log(response.data);
-                const noteId = response.data.success;
-                const newNote = {
-                    title: note.title,
-                    textBody: note.textBody,
-                    _id: noteId,
-                };
-                dispatch({ type: SET_NEW, payload: newNote });
-                window.location.href = `${path}${noteId}`;
+                const id = response.data.success;
+                window.location.href = `${path}${id}`;
             })
             .catch(err => {
                 dispatch({ type: ERROR, payload: err.message });
             })
-    }
-}
-
-// Gets newly created note from local storage to be displayed by ViewNote component
-export const getNew = () => {
-    return dispatch => {
-        dispatch({ type: FETCHING_NOTES });
-        dispatch({ type: FETCHING_NEW, });
     }
 }
 

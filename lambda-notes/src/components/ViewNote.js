@@ -1,30 +1,26 @@
  import React, { Component } from 'react';
  import { connect } from 'react-redux';
  import { Link } from 'react-router-dom';
- import { getNew } from '../actions';
+ import { fetchNote } from '../actions';
  import '../styles/ViewNote.css';
+
+ const URL = 'https://killer-notes.herokuapp.com/note/';
 
  class ViewNote extends Component {
 
     // grabs newly created note from local storage
      componentDidMount() {
-         if(localStorage.getItem('newNote')) {
-            this.props.getNew();
-         }
-     }
-
-     // destroys note on local storage so that this component will function normally when selecting exisiting notes
-     componentWillUnmount() {
-         if(localStorage.getItem('newNote')) {
-             localStorage.removeItem('newNote');
-         } else return;
+        let id = window.location.pathname.split('/');
+        console.log(id);
+        id = id.filter(id => id.length > 5);
+        this.props.fetchNote(URL, id);
      }
 
     render() {
         return (
             <React.Fragment>
                 <div className='options'>
-                    <Link to={`/note/${this.props.id}/delete`}>Delete</Link>
+                    <Link to={`/note/${this.props.singleNote._id}/delete`}>Delete</Link>
                 </div>
                 <React.Fragment>
                     {/* waits for notes to fetch then displays notes */}
@@ -59,4 +55,4 @@
      }
  }
 
- export default connect(mapStateToProps, { getNew })(ViewNote);
+ export default connect(mapStateToProps, { fetchNote })(ViewNote);
