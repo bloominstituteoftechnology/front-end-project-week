@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, FETCHINGNOTE, FETCHEDNOTE, ERROR, UPDATING, DELETING, ADDING} from '../actions';
+import {FETCHING, FETCHED, FETCHINGNOTE, FETCHEDNOTE, ERROR, UPDATING, DELETING, DELETED, ADDING, ADDED} from '../actions';
 
 const initialState = {
     notes: [],
@@ -9,6 +9,7 @@ const initialState = {
     updating: false,
     deleting: false,
     adding: false,
+    added: false,
     error: null,
     currentNote: {},
     location: "",
@@ -25,10 +26,7 @@ const noteReducer = (state = initialState, action) => {
                 notes: action.payload, 
                 fetching: false,
                 fetched: true,
-                updating: false,
-                deleting: false,
-                adding: false,
-                error: null}
+                }
         case FETCHINGNOTE:
             return{...state,
                 fetched: false,
@@ -38,15 +36,29 @@ const noteReducer = (state = initialState, action) => {
         case FETCHEDNOTE:
             return {...state,
                 currentNote: action.payload,
-                fetching: false,
-                fetched: false,
                 fetchingnote: false,
                 fetchednote: true,
-                updating: false,
-                deleting: false,
+                }
+        case ADDING:
+            return {...state,
+                adding: true,
+                added: false,
+                }
+        case ADDED:
+            return {...state,
                 adding: false,
-                error: null
-            }
+                added: true,
+                }
+        case DELETING:
+            return {...state,
+                deleting: true,
+                deleted: false
+                }
+        case DELETED: 
+            return {...state,
+                deleting: false,
+                deleted: true
+                }
         case ERROR: 
             return { ...state,
                 fetching: false,
@@ -56,7 +68,8 @@ const noteReducer = (state = initialState, action) => {
                 updating: false,
                 deleting: false,
                 adding: false,
-                error: action.payload}
+                error: action.payload
+                }
         default:
             return state;
     }

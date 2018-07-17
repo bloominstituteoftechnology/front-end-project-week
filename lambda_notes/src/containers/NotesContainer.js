@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import NoteCard from '../components/NoteCard';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const StyledNotesContainer = styled.div`
     padding: 5%;
@@ -36,9 +37,11 @@ const mapStateToProps = (state) => {
         notes: state.notes,
         fetching: state.fetching,
         fetched: state.fetched,
+        adding: state.adding,
+        added: state.added,
         error: state.error
     }
    
 }
 
-export default connect(mapStateToProps, {})(NotesContainer);
+export default withRouter(connect(mapStateToProps, {})(NotesContainer));

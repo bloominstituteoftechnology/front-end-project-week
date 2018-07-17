@@ -28,19 +28,28 @@ const StyledLink = styled(Link)`
 `;
 
 class Note extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            id: '',
+        }
+    }
 
     componentDidMount(){
         this.props.getNote(this.props.match.params.id)
+        this.setState({id: this.props.match.params.id})
     }
 
     render(){
-        console.log("this.props.currentNote", this.props.currrentNote);
         return(
             <StyledNote>
-                <StyledButtons>
-                    <StyledLink to={`/edit/${this.props.currentNote.id}`}>edit</StyledLink>
-                    <StyledLink to={`/notes/${this.props.currentNote.id}/delete`}>delete</StyledLink>
-                </StyledButtons>
+                    {this.props.currentNote ? (
+                        <StyledButtons>
+                            <StyledLink to={`/edit/${this.state.id}`}>edit</StyledLink>
+                            <StyledLink to={`/notes/${this.state.id}/delete`}>delete</StyledLink>
+                        </StyledButtons>
+                    ) : null}
+                
                     {this.props.fetchingnote ? (
                         <div>Getting Note</div>
                     ) : null}
@@ -56,7 +65,6 @@ class Note extends Component {
             </StyledNote>
         );
     }
-
 }
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 
 const StyledNoteForm = styled.div`
     background: #F3F3F3;
@@ -54,7 +56,8 @@ class NoteForm extends Component {
 
     addNote = (e) => {
         e.preventDefault();
-        this.state.addNote(this.state.inputTitle, this.state.inputBody);
+        const newNote = {title: this.state.inputTitle, textBody: this.state.inputBody}
+        this.props.addNote(newNote);
         this.setState({inputTitle: '', inputBody: '', created: true});
     }
 
@@ -83,5 +86,10 @@ class NoteForm extends Component {
     }
     }
 
- 
-export default NoteForm;
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, { addNote })(NoteForm);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import NotesContainer from './containers/NotesContainer';
 import Note from './components/Note';
@@ -10,7 +10,6 @@ import DeleteModal from './components/DeleteModal';
 import EditNote from './components/EditNote';
 import { connect } from 'react-redux';
 import { getNotes } from './actions';
-import { withRouter } from 'react-router-dom';
 
 const StyledApp = styled.div`
   display: flex;
@@ -23,17 +22,6 @@ class App extends Component {
 
   componentDidMount(){
     this.props.getNotes();
-  }
-
-  addNote = (title, body) => {
-    let newNotes = this.state.notes.slice();
-    newNotes.push({tags: [], title: title, textBody: body, id: this.state.id});
-    this.setState({notes: newNotes, id: this.state.id + 1});
-  }
-
-  deleteNote = (id) => {
-    let newNotes = this.state.notes.slice().filter(note => note.id !== Number(id));
-    this.setState({notes: newNotes});
   }
 
   editNote = (id, title, body) => {
@@ -55,7 +43,7 @@ class App extends Component {
     return (
       <StyledApp>
         <Route path='/' component={NavBar} />
-        <Route exact path='/' render={props => <NotesContainer {...props} />} />
+        <Route exact path='/' component={NotesContainer} />
         <Route path='/notes/:id' render={props => <Note {...props} />} />
         <Route path='/create' render={props => <NoteForm {...props} />} />
         <Route exact path='/notes/:id/delete' render={props => <DeleteModal {...props} /> } />
@@ -68,6 +56,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
+    added: state.added,
+    adding: state.adding,
   }
 }
 

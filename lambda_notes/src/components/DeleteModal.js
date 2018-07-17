@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteNote } from '../actions';
 
 const StyledModal = styled.div`
     position: absolute;
@@ -47,6 +49,7 @@ const StyledLink = styled(Link)`
 `;
 
 const DeleteModal = (props) => {
+    console.log("ID!!!!!", props.match.params.id);
     return (
         <StyledModal>
             <StyledInnerBox>
@@ -62,5 +65,10 @@ const DeleteModal = (props) => {
         </StyledModal>
     );  
 }
- 
-export default DeleteModal;
+
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+export default connect(mapStateToProps, { deleteNote })(DeleteModal);
