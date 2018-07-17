@@ -8,3 +8,8 @@
     text-align: right;
     padding-top: 1rem;
 }
+
+.textBody  {
+    text-align: left;
+    margin-left: 1rem;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ModalComponent  from '../ModalComponent/ModalComponent';
+import { connect } from 'react-redux';
+import { displayingNote } from '../../actions';
 import './index.css';
 
 class SingleNoteView extends Component {
@@ -9,6 +11,12 @@ class SingleNoteView extends Component {
         this.state = { 
             modalForm: false,
          }
+    }
+
+    componentDidMount() {
+        const  { id }  = this.props.match.params;
+        console.log(' id : ', id);
+        this.props.displayingNote(id)
     }
 
     popModal = () => {
@@ -28,7 +36,10 @@ class SingleNoteView extends Component {
                         <a className='editDeletelink' onClick={this.popModal}>delete</a>
                     </div>
                     <div>
-                        <h3 className='headings mainAreaHeading'>Note Name</h3>
+                        <h3 className='headings mainAreaHeading'>{this.props.notes.title}</h3>
+                        <div className='textBody'>
+                            <p> {this.props.notes.textBody}</p>
+                        </div>
                     </div>
 
                 <ModalComponent 
@@ -39,5 +50,12 @@ class SingleNoteView extends Component {
          );
     }
 }
+
+const mapStateToProps = state => {
+    console.log( 'state in single note view: ', state)
+    return {
+        notes: state.notes
+    }
+}
  
-export default SingleNoteView;
+export default connect(mapStateToProps, {displayingNote}) (SingleNoteView);

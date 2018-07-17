@@ -11,6 +11,7 @@ import logger from 'redux-logger';
 import registerServiceWorker from './registerServiceWorker';
 
 const store =createStore( NotesReducer, applyMiddleware(thunk, logger))
+
 ReactDOM.render(
     <Provider store={store}>
         <Router>

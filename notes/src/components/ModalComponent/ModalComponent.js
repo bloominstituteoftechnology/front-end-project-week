@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import './index.css';
+import { connect } from 'react-redux';
+// import { deletingNote } from '../../actions';
 
 class ModalComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
+    }
+    componentDidMount() {
+        // const id = this.props.notes._id
+        // console.log('check id in modal: ', id)
+        // this.props.deletingNote()
     }
     render() { 
         console.log('props in modal : ', this.props)
@@ -15,7 +22,7 @@ class ModalComponent extends Component {
                     <h3 className='modalText'>Are you sure you want to delete this?</h3>
                 </div>
                 <div className='modalButtons'>
-                    <button className='redButton modalB'>DELETE</button>
+                    <button className='redButton modalB' onClick={this.handleDelete}>DELETE</button>
                     <button className='regButton modalB' onClick={this.props.onClick}>NO</button>
                 </div>
                 </div>
@@ -23,5 +30,11 @@ class ModalComponent extends Component {
          );
     }
 }
+const mapStateToProps = state => {
+    console.log('map in modal : ', state)
+    return {
+        notes: state.notes
+    }
+}
  
-export default ModalComponent;
+export default connect(mapStateToProps, { }) (ModalComponent);
