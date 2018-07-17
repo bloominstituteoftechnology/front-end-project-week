@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import Note from "./Note.js";
+import NoteCard from "./NoteCard.js";
 import { Link } from "react-router-dom";
 
 const NoteList = props => {
     return (
         <div>
+	        <div>
+	        <h1>Your Notes:</h1>
+	        </div>
+        <div>
             {props.notes.map(note => {
                 return (
+
                     <Link to={`/Note/${note.id}`} key={note.id}>
-                    		<Note note={note} />
+                    		<NoteCard note={note} />
                     </Link>
                 );
             })}
+            </div>
         </div>
     );
 }

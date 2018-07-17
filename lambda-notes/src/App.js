@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from "react-router-dom";
 import NoteList from "./components/NoteList";
-import Note from "./components/Note";
+import NoteCard from "./components/NoteCard";
 import Navbar from "./components/Navbar";
 import NewNote from "./components/NewNote";
+import Note from "./components/Note";
+
+
 
 
 class App extends Component {
@@ -54,7 +57,8 @@ class App extends Component {
       <div className="App">
       <Navbar />
      <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
-      <Route path="/Note/:id" component={ Note }/>
+
+      <Route path="/:id" render={props => <Note {...props} notes={notes}/>}/>
       <Route path="/NewNote" render={props => <NewNote NewNote={this.NewNote} />}/>
       </div>
     );
