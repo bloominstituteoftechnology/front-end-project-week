@@ -1,10 +1,12 @@
 import React from 'react';
-import { Card, CardBody, CardTitle, CardText, Col } from 'reactstrap';
+import { Container, Row, Card, CardBody, CardTitle, CardText, Col } from 'reactstrap';
+
 
 const Note = (props) => {
 
-    return (
-    <div className="notes-container">
+  return (
+    <Container className="notes-container">
+    <Row>
         <Col sm="4">
             <Card body className="note-card">
                 <CardBody>
@@ -12,10 +14,11 @@ const Note = (props) => {
                     <CardText>{props.note.body}</CardText>
                 </CardBody>
             </Card>
+
         </Col>
-    </div>
+        </Row>
+    </Container>
     )
 }
 
-export default Note;
-
+export default Note
