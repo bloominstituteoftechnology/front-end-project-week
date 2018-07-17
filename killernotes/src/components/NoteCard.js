@@ -16,6 +16,11 @@ const Card = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 const NoteCard = props => {
   let { title, textBody, _id } = props.note;
   // only show the first x characters of the title/text
@@ -23,13 +28,13 @@ const NoteCard = props => {
   if (textBody.length > 116) textBody = textBody.slice(0, 116) + ' ...';
 
   return (
-    <Link to={`/note/${_id}`}>
+    <StyledLink to={`/note/${_id}/`}>
       <Card>
         <h2>{title}</h2>
         <hr />
         {textBody}
       </Card>
-    </Link>
+    </StyledLink>
   );
 };
 

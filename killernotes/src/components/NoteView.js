@@ -13,17 +13,25 @@ class NoteView extends React.Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    // only setState when we actually have data
+    if (this.props.notes[0]) {
+      const note = this.props.notes.filter(n => n._id === id);
+      this.setState({
+        title: note[0].title,
+        textBody: note[0].textBody,
+      });
+    }
+  }
 
+  // this is here so refresh and typing in the URL works
   componentWillReceiveProps(newProps) {
     // get the id from the URL
     const id = this.props.match.params.id;
-    console.log('id in noteView', id);
     // only setState when we actually have data
     if (newProps.notes[0]) {
-      console.log('NOTENOTENOTE:', newProps.notes);
       const note = newProps.notes.filter(n => n._id === id);
-      console.log('FOUND NOTE', note[0]);
       this.setState({
         title: note[0].title,
         textBody: note[0].textBody,
