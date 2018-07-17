@@ -1,0 +1,7 @@
+const POSTING_NOTE = 'POSTING_NOTE';
+const POSTED_NOTE = 'POSTED_NOTE';
+
+export default {
+    POSTING_NOTE,
+    POSTED_NOTE
+}

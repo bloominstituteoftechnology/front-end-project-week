@@ -5,10 +5,10 @@ const requestNotes= () => {
     type: types.FETCHING_NOTES,
   }
 };
-const receiveNotes = (data) => {
+const receiveNotes = (notesData) => {
   return {
     type: types.FETCHED_NOTES,
-    notesData: data
+    notesData
   }
 };
 

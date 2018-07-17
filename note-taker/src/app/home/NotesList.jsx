@@ -4,7 +4,6 @@ import "bulma/css/bulma.css";
 import "../styles/custom-props.css";
 const NotesList = props => {
   
-  console.log(props.notesData);
   return (
     <div className="columns is-multiline">
       {props.notesData.map(note => {
