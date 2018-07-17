@@ -49,10 +49,12 @@ class NoteList extends Component {
         return (
             <div className="page-container">
                 <SideBar />
-                <div className="note-container">
+                <div className="section-container">
                     <h1 className="notes-title"> Your Notes: </h1>
+                    <div className="note-container">
                     {this.state.notes.map(note => <Note note={note}/>)}
-                </div>
+                      </div>
+                  </div>
             </div>
         )
     }

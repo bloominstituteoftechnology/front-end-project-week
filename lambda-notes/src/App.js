@@ -5,7 +5,7 @@ import NoteList from './Components/NoteList/notelist';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App-container">
         <NoteList />
       </div>
     );

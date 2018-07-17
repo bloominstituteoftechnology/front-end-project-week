@@ -1,16 +1,16 @@
 .sidebar-container {
     background: #D8D8D8;
     width: 20%;
-    height: 1024px;
+    height: 100%vh;
     border-right: 1px #979797 solid;
 }
 
 .title {
     color: #4A4A4A;
     font-size: 16px;
+    font-weight: bold;
     padding-top: 10px;
     padding-left: 4%;
-    font-weight: bold;
     margin-bottom: 20px;
 }
 

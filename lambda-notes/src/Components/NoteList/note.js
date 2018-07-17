@@ -4,7 +4,7 @@ import './notelist.css';
 const Note = props => {
     return(
         <div className='note'>
-        <h1> {props.note.title} </h1>
+        <h3> {props.note.title} </h3>
         <a> {props.note.content} </a>
         </div>
     )
