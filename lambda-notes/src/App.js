@@ -4,7 +4,8 @@ import MainContainer from './components/MainContainer'
 import NoteCardsContainer from './components/NoteCardsContainer'
 import NoteCard from './components/NoteCard'
 import NewNote from './components/NewNote'
-import { Route } from 'react-router-dom'
+import EditNote from './components/EditNote'
+import { Route, Link } from 'react-router-dom'
 
 class App extends Component {
  
@@ -52,6 +53,21 @@ class App extends Component {
     })
 
   }
+
+  editNote = (id, updatedNote) => {
+   
+    const { notes } = this.state
+
+    this.setState({
+      notes: notes.map(note => {
+        if(String(note.id) === id){
+          return {...note, ...updatedNote}
+        }
+        return note
+      })
+    })
+  
+  }
   
   render() {
 
@@ -74,7 +90,7 @@ class App extends Component {
             </NoteCardsContainer>
           }/>
         
-          <Route path='/note/:id' render={props => 
+          <Route exact path='/note/:id' render={props => 
             notes.filter(note => 
               String(note.id) === props.match.params.id
             ).map(note => <div key={note.id}>
@@ -88,8 +104,26 @@ class App extends Component {
               }}>
                  [delete] 
               </span>
+              <Link to={`/note/${props.match.params.id}/edit`}>
+                [edit]
+              </Link>
             </div>)
           }/>
+
+        <Route exact path='/note/:id/edit' render={props =>
+          notes.filter(note =>
+            String(note.id) === props.match.params.id
+          ).map(note => 
+            <EditNote 
+              id={props.match.params.id}
+              title={note.title}
+              text={note.text}
+              editNote={this.editNote}
+              {...props}
+            />
+          )
+        } /> 
+
         
           <Route path='/new' render={props =>
             <NewNote {...props} addNote={this.addNote} />
