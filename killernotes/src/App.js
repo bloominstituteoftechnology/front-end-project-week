@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { fetchData } from './actions';
@@ -41,9 +41,10 @@ class App extends Component {
           exact
           path="/"
           render={() =>
-            this.props.fetched ? <Notes notes={this.props.notes} /> : null
+            this.props.fetched ? <Notes notes={this.props.notes} /> : 'working'
           }
         />
+        {/* ...props sends match, location, history, etc */}
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
         {this.props.error ? <Error>{this.props.error}</Error> : null}
       </div>
@@ -60,7 +61,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { fetchData },
-)(App);
+// needs withRouter so redux knows when links happen
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchData },
+  )(App),
+);

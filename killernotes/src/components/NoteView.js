@@ -13,7 +13,9 @@ class NoteView extends React.Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log('props', this.props);
+  }
 
   componentWillReceiveProps(newProps) {
     // get the id from the URL

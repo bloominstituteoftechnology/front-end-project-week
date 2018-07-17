@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const SideBarDiv = styled.div`
@@ -23,10 +24,13 @@ const Button = styled.button`
   color: #fff;
 `;
 
-const SideBar = () => (
+const SideBar = props => (
   <SideBarDiv>
     <p>Lambda Notes</p>
-    <Button>View Your Notes</Button>
+    {console.log('sidebar props', props)}
+    <Link to="/">
+      <Button>View Your Notes</Button>
+    </Link>
     <Button>+Create New Note</Button>
   </SideBarDiv>
 );
