@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import '../styles/ViewNote.css';
 
 
-const ViewNote = props => {
+class ViewNote extends Component {
+    constructor(props) {
+        super(props)
+    }
     
-        return (
+    render() {
+    return (
             <div> 
             <div className="Viewnote">
-            <h3>{props.note.title}</h3>
-            <p>{props.note.body}</p>    
+            <h3>{this.props.title}</h3>
+            <p>{this.props.body}</p>    
             </div>
             </div>
         )
     }
-
+}
 
 
 export default ViewNote;

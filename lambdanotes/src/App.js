@@ -1,48 +1,34 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { data } from './NoteData';
-import Sidebar from './components/Sidebar';
+// import Sidebar from './components/Sidebar';
 import NoteList from './components/NoteList';
 import ViewNote from './components/ViewNote';
+import CreateNote from './components/CreateNote';
+import EditNote from './components/EditNote';
 import './App.css';
-// import axios from 'axios';
-
-// const URL = "http://localhost:3000/"
 
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      notes: []
-    }
-  }
-
-  // handleSetData = () => {
-  //   axios
-  //   .get(URL)
-  //   .then(response => {
-  //     console.log("GET RESPONSE: ", response);
-  //     this.setState({ notes: response.data });
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //   });
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     notes: []
+  //   }
   // }
 
-  componentDidMount() {
-    this.setState({ notes: data })
-  }
+  // componentDidMount() {
+  //   this.setState({ notes: data })
+  // }
 
   render() {
     return (
       <div className="App">
-      <Sidebar />
-      {/* <Route exact path='/' component={NoteList} /> */}
-      <h2>Your Notes:</h2>
-      {this.state.notes.map(note => {
-        return <ViewNote key={note.id} note={note} /> 
-      })}
+      {/* <Sidebar /> */}
+      <Route exact path='/' component={NoteList} />
+      <Route exact path='/createNote' component={CreateNote} />
+      <Route exact path='/viewNote/:id' component={ViewNote} />
+      <Route exact path='/editNote/:id' component={EditNote} />
       </div>
     );
   }

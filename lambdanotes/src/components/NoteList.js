@@ -1,21 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { data } from '../NoteData';
 import Sidebar from './Sidebar';
 import ViewNote from './ViewNote';
 // import { Link } from 'react-router-dom';
+import '../styles/NoteList.css';
 
-const NoteList = props => {
+class NoteList extends Component {
+    constructor() {
+        super()
+        this.state = {
+          notes: []
+        }
+      }
+    
+      componentDidMount() {
+        this.setState({ notes: data })
+      }
+
+    render() {
     return (
         <div className="Notes">
-        {/* <Sidebar /> */}
-        {/* <Link to='/editNote'>Edit</Link> */}
-        <ViewNote 
-            key={this.props.note.id}
-            title={this.state.title}
-            body={this.state.body}
+        <Sidebar />
+        <h2>Your Notes:</h2>
+        {this.state.notes.map(note => {
+        return <ViewNote 
+            key={note.id}
+            title={note.title}
+            body={note.body}
         />
-        {/* <Route exact path='/viewNote/:id' component={ViewNote} /> */}
+        })}
         </div>
     )
+}
 }
 
 

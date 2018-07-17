@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Sidebar from './Sidebar';
 
 class CreateNote extends Component {
 constructor(props) {
@@ -25,6 +26,7 @@ handleInputChange = e => {
 render() {
     return (
         <div className="NoteForm">
+        <Sidebar />
         <h1>Create New Note:</h1>
         <input
             onChange={this.handleInputChange}
