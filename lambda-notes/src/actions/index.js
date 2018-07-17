@@ -38,6 +38,7 @@ export const fetchNote = (URL, id) => {
     }
 }
 
+// post new note to server and places on localstorage so it can be view by ViewNote component
 export const createNote = (URL, note) => {
     const promise = axios.post(`${URL}create`, note);
     const path = 'http://localhost:3000/note/';
@@ -61,6 +62,7 @@ export const createNote = (URL, note) => {
     }
 }
 
+// Gets newly created note from local storage to be displayed by ViewNote component
 export const getNew = () => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });

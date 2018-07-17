@@ -4,12 +4,15 @@
  import '../styles/ViewNote.css';
 
  class ViewNote extends Component {
+
+    // grabs newly created note from local storage
      componentDidMount() {
          if(localStorage.getItem('newNote')) {
             this.props.getNew();
          }
      }
 
+     // destroys note on local storage so that this component will function normally when selecting exisiting notes
      componentWillUnmount() {
          if(localStorage.getItem('newNote')) {
              localStorage.removeItem('newNote');
