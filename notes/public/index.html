@@ -21,13 +21,24 @@
     -->
     <title>React App</title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500|Roboto:700" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
     <script>
-    $( function() {
-      $( "#sortable" ).sortable();
-      $( "#sortable" ).disableSelection();
-    } );
+      $( function() {
+        $( "#sortable" ).sortable();
+        $( "#sortable" ).disableSelection();
+      } );
+      $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $(".notesWrapper div").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+
     </script>
   </head>
   <body>
