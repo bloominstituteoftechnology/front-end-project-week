@@ -1,6 +1,7 @@
 export const SUBMIT_NEW_NOTE = "SUBMIT_NEW_NOTE";
 export const FETCH_SINGLE_NOTE = "FETCH_SINGLE_NOTE";
 export const EDIT_NOTE = "EDIT_NOTE";
+export const DELETE_NOTE = "DELETE_NOTE";
 
 export const submitNewNote = newNote => {
   return {
@@ -20,5 +21,13 @@ export const editNote = edited => {
   return {
     type: EDIT_NOTE,
     payload: edited
+  };
+};
+
+export const deleteNote = id => {
+  console.log("id is:", id);
+  return {
+    type: DELETE_NOTE,
+    payload: id
   };
 };

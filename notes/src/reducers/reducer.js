@@ -1,7 +1,8 @@
 import {
   SUBMIT_NEW_NOTE,
   FETCH_SINGLE_NOTE,
-  EDIT_NOTE
+  EDIT_NOTE,
+  DELETE_NOTE
 } from "../actions/action";
 
 const initialState = {
@@ -64,6 +65,15 @@ export const notesReducer = (
         return note;
       });
       return Object.assign({}, state, { notes: notes });
+    case DELETE_NOTE:
+      console.log("DELETING");
+      let toDelete = state.notes.slice();
+      toDelete = toDelete.filter(note => {
+        if (note.id !== action.payload) {
+          return note;
+        }
+      });
+      return Object.assign({}, state, { notes: toDelete });
     default:
       return state;
   }
