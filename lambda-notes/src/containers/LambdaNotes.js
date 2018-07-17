@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 const ComponentContainer = styled.div`
     width: 75%;
     display: flex;
@@ -27,10 +27,10 @@ const LambdaNotes = (props) => {
             {props.notes.map(note => {
                 return (
                     <NotesContainer>
-                        <div key={note.id}>
+                        <Link to={`/notes/${note.id}`}>
                             <HeaderStyle>{note.title}</HeaderStyle>
                             <p>{note.body}</p>
-                        </div>
+                        </Link>
                     </NotesContainer>
                 )
 
