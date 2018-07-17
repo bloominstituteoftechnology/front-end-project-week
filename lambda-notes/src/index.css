@@ -4,11 +4,45 @@ body {
   font-family: sans-serif;
 }
 
-.card-body-title, .new-note-title{
+.single-note-container{
+	margin: 30px 0px 10px 0px;
+	display: flex;
+	justify-content: flex-start;
+	padding-left: 50px;
+}
+
+.delete-btn-container{
+	width: 800px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+.delete-btn{
+	border: none;
+	text-decoration: underline;
+	margin-top: 8px;
+	margin-right: 25px;
+	float: right;
+	background-color: #F3F3F3;
+}
+
+
+.delete-btn:hover{
+	color: #30B8BC;
+}
+
+
+.card-body-title, .new-note-title, .single-note-title{
 	text-align: left;
 	color: #4A4A4A;
 	font-size: 1.2rem;
 	margin: 30px 0px 10px 80px;
+}
+
+.single-note-title{
+        margin-top: 70px;
+	margin-left: 50px;
 }
 
 
@@ -17,7 +51,7 @@ body {
 
 }
 
-.notes-card-container{
+.note-card-container{
 	/*display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;*/
@@ -28,10 +62,11 @@ body {
 .card-title-div{
 	border-bottom: 1px solid #979797;
 	padding-bottom: 4px;
-
 }
 
-
+.card-title-div:hover{
+	border-bottom: 1px solid chocolate;
+}
 
 .note-card{
 	height: 220px;
@@ -131,7 +166,7 @@ flex-direction: column;
 
 
 .teal-div:hover{
-	text-decoration: none;
+	color: black;
 }
 
 

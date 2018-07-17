@@ -28,7 +28,7 @@ addNote = event => {
 
 render() {
         return(
-                <div className="notes-card-container">
+                <div className="note-card-container">
 		<h3 className="new-note-title">Create New Note:</h3>
 		<div className="input-container">
 		<input onChange={this.changeHandler} className="title-style" type="text" name="title" placeholder="Note Title" value={this.state.title} /><br />

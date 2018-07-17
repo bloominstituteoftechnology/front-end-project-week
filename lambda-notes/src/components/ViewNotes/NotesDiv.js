@@ -32,19 +32,19 @@ if (prevProps.notes !== this.props.notes){
 render() {
 	
 	return (
-	<div className="notes-card-container">
+	<div className="note-card-container">
         		
 	<div>{this.props.fetching ? (
-          <h1>Fetching Notes...</h1>
+          null
         ) :(
 
 	<div><h3 className="card-body-title">Your Notes:</h3>
 	<CardDeck>{this.props.notes.map(note =>{
       return(	
-	<Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`}><div key={note.id}>
+	<Link style={{ textDecoration: 'none' }} to={`/note/${note._id}`} key={note._id}><div>
 	<Card className="note-card">
 	  <CardBody>
-          <CardTitle><div className="card-title-div">{note.title}</div></CardTitle>
+          <CardTitle><div className="card-title-div">{note.title.substring(0, 40)}</div></CardTitle>
           <CardSubtitle></CardSubtitle>
           <CardText>{note.textBody.substring(0, 70)}...</CardText>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ViewNotesContainer from './components/ViewNotes/ViewNotesContainer';
 import CreateNoteContainer from './components/CreateNotes/CreateNoteContainer';
+import EachNoteBody from './components/EachNote/EachNoteBody';
 import './App.css';
 import {Route} from 'react-router-dom';
 
@@ -12,44 +13,15 @@ super(props);
 	};
 }  
 	
-/*componentDidMount() {
-   axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => {
-        console.log("GET RESPONSE: ", response);
-        this.setState({ notes: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }*/
-
-
-
-
-
-/*componentDidUpdate(prevpProps,  prevState) {
-if (prevState.notes !== this.state.notes){
-
-	axios
-      .get("https://killer-notes.herokuapp.com/note/get/all")
-      .then(response => {
-        console.log("GET RESPONSE: ", response);
-        this.setState({ notes: response.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-}*/
-	
 
 	
 render() {
     return (
       <div className="App">
       	<Route exact  path="/" component={ViewNotesContainer} />
-        <Route exact path="/createnewnote" component={CreateNoteContainer} />	    
+        <Route exact path="/createnewnote" component={CreateNoteContainer} />	   
+	<Route exact path="/note/:id" render={(props) => <EachNoteBody {...props} />} />
+    
       </div>
     );
   }
