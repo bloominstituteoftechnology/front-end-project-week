@@ -7,7 +7,7 @@ const Nav = styled.div`
     width: 220px;
 `
 
-const NavBar = () => {
+const SideBar = () => {
     return (
         <Nav>
             <h1>Lambda Notes</h1>
@@ -17,4 +17,4 @@ const NavBar = () => {
       );
 }
  
-export default NavBar;
+export default SideBar;

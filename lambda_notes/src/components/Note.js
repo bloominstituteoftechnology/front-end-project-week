@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Card = styled.div`
-    width: 190px;
+    width: 192px;
     height: 195px;
     border: 1px solid black;
-    margin: 25px 0.75rem;
+    margin: 1.2rem 1.12%;
+    overflow: hidden;
 `
+
 const Note = props => {
     return (
         <Card>
             <h1>{props.note.title}</h1>
             <p>{props.note.textBody}</p>
         </Card>
-    );
+    )
 }
 
 Note.propTypes = PropTypes.shape({

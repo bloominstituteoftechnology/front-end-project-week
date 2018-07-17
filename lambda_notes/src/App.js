@@ -1,24 +1,44 @@
 import React, { Component } from 'react';
-import NoteList from './components/NoteList';
-import NavBar from './components/NavBar';
 import styled from 'styled-components';
-  
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchNotes } from './actions';
+
+import NoteList from './components/NoteList';
+import SideBar from './components/SideBar';
+import Note from './components/Note';
+
 const APP = styled.div`
   display: flex;
   width: 888px;
   margin: auto;
   border: 1px solid #a6a6a6;
+  font-size: 1.6rem;
 `
 
 class App extends Component {
+
+  componentDidMount () {
+    this.props.fetchNotes()
+  }
+
   render() {
     return (
-      <APP className="App">
-        <NavBar />
-        <NoteList />
-      </APP>
+      <Router>
+        <APP className="App">
+          <Route path='/' component={SideBar} />
+          <Route exact path='/' render={props => <NoteList {...props} notes={this.props.notes} />} />
+          {/* <Route path='/notes/:id' render={props => <Note {...props} notes={this.state.notes}/>} /> */}
+        </APP>
+      </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  }
+}
+
+export default connect(mapStateToProps, {fetchNotes})(App);
