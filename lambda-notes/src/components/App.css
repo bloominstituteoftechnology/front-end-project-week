@@ -90,11 +90,9 @@ body {
 .note-paragraph {
   margin: 8px 5px;
   max-height: 125px;
-  max-width: 140px;
-  word-break: break-all;
-  overflow: hidden;
+  max-width: 137px;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 1.5;
 }
 
