@@ -1,19 +1,17 @@
 import axios from 'axios';
 
 //Declare action type const
-export const FETCH_NOTES = 'FETCH_NOTES'
-export const FETCH_SINGLE_NOTE = 'FETCH_SINGLE_NOTE'
-export const FETCH_ERROR = 'FETCH_ERROR'
+import * as types from './types';
 
 export const fetchNotes = () => {
     return (dispatch) => {
         axios.get('https://killer-notes.herokuapp.com/note/get/all')
         .then(response => dispatch({
-            type: FETCH_NOTES,
+            type: types.FETCH_NOTES,
             payload: response.data
         }))
         .catch(err => dispatch({
-            type:FETCH_ERROR,
+            type: types.FETCH_ERROR,
             error: err
         }))
     }
@@ -23,11 +21,25 @@ export const fetchSingleNote = (id) => {
     return (dispatch) => {
         axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
         .then(response => dispatch({
-            type: FETCH_SINGLE_NOTE,
+            type: types.FETCH_SINGLE_NOTE,
             payload: response.data
         }))
         .catch(err => dispatch({
-            type:FETCH_ERROR,
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}
+
+export const deleteNote = (id) => {
+    return (dispatch) => {
+        axios.get(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+        .then(response => dispatch({
+            type: types.DELETE_NOTE,
+            payload: response.data
+        }))
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
             error: err
         }))
     }

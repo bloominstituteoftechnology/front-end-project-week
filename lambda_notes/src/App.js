@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <Router>
         <APP className="App">
-          <Route path='/' component={SideBar} />
+          <SideBar />
           <Route exact path='/' render={props => <NoteList {...props} notes={this.props.notes} />} />
           <Route path='/notes/:id' component={SingleNote}/>
         </APP>

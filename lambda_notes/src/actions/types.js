@@ -1,0 +1,4 @@
+export const FETCH_NOTES = 'FETCH_NOTES'
+export const FETCH_SINGLE_NOTE = 'FETCH_SINGLE_NOTE'
+export const FETCH_ERROR = 'FETCH_ERROR'
+export const DELETE_NOTE = 'DELETE_NOTE'

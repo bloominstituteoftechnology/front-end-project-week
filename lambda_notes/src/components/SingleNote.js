@@ -1,9 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
-import Note from './Note';
 import { fetchSingleNote } from '../actions';
+import DeleteModal from './Delete';
+const Content = styled.div`
+    width: 666px;
+    padding-top: 20px;
+    padding-left: 3.48rem;
+`
 
 class SingleNote extends React.Component {
     componentDidMount () {
@@ -12,9 +17,12 @@ class SingleNote extends React.Component {
     }
 
     render() { 
-        console.log(this.props.note)
         return (
-            <Note note={this.props.note}/>
+            <Content>
+                <DeleteModal/>
+                <h1>{this.props.note.title}</h1>
+                <p>{this.props.note.textBody}</p>
+            </Content>
         );
     }
 }

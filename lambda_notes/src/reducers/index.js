@@ -1,4 +1,4 @@
-import { FETCH_NOTES, FETCH_SINGLE_NOTE, FETCH_ERROR } from '../actions';
+import * as types from '../actions/types';
 
 const initialState = {
     notes: [{
@@ -13,12 +13,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case (FETCH_NOTES):
+        case (types.FETCH_NOTES):
             return Object.assign({}, state, { notes: action.payload });
-        case (FETCH_SINGLE_NOTE):
+        case (types.FETCH_SINGLE_NOTE):
             return Object.assign({}, state, { note: action.payload })
-        case (FETCH_ERROR):
+        case (types.FETCH_ERROR):
             console.log(action.error);
+        case (types.DELETE_NOTE):
+            return Object.assign({}, state, { notes: action.payload });
         default:
             return state;
     }
