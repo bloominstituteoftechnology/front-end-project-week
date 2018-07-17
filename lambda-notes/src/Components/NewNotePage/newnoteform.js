@@ -17,7 +17,7 @@ class NewNoteForm extends Component {
     };
 
     addHandler = () => {
-        const { id } = this.props.notes.length + 1;
+        const  id  = this.props.notes.length + 1;
         const {title, content} = this.state;
         this.props.addNote({id, title, content});
         this.setState({ id: -1, title: '', content: ''});

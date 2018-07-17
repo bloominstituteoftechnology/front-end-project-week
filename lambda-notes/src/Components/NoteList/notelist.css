@@ -33,6 +33,8 @@
     border: 1px #979797 solid;
     padding: 0px 3% 0 3%;
     margin: 20px 0 0px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
 .note h3 {
