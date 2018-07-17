@@ -8,7 +8,7 @@ const Notes = props => {
         <ul>
           {props.notes.map(note=>{
             return(
-              <Link to={`/note/${note.id}`} key={Math.random()}>
+              <Link style={{ textDecoration: 'none' }} to={`/note/${note.id}`} key={Math.random()}>
                 <h2>{note.title}</h2>
                 <p>{note.textBody}</p>
               </Link>

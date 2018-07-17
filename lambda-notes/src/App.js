@@ -49,13 +49,17 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <Navigation />
-        <Route exact path='/' render={props => <Notes {...props} notes={this.state.notes} />}/>
-        <Route path='/note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
-        <Route path='/add' render={props =>
-          <AddNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} newTitle={this.state.newTitle} newTextBody={this.state.newTextBody}/>
-        } />
+      <div className='app'>
+        <div className='navigation'>
+          <Navigation />
+        </div>
+        <div className='content'>
+          <Route exact path='/' render={props => <Notes {...props} notes={this.state.notes} />}/>
+          <Route path='/note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
+          <Route path='/add' render={props =>
+            <AddNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} newTitle={this.state.newTitle} newTextBody={this.state.newTextBody}/>
+          } />
+        </div>
       </div>
     );
   }
