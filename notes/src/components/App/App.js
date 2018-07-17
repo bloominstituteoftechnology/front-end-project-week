@@ -35,6 +35,17 @@ class App extends Component {
     .then(response => {
       console.log('posted', response);
       this.setState({ notes: response.data});
+      window.location.href = `/note/${id}`;
+    })
+    .catch(error => console.log(error));
+  }
+
+  onDeleteNote = id => {
+    axios
+    .delete(`${API_URL}/${id}`)
+    .then(response => {
+      console.log('posted', response);
+      this.setState({ notes: response.data});
       window.location.href = '/';
     })
     .catch(error => console.log(error));
@@ -44,7 +55,6 @@ class App extends Component {
     axios.get(API_URL)
     .then(response => {
       this.setState({notes: response.data});
-      console.log('GET', this.state.notes);
     })
     .catch(error => {
       console.log(error);
@@ -58,7 +68,7 @@ class App extends Component {
         <Route exact path="/" render={(props) => <ListView {...props} notes={this.state.notes} />} />
         <Route exact path="/create" render={(props) => <CreateNewView {...props} onSubmitNote={this.onAddNote} />} />
         <Route exact path="/edit/:noteID" render={(props) => <EditView {...props} notes={this.state.notes} onSubmitNote={this.onUpdateNote} />} />
-        <Route exact path="/note/:noteID" render={(props) => <NoteView {...props} notes={this.state.notes} />} />
+        <Route exact path="/note/:noteID" render={(props) => <NoteView {...props} notes={this.state.notes} onDeleteNote={this.onDeleteNote} />} />
       </div>
     );
   }

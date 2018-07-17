@@ -2,14 +2,14 @@ import React from 'react';
 
 const Button = props => {
 
-  const onSubmit = e => {
+  const onButtonClick = e => {
     e.preventDefault();
-    props.onSubmit();
-    console.log('submit');
+    props.onButtonClick();
+    console.log('button click');
   };
 
   return (
-    <button type={props.type} onClick={e => onSubmit(e)}>{props.text}</button>
+    <button className={props.buttonStyle === 'delete' ? 'is-delete' : null }type={props.type} onClick={e => onButtonClick(e)}>{props.text}</button>
   );
 };
 

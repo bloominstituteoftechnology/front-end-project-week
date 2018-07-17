@@ -66,7 +66,7 @@ class Form extends Component {
           onChange={this.handleInputChange} />
         <Button 
           type="submit" 
-          onSubmit={this.onSubmit} 
+          onButtonClick={this.onSubmit} 
           text={this.props.buttonText} />
       </form>
     );
