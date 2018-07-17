@@ -7,14 +7,15 @@ class CreateNote extends Component {
         this.state = {
             title: '',
             content: '',
-            length: 0
+            id: 0
         }
     }
     onSubmit = (e) => {
         e.preventDefault();
-        const note = {id: this.state.length + 1, title: this.state.title, description: this.state.content};
+        const note = { id: this.state.id, title: this.state.title, description: this.state.content };
+        let id = this.state.id + 1;
         this.props.createNote(note);
-        this.setState({title: '', content: '',length: this.state.length + 1})
+        this.setState({ title: '', content: '', id })
     }
 
     handleChange = (e) => {
@@ -34,16 +35,16 @@ class CreateNote extends Component {
                         name='title'
                     />
                     <div>
-                    <textarea
-                        className='content-bar'
-                        type='text'
-                        placeholder="Add a note..."
-                        value={this.state.content}
-                        onChange={this.handleChange}
-                        name='content'
-                    />
+                        <textarea
+                            className='content-bar'
+                            type='text'
+                            placeholder="Add a note..."
+                            value={this.state.content}
+                            onChange={this.handleChange}
+                            name='content'
+                        />
                     </div>
-                    <div onClick={this.onSubmit}className='create-btn'>Save</div>
+                    <div onClick={this.onSubmit} className='create-btn'>Save</div>
                 </form>
             </div>)
     }

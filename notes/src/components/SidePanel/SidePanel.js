@@ -9,7 +9,7 @@ const SidePanel = () => {
 
                 <h2 className='nav-text'>Lambda Notes</h2>
 
-                <Link to="/notes" style={{ textDecoration: 'none' }}>
+                <Link to="/" style={{ textDecoration: 'none' }}>
                     <div className='nav-btn'>View Your Notes</div>
                 </Link>
 

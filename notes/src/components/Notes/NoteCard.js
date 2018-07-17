@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './NoteCard.css'
 
 const NoteCard = (props) => {
@@ -7,10 +8,12 @@ const NoteCard = (props) => {
             {props.notes.length > 0 ?
                 props.notes.map(note => {
                     return (
-                        <div className="card" key={note.id} >
-                            <h3>{note.title}</h3>
-                            <p>{note.description}</p>
-                        </div>
+                        <Link key={note.id} to={`view/${note.id}`} style={{ textDecoration: 'none' }}>
+                            <div className="card"  >
+                                <h3>{note.title}</h3>
+                                <p>{note.description}</p>
+                            </div>
+                        </Link>
                     )
                 })
                 :
