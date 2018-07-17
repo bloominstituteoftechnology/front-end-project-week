@@ -2,6 +2,8 @@
   display: flex;
   font-family: 'Raleway', sans-serif;
   color: #4A4A4A;
+  background-color: #F3F3F3
+
 }
 .app .navigation {
   background-color: #D8D8D8;
@@ -84,4 +86,55 @@
 }
 .notes ul .note .note-text p {
   line-height: 30px;
+  color: #4A4A4A;
+}
+
+.content form {
+  margin-left: 30px;
+  display: flex;
+  flex-flow: column;
+}
+
+.content .form h2 {
+  margin-top: 100px;
+  margin-left: 25px;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.content .form input {
+  height: 60px;
+  width: 530px;
+  border-radius: 5px;
+  border: 2px #979797 solid;
+  padding-left: 15px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.content .form textarea {
+  width: 900px;
+  height: 510px;
+  border: 2px #979797 solid;
+  border-radius: 5px;
+  font-size: 16px;
+  padding-left: 15px;
+  font-family: 'Raleway', sans-serif;
+  padding-top: 30px;
+}
+
+.content form .save {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  background-color: #2BC1C4;
+  width: 280px;
+  height: 70px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
