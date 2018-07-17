@@ -101,8 +101,9 @@ button a:visited {
   border: 1px solid #979797;
   box-sizing: border-box;
   padding: 5px 15px;
-  margin: 10px 5px;
+  margin: 10px 0;
   background: #FFFFFF;
+  word-break: break-all;
   overflow-wrap: break-word;
 }
 
@@ -117,7 +118,7 @@ button a:visited {
 }
 
 .note-preview-container p {
-  margin: 8px 0 0 0;
+  margin: 8px 0;
 }
 
 .main-container .form {
@@ -183,6 +184,7 @@ textarea {
 .main-container .note-body {
   margin-bottom: 20px;
   overflow-wrap: break-word;
+  white-space: pre-wrap;
 }
 
 .overlay {

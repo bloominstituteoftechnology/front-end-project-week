@@ -14,12 +14,12 @@ const NoteList = props => {
       note.title = note.title.slice(0, 12) + '...';
     }
 
-    if (note.textBody.length > 130) {
-      note.textBody = note.textBody.slice(0, 130) + '...';
-    }
-
     if (note.textBody.length > 130 && note.textBody === note.textBody.toUpperCase()) {
       note.textBody = note.textBody.slice(0, 110) + '...';
+    }
+
+    if (note.textBody.length > 150) {
+      note.textBody = note.textBody.slice(0, 150) + '...';
     }
   });
 

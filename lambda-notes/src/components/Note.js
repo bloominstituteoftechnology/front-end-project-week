@@ -43,7 +43,7 @@ class Note extends React.Component {
 
     const editedNote = {
       title: this.state.title,
-      textBody: this.state.textBody
+      textBody: this.state.textBody,
     }
 
     axios
