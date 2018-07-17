@@ -16,10 +16,15 @@ class DeleteNote extends React.Component {
     render() {
         return (
             <div className='delete-note'>
-                <div className="delete-content">
-                    <p>Are you sure you want to delete this?</p>
-                    <div onClick={this.deleteCompleted}>Delete</div>
-                    <div onClick={this.props.toggleDeleting}>No</div>
+                <div className="delete-align">
+                    <div className='delete-content'>
+                        <p>Are you sure you want to delete this?</p>
+                        <div className='delete-btns'>
+                            <div onClick={this.deleteCompleted} className='delete-btn'>Delete</div>
+                            <div onClick={this.props.toggleDeleting} className='no-btn'>No</div> 
+                        </div>
+                           
+                    </div>
                 </div>
             </div>
         );    

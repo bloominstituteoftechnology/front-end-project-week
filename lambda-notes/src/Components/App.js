@@ -52,12 +52,13 @@ class App extends Component {
       }
     }
     this.setState({notes, currentNote: {}});
-    alert('NOTE UPDATED: Click \'View Your Notes\' to see all notes.')
+    alert('NOTE UPDATED: Click \'View Your Notes\' in side banner to see all notes.')
   }
   handleDeleteNote = id => {
     let notes = this.state.notes.slice()
     notes = notes.filter(note => note.id !== Number(id))
     this.setState({notes, currentNote: {}, deleting: !this.state.deleting});
+    alert('NOTE DELETED: Click \'View Your Notes\' in side banner to see all notes.')
   }
   toggleDeleting = () => {
     this.setState({ deleting: !this.state.deleting })
@@ -71,7 +72,6 @@ class App extends Component {
         <Route path='/create' render={() => <CreateNote contentValue={this.state.contentValue} titleValue={this.state.titleValue} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} />} />
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} toggleDeleting={this.toggleDeleting} />} />
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetCurrent={this.handleSetCurrent} handleEditNote={this.handleEditNote} handleEditTitle={this.handleEditTitle} handleEditContent={this.handleEditContent} />} />
-        {/* {this.state.deleting ? <DeleteNote handleDeleteNote={this.handleDeleteNote} toggleDeleting={this.toggleDeleting} /> : null} */}
         {this.state.deleting ? (<Route path='/view/:id' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetCurrent={this.handleSetCurrent} handleDeleteNote={this.handleDeleteNote}/>)}/>) : null}
       </div>  
     );
