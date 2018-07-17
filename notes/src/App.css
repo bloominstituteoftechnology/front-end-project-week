@@ -30,6 +30,7 @@
   background-color: #2bc1c4;
   margin-bottom: 5px;
   margin-top: 20px;
+  width: 190px;
 }
 
 /* Home Page Notes Styling */
@@ -47,6 +48,10 @@
 .ind-card {
   margin-right: 20px;
   margin-top: 30px;
+}
+
+.ind-card a:hover {
+  text-decoration: none;
 }
 
 .card-title {
@@ -70,9 +75,95 @@
 
 .singleNoteButtons {
   text-align: right;
+  position: fixed;
+  right: 40px;
+  top: 20px;
+  display: flex;
 }
 
 .singleNoteButtons a {
   text-decoration: underline;
   margin-right: 20px;
+  color: black;
+}
+
+.singleNoteButtons .delete-button {
+  text-decoration: underline;
+}
+
+.singleNoteButtons .delete-button:hover {
+  cursor: pointer;
+}
+
+/* Edit/Create Note View */
+.editNote,
+.createNote {
+  background-color: #f3f3f3;
+  padding-top: 50px;
+  width: 80%;
+  padding-left: 14px;
+}
+
+.editNote h4,
+.createNote h4 {
+  padding-left: 25px;
+  padding-bottom: 25px;
+}
+
+.editNote textarea,
+.createNote textarea {
+  width: 830px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.editNote input,
+.createNote input {
+  width: 830px;
+  height: 50px;
+  padding-left: 30px;
+}
+
+.editNote button,
+.createNote button {
+  background-color: #2bc1c4;
+  width: 230px;
+  border-radius: 0;
+  height: 47px;
+  margin-left: 20px;
+}
+
+/* Modal Styling */
+.modal {
+  top: 300px;
+}
+
+.modal-content {
+  height: 175px;
+  width: 70%;
+}
+.modal-content .modal-body {
+  font-size: 23px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.modal-content .modal-footer {
+  border-top: none;
+}
+
+.modal-content .modal-footer button:first-child {
+  background-color: #d0021b;
+  width: 225px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.modal-content .modal-footer button:last-child {
+  background-color: #2bc1c4;
+  width: 225px;
+  height: 50px;
+  border-radius: 0;
 }

@@ -26,7 +26,7 @@ class Create extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="createNote">
         <h4>Create New Note: </h4>
         <Form>
           <FormGroup>
@@ -37,12 +37,12 @@ class Create extends React.Component {
               className="createNoteTitle"
               placeholder="Note Title"
             />
-            <Input
+            <textarea
               onChange={this.inputNewNote}
               type="text"
               name="body"
               className="createNoteComment"
-              placeholder="Note Comment"
+              placeholder="Note Content"
             />
           </FormGroup>
           <Button onClick={this.submitNewNote}>Save</Button>

@@ -35,9 +35,12 @@ class ViewNote extends React.Component {
           <Link exact to="/edit">
             Edit
           </Link>
-          <a color="danger" onClick={this.toggle}>
+          <div
+            className="delete-button"
+            onClick={this.toggle}
+          >
             Delete
-          </a>
+          </div>
         </div>
 
         <div>
@@ -50,14 +53,12 @@ class ViewNote extends React.Component {
               Are you sure you want to delete this?
             </ModalBody>
             <ModalFooter>
-              <Link exact to="/">
-                <Button
-                  onClick={this.deleteNote}
-                  color="primary"
-                >
-                  Delete
-                </Button>
-              </Link>{" "}
+              <Button
+                onClick={this.deleteNote}
+                color="primary"
+              >
+                Delete
+              </Button>{" "}
               <Button
                 color="secondary"
                 onClick={this.toggle}

@@ -31,7 +31,7 @@ class EditNote extends React.Component {
   };
   render() {
     return (
-      <React.Fragment>
+      <div className="editNote">
         <h4>Edit Note: </h4>
         <Form>
           <FormGroup>
@@ -42,17 +42,17 @@ class EditNote extends React.Component {
               className="createNoteTitle"
               placeholder="Note Title"
             />
-            <Input
+            <textarea
               onChange={this.inputEditNote}
               type="text"
               name="editedBody"
               className="createNoteComment"
-              placeholder="Note Comment"
+              placeholder="Note Content"
             />
           </FormGroup>
           <Button onClick={this.editNote}>Update</Button>
         </Form>
-      </React.Fragment>
+      </div>
     );
   }
 }
