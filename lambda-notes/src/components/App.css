@@ -9,6 +9,7 @@ html {
 
 body {
   font-family: 'Raleway Medium', sans-serif;
+  color: #4A4A4A;
 }
 
 .App {
@@ -54,6 +55,10 @@ body {
   width: 191.22px;
 }
 
+.main-buttons:hover {
+  background: #16ACAF;
+}
+
 .logout-button {
   background: #D0021B;
   color: #FFFFFF;
@@ -65,7 +70,12 @@ body {
   width: 191.22px;
 }
 
+.logout-button:hover {
+  background: #AF1616;
+}
+
 .notes-container {
+  width: 100%;
   background: #F3F3F3
 }
 
@@ -86,9 +96,20 @@ body {
   padding: 9px 10px;
 }
 
+.notes-card:hover {
+  background: #EAE6E6;
+}
+
 .notes-header {
   padding: 0px 27px;
   margin-top: 58px;
+  font-size: 1.9rem;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.main-notes-header {
+  padding: 0px 27px;
+  margin-top: 37px;
   font-size: 1.9rem;
   font-family: 'Roboto', Arial, sans-serif;
 }
@@ -193,8 +214,10 @@ body {
 }
 
 .note-header {
+  display: inline;
+  margin: 0;
   padding: 0px 27px;
-  margin-top: 23px;
+  padding-right: 15px;
   font-size: 1.9rem;
   font-family: 'Roboto', Arial, sans-serif;
 }
@@ -259,3 +282,21 @@ body {
   margin-top: 0;
 }
 
+.add-tag-field {
+  max-width: 100px;
+  margin-left: -5px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.title-tag-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNote, deleteNote, setNull } from '../../actions';
+import { getNote, editNote, deleteNote, setNull } from '../../actions';
 import { Link } from 'react-router-dom';
 import ModalContainer from '../ModalContainer/ModalContainer';
 
@@ -9,7 +9,8 @@ class Note extends React.Component {
         super(props);
 
         this.state = {
-            modal: false
+            modal: false,
+            tag: 'test tag'
         }
     }
 
@@ -23,6 +24,13 @@ class Note extends React.Component {
     componentWillUnmount() {
         // Removes note when unmounted
         this.props.setNull();
+    }
+
+    addTag = () => {
+        const note = { tags: [], title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
+        note.tags.push(this.state.tag);
+        this.props.editNote(note);
+        this.setState({ tag: '' });
     }
 
     deleteNote = () => {
@@ -44,14 +52,21 @@ class Note extends React.Component {
                 {this.props.fetching || this.props.editing ? <div>Loading info...</div> :
                     <div className='note-container'>
 
-                        <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal}/>
+                        <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal} />
 
                         <div className='note-links'>
                             <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
                             <div onClick={this.toggleModal} className='delete-link' to='/delete'>delete</div>
                         </div>
 
-                        <h3 className='note-header'>{this.props.note.title}</h3>
+                        <div className='title-tag-container'>
+                            <h3 className='note-header'>{this.props.note.title}</h3>
+                            <form onSubmit={event => event.preventDefault()}>
+                                <input className='add-tag-field' type='text' placeholder='Add tag...' />
+                                <input onClick={this.addTag} type='submit' hidden />
+                            </form>
+                        </div>
+
                         <p className='notes-paragraph'>{this.props.note.textBody}</p>
 
                     </div>
@@ -69,4 +84,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNote, deleteNote, setNull })(Note);
+export default connect(mapStateToProps, { getNote, editNote, deleteNote, setNull })(Note);
