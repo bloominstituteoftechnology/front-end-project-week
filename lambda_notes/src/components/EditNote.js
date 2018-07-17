@@ -49,10 +49,6 @@ class EditNote extends Component {
         }
     }
 
-    componentDidMount(){
-        console.log(this.state.edited);
-    }
-    
     handleInput = (e) => {
         this.setState({[e.target.name] : e.target.value});
     }
