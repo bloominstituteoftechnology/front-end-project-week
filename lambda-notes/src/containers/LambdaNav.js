@@ -8,11 +8,13 @@ const StyledDiv = styled.div`
     height: 100%;
     width: 25%;
     background: #D8D8D8;
+    border-right: 1px solid #979797;
 `
 
 const StyledHeader = styled.h1`
     color: #4A4A4A;
     font-family: 'Roboto', sans-serif;
+    margin-left: 20px;
 `
 
 const StyledButton = styled.button`

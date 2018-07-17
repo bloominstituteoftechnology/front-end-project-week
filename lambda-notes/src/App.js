@@ -2,16 +2,34 @@ import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
+import {BrowserRouter as Route, Link} from 'react-router-dom';
 
 const MainContainer = styled.div`
   display: flex;
-  width: 900px; 
+  width: 1000px; 
   margin: 0 auto;
   height: 100vh;
+  font-family: 'Raleway', sans-serif;
 `;
+const HeaderStyle = styled.h3`
+  border-bottom: 1px solid black;
+  width: 80%;
+  padding-bottom: 5px;
+`
+
+const NotesContainer = styled.div`
+  width: 25%;
+  height: 230px;
+  padding-left: 20px;
+  border: 1px solid #979797;
+`
 
 const ComponentContainer = styled.div`
-  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: #F3F3F3;
+  width: 100%;
 `
 
 class App extends Component {
@@ -74,10 +92,10 @@ class App extends Component {
       <ComponentContainer>
         {this.state.notes.map(notes => {
           return(
-          <div key={notes.id}>
-          <h1>{notes.title}</h1>
+          <NotesContainer key={notes.id}>
+          <HeaderStyle>{notes.title}</HeaderStyle>
           <p>{notes.body}</p>
-          </div>
+          </NotesContainer>
           )
         })}
         </ComponentContainer>
