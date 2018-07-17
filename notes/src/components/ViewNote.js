@@ -32,9 +32,7 @@ class ViewNote extends React.Component {
     return (
       <div className="singleNote">
         <div className="singleNoteButtons">
-          <Link exact to="/edit">
-            Edit
-          </Link>
+          <Link to="/edit">Edit</Link>
           <div
             className="delete-button"
             onClick={this.toggle}

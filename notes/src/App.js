@@ -6,7 +6,6 @@ import Create from "./components/Create";
 import "./App.css";
 import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
-import { Row, Col } from "reactstrap";
 
 class App extends Component {
   render() {
@@ -18,13 +17,13 @@ class App extends Component {
         <React.Fragment>
           <Route exact path="/" component={Notes} />
         </React.Fragment>
-        <Route exact path="/create" component={Create} />
+        <Route path="/create" component={Create} />
         <Route
           exact
           path="/note/:id"
           component={ViewNote}
         />
-        <Route exact path="/edit" component={EditNote} />
+        <Route path="/edit" component={EditNote} />
       </div>
     );
   }
