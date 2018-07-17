@@ -23,9 +23,10 @@ class SingleNoteView extends Component {
         this.setState({ modalForm: !this.state.modalForm })
     }
     handleNo = () => {
-        setTimeout(() => {
-            this.props.history.push("/");
-        }, 600);
+        this.setState({ modalForm: !this.state.modalForm })
+        // setTimeout(() => {
+        //     this.props.history.push("/");
+        // }, 600);
     }
     handleDelete = () => {
         const id = this.props.match.params.id
@@ -35,12 +36,12 @@ class SingleNoteView extends Component {
     }
 
     render() { 
-        console.log(' any props in single view note?: ', this .props)
+        console.log(' any props in single view note?: ', this.props)
         return ( 
             <div>
                 
                     <div className='editDeleteLinks'>
-                        <Link className='editDeletelink' to={`/edit/${this.props.match.params.id}`}>edit</Link>
+                        <Link className='editDeletelink' to={`/note/edit/${this.props.match.params.id}`}>edit</Link>
                         <a className='editDeletelink' onClick={this.popModal}>delete</a>
                     </div>
                     <div>
@@ -53,7 +54,7 @@ class SingleNoteView extends Component {
                 <ModalComponent 
                     toggleDisplay={this.state.modalForm}
                     popModal={this.popModal}
-                    onClick={this.handleNo}
+                    handleNo={this.handleNo}
                     deleteNote={() => this.handleDelete()} />
             </div>
          );

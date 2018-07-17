@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './index.css';
+import { connect } from 'react-redux';
+import { editingNote } from '../../actions';
 
 class EditNote extends Component {
     constructor(props) {
@@ -8,6 +10,10 @@ class EditNote extends Component {
             title: '',
             text: '',
          }
+    }
+
+    componentDidMount() {
+
     }
 
     handleChange = e => {
@@ -39,5 +45,12 @@ class EditNote extends Component {
          );
     }
 }
- 
-export default EditNote;
+
+const mapStateToProps = state => {
+    console.log(' state in edit note: ', state)
+    return {
+        notes: state.notes,
+    }
+}
+
+export default connect(mapStateToProps, {editingNote}) (EditNote);
