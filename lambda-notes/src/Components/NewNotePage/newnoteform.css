@@ -1,0 +1,53 @@
+.create-page-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.section-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+.notes-title.create{
+    margin: 52px 0 0 5%;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.title-input {
+    font-family: 'Raleway', sans-serif;
+    width: 60%;
+    height: 25px;
+    padding-left: 2%;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding-top: 5px;
+}
+
+.content-input {
+    font-family: 'Raleway', sans-serif;
+    padding-left: 2%;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    height: 200px;
+    padding-top: 10px;
+    
+}
+
+.create-button {
+    font-family: 'Raleway', sans-serif;
+    background: #2BC1C4;
+    color: #FFFFFF;
+    border: unset;
+    border: 1px #979797 solid;
+    width: 30%;
+    padding: 8px;
+}
