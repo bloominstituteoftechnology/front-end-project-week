@@ -1,4 +1,40 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const StyledNoteForm = styled.div`
+    background: #F3F3F3;
+    width: 100%;
+    padding: 5%;
+    font-family: Roboto Bold;
+`;
+
+const H3 = styled.h3`
+    margin: 2% 0;
+`;
+
+const TitleInput = styled.input`
+    width: 50%;
+    min-height: 25px;
+    margin-bottom: 3%;
+`;
+
+const ContentInput = styled.textarea`
+    width: 100%;
+    min-height: 300px;
+`;
+
+const StyledButton = styled.button`
+    background: #2BC1C4;
+    padding: 1%;
+    margin-top: 5%;
+    color: white;
+    border: 2px solid #979797;
+    width: 30%;
+    height: 40px;
+    font-family: Raleway Medium;
+    font-size: 1rem;
+    &:hover{cursor: pointer;}
+`;
 
 class NoteForm extends Component {
     constructor(props){
@@ -22,22 +58,22 @@ class NoteForm extends Component {
 
     render(){
         return (
-            <div>
-                <h3>Create New Note:</h3>
+            <StyledNoteForm>
+                <H3>Create New Note:</H3>
                 <form onSubmit={this.addNote}>
-                    <input type="text"
+                    <TitleInput type="text"
                             name="inputTitle"
                             placeholder="Note Title"
                             value={this.state.inputTitle}
                             onChange={this.handleInput} /><br />
-                    <input type="text"
+                    <ContentInput type="text"
                             name="inputBody"
                             placeholder="Note Content"
                             value={this.state.inputBody}
                             onChange={this.handleInput} /><br />
-                    <button>Save</button>
+                    <StyledButton>Save</StyledButton>
                 </form>
-            </div>
+            </StyledNoteForm>
         );
     }
     }
