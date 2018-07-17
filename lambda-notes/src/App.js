@@ -30,11 +30,17 @@ class App extends Component {
           title: "Note 3",
           id: 2,
           content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
         },
         {
           title: "Note 4",
           id: 3,
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
+        {
+          title: "Note 5",
+          id: 4,
           content:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
         }
@@ -56,14 +62,14 @@ class App extends Component {
     notes.push({
       title: this.state.title,
       content: this.state.content,
-      id: this.state.notes.length
+      id: Number(this.state.notes.length)
     });
     alert("Note added!");
     this.setState({ notes, title: "", content: "" });
   };
 
-  handleSetCurrent = id => {
-    this.setState({ currentNote: this.state.notes[`${id}`] });
+  handleSetCurrent = note => {
+    this.setState({currentNote: note})
   };
 
   handleEditTitle = e => {
@@ -86,15 +92,18 @@ class App extends Component {
     });
   };
 
-  handleEditNote = e => {
-    e.preventDefault();
+  handleEditNote = id => {
+
     const notes = this.state.notes.slice();
-    const id = this.state.currentNote.id;
-    notes[id] = {
-      id: this.state.currentNote.id,
-      title: this.state.currentNote.title,
-      content: this.state.currentNote.content
-    };
+    for (let i =0; i<notes.length; i++) {
+      if(notes[i].id === Number(id)) {
+        notes[i] = {
+          id: this.state.currentNote.id,
+          title: this.state.currentNote.title,
+          content: this.state.currentNote.content
+        };
+      }
+    }
     this.setState({ notes, currentNote: {} });
     alert(`updated`);
   };
@@ -103,12 +112,10 @@ class App extends Component {
     this.setState({ deleting: !this.state.deleting });
   };
 
-  handleDeleteNote = e => {
-    e.preventDefault();
-    const notes = this.state.notes.slice();
-    const id = this.state.currentNote.id;
-    const filtered = notes.filter(note => note.id !== id )
-    this.setState({ notes: filtered, currentNote: {} });
+  handleDeleteNote = id => {
+    let notes = this.state.notes.slice();
+    notes = notes.filter(note => note.id !== Number(id));
+    this.setState({notes, currentNote:{}, deleting: !this.state.deleting});
   };
 
   render() {

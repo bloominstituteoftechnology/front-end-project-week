@@ -11,8 +11,11 @@ class EditNote extends React.Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.handleSetCurrent(id);
+    let note = this.props.notes.filter(note => note.id === Number(id))
+    this.props.handleSetCurrent(note[0]);
   }
+
+  editCompleted = () => {this.props.handleEditNote(this.props.match.params.id)}
 
   render() {
     return (
@@ -28,7 +31,7 @@ class EditNote extends React.Component {
           value={this.props.currentNote.content}
           onChange={this.props.handleEditContent}
         />
-        <div onClick={this.props.handleEditNote}>Update</div>
+        <div onClick={this.editCompleted}>Update</div>
       </form>
     );
   }
