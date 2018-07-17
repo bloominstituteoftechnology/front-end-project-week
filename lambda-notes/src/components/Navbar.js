@@ -9,14 +9,14 @@ const Navbar = (props) => {
             <Nav vertical className="nav-section">
             <h1>Lambda Notes</h1>
 	            <NavItem>
-		            <Button color="secondary">
+	            	<div className="nav-button">
 		            	<Link to="/">View Your Notes</Link>
-		            </Button>
+		            	</div>
 	            </NavItem>
 	            <NavItem>
-	              <Button color="secondary">
+	             <div className="nav-button">
 	            	<Link to="/NewNote">+ Create New Note</Link>
-	            	</Button>
+	            	</div>
 	            </NavItem>
             </Nav>
         </div>
