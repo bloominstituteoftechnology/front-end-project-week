@@ -5,9 +5,6 @@ import NotePreview from "./NotePreview";
 
 const NoteGrid = styled.div`
   padding: ${props => props.theme.dimensions.noteGrid.padding};
-  border-style: solid;
-  border-width: ${props => props.theme.dimensions.noteGrid.borderWidth};
-  border-color: ${props => props.theme.color.border};
   h1 {
     margin: ${props => props.theme.dimensions.noteGrid.headingMargin};
   }

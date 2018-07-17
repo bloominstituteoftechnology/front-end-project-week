@@ -12,6 +12,9 @@ const StyledMainPane = styled.main`
   min-height: 100vh;
   background-color: ${props => props.theme.color.mainPaneBG};
   width: ${ props => props.theme.dimensions.main.width };
+  border-style: solid;
+  border-width: ${props => props.theme.dimensions.main.borderWidth};
+  border-color: ${props => props.theme.color.border};
 
   h1 {
     font-size: ${ props => props.theme.dimensions.main.h1FontSize };

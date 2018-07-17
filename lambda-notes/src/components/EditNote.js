@@ -9,6 +9,11 @@ export default class EditNote extends Component {
     this.note = notes.filter(note => note._id === id)[0];
   }
   render() {
-    return <NoteForm note={this.note} buttonText="Update" />;
+    const { note } = this;
+    return (
+          <NoteForm note={ note }
+          titleText="Edit Note:"
+          buttonText="Update" />
+    );
   }
 }

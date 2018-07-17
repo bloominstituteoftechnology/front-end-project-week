@@ -18,6 +18,7 @@ export default {
     headingText: tundoraGray,
     generalText: tundoraGray,
     buttonText: white,
+    formText: tundoraGray,
     sideBarBG: alto,
     mainPaneBG: concreteWhite,
     previewNoteBG: white,
@@ -29,10 +30,11 @@ export default {
     main: {
       width: '670px',
       h1FontSize: '22px',
+      borderWidth: '1px',
     },
 
     button: {
-      width: '100%',
+      width: '190px',
       height: '42px',
       fontSize: '16px',
       margin: '10px 0px',
@@ -73,7 +75,22 @@ export default {
       headingPadding: '0 0 32px 0',
       textFontSize: '14px',
       textLineHeight: '2',
+    },
+    noteForm: {
+      padding: '58px 30px',
+      headingPadding: '0 0 28px 0',
+      inputBorderRadius: '2px',
+      inputWidth: '100%',
+      inputTitleMargin: '0 0 14px 0',
+      inputTitleHeight: '42px',
+      inputTitleWidth: '356px',
+      inputTitlePadding: '11px',
+      inputTextMinHeight: '348px',
+      inputTextLineHeight: '1.8',
+      inputTextPadding: '18px 22px ',
+      inputTextMargin: '0 0 4px 0',
 
+      borderWidth: '1px',
     }
   }
 }

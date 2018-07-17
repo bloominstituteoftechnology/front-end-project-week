@@ -5,7 +5,10 @@ export default class NewNote extends Component {
   note = { title: '', textBody: '' }
   render() {
     return (
-      <NoteForm note={ this.note } buttonText="Update"/>
+      <NoteForm note={ this.note }
+      titleText="Create New Note"
+      buttonText="Save"
+      />
     )
   }
 }
