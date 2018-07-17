@@ -11,17 +11,16 @@
 */
 
 .App-container {
-  background: #525659;
-  height: 100vh;
-  width: 100vw;
+  /* background: #525659; */
+  max-width: 1366px;
   border: 2px solid #979797;
+  margin: 0 auto;
 }
 
 .App {
   background: white;
   text-align: center;
-  height: 100vh;
-  max-width: 1366px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   font-family: 'Raleway', sans-serif;
@@ -112,27 +111,31 @@ button:hover {
 /* ListView styles */
 .ListView-container {
   display: flex;
-  flex-direction: column;
-  margin: 0 46px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 1040px;
+  padding-bottom: 100px;
+  margin: 0 auto;
 }
 
 .ListView-header {
   font-weight: bold;
   font-size: 20px;
-  margin: 100px 0 27px 0;
+  margin: 100px 0 0 32px;
   display: flex;
+  width: 100%;
 }
 
 .ListView-header h2 {
-  margin: 0;
+  margin: 0 0 28px 0;
 }
 
 /* NoteView styles */
 .NoteView-container {
   height: 294px;
-  width: 286px;
+  width: 294px;
   border: 2px solid #979797;
-  margin: 16px 0;
+  margin: 16px 4px 16px 32px;
   display: flex;
   flex-direction: column;
 }
@@ -167,17 +170,19 @@ button:hover {
 }
 
 /* CreateView styles */
-.CreateView-container {
+.CreateView-container, .EditView-container {
   display: flex;
   flex-direction: column;
-  margin: 0 46px;
+  max-width: 100%;
+  padding-bottom: 100px;
+  margin: 0 36px;
 }
 
-.CreateView-header, .CreateView-content {
+.CreateView-header, .CreateView-content, .EditView-header, .EditView-content {
   margin: 8px 30px;
 }
 
-.CreateView-header {
+.CreateView-header, .EditView-header {
   font-weight: bold;
   font-size: 20px;
   margin: 100px 0 27px 0;
@@ -185,17 +190,17 @@ button:hover {
   width: 286px;
 }
 
-.CreateView-header h2 {
+.CreateView-header h2, .EditView-header h2 {
   margin: 0;
 }
 
-.CreateView-content {
+.CreateView-content, .EditView-content {
   margin: 16px 0 0 0;
   display: flex;
   flex-direction: column;
 }
 
-.CreateView-content input, .CreateView-content textarea {
+.CreateView-content input, .CreateView-content textarea, .EditView-content input, .EditView-content textarea {
   height: 62px;
   border: 2px solid #979797;
   border-radius: 5px;
@@ -204,22 +209,22 @@ button:hover {
   font-family: 'Raleway', sans-serif; 
 }
 
-.CreateView-content input {
+.CreateView-content input, .EditView-content input {
   width: 536px;
   padding: 0 24px;
 }
 
-.CreateView-content textarea {
+.CreateView-content textarea, .EditView-content textarea {
   height: 512px;
-  width: 860px;
+  width: 894px;
   padding: 32px 32px;
 }
 
-.CreateView-buttons {
+.CreateView-buttons, .EditView-buttons {
   display: flex;
 }
 
-.CreateView-buttons button {
+.CreateView-buttons button, .EditView-buttons button {
   height: 62px;
   width: 286px;
   background: #2BC1C4;
@@ -229,7 +234,7 @@ button:hover {
   font-weight: bold;
 }
 
-.CreateView-buttons button:hover {
+.CreateView-buttons button:hover, .EditView-buttons button:hover {
   background: #979797;
 }
 
@@ -237,7 +242,8 @@ button:hover {
 .Note-container {
   display: flex;
   flex-direction: column;
-  margin: 0 46px;
+  padding-bottom: 100px;
+  margin: 0 36px;
 }
 
 .Note-header, .Note-content {
@@ -252,7 +258,7 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   height: 136px;
-  width: 860px;
+  width: 962px;
 }
 
 .Note-header h2 {
@@ -280,78 +286,6 @@ button:hover {
 .Note-content p {
   font-size: 22px;
   line-height: 40px;
+  width: 962px;
   margin: 0;
-}
-
-/* EditView styles */
-.EditView-container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 46px;
-  width: 860px;
-}
-
-.EditView-header, .EditView-content {
-  margin: 8px 0;
-}
-
-.EditView-header {
-  font-weight: bold;
-  font-size: 20px;
-  margin: 100px 0 27px 0;
-  display: flex;
-  width: 286px;
-}
-
-.EditView-header h2 {
-  margin: 0;
-}
-
-.EditView-content {
-  margin: 16px 0 0 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.EditView-header h2 {
-  display: flex;
-  flex-direction: column;
-}
-
-.EditView-content input, .EditView-content textarea {
-  height: 62px;
-  border: 2px solid #979797;
-  border-radius: 5px;
-  margin-bottom: 22px;
-  font-size: 20px;
-  font-family: 'Raleway', sans-serif; 
-}
-
-.EditView-content input {
-  width: 536px;
-  padding: 0 24px;
-}
-
-.EditView-content textarea {
-  height: 512px;
-  width: 860px;
-  padding: 32px 32px;
-}
-
-.EditView-buttons {
-  display: flex;
-}
-
-.EditView-buttons button {
-  height: 62px;
-  width: 286px;
-  background: #2BC1C4;
-  color: #FFFFFF;
-  border: 2px solid #979797;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.EditView-buttons button:hover {
-  background: #979797;
 }

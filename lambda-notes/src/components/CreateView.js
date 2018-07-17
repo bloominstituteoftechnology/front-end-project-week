@@ -6,12 +6,22 @@ const CreateView = props => {
             <div className="CreateView-header">
                 <h2>Create New Note:</h2>
             </div>
-            <div className="CreateView-content">
-                <input placeholder="Note Title"/>
-                <textarea placeholder="Note Content"/>
-            </div>
+            <form className="CreateView-content" onSubmit={props.handleSubmit}>
+                <input
+                    name="title"
+                    placeholder="Note Title"
+                    value={props.title}
+                    onChange={props.handleChange}
+                    />
+                <textarea
+                    name="textBody"
+                    placeholder="Note Content"
+                    value={props.textBody}
+                    onChange={props.handleChange}
+                    />
+            </form>
             <div className="CreateView-buttons">
-                <button>Save</button>
+                <button onClick={props.handleSubmit}>Save</button>
             </div>
         </div>
     );
