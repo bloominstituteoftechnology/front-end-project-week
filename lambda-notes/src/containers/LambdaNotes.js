@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from 'styled-components';''
 
 const HeaderStyle = styled.h3`
   border-bottom: 1px solid black;
@@ -15,13 +15,5 @@ const NotesContainer = styled.div`
   border: 1px solid #979797
 `
 
-const LambdaNotes = props => {
-    return(
-        
-        {props.notes.map =>(props => {
-
-        })}
-    )
-}
 
 export default LambdaNotes;

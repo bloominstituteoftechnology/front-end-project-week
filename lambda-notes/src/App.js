@@ -89,13 +89,10 @@ class App extends Component {
 
   render() {
     return (
-        <StyledContainer> 
-          <Route path="/" component={LambdaNav} />
-    <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange}/>)} />
-          <StyledContainer>
-            <LambdaForm notes={this.state.notes} />
-        </StyledContainer>
-        </StyledContainer>
+      <StyledContainer>
+        <Route path="/" component={LambdaNav} />
+        <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
+      </StyledContainer>
     )
   }
 }
