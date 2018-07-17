@@ -1,32 +1,29 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
 import Note from './Note';
+import { fetchSingleNote } from '../actions';
 
 class SingleNote extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state= {
-            note: {}
-        }
-    }
-
     componentDidMount () {
         const id = this.props.match.params.id;
-        this.fetchNote(id)
-    }
-
-    fetchNote = (id) => {
-        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-        .then(response => this.setState({ note: response.data }))
-        .catch(err => console.log(err))
+        this.props.fetchSingleNote(id)
     }
 
     render() { 
+        console.log(this.props.note)
         return (
-            <Note note={this.state.note}/>
+            <Note note={this.props.note}/>
         );
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        note: state.note
+    }
+}
+
  
-export default SingleNote;
+export default connect(mapStateToProps, {fetchSingleNote})(SingleNote);

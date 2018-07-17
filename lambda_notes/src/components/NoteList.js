@@ -17,7 +17,6 @@ const Notes = styled.div`
 
 
 const NoteList = props => {
-
     const notes = props.notes.length > 1
         ? <Notes>
             {props.notes.map(note =>

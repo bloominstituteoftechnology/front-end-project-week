@@ -18,3 +18,17 @@ export const fetchNotes = () => {
         }))
     }
 }
+
+export const fetchSingleNote = (id) => {
+    return (dispatch) => {
+        axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+        .then(response => dispatch({
+            type: FETCH_SINGLE_NOTE,
+            payload: response.data
+        }))
+        .catch(err => dispatch({
+            type:FETCH_ERROR,
+            error: err
+        }))
+    }
+}

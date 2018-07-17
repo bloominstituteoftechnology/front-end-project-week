@@ -8,6 +8,7 @@ const initialState = {
         "textBody": "",
         "__v": 0
     }],
+    note: {}
 }
 
 export default (state = initialState, action) => {
@@ -15,7 +16,7 @@ export default (state = initialState, action) => {
         case (FETCH_NOTES):
             return Object.assign({}, state, { notes: action.payload });
         case (FETCH_SINGLE_NOTE):
-            return Object.assign({}, state, { notes: action.payload })
+            return Object.assign({}, state, { note: action.payload })
         case (FETCH_ERROR):
             console.log(action.error);
         default:
