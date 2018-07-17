@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import '../styles/ViewNote.css';
 
 
@@ -10,7 +10,9 @@ class ViewNote extends Component {
     
     render() {
     return (
-            <div> 
+            <div>
+                {/* <Link to={`editNote/${this.props.match.params.id}`}>edit</Link> */}
+                {/* <Link>delete</Link> */}
             <div className="Viewnote">
             <h3>{this.props.title}</h3>
             <p>{this.props.body}</p>    
