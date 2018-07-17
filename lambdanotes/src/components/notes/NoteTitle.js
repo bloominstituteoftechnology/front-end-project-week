@@ -1,9 +1,9 @@
 import React from 'react';
 import "./Notes.css"
 
-const NoteTitle = ({props}) => (
+const NoteTitle = (props) => (
   <div className="note-title">
-    Note Title
+    {props.title}
   </div>
 );
 
