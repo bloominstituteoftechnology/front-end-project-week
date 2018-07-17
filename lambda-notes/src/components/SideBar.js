@@ -24,7 +24,7 @@ const routes = [
   }
 ];
 
-const SidebarExample = () => (
+export const SidebarExample = () => (
   <Router>
     <div style={{ display: "flex" }}>
       <div
@@ -77,4 +77,14 @@ const SidebarExample = () => (
   </Router>
 );
 
-export default SidebarExample;
+export const SideBar = () => (
+    <div> Lambda Notes
+        <button> <Link to="/">View Your Notes</Link>
+            </button>
+            <button> <Link to="/createnote">+Create New Note</Link>
+            </button>
+        </div>
+
+) 
+
+// export default SidebarExample;
