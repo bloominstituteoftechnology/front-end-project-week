@@ -47,6 +47,8 @@ class NoteView extends React.Component {
 
   deleteClicked = () => {
     this.props.deleteNote(this.state.id);
+    const body = document.body;
+    body.style.backgroundColor = 'rgb(243, 243, 243)';
     this.props.history.push('/');
   };
 
