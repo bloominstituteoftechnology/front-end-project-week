@@ -316,6 +316,18 @@ button:hover {
 /* DeleteModal styles */
 .DeleteModal-container {
   position: fixed;
+  background: #D8D8D8;
+  opacity: 0.8;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+}
+
+.DeleteModal-modal {
+  position: fixed;
+  background: #FFFFFF;
   height: 270px;
   width: 800px;
   border: 2px solid #979797;

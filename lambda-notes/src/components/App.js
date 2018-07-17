@@ -27,7 +27,8 @@ class App extends Component {
       deleted: false,
       error: null,
       "title": "",
-      "textBody": ""
+      "textBody": "",
+      isDeleted: false
     };
   }
 
@@ -35,7 +36,21 @@ class App extends Component {
     const promise = axios.get(`${URL}/get/all`);
     promise.then(({data}) => {
       // console.log(data);
-      this.setState({notes: data});
+      this.setState({
+        notes: data,
+        fetching: false,
+        fetched: false,
+        saving: false,
+        saved: false,
+        updating: false,
+        updated: false,
+        deleting: false,
+        deleted: false,
+        error: null,
+        "title": "",
+        "textBody": "",
+        isDeleted: false
+      });
     })
     .catch((error) => this.setState({error}));
   }
@@ -66,8 +81,17 @@ class App extends Component {
     .catch((error) => this.setState({error}));
   };
 
+  toggleDelete = () => {
+    this.setState({isDeleted: !this.state.isDeleted});
+  };
+
   handleDelete = (id) => {
-    
+    const promise = axios.delete(`${URL}/delete/${id}`);
+    promise.then(({data}) => {
+      this.setState({notes: data});
+    })
+    .catch((error) => this.setState({error}));
+    this.toggleDelete();
   };
 
   handleUpdate = (id) => {
@@ -110,7 +134,7 @@ class App extends Component {
             <CreateView {...props} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           )}/>
           <Route path="/note/:id" render={props => (
-            <Note {...props} />
+            <Note {...props} isDeleted={this.state.isDeleted} toggleDelete={this.toggleDelete} handleDelete={this.handleDelete}/>
           )}/>
           <Route path="/edit/:id" render={props => (
             <EditView {...props} notes={this.state.notes} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleUpdate={this.handleUpdate} />

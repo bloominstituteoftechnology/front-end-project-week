@@ -13,8 +13,7 @@ class Note extends Component {
         super(props);
         this.state = {
             note: null,
-            isSelected: false,
-            isDeleted: false
+            isSelected: false
         };
     }
 
@@ -55,7 +54,7 @@ class Note extends Component {
                     <Link to={`/edit/${this.state.note["_id"]}`}>
                         <p>edit</p>
                     </Link>
-                    <Link to={`/note/${this.state.note["_id"]}`} onClick={() => console.log('toggle')}>
+                    <Link to={`/note/${this.state.note["_id"]}`} onClick={this.props.toggleDelete}>
                         <p>delete</p>
                     </Link>
                     </div>
@@ -65,7 +64,7 @@ class Note extends Component {
                     <p>{this.state.note.textBody}</p>
                 </div>
                 {!this.state.isSelected ? <NoteView note={this.state.note}/> : null}
-                {this.state.isSelected ? <DeleteModal /> : null}
+                {!this.props.isDeleted ? <DeleteModal toggleDelete={this.props.toggleDelete} handleDelete={this.props.handleDelete} id={this.state.note["_id"]}/> : null}
             </div>
         );
     }
