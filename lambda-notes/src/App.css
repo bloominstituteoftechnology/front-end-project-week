@@ -102,6 +102,10 @@ button a:visited {
   background: #FFFFFF;
 }
 
+.note-preview-container:hover {
+  border: 2px solid #979797;
+}
+
 .note-preview-container h3 {
   border-bottom: 1px solid #979797;
   padding: 0 0 5px 0;
