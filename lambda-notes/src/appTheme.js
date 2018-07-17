@@ -26,6 +26,7 @@ export default {
     mainPaneBG: concreteWhite,
     previewNoteBG: white,
     buttonBG: scooterBlue,
+    buttonDangerBG: monzaRed,
     deleteButtonBG: monzaRed,
     border: dustyGray,
   },
@@ -100,6 +101,8 @@ export default {
       modalHeight: '180px',
       modalYOffSet: '170px',
       borderWidth: '1px',
+      buttonOuterPadding: '5px 62px',
+      promptFontSize: '15px',
     }
   }
 }
