@@ -8,6 +8,7 @@ const StyledSidebar = styled.div`
   width: 20%;
   background: #D8D8D8; 
   padding: 10px;
+  position: sticky;
 `
 
 export default () =>
