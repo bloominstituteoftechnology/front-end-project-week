@@ -15,5 +15,19 @@ const NotesContainer = styled.div`
   border: 1px solid #979797
 `
 
+const LambdaNotes = (props) => {
+    return(
+        <NotesContainer>
+        {props.notes.map(note => {
+            return(
+            <div key={note.id}>
+            <HeaderStyle>{note.title}</HeaderStyle>
+            <p>{note.body}</p>
+            </div>
+            )
+        })}
+        </NotesContainer>
+    )
+}   
 
 export default LambdaNotes;

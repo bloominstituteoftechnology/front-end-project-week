@@ -3,6 +3,7 @@ import './App.css';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
 import LambdaForm from './components/LambdaForm';
+import LambdaNotes from './containers/LambdaNotes';
 import { Route } from 'react-router-dom';
 
 const StyledContainer = styled.div`
@@ -84,14 +85,17 @@ class App extends Component {
   handleAddnote = e => {
     const notes = this.state.notes.slice();
     notes.push({ title: this.state.title, content: this.state.content, id: Date.now() });
-    this.setState({ notes, title: '', content: '' });
+    this.setState({ notes, title: '', body: '' });
   }
 
   render() {
     return (
       <StyledContainer>
+        <StyledComponent>
         <Route path="/" component={LambdaNav} />
-        <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
+        <Route axact path ="/" render={props =>(<LambdaNotes {...props} notes={this.state.notes} />)} />
+        <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />  
+        </StyledComponent>
       </StyledContainer>
     )
   }

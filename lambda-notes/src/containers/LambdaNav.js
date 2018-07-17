@@ -37,4 +37,4 @@ const LambdaNav = () => {
     )
 }
 
-export default LambdaNav
+export default LambdaNav;
