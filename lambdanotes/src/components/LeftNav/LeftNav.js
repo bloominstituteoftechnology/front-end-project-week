@@ -6,7 +6,7 @@ export default class LeftNav extends Component {
     return (
       <div className='nav-container'>
         <div>
-          <h1 className='nav-header'>Lambda Notes</h1>
+          <h1 className='nav-header'>Lambda <br />Notes</h1>
         </div>
         <div className='nav-button-container'>
           <button type='button' className="btn btn-large custom-button text-white">View Your Notes</button><br />
