@@ -36,6 +36,7 @@ flex-flow: row wrap;
   display: flex;
   flex-direction: column;
   border-right: 1px solid #979797;
+  height: 900px;
 }
 
 .nav-button{

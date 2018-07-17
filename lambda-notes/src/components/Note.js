@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import NewNote from './NewNote';
+import App from '../App';
 
 class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
             note: null,
-            title: '',
-            body: '',
+            title: 'Note Title',
+            body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ',
             edit: false
         }
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
+        const id = this.props.id;
         this.fetchNote(id);
     }
 
@@ -46,8 +47,8 @@ class Note extends Component {
             ) : (
                 <Container>
                     <div className="edit-delete">
-                        <a onClick={this.editNote}>edit</a>
-                     <a onClick={this.editNote}>delete</a>
+                        <Button><a onClick={this.editNote}>edit</a></Button>
+                     <Button><a onClick={this.editNote}>delete</a></Button>
                     </div>
                     <h3 className="heading">{this.state.title}</h3>
                     <Row>
