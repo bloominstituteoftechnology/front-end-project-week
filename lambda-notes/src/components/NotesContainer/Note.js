@@ -81,7 +81,7 @@ class Note extends React.Component {
                             <div className='note-tags-container'>
 
                                 {this.props.note.tags ? this.props.note.tags.map((tag, index) =>
-                                    <span className='note-tags' key={tag + index}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </span>) : null}
+                                    <span className='note-tags' key={tag + index + Math.random()}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </span>) : null}
 
                                 <form className='add-tag-form' onSubmit={event => event.preventDefault()}>
                                     <input className='add-tag-field' onChange={this.handleInput} value={this.state.tag} type='text' placeholder='Add tag...' />
