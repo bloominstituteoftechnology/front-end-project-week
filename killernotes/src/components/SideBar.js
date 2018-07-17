@@ -30,7 +30,9 @@ const SideBar = props => (
     <Link to="/">
       <Button>View Your Notes</Button>
     </Link>
-    <Button>+Create New Note</Button>
+    <Link to="/add">
+      <Button>+Create New Note</Button>
+    </Link>
   </SideBarDiv>
 );
 

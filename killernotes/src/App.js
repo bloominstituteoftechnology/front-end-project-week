@@ -31,6 +31,7 @@ class App extends Component {
       <div>
         <Route path="/" component={SideBar} />
         <Route
+          exact
           path="/"
           render={() =>
             this.props.fetching ? (
@@ -47,7 +48,8 @@ class App extends Component {
         />
         {/* ...props sends match, location, history, etc */}
         <Route path="/note/:id" render={props => <NoteView {...props} />} />
-        <Route path="/add/:id" render={props => <NoteForm {...props} />} />
+        <Route path="/add" render={props => <NoteForm {...props} />} />
+        <Route path="/edit/:id" render={props => <NoteForm {...props} />} />
         {this.props.error ? <Error>{this.props.error}</Error> : null}
       </div>
     );
