@@ -6,7 +6,7 @@ import '../App.css';
 const Navbar = (props) => {
     return (
         <div className= "nav-container">
-            <Nav vertical>
+            <Nav vertical className="nav-section">
             <h1>Lambda Notes</h1>
 	            <NavItem>
 		            <Button color="secondary">

@@ -1,12 +1,39 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+   display: flex;
+  width: 100%;
+  max-width: 880px;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid #979797;
+  font-family: 'Raleway', sans-serif;
+
+}
+
+.notes-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  padding: 0 3.417% 3.417%;
+  width: 100%;
+  max-width: 660px;
+  background: #F3F3F3;
+}
+
+
+.note-card {
+	display: flex;
+flex-flow: row wrap;
+	font-size: 10px;
+  margin: 15px 0;
+  height: 300px;
 }
 
 .nav-container {
+  width: 30%;
+  background-color: #D8D8D8;
   display: flex;
-  flex-direction: row;
-  border: 1px solid black;
-  width: 300px;
-
+  flex-direction: column;
+  border-right: 1px solid #979797;
 }
-

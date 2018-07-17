@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import NoteList from "./components/NoteList";
 import Note from "./components/Note";
 import Navbar from "./components/Navbar";
+import NewNote from "./components/NewNote";
 
 
 class App extends Component {
@@ -13,27 +14,27 @@ class App extends Component {
     this.state={
       notes: [{
         id: 0,
-        tite: 'Note Title',
+        title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. '
       }, {
         id: 1,
-        tite: 'Note Title',
+        title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
       }, {
         id: 2,
-        tite: 'Note Title',
+        title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
       }, {
         id: 3,
-        tite: 'Note Title',
+        title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
       }, {
         id: 4,
-        tite: 'Note Title',
+        title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
       }, {
         id: 5,
-        tite: 'Note Title',
+        title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. '
       }]
     }
@@ -47,7 +48,9 @@ class App extends Component {
     return (
       <div className="App">
       <Navbar />
-      <Route exact path="/" render={props => <NoteList notes={notes}/>} />
+     <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
+      <Route path="/note/:id" component={Note}/>
+      <Route path="/NewNote" render={props => <NewNote />}/>
       </div>
     );
   }
