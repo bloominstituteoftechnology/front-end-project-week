@@ -13,37 +13,32 @@ body {
 a {
   text-decoration: none;
   color: black;
-  display: inline-block;
 }
-
-.noteList {
-  border: 2px solid red;
+.App {
+  display: flex;
 }
 
 .noteCard {
   border: 2px solid black;
   width: 280px;
   height: 270px;
-  display: flex;
-  margin: 1% 0.2%;
-  padding: 1%;
+  padding: 1% 7%;
   overflow: hidden;
   background-color: white;
   text-align: left;
+  margin-top: 11%;
 }
 
-.yourNotes {
+.noteList-header {
   margin: 2% 0 0 2.5%;
 }
 
 .cardTitle {
-  display: inline-block;
   border-bottom: 1px solid black;
 }
 
 .noteList-container {
   display: flex;
-  border: 2px solid green;
   background-color: #f2f1f2;
   height: 100%;
 }
@@ -63,6 +58,7 @@ a {
 .btn {
   border: 1px solid black;
   padding: 6% 0%;
+  margin-top: 11%;
   text-align: center;
   background-color: #55b9bd;
   color: white;
@@ -72,11 +68,65 @@ a {
   cursor: pointer;
 }
 
-.createNote-btn {
-  margin-top: 12%;
+.sideNav {
+  background-color: #d3d2d3;
+  min-height: 100vh;
+  min-width: 250px;
+  display: flex;
+  flex-flow: column;
+  padding: 1%;
 }
 
-.sideNav {
-  width: 350px;
-  background-color: #d3d2d3;
+.title-input {
+  height: 60px;
+  width: 600px;
+}
+
+.newNote-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.textBody-input {
+  margin-top: 5%;
+  height: 400px;
+}
+
+.newNote-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f2f1f2;
+}
+
+.newNote-header {
+  margin-top: 2%;
+}
+
+.sideNav-header {
+  margin-top: 1.5%;
+  font-size: 3.1rem;
+  line-height: 1;
+}
+.noteDetails-container {
+  background-color: #f2f1f2;
+  border: 2px solid blue;
+  padding: 1.5%;
+  width: 100%;
+}
+.noteDetails {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-btns {
+  width: 106px;
+  text-decoration: underline;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+.edit-btn {
+  display: inline-block;
+  margin-left: 1%;
 }
