@@ -7,6 +7,7 @@ import NotesContainer from './containers/NotesContainer';
 import Note from './components/Note';
 import NoteForm from './components/NoteForm';
 import DeleteModal from './components/DeleteModal';
+import EditNote from './components/EditNote';
 import data from './demoData';
 
 const StyledApp = styled.div`
@@ -47,6 +48,22 @@ class App extends Component {
     this.setState({notes: newNotes});
   }
 
+  editNote = (id, title, body) => {
+    console.log(id, title,body);
+    let newNotes = this.state.notes.slice().map(note => {
+      if(note.id === Number(id)){
+        return {
+          tags: [],
+          title: (title || note.title),
+          textBody: (body || note.textBody),
+          id: note.id,
+        }
+      }
+      return note;
+    })
+    this.setState({notes: newNotes});
+  }
+
   render() {
     return (
       <StyledApp>
@@ -55,6 +72,7 @@ class App extends Component {
         <Route path='/notes/:id' render={props => <Note {...props} notes={this.state.notes} />} />
         <Route path='/create' render={props => <NoteForm {...props} addNote={this.addNote} />} />
         <Route exact path='/notes/:id/delete' render={props => <DeleteModal {...props} deleteNote={this.deleteNote} /> } />
+        <Route path='/edit/:id' render={props => <EditNote {...props} editNote={this.editNote} /> } />
       </StyledApp>
     );
   }

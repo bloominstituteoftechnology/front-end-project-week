@@ -11,7 +11,6 @@ const StyledSideBar = styled.div`
     width: 25%;
     height: 100%;
     border: 2px solid grey;
-
 `;
 
 const NavBar = props => {

@@ -66,7 +66,7 @@ class Note extends Component {
         return(
             <StyledNote>
                 <StyledButtons>
-                    <StyledLink to={`./`}>edit</StyledLink>
+                    <StyledLink to={`/edit/${this.state.id}`}>edit</StyledLink>
                     <StyledLink to={`/notes/${this.state.id}/delete`}>delete</StyledLink>
                 </StyledButtons>
                 <h4>{this.state.currentNote.title}</h4>
