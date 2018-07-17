@@ -56,7 +56,7 @@ const DeleteModal = (props) => {
                         onClick={() => props.deleteNote(props.match.params.id)}
                         style={{background: '#D0021B'}} >Delete</StyledLink>
                     <StyledLink to={`/notes/${props.match.params.id}`} 
-                        style={{background: 'turquoise'}}>notes</StyledLink>
+                        style={{background: 'turquoise'}}>No</StyledLink>
                 </StyledButtons>
             </StyledInnerBox>
         </StyledModal>

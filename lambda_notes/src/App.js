@@ -14,8 +14,7 @@ const StyledApp = styled.div`
   display: flex;
   flex-flow: row;
   height: 100vh;
-  z-index: 1;
-`;
+  `;
 
 class App extends Component { 
   constructor(){

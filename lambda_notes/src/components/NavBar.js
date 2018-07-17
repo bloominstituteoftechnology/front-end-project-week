@@ -10,15 +10,39 @@ const StyledSideBar = styled.div`
     background: #D8D8D8;
     width: 25%;
     height: 100%;
-    border: 2px solid grey;
+    border: 2px solid #979797;
+    padding: 1%;
+    font-family: Roboto Bold;
+    font-size: 2rem;
+    color: #4A4A4A;
 `;
+
+const StyledButtonLinks = styled.div`
+    width: 100%;
+`;
+
+const StyledButton = styled.button`
+    background: #2BC1C4;
+    padding: 1%;
+    margin-top: 5%;
+    color: white;
+    border: 2px solid #979797;
+    width: 100%;
+    height: 40px;
+    font-family: Raleway Medium;
+    font-size: 1rem;
+    &:hover{cursor: pointer;}
+`;
+
 
 const NavBar = props => {
     return(
         <StyledSideBar>
-            <h3>Lambda Notes</h3>
-            <Link to={'/'}><button>View Your Notes</button></Link>
-            <Link to={'/create'}><button>Create New Note</button></Link>
+            <StyledButtonLinks>
+                <h3>Lambda Notes</h3>
+                <Link to={'/'}><StyledButton>View Your Notes</StyledButton></Link>
+                <Link to={'/create'}><StyledButton>Create New Note</StyledButton></Link>
+            </StyledButtonLinks>
         </StyledSideBar>
     );
 }
