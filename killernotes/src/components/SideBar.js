@@ -27,7 +27,6 @@ const Button = styled.button`
 const SideBar = props => (
   <SideBarDiv>
     <p>Lambda Notes</p>
-    {console.log('sidebar props', props)}
     <Link to="/">
       <Button>View Your Notes</Button>
     </Link>

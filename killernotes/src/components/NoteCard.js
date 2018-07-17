@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -16,16 +17,19 @@ const Card = styled.div`
 `;
 
 const NoteCard = props => {
-  let { title, textBody } = props.note;
-  // only show the first 117 characters of the note
+  let { title, textBody, _id } = props.note;
+  // only show the first x characters of the title/text
+  if (title.length > 13) title = title.slice(0, 10) + ' ...';
   if (textBody.length > 116) textBody = textBody.slice(0, 116) + ' ...';
 
   return (
-    <Card>
-      <h2>{title}</h2>
-      <hr />
-      {textBody}
-    </Card>
+    <Link to={`/note/${_id}`}>
+      <Card>
+        <h2>{title}</h2>
+        <hr />
+        {textBody}
+      </Card>
+    </Link>
   );
 };
 
