@@ -1,12 +1,12 @@
 import {
-        FETCHING_NOTES,
-        UPDATING_NOTES,
-        DELETING_NOTE,
-        ADDING_NOTE,
-        SUCCESS,
-        ERROR
-    } from '../actions';
-    
+    FETCHING_NOTES,
+    UPDATING_NOTES,
+    DELETING_NOTE,
+    ADDING_NOTE,
+    SUCCESS,
+    ERROR
+} from '../actions';
+
 const initialState = {
     notes: [],
     fetchingNotes: false,
@@ -18,18 +18,18 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case FETCHING_NOTES:
             return Object.assign(
                 {},
                 state,
-                { fetchingNotes:true }
+                { fetchingNotes: true }
             )
         case ADDING_NOTE:
             return Object.assign(
                 {},
                 state,
-                { updatingNotes: true }
+                { addingNote: true }
             )
         case UPDATING_NOTES:
             return Object.assign(

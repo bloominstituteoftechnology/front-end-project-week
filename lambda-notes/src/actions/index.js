@@ -31,6 +31,7 @@ export const getNote = id => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
+            console.log('get note func', response.data)
             dispatch({
                 type: SUCCESS,
                 payload: response.data

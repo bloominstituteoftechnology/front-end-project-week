@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const styled = {
     textDecoration: 'none',
+    // color: 'rgb(97, 76, 76)'
     color: 'black'
 }
 
@@ -24,12 +25,11 @@ class Notes extends React.Component {
                 <div className="mainContent__content" >
                     {this.props.notes.map((note) => {
                         return (
-                            <div key={note.id}>
-                                <Link to={`/notes/${note.id}`} style={styled} >
-                                    <Note title={note.title} body={note.body} id={note.id}/>
+                            <div key={note._id}>
+                                <Link to={`/notes/${note._id}`} style={styled} >
+                                    <Note title={note.title} body={note.textBody} id={note._id}/>
                                 </Link>
-                            </div>
-                        )
+                            </div>)
                     })}
                 </div>
             </div>

@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../../actions';
-import { Link } from 'react-router-dom';
 
 class NewNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             noteName: '',
-            noteBody: '',
+            noteBody: ''
         };
     }
 
@@ -16,8 +15,8 @@ class NewNote extends React.Component {
         event.preventDefault();
         const { noteName, noteBody } = this.state;
         const newNote = {
-            name: noteName,
-            body: noteBody
+            title: noteName,
+            textBody: noteBody
         }
         this.props.addNote(newNote);
         this.setState({ noteName: '', noteBody: '' });
@@ -29,28 +28,28 @@ class NewNote extends React.Component {
 
     render() {
         return (
-            <div className="mainContent">
-                <div className="directory_title mainContent_title">
+            <div className="mainContent" >
+                <div className="directory__title mainContent__title" >
                     Create New Note:
                 </div>
-                <div className="mainContent_content">
-                    <form className="mainContent_Form" onSubmit={this.createNote} >
+                <div className="mainContent__content">
+                    <form className="mainContent__Form" onSubmit={this.createNote} >
                         <input
-                            className="form_input form_input_title"
+                            className="form__input form__input--title"
                             onChange={this.handleInputChange}
                             placeholder="Note Title"
                             value={this.state.noteName}
                             name="noteName"
                         />
                         <textarea
-                            className="form_input form_input_body"
+                            className="form__input form__input--body"
                             type="textarea"
                             onChange={this.handleInputChange}
                             placeholder="Note Content"
                             value={this.state.noteBody}
                             name="noteBody"
                         />
-                            <button className="link__button" type="submit">Save</button>
+                        <button className="link__button" type="submit">Save</button>
                     </form>
                 </div>
             </div>

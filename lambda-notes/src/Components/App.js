@@ -5,6 +5,7 @@ import './App.css';
 import Notes from './Notes/Notes';
 import NewNote from './NewNote/NewNote';
 import ViewNote from './Notes/ViewNotes';
+import Note from './Notes/Note';
 
 class App extends Component {
     render() {
@@ -15,10 +16,12 @@ class App extends Component {
                     <Route exact path="/"
                         render = {(props) => <Notes />}
                     />
+                    {/* <Route path="/notes/:id/" component={Note} 
+                    /> */}
                     <Route path="/newNote"
                         render = {(props) => <NewNote />}
                     />
-                     <Route path="/notes/" component={ViewNote}
+                    <Route path="/notes/:id" component={ViewNote}
                     />
                 </Switch>
             </div>
