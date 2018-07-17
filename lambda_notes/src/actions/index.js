@@ -33,11 +33,14 @@ export const fetchSingleNote = (id) => {
 
 export const deleteNote = (id) => {
     return (dispatch) => {
-        axios.get(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-        .then(response => dispatch({
-            type: types.DELETE_NOTE,
-            payload: response.data
-        }))
+        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+        .then(response => {
+            if (response.data.success === "Note successfully deleted") {
+                dispatch({
+                    type: types.DELETE_NOTE,
+                })
+            }
+        })
         .catch(err => dispatch({
             type: types.FETCH_ERROR,
             error: err
