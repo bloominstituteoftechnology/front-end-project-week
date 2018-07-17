@@ -35,6 +35,10 @@ button {
   font-size: 16px;
 }
 
+button:hover {
+  background: #43D3D6;
+}
+
 button a {
   color: #FFFFFF;
 }
@@ -128,6 +132,12 @@ input {
   margin-bottom: 20px;
   padding-left: 10px;
   box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
+  border-radius: 3px;
+  border: 1px solid #979797;
 }
 
 .main-container .title {
