@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Route } from "react-router-dom";
 
 import ListView from "../ListView/ListView";
 import NoteView from "../NoteView/NoteView";
@@ -34,18 +35,29 @@ class ContentWindow extends React.Component {
   render() {
     return (
       <StyledWindow>
-        {this.state.currentView === "list" ? (
-          <ListView content={this.state.content} />
-        ) : null}
+        <Route
+          exact
+          path="/"
+          render={props => <ListView {...props} content={this.state.content} />}
+        />
+
         {/* un-hard-code-me */}
-        {this.state.currentView === "note" ? (
-          <NoteView selected={this.state.content[0]} />
-        ) : null}
-        {this.state.currentView === "new" ? <CreateNewView /> : null}
+        <Route
+          path="/note"
+          render={props => (
+            <NoteView {...props} selected={this.state.content[0]} />
+          )}
+        />
+
+        <Route path="/new" component={CreateNewView} />
+
         {/* un-hard-code-me */}
-        {this.state.currentView === "edit" ? (
-          <EditView selected={this.state.content[0]} />
-        ) : null}
+        <Route
+          path="/edit"
+          render={props => (
+            <EditView {...props} selected={this.state.content[0]} />
+          )}
+        />
       </StyledWindow>
     );
   }
