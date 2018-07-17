@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
     case FETCH_SINGLE_NOTE:
       return { ...state, note: action.payload, loading: false, error: null };
     case ADD_NOTE:
-      return { ...state, notes: action.payload, loading: false, error: null };
+      return { ...state, note: action.payload, loading: false, error: null };
     case UPDATE_NOTE:
       return { ...state, note: action.payload, loading: false, error: null };
     case DELETE_NOTE:

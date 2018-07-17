@@ -6,13 +6,18 @@ import * as actions from '../../actions';
 import NoteListItem from './NoteListItem';
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 60px 20px;
 `;
 
 const ListContainer = styled.div`
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
+`;
+
+const Header = styled.h2`
+  font-size: 34px;
+  font-weight: bold;
 `;
 
 class NoteList extends Component {
@@ -37,7 +42,7 @@ class NoteList extends Component {
 
     return (
       <Container>
-        <h2>Your Notes: </h2>
+        <Header>Your Notes: </Header>
         <ListContainer>
           {notes.map(note => <NoteListItem {...note} key={note._id} />)}
         </ListContainer>

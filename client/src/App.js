@@ -3,21 +3,27 @@ import { Route } from 'react-router-dom';
 import Notes, { NoteNew, SingleNoteControl } from './components/Notes';
 import SideBar from './components/SideBar';
 import styled from 'styled-components';
+import './App.css';
 
 const Container = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 30px;
+  width: ${window.innerWidth};
+  margin: 0;
   display: flex;
+  background: #eee;
+`;
+const Content = styled.div`
+  margin-left: 400px;
 `;
 class App extends Component {
   render() {
     return (
       <Container>
         <SideBar />
-        <Route exact path="/" component={Notes} />
-        <Route exact path="/notes/new" component={NoteNew} />
-        <Route path="/note/get/:id" component={SingleNoteControl} />
+        <Content>
+          <Route exact path="/" component={Notes} />
+          <Route exact path="/notes/new" component={NoteNew} />
+          <Route path="/note/get/:id" component={SingleNoteControl} />
+        </Content>
       </Container>
     );
   }

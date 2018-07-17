@@ -39,13 +39,13 @@ export const addNote = note => {
     'https://killer-notes.herokuapp.com/note/create',
     note
   );
-
   return dispatch => {
     dispatch({
       type: FETCHING
     });
     request
       .then(res => {
+        console.log(res);
         dispatch({
           type: ADD_NOTE,
           payload: res.data
@@ -97,6 +97,7 @@ export const updateNote = (id, note) => {
     });
     request
       .then(res => {
+        console.log(res);
         dispatch({
           type: UPDATE_NOTE,
           payload: res.data

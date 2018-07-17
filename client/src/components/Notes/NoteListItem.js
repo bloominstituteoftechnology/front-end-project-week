@@ -1,25 +1,36 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ItemContainer = styled.div`
-  width: 25%;
-  height: 300px;
+  width: 26%;
+  height: 400px;
   border: 1px solid black;
+  padding: 1.5%;
   margin: 2%;
-  padding: 1%;
+  background: #fff;
 `;
+
+const Title = styled(Link)`
+  font-size: 28px;
+  font-weight: bold;
+`;
+
+const Content = styled.p`
+  font-size: 20px;
+`;
+
 const NoteListItem = ({ title, textBody, _id }) => {
   return (
     <ItemContainer>
-      <Link to={`/note/get/${_id}`}>
-        <h2>{title}</h2>
+      <Title to={`/note/get/${_id}`}>
+        {title}
         <hr />
-      </Link>
+      </Title>
       {textBody.length > 100 ? (
-        <p> {textBody.substring(0, 100)} ...</p>
+        <Content> {textBody.substring(0, 100)} ...</Content>
       ) : (
-        <p>{textBody}</p>
+        <Content>{textBody}</Content>
       )}
     </ItemContainer>
   );
