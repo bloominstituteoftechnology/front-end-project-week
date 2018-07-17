@@ -82,9 +82,22 @@ class App extends Component {
           id: 9,
           body: "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.."
         },
-      ]
+      ],
+      title: '',
+      body: '',
     }
   }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value})
+  }
+
+  handleAddNote = e => {
+    const notes = this.state.notes.slice();
+    notes.push({title: this.state.title, content: this.state.content, id:Date.now( )});
+    this.setState({notes,title: '', content: ''});
+  }
+
   render() {
     return (
     <MainContainer>
