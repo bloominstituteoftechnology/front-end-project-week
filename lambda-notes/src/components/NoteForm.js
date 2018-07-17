@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -51,10 +50,15 @@ export default class NoteForm extends Component {
       textBody
     };
     this.updateInput = this.updateInput.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
   updateInput(event) {
     const { value, name } = event.target;
     this.setState({ [name]: value });
+  }
+  handleFormSubmit(event) {
+    event.preventDefault();
+    this.props.handleFormSubmit(this.state);
   }
   
   render() {
@@ -63,7 +67,7 @@ export default class NoteForm extends Component {
     return (
       <StyledNoteForm>
         <h1>{ titleText }</h1>
-        <form>
+        <form onSubmit={ this.handleFormSubmit }>
           <input 
             type="text"
             name="title"
@@ -75,11 +79,9 @@ export default class NoteForm extends Component {
             placeholder="Note Content"
             value = { textBody }
             onChange={ this.updateInput } />
-          <Link to="/">
-            <Button>
+            <Button onClick={ this.handleFormSubmit }>
               { buttonText }
             </Button>
-          </Link>
         </form>
       </StyledNoteForm>
     )

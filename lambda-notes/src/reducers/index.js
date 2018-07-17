@@ -26,7 +26,7 @@ const allIdsReducer = (state=[], action) => {
       if (state.indexOf(id) === -1) {
         return [...state, id];
       }
-      return;
+      return state;
     }
     default:
       return state;

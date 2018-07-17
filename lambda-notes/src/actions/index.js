@@ -30,3 +30,30 @@ export const fetchNotes = () => dispatch => {
       console.log(err);
     });
   };
+
+  export const sendEdit = (target, note, cb) => dispatch => {
+    return axios
+      .put(`${url}/edit/${target}`, note)
+      .then(res => {
+        //optional cb to call on success
+        if (cb !== undefined) cb();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    };
+
+    export const postNewNote = (note, cb) => dispatch => {
+      return axios
+        .post(`${url}/create`, note)
+        .then(res => {
+          //optional cb to call on success
+          if (cb !== undefined) {
+            const { success: id } = res.data;
+            cb(id);
+        }
+      })
+        .catch(err => {
+          console.log(err);
+        });
+      };
