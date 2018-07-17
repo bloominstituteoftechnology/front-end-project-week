@@ -107,13 +107,26 @@ class App extends Component {
     this.setState({notes})
   }
 
+  editNote = (id, title, textBody) => {
+    console.log(id)
+    console.log(title)
+    console.log(textBody)
+    let notes = [...this.state.notes]
+    let indexOfEditNoteId = notes.findIndex((obj => obj.id == id))
+    console.log(notes[indexOfEditNoteId])
+    notes[indexOfEditNoteId].title = title;
+    notes[indexOfEditNoteId].textBody = textBody;
+    console.log(notes[indexOfEditNoteId])
+    this.setState({notes})
+  }
+
   render() {
     return (
       <MainContainer>
         <Container>
           <Row>
             <SidebarStyled md="3"><Sidebar/></SidebarStyled>
-            <ContentStyled md="9"><Container><Content notes={this.state.notes} saveNewNote={this.saveNewNote}/></Container></ContentStyled>
+            <ContentStyled md="9"><Container><Content notes={this.state.notes} saveNewNote={this.saveNewNote} editNote={this.editNote}/></Container></ContentStyled>
           </Row>
         </Container>
       </MainContainer>

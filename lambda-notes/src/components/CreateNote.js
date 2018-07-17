@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class CreateNote extends Component {
-  constructor(props){
+  constructor(){
     super()
     this.title = React.createRef();
     this.content = React.createRef();
