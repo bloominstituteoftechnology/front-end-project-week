@@ -50,7 +50,9 @@ class Note extends Component {
                             <p>{this.props.currentNote.textBody}</p>
                         </div>
                     ) : null}
-   
+                    {this.props.error ? (
+                        <h4>{this.props.error}</h4>
+                    ) : null}
             </StyledNote>
         );
     }
@@ -63,6 +65,7 @@ const mapStateToProps = (state) => {
         currentNote: state.currentNote,
         fetchingnote: state.fetchingnote,
         fetchednote: state.fetchednote,
+        error: state.error,
     }
     
 
