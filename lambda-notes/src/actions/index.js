@@ -69,3 +69,18 @@ export const getNew = () => {
         dispatch({ type: FETCHING_NEW, });
     }
 }
+
+// deletes note and redirects to root path
+export const deleteNote = (URL, id) => {
+    const promise = axios.delete(`${URL}delete/${id}`);
+    const path = 'http://localhost:3000/';
+    return dispatch => {
+        promise
+        .then(() => {
+            window.location.href = path;
+        })
+        .catch(err => {
+            dispatch({ type: ERROR, payload: err.message });
+        })
+    }
+}

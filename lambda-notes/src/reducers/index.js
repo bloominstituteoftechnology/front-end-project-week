@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         // places the note requested by user to state
         case FETCHED_NOTE:
             return { ...state, fetchingNotes: false, singleNote: action.payload };
-        // sets newly created notes on local storage
+        // sets newly created note on local storage
         case SET_NEW:
             localStorage.setItem('newNote', JSON.stringify(action.payload));
             return { ...state, fetchingNotes: true };
