@@ -1,9 +1,11 @@
 /* prettier-ignore */
-import {FETCHING, FETCHED, ERROR} from '../actions';
+import {FETCHING, FETCHED, ERROR, DELETING, DELETED} from '../actions';
 
 const initialState = {
   fetchingNotes: false,
   fetchedNotes: false,
+  deletingNote: false,
+  deletedNote: false,
   notes: [],
   error: null,
 };
@@ -20,6 +22,14 @@ const rootReducer = (state = initialState, action) => {
         fetchingNotes: false,
         fetchedNotes: true,
       };
+
+    case DELETING:
+      return { ...state, deletingNote: true };
+
+    case DELETED:
+      // have to update the array as server only sends 'success'
+      const newNotesArr = state.notes.filter(n => n._id !== action.payload);
+      return { ...state, notes: newNotesArr };
 
     case ERROR:
       return {

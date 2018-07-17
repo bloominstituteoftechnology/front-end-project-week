@@ -23,6 +23,7 @@ const StyledLink = styled(Link)`
 
 const NoteCard = props => {
   let { title, textBody, _id } = props.note;
+
   // only show the first x characters of the title/text
   if (title.length > 13) title = title.slice(0, 10) + ' ...';
   if (textBody.length > 116) textBody = textBody.slice(0, 116) + ' ...';
