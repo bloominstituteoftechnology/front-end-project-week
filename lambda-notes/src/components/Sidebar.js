@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Sidebar = props => {
   return (
     <div className="sidebar-container">
-      <h1>Lambda Notes</h1>
-      <button><Link to="/">View Your Notes</Link></button>
-      <button><Link to="/notes/add">+ Create New Note</Link></button>
+      <h1>Lambda<br/>Notes</h1>
+      <Link to="/"><button>View Your Notes</button></Link>
+      <Link to="/notes/add"><button>+ Create New Note</button></Link>
     </div>
   )
 }

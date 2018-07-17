@@ -46,7 +46,7 @@ class App extends Component {
         this.setState({ title: "",
                         textBody: "" });
       })
-      .catch()
+      .catch(error => console.log(error));
 
     this.props.history.push("/");
   }

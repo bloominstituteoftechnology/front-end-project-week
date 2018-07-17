@@ -3,16 +3,19 @@ import '../App.css';
 
 const Form = props => {
   return (
-    <div>
+    <div className="main-container form">
+      <h2>Create New Note:</h2>
       <form>
         <input
+          className="title"
           type="text"
           name="title"
           placeholder="Note Title"
           value={props.title}
           onChange={props.handleInputChange}
         />
-        <input
+        <textarea
+          className="text-body"
           type="text"
           name="textBody"
           placeholder="Note Content"

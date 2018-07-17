@@ -10,7 +10,129 @@ Main button background: #2BC1C4
 Delete button background: #D0021B
 Border color used throughout: #979797*/
 
+
+* {
+  /*border: 1px solid black;*/
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Roboto', sans-serif;
+  color: #4A4A4A;
+}
+
+a {
+  color: #4A4A4A;
+  text-decoration: none;
+}
+
+button {
+  background: #2BC1C4;
+  height: 40px;
+  width: 200px;
+  color: #FFFFFF !important;
+  cursor: pointer;
+  border: 1px solid #979797;
+  font-size: 16px;
+}
+
+button a {
+  color: #FFFFFF;
+}
+
+button a:visited {
+  color: #FFFFFF;
+}
+
 .container {
   display: flex;
   flex-direction: row;
+  width: 1000px;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid #979797;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 20px;
+  width: 250px;
+  background: #D8D8D8;
+  border-right: 1px solid #979797;
+  box-sizing: border-box;
+}
+
+.sidebar-container h1 {
+  font-size: 35px;
+  line-height: 0.9;
+}
+
+.sidebar-container button {
+  margin-bottom: 15px;
+}
+
+.main-container {
+  width: 691px;
+  background: #F3F3F3;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 35px 20px 35px;
+}
+
+.main-container h2 {
+  font-size: 23px;
+}
+
+.note-previews-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.note-preview-container {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  margin: 10px 5px;
+  background: #FFFFFF;
+}
+
+.note-preview-container h3 {
+  border-bottom: 1px solid #979797;
+  padding: 0 0 5px 0;
+  margin: 5px 0 10px 0;
+}
+
+.main-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container h2 {
+  margin-bottom: 20px;
+}
+
+input {
+  border-radius: 3px;
+  border: 1px solid #979797;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.main-container .title {
+  width: 350px;
+  height: 40px;
+}
+
+.main-container .text-body {
+  width: 600px;
+  height: 350px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
