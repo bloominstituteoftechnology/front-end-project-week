@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Styled from 'styled-components'
 import {Heading} from './../styles/styles';
 import {data} from './../data';
-import { Link } from 'react-router-dom';
+import { Link, Route} from 'react-router-dom';
+import Note from './Note'
 import axios from 'axios';
 
 
@@ -62,10 +63,20 @@ class Notes extends Component {
     }
   }
 
-  deleteNote = (id, e) => {
+     deleteNote = (e, id) => {
         e.preventDefault();
-        const newNotes = this.state.notes.splice(this.state.notes.id-1, 1);
-        this.setState({notes: newNotes})
+        let notes = this.props.notes.slice();
+        console.log(notes)
+         console.log(id);
+        let noteIndex = notes.findIndex(function(n) { 
+            return n.id === id; 
+        });
+        console.log(notes)
+        console.log(noteIndex)
+        notes.splice(noteIndex, 1)
+        console.log(notes)
+        
+       this.setState({notes: notes})
   }
 
   componentDidMount() {
@@ -82,11 +93,12 @@ class Notes extends Component {
         <NotesList>
           {this.state.notes.map(note => {
             return <NoteContainer key={note.id} style={{overflow: 'hidden'}}>
-         <Link to={{pathname: `/note/${note.id}`, state: {title: note.title, body: note.body, id: note.id}}} style={{textDecoration: 'none', color: '#000000'}} > 
+         <Link to={{pathname: `/note/${note.id}`, state: {title: note.title, body: note.body, id: note.id, notes: this.state.notes}}} style={{textDecoration: 'none', color: '#000000'}} > 
            <NoteHeading>{note.title}</NoteHeading>
            <Body>{note.body} </Body></Link>
             </NoteContainer>
           })}
+          <Route path='/note/:id' render = {(props) => <Note {...props} delete={this.deleteNote}/>} />
       </NotesList>
       </NotesContainer>
       </Container>

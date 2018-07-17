@@ -49,6 +49,7 @@ class Note extends React.Component {
 
    componentDidMount () {
     console.log(this.props);
+    console.log(this.props.delete);
 
     //console.log(this.props.match.params.id);
       //  this.fetchNote(this.props.match.params.id);
@@ -70,10 +71,10 @@ class Note extends React.Component {
     render() {
     return (
         <Container>
-        {this.state.modalOpen ? <DeleteModal toggleModal={this.openModal}/> : null}
+        {this.state.modalOpen ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes} delete={this.props.delete}/> : null}
         <NoteContainer>
             <Edit>
-            <Link to={{pathname: `/edit/${this.props.location.state.id}`, state: {title: this.props.location.state.title, body: this.props.location.state.body}}} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
+            <Link to={{pathname: `/edit/${this.props.location.state.id}`, state: {title: this.props.location.state.title, body: this.props.location.state.body, id: this.props.location.state.id, notes: this.props.location.state.notes}}} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
             <a onClick={this.openModal}>delete</a>
             </Edit>
         <Heading>{this.props.location.state.title}</Heading>

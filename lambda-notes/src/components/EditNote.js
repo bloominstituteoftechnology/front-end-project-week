@@ -52,14 +52,29 @@ class EditNote extends React.Component {
         this.setState({[editedNote]: {...this.state[editedNote], [event.target.name]: event.target.value}})
     }
 
-    submitNote = (event) => {
-        event.preventDefault();
-       this.state.notes.push(this.state.editedNote)
+    editNote = () => {
+         let notes = this.state.notes.slice();
+         let id = this.props.location.state.id
+         console.log(id);
+        let noteIndex = notes.findIndex(function(n) { 
+            return n.id === id; 
+        });
+        console.log(notes)
+        console.log(this.props.location.state.notes)
+        console.log(noteIndex)
+        console.log(this.state.editedNote)
+        let spliced = notes.splice(noteIndex, 1, this.state.editedNote)
+        console.log(spliced)
+        console.log(notes)
+        
+       this.setState({notes: notes})
        this.setState({editedNote: {title: "", body: "", id: 0}})
+       
     }
 
     componentDidMount() {
-        this.setState({notes: data})
+        this.setState({notes: this.props.location.state.notes})
+        this.setState({editedNote: {title: this.props.location.state.title, body: this.props.location.state.body, id: this.props.location.state.id }})
         console.log(this.props.location.state)
     }
     render() {
@@ -71,20 +86,20 @@ class EditNote extends React.Component {
                     <InputTitle 
                         type="text"
                         name="title"
-                        placeholder={this.props.title}
+                        placeholder={this.state.editedNote.title}
                         value={this.state.editedNote.title}
-                        onChange={this.handleChange.bind(this, 'newNote')}
+                        onChange={this.handleChange.bind(this, 'editedNote')}
                         />
                     <InputContent 
                         
                         name="body"
                         rows="20"
                         cols="100"
-                        placeholder="Note Content"
+                        placeholder={this.state.editedNote.body}
                         value={this.state.editedNote.body}
                         onChange={this.handleChange.bind(this, 'editedNote')}
                         />
-                    <Button onClick={this.submitNote}>Update</Button>
+                    <Button onClick={this.editNote}>Update</Button>
                     </FormContainer>
             </NewContainer>
        

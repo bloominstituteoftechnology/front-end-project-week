@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components'
 import {Button} from './../styles/styles';
+import { Redirect } from 'react-router';
 
 const Background = Styled.div`
 width: 100vw;
@@ -52,19 +53,39 @@ const Buttons = Styled.div`
 class DeleteModal extends React.Component {
     constructor(props) {
         super(props);
-    
+        this.state = {
+            notes: [],
+            delete: false
+    }
     }
 
-    deleteNote = () => {
+    deleteNote = (e) => {
+        e.preventDefault();
+        let notes = this.props.notes.slice();
+        console.log(notes)
+         let id = this.props.id
+         console.log(id);
+        let noteIndex = notes.findIndex(function(n) { 
+            return n.id === id; 
+        });
+        console.log(notes)
+        console.log(noteIndex)
+        notes.splice(noteIndex, 1)
+        console.log(notes)
+        
+       this.setState({notes: notes})
+       this.setState({delete: !this.state.delete})
 
-    }
+  }
+
+  componentDidMount() {
+      console.log(this.props.notes)
+  }
 
     render() {
         return(
             <Background>
             <TransBackground>
-                {console.log(this.props.toggleModal)}
-                
             </TransBackground>
             <ModalContainer>
                     <Modal>
@@ -75,6 +96,7 @@ class DeleteModal extends React.Component {
                     </Buttons>
                     </Modal>
                 </ModalContainer>
+                {this.state.delete ? <Redirect to='/notes' /> : null}
             </Background>
         )
     }
