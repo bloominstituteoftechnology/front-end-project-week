@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import SidebarContainer from "./common/Sidebar/SidebarContainer";
 import HomeContainer from "./home/HomeContainer";
 import './styles/custom-props.css';
+import CreateNoteContainer from "./create-new/CreateNoteContainer";
 const AppContainer = styled.div`
   display: flex;
 
@@ -22,6 +23,7 @@ const App = () => {
       <SidebarContainer />
       <MainContentContainer>
         <Route exact path="/" component={HomeContainer} />
+        <Route exact path="/create-new" component={CreateNoteContainer} />
       </MainContentContainer>
     </AppContainer>
   );
