@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import {addNotesAction} from "../../actions";
 
-
-class CreateNoteBody extends Component {
+class CreateNoteBody extends React.Component {
 
 constructor(props){
         super(props);
@@ -20,18 +20,9 @@ changeHandler = event => {
 
 
 addNote = event => {
-	event.preventDefault();
-	const note ={title: this.state.title, textBody: this.state.content};
-
-       axios.post("https://killer-notes.herokuapp.com/note/create", note)
-      .then(response => {
-        console.log("Post Success: ", response);      
-	this.setState({title: "", content: ""});
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+	this.props.addNotesAction(this.state.title, this.state.content); 
+	this.setState({title: "", content: ""});	
+};
 
 
 
@@ -54,4 +45,17 @@ render() {
 
 }
 
-export default CreateNoteBody;
+const mapStateToProps = state => {
+  return {
+          notes: state.notes,
+          fetching: state.fetchingNotes,
+  };
+};
+
+
+export default connect(mapStateToProps, {addNotesAction})(CreateNoteBody);
+
+
+
+
+
