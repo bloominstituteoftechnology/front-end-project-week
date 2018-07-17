@@ -93,7 +93,7 @@ class App extends Component {
     })
   }
 
-  saveNewNote = (noteTitle, noteTextBody) => {
+  saveNewNote = (noteTitle, noteTextBody) => {    
     let newNote = {
       "id":Date.now(),
       "tags": ["tag", "doctor4"],
