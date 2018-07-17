@@ -7,6 +7,8 @@ export const ERROR = 'ERROR'
 export const GET_NOTE = 'GET_NOTE'
 export const GET_NEW_NOTES = 'GET_NEW_NOTES'
 export const POSTING = 'POSTING'
+export const DELETING = 'DELETING'
+
 export const fetchNotes = () => {
   const request = axios.get(`${url}/get/all`)
   return (dispatch) => {
@@ -36,11 +38,16 @@ export const getNote = (id) => {
 export const deleteNote = (id) => {
   const request = axios.delete(`${url}/delete/${id}`)
   return (dispatch) => {
-    dispatch({ type: FETCHING, payload: true })
+    dispatch({ type: DELETING, payload: true })
     request
       .then((res) => {
-        dispatch({ type: GET_NOTE, payload: res.data })
-        dispatch({ type: FETCHING, payload: false })
+        dispatch({ type: DELETING, payload: false })
+        dispatch({
+          type: GET_NOTES,
+          payload: axios.get(`${url}/get/all`).then((res) => {
+            dispatch({ type: GET_NOTES, payload: res.data })
+          })
+        })
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
