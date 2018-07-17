@@ -1,6 +1,7 @@
  import React, { Component } from 'react';
  import { connect } from 'react-redux';
  import { fetchNote } from '../actions';
+ import '../styles/ViewNote.css';
 
  class ViewNote extends Component {
     render() {
