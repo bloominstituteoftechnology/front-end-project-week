@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
 const StyledNoteForm = styled.div`
     background: #F3F3F3;
@@ -43,6 +44,7 @@ class NoteForm extends Component {
             inputTitle: '',
             inputBody: '',
             addNote: props.addNote,
+            created: false,
         }
     }
 
@@ -53,10 +55,13 @@ class NoteForm extends Component {
     addNote = (e) => {
         e.preventDefault();
         this.state.addNote(this.state.inputTitle, this.state.inputBody);
-        this.setState({inputTitle: '', inputBody: ''});
+        this.setState({inputTitle: '', inputBody: '', created: true});
     }
 
     render(){
+        if(this.state.created){
+            return <Redirect to='/' />
+        }
         return (
             <StyledNoteForm>
                 <H3>Create New Note:</H3>

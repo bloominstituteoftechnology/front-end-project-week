@@ -48,7 +48,6 @@ class App extends Component {
   }
 
   editNote = (id, title, body) => {
-    console.log(id, title,body);
     let newNotes = this.state.notes.slice().map(note => {
       if(note.id === Number(id)){
         return {
