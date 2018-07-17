@@ -10,6 +10,7 @@ import DeleteModal from './components/DeleteModal';
 import EditNote from './components/EditNote';
 import { connect } from 'react-redux';
 import { getNotes } from './actions';
+import { withRouter } from 'react-router-dom';
 
 const StyledApp = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const StyledApp = styled.div`
 class App extends Component { 
 
   componentDidMount(){
-    this.props.getNotes(this.props.URL);
+    this.props.getNotes();
   }
 
   addNote = (title, body) => {
@@ -66,9 +67,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    URL: state.URL,
     notes: state.notes,
   }
 }
 
-export default connect(mapStateToProps, { getNotes })(App);
+export default withRouter(connect(mapStateToProps, { getNotes })(App));

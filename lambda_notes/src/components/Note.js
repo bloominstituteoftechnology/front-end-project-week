@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
 class Note extends Component {
 
     componentDidMount(){
-        this.props.getNote(this.props.singleURL, this.props.match.params.id)
+        this.props.getNote(this.props.match.params.id)
     }
 
     render(){
@@ -60,7 +60,6 @@ class Note extends Component {
 const mapStateToProps = (state) => {
     return {
         notes: state.notes,
-        singleURL: state.singleURL,
         currentNote: state.currentNote,
         fetchingnote: state.fetchingnote,
         fetchednote: state.fetchednote,

@@ -10,9 +10,8 @@ const initialState = {
     deleting: false,
     adding: false,
     error: null,
-    URL: "https://killer-notes.herokuapp.com/note/get/all",
-    singleURL: "https://killer-notes.herokuapp.com/note/get/",
-    currentNote: {}
+    currentNote: {},
+    location: "",
 }
 
 const noteReducer = (state = initialState, action) => {
@@ -24,7 +23,6 @@ const noteReducer = (state = initialState, action) => {
         case FETCHED:
             return {...state,
                 notes: action.payload, 
-                currentNote: {},
                 fetching: false,
                 fetched: true,
                 updating: false,
@@ -33,6 +31,7 @@ const noteReducer = (state = initialState, action) => {
                 error: null}
         case FETCHINGNOTE:
             return{...state,
+                fetched: false,
                 fetchingnote: true,
                 fetchednote: false,
                 }

@@ -9,8 +9,11 @@ export const UPDATING = "UPDATING";
 export const DELETING = "DELETING";
 export const ADDING = "ADDING";
 
-export const getNotes = (URL) => {
-    const request = axios.get(URL);
+const url = "https://killer-notes.herokuapp.com/note/get/all";
+const singleURL = "https://killer-notes.herokuapp.com/note/get/";
+
+export const getNotes = () => {
+    const request = axios.get(url);
     return(dispatch) => {
         dispatch({
             type: FETCHING,
@@ -24,14 +27,14 @@ export const getNotes = (URL) => {
     }
 }
 
-export const getNote = (url, id) => {
-    console.log("Sent request to", `url/${id}`);
-    const request = axios.get(`${url}${id}`);
+export const getNote = (id) => {
+    const request = axios.get(`${singleURL}${id}`);
     return(dispatch) => {
         dispatch({
             type: FETCHINGNOTE,
         })
         request.then(response => {
+            console.log("RESPONSE", response);
             dispatch({type: FETCHEDNOTE, payload: response.data})
         })
         .catch(err => {

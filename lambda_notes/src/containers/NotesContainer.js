@@ -24,7 +24,7 @@ const NotesContainer = props => {
                 <StyledNotes>
                     {props.notes.map(note => {
                         return <NoteCard note={note}
-                                        key={note.id} />
+                                        key={note._id} />
                     })}
                 </StyledNotes>
             </StyledNotesContainer>
