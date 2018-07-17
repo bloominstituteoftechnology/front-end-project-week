@@ -3,7 +3,8 @@ import './App.css';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
 import LambdaForm from './components/LambdaForm';
-import LambdaNotes from './containers/LambdaNotes';
+import LambdaView from './components/LambdaView';
+import LambdaNotes from './containers/LambdaNotes';  
 import { Route } from 'react-router-dom';
 
 const StyledContainer = styled.div`
@@ -69,6 +70,7 @@ class App extends Component {
       ],
       title: '',
       body: '',
+      selected: {}
     }
   }
 
@@ -82,12 +84,17 @@ class App extends Component {
     this.setState({ notes, title: '', body: '' });
   }
 
+  handleSelectNote = id => {
+    this.setState({selected: this.state.notes[`${id}`]});
+  }
+  
   render() {
     return (
       <StyledContainer>
         <Route path="/" component={LambdaNav} />
         <Route exact path ="/" render={props =>(<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />  
+        <Route path="/notes/:id" render={props => <LambdaView {...props} note={this.state.notes} />} />      
       </StyledContainer>
     )
   }
