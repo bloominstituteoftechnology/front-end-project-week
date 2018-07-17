@@ -61,7 +61,7 @@ button a:visited {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-left: 20px;
+  padding-left: 15px;
   width: 250px;
   background: #D8D8D8;
   border-right: 1px solid #979797;
@@ -78,7 +78,7 @@ button a:visited {
 }
 
 .main-container {
-  width: 691px;
+  width: 750px;
   background: #F3F3F3;
   display: flex;
   flex-direction: column;
@@ -114,10 +114,14 @@ button a:visited {
 .note-preview-container h3 {
   border-bottom: 1px solid #979797;
   padding: 0 0 5px 0;
-  margin: 5px 0 10px 0;
+  margin: 5px 0 0 0;
 }
 
-.main-container form {
+.note-preview-container p {
+  margin: 8px 0 0 0;
+}
+
+.main-container .form {
   display: flex;
   flex-direction: column;
 }
@@ -130,14 +134,18 @@ input {
   border-radius: 3px;
   border: 1px solid #979797;
   margin-bottom: 20px;
-  padding-left: 10px;
+  padding: 15px;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 textarea {
+  width: 660px;
   resize: none;
   border-radius: 3px;
   border: 1px solid #979797;
+  font-size: 14px;
+  padding: 15px !important;
 }
 
 .main-container .title {
@@ -146,9 +154,7 @@ textarea {
 }
 
 .main-container .text-body {
-  width: 660px;
   height: 350px;
-  padding: 10px;
   margin-bottom: 20px;
   overflow-wrap: break-word;
 }
@@ -168,13 +174,14 @@ textarea {
 }
 
 .main-container .note {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
 .main-container .note-body {
-  width: 700px;
   margin-bottom: 20px;
   overflow-wrap: break-word;
 }
