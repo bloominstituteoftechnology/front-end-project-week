@@ -5,6 +5,7 @@ const initialState = {
 
 
 const createNoteReducer = (state=initialState, action) => {
+    console.log(state);
     switch(action.type) {
         case types.POSTING_NOTE:
         return {
