@@ -39,9 +39,7 @@ export default (state = initialState, action) => {
 
             let createNote = state.notes.slice();
             createNote.push(data);
-
-            console.log(createNote, state.error);
-
+            
             return { ...state, notes: createNote, creatingNote: false, noteCreated: true };
 
         case EDITING_NOTE:

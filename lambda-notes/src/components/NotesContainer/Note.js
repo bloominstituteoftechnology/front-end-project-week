@@ -29,6 +29,7 @@ class Note extends React.Component {
     addTag = () => {
         const note = { tags: [], title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
         note.tags.push(this.state.tag);
+        
         this.props.editNote(note);
         this.setState({ tag: '' });
     }
