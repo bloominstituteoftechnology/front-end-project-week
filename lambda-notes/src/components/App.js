@@ -14,10 +14,12 @@ import { withRouter } from 'react-router';
 
 class App extends Component {
   componentDidMount() {
+    // Gets all notes from the server
     this.props.getNotes();
   }
 
   logoutButton = () => {
+    // Removes username / password from local storage then refreshes page
     localStorage.removeItem('username');
     localStorage.removeItem('password');
     
@@ -52,5 +54,5 @@ const mapStateToProps = state => {
     fetching: state.fetchingNotes
   }
 }
-
+// Authenticate used to check if user is logged in / withRouter used so redux knows that it changed routes'
 export default Authenticate(withRouter(connect(mapStateToProps, { getNotes })(App)));

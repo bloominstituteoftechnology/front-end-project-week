@@ -2,6 +2,7 @@ import React from 'react';
 import NotesForm from './NotesForm';
 
 class CreateNotesContainer extends React.Component {
+    // Displays form when creating a note
     render() {
         return (
             <div className='create-notes-container'>

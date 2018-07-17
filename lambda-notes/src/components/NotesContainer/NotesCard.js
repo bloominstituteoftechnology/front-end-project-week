@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 
 const NotesCard = props => {
+    // Displays each note to the screen
     return (
         <Link className='notes-card-link' to={`/notes/${props.note._id}`}>
 

@@ -12,6 +12,7 @@ const Authenticate = App =>
         }
 
         componentDidMount() {
+            // Sets state to logged in if we have username and password in local storage
             if (localStorage.getItem('username') && localStorage.getItem('password')) {
                 this.setState({ loggedIn: true });
             } else {
@@ -20,6 +21,7 @@ const Authenticate = App =>
         }
 
         render() {
+            // If logged in, it will show App. Otherwise it will show the login page
             if (this.state.loggedIn) return <App />
             return <Login />
         }

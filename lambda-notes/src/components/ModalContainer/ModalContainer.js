@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ModalContainer = props => {
+    // Displays modal depending on the state
     return (
         <div className='modal' style={props.modal ? { display: 'block' } : null}>
 

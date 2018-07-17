@@ -5,16 +5,19 @@ import { getNote, setNull } from '../../actions';
 
 class UpdateNotesContainer extends React.Component {
     componentDidMount() {
+        // Gets note from the server
         if (this.props.match) {
             this.props.getNote(this.props.match.params.id);
         }
     }
 
     componentWillUnmount() {
+        // Removes note when unmounted
         this.props.setNull();
     }
 
     render() {
+        // Displays form when updating a note
         return (
             <React.Fragment>
                 {this.props.fetching ? <div>Fetching data</div> :
@@ -22,7 +25,7 @@ class UpdateNotesContainer extends React.Component {
 
                         <h3 className='notes-header'>Edit Note:</h3>
                         <div className='notes-cards'>
-                            <NotesForm history={this.props.history} title={this.props.note.title} content={this.props.note.textBody} id={this.props.note._id}/>
+                            <NotesForm history={this.props.history} title={this.props.note.title} content={this.props.note.textBody} id={this.props.note._id} />
                         </div>
                     </div >
                 }

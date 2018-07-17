@@ -13,10 +13,12 @@ class Login extends React.Component {
     }
 
     handleInput = event => {
+        // Sets state depending on the name of input field
         this.setState({ [event.target.name]: event.target.value });
     }
 
     loginButton = () => {
+        // Checks username / password fields are empty / adds username / password to local storage
         if (this.state.username === '' && this.state.password === '') {
             alert('You need to enter a username and password!');
             return;
@@ -37,6 +39,7 @@ class Login extends React.Component {
     }
 
     render() {
+        // Displays login form
         return (
             <div className='login-container'>
                 <form className='login-form' onSubmit={event => event.preventDefault()}>

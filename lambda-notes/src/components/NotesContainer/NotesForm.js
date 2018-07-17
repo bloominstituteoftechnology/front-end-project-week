@@ -13,10 +13,12 @@ class NotesForm extends React.Component {
     }
 
     handleInput = event => {
+        // Sets state depending on the name of input field
         this.setState({ [event.target.name]: event.target.value });
     }
 
     addNote = () => {
+        // Adds a note if title / content fields aren't empty / Pushes back to notes page / Sets state to empty strings
         const note = { title: this.state.title, textBody: this.state.content }
 
         if (this.state.title === '' || this.state.content === '') return;
@@ -27,6 +29,7 @@ class NotesForm extends React.Component {
     }
 
     editNote = () => {
+        // Updates a note if title / content fields aren't empty / Pushes back to single note page / Sets state to empty strings
         const note = { title: this.state.title, textBody: this.state.content, id: this.props.id }
 
         if (this.state.title === '' || this.state.content === '') return;
@@ -37,6 +40,7 @@ class NotesForm extends React.Component {
     }
 
     render() {
+        // Displays input form for creating / updating a note
         return (
             <form className='notes-form' onSubmit={event => event.preventDefault()}>
                 <input className='note-title-field' onChange={this.handleInput} value={this.state.title} name='title' type='text' placeholder='Note Title' />

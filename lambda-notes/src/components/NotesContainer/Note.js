@@ -14,26 +14,31 @@ class Note extends React.Component {
     }
 
     componentDidMount() {
+        // Gets note from the server
         if (this.props.match) {
             this.props.getNote(this.props.match.params.id);
         }
     }
 
     componentWillUnmount() {
+        // Removes note when unmounted
         this.props.setNull();
     }
 
     deleteNote = () => {
+        // Deletes note / Removes Modal / Takes back to notes
         this.props.deleteNote(this.props.note._id);
-        this.props.history.push('/notes');
         this.toggleModal();
+        this.props.history.push('/notes');
     }
 
     toggleModal = () => {
+        // Toggles modal state 
         this.setState({ modal: !this.state.modal });
     }
 
     render() {
+        // Displays single note / Modal
         return (
             <React.Fragment>
                 {this.props.fetching || this.props.editing ? <div>Loading info...</div> :

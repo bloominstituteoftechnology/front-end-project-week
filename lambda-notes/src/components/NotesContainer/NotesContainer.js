@@ -2,6 +2,7 @@ import React from 'react';
 import NotesCard from './NotesCard';
 
 const NotesContainer = props => {
+    // Maps over all notes and passes them down to the NotesCard component
     return (
         <div className='notes-container' >
 
