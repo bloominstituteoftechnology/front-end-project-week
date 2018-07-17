@@ -30,6 +30,15 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    const promise = axios.get(`${URL}/get/all`);
+    promise.then(({data}) => {
+      // console.log(data);
+      this.setState({notes: data});
+    })
+    .catch((error) => this.setState({error}));
+  }
+
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value});
   };
@@ -61,29 +70,23 @@ class App extends Component {
   };
 
   handleUpdate = (id) => {
-    if(this.state.title === '' && this.state.textBody === '') {
-      return null;
-    }
+    if(this.state.title === '' && this.state.textBody === '') return null;
+    console.log('update');
 
-    const note = this.props.notes.filter((note) => note.id === id ? note : null);
-    console.log(note);
-    const updatedNote = {
+    const note = {
       "title": this.state.title,
       "textBody": this.state.textBody
     };
 
-    // for(let key in updatedSmurf) {
-    //   if(updatedSmurf[key] === '') {
-    //     updatedSmurf[key] = smurf[0][key]
-    //   }  
-    // };
-    
-    // this.props.updateReq(id, updatedSmurf);
-    // this.setState({
-    //   name: '',
-    //   age: '',
-    //   height: ''
-    // });
+    const promise = axios.put(`${URL}/edit/${id}`, note);
+    promise.then(({data}) => {
+      this.setState({
+        notes: data,
+        "title": "",
+        "textBody": ""
+      })
+    })
+    .catch((error) => this.setState({error}));
   };
 
   render() {
@@ -108,7 +111,9 @@ class App extends Component {
           <Route path="/note/:id" render={props => (
             <Note {...props} />
           )}/>
-          <Route path="/edit" component={EditView} />
+          <Route path="/edit/:id" render={props => (
+            <EditView {...props} notes={this.state.notes} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleUpdate={this.handleUpdate} />
+          )} />
 
         </div>
       </div>
