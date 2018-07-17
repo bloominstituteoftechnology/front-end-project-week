@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+
 
 class LambdaView extends Component {
     constructor(props) {
@@ -13,29 +15,30 @@ class LambdaView extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        this.setState({id: Number(id), notes: this.props.note });
+        this.setState({ id: Number(id), notes: this.props.note });
     }
 
     filterNotes = note => {
-        if(note.id === this.state.id) {
+        if (note.id === this.state.id) {
             return (
+
                 <div key={note.id}>
-                <Link to={`/notes/${note.id}`}>Edit</Link>
-                <Link to={'/'}>Delete</Link>
-                <h1>{note.title}</h1>
-                <p>{note.body}</p>
-                    </div>
+                    <Link to={`/notes/edit/${note.id}`} style={{ color: 'black', textDecoration: 'underline', marginRight: '10px' }}>Edit</Link>
+                    <Link to={'/'} style={{ color: 'black' }}>Delete</Link>
+                    <h1>{note.title}</h1>
+                    <p>{note.body}</p>
+                </div>
             )
         }
     }
 
     render() {
-        return(
-           <div>{this.props.note.map(this.filterNotes)}</div>
+        return (
+            <div>{this.props.note.map(this.filterNotes)}</div>
         )
     }
 }
-    
-    
+
+
 
 export default LambdaView;

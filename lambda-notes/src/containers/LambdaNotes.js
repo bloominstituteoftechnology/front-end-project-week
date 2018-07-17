@@ -27,13 +27,12 @@ const LambdaNotes = (props) => {
             {props.notes.map(note => {
                 return (
                     <NotesContainer>
-                        <Link to={`/notes/${note.id}`}>
+                        <Link to={`/notes/${note.id}`} style={{textDecoration: 'none', color: 'black'}}>
                             <HeaderStyle>{note.title}</HeaderStyle>
                             <p>{note.body}</p>
                         </Link>
                     </NotesContainer>
                 )
-
             })}
         </ComponentContainer>
     )
