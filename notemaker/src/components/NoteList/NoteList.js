@@ -27,6 +27,8 @@ class NoteList extends Component {
                     <NotePreview />
                     <NotePreview />
                     <NotePreview />
+                    <NotePreview />
+
                     {/* could map over the notes that exist in state, then have them individually represented by each NoteThumbnail */}
                 </div>
             </div>

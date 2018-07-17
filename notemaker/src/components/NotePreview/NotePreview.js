@@ -12,16 +12,18 @@ class NotePreview extends Component {
 
     render() {
         return (
-            <div className="note-preview-container">
-                <div className="note-preview-inner-container">
-                    <div className="note-preview-title">Placeholder</div>
-                    <div className="note-preview-content">
-                    Bacon ipsum dolor amet ground round corned beef kielbasa, pancetta fatback flank tail andouille sausage jerky turkey porchetta beef ribs ribeye. Hamburger rump pancetta picanha shank sirloin jowl.
+            <a href="/view">
+                <div className="note-preview-container">
+                    <div className="note-preview-inner-container">
+                        <div className="note-preview-title">Note Title</div>
+                        <div className="note-preview-content">
+                        Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...
+                        </div>
                     </div>
+                    {/* <NotePreview /> */}
+                    {/* could map over the notes that exist in state, then have them individually represented by each NoteThumbnail */}
                 </div>
-                {/* <NotePreview /> */}
-                {/* could map over the notes that exist in state, then have them individually represented by each NoteThumbnail */}
-            </div>
+            </a>
         )
     }
 }

@@ -1,8 +1,10 @@
 .side-bar {
-    width: 222px;
+    width: 220px;
     color: #4A4A4A;
-    padding-top: 21px;
-    padding-left: 13px;
+    padding-top: 22px;
+    padding-left: 14px;
+
+    border-right: 1px solid #979797;
 }
 
 .side-bar-header {
@@ -13,10 +15,15 @@
     
     line-height: 30px;
 
-    padding-bottom: 28px;
+    padding-bottom: 26px;
 }
 
-.side-bar-button-1 {
+.side-bar-header a {
+    text-decoration: none;
+    color: #4A4A4A;
+}
+
+.side-bar-button {
     background: #2BC1C4;
     border: 1px solid #979797;
     width: 192px;
@@ -28,20 +35,17 @@
 
     font-family: "Roboto", sans-serif;
     color: white;
+    text-decoration: none;
+}
 
+.side-bar-button:hover {
+    background: #4ED3D3;
+}
+
+.side-bar-button:active {
+    background: #09B6B6;
+}
+
+.spacer {
     margin-bottom: 18px;
-}
-
-.side-bar-button-2 {
-    background: #2BC1C4;
-    border: 1px solid #979797;
-    width: 192px;
-    height: 43px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: "Roboto", sans-serif;
-    color: white;
 }

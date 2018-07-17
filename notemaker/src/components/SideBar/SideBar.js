@@ -4,9 +4,10 @@ import './SideBar.css';
 const SideBar = () => {
     return (
         <div className="side-bar">
-            <div className="side-bar-header">Lambda Notes</div>
-            <div className="side-bar-button-1">View Your Notes</div>
-            <div className="side-bar-button-2">+ Create New Note</div>
+            <div className="side-bar-header"><a href="/">Lambda Notes</a></div>
+            <a className="side-bar-button" href="/">View Your Notes</a>
+            <div className="spacer"></div>
+            <a className="side-bar-button" href="/new">+ Create New Note</a>
         </div>
     )
 }
