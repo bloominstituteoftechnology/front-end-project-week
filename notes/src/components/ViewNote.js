@@ -100,10 +100,12 @@ class ViewNote extends React.Component {
         <NavLink to="/create"><button className="sidebar-button">+ Create New Note</button></NavLink>
       </div>
       <div className="right-bar">
-        <button onClick={this.toggleEdit}>Edit      </button>
-        <a href="#" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</a>
-        <h3 className="note-list-header">{this.state.note ? (this.state.editingNote ? <input name="title" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
-        <p>{this.state.note ? (this.state.editingNote ? <input name="textBody" value={this.state.textBody} onChange={this.handleChange}/> : this.state.note.textBody) : "Loading..."}</p>
+        <div className="view-note-buttons">
+        <button className="view-note-button" onClick={this.toggleEdit}>Edit      </button>
+        <button className="view-note-button" href="#" onClick={() => {this.deleteNote(this.props.match.params.id)}}>Delete</button>
+        </div>
+        <h3 className="view-note-header">{this.state.note ? (this.state.editingNote ? <input name="title" className="title-input" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
+        <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : this.state.note.textBody) : "Loading..."}</p>
         {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}}>Save</button> : null}
       </div>
     </div>

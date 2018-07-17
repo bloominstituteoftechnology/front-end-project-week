@@ -74,6 +74,8 @@ body {
   background: white;
   padding: 10px;
   text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sidebar-button {
@@ -116,8 +118,55 @@ body {
 
 .content-input {
   display: block;
-  height: 200px;
-  width: 400px;
+  height: 300px;
+  width: 85%;
   margin-left: 100px;
+  font-size: 18px;
+  word-break: break-all;
+}
+
+.testing-form {
+
+}
+
+.view-edit-link {
+  text-decoration: none;
+  color: black;
+}
+
+.save-create {
+  float: left;
+  margin-left: 100px;
+}
+
+.view-note-buttons {
+  float: right;
+}
+
+.view-note-button {
+  color: white;
+  height: 45px;
+  width: 100px;
+  background: #2BC1C4;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid black;
+  margin-right: 20px;
+}
+
+.view-note-header {
+  text-align: left;
+  padding-left: 20px;
+  font-size: 24px;
+  margin-left: 25px;
+}
+
+.view-note-body {
+  text-align: left;
+  width: 90%;
+  margin-left: 5%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: medium;
+  line-height: 32px;
   font-size: 18px;
 }

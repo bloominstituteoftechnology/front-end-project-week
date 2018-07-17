@@ -13,7 +13,7 @@ class NoteTab extends React.Component {
     return (
       <div className="note-tab" onClick={this.viewNote}>
       <div className="note-tab-header">{this.props.note.title}</div>
-      <p className="note-tab-body">{this.props.note.textBody.slice(0,100)}</p>
+      <p className="note-tab-body">{this.props.note.textBody.length > 100 ? this.props.note.textBody.slice(0,100) + " (...)" : this.props.note.textBody}</p>
       </div>
     )
   }

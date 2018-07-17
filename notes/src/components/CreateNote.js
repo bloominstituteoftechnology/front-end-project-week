@@ -43,9 +43,9 @@ class CreateNote extends React.Component {
         <form className="testing-form" onSubmit={this.saveNote}>
         <input className="title-input" name="title" placeholder="note title" value={this.state.title} onChange={this.handleChange}/>
         <br/>
-        <input name="content" className="content-input" placeholder="Note Content" value={this.state.content} onChange={this.handleChange}/>
+        <textarea name="content" className="content-input" placeholder="Note Content" value={this.state.content} onChange={this.handleChange}></textarea>
         <br/>
-        <button className="sidebar-button" type="submit">Save</button>
+        <button className="sidebar-button save-create" type="submit">Save</button>
         </form>
       </div>
     </div>
