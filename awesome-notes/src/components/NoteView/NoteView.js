@@ -22,7 +22,6 @@ const NoteView = props => {
       <EditDeleteLinks />
       <ContentHeading message={currentNote.title} />
       <ContentParagraph>{currentNote.textBody}</ContentParagraph>
-      <h3>{props.match.params._id}</h3>
     </NoteViewWrapper>
   );
 };
