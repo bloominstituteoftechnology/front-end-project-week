@@ -10,7 +10,7 @@ class Note extends React.Component {
 
         this.state = {
             modal: false,
-            tag: 'test tag'
+            tag: ''
         }
     }
 
@@ -26,10 +26,16 @@ class Note extends React.Component {
         this.props.setNull();
     }
 
+    handleInput = event => {
+        this.setState({ tag: event.target.value });
+    }
+
     addTag = () => {
-        const note = { tags: [], title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
+        if (this.state.tag === '') return;
+
+        const note = { tags: this.props.note.tags, title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
         note.tags.push(this.state.tag);
-        
+
         this.props.editNote(note);
         this.setState({ tag: '' });
     }
@@ -50,7 +56,7 @@ class Note extends React.Component {
         // Displays single note / Modal
         return (
             <React.Fragment>
-                {this.props.fetching || this.props.editing ? <div>Loading info...</div> :
+                {this.props.fetching ? <div>Loading info...</div> :
                     <div className='note-container'>
 
                         <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal} />
@@ -61,11 +67,22 @@ class Note extends React.Component {
                         </div>
 
                         <div className='title-tag-container'>
+
                             <h3 className='note-header'>{this.props.note.title}</h3>
-                            <form onSubmit={event => event.preventDefault()}>
-                                <input className='add-tag-field' type='text' placeholder='Add tag...' />
-                                <input onClick={this.addTag} type='submit' hidden />
-                            </form>
+
+                            <div className='note-tags-container'>
+
+                                {this.props.note.tags ? this.props.note.tags.map((tag, index) =>
+                                    <span className='note-tags' key={index}>{tag} <i className="fas fa-times"></i> </span>) : null}
+
+                                <form className='add-tag-form' onSubmit={event => event.preventDefault()}>
+                                    <input className='add-tag-field' onChange={this.handleInput} value={this.state.tag} type='text' placeholder='Add tag...' />
+                                    <input onClick={this.addTag} type='submit' hidden />
+                                </form>
+
+                            </div>
+
+
                         </div>
 
                         <p className='notes-paragraph'>{this.props.note.textBody}</p>
@@ -81,7 +98,7 @@ const mapStateToProps = state => {
     return {
         note: state.note,
         fetching: state.fetchingNote,
-        editing: state.editingNote
+        fetched: state.noteFetched
     }
 }
 

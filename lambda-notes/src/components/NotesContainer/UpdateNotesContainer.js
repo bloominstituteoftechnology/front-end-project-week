@@ -25,7 +25,12 @@ class UpdateNotesContainer extends React.Component {
 
                         <h3 className='notes-header'>Edit Note:</h3>
                         <div className='notes-cards'>
-                            <NotesForm history={this.props.history} title={this.props.note.title} content={this.props.note.textBody} id={this.props.note._id} />
+                            <NotesForm
+                                history={this.props.history}
+                                title={this.props.note.title}
+                                content={this.props.note.textBody}
+                                id={this.props.note._id}
+                                tags={this.props.note.tags} />
                         </div>
                     </div >
                 }

@@ -49,8 +49,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('ERROR', state.error);
-  console.log('NOTES', state.notes);
   return {
     notes: state.notes,
     fetching: state.fetchingNotes

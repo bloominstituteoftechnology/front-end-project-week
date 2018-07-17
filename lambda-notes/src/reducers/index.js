@@ -39,7 +39,7 @@ export default (state = initialState, action) => {
 
             let createNote = state.notes.slice();
             createNote.push(data);
-            
+
             return { ...state, notes: createNote, creatingNote: false, noteCreated: true };
 
         case EDITING_NOTE:
@@ -53,7 +53,6 @@ export default (state = initialState, action) => {
                 }
                 return note;
             })
-            console.log(updateNote);
             return { ...state, notes: updateNote, note: action.payload, editingNote: false, noteEdited: true };
 
         case DELETING_NOTE:
@@ -64,7 +63,7 @@ export default (state = initialState, action) => {
             return { ...state, notes: deleteNote, deleteNote: false, noteDeleted: true };
 
         case SET_NULL:
-            return { ...state, note: [] }
+            return { ...state, note: [], noteFetched: false }
 
         case ERROR:
             return { ...state, error: action.payload };

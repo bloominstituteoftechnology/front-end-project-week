@@ -181,6 +181,7 @@ body {
 
 .note-container {
   background: #F3F3F3;
+  max-width: 667px;
   width: 100%;
 }
 
@@ -284,19 +285,56 @@ body {
 
 .add-tag-field {
   max-width: 100px;
-  margin-left: -5px;
+  margin-left: 5px;
   background: none;
   border: none;
   font-size: 12px;
   padding: 0 5px;
+  outline: none;
+}
+
+.add-tag-form {
+  margin-top: 5px;
+  display: flex;
+}
+
+.add-tag-field:focus {
+  background: #D9E8EF;
 }
 
 .title-tag-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .search-form {
   display: flex;
   justify-content: center;
+}
+
+.note-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-tags {
+  font-size: 12px;
+  background: #D9E8EF;
+  margin: 5px;
+  padding: 2px 0;
+  padding-right: 5px;
+  padding-left: 12px;
+}
+
+.note-tags i {
+  font-size: 10px;
+  visibility: hidden;
+}
+
+.note-tags:hover i{
+  visibility: visible;
+}
+
+.note-tags:hover{
+  color: #6A81DE;
 }
