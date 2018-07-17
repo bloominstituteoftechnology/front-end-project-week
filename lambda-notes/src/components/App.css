@@ -294,7 +294,7 @@ body {
 }
 
 .add-tag-form {
-  margin-top: 5px;
+  margin: 5px 0;
   display: flex;
 }
 
@@ -329,6 +329,7 @@ body {
 .note-tags i {
   font-size: 10px;
   visibility: hidden;
+  cursor: pointer;
 }
 
 .note-tags:hover i{

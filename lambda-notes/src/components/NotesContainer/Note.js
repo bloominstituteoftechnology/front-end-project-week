@@ -40,6 +40,13 @@ class Note extends React.Component {
         this.setState({ tag: '' });
     }
 
+    deleteTag = index => {
+        const note = { tags: this.props.note.tags, title: this.props.note.title, textBody: this.props.note.textBody, id: this.props.note._id }
+        note.tags.splice(index, 1);
+
+        this.props.editNote(note);
+    }
+
     deleteNote = () => {
         // Deletes note / Removes Modal / Takes back to notes
         this.props.deleteNote(this.props.note._id);
@@ -53,6 +60,7 @@ class Note extends React.Component {
     }
 
     render() {
+        console.log(this.props.note)
         // Displays single note / Modal
         return (
             <React.Fragment>
@@ -73,7 +81,7 @@ class Note extends React.Component {
                             <div className='note-tags-container'>
 
                                 {this.props.note.tags ? this.props.note.tags.map((tag, index) =>
-                                    <span className='note-tags' key={index}>{tag} <i className="fas fa-times"></i> </span>) : null}
+                                    <span className='note-tags' key={tag + index}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </span>) : null}
 
                                 <form className='add-tag-form' onSubmit={event => event.preventDefault()}>
                                     <input className='add-tag-field' onChange={this.handleInput} value={this.state.tag} type='text' placeholder='Add tag...' />
