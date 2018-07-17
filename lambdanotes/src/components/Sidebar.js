@@ -1,13 +1,14 @@
 import React from 'react';
-// import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import '../styles/Sidebar.css';
 
 
 const Sidebar = () => {
     return (
-        <div>
+        <div className="Sidebar">
         <h2>Lambda Notes</h2>
-        <button>View Your Notes</button>
-        <button>+ Create New Note</button>
+        <Link to='/'><button>View Your Notes</button></Link>
+        <Link to='/createNote'><button>+ Create New Note</button></Link>
         </div>
     )
 }

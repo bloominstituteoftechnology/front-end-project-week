@@ -1,0 +1,13 @@
+.Viewnote {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    /* height: 200px; */
+    width: 200px;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+/* .Viewnote p {
+    align-items: center;
+} */

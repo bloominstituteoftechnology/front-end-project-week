@@ -39,6 +39,7 @@ class App extends Component {
       <div className="App">
       <Sidebar />
       {/* <Route exact path='/' component={NoteList} /> */}
+      <h2>Your Notes:</h2>
       {this.state.notes.map(note => {
         return <ViewNote key={note.id} note={note} /> 
       })}
