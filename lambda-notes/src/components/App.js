@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Authenticate from './Authenticate/Authenticate';
 import Note from './NotesContainer/Note';
 import UpdateNotesContainer from './NotesContainer/UpdateNotesContainer';
 import SideBarContainer from './SideBarContainer/SideBarContainer';
@@ -43,4 +44,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { getNotes })(App));
+export default Authenticate(withRouter(connect(mapStateToProps, { getNotes })(App)));
