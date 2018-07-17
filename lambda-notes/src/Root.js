@@ -5,14 +5,15 @@ import Note from './components/Note';
 import NewNote from './components/NewNote';
 import EditNote from './components/EditNote';
 
+
 const Root = props => {
     return(
 
 <div>
-<Route path='/' component={App} />
-<Route path='/note' component={Note} />
+<Route exact path='/' component={App} />
 <Route path='/new' component={NewNote} />
-<Route path='/edit' component={EditNote} />
+{/*<Route path='/edit/:id' component={EditNote} />*/}
+<Route path='/note/:id' render = {(props) => <Note {...props} />} />
 </div>
         
     )
