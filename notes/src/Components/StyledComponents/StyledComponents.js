@@ -59,6 +59,7 @@ box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
 export const Sidebar = styled.div`
 display: flex;
 flex-direction: column;
+align-items: center;
 border-bottom-left-radius: 10px;
 width: 20%;
 height: 80vh;
@@ -68,6 +69,8 @@ box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
 
 `
 export const TopBar = styled.div`
+display:flex;
+align-items: center;
 width: 70%;
 height: 50px;
 position: relative;
@@ -117,4 +120,34 @@ background: -o-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5
 background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 25%, rgba(255,255,255,0.73) 33%, rgba(255,255,255,1) 63%, rgba(255,255,255,1) 100%);
 background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 25%, rgba(255,255,255,0.73) 33%, rgba(255,255,255,1) 63%, rgba(255,255,255,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+`
+
+export const PrimaryButton = styled.div `
+min-width: 75px;
+margin-top: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #2BC1C4;
+color: white;
+width: 100%;
+height: 30px;
+box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+            0 5px 15px 0 rgba(0,0,0,0.08);
+
+`
+export const Header = styled.span`
+font-size: 20px;
+font-weight: bold;
+color: white;
+padding-left: 10px;
+padding-right: 10px;
+border-left: 1px solid grey;
+`
+
+export const LinkBar = styled.span`
+font-size: 10px;
+color: grey;
+padding-left: 10px;
+padding-right: 10px;
 `

@@ -7,7 +7,7 @@ const FlexDiv = styled.div`
  display: flex;
  justify-content: flex-start; 
  align-items: center;
-
+ margin-right: 20px;
  text-decoration: none;
 
  height: 48px;
@@ -35,7 +35,6 @@ text-align: left;
 margin: 0;
 padding: 0;
 color: grey;
-
 `
 
 const Stacker = styled.div`
@@ -45,8 +44,6 @@ align-items: flex-start;
 justify-content: space-around;
 height: 20px;
 `
-
-
 
 const UserMiniCard = (props) => {
     return (
