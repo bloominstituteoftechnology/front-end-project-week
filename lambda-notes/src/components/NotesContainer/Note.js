@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getNote, deleteNote, setNull } from '../../actions';
 import { Link } from 'react-router-dom';
+import ModalContainer from '../ModalContainer/ModalContainer';
 
 class Note extends React.Component {
     constructor(props) {
@@ -25,6 +26,10 @@ class Note extends React.Component {
     deleteNote = () => {
         this.props.deleteNote(this.props.note._id);
         this.props.history.push('/notes');
+        this.toggleModal();
+    }
+
+    toggleModal = () => {
         this.setState({ modal: false });
     }
 
@@ -34,19 +39,7 @@ class Note extends React.Component {
                 {this.props.fetching || this.props.editing ? <div>Loading info...</div> :
                     <div className='note-container'>
 
-                        <div className='modal' style={this.state.modal ? { display: 'block' } : null}>
-
-                            <div className="modal-content">
-                                <p className='modal-text'>Are you sure you want to delete this?</p>
-
-                                <div className='modal-buttons'>
-                                    <button onClick={this.deleteNote} className='delete-button'>Delete</button>
-                                    <button onClick={() => this.setState({ modal: false })} className='cancel-button'>No</button>
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal}/>
 
                         <div className='note-links'>
                             <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
