@@ -1,5 +1,7 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Col, Nav, NavItem } from "reactstrap";
+
 import VerticalNavButton from "./VerticalNavButton";
 
 export default class VerticalNav extends React.Component {
@@ -9,10 +11,14 @@ export default class VerticalNav extends React.Component {
         <h1>Lambda Notes</h1>
         <Nav vertical>
           <NavItem>
-            <VerticalNavButton text="View Your Notes" />
+            <NavLink to="/list-view">
+              <VerticalNavButton text="View Your Notes" />
+            </NavLink>
           </NavItem>
           <NavItem>
-            <VerticalNavButton text="+ Create New Note" />
+            <NavLink to="/create-new-view">
+              <VerticalNavButton text="+ Create New Note" />
+            </NavLink>
           </NavItem>
         </Nav>
       </Col>

@@ -1,14 +1,23 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
+
 import VerticalNav from "./VerticalNav/VerticalNav";
 import ListView from "./ListView/ListView";
 import CreateNewView from "./CreateNewView/CreateNewView";
+import NoteView from "./NoteView/NoteView";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       notes: [
+        {
+          id: 0,
+          title: "Note Title",
+          content:
+            "Lorem fugiat consectetur laborum incididunt id minim duis mollit ea dolore dolor irure."
+        },
         {
           id: 1,
           title: "Note Title",
@@ -89,20 +98,37 @@ class App extends Component {
 
   render() {
     return (
-      <Container>
-        <Row>
-          <VerticalNav />
-          <Col xs="9">
-            <CreateNewView
-              handleInputChange={this.handleInputChange}
-              handleSubmit={this.handleSubmit}
-            />
-            <ListView notes={this.state.notes} />
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <Container>
+          <Row>
+            <VerticalNav />
+            <Col xs="9">
+              <Switch>
+                <Route
+                  path="/list-view"
+                  render={() => <ListView notes={this.state.notes} />}
+                />
+                <Route
+                  path="/create-new-view"
+                  render={() => (
+                    <CreateNewView
+                      handleInputChange={this.handleInputChange}
+                      handleSubmit={this.handleSubmit}
+                    />
+                  )}
+                />
+                <Route
+                  path="/note-view/:id"
+                  render={props => <NoteView {...props} {...this.state} />}
+                />
+              </Switch>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 }
 
 export default App;
+//render={() => <NoteView note={this.state.notes[id]} />}
