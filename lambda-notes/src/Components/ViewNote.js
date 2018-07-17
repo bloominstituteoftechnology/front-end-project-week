@@ -6,7 +6,7 @@ class ViewNote extends React.Component {
         super(props);
         this.state = {
             id: null,
-            notes: []
+            notes: [],
         };
     }
     componentDidMount() {
@@ -19,7 +19,7 @@ class ViewNote extends React.Component {
                 <div key={note.id}>
                     <div className='note-header'>
                         <Link to={`/edit/${note.id}`} className='btn'>edit</Link>
-                        <Link to='/' className='btn'>delete</Link>
+                        <h1 onClick={this.props.toggleDeleting} className='btn'>delete</h1>
                     </div>
                     <h1>{note.title}</h1>
                     <p>{note.content}</p>    
