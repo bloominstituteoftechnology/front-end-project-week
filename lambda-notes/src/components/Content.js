@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ListView from './ListView'
-import CreateNoteView from './CreateNoteView'
+import CreateNote from './CreateNote'
 import { Route } from 'react-router-dom';
+import ViewNoteContainer from './ViewNoteContainer'
 
 class Content extends Component {
   render() {
@@ -10,9 +11,11 @@ class Content extends Component {
         {/* Home Page */}
         <Route exact path="" render={(props) => <ListView {...props} notes={this.props.notes} />} /> 
         {/* List Notes View */}
-        <Route path="/list-notes" render={(props) => <ListView {...props} notes={this.props.notes} />} /> 
+        <Route exact path="/list-notes" render={(props) => <ListView {...props} notes={this.props.notes} />} /> 
         {/* Create Notes View */}
-        <Route exact path="/create-note" render={(props) => <CreateNoteView {...props} saveNewNote={this.props.saveNewNote}/>} />
+        <Route exact path="/create-note" render={(props) => <CreateNote {...props} saveNewNote={this.props.saveNewNote}/>} />
+        {/* View Note */}
+        <Route exact path="/view-note/:id" render={(props) => <ViewNoteContainer {...props} notes={this.props.notes}/>} />
       </div>
     );
   }

@@ -60,7 +60,7 @@ class App extends Component {
           "textBody": "You're a clumsy, ham fisted idiot! Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. Hello-o-o-o. It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? You may be a doctor. But I'm the Doctor. The definite article, you might say. What?! Come out. And don't touch anything! Come on! It may be irrational of me, but human beings are my favorite species. Shut up, K-9! I might've been saying something important. I was saying something important! Would you like a jelly baby? Hello-o-o-o. I might've been saying something important. I was saying something important! Well, my Doctorate is purely honorary and Harry is only qualified to work on sailors. Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. You're standing on my scarf. What?! Come out. And don't touch anything! Shut up, K-9! Have a jelly baby. The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible.",
         },
         {
-          "id": 1531765758224,  
+          "id": 1531765758225,  
           "tags": ["tag", "otherTag"],
           "title": "Doctor Who",
           "textBody": "You're a clumsy, ham fisted idiot! Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. Hello-o-o-o. It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? You may be a doctor. But I'm the Doctor. The definite article, you might say. What?! Come out. And don't touch anything! Come on! It may be irrational of me, but human beings are my favorite species. Shut up, K-9! I might've been saying something important. I was saying something important! Would you like a jelly baby? Hello-o-o-o. I might've been saying something important. I was saying something important! Well, my Doctorate is purely honorary and Harry is only qualified to work on sailors. Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. You're standing on my scarf. What?! Come out. And don't touch anything! Shut up, K-9! Have a jelly baby. The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible.",
@@ -95,10 +95,6 @@ class App extends Component {
   }
 
   saveNewNote = (noteTitle, noteTextBody) => {
-    console.log('save')
-    console.log(noteTitle)
-    console.log(noteTextBody)
-
     let newNote = {
       "id":Date.now(),
       "tags": ["tag", "doctor4"],

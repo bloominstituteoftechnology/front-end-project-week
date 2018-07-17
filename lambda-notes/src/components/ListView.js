@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NoteCardContainer = styled.div`
   display:flex;
@@ -21,7 +22,7 @@ class ListView extends Component {
   render() {
     return (
       <NoteCardContainer>
-        {this.props.notes.map ( note => <NoteCard key={Math.random()}><h2>{note.title}</h2><p>{note.textBody}</p></NoteCard>) }
+        {this.props.notes.map ( note => <Link to={`view-note/${note.id}`} key={Math.random()}><NoteCard><h2>{note.title}</h2><p>{note.textBody}</p></NoteCard></Link>) }
       </NoteCardContainer>
     );
   }

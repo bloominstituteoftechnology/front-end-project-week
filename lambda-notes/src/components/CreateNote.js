@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class CreateNoteView extends Component {
+class CreateNote extends Component {
   constructor(props){
     super()
     this.title = React.createRef();
@@ -25,4 +25,4 @@ class CreateNoteView extends Component {
   }
 }
 
-export default CreateNoteView;
+export default CreateNote;
