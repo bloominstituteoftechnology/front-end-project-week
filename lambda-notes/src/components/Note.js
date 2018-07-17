@@ -31,6 +31,9 @@ class Note extends Component {
     editNote = () => {
         this.setState({edit: true})
     }
+    deleteNote = () => {
+       this.setState({edit: true})
+    }
 
     render() {
         return (
@@ -44,7 +47,7 @@ class Note extends Component {
                 <Container>
                     <div className="edit-delete">
                         <a onClick={this.editNote}>edit</a>
-                        <a>delete</a>
+                     <a onClick={this.editNote}>delete</a>
                     </div>
                     <h3 className="heading">{this.state.title}</h3>
                     <Row>

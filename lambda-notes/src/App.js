@@ -49,7 +49,12 @@ class App extends Component {
     this.setState({notes: notes.concat(note)});
   }
 
-
+  deleteNote = id => {
+    const notes = this.state.notes;
+    const index = notes.indexOf(id);
+    let newNotes = notes.splice(index, 1);
+    this.setState({notes: newNotes});
+  }
 
   render() {
     const notes = this.state.notes;
@@ -59,6 +64,7 @@ class App extends Component {
       <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
       <Route path="/:id" render={props => <Note {...props} notes={notes}/>}/>
       <Route path="/NewNote" render={props => <NewNote NewNote={this.NewNote} />}/>
+       <Route path="/note/edit/:id" component={NewNote}/>
       </div>
     );
   }
