@@ -8,19 +8,13 @@ import { Route } from 'react-router-dom';
 
 const StyledContainer = styled.div`
   display: flex;
-  width: 1000px; 
+  width: 1000px;
   margin: 0 auto;
   height: 100vh;
   font-family: 'Raleway', sans-serif;
 `
 
-const StyledComponent = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  background: #F3F3F3;
-  width: 100%;
-`
+
 
 class App extends Component {
   constructor() {
@@ -91,11 +85,9 @@ class App extends Component {
   render() {
     return (
       <StyledContainer>
-        <StyledComponent>
         <Route path="/" component={LambdaNav} />
-        <Route axact path ="/" render={props =>(<LambdaNotes {...props} notes={this.state.notes} />)} />
+        <Route exact path ="/" render={props =>(<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />  
-        </StyledComponent>
       </StyledContainer>
     )
   }
