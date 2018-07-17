@@ -29,8 +29,10 @@ class NotesForm extends React.Component {
     editNote = () => {
         const note = { title: this.state.title, textBody: this.state.content, id: this.props.id }
 
+        if (this.state.title === '' || this.state.content === '') return;
+
         this.props.editNote(note);
-        this.props.history.push('/notes')
+        this.props.history.push(`/notes/${this.props.id}`)
         this.setState({ title: '', content: '' });
     }
 

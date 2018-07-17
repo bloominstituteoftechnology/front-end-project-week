@@ -218,6 +218,7 @@ body {
   font-weight: bold;
   border: #979797;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .cancel-button {
@@ -226,6 +227,7 @@ body {
   color: #FFFFFF;
   background: #2BC1C4;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .modal-buttons {

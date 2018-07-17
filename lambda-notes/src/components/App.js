@@ -16,7 +16,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.fetching);
     return (
       <div className="App">
 
@@ -38,8 +37,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.data);
-  console.log(state.error);
+  console.log(state.notes);
   return {
     notes: state.notes,
     fetching: state.fetchingNotes

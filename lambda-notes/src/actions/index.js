@@ -20,7 +20,6 @@ export const SET_NULL = 'SET_NULL';
 export const ERROR = 'ERROR';
 
 export const getNotes = () => {
-    console.log('testing');
     const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all');
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });

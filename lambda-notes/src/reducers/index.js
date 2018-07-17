@@ -22,12 +22,14 @@ export default (state = initialState, action) => {
             return { ...state, fetchingNotes: true };
 
         case NOTES_FETCHED:
+        console.log('Notes:', action.payload);
             return { ...state, notes: action.payload, fetchingNotes: false, notesFetched: true };
 
         case FETCHING_NOTE:
             return { ...state, fetchingNote: true };
 
         case NOTE_FETCHED:
+            console.log('Note:', action.payload);
             return { ...state, note: action.payload, fetchingNote: false, noteFetched: true };
 
         case CREATING_NOTE:
@@ -53,7 +55,7 @@ export default (state = initialState, action) => {
                 }
                 return note;
             })
-            return { ...state, notes: updateNote, editingNote: false, noteEdited: true };
+            return { ...state, notes: updateNote, note: action.payload, editingNote: false, noteEdited: true };
 
         case DELETING_NOTE:
             return { ...state, deletingNote: true };
