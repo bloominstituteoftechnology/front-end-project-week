@@ -8,12 +8,16 @@ class EditNote extends Component {
         super(props);
         this.state = { 
             title: '',
-            text: '',
+            textBody: '',
          }
     }
 
     componentDidMount() {
-
+        
+        this.setState({
+            title: this.props.notes.title,
+            textBody: this.props.notes.textBody
+        })
     }
 
     handleChange = e => {
@@ -23,10 +27,11 @@ class EditNote extends Component {
     handleSave = e => {
         e.preventDefault();
         const newObj = {
+            id: this.props.notes._id,
             title: this.state.title,
-            text: this.state.text,
-            id: Math.random(),
+            textBody: this.state.textBody
         }
+        this.props.editingNote(newObj)
         this.props.history.push('/');
     }
 
@@ -38,7 +43,7 @@ class EditNote extends Component {
 
                 <div className='formCreate'>
                     <input className='inputField inputTitle' placeholder='Note Title' name='title' value={this.state.title} type='text' onChange={this.handleChange} />
-                    <input className='inputField inputText' placeholder='Note Content' name='text' value={this.state.text} type='text' onChange={this.handleChange} />
+                    <input className='inputField inputText' placeholder='Note Content' name='textBody' value={this.state.textBody} type='text' onChange={this.handleChange} />
                     <button className='saveButton' onClick={this.handleSave}>Save</button>
                 </div>
             </div>

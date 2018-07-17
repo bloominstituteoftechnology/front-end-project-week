@@ -67,7 +67,8 @@ export const deletingNote = (_id) => {
 }
 
 export const editingNote = (updatedNote) => {
-  const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${updatedNote._id}`, updatedNote);
+    console.log('udated note id: ', updatedNote)
+  const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${updatedNote.id}`, updatedNote);
   return dispatch => {
     dispatch({ type: FETCHING_NOTES });
     promise.then(response => {
