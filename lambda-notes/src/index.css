@@ -35,7 +35,8 @@ body {
 	margin-top: 8px;
 	margin-right: 25px;
 	float: right;
-	/*background-color: #F3F3F3;*/
+	background-color: #F3F3F3!important;
+	color: #4A4A4A!important;
 }
 
 
@@ -175,6 +176,10 @@ flex-direction: column;
 
 .save-btn{
 	margin: 0px 0px 1px 25px;
+}
+
+.save-btn:hover{
+	background-color: chocolate;
 }
 
 
