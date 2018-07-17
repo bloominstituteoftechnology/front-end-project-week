@@ -9,11 +9,12 @@ const StyledSideBar = styled.div`
     align-items: center;
     background: #D8D8D8;
     width: 25%;
+    max-width: 180px;
     height: 100%;
     border: 2px solid #979797;
     padding: 1%;
     font-family: Roboto Bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #4A4A4A;
 `;
 

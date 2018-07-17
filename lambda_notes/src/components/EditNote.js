@@ -1,5 +1,41 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledEditNote = styled.div`
+    background: #F3F3F3;
+    width: 100%;
+    padding: 5%;
+    font-family: Roboto Bold;
+`;
+
+const H3 = styled.h3`
+    margin: 2% 0;
+`;
+
+const TitleInput = styled.input`
+    width: 50%;
+    min-height: 25px;
+    margin-bottom: 3%;
+`;
+
+const ContentInput = styled.textarea`
+    width: 100%;
+    min-height: 300px;
+`;
+
+const StyledButton = styled.button`
+    background: #2BC1C4;
+    padding: 1%;
+    margin-top: 5%;
+    color: white;
+    border: 2px solid #979797;
+    width: 30%;
+    height: 40px;
+    font-family: Raleway Medium;
+    font-size: 1rem;
+    &:hover{cursor: pointer;}
+`;
 
 class EditNote extends Component {
     constructor(props){
@@ -30,22 +66,22 @@ class EditNote extends Component {
             return <Redirect to='/' />;
         }
         return (
-            <div>
-                <h3>Edit Note:</h3>
+            <StyledEditNote>
+                <H3>Edit Note:</H3>
                 <form onSubmit={this.editNote}>
-                    <input type="text"
+                    <TitleInput type="text"
                             name="editTitle"
                             placeholder="Edit Title"
                             value={this.state.editTitle}
                             onChange={this.handleInput} /><br />
-                    <input type="text"
+                    <ContentInput type="text"
                             name="editBody"
                             placeholder="Edit Content"
                             value={this.state.editBody}
                             onChange={this.handleInput} /><br />
-                    <button>Save</button>
+                    <StyledButton>Update</StyledButton>
                 </form>
-            </div>
+            </StyledEditNote>
         );
     }
     }
