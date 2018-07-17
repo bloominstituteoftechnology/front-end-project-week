@@ -57,7 +57,9 @@ class ListView extends Component {
 function NoteDetails({ note }) {
     const { id, title, textBody } = note;
     return (
-        <NoteView note={note} />
+        <div className="NoteView-wrapper">
+            <NoteView note={note} />
+        </div>
     );
 };
 

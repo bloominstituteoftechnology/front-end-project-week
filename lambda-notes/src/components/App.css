@@ -136,13 +136,22 @@ button:hover {
 }
 
 /* NoteView styles */
-.NoteView-container {
+.NoteView-wrapper {
+  border: 2px solid #979797;
   height: 294px;
+  width: 294px;
+  margin: 16px 4px 16px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.NoteView-container {
+  /* height: 294px;
   width: 294px;
   border: 2px solid #979797;
   margin: 16px 4px 16px 32px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; */
 }
 
 .NoteView-header, .NoteView-note {
@@ -158,6 +167,9 @@ button:hover {
   font-weight: bold;
   font-size: 22px;
   border-bottom: 1px solid black;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .NoteView-note {

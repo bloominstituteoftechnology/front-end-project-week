@@ -9,7 +9,8 @@ class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: null
+            note: null,
+            isSelected: false
         };
     }
 
@@ -30,7 +31,7 @@ class Note extends Component {
         const promise = axios.get(`${URL}/${id}`);
         promise.then(({data}) => {
             console.log(data);
-          this.setState(() => ({ note: data }));
+          this.setState(() => ({ note: data, isSelected: !this.state.isSelected }));
         })
         .catch(error => {
           console.error(error);
@@ -45,9 +46,17 @@ class Note extends Component {
         const { title, textBody } = this.state.note;
         return (
             <div className="Note-container">
-                <div>edit</div>
-                <div>delete</div>
-                <NoteView note={this.state.note} />
+                <div className="Note-header">
+                    <div className="Note-links">
+                        <p>edit</p>
+                        <p>delete</p>
+                    </div>
+                    <h2>{this.state.note.title}</h2>
+                </div>
+                <div className="Note-content">
+                    <p>{this.state.note.textBody}</p>
+                </div>
+                {!this.state.isSelected ? <NoteView note={this.state.note}/> : null}
             </div>
         );
     }
