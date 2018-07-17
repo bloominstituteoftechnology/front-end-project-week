@@ -1,17 +1,16 @@
 import React from 'react'
 import Styled from 'styled-components';
+import {Heading} from './../styles/styles';
+import { Link } from 'react-router-dom';
 import {data} from './../data';
 import axios from 'axios';
+import DeleteModal from './Delete';
 
 const NoteContainer = Styled.div`
-    display: flex;
-    flex-direction: column;          
-    padding: 10px;
-    width: 180px;
-    height: 180px;
-    border: 1px solid #979797;
-    background: #FFFFFF;
-    margin-bottom: 20px;
+display: block;
+width: 100%;
+padding: 10px 25px;
+background: #F3F3F3;
 `;
 
 const NoteHeading = Styled.div`
@@ -33,12 +32,25 @@ const Container = Styled.div`
   display: flex;
 `;
 
+const Edit = Styled.div`
+display: flex;
+width: 100%;
+justify-content: flex-end;
+margin-bottom: 20px;
+`;
+
 class Note extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            note: null
+            note: null,
+            modalOpen: false
         }
+    }
+
+    openModal = (e) => {
+        e.preventDefault();
+        this.setState({modalOpen: !this.state.modalOpen})
     }
 
    componentDidMount () {
@@ -64,9 +76,13 @@ class Note extends React.Component {
     render() {
     return (
         <Container>
-        
+        {this.state.modalOpen ? <DeleteModal /> : null}
         <NoteContainer>
-        <NoteHeading>{this.props.location.state.title}</NoteHeading>
+            <Edit>
+            <Link to={`/edit/${this.props.location.state.id}`} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
+            <a onClick={this.openModal}>delete</a>
+            </Edit>
+        <Heading>{this.props.location.state.title}</Heading>
         <Body>{this.props.location.state.body}</Body>
         </NoteContainer>
         </Container>
