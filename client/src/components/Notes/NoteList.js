@@ -1,8 +1,19 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import * as actions from '../../actions';
 import NoteListItem from './NoteListItem';
+
+const Container = styled.div`
+  padding: 20px;
+`;
+
+const ListContainer = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 class NoteList extends Component {
   static propTypes = {
@@ -12,13 +23,25 @@ class NoteList extends Component {
   componentDidMount() {
     this.props.fetchNotes();
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.notes.note !== this.props.notes.note) {
+      this.props.fetchNotes();
+    }
+  }
   render() {
     const { notes } = this.props.notes;
+    const { error } = this.props.notes;
 
+    if (error) return <h2>{error}</h2>;
     if (!notes) return <h2>Loading...</h2>;
 
     return (
-      <div>{notes.map(note => <NoteListItem {...note} key={note._id} />)}</div>
+      <Container>
+        <h2>Your Notes: </h2>
+        <ListContainer>
+          {notes.map(note => <NoteListItem {...note} key={note._id} />)}
+        </ListContainer>
+      </Container>
     );
   }
 }

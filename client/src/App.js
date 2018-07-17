@@ -1,17 +1,24 @@
-import React, { Component, Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import Notes, { NoteNew, SingleNoteControl } from './components/Notes';
 import SideBar from './components/SideBar';
-// inside of APP, we want to render our sidebar and our NotesList component
+import styled from 'styled-components';
+
+const Container = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30px;
+  display: flex;
+`;
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <Container>
         <SideBar />
         <Route exact path="/" component={Notes} />
         <Route exact path="/notes/new" component={NoteNew} />
         <Route path="/note/get/:id" component={SingleNoteControl} />
-      </Fragment>
+      </Container>
     );
   }
 }
