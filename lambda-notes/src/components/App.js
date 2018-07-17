@@ -6,6 +6,7 @@ import UpdateNotesContainer from './NotesContainer/UpdateNotesContainer';
 import SideBarContainer from './SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer/NotesContainer';
 import CreateNotesContainer from './NotesContainer/CreateNotesContainer';
+import HomeContainer from './HomeContainer/HomeContainer';
 import { Route } from 'react-router-dom';
 import { getNotes } from '../actions';
 import { connect } from 'react-redux';
@@ -24,6 +25,7 @@ class App extends Component {
           <React.Fragment>
 
             <Route path='/' component={SideBarContainer} />
+            <Route exact path='/' component={HomeContainer} />
             <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} />} />
             <Route exact path='/notes/:id' component={Note} />
             <Route path='/notes/:id/edit' component={UpdateNotesContainer} />
