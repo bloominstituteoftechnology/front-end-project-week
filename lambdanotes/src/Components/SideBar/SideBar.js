@@ -9,7 +9,7 @@ const SideBar = () => {
                 <h1>Lambda Notes</h1>
             </div>   
             <Link to='/'>View Your Notes</Link>
-            <Link to='/new'>+Create New Note</Link>
+            <Link to='/new'>+ Create New Note</Link>
         </div>
     )
 }

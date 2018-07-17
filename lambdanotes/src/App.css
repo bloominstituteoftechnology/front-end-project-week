@@ -4,8 +4,21 @@
   box-sizing:border-box;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 .App {
   text-align: center;
+}
+
+.sideBar_pop {
+  position: relative;
+  left:26%;
 }
 
 .App-logo {

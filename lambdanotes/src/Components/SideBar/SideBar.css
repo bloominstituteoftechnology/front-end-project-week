@@ -6,7 +6,7 @@
 
 body {
     background-color: #F3F3F3;
-    height: 100%;
+    
 }
 
 .body {
@@ -16,8 +16,9 @@ body {
 
 .sideBar {
     display: flex;
+    position: fixed;
     flex-direction: column;
-    width: 25%;
+    width: 27%;
     background-color: #D3D2D3;
     padding: 2%;
     height:100vh;
@@ -41,7 +42,7 @@ body {
     color: white;
     margin-top: 8%;
     font-size: 1.4rem;
-    height: 7.5vh;
+    height: 10vh;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +50,7 @@ body {
 
 .sideBar a:hover {
     font-size: 1.6rem;
-    height: 7.7vh;
+    height: 10.5vh;
     cursor: pointer;
 }
 
