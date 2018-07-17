@@ -17,6 +17,9 @@ export default {
   color: {
     headingText: tundoraGray,
     generalText: tundoraGray,
+    modalBG: tundoraGray,
+    modalColor: concreteWhite,
+    modalText: tundoraGray,
     buttonText: white,
     formText: tundoraGray,
     sideBarBG: alto,
@@ -89,7 +92,13 @@ export default {
       inputTextLineHeight: '1.8',
       inputTextPadding: '18px 22px ',
       inputTextMargin: '0 0 4px 0',
-
+      borderWidth: '1px',
+    },
+    noteModal: {
+      modalWidth: '530px',
+      modalWidthNum: 530,
+      modalHeight: '180px',
+      modalYOffSet: '170px',
       borderWidth: '1px',
     }
   }
