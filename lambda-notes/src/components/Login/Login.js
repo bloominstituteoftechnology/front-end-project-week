@@ -1,5 +1,6 @@
 import React from 'react';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor() {
@@ -43,12 +44,12 @@ class Login extends React.Component {
                     <h1 className='login-header'>Lambda Notes</h1>
                     <input className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
                     <input className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
-                    <button
+                    <Link to='/'
                         onClick={this.loginButton}
                         style={this.state.username.length > 0 || this.state.password.length > 0 ? { background: '#2BC1C4' } : { opacity: 0.3 }}
                         className='login-button'>
                         Log In
-                    </button>
+                    </Link>
 
                 </form>
             </div>

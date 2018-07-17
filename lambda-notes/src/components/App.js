@@ -17,6 +17,13 @@ class App extends Component {
     this.props.getNotes();
   }
 
+  logoutButton = () => {
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+    
+    window.location.reload();
+  }
+
   render() {
     return (
       <div className="App">
@@ -24,7 +31,7 @@ class App extends Component {
         {this.props.fetching ? <div>Fetching Notes</div> :
           <React.Fragment>
 
-            <Route path='/' component={SideBarContainer} />
+            <Route path='/' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
             <Route exact path='/' component={HomeContainer} />
             <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} />} />
             <Route exact path='/notes/:id' component={Note} />

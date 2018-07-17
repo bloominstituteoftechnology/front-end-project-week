@@ -54,6 +54,17 @@ body {
   width: 191.22px;
 }
 
+.logout-button {
+  background: #D0021B;
+  color: #FFFFFF;
+  border: 1px solid #979797;
+  padding: 13px 5px;
+  margin: 8.7px 0;
+  font-weight: 700;
+  cursor: pointer;
+  width: 191.22px;
+}
+
 .notes-container {
   background: #F3F3F3
 }
