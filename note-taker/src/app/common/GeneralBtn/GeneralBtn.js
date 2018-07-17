@@ -22,11 +22,9 @@ const GeneralBtn = props => {
     <StyledBtn
       height={props.height}
       width={props.width}
-      onClick={() => {
-        props.actionHandler();
-      }}
+      onClick = {props.onClick}
     >
-      {props.children}
+    {props.children}
     </StyledBtn>
   );
 };
