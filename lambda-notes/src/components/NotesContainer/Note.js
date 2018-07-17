@@ -60,7 +60,6 @@ class Note extends React.Component {
     }
 
     render() {
-        console.log(this.props.note)
         // Displays single note / Modal
         return (
             <React.Fragment>

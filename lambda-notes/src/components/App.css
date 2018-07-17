@@ -295,6 +295,7 @@ body {
 
 .add-tag-form {
   margin: 5px 0;
+  min-height: 18px;
   display: flex;
 }
 
