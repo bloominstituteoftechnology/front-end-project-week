@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Note from "./Note";
+
+
 
 const NotesList = props =>  {
     return (
@@ -12,10 +13,11 @@ const NotesList = props =>  {
               <Link
                 className="note-link"
                 to={`/notes/${note.id}`}
+                key={note.id}
               >
-              <h1>{note.title.substring(0, 20)}</h1>
+              <h1>{note.title.substring(0, 10)}</h1>
               <hr /> 
-              <p>{note.content.substring(0, 150)}</p>
+              <p>{note.content.substring(0, 50)}</p>
             </Link>
             );
           })}
