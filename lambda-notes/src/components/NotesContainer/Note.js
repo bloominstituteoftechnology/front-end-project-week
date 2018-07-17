@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getNote, editNote, deleteNote, setNull } from '../../actions';
+import { getNote, getNotes, editNote, deleteNote, setNull } from '../../actions';
 import { Link } from 'react-router-dom';
 import ModalContainer from '../ModalContainer/ModalContainer';
 
@@ -24,6 +24,7 @@ class Note extends React.Component {
     componentWillUnmount() {
         // Removes note when unmounted
         this.props.setNull();
+        this.props.getNotes();
     }
 
     handleInput = event => {
@@ -109,4 +110,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getNote, editNote, deleteNote, setNull })(Note);
+export default connect(mapStateToProps, { getNote, getNotes, editNote, deleteNote, setNull })(Note);

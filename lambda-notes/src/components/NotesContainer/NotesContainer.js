@@ -20,7 +20,9 @@ class NotesContainer extends React.Component {
         let search = this.state.searchString.trim().toLowerCase().replace(/\\/g, "\\\\");
 
         if (search.length > 0) {
-            notes = notes.filter(note => note.title.toLowerCase().match(search) || note.textBody.toLowerCase().match(search));
+            notes = notes.filter(note => note.title.toLowerCase().match(search)
+                || note.textBody.toLowerCase().match(search)
+                || note.tags.filter(tag => tag.toLowerCase().match(search)).length > 0);
         }
 
         return (
