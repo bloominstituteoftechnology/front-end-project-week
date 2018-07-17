@@ -1,0 +1,28 @@
+.nav-container{
+    display: flex;
+    padding: 1rem;
+    width: 195px;
+    height: 100vh;
+    background: #d3d3d3;
+    flex-direction: column;
+}
+.nav_container{
+    margin: 0;
+
+}
+.nav-button{
+    display: flex;
+    background-color: #5CBDC2;
+    margin : 1rem 0 0 0;
+    border: 1px solid #86AEB1;
+    height: 40px;
+    color: white;
+    font-weight: 800;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-items: center
+}
+
+.nav-header{
+    margin: 0;
+}

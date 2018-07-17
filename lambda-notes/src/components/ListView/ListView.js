@@ -1,9 +1,17 @@
 import React from 'react';
+import './index.css'
+import Note from '../Note/Note';
 
-const ListView = () => {
+
+const ListView = (props) => {
     return (
-        <div>
-            ListView
+        <div className='main-container'>
+            <div className='noteList-container'>
+                <div className="note-header"><h2>Your Notes:</h2></div>
+                <div className="noteList">
+                    {props.notes.map(note => <Note tittle = {note.title} body={note.body} key={note.id} />)}
+                </div>
+            </div>
         </div>
     );
 };
