@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import Create from "./components/Create";
 import "./App.css";
 import ViewNote from "./components/ViewNote";
+import EditNote from "./components/EditNote";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           path="/note/:id"
           component={ViewNote}
         />
+        <Route exact path="/edit" component={EditNote} />
       </div>
     );
   }

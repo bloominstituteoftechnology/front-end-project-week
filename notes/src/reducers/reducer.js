@@ -57,7 +57,12 @@ export const notesReducer = (
       });
     case EDIT_NOTE:
       let notes = state.notes.slice();
-      notes.push(action.payload);
+      notes = notes.map(note => {
+        if (note.id === action.payload.id) {
+          note = action.payload;
+        }
+        return note;
+      });
       return Object.assign({}, state, { notes: notes });
     default:
       return state;

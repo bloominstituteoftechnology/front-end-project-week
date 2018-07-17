@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, FormGroup, Input, Button } from "reactstrap";
+import { editNote } from "../actions/action";
 
 class EditNote extends React.Component {
   constructor() {
@@ -16,13 +17,17 @@ class EditNote extends React.Component {
     });
   };
   editNote = event => {
-    console.log("hiiiii");
+    console.log("props: ", this.props.singleNote[0].id);
     event.preventDefault();
     let edited = {
       title: this.state.editedTitle,
-      body: this.state.editedBody
+      body: this.state.editedBody,
+      id: this.props.singleNote[0].id
     };
-    this.editNote(edited);
+    this.props.editNote(
+      edited,
+      this.props.singleNote[0].id
+    );
   };
   render() {
     return (
@@ -54,11 +59,12 @@ class EditNote extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    singleNote: state.singleNote
   };
 };
 
 export default connect(
   mapStateToProps,
-  {}
+  { editNote }
 )(EditNote);

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import EditNote from "./EditNote";
-import { Route } from "react-router-dom";
+import { Button } from "reactstrap";
+
 class ViewNote extends React.Component {
   constructor() {
     super();
@@ -16,7 +16,7 @@ class ViewNote extends React.Component {
         <Link exact to="/edit">
           Edit
         </Link>
-        <Route exact path="/edit" component={EditNote} />
+        <Button color="primary">Delete</Button>
         <p>{this.props.singleNote[0].title}</p>
         <p>{this.props.singleNote[0].body}</p>
       </div>
