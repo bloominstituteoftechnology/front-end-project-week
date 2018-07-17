@@ -50,7 +50,7 @@ button {
 
 main {
   grid-area: main;
-  padding: 60px 12px 27px 27px;
+  padding: 60px 15px 27px 27px;
   background-color: #f3f3f3;
 }
 
@@ -120,7 +120,10 @@ input {
   padding: 15px;
   border: 1px #979797 solid;
   border-radius: 3px;
+  outline: 0;
   background-color: #fff;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 textarea {
@@ -131,17 +134,44 @@ textarea {
   padding: 15px;
   border: 1px #979797 solid;
   border-radius: 3px;
+  outline: 0;
   background-color: #fff;
   resize: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
-.note-view__content {
-  max-width: 700px;
+.note-view {
   width: 100%;
+  padding: 20px 15px 27px 27px;
 }
 
 .note-view__content {
+  display: block;
+  max-width: 1000px;
   line-height: 3rem;
+}
+
+.note-view-control {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1000px;
+  margin: 0 0 25px 0;
+}
+
+.note-view-control__button {
+  display: inline-block;
+  width: auto;
+  margin: 0 0 0 15px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700; 
+  color: #4a4a4a;
+  text-decoration: underline;
+  outline: 0;
+  font-size: 1.6rem;
 }
 
 /*

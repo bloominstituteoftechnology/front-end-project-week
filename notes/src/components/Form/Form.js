@@ -20,15 +20,33 @@ class Form extends Component {
   };
 
   onSubmit = () => {
-    this.props.onSubmitNote(this.state.note);
-    this.setState({note: {
-      title: '',
-      noteContent: ''
-    }});
-    console.log('submitted');
+    if (this.state.id) {
+      this.props.onSubmitNote(this.state.id, this.state.note);
+      console.log('click update');
+    } else {
+      this.props.onSubmitNote(this.state.note);
+      this.setState({note: {
+        title: '',
+        noteContent: ''
+      }});
+      console.log('click save', this.state.id);
+    }
   };
 
+  componentDidUpdate = prevProps => {
+    if(prevProps.note !== this.props.note) {
+      this.setState({
+        id: this.props.id,
+        note: {
+          title: this.props.note.title,
+          noteContent: this.props.note.noteContent
+        }
+      });
+    }
+  }
+
   render() {
+
     return (
       <form>
         <input 

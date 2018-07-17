@@ -12,6 +12,15 @@ class NoteView extends Component {
     };
   }
 
+  onClickEdit = e => {
+    e.preventDefault();
+    window.location.href = `/edit/${this.state.id}`;
+  }
+
+  onClickDelete = e => {
+    e.preventDefault();
+  }
+
   componentDidUpdate(prevProps) {
     let id;
 
@@ -31,12 +40,16 @@ class NoteView extends Component {
         }
       }
     }
-    
+
   }
 
   render() {
     return (
       <main className="note-view">
+        <div className="note-view-control">
+          <button className="note-view-control__button" onClick={e => this.onClickEdit(e)}>edit</button>
+          <button className="note-view-control__button" onClick={e => this.onClickDelete(e)}>delete</button>
+        </div>
         <h2>{this.state.note.title}</h2>
         <span className="note-view__content">{this.state.note.noteContent}</span>
       </main>
