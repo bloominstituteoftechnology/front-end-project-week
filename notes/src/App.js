@@ -6,6 +6,7 @@ import CreateNote from './components/CreateNote';
 import {Route} from 'react-router-dom';
 import axios from 'axios';
 import ViewNote from './components/ViewNote';
+import Authenticate from './components/Authentication/Authenticate';
 
 class App extends Component {
   constructor(props) {
@@ -56,4 +57,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenticate(App);

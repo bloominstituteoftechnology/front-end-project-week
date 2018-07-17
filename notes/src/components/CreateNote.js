@@ -30,6 +30,11 @@ class CreateNote extends React.Component {
     });
   }
 
+  handleLogout = () => {
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
   render() {
     return (
     <div className="note-list">
@@ -37,6 +42,7 @@ class CreateNote extends React.Component {
         <h1>Lambda Notes</h1>
         <NavLink to="/"><button className="sidebar-button">View Your Notes</button></NavLink>
         <NavLink to="/create"><button className="sidebar-button">+ Create New Note</button></NavLink>
+        <button onClick={this.handleLogout} className="logout-button">Logout</button>
       </div>
       <div className="right-bar">
         <h3 className="note-list-header">Create New Note: </h3>
