@@ -11,9 +11,9 @@ class NoteTab extends React.Component {
 
   render() {
     return (
-      <div className="note-tab" onClick={this.viewNote}>
-      <div className="note-tab-header">{this.props.note.title}</div>
-      <p className="note-tab-body">{this.props.note.textBody.length > 100 ? this.props.note.textBody.slice(0,100) + " (...)" : this.props.note.textBody}</p>
+      <div id="note-tabz" onClick={this.viewNote}>
+      <div id="note-tab-header">{this.props.note.title}</div>
+      <p id="note-tab-body">{this.props.note.textBody.length > 55 ? this.props.note.textBody.slice(0,55) + " (...)" : this.props.note.textBody}</p>
       </div>
     )
   }
