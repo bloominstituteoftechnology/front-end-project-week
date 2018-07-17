@@ -25,18 +25,36 @@ const BodyInput = styled.textarea`
 
 class CreateNewView extends React.Component {
   constructor(props) {
+    console.log("CREATE NEW VIEW PROPS", props);
     super(props);
     this.state = {
       title: "",
-      body: ""
+      textBody: ""
     };
   }
 
   /* make me */
-  handleChange = event => {};
+  handleChange = e => {
+    console.log("HANDLE CHANGE EVENT TARGET", e.target);
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   /* make me */
-  handleSubmit = event => {};
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.title && this.state.textBody) {
+      let message = {
+        title: this.state.title,
+        textBody: this.state.textBody,
+        _id: Math.floor(Math.random() * 999999) + "",
+        tags: []
+      };
+      console.log("MESSAGE", message);
+      this.props.noteHandler(message);
+    } else {
+      alert("Please make sure you have entered a title and note body");
+    }
+  };
 
   render() {
     return (
@@ -45,14 +63,14 @@ class CreateNewView extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <TitleInput
             className="form-control"
-            name="titleInput"
+            name="title"
             placeholder="title"
             onChange={this.handleChange}
           />
           <br />
           <BodyInput
             className="form-control"
-            name="bodyInput"
+            name="textBody"
             placeholder="note"
             onChange={this.handleChange}
           />

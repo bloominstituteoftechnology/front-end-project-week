@@ -54,7 +54,12 @@ class ContentWindow extends React.Component {
           render={props => <NoteView {...props} content={this.state.content} />}
         />
 
-        <Route path="/new" component={CreateNewView} />
+        <Route
+          path="/new"
+          render={props => (
+            <CreateNewView {...props} noteHandler={this.handleNewNote} />
+          )}
+        />
 
         {/* un-hard-code-me */}
         <Route
