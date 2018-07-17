@@ -22,14 +22,22 @@ const MainHeader = styled.h1`
   margin-top: 1rem;
 `;
 
+const CenteringDiv = styled.div`
+  margin: 0 auto;
+`;
+
 const LeftSideBar = () => {
   return (
     <LeftStyled>
       <MainHeader>
         Lambda<br />Notes
       </MainHeader>
-      <SideBarButton message="View Your Notes" url="/" />
-      <SideBarButton message="+ Create New Note" url="/new" />
+      <CenteringDiv>
+        <SideBarButton message="View Your Notes" url="/" />
+      </CenteringDiv>
+      <CenteringDiv>
+        <SideBarButton message="+ Create New Note" url="/new" />
+      </CenteringDiv>
     </LeftStyled>
   );
 };

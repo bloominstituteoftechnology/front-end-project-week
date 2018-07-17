@@ -10,7 +10,7 @@ const CardWrapper = styled.div`
 `;
 
 const CardContainer = props => {
-  console.log("CARD CONTAINER PROPS", props);
+  // console.log("CARD CONTAINER PROPS", props);
   return (
     <CardWrapper>
       {props.content.map(note => {
