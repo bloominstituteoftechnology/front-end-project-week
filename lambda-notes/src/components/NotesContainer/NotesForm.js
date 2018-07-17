@@ -19,6 +19,8 @@ class NotesForm extends React.Component {
     addNote = () => {
         const note = { title: this.state.title, textBody: this.state.content }
 
+        if (this.state.title === '' || this.state.content === '') return;
+
         this.props.addNote(note);
         this.props.history.push('/notes')
         this.setState({ title: '', content: '' });
