@@ -7,7 +7,6 @@ import {Route} from 'react-router-dom';
 import CreateView from './CreateView';
 import Note from './Note';
 import EditView from './EditView';
-
 import axios from 'axios';
 
 const URL = 'https://killer-notes.herokuapp.com/note/get';
@@ -15,29 +14,6 @@ const URL = 'https://killer-notes.herokuapp.com/note/get';
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      notes: [],
-      fetching: false,
-      fetched: false,
-      saving: false,
-      saved: false,
-      updating: false,
-      updated: false,
-      deleting: false,
-      deleted: false,
-      error: null,
-      "title": "",
-      "textBody": ""
-    };
-  }
-
-  componentDidMount() {
-    const promise = axios.get(`${URL}/all`);
-    promise.then(({data}) => {
-      // console.log(data);
-      this.setState({notes: data});
-    })
-    .catch((error) => this.setState({error}));
   }
 
   handleChange = (e) => {
@@ -110,9 +86,7 @@ class App extends Component {
           </div>
 
           <Navigation />
-          <Route exact path="/" render={props => (
-            <ListView {...props} notes={this.state.notes} />
-          )} />
+          <Route exact path="/" component={ListView} />
           <Route path="/create" render={props => (
             <CreateView {...props} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           )} />
