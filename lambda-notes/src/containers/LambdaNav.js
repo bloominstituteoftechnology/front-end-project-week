@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -31,7 +32,7 @@ const LambdaNav = () => {
     <StyledDiv>
         <StyledHeader>Lambda Notes</StyledHeader>
     <StyledButton>View Your Notes</StyledButton>
-    <StyledButton>+ Create New Note</StyledButton>
+    <StyledButton><Link to={`/form`}>+ Create New Note</Link></StyledButton>
     </StyledDiv>
     )
 }

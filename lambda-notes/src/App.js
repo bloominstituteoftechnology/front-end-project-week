@@ -2,29 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
-import {BrowserRouter as Route, Link} from 'react-router-dom';
+import LambdaForm from './components/LambdaForm';
+import { Route } from 'react-router-dom';
 
-const MainContainer = styled.div`
+const StyledContainer = styled.div`
   display: flex;
   width: 1000px; 
   margin: 0 auto;
   height: 100vh;
   font-family: 'Raleway', sans-serif;
-`;
-const HeaderStyle = styled.h3`
-  border-bottom: 1px solid black;
-  width: 80%;
-  padding-bottom: 5px;
 `
 
-const NotesContainer = styled.div`
-  width: 25%;
-  height: 230px;
-  padding-left: 20px;
-  border: 1px solid #979797;
-`
-
-const ComponentContainer = styled.div`
+const StyledComponent = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -89,30 +78,24 @@ class App extends Component {
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleAddnote = e => {
     const notes = this.state.notes.slice();
-    notes.push({title: this.state.title, content: this.state.content, id:Date.now()});
-    this.setState({notes,title: '', content: ''});
+    notes.push({ title: this.state.title, content: this.state.content, id: Date.now() });
+    this.setState({ notes, title: '', content: '' });
   }
 
   render() {
     return (
-    <MainContainer>
-      <LambdaNav />
-      <ComponentContainer>
-        {this.state.notes.map(notes => {
-          return( 
-          <NotesContainer key={notes.id}>
-          <HeaderStyle>{notes.title}</HeaderStyle>
-          <p>{notes.body}</p>
-          </NotesContainer>
-          )
-        })}
-        </ComponentContainer>
-      </MainContainer>
+        <StyledContainer> 
+          <Route path="/" component={LambdaNav} />
+    <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange}/>)} />
+          <StyledContainer>
+            <LambdaForm notes={this.state.notes} />
+        </StyledContainer>
+        </StyledContainer>
     )
   }
 }
