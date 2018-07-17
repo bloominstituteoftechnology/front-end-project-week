@@ -1,8 +1,21 @@
  import React, { Component } from 'react';
  import { connect } from 'react-redux';
+ import { getNew } from '../actions';
  import '../styles/ViewNote.css';
 
  class ViewNote extends Component {
+     componentDidMount() {
+         if(localStorage.getItem('newNote')) {
+            this.props.getNew();
+         }
+     }
+
+     componentWillUnmount() {
+         if(localStorage.getItem('newNote')) {
+             localStorage.removeItem('newNote');
+         } else return;
+     }
+
     render() {
         return (
             <React.Fragment>
@@ -37,4 +50,4 @@
      }
  }
 
- export default connect(mapStateToProps)(ViewNote);
+ export default connect(mapStateToProps, { getNew })(ViewNote);
