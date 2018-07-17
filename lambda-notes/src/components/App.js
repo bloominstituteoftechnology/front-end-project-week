@@ -37,7 +37,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.notes);
   return {
     notes: state.notes,
     fetching: state.fetchingNotes

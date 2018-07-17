@@ -88,6 +88,8 @@ body {
 }
 
 .note-paragraph {
+  word-wrap: break-word;
+  overflow: hidden;
   margin: 8px 5px;
   max-height: 125px;
   max-width: 137px;

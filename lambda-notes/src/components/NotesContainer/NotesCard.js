@@ -14,7 +14,7 @@ const NotesCard = props => {
                     maxLine='6'
                     ellipsis=' ...'
                     trimRight
-                    basedOn='words'
+                    basedOn='letters'
                 />
             </div>
 
