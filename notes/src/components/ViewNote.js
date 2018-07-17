@@ -10,8 +10,8 @@ import {
 import { deleteNote } from "../actions/action";
 
 class ViewNote extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modal: false
     };
@@ -22,13 +22,11 @@ class ViewNote extends React.Component {
       modal: !this.state.modal
     });
   }
-  specialToggle = event => {
-    console.log(
-      "singlenoteidis: ",
-      this.props.singleNote.id
-    );
+  deleteNote = event => {
+    console.log("this.props:", this.props);
     event.preventDefault();
     this.props.deleteNote(this.props.singleNote[0].id);
+    this.props.history.push("/");
   };
   render() {
     return (
@@ -51,7 +49,7 @@ class ViewNote extends React.Component {
             <ModalFooter>
               <Link exact to="/">
                 <Button
-                  onClick={this.specialToggle}
+                  onClick={this.deleteNote}
                   color="primary"
                 >
                   Delete
