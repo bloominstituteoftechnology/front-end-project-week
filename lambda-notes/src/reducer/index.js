@@ -22,7 +22,7 @@ const noteReducer = (state=initialState, action) => {
         return Object.assign({}, state, {fetchingNotes: false, addingNote: true, error: null});
 
         case NOTE_SAVED:
-        return Object.assign({}, state, {fetchingNotes: false, addingNote: false,  notes: action.notes, error: null});
+        return Object.assign({}, state, {fetchingNotes: false, addingNote: false, error: null});
 
 	case ERROR:
         return Object.assign({}, state, {error: true});

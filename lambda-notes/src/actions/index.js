@@ -35,6 +35,7 @@ export const addNotesAction = (title, content) => {
         request.then(response => {
         dispatch({type: NOTE_SAVED, notes: response.data});
     })
+		
 
         .catch(err => {
         dispatch({type: ERROR, error: err});
