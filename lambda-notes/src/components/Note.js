@@ -4,6 +4,7 @@ import NoteView from './NoteView';
 import logo from '../logo.svg';
 import Link from '../../node_modules/react-router-dom/Link';
 import EditView from './EditView';
+import DeleteModal from './DeleteModal';
 
 const URL = 'https://killer-notes.herokuapp.com/note/get';
 
@@ -12,7 +13,8 @@ class Note extends Component {
         super(props);
         this.state = {
             note: null,
-            isSelected: false
+            isSelected: false,
+            isDeleted: false
         };
     }
 
@@ -53,7 +55,9 @@ class Note extends Component {
                     <Link to={`/edit/${this.state.note["_id"]}`}>
                         <p>edit</p>
                     </Link>
+                    <Link to={`/note/${this.state.note["_id"]}`} onClick={() => console.log('toggle')}>
                         <p>delete</p>
+                    </Link>
                     </div>
                     <h2>{this.state.note.title}</h2>
                 </div>
@@ -61,6 +65,7 @@ class Note extends Component {
                     <p>{this.state.note.textBody}</p>
                 </div>
                 {!this.state.isSelected ? <NoteView note={this.state.note}/> : null}
+                {this.state.isSelected ? <DeleteModal /> : null}
             </div>
         );
     }

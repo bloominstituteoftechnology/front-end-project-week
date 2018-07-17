@@ -8,6 +8,7 @@ import CreateView from './CreateView';
 import Note from './Note';
 import EditView from './EditView';
 import axios from 'axios';
+import DeleteModal from './DeleteModal';
 
 const URL = 'https://killer-notes.herokuapp.com/note';
 
@@ -107,14 +108,16 @@ class App extends Component {
           <Route exact path="/" component={ListView} />
           <Route path="/create" render={props => (
             <CreateView {...props} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-          )} />
+          )}/>
           <Route path="/note/:id" render={props => (
             <Note {...props} />
           )}/>
           <Route path="/edit/:id" render={props => (
             <EditView {...props} notes={this.state.notes} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleUpdate={this.handleUpdate} />
-          )} />
-
+          )}/>
+          <Route path="/delete/:id" render={props => (
+            <DeleteModal {...props} />
+          )}/>
         </div>
       </div>
     );

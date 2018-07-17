@@ -25,8 +25,6 @@
   display: flex;
   font-family: 'Raleway', sans-serif;
   color: #4A4A4A;
-  border-left: 2px solid #979797;
-  border-right: 2px solid #979797;
 }
 
 .App-logo {
@@ -241,7 +239,7 @@ button:hover {
   display: flex;
 }
 
-.CreateView-buttons button, .EditView-buttons button {
+.CreateView-buttons button, .EditView-buttons button, .DeleteModal-buttons button {
   height: 62px;
   width: 286px;
   background: #2BC1C4;
@@ -251,7 +249,7 @@ button:hover {
   font-weight: bold;
 }
 
-.CreateView-buttons button:hover, .EditView-buttons button:hover {
+.CreateView-buttons button:hover, .EditView-buttons button:hover, .DeleteModal-buttons button:hover {
   background: #979797;
 }
 
@@ -288,6 +286,14 @@ button:hover {
   justify-content: flex-end;
 }
 
+.Note-links a {
+  color: #4A4A4A;
+}
+
+.Note-links a:hover {
+  text-decoration: none;
+}
+
 .Note-links p {
   margin-left: 20px;
 }
@@ -305,4 +311,33 @@ button:hover {
   line-height: 40px;
   width: 962px;
   margin: 0;
+}
+
+/* DeleteModal styles */
+.DeleteModal-container {
+  position: fixed;
+  height: 270px;
+  width: 800px;
+  border: 2px solid #979797;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 276px;
+  right: 576px;
+}
+
+.DeleteModal-header {
+  margin: 0 0 36px 0;
+}
+
+.DeleteModal-buttons button {
+  margin: 0 16px;
+}
+
+.DeleteModal-buttons button:first-child {
+  background: red;
+}
+
+.DeleteModal-buttons button:first-child:hover {
+  background: #979797;
 }
