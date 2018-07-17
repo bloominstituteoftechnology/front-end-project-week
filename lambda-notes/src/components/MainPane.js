@@ -6,7 +6,7 @@ import ViewNote from './ViewNote';
 import NewNote from './NewNote';
 import EditNote from './EditNote';
 import DeleteModal from './DeleteModal';
-import notes from '../dummydata';
+// import notes from '../dummydata';
 
 
 const StyledMainPane = styled.main`
@@ -28,11 +28,11 @@ export default class MainPane extends Component {
   render() {
     return (
       <StyledMainPane>
-        <Route path="/" exact render={ routeProps => <NoteGrid {...routeProps} notes={notes} /> } />
-        <Route path="/add/" render = { routeProps => <NewNote {...routeProps} notes={[]} /> } />
-        <Route path="/view/(delete/)?:id" render={ routeProps => <ViewNote {...routeProps} notes={notes} /> } />
+        <Route path="/" exact render={ routeProps => <NoteGrid {...routeProps} /> } />
+        <Route path="/add/" render = { routeProps => <NewNote {...routeProps}  /> } />
+        <Route path="/view/(delete/)?:id" render={ routeProps => <ViewNote {...routeProps} /> } />
         <Route path="/view/delete/:id/" render={ routeProps => <DeleteModal {...routeProps} /> } />
-        <Route path ="/edit/:id" render = { routeProps => <EditNote {...routeProps} notes={notes} /> } />
+        <Route path ="/edit/:id" render = { routeProps => <EditNote {...routeProps} /> } />
       </StyledMainPane>
     )
   }
