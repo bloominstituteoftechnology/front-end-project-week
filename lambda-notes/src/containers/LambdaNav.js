@@ -32,7 +32,7 @@ const LambdaNav = () => {
     <StyledDiv>
         <StyledHeader>Lambda Notes</StyledHeader>
     <StyledButton>View Your Notes</StyledButton>
-    <StyledButton><Link to={`/form`}>+ Create New Note</Link></StyledButton>
+    <StyledButton><Link to={`/form`} style={{textDecoration: 'none', color: 'white'}}>+ Create New Note</Link></StyledButton>
     </StyledDiv>
     )
 }
