@@ -240,6 +240,7 @@
   background: #F3F3F3;
   border: 3px solid #979797; 
   padding: 40px 60px;
+  opacity: 1;
 }
 .login-content p {
   text-align: center;
