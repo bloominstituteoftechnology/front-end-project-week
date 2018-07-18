@@ -216,3 +216,53 @@
   /* margin: 10px 0; */
   text-align: center;
 }
+
+/* Login Form Styles */
+.login-form {
+  background: #2BC1C4;
+  height: 93vh;
+  width: 100vw;
+  max-width: 992px;
+  position: fixed;
+  bottom: 0;
+  opacity: .97;
+  overflow: hidden;
+  z-index: 30;
+}
+.login-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-content {
+  background: #F3F3F3;
+  border: 3px solid #979797; 
+  padding: 40px 60px;
+}
+.login-content p {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.login-content input {
+  margin-bottom: 15px;
+  height: 2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.login-content input:nth-child(2) {
+  margin-right: 5px;
+}
+.login-content .btn {
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid #2BC1C4;
+  border-radius: 5px;
+  background: #2BC1C4;
+  color: #FFFFFF;
+  width: 85%;
+  padding: 10px 0;
+  margin: 0 auto;
+  text-align: center;
+}
