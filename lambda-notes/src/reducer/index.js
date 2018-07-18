@@ -11,7 +11,9 @@ const initialState = {
    deletingNote: false,
    noteDeleted: false,
    noteSaved: false,
-   noteEdited: false,	
+   noteEdited: false,
+   fetchedSingleNote: false,	
+   id:"",	
    error: null
 };
 
@@ -19,25 +21,25 @@ const noteReducer = (state=initialState, action) => {
 
 	switch(action.type){
         case FETCHING:
-        return Object.assign({}, state, {fetchingNotes: true, noteDeleted: false, noteSaved: false, noteEdited: false, error: null});
+        return Object.assign({}, state, {fetchingNotes: true, noteDeleted: false, noteSaved: false, noteEdited: false, error: null, fetchedSingleNote: false});
 
         case FETCHED:
-        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, noteDeleted: false, notes: action.notes, noteEdited: false});
+        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, noteDeleted: false, notes: action.notes, noteEdited: false, fetchedSingleNote: false});
 
 	case FETCHED_SINGLE_NOTE:
-        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, singleNote: action.note, noteEdited: false});
+        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, fetchedSingleNote: true, singleNote: action.note, noteEdited: false});
 
         case SAVING_NOTE:
-        return Object.assign({}, state, {fetchingNotes: false, addingNote: true, noteSaved: false, error: null, noteEdited: false});
+        return Object.assign({}, state, {fetchingNotes: false, addingNote: true, noteSaved: false, error: null, noteEdited: false, fetchedSingleNote: false});
 
         case NOTE_SAVED:
-        return Object.assign({}, state, {fetchingNotes: false, noteSaved: true, addingNote: false, error: null, noteEdited: false});
+        return Object.assign({}, state, {fetchingNotes: false, id: action.id, singleNote:"", noteSaved: true, addingNote: false, error: null, noteEdited: false, fetchedSingleNote: false});
 
 	case EDITING_NOTE:
-        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: false, error: null});
+        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: false, error: null, fetchedSingleNote: false});
 
 	case NOTE_EDITED:
-        return Object.assign({}, state, {editedSingleNote: action.note, fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: true, error: null});
+        return Object.assign({}, state, {editedSingleNote: action.note, fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: true, error: null, fetchedSingleNote: false});
 
 
 	case DELETING:

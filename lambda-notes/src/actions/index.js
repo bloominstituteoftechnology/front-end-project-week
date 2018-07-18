@@ -55,7 +55,7 @@ export const addNotesAction = (title, content) => {
         dispatch({type: SAVING_NOTE});
 
         request.then(response => {
-        dispatch({type: NOTE_SAVED, notes: response.data});
+        dispatch({type: NOTE_SAVED, id: response.data});
     })
 		
 

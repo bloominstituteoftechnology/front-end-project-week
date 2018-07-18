@@ -12,6 +12,7 @@ class NotesDiv extends React.Component {
 constructor(props){
         super(props);
         this.state= {
+		search: ""
         };
 
 }
@@ -19,6 +20,11 @@ constructor(props){
 componentDidMount() {
 	this.props.fetchingNotesAction();
 }
+
+
+searchHandler = event => {
+	this.setState({[event.target.name]: event.target.value});
+};
 
 
 /*componentDidUpdate(prevProps,  prevState) {
@@ -42,8 +48,12 @@ render() {
 	<div>{this.props.fetching ? (
           null
         ) :(
-
-	<div><h3 className="card-body-title">Your Notes:</h3>
+	
+	<div>
+	<input className="search-bar" onChange={this.searchHandler} type="text" name="search" placeholder="search"value={this.state.search} />
+	
+	<h3 className="card-body-title">Your Notes:</h3>
+	
 	<CardDeck>{this.props.notes.map(note =>{
       return(	
 	<Link style={{ textDecoration: 'none' }} to={`/note/${note._id}`} onClick={window.scrollTo(0, 0)} key={note._id}><div>
