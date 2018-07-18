@@ -5,6 +5,8 @@
   "dependencies": {
     "dompurify": "^1.0.6",
     "react": "^16.4.1",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
     "remarkable": "^1.7.1",

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import shortid from 'shortid';
 import Button from './Button';
 import TagDisplay from './TagDisplay';
 
@@ -71,19 +72,24 @@ export default class NoteForm extends Component {
     super(props);
     const { note } = props;
     const { title, textBody, tags } = note;
+    const tagObjs = tags.map(tagName=>this.makeTagObjFromName(tagName));
     this.state = {
       title,
       textBody,
-      tags,
-      tagInput: ''
+      tags: tagObjs,
+      tagInput: '',
     };
     this.inputTitle = React.createRef();
     this.updateInput = this.updateInput.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.addNewTag = this.addNewTag.bind(this);
+    this.deleteTag = this.deleteTag.bind(this);
   }
   componentDidMount() {
     this.inputTitle.current.focus();
+  }
+  makeTagObjFromName(name) {
+    return {name, id: shortid.generate()};
   }
   updateInput(event) {
     const { value, name } = event.target;
@@ -93,15 +99,22 @@ export default class NoteForm extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
     const {title, textBody, tags } = this.state;
-    this.props.handleFormSubmit({title, textBody, tags });
+    const tagArr = tags.map(tagObj => tagObj.name);
+    this.props.handleFormSubmit({title, textBody, tags: tagArr });
   }
   addNewTag(event) {
     event.preventDefault();
     const { tagInput, tags } = this.state;
-    let newTagArr = tagInput.split(';').map(tag=>tag.trim());
+    let newTagArr = tagInput.split(';').map(tag=>this.makeTagObjFromName(tag.trim()));
     newTagArr = newTagArr.filter(tag => (tags.indexOf(tag) === -1));
     newTagArr = [...tags, ...newTagArr];
     this.setState({ tagInput: '', tags: newTagArr });
+  }
+  deleteTag(id) {
+    const { tags } = this.state;
+    const filteredTags = tags.filter(tag => (tag.id !== id));
+    this.setState({tags: filteredTags});
+
   }
 
   render() {
@@ -138,7 +151,7 @@ export default class NoteForm extends Component {
           <Button onClick={this.addNewTag}>Add New Tag</Button>
           <label htmlFor="tagInput">Enter new tags, separated by semi-colons (;)</label>
         </form>
-        <TagDisplay tags={tags} writable={true} />
+        <TagDisplay tags={tags} writable={true} deleteTag={this.deleteTag} />
         <Button onClick={this.handleFormSubmit}>{buttonText}</Button>
       </StyledNoteForm>
     );

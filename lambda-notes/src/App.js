@@ -3,6 +3,8 @@ import { withRouter} from 'react-router-dom';
 import { fetchNotes } from './actions/index';
 import { getAllNotes } from './reducers/index';
 import { connect } from 'react-redux';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import styled from 'styled-components';
 import SideBar from './components/SideBar';
 import MainPane from './components/MainPane';
@@ -64,7 +66,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({ notes: getAllNotes(state) });
-export default withRouter(connect(
+export default withRouter(DragDropContext(HTML5Backend)(connect(
   mapStateToProps,
   { fetchNotes }
-)(App));
+)(App)));
