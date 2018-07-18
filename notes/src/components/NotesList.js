@@ -28,11 +28,17 @@ class NotesList extends React.Component {
   handleSearch = event => {
     event.preventDefault();
     let searchResults = this.props.notes.slice();
+    if (this.state.searchTerm.length == 0) {
+      searchResults = this.props.notes.slice();
+      return searchResults;
+    } else {
     searchResults = searchResults.filter(note => {
       if (note.textBody.toLowerCase().includes(this.state.searchTerm.toLowerCase()) || note.title.toLowerCase().includes(this.state.searchTerm.toLocaleLowerCase())) {
         return note;
       }
+
     });
+  }
     this.setState({searchResults: searchResults})
   }
 
@@ -50,11 +56,12 @@ class NotesList extends React.Component {
     return dataArray;
   }
   render() {
+    console.log("Searchterm length", this.state.searchTerm.length);
+    console.log("serach Results", this.state.searchResults);
     let returnedNotes;
-    returnedNotes = (this.state.searchResults.length > 0) ? this.state.searchResults: this.props.notes;
+    returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.props.notes;
     let sortedNotes = returnedNotes.slice();
-    console.log(this.exportCSV(returnedNotes));
-    console.log(this.state.alphaSort);
+    /*console.log(this.exportCSV(returnedNotes));*/
 
     if (this.state.alphaSort) {
     returnedNotes = sortedNotes.sort((a,b) => {
@@ -71,7 +78,6 @@ class NotesList extends React.Component {
       return 0
     })
   }
-    console.log(returnedNotes);
     return (
     <div className="note-list">
       <div className="list-sidebar">
