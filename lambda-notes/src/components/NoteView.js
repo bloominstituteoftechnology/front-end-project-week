@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import DeleteModal from './DeleteModal'
+import Button from './Button'
+import Flex from './Flex'
 import { Link, Route } from 'react-router-dom'
+
 
 export default class extends Component {
 
@@ -30,12 +33,25 @@ export default class extends Component {
         <hr />
         <p>{text}</p>
         <br /><br />
-        <span onClick={this.toggleModal}>
-          [delete]
-        </span>
-        <Link to={`/note/${id}/edit`}>
-          [edit]
-        </Link>
+        <Flex>
+          <Button
+            onClick={this.toggleModal}
+            variant='warning'
+            width={60}
+            mx={2}
+          >
+            delete
+          </Button>
+          <Link to={`/note/${id}/edit`}>
+            <Button 
+              variant='primary'
+              width={60}
+              mx={2}
+            >
+              edit
+            </Button>
+          </Link>
+        </Flex>
         {modalOpen && 
           <DeleteModal 
             toggleModal={this.toggleModal}
