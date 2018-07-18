@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import SideBar from "../functions/sidebar";
 import Note from "./note";
-
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { HeadStyle, ViewStyle } from "../../ReusableStyles";
 
 class ListView extends Component {

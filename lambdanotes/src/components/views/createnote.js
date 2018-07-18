@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import SideBar from "../functions/sidebar";
 import { Row, Col, Form, FormGroup, Input } from "reactstrap";
-import {
-  ViewStyle,
-  HeadStyle,
-  TitleInput,
-  ContentInput,
-  Button
-} from "../../ReusableStyles";
+import { ViewStyle, HeadStyle, Button } from "../../ReusableStyles";
 
 class CreateNote extends Component {
   constructor(props) {

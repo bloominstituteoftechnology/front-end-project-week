@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { SideBarStyle, Button, HeadingStyle } from "../../ReusableStyles";
 
 class SideBar extends Component {
@@ -17,7 +17,7 @@ class SideBar extends Component {
             </HeadingStyle>
           </Col>
           <Col md="12">
-            <Button>View Your Notes</Button>
+            <Button className="Button">View Your Notes</Button>
           </Col>
           <Col md="12">
             <Button>+ Create New Note</Button>
