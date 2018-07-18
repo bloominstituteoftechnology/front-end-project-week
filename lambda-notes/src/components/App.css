@@ -78,44 +78,6 @@ body {
   width: 100%;
 }
 
-.notes-paragraph {
-  padding: 0px 27px;
-  margin-top: 27px;
-  font-size: 1.5rem;
-  line-height: 1.5;
-  word-break: break-all;
-  white-space: pre-line;
-}
-
-.note-links {
-  display: flex;
-  justify-content: flex-end;
-  font-size: 1.5rem;
-  margin: 19px 34px;
-}
-
-.edit-link {
-  margin-right: 12px;
-  color: black;
-  font-weight: bold;
-}
-
-.delete-link {
-  color: black;
-  font-weight: bold;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.note-header {
-  display: inline;
-  margin: 0;
-  padding: 0px 27px;
-  padding-right: 15px;
-  font-size: 1.9rem;
-  font-family: 'Roboto', Arial, sans-serif;
-}
-
 .modal {
   display: none; 
   position: fixed; 
@@ -176,70 +138,9 @@ body {
   margin-top: 0;
 }
 
-.add-tag-field {
-  max-width: 100px;
-  margin-left: 5px;
-  background: none;
-  border: none;
-  font-size: 12px;
-  padding: 0 5px;
-  outline: none;
-}
-
-.add-tag-form {
-  margin: 5px 0;
-  min-height: 18px;
-  display: flex;
-}
-
-.add-tag-field:focus {
-  background: #D9E8EF;
-}
-
 .title-tag-container {
   display: flex;
   align-items: flex-start;
-}
-
-.note-tags-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.note-tags {
-  font-size: 12px;
-  background: #D9E8EF;
-  margin: 5px;
-  padding: 2px 0;
-  padding-right: 5px;
-  padding-left: 12px;
-}
-
-.note-tags i {
-  font-size: 10px;
-  visibility: hidden;
-  cursor: pointer;
-}
-
-.note-tags:hover i{
-  visibility: visible;
-}
-
-.note-tags:hover{
-  color: #6A81DE;
-}
-
-.checklist-form {
-  margin-top: 10px;
-  padding: 0 27px;
-}
-
-.checklist-input {
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 11px;
-  margin: 5px 0;
 }
 
 .checkbox-container { 

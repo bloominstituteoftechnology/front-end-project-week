@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNote, getNotes, editNote, deleteNote, setNull } from '../../actions';
-import { Link } from 'react-router-dom';
 import ModalContainer from '../ModalContainer/ModalContainer';
 import NotesCheckList from './NotesCheckList';
+import { NotesWrapper, NoteLinksContainer, NoteEditLink, NoteDeleteLink, HeaderContainer, HeaderTitle, HeaderTagsContainer, HeaderTags, HeaderTagForm, HeaderTagInput, NoteContent, NoteCheckListForm, NoteCheckListInput } from '../ReusableComponents/Note';
 
 class Note extends React.Component {
     constructor(props) {
@@ -94,43 +94,43 @@ class Note extends React.Component {
         return (
             <React.Fragment>
                 {this.props.fetching ? <div>Loading info...</div> :
-                    <div className='note-container'>
+                    <NotesWrapper>
 
                         <ModalContainer modal={this.state.modal} deleteNote={this.deleteNote} toggleModal={this.toggleModal} />
 
-                        <div className='note-links'>
-                            <Link className='edit-link' to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</Link>
-                            <div onClick={this.toggleModal} className='delete-link' to='/delete'>delete</div>
-                        </div>
+                        <NoteLinksContainer>
+                            <NoteEditLink to={this.props.note ? `/notes/${this.props.note._id}/edit` : null}>edit</NoteEditLink>
+                            <NoteDeleteLink onClick={this.toggleModal}>delete</NoteDeleteLink>
+                        </NoteLinksContainer>
 
-                        <div className='title-tag-container'>
+                        <HeaderContainer>
 
-                            <h3 className='note-header'>{this.props.note.title}</h3>
+                            <HeaderTitle>{this.props.note.title}</HeaderTitle>
 
-                            <div className='note-tags-container'>
+                            <HeaderTagsContainer>
                                 {/*Maps over tags and displays them on screen along with a close icon from font-awesome*/}
                                 {this.props.note.tags ? this.props.note.tags.map((tag, index) =>
-                                    <span className='note-tags' key={tag + index + Math.random()}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </span>) : null}
+                                    <HeaderTags key={tag + index + Math.random()}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </HeaderTags>) : null}
 
-                                <form className='add-tag-form' onSubmit={event => event.preventDefault()}>
-                                    <input className='add-tag-field' onChange={this.handleInput} value={this.state.tag} type='text' name='tag' placeholder='Add tag...' />
+                                <HeaderTagForm onSubmit={event => event.preventDefault()}>
+                                    <HeaderTagInput onChange={this.handleInput} value={this.state.tag} type='text' name='tag' placeholder='Add tag...' />
                                     <input onClick={this.addTag} type='submit' hidden />
-                                </form>
+                                </HeaderTagForm>
 
-                            </div>
+                            </HeaderTagsContainer>
 
-                        </div>
+                        </HeaderContainer>
 
-                        <p className='notes-paragraph'>{this.props.note.textBody}</p>
+                        <NoteContent>{this.props.note.textBody}</NoteContent>
 
-                        <form className='checklist-form' onSubmit={event => event.preventDefault()}>
+                        <NoteCheckListForm onSubmit={event => event.preventDefault()}>
                             <h3>Checklist:</h3>
                             {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} id={index + this.props.match.params.id} deleteList={this.deleteList} />)}
-                            <input className='checklist-input' onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a list' />
+                            <NoteCheckListInput onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a list' />
                             <input onClick={this.addList} type='submit' hidden />
-                        </form>
+                        </NoteCheckListForm>
 
-                    </div>
+                    </NotesWrapper>
                 }
             </React.Fragment>
         );

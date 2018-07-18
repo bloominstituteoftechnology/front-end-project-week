@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Note from './Note';
+import Note from '../NoteContainer/Note';
 import UpdateNotesContainer from './UpdateNotesContainer';
 import SideBarContainer from '../SideBarContainer/SideBarContainer';
 import NotesContainer from './NotesContainer';

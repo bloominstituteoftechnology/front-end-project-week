@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
 import { NotesCardLink, NotesCardContainer, NotesCardTitle } from '../ReusableComponents/Notes';
 
