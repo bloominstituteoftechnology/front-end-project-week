@@ -52,6 +52,17 @@ class ContentWindow extends React.Component {
     this.setState({ content: newContent });
   };
 
+  handleDeleteNote = note => {
+    console.log("HANDLE DELETE NOTE CALLED!");
+    const newContent = this.state.content.map(note => note);
+    const elementPos = newContent
+      .map(function(x) {
+        return x._id;
+      })
+      .indexOf(note._id);
+    newContent.slice(elementPos);
+  };
+
   render() {
     return (
       <StyledWindow>
@@ -64,7 +75,13 @@ class ContentWindow extends React.Component {
         {/* un-hard-code-me */}
         <Route
           path="/note/:_id"
-          render={props => <NoteView {...props} content={this.state.content} />}
+          render={props => (
+            <NoteView
+              {...props}
+              content={this.state.content}
+              delHandler={this.handleDeleteNote}
+            />
+          )}
         />
 
         <Route

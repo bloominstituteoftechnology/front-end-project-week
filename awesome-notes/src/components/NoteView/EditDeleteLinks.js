@@ -22,8 +22,8 @@ const EditDeleteLinks = props => {
       <Link to={`/edit/${props.currentNote._id}`}>
         <StyledP>edit</StyledP>
       </Link>
-      <a href="#" onClick={props.delClicked}>
-        <StyledP onClick={props.delClicked}>delete</StyledP>
+      <a href="#" onClick={props.showModal}>
+        <StyledP>delete</StyledP>
       </a>
       {/* <Link to={`/note/delete/${props.currentNote._id}`}>delete</Link> */}
     </LinksWrapper>

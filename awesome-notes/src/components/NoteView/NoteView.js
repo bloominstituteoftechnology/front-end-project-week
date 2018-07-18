@@ -25,10 +25,13 @@ class NoteView extends React.Component {
       )
     };
   }
-  // console.log("NOTE VIEW PROPS", props);
 
-  DelClickHandler = () => {
+  ShowModal = () => {
     this.setState({ showDeleteModal: true });
+  };
+
+  HideModal = () => {
+    this.setState({ showDeleteModal: false });
   };
 
   render() {
@@ -36,12 +39,16 @@ class NoteView extends React.Component {
       <NoteViewWrapper>
         <EditDeleteLinks
           currentNote={this.state.currentNote}
-          delClicked={this.DelClickHandler}
+          showModal={this.ShowModal}
         />
         <ContentHeading message={this.state.currentNote.title} />
         <ContentParagraph>{this.state.currentNote.textBody}</ContentParagraph>
         {this.state.showDeleteModal ? (
-          <DeleteModal currentNote={this.state.currentNote} />
+          <DeleteModal
+            currentNote={this.state.currentNote}
+            hideModal={this.HideModal}
+            delHandler={this.props.delHandler}
+          />
         ) : null}
       </NoteViewWrapper>
     );

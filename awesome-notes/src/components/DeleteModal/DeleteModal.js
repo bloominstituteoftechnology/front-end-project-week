@@ -13,6 +13,7 @@ const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 const DeleteButtonsWrapper = styled.div`
@@ -25,6 +26,7 @@ const DeleteButtonsWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 const ButtonsSection = styled.div`
@@ -39,15 +41,19 @@ const ButtonSpacer = styled.div`
 
 const TextSection = styled.p``;
 
-const DeleteModal = () => {
+const DeleteModal = props => {
+  console.log("DELETE MODAL PROPS", props);
   return (
     <ModalWrapper>
       <DeleteButtonsWrapper>
         <TextSection>Are you sure you want to delete this?</TextSection>
         <ButtonsSection>
-          <DeleteButton message="Delete" />
+          <DeleteButton message="Delete" onClick={props.delHandler} />
           <ButtonSpacer />
-          <GlobalButton message="no" />
+          <GlobalButton
+            message="no"
+            onClick={props.hideModal(props.currentNote)}
+          />
         </ButtonsSection>
       </DeleteButtonsWrapper>
     </ModalWrapper>
