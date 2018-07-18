@@ -1,6 +1,5 @@
 import React from 'react';
-import './Login.css';
-import { Link } from 'react-router-dom';
+import { LoginWrapper, LoginForm, LoginInput, LoginButton } from '../ReusableComponents/Login';
 
 class Login extends React.Component {
     constructor() {
@@ -41,21 +40,20 @@ class Login extends React.Component {
     render() {
         // Displays login form
         return (
-            <div className='login-container'>
-                <form className='login-form' onSubmit={event => event.preventDefault()}>
+            <LoginWrapper>
+                <LoginForm onSubmit={event => event.preventDefault()}>
 
-                    <h1 className='login-header'>Lambda Notes</h1>
-                    <input className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
-                    <input className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
-                    <Link to='/'
+                    <h1>Lambda Notes</h1>
+                    <LoginInput className='login-input' onChange={this.handleInput} value={this.state.username} name='username' type='text' placeholder='Username' />
+                    <LoginInput className='login-input' onChange={this.handleInput} value={this.state.password} name='password' type='password' placeholder='Password' />
+                    <LoginButton to='/'
                         onClick={this.loginButton}
-                        style={this.state.username.length > 0 || this.state.password.length > 0 ? { background: '#2BC1C4' } : { opacity: 0.3 }}
-                        className='login-button'>
+                        style={this.state.username.length > 0 || this.state.password.length > 0 ? { background: '#2BC1C4' } : { opacity: 0.3 }}>
                         Log In
-                    </Link>
+                    </LoginButton>
 
-                </form>
-            </div>
+                </LoginForm>
+            </LoginWrapper>
         );
     }
 }

@@ -1,4 +1,7 @@
-.login-container {
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const LoginWrapper = styled.div`
     max-width: 100%;
     width: 100vw;
     height: 100vh;
@@ -6,9 +9,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+`
 
-.login-form {
+export const LoginForm = styled.form`
     max-width: 350px;
     width: 100%;
     padding: 22px 40px;
@@ -16,13 +19,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.login-header {
-    margin-top: 0;
-}
+    h1 {
+        margin-top: 0;
+    }
+`
 
-.login-input {
+export const LoginInput = styled.input`
     font-size: 13px;
     min-height: 25px;
     width: 80%;
@@ -31,9 +34,9 @@
     text-align: center;
     border: 1px solid #efefef;
     background: #fafafa;
-}
+`
 
-.login-button {
+export const LoginButton = styled(Link)`
     min-height: 25px;
     width: 80%;
     background: #2BC1C4;
@@ -46,4 +49,4 @@
     align-items: center;
     text-decoration: none;
     font-size: 13px;
-}
+`
