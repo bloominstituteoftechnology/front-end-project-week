@@ -39,13 +39,13 @@ export const fetchNote = (URL, id) => {
 // post new note to server then routes to single note view
 export const createNote = (URL, note) => {
     const promise = axios.post(`${URL}create`, note);
-    const path = 'http://localhost:3000/note/';
+    const path = '/note/';
     return dispatch => {
         dispatch({ type: FETCHING_NOTES });
         promise
             .then(response => {
                 const id = response.data.success;
-                window.location.href = `${path}${id}`;
+                window.location.pathname = `${path}${id}`;
             })
             .catch(err => {
                 dispatch({ type: ERROR, payload: err.message });
@@ -56,11 +56,11 @@ export const createNote = (URL, note) => {
 // deletes note and redirects to root path
 export const deleteNote = (URL, id) => {
     const promise = axios.delete(`${URL}delete/${id}`);
-    const path = 'http://localhost:3000/';
+    const path = '/';
     return dispatch => {
         promise
         .then(() => {
-            window.location.href = path;
+            window.location.pathname = path;
         })
         .catch(err => {
             dispatch({ type: ERROR, payload: err.message });
@@ -71,11 +71,11 @@ export const deleteNote = (URL, id) => {
 // edits note then routes to single note view
 export const editNote = (URL, id, note) => {
     const promise = axios.put(`${URL}edit/${id}`, note);
-    const path = 'http://localhost:3000/';
+    const path = '/note/';
     return dispatch => {
         promise
             .then(() => {
-                window.location.href = `${path}note/${id}`;
+                window.location.pathname = `${path}${id}`;
             })
             .catch(err => {
                 dispatch({ type: ERROR, payload: err.message });

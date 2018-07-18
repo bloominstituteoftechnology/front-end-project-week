@@ -4,12 +4,12 @@ import { deleteNote } from '../actions';
 import '../styles/DeleteNote.css';
 
 const URL = 'https://killer-notes.herokuapp.com/note/';
-const path = 'http://localhost:3000/note/';
+const path = '/note/';
 
 class DeleteNote extends Component {
     // routes back to single note view if user backs out of delete
     noDelete = id => {
-        window.location.href = `${path}${id}`;
+        window.location.pathname = `${path}${id}`;
     }
 
     render() {
