@@ -35,6 +35,7 @@ const NotePreview = styled.div`
     padding: ${props => props.theme.dimensions.notePreview.headingPadding};
     font-family: ${props => props.theme.font.heading};
     font-size: ${props => props.theme.dimensions.notePreview.headingFontSize};
+    overflow-wrap: break-word;
   }
 
   div {
@@ -44,6 +45,7 @@ const NotePreview = styled.div`
     border-top: ${props => props.theme.dimensions.notePreview.borderWidth} solid
       ${props => props.theme.color.border};
     line-height: ${props => props.theme.dimensions.notePreview.textLineHeight};
+    overflow-wrap: break-word;
     white-space: line-pre;
   }
 `;

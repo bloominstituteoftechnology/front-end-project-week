@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 const StyledViewNote = styled.div`
   padding: ${props => props.theme.dimensions.viewNote.padding};
+  overflow-wrap: break-word;
 
   .topControls {
     text-align: end;
