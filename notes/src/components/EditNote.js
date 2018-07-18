@@ -8,7 +8,7 @@ class EditNote extends React.Component {
     super(props);
     this.state = {
       editedTitle: this.props.singleNote[0].title,
-      editedBody: this.props.singleNote[0].body
+      editedBody: this.props.singleNote[0].textBody
     };
   }
   inputEditNote = event => {
@@ -21,12 +21,12 @@ class EditNote extends React.Component {
     event.preventDefault();
     let edited = {
       title: this.state.editedTitle,
-      body: this.state.editedBody,
-      id: this.props.singleNote[0].id
+      textBody: this.state.editedBody,
+      _id: this.props.singleNote[0]._id
     };
     this.props.editNote(
       edited,
-      this.props.singleNote[0].id
+      this.props.singleNote[0]._id
     );
     this.props.history.push("/");
   };

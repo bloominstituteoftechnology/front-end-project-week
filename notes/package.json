@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "ajv": "^6.5.2",
+    "axios": "^0.18.0",
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
     "react": "^16.4.1",

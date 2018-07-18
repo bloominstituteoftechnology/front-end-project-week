@@ -25,7 +25,7 @@ class ViewNote extends React.Component {
   deleteNote = event => {
     console.log("this.props:", this.props);
     event.preventDefault();
-    this.props.deleteNote(this.props.singleNote[0].id);
+    this.props.deleteNote(this.props.singleNote[0]._id);
     this.props.history.push("/");
   };
   render() {
@@ -68,7 +68,7 @@ class ViewNote extends React.Component {
         </div>
         <div className="singleNoteBody">
           <h3>{this.props.singleNote[0].title}</h3>
-          <p>{this.props.singleNote[0].body}</p>
+          <p>{this.props.singleNote[0].textBody}</p>
         </div>
       </div>
     );

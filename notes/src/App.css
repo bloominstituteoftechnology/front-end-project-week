@@ -7,6 +7,7 @@
   width: 250px;
   height: 300px;
   color: black;
+  overflow: hidden;
 }
 
 .createNoteTitle {
@@ -22,7 +23,7 @@
 .menu {
   width: 20%;
   background-color: #d8d8d8;
-  height: 1200px;
+  height: 100vh;
   padding: 20px;
 }
 
@@ -38,6 +39,7 @@
   background-color: #f3f3f3;
   padding-top: 60px;
   padding-left: 30px;
+  padding-bottom: 20px;
 }
 
 .cards {

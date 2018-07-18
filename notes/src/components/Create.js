@@ -20,7 +20,7 @@ class Create extends React.Component {
     event.preventDefault();
     let newComment = {
       title: this.state.title,
-      body: this.state.body
+      textBody: this.state.body
     };
     this.props.submitNewNote(newComment);
     this.props.history.push("/");

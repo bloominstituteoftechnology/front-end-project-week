@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import Notes from "./components/Notes";
 import Buttons from "./components/Buttons";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import Create from "./components/Create";
 import "./App.css";
 import ViewNote from "./components/ViewNote";
 import EditNote from "./components/EditNote";
+import { fetchNotes } from "./actions/action";
+import { connect } from "react-redux";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchNotes(
+      "https://killer-notes.herokuapp.com/note/get/all"
+    );
+  }
+
   render() {
     return (
       <div className="container">
@@ -17,7 +25,7 @@ class App extends Component {
         <React.Fragment>
           <Route exact path="/" component={Notes} />
         </React.Fragment>
-        <Route path="/create" component={Create} />
+        <Route exact path="/create" component={Create} />
         <Route
           exact
           path="/note/:id"
@@ -29,4 +37,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(
+  connect(
+    null,
+    { fetchNotes }
+  )(App)
+);

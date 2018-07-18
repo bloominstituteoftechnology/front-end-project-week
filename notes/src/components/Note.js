@@ -8,12 +8,14 @@ const Note = props => {
   return (
     <div className="ind-card">
       <Link
-        onClick={() => props.fetchSingleNote(props.note.id)}
-        to={`/note/${props.note.id}`}
+        onClick={() =>
+          props.fetchSingleNote(props.note._id)
+        }
+        to={`/note/${props.note._id}`}
       >
         <Card>
           <CardTitle>{props.note.title}</CardTitle>
-          <CardText>{props.note.body}</CardText>
+          <CardText>{props.note.textBody}</CardText>
         </Card>
       </Link>
     </div>
