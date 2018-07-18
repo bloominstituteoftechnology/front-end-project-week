@@ -35,8 +35,7 @@ class AddedNote extends Component {
             <div>
                 {this.state.mounted === false ? (
                     <div className = "links">
-                            <Link to="#">edit</Link>
-                            <button>delete</button>
+                            <p>Waiting...</p>
                     </div>
                 ) : (
                     <div>
@@ -66,7 +65,12 @@ class AddedNote extends Component {
                                 <SideBar/>
                                 <div className="sideBar_pop noteCard">
                                     <div className = "links">
-                                        <Link to="/edit">edit</Link>
+                                        <Link to={{state:{
+                                            index:this.state.index},
+                                            pathname:`/edit/${this.state.index}`
+                                        }}>
+                                            edit
+                                        </Link>
                                         <button onClick={this.display}>delete</button>
                                     </div>
                                     <h1 className="title">{this.props.notes.notes[this.state.index].title}</h1>

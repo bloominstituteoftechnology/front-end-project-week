@@ -25,12 +25,12 @@
     width: 30%;
     margin-top: 3%;
     text-align: center;
-    padding: 4%;
+    padding: 6%;
     height: 100%;
     padding-top: 2%;
     display:flex;
     flex-wrap:wrap;
-    flex-basis:a;
+    text-decoration: none;
 }
 
 .card a {
@@ -45,11 +45,19 @@
     background-color:rgb(250,250, 250)
 }
 
+.card button {
+    width:100%;
+    background: red;
+    border: none;
+    text-decoration: none;
+}
+
 .card p {
     font-size: 1.3rem;
     margin-top: 5%;
     width:100%;
     text-align:center;
+    color: black;
     justify-content: space-around;
 }
 
@@ -57,4 +65,5 @@
     border-bottom: 2px solid rgb(190, 187, 187);
     width: 80%;
     margin: 0 auto;
+    color:black;
 }

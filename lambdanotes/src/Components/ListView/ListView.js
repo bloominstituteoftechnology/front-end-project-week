@@ -27,13 +27,13 @@ class ListView extends Component {
                             <div className = "row">
                                 {this.props.notes.notes.map((note, index) => {
                                 return (
-                                    <button className="card">
+                                    
                                         <Link to ={{pathname:`/note/${index}`, state: { index:index}
                                         }}>
                                             <h1 className="underline" key={index}>{note.title}</h1>
                                             <p key={index}>{note.note}</p>
                                         </Link>
-                                    </button>
+                                    
                                 )
                             })} 
                             </div>

@@ -1,4 +1,4 @@
-import {NEW_NOTE, DELETE_NOTE} from '../Actions/index';
+import {NEW_NOTE, DELETE_NOTE, UPDATE_NOTE} from '../Actions/index';
 
 const initialState = {
     notes: [
@@ -22,6 +22,18 @@ export const noteReducer = (state = initialState, action) => {
                 notes: [...state.notes.slice(0, action.payload),
                     ...state.notes.slice(action.payload + 1)]
             })
+        }
+
+        case UPDATE_NOTE: {
+            return {
+                ...state, 
+                notes: state.notes.map(
+                    (note, i) => i === action.index.index ? {
+                        ...note, title: action.payload.title, note: action.payload.note}
+                        :note
+                    
+                )
+            }
         }
         default: return state;
     }

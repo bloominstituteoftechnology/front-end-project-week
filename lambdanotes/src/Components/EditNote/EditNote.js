@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import SideBar from "../SideBar/SideBar";
 import "../AddNote/AddNote.css";
 import { connect } from 'react-redux';
-import {newNote} from "../../Actions"
+import {updateNote} from "../../Actions"
+import {Link} from 'react-router-dom';
 
 
-class CreateNote extends Component {
+class EditNote extends Component {
     constructor() {
         super();
+        this.state = {
+            index:0,
+            mounted:false
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            index: this.props.location.state.index,
+            mounted: true,
+        })
     }
 
     handleInputChange = event => {
@@ -17,24 +29,39 @@ class CreateNote extends Component {
 
     render() {
         return (
-            <div className="body">
-                <SideBar/>
-                <div className = "sideBar_pop create">
-                    <h1>Edit Note:</h1>
-                    <input onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
-                    <textarea onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
-                    <button onClick={() => this.props.newNote({title: this.state.title, note: this.state.note})}>Save</button>
+            <div>
+            {this.state.mounted === false ? (
+                <div>
+                    Fetching Note....
                 </div>
-            </div>
-        )
-    }
+            ) : (
+                <div className="body">
+                <SideBar/>
+                    <div className = "sideBar_pop create">
+                        <h1>Edit Note: </h1>
+                        <input 
+                        defaultValue={this.props.notes.notes[this.state.index].title}
+                        onChange={this.handleInputChange} type="text" placeholder="Note Title" name="title"/>
+                        <textarea 
+                        defaultValue={this.props.notes.notes[this.state.index].note}
+                        onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
+                        <Link to="/"><button onClick={() => 
+                        this.props.updateNote({title: this.state.title, note: this.state.note}, {index: this.state.index})}>Save</button>
+                        </Link>
+                    </div>
+                </div>
+            )}
+        </div>
+    )
+}
 }
 
 const mapStateToProps = state => {
     return {
+        notes: state
     }
   }
 
 export default connect(mapStateToProps, {
-    newNote,
-  })(CreateNote);
+    updateNote
+})(EditNote);
