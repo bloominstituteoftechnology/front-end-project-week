@@ -8,9 +8,9 @@ export const ADDING = "ADDING";
 export const ADDED = "ADDED";
 export const DELETING = "DELETING";
 export const DELETED = "DELETED";
-
-export const ERROR = "ERROR";
 export const UPDATING = "UPDATING";
+export const UPDATED = "UPDATED";
+export const ERROR = "ERROR";
 
 
 
@@ -18,6 +18,7 @@ const url = "https://killer-notes.herokuapp.com/note/get/all";
 const singleURL = "https://killer-notes.herokuapp.com/note/get/";
 const postURL = "https://killer-notes.herokuapp.com/note/create";
 const deleteURL = "https://killer-notes.herokuapp.com/note/delete/";
+const editURL = "https://killer-notes.herokuapp.com/note/edit/";
 
 export const getNotes = () => {
     const request = axios.get(url);
@@ -65,25 +66,36 @@ export const addNote = (newNote) => {
     }
   }
 
-  export const deleteNote = (id) => {
-    console.log("id in deleteNote is!!!!!", id);
+export const deleteNote = (id) => {
+    console.log("Delete Note called!!!!!");
     const request = axios.delete(`${deleteURL}${id}`)
-
     return(dispatch) => {
         dispatch({
             type: DELETING
         })
         request.then(response => {
             console.log("Deleted response", response)
-            dispatch({type: DELETED})
+            dispatch({type: DELETED})   
         })
         .catch(err => {
             console.log(err);
             dispatch({type: ERROR, error: err.message})
         })
     }
+}
 
-    // let newNotes = this.state.notes.slice().filter(note => note.id !== Number(id));
-    // this.setState({notes: newNotes});
-  }
+export const editNote = (id, newNote) => {
+    const request = axios.put(`${editURL}${id}`, newNote);
 
+    return(dispatch) => {
+        dispatch({
+            type: UPDATING,
+        })
+        request.then(response => {
+            dispatch({type: DELETED})
+        })
+        .catch(err => {
+            dispatch({type: ERROR, error: err.message})
+        })
+    }
+}

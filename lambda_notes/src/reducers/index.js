@@ -1,4 +1,4 @@
-import {FETCHING, FETCHED, FETCHINGNOTE, FETCHEDNOTE, ERROR, UPDATING, DELETING, DELETED, ADDING, ADDED} from '../actions';
+import {FETCHING, FETCHED, FETCHINGNOTE, FETCHEDNOTE, ERROR, UPDATING, UPDATED, DELETING, DELETED, ADDING, ADDED} from '../actions';
 
 const initialState = {
     notes: [],
@@ -6,13 +6,13 @@ const initialState = {
     fetched: false,
     fetchingnote: false,
     fetchednote: false,
-    updating: false,
     deleting: false,
     adding: false,
     added: false,
+    updating: false,
+    updated: false,
     error: null,
     currentNote: {},
-    location: "",
 }
 
 const noteReducer = (state = initialState, action) => {
@@ -26,6 +26,9 @@ const noteReducer = (state = initialState, action) => {
                 notes: action.payload, 
                 fetching: false,
                 fetched: true,
+                added: false,
+                deleted: false,
+                updated: false,
                 }
         case FETCHINGNOTE:
             return{...state,
@@ -58,6 +61,16 @@ const noteReducer = (state = initialState, action) => {
             return {...state,
                 deleting: false,
                 deleted: true
+                }
+        case UPDATING:
+            return{...state,
+                updating: true,
+                updated: false
+                }
+        case UPDATED:
+            return{...state,
+                updating: false,
+                updated: true
                 }
         case ERROR: 
             return { ...state,

@@ -24,6 +24,12 @@ class App extends Component {
     this.props.getNotes();
   }
 
+  componentDidUpdate(){
+    if(this.props.added || this.props.deleted || this.props.updated){
+      this.props.getNotes();
+    }
+  }
+
   editNote = (id, title, body) => {
     let newNotes = this.state.notes.slice().map(note => {
       if(note.id === Number(id)){
@@ -57,7 +63,8 @@ const mapStateToProps = (state) => {
   return {
     notes: state.notes,
     added: state.added,
-    adding: state.adding,
+    deleted: state.deleted,
+    updated: state.updated,
   }
 }
 

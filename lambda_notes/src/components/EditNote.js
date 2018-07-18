@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { editNote } from '../actions';
 
 const StyledEditNote = styled.div`
     background: #F3F3F3;
@@ -49,13 +51,18 @@ class EditNote extends Component {
         }
     }
 
+    componentDidMount(){
+        this.setState({editTitle: this.props.currentNote.title, editBody: this.props.currentNote.textBody})
+    }
+
     handleInput = (e) => {
         this.setState({[e.target.name] : e.target.value});
     }
 
     editNote = (e) => {
         e.preventDefault();
-        this.state.editNote(this.state.id, this.state.editTitle, this.state.editBody);
+        const edited = {title: this.state.editTitle, textBody: this.state.editBody}
+        this.props.editNote(this.state.id, edited);
         this.setState({editTitle: '', editBody: '', edited: true});
     }
 
@@ -85,5 +92,10 @@ class EditNote extends Component {
     }
     }
 
+const mapStateToProps = (state) => {
+    return{
+        currentNote: state.currentNote,
+    }
+}
  
-export default EditNote;
+export default connect(mapStateToProps, { editNote })(EditNote);
