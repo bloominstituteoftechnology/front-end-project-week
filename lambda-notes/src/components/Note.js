@@ -88,7 +88,7 @@ class Note extends React.Component {
   render() {
     if (!this.state.note) {
       return (
-        <div>Note is loading...</div>
+        <div className="main-container note">Note is loading...</div>
       )
     }
 
@@ -105,12 +105,11 @@ class Note extends React.Component {
 
     return (
       <div className="main-container note">
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          className="modal"
-          overlayClassName="overlay"
+        <Modal isOpen={this.state.modalIsOpen}
+               onAfterOpen={this.afterOpenModal}
+               onRequestClose={this.closeModal}
+               className="modal"
+               overlayClassName="overlay"
         >
           <h3>Are you sure you want to delete this?</h3>
           <div className="modal-buttons">

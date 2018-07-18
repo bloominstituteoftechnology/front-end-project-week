@@ -10,7 +10,6 @@ const Form = props => {
       <h2>{heading}</h2>
       <form>
         <input
-          className="title"
           type="text"
           name="title"
           maxlength="20"
@@ -19,7 +18,6 @@ const Form = props => {
           onChange={props.handleInputChange}
         />
         <textarea
-          className="text-body"
           type="text"
           name="textBody"
           placeholder="Note Content"
