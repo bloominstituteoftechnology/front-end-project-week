@@ -17,6 +17,7 @@ class CreateNote extends React.Component {
                 console.log('POST RESPONSE: ', response)
                 this.setState({ titleValue: '', contentValue: '' })
                 this.props.handleSetData(response.data)
+                alert('NOTE ADDED: Click \'View Your Notes\' in side banner to see all notes.')
             })
             .catch(err => {console.log(err)})
     }

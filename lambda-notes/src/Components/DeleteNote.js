@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class DeleteNote extends React.Component {
     constructor(props) {
@@ -9,10 +10,20 @@ class DeleteNote extends React.Component {
     }
     componentDidMount() {
         const id = this.props.match.params.id;
-        this.props.handleSetCurrent(id);
+        this.setState({ id: id })
     }
-    deleteCompleted = () => {this.props.handleDeleteNote(this.props.match.params.id)}
-    
+    deleteNote = () => {
+        const id = this.state.id;
+        axios
+            .delete(`http://localhost:3333/notes/${id}`)
+            .then(response => {
+                console.log('DELETE RESPONSE: ', response)
+                this.setState({ id: null })
+                this.props.handleSetData(response.data)
+                alert('NOTE DELETED: Click \'View Your Notes\' in side banner to see all notes.')
+            })
+            .catch(err => {console.log(err)})
+    }
     render() {
         return (
             <div className='delete-note'>
@@ -20,7 +31,7 @@ class DeleteNote extends React.Component {
                     <div className='delete-content'>
                         <p>Are you sure you want to delete this?</p>
                         <div className='delete-btns'>
-                            <div onClick={this.deleteCompleted} className='delete-btn'>Delete</div>
+                            <div onClick={this.deleteNote} className='delete-btn'>Delete</div>
                             <div onClick={this.props.toggleDeleting} className='no-btn'>No</div> 
                         </div>
                            

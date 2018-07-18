@@ -19,7 +19,7 @@ class App extends Component {
       deleting: false
     }
   }
-
+// New Functions
   componentDidMount() {
     axios
       .get('http://localhost:3333/notes')
@@ -29,7 +29,11 @@ class App extends Component {
       })
       .catch(err => {console.log(err)})
   }
-  handleSetData = data => {this.setState({ notes: data })}
+  handleSetData = data => {this.setState({ notes: data, deleting: false })}
+  toggleDeleting = () => {
+    this.setState({ deleting: !this.state.deleting })
+  }
+// Old Functions
   handleSetCurrent = note => {
     this.setState({ currentNote: note })
   }
@@ -51,15 +55,6 @@ class App extends Component {
     this.setState({notes, currentNote: {}});
     alert('NOTE UPDATED: Click \'View Your Notes\' in side banner to see all notes.')
   }
-  handleDeleteNote = id => {
-    let notes = this.state.notes.slice()
-    notes = notes.filter(note => note.id !== Number(id))
-    this.setState({notes, currentNote: {}, deleting: !this.state.deleting});
-    alert('NOTE DELETED: Click \'View Your Notes\' in side banner to see all notes.')
-  }
-  toggleDeleting = () => {
-    this.setState({ deleting: !this.state.deleting })
-  }
 
   render() {
     return (
@@ -69,7 +64,7 @@ class App extends Component {
         <Route path='/create' render={() => <CreateNote contentValue={this.state.contentValue} titleValue={this.state.titleValue} handleSetData={this.handleSetData} />} />
         <Route path='/view/:id' render={(props) => <ViewNote {...props} notes={this.state.notes} toggleDeleting={this.toggleDeleting} />} />
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetCurrent={this.handleSetCurrent} handleEditNote={this.handleEditNote} handleEditTitle={this.handleEditTitle} handleEditContent={this.handleEditContent} />} />
-        {this.state.deleting ? (<Route path='/view/:id' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetCurrent={this.handleSetCurrent} handleDeleteNote={this.handleDeleteNote}/>)}/>) : null}
+        {this.state.deleting ? (<Route path='/view/:id' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetData={this.handleSetData} handleDeleteNote={this.handleDeleteNote}/>)}/>) : null}
       </div>  
     );
   }
