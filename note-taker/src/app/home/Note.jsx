@@ -9,6 +9,9 @@ const Card = styled.div`
   border: 1px solid var(--main-border-color);
   background: var(--note-bg);
   overflow: hidden;
+  &:hover {
+    color: var(--note-hover-color);
+  }
 `;
 
 const CardTitle = styled.h2`
