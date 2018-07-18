@@ -107,3 +107,29 @@ export const NoteCheckListInput = styled.input`
     font-size: 11px;
     margin: 5px 0;
 `
+
+export const CheckListWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover img {
+        visibility: visible;
+    }
+
+    span {
+        font-size: 11px;
+    }
+`
+
+export const CheckListContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+export const MoreIcon = styled.img`
+    visibility: hidden;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
+`

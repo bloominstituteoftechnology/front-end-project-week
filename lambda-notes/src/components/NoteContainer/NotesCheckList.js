@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckListWrapper, CheckListContainer, MoreIcon } from '../ReusableComponents/Note';
 
 class NotesCheckList extends React.Component {
     constructor() {
@@ -24,16 +25,16 @@ class NotesCheckList extends React.Component {
 
     render() {
         return (
-            <div className='checkbox-container'>
+            <CheckListWrapper>
 
-                <div className='checkbox-input-text'>
-                    <input className='checkbox-input' type='checkbox' checked={this.state.checked} onClick={this.toggleCheckBox} />
+                <CheckListContainer>
+                    <input type='checkbox' checked={this.state.checked} onClick={this.toggleCheckBox} />
                     <span>{this.props.list}</span>
-                </div>
+                </CheckListContainer>
 
-                <img onClick={() => this.props.deleteList(this.props.id)} className='more-icon' src="https://png.icons8.com/metro/50/000000/more.png" alt='' />
+                <MoreIcon onClick={() => this.props.deleteList(this.props.id)} src="https://png.icons8.com/metro/50/000000/more.png" alt='' />
 
-            </div>
+            </CheckListWrapper>
         )
     }
 }

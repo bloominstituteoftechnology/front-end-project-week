@@ -142,34 +142,3 @@ body {
   display: flex;
   align-items: flex-start;
 }
-
-.checkbox-container { 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.checkbox-container:hover .more-icon{
-  visibility: visible;
-}
-
-.checkbox-input-text {
-  display: flex;
-  align-items: center;
-}
-
-.checkbox-container span {
-  font-size: 11px;
-}
-
-.checkbox-input {
-  border-radius: 5px;
-  margin-left: 0;
-}
-
-.more-icon {
-  visibility: hidden;
-  width: 11px;
-  height: 11px;
-  cursor: pointer;
-}
