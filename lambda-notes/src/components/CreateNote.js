@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Createcont = styled.div`
 
@@ -43,6 +44,11 @@ background-color: #2BC1C4;
 width: 185px;
 height: 35px;
 `;
+const StyledLink = styled(Link)`
+text-decoration: none;
+  color: white;
+  
+`
 // const Notebod = styled.div`
 // display: flex;
 //     justify-content: space-around;
@@ -79,13 +85,14 @@ height: 35px;
            placeholder="Note Content"
         //   onChange={this.handleInputChange}
         />
-        <Button onClick={() => this.handleAddNote()} type="button">
+        <Button  onClick={() => this.handleAddNote()} type="button"><StyledLink to="/">
           Save
+          </StyledLink>
         </Button>
       
       </Createbod>
      </Createcont>
  )
  ;
-
+<StyledLink to="/">View Your Notes</StyledLink>
 export default CreateNote

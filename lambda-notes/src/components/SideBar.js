@@ -1,9 +1,43 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import '../App.css';
+// import '../App.css';
 import styled from 'styled-components';
 
+const SideBr = styled.div`
+    background-color: #D8D8D8;
+    height:100vh;
+    width:220px;
+    border: solid 1px #979797
+`;
+const SBarHead1 = styled.text`
+display: flex;
+    justify-content: flex-start;
+    margin-left: 15px;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: 900;
+    color: #4A4A4A;
+`;
+const SBarHead2 = styled.text`
+display: flex;
+    justify-content: flex-start;
+    margin-left: 15px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    
+    font-weight: 900;
+    color: #4A4A4A;
+    
+`;
+const StyledLink = styled(Link)`
+text-decoration: none;
+  color: white;
+  
+`
+
 const Button = styled.button`
+margin-left: 15px;
+text-decoration: none;
 color: white;
 display: flex;
 justify-content: center;
@@ -11,25 +45,25 @@ align-items: center;
 background-color: #2BC1C4;
 width: 185px;
 height: 35px;
-`;
-const SideBr = styled.div`
-display: flex;
-    flex-direction: column;
-    
-align-items: center;
-    background-color: #D8D8D8;
-    height:100vh;
-    width:220px;
-    border: solid 1px #979797
-`;
-const SBarHead = styled.h1`
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-font-size: 34px;
-    color: black;
+margin-bottom: 15px;
+
+
+
 `;
 
+export const SideBar = () => (
+    <SideBr className = 'sideBar'> 
+    <SBarHead1 className = 'sideBarHeading'>Lambda
+        </SBarHead1>
+        <SBarHead2 className = 'sideBarHeading'> Notes
+        </SBarHead2>
+        <Button> <StyledLink to="/">View Your Notes</StyledLink>
+            </Button>
+            <Button> <StyledLink to="/createnote">+Create New Note</StyledLink>
+            </Button>
+        </SideBr>
+
+) 
 
 
 // .sideBar {
@@ -119,16 +153,6 @@ font-size: 34px;
 //   </Router>
 // );
 
-export const SideBar = () => (
-    <SideBr className = 'sideBar'> 
-    <SBarHead className = 'sideBarHeading'>Lambda Notes
-        </SBarHead>
-        <Button> <Link to="/">View Your Notes</Link>
-            </Button>
-            <Button> <Link to="/createnote">+Create New Note</Link>
-            </Button>
-        </SideBr>
 
-) 
 
 // export default SidebarExample;

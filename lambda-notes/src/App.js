@@ -4,27 +4,30 @@ import './App.css';
 import SidebarExample from './components/SideBar';
 import NoteForm from './components/NoteForm';
 import ListView from './components/ListView';
-import CreateNoteView from './components/OneNote';
-import OneNote from './components/CreateNoteView';
+import OneNote from './components/OneNote';
+import CreateNoteView from './components/CreateNoteView';
 import EditView from './components/EditView';
+import Delete from './components/DeleteView';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Appcont = styled.div`
+
+    margin: 0 auto;
+    width: 880px;
+`;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Lambda Notes</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <Appcont className="App">
+       
         <Route exact path='/' component={ListView}/>
-        <Route exact path='/note' component={CreateNoteView}/>
-        <Route path='/createnote' component={OneNote}/>
+        <Route exact path='/createnote' component={CreateNoteView}/>
+        <Route path='/note' component={OneNote}/>
         <Route path='/edit' component={EditView}/>
-      </div>
+        <Route path='/delete' component={Delete}/>
+      </Appcont>
     );
   }
 }

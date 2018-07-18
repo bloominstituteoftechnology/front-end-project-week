@@ -11,9 +11,7 @@ const Notecont = styled.div`
 `;
 const Notebod = styled.div`
 display: flex;
-    justify-content: space-around;
-    
-   
+    justify-content: space-around; 
 `;
 const SmallNote = styled.div`
 
@@ -22,6 +20,29 @@ const SmallNote = styled.div`
     width:190px;
     border: solid 1px #979797
 `;
+const StyledLink = styled(Link)`
+text-decoration: none;
+  color: black;
+  
+`
+const NoteTitle = styled.h2`
+display: flex;
+    justify-content: flex-start;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+    border-bottom: solid 2px #000;
+    
+    padding-bottom: 3px;
+    color: #4A4A4A;
+`
+const NoteBod = styled.p`
+display: flex;
+    justify-content: flex-start;
+    margin-left: 15px;
+    color: #4A4A4A;
+  
+`
 
 
  const NoteCard = () => (
@@ -29,18 +50,18 @@ const SmallNote = styled.div`
       <div>Your Notes:</div>    
     <Notebod className = 'Note'>
     
-    <Link to="/note"> <SmallNote>
-    <h2>Note Title</h2>
-    <p>Lorem Ipsum</p>
-      </SmallNote> </Link>
-      <Link to="/note"> <SmallNote>
-    <h2>Note Title</h2>
-    <p>Lorem Ipsum</p>
-      </SmallNote> </Link> 
-      <Link to="/note"> <SmallNote>
-    <h2>Note Title</h2>
-    <p>Lorem Ipsum</p>
-      </SmallNote> </Link>
+    <StyledLink to="/note"> <SmallNote>
+    <NoteTitle>Note Title</NoteTitle>
+    <NoteBod>Lorem Ipsum</NoteBod>
+      </SmallNote> </StyledLink>
+      <StyledLink to="/note"> <SmallNote>
+    <NoteTitle>Note Title</NoteTitle>
+    <NoteBod>Lorem Ipsum</NoteBod>
+      </SmallNote> </StyledLink> 
+      <StyledLink to="/note"> <SmallNote>
+    <NoteTitle>Note Title</NoteTitle>
+    <NoteBod>Lorem Ipsum</NoteBod>
+      </SmallNote> </StyledLink>
  </Notebod>
  </Notecont>
  )
