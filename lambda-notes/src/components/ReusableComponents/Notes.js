@@ -29,11 +29,6 @@ export const MainNotesHeader = styled.h3`
 export const NotesCardLink = styled(Link)`
     color: black;
     text-decoration: none;
-    width: 192px;
-    height: 197px;
-    margin-left: 3px;
-    margin-right: 14px;
-    margin-bottom: 24px;
 
     &:nth-child(3n+3) {
         margin-right: 0;

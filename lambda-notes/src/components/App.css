@@ -19,3 +19,16 @@ body {
   border: 1px solid #979797;
   min-height: 891px;
 }
+
+.test-div {
+  margin-right: 14px;
+  width: 192px;
+  height: 197px;
+  margin-left: 3px;
+  margin-right: 14px;
+  margin-bottom: 24px;
+}
+
+.test-div:nth-child(3n+3) {
+  margin-right: 0;
+}

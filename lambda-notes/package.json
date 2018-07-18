@@ -4,7 +4,12 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "immutability-helper": "^2.7.1",
+    "lodash.flow": "^3.5.0",
     "react": "^16.4.1",
+    "react-csv": "^1.0.14",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-lines-ellipsis": "^0.13.0",
     "react-redux": "^5.0.7",

@@ -1,25 +1,68 @@
 import React from 'react';
 import { NotesCardLink, NotesCardContainer, NotesCardTitle, NotesContent } from '../ReusableComponents/Notes';
+import { DragSource, DropTarget } from 'react-dnd';
+import flow from 'lodash/flow';
+
+const cardSource = {
+    beginDrag(props) {
+        return {
+            id: props.note._id,
+            index: props.index,
+        }
+    },
+};
+
+const cardTarget = {
+    hover(props, monitor) {
+        const dragIndex = monitor.getItem().index
+        const hoverIndex = props.index
+
+        // Don't replace items with themselves
+        if (dragIndex === hoverIndex) {
+            return;
+        }
+
+        // Time to actually perform the action
+        props.moveCard(dragIndex, hoverIndex);
+
+        monitor.getItem().index = hoverIndex;
+    },
+}
 
 const NotesCard = props => {
     // Displays each note to the screen
-    return (
-        <NotesCardLink to={`/notes/${props.note._id}`}>
+    const { isDragging, connectDragSource, connectDropTarget, note } = props;
+    const opacity = isDragging ? 0 : 1;
+    return connectDragSource && connectDropTarget && connectDragSource(connectDropTarget(
+        <div className='test-div' style={{ opacity }}>
+            <NotesCardLink to={`/notes/${note._id}`}>
 
-            <NotesCardContainer>
-                <NotesCardTitle>{props.note.title}</NotesCardTitle>
-                <NotesContent
-                    className='note-paragraph'
-                    text={props.note.textBody}
-                    maxLine='6'
-                    ellipsis=' ...'
-                    trimRight
-                    basedOn='letters'
-                />
-            </NotesCardContainer>
+                <NotesCardContainer>
+                    <NotesCardTitle>{note.title}</NotesCardTitle>
+                    <NotesContent
+                        className='note-paragraph'
+                        text={note.textBody}
+                        maxLine='6'
+                        ellipsis=' ...'
+                        trimRight
+                        basedOn='letters'
+                    />
+                </NotesCardContainer>
 
-        </NotesCardLink>
-    );
+            </NotesCardLink>
+        </div>
+    ));
 }
 
-export default NotesCard;
+export default flow(
+    DragSource(
+        'card',
+        cardSource,
+        (connect, monitor) => ({
+            connectDragSource: connect.dragSource(),
+            isDragging: monitor.isDragging()
+        }),
+    ),
+    DropTarget('card', cardTarget, connect => ({
+        connectDropTarget: connect.dropTarget()
+    })))(NotesCard);
