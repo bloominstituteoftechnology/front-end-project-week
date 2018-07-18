@@ -7,6 +7,7 @@
     "bulma": "^0.7.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-lines-ellipsis": "^0.13.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
