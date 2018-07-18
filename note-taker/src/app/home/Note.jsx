@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "../styles/custom-props.css";
 import { Link } from "react-router-dom";
+import LinesEllipsis from "react-lines-ellipsis";
 const Card = styled.div`
   height: 250px;
   padding: 10px 20px;
@@ -17,7 +18,7 @@ const CardTitle = styled.h2`
   padding-bottom: 0.5rem;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow:hidden;
+  overflow: hidden;
 `;
 
 const CardContent = styled.p`
@@ -26,13 +27,18 @@ const CardContent = styled.p`
 `;
 const UnstyledLink = styled(Link)`
   color: inherit;
-`; 
+`;
 const Note = props => {
   return (
     <UnstyledLink to={`note/get/${props.id}`}>
       <Card>
         <CardTitle>{props.title}</CardTitle>
-        <CardContent>{props.textBody}</CardContent>
+        <CardContent>
+          <LinesEllipsis text={props.textBody} 
+          maxLine='7'
+          ellipsis='...'
+          trimRight/>
+        </CardContent>
       </Card>
     </UnstyledLink>
   );
