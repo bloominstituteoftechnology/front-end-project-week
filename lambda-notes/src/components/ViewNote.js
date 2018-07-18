@@ -2,6 +2,7 @@
  import { connect } from 'react-redux';
  import { Link } from 'react-router-dom';
  import { fetchNote } from '../actions';
+ import Tag from './Tag';
  import '../styles/ViewNote.css';
 
  const URL = 'https://killer-notes.herokuapp.com/note/';
@@ -39,6 +40,16 @@
                     <div className='single-note'>
                         <p className='single-title'>{this.props.singleNote.title}</p>
                         <p className='single-body'>{this.props.singleNote.textBody}</p>
+                        <React.Fragment>
+                            {this.props.singleNote.tags ? (
+                                <div className='tags'>
+                                <p className='tagger'>Tags: </p>
+                                {this.props.singleNote.tags.map(tag => {
+                                    return <Tag key={tag} tag={tag} />
+                                })}
+                                </div>
+                            ) : null}
+                        </React.Fragment>
                     </div>
                     ) }
                     </React.Fragment>

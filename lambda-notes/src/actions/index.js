@@ -27,7 +27,6 @@ export const fetchNote = (URL, id) => {
         dispatch({ type: FETCHING_NOTES });
         promise
             .then(response => {
-                console.log(response);
                 dispatch({ type: FETCHED_NOTE, payload: response.data });
             })
             .catch(err => {

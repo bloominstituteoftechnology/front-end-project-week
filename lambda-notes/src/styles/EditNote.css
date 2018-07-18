@@ -33,6 +33,14 @@
     padding-top: 3px;
 }
 
+.edit-form .tags {
+    border: 1px solid #A0A0A0;
+    border-radius: 5px;
+    margin: 7px 0;
+    height: 25px;
+    padding-left: 3px;
+}
+
 .edit-form .update-btn {
     text-align: center;
     width: 200px;

@@ -32,3 +32,12 @@
     font-size: 1.5rem;
 }
 
+.tags {
+    display: flex;
+    font-size: .85rem;
+}
+
+.tagger {
+    margin-right: 5px;
+}
+

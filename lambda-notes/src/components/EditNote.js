@@ -9,6 +9,7 @@ class EditNote extends Component {
     state = {
         title: '',
         body: '',
+        tags: '',
     }
 
     // parses url path for note id then fetches note from server, prefills form with existing note
@@ -16,6 +17,11 @@ class EditNote extends Component {
         let id = window.location.pathname.split('/');
         id = id[2];
         this.props.fetchNote(URL, id);
+        if(this.props.singleNote.tags.length > 0) {
+            let tags = this.props.singleNote.tags.join(', ');
+            this.setState({ tags: tags})
+        }
+        
         this.setState({
             title: this.props.singleNote.title,
             body: this.props.singleNote.textBody,
@@ -27,9 +33,11 @@ class EditNote extends Component {
     }
 
     handleInputSubmit = id => {
+        let tags = this.state.tags.split(',')
         const note = {
             title: this.state.title,
             textBody: this.state.body,
+            tags: tags,
         }
         this.props.editNote(URL, id, note);
     }
@@ -45,6 +53,7 @@ class EditNote extends Component {
                     <div className='edit-form'>
                         <input name='title' className='title' value={this.state.title} onChange={this.handeInputChange} />
                         <textarea name='body' className='body' value={this.state.body} onChange={this.handeInputChange}></textarea>
+                        <input name='tags' className='tags' value={this.state.tags} onChange={this.handeInputChange} />
                         <button className='update-btn' type='submit' onClick={() => this.handleInputSubmit(this.props.singleNote._id)}>Update</button>
                     </div>
                 </div>
