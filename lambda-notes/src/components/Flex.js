@@ -3,7 +3,8 @@ import {
   alignItems, 
   justifyContent,
   height,
-  width
+  width,
+  space
 } from 'styled-system'
 
 export default styled.div`
@@ -12,5 +13,6 @@ export default styled.div`
   ${justifyContent}
   ${height}
   ${width}
+  ${space}
 `
 

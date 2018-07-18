@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import Flex from './Flex'
 
 export default class extends Component { 
 
@@ -44,17 +45,29 @@ export default class extends Component {
           value={textBody}
         />
       </label>
-      <Button 
-        onClick={() => {
-          editNote(id, this.state)
-          history.push(`/note/${id}`)
-        }}
-        variant='primary'
-        width={220}
-        mt={3}
-      >
-        Edit Note
-      </Button>
+      <Flex mt={2}>
+        <Button 
+          onClick={() => {
+            editNote(id, this.state)
+            history.push(`/note/${id}`)
+          }}
+          variant='primary'
+          width={150}
+          mx={2}
+        >
+          edit Note
+        </Button>
+        <Button
+          onClick={() => 
+            history.push(`/note/${id}`)
+          }
+          variant='primary'
+          width={150}
+          mx={2}
+        >
+          cancel
+        </Button>
+      </Flex>
     </div>
   }
 }
