@@ -5,6 +5,7 @@ import {FETCHING, FETCHED,  EDITING_NOTE, NOTE_EDITED, DELETING, DELETED, ERROR,
 const initialState = {
    notes: [],
    singleNote: [],
+   editedSingleNote: [],	
    fetchingNotes: false,
    addingNote: false,
    deletingNote: false,
@@ -36,7 +37,7 @@ const noteReducer = (state=initialState, action) => {
         return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: false, error: null});
 
 	case NOTE_EDITED:
-        return Object.assign({}, state, {fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: true, error: null});
+        return Object.assign({}, state, {editedSingleNote: action.note, fetchingNotes: false, noteSaved: false, addingNote: false, noteEdited: true, error: null});
 
 
 	case DELETING:

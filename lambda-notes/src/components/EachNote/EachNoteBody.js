@@ -41,7 +41,7 @@ deleteNote = event => {
 
 render() {
 	return(
- 		<div className="view-list-body desktop-view tablet-view">
+ 		<div className="view-list-body  tablet-view">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
 		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(		      <div>
@@ -57,9 +57,6 @@ render() {
             <Button className="cancel-modal-btn" onClick={this.toggle}>No</Button>
 	</ModalFooter>
         </Modal>
-
-
-
 		
 		<h3 className="single-note-title">{this.props.single.title}</h3>
 		<div className="single-note-container">{this.props.single.textBody}</div>

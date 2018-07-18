@@ -34,11 +34,18 @@ changeHandler = event => {
 
 
 render() {
-        return( 
+        return(
                 <div className="view-list-body desktop-view tablet-view">
                 <LambdaLeftDiv />
                 <div className="note-card-container">
-                <div>{this.props.edited ? (<h3 className="delete-note-message">Note successfully edited and saved</h3>) :(    
+                <div>{this.props.edited ? 
+		(<div>
+		<h3 className="delete-note-message">Note successfully edited and saved</h3>
+		<h3 className="single-note-title">{this.props.editedNote.title}</h3>
+                <div className="single-note-container">{this.props.editedNote.textBody}</div>
+		</div>	
+		
+		) :(    
 	        <div className="input-container">
 		<h3 className="new-note-title">Edit Note:</h3>
 		<input onChange={this.changeHandler} className="title-style" type="text" name="title" value={this.state.title} /><br />
@@ -55,7 +62,8 @@ render() {
 const mapStateToProps = state => {
   return {
 	  single: state.singleNote,
-	  edited: state.noteEdited
+	  edited: state.noteEdited,
+	  editedNote: state.editedSingleNote
   };
 };
 

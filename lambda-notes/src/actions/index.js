@@ -74,7 +74,7 @@ export const editNoteAction = (id, title, content) => {
         dispatch({type: EDITING_NOTE});
 
         request.then(response => {
-        dispatch({type: NOTE_EDITED, notes: response.data});
+        dispatch({type: NOTE_EDITED, note: response.data});
     })
 
         .catch(err => {
