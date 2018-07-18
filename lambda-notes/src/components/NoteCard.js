@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { getNote } from '../actions'
 import { connect } from 'react-redux'
 const NoteCard = (props) => {
@@ -14,6 +13,7 @@ const NoteCard = (props) => {
     <div key={note._id} className='myLink' onClick={() => handleDetails()}>
       <h1 className='cardTitle'>{note.title}</h1>
       <p>{note.textBody}</p>
+      <span className='card-tags'>#{note.tags}</span>
     </div>
   )
 }

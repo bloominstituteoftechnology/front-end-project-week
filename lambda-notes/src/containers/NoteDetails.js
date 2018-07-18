@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getNote, deleteNote, editNote } from '../actions'
+import { deleteNote, editNote } from '../actions'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 
 class NoteDetails extends Component {
@@ -12,7 +12,8 @@ class NoteDetails extends Component {
       editModal: false,
       isEditing: false,
       title: this.props.note.title,
-      textBody: this.props.note.textBody
+      textBody: this.props.note.textBody,
+      tags: ''
     }
   }
 
@@ -40,8 +41,8 @@ class NoteDetails extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const { title, textBody } = this.state
-    const note = { title, textBody }
+    const { title, textBody, tags } = this.state
+    const note = { title, textBody, tags }
     this.props.editNote(this.props.match.params.id, note)
     this.setState({ title, textBody })
     this.editToggle()
@@ -82,6 +83,13 @@ class NoteDetails extends Component {
                       type='text'
                       name='title'
                       value={this.state.title}
+                      onChange={this.handleChange}
+                    />
+                    <input
+                      className='add tags'
+                      type='text'
+                      name='tags'
+                      value={this.state.tags}
                       onChange={this.handleChange}
                     />
                     <textarea
@@ -139,17 +147,15 @@ class NoteDetails extends Component {
 
           <h1 className='title-header'>{note.title}</h1>
           <p className='noteBody'>{note.textBody}</p>
+          <p>#{note.tags}</p>
         </div>
       </div>
     )
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state.note)
   return {
     note: state.note
   }
 }
-export default connect(mapStateToProps, { getNote, deleteNote, editNote })(
-  NoteDetails
-)
+export default connect(mapStateToProps, { deleteNote, editNote })(NoteDetails)

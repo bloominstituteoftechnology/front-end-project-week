@@ -10,6 +10,20 @@ export const POSTING = 'POSTING'
 export const DELETING = 'DELETING'
 export const UPDATING = 'UPDATING'
 export const GETTING_NOTE = 'GETTING_NOTE'
+export const GET_TAGS = 'GET_TAGS'
+export const UPDATED_TAGS = 'UPDATED_TAGS'
+
+const flatten = function (arr, result = []) {
+  for (let i = 0, length = arr.length; i < length; i++) {
+    const value = arr[i]
+    if (Array.isArray(value)) {
+      flatten(value, result)
+    } else {
+      result.push(value)
+    }
+  }
+  return result
+}
 
 export const fetchNotes = () => {
   const request = axios.get(`${url}/get/all`)
@@ -17,6 +31,8 @@ export const fetchNotes = () => {
     dispatch({ type: FETCHING, payload: true })
     request
       .then((res) => {
+        const arr = res.data.map((note) => note.tags)
+        dispatch({ type: GET_TAGS, payload: flatten(arr) })
         dispatch({ type: GET_NOTES, payload: res.data })
         dispatch({ type: FETCHING, payload: false })
       })
@@ -30,8 +46,10 @@ export const getNote = (id) => {
     dispatch({ type: GETTING_NOTE, payload: true })
     request
       .then((res) => {
+        console.log(res.data)
         dispatch({ type: GETTING_NOTE, payload: false })
         dispatch({ type: GET_NOTE, payload: res.data })
+        dispatch({})
       })
       .catch((error) => dispatch({ type: ERROR, payload: error }))
   }
@@ -61,11 +79,13 @@ export const postNote = (note) => {
     dispatch({ type: POSTING, payload: true })
     request
       .then((res) => {
-        dispatch({ type: POSTING, payload: false })
         dispatch({
           type: GET_NOTES,
           payload: axios.get(`${url}/get/all`).then((res) => {
+            const arr = res.data.map((note) => note.tags)
+            dispatch({ type: GET_TAGS, payload: flatten(arr) })
             dispatch({ type: GET_NOTES, payload: res.data })
+            dispatch({ type: POSTING, payload: false })
           })
         })
       })
@@ -84,6 +104,8 @@ export const editNote = (id, note) => {
         dispatch({
           type: GET_NOTE,
           payload: axios.get(`${url}/get/${id}`).then((res) => {
+            const arr = res.data.tags
+            dispatch({ type: UPDATED_TAGS, payload: arr })
             dispatch({ type: GET_NOTE, payload: res.data })
           })
         })
