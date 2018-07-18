@@ -5,6 +5,8 @@ import { Container, Row, Col } from 'reactstrap';
 import Sidebar from '../src/components/Sidebar'
 import Content from '../src/components/Content'
 import DeleteOverlay from './components/DeleteOverlay';
+import firebase from '../src/components/firebase';
+import {initialDataArr} from '../src/initialData';
 
 const MainContainer = styled.div`
   background-color: #D8D8D8;
@@ -23,6 +25,10 @@ const ContentStyled = styled(Col)`
   height:100%;
   border-left: 1px solid #979797;
 `
+
+//Initialize a global reference to the RT DB on Firebase
+const notesRef = firebase.database().ref('notes')
+
 class App extends Component {
   constructor(){
     super();
@@ -34,115 +40,74 @@ class App extends Component {
       }
     }
   }
+  
+
 
   componentDidMount(){
-    this.setState({
-      notes: [
-        {
-        "id": 1531765758224,  
-        "tags": ["tag", "otherTag"],
-        "title": "Doctor Who1",
-        "textBody": "The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible. I might've been saying something important. I was saying something important! What?! Come out. And don't touch anything! Have a jelly baby. Would you like a jelly baby? Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes.",
-        },
-        {  
-          "id": 1531765765746,
-          "tags": ["tag", "otherTag"],
-          "title": "Doctor Who2",
-          "textBody": "Hello-o-o-o. You may be a doctor. But I'm the Doctor. The definite article, you might say. I might've been saying something important. I was saying something important! The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible. You're standing on my scarf. Come on!",
-        },
-        {  
-          "id": 1531765766821, 
-          "tags": ["tag", "otherTag"],
-          "title": "Doctor Who3",
-          "textBody": "Shut up, K-9! You're standing on my scarf. Have a jelly baby. Are you listening to me? What?! Come out. And don't touch anything! Come on! The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible. I might've been saying something important. I was saying something important!",
-        },
-        {  
-          "id": 1531765767759,
-          "tags": ["tag", "otherTag"],
-          "title": "Doctor Who4",
-          "textBody": "Have a jelly baby. Are you listening to me? Shut up, K-9! The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible. It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? You're a clumsy, ham fisted idiot!",
-        },
-        {  
-          "id": 1531765770690,
-          "tags": ["tag", "otherTag"],
-          "title": "Doctor Who5",
-          "textBody": "Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible. What?! Come out. And don't touch anything! Shut up, K-9! You may be a doctor. But I'm the Doctor. The definite article, you might say.",
-        },
-        {
-          "id": 1531765758225,  
-          "tags": ["tag", "otherTag"],
-          "title": "Doctor Who6",
-          "textBody": "Adric? That could blow a hole in the space-time continuum, the size of—actually, the exact size of Belgium. That's a bit undramatic, isn't it? 'Belgium'? Brave heart, Tegan. For some people, small, beautiful events are what life is all about! You know how it is; you put things off for a day and next thing you know, it's a hundred years later. Like Alice, I try to believe three impossible things before breakfast. Oh, marvellous. You're going to kill me. What a finely tuned response to the situation.",
-          },
-          {  
-            "id": 1531765765747,
-            "tags": ["tag", "otherTag"],
-            "title": "Doctor Who7",
-            "textBody": "It may be irrational of me, but human beings are my favorite species. Would you like a jelly baby? Shut up, K-9! It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? Well, my Doctorate is purely honorary and Harry is only qualified to work on sailors. Hello-o-o-o. I might've been saying something important. I was saying something important! The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible.",
-          },
-          {  
-            "id": 1531765766822, 
-            "tags": ["tag", "otherTag"],
-            "title": "Doctor Who8",
-            "textBody": "You're a clumsy, ham fisted idiot! Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. Hello-o-o-o. It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? You may be a doctor. But I'm the Doctor. The definite article, you might say. What?! Come out. And don't touch anything! Come on! It may be irrational of me, but human beings are my favorite species. Shut up, K-9! I might've been saying something important. I was saying something important! Would you like a jelly baby? Hello-o-o-o. I might've been saying something important. I was saying something important! Well, my Doctorate is purely honorary and Harry is only qualified to work on sailors. Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. You're standing on my scarf. What?! Come out. And don't touch anything! Shut up, K-9! Have a jelly baby. The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible.",
-          },
-          {  
-            "id": 1531765767659,
-            "tags": ["tag", "otherTag"],
-            "title": "Doctor Who9",
-            "textBody": "You're a clumsy, ham fisted idiot! Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. Hello-o-o-o. It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? You may be a doctor. But I'm the Doctor. The definite article, you might say. What?! Come out. And don't touch anything! Come on! It may be irrational of me, but human beings are my favorite species. Shut up, K-9! I might've been saying something important. I was saying something important! Would you like a jelly baby? Hello-o-o-o. I might've been saying something important. I was saying something important! Well, my Doctorate is purely honorary and Harry is only qualified to work on sailors. Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. You're standing on my scarf. What?! Come out. And don't touch anything! Shut up, K-9! Have a jelly baby. The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible.",
-          },
-          {  
-            "id": 1531765770689,
-            "tags": ["tag", "otherTag"],
-            "title": "Doctor Who10",
-            "textBody": "You're a clumsy, ham fisted idiot! Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. Hello-o-o-o. It seems you have a very large rat Brigadier—maybe you should employ the services of a very large cat? You may be a doctor. But I'm the Doctor. The definite article, you might say. What?! Come out. And don't touch anything! Come on! It may be irrational of me, but human beings are my favorite species. Shut up, K-9! I might've been saying something important. I was saying something important! Would you like a jelly baby? Hello-o-o-o. I might've been saying something important. I was saying something important! Well, my Doctorate is purely honorary and Harry is only qualified to work on sailors. Well, of course I'm being childish! There's no point being grown-up if you can't be childish sometimes. You're standing on my scarf. What?! Come out. And don't touch anything! Shut up, K-9! Have a jelly baby. The trouble with computers, of course, is that they're very sophisticated idiots. They do exactly what you tell them at amazing speed. Even if you order them to kill you. So if you do happen to change your mind, it's very difficult to stop them from obeying the original order. But not impossible.",
-          },
-  
-      ]
+    // Run this to initialize the database only runs once ever!!
+    // this.initializeFireBaseData()
+
+    //Listen for changes to any value in the FB RT DB reference
+    notesRef.on('value', (snapshot) => {
+
+      if (snapshot.val){
+        // Since firebase stores object, we need to convert it to an array of object to work with our architecture
+        let notes = Object.entries(snapshot.val()).map( entry => entry[1])
+
+        //Set state shorthand, when the key name is the same as the name of the value variable
+        console.log(notes)
+        this.setState({notes})  
+      }
+
+    });
+  }
+
+  initializeFireBaseData = () => {
+    initialDataArr.forEach(obj => {
+      let noteKey = notesRef.push() // Blank slot waitin to be filled
+      console.log(noteKey)
+      noteKey.set({ // set the blank slot 
+        id: noteKey.key, // access the key of the slot
+        title:obj.title,
+        tags:obj.tags,
+        textBody:obj.textBody
+      })
     })
   }
 
   saveNewNote = (noteTitle, noteTextBody) => {    
+    let newNoteInFB = notesRef.push()
+
     let newNote = {
-      "id":Date.now(),
+      "id": newNoteInFB.key,
       "tags": ["tag", "doctor4"],
       "title": noteTitle,
       "textBody":noteTextBody
     }
+    
+    newNoteInFB.set(newNote)
 
-    let notes = [...this.state.notes, newNote];
-
-    this.setState({notes})
   }
 
   editNote = (id, title, textBody) => {
-    // Make a copy of this.state.notes
-    let notes = [...this.state.notes]
-    
-    //Grab the index of note we are editing
-    let indexOfEditNoteId = notes.findIndex((obj => obj.id == id))
-    
-    // Update the contents
-    notes[indexOfEditNoteId].title = title;
-    notes[indexOfEditNoteId].textBody = textBody;
-    
-    // Update State
-    this.setState({notes})
+    //Reference the id and then call update on the field, via shorthand
+    notesRef.child(id).update({title})
+    notesRef.child(id).update({textBody})
   }
 
   onDeleteLinkClick = (id) => {
     this.setState({
       deleteNote: {
         deleting:true,
-        id:Number(id),
+        id:id,
       }
     })
   }
 
   deleteNoteClick = () => {
-    let notes = [...this.state.notes].filter( note => note.id !== this.state.deleteNote.id)
-    this.setState({notes}, this.deletingCompleted)
+    // let notes = [...this.state.notes].filter( note => note.id !== this.state.deleteNote.id)
+    notesRef.child(this.state.deleteNote.id).remove()
+    this.deletingCompleted()
   }
 
   deletingCompleted = () =>{
