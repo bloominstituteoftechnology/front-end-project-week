@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addNote, editNote } from '../../actions';
+import { NotesFormWrapper, NoteTitleInput, NoteContentInput } from '../ReusableComponents/Notes';
+import { MainButtons } from '../ReusableComponents/SideBar';
 
 class NotesForm extends React.Component {
     constructor(props) {
@@ -41,11 +43,11 @@ class NotesForm extends React.Component {
     render() {
         // Displays input form for creating / updating a note
         return (
-            <form className='notes-form' onSubmit={event => event.preventDefault()}>
-                <input className='note-title-field' onChange={this.handleInput} value={this.state.title} name='title' type='text' placeholder='Note Title' />
-                <textarea className='note-content-field' onChange={this.handleInput} value={this.state.content} name='content' type='text' placeholder='Note Content' />
-                <button onClick={this.props.title ? this.editNote : this.addNote} className='main-buttons'>{this.props.title ? 'Update' : 'Save'}</button>
-            </form>
+            <NotesFormWrapper onSubmit={event => event.preventDefault()}>
+                <NoteTitleInput onChange={this.handleInput} value={this.state.title} name='title' type='text' placeholder='Note Title' />
+                <NoteContentInput className='note-content-field' onChange={this.handleInput} value={this.state.content} name='content' type='text' placeholder='Note Content' />
+                <MainButtons onClick={this.props.title ? this.editNote : this.addNote} className='main-buttons'>{this.props.title ? 'Update' : 'Save'}</MainButtons>
+            </NotesFormWrapper>
         );
     }
 }

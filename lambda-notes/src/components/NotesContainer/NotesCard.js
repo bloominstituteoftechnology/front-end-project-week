@@ -1,6 +1,5 @@
 import React from 'react';
-import LinesEllipsis from 'react-lines-ellipsis';
-import { NotesCardLink, NotesCardContainer, NotesCardTitle } from '../ReusableComponents/Notes';
+import { NotesCardLink, NotesCardContainer, NotesCardTitle, NotesContent } from '../ReusableComponents/Notes';
 
 const NotesCard = props => {
     // Displays each note to the screen
@@ -8,8 +7,8 @@ const NotesCard = props => {
         <NotesCardLink to={`/notes/${props.note._id}`}>
 
             <NotesCardContainer>
-                <NotesCardTitle className='note-title'>{props.note.title}</NotesCardTitle>
-                <LinesEllipsis
+                <NotesCardTitle>{props.note.title}</NotesCardTitle>
+                <NotesContent
                     className='note-paragraph'
                     text={props.note.textBody}
                     maxLine='6'

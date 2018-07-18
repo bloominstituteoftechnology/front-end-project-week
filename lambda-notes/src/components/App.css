@@ -20,47 +20,6 @@ body {
   min-height: 891px;
 }
 
-.note-paragraph {
-  word-wrap: break-word;
-  overflow: hidden;
-  white-space: pre-line;
-  margin: 8px 5px;
-  max-height: 125px;
-  max-width: 137px;
-  width: 100%;
-  font-size: 1.3rem;
-  line-height: 1.5;
-}
-
-.create-notes-container {
-  background: #F3F3F3;
-  width: 100%;
-}
-
-.notes-form {
-  width: 100%;
-}
-
-.note-title-field {
-  width: 58.5%;
-  height: 43px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 1px solid grey;
-  font-size: 13px;
-  padding: 0px 12px;
-}
-
-.note-content-field { 
-  width: 99.3%;
-  height: 347px;
-  border-radius: 5px;
-  border: 1px solid grey;
-  font: 400 13px Arial;
-  padding: 19px 21px;
-  resize: none;
-}
-
 .note-container {
   background: #F3F3F3;
   max-width: 667px;
