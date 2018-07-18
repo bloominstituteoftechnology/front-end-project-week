@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import './CreateNote.css'
-
+let id = 0;
 class CreateNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
             content: '',
-            id: 0
+            id: id
         }
+    }
+    componentWillUnmount () {
+        id = this.state.id;
     }
     onSubmit = (e) => {
         e.preventDefault();
