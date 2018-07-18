@@ -20,7 +20,7 @@ const NoteCard = props => {
           <div>
               <h2>{title}</h2>
             <hr/>
-            <p className="notecardbody">{textBody}</p>
+            <p className="notecardbody">{textBody.substring(0,140)}</p>
           </div>
         </div>
       </div>
