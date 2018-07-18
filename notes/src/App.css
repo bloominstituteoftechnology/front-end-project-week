@@ -185,3 +185,7 @@ body {
 #searchBar {
   border: 1px solid lightblue;
 }
+
+.sortCheck {
+  display: inline-block;
+}

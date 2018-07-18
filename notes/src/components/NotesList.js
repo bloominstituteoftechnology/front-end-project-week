@@ -8,7 +8,8 @@ class NotesList extends React.Component {
     super(props);
     this.state = {
       searchTerm: '',
-      searchResults: []
+      searchResults: [],
+      alphaSort: false
     }
   }
 
@@ -35,6 +36,10 @@ class NotesList extends React.Component {
     this.setState({searchResults: searchResults})
   }
 
+  toggleAlphaSort = () => {
+    this.setState({alphaSort: !this.state.alphaSort})
+  }
+
 /*Working on this function, will enable export to a CSV file*/
   exportCSV = dataArray => {
     let csvContent = "data:text/csv;charset=utf-8,";
@@ -46,7 +51,26 @@ class NotesList extends React.Component {
   render() {
     let returnedNotes;
     returnedNotes = (this.state.searchResults.length > 0) ? this.state.searchResults: this.props.notes;
+    let sortedNotes = returnedNotes.slice();
     console.log(this.exportCSV(returnedNotes));
+    console.log(this.state.alphaSort);
+
+    if (this.state.alphaSort) {
+    returnedNotes = sortedNotes.sort((a,b) => {
+
+      let firstName = a.title.toUpperCase();
+      let secondName = b.title.toUpperCase();
+      if (firstName < secondName) {
+        return -1;
+      }
+      if (firstName > secondName) {
+        return 1;
+      }
+
+      return 0
+    })
+  }
+    console.log(returnedNotes);
     return (
     <div className="note-list">
       <div className="list-sidebar">
@@ -57,9 +81,10 @@ class NotesList extends React.Component {
       </div>
       <div className="right-bar">
         <h3 className="note-list-header">Your Notes: </h3>
-        <form onChange={this.handleSearch}>
+        <form className="sortCheck" onChange={this.handleSearch}>
           <input type="search" name="searchTerm" placeholder="Search" onChange={this.handleChange} id="searchBar"/>
         </form>
+        <form className="sortCheck"><input type="checkbox" className="mx-1" name="Sort Alphabetically" onClick={this.toggleAlphaSort} />Sort Alphabetically <br/></form>
         <NotesContainer notes={returnedNotes} />
       </div>
     </div>
