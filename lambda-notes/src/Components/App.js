@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import axios from 'axios';
+
 import Banner from './Banner';
 import ListView from './ListView';
 import CreateNote from './CreateNote';
 import ViewNote from './ViewNote';
 import EditNote from './EditNote';
 import DeleteNote from './DeleteNote';
-
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      notes: [
-        { id: 0, title: 'Note Title 1', content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'},
-        { id: 1, title: 'Note Title 2', content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'},
-        { id: 2, title: 'Note Title 3', content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'},
-        { id: 3, title: 'Note Title 4', content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'},
-        { id: 4, title: 'Note Title 5', content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'},
-        { id: 5, title: 'Note Title 6', content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'}
-      ],
+      notes: [],
       titleValue: '',
       contentValue: '',
       currentNote: {},
       deleting: false
     }
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:333/notes')
+      .then(response => {
+        console.log('GET RESPONSE: ', response)
+        this.setState({ notes: response.data })
+      })
+      .catch(err => {console.log(err)})
   }
 
   handleSetCurrent = note => {
