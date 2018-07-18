@@ -28,7 +28,7 @@ class NewNote extends Component {
             <div className='note-form'>
                 <input name='title' placeholder='Note Title' value={this.state.title} onChange={this.handeInputChange} />
                 <textarea name='body' placeholder='Note Content' value={this.state.body} onChange={this.handeInputChange}></textarea>
-                    <button type='submit' onClick={() => this.handleCreateNote(URL)}>Add Note</button>
+                <button type='submit' onClick={() => this.handleCreateNote(URL)}>Add Note</button>
             </div>
         )
     }

@@ -35,12 +35,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    fetchingNotes: state.fetchingNotes,
-    notes: state.notes,
-    error: state.error,
-  }
-}
-
-export default connect(mapStateToProps, { fetchNotes })(App);
+export default connect(null, { fetchNotes })(App);
