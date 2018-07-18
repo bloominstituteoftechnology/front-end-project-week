@@ -8,12 +8,11 @@ constructor(){
     title: "",
     body: "",
     id: "",
-    notes: "not notes"
   }
+  this.onFormChange = this.onFormChange.bind(this);
 }
-formSubmit = event => {
-  console.log("hi")
-  this.props.addNote();
+onFormChange = event => {
+this.setState({[event.target.name]: event.target.value})
 }
 
   render() {
@@ -23,9 +22,9 @@ formSubmit = event => {
           Create New Note:
         </h2>
         <form className="newnote-container">
-          <input type="text" placeholder="Note Title" className="title-input"></input>
-          <textarea rows="20" cols="50" className="body-input" placeholder="Note Content"></textarea>
-          <div className="save-button" onClick={this.formSubmit}>Save</div>
+          <input type="text" placeholder="Note Title" className="title-input" name="title" onChange={this.onFormChange}></input>
+          <textarea rows="20" cols="50" className="body-input" placeholder="Note Content" name="body" onChange={this.onFormChange}></textarea>
+          <div className="save-button">Save</div>
         </form>
       </div>
     );
