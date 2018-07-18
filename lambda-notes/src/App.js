@@ -32,6 +32,30 @@ class App extends Component {
           content:
             "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
         },
+        {
+          title: "Walk the dog",
+          id: 3,
+          content:
+            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
+        {
+          title: "Code code code",
+          id: 4,
+          content:
+            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
+        {
+          title: "Do something else",
+          id: 5,
+          content:
+            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
+        {
+          title: "Play games",
+          id: 6,
+          content:
+            "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
+        },
       ],
       title: "",
       content: "",
@@ -93,7 +117,6 @@ class App extends Component {
       }
     }
     this.setState({ notes, currentNote: {} });
-    alert(`updated`);
   };
 
 //Delete

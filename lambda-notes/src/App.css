@@ -16,6 +16,7 @@
   background-color: #d8d8d8;
   padding-left:10px;
   min-width: 200px;
+  max-width: 200px;
   border-right:1px solid #979797;
 }
 
@@ -36,11 +37,12 @@
   margin:  15px 5% 15px 0px;
   padding: 5%;
   padding-top: 5%;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: center;
 
 }
 
+/* Note Form Styles */
 .note-form-div {
   background-color: #f3f3f3;
   padding-left: 20px;
@@ -151,6 +153,140 @@
   font-size: .8rem;
 }
 
+.note-div {
+  background: #f3f3f3;
+}
+.single-note-title {
+  font-size: 1.2rem;
+  font-family: 'Roboto';
+  font-weight: bold;
+  padding-left: 15px; 
+}
+
+.single-note-content {
+  padding-left: 15px; 
+  font-family: 'Raleway';
+  font-weight: bold;
+  font-size: .7rem;
+  line-height: 20px;
+}
+
+/* Edit Note Styles */
+
+.edit-note-div {
+  padding-left: 15px;
+  background: #f3f3f3;
+  width: 80%;
+
+}
+.edit-note-title {
+  font-family: 'Roboto';
+  font-size: 1.2rem;
+  margin-top: 60px;
+  font-weight: bold;
+}
+
+.edit-note {
+  line-height: 40px;
+  border-radius: 5px;
+  border: 1px solid #979797;
+  color:#4A4A4A;
+  font-family: "Raleway";
+}
+
+.edit-note-content {
+  line-height:35px;
+  border-radius: 5px;
+  resize: none;
+  border: 1px solid #979797;
+  color:#4A4A4A;
+  font-family: "Raleway";
+}
+ .update-button {
+  background-color: #2bc1c4;
+  color: #ffffff;
+  border: 1px solid #979797;
+  width: 150px;
+  height: 20px;
+  padding: 2%;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Roboto";
+ }
+
+/* Delete Note Styles */
+
+.delete-div {
+  z-index:2;
+  width: 100vw;
+  height: 100vw;
+  margin: 0 auto;
+  opacity : 0.7;
+  position: absolute;
+  background: #F3F3F3;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-message-div {
+z-index: 3;
+opacity: 1;
+border: 1px solid #979797;
+background:white;
+ width: 400px;
+ height: 150px;
+ text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin-bottom: 350px;
+}
+.delete-message-question {
+  display: block;
+  color: #4a4a4a;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+.delete-message-buttons {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.delete-button-link, .delete-button-link:link, .delete-button-link:hover, .delete-button-link:active, .delete-button-link:visited, .delete-button-link:focus {
+  text-decoration: none;
+  color: #ffffff;
+}
+.delete-button-delete {
+  background: #D0021B;
+  height: 35px;
+  width: 150px;
+  border: 1px solid #979797;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Roboto";
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-button-no {
+  background: #2BC1C4;
+  color: #ffffff;
+  height: 35px;
+  width: 150px;
+  border: 1px solid #979797;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Roboto";
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
 /* Heading font: Roboto Bold
 Everything else font: Raleway Medium
 

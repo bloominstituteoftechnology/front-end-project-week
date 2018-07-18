@@ -5,7 +5,7 @@ class DeleteNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: null,
+      id: null
     };
   }
 
@@ -14,17 +14,36 @@ class DeleteNote extends React.Component {
     this.props.handleSetCurrent(id);
   }
 
-  deleteCompleted =() => {this.props.handleDeleteNote(this.props.match.params.id)}
+  deleteCompleted = () => {
+    this.props.handleDeleteNote(this.props.match.params.id);
+  };
 
   render() {
     return (
-      <div>
-        <p> Are you sure you want to delete that?</p>
-        <Link to='/'>
-        <button onClick={this.deleteCompleted}>Delete</button>
-        </Link>
-        <button type='button' onClick={this.props.toggleDeleting}>No</button>
-       
+      <div className="delete-div">
+        <div className="delete-message-div">
+          <p className="delete-message-question">
+            {" "}
+            Are you sure you want to delete this?
+          </p>
+          <div className="delete-message-buttons">
+          <Link className="delete-button-link"to="/">
+            <div
+              className="delete-button-delete"
+              onClick={this.deleteCompleted}
+            >
+              Delete
+            </div>
+          </Link>
+          <div
+            type="button"
+            className="delete-button-no"
+            onClick={this.props.toggleDeleting}
+          >
+            No
+          </div>
+          </div>
+        </div>
       </div>
     );
   }

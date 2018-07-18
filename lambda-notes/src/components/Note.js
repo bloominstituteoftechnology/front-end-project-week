@@ -28,15 +28,15 @@ class Note extends Component {
               delete
             </p>
           </div>
-          <h1>{note.title}</h1>
-          <p>{note.content}</p>
+          <p className='single-note-title'>{note.title}</p>
+          <p className='single-note-content'>{note.content}</p>
         </div>
       );
     }
   };
 
   render() {
-    return <div>{this.props.notes.map(this.filterNotes)}</div>;
+    return <div className="note-div">{this.props.notes.map(this.filterNotes)}</div>;
   }
 }
 
