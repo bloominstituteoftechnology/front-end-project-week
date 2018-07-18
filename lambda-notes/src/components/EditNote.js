@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Header = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -42,27 +43,48 @@ const BaseButton = styled.button`
   width:31%;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
+  &:hover{
+    cursor:pointer;
+  }
+  &:focus{
+    outline: none;
+  }
 `
 
+
 class EditNote extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.title = React.createRef()
     this.textBody = React.createRef()
+    this.state = {
+      title: props.title,
+      content: props.textBody,
+      isTitleChanged:false,
+      isContentChanged:false,
+    }
   }
 
+  updateTitle = () =>{
+    (this.state.title === this.title.value) ? this.setState({isTitleChanged:false}) : this.setState({isTitleChanged:true})
+  }
+  
+  updateContent = () => {
+    (this.state.content === this.textBody.value) ? this.setState({isContentChanged:false}) : this.setState({isContentChanged:true})
+  }
+  
   render() {
     return (
       <div>
         <Header>Edit Note:</Header>
         <FieldDivs>
-          <StyledInput innerRef={x => {this.title = x}} type="text" defaultValue={this.props.title}/>
+          <StyledInput onChange={this.updateTitle} innerRef={x => {this.title = x}} type="text" defaultValue={this.props.title}/>
         </FieldDivs>
         <FieldDivs>
-          <StyledTextArea innerRef={x => {this.textBody = x}} defaultValue={this.props.textBody}/>
+          <StyledTextArea onChange={this.updateContent} innerRef={x => {this.textBody = x}} defaultValue={this.props.textBody}/>
         </FieldDivs>
         <FieldDivs>
-          <BaseButton onClick={() => this.props.editNote(this.props.id,this.title.value, this.textBody.value)}> Save </BaseButton>
+          { (this.state.isTitleChanged || this.state.isContentChanged) ? <Link to="/view-notes"><BaseButton onClick={() => this.props.editNote(this.props.id,this.title.value, this.textBody.value)}> Save </BaseButton></Link> : null}
         </FieldDivs>
       </div>
     );
