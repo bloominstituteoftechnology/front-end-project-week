@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
 import LambdaNav from './containers/LambdaNav';
+import LambdaNotes from './containers/LambdaNotes';
 import LambdaForm from './components/LambdaForm';
 import LambdaView from './components/LambdaView';
-import LambdaNotes from './containers/LambdaNotes';
+import LamdaEdit from './components/LambdaEdit';
 import { Route } from 'react-router-dom';
 
 const StyledContainer = styled.div`
@@ -70,9 +71,12 @@ class App extends Component {
       ],
       title: '',
       body: '',
-      selected: {}
+      selected: {},
+      remove: false
     }
   }
+
+  // Lambda View
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
@@ -80,12 +84,38 @@ class App extends Component {
 
   handleAddnote = e => {
     const notes = this.state.notes.slice();
-    notes.push({ title: this.state.title, content: this.state.content, id: Date.now() });
+    notes.push({ title: this.state.title, body: this.state.body, id: Date.now() });
     this.setState({ notes, title: '', body: '' });
   }
 
   handleSelectNote = id => {
     this.setState({ selected: this.state.notes[`${id}`] });
+
+  }
+
+  //Lambda Edit
+  handleTitle = e => {
+    this.setState({
+      selected: {
+        id: this.state.selected.id,
+        title: e.target.value,
+        content: this.state.selected.body
+      }
+    })
+  }
+
+  handleBody = e => {
+    this.setState({
+      selected: {
+        id: this.state.selected.id,
+        title: this.state.selected.title,
+        body: e.target.value
+      }
+    })
+  }
+
+  handleEditNote = id => {
+    
   }
 
   render() {
@@ -94,6 +124,7 @@ class App extends Component {
         <Route path="/" component={LambdaNav} />
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
+        <Route path="/edit/:id" render={props=> (<LambdaEdit/>)} /> 
         <Route path="/notes/:id" render={props => <LambdaView {...props} note={this.state.notes} />} />
       </StyledContainer>
     )
