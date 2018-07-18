@@ -3,6 +3,7 @@ import { Card, CardTitle, CardText } from "reactstrap";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchSingleNote } from "../actions/action";
+import PropTypes from "prop-types";
 
 const Note = props => {
   return (
@@ -26,3 +27,10 @@ export default connect(
   null,
   { fetchSingleNote }
 )(Note);
+
+Note.propTypes = {
+  note: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    textBody: PropTypes.string.isRequired
+  })
+};

@@ -17,7 +17,6 @@ class EditNote extends React.Component {
     });
   };
   editNote = event => {
-    console.log("props: ", this.props.singleNote[0].id);
     event.preventDefault();
     let edited = {
       title: this.state.editedTitle,
@@ -28,7 +27,6 @@ class EditNote extends React.Component {
       edited,
       this.props.singleNote[0]._id
     );
-    this.props.history.push("/");
   };
 
   render() {

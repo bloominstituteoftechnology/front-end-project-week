@@ -18,12 +18,15 @@ class Create extends React.Component {
   };
   submitNewNote = event => {
     event.preventDefault();
-    let newComment = {
-      title: this.state.title,
-      textBody: this.state.body
-    };
-    this.props.submitNewNote(newComment);
-    this.props.history.push("/");
+    if (this.state.title && this.state.body) {
+      let newComment = {
+        title: this.state.title,
+        textBody: this.state.body
+      };
+      this.props.submitNewNote(newComment);
+    } else {
+      return;
+    }
   };
   render() {
     return (
