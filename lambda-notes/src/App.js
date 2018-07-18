@@ -6,6 +6,7 @@ import Form from './components/Form';
 import Note from './components/Note';
 import NoteList from './components/NoteList';
 import Sidebar from './components/Sidebar';
+import NoMatch from './components/NoMatch';
 import { getNotes, addNote } from './actions';
 
 class App extends Component {
@@ -37,12 +38,12 @@ class App extends Component {
       <div className="container">
         <Sidebar />
 
-        <Route exact path="/" render={ props =>
-            <NoteList notes={this.props.notes} />
-          }
-        />
-
         <Switch>
+
+          <Route exact path="/" render={ props =>
+              <NoteList notes={this.props.notes} />
+            }
+          />
 
           <Route path="/notes/add" render={ props =>
               <Form type={"new"}
@@ -59,19 +60,16 @@ class App extends Component {
             }
           />
 
-          <Route component={NoMatch} />
+          <Route render={ props =>
+              <NoMatch missing={"route"}/>
+            }
+          />
 
         </Switch>
 
       </div>
     );
   }
-}
-
-const NoMatch = () => {
-  return (
-    <div className="main-container">No match</div>
-  );
 }
 
 const mapStateToProps = (state) => {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
 
 const NoteList = props => {
-  // if notes are not yet loaded into store, return empty div
+  // if notes are not yet loaded into store, return loading icon
   if (!props.notes) {
     return (
       <div className="main-container">

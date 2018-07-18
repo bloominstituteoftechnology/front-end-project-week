@@ -31,7 +31,11 @@ export const getNote = (id) => {
     axios
       .get(`${url}/get/${id}`)
       .then(response => {
-        dispatch({ type: 'NOTE_FETCHED', payload: response.data });
+        if (!response.data.name && !response.data.errorMessage) {
+          dispatch({ type: 'NOTE_FETCHED', payload: response.data });
+        } else {
+          dispatch({ type: 'NOTE_FETCHED', payload: "no such note" });
+        }
       })
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });

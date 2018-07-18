@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../App.css';
 import logo from '../logo.svg';
 import Form from './Form';
+import NoMatch from './NoMatch';
 import Modal from 'react-modal';
 import { getNote, getNotes, editNote, deleteNote } from '../actions';
 
@@ -65,12 +66,20 @@ class Note extends React.Component {
   }
 
   render() {
-    // if notes are not yet loaded into store, return empty div
+    // if note is not yet loaded into store, or if requested id does not exist, return NoMatch
+    console.log(this.props.note);
+
     if (!this.props.note) {
       return (
         <div className="main-container">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
+      )
+    }
+
+    if (this.props.note === "no such note") {
+      return (
+        <NoMatch missing={"note"}/>
       )
     }
 
@@ -118,7 +127,8 @@ class Note extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    note: state.note
+    note: state.note,
+    error: state.error
   }
 }
 

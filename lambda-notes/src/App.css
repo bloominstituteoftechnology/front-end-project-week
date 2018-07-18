@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  color: #4A4A4A;
 }
 
 h1, h2, h3, h4, h5 {
@@ -92,6 +93,23 @@ button a:visited {
   display: flex;
   flex-direction: column;
   padding: 20px 35px 20px 35px;
+}
+
+.no-match {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.no-match h1 {
+  font-size: 75px;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.error-text {
+  font-size: 20px;
+  text-align: center;
 }
 
 .main-container h2 {
