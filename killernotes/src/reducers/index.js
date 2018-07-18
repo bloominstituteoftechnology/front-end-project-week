@@ -60,21 +60,18 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case EDITED:
-      // get info from the servers 'response'
+      // get info from the payload
       const editedNote = action.payload.data;
       const editedId = editedNote._id;
-      const notesEditArr = state.notes.slice().map(n => {
-        if (n._id === editedId) {
-          n = editedNote;
-          return n;
-        }
-        return n;
-      });
+      // get rid of the unedited note
+      const newArr = state.notes.slice().filter(n => n._id !== editedId);
+      // add in the edited note
+      newArr.push(editedNote);
       return {
         ...state,
         editingNote: false,
         editedNote: true,
-        notes: notesEditArr,
+        notes: newArr,
       };
 
     case NOTEDITING:
