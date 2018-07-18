@@ -61,22 +61,20 @@ const rootReducer = (state = initialState, action) => {
 
     case EDITED:
       // get info from the servers 'response'
-      const editedNoteID = action.payload.data.success;
-      const editedNoteResponse = JSON.parse(action.payload.config.data);
-      const editedNote = {
-        tags: [],
-        _id: editedNoteID,
-        title: editedNoteResponse.title,
-        textBody: editedNoteResponse.textBody,
-        __v: 0,
-      };
-      const notesArr2 = state.notes.slice();
-      notesArr2.push(editedNote);
+      const editedNote = action.payload.data;
+      const editedId = editedNote._id;
+      const notesEditArr = state.notes.slice().map(n => {
+        if (n._id === editedId) {
+          n = editedNote;
+          return n;
+        }
+        return n;
+      });
       return {
         ...state,
         editingNote: false,
         editedNote: true,
-        notes: notesArr,
+        notes: notesEditArr,
       };
 
     case NOTEDITING:

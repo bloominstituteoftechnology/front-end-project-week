@@ -57,7 +57,6 @@ export const addNote = note => {
 export const editNote = (id, note) => {
   return function(dispatch) {
     dispatch({ type: EDITING });
-    console.log('editing ', note);
     axios
       .put(`${editURL}${id}`, note)
       .then(response => {

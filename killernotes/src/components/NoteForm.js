@@ -52,6 +52,7 @@ const Button = styled.button`
 class NoteForm extends React.Component {
   constructor(props) {
     super(props);
+    this.input = React.createRef();
     this.state = {
       title: '',
       textBody: '',
@@ -61,8 +62,10 @@ class NoteForm extends React.Component {
   }
 
   componentDidMount() {
+    // if we're editing, have an id
     const id = this.props.match.params.id;
-    console.log('PROPS', this.props.notes);
+
+    // only do if we're editing
     if (this.props.notes[0] && id) {
       // filter returns an array
       const note = this.props.notes.filter(n => n._id === id);
@@ -72,7 +75,42 @@ class NoteForm extends React.Component {
         id: note[0]._id,
       });
     }
+
     this.setState({ editing: this.props.edit });
+
+    // set focus on the title box
+    if (this.input.current) {
+      // this.input.current.focus();
+      setTimeout(() => {
+        this.input.current.select();
+      }, 30);
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    // if we're editing, have an id
+    const id = this.props.match.params.id;
+
+    // only do if we're editing
+    if (this.props.notes[0] && id) {
+      // filter returns an array
+      const note = this.props.notes.filter(n => n._id === id);
+      this.setState({
+        title: note[0].title,
+        textBody: note[0].textBody,
+        id: note[0]._id,
+      });
+    }
+
+    this.setState({ editing: this.props.edit });
+
+    // set focus on the title box
+    if (this.input.current) {
+      // this.input.current.focus();
+      setTimeout(() => {
+        this.input.current.select();
+      }, 30);
+    }
   }
 
   handleInputChange = e => {
@@ -80,16 +118,21 @@ class NoteForm extends React.Component {
   };
 
   clicked = () => {
+    // build our new note
     const newNote = {
       title: this.state.title,
       textBody: this.state.textBody,
     };
+    // clear the state
     this.setState({ title: '', textBody: '' });
-    if (this.state.edit) {
-      this.props.editNote(newNote);
+
+    // edit or add the note, as appropriate
+    if (this.state.editing) {
+      this.props.editNote(this.state.id, newNote);
     } else {
       this.props.addNote(newNote);
     }
+
     // go home after
     this.props.history.push('/');
   };
@@ -97,8 +140,10 @@ class NoteForm extends React.Component {
   render() {
     return (
       <Note>
+        {/* based on if we're editing or not edit or add note */}
         {this.state.editing ? <h2>Edit Note:</h2> : <h2>Create New Note:</h2>}
         <TitleInput
+          innerRef={this.input}
           onChange={this.handleInputChange}
           placeholder="Note Title"
           value={this.state.title}
