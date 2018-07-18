@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import redux from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -16,4 +15,6 @@ ReactDOM.render(
         <App />
       </ThemeProvider>
     </Router>
-  </Provider>, document.getElementById('root'));
+  </Provider>,
+  document.getElementById('root')
+);

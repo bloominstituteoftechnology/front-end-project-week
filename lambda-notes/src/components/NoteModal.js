@@ -78,5 +78,5 @@ export default props => {
         </div>
       </div>
     </NoteModal>
-  )
-}
+  );
+};

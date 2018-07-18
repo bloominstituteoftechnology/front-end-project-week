@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 import { deleteNote } from '../actions/index';
 import NoteModal from './NoteModal';
 
-const DeleteModal = ({ match, history, deleteNote }) => {
+const DeleteModal = ({ match, history, deleteNote, fetchNotes }) => {
   const { id } = match.params;
   const localDeleteNote = () => {
-    const move = () => {history.push('/')};
-    deleteNote(id, move);
-  }
+    const moveAndUpdate = () => {
+      history.push('/');
+      fetchNotes();
+    };
+    deleteNote(id, moveAndUpdate);
+  };
+  
   const cancelDeletion = () => {
     history.push(`/view/${id}`);
-  }
+  };
+
   return (
     <div>
       <NoteModal
@@ -22,6 +27,6 @@ const DeleteModal = ({ match, history, deleteNote }) => {
         noHandler={ cancelDeletion }/>
     </div>
   );
-}
+};
 
 export default connect(null, { deleteNote })(DeleteModal);

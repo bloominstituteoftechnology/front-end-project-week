@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { fetchNotes } from '../actions/index';
-import { getAllNotes } from '../reducers/index';
 import NotePreview from './NotePreview';
 
 const StyledNoteGrid = styled.div`
@@ -30,16 +27,11 @@ const StyledNoteGrid = styled.div`
   }
 `;
 
-class NoteGrid extends Component {
-  
-  componentDidMount() {
-    this.props.fetchNotes();
-  }
-
+export default class NoteGrid extends Component {
   render() {
     let { notes } = this.props;
     notes = notes.map(note => (
-      <Link key={note["_id"]} to={`/view/${note["_id"]}`}>
+      <Link key={note['_id']} to={`/view/${note['_id']}`}>
         <NotePreview note={note} />
       </Link>
     ));
@@ -49,9 +41,6 @@ class NoteGrid extends Component {
         <h1>Your Notes:</h1>
         <div className="notePreviewsContainer">{notes}</div>
       </StyledNoteGrid>
-      );
-    };
-  };
-
-  const mapStateToProps = state => ({ notes: getAllNotes(state) });
-  export default connect(mapStateToProps, { fetchNotes })(NoteGrid);
+    );
+  }
+}

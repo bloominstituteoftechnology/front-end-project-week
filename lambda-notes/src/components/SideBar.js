@@ -27,7 +27,6 @@ const SideBar = styled.div`
   }
 `;
 
-
 export default () => {
   return (
     <SideBar>
@@ -38,6 +37,7 @@ export default () => {
       <NavLink exact to="/add/">
         <Button>+ Create New Note</Button>
       </NavLink>
+      <Button>Export to CSV</Button>
     </SideBar>
-  )
-}
+  );
+};

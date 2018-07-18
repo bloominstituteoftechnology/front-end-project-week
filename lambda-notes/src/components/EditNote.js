@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import NoteForm from "./NoteForm";
+import React, { Component } from 'react';
+import NoteForm from './NoteForm';
 import { connect } from 'react-redux';
 import { getNoteById } from '../reducers/index';
 import { fetchNoteById, sendEdit } from '../actions/index';
@@ -22,24 +22,30 @@ class EditNote extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    this.props.fetchNoteById(id)
+    this.props.fetchNoteById(id);
   }
-  
+
   render() {
     const { note } = this.props;
     return (
-          <NoteForm note={ note }
-          titleText="Edit Note:"
-          buttonText="Update" 
-          handleFormSubmit={ this.sendEdit }/>
+      <NoteForm
+        note={note}
+        titleText="Edit Note:"
+        buttonText="Update"
+        handleFormSubmit={this.sendEdit}
+      />
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   const { id } = ownProps.match.params;
-  return ({
-    ...ownProps, note: getNoteById(state, id)
-  });
+  return {
+    ...ownProps,
+    note: getNoteById(state, id)
+  };
 };
-export default connect(mapStateToProps, { fetchNoteById, sendEdit } )(EditNote);
+export default connect(
+  mapStateToProps,
+  { fetchNoteById, sendEdit }
+)(EditNote);

@@ -26,14 +26,15 @@ const StyledMainPane = styled.main`
 
 export default class MainPane extends Component {
   render() {
+    const { notes, fetchNotes } = this.props;
     return (
       <StyledMainPane>
-        <Route path="/" exact render={ routeProps => <NoteGrid {...routeProps} /> } />
+        <Route path="/" exact render={ routeProps => <NoteGrid {...routeProps } notes={ notes } /> } />
         <Route path="/add/" render = { routeProps => <NewNote {...routeProps}  /> } />
         <Route path="/view/(delete/)?:id" render={ routeProps => <ViewNote {...routeProps} /> } />
-        <Route path="/view/delete/:id/" render={ routeProps => <DeleteModal {...routeProps} /> } />
+        <Route path="/view/delete/:id/" render={ routeProps => <DeleteModal {...routeProps} fetchNotes={ fetchNotes } /> } />
         <Route path ="/edit/:id" render = { routeProps => <EditNote {...routeProps} /> } />
       </StyledMainPane>
-    )
+    );
   }
 }
