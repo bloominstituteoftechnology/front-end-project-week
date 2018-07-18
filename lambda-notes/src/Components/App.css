@@ -75,7 +75,8 @@
   box-shadow: 1px 5px 15px #979797;
 }
 .note:hover {
-  box-shadow: 2px 5px 5px #2BC1C4;
+  box-shadow: 3px 5px 5px #2BC1C4;
+  background: rgb(250, 250, 250);
 }
 
 /* Create Note Styles */
