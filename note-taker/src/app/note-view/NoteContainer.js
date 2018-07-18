@@ -1,7 +1,22 @@
 import { connect } from 'react-redux';
 import NoteComponent from './NoteComponent';
+import { noteViewOperations } from './duck';
 
 
-const NoteContainer = connect(null)(NoteComponent);
+const mapStateToProps = (state) => {
+    console.log(state);
+    const { note } = state.noteView;
+    return {
+        note
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    const fetchNote = (id) => dispatch(noteViewOperations.fetchNote(id));
+    return {
+        fetchNote
+    }
+}
+
+const NoteContainer = connect(mapStateToProps, mapDispatchToProps)(NoteComponent);
 
 export default NoteContainer;

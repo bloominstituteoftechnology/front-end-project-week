@@ -11,7 +11,6 @@ const fetchNotes = () => {
     dispatch(requestNotesAction());
     promise
       .then(response => {
-
         dispatch(receiveNotesAction(response.data));
       })
       .catch(err => {
