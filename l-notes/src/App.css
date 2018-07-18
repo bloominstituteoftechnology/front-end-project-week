@@ -42,6 +42,7 @@
 h3 {
   text-align: left;
   margin-left: 0;
+  margin-top: 70px;
 }
 
 /* SIDEBAR CSS */
@@ -73,7 +74,7 @@ height: 750px;
 
 .notes-list {
   width: 80%;
-  padding: 10px;
+  padding: 20px;
 }
 
 .notes-list .notes {
@@ -84,13 +85,21 @@ height: 750px;
 .notes-list .notes .note-preview {
   border: solid 1px #979797;
   margin: 5px;
-}
+  width: 225px;
+  height: 150px;
+  padding: 10px;
+  margin-right: 25px;
+  color: black;
+}1
 
 /* CREATENOTE CSS */
 
 .Note-Form {
   width: 80%;
-  padding-left: 10px;
+}
+
+.Note-Form h3 {
+  margin-left: 20px;
 }
 
 .Note-Form form{
@@ -104,6 +113,7 @@ height: 750px;
   border: solid 1px #979797;
   width: 600px;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .Note-Form textarea {
@@ -112,6 +122,7 @@ height: 750px;
   border-radius: 10px;
   border: solid 1px #979797;
   width: 900px;
+  margin-left: 20px;
 }
 
 .Note-Form .title-form {
@@ -135,4 +146,139 @@ height: 750px;
   height: 50px;
   margin-top: 15px;
   font-weight: bold;
+  margin-left: 20px;
+}
+
+
+/* OPEN-NOTE CSS */
+
+.open-note {
+  white-space: pre-line;
+  width: 80%;
+  padding-left: 20px;
+  text-align: left;
+}
+
+.open-note h4 {
+  margin-left: 0;
+}
+
+.open-note p {
+  width: 900px;
+}
+
+.open-note .options {
+  position: relative;
+  top: 25px;
+  display: flex;
+  justify-content: flex-end;
+  left: 50px;
+}
+
+.open-note .options span {
+  margin-left: 15px;
+}
+
+.open-note .options span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.open-note .delete-verification {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  height: 900px;
+  background:rgba(1,1,1,0.5);
+  top: 0;
+  left: 0;
+}
+
+.open-note .delete-verification .delete-box {
+  width: 400px;
+  height: 175px;
+  background-color: #f3f3f3;
+  z-index: inherit;
+  margin: auto;
+  position: relative;
+  top: 200px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.open-note .delete-verification .delete-box button {
+  width: 175px;
+  color: white;
+  background-color: #2bc1c4;
+  font-size: 18px;
+  height: 50px;
+  margin: 0 10px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.open-note .delete-verification .delete-box .delete-button {
+background-color: #d0021b
+}
+
+.hidden{
+  display: none;
+}
+
+.edit-note {
+  margin-left: 20px;
+}
+
+.edit-note form{
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-note input {
+  padding-left: 5px;
+  border-radius: 10px;
+  border: solid 1px #979797;
+  width: 600px;
+  margin-bottom: 10px;
+}
+
+.edit-note textarea {
+  padding-left: 5px;
+  padding-top: 5px;
+  border-radius: 10px;
+  border: solid 1px #979797;
+  width: 900px;
+}
+
+.edit-note .edit-title {
+  height: 50px;
+}
+
+.edit-note .edit-topic {
+  height: 50px;
+}
+
+.edit-note .edit-text {
+  min-height: 300px;
+  height: 100%;
+}
+
+.edit-note button {
+  width: 250px;
+  color: white;
+  background-color: #2bc1c4;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.edit-note .buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.edit-note .cancel-button {
+  background-color: #d0021b;
+  margin-left: 25px;
 }

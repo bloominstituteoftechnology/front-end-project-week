@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Notes from './Notes.js';
 
 class NotesList extends React.Component {
   render() {
@@ -8,10 +8,7 @@ class NotesList extends React.Component {
         <h3>Your Notes:</h3>
         <div className='notes'>
           {this.props.notes.map(note => (
-            <div className='note-preview' key={note.id}>
-              <h4>{note.title}</h4>
-              <p>Topic: {note.topic}</p>
-            </div>
+              <Notes key={note.id} note={note} />
           ))}
         </div>
       </div>
