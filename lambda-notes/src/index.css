@@ -129,6 +129,7 @@ body {
 .note-card{
 	height: 220px;
 	width: 200px;
+	margin-bottom: 15px!important;
 	margin-top: 25px;
 	margin-left: 90px!important;
 	text-decoration: none;
@@ -180,7 +181,7 @@ body {
 	margin: 15px 10px 0px 10px;
 	border: 1px solid #979797;
 	display: flex;
-	height: 100vh;
+	height: 100%;
 }
 
 
