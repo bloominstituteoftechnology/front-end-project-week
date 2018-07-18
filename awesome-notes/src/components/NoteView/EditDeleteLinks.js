@@ -10,20 +10,13 @@ const LinksWrapper = styled.div`
   top: -5rem;
   right: -50rem;
   text-decoration: none;
-  a {
-    margin: 1rem;
-    color: black;
-  }
-  a:hover {
-    color: black;
-  }
 `;
 
 const EditDeleteLinks = props => {
   return (
     <LinksWrapper>
       <Link to={`/edit/${props.currentNote._id}`}>edit</Link>
-      <a href="something descriptive">delete</a>
+      {/* <Link to={`/note/delete/${props.currentNote._id}`}>delete</Link> */}
     </LinksWrapper>
   );
 };

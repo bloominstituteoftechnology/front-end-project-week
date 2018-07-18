@@ -9,11 +9,11 @@ const NavButton = styled.button`
   font-weight: bold;
   border: 1px solid black;
   border-radius: 2px;
-  background-color: ${props => (props.red ? "#D0021B" : "#2BC1C4")};
+  background-color: #d0021b;
 `;
 
-const GlobalButton = props => {
+const DeleteButton = props => {
   return <NavButton>{props.message}</NavButton>;
 };
 
-export default GlobalButton;
+export default DeleteButton;

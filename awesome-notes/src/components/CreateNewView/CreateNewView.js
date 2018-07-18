@@ -35,7 +35,7 @@ class CreateNewView extends React.Component {
 
   /* make me */
   handleChange = e => {
-    console.log("HANDLE CHANGE EVENT TARGET", e.target);
+    // console.log("HANDLE CHANGE EVENT TARGET", e.target);
     this.setState({ [e.target.name]: e.target.value });
   };
 
