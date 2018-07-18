@@ -7,7 +7,7 @@ constructor(){
   this.state = {
     title: "",
     body: "",
-    id: "",
+    id: 2,
   }
   this.onFormChange = this.onFormChange.bind(this);
 }
@@ -16,6 +16,8 @@ this.setState({[event.target.name]: event.target.value})
 }
 onSaveClick = () => {
   this.props.addNote(this.state);
+  this.setState({id: this.state.id + 1});
+
 }
 
   render() {
