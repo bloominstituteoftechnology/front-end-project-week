@@ -19,19 +19,34 @@ const SideBarDiv = styled.div`
   }
 `;
 
-const Button = styled.button`
+const ViewButton = styled.button`
   background-color: #2bc1c4;
   color: #fff;
+  margin-top: 12px;
+  margin-left: 13px;
+  width: 193px;
+  height: 44px;
+  font-size: 16px;
+`;
+
+const NewButton = styled.button`
+  background-color: #2bc1c4;
+  color: #fff;
+  margin-top: 18px;
+  margin-left: 13px;
+  width: 193px;
+  height: 44px;
+  font-size: 16px;
 `;
 
 const SideBar = props => (
   <SideBarDiv>
     <p>Lambda Notes</p>
     <Link to="/">
-      <Button>View Your Notes</Button>
+      <ViewButton>View Your Notes</ViewButton>
     </Link>
     <Link to="/add">
-      <Button>+Create New Note</Button>
+      <NewButton>+Create New Note</NewButton>
     </Link>
   </SideBarDiv>
 );

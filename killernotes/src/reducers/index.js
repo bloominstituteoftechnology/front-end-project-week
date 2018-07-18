@@ -37,9 +37,19 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, addingNote: true };
 
     case ADDED:
-      // response if new note's id
-      const newNoteID = action.payload;
-      return { ...state, addingNote: false, addedNote: true };
+      // get info from the servers 'response'
+      const newNoteID = action.payload.data.success;
+      const newNoteResponse = JSON.parse(action.payload.config.data);
+      const newNote = {
+        tags: [],
+        _id: newNoteID,
+        title: newNoteResponse.title,
+        textBody: newNoteResponse.textBody,
+        __v: 0,
+      };
+      const notesArr = state.notes.slice();
+      notesArr.push(newNote);
+      return { ...state, addingNote: false, addedNote: true, notes: notesArr };
 
     case ERROR:
       return {

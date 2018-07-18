@@ -99,7 +99,7 @@ class NoteView extends React.Component {
         <Links>
           <Link to={`/edit/${id}`}> edit </Link>
           <Link to="#" onClick={this.toggleModal}>
-            delete{' '}
+            delete
           </Link>
         </Links>
         <SingleNote>

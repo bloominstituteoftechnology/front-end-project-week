@@ -44,7 +44,7 @@ export const addNote = note => {
       .post(addURL, note)
       .then(response => {
         console.log('ADD reponse', response);
-        dispatch({ type: ADDED, payload: response._id });
+        dispatch({ type: ADDED, payload: response });
       })
       .catch(err => dispatch({ type: ERROR, payload: err }));
   };

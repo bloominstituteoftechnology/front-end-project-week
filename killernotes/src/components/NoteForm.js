@@ -6,13 +6,37 @@ import styled from 'styled-components';
 const Note = styled.div`
   font-family: raleway;
   padding: 8px;
-  margin-left: 300px;
+  margin-left: 250px;
   margin-right: 20px;
-  margin-top: 30px;
+  margin-top: 44px;
   word-break: break-all;
   > h2 {
     font-family: Roboto;
   }
+`;
+
+const TitleInput = styled.input`
+  width: 346px;
+  height: 36px;
+  padding-left: 10px;
+  margin-top: 5px;
+  border: 1px solid rgb(151, 151, 151);
+`;
+
+const BodyInput = styled.input`
+  margin-top: 15px;
+  width: 604px;
+  height: 344px;
+  border: 1px solid rgb(151, 151, 151);
+`;
+
+const Button = styled.button`
+  margin-top: 13px;
+  width: 195px;
+  height: 44px;
+  background-color: #2bc1c4;
+  font-size: 16px;
+  color: #fff;
 `;
 
 class NoteForm extends React.Component {
@@ -36,25 +60,29 @@ class NoteForm extends React.Component {
     };
     this.setState({ title: '', textBody: '' });
     this.props.addNote(newNote);
+    // go home after
+    this.props.history.push('/');
   };
 
   render() {
     return (
       <Note>
         <h2>Create New Note:</h2>
-        <input
+        <TitleInput
           onChange={this.handleInputChange}
-          placeholder="New Title"
+          placeholder="Note Title"
           value={this.state.title}
           name="title"
         />
-        <input
+        <br />
+        <BodyInput
           onChange={this.handleInputChange}
           placeholder="Note Content"
           value={this.state.textBody}
           name="textBody"
         />
-        <button onClick={this.clickedSave}>Save</button>
+        <br />
+        <Button onClick={this.clickedSave}>Save</Button>
       </Note>
     );
   }
