@@ -20,8 +20,9 @@ class App extends Component {
       }]
     }
   }
-  addNote () {
-
+  addNote() {
+    let oldState = this.state;
+    console.log(oldState);
   }
 
   render() {
@@ -35,7 +36,10 @@ class App extends Component {
           exact path='/'
           render={(props) => <NoteContainer {...props} notes={this.state.notes} />}
         />
-        <Route path="/new" component={NewNote} />
+        <Route
+          path='/new'
+          render={(props) => <NewNote {...props} addNote={this.addNote} />}
+        />
       </div>
     );
   }

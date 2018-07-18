@@ -7,9 +7,15 @@ constructor(){
   this.state = {
     title: "",
     body: "",
-    id: ""
+    id: "",
+    notes: "not notes"
   }
 }
+formSubmit = event => {
+  console.log("hi")
+  this.props.addNote();
+}
+
   render() {
     return (
       <div>
@@ -19,7 +25,7 @@ constructor(){
         <form className="newnote-container">
           <input type="text" placeholder="Note Title" className="title-input"></input>
           <textarea rows="20" cols="50" className="body-input" placeholder="Note Content"></textarea>
-          <input type="submit" value="Save" className="save-button"></input>
+          <div className="save-button" onClick={this.formSubmit}>Save</div>
         </form>
       </div>
     );
