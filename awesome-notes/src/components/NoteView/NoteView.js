@@ -15,21 +15,37 @@ const NoteViewWrapper = styled.div`
 
 const ContentParagraph = styled.p``;
 
-const NoteView = props => {
+class NoteView extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDeleteModal: false,
+      currentNote: this.props.content.find(
+        x => x._id === this.props.match.params._id
+      )
+    };
+  }
   // console.log("NOTE VIEW PROPS", props);
-  let currentNote = props.content.find(x => x._id === props.match.params._id);
-  let deleteClicked = false;
-  const DelClickHandler = () => {
-    deleteClicked = true;
+
+  DelClickHandler = () => {
+    this.setState({ showDeleteModal: true });
   };
-  return (
-    <NoteViewWrapper>
-      <EditDeleteLinks currentNote={currentNote} delClicked={DelClickHandler} />
-      <ContentHeading message={currentNote.title} />
-      <ContentParagraph>{currentNote.textBody}</ContentParagraph>
-      {deleteClicked ? <DeleteModal currentNote={currentNote} /> : null}
-    </NoteViewWrapper>
-  );
-};
+
+  render() {
+    return (
+      <NoteViewWrapper>
+        <EditDeleteLinks
+          currentNote={this.state.currentNote}
+          delClicked={this.DelClickHandler}
+        />
+        <ContentHeading message={this.state.currentNote.title} />
+        <ContentParagraph>{this.state.currentNote.textBody}</ContentParagraph>
+        {this.state.showDeleteModal ? (
+          <DeleteModal currentNote={this.state.currentNote} />
+        ) : null}
+      </NoteViewWrapper>
+    );
+  }
+}
 
 export default NoteView;

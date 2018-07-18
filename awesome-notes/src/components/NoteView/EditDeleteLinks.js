@@ -12,10 +12,19 @@ const LinksWrapper = styled.div`
   text-decoration: none;
 `;
 
+const StyledP = styled.p`
+  margin: 1rem;
+`;
+
 const EditDeleteLinks = props => {
   return (
     <LinksWrapper>
-      <Link to={`/edit/${props.currentNote._id}`}>edit</Link>
+      <Link to={`/edit/${props.currentNote._id}`}>
+        <StyledP>edit</StyledP>
+      </Link>
+      <a href="#" onClick={props.delClicked}>
+        <StyledP onClick={props.delClicked}>delete</StyledP>
+      </a>
       {/* <Link to={`/note/delete/${props.currentNote._id}`}>delete</Link> */}
     </LinksWrapper>
   );
