@@ -45,7 +45,7 @@ class EditNote extends Component {
                         <textarea 
                         defaultValue={this.props.notes.notes[this.state.index].note}
                         onChange={this.handleInputChange} name="note" cols="99" rows="10" placeholder="Note Content"></textarea>
-                        <Link to="/"><button onClick={() => 
+                        <Link to="/" style={noDecoration}><button onClick={() => 
                         this.props.updateNote({title: this.state.title, note: this.state.note}, {index: this.state.index})}>Save</button>
                         </Link>
                     </div>
@@ -54,6 +54,10 @@ class EditNote extends Component {
         </div>
     )
 }
+}
+
+const noDecoration = {
+    textDecoration: 'none'
 }
 
 const mapStateToProps = state => {

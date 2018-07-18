@@ -48,8 +48,8 @@ class AddedNote extends Component {
                             </div>
                             
                                 <div className="modalButtons">
-                                    <Link to="/">
-                                        <button onClick= {() => { this.display(); 
+                                    <Link to="/" >
+                                        <button style={backgroundstyle} onClick= {() => { this.display(); 
                                         this.props.deleteNote(this.state.index)}}>Delete</button>
                                     </Link>
                                 <button onClick={this.display}>No</button>
@@ -84,6 +84,10 @@ class AddedNote extends Component {
             </div>
         )
     }
+}
+
+const backgroundstyle = {
+    backgroundColor: '#D0011B',
 }
 
 const mapStateToProps = state => {
