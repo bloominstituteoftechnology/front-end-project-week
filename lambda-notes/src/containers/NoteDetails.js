@@ -6,22 +6,16 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 class NoteDetails extends Component {
   constructor (props) {
     super(props)
+
     this.state = {
       modal: false,
       editModal: false,
       isEditing: false,
-      title: '',
-      textBody: ''
+      title: this.props.note.title,
+      textBody: this.props.note.textBody
     }
   }
 
-  componentDidMount () {
-    this.props.getNote(this.props.match.params.id)
-    this.setState({
-      title: this.props.note.title,
-      textBody: this.props.note.textBody
-    })
-  }
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -30,12 +24,13 @@ class NoteDetails extends Component {
 
   editToggle = () => {
     this.setState({
-      editModal: !this.state.editModal
+      editModal: !this.state.editModal,
+      isEditing: true
     })
   }
 
   handleClick = () => {
-    this.props.deleteNote(Number(this.props.match.params.id))
+    this.props.deleteNote(this.props.match.params.id)
     this.props.history.push('/')
   }
 

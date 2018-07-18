@@ -5,7 +5,6 @@ import NewNote from '../containers/NewNote'
 import SideNav from './SideNav'
 import NoteDetails from '../containers/NoteDetails'
 import NoMatch from './NoMatch'
-
 class App extends Component {
   render () {
     return (
@@ -21,4 +20,5 @@ class App extends Component {
     )
   }
 }
+
 export default App

@@ -7,7 +7,7 @@ import {
   GETTING_NOTE
 } from '../actions'
 
-const initialState = { fetching: true, error: false }
+const initialState = { fetching: false, error: false }
 
 export const apiReducer = (state = initialState, action) => {
   switch (action.type) {
