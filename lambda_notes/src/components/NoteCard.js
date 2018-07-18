@@ -1,8 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import posed from 'react-pose';
 
-const StyledNoteCard = styled.div`
+const config = {
+    visible: {opacity: 1, translateX: 0, transition: { duration: 1000 }},
+    hidden: {opacity: 0, translateX: 25},
+    draggable: true,
+}
+
+const Box = posed.div(config);
+
+const StyledNoteCard = styled(Box)`
     display: flex;
     flex-flow: column;
     align-items: start;
@@ -26,18 +35,31 @@ const StyledTitle = styled.h4`
 const StyledText = styled.p`
     font: Raleway Medium;
 `;
-const NoteCard = props => {
-    return(
+class NoteCard extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            hidden: true,
+        }
+    }
+    componentDidMount(){
+        setTimeout(this.setState({hidden: false}), 500)
+    }
 
-            <StyledNoteCard>
-                <Link to={`/notes/${props.note._id}`}
+    render(){
+        const { note } = this.props;
+        return(
+            <StyledNoteCard pose={this.state.hidden ? 'hidden' : 'visible'}>
+                <Link to={`/notes/${note._id}`}
                     style={{ textDecoration: 'none', color: 'black' }}>
-                    <StyledTitle>{props.note.title}</StyledTitle>
-                    <StyledText>{props.note.textBody}</StyledText>
+                    <StyledTitle>{note.title}</StyledTitle>
+                    <StyledText>{note.textBody}</StyledText>
                 </Link>
             </StyledNoteCard>
 
     );
+    }
+
 }
 
 export default NoteCard;

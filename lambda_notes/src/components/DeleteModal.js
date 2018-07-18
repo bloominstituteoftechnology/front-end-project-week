@@ -11,7 +11,6 @@ const StyledModal = styled.div`
     background: grey; 
     opacity: 0.8; 
     z-index: 2;
-    margin-left: 24%;
 `;
 
 const StyledInnerBox = styled.div`
