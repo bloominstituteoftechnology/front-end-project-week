@@ -3,6 +3,7 @@ import "bulma/css/bulma.css";
 import GeneralBtn from "../common/GeneralBtn/GeneralBtn";
 import "../styles/custom-props.css";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 const ModalBody = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -24,16 +25,22 @@ const WarningText = styled.p`
 `;
 const DeleteModal = props => {
   return (
-    <div className="modal">
+    <div className={`modal ${props.deleteModalActive ? 'is-active' : ''}`}>
       <div className="modal-background" />
       <div className="modal-content">
         <ModalBody>
           <WarningText>Are you sure you want to delete this?</WarningText>
           <ButtonsContainer>
-            <GeneralBtn width="15rem" danger>
+            <Link to = "/">
+            <GeneralBtn width="15rem" danger onClick = {() => {
+              props.deleteModalHandler();
+              props.noteDeletionHandler(props.id);
+              props.fetchAllNotesHandler();
+              }}>
               Delete
             </GeneralBtn>
-            <GeneralBtn width="15rem">No</GeneralBtn>
+            </Link>
+            <GeneralBtn width="15rem" onClick = {props.deleteModalHandler}>No</GeneralBtn>
           </ButtonsContainer>
         </ModalBody>
       </div>

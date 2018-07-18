@@ -24,25 +24,44 @@ const OptionsBtn = styled.button`
   border: none;
   cursor: pointer;
 `;
+
 class NoteComponent extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      deleteModalActive: false,
+    }
   }
   componentDidMount() {
       const id = this.props.match.params.id;
       this.props.fetchNote(id);
       
   }
+  triggerDeleteModal = () => {
+    this.setState({ deleteModalActive: !this.state.deleteModalActive })
+  }
   render() {
+    const id = this.props.match.params.id;
+    
     return (
       <div>
         <OptionsContainer>
+
           <Link to = '/edit-view'>
           <OptionsBtn>edit</OptionsBtn>
           </Link>
-          <OptionsBtn>delete</OptionsBtn>
+
+          <OptionsBtn onClick = {this.triggerDeleteModal}>delete</OptionsBtn>
+
         </OptionsContainer>
-        <DeleteModal />
+
+        <DeleteModal 
+        noteDeletionHandler = {this.props.noteDeletion} 
+        fetchAllNotesHandler = {this.props.fetchAllNotes}
+        deleteModalActive = {this.state.deleteModalActive} 
+        deleteModalHandler = {this.triggerDeleteModal} 
+        id = {id}/>
+
         <HeadingTitle>{this.props.note.title}</HeadingTitle>
         <p>{this.props.note.textBody}</p>
       </div>

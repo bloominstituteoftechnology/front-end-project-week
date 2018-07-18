@@ -3,6 +3,7 @@ import types from './types';
 const initialState = {
     note: {},
     fetchingNote: false,
+    deletingNote: false,
 };
 
 const noteViewReducer = (state = initialState, action) => {
@@ -16,6 +17,15 @@ const noteViewReducer = (state = initialState, action) => {
         return {
             ...state,
             note: action.noteObj
+        }
+        case types.DELETING_SINGLE_NOTE:
+        return {
+            ...state,
+            deletingNote: true,
+        }
+        case types.DELETE_SINGLE_NOTE:
+        return {
+            ...state
         }
         default:
         return state;

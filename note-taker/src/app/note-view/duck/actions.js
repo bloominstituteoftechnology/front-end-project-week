@@ -13,7 +13,19 @@ const receiveNote = (noteObj) => {
     }
 }
 
+const deletingNote = () => {
+    return {
+        type: types.DELETING_SINGLE_NOTE,
+    }
+}
+const deleteNote = () => {
+    return {
+        type: types.DELETE_SINGLE_NOTE,
+    }
+}
 export default {
     requestNote,
-    receiveNote
+    receiveNote,
+    deletingNote,
+    deleteNote,
 }
