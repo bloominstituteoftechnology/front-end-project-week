@@ -15,7 +15,7 @@ export const fetchNotes = URL => {
                 dispatch({ type: FETCHED_NOTES, payload: response.data });
             })
             .catch(err => {
-                dispatch({ type: ERROR, payload: err });
+                dispatch({ type: ERROR, payload: err.message });
             })
     }
 }

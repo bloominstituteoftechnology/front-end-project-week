@@ -9,7 +9,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        // sets fetchingNotes to true so components will no to wait to render content
+        // sets fetchingNotes to true so components will know to wait to render content
         case FETCHING_NOTES:
             return { ...state, fetchingNotes: true };
         // places fetched notes on state
