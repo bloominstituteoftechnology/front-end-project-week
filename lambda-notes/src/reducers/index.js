@@ -1,4 +1,4 @@
-import {ADD_NOTE, UPDATE_NOTE} from '../actions';
+import {ADD_NOTE, UPDATE_NOTE, DELETE_NOTE} from '../actions';
 
 const initialState = {
     notes: [
@@ -55,6 +55,9 @@ const rootReducer = (state = initialState, action) => {
         
         case UPDATE_NOTE:
         return {...state, notes: action.payload };
+
+        case DELETE_NOTE:
+        return{...state, notes: action.payload};
 
         default:
             return state;

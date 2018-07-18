@@ -25,11 +25,14 @@ class EditNoteForm extends Component {
     updateHandler = () => {
         const id = this.props.match.params.id;
         const {title, content} = this.state;
-        console.log(this.state);
-        console.log(this.props);
-        const nuNotes = this.props.notes;
-        nuNotes.splice(id, 1, {id, title, content});
-        console.log(nuNotes)
+        const nuNotes = this.props.notes.slice();
+
+        function isindex(note) { 
+            return note.id == id;
+        }
+
+        const idFinder = nuNotes.indexOf(nuNotes.find(isindex));
+        nuNotes.splice(idFinder, 1, {id, title, content});
         this.props.updateNote(nuNotes);
     }
 

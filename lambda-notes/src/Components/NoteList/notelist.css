@@ -1,5 +1,6 @@
 .page-container {
     display: flex;
+    min-height: 800px;
 }
 
 .section-container {
