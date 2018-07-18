@@ -37,15 +37,32 @@ class CreateNewView extends React.Component {
 
   /* make me */
   handleChange = e => {
-    console.log("HANDLE CHANGE EVENT TARGET", e.target);
+    // console.log("HANDLE CHANGE EVENT TARGET", e.target);
     this.setState({ [e.target.name]: e.target.value });
   };
 
   /* make me */
-  handleSubmit = e => {};
+  handleSubmit = e => {
+    e.preventDefault();
+    if (!this.state.title) {
+      this.setState({ title: this.state.current.title });
+    }
+    if (!this.state.textBody) {
+      this.setState({ title: this.state.current.textBody });
+    }
+    let message = {
+      tags: this.state.current.tags,
+      title: this.state.title,
+      _id: this.state.current._id,
+      textBody: this.state.textBody,
+      __v: this.state.current.__v
+    };
+    console.log(message);
+    this.props.editHandler(message);
+    this.props.history.push(`/note/${this.state.current._id}`);
+  };
 
   render() {
-    console.log("CREATE NEW VIEW STATE CURRENT", this.state.current);
     return (
       <EditWrapper>
         <ContentHeading message="Edit Note:" />

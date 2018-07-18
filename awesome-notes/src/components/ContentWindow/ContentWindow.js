@@ -39,6 +39,19 @@ class ContentWindow extends React.Component {
     this.setState({ content: newContent });
   };
 
+  handleEditNote = note => {
+    const newContent = this.state.content.map(note => note);
+    const elementPos = newContent
+      .map(function(x) {
+        return x._id;
+      })
+      .indexOf(note._id);
+    console.log("HANDLE EDIT NOTE ARRAY INDEX", elementPos);
+    newContent.splice(elementPos, 1, note);
+    console.log("HANDLE EDIT NEW CONTENT", newContent);
+    this.setState({ content: newContent });
+  };
+
   render() {
     return (
       <StyledWindow>
@@ -64,7 +77,13 @@ class ContentWindow extends React.Component {
         {/* un-hard-code-me */}
         <Route
           path="/edit/:_id"
-          render={props => <EditView {...props} content={this.state.content} />}
+          render={props => (
+            <EditView
+              {...props}
+              content={this.state.content}
+              editHandler={this.handleEditNote}
+            />
+          )}
         />
       </StyledWindow>
     );
