@@ -33,14 +33,14 @@ class ViewCard extends Component {
             <div className='view-ctn'>
                 <div className='action-ctn'>
                     <Link to={{
-                        pathname: `/delete`,
+                        pathname: '/delete',
                         state: { note: this.state.note }
                     }} style={{ textDecoration: 'none' }}>
                         Delete
                      </Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <Link to={{
-                        pathname: `/edit`,
+                        pathname: '/edit',
                         state: { note: this.state.note }
                     }} style={{ textDecoration: 'none' }}>
                         Edit
