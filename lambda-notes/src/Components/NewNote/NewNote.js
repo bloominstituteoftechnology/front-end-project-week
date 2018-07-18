@@ -12,6 +12,7 @@ class NewNote extends React.Component {
     }
 
     createNote = event => {
+        // sends new note to server then triggers new load to notes page after 
         event.preventDefault();
         const { noteName, noteBody } = this.state;
         const newNote = {
@@ -35,6 +36,7 @@ class NewNote extends React.Component {
                 <div className="mainContent__content">
                     <form className="mainContent__Form" onSubmit={this.createNote} >
                         <input
+                            // title portion of create  note
                             className="form__input form__input--title"
                             onChange={this.handleInputChange}
                             placeholder="Note Title"
@@ -42,6 +44,7 @@ class NewNote extends React.Component {
                             name="noteName"
                         />
                         <textarea
+                            // text portion of create note
                             className="form__input form__input--body"
                             type="textarea"
                             onChange={this.handleInputChange}

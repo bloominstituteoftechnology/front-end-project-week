@@ -2,7 +2,6 @@ import React from 'react';
 import { getNote } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import DeleteModal from '../Modal/DeleteModal';
 
 const styled = {
@@ -19,10 +18,11 @@ class ViewNote extends React.Component {
     }
 
     componentDidMount() {
+        console.log('props', this.props);
         let id = window.location.pathname.split('/');
         id = id[2];
         this.props.getNote(URL, id);
-        // this.props.getNote(this.props.id);
+        // grabs note from server via url
     }
 
     handeInputChange = event => {
@@ -42,18 +42,19 @@ class ViewNote extends React.Component {
             modal: !this.state.modal
         });
     }
-
+// The error is here somewhere, i don't think it's Link to because looking over some of the groups code they used it in this case as well
     render() {
-        console.log('view note', this.props.notes);
         return (
             <div className="mainContent" >
                 {this.props.notes.map(note => {
                     return (
                         <div key={note._id} >
+                        {/* edit functionality of notes  */}
                             <div className="mainContent__options" >
-                                <Link to={`/edit/${note._id}/`} style={styled} >Edit</Link>
+                                <Link to={`/edit/${note._id}/edit`} style={styled} >Edit</Link>
                                 <div>
                                     <DeleteModal 
+                                    // delete or cancel deleteing of note
                                     modal={'modal'}
                                     body={'modal__body'}
                                     footer={'modal__footer'}
@@ -77,7 +78,6 @@ class ViewNote extends React.Component {
 };
 
 const stateProps = (state, ownProps) => {
-    console.log('state', state)
     return {
         notes: state.rootReducer.notes,
         id: ownProps.match.params.id

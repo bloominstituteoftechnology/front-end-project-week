@@ -21,8 +21,8 @@ class App extends Component {
                     <Route path="/newNote"
                         render = {(props) => <NewNote />}
                     />
-                    <Route path="/notes/:id" component={ViewNote}
-                    />
+                    {/* <Route path="/notes/:id" component={ViewNote}
+                    /> */}
                 </Switch>
             </div>
         );
