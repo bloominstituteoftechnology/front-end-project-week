@@ -9,9 +9,27 @@ const NotePreview = styled.div`
   border-style: solid;
   border-width: ${props => props.theme.dimensions.notePreview.borderWidth};
   padding: ${props => props.theme.dimensions.notePreview.padding};
-
-  overflow: hidden;
   background-color: ${props => props.theme.color.previewNoteBG};
+
+  /* OVERFLOW LOGIC START */
+  overflow: hidden;
+  position: relative;
+
+  :after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: ${props => props.theme.color.previewNoteBG};
+  }
+  /*OVERFLOW LOGIC END*/
 
   h2 {
     padding: ${props => props.theme.dimensions.notePreview.headingPadding};
@@ -19,7 +37,7 @@ const NotePreview = styled.div`
     font-size: ${props => props.theme.dimensions.notePreview.headingFontSize};
   }
 
-  p {
+  div {
     color: ${props => props.theme.color.generalText};
     font-size: ${props => props.theme.dimensions.notePreview.textFontSize};
     padding: ${props => props.theme.dimensions.notePreview.textPadding};
