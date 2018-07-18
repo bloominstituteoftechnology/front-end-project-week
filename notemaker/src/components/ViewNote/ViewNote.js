@@ -32,7 +32,7 @@ class ViewNote extends Component {
             <div className="view-note">
                 <div className="controls">
                     <a href="/edit">edit</a>
-                    <div className="delete-link">delete</div>
+                    <div className="delete-link" >delete</div>
 
                     <div className="delete-modal">
                         <div className="modal-content">

@@ -2,30 +2,33 @@ import React, { Component } from 'react';
 import './NotePreview.css';
 
 class NotePreview extends Component {
-
-    constructor() {
-        super();
+    
+    constructor(props) {
+        super(props);
         this.state = {
-            notes: []
+            props: this.state
         }
     }    
 
     render() {
+        console.log('Props for NotePreview:', this.props)
         return (
             <a href="/view">
                 <div className="note-preview-container">
                     <div className="note-preview-inner-container">
-                        <div className="note-preview-title">Note Title</div>
+                        <div className="note-preview-title">{this.props.title}</div>
                         <div className="note-preview-content">
-                        Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis ...
+                            {this.props.content.substring(0,110) + "..."}
                         </div>
                     </div>
-                    {/* <NotePreview /> */}
+
                     {/* could map over the notes that exist in state, then have them individually represented by each NoteThumbnail */}
                 </div>
             </a>
         )
     }
 }
+
+
 
 export default NotePreview;
