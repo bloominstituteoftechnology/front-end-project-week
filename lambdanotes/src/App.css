@@ -27,6 +27,6 @@ h2 {
   padding-right: 21px;
   display: grid;
   grid-template-columns: 31% 31% 31%;
-  grid-template-rows: repeat(3, 320px);
+  grid-template-rows: repeat(10, 320px);
   grid-column-gap: 22px;
 }
