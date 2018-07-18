@@ -8,8 +8,6 @@ import NoteView from '../Page/NoteView';
 import Nav from '../Nav';
 import './App.css';
 
-const API_URL = '';
-
 class App extends Component {
   constructor(props) {
     super(props);

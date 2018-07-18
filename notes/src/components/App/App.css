@@ -146,7 +146,7 @@ textarea {
   line-height: 2rem;
 }
 
-.note-view {
+.list-view, .note-view {
   width: 100%;
   padding: 20px 15px 27px 27px;
 }
@@ -157,14 +157,14 @@ textarea {
   line-height: 3rem;
 }
 
-.note-view-control {
+.list-view-control, .note-view-control {
   display: flex;
   justify-content: flex-end;
   max-width: 1000px;
   margin: 0 0 25px 0;
 }
 
-.note-view-control__button {
+.list-view-control__button, .note-view-control__button {
   display: inline-block;
   width: auto;
   margin: 0 0 0 15px;
