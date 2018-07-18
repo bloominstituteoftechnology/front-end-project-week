@@ -16,13 +16,13 @@ class App extends Component {
                     <Route exact path="/"
                         render = {(props) => <Notes />}
                     />
-                    {/* <Route path="/notes/:id/" component={Note} 
-                    /> */}
                     <Route path="/newNote"
                         render = {(props) => <NewNote />}
                     />
-                    {/* <Route path="/notes/:id" component={ViewNote}
-                    /> */}
+                    <Route path="/notes/:id/" component={Note} 
+                    />
+                    <Route path="/notes/:id" component={ViewNote}
+                    />
                 </Switch>
             </div>
         );

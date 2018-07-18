@@ -6,6 +6,8 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
 
 export const getNotes = () => {
     const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all')
@@ -31,7 +33,6 @@ export const getNote = id => {
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
-            console.log('get note func', response.data)
             dispatch({
                 type: SUCCESS,
                 payload: response.data

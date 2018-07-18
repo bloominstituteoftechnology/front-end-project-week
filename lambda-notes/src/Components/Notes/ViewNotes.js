@@ -1,67 +1,82 @@
-import React from 'react';
-import { getNote } from '../../actions';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import DeleteModal from '../Modal/DeleteModal';
+import { getNote, deleteNote } from '../../actions';
+import { bindActionCreators } from 'redux'
 
-const styled = {
+const styled = {  //this is for the link to not look like an anchor tag
     textDecoration: 'none',
+    // color: 'rgb(97, 76, 76)'
     color: 'black'
 }
 
-class ViewNote extends React.Component {
+
+class ViewNote extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            tags: [],
+            tagInput: '',
+            id: 0
         };
     }
 
+    inc = () => {
+        this.setState({ id: 1 + this.state.id })
+    }
+
     componentDidMount() {
-        console.log('props', this.props);
-        let id = window.location.pathname.split('/');
-        id = id[2];
-        this.props.getNote(URL, id);
-        // grabs note from server via url
+        this.props.getNote(this.props.id);
     }
 
-    handeInputChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+
+    removeNote = () => {
+        this.props.deleteNote(this.props.id);
+        let route = window.location.pathname.split('/')
+        let newRoute = route.splice(0, route.length - 2).join('/')
+        window.location.pathname = newRoute;
     }
 
-    handleInputSubmit = id => {
-        const note = {
-            title: this.state.title,
-            textBody: this.state.body,
+    removeTag = id => {
+        const { tags } = this.state;
+        const newTags = tags.filter(tag => tag.id !== id);
+        this.setState({ tags: newTags });
+    }
+
+    createTag = event => {
+        event.preventDefault();
+        const { tags, id, tagInput } = this.state;
+        const newTag = {
+            id: id,
+            tag: `#${tagInput}`
         }
-        this.props.updateNote(URL, id, note);
+        this.inc();
+        this.setState({ tags: tags.concat([newTag]), tagInput: '' });
     }
 
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
+    handleInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value })
     }
-// The error is here somewhere, i don't think it's Link to because looking over some of the groups code they used it in this case as well
+
+    // componentWillReceiveProps(newProps) {   //this was where i tested for my EditNote component
+    //     console.log('cwrp', newProps)
+    //     this.setState({
+    //         noteName: newProps.noteName,
+    //         noteBody: newProps.noteBody
+    //     })
+    // }
+
     render() {
         return (
             <div className="mainContent" >
                 {this.props.notes.map(note => {
                     return (
                         <div key={note._id} >
-                        {/* edit functionality of notes  */}
                             <div className="mainContent__options" >
-                                <Link to={`/edit/${note._id}/edit`} style={styled} >Edit</Link>
-                                <div>
-                                    <DeleteModal 
-                                    // delete or cancel deleteing of note
-                                    modal={'modal'}
-                                    body={'modal__body'}
-                                    footer={'modal__footer'}
-                                    delete={'button button--delete'} 
-                                    cancel={'button button--cancel'} 
-                                    />
-                                </div>
+                                <Link to={`/notes/${note._id}/edit`} style={styled} >
+                                    <span className="mainContent__options--links" >edit</span>
+                                </Link>
                             </div>
                             <div className="directory__title mainContent__title" >
                                 {note.title}
@@ -69,19 +84,38 @@ class ViewNote extends React.Component {
                             <div className="mainContent__content mainContent__content--view" >
                                 {note.textBody}
                             </div>
-                        </div>
-                    )
+                        </div>)
                 })}
+                {this.state.tags ?
+                    <div>
+                        {this.state.tags.map((tag, index) => {
+                            return (
+                                <div key={`tag${tag.id}`} className="button tag" onClick={()=>this.removeTag(tag.id)} >
+                                    {tag.tag}
+                                </div>)
+                        })}
+                    </div> : null}
+                <form className="mainContent__Form" onSubmit={this.createTag} >
+                    <input
+                        className="form__input form__input--title"
+                        onChange={this.handleInputChange}
+                        placeholder="Add a Tag"
+                        value={this.state.tagInput}
+                        name="tagInput"
+                    />
+                    <button className={"link__button"} type="submit">Add</button>
+                </form>
             </div>
         )
     }
 };
 
-const stateProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        notes: state.rootReducer.notes,
-        id: ownProps.match.params.id
+        notes: state.rootReducer.noteReducer.notes,
+        id: ownProps.match.params.id,
     }
+
 }
 
-export default connect(stateProps, { getNote })(ViewNote);
+export default connect(mapStateToProps, dispatch => bindActionCreators({ getNote, deleteNote }, dispatch))(ViewNote);
