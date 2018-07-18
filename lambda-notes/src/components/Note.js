@@ -13,14 +13,17 @@ class Note extends React.Component {
     textBody: ""
   }
 
+  // sets note id to this.id
   get id() {
     return this.props.match.params.id;
   }
 
+  // fetches note from server and passes it to store
   componentDidMount() {
     this.props.getNote(this.id);
   }
 
+  // allows current note to be edited
   toggleEditMode = e => {
     e.preventDefault();
     this.setState({ isEditing: true,
@@ -28,10 +31,12 @@ class Note extends React.Component {
                     textBody: this.props.note.textBody });
   }
 
+  // adjusts state of title and textBody whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // sends edited note to server, turns off edit mode, resets state with contents of new note
   handleEditSubmit = e => {
     e.preventDefault();
     this.props.editNote({ id: this.id, title: this.state.title, textBody: this.state.textBody });
@@ -40,15 +45,18 @@ class Note extends React.Component {
                     textBody: this.props.note.textBody });
   }
 
+  // activates delete modal
   openModal = e => {
     e.preventDefault();
     this.setState({ modalIsOpen: true });
   }
 
+  // deactivates delete modal
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   }
 
+  // sends delete request to server, redirects to home page
   handleDelete = e => {
     e.preventDefault();
     this.props.deleteNote(this.id);
@@ -56,12 +64,14 @@ class Note extends React.Component {
   }
 
   render() {
+    // if notes are not yet loaded into store, return empty div
     if (!this.props.note) {
       return (
         <div className="main-container note"></div>
       )
     }
 
+    // if edit mode is toggled, return edit form
     if (this.state.isEditing) {
       return (
         <Form type={"edit"}
@@ -92,6 +102,8 @@ class Note extends React.Component {
           <h5 onClick={this.toggleEditMode}>edit</h5>
           <h5 onClick={this.openModal}>delete</h5>
         </div>
+
+        {/* trims note title if another student hasn't set a maxLength on their title input */}
         <h2>{this.props.note.title.length > 30 ?
              this.props.note.title.slice(0, 30) + '...' :
              this.props.note.title}</h2>

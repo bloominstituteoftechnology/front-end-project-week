@@ -3,6 +3,7 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 
 const NoteList = props => {
+  // if notes are not yet loaded into store, return empty div
   if (!props.notes) {
     return (
       <div className="main-container"></div>
@@ -10,23 +11,25 @@ const NoteList = props => {
   }
 
   props.notes.forEach(note => {
+    // trims regular case note title
     if (note.title.length > 12) {
       note.title = note.title.slice(0, 12) + '...';
     }
-
+    // trims uppercase note title
     if (note.title.length > 10 && note.title === note.title.toUpperCase()) {
       note.title = note.title.slice(0, 10) + '...';
     }
-
+    // trims regular case note body
     if (note.textBody.length > 110) {
       note.textBody = note.textBody.slice(0, 110) + '...';
     }
-
+    // trims uppercase note body
     if (note.textBody.length > 92 && note.textBody === note.textBody.toUpperCase()) {
       note.textBody = note.textBody.slice(0, 92) + '...';
     }
   });
 
+  // reverses note array
   const notes = props.notes.slice().reverse();
 
   return (

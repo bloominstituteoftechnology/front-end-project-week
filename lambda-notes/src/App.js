@@ -14,14 +14,17 @@ class App extends Component {
     textBody: ""
   }
 
+  // fetches all notes from server and passes them to store
   componentDidMount() {
     this.props.getNotes();
   }
 
+  // adjusts state of title and textBody whenever there is new input
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // sends current state of title and textBody to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
     this.props.addNote({ title: this.state.title, textBody: this.state.textBody });
@@ -30,12 +33,6 @@ class App extends Component {
   }
 
   render() {
-    if (!this.props.notes) {
-      return (
-        <div className="main-container"></div>
-      )
-    }
-
     return (
       <div className="container">
         <Sidebar />
