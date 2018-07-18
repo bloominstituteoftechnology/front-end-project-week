@@ -10,7 +10,7 @@ const NotesList = props => {
           return (
             <Link className="note-link" to={`/notes/${note.id}`} key={note.id}>
               <p className='note-link-title'>{note.title.substring(0, 20)}</p>
-              <hr/>
+              <hr className='note-link-hr'/>
               <p>{note.content.substring(0, 150)}</p>
             </Link>
           );

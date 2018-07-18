@@ -33,7 +33,7 @@
   border: 1px solid #979797;
   width: 80%;
   min-height: 15px;
-  margin:  15px 5%;
+  margin:  15px 5% 15px 0px;
   padding: 5%;
   padding-top: 5%;
   font-size: 0.8rem;
@@ -114,6 +114,9 @@
   background: #ffffff;
 }
 
+.note-link-hr {
+  border-color: #979797;
+}
 .note-link-title {
   font-size: 1rem;
   font-family: "Roboto";
@@ -121,7 +124,32 @@
   margin-top: 0;
 }
 
+/* Note Styles */
 
+.edit-delete-div {
+  display:flex;
+  justify-content: flex-end;
+  padding-right: 5%;
+  font-family: "Roboto";
+}
+
+.edit-button-link, .edit-button-link:link, .edit-button-link:hover, .edit-button-link:active, .edit-button-link:visited, .edit-button-link:focus {
+  text-decoration: none;
+  color: #4a4a4a;
+  margin-right: 4%;
+}
+.edit-button, .edit-button:link, .edit-button:hover, .edit-button:active, .edit-button:visited, .edit-button:focus   {
+  font-weight: bold;
+  font-size: .8rem;
+  text-decoration-line: underline;
+  margin-right: 5%;
+}
+
+.delete-button {
+  text-decoration-line: underline;
+  font-weight: bold;
+  font-size: .8rem;
+}
 
 /* Heading font: Roboto Bold
 Everything else font: Raleway Medium

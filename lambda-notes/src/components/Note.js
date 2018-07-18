@@ -20,11 +20,13 @@ class Note extends Component {
     if (note.id === this.state.id) {
       return (
         <div key={note.id}>
-          <div>
-            <Link to={`/edit/${note.id}`}> edit</Link>
-            <h1 onClick={this.props.toggleDeleting} className="delete-button">
+          <div className="edit-delete-div">
+            <Link className="edit-button-link" to={`/edit/${note.id}`}>
+              <p className="edit-button"> edit</p>
+            </Link>
+            <p onClick={this.props.toggleDeleting} className="delete-button">
               delete
-            </h1>
+            </p>
           </div>
           <h1>{note.title}</h1>
           <p>{note.content}</p>

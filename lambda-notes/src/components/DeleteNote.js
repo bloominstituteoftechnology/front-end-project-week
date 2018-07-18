@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class DeleteNote extends React.Component {
   constructor(props) {
@@ -19,8 +20,11 @@ class DeleteNote extends React.Component {
     return (
       <div>
         <p> Are you sure you want to delete that?</p>
+        <Link to='/'>
         <button onClick={this.deleteCompleted}>Delete</button>
-        <button onClick={this.props.toggleDeleting}>No</button>
+        </Link>
+        <button type='button' onClick={this.props.toggleDeleting}>No</button>
+       
       </div>
     );
   }
