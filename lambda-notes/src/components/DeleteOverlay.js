@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Overlay = styled.div`
   background: #9da7b1;
@@ -67,7 +68,7 @@ const DeleteOverlay = (props) => {
       <DeleteDialog> 
         <Title>Are you sure you want to delete this?</Title>
         
-        <DelButton onClick={props.deleteNoteClick}>Delete</DelButton>
+        <Link to="/view-notes"><DelButton onClick={props.deleteNoteClick}>Delete</DelButton></Link>
         <BaseButton onClick={props.deletingCompleted}>No</BaseButton>
       </DeleteDialog>
     </div>
