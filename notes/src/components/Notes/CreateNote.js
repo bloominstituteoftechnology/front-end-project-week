@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './CreateNote.css'
+
+
 let id = 0;
 class CreateNote extends Component {
     constructor(props) {
@@ -10,9 +12,11 @@ class CreateNote extends Component {
             id: id
         }
     }
-    componentWillUnmount () {
+
+    componentWillUnmount() {
         id = this.state.id;
     }
+
     onSubmit = (e) => {
         e.preventDefault();
         const note = { id: this.state.id, title: this.state.title, description: this.state.content };

@@ -23,7 +23,7 @@ class EditNote extends Component {
         const note = { id: this.state.id, title: this.state.title, description: this.state.content }
         this.props.editNote(note);
     }
-    
+
     render() {
         return (
             <div className='edit-ctn'>

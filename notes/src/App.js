@@ -31,6 +31,13 @@ class App extends Component {
             }
         this.setState({ notes })
     }
+    deleteNote = (note) => {
+        let notes = this.state.notes.slice();
+        let newNotes = notes.filter(found => {
+            return found.id !== note.id;
+        })
+        this.setState({ notes: newNotes })
+    }
 
     render() {
         return (
@@ -40,9 +47,9 @@ class App extends Component {
                 <Route exact path='/create' render={(props) => <CreateNote {...props} createNote={this.createNote} />} />
                 <Route exact path="/view/:id" render={(props) => <ViewCard {...props} notes={this.state.notes} />} />
                 <Route exact path="/edit" render={(props) => <EditNote {...props} editNote={this.editNote} />} />
-                <Route exact path="/delete" render={(props) => <DeleteNote {...props}/>} />
+                <Route exact path="/delete" render={(props) => <DeleteNote {...props} />} />
             </div>
-            );
-        }
+        );
     }
+}
 export default App;
