@@ -24,14 +24,13 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:333/notes')
+      .get('http://localhost:3333/notes')
       .then(response => {
         console.log('GET RESPONSE: ', response)
         this.setState({ notes: response.data })
       })
       .catch(err => {console.log(err)})
   }
-
   handleSetCurrent = note => {
     this.setState({ currentNote: note })
   }
@@ -43,7 +42,6 @@ class App extends Component {
     this.setState({currentNote: {id: this.state.currentNote.id, title: this.state.currentNote.title, content: e.target.value}})
   }
   handleAddNote = e => {
-    e.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({ id: this.state.notes.length, title: this.state.titleValue, content: this.state.contentValue });
     this.setState({notes, titleValue: '', contentValue: ''});
