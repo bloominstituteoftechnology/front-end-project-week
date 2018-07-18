@@ -25,21 +25,14 @@ const Container = styled.div`
 `;
 
 class Notes extends Component {
-  constructor() {
-    super();
-    this.div = React.createRef();
-  }
-
   componentDidMount() {
     //scroll to the top
-    if (this.div.current) {
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
   }
 
   render() {
     return (
-      <NotesDiv innerRef={this.div}>
+      <NotesDiv>
         <p>Your Notes:</p>
         <Container>
           {this.props.notes.map(note => (

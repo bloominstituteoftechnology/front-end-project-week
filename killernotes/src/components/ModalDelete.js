@@ -2,29 +2,43 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Modal = styled.div`
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 250px;
-  top: 300px;
-  width: 400px;
-  height: 100px; 
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 190px;
+  top: 184px;
+  width: 531px;
+  height: 178px;
   overflow: auto;
   background-color: white;
   > p {
     margin: 5% auto;
     // padding: 20px;
-    width: 80%;
+    width: 53%;
   }
-}`;
+`;
+
+const Button = styled.button`
+  margin-left: 68px;
+  margin-top: 20px;
+  width: 190px;
+  height: 42px;
+  font-size: 16px;
+  background-color: #d0021b;
+`;
+
+const NoButton = Button.extend`
+  background-color: #2bc1c4;
+  margin-left: 22px;
+`;
 
 const ModalDelete = props => {
   return (
     <Modal style={props.modal ? { display: 'block' } : null}>
       <p>Are you sure you want to delete this?</p>
       <div>
-        <button onClick={props.delete}>Delete</button>
-        <button onClick={props.toggleModal}>No</button>
+        <Button onClick={props.delete}>Delete</Button>
+        <NoButton onClick={props.toggleModal}>No</NoButton>
       </div>
     </Modal>
   );

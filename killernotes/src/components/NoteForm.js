@@ -80,11 +80,14 @@ class NoteForm extends React.Component {
 
     // set focus on the title box
     if (this.input.current) {
-      // this.input.current.focus(); // doesn't work - react needs a split second
+      // this.input.current.select(); // doesn't work - react needs a split second
       setTimeout(() => {
         this.input.current.select();
       }, 30);
     }
+
+    //scroll to top
+    window.scrollTo(0, 0);
   };
 
   componentDidMount() {

@@ -91,9 +91,7 @@ class NoteView extends React.Component {
     }
 
     //scroll to the top
-    if (this.div.current) {
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
   }
 
   // this is here so refresh and typing in the URL works
