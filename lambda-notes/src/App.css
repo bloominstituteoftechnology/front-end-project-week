@@ -2,7 +2,7 @@
   display: flex;
   font-family: 'Raleway', sans-serif;
   color: #4A4A4A;
-  background-color: #F3F3F3
+  background-color: #F3F3F3;
 
 }
 .app .navigation {
@@ -11,6 +11,7 @@
   display: flex;
   flex-flow: column;
   align-items: center;
+  height: 1000px;
 }
 .app .navigation h1 {
   font-size: 52px;
@@ -44,7 +45,8 @@
   text-decoration: none;
 }
 .app .content {
-  background-color: #F3F3F3
+  background-color: #F3F3F3;
+  width: 100%;
 }
 .app .content a:visited {
   text-decoration: none;
@@ -71,6 +73,7 @@
   height: 300px;
 }
 .content .notes ul .note .note-text {
+  max-width: 200px;
   padding-left: 30px;
   padding-right: 40px;
   line-height: 30px;
@@ -136,5 +139,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+}
+.content .note-view {
+  width: 100%;
+}
+.content .note-view .edit-delete{
+  display: flex;
+  margin-left: 80%;
+  width: 15%;
+  font-size: 20px;
+  justify-content: space-around;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.content .note-view .text {
+  margin-left: 40px;
+}
+.content .note-view .text h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+.content .note-view .text p {
+  margin-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 40px;
 }

@@ -23,10 +23,12 @@ class Note extends Component {
   }
   render() {
     return (
-      <div>
-        <p>edit</p>
-        <p>delete</p>
-        <div>
+      <div className='note-view'>
+        <div className='edit-delete'>
+          <p>edit</p>
+          <p>delete</p>
+        </div>
+        <div className='text'>
           {this.props.notes.map(this.filterNotes)}
         </div>
       </div>

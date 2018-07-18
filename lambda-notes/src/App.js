@@ -42,7 +42,6 @@ class App extends Component {
     this.setState({[event.target.name]:event.target.value})
   }
   handleAddNote = event => {
-    event.preventDefault();
     const notes = this.state.notes.slice();
     notes.push({id: this.state.notes.length, title: this.state.newTitle, textBody: this.state.newTextBody});
     this.setState({notes, newTitle: '', newTextBody: ''});
