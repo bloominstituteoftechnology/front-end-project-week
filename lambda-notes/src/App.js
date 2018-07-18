@@ -19,15 +19,44 @@ let StyledApp = styled.div`
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.exportCSV = this.exportCSV.bind(this);
+  }
+  
   componentDidMount() {
     this.props.fetchNotes();
   }
 
+  exportCSV() {
+    // Prepare string
+    const { notes: allNotes } = this.props;
+    const dataSignature = 'data:text/csv;charset=utf-8,';
+    const keys = allNotes.reduce((accum, note) => ({...accum, ...Object.keys(note)}), {});
+    const keysArr = [...Object.values(keys)];
+    let headingRow = keysArr.map( colTitle => `"${colTitle}"`).join(',');
+    const rows = allNotes.map(
+      note => (keysArr.reduce(
+        (accum, key) => [...accum, `"${note[key]}"`],
+        [])).join(','));
+    const resultArr = [headingRow, ...rows];
+    const resultStr = resultArr.join('\r\n');
+
+    // Convert string to data then download
+    const data = encodeURI(dataSignature+resultStr);
+    const link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', 'my_data.csv');
+    link.innerHTML= 'Click Here to download';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
   render() {
-    let { notes } = this.props;
     return (
       <StyledApp>
-        <SideBar notes={notes} />
+        <SideBar exportCSV={this.exportCSV} />
         <MainPane {...this.props} />
       </StyledApp>
     );

@@ -39,5 +39,6 @@ const allIdsReducer = (state = [], action) => {
 export default combineReducers({ byId: byIdReducer, allIds: allIdsReducer });
 
 export const getAllNotes = state => state.allIds.map(id => state.byId[id]);
+export const getAllIds = state => state.allIds;
 export const getNoteById = (state, id) =>
   state.byId[id] || { textBody: '', title: '' };

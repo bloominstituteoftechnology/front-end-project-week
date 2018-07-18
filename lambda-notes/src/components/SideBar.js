@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -27,7 +27,7 @@ const SideBar = styled.div`
   }
 `;
 
-export default () => {
+export default ({ exportCSV }) => {
   return (
     <SideBar>
       <h1>Lambda Notes</h1>
@@ -37,7 +37,9 @@ export default () => {
       <NavLink exact to="/add/">
         <Button>+ Create New Note</Button>
       </NavLink>
-      <Button>Export to CSV</Button>
+      <Route exact path='/' render={() => (
+        <Button onClick={ exportCSV }>Export to CSV</Button>
+      )} />
     </SideBar>
   );
 };
