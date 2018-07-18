@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 const StyledSideBar = styled.div`
     display: flex;
+    position: fixed;
     flex-flow: column;
     justify-content: flex-start;
     align-items: center;
     background: #D8D8D8;
     width: 25%;
-    max-width: 180px;
+    max-width: 200px;
     height: 100%;
     border: 2px solid #979797;
     padding: 1%;

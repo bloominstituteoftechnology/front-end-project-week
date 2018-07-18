@@ -12,6 +12,7 @@ const StyledNote = styled.div`
     width: 100%;
     padding: 2%;
     align-items: flex-start;
+    margin-left: 26%;
 `;
 
 const StyledButtons = styled.div`

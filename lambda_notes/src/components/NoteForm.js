@@ -9,6 +9,7 @@ const StyledNoteForm = styled.div`
     width: 100%;
     padding: 5%;
     font-family: Roboto Bold;
+    margin-left: 24%;
 `;
 
 const H3 = styled.h3`
