@@ -6,11 +6,11 @@ const Menu = () => {
     return (
         <div className='menu'>
             <h1>Lambda <br></br> Notes</h1>
-            <Link to='/'>
-                <p>View Your Notes</p>
+            <Link className='link' to='/'>
+                <p className='link-btn'>View Your Notes</p>
             </Link>
-            <Link to='/create-note'>
-                <p>+ Create New Note</p>
+            <Link className='link' to='/create-note'>
+                <p className='link-btn'>+ Create New Note</p>
             </Link>
         </div>
     )

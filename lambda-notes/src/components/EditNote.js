@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchNote, editNote } from '../actions';
+import '../styles/EditNote.css';
 
 const URL = 'https://killer-notes.herokuapp.com/note/';
 
@@ -39,10 +40,13 @@ class EditNote extends Component {
                 {this.props.fetchingNotes ? (
                     <h1>... fetching note ...</h1>
                 ) : (
-                <div className='edit-form'>
-                    <input name='title' value={this.state.title} onChange={this.handeInputChange} />
-                    <textarea name='body' value={this.state.body} onChange={this.handeInputChange}></textarea>
-                    <button type='submit' onClick={() => this.handleInputSubmit(this.props.singleNote._id)}>Edit Note</button>
+                <div className='edit-container'>
+                    <h1>Edit Note:</h1>
+                    <div className='edit-form'>
+                        <input name='title' className='title' value={this.state.title} onChange={this.handeInputChange} />
+                        <textarea name='body' className='body' value={this.state.body} onChange={this.handeInputChange}></textarea>
+                        <button className='update-btn' type='submit' onClick={() => this.handleInputSubmit(this.props.singleNote._id)}>Update</button>
+                    </div>
                 </div>
                 )}
             </React.Fragment>

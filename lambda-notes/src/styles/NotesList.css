@@ -1,3 +1,22 @@
-.notes-container {
+.notes-list-container {
     width: 60%;
+    margin-left: 300px;
+}
+
+.notes-list-container h1 {
+    text-align: left;
+    margin-left: 32px;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 90%;
+}
+
+.notes-container .note-link {
+    text-decoration: none;
+    color: black;
 }

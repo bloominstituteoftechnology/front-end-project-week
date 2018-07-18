@@ -25,10 +25,13 @@ class NewNote extends Component {
 
     render() {
         return(
-            <div className='note-form'>
-                <input name='title' placeholder='Note Title' value={this.state.title} onChange={this.handeInputChange} />
-                <textarea name='body' placeholder='Note Content' value={this.state.body} onChange={this.handeInputChange}></textarea>
-                <button type='submit' onClick={() => this.handleCreateNote(URL)}>Add Note</button>
+            <div className='create-container'>
+                <h1>Create New Note:</h1>
+                <div className='note-form'>
+                    <input name='title' className='title' placeholder='Note Title' value={this.state.title} onChange={this.handeInputChange} />
+                    <textarea name='body' className='body' placeholder='Note Content' value={this.state.body} onChange={this.handeInputChange}></textarea>
+                    <button className='save-btn' type='submit' onClick={() => this.handleCreateNote(URL)}>Save</button>
+                </div>
             </div>
         )
     }

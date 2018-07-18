@@ -1,6 +1,30 @@
 .menu {
     background: #D3D2D3;
     height: 100vh;
-    width: 20%;
+    width: 300px;
     text-align: left;
+    position: fixed;
+    border-right: 1px solid #A0A0A0;
+}
+
+.menu h1 {
+    margin-left: 49px
+}
+
+.menu .link {
+    text-decoration: none;
+}
+
+.link-btn {
+    text-align: center;
+    width: 200px;
+    margin: 25px auto;
+    border: 1px solid #A0A0A0;
+    background: #24B8BD;
+    color: white;
+    padding: 15px 0;
+}
+
+.link-btn:hover {
+    background: #1e9699;
 }

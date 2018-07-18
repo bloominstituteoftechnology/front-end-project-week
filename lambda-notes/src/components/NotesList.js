@@ -7,7 +7,7 @@ import '../styles/NotesList.css';
 class NotesList extends Component {
     render() {
         return (
-            <div className='notes-container'>
+            <div className='notes-list-container'>
             {/* displays loading text while waiting for response from server */}
                {this.props.fetchingNotes ? (
                    <h1>... fetching notes ...</h1>
@@ -20,13 +20,15 @@ class NotesList extends Component {
                     <React.Fragment>
                         {/* if no server error, iterates over notes array and returns each note in a Link that routes to view the selected note */}
                         <h1>Your Notes:</h1>
+                        <div className='notes-container'>
                         {this.props.notes.map(note => {
                         return (
-                            <Link to={'/note/' + note._id} key={note._id} >
+                            <Link className="note-link" to={'/note/' + note._id} key={note._id} >
                                 <Note title={note.title} body={note.textBody} />
                             </Link>
                         )
                     })}
+                    </div>
                     </React.Fragment>
                     )}
                 </React.Fragment>
