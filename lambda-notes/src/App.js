@@ -10,27 +10,52 @@ import EditNote from './components/EditNote'
 import { Route, Link } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import theme from './theme'
+import {
+  get,
+  post,
+  put,
+  delete as _delete
+} from 'axios'
 
 class App extends Component {
  
   state = { 
     notes: [
       {
-        id: 0,
+        _id: 0,
         title: 'React',
-        text: 'React is a UI Library developed by Facebook'
+        textBody: 'React is a UI Library developed by Facebook'
       },
       {
-        id: 1,
+        _id: 1,
         title: 'Redux',
-        text: 'Redux makes managing complex state a breeze'
+        textBody: 'Redux makes managing complex state a breeze'
       },
       {
-        id: 2,
+        _id: 2,
         title: 'Complacency',
-        text: 'We have to keep pushing ourselves'
+        textBody: 'We have to keep pushing ourselves'
       }
     ] 
+  }
+
+  async componentDidMount() {
+
+    try {
+    const {
+        data: notes 
+      } = await get('https://killer-notes.herokuapp.com/note/get/all')
+
+      this.setState({ notes })
+
+    } catch(error) {
+      
+      console.log('error:', error)
+
+    }
+
+    
+
   }
 
   addNote = note => {
@@ -90,12 +115,12 @@ class App extends Component {
           <MainContainer>
             <Route exact path='/' render={() =>
               <NoteCardsContainer>
-                {notes.map((note, index) =>
+                {notes.map(note =>
                   <NoteCard 
-                    key={note.id} 
-                    id={note.id}
+                    key={note._id} 
+                    id={note._id}
                     title={note.title}
-                    text={note.text}
+                    text={note.textBody}
                   />
                 )}
               </NoteCardsContainer>
@@ -103,12 +128,12 @@ class App extends Component {
           
             <Route exact path='/note/:id' render={props => 
               notes.filter(note => 
-                String(note.id) === props.match.params.id
+                String(note._id) === props.match.params.id
               ).map(note => 
                 <NoteView
                   id={props.match.params.id}
                   title={note.title}
-                  text={note.text}
+                  text={note.textBody}
                   deleteNote={this.deleteNote}
                   {...props}
                 />
@@ -117,12 +142,12 @@ class App extends Component {
 
             <Route exact path='/note/:id/edit' render={props =>
               notes.filter(note =>
-                String(note.id) === props.match.params.id
+                String(note._id) === props.match.params.id
               ).map(note => 
                 <EditNote 
                   id={props.match.params.id}
                   title={note.title}
-                  text={note.text}
+                  text={note.textBody}
                   editNote={this.editNote}
                   {...props}
                 />
