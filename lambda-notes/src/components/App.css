@@ -350,5 +350,20 @@ body {
   border: none;
   outline: none;
   background: none;
-  font-size: 12px;
+  font-size: 11px;
+  margin: 5px 0;
+}
+
+.checkbox-container { 
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container span {
+  font-size: 11px;
+}
+
+.checkbox-input {
+  border-radius: 5px;
+  margin-left: 0;
 }

@@ -21,6 +21,11 @@ class Note extends React.Component {
         // Gets note from the server
         if (this.props.match) {
             this.props.getNote(this.props.match.params.id);
+            if (localStorage.getItem('checkedlist' + this.props.match.params.id)) {
+                this.setState({ checklist: JSON.parse(localStorage.getItem('checkedlist' + this.props.match.params.id)) });
+            } else {
+                localStorage.setItem('checkedlist' + this.props.match.params.id, JSON.stringify(this.state.checklist));
+            }
         }
     }
 
@@ -70,6 +75,7 @@ class Note extends React.Component {
         checklist.push(this.state.list);
 
         this.setState({ checklist, list: '' });
+        localStorage.setItem('checkedlist' + this.props.match.params.id, JSON.stringify(checklist));
     }
 
     render() {
@@ -102,15 +108,14 @@ class Note extends React.Component {
 
                             </div>
 
-
                         </div>
 
                         <p className='notes-paragraph'>{this.props.note.textBody}</p>
 
                         <form className='checklist-form' onSubmit={event => event.preventDefault()}>
                             <h3>Checklist:</h3>
-                            {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} />)}
-                            <input className='checklist-input' onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a checklist' />
+                            {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} id={index + this.props.match.params.id} />)}
+                            <input className='checklist-input' onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a list' />
                             <input onClick={this.addList} type='submit' hidden />
                         </form>
 
