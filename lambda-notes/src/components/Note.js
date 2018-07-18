@@ -69,7 +69,7 @@ class Note extends React.Component {
     // if note is not yet loaded into store, or if requested id does not exist, return NoMatch
     console.log(this.props.note);
 
-    if (!this.props.note) {
+    if (!this.props.note || this.props.note._id !== this.id) {
       return (
         <div className="main-container">
           <img src={logo} className="App-logo" alt="logo" />
