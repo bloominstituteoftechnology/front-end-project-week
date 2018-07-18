@@ -61,7 +61,7 @@ class NoteForm extends React.Component {
     };
   }
 
-  componentDidMount() {
+  arrivedHere = () => {
     // if we're editing, have an id
     const id = this.props.match.params.id;
 
@@ -80,37 +80,19 @@ class NoteForm extends React.Component {
 
     // set focus on the title box
     if (this.input.current) {
-      // this.input.current.focus();
+      // this.input.current.focus(); // doesn't work - react needs a split second
       setTimeout(() => {
         this.input.current.select();
       }, 30);
     }
+  };
+
+  componentDidMount() {
+    this.arrivedHere();
   }
 
-  componentWillReceiveProps(newProps) {
-    // if we're editing, have an id
-    const id = this.props.match.params.id;
-
-    // only do if we're editing
-    if (this.props.notes[0] && id) {
-      // filter returns an array
-      const note = this.props.notes.filter(n => n._id === id);
-      this.setState({
-        title: note[0].title,
-        textBody: note[0].textBody,
-        id: note[0]._id,
-      });
-    }
-
-    this.setState({ editing: this.props.edit });
-
-    // set focus on the title box
-    if (this.input.current) {
-      // this.input.current.focus();
-      setTimeout(() => {
-        this.input.current.select();
-      }, 30);
-    }
+  componentWillReceiveProps() {
+    this.arrivedHere();
   }
 
   handleInputChange = e => {
