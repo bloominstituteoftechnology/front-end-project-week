@@ -13,6 +13,8 @@ const fetchNote = (id) => {
         promise
         .then(response => {
             dispatch(receiveNote(response.data));
+        }).then(() => {
+            
         })
         .catch(err => {
             console.log(err);

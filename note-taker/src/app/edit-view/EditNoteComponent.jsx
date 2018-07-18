@@ -18,6 +18,14 @@ class EditNoteComponent extends React.Component {
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  updateNote = (id) => {
+    const noteObj = {
+      tags: [],
+      title: this.state.title,
+      textBody: this.state.textBody
+    }
+    this.props.updateNote(id, noteObj);
+  }
   render() {
     const id = this.props.match.params.id;
 
@@ -52,7 +60,9 @@ class EditNoteComponent extends React.Component {
             />
           </div>
           <Link to={`/note/get/${id}`}>
-            <GeneralBtn width="15rem">
+            <GeneralBtn width="15rem" onClick = {() => {
+                this.updateNote(id);
+              }}>
               Update
             </GeneralBtn>
           </Link>
