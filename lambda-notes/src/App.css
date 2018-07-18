@@ -1,23 +1,11 @@
-/*Heading font: Roboto Bold
-Everything else font: Raleway Medium
-
-Heading and main font color: #4A4A4A
-Button font color: #FFFFFF
-
-Sidebar background: #D8D8D8
-Main background: #F3F3F3
-Main button background: #2BC1C4
-Delete button background: #D0021B
-Border color used throughout: #979797*/
+* {
+  /*border: 1px solid black;*/
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-}
-
-* {
-  /*border: 1px solid black;*/
 }
 
 h1, h2, h3, h4, h5 {
@@ -66,12 +54,16 @@ button a:visited {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 15px;
+  align-items: center;
   width: 250px;
   background: #D8D8D8;
   border-right: 1px solid #979797;
   box-sizing: border-box;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-container h1 {
@@ -98,7 +90,7 @@ button a:visited {
 .note-previews-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin-right: -48px;
 }
 
 .note-preview-container {
@@ -107,7 +99,7 @@ button a:visited {
   border: 1px solid #979797;
   box-sizing: border-box;
   padding: 5px 15px;
-  margin: 10px 0;
+  margin: 10px 48px 10px 0;
   background: #FFFFFF;
   word-break: break-all;
   overflow-wrap: break-word;
