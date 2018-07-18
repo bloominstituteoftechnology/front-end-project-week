@@ -9,7 +9,6 @@ class HomeComponent extends React.Component {
 
   componentDidMount() {
     this.props.fetchNotes();
-    console.log(this.props.notesData);
   }
   render() {
     return (
