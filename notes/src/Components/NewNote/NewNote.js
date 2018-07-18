@@ -7,6 +7,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import {withRouter, Redirect} from 'react-router-dom';
 // import ContentEditable from 'react-contenteditable';
 import styled from 'styled-components';
+import Loader from '../Loader/Loader';
 
 const SolidStyleTextArea = styled.textarea`
 border: 3px solid lightgrey;
@@ -77,6 +78,13 @@ class NewNote extends Component {
         }
         let history = this.props.history;
 
+          if (this.props.saveInProgress) {
+              return ( <FlexDiv> <Loader/> </FlexDiv>)
+              }
+              else if (this.props.saved) {
+              return ( <FlexDiv> <h1> SAVED! </h1></FlexDiv> )
+              } else {
+
         return (
             
             <FlexDiv>
@@ -100,11 +108,14 @@ class NewNote extends Component {
             </FlexDiv>
         );
     }
+    }
 }
 
 const mapStateToProps = state => {
     return {
         notes: state.notes,
+        saveInProgress: state.saveInProgress,
+        saved: state.saved,
 
     }
 }

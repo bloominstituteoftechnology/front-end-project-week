@@ -6,6 +6,7 @@ import MiniNote  from '../MiniNote/MiniNote';
 import { Scrollbars } from 'react-custom-scrollbars';
 import {withRouter, Redirect} from 'react-router-dom';
 // import ContentEditable from 'react-contenteditable';
+import Loader from '../Loader/Loader';
 import styled from 'styled-components';
 
 const FlexDivColumn = FlexDiv.extend`
@@ -118,10 +119,17 @@ class FullSizeNote extends Component {
         // })
         console.log('thisNote', thisNote);
 
+        if (this.props.saveInProgress) {
+            return (<FlexDivColumn><Loader/></FlexDivColumn>)
+        } else if (this.props.saved) {
+            return (<FlexDivColumn><h1>SAVED!</h1></FlexDivColumn>)
+        }
+        
+        else {
+
         return (
-            
             <FlexDivColumn>
-                
+            
                 {this.state.contentEditable? 
                 <React.Fragment>
                     <Tip>Tip: Double Click Text to Edit, Ctrl + Enter to Save!</Tip>
@@ -143,11 +151,14 @@ class FullSizeNote extends Component {
             </FlexDivColumn>
         );
     }
+    }
 }
 
 const mapStateToProps = state => {
     return {
         notes: state.notes,
+        saveInProgress: state.saveInProgress,
+        saved: state.saved,
 
     }
 }

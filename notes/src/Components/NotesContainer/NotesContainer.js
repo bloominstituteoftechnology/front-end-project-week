@@ -33,6 +33,8 @@ class NotesContainer extends Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
+        saved: state.saved,
+        saveInProgress: state.saveInProgress,
 
     }
 }
