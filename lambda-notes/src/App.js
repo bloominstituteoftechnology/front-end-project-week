@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Flex from './components/Flex'
 import Sidebar from './components/Sidebar'
 import MainContainer from './components/MainContainer'
 import NoteCardsContainer from './components/NoteCardsContainer'
@@ -84,7 +85,7 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme} >
-        <div style={{display: 'flex'}}>
+        <Flex>
           <Sidebar />
           <MainContainer>
             <Route exact path='/' render={() =>
@@ -114,26 +115,26 @@ class App extends Component {
               )
             }/>
 
-          <Route exact path='/note/:id/edit' render={props =>
-            notes.filter(note =>
-              String(note.id) === props.match.params.id
-            ).map(note => 
-              <EditNote 
-                id={props.match.params.id}
-                title={note.title}
-                text={note.text}
-                editNote={this.editNote}
-                {...props}
-              />
-            )
-          } /> 
-
+            <Route exact path='/note/:id/edit' render={props =>
+              notes.filter(note =>
+                String(note.id) === props.match.params.id
+              ).map(note => 
+                <EditNote 
+                  id={props.match.params.id}
+                  title={note.title}
+                  text={note.text}
+                  editNote={this.editNote}
+                  {...props}
+                />
+              )
+            }/> 
           
             <Route path='/new' render={props =>
               <NewNote {...props} addNote={this.addNote} />
             }/>
+        
           </MainContainer>
-        </div>
+        </Flex>
       </ThemeProvider>
     );
   }

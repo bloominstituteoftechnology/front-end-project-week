@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color, space, buttonStyle } from 'styled-system'
+import { color, space, buttonStyle, width } from 'styled-system'
 
 /*
  
@@ -11,5 +11,6 @@ export default styled.div`
   text-align: center;
   ${color}
   ${space}
+  ${width}
   ${buttonStyle}
 `

@@ -17,7 +17,6 @@ export default () =>
     <Link to='/'>
       <Button
         variant='primary'
-        p={2}
         my={3}
       >
         View Your Notes
@@ -26,7 +25,6 @@ export default () =>
     <Link to='/new'>
       <Button
         variant='primary'
-        p={2}
         my={3}
       >
         + Create New Note

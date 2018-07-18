@@ -44,10 +44,15 @@ export default class extends Component {
           value={text}
         />
       </label>
-      <Button onClick={() => {
-        editNote(id, this.state)
-        history.push(`/note/${id}`)
-      }}>
+      <Button 
+        onClick={() => {
+          editNote(id, this.state)
+          history.push(`/note/${id}`)
+        }}
+        variant='primary'
+        width={220}
+        mt={3}
+      >
         Edit Note
       </Button>
     </div>
