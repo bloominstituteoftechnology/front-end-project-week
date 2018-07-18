@@ -33,7 +33,7 @@ class NotesContainer extends React.Component {
                     <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search' />
                 </SearchForm>
 
-                <MainNotesHeader>Your Notes:</MainNotesHeader>
+                <MainNotesHeader main>Your Notes:</MainNotesHeader>
 
                 <NotesCards>
                     {notes.map(note => <NotesCard key={note._id} note={note} />)}

@@ -1,18 +1,19 @@
 import React from 'react';
 import NotesForm from './NotesForm';
+import { NotesWrapper, MainNotesHeader, NotesCards } from '../ReusableComponents/Notes';
 
 class CreateNotesContainer extends React.Component {
     // Displays form when creating a note
     render() {
         return (
-            <div className='create-notes-container'>
+            <NotesWrapper>
 
-                <h3 className='notes-header'>Create New Note:</h3>
-                <div className='notes-cards'>
+                <MainNotesHeader>Create New Note:</MainNotesHeader>
+                <NotesCards>
                     <NotesForm history={this.props.history} />
-                </div>
+                </NotesCards>
 
-            </div >
+            </NotesWrapper>
         );
     }
 }

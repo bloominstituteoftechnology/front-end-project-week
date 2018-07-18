@@ -12,6 +12,7 @@ export const NotesCards = styled.div`
     flex-wrap: wrap;  
     margin-top: 27px;
     font-size: 1.7rem;
+    
 `
 
 export const SearchForm = styled.form`
@@ -20,7 +21,7 @@ export const SearchForm = styled.form`
 `
 
 export const MainNotesHeader = styled.h3`
-    margin-top: 37px;
+    margin-top: ${props => props.main ? '37px' : '58px'};
     font-size: 1.9rem;
     font-family: 'Roboto', Arial, sans-serif;
 `
