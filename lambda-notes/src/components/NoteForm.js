@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
+import TagDisplay from './TagDisplay';
 
 const StyledNoteForm = styled.div`
   padding: ${props => props.theme.dimensions.noteForm.padding};
@@ -8,10 +9,27 @@ const StyledNoteForm = styled.div`
   form {
     display: flex;
     flex-direction: column;
+
+    &.tagForm {
+      flex-flow: row wrap;
+      align-items: center;
+
+      button {
+          margin: 0;
+      }
+    }
   }
 
   h1 {
     padding: ${props => props.theme.dimensions.noteForm.headingPadding};
+}
+
+  label {
+      width: 100%;
+      font-family: ${props => props.theme.font.body};
+      color: ${props => props.theme.color.formText};
+      font-size: ${props => props.theme.dimensions.noteForm.labelFontSize};
+      padding: ${props => props.theme.dimensions.noteForm.labelPadding};
   }
 
   input,
@@ -35,25 +53,34 @@ const StyledNoteForm = styled.div`
     padding: ${props => props.theme.dimensions.noteForm.inputTitlePadding};
   }
 
+  input[name='tagInput'] {
+    height: ${props => props.theme.dimensions.noteForm.inputTitleHeight};
+    width: ${props => props.theme.dimensions.noteForm.inputTitleWidth};
+    padding: ${props => props.theme.dimensions.noteForm.inputTitlePadding};
+  }
+
   textarea[name='textBody'] {
     margin: ${props => props.theme.dimensions.noteForm.inputTextMargin};
     padding: ${props => props.theme.dimensions.noteForm.inputTextPadding};
     min-height: ${props => props.theme.dimensions.noteForm.inputTextMinHeight};
-  }
+}
 `;
 
 export default class NoteForm extends Component {
   constructor(props) {
     super(props);
     const { note } = props;
-    const { title, textBody } = note;
+    const { title, textBody, tags } = note;
     this.state = {
       title,
-      textBody
+      textBody,
+      tags,
+      tagInput: ''
     };
     this.inputTitle = React.createRef();
     this.updateInput = this.updateInput.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.addNewTag = this.addNewTag.bind(this);
   }
   componentDidMount() {
     this.inputTitle.current.focus();
@@ -61,16 +88,24 @@ export default class NoteForm extends Component {
   updateInput(event) {
     const { value, name } = event.target;
 
-    
     this.setState({ [name]: value });
   }
   handleFormSubmit(event) {
     event.preventDefault();
-    this.props.handleFormSubmit(this.state);
+    const {title, textBody, tags } = this.state;
+    this.props.handleFormSubmit({title, textBody, tags });
+  }
+  addNewTag(event) {
+    event.preventDefault();
+    const { tagInput, tags } = this.state;
+    let newTagArr = tagInput.split(';').map(tag=>tag.trim());
+    newTagArr = newTagArr.filter(tag => (tags.indexOf(tag) === -1));
+    newTagArr = [...tags, ...newTagArr];
+    this.setState({ tagInput: '', tags: newTagArr });
   }
 
   render() {
-    const { title, textBody } = this.state;
+    const { title, textBody, tags, tagInput } = this.state;
     const { titleText, buttonText } = this.props;
     return (
       <StyledNoteForm>
@@ -90,8 +125,21 @@ export default class NoteForm extends Component {
             value={textBody}
             onChange={this.updateInput}
           />
-          <Button onClick={this.handleFormSubmit}>{buttonText}</Button>
         </form>
+        <form className="tagForm" onSubmit={this.addNewTag}>
+          <input
+            type="text"
+            name="tagInput"
+            id="tagInput"
+            placeholder="Add Tags"
+            value={tagInput}
+            onChange={this.updateInput}
+          />
+          <Button onClick={this.addNewTag}>Add New Tag</Button>
+          <label for="tagInput">Enter new tags, separated by semi-colons (;)</label>
+        </form>
+        <TagDisplay tags={tags} />
+        <Button onClick={this.handleFormSubmit}>{buttonText}</Button>
       </StyledNoteForm>
     );
   }

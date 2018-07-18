@@ -93,6 +93,8 @@ export default {
       inputTextLineHeight: '1.8',
       inputTextPadding: '18px 22px ',
       inputTextMargin: '0 0 4px 0',
+      labelFontSize: '12px',
+      labelPadding: '2px 0px',
       borderWidth: '1px',
     },
     noteModal: {

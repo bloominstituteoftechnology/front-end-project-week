@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import MarkdownText from './MarkdownText';
 import { getNoteById } from '../reducers/index';
 import { fetchNoteById } from '../actions/index';
+import TagDisplay from './TagDisplay';
 import styled from 'styled-components';
 
 const StyledViewNote = styled.div`
@@ -44,7 +45,7 @@ class ViewNote extends Component {
 
   render() {
     const { id } = this.props.match.params;
-    const { textBody, title } = this.props.note;
+    const { textBody, title, tags } = this.props.note;
 
     return (
       <StyledViewNote>
@@ -52,6 +53,7 @@ class ViewNote extends Component {
           <Link to={`/edit/${id}`}>edit</Link>
           <Link to={`/view/delete/${id}`}>delete</Link>
         </div>
+        <TagDisplay tags={tags} />
         <div className="note">
           <h1>{title}</h1>
           <MarkdownText mdText={textBody} />

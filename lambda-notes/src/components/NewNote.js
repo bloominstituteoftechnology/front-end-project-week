@@ -6,7 +6,7 @@ import { postNewNote } from '../actions/index';
 class NewNote extends Component {
   constructor(props) {
     super(props);
-    this.note = { title: '', textBody: '' };
+    this.note = { title: '', textBody: '', tags: [], };
     this.postNewNote = this.postNewNote.bind(this);
   }
 
