@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+.modal-style{
+	margin-top: 20%!important;	
+}
+
 .cancel-modal-btn{
 	width: 150px;
 	background-color: #30B8BC!important;	
