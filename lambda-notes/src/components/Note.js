@@ -3,6 +3,7 @@ import axios from "axios";
 import CreateNote from "./CreateNote";
 import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
+import ReactMarkdown from 'react-markdown';
 
 const customStyles = {
   content: {
@@ -95,7 +96,8 @@ class Note extends Component {
           <a onClick={this.openModal}>delete</a>
         </div>
         <h3 className="notetitle">{this.state.title}</h3>
-          <div className="notecontent">{this.state.textBody}
+          <div className="notecontent">
+          <ReactMarkdown source={this.state.textBody}/>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown'
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -20,7 +21,7 @@ const NoteCard = props => {
           <div>
               <h2>{title}</h2>
             <hr/>
-            <p className="notecardbody">{textBody.substring(0,140)}</p>
+            <p className="notecardbody"><ReactMarkdown source={textBody.substring(0,140)}/></p>
           </div>
         </div>
       </div>

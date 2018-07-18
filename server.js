@@ -37,7 +37,7 @@ let notes = [
   },
   {
     id: 4,
-    title: "Sample note 5",
+    title: "Sample note",
     textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   }
 ];

@@ -6,7 +6,8 @@ class Notes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: []
+      notes: [],
+      search: ""
     };
   }
 
@@ -21,13 +22,35 @@ class Notes extends Component {
       });
   }
 
+  handleSearchInput = e => {
+    this.setState({ search: e.target.value });
+  };
+
   render() {
     return (
       <div>
+        <form className="searchbar">
+          <input
+            onChange={this.handleSearchInput}
+            type="text"
+            placeholder="Search..."
+            value={this.state.search}
+          />
+        </form>
         <h2 className="notesheading">Your Notes:</h2>
         <div className="notes">
           {this.state.notes.map(note => {
-            return <NoteCard note={note} key={note.id} />;
+            if (this.state.search === "") {
+              return <NoteCard note={note} key={note.id} />;
+            } else if (
+              note.textBody
+                .toLowerCase()
+                .includes(this.state.search.toLowerCase())
+            ) {
+              return <NoteCard note={note} key={note.id} />;
+            } else {
+              return <div>No results found...</div>;
+            }
           })}
         </div>
       </div>

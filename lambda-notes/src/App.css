@@ -75,9 +75,9 @@ font-weight: bold;
   border: solid 1px #979797;
   width: 21.7vw;
   background: white;
-  padding: 0 20px;
+  padding: 10px 20px 0 20px;
   box-sizing: border-box;
-  height: 220px;
+  min-height: 220px;
   
 }
 
@@ -89,7 +89,9 @@ font-weight: bold;
 /* Create note Styles */
 
 .createnote {
+  margin-top: 10vh;
   margin-left: 26.5vw;
+  margin-right: 50px;
 }
 
 input::placeholder {
@@ -114,7 +116,7 @@ input {
 }
 
 .notecontent {
-  height: 545px;
+  height: 445px;
   width: 68.8vw;
   margin: 0 20px 20px 20px;
 }
@@ -155,4 +157,10 @@ font-size: 1.4em;
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
+}
+
+/* Search styles */
+
+.searchbar {
+  margin-left: 26.5vw;
 }
