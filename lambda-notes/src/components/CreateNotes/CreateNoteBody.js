@@ -28,7 +28,7 @@ addNote = event => {
 
 render() {
         return(
-                <div className="note-card-container">
+                <div className="note-card-container">{this.props.saved? (<h3 className="note-save-message">Note Successfuly Saved</h3>):(null)}
 		<h3 className="new-note-title">Create New Note:</h3>
 		<div className="input-container">
 		<input onChange={this.changeHandler} className="title-style" type="text" name="title" placeholder="Note Title" value={this.state.title} /><br />
@@ -49,6 +49,7 @@ const mapStateToProps = state => {
   return {
           notes: state.notes,
           fetching: state.fetchingNotes,
+	  saved: state.noteSaved
   };
 };
 

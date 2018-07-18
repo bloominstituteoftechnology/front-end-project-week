@@ -9,6 +9,11 @@ body {
 	background-color: #30B8BC!important;	
 }
 
+.note-save-message{
+	color: #30B8BC;
+	margin-top: 20px;
+}
+
 .delete-modal-btn{
 	width: 150px;
         background-color: red!important;

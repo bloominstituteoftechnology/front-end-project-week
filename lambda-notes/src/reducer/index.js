@@ -8,7 +8,8 @@ const initialState = {
    fetchingNotes: false,
    addingNote: false,
    deletingNote: false,
-   noteDeleted: false,	
+   noteDeleted: false,
+   noteSaved: false,
    error: null
 };
 
@@ -25,10 +26,10 @@ const noteReducer = (state=initialState, action) => {
         return Object.assign({}, state, {fetchingNotes: false, singleNote: action.note});
 
         case SAVING_NOTE:
-        return Object.assign({}, state, {fetchingNotes: false, addingNote: true, error: null});
+        return Object.assign({}, state, {fetchingNotes: false, addingNote: true, noteSaved: false, error: null});
 
         case NOTE_SAVED:
-        return Object.assign({}, state, {fetchingNotes: false, addingNote: false, error: null});
+        return Object.assign({}, state, {fetchingNotes: false, noteSaved: true, addingNote: false, error: null});
 			
 	case DELETING:
         return Object.assign({}, state, {fetchingNotes: false, addingNote: false, deletingNote: true, noteDeleted: false, error: null});	
