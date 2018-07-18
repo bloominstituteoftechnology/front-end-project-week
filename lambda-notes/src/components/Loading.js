@@ -1,9 +1,10 @@
+import Markdown from 'markdown-to-jsx'
 import React from 'react'
 
 const Loading = () => {
   return (
     <div className='loading'>
-      <h1 className='loading-header'>Loading ...</h1>
+      <Markdown># Loading ...</Markdown>
     </div>
   )
 }
