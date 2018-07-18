@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Search from './Search';
 
 const Container = styled.div`
   display: flex;
@@ -47,6 +48,7 @@ const SideBar = () => {
       <Logo>Lambda Notes</Logo>
       <Button to="/">View Your Notes</Button>
       <Button to="/notes/new">+ Create a New Note</Button>
+      <Search />
     </Container>
   );
 };

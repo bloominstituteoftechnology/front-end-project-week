@@ -5,14 +5,16 @@ import {
   FETCH_SINGLE_NOTE,
   ADD_NOTE,
   UPDATE_NOTE,
-  DELETE_NOTE
+  DELETE_NOTE,
+  SEARCH
 } from '../actions/types';
 
 const initialState = {
   notes: [],
   error: null,
   loading: true,
-  note: {}
+  note: {},
+  term: ''
 };
 
 export default (state = initialState, action) => {
@@ -34,6 +36,14 @@ export default (state = initialState, action) => {
       };
     case FETCHING:
       return { ...state, loading: true, error: null };
+    case SEARCH:
+      // this might need to be refactored
+      const notes = state.notes.filter(
+        note =>
+          note.textBody.toLowerCase().includes(action.payload.toLowerCase()) ||
+          note.title.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return { ...state, notes: notes, term: action.payload };
     case ERROR:
       return { ...state, error: action.payload, loading: false };
     default:

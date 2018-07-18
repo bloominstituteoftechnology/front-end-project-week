@@ -6,10 +6,9 @@ import {
   FETCHING,
   ERROR,
   UPDATE_NOTE,
-  DELETE_NOTE
+  DELETE_NOTE,
+  SEARCH
 } from './types';
-
-// TODO: deleteNote() ROUTE: https://killer-notes.herokuapp.com/note/delete/id
 
 export const fetchNotes = () => {
   const request = axios.get('https://killer-notes.herokuapp.com/note/get/all');
@@ -134,4 +133,36 @@ export const deleteNote = id => {
         });
       });
   };
+};
+
+export const search = term => {
+  if (!term) {
+    const request = axios.get(
+      'https://killer-notes.herokuapp.com/note/get/all'
+    );
+
+    return dispatch => {
+      dispatch({
+        type: FETCHING
+      });
+      request
+        .then(res => {
+          dispatch({
+            type: FETCH_NOTES,
+            payload: res.data
+          });
+        })
+        .catch(err => {
+          dispatch({
+            type: ERROR,
+            payload: err.message
+          });
+        });
+    };
+  } else {
+    return {
+      type: SEARCH,
+      payload: term
+    };
+  }
 };

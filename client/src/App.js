@@ -13,6 +13,7 @@ const Container = styled.div`
 `;
 const Content = styled.div`
   margin-left: 400px;
+  white-space: pre-line;
 `;
 class App extends Component {
   render() {
