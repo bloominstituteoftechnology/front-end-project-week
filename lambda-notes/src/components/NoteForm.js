@@ -60,6 +60,8 @@ export default class NoteForm extends Component {
   }
   updateInput(event) {
     const { value, name } = event.target;
+
+    
     this.setState({ [name]: value });
   }
   handleFormSubmit(event) {

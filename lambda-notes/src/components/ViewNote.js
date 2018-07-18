@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import MarkdownText from './MarkdownText';
 import { getNoteById } from '../reducers/index';
 import { fetchNoteById } from '../actions/index';
 import styled from 'styled-components';
@@ -52,7 +53,7 @@ class ViewNote extends Component {
         </div>
         <div className="note">
           <h1>{title}</h1>
-          <p>{textBody}</p>
+          <MarkdownText mdText={textBody} />
         </div>
       </StyledViewNote>
     );

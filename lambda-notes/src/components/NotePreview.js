@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import MarkdownText from './MarkdownText';
 
 const NotePreview = styled.div`
   width: ${props => props.theme.dimensions.notePreview.width};
@@ -35,7 +36,7 @@ export default props => {
   return (
     <NotePreview>
       <h2>{title}</h2>
-      <p>{textBody}</p>
+      <MarkdownText mdText={textBody} />
     </NotePreview>
   );
 };
