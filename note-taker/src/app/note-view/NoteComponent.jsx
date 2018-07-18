@@ -23,6 +23,7 @@ const OptionsBtn = styled.button`
   outline-color: var(--main-bg);
   color: var(--main-font-color);
   border: none;
+  font-size: 1.2rem;
   cursor: pointer;
 `;
 
