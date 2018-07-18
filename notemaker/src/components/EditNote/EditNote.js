@@ -22,7 +22,7 @@ class EditNote extends Component {
                 <br />
                 <textarea className="note-content" placeholder="Note Content"></textarea>
 
-                <div className="note-save-button">Save</div>
+                <div className="note-save-button">Update</div>
             </div>
         )
     }
