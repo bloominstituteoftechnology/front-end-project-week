@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../App.css";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import {Form, Input} from 'reactstrap'
 
 class CreateNote extends Component {
   constructor(props) {
@@ -65,8 +66,8 @@ class CreateNote extends Component {
     ) : (
       <div className="createnote">
         <h2 className="createheading">Edit Note:</h2>
-        <form onSubmit={this.addNote}>
-          <input
+        <Form onSubmit={this.addNote}>
+          <Input
             className="notetitle"
             onChange={this.handleInputChange}
             name="title"
@@ -74,7 +75,7 @@ class CreateNote extends Component {
             placeholder="Note title"
             value={this.state.title}
           />
-          <input
+          <Input
             className="notecontent"
             type="textarea"
             onChange={this.handleInputChange}
@@ -84,7 +85,7 @@ class CreateNote extends Component {
           />
 
           <button className="savebutton">Update</button>
-        </form>
+        </Form>
       </div>
     );
   }

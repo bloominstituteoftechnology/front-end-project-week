@@ -19,11 +19,11 @@ text-decoration: none;
 background-color: #2BC1C4; 
 border: solid 1px #979797;
 width: 21.7vw;
-height: 40px;
+height: 50px;
 text-align: center;
 margin-bottom: 20px;
 font-size: 1.4em;
-padding-top: 20px;
+padding-top: 8px;
 
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
