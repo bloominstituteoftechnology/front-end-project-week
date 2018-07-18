@@ -10,6 +10,7 @@ class EditNote extends Component {
         body: '',
     }
 
+    // parses url path for note id then fetches note from server, prefills form with existing note
     componentDidMount() {
         let id = window.location.pathname.split('/');
         id = id[2];

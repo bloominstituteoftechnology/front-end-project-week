@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteNote, fetchNote } from '../actions';
+import { deleteNote } from '../actions';
 
 const URL = 'https://killer-notes.herokuapp.com/note/';
 const path = 'http://localhost:3000/note/';
 
 class DeleteNote extends Component {
+    // routes back to single not view if user backs out of delete
     noDelete = id => {
         window.location.href = `${path}${id}`;
     }
@@ -27,4 +28,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { deleteNote, fetchNote })(DeleteNote);
+export default connect(mapStateToProps, { deleteNote })(DeleteNote);

@@ -36,7 +36,7 @@ export const fetchNote = (URL, id) => {
     }
 }
 
-// post new note to server and places on localstorage so it can be view by ViewNote component
+// post new note to server then routes to single note view
 export const createNote = (URL, note) => {
     const promise = axios.post(`${URL}create`, note);
     const path = 'http://localhost:3000/note/';
@@ -68,6 +68,7 @@ export const deleteNote = (URL, id) => {
     }
 }
 
+// edits note then routes to single note view
 export const editNote = (URL, id, note) => {
     const promise = axios.put(`${URL}edit/${id}`, note);
     const path = 'http://localhost:3000/';
