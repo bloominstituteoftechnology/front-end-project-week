@@ -5,12 +5,30 @@ import { deleteNote, editing } from '../actions';
 import styled from 'styled-components';
 import ModalDelete from './ModalDelete';
 
+const NoteDiv = styled.div`
+  background-color: #f3f3f3;
+  padding-left: 18px;
+  margin-left: 233px;
+  margin-right: 20px;
+  margin-top: 16px;
+  word-break: break-all;
+  border: 1px solid rgb(151, 151, 151);
+  width: 646px;
+  height: 1024px;
+  > p {
+    margin-top: 55px;
+    font-size: 22px;
+    font-family: roboto;
+    margin-left: 22px;
+  }
+`;
+
 const SingleNote = styled.div`
   font-family: raleway;
   padding: 8px;
-  margin-left: 300px;
+  margin-left: -2px;
   margin-right: 20px;
-  margin-top: 30px;
+  margin-top: -26px;
   word-break: break-all;
   > h2 {
     font-family: Roboto;
@@ -18,9 +36,9 @@ const SingleNote = styled.div`
 `;
 
 const Links = styled.div`
-  padding: 20px;
+  padding: 17px;
   text-align: right;
-  margin-right: 20px;
+  margin-right: 5px;
   > a {
     padding-left: 10px;
     font-family: Roboto;
@@ -31,6 +49,7 @@ const Links = styled.div`
 class NoteView extends React.Component {
   constructor(props) {
     super(props);
+    this.div = React.createRef();
     this.state = {
       note: {
         title: '',
@@ -70,6 +89,11 @@ class NoteView extends React.Component {
         id: note[0]._id,
       });
     }
+
+    //scroll to the top
+    if (this.div.current) {
+      window.scrollTo(0, 0);
+    }
   }
 
   // this is here so refresh and typing in the URL works
@@ -95,7 +119,7 @@ class NoteView extends React.Component {
       ? 'rgb(100, 100, 100, .9)'
       : 'rgb(243, 243, 243)';
     return (
-      <div>
+      <NoteDiv>
         <ModalDelete
           modal={this.state.modal}
           delete={this.deleteClicked}
@@ -109,11 +133,11 @@ class NoteView extends React.Component {
             delete
           </Link>
         </Links>
-        <SingleNote>
+        <SingleNote innerRef={this.div}>
           <h2>{title}</h2>
           {textBody}
         </SingleNote>
-      </div>
+      </NoteDiv>
     );
   }
 }

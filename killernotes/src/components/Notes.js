@@ -4,7 +4,19 @@ import NoteCard from './NoteCard';
 
 const NotesDiv = styled.div`
   background-color: #f3f3f3;
-  margin-left: 232px;
+  padding-left: 18px;
+  margin-left: 233px;
+  margin-right: 20px;
+  margin-top: 16px;
+  word-break: break-all;
+  border: 1px solid rgb(151, 151, 151);
+  width: 646px;
+  > p {
+    margin-top: 55px;
+    font-size: 22px;
+    font-family: roboto;
+    margin-left: 22px;
+  }
 `;
 
 const Container = styled.div`
@@ -13,10 +25,22 @@ const Container = styled.div`
 `;
 
 class Notes extends Component {
+  constructor() {
+    super();
+    this.div = React.createRef();
+  }
+
+  componentDidMount() {
+    //scroll to the top
+    if (this.div.current) {
+      window.scrollTo(0, 0);
+    }
+  }
+
   render() {
     return (
-      <NotesDiv>
-        Your Notes:
+      <NotesDiv innerRef={this.div}>
+        <p>Your Notes:</p>
         <Container>
           {this.props.notes.map(note => (
             <NoteCard key={note._id} note={note} />

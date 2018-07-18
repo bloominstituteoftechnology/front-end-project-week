@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Card = styled.div`
   font-family: raleway;
-  width: 190px;
+  width: 176px;
   height: 195px;
   padding: 8px;
   margin: 8px;
