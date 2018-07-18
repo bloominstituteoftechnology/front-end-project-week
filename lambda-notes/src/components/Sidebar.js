@@ -18,6 +18,9 @@ const BaseButton = styled.button`
   margin-top: 24px;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
+  &:focus{
+    outline: 3px solid white;
+  }
 `
 
 const HeaderDiv = styled.div`
