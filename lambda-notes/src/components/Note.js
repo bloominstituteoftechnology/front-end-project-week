@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import NoteView from './NoteView';
 import logo from '../logo.svg';
-import Link from '../../node_modules/react-router-dom/Link';
-import EditView from './EditView';
+import { Link } from 'react-router-dom';
 import DeleteModal from './DeleteModal';
 
 const URL = 'https://killer-notes.herokuapp.com/note/get';
@@ -42,11 +41,8 @@ class Note extends Component {
     };
 
     render () {
-        if(!this.state.note) {
-            return <img src={logo} className="App-logo" alt="logo"/>;
-        }
+        if(!this.state.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
-        const { title, textBody } = this.state.note;
         return (
             <div className="Note-container">
                 <div className="Note-header">
@@ -64,7 +60,7 @@ class Note extends Component {
                     <p>{this.state.note.textBody}</p>
                 </div>
                 {!this.state.isSelected ? <NoteView note={this.state.note}/> : null}
-                {!this.props.isDeleted ? <DeleteModal toggleDelete={this.props.toggleDelete} handleDelete={this.props.handleDelete} id={this.state.note["_id"]}/> : null}
+                {this.props.deleting ? <DeleteModal toggleDelete={this.props.toggleDelete} handleDelete={this.props.handleDelete} id={this.state.note["_id"]}/> : null}
             </div>
         );
     }

@@ -1,5 +1,4 @@
 import React from 'react';
-import Note from './Note';
 
 const NoteView = props => {
     const { title, textBody } = props.note;

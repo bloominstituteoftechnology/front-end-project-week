@@ -39,7 +39,7 @@ class App extends Component {
       this.setState({
         notes: data,
         fetching: false,
-        fetched: false,
+        fetched: true,
         saving: false,
         saved: false,
         updating: false,
@@ -48,8 +48,7 @@ class App extends Component {
         deleted: false,
         error: null,
         "title": "",
-        "textBody": "",
-        isDeleted: false
+        "textBody": ""
       });
     })
     .catch((error) => this.setState({error}));
@@ -63,7 +62,6 @@ class App extends Component {
     e.preventDefault();
     if(this.state.title === '' || this.state.textBody === '') return null;
 
-    let notes = this.state.notes;
     const note = {
       "title": this.state.title,
       "textBody": this.state.textBody
@@ -82,7 +80,7 @@ class App extends Component {
   };
 
   toggleDelete = () => {
-    this.setState({isDeleted: !this.state.isDeleted});
+    this.setState({deleting: !this.state.deleting});
   };
 
   handleDelete = (id) => {
@@ -96,7 +94,7 @@ class App extends Component {
 
   handleUpdate = (id) => {
     if(this.state.title === '' && this.state.textBody === '') return null;
-    console.log('update');
+    // console.log('update');
 
     const note = {
       "title": this.state.title,
@@ -115,6 +113,8 @@ class App extends Component {
   };
 
   render() {
+    if(!this.state.fetched) return <img src={logo} className="App App-logo" alt="logo"/>;
+
     return (
       <div className="App-container">
         <div className="App">
@@ -131,10 +131,10 @@ class App extends Component {
           <Navigation />
           <Route exact path="/" component={ListView} />
           <Route path="/create" render={props => (
-            <CreateView {...props} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+            <CreateView {...props} fetched={this.state.fetched} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
           )}/>
           <Route path="/note/:id" render={props => (
-            <Note {...props} isDeleted={this.state.isDeleted} toggleDelete={this.toggleDelete} handleDelete={this.handleDelete}/>
+            <Note {...props} deleting={this.state.deleting} toggleDelete={this.toggleDelete} handleDelete={this.handleDelete}/>
           )}/>
           <Route path="/edit/:id" render={props => (
             <EditView {...props} notes={this.state.notes} title={this.state.title} textBody={this.state.textBody} handleChange={this.handleChange} handleUpdate={this.handleUpdate} />

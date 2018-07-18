@@ -12,14 +12,16 @@
 
 .App-container {
   /* background: #525659; */
+  min-height: 900px;
   max-width: 1366px;
   border: 2px solid #979797;
-  margin: 0 auto;
+  margin: 10px auto 20px auto;
 }
 
 .App {
   background: white;
   text-align: center;
+  min-height: 900px;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
@@ -113,7 +115,7 @@ button:hover {
   flex-wrap: wrap;
   max-width: 1030px;
   padding-bottom: 100px;
-  margin: 0 auto;
+  margin: 0 0 auto 0;
 }
 
 .ListView-container a {
@@ -144,9 +146,9 @@ button:hover {
 }
 
 .NoteView-container {
-  /* height: 294px;
-  width: 294px;
-  border: 2px solid #979797;
+  height: 294px;
+  /* width: 294px; */
+  /* border: 2px solid #979797;
   margin: 16px 4px 16px 32px;
   display: flex;
   flex-direction: column; */
@@ -165,7 +167,10 @@ button:hover {
   font-weight: bold;
   font-size: 22px;
   border-bottom: 1px solid black;
-  white-space: wrap;
+}
+
+.NoteView-header h3 {
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -173,15 +178,14 @@ button:hover {
 .NoteView-note {
   font-size: 20px;
   text-align: left;
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  
 }
 
 .NoteView-note p {
-  height: 170px;
+  height: 212px;
   line-height: 30px;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* CreateView styles */
@@ -327,7 +331,7 @@ button:hover {
 
 .DeleteModal-modal {
   position: fixed;
-  background: #FFFFFF;
+  background: white;
   height: 270px;
   width: 800px;
   border: 2px solid #979797;

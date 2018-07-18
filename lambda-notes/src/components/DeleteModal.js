@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const DeleteModal = props => {
     return (
@@ -8,7 +9,7 @@ const DeleteModal = props => {
                     <h2>Are you sure you want to delete this?</h2>
                 </div>
                 <div className="DeleteModal-buttons">
-                    <button onClick={() => props.handleDelete(props.id)}>Delete</button>
+                    <Link to="/"><button onClick={() => props.handleDelete(props.id)}>Delete</button></Link>
                     <button onClick={props.toggleDelete}>No</button>
                 </div>
             </div>

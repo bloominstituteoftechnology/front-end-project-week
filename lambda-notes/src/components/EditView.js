@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import logo from '../logo.svg';
+import { Link } from 'react-router-dom';
 
 const URL = 'https://killer-notes.herokuapp.com/note';
 
@@ -23,9 +24,7 @@ class EditView extends Component {
     }
 
     render() {
-        if(!this.state.note) {
-            return <img src={logo} className="App-logo" alt="logo"/>;
-        }
+        if(!this.state.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
             <div className="EditView-container">
@@ -47,7 +46,7 @@ class EditView extends Component {
                     />
                 </form>
                 <div className="EditView-buttons">
-                    <button onClick={() => this.props.handleUpdate(this.props.match.params.id)}>Update</button>
+                <Link to={`/note/${this.state.note["_id"]}`}><button onClick={() => this.props.handleUpdate(this.props.match.params.id)}>Update</button></Link>
                 </div>
             </div>
         );

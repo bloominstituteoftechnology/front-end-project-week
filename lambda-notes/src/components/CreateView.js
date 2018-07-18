@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../logo.svg';
 
 const CreateView = props => {
+    if(!props.fetched) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+
     return (
         <div className="CreateView-container">
             <div className="CreateView-header">
@@ -21,7 +25,7 @@ const CreateView = props => {
                     />
             </form>
             <div className="CreateView-buttons">
-                <button onClick={props.handleSubmit}>Save</button>
+                <Link to="/"><button onClick={props.handleSubmit}>Save</button></Link>
             </div>
         </div>
     );
