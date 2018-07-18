@@ -1,38 +1,17 @@
-import React,{ Component } from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-class NewNote extends Component {
-    constructor(props){
-        super(props)
-        this.state= {
-            title: '',
-            body: '',
-            id: ''
-        }
-    }
-
-    componentDidMount() {
-        this.setState({id: Date.now()});
-    }
-
-    handleChange (e) {
-        this.setState({ [e.target.name]: e.target.value});
-    }
-
-    render() {
-        const { title, body, id } = this.state;
-        return (
-                <div>
-                <div>
-                <h1>Create New Note:</h1>
-                </div>
-                <form>
-                    <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
-                    <textarea name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
-                    <button onClick={(e) => this.props.addNote(e, {id, title, body})}>Save</button>
-                </form>
-            </div>
-        );
-    }
+const AddNote = props => {
+  return (
+    <div>
+    <h2>Create New Note:</h2>
+    <form>
+      <input name='newTitle' type='text' value={props.title} onChange={props.handleInputChange} placeholder='Note Title'/>
+      <textarea name='newTextBody' type='text' value={props.body} onChange={props.handleInputChange} placeholder='Note Content'/>
+      <Link to={'/'}><div onClick={this.handleAddNote}>save</div></Link>
+      </form>
+    </div>
+  )
 }
 
-export default NewNote;
+export default AddNote;

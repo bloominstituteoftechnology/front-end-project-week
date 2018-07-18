@@ -57,7 +57,7 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Route exact path='/' render={props => <NoteList {...props} notes={this.state.notes} />}/>
-        <Route path='/note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
+        <Route path='/Note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
         <Route path='/NewNote' render={props =>
           <NewNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} addTitle={this.state.addTitle} addBody={this.state.addBody}/>
         } />
