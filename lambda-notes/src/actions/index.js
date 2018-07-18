@@ -8,7 +8,8 @@ export const  NOTE_SAVED = "NOTE_SAVED";
 export const FETCHED_SINGLE_NOTE = "FETCHED_SINGLE_NOTE";
 export const DELETING = "DELETING";
 export const DELETED = "DELETED";
-
+export const NOTE_EDITED = "NOTE_EDITED";
+export const  EDITING_NOTE = " EDITING_NOTE";
 
 export const fetchingNotesAction = () => {
 	const request = axios.get('https://killer-notes.herokuapp.com/note/get/all');
@@ -64,6 +65,25 @@ export const addNotesAction = (title, content) => {
     });
   };
 };
+
+export const editNoteAction = (id, title, content) => {
+        const note= {title: title, textBody: content};
+        const request = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note);
+
+        return (dispatch) => {
+        dispatch({type: EDITING_NOTE});
+
+        request.then(response => {
+        dispatch({type: NOTE_EDITED, notes: response.data});
+    })
+
+        .catch(err => {
+        dispatch({type: ERROR, error: err});
+
+    });
+  };
+};
+
 
 
 export const deleteNoteAction = (noteIdr) => {

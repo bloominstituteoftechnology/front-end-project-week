@@ -44,7 +44,11 @@ render() {
  		<div className="view-list-body desktop-view tablet-view">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
-		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(<Button className="delete-btn"  onClick={this.toggle}>delete</Button>)}</div>
+		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(		      <div>
+			<Button className="delete-btn"  onClick={this.toggle}>delete</Button>
+			<Link to={`/editnote/${this.props.match.params.id}`}><Button className="delete-btn">edit</Button></Link>
+			</div>
+)}</div>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-style">
           <ModalHeader toggle={this.toggle}>Are You Sure You Want To Delete This</ModalHeader>

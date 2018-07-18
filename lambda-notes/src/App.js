@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ViewNotesContainer from './components/ViewNotes/ViewNotesContainer';
 import CreateNoteContainer from './components/CreateNotes/CreateNoteContainer';
 import EachNoteBody from './components/EachNote/EachNoteBody';
+import EditNoteBody from './components/EditNote/EditNoteBody';
 import './App.css';
 import {Route} from 'react-router-dom';
 
@@ -21,6 +22,7 @@ render() {
       	<Route exact  path="/" component={ViewNotesContainer} />
         <Route exact path="/createnewnote" component={CreateNoteContainer} />	   
 	<Route exact path="/note/:id" render={(props) => <EachNoteBody {...props} />} />
+	<Route exact path="/editnote/:id" render={(props) => <EditNoteBody {...props} />} />
     
       </div>
     );
