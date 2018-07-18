@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   render() {
-    if (!this.props.notes) {
+    if (this.props.updating) {
       return (
         <div className="main-container"></div>
       )
@@ -73,7 +73,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    updating: state.updating
   }
 }
 

@@ -59,7 +59,7 @@ class Note extends React.Component {
   }
 
   render() {
-    if (!this.props.note) {
+    if (this.props.updating) {
       return (
         <div className="main-container note"></div>
       )
@@ -106,7 +106,8 @@ class Note extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    note: state.note
+    note: state.note,
+    updating: state.updating
   }
 }
 
