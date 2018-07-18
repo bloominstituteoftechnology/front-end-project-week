@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class LambdaEdit extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class LambdaEdit extends Component {
                 <form>
                     <input style={{ width: '500px', height: '30px', marginBottom: '15px' }} type="text" name="title" placeholder="Note Title" value={this.props.selected.title} onChange={this.props.handleTitle} /><br />
                     <textarea style={{ width: '600px', height: '350px' }} type="text" name="body" placeholder="Note Content" value={this.props.selected.body} onChange={this.props.handleBody}/><br />
-                    <button onClick={this.handleUpdate}>Update</button>
+                    <Link to="/" style={{textDecoration: 'none' , color: 'black'}}><button onClick={this.handleUpdate}>Update</button></Link>
                 </form>
             </div>
         )
