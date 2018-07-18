@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { fetchNotes } from './actions';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NoteList from './components/NoteList';
 import SideBar from './components/SideBar';
@@ -17,28 +15,19 @@ const APP = styled.div`
 `
 
 class App extends Component {
-
-  componentDidMount () {
-    this.props.fetchNotes()
-  }
-
   render() {
     return (
       <Router>
         <APP className="App">
           <SideBar />
-          <Route exact path='/' render={props => <NoteList {...props} notes={this.props.notes} />} />
-          <Route path='/notes/:id' component={SingleNote}/>
+          <Switch>
+            <Route exact path='/' component={NoteList} />
+            <Route path='/notes/:id' component={SingleNote}/>
+          </Switch>
         </APP>
       </Router>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    notes: state.notes
-  }
-}
-
-export default connect(mapStateToProps, {fetchNotes})(App);
+export default App;

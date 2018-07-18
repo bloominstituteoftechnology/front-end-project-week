@@ -4,10 +4,12 @@ import axios from 'axios';
 import * as types from './types';
 
 export const fetchNotes = () => {
+    const request = axios.get('https://killer-notes.herokuapp.com/note/get/all')
     return (dispatch) => {
-        axios.get('https://killer-notes.herokuapp.com/note/get/all')
-        .then(response => dispatch({
-            type: types.FETCH_NOTES,
+        dispatch({type: types.FETCHING_NOTES})
+
+        request.then(response => dispatch({
+            type: types.NOTES_FETCHED,
             payload: response.data
         }))
         .catch(err => dispatch({
@@ -32,12 +34,22 @@ export const fetchSingleNote = (id) => {
 }
 
 export const deleteNote = (id) => {
+    const fetchData = () => {
+        axios.get('https://killer-notes.herokuapp.com/note/get/all')
+        .then(res => {
+            return res.data
+        })
+        .catch(error => console.log(error))
+    }
+
     return (dispatch) => {
         axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+        // .then(window.location.reload())
         .then(response => {
             if (response.data.success === "Note successfully deleted") {
                 dispatch({
                     type: types.DELETE_NOTE,
+                    payload: fetchData()
                 })
             }
         })
