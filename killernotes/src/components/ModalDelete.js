@@ -1,6 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const OuterDiv = styled.div`
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  top: 04px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(211, 210, 211, 0.9);
+`;
+
 const Modal = styled.div`
   display: none;
   position: fixed;
@@ -34,13 +46,15 @@ const NoButton = Button.extend`
 
 const ModalDelete = props => {
   return (
-    <Modal style={props.modal ? { display: 'block' } : null}>
-      <p>Are you sure you want to delete this?</p>
-      <div>
-        <Button onClick={props.delete}>Delete</Button>
-        <NoButton onClick={props.toggleModal}>No</NoButton>
-      </div>
-    </Modal>
+    <OuterDiv style={props.modal ? { display: 'block' } : null}>
+      <Modal style={props.modal ? { display: 'block' } : null}>
+        <p>Are you sure you want to delete this?</p>
+        <div>
+          <Button onClick={props.delete}>Delete</Button>
+          <NoButton onClick={props.toggleModal}>No</NoButton>
+        </div>
+      </Modal>
+    </OuterDiv>
   );
 };
 
