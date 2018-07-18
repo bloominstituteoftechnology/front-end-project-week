@@ -26,6 +26,7 @@ button {
   cursor: pointer;
   border: 1px solid #979797;
   font-size: 16px;
+  padding-top: 0;
 }
 
 button:hover {
@@ -90,7 +91,7 @@ button a:visited {
 .note-previews-container {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -48px;
+  margin-right: -48.6px;
 }
 
 .note-preview-container {
@@ -99,7 +100,7 @@ button a:visited {
   border: 1px solid #979797;
   box-sizing: border-box;
   padding: 5px 15px;
-  margin: 10px 48px 10px 0;
+  margin: 10px 48.6px 10px 0;
   background: #FFFFFF;
   word-break: break-all;
   overflow-wrap: break-word;
