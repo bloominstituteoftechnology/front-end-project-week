@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import Notes from "./Notes"
 
 class NoteContainer extends Component {
-  constructor(props){
-    super(props);
-  }
   render(){
     return(
       <main>
