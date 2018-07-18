@@ -12,59 +12,55 @@ import Note from "./components/Note";
 
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state={
-      notes: [{
+  state = {
+    notes: [
+      {
         id: 0,
         title: 'Note Title',
         body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. '
-      }, {
+      },
+      {
         id: 1,
         title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
-      }, {
+        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
+      },
+      {
         id: 2,
         title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
-      }, {
+        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
+      },
+      {
         id: 3,
         title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
-      }, {
+        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
+      },
+      {
         id: 4,
         title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. .'
-      }, {
-        id: 5,
-        title: 'Note Title',
-        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. '
-      }]
-    }
+        body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.'
+      },
+    ],
+    addTitle: '',
+    addBody: ''
   }
-
-  NewNote = (e, note) => {
-    e.preventDefault();
-    const notes = this.state.notes;
-    this.setState({notes: notes.concat(note)});
+  handleInputChange = event => {
+    this.setState({[event.target.name]:event.target.value})
   }
-
-  deleteNote = id => {
-    const notes = this.state.notes;
-    const index = notes.indexOf(id);
-    let newNotes = notes.splice(index, 1);
-    this.setState({notes: newNotes});
+  handleAddNote = event => {
+    event.preventDefault();
+    const notes = this.state.notes.slice();
+    notes.push({id: this.state.notes.length, title: this.state.addTitle, body: this.state.addBody});
+    this.setState({notes, addTitle: '', addBody: ''});
   }
-
   render() {
-    const notes = this.state.notes;
     return (
       <div className="App">
-      <Navbar />
-      <Route exact path="/" render={props => <NoteList notes={notes}/>}/>
-      <Route path="/:id" render={props => <Note {...props} notes={notes}/>}/>
-      <Route path="/NewNote" render={props => <NewNote NewNote={this.NewNote} />}/>
-       <Route path="/note/edit/:id" component={ Note }/>
+        <Navbar />
+        <Route exact path='/' render={props => <NoteList {...props} notes={this.state.notes} />}/>
+        <Route path='/note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
+        <Route path='/NewNote' render={props =>
+          <NewNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} addTitle={this.state.addTitle} addBody={this.state.addBody}/>
+        } />
       </div>
     );
   }

@@ -1,66 +1,96 @@
-import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
-import NewNote from './NewNote';
-import App from '../App';
+import React from "react";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-class Note extends Component {
+class Note extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            note: null,
-            title: 'Note Title',
-            body: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ',
-            edit: false
+            note: {
+                title: '',
+                body: ''
+            },
+            id: '',
+            edit: false,
+            modal: false
         }
     }
 
     componentDidMount() {
-        const id = this.props.id;
-        this.fetchNote(id);
+        if (this.props.note) {
+            const note = this.props.note;
+            this.setState({ note: note });
+        } else {
+            const id = this.props.match.params.id;
+            this.fetchNote(id);
+        }
     }
 
-  	fetchNote = (id) => {
+    componentWillReceiveProps(newProps) {
+        if (this.props.match.params.id !== newProps.match.params.id) {
+            this.fetchNote(newProps.match.params.id);
+        }
+    }
+
+    fetchNote (id) {
         id = parseInt(id, 10);
         const note = this.props.notes.filter(note => note.id === id)[0];
-        // const notes = this.state.note;
         this.setState({
             note: note,
             id: id
-        });
+        })
     }
 
-    editNote = () => {
-        this.setState({edit: true})
+    handleChange (e) {
+        this.setState({ [e.target.name]: e.target.value});
     }
-    deleteNote = () => {
-       this.setState({edit: true})
+
+    handleUpdate (id, note)  {
+        this.props.updateNote(note);
+        this.setState({edit: false})
+    }
+
+    toggleModal() {
+        this.setState({modal: !this.state.modal})
     }
 
     render() {
+        const { title, body } = this.state.note;
+        const { edit, modal, id } = this.state;
         return (
-            this.state.edit ? (
-                <NewNote
-                    edit={true}
-                    note={this.state.note}
-                    title={this.state.title}
-                    content={this.state.body}/>
-            ) : (
-                <Container>
-                    <div className="edit-delete">
-                        <Button><a onClick={this.editNote}>edit</a></Button>
-                     <Button><a onClick={this.editNote}>delete</a></Button>
+            <div>
+                {edit ? (
+                    <div>
+                        <h3>Edit Note:</h3>
+                        <form>
+                            <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
+                            <input name="body" value={body} placeholder="Note Content" onChange={(e) => this.handleChange(e)}/>
+                            <button onClick={() => this.handleUpdate(id, {title, body})}>Update</button>
+                        </form>
                     </div>
-                    <h3 className="heading">{this.state.title}</h3>
-                    <Row>
-                        <Col sm="12">
-                            <div  className="note-content">
-                                {this.state.body}
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            )
-        )
+                ):(
+                    <div>
+                        <div>
+                            <button onClick={() => this.setState({edit: true})}>Edit</button>
+                            <button onClick={() => this.toggleModal}>Delete</button>
+                        </div>
+                        <h3>{title}</h3>
+                        <div>{body}</div>
+                    </div>
+                )}
+                {modal ? (
+                    <Modal isOpen={modal} toggle={() => this.toggle} className={this.props.className}>
+                      <ModalHeader toggle={() => this.toggle}>Modal title</ModalHeader>
+                      <ModalBody>
+                        Are you sure you want to delete this?
+                      </ModalBody>
+                      <ModalFooter>
+                        <button onClick={() => this.props.deleteNote(id)}>Do Something</button>
+                        <button onClick={() => this.toggle}>Cancel</button>
+                      </ModalFooter>
+                    </Modal>
+                ) : (null)}
+            </div>
+        );
     }
 }
 

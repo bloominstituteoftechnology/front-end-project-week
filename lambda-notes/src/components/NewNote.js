@@ -14,7 +14,7 @@ class NewNote extends Component {
         this.setState({id: Date.now()});
     }
 
-    handleChange = e => {
+    handleChange (e) {
         this.setState({ [e.target.name]: e.target.value});
     }
 

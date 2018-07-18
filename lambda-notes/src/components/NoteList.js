@@ -12,7 +12,7 @@ const NoteList = props => {
             {props.notes.map(note => {
                 return (
 
-                    <Link to={`/NoteCard/${note.id}`} key={note.id}>
+                    <Link to={`/Note/${note.id}`} key={note.id}>
                     		<NoteCard note={note} />
                     </Link>
                 );
