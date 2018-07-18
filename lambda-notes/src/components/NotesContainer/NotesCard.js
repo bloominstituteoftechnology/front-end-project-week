@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LinesEllipsis from 'react-lines-ellipsis';
+import { NotesCardLink, NotesCardContainer, NotesCardTitle } from '../ReusableComponents/Notes';
 
 const NotesCard = props => {
     // Displays each note to the screen
     return (
-        <Link className='notes-card-link' to={`/notes/${props.note._id}`}>
+        <NotesCardLink to={`/notes/${props.note._id}`}>
 
-            <div className='notes-card'>
-                <h3 className='note-title'>{props.note.title}</h3>
+            <NotesCardContainer>
+                <NotesCardTitle className='note-title'>{props.note.title}</NotesCardTitle>
                 <LinesEllipsis
                     className='note-paragraph'
                     text={props.note.textBody}
@@ -17,9 +18,9 @@ const NotesCard = props => {
                     trimRight
                     basedOn='letters'
                 />
-            </div>
+            </NotesCardContainer>
 
-        </Link>
+        </NotesCardLink>
     );
 }
 

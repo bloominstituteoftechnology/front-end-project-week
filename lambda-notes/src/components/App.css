@@ -20,15 +20,6 @@ body {
   min-height: 891px;
 }
 
-.notes-card {
-  background: white;
-  border: 1px solid#979797;
-  cursor: pointer;
-  width: 192px;
-  height: 197px;
-  padding: 9px 10px;
-}
-
 .notes-card:hover {
   background: #EAE6E6;
 }
@@ -38,16 +29,6 @@ body {
   margin-top: 58px;
   font-size: 1.9rem;
   font-family: 'Roboto', Arial, sans-serif;
-}
-
-.note-title {
-  border-bottom: 1px solid #979797;
-  font-size: 1.9rem;
-  margin: 0 5px;
-  padding-bottom: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .note-paragraph {
@@ -89,20 +70,6 @@ body {
   font: 400 13px Arial;
   padding: 19px 21px;
   resize: none;
-}
-
-.notes-card-link {
-  color: black;
-  text-decoration: none;
-  width: 192px;
-  height: 197px;
-  margin-left: 3px;
-  margin-right: 14px;
-  margin-bottom: 24px;
-}
-
-.notes-card-link:nth-child(3n+3) {
-  margin-right: 0;
 }
 
 .note-container {
