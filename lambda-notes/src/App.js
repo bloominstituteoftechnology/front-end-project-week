@@ -53,7 +53,6 @@ class App extends Component {
         let notes = Object.entries(snapshot.val()).map( entry => entry[1])
 
         //Set state shorthand, when the key name is the same as the name of the value variable
-        console.log(notes)
         this.setState({notes})  
       }
 
