@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Creators from './actions';
-
 const updatingNote = Creators.updatingNote;
 const updatedNote = Creators.updatedNote;
 
