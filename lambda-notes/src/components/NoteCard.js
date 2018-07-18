@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Notecont = styled.div`
 
@@ -28,18 +29,18 @@ const SmallNote = styled.div`
       <div>Your Notes:</div>    
     <Notebod className = 'Note'>
     
-    <SmallNote>
+    <Link to="/note"> <SmallNote>
     <h2>Note Title</h2>
     <p>Lorem Ipsum</p>
-      </SmallNote> 
-    <SmallNote>
+      </SmallNote> </Link>
+      <Link to="/note"> <SmallNote>
     <h2>Note Title</h2>
     <p>Lorem Ipsum</p>
-      </SmallNote> 
-      <SmallNote>
+      </SmallNote> </Link> 
+      <Link to="/note"> <SmallNote>
     <h2>Note Title</h2>
     <p>Lorem Ipsum</p>
-      </SmallNote> 
+      </SmallNote> </Link>
  </Notebod>
  </Notecont>
  )

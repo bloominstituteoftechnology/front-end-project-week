@@ -43,24 +43,11 @@ background-color: #2BC1C4;
 width: 185px;
 height: 35px;
 `;
-// const Notebod = styled.div`
-// display: flex;
-//     justify-content: space-around;
-    
-   
-// `;
-// const SmallNote = styled.div`
-
-//     background-color: white;
-//     height:190px;
-//     width:190px;
-//     border: solid 1px #979797
-// `;
 
 
- const CreateNote = () => (
+ const Edit = () => (
      <Createcont>
-         <div>Create New Note:</div>
+         <div>Edit Note:</div>
          <Createbod>
  
         <Notetitle
@@ -80,7 +67,7 @@ height: 35px;
         //   onChange={this.handleInputChange}
         />
         <Button onClick={() => this.handleAddNote()} type="button">
-          Save
+          Update
         </Button>
       
       </Createbod>
@@ -88,4 +75,4 @@ height: 35px;
  )
  ;
 
-export default CreateNote
+export default Edit

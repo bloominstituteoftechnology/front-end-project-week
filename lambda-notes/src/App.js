@@ -4,7 +4,9 @@ import './App.css';
 import SidebarExample from './components/SideBar';
 import NoteForm from './components/NoteForm';
 import ListView from './components/ListView';
-import CreateNoteView from './components/CreateNoteView';
+import CreateNoteView from './components/OneNote';
+import OneNote from './components/CreateNoteView';
+import EditView from './components/EditView';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 class App extends Component {
@@ -19,7 +21,9 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Route exact path='/' component={ListView}/>
-        <Route exact path='/createnote' component={CreateNoteView}/>
+        <Route exact path='/note' component={CreateNoteView}/>
+        <Route path='/createnote' component={OneNote}/>
+        <Route path='/edit' component={EditView}/>
       </div>
     );
   }
