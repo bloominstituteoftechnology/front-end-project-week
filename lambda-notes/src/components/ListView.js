@@ -6,18 +6,19 @@ const Header = styled.div`
   font-family: 'Roboto', sans-serif;
   font-size: 2rem;
   margin-top: 50px;
+  margin-bottom: 20px;
 `
 
 const NoteCardContainer = styled.div`
   display:flex;
   flex-wrap:wrap;
+  justify-content: space-between;
 `
 
 const NoteCard = styled.div`
   background-color: white;
   border: 1px solid #979797;
-  margin-right: 15px;
-  margin-top: 20px;
+  margin: 10px 0;
   width: 190px;
   height: 200px;
   padding-top: 14px;

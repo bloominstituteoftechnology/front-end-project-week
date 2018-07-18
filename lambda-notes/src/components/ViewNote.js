@@ -11,6 +11,11 @@ const Header = styled.div`
 
 const EditDelSpan = styled.span`
   padding-left:1%;
+  color: #2BC1C4;
+  &:hover {
+    cursor: pointer;
+    text-decoration:underline;
+  }
 `
 
 const EditDelDiv = styled.div`
@@ -19,6 +24,7 @@ const EditDelDiv = styled.div`
   padding-right: 12px;
   margin-top: 16px;
   font-size: 1.5rem;
+
 `
 
 const TextBody = styled.div`
@@ -26,14 +32,25 @@ const TextBody = styled.div`
   font-size: 1.4rem;
   line-height: 25px;
 `
+
+const StyledLink = styled(Link)`
+  text-decoration:none;
+  &:focus, &:hover, &:visited, &:link, &:active {
+      text-decoration: none;
+    }
+  color:#2BC1C4;
+  &:hover{
+    color:#2BC1C4
+  }
+`
 const ViewNote = (props) => {
   // (props) ? console.log(props.match.params.id) : null;
 
   return (
     <div>
       <EditDelDiv>
-        <EditDelSpan> <Link to={`/edit-note/${props.id}`}>edit </Link> </EditDelSpan>
-         <EditDelSpan> delete </EditDelSpan>
+        <EditDelSpan> <StyledLink to={`/edit-note/${props.id}`}>edit </StyledLink> </EditDelSpan>
+         <EditDelSpan onClick={() => props.onDeleteLinkClick(props.id)}> delete </EditDelSpan>
       </EditDelDiv>
       <Header>
         {props.title}

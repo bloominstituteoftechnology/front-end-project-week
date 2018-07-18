@@ -4,24 +4,34 @@ import styled from 'styled-components'
 import { Container, Row, Col } from 'reactstrap';
 import Sidebar from '../src/components/Sidebar'
 import Content from '../src/components/Content'
+import DeleteOverlay from './components/DeleteOverlay';
 
 const MainContainer = styled.div`
+  background-color: #D8D8D8;
+  border: 1px solid #979797;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  position:relative;
 `
 
 const SidebarStyled = styled(Col)`
-  background-color: #D8D8D8;
+  /* height:100vh; */
 `
 const ContentStyled = styled(Col)`
   background-color: #F3F3F3;
+  height:100%;
+  border-left: 1px solid #979797;
 `
 class App extends Component {
   constructor(){
     super();
     this.state = {
       notes : [],
+      deleteNote: {
+        deleting:false,
+        id:0,
+      }
     }
   }
 
@@ -121,13 +131,41 @@ class App extends Component {
     this.setState({notes})
   }
 
+  onDeleteLinkClick = (id) => {
+    this.setState({
+      deleteNote: {
+        deleting:true,
+        id:Number(id),
+      }
+    })
+  }
+
+  deleteNoteClick = () => {
+    let notes = [...this.state.notes].filter( note => note.id !== this.state.deleteNote.id)
+    this.setState({notes}, this.deletingCompleted)
+  }
+
+  deletingCompleted = () =>{
+    this.setState({
+      deleteNote: {
+        deleting:false,
+        id:0,
+      }
+    })
+  }
+
   render() {
     return (
       <MainContainer>
+        {(this.state.deleteNote.deleting) ? <DeleteOverlay deletingCompleted={this.deletingCompleted} deleteNoteClick={this.deleteNoteClick}/> : null}
         <Container>
           <Row>
             <SidebarStyled md="3"><Sidebar/></SidebarStyled>
-            <ContentStyled md="9"><Container><Content notes={this.state.notes} saveNewNote={this.saveNewNote} editNote={this.editNote}/></Container></ContentStyled>
+            <ContentStyled md="9">
+              <Container>
+                <Content notes={this.state.notes} saveNewNote={this.saveNewNote} editNote={this.editNote} onDeleteLinkClick={this.onDeleteLinkClick} />
+              </Container>
+            </ContentStyled>
           </Row>
         </Container>
       </MainContainer>

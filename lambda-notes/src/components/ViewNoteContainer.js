@@ -9,7 +9,7 @@ class ViewNoteContainer extends Component {
     return (
       <div>
         {/* //Check for length, because on the first render the array will be empty */}
-        {(noteMatch.length > 0) ? <ViewNote title={noteMatch[0].title} textBody={noteMatch[0].textBody} id={this.props.match.params.id} /> : null}
+        {(noteMatch.length > 0) ? <ViewNote title={noteMatch[0].title} textBody={noteMatch[0].textBody} id={this.props.match.params.id} onDeleteLinkClick={this.props.onDeleteLinkClick}/> : null}
       </div>
     );
   }
