@@ -5,6 +5,8 @@ import {data} from './../data';
 import { Link, Route} from 'react-router-dom';
 import Note from './Note'
 import axios from 'axios';
+import { getNotes } from './../actions';
+import { connect } from 'react-redux';
 
 
 const Container = Styled.div`
@@ -64,15 +66,8 @@ class Notes extends Component {
 
 
   componentDidMount() {
-    axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-          console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })
+    this.props.getNotes();
+    console.log(this.props.notes);
     
   }
   
@@ -83,9 +78,9 @@ class Notes extends Component {
       <NotesContainer>
         <Heading>Your notes:</Heading>
         <NotesList>
-          {this.state.notes.map(note => {
-            return <NoteContainer key={note.id} style={{overflow: 'hidden'}}>
-         <Link to={{pathname: `/note/${note.id}`, state: {title: note.title, body: note.textBody, id: note._id, notes: this.state.notes}}} style={{textDecoration: 'none', color: '#000000'}} > 
+          {this.props.notes.map(note => {
+            return <NoteContainer key={note._id} style={{overflow: 'hidden'}}>
+         <Link to={`/note/${note._id}`} style={{textDecoration: 'none', color: '#000000'}} > 
            <NoteHeading>{note.title}</NoteHeading>
            <Body>{note.textBody} </Body></Link>
             </NoteContainer>
@@ -97,6 +92,15 @@ class Notes extends Component {
   }
 }
 
-export default Notes;
+const mapStateToProps = state => {
+  return {
+    notes: state.notes.notes,
+  }
+}
+
+const mapActionsToProps = {
+  getNotes: getNotes
+}
+export default connect( mapStateToProps, mapActionsToProps)(Notes);
 
 /*      */

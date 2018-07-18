@@ -2,7 +2,8 @@ import React from 'react';
 import Styled from 'styled-components'
 import {Button} from './../styles/styles';
 import { Redirect } from 'react-router';
-import axios from 'axios';
+import { deleteNote, toggleDelete } from './../actions';
+import { connect } from 'react-redux';
 
 const Background = Styled.div`
 width: 100vw;
@@ -54,38 +55,13 @@ const Buttons = Styled.div`
 class DeleteModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            notes: [],
-            delete: false
-    }
+
     }
 
     deleteNote = () => {
-
-        axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.id}`)
-      .then(response => {
-          console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })
-    this.setState({delete: !this.state.delete})
+        this.props.deleteNote(this.props.id);
+        this.props.toggleDelete();
   }
-
-  componentDidMount() {
-    axios
-    .get('https://killer-notes.herokuapp.com/note/get/all')
-    .then(response => {
-        console.log(response);
-        this.setState({notes: response.data})
-    })
-    .catch(err => {
-        console.log(err)
-    })
-
-}
 
     render() {
         return(
@@ -101,9 +77,20 @@ class DeleteModal extends React.Component {
                     </Buttons>
                     </Modal>
                 </ModalContainer>
-                {this.state.delete ? <Redirect to='/notes' /> : null}
+                {this.props.delete ? <Redirect to='/notes' /> : null}
             </Background>
         )
     }
 }
-export default DeleteModal;
+
+const mapStateToProps = state => {
+    return {
+      delete: state.toggle.delete
+    }
+  }
+  
+  const mapActionsToProps = {
+    toggleDelete: toggleDelete,
+    deleteNote: deleteNote
+  }
+  export default connect( mapStateToProps, mapActionsToProps)(DeleteModal);

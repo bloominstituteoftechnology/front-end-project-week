@@ -2,8 +2,9 @@ import React from 'react'
 import Styled from 'styled-components';
 import {Heading} from './../styles/styles';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import DeleteModal from './Delete';
+import { toggleModal, getSingleNote } from './../actions';
+import { connect } from 'react-redux';
 
 const NoteContainer = Styled.div`
 display: block;
@@ -40,53 +41,29 @@ const Delete = Styled.a`
 class Note extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            note: null,
-            modalOpen: false
-        }
+
     }
 
     openModal = (e) => {
-        e.preventDefault();
-        this.setState({modalOpen: !this.state.modalOpen})
+        this.props.toggleModal();
     }
 
-    deleteNote = () => {
-        this.setState
+    componentDidMount(){
+        console.log(this.props.match.params.id)
+        this.props.getSingleNote(this.props.match.params.id);
     }
-
-   componentDidMount () {
-    console.log(this.props);
-    console.log(this.props.delete);
-
-    //console.log(this.props.match.params.id);
-      //  this.fetchNote(this.props.match.params.id);
-     //   console.log(this.props.match.params.id);
-    }
-
-   /* fetchNote = (id) => {
-        axios
-        .get(`https://killer-notes.herokuapp.com/note/get/${id}`)
-        .then(response => {
-            console.log(response);
-            this.setState({note: response.data})
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    }*/
 
     render() {
     return (
-        <Container>
-        {this.state.modalOpen ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes}/> : null}
+        <Container>{console.log(this.props)}
+        {this.props.showModal === true ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes}/> : null}
         <NoteContainer>
             <Edit>
-            <Link to={{pathname: `/edit/${this.props.location.state.id}`, state: {title: this.props.location.state.title, body: this.props.location.state.body, id: this.props.location.state.id, notes: this.props.location.state.notes}}} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
+            <Link to={`/edit/${this.props.match.params.id}`} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
             <Delete onClick={this.openModal}>delete</Delete>
             </Edit>
-        <Heading>{this.props.location.state.title}</Heading>
-        <Body>{this.props.location.state.body}</Body>
+        <Heading>{this.props.note.title}</Heading>
+        <Body>{this.props.note.textBody}</Body>
         </NoteContainer>
         </Container>
     )
@@ -94,26 +71,15 @@ class Note extends React.Component {
 }
 
 
-export default Note;
-
-/*class Note extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            note: {},
-            title: "",
-            body: ""
-        }
+const mapStateToProps = state => {
+    return {
+      showModal: state.toggle.showModal,
+      note: state.notes.note
     }
-    
-    componentDidMount () {
-        const id = this.props.match.params.id;
-        this.setState({notes: data[this.props.match.params.id-1]})
-        
-        
-console.log(this.props.match.params.id)
-console.log(this.state)
-console.log(this.state.note)
-console.log(this.props.body)
-    }
-render() {*/
+  }
+  
+  const mapActionsToProps = {
+    toggleModal: toggleModal,
+    getSingleNote: getSingleNote
+  }
+  export default connect( mapStateToProps, mapActionsToProps)(Note);

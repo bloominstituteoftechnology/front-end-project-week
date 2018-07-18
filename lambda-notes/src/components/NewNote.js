@@ -1,8 +1,8 @@
 import React from 'react';
 import {Heading, Button} from './../styles/styles';
 import Styled from 'styled-components';
-import {data} from './../data';
-import axios from 'axios';
+import { createNote } from './../actions';
+import { connect } from 'react-redux';
 
 
 const NewContainer = Styled.div`
@@ -51,32 +51,13 @@ class NewNote extends React.Component {
         console.log(this.state.newNote)
     }
 
-    submitNote = (event) => {
-        event.preventDefault();
-        const newNote=this.state.newNote;
-        axios
-      .post('https://killer-notes.herokuapp.com/note/create', newNote)
-      .then(response => {
-          console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })
-       
-       this.setState({newNote: {title: "", textBody: "", id: 0}})
+    submitNote = () => {
+       this.props.createNote(this.state.newNote)
+      this.setState({newNote: {title: "", textBody: "", id: 0}})
     }
 
     componentDidMount() {
-        axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-          //console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })
+       this.props.getNotes
     }
 
     render() {
@@ -109,4 +90,13 @@ class NewNote extends React.Component {
     }
 }
 
-export default NewNote;
+const mapStateToProps = state => {
+    return {
+      notes: state.notes.notes,
+    }
+  }
+  
+  const mapActionsToProps = {
+    createNote: createNote
+  }
+  export default connect( mapStateToProps, mapActionsToProps)(NewNote);

@@ -1,8 +1,9 @@
 import React from 'react';
 import {Heading, Button} from './../styles/styles';
 import Styled from 'styled-components';
-import {data} from './../data';
-import axios from 'axios';
+import { updateNote, toggleUpdate, getSingleNote } from './../actions';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 
 const Container = Styled.div`
 display: flex
@@ -41,7 +42,6 @@ class EditNote extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
             editedNote: {title: "",
             textBody: "",
             }   
@@ -53,32 +53,18 @@ class EditNote extends React.Component {
     }
 
     editNote = () => {
-        const updatedNote=this.state.editedNote;
-        const id = this.props.location.state.id;
-        axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
-      .then(response => {
-        console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })
+        const id = this.props.match.params.id;
+       this.props.updateNote(id, this.state.editedNote);
+       this.props.toggleUpdate();
     }
 
-    componentDidMount() {
-        axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-         //console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })
-      this.setState({editedNote: {title: this.props.location.state.title, textBody: this.props.location.state.body }})
-    console.log(this.props.location.state.id)
+
+
+    componentDidMount(){
+        this.props.getSingleNote(this.props.match.params.id);
+        this.setState({editedNote: {title: this.props.note.title, textBody: this.props.note.textBody}})
     }
+
     render() {
         return (
     
@@ -103,10 +89,23 @@ class EditNote extends React.Component {
                         />
                     <Button onClick={this.editNote}>Update</Button>
                     </FormContainer>
+                    {this.props.update ? <Redirect to={ `/note/${this.props.match.params.id}`} /> : null}
             </NewContainer>
        
         )
     }
 }
 
-export default EditNote;
+const mapStateToProps = state => {
+    return {
+      update: state.toggle.update,
+      note: state.notes.note
+    }
+  }
+  
+  const mapActionsToProps = {
+    updateNote: updateNote,
+    toggleUpdate: toggleUpdate,
+    getSingleNote: getSingleNote
+  }
+  export default connect( mapStateToProps, mapActionsToProps)(EditNote);
