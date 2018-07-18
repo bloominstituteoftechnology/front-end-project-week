@@ -12,7 +12,7 @@ class Notes extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/notes")
+      .get("http://localhost:4444/notes")
       .then(res => {
         this.setState({ notes: res.data });
       })

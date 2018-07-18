@@ -16,28 +16,28 @@ const sendUserError = (msg, res) => {
 let notes = [
   {
     id: 0,
-    title: "Sample note",
+    title: "Sample note 1",
     textBody:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 1,
-    title: "Sample note",
+    title: "Sample note 2",
     textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 2,
-    title: "Sample note",
+    title: "Sample note 3",
     textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 3,
-    title: "Sample note",
+    title: "Sample note 4",
     textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   },
   {
     id: 4,
-    title: "Sample note",
+    title: "Sample note 5",
     textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
   }
 ];
