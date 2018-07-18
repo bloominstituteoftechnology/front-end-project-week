@@ -7,7 +7,7 @@ class CreateNote extends Component {
         this.state = {
             title: '',
             content: '',
-            id: 1
+            id: 0
         }
     }
     onSubmit = (e) => {
@@ -16,7 +16,6 @@ class CreateNote extends Component {
         let id = this.state.id + 1;
         this.props.createNote(note);
         this.setState({ title: '', content: '', id: id })
-        console.log(this.state.id)
     }
 
     handleChange = (e) => {

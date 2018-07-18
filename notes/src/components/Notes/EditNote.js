@@ -20,7 +20,7 @@ class EditNote extends Component {
     }
 
     onSubmit = (e) => {
- 
+
         const note = { id: this.state.id, title: this.state.title, description: this.state.content }
         this.props.editNote(note);
     }

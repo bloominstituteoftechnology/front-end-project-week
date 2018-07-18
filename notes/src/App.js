@@ -11,7 +11,7 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            notes: [{ id: 0, title: 'hello', description: 'Morbi pellentesque euismod venenatis. Nulla ut nibh nunc. Phasellus diam metus, blandit ac purus a, efficitur mollis velit. Ut egestas, ante at lobortis ullamcorper, neque odio fringilla odio, non mattis elit lacus ut velit. Sed feugiat nibh vel molestie sollicitudin. Duis tincidunt  ' }],
+            notes: [],
         };
     }
 
