@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SidebarExample from './components/SideBar';
 import NoteForm from './components/NoteForm';
+import ListView from './components/ListView';
 
 class App extends Component {
   render() {
@@ -16,7 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         
-        <NoteForm />
+        <ListView />
       </div>
     );
   }

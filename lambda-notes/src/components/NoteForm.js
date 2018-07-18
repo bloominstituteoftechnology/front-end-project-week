@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
-import {SidebarExample, SideBar} from './SideBar';
-// import SideBar from './SideBar';
+import { SideBar} from './SideBar';
+// import SidebarExample from './SideBar';
 
 class NoteForm extends Component {
   state = {
@@ -23,9 +23,10 @@ class NoteForm extends Component {
   render() {
     return (
         <div>
-            <SidebarExample />
+            {/* <SidebarExample /> */}
             <SideBar />
-      <form className="Column-Layout">
+            <div className="page-container">
+      <form >
         <input
           className="input"
           value={this.state.notetitle}
@@ -47,6 +48,7 @@ class NoteForm extends Component {
           + Create New Note
         </button>
       </form>
+      </div>
       </div> 
     );
   }

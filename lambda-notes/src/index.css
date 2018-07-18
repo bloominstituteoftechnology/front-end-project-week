@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  background-color: #D8D8D8;
+  height:100%;
+  width:20%;
+  
+}
+.sideBar button {
+  background-color: #2BC1C4;
+}
+.page-container {
+background-color: #F3F3F3;
+}
