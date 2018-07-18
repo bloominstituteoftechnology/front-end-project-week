@@ -9,17 +9,26 @@ class LambdaEdit extends Component {
         }
     }
 
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        let note = this.props.notes.filter(note => note.id === Number(id));
+        this.props.handleSelectNote(note[0]);
+    }
 
-    
+    handleUpdate = () => { this.props.handleEditNote(this.props.match.params.id) }
+
     render() {
-        <div>
-        <h2>Edit Note:</h2>
-        <form>
-                <input style={{ width: '500px', height: '30px', marginBottom: '15px' }} type="text" name="title" placeholder="Note Title" /><br />
-                <textarea style={{ width: '600px', height: '350px' }} type="text" name="body" placeholder="Note Content"   /><br />
-                <button>Update</button>
-            </form>
-        </div>
+        return (
+            <div>
+                <h2>Edit Note:</h2>
+                <form>
+                    <input style={{ width: '500px', height: '30px', marginBottom: '15px' }} type="text" name="title" placeholder="Note Title" value={this.props.selected.title} onChange={this.props.handleTitle} /><br />
+                    <textarea style={{ width: '600px', height: '350px' }} type="text" name="body" placeholder="Note Content" value={this.props.selected.body} onChange={this.props.handleBody}/><br />
+                    <button onClick={this.handleUpdate}>Update</button>
+                </form>
+            </div>
+        )
     }
 }
+
 export default LambdaEdit;

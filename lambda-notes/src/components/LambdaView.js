@@ -23,7 +23,7 @@ class LambdaView extends Component {
             return (
 
                 <div key={note.id}>
-                    <Link to={`/notes/edit/${note.id}`} style={{ color: 'black', textDecoration: 'underline', marginRight: '10px' }}>Edit</Link>
+                    <Link to={`/edit/${note.id}`} style={{ color: 'black', textDecoration: 'underline', marginRight: '10px' }}>Edit</Link>
                     <Link to={'/'} style={{ color: 'black' }}>Delete</Link>
                     <h1>{note.title}</h1>
                     <p>{note.body}</p>

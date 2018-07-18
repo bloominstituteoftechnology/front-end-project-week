@@ -5,7 +5,7 @@ import LambdaNav from './containers/LambdaNav';
 import LambdaNotes from './containers/LambdaNotes';
 import LambdaForm from './components/LambdaForm';
 import LambdaView from './components/LambdaView';
-import LamdaEdit from './components/LambdaEdit';
+import LambdaEdit from './components/LambdaEdit';
 import { Route } from 'react-router-dom';
 
 const StyledContainer = styled.div`
@@ -89,8 +89,7 @@ class App extends Component {
   }
 
   handleSelectNote = id => {
-    this.setState({ selected: this.state.notes[`${id}`] });
-
+    this.setState({ selected: id });
   }
 
   //Lambda Edit
@@ -115,7 +114,17 @@ class App extends Component {
   }
 
   handleEditNote = id => {
-    
+    const notes = this.state.notes.slice();
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id === Number(id)) {
+        notes[i] = {
+          id: this.state.selected.id,
+          title: this.state.selected.title,
+          content: this.state.selected.body
+        };
+      }
+    }
+    this.setState({ notes, selected: {} });
   }
 
   render() {
@@ -124,8 +133,8 @@ class App extends Component {
         <Route path="/" component={LambdaNav} />
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
-        <Route path="/edit/:id" render={props=> (<LambdaEdit/>)} /> 
-        <Route path="/notes/:id" render={props => <LambdaView {...props} note={this.state.notes} />} />
+        <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} selected={this.state.selected} handleTitle={this.handleTitle} handleBody={this.handleBody} handleSelectNote={this.handleSelectNote} handleEditNote={this.handleEditNote} />)} />
+        <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} />)} />
       </StyledContainer>
     )
   }
