@@ -47,6 +47,7 @@
 .app .content {
   background-color: #F3F3F3;
   width: 100%;
+  margin-left: 50px;
 }
 .app .content a:visited {
   text-decoration: none;
@@ -62,12 +63,13 @@
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 90%;
 }
 .content .notes ul .note {
   border:2px #979797 solid;
   margin-bottom: 40px;
+  margin-right: 100px;
   background-color: white;
   width: 280px;
   height: 300px;
@@ -164,4 +166,13 @@
   font-size: 20px;
   font-weight: bold;
   line-height: 40px;
+}
+.content .delete-background {
+  border: 3px blue solid;
+  width: 1500px;
+  z-index: 1;
+  margin-top: 0px;
+}
+.content .delete-alert {
+  border: 2px red solid;
 }

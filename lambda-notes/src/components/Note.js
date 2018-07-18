@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 class Note extends Component {
   constructor(props) {
     super(props);
@@ -25,8 +26,8 @@ class Note extends Component {
     return (
       <div className='note-view'>
         <div className='edit-delete'>
-          <p>edit</p>
-          <p>delete</p>
+          <Link to={`/edit/${this.state.id}`}><p>edit</p></Link>
+          <Link to={`/delete/${this.state.id}`}><p>delete</p></Link>
         </div>
         <div className='text'>
           {this.props.notes.map(this.filterNotes)}
