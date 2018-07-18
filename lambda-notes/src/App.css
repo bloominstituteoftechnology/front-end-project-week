@@ -11,7 +11,7 @@ body {
 
 .App {
   text-align: left;
-  font: Raleway Medium;
+  font: 'Raleway' Medium;
   color: #4A4A4A;
 }
 
@@ -49,10 +49,17 @@ Border color used throughout: solid 1px #979797;
 display: flex;
 flex-wrap: wrap;
 flex-direction: column;
-align-items: center;
+align-items: flex-start;
+padding-left: 2.3vw;
+font-weight: bold;
 }
 
 /* Notes styles */
+
+.notesheading {
+  margin-left: 29vw;
+  margin-top: 10vh;
+}
 
 .notes {
   margin-left: 26.5vw;
@@ -68,7 +75,14 @@ align-items: center;
   border: solid 1px #979797;
   width: 21.7vw;
   background: white;
-  padding-left: 5px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  
+}
+
+.notecardbody {
+  font-weight: lighter;
+  line-height: 24px;
 }
 
 /* Create note Styles */
@@ -77,8 +91,19 @@ align-items: center;
   margin-left: 26.5vw;
 }
 
+input::placeholder {
+  font-size: 18px;
+  color: grey;
+}
+
+input {
+  font-size: 18px;
+  color: grey;
+}
+
  .createheading {
    margin-left: 20px;
+   color: #505050
  }
 
 .notetitle {
@@ -108,8 +133,15 @@ font-size: 1.4em;
 /* Note styles */
 
 .note {
-  margin: 35px 28vw;
+  margin: 70px 14vw 10vw 28vw;
+  line-height: 24px;
 }
+
+.notetitle {
+  color: #505050;
+  font-size: 24px;
+}
+
 
 .editdeletebuttons {
   position: absolute;

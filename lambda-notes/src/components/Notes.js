@@ -24,7 +24,7 @@ class Notes extends Component {
   render() {
     return (
       <div>
-        <h2 className="">Your Notes:</h2>
+        <h2 className="notesheading">Your Notes:</h2>
         <div className="notes">
           {this.state.notes.map(note => {
             return <NoteCard note={note} key={note.id} />;

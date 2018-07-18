@@ -18,10 +18,9 @@ const NoteCard = props => {
       <div className="notecard">
         <div className="">
           <div>
-            <div className="">
               <h2>{title}</h2>
-            </div>
-            <p className="">{textBody}</p>
+            <hr/>
+            <p className="notecardbody">{textBody}</p>
           </div>
         </div>
       </div>

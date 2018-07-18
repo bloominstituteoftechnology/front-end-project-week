@@ -4,10 +4,12 @@ import styled from 'styled-components';
 
 const StyledLink = styled(Link)`
     text-decoration: none;
+    font-size: 48px;
+    line-height: 36px;
 
     &:focus, &:hover, &:visited, &:link, &:active {
         text-decoration: none;
-        color: black;
+        color: #505050;
     }
 `;
 
@@ -33,7 +35,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <div className="navlinks">
-      <h2><StyledLink to="/">Lambda Notes</StyledLink></h2>
+      <h2><StyledLink to="/">Lambda<br/>Notes</StyledLink></h2>
         <StyledNavLink className="" to="/notes">
           View Your Notes
         </StyledNavLink>

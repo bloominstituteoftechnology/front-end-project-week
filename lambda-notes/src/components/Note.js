@@ -94,9 +94,8 @@ class Note extends Component {
           <a onClick={this.editNote}>edit</a>
           <a onClick={this.openModal}>delete</a>
         </div>
-        <h3 className="">{this.state.title}</h3>
-        <div>
-          <div className="">{this.state.textBody}</div>
+        <h3 className="notetitle">{this.state.title}</h3>
+          <div className="notecontent">{this.state.textBody}
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}

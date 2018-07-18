@@ -64,7 +64,7 @@ class CreateNote extends Component {
       <Redirect to="/notes" />
     ) : (
       <div className="createnote">
-        <h2 className="createheading">Create New Note:</h2>
+        <h2 className="createheading">Edit Note:</h2>
         <form onSubmit={this.addNote}>
           <input
             className="notetitle"
@@ -83,7 +83,7 @@ class CreateNote extends Component {
             value={this.state.textBody}
           />
 
-          <button className="savebutton">Save</button>
+          <button className="savebutton">Update</button>
         </form>
       </div>
     );
