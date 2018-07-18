@@ -2,11 +2,14 @@
     padding: 1rem;
     min-width: 220px;
     height: 100vh;
-    background-color: #D3D3D3;
+    background-color: #D8D8D8;
     /* max-width: 20rem; */
 }
 
 .nav-header {
     margin: 0;
-    margin-bottom: 1.5rem;
+    font-weight: 600;
+    line-height: 35px;
+    margin-bottom: 2.5rem;
+    margin-top: .5rem;
 }

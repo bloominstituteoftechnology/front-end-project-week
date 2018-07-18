@@ -26,8 +26,8 @@ export default class NoteView extends Component {
         <div className="top-content float-right mt-0">
           <button type="button" class="btn btn-link text-dark underline">Edit</button>
           <button type="button" class="btn btn-link text-dark underline" data-toggle="modal" data-target="#exampleModal">Delete</button>
+          <DeleteNote id={this.props.match.params.id}/>
         </div>
-        <DeleteNote />
         <h3 className='header'>{this.state.note.title}</h3>
         <p className='notesList'>{this.state.note.textBody}</p>
       </div>

@@ -37,7 +37,7 @@ export default class CreateNote extends Component {
   render() {
     return (
       <div class="form-group">
-        <h2 className="header">Create New Note:</h2>
+        <h3 className="header mt-2">Create New Note:</h3>
         <input
           name='title'
           type="text" 
@@ -54,7 +54,7 @@ export default class CreateNote extends Component {
         /><br />
         <button 
           type="submit" 
-          className="btn btn-large custom-button-teal text-white mt-0"
+          className="btn-large custom-button-teal text-white mt-0"
           onClick={() => this.handleSubmit()}
         >
           Save
