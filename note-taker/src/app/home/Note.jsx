@@ -15,6 +15,9 @@ const CardTitle = styled.h2`
   text-transform: "capitalize";
   border-bottom: 2px solid var(--main-border-color);
   padding-bottom: 0.5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow:hidden;
 `;
 
 const CardContent = styled.p`
