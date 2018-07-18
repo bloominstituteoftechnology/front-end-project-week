@@ -15,10 +15,22 @@ export default () =>
   <StyledSidebar>
     <h1>Lambda Notes</h1>
     <Link to='/'>
-      <Button>View Your Notes</Button>
+      <Button
+        variant='primary'
+        p={2}
+        my={3}
+      >
+        View Your Notes
+      </Button>
     </Link>
     <Link to='/new'>
-      <Button>+ Create New Note</Button>
+      <Button
+        variant='primary'
+        p={2}
+        my={3}
+      >
+        + Create New Note
+      </Button>
     </Link>
   </StyledSidebar>
 

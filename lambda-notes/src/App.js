@@ -7,6 +7,8 @@ import NoteView from './components/NoteView'
 import NewNote from './components/NewNote'
 import EditNote from './components/EditNote'
 import { Route, Link } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import theme from './theme'
 
 class App extends Component {
  
@@ -81,56 +83,58 @@ class App extends Component {
     const { notes } = this.state
 
     return (
-      <div style={{display: 'flex'}}>
-        <Sidebar />
-        <MainContainer>
-          <Route exact path='/' render={() =>
-            <NoteCardsContainer>
-              {notes.map((note, index) =>
-                <NoteCard 
-                  key={note.id} 
-                  id={note.id}
+      <ThemeProvider theme={theme} >
+        <div style={{display: 'flex'}}>
+          <Sidebar />
+          <MainContainer>
+            <Route exact path='/' render={() =>
+              <NoteCardsContainer>
+                {notes.map((note, index) =>
+                  <NoteCard 
+                    key={note.id} 
+                    id={note.id}
+                    title={note.title}
+                    text={note.text}
+                  />
+                )}
+              </NoteCardsContainer>
+            }/>
+          
+            <Route exact path='/note/:id' render={props => 
+              notes.filter(note => 
+                String(note.id) === props.match.params.id
+              ).map(note => 
+                <NoteView
+                  id={props.match.params.id}
                   title={note.title}
                   text={note.text}
+                  deleteNote={this.deleteNote}
+                  {...props}
                 />
-              )}
-            </NoteCardsContainer>
-          }/>
-        
-          <Route exact path='/note/:id' render={props => 
-            notes.filter(note => 
+              )
+            }/>
+
+          <Route exact path='/note/:id/edit' render={props =>
+            notes.filter(note =>
               String(note.id) === props.match.params.id
             ).map(note => 
-              <NoteView
+              <EditNote 
                 id={props.match.params.id}
                 title={note.title}
                 text={note.text}
-                deleteNote={this.deleteNote}
+                editNote={this.editNote}
                 {...props}
               />
             )
-          }/>
+          } /> 
 
-        <Route exact path='/note/:id/edit' render={props =>
-          notes.filter(note =>
-            String(note.id) === props.match.params.id
-          ).map(note => 
-            <EditNote 
-              id={props.match.params.id}
-              title={note.title}
-              text={note.text}
-              editNote={this.editNote}
-              {...props}
-            />
-          )
-        } /> 
-
-        
-          <Route path='/new' render={props =>
-            <NewNote {...props} addNote={this.addNote} />
-          }/>
-        </MainContainer>
-      </div>
+          
+            <Route path='/new' render={props =>
+              <NewNote {...props} addNote={this.addNote} />
+            }/>
+          </MainContainer>
+        </div>
+      </ThemeProvider>
     );
   }
 }

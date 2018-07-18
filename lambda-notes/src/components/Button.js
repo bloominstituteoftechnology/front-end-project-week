@@ -1,12 +1,15 @@
 import styled from 'styled-components'
+import { color, space, buttonStyle } from 'styled-system'
+
+/*
+ 
+https://github.com/jxnblk/styled-system/blob/master/docs/getting-started.md
+
+*/
 
 export default styled.div`
   text-align: center;
-  padding: 10px;
-  background: #2BC1C4;
-  color: white;
-  margin: 15px 0;
-  &:hover {
-    background: #0e9e9e;
-  }
+  ${color}
+  ${space}
+  ${buttonStyle}
 `
