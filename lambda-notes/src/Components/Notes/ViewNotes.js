@@ -2,6 +2,7 @@ import React from 'react';
 import { getNote } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import DeleteModal from '../Modal/DeleteModal';
 
 const styled = {
@@ -18,7 +19,22 @@ class ViewNote extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getNote(this.props.id);
+        let id = window.location.pathname.split('/');
+        id = id[2];
+        this.props.getNote(URL, id);
+        // this.props.getNote(this.props.id);
+    }
+
+    handeInputChange = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleInputSubmit = id => {
+        const note = {
+            title: this.state.title,
+            textBody: this.state.body,
+        }
+        this.props.updateNote(URL, id, note);
     }
 
     toggle = () => {
@@ -35,9 +51,7 @@ class ViewNote extends React.Component {
                     return (
                         <div key={note._id} >
                             <div className="mainContent__options" >
-                                {/* <Link to={`/notes/${note._id}/edit`} style={styled} >
-                                    <span className="mainContent__options--links" >edit</span>
-                                </Link> */}
+                                <Link to={`/edit/${note._id}/`} style={styled} >Edit</Link>
                                 <div>
                                     <DeleteModal 
                                     modal={'modal'}
