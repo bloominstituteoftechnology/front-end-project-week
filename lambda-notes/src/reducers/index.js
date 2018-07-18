@@ -1,4 +1,4 @@
-import {ADD_NOTE} from '../actions';
+import {ADD_NOTE, UPDATE_NOTE} from '../actions';
 
 const initialState = {
     notes: [
@@ -52,6 +52,9 @@ const rootReducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             notes: [...state.notes, action.payload]
           });
+        
+        case UPDATE_NOTE:
+        return {...state, notes: action.payload };
 
         default:
             return state;

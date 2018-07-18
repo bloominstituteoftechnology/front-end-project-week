@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SideBar from '../Sidebar/sidebar';
 import './notecard.css';
-
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 class NoteCard extends Component {
@@ -23,11 +23,14 @@ class NoteCard extends Component {
 
     render() {
         return (
-            <div className="page-container">
+            <div className="card-page-container">
                 <SideBar />
                 <div className="section-container"> 
                     <div className="edit-delete">
-                        <a> edit </a> <a> delete </a>
+                        <Link to={`/edit/${this.state.id}`}>
+                         <a> edit </a> 
+                         </Link>  
+                         <a> delete </a>
                      </div>
                     <h1 className="notes-title card "> {this.state.note.title}</h1>
                     <a className="single-notes-content"> {this.state.note.content} </a>
@@ -38,7 +41,6 @@ class NoteCard extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return{
         notes: state.notes
       }

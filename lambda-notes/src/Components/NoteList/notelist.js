@@ -12,7 +12,7 @@ class NoteList extends Component {
                 <div className="section-container">
                     <h1 className="notes-title"> Your Notes: </h1>
                     <div className="note-container">
-                    {this.props.notes.map(note => <Note note={note}/>)}
+                    {this.props.notes.map(note => <Note key={note.id} note={note}/>)}
                       </div>
                   </div>
             </div>
@@ -21,7 +21,6 @@ class NoteList extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return{
         notes: state.notes
     }
