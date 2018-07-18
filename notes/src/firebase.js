@@ -1,4 +1,5 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
+
 var config = {
   apiKey: "AIzaSyDtQ5CefSYtm6pWPo6yemRCMYIMXFzNja0",
   authDomain: "lambda-notes-frontend.firebaseapp.com",
@@ -8,4 +9,5 @@ var config = {
   messagingSenderId: "474204013733"
 };
 firebase.initializeApp(config);
+
 export default firebase;

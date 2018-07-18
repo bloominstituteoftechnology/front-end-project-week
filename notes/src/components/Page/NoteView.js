@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { mdReact } from 'markdown-react-js';
 import DeleteView from './DeleteView';
+import './markdown.css';
 
 class NoteView extends Component {
   constructor(props) {
@@ -27,12 +29,12 @@ class NoteView extends Component {
     e.preventDefault();
     document.body.style.overflow = 'hidden';
     this.setState({isDeleteShowing: true});
-  }
+  };
 
   onClickHideDelete = () => {
     document.body.style.overflow = 'auto';
     this.setState({isDeleteShowing: false});
-  }
+  };
 
   componentDidUpdate(prevProps) {
     let id;
@@ -41,7 +43,6 @@ class NoteView extends Component {
         let notes = this.props.notes.slice();
         id = this.props.match.params.noteID;
         notes = notes.filter(item => item.id === id);
-        console.log(notes[0]);
         if (notes[0]) {
           this.setState({ note: {
             id: notes[0].id,
@@ -55,6 +56,7 @@ class NoteView extends Component {
   }
 
   render() {
+
     return (
       <main className="note-view">
         <div className="note-view-control">
@@ -62,7 +64,7 @@ class NoteView extends Component {
           <button className="note-view-control__button" onClick={e => this.onClickShowDelete(e)}>delete</button>
         </div>
         <h2>{this.state.note.title}</h2>
-        <span className="note-view__content">{this.state.note.noteContent}</span>
+        <span className="markdown-body">{mdReact()(this.state.note.noteContent)}</span>
         <DeleteView isDeleteShowing={this.state.isDeleteShowing} onClickDelete={this.onClickDelete} onClickHideDelete={this.onClickHideDelete} />
       </main>
     );

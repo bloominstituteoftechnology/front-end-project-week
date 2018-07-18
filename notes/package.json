@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.2.0",
+    "markdown-react-js": "^1.0.0",
     "react": "^16.4.1",
     "react-csv": "^1.0.14",
     "react-dom": "^16.4.1",
@@ -15,7 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "firebase": "^5.2.0"
-  }
+  "devDependencies": {}
 }
