@@ -5,8 +5,8 @@ class EditView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: undefined,
       note: {
+        id: null,
         title: '',
         noteContent: ''
       }
@@ -19,13 +19,12 @@ class EditView extends Component {
     if(prevProps.notes !== this.props.notes) {
       if (this.props.match) {
         let notes = this.props.notes.slice();
-        id = Number(this.props.match.params.noteID);
-        this.setState({id: id});
-        console.log(id, notes);
+        id = this.props.match.params.noteID;
         notes = notes.filter(item => item.id === id);
         console.log(notes[0]);
         if (notes[0]) {
           this.setState({ note: {
+            id: notes[0].id,
             title: notes[0].title,
             noteContent: notes[0].noteContent
           }});
@@ -39,7 +38,7 @@ class EditView extends Component {
     return (
       <main className="edit-view">
         <h2>Edit Note:</h2>
-        <Form buttonText='Update' onSubmitNote={this.props.onSubmitNote} id={this.state.id} note={this.state.note} />
+        <Form buttonText='Update' onSubmitNote={this.props.onSubmitNote} note={this.state.note} />
       </main>
     );
   }

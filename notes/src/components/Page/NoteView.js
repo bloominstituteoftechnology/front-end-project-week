@@ -6,8 +6,8 @@ class NoteView extends Component {
     super(props);
     this.state = {
       isDeleteShowing: false,
-      id: undefined,
       note: {
+        id: null,
         title: '',
         noteContent: ''
       }
@@ -16,11 +16,11 @@ class NoteView extends Component {
 
   onClickEdit = e => {
     e.preventDefault();
-    window.location.href = `/edit/${this.state.id}`;
+    window.location.href = `/edit/${this.state.note.id}`;
   }
 
   onClickDelete = () => {
-    this.props.onDeleteNote(this.state.id);
+    this.props.onDeleteNote(this.state.note.id);
   };
 
   onClickShowDelete = e => {
@@ -36,17 +36,15 @@ class NoteView extends Component {
 
   componentDidUpdate(prevProps) {
     let id;
-
     if(prevProps.notes !== this.props.notes) {
       if (this.props.match) {
         let notes = this.props.notes.slice();
-        id = Number(this.props.match.params.noteID);
-        this.setState({id: id});
-        console.log(id, notes);
+        id = this.props.match.params.noteID;
         notes = notes.filter(item => item.id === id);
         console.log(notes[0]);
         if (notes[0]) {
           this.setState({ note: {
+            id: notes[0].id,
             title: notes[0].title,
             noteContent: notes[0].noteContent
           }});

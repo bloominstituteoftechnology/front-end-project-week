@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import firebase from '../../firebase';
 import { Route } from 'react-router-dom';
 import ListView from '../Page/ListView';
 import CreateNewView from '../Page/CreateNewView';
@@ -8,7 +8,7 @@ import NoteView from '../Page/NoteView';
 import Nav from '../Nav';
 import './App.css';
 
-const API_URL = 'http://localhost:3333/notes';
+const API_URL = '';
 
 class App extends Component {
   constructor(props) {
@@ -18,46 +18,49 @@ class App extends Component {
     };
   }
 
-  onAddNote = note => {
-    axios
-    .post(API_URL, note)
-    .then(response => {
-      console.log('posted', response);
-      this.setState({ notes: response.data});
+  onAddNote = note => {   
+    const notesRef = firebase.database().ref('notes');
+    notesRef.push(note)
+    .then(() => {
       window.location.href = '/';
     })
-    .catch(error => console.log(error));    
+    .catch(error => console.log(error));
   }
 
-  onUpdateNote = (id, note) => {
-    axios
-    .put(`${API_URL}/${id}`, note)
-    .then(response => {
-      console.log('posted', response);
-      this.setState({ notes: response.data});
-      window.location.href = `/note/${id}`;
+  onUpdateNote = (note) => {
+    console.log('update', note);
+    const noteRef = firebase.database().ref('notes/' + note.id);
+    noteRef.set(note)
+    .then(() => {
+      window.location.href = `/note/${note.id}`;
     })
     .catch(error => console.log(error));
   }
 
   onDeleteNote = id => {
-    axios
-    .delete(`${API_URL}/${id}`)
-    .then(response => {
-      console.log('posted', response);
-      this.setState({ notes: response.data});
+    const noteRef = firebase.database().ref(`/notes/${id}`);
+    noteRef.remove()
+    .then(() => {
       window.location.href = '/';
     })
     .catch(error => console.log(error));
   }
 
   componentDidMount() {
-    axios.get(API_URL)
-    .then(response => {
-      this.setState({notes: response.data});
-    })
-    .catch(error => {
-      console.log(error);
+    const notesRef = firebase.database().ref('notes');
+    notesRef.on('value', (snapshot) => {
+      let notes = snapshot.val();
+      let newState = [];
+      for (let note in notes) {
+        newState.push({
+          id: note,
+          title: notes[note].title,
+          noteContent: notes[note].noteContent
+        });
+      }
+      this.setState({
+        notes: newState
+      });
     });
   }
 

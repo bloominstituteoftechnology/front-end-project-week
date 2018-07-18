@@ -5,8 +5,8 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: undefined,
       note: {
+        id: null,
         title: '',
         noteContent: ''
       }
@@ -20,30 +20,34 @@ class Form extends Component {
   };
 
   onSubmit = () => {
-    if (this.state.id) {
-      this.props.onSubmitNote(this.state.id, this.state.note);
-      console.log('click update');
-    } else {
-      this.props.onSubmitNote(this.state.note);
-      this.setState({note: {
-        title: '',
-        noteContent: ''
-      }});
-      console.log('click save', this.state.id);
-    }
+    this.props.onSubmitNote(this.state.note);
+    this.setState({note: {
+      id: null,
+      title: '',
+      noteContent: ''
+    }});
+    console.log('click save', this.state.note);
   };
 
   componentDidUpdate = prevProps => {
     if(prevProps.note !== this.props.note) {
       this.setState({
-        id: this.props.id,
         note: {
+          id: this.props.note.id,
           title: this.props.note.title,
           noteContent: this.props.note.noteContent
         }
       });
     }
-  }
+  };
+
+  componentDidMount = () => {
+      this.setState({note: {
+        id: Date.now(),
+        title: '',
+        noteContent: ''
+      }});   
+  };
 
   render() {
 
