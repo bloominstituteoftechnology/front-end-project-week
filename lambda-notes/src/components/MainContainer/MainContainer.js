@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './index.css'
+import './index.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {
     CreateNote,
     DeleteNote,
@@ -8,6 +9,7 @@ import {
     SideBar,
     ViewNote
 } from '../../components';
+
 
 class MainContainer extends Component {
     state = {
@@ -61,10 +63,15 @@ class MainContainer extends Component {
     }
     render() {
         return (
-            <div className = 'app-Container'>
-                <SideBar />
-                <ListView notes={this.state.notes} />
-            </div>
+            <Router>
+                <div className = 'app-Container'>
+                        <SideBar />
+                        <Route exact path='/' render={ props => <ListView {...props} notes={this.state.notes} /> } />
+                        <Route path='/create' component={CreateNote} />
+                        <Route path='/edite'  component={EditNote} />
+
+                </div>
+            </Router>
         );
     }
 }

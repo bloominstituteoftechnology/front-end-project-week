@@ -19,27 +19,8 @@
     width: 660px;
 }
 
-.note{
-    border: 2px solid grey;
-    width: 200px;
-    min-height: 220px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    background-color: white;
-
+.note-header{
+    display: flex;
+    justify-content: flex-start
 }
 
-.note h4{
-    margin: 0;
-}
-
-.note hr{
-    margin: 0.25rem 0 0.5rem 0;
-}
-
-.note p{
-    height: 10rem;
-    margin: 0;
-    overflow: hidden;
-    text-align: inherit;
-}
