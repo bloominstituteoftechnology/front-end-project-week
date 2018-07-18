@@ -25,6 +25,7 @@ class EditNoteComponent extends React.Component {
       textBody: this.state.textBody
     }
     this.props.updateNote(id, noteObj);
+    this.props.fetchNote(id);
   }
   render() {
     const id = this.props.match.params.id;
