@@ -103,8 +103,7 @@ class Note extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    note: state.note,
-    updating: state.updating
+    note: state.note
   }
 }
 
