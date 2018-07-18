@@ -42,16 +42,6 @@ button a:visited {
   color: #FFFFFF;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .container {
   display: flex;
   flex-direction: row;
@@ -93,6 +83,22 @@ button a:visited {
   display: flex;
   flex-direction: column;
   padding: 20px 35px 20px 35px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.react-spinner {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .no-match {

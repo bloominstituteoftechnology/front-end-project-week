@@ -1,15 +1,13 @@
 import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-import logo from '../logo.svg';
+import Loading from './Loading';
 
 const NoteList = props => {
   // if notes are not yet loaded into store, return loading icon
   if (!props.notes) {
     return (
-      <div className="main-container">
-        <img src={logo} className="App-logo" alt="logo" />
-      </div>
+      <Loading />
     )
   }
 

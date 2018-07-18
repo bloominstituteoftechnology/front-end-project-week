@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
-import logo from '../logo.svg';
 import Form from './Form';
 import NoMatch from './NoMatch';
+import Loading from './Loading';
 import Modal from 'react-modal';
 import { getNote, getNotes, editNote, deleteNote } from '../actions';
 
@@ -67,13 +67,9 @@ class Note extends React.Component {
 
   render() {
     // if note is not yet loaded into store, or if requested id does not exist, return NoMatch
-    console.log(this.props.note);
-
     if (!this.props.note || this.props.note._id !== this.id) {
       return (
-        <div className="main-container">
-          <img src={logo} className="App-logo" alt="logo" />
-        </div>
+        <Loading />
       )
     }
 
