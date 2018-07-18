@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const GET_NOTES = 'GET_NOTES';
 export const ADDING_NOTE = 'ADDING_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
 
 
 export const getNotes = () => {
@@ -23,5 +24,14 @@ export const addNote = (e, note, history) => {
     
     }
    
+    
+}
+
+export const editNotes = (e, savedNote, history) => {
+    console.log('updating note...');
+    return (dispatch) => {
+       dispatch({type: EDIT_NOTE, payload: savedNote}) 
+    }
+    
     
 }

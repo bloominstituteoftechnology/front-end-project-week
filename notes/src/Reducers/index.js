@@ -1,5 +1,5 @@
 import { notes } from '../data';
-import { GET_NOTES, ADDING_NOTE } from '../Actions';
+import { GET_NOTES, ADDING_NOTE, EDIT_NOTE } from '../Actions';
 
 const initialState = {
     notes: notes,
@@ -17,6 +17,12 @@ const rootReducer = (state = initialState, action) => {
   switch(action.type) {
     //   case GET_NOTES:
     //   return console.log('getting notes')
+    case EDIT_NOTE:
+    let updatedNotes = [...state.notes].map(note => (note.id == action.payload.id) ? {id: action.payload.id, title: action.payload.title, content: action.payload.content} : note)
+
+  console.log(Object.assign({}, {notes:updatedNotes}));
+    return Object.assign({}, {notes:updatedNotes});
+
       case ADDING_NOTE:
       return (
         
