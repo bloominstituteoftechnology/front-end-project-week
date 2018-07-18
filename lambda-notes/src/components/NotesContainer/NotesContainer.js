@@ -29,7 +29,7 @@ class NotesContainer extends React.Component {
         return (
             <NotesWrapper>
 
-                <SearchForm className='search-form'>
+                <SearchForm>
                     <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search' />
                 </SearchForm>
 

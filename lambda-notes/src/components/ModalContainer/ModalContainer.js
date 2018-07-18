@@ -1,21 +1,22 @@
 import React from 'react';
-
+import { ModalWrapper, ModalContent, ModalButtonsContainer, ModalDeleteButton, ModalCancelButton } from '../ReusableComponents/Modal';
 const ModalContainer = props => {
     // Displays modal depending on the state
     return (
-        <div className='modal' style={props.modal ? { display: 'block' } : null}>
+        <ModalWrapper style={props.modal ? { display: 'block' } : null}>
 
-            <div className="modal-content">
-                <p className='modal-text'>Are you sure you want to delete this?</p>
+            <ModalContent>
+                
+                <p>Are you sure you want to delete this?</p>
 
-                <div className='modal-buttons'>
-                    <button onClick={props.deleteNote} className='delete-button'>Delete</button>
-                    <button onClick={props.toggleModal} className='cancel-button'>No</button>
-                </div>
+                <ModalButtonsContainer>
+                    <ModalDeleteButton onClick={props.deleteNote} className='delete-button'>Delete</ModalDeleteButton>
+                    <ModalCancelButton onClick={props.toggleModal} className='cancel-button'>No</ModalCancelButton>
+                </ModalButtonsContainer>
 
-            </div>
+            </ModalContent>
 
-        </div>
+        </ModalWrapper>
     );
 }
 
