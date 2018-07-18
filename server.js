@@ -16,29 +16,29 @@ const sendUserError = (msg, res) => {
 let notes = [
   {
     id: 0,
-    title: "Sample note 1",
+    title: "Welcome to Lambda Notes",
     textBody:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+      "Lambda Notes is a simple note-taking app. It was built using React and other related libraries. Lambda Notes is a simple note-taking app. It was built using React and other related libraries. Lambda Notes is a simple note-taking app. It was built using React and other related libraries."
   },
   {
     id: 1,
-    title: "Sample note 2",
-    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    title: "Here's how it works",
+    textBody: "On the side bar, you will notice two buttons: View your notes and Create new note. What they do is self explanatory. Click View to see all your notes and Create to add a new one."
   },
   {
     id: 2,
-    title: "Sample note 3",
-    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    title: "This is the MVP feature set",
+    textBody: "The MVP included the following features: (1) Display a list of notes, (2) Create a note with a title and content, (3) View an existing note, (4) Edit an existing note, and (5) Delete an existing note."
   },
   {
     id: 3,
-    title: "Sample note 4",
-    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    title: "Extra features: Search and Markdown support",
+    textBody: "To build Lambda Notes, react router, axios, and styled components were used as well as reactstrap and react-modal. To build Lambda Notes, react router, axios, and styled components were used as well as reactstrap and react-modal."
   },
   {
     id: 4,
-    title: "Sample note",
-    textBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae magna nisl. Phasellus sed risus nulla."
+    title: "Take a look around",
+    textBody: "Click through the app and play around with it. Add notes of your own, edit them as you see fit, and delete anything you'd like. You'll find search and markdown support among the additional features."
   }
 ];
 
