@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchNoteReq } from '../actions';
+import { fetchNoteReq, deleteReq } from '../actions';
 import NoteView from './NoteView';
 import DeleteModal from './DeleteModal';
 import logo from '../logo.svg';
@@ -11,7 +11,8 @@ class Note extends Component {
         super(props);
         this.state = {
             note: null,
-            isSelected: false
+            isSelected: false,
+            toggle: false
         };
     }
 
@@ -19,10 +20,20 @@ class Note extends Component {
         const id = this.props.match.params.id;
         // console.log(id);
         this.props.fetchNoteReq(id);
+        this.setState({isSelected: false, toggle: false});
     }
 
+  toggleDelete = () => {
+    this.setState({toggle: !this.state.toggle});
+  };
+
+  handleDelete = (id) => {
+    this.props.deleteReq(id);
+    this.toggleDelete();
+  };
+
     render () {
-        if(!this.props.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+        if(this.props.deleting) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
             <div className="Note-container">
@@ -31,7 +42,7 @@ class Note extends Component {
                     <Link to={`/edit/${this.props.note["_id"]}`}>
                         <p>edit</p>
                     </Link>
-                    <Link to={`/note/${this.props.note["_id"]}`} onClick={this.props.toggleDelete}>
+                    <Link to={`/note/${this.props.note["_id"]}`} onClick={this.toggleDelete}>
                         <p>delete</p>
                     </Link>
                     </div>
@@ -41,7 +52,7 @@ class Note extends Component {
                     <p>{this.props.note.textBody}</p>
                 </div>
                 {this.state.isSelected ? <NoteView note={this.props.note}/> : null}
-                {this.props.deleting ? <DeleteModal toggleDelete={this.props.toggleDelete} handleDelete={this.props.handleDelete} id={this.state.note["_id"]}/> : null}
+                {this.state.toggle ? <DeleteModal toggleDelete={this.toggleDelete} handleDelete={this.handleDelete} id={this.props.note["_id"]}/> : null}
             </div>
         );
     }
@@ -50,8 +61,10 @@ class Note extends Component {
 const mapStateToProps = ({ notes }) => {
     // console.log(notes);
     return {
-        note: notes.note
+        note: notes.note,
+        fetching: notes.fetching,
+        deleting: notes.deleting
     };
 }
 
-export default connect(mapStateToProps, { fetchNoteReq })(Note);
+export default connect(mapStateToProps, { fetchNoteReq, deleteReq })(Note);

@@ -18,7 +18,7 @@ class EditView extends Component {
         const id = this.props.match.params.id;
         // console.log(id);
         this.props.fetchNoteReq(id);
-        this.setState({title: '', textBody: ''});
+        this.setState({title: '', textBody: '', toggle: false});
     }
 
     handleChange = (e) => {
