@@ -20,19 +20,6 @@ body {
   min-height: 891px;
 }
 
-.notes-container {
-  width: 100%;
-  background: #F3F3F3
-}
-
-.notes-cards {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0px 27px;
-  margin-top: 27px;
-  font-size: 1.7rem;
-}
-
 .notes-card {
   background: white;
   border: 1px solid#979797;
@@ -49,13 +36,6 @@ body {
 .notes-header {
   padding: 0px 27px;
   margin-top: 58px;
-  font-size: 1.9rem;
-  font-family: 'Roboto', Arial, sans-serif;
-}
-
-.main-notes-header {
-  padding: 0px 27px;
-  margin-top: 37px;
   font-size: 1.9rem;
   font-family: 'Roboto', Arial, sans-serif;
 }
@@ -252,11 +232,6 @@ body {
 .title-tag-container {
   display: flex;
   align-items: flex-start;
-}
-
-.search-form {
-  display: flex;
-  justify-content: center;
 }
 
 .note-tags-container {

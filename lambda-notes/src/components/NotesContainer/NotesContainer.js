@@ -1,5 +1,6 @@
 import React from 'react';
 import NotesCard from './NotesCard';
+import { NotesWrapper, NotesCards, SearchForm, MainNotesHeader } from '../ReusableComponents/Notes';
 
 class NotesContainer extends React.Component {
     constructor(props) {
@@ -26,18 +27,19 @@ class NotesContainer extends React.Component {
         }
 
         return (
-            <div className='notes-container' >
+            <NotesWrapper>
 
-                <form className='search-form'>
-                    <input className='search-input-field' onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search' />
-                </form>
+                <SearchForm className='search-form'>
+                    <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search' />
+                </SearchForm>
 
-                <h3 className='main-notes-header' >Your Notes:</h3>
-                <div className='notes-cards'>
+                <MainNotesHeader>Your Notes:</MainNotesHeader>
+
+                <NotesCards>
                     {notes.map(note => <NotesCard key={note._id} note={note} />)}
-                </div>
+                </NotesCards>
 
-            </div>
+            </NotesWrapper>
         );
     }
 
