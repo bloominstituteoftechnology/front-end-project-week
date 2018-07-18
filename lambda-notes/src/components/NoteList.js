@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NoteList = props => {
   if (!props.notes) {
     return (
-      <div>Notes are loading...</div>
+      <div className="main-container"></div>
     )
   }
 

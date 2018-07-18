@@ -1,0 +1,24 @@
+const initialState = {
+  notes: [],
+  note: null,
+  error: null
+};
+
+export default (state = initialState, action) => {
+  switch(action.type) {
+    case 'NOTES_FETCHED':
+      return Object.assign({}, state, { notes: action.payload });
+
+    case 'NOTE_FETCHED':
+      return Object.assign({}, state, { note: action.payload });
+
+    case 'NOTE_EDITED':
+      return Object.assign({}, state, { note: action.payload });
+
+    case 'ERROR':
+      return Object.assign({}, state, { error: action.payload });
+
+    default:
+      return state;
+  }
+}

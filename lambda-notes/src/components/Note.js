@@ -1,14 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../App.css';
-import axios from 'axios';
 import Form from './Form';
 import Modal from 'react-modal';
+import { getNote, getNotes, editNote, deleteNote } from '../actions';
 
 class Note extends React.Component {
   state = {
     isEditing: false,
     modalIsOpen: false,
-    note: null,
     title: "",
     textBody: ""
   }
@@ -17,21 +17,15 @@ class Note extends React.Component {
     return this.props.match.params.id;
   }
 
-  componentDidMount() {
-    axios
-      .get(`https://killer-notes.herokuapp.com/note/get/${this.id}`)
-      .then(response => {
-        this.setState({ note: response.data,
-                        title: response.data.title,
-                        textBody: response.data.textBody });
-      })
-      .catch(error => console.log(error));
+  componentWillMount() {
+    this.props.getNote(this.id);
   }
 
   toggleEditMode = e => {
     e.preventDefault();
-
-    this.setState({ isEditing: true });
+    this.setState({ isEditing: true,
+                    title: this.props.note.title,
+                    textBody: this.props.note.textBody });
   }
 
   handleInputChange = e => {
@@ -40,27 +34,16 @@ class Note extends React.Component {
 
   handleEditSubmit = e => {
     e.preventDefault();
-
-    const editedNote = {
-      title: this.state.title,
-      textBody: this.state.textBody,
-    }
-
-    axios
-      .put(`https://killer-notes.herokuapp.com/note/edit/${this.id}`, editedNote)
-      .then(response => {
-        this.props.updateNotes();
-        this.setState({ isEditing: false,
-                        note: response.data,
-                        title: response.data.title,
-                        textBody: response.data.textBody });
-      })
-      .catch(error => console.log(error));
+    const editedNote = { id: this.id, title: this.state.title, textBody: this.state.textBody }
+    this.props.editNote(editedNote);
+    this.props.getNotes();
+    this.setState({ isEditing: false,
+                    title: this.props.note.title,
+                    textBody: this.props.note.textBody });
   }
 
   openModal = e => {
     e.preventDefault();
-
     this.setState({ modalIsOpen: true });
   }
 
@@ -70,25 +53,15 @@ class Note extends React.Component {
 
   handleDelete = e => {
     e.preventDefault();
-
-    axios
-      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.id}`)
-      .then(response => {
-        this.props.updateNotes();
-        this.setState({ isEditing: false,
-                        note: null,
-                        title: "",
-                        textBody: "" });
-      })
-      .catch(error => console.log(error));
-
+    this.props.deleteNote(this.id);
+    this.props.getNotes();
     this.props.history.push("/");
   }
 
   render() {
-    if (!this.state.note) {
+    if (!this.props.note) {
       return (
-        <div className="main-container note">Note is loading...</div>
+        <div className="main-container note"></div>
       )
     }
 
@@ -122,11 +95,19 @@ class Note extends React.Component {
           <h5 onClick={this.toggleEditMode}>edit</h5>
           <h5 onClick={this.openModal}>delete</h5>
         </div>
-        <h2>{this.state.title.length > 30 ? this.state.title.slice(0, 30) + '...' : this.state.title}</h2>
-        <div className="note-body">{this.state.textBody}</div>
+        <h2>{this.props.note.title.length > 30 ?
+             this.props.note.title.slice(0, 30) + '...' :
+             this.props.note.title}</h2>
+        <div className="note-body">{this.props.note.textBody}</div>
       </div>
     )
   }
 }
 
-export default Note;
+const mapStateToProps = (state) => {
+  return {
+    note: state.note
+  }
+}
+
+export default connect(mapStateToProps, { getNote, getNotes, editNote, deleteNote })(Note);

@@ -10,6 +10,11 @@ Main button background: #2BC1C4
 Delete button background: #D0021B
 Border color used throughout: #979797*/
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 
 * {
   /*border: 1px solid black;*/
