@@ -2,6 +2,7 @@
     width: 60%;
     margin-left: 325px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .notes-list-container h1 {
@@ -14,7 +15,6 @@
     display: grid;
     grid-template-columns: repeat(3, 200px);
     grid-gap: 1.25em 0.9em;
-    /* width: 90%; */
 }
 
 .notes-container .note-link {

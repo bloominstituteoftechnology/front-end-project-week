@@ -1,6 +1,5 @@
 .note {
     border: 1px solid #A0A0A0;
-    overflow: hidden;
     background: white;
     width: 200px;
     height: 225px;
@@ -8,14 +7,28 @@
     text-align: left;
 }
 
+.note p {
+    overflow: hidden;
+ } 
+
 .title {
     font-weight: bold;
     margin: 3px 5px;
     padding-bottom: 5px;
     border-bottom: 1px solid #A0A0A0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .body {
     font-size: 0.95rem;
     padding: 0 4px;
+    height: 172px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note:hover {
+    box-shadow: 5px 10px 5px #D3D2D3;
 }
