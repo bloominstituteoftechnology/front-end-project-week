@@ -41,8 +41,6 @@ class App extends Component {
     }
   }
   
-
-
   componentDidMount(){
     // Run this to initialize the database only runs once ever!!
     // this.initializeFireBaseData()
@@ -105,7 +103,7 @@ class App extends Component {
   }
 
   deleteNoteClick = () => {
-    // let notes = [...this.state.notes].filter( note => note.id !== this.state.deleteNote.id)
+
     notesRef.child(this.state.deleteNote.id).remove()
     this.deletingCompleted()
   }
