@@ -3,7 +3,7 @@ import './App.css';
 import Sidebar from "./components/sidebar/Sidebar"
 import NewNote from "./components/newnote/NewNote";
 import NoteContainer from "./components/notes/NoteContainer";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Route} from "react-router-dom";
 class App extends Component {
   constructor(){
     super();
