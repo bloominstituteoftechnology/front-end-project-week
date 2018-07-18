@@ -1,22 +1,24 @@
 .notes-list-container {
     width: 60%;
-    margin-left: 300px;
+    margin-left: 325px;
+    margin-top: 50px;
 }
 
 .notes-list-container h1 {
     text-align: left;
-    margin-left: 32px;
     font-size: 1.5rem;
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 .notes-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 90%;
+    grid-template-columns: repeat(3, 200px);
+    grid-gap: 1.25em 0.9em;
+    /* width: 90%; */
 }
 
 .notes-container .note-link {
     text-decoration: none;
     color: black;
+    width: 200px;
 }
