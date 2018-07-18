@@ -28,7 +28,7 @@ class NotesList extends React.Component {
   handleSearch = event => {
     event.preventDefault();
     let searchResults = this.props.notes.slice();
-    if (this.state.searchTerm.length == 0) {
+    if (this.state.searchTerm.length === 0) {
       searchResults = this.props.notes.slice();
       return searchResults;
     } else {
@@ -54,7 +54,7 @@ class NotesList extends React.Component {
     for (let i = 0; i<dataArray.length; i++) {
       var line = '';
       for (let index in dataArray[i]) {
-        if (line != '') line += ',';
+        if (line !== '') line += ',';
 
         line += dataArray[i][index];
       }

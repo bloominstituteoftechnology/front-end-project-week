@@ -2,7 +2,8 @@ import React from 'react';
 import '../App.css';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
-import {Button, Modal, ModalBody, ModalFooter} from 'reactstrap'
+import {Button, Modal, ModalBody, ModalFooter} from 'reactstrap';
+import MarkdownRenderer from 'react-markdown-renderer';
 
 class ViewNote extends React.Component {
   constructor(props) {
@@ -134,7 +135,7 @@ class ViewNote extends React.Component {
         </Modal>
         </div>
         <h3 className="view-note-header">{this.state.note ? (this.state.editingNote ? <input name="title" className="title-input" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
-        <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : this.state.note.textBody) : "Loading..."}</p>
+        <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : <MarkdownRenderer markdown={this.state.note.textBody} />) : "Loading..."}</p>
         {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}}>Save</button> : null}
       </div>
     </div>
