@@ -8,11 +8,10 @@ const StyledNoteCard = styled.div`
     flex-flow: column;
     align-items: start;
     border: 2px solid grey;
-    margin: 2%;
     padding: 2%;
     box-shadow: 5px 10px 50px #888888;
-    width: 180px;
-    height: 180px;
+    width: 190px;
+    height: 190px;
     overflow: hidden;
     
 `;
