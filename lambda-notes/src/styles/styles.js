@@ -14,7 +14,7 @@ export const Button = Styled.button`
     border: 1px solid #979797;
     width: 190px;
     height: 45px;
-    margin-top: 20px;
+    margin: 10px 0;
     font-size: 16px;
 `;
 

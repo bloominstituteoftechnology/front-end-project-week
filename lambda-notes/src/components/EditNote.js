@@ -44,6 +44,7 @@ class EditNote extends React.Component {
         this.state = {
             editedNote: {title: "",
             textBody: "",
+            tags: []
             }   
         }
     }
@@ -57,8 +58,6 @@ class EditNote extends React.Component {
        this.props.updateNote(id, this.state.editedNote);
        this.props.toggleUpdate();
     }
-
-
 
     componentDidMount(){
         this.props.getSingleNote(this.props.match.params.id);
@@ -79,12 +78,18 @@ class EditNote extends React.Component {
                         onChange={this.handleChange.bind(this, 'editedNote')}
                         />
                     <InputContent 
-                        
                         name="textBody"
                         rows="20"
                         cols="50"
                         placeholder={this.state.editedNote.textBody}
                         value={this.state.editedNote.textBody}
+                        onChange={this.handleChange.bind(this, 'editedNote')}
+                        />
+                        <InputTitle 
+                        type="text"
+                        name="tags"
+                        placeholder='Tags'
+                        value={this.state.editedNote.tags}
                         onChange={this.handleChange.bind(this, 'editedNote')}
                         />
                     <Button onClick={this.editNote}>Update</Button>

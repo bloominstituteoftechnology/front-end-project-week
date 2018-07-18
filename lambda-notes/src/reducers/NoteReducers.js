@@ -12,13 +12,17 @@ import { GETTING_NOTES,
         UPDATE_FAILED,
         DELETING_NOTE,
         NOTE_DELETED,
-        DELETE_FAILED } from './../actions';
+        DELETE_FAILED,
+        SEARCHING_NOTES,
+        SEARCH_RETURNED,
+        SEARCH_FAILED } from './../actions';
 
 
 
         const initialState = {
             notes: [],
             note: {},
+            currentlyDisplayed: [],
             gettingNotes: false,
             receivedNotes: false,
             gettingNote: false,
@@ -29,6 +33,8 @@ import { GETTING_NOTES,
             noteUpdated: false,
             deletingNote: false,
             noteDeleted: false,
+            searchingNotes: false,
+            searchReturned: false,
             error: null
         }
 
@@ -68,6 +74,13 @@ import { GETTING_NOTES,
                     return {...state, deletingNote: false, noteDeleted: true, notes: payload}
                 case DELETE_FAILED:
                     return {...state, deletingNote: false, error: payload}
+
+                case SEARCHING_NOTES:
+                    return {...state, searchingNotes: true}
+                case SEARCH_RETURNED:
+                    return {...state, searchingNotes: false, searchReturned: true, notes: payload}
+                case SEARCH_FAILED:
+                    return {...state, searchingNotes: false, error: payload}
 
 
                 default: 

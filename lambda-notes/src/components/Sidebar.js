@@ -2,6 +2,7 @@ import React from 'react';
 import Styled from 'styled-components'
 import {Heading, Button} from './../styles/styles';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 
 const Content = Styled.div`
@@ -20,6 +21,7 @@ const Sidebar = () => {
       <Heading main>Lambda Notes</Heading>
       <Link to='/notes'><Button> View Your Notes</Button></Link>
       <Link to='/new'><Button>Create New Note</Button></Link>
+      <SearchBar />
       </Content>)
 }
 

@@ -101,12 +101,17 @@ export function deleteNote (id) {
     }
 }
 
-export function searchNotes (searchTerms) {
+export function searchNotes (searchTerm) {
     return (dispatch) => {
         dispatch({type: SEARCHING_NOTES});
-        axios.get(`https://killer-notes.herokuapp.com/note/get/${searchTerms}`)
+        axios.get(`https://killer-notes.herokuapp.com/note/get/all`)
         .then(({data}) => {
-            dispatch({type: SEARCH_RETURNED, payload: data})
+            console.log(data);
+            let filtered = data.filter(note => {
+                return note.textBody.includes(searchTerm.toLowerCase())
+            })
+            console.log(filtered);
+            dispatch({type: SEARCH_RETURNED, payload: filtered})
         })
         .catch(err => {
             console.log(err);

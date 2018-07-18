@@ -3,8 +3,7 @@ import Styled from 'styled-components'
 import {Heading} from './../styles/styles';
 import {data} from './../data';
 import { Link, Route} from 'react-router-dom';
-import Note from './Note'
-import axios from 'axios';
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import { getNotes } from './../actions';
 import { connect } from 'react-redux';
 
@@ -56,18 +55,19 @@ const Body = Styled.p`
 `;
 
 
+
 class Notes extends Component {
   constructor() {
     super();
     this.state = {
-        notes: []      
+        notes: [],
+        currentlyDisplayed: []      
     }
   }
 
 
   componentDidMount() {
     this.props.getNotes();
-    console.log(this.props.notes);
     
   }
   
@@ -78,7 +78,7 @@ class Notes extends Component {
       <NotesContainer>
         <Heading>Your notes:</Heading>
         <NotesList>
-          {this.props.notes.map(note => {
+          { this.props.notes.map(note => {
             return <NoteContainer key={note._id} style={{overflow: 'hidden'}}>
          <Link to={`/note/${note._id}`} style={{textDecoration: 'none', color: '#000000'}} > 
            <NoteHeading>{note.title}</NoteHeading>
@@ -95,6 +95,7 @@ class Notes extends Component {
 const mapStateToProps = state => {
   return {
     notes: state.notes.notes,
+    currentlyDisplayed: state.notes.currentlyDisplayed
   }
 }
 

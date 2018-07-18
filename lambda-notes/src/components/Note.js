@@ -38,6 +38,7 @@ const Delete = Styled.a`
     }
 `;
 
+
 class Note extends React.Component {
     constructor(props) {
         super(props);
@@ -49,13 +50,12 @@ class Note extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this.props.match.params.id)
         this.props.getSingleNote(this.props.match.params.id);
     }
 
     render() {
     return (
-        <Container>{console.log(this.props)}
+        <Container>
         {this.props.showModal === true ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes}/> : null}
         <NoteContainer>
             <Edit>
@@ -64,6 +64,7 @@ class Note extends React.Component {
             </Edit>
         <Heading>{this.props.note.title}</Heading>
         <Body>{this.props.note.textBody}</Body>
+        })}
         </NoteContainer>
         </Container>
     )
