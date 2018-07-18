@@ -28,7 +28,7 @@ export const fetchReq = () => {
 export const submitReq = (note) => {
     return (dispatch) => {
         dispatch({type: SAVING});
-        axios.post(URL, note)
+        axios.post(`${URL}/create`, note)
         .then(({data}) => {
             dispatch({type: SAVED, payload: data});
         })
@@ -41,7 +41,7 @@ export const submitReq = (note) => {
 export const deleteReq = (id) => {
     return (dispatch) => {
         dispatch({type: DELETING});
-        axios.delete(`${URL}/${id}`)
+        axios.delete(`${URL}/delete/${id}`)
         .then(({data}) => {
             dispatch({type: DELETED, payload: data});
         })
@@ -54,7 +54,7 @@ export const deleteReq = (id) => {
 export const updateReq = (id, note) => {
     return (dispatch) => {
         dispatch({type: UPDATING});
-        axios.put(`${URL}/${id}`, note)
+        axios.put(`${URL}/edit/${id}`, note)
         .then(({data}) => {
             dispatch({type: UPDATED, payload: data});
         })
