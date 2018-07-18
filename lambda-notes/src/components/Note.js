@@ -17,7 +17,7 @@ class Note extends React.Component {
     return this.props.match.params.id;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getNote(this.id);
   }
 
@@ -59,7 +59,7 @@ class Note extends React.Component {
   }
 
   render() {
-    if (this.props.updating) {
+    if (!this.props.note) {
       return (
         <div className="main-container note"></div>
       )
