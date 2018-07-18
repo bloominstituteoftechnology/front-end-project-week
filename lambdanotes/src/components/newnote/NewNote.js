@@ -14,6 +14,9 @@ constructor(){
 onFormChange = event => {
 this.setState({[event.target.name]: event.target.value})
 }
+onSaveClick = () => {
+  this.props.addNote(this.state);
+}
 
   render() {
     return (
@@ -24,7 +27,7 @@ this.setState({[event.target.name]: event.target.value})
         <form className="newnote-container">
           <input type="text" placeholder="Note Title" className="title-input" name="title" onChange={this.onFormChange}></input>
           <textarea rows="20" cols="50" className="body-input" placeholder="Note Content" name="body" onChange={this.onFormChange}></textarea>
-          <div className="save-button">Save</div>
+          <div className="save-button" onClick={this.onSaveClick}>Save</div>
         </form>
       </div>
     );

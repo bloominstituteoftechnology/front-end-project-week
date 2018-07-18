@@ -19,10 +19,10 @@ class App extends Component {
         body: "This is a test"
       }]
     }
+    this.addNote = this.addNote.bind(this);
   }
-  addNote() {
-    let oldState = this.state;
-    console.log(oldState);
+  addNote(note) {
+    this.state.notes.push(note);
   }
 
   render() {
