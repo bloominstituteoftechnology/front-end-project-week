@@ -36,6 +36,7 @@ class NotesList extends React.Component {
     this.setState({searchResults: searchResults})
   }
 
+/*Toggles the sorting of notes Alphabetically by title*/
   toggleAlphaSort = () => {
     this.setState({alphaSort: !this.state.alphaSort})
   }
