@@ -62,15 +62,17 @@ class Note extends React.Component {
     render() {
         const { title, body, id, edit, modal, list } = this.state;
         return (
-            <div>
+             <div className="note-flex-props">
+
                 {list ? (
                     <div className="note-card">
-                        <h3>{title}</h3>
+                        <h3 className="title-name">{title}</h3>
                         <div className="note-card-text-wrapper"><p className="note-card-text">{body}</p></div>
                     </div>
+
                 ) : (<div>
                     {edit ? (
-                        <div>
+                       <div className="note-form">
                             <h3>Edit Note:</h3>
                             <form>
                                 <input name="title" value={title} placeholder="Note Title" onChange={(e) => this.handleChange(e)}/>
@@ -80,7 +82,7 @@ class Note extends React.Component {
                         </div>
                     ) : (
                         <div>
-                            <div>
+                            <div className="edit-delete-button">
                                 <button onClick={() => this.setState({edit: true})}>Edit</button>
                                 <button onClick={() => this.toggleModal()}>Delete</button>
                             </div>

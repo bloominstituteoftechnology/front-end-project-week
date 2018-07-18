@@ -21,15 +21,27 @@
   background: #F3F3F3;
 }
 
-
+.title-name {
+	margin-left: 90px;
+}
 .note-card {
 	display: flex;
 flex-flow: row wrap;
 	font-size: 10px;
   margin: 15px 0;
   height: 300px;
+  background: black;
 }
 
+.note-card-text {
+	margin-left: 60px;
+}
+
+
+.edit-delete-button {
+	display: flex;
+	justify-content: flex-end;
+}
 .nav-container {
   width: 30%;
   background-color: #D8D8D8;
