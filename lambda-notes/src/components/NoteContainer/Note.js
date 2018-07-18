@@ -73,20 +73,20 @@ class Note extends React.Component {
         // Adds list to state / localstorage
         if (this.state.list === '') return;
         const checklist = this.state.checklist.slice();
-        checklist.push(this.state.list);
+        checklist.push({ list: this.state.list, id: checklist.length + 1 });
 
         this.setState({ checklist, list: '' });
         localStorage.setItem('checkedlist' + this.props.match.params.id, JSON.stringify(checklist));
     }
 
-    deleteList = id => {
+    deleteList = index => {
         // Deletes list / Updates checkedlist / Removes checked in localstorage
         const checklist = this.state.checklist.slice();
-        checklist.splice(id, 1);
+        localStorage.removeItem('checked' + checklist[index].id + this.props.match.params.id);
+        checklist.splice(index, 1);
 
         this.setState({ checklist });
         localStorage.setItem('checkedlist' + this.props.match.params.id, JSON.stringify(checklist));
-        localStorage.removeItem('checked' + id);
     }
 
     render() {
@@ -125,7 +125,13 @@ class Note extends React.Component {
 
                         <NoteCheckListForm onSubmit={event => event.preventDefault()}>
                             <h3>Checklist:</h3>
-                            {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} id={index + this.props.match.params.id} deleteList={this.deleteList} />)}
+                            {this.state.checklist.map((list, index) =>
+                                <NotesCheckList
+                                    key={list + index}
+                                    list={list}
+                                    id={list.id + this.props.match.params.id}
+                                    index={index}
+                                    deleteList={this.deleteList} />)}
                             <NoteCheckListInput onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a list' />
                             <input onClick={this.addList} type='submit' hidden />
                         </NoteCheckListForm>

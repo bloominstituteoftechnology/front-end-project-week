@@ -98,6 +98,10 @@ export const NoteContent = styled.p`
 
 export const NoteCheckListForm = styled.form`
     margin-top: 10px;
+
+    h3 {
+        margin-bottom: 0;
+    }
 `
 
 export const NoteCheckListInput = styled.input`
@@ -112,6 +116,7 @@ export const CheckListWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top 5px;
 
     &:hover img {
         visibility: visible;

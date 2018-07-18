@@ -13,8 +13,6 @@ class NotesCheckList extends React.Component {
     componentDidMount() {
         if (localStorage.getItem('checked' + this.props.id)) {
             this.setState({ checked: JSON.parse(localStorage.getItem('checked' + this.props.id)) });
-        } else {
-            localStorage.setItem('checked' + this.props.id, JSON.stringify(this.state.checked));
         }
     }
 
@@ -29,10 +27,10 @@ class NotesCheckList extends React.Component {
 
                 <CheckListContainer>
                     <input type='checkbox' checked={this.state.checked} onClick={this.toggleCheckBox} />
-                    <span>{this.props.list}</span>
+                    <span>{this.props.list.list}</span>
                 </CheckListContainer>
 
-                <MoreIcon onClick={() => this.props.deleteList(this.props.id)} src="https://png.icons8.com/metro/50/000000/more.png" alt='' />
+                <MoreIcon onClick={() => this.props.deleteList(this.props.index)} src="https://png.icons8.com/metro/50/000000/more.png" alt='' />
 
             </CheckListWrapper>
         )
