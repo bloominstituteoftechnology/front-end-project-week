@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 class CreateNote extends Component {
-constructor(props) {
-    super(props)
-    this.state = {
+// constructor(props) {
+//     super(props)
+//this.
+    state = {
         title: '',
-        body: '',
+        body: ''
     }
-}
-
-createNote = e => {
-    e.preventDefault();
-    const newNote = {
-        title: this.state.title,
-        body: this.state.body
-    };
-}
 
 
 handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+handleSubmitNote = () => {
+    this.props.createNote(this.state);
+}
+
+// createNote = e => {
+//     e.preventDefault();
+//     const newNote = {
+//         title: this.state.title,
+//         body: this.state.body,
+//         id: this.state.id
+//     }
+//     this.state.notes.push(newNote);
+//     this.setState({ title: '', body: '', id: 0 });
+// }
 
 render() {
     return (
@@ -39,8 +47,12 @@ render() {
             placeholder="Note Content"
             value={this.state.body}
             name="body"
+            rows='15'
+            cols='90'
           />
-          <button>Save</button>
+          <Link to='/'> 
+          <button onClick={this.handleSubmitNote}>Save</button>
+          </Link>
           </div>
     )
 }
