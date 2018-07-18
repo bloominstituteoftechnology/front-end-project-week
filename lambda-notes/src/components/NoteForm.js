@@ -136,9 +136,9 @@ export default class NoteForm extends Component {
             onChange={this.updateInput}
           />
           <Button onClick={this.addNewTag}>Add New Tag</Button>
-          <label for="tagInput">Enter new tags, separated by semi-colons (;)</label>
+          <label htmlFor="tagInput">Enter new tags, separated by semi-colons (;)</label>
         </form>
-        <TagDisplay tags={tags} />
+        <TagDisplay tags={tags} writable={true} />
         <Button onClick={this.handleFormSubmit}>{buttonText}</Button>
       </StyledNoteForm>
     );

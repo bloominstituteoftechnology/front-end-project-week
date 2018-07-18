@@ -53,10 +53,10 @@ class ViewNote extends Component {
           <Link to={`/edit/${id}`}>edit</Link>
           <Link to={`/view/delete/${id}`}>delete</Link>
         </div>
-        <TagDisplay tags={tags} />
         <div className="note">
           <h1>{title}</h1>
           <MarkdownText mdText={textBody} />
+        <TagDisplay tags={tags} writable={false} />
         </div>
       </StyledViewNote>
     );
