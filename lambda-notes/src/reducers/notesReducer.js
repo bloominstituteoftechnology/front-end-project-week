@@ -1,4 +1,4 @@
-import { GET_NOTES, GET_NOTE, GET_NEW_NOTES } from '../actions'
+import { GET_NOTES, GET_NOTE } from '../actions'
 
 export const notesReducer = (state = [], action) => {
   switch (action.type) {

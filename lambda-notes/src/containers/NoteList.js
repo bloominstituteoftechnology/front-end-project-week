@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchNotes } from '../actions'
 import NoteCard from '../components/NoteCard'
+import Loading from '../components/Loading'
 
 class NoteList extends Component {
   componentDidMount () {
@@ -10,20 +11,17 @@ class NoteList extends Component {
 
   render () {
     return (
-      <div className='noteList-container'>
-        <div className='noteList'>
+      <div className='noteList'>
+        <h1 className='noteList-header'>your Notes:</h1>
+        <div className='noteList-container'>
           {this.props.api.fetching ? (
-            <h1 className='loading'>Loading ....</h1>
+            <Loading />
           ) : (
-            [
-              <h1 className='noteList-header'>your Notes:</h1>,
-              <br />,
-              <div className='notes'>
-                {this.props.notes.map((note) => {
-                  return <NoteCard note={note} key={note._id} />
-                })}
-              </div>
-            ]
+            <div className='notes'>
+              {this.props.notes.map((note) => {
+                return <NoteCard note={note} key={note._id} />
+              })}
+            </div>
           )}
         </div>
       </div>

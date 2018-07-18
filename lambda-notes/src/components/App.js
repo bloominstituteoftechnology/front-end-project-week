@@ -4,6 +4,7 @@ import NoteList from '../containers/NoteList'
 import NewNote from '../containers/NewNote'
 import SideNav from './SideNav'
 import NoteDetails from '../containers/NoteDetails'
+import NoMatch from './NoMatch'
 
 class App extends Component {
   render () {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path='/' component={NoteList} />
           <Route path='/notes/new' component={NewNote} />
           <Route path='/notes/:id' component={NoteDetails} />
+          <Route component={NoMatch} />
         </Switch>
       </div>
     )

@@ -8,6 +8,7 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
 import { BrowserRouter as Router } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const store = createStore(rootReducer, applyMiddleware(logger, thunk))
 ReactDOM.render(

@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 const SideNav = (props) => {
   return (
     <div className='sideNav'>
-      <h1 className='sideNav-header'>
-        Lambda <br />
-        Notes
-      </h1>
-      <Link to='/'>
-        <div className='btn'>View Your Notes</div>
+      <Link className='lambda-logo' to='/'>
+        <h1 className='sideNav-header'>Lambda </h1>
+        <h1 className='sideNav-header'>Notes</h1>
       </Link>
-      <Link to='/notes/new'>
-        <div className='btn'>+ Create New Note</div>
+      <Link className='sidenav-button' to='/'>
+        View Your Notes
+      </Link>
+      <Link className='sidenav-button' to='/notes/new'>
+        + Create New Note
       </Link>
     </div>
   )

@@ -7,18 +7,20 @@ class NewNote extends Component {
     super(props)
     this.state = {
       title: '',
+      tags: '',
       textBody: ''
     }
   }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
-    const { title, textBody } = this.state
-    const note = { title, textBody }
+    const { title, textBody, tags } = this.state
+    const note = { title, textBody, tags }
     this.props.postNote(note)
-    this.setState({ title: '', textBody: '' })
+    this.setState({ title: '', textBody: '', tags: '' })
     this.props.history.push('/')
   }
 
@@ -40,6 +42,14 @@ class NewNote extends Component {
             onChange={this.handleChange}
             required
           />
+          <input
+            className='tag-input'
+            type='text'
+            name='tags'
+            placeholder='add #tag'
+            value={this.state.tags}
+            onChange={this.handleChange}
+          />
           <textarea
             className='textBody-input'
             type='text'
@@ -49,7 +59,7 @@ class NewNote extends Component {
             onChange={this.handleChange}
             required
           />
-          <button>Add Note</button>
+          <button className='save-Btn'>Save</button>
         </form>
       </div>
     )

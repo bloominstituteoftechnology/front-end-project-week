@@ -1,4 +1,11 @@
-import { FETCHING, ERROR, POSTING, DELETING } from '../actions'
+import {
+  FETCHING,
+  ERROR,
+  POSTING,
+  DELETING,
+  UPDATING,
+  GETTING_NOTE
+} from '../actions'
 
 const initialState = { fetching: true, error: false }
 
@@ -11,6 +18,10 @@ export const apiReducer = (state = initialState, action) => {
     case POSTING:
       return { ...state, fetching: action.payload }
     case DELETING:
+      return { ...state, fetching: action.payload }
+    case UPDATING:
+      return { ...state, fetching: action.payload }
+    case GETTING_NOTE:
       return { ...state, fetching: action.payload }
     default:
       return state
