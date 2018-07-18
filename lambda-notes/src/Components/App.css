@@ -72,6 +72,10 @@
   width: 28%;
   text-decoration: none;
   cursor: pointer;
+  box-shadow: 1px 5px 15px #979797;
+}
+.note:hover {
+  box-shadow: 2px 5px 5px #2BC1C4;
 }
 
 /* Create Note Styles */
