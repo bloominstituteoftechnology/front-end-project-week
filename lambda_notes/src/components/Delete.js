@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalFooter } from 'reactstrap';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { deleteNote } from '../actions';
 
@@ -36,7 +35,7 @@ class DeleteModal extends React.Component {
                     </ModalHeader>
                     <ModalFooter>
                         <Link to='/'>
-                            <Button type='button' color="danger" onClick={() => this.props.deleteNote(this.props.id)}>Delete</Button>
+                            <Button color="danger" onClick={() => this.props.deleteNote(this.props.id)}>Delete</Button>
                         </Link>
                         <Button color="info" onClick={this.toggle}>No</Button>
                     </ModalFooter>
@@ -46,4 +45,4 @@ class DeleteModal extends React.Component {
     }
 }
 
-export default withRouter(connect(null, {deleteNote})(DeleteModal));
+export default connect(null, {deleteNote})(DeleteModal);

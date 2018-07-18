@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchNotes } from '../actions';
 
@@ -24,7 +24,6 @@ class NoteList extends React.Component {
       }
     
     render () {
-        console.log(this.props.notes.length)
         return (
             <Content>
                 <h1>Your Notes:</h1>
@@ -50,4 +49,4 @@ const mapStateToProps = state => {
     }
   }
 
-export default withRouter(connect(mapStateToProps,{fetchNotes})(NoteList));
+export default connect(mapStateToProps,{fetchNotes})(NoteList);

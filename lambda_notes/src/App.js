@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NoteList from './components/NoteList';
 import SideBar from './components/SideBar';
 import SingleNote from './components/SingleNote';
-import EditForm from './components/EditForm';
+import UpdateForm from './components/UpdateForm';
 import CreateForm from './components/CreateForm';
 
 const APP = styled.div`
@@ -16,7 +16,7 @@ const APP = styled.div`
   font-size: 1.6rem;
 `
 
-class App extends Component {
+class App extends Component { 
   render() {
     return (
       <Router>
@@ -25,7 +25,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={NoteList} />
             <Route path='/notes/:id' component={SingleNote} />
-            <Route path='/edit' component={EditForm} />
+            <Route path='/edit/:id' component={UpdateForm} />
             <Route path='/create' component={CreateForm} />
           </Switch>
         </APP>

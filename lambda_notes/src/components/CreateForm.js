@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { addNote } from '../actions';
 
 const Content = styled.div`
     width: 666px;
@@ -9,24 +10,38 @@ const Content = styled.div`
     padding-right: 3rem;
 `
 
-export default class EditForm extends React.Component {
+class AddForm extends React.Component {
+  submitHandler = e => {
+    e.preventDefault();
+    this.props.addNote({
+      title: this.titleInput.value,
+      textBody: this.contentInput.value
+    })
+    this.props.history.push('/');
+  }
+
   render() {
     return (
       <Content>
-        <Form>
-          <FormGroup>
-            <Label>Create New Note:</Label>
-          </FormGroup>
-          <FormGroup>
-            <Label for="noteContent">Password</Label>
-            <Input type="text" name="content" id="noteContent" placeholder="Note Title" />
-          </FormGroup>
-          <FormGroup>
-            <Input type="textarea" name="body" id="noteBody" placeholder='Note Content'/>
-          </FormGroup>
-          <Button>Save</Button>
-        </Form>
+        <h1>Create New Note: </h1>
+        <form onSubmit={this.submitHandler}>
+          <input
+            placeholder="Note Title"
+            type="text"
+            name="title"
+            ref = {node => this.titleInput = node}
+          />
+          <textarea
+            placeholder="Note Content"
+            type="text"
+            name="body"
+            ref = {node => this.contentInput = node}
+          />
+          <button type='submit'>Save</button>
+        </form>
       </Content>
     );
   }
 }
+
+export default connect(null, {addNote})(AddForm)

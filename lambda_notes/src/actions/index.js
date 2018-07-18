@@ -34,23 +34,43 @@ export const fetchSingleNote = (id) => {
 }
 
 export const deleteNote = (id) => {
-    const fetchData = () => {
-        axios.get('https://killer-notes.herokuapp.com/note/get/all')
-        .then(res => {
-            return res.data
-        })
-        .catch(error => console.log(error))
-    }
-
-    return (dispatch) => {
-        axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
-        // .then(window.location.reload())
-        .then(response => {
-            if (response.data.success === "Note successfully deleted") {
-                dispatch({
+    const request = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+    return (dispatch) => {        
+        request.then(res => {
+            if (res.data.success) {
+                axios.get('https://killer-notes.herokuapp.com/note/get/all')
+                .then(res2 => dispatch({
                     type: types.DELETE_NOTE,
-                    payload: fetchData()
-                })
+                    payload: res2.data
+                }))
+                .catch(err => dispatch({
+                    type: types.FETCH_ERROR,
+                    error: err
+                }))
+            }
+        })
+        // .then(window.location.reload())
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}
+
+export const addNote = (note) => {
+    const request = axios.post('https://killer-notes.herokuapp.com/note/create', note)
+    return (dispatch) => {
+        request.then(res => {
+            if (res.data.success) {
+                axios.get('https://killer-notes.herokuapp.com/note/get/all')
+                .then(res2 => dispatch({
+                    type: types.ADD_NOTE,
+                    payload: res2.data
+                }))
+                .catch(err => dispatch({
+                    type: types.FETCH_ERROR,
+                    error: err
+                }))
             }
         })
         .catch(err => dispatch({
@@ -60,9 +80,16 @@ export const deleteNote = (id) => {
     }
 }
 
-// export const createNote = (note) => {
-//     const request = axios.post('https://killer-notes.herokuapp.com/note/create', note)
-//     return (dispatch) => {
-//         request.then(res => )
-//     }
-// }
+export const updateNote = (id, note) => {
+    const request = axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
+    return (dispatch) => {
+        request.then(res => dispatch({
+            type: types.UPDATE_NOTE,
+            payload: res.data
+        }))
+        .catch(err => dispatch({
+            type: types.FETCH_ERROR,
+            error: err
+        }))
+    }
+}
