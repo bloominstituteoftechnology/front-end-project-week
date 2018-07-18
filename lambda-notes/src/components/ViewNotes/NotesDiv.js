@@ -5,7 +5,7 @@ import { Row, CardImg, Card, CardTitle, CardText, CardDeck,
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {fetchingNotesAction} from "../../actions";
-
+import LambdaLeftDiv from './LambdaLeftDiv';
 
 class NotesDiv extends React.Component {
 
@@ -32,6 +32,11 @@ if (prevProps.notes !== this.props.notes){
 render() {
 	
 	return (
+
+	<div className="view-list-body">
+                <LambdaLeftDiv />
+
+
 	<div className="note-card-container">
         		
 	<div>{this.props.fetching ? (
@@ -41,7 +46,7 @@ render() {
 	<div><h3 className="card-body-title">Your Notes:</h3>
 	<CardDeck>{this.props.notes.map(note =>{
       return(	
-	<Link style={{ textDecoration: 'none' }} to={`/note/${note._id}`} key={note._id}><div>
+	<Link style={{ textDecoration: 'none' }} to={`/note/${note._id}`} onClick={window.scrollTo(0, 0)} key={note._id}><div>
 	<Card className="note-card">
 	  <CardBody>
           <CardTitle><div className="card-title-div">{note.title.substring(0, 40)}</div></CardTitle>
@@ -56,6 +61,7 @@ render() {
     </CardDeck>
 		</div>
 	)}
+		</div>
 		</div>
 		</div>
 	

@@ -4,8 +4,41 @@ body {
   font-family: sans-serif;
 }
 
+@media(max-width: 768px){
+	.view-list-body{
+		width: 100%;
+		height: auto!important;
+	}	
+
+	.tablet-view{
+		height: 100vh!important;
+	}
+
+	.note-card-container{
+		     width: 100%;	
+	}
+	.content-style{
+        	height: 200px!important;
+	}
+
+	.title-style{
+		width: 45%!important;
+		height:30px!important;
+	}
+}
+
+
+@media(max-width: 420px){
+        .view-list-body{
+                width: 100%;
+        }
+
+}
+
+
+
 .modal-style{
-	margin-top: 20%!important;	
+	margin-top: 15%!important;	
 }
 
 .cancel-modal-btn{
@@ -102,7 +135,6 @@ body {
 	color: black;
 	/*border: 1px solid gray;
 	margin: 15px 5px 10px 5px;*/
-	
 }
 
 .note-card:hover{
@@ -115,7 +147,7 @@ body {
 
 
 .title-style{
-	width: 400px;
+	width: 30%;/*400px*/
 	height: 30px;
 	border: 1px solid #979797;
 	margin: 0px 0px 1px 25px;
@@ -124,7 +156,7 @@ body {
 }
 
 .content-style{
-	width: 500px;
+	width: 60%;/*500px;*/
         height: 300px;
 	border: 1px solid #979797;
         margin: 0px 0px 1px 25px;
@@ -140,23 +172,22 @@ body {
 }
 
 .input-container{
-display: flex;
-flex-direction: column;
-
-
+	display: flex;
+	flex-direction: column;
 }
 
 .view-list-body{
 	margin: 15px 10px 0px 10px;
 	border: 1px solid #979797;
 	display: flex;
+	height: 100vh;
 }
 
 
 .left-div{
 	width: 200px;
 	background-color: #D8D8D8;
-	height: 2000px;
+	/*height: 2000px;*/
 	border-right: 1px solid #979797;
 
 }

@@ -41,12 +41,11 @@ deleteNote = event => {
 
 render() {
 	return(
- 		<div className="view-list-body">
+ 		<div className="view-list-body tablet-view">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
-		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(null)}</div>
+		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(<Button className="delete-btn"  onClick={this.toggle}>delete</Button>)}</div>
 
-        <Button className="delete-btn"  onClick={this.toggle}>delete</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className="modal-style">
           <ModalHeader toggle={this.toggle}>Are You Sure You Want To Delete This</ModalHeader>
          <ModalFooter> 

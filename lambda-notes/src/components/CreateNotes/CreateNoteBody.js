@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {addNotesAction} from "../../actions";
+import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
 
 class CreateNoteBody extends React.Component {
 
@@ -28,6 +29,10 @@ addNote = event => {
 
 render() {
         return(
+	<div className="view-list-body tablet-view">
+                <LambdaLeftDiv />
+
+
                 <div className="note-card-container">{this.props.saved? (<h4 className="note-save-message">Note Saved</h4>):(null)}
 		<h3 className="new-note-title">Create New Note:</h3>
 		<div className="input-container">
@@ -37,7 +42,7 @@ render() {
 
 		<button onClick={this.addNote}  className="save-btn">Save</button></div>
                 </div>
-
+</div>
 
         );
 
