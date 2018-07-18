@@ -10,13 +10,14 @@ import EditNoteContainer from "./edit-view/EditNoteContainer";
 const AppContainer = styled.div`
   display: flex;
   color: var(--main-font-color); 
+
 `;
 const MainContentContainer = styled.div`
   background: var(--main-bg);
   position: absolute;
   left: var(--sidebar-width);
   right: 0;
-  height: 100%;
+  height: 100vw;
   padding: 60px 25px;
 `;
 const App = () => {
