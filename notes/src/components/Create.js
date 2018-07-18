@@ -8,7 +8,8 @@ class Create extends React.Component {
     super();
     this.state = {
       title: "",
-      body: ""
+      body: "",
+      tags: ""
     };
   }
   inputNewNote = event => {
@@ -17,11 +18,13 @@ class Create extends React.Component {
     });
   };
   submitNewNote = event => {
+    console.log("tags: ", this.state.tags);
     event.preventDefault();
     if (this.state.title && this.state.body) {
       let newComment = {
         title: this.state.title,
-        textBody: this.state.body
+        textBody: this.state.body,
+        tags: [this.state.tags]
       };
       this.props.submitNewNote(newComment);
     } else {
@@ -47,6 +50,13 @@ class Create extends React.Component {
               name="body"
               className="createNoteComment"
               placeholder="Note Content"
+            />
+            <Input
+              type="text"
+              name="tags"
+              placeholder="Note Tags"
+              className="createNoteTitle"
+              onChange={this.inputNewNote}
             />
           </FormGroup>
           <Button onClick={this.submitNewNote}>Save</Button>

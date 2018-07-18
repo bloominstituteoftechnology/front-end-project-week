@@ -69,6 +69,18 @@ class ViewNote extends React.Component {
         <div className="singleNoteBody">
           <h3>{this.props.singleNote[0].title}</h3>
           <p>{this.props.singleNote[0].textBody}</p>
+          {this.props.singleNote[0].tags.length > 0 ? (
+            <div className="tags">
+              Tags:{" "}
+              {this.props.singleNote[0].tags.map(tag => {
+                return (
+                  <p key={Math.random()} className="tag">
+                    {tag}
+                  </p>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
       </div>
     );

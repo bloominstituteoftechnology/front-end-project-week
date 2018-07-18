@@ -113,6 +113,15 @@
   cursor: pointer;
 }
 
+.tags {
+  margin-bottom: 0;
+}
+
+.singleNote .tag {
+  margin-top: 0;
+  font-weight: bold;
+}
+
 /* Edit/Create Note View */
 .editNote,
 .createNote {
