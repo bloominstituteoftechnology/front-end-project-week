@@ -5,13 +5,13 @@
 .sideButtons{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 84%;
     margin: 0 auto;
 }
 .sideButton {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     border-radius: 2px;
-    padding: 0.6rem 0;
+    padding: 0.73rem 0;
     border: none;
     font-weight: 600;
 }
@@ -22,6 +22,7 @@
 .sideHeader {
     line-height: 0.4rem;
     text-align: left;
-    margin-left: 1.5rem;
+    margin-left: 0.9rem;
     padding: 1rem 0;
+    font-size: 1.13rem;
 }

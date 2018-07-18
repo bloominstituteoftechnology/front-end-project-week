@@ -39,12 +39,12 @@ class EditNote extends Component {
         console.log('edit response: ', this.props)
         return ( 
             <div className='mainAreawrapper'>
-                <h3 className='headings mainAreaHeading'>Edit Note:</h3>
+                <h3 className='headings mainAreaHeading editNote'>Edit Note:</h3>
 
                 <div className='formCreate'>
                     <input className='inputField inputTitle' placeholder='Note Title' name='title' value={this.state.title} type='text' onChange={this.handleChange} />
                     <textarea className='inputField inputText' placeholder='Note Content' name='textBody' value={this.state.textBody} type='text' onChange={this.handleChange} />
-                    <button className='saveButton' onClick={this.handleSave}>Save</button>
+                    <button className='saveButton' onClick={this.handleSave}>Update</button>
                 </div>
             </div>
          );

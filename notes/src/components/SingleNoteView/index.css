@@ -6,11 +6,12 @@
 }
 .editDeleteLinks {
     text-align: right;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+    margin-right: 1.5rem;
 }
 
 .textBody  {
     text-align: left;
-    margin: 0 1rem;
+    margin: 1.5rem;
     word-wrap: break-word;
 }

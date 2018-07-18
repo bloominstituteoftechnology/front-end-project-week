@@ -27,6 +27,7 @@ button {
   padding: 0.6rem 0;
   border: none;
   font-weight: 600;
+  font-size: 0.93rem;
 }
 button:hover {
   box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
@@ -39,6 +40,6 @@ a {
 
 .mainAreaHeading {
   text-align: left;
-  margin-left: 1rem;
-  padding-top: 2rem;
+  margin-left: 1.5rem;
+  font-size: 1.3rem;
 }

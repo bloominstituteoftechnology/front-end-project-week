@@ -14,7 +14,7 @@ class ModalComponent extends Component {
                     <h3 className='modalText'>Are you sure you want to delete this?</h3>
                 </div>
                 <div className='modalButtons'>
-                    <button className='redButton modalB' onClick={this.props.deleteNote}>DELETE</button>
+                    <button className='redButton modalB' onClick={this.props.deleteNote}>Delete</button>
                     <button className='regButton modalB' onClick={this.props.handleNo}>NO</button>
                 </div>
                 </div>

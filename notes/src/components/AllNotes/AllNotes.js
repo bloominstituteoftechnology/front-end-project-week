@@ -15,7 +15,7 @@ class AllNotes extends Component {
         return ( 
             <div>
                 <input id="myInput" type="text" placeholder="Search.." />
-                <h3 className='headings mainAreaHeading'>Your Notes</h3>
+                <h3 className='headings mainAreaHeading'>Your Notes: </h3>
                 <div className='notesWrapper' id="sortable">
                     {this.props.notes.map(item => {
                         return <MappedItem key={item._id} item={item} />
