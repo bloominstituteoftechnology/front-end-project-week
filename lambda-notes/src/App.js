@@ -114,7 +114,7 @@ class App extends Component {
   }
 
   handleEditNote = id => {
-    const notes = this.state.notes.slice();
+    let notes = this.state.notes.slice();
     for (let i = 0; i < notes.length; i++) {
       if (notes[i].id === Number(id)) {
         notes[i] = {
@@ -125,6 +125,13 @@ class App extends Component {
       }
     }
     this.setState({ notes, selected: {} });
+  }
+
+  //Lambda Delete
+  handleDeleteNote = id => {
+    let notes = this.state.notes.slice();
+    notes = notes.filter(note => note.id !== Number(id));
+    this.setState({ notes, selected:{}, remove: !this.state.remove})
   }
 
   render() {
