@@ -43,7 +43,7 @@ class EditNote extends Component {
 
                 <div className='formCreate'>
                     <input className='inputField inputTitle' placeholder='Note Title' name='title' value={this.state.title} type='text' onChange={this.handleChange} />
-                    <input className='inputField inputText' placeholder='Note Content' name='textBody' value={this.state.textBody} type='text' onChange={this.handleChange} />
+                    <textarea className='inputField inputText' placeholder='Note Content' name='textBody' value={this.state.textBody} type='text' onChange={this.handleChange} />
                     <button className='saveButton' onClick={this.handleSave}>Save</button>
                 </div>
             </div>

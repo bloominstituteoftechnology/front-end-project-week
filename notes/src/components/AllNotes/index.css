@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-bottom: 2rem;
     
 }
 .singleNote {
@@ -20,4 +21,8 @@
     align-self: right;
     margin-right: -60%;
     font-size: 1rem;
+}
+.noteTitle, .noteBody {
+    max-width: 190px;
+   word-wrap: break-word;
 }
