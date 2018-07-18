@@ -1,8 +1,5 @@
 import axios from "axios";
-export const SUBMIT_NEW_NOTE = "SUBMIT_NEW_NOTE";
 export const FETCH_SINGLE_NOTE = "FETCH_SINGLE_NOTE";
-export const EDIT_NOTE = "EDIT_NOTE";
-export const DELETE_NOTE = "DELETE_NOTE";
 export const FETCH_NOTES = "FETCH_NOTES";
 export const ERROR = "ERROR";
 
