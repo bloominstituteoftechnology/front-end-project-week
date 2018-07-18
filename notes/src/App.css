@@ -1,13 +1,20 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
   box-sizing: border-box;
+  min-height: 100%;
 }
 
 .App {
   text-align: center;
+  height: 100%;
+}
+
+#root {
+  height: 100vh;
 }
 
 .App-logo {
@@ -38,17 +45,18 @@ body {
 .note-list {
   display: flex;
   background: silver;
+  height: 100%;
 }
 
 .list-sidebar {
   display: flex;
   flex-direction: column;
   background-color: #d3d2d3;
-  height: 100vh;
   width: 21.5%;
   font-family: 'Roboto', sans-serif;
   padding: 20px;
-
+  min-height: 100vh;
+  height: 100vh;
 }
 
 .right-bar {
@@ -56,6 +64,9 @@ body {
   background: #f2f1f2;
   width: 80%;
   padding-top: 35px;
+  height: 100vh;
+  min-height: 100%;
+  overflow: scroll;
 }
 
 .note-container {
@@ -151,7 +162,10 @@ body {
 }
 
 .view-note-buttons {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .view-note-button {
@@ -188,4 +202,18 @@ body {
 
 .sortCheck {
   display: inline-block;
+}
+
+.tagContainer {
+  border: 1px solid black;
+  display: inline-block;
+
+}
+
+.tagContainer .tagg {
+  font-size: 85%;
+  padding: 0.5em 0.75em;
+  display: inline-block;
+  margin: 0.25em 0.1em;
+  background: #3af;
 }

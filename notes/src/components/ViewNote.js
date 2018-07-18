@@ -14,6 +14,7 @@ class ViewNote extends React.Component {
       title: '',
       textBody: '',
       modal: false,
+      tag: '',
       tags: []
     }
   }
@@ -136,6 +137,12 @@ class ViewNote extends React.Component {
         </div>
         <h3 className="view-note-header">{this.state.note ? (this.state.editingNote ? <input name="title" className="title-input" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
         <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : <MarkdownRenderer markdown={this.state.note.textBody} />) : "Loading..."}</p>
+        <div className="tagContainer">
+        {this.state.note ? this.state.note.tags.map(tag => {
+          return <span className="tagg">tag<span className="close"></span></span>
+        }) : "Loading..."}
+        <input type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
+        </div>
         {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}}>Save</button> : null}
       </div>
     </div>

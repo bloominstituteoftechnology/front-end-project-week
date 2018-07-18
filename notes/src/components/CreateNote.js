@@ -8,7 +8,9 @@ class CreateNote extends React.Component {
     super(props);
     this.state = {
       title:'',
-      content:''
+      content:'',
+      tag: '',
+      tags: []
     }
   }
 
