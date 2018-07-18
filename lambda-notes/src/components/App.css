@@ -20,17 +20,6 @@ body {
   min-height: 891px;
 }
 
-.notes-card:hover {
-  background: #EAE6E6;
-}
-
-.notes-header {
-  padding: 0px 27px;
-  margin-top: 58px;
-  font-size: 1.9rem;
-  font-family: 'Roboto', Arial, sans-serif;
-}
-
 .note-paragraph {
   word-wrap: break-word;
   overflow: hidden;

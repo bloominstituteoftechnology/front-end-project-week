@@ -12,7 +12,6 @@ export const NotesCards = styled.div`
     flex-wrap: wrap;  
     margin-top: 27px;
     font-size: 1.7rem;
-    
 `
 
 export const SearchForm = styled.form`
@@ -47,6 +46,10 @@ export const NotesCardContainer = styled.div`
     width: 192px;
     height: 197px;
     padding: 9px 10px;
+
+    &:hover {
+        background: #EAE6E6;
+    }
 `
 
 export const NotesCardTitle = styled.h3`

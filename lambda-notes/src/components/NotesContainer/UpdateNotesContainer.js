@@ -2,6 +2,8 @@ import React from 'react';
 import NotesForm from './NotesForm';
 import { connect } from 'react-redux';
 import { getNote, setNull } from '../../actions';
+import { NotesWrapper } from '../ReusableComponents/Note';
+import { MainNotesHeader, NotesCards } from '../ReusableComponents/Notes';
 
 class UpdateNotesContainer extends React.Component {
     componentDidMount() {
@@ -21,18 +23,19 @@ class UpdateNotesContainer extends React.Component {
         return (
             <React.Fragment>
                 {this.props.fetching ? <div>Fetching data</div> :
-                    <div className='create-notes-container' >
+                    <NotesWrapper>
 
-                        <h3 className='notes-header'>Edit Note:</h3>
-                        <div className='notes-cards'>
+                        <MainNotesHeader>Edit Note:</MainNotesHeader>
+                        <NotesCards>
                             <NotesForm
                                 history={this.props.history}
                                 title={this.props.note.title}
                                 content={this.props.note.textBody}
                                 id={this.props.note._id}
                                 tags={this.props.note.tags} />
-                        </div>
-                    </div >
+                        </NotesCards>
+
+                    </NotesWrapper>
                 }
             </React.Fragment>
         );
