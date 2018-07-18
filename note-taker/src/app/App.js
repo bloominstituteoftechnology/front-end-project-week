@@ -27,7 +27,7 @@ const App = () => {
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/create-new" component={CreateNoteContainer} />
         <Route exact path="/note/get/:id" component ={NoteContainer} />
-        <Route exact path="/edit-view" component = {EditNoteContainer}/>
+        <Route exact path="/:id/edit-view" component = {EditNoteContainer}/>
       </MainContentContainer>
     </AppContainer>
   );
