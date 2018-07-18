@@ -10,9 +10,9 @@ export default class DeleteNote extends Component {
             <div class="modal-body text-center">
               Are you sure you want to delete this?
             </div>
-            <div class="text-center">
-              <button type="button" className="btn btn-danger">Delete</button>
-              <button type="button" className="btn btn-info" data-dismiss="modal">No</button>
+            <div class="modal-buttons text-center">
+              <button type="button" className="custom-button-red text-white mr-3">Delete</button>
+              <button type="button" className="custom-button-teal text-white" data-dismiss="modal">No</button>
             </div>
           </div>
         </div>

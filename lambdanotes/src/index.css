@@ -29,4 +29,14 @@ body {
   margin-bottom: 1rem;
   background-color: #23B8BE;
   margin: 1rem auto;
+  text-decoration: none;
+}
+
+.custom-button-red {
+  padding: .7rem 3em;
+  width: 16rem;
+  margin-bottom: 1rem;
+  background-color: #D0021B;
+  margin: 1rem auto;
+  text-decoration: none;
 }

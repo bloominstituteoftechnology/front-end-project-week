@@ -10,10 +10,10 @@ export default class LeftNav extends Component {
           <h1 className='pl-2 nav-header'>Lambda <br />Notes</h1>
         </div>
         <div className='text-center'>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <button type='button' className="btn btn-block custom-button-teal text-white">View Your Notes</button>
           </Link>
-          <Link to="/create-note">
+          <Link to="/create-note" style={{ textDecoration: 'none' }}>
             <button type='button' className="btn btn-block custom-button-teal text-white">+ Create New Note</button>
           </Link>
         </div>

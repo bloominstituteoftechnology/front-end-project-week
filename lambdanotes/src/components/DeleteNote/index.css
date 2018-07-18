@@ -1,0 +1,10 @@
+.modal-content {
+  width: 40rem !important;
+  margin-top: 14rem;
+  margin-right: 20rem;
+  border: 1px solid #4A4A4A;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 2px;
+}
+
