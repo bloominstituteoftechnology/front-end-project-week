@@ -59,11 +59,19 @@ class App extends Component {
             }
           />
 
+          <Route component={NoMatch} />
+
         </Switch>
 
       </div>
     );
   }
+}
+
+const NoMatch = () => {
+  return (
+    <div className="main-container">No match</div>
+  );
 }
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
+import logo from '../logo.svg';
 import Form from './Form';
 import Modal from 'react-modal';
 import { getNote, getNotes, editNote, deleteNote } from '../actions';
@@ -67,7 +68,9 @@ class Note extends React.Component {
     // if notes are not yet loaded into store, return empty div
     if (!this.props.note) {
       return (
-        <div className="main-container note"></div>
+        <div className="main-container">
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
       )
     }
 
