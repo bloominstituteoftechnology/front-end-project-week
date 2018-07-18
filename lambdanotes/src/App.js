@@ -3,12 +3,12 @@ import './App.css';
 import Sidebar from "./components/sidebar/Sidebar"
 import NewNote from "./components/newnote/NewNote";
 import NoteContainer from "./components/notes/NoteContainer";
-import { BrowserRouter as Route} from "react-router-dom";
+import { Route } from "react-router-dom";
 class App extends Component {
   constructor(){
     super();
-    this.state = [
-      {
+    this.state = {
+      notes: [{
         id: 0,
         title: "Welcome to Lambda Notes!",
         body: "Click Create New Note to start!"
@@ -17,8 +17,11 @@ class App extends Component {
         id: 1,
         title: "Test Note",
         body: "This is a test"
-      }
-    ]
+      }]
+    }
+  }
+  addNote () {
+
   }
 
   render() {
@@ -30,7 +33,7 @@ class App extends Component {
 
         <Route
           exact path='/'
-          render={(props) => <NoteContainer {...props} notes={this.state} />}
+          render={(props) => <NoteContainer {...props} notes={this.state.notes} />}
         />
         <Route path="/new" component={NewNote} />
       </div>
