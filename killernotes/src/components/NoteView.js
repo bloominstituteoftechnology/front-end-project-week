@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteNote } from '../actions';
+import { deleteNote, editing } from '../actions';
 import styled from 'styled-components';
 import ModalDelete from './ModalDelete';
 
@@ -37,12 +37,17 @@ class NoteView extends React.Component {
         textBody: '',
         id: '',
       },
+      editing: false,
       modal: false,
     };
   }
 
   toggleModal = () => {
     this.setState({ modal: !this.state.modal });
+  };
+
+  toggleEdit = () => {
+    this.props.editing();
   };
 
   deleteClicked = () => {
@@ -97,7 +102,9 @@ class NoteView extends React.Component {
           toggleModal={this.toggleModal}
         />
         <Links>
-          <Link to={`/edit/${id}`}> edit </Link>
+          <Link to={`/edit/${id}`} onClick={this.toggleEdit}>
+            edit{' '}
+          </Link>
           <Link to="#" onClick={this.toggleModal}>
             delete
           </Link>
@@ -119,5 +126,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { deleteNote },
+  { editing, deleteNote },
 )(NoteView);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { addNote, editing } from '../actions';
 import styled from 'styled-components';
 
 const Note = styled.div`
@@ -59,6 +59,11 @@ class NoteForm extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log('PROPS', this.props.edit);
+    this.setState({ editing: this.props.edit });
+  }
+
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -77,7 +82,7 @@ class NoteForm extends React.Component {
   render() {
     return (
       <Note>
-        <h2>Create New Note:</h2>
+        {this.state.editing ? <h2>Edit Note:</h2> : <h2>Create New Note:</h2>}
         <TitleInput
           onChange={this.handleInputChange}
           placeholder="Note Title"
@@ -92,13 +97,22 @@ class NoteForm extends React.Component {
           name="textBody"
         />
         <br />
-        <Button onClick={this.clickedSave}>Save</Button>
+        <Button onClick={this.clickedSave}>
+          {this.state.editing ? 'Update' : 'Save'}
+        </Button>
       </Note>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    notes: state.notes,
+    edit: state.editingNote,
+  };
+};
+
 export default connect(
-  null,
-  { addNote },
+  mapStateToProps,
+  { addNote, editing },
 )(NoteForm);

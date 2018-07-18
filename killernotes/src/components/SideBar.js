@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { notEditing } from '../actions';
 import styled from 'styled-components';
 
 const SideBarDiv = styled.div`
@@ -43,16 +45,25 @@ const NewButton = styled.button`
   font-size: 16px;
 `;
 
-const SideBar = props => (
-  <SideBarDiv>
-    <Text>Lambda Notes</Text>
-    <Link to="/">
-      <ViewButton>View Your Notes</ViewButton>
-    </Link>
-    <Link to="/add">
-      <NewButton>+Create New Note</NewButton>
-    </Link>
-  </SideBarDiv>
-);
+const SideBar = props => {
+  const addNote = () => {
+    props.notEditing();
+  };
 
-export default SideBar;
+  return (
+    <SideBarDiv>
+      <Text>Lambda Notes</Text>
+      <Link to="/">
+        <ViewButton>View Your Notes</ViewButton>
+      </Link>
+      <Link to="/add">
+        <NewButton onClick={addNote}>+Create New Note</NewButton>
+      </Link>
+    </SideBarDiv>
+  );
+};
+
+export default connect(
+  null,
+  { notEditing },
+)(SideBar);

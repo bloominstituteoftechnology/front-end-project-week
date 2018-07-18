@@ -4,6 +4,8 @@ export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
 export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
+export const EDITING = 'EDITING';
+export const NOTEDITING = 'NOTEDITING';
 export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
 export const ERROR = 'ERROR';
@@ -49,3 +51,6 @@ export const addNote = note => {
       .catch(err => dispatch({ type: ERROR, payload: err }));
   };
 };
+
+export const editing = () => ({ type: EDITING });
+export const notEditing = () => ({ type: NOTEDITING });

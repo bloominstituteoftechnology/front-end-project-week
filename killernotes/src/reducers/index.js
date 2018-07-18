@@ -1,11 +1,13 @@
 /* prettier-ignore */
-import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED} from '../actions';
+import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING} from '../actions';
 
 const initialState = {
   fetchingNotes: false,
   fetchedNotes: false,
   deletingNote: false,
   deletedNote: false,
+  editingNote: false,
+  editedNote: false,
   addingNote: false,
   addedNote: false,
   notes: [],
@@ -50,6 +52,18 @@ const rootReducer = (state = initialState, action) => {
       const notesArr = state.notes.slice();
       notesArr.push(newNote);
       return { ...state, addingNote: false, addedNote: true, notes: notesArr };
+
+    case EDITING:
+      return {
+        ...state,
+        editingNote: true,
+      };
+
+    case NOTEDITING:
+      return {
+        ...state,
+        editingNote: false,
+      };
 
     case ERROR:
       return {
