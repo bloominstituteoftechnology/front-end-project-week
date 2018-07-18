@@ -12,15 +12,18 @@ class NotesList extends React.Component {
     }
   }
 
+/*CLick function that enables the user to logout of the page*/
   handleLogout = () => {
     localStorage.removeItem('user');
     window.location.reload();
   }
 
+/*Generic change handler that updates component state from an input field*/
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }
 
+/*Function allows for note searching functionality*/
   handleSearch = event => {
     event.preventDefault();
     let searchResults = this.props.notes.slice();
@@ -32,6 +35,7 @@ class NotesList extends React.Component {
     this.setState({searchResults: searchResults})
   }
 
+/*Working on this function, will enable export to a CSV file*/
   exportCSV = dataArray => {
     let csvContent = "data:text/csv;charset=utf-8,";
     dataArray.forEach(entry => {

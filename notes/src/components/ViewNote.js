@@ -21,6 +21,7 @@ class ViewNote extends React.Component {
     this.setState({[event.target.name]: event.target.value})
   }
 
+/*Saves a note to the server*/
   saveNote = event => {
     const newNote = {title: this.state.title, textBody: this.state.content}
     event.preventDefault();
@@ -43,6 +44,7 @@ class ViewNote extends React.Component {
     }
   }
 
+/*Will fetch just one note to be viewed upon clicking on a link to its route*/
   fetchNote = id => {
     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
     .then(response => {
@@ -54,6 +56,7 @@ class ViewNote extends React.Component {
     })
   }
 
+/*Allows for the deleting of notes*/
   deleteNote = id => {
     console.log(id);
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
@@ -67,6 +70,7 @@ class ViewNote extends React.Component {
     })
   }
 
+/*Toggles the edit form for editing a note*/
   toggleEdit = () => {
     this.setState({
       editingNote: !this.state.editingNote,
@@ -79,6 +83,7 @@ class ViewNote extends React.Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+/*Saves the edits to the server and then redisplays the Note component*/
   handleEdit = (id) => {
     console.log("haha");
     const newEdits = {tags: this.state.tags, title: this.state.title, textBody: this.state.textBody}
@@ -93,6 +98,7 @@ class ViewNote extends React.Component {
     })
   }
 
+/*Helper function used for Modal toggling in the delete functionality*/
   toggleModal = () => {
     this.setState({modal: !this.state.modal});
   }

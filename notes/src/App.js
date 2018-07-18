@@ -18,6 +18,7 @@ class App extends Component {
     }
   }
 
+  /*Fetches data from the server once the App component mounts then passes it to the state to be displayed*/
   componentDidMount() {
     axios
       .get('https://killer-notes.herokuapp.com/note/get/all')
@@ -29,6 +30,7 @@ class App extends Component {
       })
   }
 
+/*Exported function met to fetch API data for this state via a different component*/
   setData = () => {
     axios
       .get('https://killer-notes.herokuapp.com/note/get/all')
@@ -40,6 +42,7 @@ class App extends Component {
       })
   }
 
+/*Test code probably needs to be delted*/
   handleCreate() {
     console.log("Happy happy fun day");
   }

@@ -10,6 +10,7 @@ const Authenticate = App =>
       }
     }
 
+/*Component displays only if localStorage contains a certain value*/
     componentDidMount() {
       if (!localStorage.getItem('user')) {
         this.setState({loggedIn: false});

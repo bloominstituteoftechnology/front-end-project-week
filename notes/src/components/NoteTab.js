@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 
+/*Class responsible for displaying Note tabs in list view*/
 class NoteTab extends React.Component {
   constructor(props) {
     super(props);

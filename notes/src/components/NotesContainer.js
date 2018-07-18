@@ -3,6 +3,7 @@ import '../App.css';
 import NoteTab from './NoteTab';
 import {NavLink} from 'react-router-dom';
 
+/*Purpose of this function is to act as a container for note tabs and to return them via array.map*/
 class NotesContainer extends React.Component {
   render() {
     return (
