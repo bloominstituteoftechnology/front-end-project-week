@@ -1,56 +1,75 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateReq } from '../actions';
+import { fetchNoteReq, updateReq } from '../actions';
 import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
-import axios from 'axios';
 
 class EditView extends Component {
     constructor(props) {
         super(props);
         this.state = {
             note: null,
+            title: '',
+            textBody: ''
         };
     }
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        const promise = axios.get(`${URL}/get/${id}`);
-        promise.then(({data}) => {
-          console.log(data);
-          this.setState({note: data});
-        })
-        .catch((error) => this.setState({error}));
+        // console.log(id);
+        this.props.fetchNoteReq(id);
+        this.setState({title: '', textBody: ''});
+    }
+
+    handleChange = (e) => {
+        this.setState({[e.target.name]: e.target.value})
+    };
+
+    handleUpdate = (id) => {
+        if(this.state.title === '' && this.state.textBody === '') return null;
+
+        const note = {
+            title: this.state.title,
+            textBody: this.state.textBody
+        }
+        this.props.updateReq(id, note);
     }
 
     render() {
-        if(!this.state.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+        if(!this.props.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
             <div className="EditView-container">
                 <div className="EditView-header">
                     <h2>Edit Note:</h2>
                 </div>
-                <form className="EditView-content" onSubmit={this.props.handleUpdate}>
+                <form className="EditView-content" onSubmit={this.handleUpdate}>
                     <input
                         name="title"
                         placeholder="Note Title"
-                        value={this.props.title === "" ? this.state.note.title : this.props.title}
-                        onChange={this.props.handleChange}
+                        value={this.state.title === "" ? this.props.note.title : this.state.title}
+                        onChange={this.handleChange}
                     />
                     <textarea
                         name="textBody"
                         placeholder="Note Content"
-                        value={this.props.textBody === "" ? this.state.note.textBody : this.props.textBody}
-                        onChange={this.props.handleChange}
+                        value={this.state.textBody === "" ? this.props.note.textBody : this.state.textBody}
+                        onChange={this.handleChange}
                     />
                 </form>
                 <div className="EditView-buttons">
-                <Link to={`/note/${this.state.note["_id"]}`}><button onClick={() => this.props.handleUpdate(this.props.match.params.id)}>Update</button></Link>
+                <Link to={`/note/${this.props.note["_id"]}`}><button onClick={() => this.handleUpdate(this.props.match.params.id)}>Update</button></Link>
                 </div>
             </div>
         );
     }
 };
 
-export default EditView;
+const mapStateToProps = ({ notes }) => {
+    console.log(notes);
+    return {
+        note: notes.note
+    };
+};
+
+export default connect(mapStateToProps, { fetchNoteReq, updateReq })(EditView);

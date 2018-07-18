@@ -64,6 +64,6 @@ class CreateView extends Component {
 
 const mapStateToProps = ({ notes }) => {
     return {};
-}
+};
 
 export default connect(mapStateToProps, { submitReq })(CreateView);

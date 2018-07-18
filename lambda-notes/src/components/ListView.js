@@ -18,7 +18,7 @@ class ListView extends Component {
     }
 
     render() {
-        if(!this.props.notes) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+        if(this.props.notes === null) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
             <div className="ListView-container">
