@@ -51,6 +51,7 @@ class CreateNewView extends React.Component {
       };
       console.log("MESSAGE", message);
       this.props.noteHandler(message);
+      this.props.history.push(`/note/${message._id}`);
     } else {
       alert("Please make sure you have entered a title and note body");
     }
