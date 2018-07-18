@@ -1,5 +1,8 @@
 Trello: https://trello.com/b/SexnW6Sk/lambda-notes-front-end-jameson-brown
 
+Server Details:
+~ cd into root directory. run yarn install. run yarn start. server will start.
+
 # Front End Project Week
 
 This week you will be building a minimum viable product (MVP) for a note taking app called "Lambda Notes."
@@ -73,3 +76,56 @@ Once your MVP has been approved, you have been given a feature list that the cli
 - [ ] Create a login system around the MVP
 
 You will notice that this repository does not have any starter code. This is on purpose. You are to start from scratch using any files you have built throughout your time here at Lambda School.
+
+# Axios Help:
+
+### GET '/notes'
+
+* To retreive an array all the notes in the Note DB simply write a get to the endpoint `'/notes'`
+### POST '/notes'
+
+* To add a note to the Note DB you'll need all three fields.
+* Example:
+
+```js
+{
+  title: 'Note Title 1',
+  content: 'Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.'
+  id: 0
+}
+```
+### DELETE '/notes/123', where 123 is the Id of the note you want to remove
+
+* For this endpoint to work, all you need is an id sent up as part of the request url.
+
+* If your delete worked, you'll get a list of the notes back.
+* Example:
+
+```js
+// output: `A list of all the notes in the Note DB will be returned`
+[
+    {
+        "title": "Note Title 1",
+        "content": "Bacon ipsum dolor amet turkey bacon cupim biltong pork chop ribeye, hamburger kielbasa alcatra jerky venison t-bone ground round. Meatball rump cow leberkas.",
+        "id": 0
+    }
+]
+```
+### PUT '/notes/123', where 123 is the Id of the note you want to modify
+* For this endpoint to work, you'll need an `id` added to the URL, and at least one field to update on the Note object. `title` `content`.
+* Example:
+
+```js
+// input:
+{
+  id: 1,
+  name: Sleepy
+}
+// output: `A list of all the notes in the Note DB will be returned`
+[{
+  name: 'Sleepy',
+  age: 30,
+  height: '3cm,
+  id: 1
+}]
+```
