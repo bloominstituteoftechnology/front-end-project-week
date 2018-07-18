@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './index.css';
 import DeleteNote from '../DeleteNote/DeleteNote';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class NoteView extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class NoteView extends Component {
     return (
       <div>
         <div className="top-content float-right mt-0">
-          <button type="button" class="btn btn-link text-dark underline">Edit</button>
+          <Link to={`/edit-note/${this.props.match.params.id}`}><button type="button" class="btn btn-link text-dark underline">Edit</button></Link>
           <button type="button" class="btn btn-link text-dark underline" data-toggle="modal" data-target="#exampleModal">Delete</button>
           <DeleteNote id={this.props.match.params.id}/>
         </div>

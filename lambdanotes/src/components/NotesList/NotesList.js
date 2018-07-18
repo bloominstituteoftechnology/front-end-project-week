@@ -27,7 +27,7 @@ export default class NotesList extends Component {
         <h3 class="header">Your Notes:</h3>
         {this.state.notes.map(note =>
           <div className="float-left mr-3">
-          <Link to={`/note/${note._id}`} params={{ id: note._id }}>
+          <Link to={`/note/${note._id}`} style={{ textDecoration: 'none' }}>
             <div className="card border-secondary mb-3 note" key={note._id}>
               <div className="card-body ">
                 <h5 className="card-title py-0">{note.title}</h5>

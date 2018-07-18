@@ -12,19 +12,14 @@ export default class CreateNote extends Component {
   }
 
   handleSubmit = () => {
-    console.log(this.state.title, this.state.message)
+    const URL = 'http://localhost:3000/'
     axios
       .post(`https://killer-notes.herokuapp.com/note/create`, {
         title: this.state.title,
         textBody: this.state.message
       })
-      .then(response => console.log(response))
-      .then(() => {
-        this.setState({
-          title: '',
-          message: '',
-        })
-      })
+      //.then(response => console.log(response))
+      .then(response => window.location.href = URL)
       .catch(error => console.log(error));
   }
 

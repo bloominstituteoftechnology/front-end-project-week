@@ -8,7 +8,8 @@ body {
   padding: 0;
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
   max-width: 1200px;
-  color: #4A4A4A; 
+  color: #4A4A4A;
+  position: relative; 
 }
 
 .app-container {
