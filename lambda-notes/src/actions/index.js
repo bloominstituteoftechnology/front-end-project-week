@@ -1,6 +1,7 @@
 import axios from 'axios';
 export const FETCHING = 'FETCHING';
 export const FETCHED = 'FETCHED';
+export const FETCHED_ONE = 'FETCHED_ONE';
 export const SAVING = 'SAVING';
 export const SAVED = 'SAVED';
 export const DELETING = 'DELETING';
@@ -18,6 +19,20 @@ export const fetchReq = () => {
         .then(({data}) => {
             // console.log(data);
             dispatch({type: FETCHED, payload: data});
+        })
+        .catch((err) => {
+            dispatch({type: ERROR, payload: err})
+        });
+    };
+};
+
+export const fetchNoteReq = (id) => {
+    return (dispatch) => {
+        dispatch({type: FETCHING});
+        axios.get(`${URL}/get/${id}`)
+        .then(({data}) => {
+            // console.log(data);
+            dispatch({type: FETCHED_ONE, payload: data});
         })
         .catch((err) => {
             dispatch({type: ERROR, payload: err})

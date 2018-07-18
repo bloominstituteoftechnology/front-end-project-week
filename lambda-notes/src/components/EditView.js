@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import logo from '../logo.svg';
+import { connect } from 'react-redux';
+import { updateReq } from '../actions';
 import { Link } from 'react-router-dom';
-
-const URL = 'https://killer-notes.herokuapp.com/note';
+import logo from '../logo.svg';
+import axios from 'axios';
 
 class EditView extends Component {
     constructor(props) {

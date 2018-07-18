@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import NoteView from './NoteView';
-import logo from '../logo.svg';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchNoteReq } from '../actions';
+import NoteView from './NoteView';
 import DeleteModal from './DeleteModal';
-
-const URL = 'https://killer-notes.herokuapp.com/note/get';
+import logo from '../logo.svg';
 
 class Note extends Component {
     constructor(props) {
@@ -19,51 +18,40 @@ class Note extends Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         // console.log(id);
-        this.fetchNote(id);
+        this.props.fetchNoteReq(id);
     }
 
-    // componentWillReceiveProps(newProps) {
-    //     console.log(newProps);
-    //     if(this.props.location.pathname.split("/").pop() !== newProps.location.pathname.split("/").pop()) {
-    //         this.fetchNote(newProps.location.pathname.split("/").pop());
-    //     }
-    // }
-
-    fetchNote = (id) => {
-        const promise = axios.get(`${URL}/${id}`);
-        promise.then(({data}) => {
-            // console.log(data);
-          this.setState(() => ({ note: data, isSelected: !this.state.isSelected }));
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    };
-
     render () {
-        if(!this.state.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+        if(!this.props.note) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
             <div className="Note-container">
                 <div className="Note-header">
                     <div className="Note-links">
-                    <Link to={`/edit/${this.state.note["_id"]}`}>
+                    <Link to={`/edit/${this.props.note["_id"]}`}>
                         <p>edit</p>
                     </Link>
-                    <Link to={`/note/${this.state.note["_id"]}`} onClick={this.props.toggleDelete}>
+                    <Link to={`/note/${this.props.note["_id"]}`} onClick={this.props.toggleDelete}>
                         <p>delete</p>
                     </Link>
                     </div>
-                    <h2>{this.state.note.title}</h2>
+                    <h2>{this.props.note.title}</h2>
                 </div>
                 <div className="Note-content">
-                    <p>{this.state.note.textBody}</p>
+                    <p>{this.props.note.textBody}</p>
                 </div>
-                {!this.state.isSelected ? <NoteView note={this.state.note}/> : null}
+                {this.state.isSelected ? <NoteView note={this.props.note}/> : null}
                 {this.props.deleting ? <DeleteModal toggleDelete={this.props.toggleDelete} handleDelete={this.props.handleDelete} id={this.state.note["_id"]}/> : null}
             </div>
         );
     }
 };
 
-export default Note;
+const mapStateToProps = ({ notes }) => {
+    // console.log(notes);
+    return {
+        note: notes.note
+    };
+}
+
+export default connect(mapStateToProps, { fetchNoteReq })(Note);

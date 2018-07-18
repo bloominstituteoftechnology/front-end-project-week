@@ -1,61 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchReq } from '../actions';
 import NoteView from './NoteView';
 import Link from '../../node_modules/react-router-dom/Link';
-import axios from 'axios';
 import logo from '../logo.svg';
-
-const URL = 'https://killer-notes.herokuapp.com/note/get';
 
 class ListView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
-            fetching: false,
-            fetched: false,
-            saving: false,
-            saved: false,
-            updating: false,
-            updated: false,
-            deleting: false,
-            deleted: false,
-            error: null,
-            "title": "",
-            "textBody": ""
-          };
+            notes: null
+        };
     }
 
     componentDidMount() {
-        const promise = axios.get(`${URL}/all`);
-        promise.then(({data}) => {
-          // console.log(data);
-          this.setState({
-            notes: data,
-            fetching: false,
-            fetched: true,
-            saving: false,
-            saved: false,
-            updating: false,
-            updated: false,
-            deleting: false,
-            deleted: false,
-            error: null,
-            "title": "",
-            "textBody": ""
-          });
-        })
-        .catch((error) => this.setState({error}));
+        this.props.fetchReq();
     }
 
     render() {
-        if(!this.state.fetched) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+        if(!this.props.notes) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
 
         return (
             <div className="ListView-container">
                 <div className="ListView-header">
                     <h2>Your Notes:</h2>
                 </div>
-                {this.state.notes.map((note, index) => {
+                {this.props.notes.map((note, index) => {
                     return (
                         <Link to={`/note/${note["_id"]}`}>
                             <NoteDetails
@@ -78,4 +48,12 @@ function NoteDetails({ note }) {
     );
 };
 
-export default ListView;
+const mapStateToProps = ({ notes }) => {
+    // console.log(notes);
+    return {
+        notes: notes.notes,
+        fetched: notes.fetched
+    };
+};
+
+export default connect(mapStateToProps, { fetchReq })(ListView);
