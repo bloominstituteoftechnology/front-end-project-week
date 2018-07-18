@@ -18,7 +18,7 @@ class Note extends React.Component {
     }
 
     componentDidMount() {
-        // Gets note from the server
+        // Gets note from the server / Checklist from local storage
         if (this.props.match) {
             this.props.getNote(this.props.match.params.id);
             if (localStorage.getItem('checkedlist' + this.props.match.params.id)) {
@@ -78,6 +78,16 @@ class Note extends React.Component {
         localStorage.setItem('checkedlist' + this.props.match.params.id, JSON.stringify(checklist));
     }
 
+    deleteList = id => {
+        console.log(id);
+        const checklist = this.state.checklist.slice();
+        checklist.splice(id, 1);
+
+        this.setState({ checklist });
+        localStorage.setItem('checkedlist' + this.props.match.params.id, JSON.stringify(checklist));
+        localStorage.removeItem('checked' + id);
+    }
+
     render() {
         // Displays single note / Modal
         return (
@@ -114,7 +124,7 @@ class Note extends React.Component {
 
                         <form className='checklist-form' onSubmit={event => event.preventDefault()}>
                             <h3>Checklist:</h3>
-                            {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} id={index + this.props.match.params.id} />)}
+                            {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} id={index + this.props.match.params.id} deleteList={this.deleteList} />)}
                             <input className='checklist-input' onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a list' />
                             <input onClick={this.addList} type='submit' hidden />
                         </form>
