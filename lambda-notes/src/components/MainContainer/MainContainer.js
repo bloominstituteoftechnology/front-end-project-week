@@ -68,7 +68,9 @@ class MainContainer extends Component {
                         <SideBar />
                         <Route exact path='/' render={ props => <ListView {...props} notes={this.state.notes} /> } />
                         <Route path='/create' component={CreateNote} />
-                        <Route path='/edite'  component={EditNote} />
+                        <Route path='/edit'  component={EditNote} />
+                        <Route path='/view'  component={ViewNote} />
+                        <Route path='/delete' component={DeleteNote} />
 
                 </div>
             </Router>
