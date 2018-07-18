@@ -67,7 +67,7 @@ class Note extends React.Component {
 
   render() {
     // if note is not yet loaded into store, or if requested id does not exist, return NoMatch
-    if (!this.props.note || this.props.note._id !== this.id) {
+    if (!this.props.note || (this.props.note._id !== this.id && this.props.note !== "no such note")) {
       return (
         <Loading />
       )
