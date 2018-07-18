@@ -5,7 +5,7 @@ export default class extends Component {
 
   state = {
     title: '',
-    text: ''
+    textBody: ''
   }
 
   handleChange = e => {
@@ -31,14 +31,14 @@ export default class extends Component {
           name="title" 
         />
       </label>  
-      <label htmlFor="text">
+      <label htmlFor="textBody">
         <h3>Text</h3>
         <textarea 
           onChange={this.handleChange}
-          id="text" 
+          id="textBody" 
           rows="20" 
           cols="100" 
-          name="text"
+          name="textBody"
         />
       </label>
       <Button onClick={() => {

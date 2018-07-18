@@ -42,38 +42,44 @@ class App extends Component {
   async componentDidMount() {
 
     try {
-    const {
+      
+      const {
         data: notes 
       } = await get('https://killer-notes.herokuapp.com/note/get/all')
 
       this.setState({ notes })
 
-    } catch(error) {
+    } catch(e) {
       
-      console.log('error:', error)
+      console.log('error:', e)
 
     }
-
-    
 
   }
 
-  addNote = note => {
+    addNote = async note => {
     
     const { notes } = this.state
 
-    let id = 0
+    try {
 
-    if(notes.length !== 0) {
-      id = notes[notes.length - 1].id + 1
-    }
-   
-    this.setState({
-      notes: notes.concat({ 
-        ...note, 
-        id
+      const {
+        data
+      } = await post('https://killer-notes.herokuapp.com/note/create', note)
+
+      this.setState({
+        // adds new notes to front of list
+        notes: [].concat({
+          ...note,
+          _id: data.success
+        }, notes)
       })
-    })
+
+    } catch(e) {
+
+      console.log('error:', e)
+
+    }
 
   }
 
