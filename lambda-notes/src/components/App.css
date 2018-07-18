@@ -37,6 +37,7 @@ body {
   line-height: 1;
   margin: 14px 0;
   font-family: 'Roboto', Arial, sans-serif;
+  cursor: pointer;
 }
 
 .side-bar-content {

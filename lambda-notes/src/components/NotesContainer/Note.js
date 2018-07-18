@@ -70,6 +70,7 @@ class Note extends React.Component {
     }
 
     addList = () => {
+        // Adds list to state / localstorage
         if (this.state.list === '') return;
         const checklist = this.state.checklist.slice();
         checklist.push(this.state.list);
@@ -79,7 +80,7 @@ class Note extends React.Component {
     }
 
     deleteList = id => {
-        console.log(id);
+        // Deletes list / Updates checkedlist / Removes checked in localstorage
         const checklist = this.state.checklist.slice();
         checklist.splice(id, 1);
 
