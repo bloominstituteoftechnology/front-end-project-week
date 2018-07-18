@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNote } from '../actions';
+import posed, { PoseGroup } from 'react-pose';
 
 const StyledNoteForm = styled.div`
     background: #F3F3F3;

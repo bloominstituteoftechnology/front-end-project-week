@@ -6,14 +6,14 @@ import { withRouter } from 'react-router-dom';
 import posed, { PoseGroup } from 'react-pose';
 
 const Card = posed.span({
-    enter: {opacity: 1, translateY: 0, transition: { duration: 1000 }, delay: ({ i }) => i * 100,},
-    exit: {opacity: 0, translateY: 50},
+    enter: {opacity: 1, translateY: 0, transition: { duration: 1000 }, delay: ({ i }) => i * 100},
+    exit: {opacity: 0, translateY: 100},
     draggable: true,
     // hovered: { scale: 1.5 },
 })
 
 const containerConfig = {
-   mount: { opacity: 1, translateX: 0, transition: { duration: 1000 }},
+   mount: { opacity: 1, translateX: 0, transition: { duration: 1000 }, beforeChildren: true},
    unmount: { opacity: 0, translateX: -100 },
 }
 const StyledNotesContainer = styled(posed.div(containerConfig))`
@@ -32,7 +32,7 @@ const StyledNotes = styled.div`
 `;
 
 const StyledCard = styled(Card)`
-    margin: 2%;
+    margin: 3%;
 `;
 
 class NotesContainer extends Component {
@@ -44,23 +44,25 @@ class NotesContainer extends Component {
     }
 
     componentDidMount(){
-        console.log("mount", this.state.mount);
-        setTimeout(this.setState({mount: true}), 2000);
+        console.log("this.state.mount", this.state.mount);
+        setTimeout(this.setState({ mount: true }), 5000);
+        console.log("this.state.mount", this.state.mount);
     }
 
     componentWillUnmount(){
-        this.setState({mount: false})
-        console.log("Mount after unmount", this.state.mount);
+        this.setState({ mount: false })
     }
     render(){
         return(
             <StyledNotesContainer pose={this.state.mount ? 'mount' : 'unmount'}>
                 <h3>Your Notes:</h3>
                 <StyledNotes>
-                        {this.props.notes.map((note, i) => {
-                            return <StyledCard pose={this.state.mount ? 'enter' : 'exit'} key={note._id} i={i} ><NoteCard note={note}
-                                            key={note._id} /></StyledCard>
-                        })}
+                    <PoseGroup animateOnMount>
+                    {this.props.notes.map((note, i) => {
+                        return <StyledCard pose={'exit'} key={note._id} i={i} ><NoteCard note={note}key={note._id} />
+                                </StyledCard>
+                    })}
+                    </PoseGroup>
                 </StyledNotes>
             </StyledNotesContainer>
             
@@ -78,7 +80,6 @@ const mapStateToProps = (state) => {
         added: state.added,
         error: state.error
     }
-   
 }
 
 export default withRouter(connect(mapStateToProps, {})(NotesContainer));
