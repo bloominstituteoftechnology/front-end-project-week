@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const NotesList = props => {
   return (
     <div className="notes-list-div">
-      <h3>Your Notes: </h3>
+      <p className="notes-list-title">Your Notes: </p>
       <ul className="notes-list">
         {props.notes.map(note => {
           return (
             <Link className="note-link" to={`/notes/${note.id}`} key={note.id}>
-              <h1>{note.title.substring(0, 10)}</h1>
-              <hr />
-              <p>{note.content.substring(0, 50)}</p>
+              <p className='note-link-title'>{note.title.substring(0, 20)}</p>
+              <hr/>
+              <p>{note.content.substring(0, 150)}</p>
             </Link>
           );
         })}

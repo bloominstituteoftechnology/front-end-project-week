@@ -1,66 +1,127 @@
 .App {
   display: flex;
-  border: 1px solid black;
   font-family: "Raleway";
   color: #4a4a4a;
   margin: 0 auto;
   max-width: 800px;
+  min-height: 600px;
+  border: 1px solid #979797;
 }
 
+
+/* Nav styles */
 .nav {
   font-family: "Roboto";
   font-weight: bold;
   background-color: #d8d8d8;
-  width: 20%;
+  padding-left:10px;
+  min-width: 200px;
+  border-right:1px solid #979797;
 }
 
+.nav h1 {
+  font-size: 2.0rem;
+  line-height: 30px;
+}
+
+.nav-button-link {
+  text-decoration: none;
+}
 .nav-button {
   background-color: #2bc1c4;
   color: #ffffff;
   border: 1px solid #979797;
   width: 80%;
-  height: 15px;
-  margin: 5%;
-  padding: 4%;
+  min-height: 15px;
+  margin:  15px 5%;
+  padding: 5%;
   padding-top: 5%;
-  font-size: 10px;
+  font-size: 0.8rem;
   text-align: center;
+
+}
+
+.note-form-div {
+  background-color: #f3f3f3;
+  padding-left: 20px;
+}
+
+.note-form-title {
+  font-family: "Roboto";
+  font-size: 1.2rem;
+  margin-top: 60px;
+}
+
+.note-form {
+  line-height: 40px;
+  border-radius: 5px;
+  border: 1px solid #979797;
+}
+::placeholder {
+  color:#4A4A4A;
+  font-family: "Raleway";
+}
+.note-form-content{
+  line-height:55px;
+  border-radius: 5px;
+  resize: none;
+  border: 1px solid #979797;
 }
 
 .save-button {
   background-color: #2bc1c4;
   color: #ffffff;
   border: 1px solid #979797;
-  width: 100px;
-  height: 25px;
+  min-width: 200px;
+  min-height: 25px;
+  padding: 2%;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
 }
+
+
+ /* ListView Styles */
 
 .notes-list-div {
-  border: 1px solid red;
   background-color: #f3f3f3;
   width: 80%;
+
 }
 
-.note-link {
-  text-decoration: none;
-  display: flex;
-  cursor: pointer;
-  flex-wrap: wrap;
-  
-  width: 25%;
-  font-size: 12px;
-  padding: 2%;
-  margin: 2%;
-  border: 1px solid #979797;
-  color: #4a4a4a;
-  font-family: "Raleway";
+.notes-list-title {
+  font-family: "Roboto";
+  font-size: 1.2rem;
+  margin-left: 10px;
 }
+
 .notes-list {
-  border: 1px solid blue;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
 }
+
+.note-link {
+  text-decoration: none;
+  cursor: pointer;
+  width: 25%;
+  font-size: 0.6rem;
+  line-height: 20px;
+  padding: 2%;
+  margin: 2%;
+  border: 1px solid #979797;
+  color: #4a4a4a;
+  background: #ffffff;
+}
+
+.note-link-title {
+  font-size: 1rem;
+  font-family: "Roboto";
+  font-weight: bold;
+  margin-top: 0;
+}
+
+
 
 /* Heading font: Roboto Bold
 Everything else font: Raleway Medium
