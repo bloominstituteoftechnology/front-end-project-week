@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar'
 import MainContainer from './components/MainContainer'
 import NoteCardsContainer from './components/NoteCardsContainer'
 import NoteCard from './components/NoteCard'
+import NoteView from './components/NoteView'
 import NewNote from './components/NewNote'
 import EditNote from './components/EditNote'
 import { Route, Link } from 'react-router-dom'
@@ -99,21 +100,15 @@ class App extends Component {
           <Route exact path='/note/:id' render={props => 
             notes.filter(note => 
               String(note.id) === props.match.params.id
-            ).map(note => <div key={note.id}>
-              <h2>{note.title}</h2>
-              <hr />
-              <p>{note.text}</p>
-              <br /><br />
-              <span onClick={() => {
-                this.deleteNote(props.match.params.id)
-                props.history.push('/')
-              }}>
-                 [delete] 
-              </span>
-              <Link to={`/note/${props.match.params.id}/edit`}>
-                [edit]
-              </Link>
-            </div>)
+            ).map(note => 
+              <NoteView
+                id={props.match.params.id}
+                title={note.title}
+                text={note.text}
+                deleteNote={this.deleteNote}
+                {...props}
+              />
+            )
           }/>
 
         <Route exact path='/note/:id/edit' render={props =>
