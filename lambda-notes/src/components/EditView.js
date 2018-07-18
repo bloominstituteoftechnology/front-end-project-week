@@ -9,8 +9,10 @@ class EditView extends Component {
         super(props);
         this.state = {
             note: null,
-            title: '',
-            textBody: ''
+            tags: [],
+            tag: '',
+            title: null,
+            textBody: null
         };
     }
 
@@ -18,21 +20,33 @@ class EditView extends Component {
         const id = this.props.match.params.id;
         // console.log(id);
         this.props.fetchNoteReq(id);
-        this.setState({title: '', textBody: '', toggle: false});
+        this.setState({title: this.props.note.title, textBody: this.props.note.textBody, toggle: false, tag: ''});
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     };
 
-    handleUpdate = (id) => {
+    handleUpdate = (e) => {
         if(this.state.title === '' && this.state.textBody === '') return null;
 
+        const id = this.props.match.params.id;
         const note = {
             title: this.state.title,
-            textBody: this.state.textBody
+            textBody: this.state.textBody,
+            tags: this.state.tags
         }
         this.props.updateReq(id, note);
+        console.log('working?');
+    }
+
+    handleTag = (e) => {
+        if(this.state.tag === '') return null;
+        const tags = this.props.tags;
+        const newTag = this.state.tag;
+        tags.push(newTag);
+        console.log(tags);
+        this.setState({tags, tag: ''});
     }
 
     render() {
@@ -56,9 +70,17 @@ class EditView extends Component {
                         value={this.state.textBody === "" ? this.props.note.textBody : this.state.textBody}
                         onChange={this.handleChange}
                     />
+                    <label>tags: {this.props.note ? this.props.tags.map((tag) => <span onClick={() => console.log('delete')}>{`${tag}`}</span>) : ``}</label>
+                    <input
+                        name="tag"
+                        placeholder="Note Tag"
+                        value={this.state.tag}
+                        onChange={this.handleChange}
+                    />
                 </form>
                 <div className="EditView-buttons">
-                <Link to={`/note/${this.props.note["_id"]}`}><button onClick={() => this.handleUpdate(this.props.match.params.id)}>Update</button></Link>
+                    <button onClick={this.handleTag}>Add Tag</button>
+                    <button onClick={() => this.handleUpdate()}>Update</button>
                 </div>
             </div>
         );
@@ -66,10 +88,11 @@ class EditView extends Component {
 };
 
 const mapStateToProps = ({ notes }) => {
-    console.log(notes);
+    // console.log(notes);
     return {
-        note: notes.note
+        note: notes.note,
+        tags: notes.note.tags
     };
-};
+}
 
 export default connect(mapStateToProps, { fetchNoteReq, updateReq })(EditView);

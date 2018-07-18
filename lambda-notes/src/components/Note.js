@@ -11,6 +11,7 @@ class Note extends Component {
         super(props);
         this.state = {
             note: null,
+            tags: null,
             isSelected: false,
             toggle: false
         };
@@ -33,8 +34,6 @@ class Note extends Component {
   };
 
     render () {
-        if(this.props.deleting) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
-
         return (
             <div className="Note-container">
                 <div className="Note-header">
@@ -51,6 +50,9 @@ class Note extends Component {
                 <div className="Note-content">
                     <p>{this.props.note.textBody}</p>
                 </div>
+                <div className="Note-tag">
+                    {this.props.tags ? <p>tags: {this.props.tags.map((tag) => <span>{`${tag}`}</span>)}</p> : ''}
+                </div>
                 {this.state.isSelected ? <NoteView note={this.props.note}/> : null}
                 {this.state.toggle ? <DeleteModal toggleDelete={this.toggleDelete} handleDelete={this.handleDelete} id={this.props.note["_id"]}/> : null}
             </div>
@@ -62,8 +64,7 @@ const mapStateToProps = ({ notes }) => {
     // console.log(notes);
     return {
         note: notes.note,
-        fetching: notes.fetching,
-        deleting: notes.deleting
+        tags: notes.note.tags
     };
 }
 

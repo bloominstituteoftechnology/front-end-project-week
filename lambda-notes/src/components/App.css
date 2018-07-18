@@ -239,8 +239,14 @@ button:hover {
   padding: 32px 32px;
 }
 
+.CreateView-content label, .EditView-content label {
+  margin: 16px auto;
+}
+
 .CreateView-buttons, .EditView-buttons {
   display: flex;
+  flex-direction: column;
+  width: 286px;
 }
 
 .CreateView-buttons button, .EditView-buttons button, .DeleteModal-buttons button {
@@ -251,10 +257,15 @@ button:hover {
   border: 2px solid #979797;
   font-size: 22px;
   font-weight: bold;
+  margin: 16px 0;
 }
 
 .CreateView-buttons button:hover, .EditView-buttons button:hover, .DeleteModal-buttons button:hover {
   background: #979797;
+}
+
+.EditView-content label span, .Note-tag span {
+  margin: 0 10px;
 }
 
 /* Note styles */
@@ -302,7 +313,7 @@ button:hover {
   margin-left: 20px;
 }
 
-.Note-content {
+.Note-content, .Note-tag {
   width: 860px;
   margin: 16px 0 0 0;
   display: flex;

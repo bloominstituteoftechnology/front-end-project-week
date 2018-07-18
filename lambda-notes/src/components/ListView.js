@@ -18,25 +18,27 @@ class ListView extends Component {
     }
 
     render() {
-        if(this.props.notes === null) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
-
-        return (
-            <div className="ListView-container">
-                <div className="ListView-header">
-                    <h2>Your Notes:</h2>
+        if (!this.props.notes) {
+            return <img src={logo} className="App-logo" alt="logo" style={{ margin: "auto", height: "50%" }} />;
+        } else {
+            return (
+                <div className="ListView-container">
+                    <div className="ListView-header">
+                        <h2>Your Notes:</h2>
+                    </div>
+                    {this.props.notes.map((note, index) => {
+                        return (
+                            <Link to={`/note/${note["_id"]}`}>
+                                <NoteDetails
+                                    key={note["_id"]}
+                                    note={note}
+                                />
+                            </Link>
+                        );
+                    })}
                 </div>
-                {this.props.notes.map((note, index) => {
-                    return (
-                        <Link to={`/note/${note["_id"]}`}>
-                            <NoteDetails
-                                key={note["_id"]}
-                                note={note}
-                            />
-                        </Link>
-                    );
-                })}
-            </div>
-        );
+            );
+        }
     }
 };
 
@@ -51,8 +53,7 @@ function NoteDetails({ note }) {
 const mapStateToProps = ({ notes }) => {
     // console.log(notes);
     return {
-        notes: notes.notes,
-        fetched: notes.fetched
+        notes: notes.notes
     };
 };
 

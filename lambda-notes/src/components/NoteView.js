@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NoteView = props => {
-    const { title, textBody } = props.note;
+    const { title, textBody, tags } = props.note;
     return (
         <div className="NoteView-container">
             <div className="NoteView-header">

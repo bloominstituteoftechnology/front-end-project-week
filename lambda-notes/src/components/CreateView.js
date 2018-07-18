@@ -9,32 +9,42 @@ class CreateView extends Component {
         super(props);
         this.state = {
             title: '',
-            textBody: ''
+            textBody: '',
+            tag: '',
+            tags: []
         }
     }
 
     componentDidMount() {
-        this.setState({title: '', textBody: ''});
+        this.setState({title: '', textBody: '', tag: '', tags: []});
     }
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
     };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
+    handleSubmit = () => {
+        // e.preventDefault();
         if(this.state.title === '' && this.state.textBody === '') return null;
 
         const note = {
             title: this.state.title,
-            textBody: this.state.textBody
+            textBody: this.state.textBody,
+            tags: this.state.tags
         }
         this.props.submitReq(note);
     }
 
-    render() {
-        // if(!props.fetched) return <img src={logo} className="App-logo" alt="logo" style={{margin: "auto", height: "50%"}}/>;
+    handleTag = (e) => {
+        if(this.state.tag === '') return null;
+        const tags = this.state.tags;
+        const tag = this.state.tag;
+        tags.push(tag);
+        
+        this.setState({tags, tag: ''});
+    }
 
+    render() {
         return (
             <div className="CreateView-container">
                 <div className="CreateView-header">
@@ -53,9 +63,17 @@ class CreateView extends Component {
                         value={this.state.textBody}
                         onChange={this.handleChange}
                         />
+                    <label>{this.state.tags.length !== 0 ? (this.state.tags.map((tag) => <span>{`${tag} `}</span>)) : `tags`}</label>
+                    <input
+                        name="tag"
+                        placeholder="Note Tag"
+                        value={this.state.tag}
+                        onChange={this.handleChange}
+                    />
                 </form>
                 <div className="CreateView-buttons">
-                    <Link to="/"><button onClick={this.handleSubmit}>Save</button></Link>
+                    <button onClick={this.handleTag}>Add Tag</button>
+                    <button onClick={() => this.handleSubmit()}>Save</button>
                 </div>
             </div>
         );
