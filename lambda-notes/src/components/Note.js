@@ -34,9 +34,7 @@ class Note extends React.Component {
 
   handleEditSubmit = e => {
     e.preventDefault();
-    const editedNote = { id: this.id, title: this.state.title, textBody: this.state.textBody }
-    this.props.editNote(editedNote);
-    this.props.getNotes();
+    this.props.editNote({ id: this.id, title: this.state.title, textBody: this.state.textBody });
     this.setState({ isEditing: false,
                     title: this.props.note.title,
                     textBody: this.props.note.textBody });
@@ -54,7 +52,6 @@ class Note extends React.Component {
   handleDelete = e => {
     e.preventDefault();
     this.props.deleteNote(this.id);
-    this.props.getNotes();
     this.props.history.push("/");
   }
 

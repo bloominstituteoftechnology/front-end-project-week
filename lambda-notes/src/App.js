@@ -24,15 +24,13 @@ class App extends Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    const newNote = { title: this.state.title, textBody: this.state.textBody }
-    this.props.addNote(newNote);
-    this.props.getNotes();
+    this.props.addNote({ title: this.state.title, textBody: this.state.textBody });
     this.setState({ title: "", textBody: "" });
     this.props.history.push("/");
   }
 
   render() {
-    if (this.props.updating) {
+    if (!this.props.notes) {
       return (
         <div className="main-container"></div>
       )
@@ -73,8 +71,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes,
-    updating: state.updating
+    notes: state.notes
   }
 }
 
