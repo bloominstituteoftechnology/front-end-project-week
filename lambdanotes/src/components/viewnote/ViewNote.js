@@ -1,11 +1,14 @@
 import React from "react"
 import "./ViewNote.css";
+import { Link } from 'react-router-dom';
 
 const ViewNote = props => {
   return (
 
     <div>
-      <small className="view-edit view-options">Edit</small>
+      <Link to={`./${props.match.params.id}/edit`}>
+        <small className="view-edit view-options">Edit</small>
+      </Link>
       <small className="view-delete view-options">Delete </small>
       <h2>
         {props.notes[props.match.params.id].title}

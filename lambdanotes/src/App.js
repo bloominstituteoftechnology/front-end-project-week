@@ -4,6 +4,7 @@ import Sidebar from "./components/Sidebar/Sidebar"
 import NewNote from "./components/newnote/NewNote";
 import NoteContainer from "./components/notes/NoteContainer";
 import ViewNote from "./components/viewnote/ViewNote";
+import EditNote from "./components/editnote/EditNote";
 import { Route } from "react-router-dom";
 class App extends Component {
   constructor(){
@@ -42,9 +43,13 @@ class App extends Component {
           render={(props) => <NewNote {...props} addNote={this.addNote} />}
         />
         <Route
-           exact path='/notes/:id'
+          exact path='/notes/:id'
           render={(props) => <ViewNote {...props} notes={this.state.notes} />}
              />
+        <Route
+          exact path='/notes/:id/edit'
+          render={(props) => <EditNote {...props} notes={this.state.notes} />}
+              />
       </div>
     );
   }
