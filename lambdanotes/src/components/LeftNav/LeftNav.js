@@ -7,14 +7,14 @@ export default class LeftNav extends Component {
     return (
       <div className='nav-container'>
         <div>
-          <h1 className='nav-header'>Lambda <br />Notes</h1>
+          <h1 className='pl-2 nav-header'>Lambda <br />Notes</h1>
         </div>
         <div className='text-center'>
           <Link to="/">
-            <button type='button' className="btn btn-block custom-button text-white">View Your Notes</button>
+            <button type='button' className="btn btn-block custom-button-teal text-white">View Your Notes</button>
           </Link>
           <Link to="/create-note">
-            <button type='button' className="btn btn-block custom-button text-white">+ Create New Note</button>
+            <button type='button' className="btn btn-block custom-button-teal text-white">+ Create New Note</button>
           </Link>
         </div>
       </div>

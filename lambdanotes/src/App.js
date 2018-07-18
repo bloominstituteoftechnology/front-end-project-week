@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import LeftNav from './components/LeftNav/LeftNav';
 import MainContent from './components/MainContent/MainContent';
+import './index.css';
 
 class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="row">
+        <div className="row no-gutters">
           <div className="left-nav col-sm-3">
             <LeftNav />
           </div>

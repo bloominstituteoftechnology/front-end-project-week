@@ -36,25 +36,25 @@ export default class CreateNote extends Component {
 
   render() {
     return (
-      <div>
-        <h2 className="mb-4">Create New Note:</h2>
+      <div class="form-group">
+        <h2 className="header">Create New Note:</h2>
         <input
           name='title'
           type="text" 
-          className="mb-2 w-50"
+          className="w-75 py-2 form-control"
           placeholder="Note Title"
           onChange={(e) => this.handleChange(e)}
         /><br />
         <textarea
           name='message' 
-          className="mb-2 w-75"
+          className="w-95 py-3 pl-4 form-control"
           placeholder="Note Content"
           rows="15"
           onChange={(e) => this.handleChange(e)}
         /><br />
         <button 
           type="submit" 
-          className="btn btn-info btn-large px-5"
+          className="btn btn-large custom-button-teal text-white mt-0"
           onClick={() => this.handleSubmit()}
         >
           Save

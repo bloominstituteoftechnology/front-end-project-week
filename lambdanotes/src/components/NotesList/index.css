@@ -1,3 +1,13 @@
-.note {
-  height: 15rem;
+.noteList-container {
+  width: 100%;
 }
+
+.note {
+  height: 17rem;
+  color: black;
+  font-size: 15px;
+  overflow: hidden;
+  width: 15rem;
+  text-decoration: none;
+}
+

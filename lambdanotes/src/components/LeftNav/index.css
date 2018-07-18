@@ -3,21 +3,10 @@
     min-width: 220px;
     height: 100vh;
     background-color: #D3D3D3;
+    /* max-width: 20rem; */
 }
 
 .nav-header {
     margin: 0;
     margin-bottom: 1.5rem;
-}
-
-.nav-buttons-container {
-    margin: 1rem 0 0 0;
-}
-
-.custom-button {
-    padding: .5rem 3em;
-    width: 94%;
-    margin-bottom: 1rem;
-    background-color: #23B8BE;
-
 }
