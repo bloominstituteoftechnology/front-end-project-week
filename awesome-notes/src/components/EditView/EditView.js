@@ -27,18 +27,25 @@ class CreateNewView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.selected.title,
-      body: this.props.selected.textBody
+      current: this.props.content.find(
+        x => x._id === this.props.match.params._id
+      ),
+      title: "",
+      textBody: ""
     };
   }
 
   /* make me */
-  handleChange = event => {};
+  handleChange = e => {
+    console.log("HANDLE CHANGE EVENT TARGET", e.target);
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   /* make me */
-  handleSubmit = event => {};
+  handleSubmit = e => {};
 
   render() {
+    console.log("CREATE NEW VIEW STATE CURRENT", this.state.current);
     return (
       <EditWrapper>
         <ContentHeading message="Edit Note:" />
@@ -47,15 +54,21 @@ class CreateNewView extends React.Component {
             className="form-control"
             name="title"
             placeholder="title"
-            value={this.state.title}
+            value={
+              this.state.title ? this.state.title : this.state.current.title
+            }
             onChange={this.handleChange}
           />
           <br />
           <BodyInput
             className="form-control"
-            name="body"
+            name="textBody"
             placeholder="note"
-            value={this.state.body}
+            value={
+              this.state.textBody
+                ? this.state.textBody
+                : this.state.current.textBody
+            }
             onChange={this.handleChange}
           />
           <GlobalButton message="Update" type="submit" />

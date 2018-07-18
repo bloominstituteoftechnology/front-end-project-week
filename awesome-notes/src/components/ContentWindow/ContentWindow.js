@@ -63,10 +63,8 @@ class ContentWindow extends React.Component {
 
         {/* un-hard-code-me */}
         <Route
-          path="/edit"
-          render={props => (
-            <EditView {...props} selected={this.state.content[0]} />
-          )}
+          path="/edit/:_id"
+          render={props => <EditView {...props} content={this.state.content} />}
         />
       </StyledWindow>
     );

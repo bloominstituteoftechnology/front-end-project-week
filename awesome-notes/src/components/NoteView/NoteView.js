@@ -19,7 +19,7 @@ const NoteView = props => {
   let currentNote = props.content.find(x => x._id === props.match.params._id);
   return (
     <NoteViewWrapper>
-      <EditDeleteLinks />
+      <EditDeleteLinks currentNote={currentNote} />
       <ContentHeading message={currentNote.title} />
       <ContentParagraph>{currentNote.textBody}</ContentParagraph>
     </NoteViewWrapper>

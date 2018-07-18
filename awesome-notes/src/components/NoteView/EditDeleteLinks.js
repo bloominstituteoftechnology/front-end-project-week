@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const LinksWrapper = styled.div`
   display: flex;
@@ -18,10 +19,10 @@ const LinksWrapper = styled.div`
   }
 `;
 
-const EditDeleteLinks = () => {
+const EditDeleteLinks = props => {
   return (
     <LinksWrapper>
-      <a href="something descriptive">edit</a>
+      <Link to={`/edit/${props.currentNote._id}`}>edit</Link>
       <a href="something descriptive">delete</a>
     </LinksWrapper>
   );
