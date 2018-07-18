@@ -22,9 +22,13 @@ class App extends Component {
       }]
     }
     this.addNote = this.addNote.bind(this);
+    this.editNote = this.editNote.bind(this);
   }
   addNote(note) {
     this.state.notes.push(note);
+  }
+  editNote(noteId, note){
+    this.setState({newnote: note})
   }
 
   render() {
@@ -48,7 +52,7 @@ class App extends Component {
              />
         <Route
           exact path='/notes/:id/edit'
-          render={(props) => <EditNote {...props} notes={this.state.notes} />}
+          render={(props) => <EditNote {...props} editNote={this.editNote} notes={this.state.notes} />}
               />
       </div>
     );
