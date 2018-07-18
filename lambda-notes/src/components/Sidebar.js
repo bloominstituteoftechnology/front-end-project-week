@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import SearchBar from './SearchBar'
 import { Link } from 'react-router-dom'
 
 const StyledSidebar = styled.div`
@@ -11,7 +12,7 @@ const StyledSidebar = styled.div`
   position: sticky;
 `
 
-export default () =>
+export default props =>
   <StyledSidebar>
     <h1>Lambda Notes</h1>
     <Link to='/'>
@@ -30,6 +31,7 @@ export default () =>
         + Create New Note
       </Button>
     </Link>
+    <SearchBar {...props} />
   </StyledSidebar>
 
 

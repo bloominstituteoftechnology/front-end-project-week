@@ -36,7 +36,8 @@ class App extends Component {
         title: 'Complacency',
         textBody: 'We have to keep pushing ourselves'
       }
-    ] 
+    ],
+    filteredNotes: []
   }
 
   async componentDidMount() {
@@ -47,7 +48,7 @@ class App extends Component {
         data: notes 
       } = await get('https://killer-notes.herokuapp.com/note/get/all')
 
-      this.setState({ notes })
+      this.setState({ notes, filteredNotes: notes })
 
     } catch(e) {
       
@@ -128,19 +129,33 @@ class App extends Component {
     }
     
   }
+
+  filterNotes = e => {
+
+    const { value: filter } = e.target
+
+    const { notes } = this.state
+   
+    this.setState({
+      filteredNotes: notes.filter(note => 
+        note.title.includes(filter) 
+        || note.textBody.includes(filter)
+      )
+    })
+  }
   
   render() {
 
-    const { notes } = this.state
+    const { notes, filteredNotes } = this.state
 
     return (
       <ThemeProvider theme={theme} >
         <Flex>
-          <Sidebar />
+          <Sidebar filterNotes={this.filterNotes} />
           <MainContainer>
             <Route exact path='/' render={() =>
               <NoteCardsContainer>
-                {notes.map(note =>
+                {filteredNotes.map(note =>
                   <NoteCard 
                     key={note._id} 
                     id={note._id}
