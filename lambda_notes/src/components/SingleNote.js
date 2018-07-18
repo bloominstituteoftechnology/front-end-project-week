@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 import { fetchSingleNote } from '../actions';
 import DeleteModal from './Delete';
@@ -40,4 +41,4 @@ const mapStateToProps = state => {
 }
 
  
-export default connect(mapStateToProps, {fetchSingleNote})(SingleNote);
+export default withRouter(connect(mapStateToProps, {fetchSingleNote})(SingleNote));

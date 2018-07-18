@@ -59,3 +59,10 @@ export const deleteNote = (id) => {
         }))
     }
 }
+
+// export const createNote = (note) => {
+//     const request = axios.post('https://killer-notes.herokuapp.com/note/create', note)
+//     return (dispatch) => {
+//         request.then(res => )
+//     }
+// }
