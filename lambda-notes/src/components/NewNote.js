@@ -41,10 +41,15 @@ export default class extends Component {
           name="textBody"
         />
       </label>
-      <Button onClick={() => {
-        addNote(this.state)
-        history.push('/')
-      }}>
+      <Button 
+        onClick={() => {
+          addNote(this.state)
+          history.push('/')
+        }}
+        variant='primary'
+        width={200}
+        mt={3}
+      >
         Add Note
       </Button>
     </div>

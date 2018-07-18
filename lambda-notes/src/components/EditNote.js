@@ -5,7 +5,7 @@ export default class extends Component {
 
   state = {
     title: this.props.title,
-    text: this.props.text
+    textBody: this.props.text
   }
 
   handleChange = e => {
@@ -18,7 +18,7 @@ export default class extends Component {
   render() {
 
     const { id, editNote, history } = this.props
-    const { title, text } = this.state
+    const { title, textBody } = this.state
 
     return <div>
       <h2>Edit Note</h2>
@@ -33,15 +33,15 @@ export default class extends Component {
           value={title} 
         />
       </label>  
-      <label htmlFor="text">
+      <label htmlFor="textBody">
         <h3>Text</h3>
         <textarea 
           onChange={this.handleChange}
-          id="text" 
+          id="textBody" 
           rows="20" 
           cols="100" 
-          name="text"
-          value={text}
+          name="textBody"
+          value={textBody}
         />
       </label>
       <Button 

@@ -105,19 +105,28 @@ class App extends Component {
 
   }
 
-  editNote = (id, updatedNote) => {
+  editNote = async (id, updatedNote) => {
    
     const { notes } = this.state
 
-    this.setState({
-      notes: notes.map(note => {
-        if(String(note.id) === id){
-          return {...note, ...updatedNote}
-        }
-        return note
+    try {
+      const { data } = await put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote) 
+
+      this.setState({
+        notes: notes.map(note => {
+          if(String(note._id) === id){
+            return {...note, ...updatedNote}
+          }
+          return note
+        })
       })
-    })
-  
+
+    } catch(e) {
+
+      console.log('error:', e)
+      
+    }
+    
   }
   
   render() {
