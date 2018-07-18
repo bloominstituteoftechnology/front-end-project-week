@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getNote, getNotes, editNote, deleteNote, setNull } from '../../actions';
 import { Link } from 'react-router-dom';
 import ModalContainer from '../ModalContainer/ModalContainer';
+import NotesCheckList from './NotesCheckList';
 
 class Note extends React.Component {
     constructor(props) {
@@ -10,7 +11,9 @@ class Note extends React.Component {
 
         this.state = {
             modal: false,
-            tag: ''
+            checklist: [],
+            tag: '',
+            list: ''
         }
     }
 
@@ -27,7 +30,7 @@ class Note extends React.Component {
     }
 
     handleInput = event => {
-        this.setState({ tag: event.target.value });
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     addTag = () => {
@@ -61,6 +64,14 @@ class Note extends React.Component {
         this.setState({ modal: !this.state.modal });
     }
 
+    addList = () => {
+        if (this.state.list === '') return;
+        const checklist = this.state.checklist.slice();
+        checklist.push(this.state.list);
+
+        this.setState({ checklist, list: '' });
+    }
+
     render() {
         // Displays single note / Modal
         return (
@@ -85,7 +96,7 @@ class Note extends React.Component {
                                     <span className='note-tags' key={tag + index + Math.random()}>{tag} <i onClick={() => this.deleteTag(index)} className="fas fa-times"></i> </span>) : null}
 
                                 <form className='add-tag-form' onSubmit={event => event.preventDefault()}>
-                                    <input className='add-tag-field' onChange={this.handleInput} value={this.state.tag} type='text' placeholder='Add tag...' />
+                                    <input className='add-tag-field' onChange={this.handleInput} value={this.state.tag} type='text' name='tag' placeholder='Add tag...' />
                                     <input onClick={this.addTag} type='submit' hidden />
                                 </form>
 
@@ -95,6 +106,13 @@ class Note extends React.Component {
                         </div>
 
                         <p className='notes-paragraph'>{this.props.note.textBody}</p>
+
+                        <form className='checklist-form' onSubmit={event => event.preventDefault()}>
+                            <h3>Checklist:</h3>
+                            {this.state.checklist.map((list, index) => <NotesCheckList key={list + index} list={list} />)}
+                            <input className='checklist-input' onChange={this.handleInput} value={this.state.list} name='list' type='text' placeholder='Add a checklist' />
+                            <input onClick={this.addList} type='submit' hidden />
+                        </form>
 
                     </div>
                 }
@@ -106,8 +124,7 @@ class Note extends React.Component {
 const mapStateToProps = state => {
     return {
         note: state.note,
-        fetching: state.fetchingNote,
-        fetched: state.noteFetched
+        fetching: state.fetchingNote
     }
 }
 

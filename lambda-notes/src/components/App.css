@@ -340,3 +340,15 @@ body {
 .note-tags:hover{
   color: #6A81DE;
 }
+
+.checklist-form {
+  margin-top: 10px;
+  padding: 0 27px;
+}
+
+.checklist-input {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 12px;
+}

@@ -60,7 +60,7 @@ export default (state = initialState, action) => {
 
         case NOTE_DELETED:
             let deleteNote = state.notes.slice().filter(note => note._id !== action.payload);
-            return { ...state, notes: deleteNote, deleteNote: false, noteDeleted: true };
+            return { ...state, notes: deleteNote, deletingNote: false, noteDeleted: true };
 
         case SET_NULL:
             return { ...state, note: [], noteFetched: false }
