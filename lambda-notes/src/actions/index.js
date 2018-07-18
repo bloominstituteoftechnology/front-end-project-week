@@ -67,3 +67,17 @@ export const deleteNote = (URL, id) => {
         })
     }
 }
+
+export const editNote = (URL, id, note) => {
+    const promise = axios.put(`${URL}edit/${id}`, note);
+    const path = 'http://localhost:3000/';
+    return dispatch => {
+        promise
+            .then(() => {
+                window.location.href = `${path}note/${id}`;
+            })
+            .catch(err => {
+                dispatch({ type: ERROR, payload: err.message });
+            })
+    }
+}

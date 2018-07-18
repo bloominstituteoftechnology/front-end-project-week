@@ -7,6 +7,7 @@ import NotesList from './NotesList';
 import NewNote from './NewNote';
 import ViewNote from './ViewNote';
 import DeleteNote from './DeleteNote';
+import EditNote from './EditNote';
 import '../styles/App.css';
 
 const URL = 'https://killer-notes.herokuapp.com/note/get/';
@@ -27,6 +28,7 @@ class App extends Component {
               <Route path='/create-note' component={NewNote} />
               <Route path='/note/:id' component={ViewNote} />
               <Route path='/note/:id/delete' component={DeleteNote} />
+              <Route path='/edit/:id' component={EditNote} />
             </div>
         </Router>
     );

@@ -18,8 +18,10 @@
     render() {
         return (
             <React.Fragment>
+                {/* does not display edit or delete button if note no longer exists */}
                 {this.props.singleNote.errorMessage ? null : (
                     <div className='options'>
+                        <Link to={`/edit/${this.props.singleNote._id}`}>Edit</Link>
                         <Link to={`/note/${this.props.singleNote._id}/delete`}>Delete</Link>
                     </div>
                 )}
