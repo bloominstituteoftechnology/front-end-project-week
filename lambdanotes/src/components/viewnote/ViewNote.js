@@ -1,9 +1,15 @@
 import React from "react"
 
-const ViewNote = () => {
+const ViewNote = props => {
   return (
+
     <div>
-      Hello World
+      <h2>
+        {props.notes[props.match.params.id].title}
+      </h2>
+      <div className="single-note">
+        {props.notes[props.match.params.id].body}
+      </div>
     </div>
   )
 }

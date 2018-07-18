@@ -43,7 +43,7 @@ class App extends Component {
         />
         <Route
           path='/notes/:id'
-          render={(props) => <ViewNote {...props} />}
+          render={(props) => <ViewNote {...props} notes={this.state.notes} />}
              />
       </div>
     );
