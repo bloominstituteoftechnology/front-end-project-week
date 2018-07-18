@@ -27,19 +27,25 @@ class ViewCard extends Component {
         }
         return this.setState({ note: newNote })
     }
+
     render() {
         return (
             <div className='view-ctn'>
                 <div className='action-ctn'>
-                    <Link to={`delete/`} style={{ textDecoration: 'none' }}>
+                    <Link to={{
+                        pathname: `/delete`,
+                        state: { note: this.state.note }
+                    }} style={{ textDecoration: 'none' }}>
                         Delete
-                </Link>
+                     </Link>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <Link to={`edit/`} style={{ textDecoration: 'none' }}>
+                    <Link to={{
+                        pathname: `/edit`,
+                        state: { note: this.state.note }
+                    }} style={{ textDecoration: 'none' }}>
                         Edit
                     </Link>
                 </div>
-
                 {this.state.note ?
                     <div>
                         <h2>{this.state.note.title}</h2>
@@ -49,6 +55,7 @@ class ViewCard extends Component {
                     <div>No Note</div>
                 }
             </div>
+
         )
     }
 }

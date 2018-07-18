@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+import './EditNote.css'
 class EditNote extends Component {
     constructor(props) {
         super(props);
@@ -8,14 +10,23 @@ class EditNote extends Component {
             id: 0
         }
     }
+    componentDidMount() {
+        const { note } = this.props.location.state;
+        this.setState({ title: note.title, content: note.description, id: note.id })
+    }
 
     handleChange = (e) => {
         return this.setState({ [e.target.name]: e.target.value })
     }
 
+    onSubmit = (e) => {
+ 
+        const note = { id: this.state.id, title: this.state.title, description: this.state.content }
+        this.props.editNote(note);
+    }
     render() {
         return (
-            <div>
+            <div className='edit-ctn'>
                 <h2>Edit Note:</h2>
                 <form>
                     <input
@@ -36,7 +47,9 @@ class EditNote extends Component {
                             name='content'
                         />
                     </div>
-                    <div onClick={this.onSubmit} className='create-btn'>Save</div>
+                    <Link to='/' style={{ textDecoration: 'none' }}>
+                        <div onClick={this.onSubmit} className='create-btn'>Update</div>
+                    </Link>
                 </form>
             </div>
         )
