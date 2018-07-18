@@ -9,7 +9,7 @@ import NoteContainer from "./note-view/NoteContainer";
 import EditNoteContainer from "./edit-view/EditNoteContainer";
 const AppContainer = styled.div`
   display: flex;
-
+  color: var(--main-font-color); 
 `;
 const MainContentContainer = styled.div`
   background: var(--main-bg);

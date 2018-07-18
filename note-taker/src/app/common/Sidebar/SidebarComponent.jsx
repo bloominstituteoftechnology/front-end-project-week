@@ -32,6 +32,7 @@ const ButtonsContainer = styled.div`
 const UnstyledLink = styled(Link)``;
 
 const SidebarComponent = props => {
+
   return (
     <SidebarWrapper>
       <Header>Lambda Notes</Header>
@@ -42,6 +43,7 @@ const SidebarComponent = props => {
         <Link to = '/create-new'>
           <GeneralBtn> + Create new note</GeneralBtn>
         </Link>
+        <GeneralBtn onClick = {() => props.toggleTheme(props.isDark)}>Light / Dark Toggler</GeneralBtn>
       </ButtonsContainer>
     </SidebarWrapper>
   );

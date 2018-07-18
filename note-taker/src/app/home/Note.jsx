@@ -7,7 +7,7 @@ const Card = styled.div`
   height: 250px;
   padding: 10px 20px;
   border: 1px solid var(--main-border-color);
-  background: white;
+  background: var(--note-bg);
   overflow: hidden;
 `;
 

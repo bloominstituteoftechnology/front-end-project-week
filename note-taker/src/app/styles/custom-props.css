@@ -2,11 +2,10 @@
     --main-font-color: #4A4A4A;
     --btn-font-color: #FFFFFF;
     --main-border-color: #979797;
-
+    --note-bg: white;
     --sidebar-bg: #D8D8D8;
     --main-bg: #F3F3F3;
     --main-btn-bg: #2BC1C4;
     --danger-btn-bg: #D0021B;
-
     --sidebar-width: 250px;
 }

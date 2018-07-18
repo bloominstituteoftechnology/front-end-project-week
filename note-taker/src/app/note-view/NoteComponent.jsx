@@ -21,6 +21,7 @@ const OptionsBtn = styled.button`
   background: var(--main-bg);
   text-decoration: underline;
   outline-color: var(--main-bg);
+  color: var(--main-font-color);
   border: none;
   cursor: pointer;
 `;
