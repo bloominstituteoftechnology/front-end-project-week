@@ -57,7 +57,7 @@ class App extends Component {
 
   }
 
-    addNote = async note => {
+  addNote = async note => {
     
     const { notes } = this.state
 
@@ -83,15 +83,25 @@ class App extends Component {
 
   }
 
-  deleteNote = id => {
+  deleteNote = async id => {
 
     const { notes } = this.state
 
-    this.setState({
-      notes: notes.filter(note => 
-        String(note.id) !== id 
-      )
-    })
+    try {
+
+      const { data } = await _delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+
+      this.setState({
+        notes: notes.filter(note => 
+          String(note._id) !== id 
+        )
+      })
+
+    } catch(e){
+
+      console.log('error:', e)
+
+    }
 
   }
 
