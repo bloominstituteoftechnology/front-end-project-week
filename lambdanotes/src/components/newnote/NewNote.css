@@ -29,4 +29,7 @@
   color: #FFFFFF;
   font-size: 20px;
   font-family: 'Raleway', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

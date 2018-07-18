@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Sidebar from "./components/sidebar/Sidebar"
+import Sidebar from "./components/Sidebar/Sidebar"
 import NewNote from "./components/newnote/NewNote";
 import NoteContainer from "./components/notes/NoteContainer";
 import { Route } from "react-router-dom";
