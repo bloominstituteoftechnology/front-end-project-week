@@ -1,11 +1,11 @@
 import React from 'react';
-import './HomeContainer.css';
+import { HomeWrapper } from '../ReusableComponents/Home';
 
 const HomeContainer = () => {
     return (
-        <div className='home-container'>
+        <HomeWrapper>
             <h1>Welcome Back {localStorage.getItem('username')}!</h1>
-        </div>
+        </HomeWrapper>
     );
 }
 
