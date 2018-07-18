@@ -49,23 +49,26 @@ class NotesList extends React.Component {
 
 /*Working on this function, will enable export to a CSV file*/
   exportCSV = dataArray => {
-    let csvContent = "data:text/csv;charset=utf-8,";
-    dataArray.forEach(entry => {
-      return csvContent += entry + "\r\n";
-    })
-    return dataArray;
+    let str = 'data:text/csv;charset=utf-8,';
+
+    for (let i = 0; i<dataArray.length; i++) {
+      var line = '';
+      for (let index in dataArray[i]) {
+        if (line != '') line += ',';
+
+        line += dataArray[i][index];
+      }
+      str += line + '\r\n';
+    }
+    return str;
   }
   render() {
-    console.log("Searchterm length", this.state.searchTerm.length);
-    console.log("serach Results", this.state.searchResults);
     let returnedNotes;
     returnedNotes = (this.state.searchResults.length > 0 && this.state.searchTerm.length > 0) ? this.state.searchResults: this.props.notes;
     let sortedNotes = returnedNotes.slice();
-    /*console.log(this.exportCSV(returnedNotes));*/
-
+    let encodeUri = encodeURI(this.exportCSV(returnedNotes));
     if (this.state.alphaSort) {
     returnedNotes = sortedNotes.sort((a,b) => {
-
       let firstName = a.title.toUpperCase();
       let secondName = b.title.toUpperCase();
       if (firstName < secondName) {
@@ -93,6 +96,7 @@ class NotesList extends React.Component {
         </form>
         <form className="sortCheck"><input type="checkbox" className="mx-1" name="Sort Alphabetically" onClick={this.toggleAlphaSort} />Sort Alphabetically <br/></form>
         <NotesContainer notes={returnedNotes} />
+        <a href={encodeUri} download="my_data.csv">Download Notes to CSV</a>
       </div>
     </div>
   )
