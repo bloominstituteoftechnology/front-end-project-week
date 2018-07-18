@@ -5,6 +5,7 @@ export const FETCHED = 'FETCHED';
 export const DELETING = 'DELETING';
 export const DELETED = 'DELETED';
 export const EDITING = 'EDITING';
+export const EDITED = 'EDITED';
 export const NOTEDITING = 'NOTEDITING';
 export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
@@ -13,6 +14,7 @@ export const ERROR = 'ERROR';
 const getAllURL = 'https://killer-notes.herokuapp.com/note/get/all';
 const deleteURL = 'https://killer-notes.herokuapp.com/note/delete/';
 const addURL = 'https://killer-notes.herokuapp.com/note/create';
+const editURL = 'https://killer-notes.herokuapp.com/note/edit/';
 
 export const fetchData = () => {
   return function(dispatch) {
@@ -47,6 +49,20 @@ export const addNote = note => {
       .then(response => {
         console.log('ADD reponse', response);
         dispatch({ type: ADDED, payload: response });
+      })
+      .catch(err => dispatch({ type: ERROR, payload: err }));
+  };
+};
+
+export const editNote = (id, note) => {
+  return function(dispatch) {
+    dispatch({ type: EDITING });
+    console.log('editing ', note);
+    axios
+      .put(`${editURL}${id}`, note)
+      .then(response => {
+        console.log('PUT reponse', response);
+        dispatch({ type: EDITED, payload: response });
       })
       .catch(err => dispatch({ type: ERROR, payload: err }));
   };

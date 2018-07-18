@@ -1,5 +1,5 @@
 /* prettier-ignore */
-import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING} from '../actions';
+import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING, EDITED} from '../actions';
 
 const initialState = {
   fetchingNotes: false,
@@ -57,6 +57,26 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         editingNote: true,
+      };
+
+    case EDITED:
+      // get info from the servers 'response'
+      const editedNoteID = action.payload.data.success;
+      const editedNoteResponse = JSON.parse(action.payload.config.data);
+      const editedNote = {
+        tags: [],
+        _id: editedNoteID,
+        title: editedNoteResponse.title,
+        textBody: editedNoteResponse.textBody,
+        __v: 0,
+      };
+      const notesArr2 = state.notes.slice();
+      notesArr2.push(editedNote);
+      return {
+        ...state,
+        editingNote: false,
+        editedNote: true,
+        notes: notesArr,
       };
 
     case NOTEDITING:

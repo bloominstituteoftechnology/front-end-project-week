@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addNote, editing } from '../actions';
+import { addNote, editing, editNote } from '../actions';
 import styled from 'styled-components';
 
 const Note = styled.div`
@@ -56,11 +56,22 @@ class NoteForm extends React.Component {
       title: '',
       textBody: '',
       edit: false,
+      id: '',
     };
   }
 
   componentDidMount() {
-    console.log('PROPS', this.props.edit);
+    const id = this.props.match.params.id;
+    console.log('PROPS', this.props.notes);
+    if (this.props.notes[0] && id) {
+      // filter returns an array
+      const note = this.props.notes.filter(n => n._id === id);
+      this.setState({
+        title: note[0].title,
+        textBody: note[0].textBody,
+        id: note[0]._id,
+      });
+    }
     this.setState({ editing: this.props.edit });
   }
 
@@ -68,13 +79,17 @@ class NoteForm extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  clickedSave = () => {
+  clicked = () => {
     const newNote = {
       title: this.state.title,
       textBody: this.state.textBody,
     };
     this.setState({ title: '', textBody: '' });
-    this.props.addNote(newNote);
+    if (this.state.edit) {
+      this.props.editNote(newNote);
+    } else {
+      this.props.addNote(newNote);
+    }
     // go home after
     this.props.history.push('/');
   };
@@ -97,7 +112,7 @@ class NoteForm extends React.Component {
           name="textBody"
         />
         <br />
-        <Button onClick={this.clickedSave}>
+        <Button onClick={this.clicked}>
           {this.state.editing ? 'Update' : 'Save'}
         </Button>
       </Note>
@@ -114,5 +129,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addNote, editing },
+  { addNote, editing, editNote },
 )(NoteForm);
