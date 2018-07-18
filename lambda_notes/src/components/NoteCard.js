@@ -1,17 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import posed from 'react-pose';
+// import posed from 'react-pose';
 
-const config = {
-    visible: {opacity: 1, translateX: 0, transition: { duration: 1000 }},
-    hidden: {opacity: 0, translateX: 25},
-    draggable: true,
-}
+// const config = {
+//     visible: {opacity: 1, translateX: 0, transition: { duration: 1000 }},
+//     hidden: {opacity: 0, translateX: 25},
+//     draggable: true,
+// }
 
-const Box = posed.div(config);
+// const Box = posed.div(config);
 
-const StyledNoteCard = styled(Box)`
+const StyledNoteCard = styled.div`
     display: flex;
     flex-flow: column;
     align-items: start;
@@ -38,18 +38,13 @@ const StyledText = styled.p`
 class NoteCard extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            hidden: true,
-        }
-    }
-    componentDidMount(){
-        setTimeout(this.setState({hidden: false}), 500)
     }
 
     render(){
+        console.log(this.props);
         const { note } = this.props;
         return(
-            <StyledNoteCard pose={this.state.hidden ? 'hidden' : 'visible'}>
+            <StyledNoteCard>
                 <Link to={`/notes/${note._id}`}
                     style={{ textDecoration: 'none', color: 'black' }}>
                     <StyledTitle>{note.title}</StyledTitle>
