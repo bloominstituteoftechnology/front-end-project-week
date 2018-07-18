@@ -7,7 +7,6 @@ class NoteComponent extends React.Component {
   }
   componentDidMount() {
       const id = this.props.match.params.id;
-      console.log(id);
       this.props.fetchNote(id);
   }
   render() {

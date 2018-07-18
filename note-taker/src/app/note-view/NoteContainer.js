@@ -4,7 +4,6 @@ import { noteViewOperations } from './duck';
 
 
 const mapStateToProps = (state) => {
-    console.log(state);
     const { note } = state.noteView;
     return {
         note
