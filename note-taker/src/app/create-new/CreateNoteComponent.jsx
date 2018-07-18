@@ -33,7 +33,7 @@ class CreateNoteComponent extends React.Component {
             e.preventDefault();
           }}
         >
-          <div className="field">
+          <div className="field is-horizontal">
             <div className="control">
               <input
                 className="input is-large"
