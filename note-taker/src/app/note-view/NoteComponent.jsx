@@ -47,7 +47,7 @@ class NoteComponent extends React.Component {
       <div>
         <OptionsContainer>
 
-          <Link to = '/edit-view'>
+          <Link to = {`/${id}/edit-view`}>
           <OptionsBtn>edit</OptionsBtn>
           </Link>
 
