@@ -10,7 +10,7 @@ const ModalBody = styled.div`
   align-items: center;
   flex-direction: column;
   height: 220px;
-  background: white;
+  background: var(--main-bg);
   border: 1px solid var(--main-border-color);
   padding: 0 60px;
 `;
