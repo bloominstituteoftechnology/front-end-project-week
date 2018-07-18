@@ -6,6 +6,9 @@ const Notes = props => {
   return (
     <div className="notesList">
       <h2>Your Notes: </h2>
+      <form className="notesSearch">
+        <input placeholder="Search Note..." />
+      </form>
       <div className="cards">
         {props.notes.map(note => {
           return <Note key={Math.random()} note={note} />;

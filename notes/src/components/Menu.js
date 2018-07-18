@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const Buttons = () => {
+const Menu = () => {
   return (
     <div className="menu">
       <h1>Lambda Notes</h1>
@@ -16,4 +16,4 @@ const Buttons = () => {
   );
 };
 
-export default Buttons;
+export default Menu;

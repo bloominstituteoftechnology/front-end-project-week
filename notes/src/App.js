@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Notes from "./components/Notes";
-import Buttons from "./components/Buttons";
+import Menu from "./components/Menu";
 import { Route, withRouter } from "react-router-dom";
 import Create from "./components/Create";
 import "./App.css";
@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="container">
         <React.Fragment>
-          <Buttons />
+          <Menu />
         </React.Fragment>
         <React.Fragment>
           <Route exact path="/" component={Notes} />
