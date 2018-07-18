@@ -27,7 +27,7 @@ const NoteView = props => {
       <EditDeleteLinks currentNote={currentNote} delClicked={DelClickHandler} />
       <ContentHeading message={currentNote.title} />
       <ContentParagraph>{currentNote.textBody}</ContentParagraph>
-      {!deleteClicked ? <DeleteModal currentNote={currentNote} /> : null}
+      {deleteClicked ? <DeleteModal currentNote={currentNote} /> : null}
     </NoteViewWrapper>
   );
 };
