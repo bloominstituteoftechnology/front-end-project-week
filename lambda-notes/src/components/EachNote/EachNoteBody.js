@@ -41,7 +41,7 @@ deleteNote = event => {
 
 render() {
 	return(
- 		<div className="view-list-body tablet-view">
+ 		<div className="view-list-body desktop-view tablet-view">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
 		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted</h3>) :(<Button className="delete-btn"  onClick={this.toggle}>delete</Button>)}</div>

@@ -29,7 +29,7 @@ addNote = event => {
 
 render() {
         return(
-	<div className="view-list-body tablet-view">
+	<div className="view-list-body desktop-view tablet-view">
                 <LambdaLeftDiv />
 
 

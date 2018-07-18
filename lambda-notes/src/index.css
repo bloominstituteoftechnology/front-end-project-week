@@ -185,6 +185,10 @@ body {
 }
 
 
+.desktop-view{
+	height: 100vh;
+}
+
 .left-div{
 	width: 200px;
 	background-color: #D8D8D8;
