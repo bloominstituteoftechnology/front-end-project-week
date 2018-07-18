@@ -21,6 +21,9 @@ const StyledInput = styled.input`
   border: 1px solid #979797;
   border-radius: 3px;
   font-size:1.2rem;
+  &:focus{
+    outline: 3px solid #2BC1C4;
+  }
 `
 
 const StyledTextArea = styled.textarea`
@@ -32,6 +35,9 @@ const StyledTextArea = styled.textarea`
   border-radius: 3px;
   font-size: 1.4rem;
   line-height: 25px;
+  &:focus{
+    outline: 3px solid #2BC1C4;
+  }
 `
 
 const BaseButton = styled.button`
