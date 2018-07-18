@@ -9,14 +9,16 @@ body {
 	background-color: #30B8BC!important;	
 }
 
-.note-save-message{
+.note-save-message, .delete-note-message{
 	color: #30B8BC;
 	margin-top: 20px;
 }
 
+
+
 .delete-modal-btn{
 	width: 150px;
-        background-color: red!important;
+        background-color: #C80823!important;
 
 }
 

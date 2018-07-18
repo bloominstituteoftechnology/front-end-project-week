@@ -25,6 +25,7 @@ constructor(props){
 
 
 
+
 componentDidMount() {
         const id = this.props.match.params.id;
 	this.props.fetchingSingleNote(id);
@@ -32,8 +33,9 @@ componentDidMount() {
 
 deleteNote = event => {
 	const id = this.props.match.params.id;
+	this.toggle();
 	this.props.deleteNoteAction(id);
-
+	this.props.fetchingSingleNote();
 };
 
 
@@ -42,7 +44,7 @@ render() {
  		<div className="view-list-body">
                 <LambdaLeftDiv />
 		<div className="note-card-container">
-		<div>{this.props.deleted ? (<h1>Note Deleted..</h1>) :(null)}</div>
+		<div>{this.props.deleted ? (<h3 className="delete-note-message">Note successfully deleted..</h3>) :(null)}</div>
 
         <Button className="delete-btn"  onClick={this.toggle}>delete</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
@@ -55,7 +57,7 @@ render() {
 
 
 
-
+		
 		<h3 className="single-note-title">{this.props.single.title}</h3>
 		<div className="single-note-container">{this.props.single.textBody}</div>
 		</div>
