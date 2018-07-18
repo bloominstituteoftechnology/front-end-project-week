@@ -6,6 +6,7 @@ import HomeContainer from "./home/HomeContainer";
 import './styles/custom-props.css';
 import CreateNoteContainer from "./create-new/CreateNoteContainer";
 import NoteContainer from "./note-view/NoteContainer";
+import EditNoteContainer from "./edit-view/EditNoteContainer";
 const AppContainer = styled.div`
   display: flex;
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/create-new" component={CreateNoteContainer} />
         <Route exact path="/note/get/:id" component ={NoteContainer} />
+        <Route exact path="/edit-view" component = {EditNoteContainer}/>
       </MainContentContainer>
     </AppContainer>
   );
