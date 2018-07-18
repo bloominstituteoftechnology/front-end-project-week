@@ -43,7 +43,6 @@ const NoteHeading = Styled.div`
     border-bottom: 1px solid #979797;
     padding-bottom: 5px;
     text-decoration: none;
-
 `;
 
 const Body = Styled.p`
@@ -63,24 +62,17 @@ class Notes extends Component {
     }
   }
 
-     deleteNote = (e, id) => {
-        e.preventDefault();
-        let notes = this.props.notes.slice();
-        console.log(notes)
-         console.log(id);
-        let noteIndex = notes.findIndex(function(n) { 
-            return n.id === id; 
-        });
-        console.log(notes)
-        console.log(noteIndex)
-        notes.splice(noteIndex, 1)
-        console.log(notes)
-        
-       this.setState({notes: notes})
-  }
 
   componentDidMount() {
-    this.setState({notes: data})
+    axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+          console.log(response);
+          this.setState({notes: response.data})
+      })
+      .catch(err => {
+          console.log(err)
+      })
     
   }
   
@@ -93,12 +85,11 @@ class Notes extends Component {
         <NotesList>
           {this.state.notes.map(note => {
             return <NoteContainer key={note.id} style={{overflow: 'hidden'}}>
-         <Link to={{pathname: `/note/${note.id}`, state: {title: note.title, body: note.body, id: note.id, notes: this.state.notes}}} style={{textDecoration: 'none', color: '#000000'}} > 
+         <Link to={{pathname: `/note/${note.id}`, state: {title: note.title, body: note.textBody, id: note._id, notes: this.state.notes}}} style={{textDecoration: 'none', color: '#000000'}} > 
            <NoteHeading>{note.title}</NoteHeading>
-           <Body>{note.body} </Body></Link>
+           <Body>{note.textBody} </Body></Link>
             </NoteContainer>
           })}
-          <Route path='/note/:id' render = {(props) => <Note {...props} delete={this.deleteNote}/>} />
       </NotesList>
       </NotesContainer>
       </Container>
@@ -108,12 +99,4 @@ class Notes extends Component {
 
 export default Notes;
 
-/*      axios
-      .get('https://killer-notes.herokuapp.com/note/get/all')
-      .then(response => {
-          console.log(response);
-          this.setState({notes: response.data})
-      })
-      .catch(err => {
-          console.log(err)
-      })*/
+/*      */

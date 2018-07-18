@@ -2,10 +2,8 @@ import React from 'react';
 import {Heading, Button} from './../styles/styles';
 import Styled from 'styled-components';
 import {data} from './../data';
+import axios from 'axios';
 
-const Container = Styled.div`
-display: flex
-`;
 
 const NewContainer = Styled.div`
   display: block;
@@ -41,26 +39,46 @@ class NewNote extends React.Component {
         super(props);
         this.state = {
             notes: [],
-            newNote: {title: "",
-            body: "",
-            id: 0
+            newNote: {
+                title: "",
+                textBody: ""
             }   
         }
     }
 
     handleChange = (newNote, event) => {
         this.setState({[newNote]: {...this.state[newNote], [event.target.name]: event.target.value}})
+        console.log(this.state.newNote)
     }
 
     submitNote = (event) => {
         event.preventDefault();
-       this.state.notes.push(this.state.newNote)
-       this.setState({newNote: {title: "", body: "", id: 0}})
+        const newNote=this.state.newNote;
+        axios
+      .post('https://killer-notes.herokuapp.com/note/create', newNote)
+      .then(response => {
+          console.log(response);
+          this.setState({notes: response.data})
+      })
+      .catch(err => {
+          console.log(err)
+      })
+       
+       this.setState({newNote: {title: "", textBody: "", id: 0}})
     }
 
     componentDidMount() {
-        this.setState({notes: data})
+        axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+          //console.log(response);
+          this.setState({notes: response.data})
+      })
+      .catch(err => {
+          console.log(err)
+      })
     }
+
     render() {
         return (
        
@@ -76,11 +94,11 @@ class NewNote extends React.Component {
                         />
                     <InputContent 
                         
-                        name="body"
+                        name="textBody"
                         rows="20"
-                        cols="100"
+                        cols="50"
                         placeholder="Note Content"
-                        value={this.state.newNote.body}
+                        value={this.state.newNote.textBody}
                         onChange={this.handleChange.bind(this, 'newNote')}
                         />
                     <Button onClick={this.submitNote}>Save</Button>

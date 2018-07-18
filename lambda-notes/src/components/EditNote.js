@@ -2,6 +2,7 @@ import React from 'react';
 import {Heading, Button} from './../styles/styles';
 import Styled from 'styled-components';
 import {data} from './../data';
+import axios from 'axios';
 
 const Container = Styled.div`
 display: flex
@@ -42,8 +43,7 @@ class EditNote extends React.Component {
         this.state = {
             notes: [],
             editedNote: {title: "",
-            body: "",
-            id: 0
+            textBody: "",
             }   
         }
     }
@@ -53,29 +53,31 @@ class EditNote extends React.Component {
     }
 
     editNote = () => {
-         let notes = this.state.notes.slice();
-         let id = this.props.location.state.id
-         console.log(id);
-        let noteIndex = notes.findIndex(function(n) { 
-            return n.id === id; 
-        });
-        console.log(notes)
-        console.log(this.props.location.state.notes)
-        console.log(noteIndex)
-        console.log(this.state.editedNote)
-        let spliced = notes.splice(noteIndex, 1, this.state.editedNote)
-        console.log(spliced)
-        console.log(notes)
-        
-       this.setState({notes: notes})
-       this.setState({editedNote: {title: "", body: "", id: 0}})
-       
+        const updatedNote=this.state.editedNote;
+        const id = this.props.location.state.id;
+        axios
+      .put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote)
+      .then(response => {
+        console.log(response);
+          this.setState({notes: response.data})
+      })
+      .catch(err => {
+          console.log(err)
+      })
     }
 
     componentDidMount() {
-        this.setState({notes: this.props.location.state.notes})
-        this.setState({editedNote: {title: this.props.location.state.title, body: this.props.location.state.body, id: this.props.location.state.id }})
-        console.log(this.props.location.state)
+        axios
+      .get('https://killer-notes.herokuapp.com/note/get/all')
+      .then(response => {
+         //console.log(response);
+          this.setState({notes: response.data})
+      })
+      .catch(err => {
+          console.log(err)
+      })
+      this.setState({editedNote: {title: this.props.location.state.title, textBody: this.props.location.state.body }})
+    console.log(this.props.location.state.id)
     }
     render() {
         return (
@@ -92,11 +94,11 @@ class EditNote extends React.Component {
                         />
                     <InputContent 
                         
-                        name="body"
+                        name="textBody"
                         rows="20"
-                        cols="100"
-                        placeholder={this.state.editedNote.body}
-                        value={this.state.editedNote.body}
+                        cols="50"
+                        placeholder={this.state.editedNote.textBody}
+                        value={this.state.editedNote.textBody}
                         onChange={this.handleChange.bind(this, 'editedNote')}
                         />
                     <Button onClick={this.editNote}>Update</Button>

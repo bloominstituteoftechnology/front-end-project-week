@@ -2,6 +2,7 @@ import React from 'react';
 import Styled from 'styled-components'
 import {Button} from './../styles/styles';
 import { Redirect } from 'react-router';
+import axios from 'axios';
 
 const Background = Styled.div`
 width: 100vw;
@@ -59,28 +60,32 @@ class DeleteModal extends React.Component {
     }
     }
 
-    deleteNote = (e) => {
-        e.preventDefault();
-        let notes = this.props.notes.slice();
-        console.log(notes)
-         let id = this.props.id
-         console.log(id);
-        let noteIndex = notes.findIndex(function(n) { 
-            return n.id === id; 
-        });
-        console.log(notes)
-        console.log(noteIndex)
-        notes.splice(noteIndex, 1)
-        console.log(notes)
-        
-       this.setState({notes: notes})
-       this.setState({delete: !this.state.delete})
+    deleteNote = () => {
 
+        axios
+      .delete(`https://killer-notes.herokuapp.com/note/delete/${this.props.id}`)
+      .then(response => {
+          console.log(response);
+          this.setState({notes: response.data})
+      })
+      .catch(err => {
+          console.log(err)
+      })
+    this.setState({delete: !this.state.delete})
   }
 
   componentDidMount() {
-      console.log(this.props.notes)
-  }
+    axios
+    .get('https://killer-notes.herokuapp.com/note/get/all')
+    .then(response => {
+        console.log(response);
+        this.setState({notes: response.data})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+}
 
     render() {
         return(

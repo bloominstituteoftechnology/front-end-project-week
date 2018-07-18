@@ -20,6 +20,7 @@ const Body = Styled.p`
 `;
 const Container = Styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const Edit = Styled.div`
@@ -27,6 +28,13 @@ display: flex;
 width: 100%;
 justify-content: flex-end;
 margin-bottom: 20px;
+`;
+const Delete = Styled.a`
+    font-size: 14px; 
+    text-decoration: underline;
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 class Note extends React.Component {
@@ -71,11 +79,11 @@ class Note extends React.Component {
     render() {
     return (
         <Container>
-        {this.state.modalOpen ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes} delete={this.props.delete}/> : null}
+        {this.state.modalOpen ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes}/> : null}
         <NoteContainer>
             <Edit>
             <Link to={{pathname: `/edit/${this.props.location.state.id}`, state: {title: this.props.location.state.title, body: this.props.location.state.body, id: this.props.location.state.id, notes: this.props.location.state.notes}}} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
-            <a onClick={this.openModal}>delete</a>
+            <Delete onClick={this.openModal}>delete</Delete>
             </Edit>
         <Heading>{this.props.location.state.title}</Heading>
         <Body>{this.props.location.state.body}</Body>
@@ -108,5 +116,4 @@ console.log(this.state)
 console.log(this.state.note)
 console.log(this.props.body)
     }
-
 render() {*/
