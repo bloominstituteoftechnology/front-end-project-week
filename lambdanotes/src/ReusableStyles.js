@@ -119,9 +119,9 @@ export const AlertText = styled.h6`
 `;
 
 export const AlertContainer = styled.div`
-  position: relative;
-  left: 25%;
-  bottom: 25%;
+  position: fixed;
+  left: 30%;
+  bottom: 30%;
   min-width: 1000px;
   z-index: 10;
 `;

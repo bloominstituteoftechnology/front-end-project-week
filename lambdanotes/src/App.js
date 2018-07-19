@@ -46,8 +46,7 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmitNote = e => {
-    e.preventDefault();
+  handleSubmitNote = () => {
     const notes = this.state.notes.slice();
     notes.push({
       id: Math.random(),
@@ -109,6 +108,7 @@ class App extends Component {
             path="/"
             render={props => (
               <ListView
+                {...props}
                 notes={this.state.notes}
                 selectHandler={this.selectHandler}
                 selectedNote={this.state.selected}
@@ -125,6 +125,7 @@ class App extends Component {
             path="/create"
             render={props => (
               <CreateNote
+                {...props}
                 notes={this.state.notes}
                 editNoteHandler={this.editNoteHandler}
                 handleSubmitNote={this.handleSubmitNote}
@@ -134,38 +135,42 @@ class App extends Component {
           {/* <NoteView notes={this.filterNote()} /> */}
           <Route
             path="/note/:id"
-            render={props => <NoteView notes={this.filterNote()} />}
+            render={props => <NoteView {...props} notes={this.filterNote()} />}
           />
-          <EditNote
+          {/* <EditNote
             notes={this.filterNote()}
             selectHandler={this.selectHandler}
             editNoteHandler={this.editNoteHandler}
             editSubmitHandler={this.editSubmitHandler}
-          />
-          {/* <Route
-            path="/note/:id/edit"
+          /> */}
+          <Route
+            exact
+            path="/note/edit"
             render={props => (
               <EditNote
+                {...props}
                 notes={this.filterNote()}
                 selectHandler={this.selectHandler}
-                editNoteHandler={this.editNote}
+                editNoteHandler={this.editNoteHandler}
                 editSubmitHandler={this.editSubmitHandler}
               />
             )}
-          /> */}
-          <DeleteNote
+          />
+          {/* <DeleteNote
             notes={this.filterNote()}
             sumbitDelete={this.submitDelete}
-          />
-          {/* <Route
-            path="/note/:id/delete"
+          /> */}
+          <Route
+            exact
+            path="/note/delete"
             render={props => (
               <DeleteNote
+                {...props}
                 notes={this.filterNote()}
                 submitDelete={this.submitDelete}
               />
             )}
-          /> */}
+          />
         </Container>
       </MainBack>
     );

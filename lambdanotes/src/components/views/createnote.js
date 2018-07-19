@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SideBar from "../functions/sidebar";
 import { Row, Col, Form, FormGroup, Input } from "reactstrap";
 import { ViewStyle, HeadStyle, Button } from "../../ReusableStyles";
+import { Link } from "react-router-dom";
 
 class CreateNote extends Component {
   constructor(props) {
@@ -48,7 +49,15 @@ class CreateNote extends Component {
                 </Form>
               </Col>
               <Col md="3">
-                <Button onClick={this.props.handleSubmitNote}>Save</Button>
+                <Link to="/">
+                  <Button
+                    onClick={() => {
+                      this.props.handleSubmitNote();
+                    }}
+                  >
+                    Save
+                  </Button>
+                </Link>
               </Col>
             </Row>
           </Col>

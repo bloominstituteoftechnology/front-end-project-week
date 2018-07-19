@@ -7,6 +7,7 @@ import {
   NoteBodyStyle
 } from "../../ReusableStyles";
 import { Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class NoteView extends Component {
   constructor(props) {
@@ -25,8 +26,12 @@ class NoteView extends Component {
           <Col md="9">
             <Row>
               <Col md="12">
-                <EditDelete>delete</EditDelete>
-                <EditDelete>edit</EditDelete>
+                <Link to="/note/delete">
+                  <EditDelete>delete</EditDelete>
+                </Link>
+                <Link to="/note/edit">
+                  <EditDelete>edit</EditDelete>
+                </Link>
               </Col>
               <Col md="12">
                 <NoteNameStyle>{this.props.notes.title}</NoteNameStyle>

@@ -18,7 +18,6 @@ class ListView extends Component {
           <Col md="3">
             <SideBar />
           </Col>
-
           <Col md="9">
             <HeadStyle>Your Notes:</HeadStyle>
             <Row>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 
 import {
   DeleteButton,
@@ -24,16 +25,20 @@ class DeleteNote extends Component {
               <Container>
                 <Row>
                   <Col md="6">
-                    <DeleteButton
-                      onClick={() => {
-                        this.props.sumbitDelete(this.props.note);
-                      }}
-                    >
-                      Delete
-                    </DeleteButton>
+                    <Link to="/">
+                      <DeleteButton
+                        onClick={() => {
+                          this.props.submitDelete(this.props.note);
+                        }}
+                      >
+                        Delete
+                      </DeleteButton>
+                    </Link>
                   </Col>
                   <Col md="6">
-                    <Button>No</Button>
+                    <Link to="/note/:id">
+                      <Button>No</Button>
+                    </Link>
                   </Col>
                 </Row>
               </Container>
