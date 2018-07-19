@@ -13,3 +13,7 @@
     display:flex;
     flex-flow: row-reverse;
 }
+
+.action-ctn .link {
+    text-decoration: underline;
+}

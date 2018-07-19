@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import { Link } from 'react-router-dom'
 import './DeleteNote.css'
 
 
@@ -14,7 +15,7 @@ class DeleteNote extends Component {
         }
     }
     componentDidMount() {
-        const { note } = this.props.location.state;
+        const note = this.props.note;
         this.setState({ note })
     }
 
@@ -22,22 +23,27 @@ class DeleteNote extends Component {
         this.setState({ modalIsOpen: false });
     }
 
+    Delete = () => {
+        this.props.onDelete(this.state.note)
+    }
     render() {
         return (
             <div className='modal-ctn'>
                 {/* <button onClick={this.openModal}>Open Modal</button> */}
                 <Modal
-                className="Modal"
+                    className="Modal"
                     isOpen={this.state.modalIsOpen}
                     // onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
                     contentLabel="Delete Confirmation"
-                    
+
                 >
                     <h4>Are you sure you want to delete this?</h4>
                     <div className="dialog-ctn">
-                        <div className="delete-btn dialog-btn" onClick={this.closeModal}>Delete</div>
-                        <div className="edit-btn dialog-btn"onClick={this.closeModal}>No</div>
+                        <Link to='/'>
+                            <div className="delete-btn dialog-btn" onClick={this.Delete}>Delete</div>
+                        </Link>
+                        <div className="edit-btn dialog-btn" onClick={this.props.onClose}>No</div>
                     </div>
                 </Modal>
             </div>

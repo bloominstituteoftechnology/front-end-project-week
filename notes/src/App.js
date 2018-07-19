@@ -5,7 +5,6 @@ import SidePanel from './components/SidePanel/SidePanel'
 import NoteContainer from './components/Notes/NoteContainer'
 import ViewCard from './components/Notes/ViewCard'
 import EditNote from './components/Notes/EditNote'
-import DeleteNote from './components/Notes/DeleteNote'
 import './App.css';
 
 class App extends Component {
@@ -18,8 +17,8 @@ class App extends Component {
 
     createNote = (note) => {
         let notes = this.state.notes.slice();
-        notes.push(note)
-        this.setState({ notes })
+        notes.push(note);
+        this.setState({ notes });
     }
 
     editNote = (note) => {
@@ -34,6 +33,7 @@ class App extends Component {
     deleteNote = (note) => {
         let notes = this.state.notes.slice();
         let newNotes = notes.filter(found => {
+
             return found.id !== note.id;
         })
         this.setState({ notes: newNotes })
@@ -45,9 +45,8 @@ class App extends Component {
                 <Route path='/' component={SidePanel} />
                 <Route exact path='/' render={(props) => <NoteContainer {...props} notes={this.state.notes} />} />
                 <Route exact path='/create' render={(props) => <CreateNote {...props} createNote={this.createNote} />} />
-                <Route exact path="/view/:id" render={(props) => <ViewCard {...props} notes={this.state.notes} />} />
+                <Route exact path="/view/:id" render={(props) => <ViewCard {...props} notes={this.state.notes} deleteNote={this.deleteNote} />} />
                 <Route exact path="/edit" render={(props) => <EditNote {...props} editNote={this.editNote} />} />
-                <Route exact path="/delete" render={(props) => <DeleteNote {...props} />} />
             </div>
         );
     }
