@@ -13,9 +13,7 @@ const routes = [
     {
         path: '/create',
         title: () => <h2>Create New Note:</h2>,
-        component: Create,
-        state: {hi: 'yooooooo'}
+        component: Create        
     }
 ];
 export default routes ;
-// render={(props) => <NotesList {...props} myProps={this.state}

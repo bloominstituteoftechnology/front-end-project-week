@@ -1,17 +1,16 @@
 import React from 'react';
 
-class Create extends React.Component {
 // const Create = (props) => {
+class Create extends React.Component {
     constructor(props) {
         super(props) ;
     }
     render(){
-    console.log('Over HERE!!!', this.props);
-    return (
-        <div>
-            new
-        </div>
-    )
-}
+        return (
+            <div>
+                new
+            </div>
+        )
+    }
 };
 export default Create;

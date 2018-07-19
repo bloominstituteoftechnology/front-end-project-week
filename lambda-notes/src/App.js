@@ -8,21 +8,20 @@ import NotesList from './components/notes/NotesList';
 class App extends Component {
   constructor() {
     super() ;
-    this.state = {
-      tristan: [],  
-    } ;
   }
   render() {
     return (
       <div className="App">
         <div className="container">
           <nav className="nav">
-            <NavBar             
-                myProps={this.state}
-              />
+          
+            <NavBar />
+
           </nav>
           <div className="page">
+
             <Content />
+
           </div>
         </div>        
       </div>

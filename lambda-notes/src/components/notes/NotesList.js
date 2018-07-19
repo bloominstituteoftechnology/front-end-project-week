@@ -8,12 +8,7 @@ class NotesList extends Component {
         super(props) ;
         this.state = { dummyData }
     }
-    // componentDidMount() {
-
-    // }
-    render() {
-        //console.log('HERE!',this.props);
-        
+    render() {        
         return(
             <div className="notes-list">
                 {this.state.dummyData.map((mapNote, index) => {
