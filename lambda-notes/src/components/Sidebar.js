@@ -15,13 +15,13 @@ const Content = Styled.div`
   padding: 5px;
 `;
 
+
 const Sidebar = () => {
   return(
     <Content>
       <Heading main>Lambda Notes</Heading>
       <Link to='/notes'><Button> View Your Notes</Button></Link>
-      <Link to='/new'><Button>Create New Note</Button></Link>
-      <SearchBar />
+      <Link to='/new'><Button>Create New Note</Button></Link>      
       </Content>)
 }
 

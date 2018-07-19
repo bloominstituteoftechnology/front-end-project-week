@@ -4,6 +4,7 @@ import Styled from 'styled-components';
 import { updateNote, toggleUpdate, getSingleNote } from './../actions';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
+import AddTag from './AddTag';
 
 const Container = Styled.div`
 display: flex
@@ -37,6 +38,12 @@ const InputContent = Styled.textarea`
     border-radius: 5px;
 `;
 
+const TagButton = Styled.button`
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+`;
+
 
 class EditNote extends React.Component {
     constructor(props) {
@@ -44,8 +51,9 @@ class EditNote extends React.Component {
         this.state = {
             editedNote: {title: "",
             textBody: "",
-            tags: []
-            }   
+            tags: ['1']
+            },
+        newTag: false,
         }
     }
 
@@ -59,6 +67,15 @@ class EditNote extends React.Component {
        this.props.toggleUpdate();
     }
 
+    toggleTag = () => {
+        this.setState({newTag: !this.state.newTag})
+    }
+
+    addTag = (editedNote, tag) => {
+       // let newTags = this.state.editedNote.tags.push(event.target.value)
+        this.setState({[editedNote]: {...this.state[editedNote], tags: tag}})
+    }
+
     componentDidMount(){
         this.props.getSingleNote(this.props.match.params.id);
         this.setState({editedNote: {title: this.props.note.title, textBody: this.props.note.textBody}})
@@ -68,7 +85,7 @@ class EditNote extends React.Component {
         return (
     
                 <NewContainer>
-                <Heading>Edit Note:</Heading>
+                <Heading>Edit Note:</Heading>{console.log(this.state.editedNote)}
                 <FormContainer>
                     <InputTitle 
                         type="text"
@@ -85,13 +102,9 @@ class EditNote extends React.Component {
                         value={this.state.editedNote.textBody}
                         onChange={this.handleChange.bind(this, 'editedNote')}
                         />
-                        <InputTitle 
-                        type="text"
-                        name="tags"
-                        placeholder='Tags'
-                        value={this.state.editedNote.tags}
-                        onChange={this.handleChange.bind(this, 'editedNote')}
-                        />
+                        <TagButton onClick={this.toggleTag}>Add Tag</TagButton>
+                        {this.state.newTag ? <AddTag submitTag={this.addTag} editedNote={this.state.editedNote}/> : null}
+                        
                     <Button onClick={this.editNote}>Update</Button>
                     </FormContainer>
                     {this.props.update ? <Redirect to={ `/note/${this.props.match.params.id}`} /> : null}

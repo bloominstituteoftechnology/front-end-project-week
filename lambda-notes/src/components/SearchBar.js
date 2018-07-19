@@ -6,9 +6,23 @@ import { searchNotes, getNotes } from './../actions';
 
 const SearchContainer = Styled.form`
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    justify-content: flex-end;
+    height: 70px;
 `;
+
+const InputContainer = Styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-right: 10px;
+`;
+
+const InputField = Styled.input`
+    width: 200px;
+    height: 20px;
+`;
+
 class SearchBar extends React.Component {
     constructor() {
         super();
@@ -36,16 +50,19 @@ class SearchBar extends React.Component {
     return (
         <div>
             <SearchContainer onSubmit={this.searchNotes}>
-                <input
+                <InputContainer>
+                <InputField
                     type='text'
                     placeholder='Search'
-                    defaultValue=''
+                    value={this.state.searchTerm}
                     onChange={this.handleSearch}
-                    
                     />
-                    <Button> Search Notes</Button>
                     <p onClick={this.clearSearch} style={{fontSize: '10px'}}>Clear Search</p>
-            </SearchContainer>
+                </InputContainer>
+                    <Button search> Search Notes</Button>
+                
+            </SearchContainer>   
+            
         </div>    
     )
 }

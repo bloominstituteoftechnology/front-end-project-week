@@ -15,7 +15,7 @@ import { GETTING_NOTES,
         DELETE_FAILED,
         SEARCHING_NOTES,
         SEARCH_RETURNED,
-        SEARCH_FAILED } from './../actions';
+        SEARCH_FAILED} from './../actions';
 
 
 
@@ -57,21 +57,21 @@ import { GETTING_NOTES,
                 case CREATING_NOTE:
                     return {...state, creatingNote: true}
                 case NOTE_CREATED:
-                    return {...state, creatingNote: false, noteCreated: true, notes: payload}
+                    return {...state, creatingNote: false, noteCreated: true}
                 case CREATE_FAILED:
                     return {...state, creatingNote: false, error: payload}
 
                 case UPDATING_NOTE:
                     return {...state, updatingNote: true}
                 case NOTE_UPDATED:
-                    return {...state, updatingNote: false, noteUpdated: true, notes: payload}
+                    return {...state, updatingNote: false, noteUpdated: true}
                 case UPDATE_FAILED:
                     return {...state, updatingNote: false, error: payload}
 
                 case DELETING_NOTE:
                     return {...state, deletingNote: true}
                 case NOTE_DELETED:
-                    return {...state, deletingNote: false, noteDeleted: true, notes: payload}
+                    return {...state, deletingNote: false, noteDeleted: true}
                 case DELETE_FAILED:
                     return {...state, deletingNote: false, error: payload}
 
@@ -82,8 +82,7 @@ import { GETTING_NOTES,
                 case SEARCH_FAILED:
                     return {...state, searchingNotes: false, error: payload}
 
-
                 default: 
                     return state;
             }
-        }
+        } 

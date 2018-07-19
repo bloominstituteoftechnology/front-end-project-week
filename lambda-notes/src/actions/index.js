@@ -29,7 +29,6 @@ export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const TOGGLE_DELETE = 'TOGGLE_DELETE';
 export const TOGGLE_UPDATE = 'TOGGLE_UPDATE';
 
-
 export function getNotes () {
     return(dispatch) =>{
     dispatch({type: GETTING_NOTES});
@@ -49,6 +48,7 @@ export function getSingleNote (id) {
     dispatch({type: GETTING_SINGLE_NOTE});
     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
       .then(({data}) => {
+          console.log(data)
           dispatch({type: RECEIVED_SINGLE_NOTE, payload: data});
       })
       .catch(err => {
@@ -64,6 +64,7 @@ export function createNote (newNote) {
     dispatch({type: CREATING_NOTE});
     axios.post('https://killer-notes.herokuapp.com/note/create', newNote)
       .then(({data}) => {
+          console.log(data)
           dispatch({type: NOTE_CREATED, payload: data});
       })
       .catch(err => {
@@ -78,6 +79,7 @@ export function updateNote (id, note) {
     dispatch({type: UPDATING_NOTE});
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, note)
       .then(({data}) => {
+          console.log(data)
           dispatch({type: NOTE_UPDATED, payload: data});
       })
       .catch(err => {
@@ -92,6 +94,7 @@ export function deleteNote (id) {
     dispatch({type: DELETING_NOTE});
     axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
       .then(({data}) => {
+          console.log(data)
           dispatch({type: NOTE_DELETED, payload: data});
       })
       .catch(err => {
@@ -119,6 +122,7 @@ export function searchNotes (searchTerm) {
         })
     }
 }
+
 
 export const toggleModal = () => {
     return {

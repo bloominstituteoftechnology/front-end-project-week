@@ -3,8 +3,9 @@ import Styled from 'styled-components';
 import {Heading} from './../styles/styles';
 import { Link } from 'react-router-dom';
 import DeleteModal from './Delete';
-import { toggleModal, getSingleNote } from './../actions';
+import { toggleModal, getSingleNote, updateNote } from './../actions';
 import { connect } from 'react-redux';
+import ListForm from './ListForm';
 
 const NoteContainer = Styled.div`
 display: block;
@@ -38,25 +39,64 @@ const Delete = Styled.a`
     }
 `;
 
+const ListHeading = Styled.div`
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #4A4A4A;
+    font-size: 18px;
+    align-self: flex-start;
+`;
+
+const ListContainer = Styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+`;
+
+const ListItem = Styled.li`
+    list-style: none;
+    color: #4A4A4A;
+`;
+
 
 class Note extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            note: {},
+            completed: false
+        }
     }
 
     openModal = (e) => {
         this.props.toggleModal();
     }
 
+    toggleFlag = () => {
+        this.setState({completed: !this.state.completed})
+    }
+
     componentDidMount(){
         this.props.getSingleNote(this.props.match.params.id);
+        this.setState({note: this.props.note})
     }
+
+    /*shouldComponentUpdate(nextProps, nextState) {
+        if (this.props.note.textBody !== nextProps.note.textBody) {
+          return true;
+        } return false;
+      }
+    
+    
+      componentDidUpdate(prevProps) {
+        if(this.props.note.textBody !== prevProps.note.textBody){
+        this.props.getSingleNote(this.props.match.params.id);
+      }}*/
 
     render() {
     return (
         <Container>
-        {this.props.showModal === true ? <DeleteModal toggleModal={this.openModal} id={this.props.location.state.id} notes={this.props.location.state.notes}/> : null}
+        {this.props.showModal === true ? <DeleteModal toggleModal={this.openModal} id={this.props.match.params.id}/> : null}
         <NoteContainer>
             <Edit>
             <Link to={`/edit/${this.props.match.params.id}`} style={{color: '#4A4A4A', marginRight: '15px', fontSize: '14px'}}>edit</Link>
@@ -64,8 +104,32 @@ class Note extends React.Component {
             </Edit>
         <Heading>{this.props.note.title}</Heading>
         <Body>{this.props.note.textBody}</Body>
-        })}
+      {this.props.note.checkList ? 
+        <ListContainer>
+            <ListHeading>Checklist</ListHeading>
+            <ul>
+            {this.state.checkList.map(item => {
+                return <div>
+                    <ListItem>
+                    <input 
+                        type='checkbox' 
+                        id='checkbox'  
+                        onClick={()=>this.toggleFlag()} 
+                        style={{marginRight: '15px'}}
+                        />
+                        {item}
+                        </ListItem>
+                        </div>  
+                    })}
+                  
+                    </ul>
+                <ListForm  addItem={this.addListItem}/>
+            </ListContainer> : null}
+
+
+       
         </NoteContainer>
+       
         </Container>
     )
 }
@@ -81,6 +145,7 @@ const mapStateToProps = state => {
   
   const mapActionsToProps = {
     toggleModal: toggleModal,
-    getSingleNote: getSingleNote
+    getSingleNote: getSingleNote,
+    updateNote: updateNote
   }
   export default connect( mapStateToProps, mapActionsToProps)(Note);
