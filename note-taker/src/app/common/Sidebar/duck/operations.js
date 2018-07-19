@@ -1,9 +1,9 @@
 import Creators from "./actions";
 import "../../../styles/custom-props.css";
 
-const toggleThemeAction = Creators.toggleTheme;
 
 const toggleTheme = (function() {
+  const toggleThemeAction = Creators.toggleTheme;
   const root = document.querySelector(":root");
   const rootStyle = getComputedStyle(root);
 
@@ -33,13 +33,4 @@ const toggleTheme = (function() {
 export default {
   toggleTheme
 };
-// --main-font-color: #4A4A4A;
-// --btn-font-color: #FFFFFF;
-// --main-border-color: #979797;
 
-// --sidebar-bg: #D8D8D8;
-// --main-bg: #F3F3F3;
-// --main-btn-bg: #2BC1C4;
-// --danger-btn-bg: #D0021B;
-
-// --sidebar-width: 250px;
