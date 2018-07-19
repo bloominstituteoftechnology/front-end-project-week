@@ -78,7 +78,6 @@ class App extends Component {
       }
     }
     this.setState({notes, currentNote: {}});
-    alert('asdf');
   }
   render() {
     return (

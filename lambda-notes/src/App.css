@@ -113,8 +113,9 @@
   border-radius: 5px;
   border: 2px #979797 solid;
   padding-left: 15px;
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 20px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .content .form textarea {
@@ -122,10 +123,11 @@
   height: 510px;
   border: 2px #979797 solid;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 18px;
   padding-left: 15px;
   font-family: 'Raleway', sans-serif;
   padding-top: 30px;
+  line-height: 28px;
 }
 
 .content form .save {
@@ -169,6 +171,47 @@
   font-size: 20px;
   font-weight: bold;
   line-height: 40px;
+}
+.content .edit-page h2 {
+  font-size: 30px;
+  margin-top: 100px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+.content .edit-page form {
+  right: 100px;
+  margin-left: 0;
+}
+.content .edit-page form input {
+  width: 38.5%;
+  height: 60px;
+  border-radius: 5px;
+  border: 2px #979797 solid;
+  padding-left: 15px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  font-family: 'Raleway', sans-serif;
+}
+.content .edit-page form textarea {
+  width: 64%;
+  height: 550px;
+  border-radius: 5px;
+  border: 2px #979797 solid;
+  padding-left: 15px;
+  font-size: 18px;
+  margin-bottom: 25px;
+  font-family: 'Raleway', sans-serif;
+  padding-top: 30px;
+  line-height: 28px;
+}
+.content .edit-page button {
+  background-color: #2BC1C4;
+  width: 300px;
+  height: 60px;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 .delete-background {
   width: 100%;

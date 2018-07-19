@@ -19,7 +19,7 @@ class EditNote extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='edit-page'>
         <h2>Edit Note:</h2>
         <form>
           <input name='title' value={this.props.currentNote.title} onChange={this.props.handleEditTitle}/>
