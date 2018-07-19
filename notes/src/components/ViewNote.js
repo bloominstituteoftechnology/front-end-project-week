@@ -15,7 +15,7 @@ class ViewNote extends React.Component {
       textBody: '',
       modal: false,
       tag: '',
-      tags: []
+      tags: [],
     }
   }
 
@@ -50,8 +50,8 @@ class ViewNote extends React.Component {
   fetchNote = id => {
     axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
     .then(response => {
-      console.log(response.data);
-      this.setState({note: response.data})
+      console.log("fetched Note", response.data);
+      this.setState({note: response.data, tags: response.data.tags})
     })
     .catch(err => {
       console.log("Error:", err);
@@ -87,8 +87,13 @@ class ViewNote extends React.Component {
 
 /*Saves the edits to the server and then redisplays the Note component*/
   handleEdit = (id) => {
-    console.log("haha");
-    const newEdits = {tags: this.state.tags, title: this.state.title, textBody: this.state.textBody}
+    const newEdits = {};
+    if (this.state.tag.length > 0){
+      newEdits.tags = this.state.note.tags;
+      newEdits.tags.push(this.state.tag);
+    }
+    if (this.state.title.length > 0) newEdits.title = this.state.title;
+    if (this.state.textBody.length > 0) newEdits.textBody = this.state.textBody;
     axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newEdits)
     .then(response => {
       console.log(response.data);
@@ -100,6 +105,27 @@ class ViewNote extends React.Component {
     })
   }
 
+/*Helper function that prevents page from reloading when editing tags*/
+  handleTagSubmit = e => {
+    e.preventDefault();
+    this.handleTagEdit(this.props.match.params.id);
+  }
+
+/*Sends a put request to the server to edit the tag array*/
+  handleTagEdit = id => {
+    console.log("hte tags", this.state.tags);
+    const newTags = {tags: this.state.tags}
+    newTags.tags.push(this.state.tag);
+    axios.put(`https://killer-notes.herokuapp.com/note/edit/${id}`, newTags)
+    .then(response => {
+      console.log("axios response", response.data);
+      this.setState({tags: response.data.tags, tag:''})
+    })
+    .catch(err => {
+      console.log("Tag Edit Error", err);
+    })
+  }
+
 /*Helper function used for Modal toggling in the delete functionality*/
   toggleModal = () => {
     this.setState({modal: !this.state.modal});
@@ -108,6 +134,10 @@ class ViewNote extends React.Component {
   handleLogout = () => {
     localStorage.removeItem('user');
     window.location.reload();
+  }
+
+  deleteTag = () => {
+
   }
 
 
@@ -138,10 +168,12 @@ class ViewNote extends React.Component {
         <h3 className="view-note-header">{this.state.note ? (this.state.editingNote ? <input name="title" className="title-input" value={this.state.title} onChange={this.handleChange}/>: this.state.note.title) : "Loading..."}</h3>
         <p className="view-note-body">{this.state.note ? (this.state.editingNote ? <textarea name="textBody" className="content-input" value={this.state.textBody} onChange={this.handleChange}></textarea> : <MarkdownRenderer markdown={this.state.note.textBody} />) : "Loading..."}</p>
         <div className="tagContainer">
-        {this.state.note ? this.state.note.tags.map(tag => {
-          return <span className="tagg">tag<span className="close"></span></span>
+        {this.state.tags ? this.state.tags.map(tag => {
+          return <span key={Math.random()} className="tagg">{tag}<span className="close" onClick={this.deleteTag}></span></span>
         }) : "Loading..."}
-        <input type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
+        <form className="tagForm" onSubmit={this.handleTagSubmit}>
+        <input className="mainInput" type="text" placeholder="add tag" name="tag" onChange={this.handleChange} value={this.state.tag} />
+        </form>
         </div>
         {this.state.editingNote ? <button onClick={() => {this.handleEdit(this.props.match.params.id)}}>Save</button> : null}
       </div>

@@ -215,5 +215,34 @@ body {
   padding: 0.5em 0.75em;
   display: inline-block;
   margin: 0.25em 0.1em;
+  background: #ddd;
+  transition: all 0.1s linear;
+}
+
+.tagContainer .tagg:hover {
   background: #3af;
+  color: white;
+}
+
+.tagContainer .tagg .close::after {
+  content: '\00d7';
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 5px;
+  transform: scale(0.9);
+}
+
+.tagContainer .tagg .close:hover::after {
+  color: red;
+}
+
+.tagContainer .mainInput {
+  border: 0;
+  outline: 0;
+  padding: 0.5em;
+  margin: 5px;
+}
+
+.tagForm {
+  display: inline-block;
 }
