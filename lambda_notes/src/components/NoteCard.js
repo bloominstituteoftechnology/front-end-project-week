@@ -34,8 +34,8 @@ class NoteCard extends Component {
             <StyledNoteCard>
                 <Link to={`/notes/${_id}`}
                     style={{ textDecoration: 'none', color: 'black' }}>
-                    <StyledTitle>{title}</StyledTitle>
-                    <StyledText><Markdown>{textBody}</Markdown></StyledText>
+                    <StyledTitle><Markdown options={{ forceBlock: true }}>{title}</Markdown></StyledTitle>
+                    <StyledText><Markdown options={{ forceBlock: true }}>{textBody}</Markdown></StyledText>
                 </Link>
             </StyledNoteCard>
 

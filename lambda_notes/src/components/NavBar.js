@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { searchNotes } from '../actions';
+import { getNotes, searchNotes } from '../actions';
 import { connect } from 'react-redux';
 
 const StyledSideBar = styled.div`
@@ -67,7 +67,7 @@ class NavBar extends Component {
             <StyledSideBar>
                 <StyledButtonLinks>
                     <h3>Lambda Notes</h3>
-                    <Link to={'/'}><StyledButton>View Your Notes</StyledButton></Link>
+                    <Link to={'/'}><StyledButton onClick={this.props.getNotes}>View Your Notes</StyledButton></Link>
                     <Link to={'/create'}><StyledButton>Create New Note</StyledButton></Link>
                     <form onSubmit={this.searchNotes}>
                         <H5>Search</H5>
@@ -89,4 +89,4 @@ const mapStateToProps = () => {
     }
 }
 
-export default connect(mapStateToProps, { searchNotes })(NavBar);
+export default connect(mapStateToProps, { getNotes, searchNotes })(NavBar);
