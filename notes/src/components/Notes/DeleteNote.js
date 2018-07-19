@@ -5,7 +5,7 @@ import './DeleteNote.css'
 
 
 
-Modal.setAppElement('#main')
+
 class DeleteNote extends Component {
     constructor(props) {
         super(props);
@@ -29,11 +29,9 @@ class DeleteNote extends Component {
     render() {
         return (
             <div className='modal-ctn'>
-                {/* <button onClick={this.openModal}>Open Modal</button> */}
                 <Modal
                     className="Modal"
                     isOpen={this.state.modalIsOpen}
-                    // onAfterOpen={this.afterOpenModal}
                     onRequestClose={this.closeModal}
                     contentLabel="Delete Confirmation"
 
