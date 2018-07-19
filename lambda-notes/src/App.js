@@ -129,11 +129,17 @@ class App extends Component {
     this.setState({ notes, currentNote: {}, deleting: !this.state.deleting });
   };
 
-  handleSort = () => {
+  handleSortAZ = () => {
     let notes = this.state.notes.slice();
     notes.sort(this.compareTitles);
     this.setState({ notes });
   };
+
+  handleSortZA = () => {
+    let notes = this.state.notes.slice();
+    notes.sort(this.compareTitles).reverse();
+    this.setState({ notes });
+  }
 
   compareTitles = (a, b) => {
     if (a.title < b.title) {
@@ -157,7 +163,8 @@ class App extends Component {
             <NotesList
               {...props}
               notes={this.state.notes}
-              handleSort={this.handleSort}
+              handleSortAZ={this.handleSortAZ}
+              handleSortZA={this.handleSortZA}
             />
           )}
         />

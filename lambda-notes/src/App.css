@@ -91,6 +91,11 @@
 
 }
 
+.notes-list-sort-div {
+  display:flex;
+  justify-content: space-around;
+}
+
 .notes-list-sort {
   border: 1px solid #979797;
   width: 150px;
@@ -98,7 +103,10 @@
   justify-content: center;
   background: #2BC1C4;
   color:white;
-  
+  padding: 1%;
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: .8rem;
 }
 
 .notes-list-title {
