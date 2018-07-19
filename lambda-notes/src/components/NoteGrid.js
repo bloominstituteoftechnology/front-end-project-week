@@ -56,7 +56,7 @@ export default class NoteGrid extends Component {
     super(props);
     this.state = {
       searchType: 'word',
-      searchInput: ''
+      searchInput: '',
     };
     this.updateInput = this.updateInput.bind(this);
   }

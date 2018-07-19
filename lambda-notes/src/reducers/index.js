@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { RECEIVE_NOTES, RECEIVE_NOTE } from '../actions/index.js';
+import { RECEIVE_NOTES, RECEIVE_NOTE, REARRANGE_NOTES, } from '../actions/index.js';
 
 const byIdReducer = (state = {}, action) => {
   switch (action.type) {
@@ -30,6 +30,16 @@ const allIdsReducer = (state = [], action) => {
       return [...state, id];
     }
     return state;
+  }
+  case REARRANGE_NOTES: {
+    const { sourceId, dropId } = action.payload;
+
+    // Remove source id from allIds array
+    let newArr = state.filter( id => id !== sourceId );
+
+    // Place source id after target id in allIds array.
+    const targetIndex = state.findIndex(id => id === dropId);
+    return [...newArr.slice(0, targetIndex), sourceId, ...newArr.slice(targetIndex)];
   }
   default:
     return state;

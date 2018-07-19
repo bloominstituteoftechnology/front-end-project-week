@@ -3,6 +3,7 @@ import axios from 'axios';
 export const START_FETCH = 'START_FETCH';
 export const RECEIVE_NOTES = 'RECEIVE_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
+export const REARRANGE_NOTES = 'REARRANGE_NOTES';
 
 const url = 'https://killer-notes.herokuapp.com/note';
 
@@ -68,3 +69,11 @@ export const deleteNote = (id, cb) => dispatch => {
       console.log(err);
     });
 };
+
+export const reArrange = (sourceId, dropId) => {
+  return {
+    type: REARRANGE_NOTES,
+    payload: {sourceId, dropId},
+  };
+};
+

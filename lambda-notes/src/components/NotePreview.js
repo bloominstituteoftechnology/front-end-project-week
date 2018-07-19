@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { DragSource, DropTarget } from 'react-dnd';
+import { reArrange } from '../actions/index';
 import MarkdownText from './MarkdownText';
 import { ItemTypes } from '../dndLogic.js';
 
@@ -59,10 +61,12 @@ const noteSourceSpec = {
 };
 
 const noteTargetSpec = {
-	hover(props, monitor) {
-    console.log(monitor.getItem());
+  drop(props, monitor) {
+    const sourceId = monitor.getItem().noteId;
+    const dropId = props.note._id;
+    props.reArrange(sourceId, dropId);
   }
-}
+};
 
 function collectSource(connect, monitor) {
   return {
@@ -74,7 +78,7 @@ function collectSource(connect, monitor) {
 function collectTarget(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
+    isOver: monitor.isOver()
   };
 }
 
@@ -82,16 +86,18 @@ const NotePreview = props => {
   const { title, textBody } = props.note;
   const { connectDropTarget, connectDragSource, isOver } = props;
   // const { color, font } = props.theme;
-  return connectDropTarget(connectDragSource(
-    <div>
-      <StyledNotePreview style={{ backgroundColor: isOver ? 'blue' : null }}>
-        <h2>{title}</h2>
-        <MarkdownText mdText={textBody} />
-      </StyledNotePreview>
-    </div>
-  ));
+  return connectDropTarget(
+    connectDragSource(
+      <div>
+        <StyledNotePreview style={{ backgroundColor: isOver ? 'blue' : null }}>
+          <h2>{title}</h2>
+          <MarkdownText mdText={textBody} />
+        </StyledNotePreview>
+      </div>
+    )
+  );
 };
 
-export default DropTarget(ItemTypes.NOTE, noteTargetSpec, collectTarget)(DragSource(ItemTypes.NOTE, noteSourceSpec, collectSource)(
-  NotePreview
+export default connect(null, { reArrange })(DropTarget(ItemTypes.NOTE, noteTargetSpec, collectTarget)(
+  DragSource(ItemTypes.NOTE, noteSourceSpec, collectSource)(NotePreview)
 ));
