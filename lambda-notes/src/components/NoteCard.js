@@ -10,9 +10,9 @@ const NoteCard = (props) => {
   return (
     // <Link key={note._id} className='myLink' to={`/notes/${note._id}`}>
     <div key={note._id} className='myLink' onClick={() => handleDetails()}>
-      <h1 className='cardTitle'>
+      <div className='cardTitle'>
         {note.title.length > 8 ? note.title.substr(0, 9) + ' ...' : note.title}
-      </h1>
+      </div>
       <div className='cardBody'>
         {note.textBody.length > 200 ? (
           note.textBody.substr(0, 199) + ' ...'

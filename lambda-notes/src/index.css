@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: sans-serif;
+  font-family: 'Frank Ruhl Libre', serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
@@ -20,7 +20,7 @@ label {
   background-color: white;
   width: 280px;
   height: 270px;
-  margin-top: 2%;
+  margin-bottom: 2%;
   display: inline-flex;
   flex-direction: column;
   padding: 1%;
@@ -97,7 +97,6 @@ label {
   display: flex;
   flex-flow: wrap;
   justify-content: space-evenly;
-  width: 100%;
 }
 
 .loading {
@@ -223,30 +222,45 @@ label {
 .search-input {
   width: 550px;
   height: 44px;
-  margin-top: 1.9%;
+  margin: auto;
   border-radius: 30px;
   text-align: center;
 }
 .notelist-header-div {
   Display: flex;
+  height: 90px;
+}
+.note-header {
+  font-size: 2rem;
+
+  position: absolute;
+  left: 1;
+}
+.padding-container {
+  padding: 1%;
+}
+@media (max-width: 1147px) {
+  .note-header {
+    display: none;
+  }
 }
 
-@media (max-width: 825px) {
+/* @media (max-width:935px) */
+
+/* @media (max-width: 867px) {
   h1 {
     font-size: 1.5rem;
   }
   .myLink {
-    width: 260px;
-    height: 220px;
+    width: 220px;
     margin: 0%;
   }
   .sideNav {
-    min-width: 200px;
   }
   .noteDetails-container {
     border: 2px solid red;
-  }
-  .noteDetails {
+  } */
+/* .noteDetails {
     flex-direction: column-reverse;
   }
   .title-header {
@@ -262,10 +276,9 @@ label {
   .Btn-modal {
     margin-top: 10%;
     width: 300px;
-  }
-}
+  } */
 
-@media (max-width: 527px) {
+/* @media (max-width: 527px) {
   .App {
     display: flex;
     flex-direction: column;
@@ -287,4 +300,4 @@ label {
   .noteDetails-btns {
     margin-left: 15%;
   }
-}
+} */

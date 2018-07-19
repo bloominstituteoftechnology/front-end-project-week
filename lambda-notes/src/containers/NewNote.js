@@ -2,7 +2,6 @@ import Markdown from 'markdown-to-jsx'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { postNote } from '../actions'
-
 class NewNote extends Component {
   constructor (props) {
     super(props)

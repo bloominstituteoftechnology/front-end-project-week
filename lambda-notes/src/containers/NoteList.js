@@ -34,17 +34,17 @@ class NoteList extends Component {
 
     return (
       <div className='noteList'>
-        <div className='notelist-header-div'>
-          <Markdown className='noteList-header'>#Your Notes:</Markdown>
-          <input
-            placeholder='Search Note'
-            className='search-input'
-            type='search'
-            value={this.state.search}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div className='noteList-container'>
+        <div className='padding-container'>
+          <div className='notelist-header-div'>
+            <div className='note-header'>Your Notes:</div>
+            <input
+              placeholder='Search Note'
+              className='search-input'
+              type='search'
+              value={this.state.search}
+              onChange={this.handleChange}
+            />
+          </div>
           {this.props.api.fetching ? (
             <Loading />
           ) : (
