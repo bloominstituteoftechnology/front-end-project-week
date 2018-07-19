@@ -5,7 +5,7 @@ import { getNotes, themeSwitch } from './Actions';
 import NotesContainer from './Components/NotesContainer/NotesContainer';
 import { GOOGLE_API_KEY } from './constants';
 import { Route, Link } from 'react-router-dom';
-import { MiddleSection, Sidebar, TopBar, Main, PrimaryButton, Header, LinkBar, DownloadButton } from './Components/StyledComponents/StyledComponents';
+import { MiddleSection, Sidebar, TopBar, Main, PrimaryButton, Header, LinkBar, DownloadButton, LogoutButton } from './Components/StyledComponents/StyledComponents';
 import UserMiniCard from './Components/User/UserMiniCard';
 import NewNote from './Components/NewNote/NewNote';
 import {withRouter} from 'react-router-dom';
@@ -16,6 +16,8 @@ import DeleteModal from './Components/DeleteModal/DeleteModal';
 import firebase from './firebase';
 
 
+
+
 var database = firebase.database();
 console.log('firebase', database);
 
@@ -24,13 +26,46 @@ console.log('firebase', database);
 //or create a variable below this line that stores your API key.
 
 class App extends Component {
-
+ constructor(props) {
+super(props)
+   this.state={
+     currentUser: null,
+     isLoggedIn: false,
+   }
+ }
 
   componentDidMount() {
       this.props.getNotes();
   }
 
+  SignIn = (e) => {
+    let provider;
+    if (e.target.name === 'facebook') {
+      provider = new firebase.auth.FacebookAuthProvider();
+    } else if (e.target.name === 'google') {
+      provider = new firebase.auth.GoogleAuthProvider();
+    }
+    firebase.auth().signInWithPopup(provider)
+      .then(({
+        user
+      }) => {
+        this.setState({
+          currentUser: user,
+          isLoggedIn: true,
+        })
+      })
+  }
   
+  SignOut = () => {
+
+    firebase.auth().signOut().then(() => {
+      this.setState({
+        currentUser: null,
+        isLoggedIn: false,
+      })
+    })
+  }
+
 
  
   render() {
@@ -39,20 +74,27 @@ class App extends Component {
     return (
   
       <Main>   
-      <TopBar> <UserMiniCard/><LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i className="fas fa-download"></i></DownloadButton></CSVLink><ThemeSwitch/></LinkBar> </TopBar>
+      <TopBar> {this.state.isLoggedIn? <UserMiniCard newUser ={this.state.currentUser}/> : <button name='google' className="loginBtn loginBtn--google" onClick={(e)=>{this.SignIn(e)}}>Login with Google</button>} <LinkBar>  <CSVLink data={this.props.notes}> <DownloadButton> <i className="fas fa-download"></i></DownloadButton></CSVLink><ThemeSwitch/></LinkBar> </TopBar>
        <MiddleSection theme={this.props.theme}> 
-        
+   
       <Sidebar>
       <Header>Lambda Notes</Header>
       <Link style={{textDecoration:'none', width: '100%'}} to='/'><PrimaryButton>View Notes</PrimaryButton> </Link>
       <Link style={{textDecoration:'none', width: '100%'}} to='/notes/new'> <PrimaryButton>Create A Note</PrimaryButton> </Link>
+      {this.state.isLoggedIn ? <LogoutButton onClick={()=>{this.SignOut()}}>Logout</LogoutButton> : null}
       </Sidebar>
-      <Route exact path = '/' component = {NotesContainer}/>
-          <Route exact path='/:id' render={(props)=> {
+     {this.state.isLoggedIn? <Route exact path = '/'
+      component = {NotesContainer}
+      /> : <Route exact path = '/'
+      component = {NewNote}
+     /> }
+     <Route exact path = '/:id'
+          render = {
+              (props) => {
       return (
       <FullSizeNote location = {props.history.location}/>
     )
-      }}/>
+      }}/> 
 
      
     

@@ -13,7 +13,8 @@ const FlexDiv = styled.div`
  height: 48px;
 `
 const SmallProfileImage = styled.img`
-
+height: 50px;
+width: 50px;
 padding-right: 15px;
 border-radius: 30%;
 `
@@ -48,10 +49,10 @@ height: 20px;
 const UserMiniCard = (props) => {
     return (
           <FlexDiv>
-          {(user) && <SmallProfileImage src={user.picture.thumbnail} />} 
+          {(user) && <SmallProfileImage src={props.newUser.photoURL} />} 
           <Stacker>
-           <WelcomeMessage>Welcome, {user.name.first}!</WelcomeMessage>
-           <SubMessage>{user.login.username}</SubMessage>
+           <WelcomeMessage>Welcome, {props.newUser.displayName}!</WelcomeMessage>
+           <SubMessage>{props.newUser.email}</SubMessage>
            </Stacker>
           </FlexDiv>
       

@@ -1,4 +1,6 @@
 .sk-cube-grid {
+    position: relative;
+    z-index:500;
     width: 40px;
     height: 40px;
     margin: 100px auto;

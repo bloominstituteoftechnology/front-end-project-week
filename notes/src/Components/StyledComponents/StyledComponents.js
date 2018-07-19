@@ -184,9 +184,24 @@ border: none;
 font-size: 16px;
 height: 30px;
 cursor: pointer;
-
-
 `
+export const LogoutButton = styled.button `
+
+margin-top: 10px;
+display: flex;
+outline: none;
+justify-content: center;
+align-items: center;
+background-color: red; 
+color: white;
+min-width: 75px;
+width: 100%;
+border: none;
+font-size: 16px;
+height: 30px;
+cursor: pointer;
+`
+
 export const Header = styled.span`
 font-size: 30px;
 font-weight: bold;

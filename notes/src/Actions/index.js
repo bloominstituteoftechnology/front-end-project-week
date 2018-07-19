@@ -82,11 +82,11 @@ export const deleteNote = (e, id, history) => {
     e.preventDefault();
  console.log('deleting note');
  return (dispatch) => {
-      dispatch({type: SAVING_NOTE});
       dispatch(() =>{
       database.ref('notes/' + id).remove();
       })
-     setTimeout(()=>{history.push('/')}, 1200)
+
+     setTimeout(()=>{history.push('/')}, 500)
 
  }
 }
