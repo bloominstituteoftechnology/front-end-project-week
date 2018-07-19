@@ -1,21 +1,27 @@
 import React from "react"
-import DeleteNote from "../deletenote/DeleteNote"
 import "./ViewNote.css";
 import { Link } from 'react-router-dom';
+import DeleteNote from "../deletenote/DeleteNote"
 
 
 class ViewNote extends React.Component {
   deletePopup (){
-   console.log("Hello World");
+   var modal = document.querySelector(".delete-note");
+   modal.style.display = "block";
+  }
+  closeDeletePopup(){
+    var modal = document.querySelector(".delete-note");
+    modal.style.display = "none";
   }
 
   render(){
     return (
       <div>
+        <DeleteNote closePopup={this.closeDeletePopup}/>
         <Link to={`./${this.props.match.params.id}/edit`}>
           <small className="view-edit view-options">Edit</small>
         </Link>
-        <small className="view-delete view-options">Delete </small>
+        <small className="view-delete view-options" onClick={this.deletePopup}>Delete </small>
         <h2>
           {this.props.notes[this.props.match.params.id].title}
         </h2>

@@ -8,7 +8,7 @@ const DeleteNote = props => {
         <button className="side-button delete-button">
           Delete
         </button>
-        <button className="side-button">
+        <button className="side-button" onClick={props.closePopup}>
           No
         </button>
       </div>
