@@ -27,8 +27,8 @@ class App extends Component {
   addNote(note) {
     this.state.notes.push(note);
   }
-  editNote(noteId, note){
-    this.setState({newnote: note})
+  editNote(note){
+    this.setState({notes: note})
   }
 
   render() {
