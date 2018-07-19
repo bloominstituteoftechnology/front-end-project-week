@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 const NotesList = props => {
   return (
     <div className="notes-list-div">
       <p className="notes-list-title">Your Notes: </p>
+      <div className="notes-list-sort" onClick={props.handleSort}> Sort Alphabetically</div>
       <ul className="notes-list">
         {props.notes.map(note => {
           return (

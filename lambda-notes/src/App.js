@@ -55,7 +55,7 @@ class App extends Component {
           id: 6,
           content:
             "Lorem psum dolor sit amet, consectetur adipiscing elit. Aliquam facilisis posuere pellentesque. Nunc bibendum pharetra sem, et laoreet turpis finibus ut. "
-        },
+        }
       ],
       title: "",
       content: "",
@@ -64,16 +64,15 @@ class App extends Component {
     };
   }
 
-
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSetCurrent = note => {
-    this.setState({currentNote: note})
+    this.setState({ currentNote: note });
   };
 
-//Add
+  //Add
   handleAddNote = e => {
     const notes = this.state.notes.slice();
     notes.push({
@@ -84,7 +83,7 @@ class App extends Component {
     this.setState({ notes, title: "", content: "" });
   };
 
-//Edit
+  //Edit
   handleEditTitle = e => {
     this.setState({
       currentNote: {
@@ -107,8 +106,8 @@ class App extends Component {
 
   handleEditNote = id => {
     const notes = this.state.notes.slice();
-    for (let i =0; i<notes.length; i++) {
-      if(notes[i].id === Number(id)) {
+    for (let i = 0; i < notes.length; i++) {
+      if (notes[i].id === Number(id)) {
         notes[i] = {
           id: this.state.currentNote.id,
           title: this.state.currentNote.title,
@@ -119,7 +118,7 @@ class App extends Component {
     this.setState({ notes, currentNote: {} });
   };
 
-//Delete
+  //Delete
   toggleDeleting = () => {
     this.setState({ deleting: !this.state.deleting });
   };
@@ -127,9 +126,24 @@ class App extends Component {
   handleDeleteNote = id => {
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== Number(id));
-    this.setState({notes, currentNote:{}, deleting: !this.state.deleting});
+    this.setState({ notes, currentNote: {}, deleting: !this.state.deleting });
   };
 
+  handleSort = () => {
+    let notes = this.state.notes.slice();
+    notes.sort(this.compareTitles);
+    this.setState({ notes });
+  };
+
+  compareTitles = (a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    } else if (a.title > b.title) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
 
   render() {
     return (
@@ -139,7 +153,13 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <NotesList {...props} notes={this.state.notes} />}
+          render={props => (
+            <NotesList
+              {...props}
+              notes={this.state.notes}
+              handleSort={this.handleSort}
+            />
+          )}
         />
 
         <Route
