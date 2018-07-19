@@ -138,6 +138,23 @@ button:hover {
   margin: 0 0 28px 0;
 }
 
+.ListView-header i {
+  height: 40px;
+  width: 50px;
+  /* border: 1px solid red; */
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0 16px;
+}
+
+.ListView-header i:hover {
+  background: #2BC1C4;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
 /* NoteView styles */
 .NoteView-wrapper {
   border: 2px solid #979797;
@@ -153,7 +170,8 @@ button:hover {
 }
 
 .NoteView-container:hover {
-  background: #979797;
+  /* background: #979797; */
+  background: #2BC1C4;
   color: #FFFFFF;
 }
 
@@ -184,11 +202,23 @@ button:hover {
 }
 
 .NoteView-note p {
-  height: 212px;
+  height: 180px;
   line-height: 30px;
   white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.NoteView-tag span {
+  text-decoration: underline;
+  margin: 0 10px;
+}
+
+.NoteView-tag span:hover {
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 10px;
+  color: #000000;
 }
 
 /* CreateView styles */
@@ -500,7 +530,7 @@ button:hover {
   }
 
   .ListView-header {
-    display: block;
+    display: flex;
   }
 
   .CreateView-content textarea, .EditView-content textarea {

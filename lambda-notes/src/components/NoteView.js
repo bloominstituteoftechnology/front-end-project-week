@@ -5,10 +5,13 @@ const NoteView = props => {
     return (
         <div className="NoteView-container">
             <div className="NoteView-header">
-                <h3>{title}</h3>
+                <h3>{`${props.note.index} - ${title}`}</h3>
             </div>
             <div className="NoteView-note">
                 <p>{textBody}</p>
+            </div>
+            <div className="NoteView-tag">
+                {tags.map((tag) => <span>{tag}</span>)}
             </div>
         </div>
     );
