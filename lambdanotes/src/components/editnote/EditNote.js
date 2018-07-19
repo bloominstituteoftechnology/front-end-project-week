@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 class EditNote extends React.Component {
   constructor(props){
@@ -26,7 +27,7 @@ class EditNote extends React.Component {
     editedNote[index][whatIsChanging] = event.target.value;
     this.setState({editedNote});
   }
-  onUpdateClick = () => {
+  onUpdateClick = (e) => {
     this.props.editNote(this.state.notes);
   }
   componentWillMount(){
@@ -44,7 +45,9 @@ class EditNote extends React.Component {
         <form className="newnote-container">
           <input type="text" className="title-input" name="title" value={this.state.notes[this.props.match.params.id].title} onChange={this.onFormChange}></input>
           <textarea rows="20" cols="50" className="body-input" name="body" value={this.state.notes[this.props.match.params.id].body} onChange={this.onFormChange}></textarea>
-          <div className="save-button" onClick={this.onUpdateClick}>Update</div>
+          <Link to={"/"} style={{ textDecoration: 'none' }}>
+            <button className="save-button" onClick={this.onUpdateClick}>Update</button>
+          </Link>
         </form>
       </div>
     )

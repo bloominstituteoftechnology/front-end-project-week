@@ -14,11 +14,6 @@ class App extends Component {
         id: 0,
         title: "Welcome to Lambda Notes!",
         body: "Click Create New Note to start!"
-      },
-      {
-        id: 1,
-        title: "Test Note",
-        body: "This is a test"
       }]
     }
     this.addNote = this.addNote.bind(this);

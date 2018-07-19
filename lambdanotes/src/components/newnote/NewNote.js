@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./NewNote.css"
-
+import { Link } from 'react-router-dom';
 class NewNote extends Component {
 constructor(){
   super();
@@ -14,7 +14,7 @@ constructor(){
 onFormChange = event => {
 this.setState({[event.target.name]: event.target.value})
 }
-onSaveClick = () => {
+onSaveClick = (e) => {
   this.props.addNote(this.state);
   this.setState({id: this.state.id + 1});
 
@@ -29,7 +29,9 @@ onSaveClick = () => {
         <form className="newnote-container">
           <input type="text" placeholder="Note Title" className="title-input" name="title" onChange={this.onFormChange}></input>
           <textarea rows="20" cols="50" className="body-input" placeholder="Note Content" name="body" onChange={this.onFormChange}></textarea>
-          <div className="save-button" onClick={this.onSaveClick}>Save</div>
+          <Link to={"/"} style={{ textDecoration: 'none' }}>
+            <button className="save-button" onClick={this.onSaveClick}>Save</button>
+          </Link>
         </form>
       </div>
     );
