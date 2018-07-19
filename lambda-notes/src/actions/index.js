@@ -44,7 +44,6 @@ export const sendEdit = (target, note, cb) => dispatch => {
 };
 
 export const postNewNote = (note, cb) => dispatch => {
-  let json = JSON.stringify(note);
   return axios
     .post(`${url}/create`, note)
     .then(res => {

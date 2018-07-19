@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DragSource, connectDragSource } from 'react-dnd';
+import { DragSource, DropTarget } from 'react-dnd';
 import MarkdownText from './MarkdownText';
 import { ItemTypes } from '../dndLogic.js';
 
@@ -18,18 +18,18 @@ const StyledNotePreview = styled.div`
   position: relative;
 
   :after {
-  /* points in the end */
-  content: '';
-  /* absolute position */
-  position: absolute;
-  /* set position to right bottom corner of text */
-  right: 0;
-  /* set width and height */
-  width: 1em;
-  height: 1em;
-  margin-top: 0.2em;
-  /* bg color = bg color under block */
-  background: ${props => props.theme.color.previewNoteBG};
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    background: ${props => props.theme.color.previewNoteBG};
   }
   /*OVERFLOW LOGIC END*/
 
@@ -54,27 +54,44 @@ const StyledNotePreview = styled.div`
 
 const noteSourceSpec = {
   beginDrag(props) {
-    return { noteId: props.note.id };
+    return { noteId: props.note._id };
+  }
+};
+
+const noteTargetSpec = {
+	hover(props, monitor) {
+    console.log(monitor.getItem());
   }
 }
 
-function collect(connect, monitor) {
-  return { 
+function collectSource(connect, monitor) {
+  return {
     connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging(),
+    isDragging: monitor.isDragging()
+  };
+}
+
+function collectTarget(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
   };
 }
 
 const NotePreview = props => {
-  const { title, textBody, tags } = props.note;
+  const { title, textBody } = props.note;
+  const { connectDropTarget, connectDragSource, isOver } = props;
   // const { color, font } = props.theme;
-  return (
-    <StyledNotePreview
-      innerRef={innerRef => props.connectDragSource(innerRef)}>
-      <h2>{title}</h2>
-      <MarkdownText mdText={textBody} />
-    </StyledNotePreview>
-  );
+  return connectDropTarget(connectDragSource(
+    <div>
+      <StyledNotePreview style={{ backgroundColor: isOver ? 'blue' : null }}>
+        <h2>{title}</h2>
+        <MarkdownText mdText={textBody} />
+      </StyledNotePreview>
+    </div>
+  ));
 };
 
-export default DragSource(ItemTypes.NOTE, noteSourceSpec, collect)(NotePreview);
+export default DropTarget(ItemTypes.NOTE, noteTargetSpec, collectTarget)(DragSource(ItemTypes.NOTE, noteSourceSpec, collectSource)(
+  NotePreview
+));

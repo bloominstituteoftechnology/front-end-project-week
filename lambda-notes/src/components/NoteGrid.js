@@ -109,7 +109,7 @@ export default class NoteGrid extends Component {
     return (
       <StyledNoteGrid>
         <h1>Your Notes:</h1>
-        <form class="searchForm">
+        <form className="searchForm">
           <input
             type="text"
             id="searchInput"
@@ -146,8 +146,6 @@ export default class NoteGrid extends Component {
         </form>
         <div
           className="notePreviewsContainer"
-          searchType={searchType}
-          searchInput={searchInput}
         >
           {noteElems}
         </div>

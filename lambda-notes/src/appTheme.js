@@ -7,9 +7,9 @@ const concreteWhite = '#F3F3F3';
 const scooterBlue = '#2BC1C4';
 const monzaRed = '#D0021B';
 const dustyGray = '#979797';
-const indigoBlue = '#3E6ACE';
-const seaYellow = '#FFAE0C';
-const neonCarrot = '#FF9238';
+// const indigoBlue = '#3E6ACE';
+// const seaYellow = '#FFAE0C';
+// const neonCarrot = '#FF9238';
 const teal = '#008A8A';
 
 
