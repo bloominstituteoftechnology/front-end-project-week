@@ -1,6 +1,7 @@
 import React from 'react';
 import {CSVLink} from 'react-csv';
 import List from '../List';
+import ListSearchForm from '../List/ListSearchForm';
 
 const ListView = props => {
   return (
@@ -13,7 +14,10 @@ const ListView = props => {
           download csv
       </CSVLink>
       </div>
-      <h2>Your Notes:</h2>
+      <div className="list-view-header">
+        <h2>Your Notes:</h2>
+        <ListSearchForm onSearchNotes={props.onSearchNotes} />
+      </div>
       <List notes={props.notes} />
     </main>
   );

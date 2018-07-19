@@ -66,9 +66,63 @@ h2 {
   font-size: 2.1rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 0 13px 0;
+  padding: 15px;
+  border: 1px #979797 solid;
+  border-radius: 3px;
+  outline: 0;
+  background-color: #fff;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+textarea {
+  max-width: 610px;
+  width: 100%;
+  margin: 0 0 13px 0;
+  height: 345px;
+  padding: 15px;
+  border: 1px #979797 solid;
+  border-radius: 3px;
+  outline: 0;
+  background-color: #fff;
+  resize: none;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.list-view-header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  padding: 0 0 15px 0;
+}
+
+.list-search-input {
+  max-width: 360px;
+  width: 100%;
+  margin: 0 0 13px 0;
+  padding: 5px 10px;
+  border: 1px #979797 solid;
+  border-radius: 3px;
+  outline: 0;
+  background-color: #fff;
+  font-size: 1.5rem;
+  line-height: 2rem;  
 }
 
 .list-item {
@@ -112,39 +166,6 @@ h2 {
   text-overflow: ellipsis;
   overflow: hidden;
 } 
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  max-width: 360px;
-  width: 100%;
-  margin: 0 0 13px 0;
-  padding: 15px;
-  border: 1px #979797 solid;
-  border-radius: 3px;
-  outline: 0;
-  background-color: #fff;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-textarea {
-  max-width: 610px;
-  width: 100%;
-  margin: 0 0 13px 0;
-  height: 345px;
-  padding: 15px;
-  border: 1px #979797 solid;
-  border-radius: 3px;
-  outline: 0;
-  background-color: #fff;
-  resize: none;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
 
 .list-view, .note-view {
   width: 100%;
