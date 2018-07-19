@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Note from './components/notes/Note';
 
 import NavBar from './components/app/NavBar' ;
 import './App.css';
-import Content from './components/app/Content' ;
+//import Content from './components/app/Content' ;
 import NotesList from './components/notes/NotesList';
+//import Title from './components/app/Title';
+import Create from './components/edit/Create';
 
 class App extends Component {
   constructor(props) {
@@ -21,20 +25,18 @@ class App extends Component {
 
           </nav>
           <div className="page">
-
-            <Content />
-
+            {/* <div className="page-title">
+               <Title /> 
+            </div> */}
+            {/* <div className="page-content"> */}
+                <Route exact path="/" component={NotesList} />
+                <Route path="/create" component={Create} />
+                <Route path="/note/:_id" component={Note}/>
+            {/* </div> */}
           </div>
         </div>        
       </div>
     );
   }
 }
-// const mapStateToProps = state => {
-//   return {
-//     notes: state.notes
-//   };
-// }
-// console.log(this.state);
-// export default connect (mapStateToProps, {NotesList})(App);
 export default App;

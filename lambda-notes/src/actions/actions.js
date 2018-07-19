@@ -1,8 +1,10 @@
+
 export const ADD_NOTE = 'ADD_NOTE';
 
-export const addNote = (state) => {
+const addNote = (note) => {
     return {
         type: ADD_NOTE,
-        payload: state
+        payload: note,
     }
 };
+export default addNote;

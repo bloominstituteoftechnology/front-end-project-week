@@ -1,38 +1,45 @@
 import React from 'react';
+import addNote from '../../actions/actions';
+import { connect } from 'react-redux';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Redirect,
+    withRouter
+  } from "react-router-dom";
+
 
 //const Create = (props) => {
 class Create extends React.Component {
-    constructor() {
-        super() ;
-        this.state = {
+    // constructor() {
+    //     super() ;
+        state = {
             title: '',
             textBody: ''
         }
-    }
+    //}
     handleInputChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
-    saveNote = (event) => {
-        //event.preventDefault();
+    saveNote = (props) => {
         const input = {
             tags: [],
-            _id: this.props.data.length +1,
+            _id: this.props.notes.length +1,
             title: this.state.title,
             textBody: this.state.textBody
         }
-        //console.log('from save butt',this.state)
-        //this.props.addNote(input);
-        //alert('save clicked');
-  
+        this.props.addNote(input)
+        this.setState({ title: '', textBody: '' })
+        this.props.history.push('/');
     }
     render(){
-    //console.log('from create',this.props);
         return (
             //<div className="form">
-                <form 
-                    className="form"
-                    onSubmit={this.saveNote}
-                >
+            <React.Fragment>
+            <h2 className="page-title">Create New Note:</h2>
+
+                <form className="form">
                     <input 
                         className="form-input-title" 
                         type="text"
@@ -51,15 +58,22 @@ class Create extends React.Component {
                     />
                     <button 
                         className="button-form"
-                        type="submit"
+                        type="button"
                         value={this.state.title}
+                        onClick={() => this.saveNote()}
                     >
                     Save</button>
                 </form>
-            //</div>
+                </React.Fragment>
+
         )
     }
 };
-export default Create;
-
+//export default Create;
+const mapStateToProps = (state) => {
+    return {
+        notes: state.notes
+    }
+}
+export default connect(mapStateToProps, {addNote})(Create);
 
