@@ -51,7 +51,7 @@
                             ) : null}
                         </React.Fragment>
                     </div>
-                    ) }
+                    )}
                     </React.Fragment>
                     )}
                     {/* displays error if error response from sever */}
