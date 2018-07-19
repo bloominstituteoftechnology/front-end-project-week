@@ -1,6 +1,6 @@
 import React from 'react';
 import NotesCard from './NotesCard';
-import { NotesWrapper, NotesCards, SearchForm, MainNotesHeader } from '../ReusableComponents/Notes';
+import { NotesWrapper, NotesCards, SearchForm, MainNotesHeader, MainNotesHeaderContainer } from '../ReusableComponents/Notes';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 
@@ -20,7 +20,6 @@ class NotesContainer extends React.Component {
     moveCard = (dragIndex, hoverIndex) => {
         const dragCard = this.props.notes[dragIndex]
         this.props.setNotes(dragIndex, hoverIndex, dragCard);
-
     }
 
     // Maps over all notes and passes them down to the NotesCard component
@@ -37,11 +36,13 @@ class NotesContainer extends React.Component {
         return (
             <NotesWrapper>
 
-                <SearchForm>
-                    <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search' />
-                </SearchForm>
 
-                <MainNotesHeader main>Your Notes:</MainNotesHeader>
+                <MainNotesHeaderContainer>
+                    <MainNotesHeader main>Your Notes:</MainNotesHeader>
+                    <SearchForm>
+                        <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search...' />
+                    </SearchForm>
+                </MainNotesHeaderContainer>
 
                 <NotesCards>
                     {notes.map((note, i) => <NotesCard key={note._id} note={note} index={i} moveCard={this.moveCard} />)}

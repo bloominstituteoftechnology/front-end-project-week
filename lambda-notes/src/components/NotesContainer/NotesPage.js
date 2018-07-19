@@ -16,7 +16,7 @@ class NotesPage extends Component {
         // Gets all notes from the server
         this.props.getNotes();
     }
-    
+
     logoutButton = () => {
         // Removes username / password from local storage then refreshes page
         localStorage.removeItem('username');
@@ -34,7 +34,7 @@ class NotesPage extends Component {
 
                         <Route path='/' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
                         <Route exact path='/' component={HomeContainer} />
-                        <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} setNotes={this.props.setNotes}/>} />
+                        <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} setNotes={this.props.setNotes} />} />
                         <Route exact path='/notes/:id' component={Note} />
                         <Route path='/notes/:id/edit' component={UpdateNotesContainer} />
                         <Route path='/create' component={CreateNotesContainer} />

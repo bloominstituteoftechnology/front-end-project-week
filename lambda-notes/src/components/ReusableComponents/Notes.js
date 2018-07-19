@@ -18,12 +18,28 @@ export const NotesCards = styled.div`
 export const SearchForm = styled.form`
     display: flex;
     justify-content: center;
+
+    input {
+        border: none;
+        outline: none;
+        background: none;
+    }
 `
 
 export const MainNotesHeader = styled.h3`
-    margin-top: ${props => props.main ? '37px' : '58px'};
+    margin-top: ${props => props.main ? '0' : '58px'};
+    margin-bottom: ${props => props.main ? '0' : '19px'};
+    display: ${props => props.main ? 'inline' : 'block'};
     font-size: 1.9rem;
     font-family: 'Roboto', Arial, sans-serif;
+`
+
+export const MainNotesHeaderContainer = styled.div`
+    margin-top: 58px;
+    margin-bottom: 19xp;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
 
 export const NotesCardLink = styled(Link)`
