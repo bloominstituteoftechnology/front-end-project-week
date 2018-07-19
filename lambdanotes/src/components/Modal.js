@@ -1,16 +1,15 @@
-// import React from 'react';
-// import { Button, Modal, ModalBody } from 'react-strap';
-// import '../styles/Modal.css';
+import React from 'react';
+import '../styles/Modal.css';
 
 
-// const Modal = props => {
-//     return (
-//         <div>
-//             <p>Are you sure you want to delete this?</p>
-//             <Button>Delete</Button>            
-//             <Button>Just Kidding</Button>
-//         </div>
-//     )
-// }
+const Modal = props => {
+    return (
+        <div>
+            <p>Are you sure you want to delete this?</p>
+            <button>Delete</button>            
+            <button>Just Kidding</button>
+        </div>
+    )
+}
 
-// export default Modal;
+export default Modal;

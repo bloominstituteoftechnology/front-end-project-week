@@ -27,6 +27,11 @@ class App extends Component {
     this.setState({ notes: data })
 }
 
+// editNote = (note) => {
+//   let newNotes = this.state.notes.slice();
+//   this.state.notes.push(note)
+//   this.setState({ notes: data })
+// }
   render() {
     return (
       <div className="App">
@@ -38,7 +43,9 @@ class App extends Component {
       <Route path='/viewNote/:id' render={(props)=>{
         return <ViewNote {...props} />
       }} />
-      <Route path='/editNote/:id' component={EditNote} />
+      <Route path='/editNote/:id' render={(props)=>{
+        return <EditNote {...props} notes={this.state.notes} />
+      }} />
       </div>
     );
   }

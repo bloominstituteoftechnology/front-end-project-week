@@ -32,24 +32,9 @@ handleSubmitNote = (e) => {
     newArr.push({title: this.state.title, body: this.state.body})
     this.setState({ title: '', body: '', id: '' });
     this.props.createNote(this.state);
+    // this.props.history.push('/');
+
 }
-
-// createNote = (note) => {
-//     let newNotes = this.state.notes.slice();
-//     this.state.notes.push(note)
-//     this.setState({ notes })
-// }
-
-// handleSubmitNote = e => {
-//     e.preventDefault();
-//     const newNote = {
-//             title: this.state.title,
-//             body: this.state.body,
-//             id: this.state.id
-//             }
-//             this.state.createNote(newNote);
-//             this.setState({title: '', body: '', id: ''})
-// }
 
 render() {
     return (
