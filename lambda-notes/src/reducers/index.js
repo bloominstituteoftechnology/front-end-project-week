@@ -31,11 +31,18 @@ export default (state = initialState, action) => {
                          noteExists: false,
                          note: null };
 
-      case 'EDITING_NOTE':
+    case 'EDITING_NOTE':
       return { ...state, editingNote: true };
 
     case 'NOTE_EDITED':
-      return { ...state, editingNote: false, note: action.payload };
+      return { ...state, editingNote: false,
+                         note: action.payload };
+
+    case 'DELETING_NOTE':
+      return { ...state, deletingNote: true };
+
+    case 'NOTE_DELETED':
+      return { ...state, deletingNote: false };
 
     case 'ERROR':
       return { ...state, error: action.payload };

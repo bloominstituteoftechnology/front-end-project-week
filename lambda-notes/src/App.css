@@ -68,6 +68,11 @@ button a:visited {
   flex-direction: column;
 }
 
+.sidebar input {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
 .sidebar-container h1 {
   font-size: 35px;
   line-height: 0.9;

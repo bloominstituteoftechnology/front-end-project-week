@@ -11,6 +11,8 @@ import { getNotes, addNote } from './actions';
 
 class App extends Component {
   state = {
+    filteredNotes: [],
+    searchPhrase: "",
     title: "",
     textBody: ""
   }
@@ -25,23 +27,39 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleSearchChange = e => {
+    this.setState({ searchPhrase: e.target.value });
+    setTimeout(() => {
+      const notes = this.props.notes.filter(note => {
+        return (
+          note.title.includes(this.state.searchPhrase) ||
+          note.textBody.includes(this.state.searchPhrase)
+        )
+      });
+      this.setState({ filteredNotes: notes });
+    }, 1);
+  };
+
   // sends current state of title and textBody to server, resets state, redirects to home page
   handleFormSubmit = e => {
     e.preventDefault();
     this.props.addNote({ title: this.state.title, textBody: this.state.textBody });
     this.setState({ title: "", textBody: "" });
-    this.props.history.push("/");
+    if (!this.props.fetchingNotes) {
+      this.props.history.push("/");
+    }
   }
 
   render() {
     return (
       <div className="container">
-        <Sidebar />
+        <Sidebar searchPhrase={this.state.searchPhrase}
+                 handleSearchChange={this.handleSearchChange} />
 
         <Switch>
 
           <Route exact path="/" render={ props =>
-              <NoteList notes={this.props.notes}
+              <NoteList notes={this.state.filteredNotes.length > 0 ? this.state.filteredNotes : this.props.notes}
                         fetchingNotes={this.props.fetchingNotes} />
             }
           />

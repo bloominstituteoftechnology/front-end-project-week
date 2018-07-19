@@ -62,7 +62,9 @@ class Note extends React.Component {
   handleDelete = e => {
     e.preventDefault();
     this.props.deleteNote(this.id);
-    this.props.history.push("/");
+    if (!this.props.deletingNote) {
+      this.props.history.push("/");
+    }
   }
 
   render() {
@@ -126,7 +128,8 @@ const mapStateToProps = (state) => {
     note: state.note,
     fetchingNote: state.fetchingNote,
     editingNote: state.editingNote,
-    noteExists: state.noteExists
+    noteExists: state.noteExists,
+    deletingNote: state.deletingNote
   }
 }
 

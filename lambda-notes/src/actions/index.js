@@ -62,8 +62,12 @@ export const editNote = (editedNote) => {
 
 export const deleteNote = (id) => {
   return dispatch => {
+    dispatch({ type: 'DELETING_NOTE' });
     axios
       .delete(`${url}/delete/${id}`)
+      .then(response => {
+        dispatch({ type: 'NOTE_DELETED' })
+      })
       .then(() => getNotes()(dispatch))
       .catch(error => {
         dispatch({ type: 'ERROR', payload: error });

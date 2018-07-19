@@ -9,6 +9,14 @@ const Sidebar = props => {
         <h1>Lambda<br/>Notes</h1>
         <Link to="/"><button>View Your Notes</button></Link>
         <Link to="/notes/add"><button>+ Create New Note</button></Link>
+        <input
+          type="text"
+          name="search"
+          maxLength="20"
+          placeholder="Search"
+          value={props.searchPhrase}
+          onChange={props.handleSearchChange}
+        />
       </div>
     </div>
   )
