@@ -266,6 +266,13 @@ button:hover {
 }
 
 .EditView-content label span, .Note-tag span {
+  text-decoration: underline;
+  margin: 0 10px;
+}
+
+.EditView-content label span:hover, .Note-tag span:hover {
+  cursor: pointer;
+  text-decoration: none;
   margin: 0 10px;
 }
 

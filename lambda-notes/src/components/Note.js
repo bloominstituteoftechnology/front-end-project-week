@@ -51,7 +51,7 @@ class Note extends Component {
                     <p>{this.props.note.textBody}</p>
                 </div>
                 <div className="Note-tag">
-                    {this.props.tags ? <p>tags: {this.props.tags.map((tag) => <span>{`${tag}`}</span>)}</p> : ''}
+                    {this.props.tags ? <p>tags: {this.props.tags.map((tag, index) => <span key={index} id={index}>{`${tag}`}</span>)}</p> : ''}
                 </div>
                 {this.state.isSelected ? <NoteView note={this.props.note}/> : null}
                 {this.state.toggle ? <DeleteModal toggleDelete={this.toggleDelete} handleDelete={this.handleDelete} id={this.props.note["_id"]}/> : null}

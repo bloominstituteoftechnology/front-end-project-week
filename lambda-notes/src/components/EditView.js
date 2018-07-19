@@ -41,13 +41,17 @@ class EditView extends Component {
 
     };
 
+    setTags = (tags) => {
+        this.setState({tags});
+    };
+
     handleTag = (e) => {
         if(this.state.tag === '') return null;
         const tags = this.props.tags;
         const newTag = this.state.tag;
         tags.push(newTag);
-        console.log(tags);
-        this.setState({tags, tag: ''});
+        // console.log(tags);
+        this.setTags(tags);
     };
 
     handleTagClick = (id) => {
