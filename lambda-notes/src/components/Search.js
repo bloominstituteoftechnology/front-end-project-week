@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleSearch } from '../actions';
+import { handleSearch, fetchNotes } from '../actions';
 import '../styles/Search.css';
+
+const URL = 'https://killer-notes.herokuapp.com/note/get/';
 
 class Search extends Component {
     state = {
@@ -14,6 +16,9 @@ class Search extends Component {
     }
 
     handleSearchInput = () => {
+        if(this.state.search === '') {
+            () => this.props.fetchNotes(URL);
+        }
         const notes = this.props.notes.filter(note => {
             if(note.title.toUpperCase().includes(this.state.search.toUpperCase()) || note.textBody.toUpperCase().includes(this.state.search.toUpperCase())|| note.tags.includes(this.state.search) || note._id.toUpperCase().includes(this.state.search.toUpperCase())){
                 return note;
@@ -37,4 +42,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { handleSearch })(Search);
+export default connect(mapStateToProps, { handleSearch, fetchNotes })(Search);
