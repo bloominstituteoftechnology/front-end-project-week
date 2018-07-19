@@ -1,5 +1,5 @@
 import React from 'react';
-import { getNote } from '../../actions';
+import { getNote, deleteNote } from '../../actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DeleteModal from '../Modal/DeleteModal';
@@ -18,13 +18,20 @@ class ViewNote extends React.Component {
         }
     componentDidMount() {
         this.props.getNote(this.props.id);
-        console.log('cdm state', this.state)
     }
     toggle = () => {
         this.setState({
             modal: !this.state.modal
         });
     }
+
+    removeNote = () => {
+        this.props.deleteNote(this.props.id);
+        let route = window.location.pathname.split('/')
+        let newRoute = route.splice(0, route.length -2).join('/')
+        window.location.pathname = newRoute;
+    }
+
     render() {
         return (
             <div className="mainContent" >
@@ -42,6 +49,7 @@ class ViewNote extends React.Component {
                                     footer={'modal__footer'}
                                     delete={'button button--delete'} 
                                     cancel={'button button--cancel'} 
+                                    removeNote={this.removeNote}
                                     />
                                 </div>
                             </div>
@@ -66,4 +74,4 @@ const stateProps = (state, ownProps) => {
     }
 }
 
-export default connect(stateProps, { getNote })(ViewNote);
+export default connect(stateProps, { getNote, deleteNote })(ViewNote);
