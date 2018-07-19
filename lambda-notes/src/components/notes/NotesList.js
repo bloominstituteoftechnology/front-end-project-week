@@ -6,12 +6,13 @@ import Note from './Note';
 class NotesList extends Component {
     constructor(props) {
         super(props) ;
-        this.state = { dummyData }
     }
-    render() {        
+    render() {
+        console.log('from notesList',this.props);        
         return(
             <div className="notes-list">
-                {this.state.dummyData.map((mapNote, index) => {
+                {this.props.data.map((mapNote, index) => {
+
                     return(
                         <Note
                             mapNote={mapNote}

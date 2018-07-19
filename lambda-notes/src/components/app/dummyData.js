@@ -22,55 +22,55 @@
 const dummyData =  [
     {
         "tags": [],
-        "__id": 1,
+        "_id": 1,
         "title": "Note Title 1",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 2,
+        "_id": 2,
         "title": "Note Title 2",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 3,
+        "_id": 3,
         "title": "Note Title 3",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 4,
+        "_id": 4,
         "title": "Note Title 4",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 5,
+        "_id": 5,
         "title": "Note Title 5",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 6,
+        "_id": 6,
         "title": "Note Title 6",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 7,
+        "_id": 7,
         "title": "Note Title 7",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 8,
+        "_id": 8,
         "title": "Note Title 8",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     },
     {
         "tags": [],
-        "__id": 9,
+        "_id": 9,
         "title": "Note Title 9",
         "textBody": "Note Body Consectetur ad amet laborum culpa ad aliqua. Non occaecat eu nisi irure cupidatat nulla voluptate quis incididunt reprehenderit aute tempor. Reprehenderit quis elit minim ut sit consectetur labore amet labore. Do aliquip incididunt occaecat minim est labore."
     }

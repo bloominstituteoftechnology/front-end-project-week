@@ -2,12 +2,12 @@ import React, { Component } from 'react' ;
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
-// const NavBar = () => {
-class NavBar extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
+const NavBar = () => {
+// class NavBar extends Component {
+//     constructor(props) {
+//         super(props);
+//     }
+//     render() {
         return (
             <React.Fragment>
 
@@ -23,6 +23,6 @@ class NavBar extends Component {
 
             </React.Fragment>
         )
-    }    
+//    }    
 }
 export default NavBar ;

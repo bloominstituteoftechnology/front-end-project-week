@@ -105,3 +105,16 @@ Border color used throughout: #979797
 .note-body{
   font-size: 1.2rem;
 }
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.form-input-title{
+  width: 25vw;
+}
+.form-input-body{
+  height: 50vh;
+  display: flex;
+  align-self: center;
+}
+.button-form{}
