@@ -27,7 +27,7 @@
   flex-direction: column;
   max-width: 100%;
   height: 100%;
-  padding: 20px 15px;
+  padding: 10px 15px;
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -75,11 +75,34 @@
   flex-direction: column;
   justify-content: flex-start;
   padding: 20px;
-  padding-top: 50px;
+  padding-top: 30px;
+}
+
+.mainContent__content--view {
+  line-height: 27px;
+}
+
+.mainContent__options {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-start;
+}
+
+.mainContent__options--links {
+  background: none;
+  color: inherit;
+  padding: 0 5px;
+  font: inherit;
+  border-bottom: 1px solid #444;
+  cursor: pointer;
+  text-decoration: underline;
+  border: none;
+  background-color: #f3f3f3;
 }
 
 .mainContent__title {
   font-size: 25px;
+  width: 100%;
 }
 
 .mainContent__content {
@@ -150,4 +173,61 @@ textarea {
   width: 90%;
   display: inline-block;
   overflow: hidden;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px 50px;
+  width: 185px;;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 15px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button--delete {
+  background-color: rgb(196, 58, 24);
+}
+
+.button--delete:hover {
+  background-color: rgb(145, 46, 21);
+}
+
+.button--cancel {
+  background-color: rgb(85, 196, 233);
+}
+
+.button--cancel:hover {
+  background-color: rgb(78, 179, 212);
+}
+
+.modal {
+  border: 1px solid rgb(0, 0, 0, .5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 550px;
+  margin: 0 auto;
+  height: 150px;
+}
+
+.modal__body {
+  width: 500px;
+  text-align: center;
+  padding: 15px;
+  
+}
+
+.modal__footer {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  
 }
