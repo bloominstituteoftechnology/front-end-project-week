@@ -10,15 +10,18 @@ class Search extends Component {
         search: '',
     }
 
+    componentDidUpdate() {
+        if(this.state.search === ''){
+            this.props.fetchNotes(URL);
+        }
+    }
+
     handleInputChange = event => {
         this.setState({ [event.target.name]: event.target.value });
         this.handleSearchInput();
     }
 
     handleSearchInput = () => {
-        if(this.state.search === '') {
-            () => this.props.fetchNotes(URL);
-        }
         const notes = this.props.notes.filter(note => {
             if(note.title.toUpperCase().includes(this.state.search.toUpperCase()) || note.textBody.toUpperCase().includes(this.state.search.toUpperCase())|| note.tags.includes(this.state.search) || note._id.toUpperCase().includes(this.state.search.toUpperCase())){
                 return note;
@@ -39,6 +42,7 @@ class Search extends Component {
 const mapStateToProps = state => {
     return {
         notes: state.notes,
+        searchedNotes: state.searchedNotes,
     }
 }
 
