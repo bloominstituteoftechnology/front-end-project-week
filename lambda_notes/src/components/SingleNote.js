@@ -28,12 +28,7 @@ class SingleNote extends React.Component {
         const id = this.props.match.params.id;
         this.props.fetchSingleNote(id)
     }
-
-    componentDidUpdate(prevProps) {
-        console.log(prevProps.note);
-        console.log(this.props.note)
-    }
-
+ 
     render() { 
         return (
             <Content>
@@ -55,6 +50,5 @@ const mapStateToProps = state => {
         note: state.note
     }
 }
-
  
 export default connect(mapStateToProps, {fetchSingleNote})(SingleNote);

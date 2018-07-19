@@ -5,18 +5,45 @@ import { Link } from 'react-router-dom';
 const Nav = styled.div`
     background: #D8D8D8;
     border-right: 1px solid #a6a6a6;
-    width: 220px;
+    width: 22rem;
+    padding-left:1.5rem;
+    padding-top: 1.5rem;
+`
+
+const Header = styled.p`
+    margin: 0;
+    padding: 0;
+    font-size: 3.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    line-height: 100%;
+`
+const Button = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    letter-spacing: 0.65px;
+    width: 190px;
+    height: 43px;
+    font-size: 1.4rem;
+    font-family: 'Raleway', sans-serif;
+    margin-top: 2rem;
+    color: white;
+    background: #24b8bd;
+    border: none;
 `
 
 const SideBar = () => {
     return (
         <Nav>
-            <h1>Lambda Notes</h1>
+            <Header>Lambda</Header>
+            <Header>Notes</Header>
             <Link to='/'>
-                <button>View Your Notes</button>
+                <Button>View Your Notes</Button>
             </Link>
             <Link to='/create'>
-                <button>+Create New Note</button>
+                <Button>+ Create New Note</Button>
             </Link>
         </Nav>
       );
