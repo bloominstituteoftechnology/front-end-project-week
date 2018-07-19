@@ -1,0 +1,8 @@
+.textinput {
+  min-height: 25rem;
+}
+.searchbar {
+  position: relative;
+  margin-top: 2rem;
+  left: 95%;
+}
