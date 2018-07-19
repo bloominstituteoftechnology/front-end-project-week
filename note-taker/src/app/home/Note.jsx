@@ -24,7 +24,7 @@ const CardTitle = styled.h2`
   overflow: hidden;
 `;
 
-const CardContent = styled.p`
+const CardContent = styled.div`
   font-weight: 200;
   padding: 0.5rem 0;
 `;

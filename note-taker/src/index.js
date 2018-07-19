@@ -15,7 +15,7 @@ const store = createStore(
 );
 ReactDOM.render(
   <Provider store = {store}>
-    <Router>
+    <Router >
       <App />
     </Router>
   </Provider>,
