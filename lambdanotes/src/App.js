@@ -145,7 +145,7 @@ class App extends Component {
           /> */}
           <Route
             exact
-            path="/note/edit"
+            path="/edit"
             render={props => (
               <EditNote
                 {...props}

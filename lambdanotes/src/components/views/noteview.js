@@ -29,7 +29,7 @@ class NoteView extends Component {
                 <Link to="/note/delete">
                   <EditDelete>delete</EditDelete>
                 </Link>
-                <Link to="/note/edit">
+                <Link to="/edit">
                   <EditDelete>edit</EditDelete>
                 </Link>
               </Col>
