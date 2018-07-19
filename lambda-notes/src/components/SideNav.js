@@ -9,7 +9,7 @@ class SideNav extends Component {
       <div className='sideNav'>
         <Link className='lambda-logo' to='/'>
           <h1 className='sideNav-header'>Lambda </h1>
-          <h1 className='sideNav-header'>Notes</h1>
+          <h1 className='sideNav-note-header'>Notes</h1>
         </Link>
         <Link className='sidenav-button' to='/'>
           View Your Notes
@@ -17,16 +17,18 @@ class SideNav extends Component {
         <Link className='sidenav-button' to='/notes/new'>
           + Create New Note
         </Link>
-        <div className='tag-list'>
-          {tags.map((tag, index) => {
-            return (
-              <h2 key={tag + index}>
-                <i className='fas fa-tag' />
-                {`${tag}`}
-              </h2>
-            )
-          })}
-        </div>
+
+        {tags.map((tag, index) => {
+          return (
+            <div
+              onClick={() => this.props.getTag(`${tag}`)}
+              className='tag fas fa-tag fa-lg tag-list'
+              key={tag + index}
+            >
+              {`${tag}`}
+            </div>
+          )
+        })}
       </div>
     )
   }

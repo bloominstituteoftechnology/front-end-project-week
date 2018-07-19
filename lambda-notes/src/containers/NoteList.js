@@ -5,22 +5,12 @@ import Loading from '../components/Loading'
 import NoteCard from '../components/NoteCard'
 
 class NoteList extends Component {
-  constructor () {
-    super()
-    this.state = {
-      search: ''
-    }
-  }
   componentDidMount () {
     this.props.fetchNotes()
   }
 
-  handleChange = (e) => {
-    this.setState({ search: e.target.value })
-  }
-
   render () {
-    const { search } = this.state
+    const { search } = this.props
     const filteredNotes = this.props.notes.filter((note) => {
       if (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
@@ -40,8 +30,8 @@ class NoteList extends Component {
               placeholder='Search Note'
               className='search-input'
               type='search'
-              value={this.state.search}
-              onChange={this.handleChange}
+              value={this.props.search}
+              onChange={this.props.handleChange}
             />
           </div>
           {this.props.api.fetching ? (

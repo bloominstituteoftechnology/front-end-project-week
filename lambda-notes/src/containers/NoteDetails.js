@@ -49,15 +49,9 @@ class NoteDetails extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const { title, textBody, tags } = this.state
-    if (this.state.tags !== false) {
-      let note = { title, textBody, tags }
-      this.props.editNote(this.props.match.params.id, note)
-      this.setState({ title, textBody })
-    } else {
-      let note = { title, textBody }
-      this.props.editNote(this.props.match.params.id, note)
-      this.setState({ title, textBody })
-    }
+    const note = { title, textBody, tags }
+    this.props.editNote(this.props.match.params.id, note)
+    this.setState({ title, textBody })
     this.editToggle()
   }
 
@@ -164,13 +158,11 @@ class NoteDetails extends Component {
             </div>
             {/* end of delete modal */}
           </div>
-
-          <h1 className='title-header'>{note.title}</h1>
-          <p className='noteBody'>{note.textBody}</p>
-          <p>
-            <i className='fas fa-tag' />
-            {note.tags}
-          </p>
+          <div onClick={this.editToggle} className='detail-div'>
+            <h1 className='title-header'>{note.title}</h1>
+            <p className='noteBody'>{note.textBody}</p>
+            <div className='detail-tags fas fa-tags'>{note.tags}</div>
+          </div>
         </div>
       </div>
     )

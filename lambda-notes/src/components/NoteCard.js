@@ -21,10 +21,12 @@ const NoteCard = (props) => {
         )}
       </div>
       <div className='card-tags'>
-        <div className='fas fa-tag card-tags'>
+        <div className=''>
           {note.tags.map((tag, index) => {
+            console.log(note.tags)
             return (
-              <div className='card-tag' key={tag + index}>
+              <div className='fas fa-tags' key={tag + index}>
+                {' '}
                 {tag}
               </div>
             )

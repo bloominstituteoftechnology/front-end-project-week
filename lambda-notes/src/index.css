@@ -6,7 +6,7 @@
 body {
   font-family: 'Frank Ruhl Libre', serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 65.2%;
   line-height: 1.5;
 }
 label {
@@ -52,9 +52,20 @@ label {
 .card-tag {
   margin: 5px;
 }
+/* .tag {
+  display: inline-block;
+  font-size: 1.3rem;
+  border: 2px solid;
+  padding: em;
+  background-color: #55b9bd;
+} */
+.tag:hover {
+  cursor: pointer;
+}
 .lambda-logo {
   text-decoration: none;
   color: black;
+  margin-bottom: 1em;
 }
 .lambda-logo:hover {
   text-decoration: none;
@@ -81,6 +92,7 @@ label {
 .cardTitle {
   border-bottom: 1px solid black;
   width: 323px;
+  font-size: 1.6rem;
 }
 
 .noteList-container {
@@ -115,8 +127,7 @@ label {
   padding: 1em 0;
   text-align: center;
   background-color: #55b9bd;
-  margin-top: 35px;
-
+  margin-bottom: 1em;
   color: white;
 }
 .sidenav-button:hover {
@@ -184,12 +195,12 @@ label {
 .sideNav-header {
   margin-top: 15px;
   font-size: 3.1rem;
-  line-height: 1;
+  line-height: 0.8;
 }
 .noteDetails-container {
   background-color: #f2f1f2;
   padding: 2.5em;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
 }
 .noteDetails {
@@ -198,7 +209,6 @@ label {
 }
 
 .noteDetails-btns {
-  width: 106px;
   text-decoration: underline;
   display: flex;
   justify-content: space-between;
@@ -211,9 +221,11 @@ label {
 .noteDetail-button:hover {
   cursor: pointer;
 }
-
 .tag-list {
-  margin-top: 2em;
+  margin-bottom: 1em;
+}
+.tag-list:hover {
+  cursor: pointer;
 }
 .tag-input {
   height: 38px;
@@ -241,6 +253,15 @@ label {
 .padding-container {
   padding: 1em;
 }
+.btn-modal {
+  margin-left: 1.5em;
+}
+.detail-div:hover {
+  cursor: pointer;
+}
+.fas {
+  margin-left: 8px;
+}
 @media (max-width: 1193px) {
   .note-header {
     display: none;
@@ -252,7 +273,7 @@ label {
     width: 270px;
   }
   .sideNav {
-    min-width: 240px;
+    min-width: 220px;
   }
 }
 
@@ -264,16 +285,14 @@ label {
     width: 240px;
   }
 }
-@media (max-width: 832px) {
-  .notes {
-    /* justify-content: flex-start; */
-  }
+
+@media (max-width: 750px) {
   .myLink {
-    width: 200px;
+    width: 210px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 699px) {
   .App {
     display: flex;
     flex-direction: column;
@@ -284,7 +303,10 @@ label {
   .sideNav {
     min-height: 65vh;
   }
-  .sidenav-button {
-    margin-top: 0;
+  .lambda-logo {
+    margin: 0 auto;
+  }
+  .sideNav-note-header {
+    margin-left: 0.9em;
   }
 }

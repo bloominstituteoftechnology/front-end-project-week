@@ -19,6 +19,8 @@ class NewNote extends Component {
   handleSubmit = (e) => {
     const { title, textBody, tags } = this.state
     const note = { title, textBody, tags }
+    let tagCopy = tags.split(',')
+    note.tags = tagCopy
     this.props.postNote(note)
     this.setState({ title: '', textBody: '', tags: '' })
     this.props.history.push('/')
@@ -59,6 +61,7 @@ class NewNote extends Component {
             onChange={this.handleChange}
             required
           />
+
           <button className='save-Btn'>Save</button>
         </form>
       </div>

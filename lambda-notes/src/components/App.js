@@ -6,12 +6,37 @@ import SideNav from './SideNav'
 import NoteDetails from '../containers/NoteDetails'
 import NoMatch from './NoMatch'
 class App extends Component {
+  constructor () {
+    super()
+    this.state = {
+      search: ''
+    }
+  }
+  getTag = (tag) => {
+    console.log(tag)
+    this.setState({ search: tag })
+  }
+  handleChange = (e) => {
+    this.setState({ search: e.target.value })
+  }
+
   render () {
+    console.log(this.state.search)
     return (
       <div className='App'>
-        <SideNav />
+        <SideNav getTag={this.getTag} />
         <Switch>
-          <Route exact path='/' component={NoteList} />
+          <Route
+            exact
+            path='/'
+            render={(props) => (
+              <NoteList
+                {...props}
+                search={this.state.search}
+                handleChange={this.handleChange}
+              />
+            )}
+          />
           <Route path='/notes/new' component={NewNote} />
           <Route path='/notes/:id' component={NoteDetails} />
           <Route component={NoMatch} />
