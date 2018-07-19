@@ -6,6 +6,7 @@ import LambdaNotes from './containers/LambdaNotes';
 import LambdaForm from './components/LambdaForm';
 import LambdaView from './components/LambdaView';
 import LambdaEdit from './components/LambdaEdit';
+import LambdaDelete from './components/LambdaDelete';
 import { Route } from 'react-router-dom';
 
 const StyledContainer = styled.div`
@@ -131,8 +132,10 @@ class App extends Component {
   handleDeleteNote = id => {
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== Number(id));
-    this.setState({ notes, selected:{}, remove: !this.state.remove})
+    this.setState({ notes, selected: {}, remove: !this.state.remove })
   }
+
+
 
   render() {
     return (
@@ -142,7 +145,8 @@ class App extends Component {
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
         <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} selected={this.state.selected} handleTitle={this.handleTitle} handleBody={this.handleBody} handleSelectNote={this.handleSelectNote} handleEditNote={this.handleEditNote} />)} />
         <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} />)} />
-      </StyledContainer>
+        <Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} handleDeleteNote={this.handleDeleteNote} />)} />
+</StyledContainer>
     )
   }
 }
