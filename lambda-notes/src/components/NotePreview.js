@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { DragSource, connectDragSource } from 'react-dnd';
 import MarkdownText from './MarkdownText';
+import { ItemTypes } from '../dndLogic.js';
 
-const NotePreview = styled.div`
+const StyledNotePreview = styled.div`
   width: ${props => props.theme.dimensions.notePreview.width};
   height: ${props => props.theme.dimensions.notePreview.height};
   border-color: ${props => props.theme.color.border};
@@ -50,13 +52,29 @@ const NotePreview = styled.div`
   }
 `;
 
-export default props => {
+const noteSourceSpec = {
+  beginDrag(props) {
+    return { noteId: props.note.id };
+  }
+}
+
+function collect(connect, monitor) {
+  return { 
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  };
+}
+
+const NotePreview = props => {
   const { title, textBody, tags } = props.note;
   // const { color, font } = props.theme;
   return (
-    <NotePreview>
+    <StyledNotePreview
+      innerRef={innerRef => props.connectDragSource(innerRef)}>
       <h2>{title}</h2>
       <MarkdownText mdText={textBody} />
-    </NotePreview>
+    </StyledNotePreview>
   );
 };
+
+export default DragSource(ItemTypes.NOTE, noteSourceSpec, collect)(NotePreview);

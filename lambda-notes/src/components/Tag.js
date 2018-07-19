@@ -25,7 +25,7 @@ const StyledTagSource = styled.div`
   }
 `;
 
-const tagSource = {
+const tagSourceSpec = {
   beginDrag(props) {
     return { tagId: props.id };
   }
@@ -34,7 +34,7 @@ const tagSource = {
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
   };
 }
 
@@ -53,4 +53,4 @@ const Tag = ({ id, tag, isDragging, connectDragSource }) => {
   );
 };
 
-export default DragSource(ItemTypes.TAG, tagSource, collect)(Tag);
+export default DragSource(ItemTypes.TAG, tagSourceSpec, collect)(Tag);
