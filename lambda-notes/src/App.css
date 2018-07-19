@@ -133,6 +133,13 @@ button a:visited {
   margin-right: -48.6px;
 }
 
+.note-previews-header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .note-preview-container {
   width: 200px;
   height: 200px;
@@ -143,6 +150,7 @@ button a:visited {
   background: #FFFFFF;
   word-break: break-all;
   overflow-wrap: break-word;
+  cursor: pointer;
 }
 
 .note-preview-container:hover {
