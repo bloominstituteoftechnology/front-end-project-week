@@ -52,7 +52,7 @@ class Login extends Component {
               value={this.state.passwordInput}
             />
           </FormGroup>
-          <Button onclick={this.loginSubmit}>Login</Button>
+          <Button onClick={this.loginSubmit}>Login</Button>
         </Form>
       </div>
     );

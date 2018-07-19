@@ -39,7 +39,8 @@ class App extends Component {
   }
 
   // componentDidMount() {
-  //   this.setState({ notes: notesData });
+  //   let notes = this.state.notes.slice();
+  //   this.setState({ notes: });
   // }
 
   editNoteHandler = e => {
@@ -51,7 +52,7 @@ class App extends Component {
     // const notes = this.state.notes.slice();
     let notes = this.state.notes;
     notes.push({
-      id: Math.random(),
+      id: this.state.notes.length,
       title: this.state.title,
       textBody: this.state.textBody
     });
@@ -82,8 +83,9 @@ class App extends Component {
   };
 
   submitDelete = () => {
-    let notes = this.state.notes;
+    let notes = this.state.notes.slice();
     notes = notes.filter(filtered => filtered.id !== this.state.selected.id);
+    console.log(notes, "notes");
     this.setState({ notes: notes });
   };
 
