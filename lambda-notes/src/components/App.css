@@ -11,7 +11,6 @@
 */
 
 .App-container {
-  /* background: #525659; */
   min-height: 900px;
   max-width: 1366px;
   border: 2px solid #979797;
@@ -75,6 +74,10 @@
   display: flex;
   flex-wrap: wrap;
   margin: 20px auto;
+}
+
+.Nav-header img {
+  display: none;
 }
 
 .Nav-header h1 {
@@ -147,11 +150,11 @@ button:hover {
 
 .NoteView-container {
   height: 294px;
-  /* width: 294px; */
-  /* border: 2px solid #979797;
-  margin: 16px 4px 16px 32px;
-  display: flex;
-  flex-direction: column; */
+}
+
+.NoteView-container:hover {
+  background: #979797;
+  color: #FFFFFF;
 }
 
 .NoteView-header, .NoteView-note {
@@ -375,4 +378,66 @@ button:hover {
 
 .DeleteModal-buttons button:first-child:hover {
   background: #979797;
+}
+
+/* tablet portrait styles */
+@media (max-width: 768px) {
+  .App-container {
+    border: none;
+    margin: 0;
+  }
+
+  .App {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Nav-container {
+    /* position: fixed; */
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .Nav-header, .Nav-buttons {
+    margin: auto auto auto 60px;
+    width: 100px;
+  }
+
+  .Nav-header h1 {
+    display: none;
+  }
+
+  .Nav-header img {
+    display: flex
+  }
+
+  .Nav-buttons {
+    display: inline-block;
+  }
+
+  .Nav-buttons button {
+    height: 40px;
+  }
+
+  .ListView-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .ListView-header {
+    margin: 24px 60px;
+  }
+
+  .ListView-header h2 {
+    margin: 0;
+  }
+
+}
+
+/* phone styles */
+@media (max-width: 400px) {
+
 }
