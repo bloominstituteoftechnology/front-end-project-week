@@ -13,12 +13,12 @@ const NoteList = props => {
 
   props.notes.forEach(note => {
     // trims regular case note title
-    if (note.title.length > 12) {
-      note.title = note.title.slice(0, 12) + '...';
+    if (note.title.length > 14) {
+      note.title = note.title.slice(0, 14) + '...';
     }
     // trims uppercase note title
-    if (note.title.length > 10 && note.title === note.title.toUpperCase()) {
-      note.title = note.title.slice(0, 10) + '...';
+    if (note.title.length > 12 && note.title === note.title.toUpperCase()) {
+      note.title = note.title.slice(0, 12) + '...';
     }
     // trims regular case note body
     if (note.textBody.length > 95) {

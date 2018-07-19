@@ -27,6 +27,7 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // adjusts state of search phrase, then limits note collection to that phrase
   handleSearchChange = e => {
     this.setState({ searchPhrase: e.target.value });
     setTimeout(() => {

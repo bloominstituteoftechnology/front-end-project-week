@@ -114,8 +114,8 @@ class Note extends React.Component {
         </div>
 
         {/* trims note title if another student hasn't set a maxLength on their title input */}
-        <h2>{this.props.note.title.length > 30 ?
-             this.props.note.title.slice(0, 30) + '...' :
+        <h2>{this.props.note.title.length > 40 ?
+             this.props.note.title.slice(0, 40) + '...' :
              this.props.note.title}</h2>
         <div className="note-body">{this.props.note.textBody}</div>
       </div>

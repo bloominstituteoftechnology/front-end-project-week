@@ -13,7 +13,7 @@ const Form = props => {
         <input
           type="text"
           name="title"
-          maxLength="20"
+          maxLength="40"
           placeholder="Note Title"
           value={props.title}
           onChange={props.handleInputChange}
