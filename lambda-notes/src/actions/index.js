@@ -6,11 +6,9 @@ export const DELETING_NOTE = 'DELETING_NOTE';
 export const ADDING_NOTE = 'ADDING_NOTE';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
-export const SHOW_MODAL = 'SHOW_MODAL';
-export const HIDE_MODAL = 'HIDE_MODAL';
 
 export const getNotes = () => {
-    const promise = axios.get('https://killer-notes.herokuapp.com/note/get/all')
+    const promise = axios.get('http://localhost:5000/notes')
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
@@ -29,7 +27,7 @@ export const getNotes = () => {
 }
 
 export const getNote = id => {
-    const promise = axios.get(`https://killer-notes.herokuapp.com/note/get/${id}`)
+    const promise = axios.get(`http://localhost:5000/notes/${id}`)
     return dispatch => {
         dispatch({ type: FETCHING_NOTES })
         promise.then(response => {
@@ -48,7 +46,7 @@ export const getNote = id => {
 }
 
 export const addNote = note => {
-    const promise = axios.post('https://killer-notes.herokuapp.com/note/create/', note)
+    const promise = axios.post('http://localhost:5000/notes', note)
     return dispatch => {
         dispatch({ type: ADDING_NOTE })
         promise.then(response => {
@@ -67,7 +65,7 @@ export const addNote = note => {
 }
 
 export const updateNote = note => {
-    const promise = axios.put(`https://killer-notes.herokuapp.com/note/edit/${note.id}`, note)
+    const promise = axios.put(`http://localhost:5000/notes/${note.id}`, note)
     return dispatch => {
         dispatch({ type: UPDATING_NOTES })
         promise.then(response => {
@@ -79,14 +77,14 @@ export const updateNote = note => {
         .catch(err => {
             dispatch({
                 type: ERROR,
-                payload:err
+                payload: err
             })
         })
     }
 }
 
-export const deleteNote = id => {
-    const promise = axios.delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
+export const deleteNote = noteID => {
+    const promise = axios.delete(`http://localhost:5000/notes/${noteID}`)
     return dispatch => {
         dispatch({ type: DELETING_NOTE })
         promise.then(response => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addNote } from '../../actions';
+// import { Link } from 'react-router-dom';
 
 class NewNote extends React.Component {
     constructor(props) {
@@ -12,12 +13,11 @@ class NewNote extends React.Component {
     }
 
     createNote = event => {
-        // sends new note to server then triggers new load to notes page after 
         event.preventDefault();
         const { noteName, noteBody } = this.state;
         const newNote = {
-            title: noteName,
-            textBody: noteBody
+            name: noteName,
+            body: noteBody
         }
         this.props.addNote(newNote);
         this.setState({ noteName: '', noteBody: '' });
@@ -36,7 +36,6 @@ class NewNote extends React.Component {
                 <div className="mainContent__content">
                     <form className="mainContent__Form" onSubmit={this.createNote} >
                         <input
-                            // title portion of create  note
                             className="form__input form__input--title"
                             onChange={this.handleInputChange}
                             placeholder="Note Title"
@@ -44,7 +43,6 @@ class NewNote extends React.Component {
                             name="noteName"
                         />
                         <textarea
-                            // text portion of create note
                             className="form__input form__input--body"
                             type="textarea"
                             onChange={this.handleInputChange}
@@ -52,7 +50,10 @@ class NewNote extends React.Component {
                             value={this.state.noteBody}
                             name="noteBody"
                         />
-                        <button className="link__button" type="submit">Save</button>
+                        {/* <Link to="/" > */}
+                            <button className="link__button" type="submit">Save</button>
+                        {/* </Link> */}
+
                     </form>
                 </div>
             </div>

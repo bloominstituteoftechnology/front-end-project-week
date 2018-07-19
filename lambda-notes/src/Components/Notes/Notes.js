@@ -6,28 +6,28 @@ import { Link } from 'react-router-dom';
 
 const styled = {
     textDecoration: 'none',
+    // color: 'rgb(97, 76, 76)'
     color: 'black'
 }
 
 class Notes extends React.Component {
     componentDidMount() {
-        console.log('props', this.props);
         this.props.getNotes();
     }
 
     render() {
+        console.log('render', this.props)
         return (
             <div className="mainContent" >
                 <div className="directory__title mainContent__title" >
                     Your Notes:
             </div>
                 <div className="mainContent__content" >
-                    {this.props.notes.map((note) => {
+                    {this.props.notes.map((note, index) => {
                         return (
-                            <div key={note._id}> 
-                            {/* access notes array and returns each note through Link */}
-                                <Link to={'/notes/' + note._id} style={styled} >
-                                    <Note title={note.title} body={note.textBody} id={note._id}/>
+                            <div key={note.id + index}>
+                                <Link to={`/notes/${note.id}`} style={styled} >
+                                    <Note title={note.name} body={note.body} id={note.id} key={note.id} />
                                 </Link>
                             </div>)
                     })}
@@ -38,6 +38,7 @@ class Notes extends React.Component {
 };
 
 const stateProps = (state, ownProps) => {
+    console.log('state props notes', state, 'ownProps', ownProps)
     return {
         notes: state.rootReducer.notes
     }
