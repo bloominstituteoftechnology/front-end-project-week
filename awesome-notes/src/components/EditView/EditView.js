@@ -23,7 +23,7 @@ const BodyInput = styled.textarea`
   height: 40rem;
 `;
 
-class CreateNewView extends React.Component {
+class EditView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,12 +44,6 @@ class CreateNewView extends React.Component {
   /* make me */
   handleSubmit = e => {
     e.preventDefault();
-    if (!this.state.title) {
-      this.setState({ title: this.state.current.title });
-    }
-    if (!this.state.textBody) {
-      this.setState({ title: this.state.current.textBody });
-    }
     let message = {
       tags: this.state.current.tags,
       title: this.state.title,
@@ -61,6 +55,15 @@ class CreateNewView extends React.Component {
     this.props.editHandler(message);
     this.props.history.push(`/note/${this.state.current._id}`);
   };
+
+  componentDidMount() {
+    if (!this.state.title) {
+      this.setState({ title: this.state.current.title });
+    }
+    if (!this.state.textBody) {
+      this.setState({ textBody: this.state.current.textBody });
+    }
+  }
 
   render() {
     return (
@@ -95,4 +98,4 @@ class CreateNewView extends React.Component {
   }
 }
 
-export default CreateNewView;
+export default EditView;
