@@ -99,6 +99,7 @@
   position: fixed;
   right: 40px;
   top: 20px;
+
   display: flex;
 }
 
@@ -118,11 +119,16 @@
 
 .tags {
   margin-bottom: 0;
+  position: fixed;
+  bottom: 20px;
+  font-size: 15px;
+  right: 50px;
 }
 
 .singleNote .tag {
   margin-top: 0;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 /* Edit/Create Note View */
@@ -209,4 +215,20 @@
 
 .logout-button:hover {
   cursor: pointer;
+}
+
+.checkList {
+}
+.checkList input {
+  position: fixed;
+  bottom: 30px;
+  width: 400px;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid #dddcdc;
+  padding-left: 10px;
+}
+
+.hr {
+  width: 100%;
 }

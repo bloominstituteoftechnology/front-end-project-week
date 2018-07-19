@@ -13,7 +13,9 @@ class ViewNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      input: "",
+      todos: ""
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -27,6 +29,17 @@ class ViewNote extends React.Component {
     event.preventDefault();
     this.props.deleteNote(this.props.singleNote[0]._id);
     this.props.history.push("/");
+  };
+  inputTodo = event => {
+    this.setState({ input: event.target.value });
+  };
+  submitTodo = event => {
+    event.preventDefault();
+    let newInput = this.state.input.slice();
+    this.setState({
+      todos: newInput,
+      input: ""
+    });
   };
   render() {
     return (
@@ -75,12 +88,28 @@ class ViewNote extends React.Component {
               {this.props.singleNote[0].tags.map(tag => {
                 return (
                   <p key={Math.random()} className="tag">
-                    {tag}
+                    *{tag}
                   </p>
                 );
               })}
             </div>
           ) : null}
+          <hr className="hr" />
+
+          <div className="checkList">
+            <p>To Do List</p>
+            {this.state.todos ? (
+              <li>{this.state.todos}</li>
+            ) : null}
+
+            <form onSubmit={this.submitTodo}>
+              <input
+                onChange={this.inputTodo}
+                placeholder="Add a checklist"
+                value={this.state.input}
+              />
+            </form>
+          </div>
         </div>
       </div>
     );
