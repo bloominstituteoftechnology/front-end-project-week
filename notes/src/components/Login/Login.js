@@ -26,23 +26,32 @@ class Login extends React.Component {
     return (
       <form className="login-page">
         <div className="login-card">
-          <p>Notes App</p>
+          <a href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en-GB&flowName=GlifWebSignIn&flowEntry=SignUp">
+            <button className="google-button">
+              SIGN UP WITH GOOGLE
+            </button>
+          </a>
+          <p className="login-text">OR USE EMAIL</p>
           <input
             type="text"
             onChange={this.addUsername}
-            placeholder="Phone number, username, or email"
+            placeholder="Email"
           />
           <input
             type="password"
             onChange={this.addPassword}
             placeholder="Password"
           />
-          <button onClick={this.LoginButton}>Log in</button>
-          <p>
-            <a href="https://www.instagram.com/accounts/password/reset/?hl=en">
-              Forgot password?
-            </a>
+          <p className="terms-conditions">
+            By clicking on Sign Up, you are agreeing to our{" "}
+            <a href="#">Terms & Conditions</a>
           </p>
+          <button
+            className="login-button"
+            onClick={this.LoginButton}
+          >
+            Log in
+          </button>
         </div>
       </form>
     );

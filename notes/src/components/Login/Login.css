@@ -1,12 +1,24 @@
+.login-page {
+  background-image: url("../../img/background-balance.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-blend-mode: lighten;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(75, 73, 67); /* full opaque green */
+}
+
 .login-card {
   height: 350px;
   width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
-  margin-top: 190px;
+  justify-content: center;
   border: 1px solid rgb(223, 223, 223);
+  background-color: white;
+  opacity: 1;
 }
 
 .login-card img {
@@ -15,10 +27,11 @@
 }
 
 .login-card input {
-  width: 275px;
-  height: 30px;
+  width: 290px;
+  height: 55px;
   padding-left: 5px;
   margin-top: 10px;
+  border: 1px solid rgb(223, 223, 223);
 }
 
 .login-card button {
@@ -32,10 +45,46 @@
 }
 
 .login-card p {
-  margin-top: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .login-card a {
   text-decoration: none;
   color: rgb(0, 53, 105);
+}
+
+.login-card .google-button {
+  background-color: rgb(228, 60, 30);
+  height: 45px;
+  font-size: 12px;
+  width: 290px;
+  border: none;
+  margin-bottom: 0;
+}
+
+.login-text {
+  border-top: 1px solid rgb(223, 223, 223);
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  padding-top: 15px;
+}
+
+.login-card .login-button {
+  width: 100%;
+  background-color: rgb(24, 185, 150);
+  height: 60px;
+  border: 1px solid rgb(24, 185, 150);
+}
+
+.login-card .terms-conditions {
+  font-size: 11px;
+  width: 50%;
+}
+
+.login-card .login-button:hover {
+  cursor: pointer;
 }
