@@ -3,26 +3,26 @@
   grid-template-columns: 222px 1fr;
   grid-template-rows: minmax(100vh, auto);
   grid-template-areas: 'nav main';
-  font-family: 'Raleway', sans-serif;
-  font-weight: 500;
+  font-family: 'Open Sans', sans-serif;
   color: #4a4a4a;
   background-color: #fff;
 }
 
 nav {
   grid-area: nav;
-  padding: 20px 15px;
-  background-color: #d8d8d8;
-  border-right: 1px #979797 solid;
+  padding: 35px 20px 20px;
+  background-color: #fff;
+  -webkit-box-shadow: 3px 0px 10px 0px rgba(0,0,0,0.1);
+  box-shadow: 3px 0px 10px 0px rgba(0,0,0,0.1);
+  z-index: 1;
 }
 
 h1 {
   display: block;
-  margin: 0 0 22px 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700; 
-  font-size: 3.2rem;
-  letter-spacing: .22rem;
+  margin: 0 0 35px 0;
+  font-family: 'Tinos', serif;
+  font-size: 7rem;
+  letter-spacing: -.2rem;
 }
 
 button, .link {
@@ -32,38 +32,58 @@ button, .link {
   width: 100%;
   margin: 0 0 20px 0;
   padding: 13px;
-  border: 1px #979797 solid;
+  border: 1px #c4c4c4 solid;
   border-radius: 3px;
-  background-color: #2bc1c4;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700; 
-  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #a60505;
   text-decoration: none;
+  text-transform: uppercase;
   cursor: pointer;
+  opacity: 1;
+  transition: opacity .15s linear;
+}
+
+.link:hover {
+  opacity: .85;
 }
 
 button {
   width: 190px;
   outline: 0;
   font-size: 1.6rem;
+  opacity: 1;
+  transition: opacity .15s linear;
+}
+
+button:hover {
+  opacity: .85;
 }
 
 button.is-delete {
-  background-color: #d0021b;
+  color: #fff;
+  background-color: #a60505;
   margin: 0 20px 20px 0;
+  opacity: 1;
+  transition: opacity .15s linear;
+}
+
+button.is-delete:hover {
+  opacity: .85;
 }
 
 main {
   grid-area: main;
   padding: 60px 15px 27px 27px;
-  background-color: #f3f3f3;
+  background-color: #fff;
 }
 
 h2 {
   margin: 0 0 30px 0;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700; 
-  font-size: 2.1rem;
+  font-family: 'Tinos', serif;
+  font-size: 3.7rem;
+  color: #4a4a4a;
 }
 
 form {
@@ -76,7 +96,7 @@ input {
   width: 100%;
   margin: 0 0 13px 0;
   padding: 15px;
-  border: 1px #979797 solid;
+  border: 1px #c4c4c4 solid;
   border-radius: 3px;
   outline: 0;
   background-color: #fff;
@@ -90,7 +110,7 @@ textarea {
   margin: 0 0 13px 0;
   height: 345px;
   padding: 15px;
-  border: 1px #979797 solid;
+  border: 1px #c4c4c4 solid;
   border-radius: 3px;
   outline: 0;
   background-color: #fff;
@@ -102,13 +122,13 @@ textarea {
 .list {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 900px;
 }
 
 .list-view-header {
   display: flex;
   justify-content: space-between;
-  max-width: 1000px;
+  max-width: 900px;
   padding: 0 0 15px 0;
 }
 
@@ -117,7 +137,7 @@ textarea {
   width: 100%;
   margin: 0 0 13px 0;
   padding: 5px 10px;
-  border: 1px #979797 solid;
+  border: 1px #c4c4c4 solid;
   border-radius: 3px;
   outline: 0;
   background-color: #fff;
@@ -128,11 +148,12 @@ textarea {
 .list-item {
   position: relative;
   top: 0;
-  width: 193px;
-  height: 197px;
+  width: 210px;
+  height: 210px;
   margin: 0 15px 23px 0;
   padding: 10px 15px;
-  border: 1px #979797 solid;
+  border: 1px #c4c4c4 solid;
+  border-radius: 3px;
   overflow: hidden;
   background-color: #fff;
   cursor: pointer;
@@ -142,7 +163,7 @@ textarea {
 .list-item:hover {
   -webkit-box-shadow: 0 6px 23px 0 rgba(0,0,0,0.1);
   box-shadow: 0 6px 23px 0 rgba(0,0,0,0.1);
-  top: -5px;
+  top: -3px;
 }
 
 .list-item__title {
@@ -150,19 +171,23 @@ textarea {
   width: 100%;
   margin: 0 0 10px 0;
   padding: 0 0 6px 0;
-  border-bottom: 1px #979797 solid;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700; 
-  font-size: 1.8rem;
+  border-bottom: 1px #c4c4c4 solid;
+  font-family: 'Tinos', serif;
+  font-size: 2.2rem;
+  line-height: 3rem;
   text-overflow: ellipsis;
 } 
+
+.list-item:hover .list-item__title {
+  color: #a60505;
+}
 
 .list-item__content {
   display: block;
   width: 100%;
   max-height: 70%;
   font-size: 1.5rem;
-  line-height: 2rem;
+  line-height: 2.5rem;
   text-overflow: ellipsis;
   overflow: hidden;
 } 
@@ -174,14 +199,14 @@ textarea {
 
 .note-view__content {
   display: block;
-  max-width: 1000px;
+  max-width: 900px;
   line-height: 3rem;
 }
 
 .list-view-control, .note-view-control {
   display: flex;
   justify-content: flex-end;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 0 25px 0;
 }
 
@@ -192,12 +217,18 @@ textarea {
   padding: 0;
   border: none;
   background-color: transparent;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700; 
+  font-family: 'Open Sans', sans-serif;
   color: #4a4a4a;
-  text-decoration: underline;
+  text-decoration: none;
+  text-transform: uppercase;
   outline: 0;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: all .15s linear;
+}
+
+.list-view-control__button:hover, .note-view-control__button:hover {
+  color: #a60505;
 }
 
 .delete-view {
@@ -236,7 +267,7 @@ textarea {
   z-index: 1;
   padding: 40px 40px 10px;
   background-color: #fff;
-  border: 1px #979797 solid;
+  border: 1px #c4c4c4 solid;
   border-radius: 3px;
 }
 
@@ -248,19 +279,3 @@ textarea {
 .delete-view-modal__button-container {
   display: flex;
 }
-
-/*
-
-Heading font: Roboto Bold
-Everything else font: Raleway Medium
-
-Heading and main font color: #4A4A4A
-Button font color: #FFFFFF
-
-Sidebar background: #D8D8D8
-Main background: #F3F3F3
-Main button background: #2BC1C4
-Delete button background: #D0021B
-Border color used throughout: #979797
-
-*/

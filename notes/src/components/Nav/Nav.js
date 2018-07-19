@@ -5,9 +5,9 @@ class Nav extends Component {
   render() {
     return (
       <nav>
-        <h1>Lambda Notes</h1>
-        <Link href='/' text='View Your Notes' />
-        <Link href='/create' text='+ Create New Note' />
+        <h1>Notes</h1>
+        <Link href='/' text='View' />
+        <Link href='/create' text='Create' />
       </nav>
     );
   }

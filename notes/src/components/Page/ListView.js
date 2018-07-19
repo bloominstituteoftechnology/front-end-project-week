@@ -15,7 +15,7 @@ const ListView = props => {
       </CSVLink>
       </div>
       <div className="list-view-header">
-        <h2>Your Notes:</h2>
+        <h2>Your Notes</h2>
         <ListSearchForm onSearchNotes={props.onSearchNotes} />
       </div>
       <List notes={props.notes} />
