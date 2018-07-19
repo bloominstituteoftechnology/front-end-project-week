@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Header = styled.div`
@@ -40,6 +41,15 @@ const StyledTextArea = styled.textarea`
   }
 `
 
+const FadeIn = keyframes`
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+`
+
 const BaseButton = styled.button`
   background-color: #2BC1C4;
   border: 1px solid #979797;
@@ -49,6 +59,8 @@ const BaseButton = styled.button`
   width:31%;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
+  animation: ${FadeIn} .5s linear;
+
   &:hover{
     cursor:pointer;
   }
