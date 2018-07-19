@@ -8,6 +8,7 @@ const Nav = styled.div`
     width: 22rem;
     padding-left:1.5rem;
     padding-top: 1.5rem;
+    height: 100vh;
 `
 
 const Header = styled.p`
@@ -28,10 +29,11 @@ const Button = styled.button`
     height: 43px;
     font-size: 1.4rem;
     font-family: 'Raleway', sans-serif;
-    margin-top: 2rem;
+    margin-top: 2.1rem;
     color: white;
     background: #24b8bd;
-    border: none;
+    border: 1px solid rgb(163, 170, 171);
+    cursor: pointer;
 `
 
 const SideBar = () => {

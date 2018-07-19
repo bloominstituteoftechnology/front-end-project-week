@@ -8,35 +8,45 @@ import Note from './Note';
 
 const Content = styled.div`
     width: 666px;
-    padding-top: 20px;
-    padding-left: 3rem;
+    padding-top: 5.2rem;
+    padding-left: 2.6rem;
     padding-right: 3rem;
 `
 
 const Notes = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 1.3rem;
+`
+
+const Header = styled.p`
+    margin: 0;
+    padding: 0;     
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    letter-spacing: .5px;
 `
 class NoteList extends React.Component {
-    componentDidMount () {
+    componentDidMount() {
         this.props.fetchNotes()
-      }
-    
-    render () {
+    }
+
+    render() {
         return (
             <Content>
-                <h1>Your Notes:</h1>
+                <Header>Your Notes:</Header>
                 <Notes>
                     {this.props.notes.map(note =>
-                    <Link
-                        to={`/notes/${note._id}`}
-                        key={note._id}
-                        style={{ textDecoration: 'none', color: 'black' }}
-                    >
-                        <Note note={note} />
-                    </Link>
-                )}
+                        <Link
+                            to={`/notes/${note._id}`}
+                            key={note._id}
+                            style={{ textDecoration: 'none', color: 'black' }}
+                        >
+                            <Note note={note} />
+                        </Link>
+                    )}
                 </Notes>
             </Content>
         )
@@ -45,8 +55,8 @@ class NoteList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-      notes: state.notes
+        notes: state.notes
     }
-  }
+}
 
-export default connect(mapStateToProps,{fetchNotes})(NoteList);
+export default connect(mapStateToProps, { fetchNotes })(NoteList);
