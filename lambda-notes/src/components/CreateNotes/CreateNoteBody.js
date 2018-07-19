@@ -9,7 +9,7 @@ constructor(props){
         super(props);
         this.state= {
                 title: "",
-                content: ""
+                content: "",
         };
 
 }
@@ -31,6 +31,7 @@ addNote = event => {
 componentDidUpdate(prevProps,  prevState) {
 if (prevProps.saved !== this.props.saved){
         this.props.fetchingSingleNote(this.props.id);
+	//this.setState({createNote: true});
 }
 }
 

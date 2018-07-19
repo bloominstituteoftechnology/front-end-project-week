@@ -12,7 +12,8 @@ class NotesDiv extends React.Component {
 constructor(props){
         super(props);
         this.state= {
-		search: ""
+		search: "",
+		notesArray:[]
         };
 
 }
@@ -22,15 +23,38 @@ componentDidMount() {
 }
 
 
-searchHandler = event => {
-	this.setState({[event.target.name]: event.target.value});
+changeHandler = event => {
+//	this.setState({[event.target.name]: event.target.value});
+	let notesArray =this.state.notesArray.slice();
+	notesArray = notesArray.filter(item => {
+		if(item.title.includes(event.target.value))
+                {
+                        return item;
+                }
+                });
+                 this.setState({ notesArray:  notesArray});
 };
 
 
+
+/*searchHandler =event => {
+	this.props.
+	   <button onClick={this.searchHandler}>Search</button>
+};
+<form>
+        <input className="search-bar" onChange={this.changeHandler} type="text" name="search" placeholder="search"  />
+        </form>
+*/
+
+
+
 /*componentDidUpdate(prevProps,  prevState) {
-if (prevProps.notes !== this.props.notes){
-	this.props.fetchingNotesAction();
-}
+	console.log('here');
+	console.log(prevProps);
+	if (prevProps.notes !== this.props.notes){;
+		
+		this.setState({notesArray: this.props.notes});
+	}
 }*/
 
 
@@ -50,8 +74,6 @@ render() {
         ) :(
 	
 	<div>
-	<input className="search-bar" onChange={this.searchHandler} type="text" name="search" placeholder="search"value={this.state.search} />
-	
 	<h3 className="card-body-title">Your Notes:</h3>
 	
 	<CardDeck>{this.props.notes.map(note =>{

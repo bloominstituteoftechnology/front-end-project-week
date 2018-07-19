@@ -10,7 +10,6 @@ class App extends Component {
 constructor(props){
 super(props);
 	this.state={
-
 	};
 }  
 	
@@ -20,7 +19,7 @@ render() {
     return (
       <div className="App">
       	<Route exact  path="/" component={ViewNotesContainer} />
-        <Route exact path="/createnewnote" component={CreateNoteContainer} />	   
+        <Route exact path="/createnewnote" render={(props) => <CreateNoteContainer {...props} />} />	   
 	<Route exact path="/note/:id" render={(props) => <EachNoteBody {...props} />} />
 	<Route exact path="/editnote/:id" render={(props) => <EditNoteBody {...props} />} />
     

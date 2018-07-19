@@ -5,7 +5,7 @@ import LambdaLeftDiv from '../ViewNotes/LambdaLeftDiv'
 const CreateNoteContainer = (props) => {
 
         return(
-		<CreateNoteBody /> 
+		<CreateNoteBody  /> 
         );
 
 };

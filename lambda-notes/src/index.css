@@ -125,6 +125,8 @@ body {
 	justify-content: space-around;*/
 	background-color: #F3F3F3;
 	width: 100%;
+	min-height: 800px;
+        height: auto;
 }
 
 .card-title-div{
@@ -193,6 +195,7 @@ body {
 	margin: 15px 10px 0px 10px;
 	border: 1px solid #979797;
 	display: flex;
+	 min-height: 800px;
 	height: auto;
 }
 
