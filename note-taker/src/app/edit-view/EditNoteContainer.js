@@ -4,10 +4,11 @@ import { noteViewOperations } from '../note-view/duck';
 import { editViewOperations } from './duck';
 const mapStateToProps = (state) => {
     const { title, textBody } = state.noteView.note;
-    console.log(state);
+    const { fetchingNote } = state.noteView;
     return {
         title,
-        textBody
+        textBody,
+        fetchingNote
     }
 }
 const mapDispatchToProps = (dispatch) => {

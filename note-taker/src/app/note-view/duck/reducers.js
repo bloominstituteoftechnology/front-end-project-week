@@ -16,6 +16,7 @@ const noteViewReducer = (state = initialState, action) => {
         case types.FETCHED_SINGLE_NOTE:
         return {
             ...state,
+            fetchingNote: false,
             note: action.noteObj
         }
         case types.DELETING_SINGLE_NOTE:

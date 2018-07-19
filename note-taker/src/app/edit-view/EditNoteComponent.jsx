@@ -15,7 +15,11 @@ class EditNoteComponent extends React.Component {
     const id = this.props.match.params.id;
     this.props.fetchNote(id);
     this.setState({ title: this.props.title, textBody: this.props.textBody });
-    // this.setState({ title: this.props.title, textBody: this.props.textBody });
+  }
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.title !== this.props.title && nextProps.textBody !== this.props.textBody) {
+      this.setState({ title: nextProps.title, textBody: nextProps.textBody });
+    }
   }
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -30,7 +34,10 @@ class EditNoteComponent extends React.Component {
   };
   render() {
     const id = this.props.match.params.id;
-
+    if(this.props.fetchingNote === true) {
+      return <div>One moment please wait for form to be auto-filled</div>
+    }
+    else {
     return (
       <div>
         <HeadingTitle>Edit Note:</HeadingTitle>
@@ -75,6 +82,7 @@ class EditNoteComponent extends React.Component {
       </div>
     );
   }
+}
 }
 
 export default EditNoteComponent;
