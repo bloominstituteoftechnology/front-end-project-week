@@ -20,19 +20,44 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_NOTES:
-      return { ...state, notes: action.payload, loading: false, error: null };
+      return {
+        ...state,
+        notes: action.payload,
+        loading: false,
+        error: null,
+        term: ''
+      };
     case FETCH_SINGLE_NOTE:
-      return { ...state, note: action.payload, loading: false, error: null };
+      return {
+        ...state,
+        note: action.payload,
+        loading: false,
+        error: null,
+        term: ''
+      };
     case ADD_NOTE:
-      return { ...state, note: action.payload, loading: false, error: null };
+      return {
+        ...state,
+        note: action.payload,
+        loading: false,
+        error: null,
+        term: ''
+      };
     case UPDATE_NOTE:
-      return { ...state, note: action.payload, loading: false, error: null };
+      return {
+        ...state,
+        note: action.payload,
+        loading: false,
+        error: null,
+        term: ''
+      };
     case DELETE_NOTE:
       return {
         ...state,
         loading: false,
         error: null,
-        note: {}
+        note: {},
+        term: ''
       };
     case FETCHING:
       return { ...state, loading: true, error: null };
@@ -45,7 +70,7 @@ export default (state = initialState, action) => {
       );
       return { ...state, notes: notes, term: action.payload };
     case ERROR:
-      return { ...state, error: action.payload, loading: false };
+      return { ...state, error: action.payload, loading: false, term: '' };
     default:
       return state;
   }
