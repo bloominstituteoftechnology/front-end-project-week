@@ -3,6 +3,8 @@ import styled from "styled-components";
 import "../styles/custom-props.css";
 import { Link } from "react-router-dom";
 import LinesEllipsis from "react-lines-ellipsis";
+import Markdown from 'react-markdown';
+
 const Card = styled.div`
   height: 250px;
   padding: 10px 20px;
@@ -39,10 +41,7 @@ const Note = props => {
       <Card>
         <CardTitle>{props.title}</CardTitle>
         <CardContent>
-          <LinesEllipsis text={props.textBody} 
-          maxLine='7'
-          ellipsis='...'
-          trimRight/>
+          <Markdown source = { props.textBody } />
         </CardContent>
       </Card>
     </UnstyledLink>

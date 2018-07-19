@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import '../styles/custom-props.css';
 import DeleteModal from "./DeleteModal";
+import Markdown from 'react-markdown';
 const OptionsContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -67,7 +68,7 @@ class NoteComponent extends React.Component {
         id = {id}/>
 
         <HeadingTitle>{this.props.note.title}</HeadingTitle>
-        <TextBody>{this.props.note.textBody}</TextBody>
+        <Markdown source = {this.props.note.textBody} />
       </div>
     );
   }
