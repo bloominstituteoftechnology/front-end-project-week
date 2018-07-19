@@ -13,7 +13,7 @@ class NoteContainer extends Component {
         <div className="notes-container">
           {this.props.notes.map(note => {
             return(
-              <Link to={`/notes/${note.id}`} style={{ textDecoration: 'none' }}>
+              <Link to={`/notes/${note.id}`} style={{ textDecoration: 'none' }} key={note.id}>
                 <Notes key={note.id} title={note.title} body={note.body}/>
               </Link>
             )

@@ -5,6 +5,7 @@ import NewNote from "./components/newnote/NewNote";
 import NoteContainer from "./components/notes/NoteContainer";
 import ViewNote from "./components/viewnote/ViewNote";
 import EditNote from "./components/editnote/EditNote";
+import DeleteNote from "./components/deletenote/DeleteNote";
 import { Route } from "react-router-dom";
 class App extends Component {
   constructor(){
@@ -34,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <DeleteNote />
         <div className="sidebar-container">
           <Sidebar />
         </div>
