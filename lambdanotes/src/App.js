@@ -5,7 +5,7 @@ import { data } from './NoteData';
 import NoteList from './components/NoteList';
 import ViewNote from './components/ViewNote';
 import CreateNote from './components/CreateNote';
-// import EditNote from './components/EditNote';
+import EditNote from './components/EditNote';
 import './App.css';
 
 
@@ -38,7 +38,7 @@ class App extends Component {
       <Route path='/viewNote/:id' render={(props)=>{
         return <ViewNote {...props} />
       }} />
-      {/* <Route exact path='/editNote/:id' component={EditNote} /> */}
+      <Route path='/editNote/:id' component={EditNote} />
       </div>
     );
   }

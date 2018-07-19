@@ -1,53 +1,61 @@
-// import React, { Component } from 'react';
-// import Sidebar from './Sidebar';
+import React, { Component } from 'react';
+// import {data} from '../NoteData';
+import Sidebar from './Sidebar';
+import { Link } from 'react-router-dom'
 
 
-// class EditNote extends Component {
-// constructor(props) {
-//     super(props)
-//     this.state = {
-//         note: {
-//         title: '',
-//         body: '',
-//     }
-// }
-// }
+class EditNote extends Component {
+constructor(props) {
+    super(props)
+    this.state = {
+        notes: [],
+        editedNote: {
+        title: '',
+        body: '',
+        id: 0
+    }
+}
+}
 
-// editNote = e => {
-//     e.preventDefault();
-//     const newNote = {
-//         title: this.state.title,
-//         body: this.state.body
-//     };
-// }
-
-
-// handleInputChange = e => {
-//     this.setState({ [e.target.name]: e.target.value });
-//   };
-
-// render() {
-//     return (
-//         <div className="NoteForm">
-//         <Sidebar />
-//         <input
-//             onChange={this.handleInputChange}
-//             placeholder="Title"
-//             value={this.state.title}
-//             name="title"
-//           />
-//           <input
-//             onChange={this.handleInputChange}
-//             placeholder="Content"
-//             value={this.state.body}
-//             name="body"
-//           />
-        //     <Link to={'/'}> 
-        //   <button onClick={this.handleSubmitNote}>Update</button>
-        //   </Link>
-//           </div>
-//     )
-// }
+// componentDidMount() {
+//     this.setState({ notes: data})
 // }
 
-// export default EditNote;
+editNote = e => {
+    e.preventDefault();
+    this.state.notes.push(this.state.editedNote)
+    this.setState({ editNote: {title: '', body: '', id: 0 }})
+}
+
+
+handleInputChange = (editedNote, e) => {
+    this.setState({[editedNote]: {...this.state[editedNote], [e.target.name]: e.target.value }});
+  };
+
+render() {
+    return (
+        <div className="NoteForm">
+        <Sidebar />
+        <form>
+        <input
+            onChange={this.handleInputChange.bind(this, 'editedNote')}
+            placeholder={this.props.title}
+            value={this.state.editedNote.title}
+            name="title"
+          />
+          <input
+            onChange={this.handleInputChange.bind(this, 'editedNote')}
+            placeholder={this.props.body}
+            value={this.state.editedNote.body}
+            name="body"
+          />
+          </form>
+            <Link to={'/'}> 
+          <button onClick={this.editNote}>Update</button>
+          </Link>
+          </div>
+    )
+}
+}
+
+export default EditNote;

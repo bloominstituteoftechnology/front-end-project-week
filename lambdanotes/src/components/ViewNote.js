@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import Sidebar from './Sidebar';
+import EditNote from './EditNote';
 // import Modal from './Modal';
 import '../styles/ViewNote.css';
-// import Sidebar from './Sidebar';
+import Sidebar from './Sidebar';
 
 
 class ViewNote extends React.Component {
@@ -14,23 +14,8 @@ class ViewNote extends React.Component {
         // modal: false,
     }
 }
-    
- componentDidMount() {
-     console.log(this.props);
- }
-//     const id = this.props.match.params.id;
-//     this.fetchNote(id);
-// }
+ 
 
-// fetchNote = id => {
-
-// }
-
-// componentWillReceiveProps(newProps){
-//     if(this.props.match.params.id !== newProps.match.params.id){
-//       this.fetchNote(newProps.match.params.id);
-//     }
-//   }
     // toggleModal = () => {
     //     this.setState({ modal: this.state.modal });
     // }
@@ -44,8 +29,8 @@ class ViewNote extends React.Component {
     render() {
     return (
             <div>
-                {/* <Sidebar /> */}
-                {/* <Link to={`editNote/${this.props.match.params.id}`}>edit</Link> */}
+                <Sidebar />
+                <Link to={{pathname: `/editNote/${this.props.location.state.id}`, state: {title: this.props.location.state.title, body: this.props.location.state.body}}}>edit</Link>
                 {/* <Link>delete</Link> */}
             <div className="Viewnote">
             <h3>{this.props.location.state.title}</h3>
