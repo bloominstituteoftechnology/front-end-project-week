@@ -11,10 +11,17 @@ class NoteDetails extends Component {
       modal: false,
       editModal: false,
       isEditing: false,
-      title: this.props.note.title,
-      textBody: this.props.note.textBody,
+      title: '',
+      textBody: '',
       tags: ''
     }
+  }
+
+  componentDidMount () {
+    this.setState({
+      title: this.props.note.title,
+      textBody: this.props.note.textBody
+    })
   }
 
   toggle = () => {
@@ -78,6 +85,7 @@ class NoteDetails extends Component {
                     onSubmit={this.handleSubmit}
                     className='editForm d-flex flex-column'
                   >
+                    <label>Title:</label>
                     <input
                       className='edit-title'
                       type='text'
@@ -85,6 +93,9 @@ class NoteDetails extends Component {
                       value={this.state.title}
                       onChange={this.handleChange}
                     />
+                    <label>
+                      Add Tags: <i className='fas fa-tag' />
+                    </label>
                     <input
                       className='add tags'
                       type='text'
@@ -92,6 +103,7 @@ class NoteDetails extends Component {
                       value={this.state.tags}
                       onChange={this.handleChange}
                     />
+                    <label>Note:</label>
                     <textarea
                       className='edit-textBody'
                       type='text'
@@ -125,7 +137,9 @@ class NoteDetails extends Component {
                 toggle={this.toggle}
                 className={this.props.className}
               >
-                <ModalHeader toggle={this.toggle}>Deleting Note</ModalHeader>
+                <ModalHeader toggle={this.toggle}>
+                  Deleting Note <i class='fas fa-trash-alt' />
+                </ModalHeader>
                 <ModalBody>
                   Are You Sure You Want To Delete This Note ?
                 </ModalBody>
@@ -147,7 +161,7 @@ class NoteDetails extends Component {
 
           <h1 className='title-header'>{note.title}</h1>
           <p className='noteBody'>{note.textBody}</p>
-          <p>#{note.tags}</p>
+          <p>{note.tags}</p>
         </div>
       </div>
     )

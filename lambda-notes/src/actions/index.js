@@ -32,7 +32,9 @@ export const fetchNotes = () => {
     request
       .then((res) => {
         const arr = res.data.map((note) => note.tags)
-        dispatch({ type: GET_TAGS, payload: flatten(arr) })
+        let tags = [ ...new Set(flatten(arr)) ].filter((tag) => tag.length >= 2)
+        console.log(tags)
+        dispatch({ type: GET_TAGS, payload: tags })
         dispatch({ type: GET_NOTES, payload: res.data })
         dispatch({ type: FETCHING, payload: false })
       })
@@ -83,6 +85,7 @@ export const postNote = (note) => {
           type: GET_NOTES,
           payload: axios.get(`${url}/get/all`).then((res) => {
             const arr = res.data.map((note) => note.tags)
+            console.log(flatten(arr))
             dispatch({ type: GET_TAGS, payload: flatten(arr) })
             dispatch({ type: GET_NOTES, payload: res.data })
             dispatch({ type: POSTING, payload: false })

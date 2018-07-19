@@ -9,6 +9,9 @@ body {
   font-size: 16px;
   line-height: 1.7;
 }
+label {
+  margin-bottom: 0px !important;
+}
 
 .myLink {
   text-decoration: none;
@@ -18,19 +21,36 @@ body {
   width: 280px;
   height: 270px;
   margin-top: 2%;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   padding: 1%;
   overflow: hidden;
   box-shadow: 10px 5px 5px #e5e4e6;
 }
+
+.myLink p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardBody {
+  -webkit-line-clamp: 4;
+}
 .myLink:hover {
   color: black;
   cursor: pointer;
-  text-decoration: none;
 }
 .card-tags {
-  margin-top: 120px;
+  display: flex;
+  margin-top: auto;
+  background-color: #dcdcdc6b;
+  overflow: hidden;
+}
+
+.card-tag {
+  margin: 5px;
 }
 .lambda-logo {
   text-decoration: none;
@@ -55,7 +75,7 @@ body {
 }
 
 .noteList-header {
-  margin: 2% 0 0 2.5%;
+  margin: 2% 10% 0 2.5%;
 }
 
 .cardTitle {
@@ -98,6 +118,11 @@ body {
   background-color: #55b9bd;
   color: white;
 }
+.sidenav-button:hover {
+  text-decoration: none;
+  color: #55b9bd;
+  background-color: white;
+}
 
 .save-Btn {
   border: 1px solid black;
@@ -129,6 +154,8 @@ body {
 .title-input {
   height: 60px;
   width: 600px;
+  margin-bottom: 3%;
+  padding: 1%;
 }
 
 .newNote-form {
@@ -137,14 +164,16 @@ body {
 }
 
 .textBody-input {
-  margin-top: 5%;
   height: 400px;
+  padding: 1.5%;
+  margin-bottom: 1%;
 }
 
 .newNote-container {
   min-height: 100vh;
   width: 100%;
   background-color: #f2f1f2;
+  padding: 1.5%;
 }
 
 .newNote-header {
@@ -181,12 +210,27 @@ body {
 .noteDetail-button:hover {
   cursor: pointer;
 }
-.textBody-input {
-  padding: 1.5%;
-}
+
 .tag-list {
   margin-top: 10%;
 }
+.tag-input {
+  height: 38px;
+  width: 200px;
+  padding: 1%;
+  margin-bottom: 3%;
+}
+.search-input {
+  width: 550px;
+  height: 44px;
+  margin-top: 1.9%;
+  border-radius: 30px;
+  text-align: center;
+}
+.notelist-header-div {
+  Display: flex;
+}
+
 @media (max-width: 825px) {
   h1 {
     font-size: 1.5rem;

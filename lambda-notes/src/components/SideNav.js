@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 class SideNav extends Component {
   render () {
+    let { tags } = this.props
     return (
       <div className='sideNav'>
         <Link className='lambda-logo' to='/'>
@@ -17,8 +18,13 @@ class SideNav extends Component {
           + Create New Note
         </Link>
         <div className='tag-list'>
-          {this.props.tags.map((tag, index) => {
-            return <h2 key={tag + index}>{`#${tag}`}</h2>
+          {tags.map((tag, index) => {
+            return (
+              <h2 key={tag + index}>
+                <i className='fas fa-tag' />
+                {`${tag}`}
+              </h2>
+            )
           })}
         </div>
       </div>

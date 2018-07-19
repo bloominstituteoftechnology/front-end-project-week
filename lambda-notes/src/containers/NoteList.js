@@ -1,3 +1,4 @@
+import Markdown from 'markdown-to-jsx'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchNotes } from '../actions'
@@ -22,21 +23,27 @@ class NoteList extends Component {
   render () {
     const { search } = this.state
     const filteredNotes = this.props.notes.filter((note) => {
-      // console.log(note)
-      return (
+      if (
         note.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        note.content.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        note.textBody.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         note.tags.join('').toLowerCase().indexOf(search.toLowerCase()) !== -1
-      )
+      ) {
+        return note
+      }
     })
+
     return (
       <div className='noteList'>
-        <h1 className='noteList-header'>your Notes:</h1>
-        <input
-          type='search'
-          value={this.state.search}
-          onChange={this.handleChange}
-        />
+        <div className='notelist-header-div'>
+          <Markdown className='noteList-header'>#Your Notes:</Markdown>
+          <input
+            placeholder='Search Note'
+            className='search-input'
+            type='search'
+            value={this.state.search}
+            onChange={this.handleChange}
+          />
+        </div>
         <div className='noteList-container'>
           {this.props.api.fetching ? (
             <Loading />
