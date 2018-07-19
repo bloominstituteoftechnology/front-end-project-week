@@ -3,32 +3,52 @@ import { Link } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
 class CreateNote extends Component {
-// constructor(props) {
-//     super(props)
-//this.
-    state = {
+constructor(props) {
+    super(props)
+    this.state = 
+        {
         title: '',
-        body: ''
+        body: '',
+        id: ''
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmitNote = this.handleSubmitNote.bind(this);
+}
 
 
 handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-handleSubmitNote = () => {
+handleSubmitNote = (e) => {
+    e.preventDefault();
+    const newNote = {
+            title: this.state.title,
+            body: this.state.body,
+            id: this.state.id
+            }
+    let newArr= this.props.notes.slice();
+    console.log(newArr);
+    newArr.push({title: this.state.title, body: this.state.body})
+    this.setState({ title: '', body: '', id: '' });
     this.props.createNote(this.state);
 }
 
-// createNote = e => {
+// createNote = (note) => {
+//     let newNotes = this.state.notes.slice();
+//     this.state.notes.push(note)
+//     this.setState({ notes })
+// }
+
+// handleSubmitNote = e => {
 //     e.preventDefault();
 //     const newNote = {
-//         title: this.state.title,
-//         body: this.state.body,
-//         id: this.state.id
-//     }
-//     this.state.notes.push(newNote);
-//     this.setState({ title: '', body: '', id: 0 });
+//             title: this.state.title,
+//             body: this.state.body,
+//             id: this.state.id
+//             }
+//             this.state.createNote(newNote);
+//             this.setState({title: '', body: '', id: ''})
 // }
 
 render() {
@@ -50,7 +70,7 @@ render() {
             rows='15'
             cols='90'
           />
-          <Link to='/'> 
+          <Link to={'/'}> 
           <button onClick={this.handleSubmitNote}>Save</button>
           </Link>
           </div>
