@@ -457,19 +457,11 @@ button:hover {
   }
 
   .CreateView-container, .EditView-container {
-    /* display: flex;
-    flex-direction: column; */
     width: 90%;
-    /* padding-bottom: 100px;
-    margin: 0 36px; */
   }
 
   .CreateView-content textarea, .EditView-content textarea {
     width: 94%;
-  }
-
-  .DeleteModal-container {
-
   }
 
   .DeleteModal-modal {
@@ -481,6 +473,59 @@ button:hover {
 
 /* tablet portrait styles */
 @media (max-width: 768px) {
+  .Nav-container {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .Nav-header {
+    margin: 16px auto;
+  }
+
+  .Nav-buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 16px auto;
+  }
+
+  .Nav-buttons button, .DeleteModal-buttons button {
+    margin: 5px auto;
+  }
+
+  .ListView-container {
+    
+  }
+
+  .ListView-header {
+    display: block;
+  }
+
+  .CreateView-content textarea, .EditView-content textarea {
+    width: 90%;
+  }
+
+  .DeleteModal-modal {
+    top: 250px;
+    right: 76px;
+    width: 80%;
+  }
+
+  .DeleteModal-header {
+    margin: 0;
+  }
+
+  .DeleteModal-buttons {
+    display: flex;
+    flex-flow: column-reverse;
+    margin: 0 auto 16px auto;
+  }
+
+  .DeleteModal-buttons button {
+
+  }
 
 }
 
