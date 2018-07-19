@@ -17,7 +17,8 @@ const StyledWindow = styled.div`
   border-top: 1px solid black;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   width: 668px;
 `;
 

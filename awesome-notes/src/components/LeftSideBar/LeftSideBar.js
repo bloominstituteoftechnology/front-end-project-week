@@ -5,7 +5,7 @@ import SideBarButton from "./SideBarButton";
 
 const LeftStyled = styled.div`
   width: 220px;
-  height: 100vh;
+  height: 100%;
   background-color: #d8d8d8;
   position: absolute;
   top: 0;

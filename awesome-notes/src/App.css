@@ -21,3 +21,8 @@ h4,
 h5 {
   font-family: "Roboto", sans-serif;
 }
+
+.App {
+  position: relative;
+  left: 110px;
+}
