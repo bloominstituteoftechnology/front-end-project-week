@@ -10,22 +10,24 @@ class EditNoteComponent extends React.Component {
       textBody: ""
     };
   }
+  
   componentDidMount() {
-      const id = this.props.match.params.id;
-      this.props.fetchNote(id);
-      this.setState({ title: this.props.title, textBody: this.props.textBody });
+    const id = this.props.match.params.id;
+    this.props.fetchNote(id);
+    this.setState({ title: this.props.title, textBody: this.props.textBody });
+    // this.setState({ title: this.props.title, textBody: this.props.textBody });
   }
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  updateNote = (id) => {
+  updateNote = id => {
     const noteObj = {
       tags: [],
       title: this.state.title,
       textBody: this.state.textBody
-    }
+    };
     this.props.updateNote(id, noteObj);
-  }
+  };
   render() {
     const id = this.props.match.params.id;
 
@@ -60,9 +62,12 @@ class EditNoteComponent extends React.Component {
             />
           </div>
           <Link to={`/note/get/${id}`}>
-            <GeneralBtn width="15rem" onClick = {() => {
+            <GeneralBtn
+              width="15rem"
+              onClick={() => {
                 this.updateNote(id);
-              }}>
+              }}
+            >
               Update
             </GeneralBtn>
           </Link>
