@@ -68,12 +68,16 @@ class App extends Component {
         data
       } = await post('https://killer-notes.herokuapp.com/note/create', note)
 
+      const newNotes = [].concat({
+        ...note,
+        _id: data.success
+      }, notes)
+
+
       this.setState({
         // adds new notes to front of list
-        notes: [].concat({
-          ...note,
-          _id: data.success
-        }, notes)
+        notes: newNotes,
+        filteredNotes: newNotes
       })
 
     } catch(e) {
@@ -92,11 +96,15 @@ class App extends Component {
 
       const { data } = await _delete(`https://killer-notes.herokuapp.com/note/delete/${id}`)
 
+      const filteredNotes = notes.filter(note => 
+        String(note._id) !== id 
+      )
+
       this.setState({
-        notes: notes.filter(note => 
-          String(note._id) !== id 
-        )
+        notes: filteredNotes,
+        filteredNotes
       })
+
 
     } catch(e){
 
@@ -113,13 +121,16 @@ class App extends Component {
     try {
       const { data } = await put(`https://killer-notes.herokuapp.com/note/edit/${id}`, updatedNote) 
 
+      const newNotes = notes.map(note => {
+        if(String(note._id) === id){
+          return {...note, ...updatedNote}
+        }
+        return note
+      })
+
       this.setState({
-        notes: notes.map(note => {
-          if(String(note._id) === id){
-            return {...note, ...updatedNote}
-          }
-          return note
-        })
+        notes: newNotes,
+        filteredNotes: newNotes
       })
 
     } catch(e) {
@@ -138,8 +149,8 @@ class App extends Component {
    
     this.setState({
       filteredNotes: notes.filter(note => 
-        note.title.includes(filter) 
-        || note.textBody.includes(filter)
+        note.title.toLowerCase().includes(filter) 
+        || note.textBody.toLowerCase().includes(filter)
       )
     })
   }
