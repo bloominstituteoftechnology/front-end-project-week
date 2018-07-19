@@ -456,11 +456,31 @@ button:hover {
     margin-bottom: 50px;
   }
 
+  .CreateView-container, .EditView-container {
+    /* display: flex;
+    flex-direction: column; */
+    width: 90%;
+    /* padding-bottom: 100px;
+    margin: 0 36px; */
+  }
+
+  .CreateView-content textarea, .EditView-content textarea {
+    width: 94%;
+  }
+
+  .DeleteModal-container {
+
+  }
+
+  .DeleteModal-modal {
+    top: 250px;
+    right: 78px;
+  }
+
 }
 
 /* tablet portrait styles */
 @media (max-width: 768px) {
-
 
 }
 
