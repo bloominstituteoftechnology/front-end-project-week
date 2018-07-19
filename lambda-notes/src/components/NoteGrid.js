@@ -9,7 +9,7 @@ const StyledNoteGrid = styled.div`
     margin: ${props => props.theme.dimensions.noteGrid.headingMargin};
   }
 
-  form.searchForm {
+  div.searchForm {
     display: flex;
     margin: ${props => props.theme.dimensions.noteGrid.searchFormMargin};
 
@@ -109,7 +109,7 @@ export default class NoteGrid extends Component {
     return (
       <StyledNoteGrid>
         <h1>Your Notes:</h1>
-        <form className="searchForm">
+        <div className="searchForm">
           <input
             type="text"
             id="searchInput"
@@ -143,7 +143,7 @@ export default class NoteGrid extends Component {
               </label>
             </div>
           </div>
-        </form>
+        </div>
         <div
           className="notePreviewsContainer"
         >

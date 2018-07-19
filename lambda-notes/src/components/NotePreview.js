@@ -22,7 +22,9 @@ const StyledNotePreview = styled.div`
     padding: ${props => props.theme.dimensions.notePreview.headingPadding};
     font-family: ${props => props.theme.font.heading};
     font-size: ${props => props.theme.dimensions.notePreview.headingFontSize};
-    overflow-wrap: break-word;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   div {
@@ -74,7 +76,7 @@ const NotePreview = props => {
       <div>
         <StyledNotePreview style={{ opacity: isOver ? .4 : 1 }}>
           <h2>{title}</h2>
-          <MarkdownText mdText={textBody} />
+          <MarkdownText mdText={textBody} plainText={true} />
         </StyledNotePreview>
       </div>
     )

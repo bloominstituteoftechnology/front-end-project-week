@@ -64,7 +64,7 @@ export default {
       height: '200px',
       padding: ' 13px 18px',
       borderWidth: '1px',
-      headingFontSize: '18px',
+      headingFontSize: '16px',
       headingPadding: '0 0 6px 0',
       textPadding: '10px 0 4px 0',
       textFontSize: '12px',
