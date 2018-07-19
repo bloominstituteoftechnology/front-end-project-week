@@ -380,11 +380,10 @@ button:hover {
   background: #979797;
 }
 
-/* tablet portrait styles */
-@media (max-width: 768px) {
+/* laptop styles */
+@media (max-width: 1080px) {
   .App-container {
-    border: none;
-    margin: 0;
+    margin: 20px;
   }
 
   .App {
@@ -401,9 +400,18 @@ button:hover {
     justify-content: flex-start;
   }
 
-  .Nav-header, .Nav-buttons {
-    margin: auto auto auto 60px;
-    width: 100px;
+  .Nav-header {
+    width: 157px;
+    margin: auto 0 auto 32px;
+  }
+
+  .Nav-buttons {
+    margin: auto 32px auto auto;
+    /* width: 100px; */
+  }
+
+  .Nav-buttons button {
+    margin: auto 0 auto 16px;
   }
 
   .Nav-header h1 {
@@ -414,26 +422,45 @@ button:hover {
     display: flex
   }
 
-  .Nav-buttons {
-    display: inline-block;
-  }
-
-  .Nav-buttons button {
-    height: 40px;
-  }
-
   .ListView-container {
     display: flex;
     justify-content: space-evenly;
   }
 
   .ListView-header {
-    margin: 24px 60px;
+    margin: 32px;
   }
 
   .ListView-header h2 {
     margin: 0;
   }
+
+  .NoteView-wrapper {
+    margin: 16px;
+  }
+
+  .Note-container, .Note-header, .Note-content, .Note-tag {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .Note-content p {
+    width: 90%;
+  }
+
+  .Note-header {
+    margin-bottom: 16px;
+  }
+
+  .Note-container {
+    margin-bottom: 50px;
+  }
+
+}
+
+/* tablet portrait styles */
+@media (max-width: 768px) {
+
 
 }
 
