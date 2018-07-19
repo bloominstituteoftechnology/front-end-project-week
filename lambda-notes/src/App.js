@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 const Appcont = styled.div`
-
+display: flex;
     margin: 0 auto;
     width: 880px;
 `;

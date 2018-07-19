@@ -10,12 +10,12 @@ const List = styled.div`
     display: flex;
 `;
 
- const CreateNoteView = () => (
+ const EditView = () => (
     <List > 
-    <SideBar />
+    {/* <SideBar /> */}
     <div>
         <Edit />
         </div>
         </List>);
 
-export default CreateNoteView
+export default EditView

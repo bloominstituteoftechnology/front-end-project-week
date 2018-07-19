@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Note from './Note';
 
+
 const Notecont = styled.div`
 
     background-color: #F3F3F3;
@@ -55,16 +56,16 @@ const NoteCard = (props) => {
             <Notebod className='Note'>
                 {props.notes.map(note => {
                     return (
-                        <div>
-                            <Link to={`/note/${note.id}`}>
+                        <SmallNote>
+                            <StyledLink to={`/note/${note.id}`}>
 
 
-                                <p>{note.notetitle}
-                                </p>
-                                <p>{note.notebod}
-                                </p>
-                            </Link>
-                        </div>
+                                <NoteTitle>{note.notetitle}
+                                </NoteTitle>
+                                <NoteBod>{note.notebod}
+                                </NoteBod>
+                            </StyledLink>
+                        </SmallNote>
                         // <Note
 
                         //   key={note.id}

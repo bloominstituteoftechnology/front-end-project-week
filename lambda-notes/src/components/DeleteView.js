@@ -75,12 +75,12 @@ width: 100%
      
             <ButtonD> <StyledLink to="/">Delete</StyledLink>
             </ButtonD>
-            <Button> <StyledLink to="/note">No</StyledLink>
+            <Button> <StyledLink to="/">No</StyledLink>
             </Button>
      </Pop>
     <List > 
         
-    <SideBar />
+    {/* <SideBar /> */}
     <Onecont>
         
     <div>Note Name</div> 

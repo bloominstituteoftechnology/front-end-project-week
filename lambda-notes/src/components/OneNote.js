@@ -47,7 +47,13 @@ filterNotes = note => {
 render(){
 
     return (
-        <div>{this.props.notes.map(this.filterNotes)}</div>
+        <Onecont>
+        {this.props.notes.map(this.filterNotes)}
+        <button> <Link to="/edit">edit</Link>
+            </button>
+            <button> <Link to="/delete">delete</Link>
+             </button>
+        </Onecont>
     )
     // <List > 
     // {/* <SideBar /> */}
