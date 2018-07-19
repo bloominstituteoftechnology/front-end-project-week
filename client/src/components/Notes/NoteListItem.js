@@ -14,6 +14,8 @@ const ItemContainer = styled.div`
 const Title = styled(Link)`
   font-size: 28px;
   font-weight: bold;
+  text-decoration: none;
+  color: #111;
 `;
 
 const Content = styled.p`
