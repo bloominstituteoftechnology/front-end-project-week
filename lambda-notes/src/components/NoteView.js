@@ -3,6 +3,7 @@ import DeleteModal from './DeleteModal'
 import Button from './Button'
 import Flex from './Flex'
 import { Link, Route } from 'react-router-dom'
+import marked from 'marked'
 
 
 export default class extends Component {
@@ -16,13 +17,21 @@ export default class extends Component {
       modalOpen: !modalOpen
     }))
   }
+
+  rawMarkup = () => {
+
+    const { text } = this.props
+   
+    return { 
+      __html: marked(text, {sanitize: true})
+    }
+  }
   
   render() {
     
     const {
       title,
-      text,
-      id,
+      id
     } = this.props
 
     const { modalOpen } = this.state
@@ -31,7 +40,7 @@ export default class extends Component {
       <div>
         <h2>{title}</h2>
         <hr />
-        <p>{text}</p>
+        <p dangerouslySetInnerHTML={this.rawMarkup()} />
         <br /><br />
         <Flex>
           <Button
