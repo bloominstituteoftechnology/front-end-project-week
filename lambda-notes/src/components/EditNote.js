@@ -5,14 +5,14 @@ class EditNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
+      note: [],
       id: null
     }
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-    let note = this.props.note.filter(note => note.id === id);
-    this.props.setCurrent(note[0]);
+    let note = this.props.notes.filter(note => note.id === Number(id))
+    this.props.handleSetCurrent(note[0]);
   }
   editCompleted = () => {
     this.props.handleEditNote(this.props.match.params.id)
@@ -23,9 +23,9 @@ class EditNote extends Component {
         <h2>Edit Note:</h2>
         <form>
           <input name='title' value={this.props.currentNote.title} onChange={this.props.handleEditTitle}/>
-          <input name='textBody' value={this.props.currentNote.textBody} onChange={this.props.handleEditText}/>
+          <textarea name='textBody' value={this.props.currentNote.textBody} onChange={this.props.handleEditText}/>
         </form>
-        <Link to='/'><button type='button' onClick={this.editComplete}>Update</button></Link>
+        <Link to='/'><button type='button' onClick={this.editCompleted}>Update</button></Link>
       </div>
     )
   }

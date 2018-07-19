@@ -27,7 +27,7 @@ class Note extends Component {
       <div className='note-view'>
         <div className='edit-delete'>
           <Link to={`/edit/${this.state.id}`}><p>edit</p></Link>
-          <Link to={`/delete/${this.state.id}`}><p>delete</p></Link>
+          <Link to={`/note/${this.state.id}/delete`}><p>delete</p></Link>
         </div>
         <div className='text'>
           {this.props.notes.map(this.filterNotes)}

@@ -57,7 +57,6 @@ class App extends Component {
     let notes = this.state.notes.slice();
     notes = notes.filter(note => note.id !== Number(id))
     this.setState({notes, currentNote: {}, deleting: !this.state.deleting})
-    alert('delete')
   }
   handleSetCurrent = note => {
    this.setState({ currentNote: note })
@@ -85,12 +84,12 @@ class App extends Component {
         <div className='content'>
           <Route exact path='/' render={props => <Notes {...props} notes={this.state.notes} />}/>
           <Route path='/note/:id' render={props => <Note {...props} notes={this.state.notes} />} />
-          <Route path='/delete/:id' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetCurrent={this.handleSetCurrent} handleDeleteNote={this.handleDeleteNote} currentNote={this.state.currentNote}/>)}/>
           <Route path='/add' render={props =>
             <AddNote {...props} notes={this.state.notes} handleAddNote={this.handleAddNote} handleInputChange={this.handleInputChange} newTitle={this.state.newTitle} newTextBody={this.state.newTextBody}/>
           } />
         <Route path='/edit/:id' render={(props) => <EditNote {...props} notes={this.state.notes} currentNote={this.state.currentNote} handleSetCurrent={this.handleSetCurrent} handleEditNote={this.handleEditNote} handleEditTitle={this.handleEditTitle} handleEditText={this.handleEditText} />} />
         </div>
+        <Route path='/note/:id/delete' render={props => (<DeleteNote {...props} toggleDeleting={this.toggleDeleting} handleSetCurrent={this.handleSetCurrent} handleDeleteNote={this.handleDeleteNote} currentNote={this.state.currentNote}/>)}/>
       </div>
     );
   }

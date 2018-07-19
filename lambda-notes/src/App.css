@@ -145,6 +145,9 @@
 .content .note-view {
   width: 100%;
 }
+.content .note-view .edit-delete a:visited {
+  color: black;
+}
 .content .note-view .edit-delete{
   display: flex;
   margin-left: 80%;
@@ -167,12 +170,52 @@
   font-weight: bold;
   line-height: 40px;
 }
-.content .delete-background {
-  border: 3px blue solid;
-  width: 1500px;
-  z-index: 1;
+.delete-background {
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  opacity: .8;
+  z-index: 2;
   margin-top: 0px;
+  position: absolute;
 }
-.content .delete-alert {
-  border: 2px red solid;
+.delete-alert {
+  border: 2px black solid;
+  width: 45%;
+  height: 31%;
+  margin: 0 auto;
+  margin-top: 15%;
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.delete-alert .delete-text {
+  color: black;
+  font-size: 26px;
+  font-weight: bold;
+}
+.delete-alert .delete-buttons {
+  width: 75%;
+  height: 24%;
+}
+.delete-alert .delete-buttons .delete-button{
+  width: 46%;
+  margin-right: 8%;
+  height: 100%;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #D0021B;
+  border: 2px #979797 solid;
+}
+.delete-alert .delete-buttons .no-button{
+  width: 46%;
+  height: 100%;
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  background-color: #2BC1C4;
+  border: 2px #979797 solid;
 }

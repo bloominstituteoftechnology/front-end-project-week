@@ -19,10 +19,14 @@ class DeleteNote extends Component {
     return (
       <div className='delete-background'>
         <div className='delete-alert'>
-        <p>Are you sure you want to delete this?</p>
-        <Link to='/'><button type='button' onClick={this.deleteComplete}>Delete</button></Link>
-        <Link to={`/note/${this.state.id}`}><button type='button'>No</button></Link>
+        <div className='delete-text'>
+          <p>Are you sure you want to delete this?</p>
         </div>
+        <div className='delete-buttons'>
+        <Link to='/'><button type='button' onClick={this.deleteComplete} className='delete-button'>Delete</button></Link>
+        <Link to={`/note/${this.state.id}`}><button type='button' className='no-button'>No</button></Link>
+        </div>
+      </div>
       </div>
     )
   }
