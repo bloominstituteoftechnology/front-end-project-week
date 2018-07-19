@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-
 class LambdaView extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +22,7 @@ class LambdaView extends Component {
 
                 <div key={note.id}>
                     <Link to={`/edit/${note.id}`} style={{ color: 'black', textDecoration: 'underline', marginRight: '10px' }}>Edit</Link>
-                    <Link to={'/'} style={{ color: 'black' }}>Delete</Link>
+                    <buttonDelete onClick={this.props.toggleDelete}>Delete</buttonDelete>
                     <h1>{note.title}</h1>
                     <p>{note.body}</p>
                 </div>

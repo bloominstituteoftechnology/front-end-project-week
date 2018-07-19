@@ -135,7 +135,9 @@ class App extends Component {
     this.setState({ notes, selected: {}, remove: !this.state.remove })
   }
 
-
+  toggleDelete = () => {
+    this.setState({ remove: !this.state.remove})
+  }
 
   render() {
     return (
@@ -144,8 +146,8 @@ class App extends Component {
         <Route exact path="/" render={props => (<LambdaNotes {...props} notes={this.state.notes} />)} />
         <Route path="/form" render={props => (<LambdaForm {...props} title={this.state.title} body={this.state.body} handleAddnote={this.handleAddnote} handleChange={this.handleChange} />)} />
         <Route path="/edit/:id" render={props => (<LambdaEdit {...props} notes={this.state.notes} selected={this.state.selected} handleTitle={this.handleTitle} handleBody={this.handleBody} handleSelectNote={this.handleSelectNote} handleEditNote={this.handleEditNote} />)} />
-        <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} />)} />
-        <Route path="/notes/:id" render={props => (<LambdaDelete {...props} handleSelectNote={this.handleSelectNote} handleDeleteNote={this.handleDeleteNote} />)} />
+        <Route path="/notes/:id" render={props => (<LambdaView {...props} note={this.state.notes} toggleDelete={this.toggleDelete} />)} />
+        {this.state.remove ? (<Route path="/notes/:id" render={props => (<LambdaDelete {...props}  handleSelectNote={this.handleSelectNote} handleDeleteNote={this.handleDeleteNote} />)} />) : null}
 </StyledContainer>
     )
   }

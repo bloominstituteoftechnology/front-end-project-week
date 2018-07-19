@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+
+const modalStyle = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 100%;
+`
 
 class LambdaDelete extends Component {
     constructor(props) {
@@ -18,24 +27,13 @@ class LambdaDelete extends Component {
         this.props.handleDeleteNote(this.props.match.params.id)
     }
 
-
     render() {
         return (
-            <div>
-                Are you sure you want to delete this?
-            <Link to="/">
-            <h2 onClick={this.deleteNote}>
-                Delete
-        </h2>
-        </Link>
-        <Link to="/edit/:id">
-            <h2 onClick={this.props.handleDelete}>
-                No
-        </h2>
-        </Link>
-
-                
-        </div>
+            <modalStyle>
+                <h2>Are you sure you want to delete this?</h2>
+                <button onClick={this.deleteNote}>Yes</button>
+                <button>No</button>
+            </modalStyle>
         )
     }
 }
