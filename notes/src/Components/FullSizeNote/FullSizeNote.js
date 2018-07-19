@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FlexDiv, MiniBox, FlexNotes, PrimaryButton } from '../StyledComponents/StyledComponents';
+import { FlexDiv, MiniBox, FlexNotes, PrimaryButton, DeleteButton } from '../StyledComponents/StyledComponents';
 import { getNotes, addNote, editNotes } from '../../Actions/';
 import MiniNote  from '../MiniNote/MiniNote';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -140,7 +140,7 @@ class FullSizeNote extends Component {
             
                 {this.state.contentEditable? 
                 <React.Fragment>
-                   
+                   <DeleteButton>X</DeleteButton>
                     <DashedStyleHeader onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} onDoubleClick={(e)=>{this.editContent(e)}} name='title' onChange={this.onChange} value={this.state.title? this.state.title : thisNote[0].title}/>
                 <DashedStyleTextArea name='content' onKeyUp={(e)=>{this.saveChanges(e, savedNote, myhistory)}} defaultValue={this.state.content? this.state.content : thisNote[0].content} onChange={this.onChange}> 
                 </DashedStyleTextArea>
@@ -148,7 +148,7 @@ class FullSizeNote extends Component {
                  </React.Fragment>
                : 
                <React.Fragment>
-                   
+                    <DeleteButton>X</DeleteButton>
                   <h1 onDoubleClick={this.editContent}>{this.state.title ? this.state.title : thisNote[0].title}</h1>
                  <SolidStyleTextArea name='content' value={this.state.content? this.state.content: thisNote[0].content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
                 </SolidStyleTextArea> 

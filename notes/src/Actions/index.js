@@ -6,6 +6,7 @@ export const ADDING_NOTE = 'ADDING_NOTE';
 export const EDIT_NOTE = 'EDIT_NOTE';
 export const SAVING_NOTE = 'SAVING_NOTE';
 export const SAVED = 'SAVED';
+export const THEME_SWITCH = 'THEME_SWITCH';
 
 
 export const getNotes = () => {
@@ -38,6 +39,14 @@ export const editNotes = (e, savedNote, history) => {
        setTimeout(()=>{dispatch({type: SAVED})}, 2000);
        setTimeout(()=>{dispatch({type: EDIT_NOTE, payload: savedNote})}, 4000);
     }
-    
-    
+}
+
+export const themeSwitch = (nightVision) => {
+    console.log('switching themes');
+    //passes in nightVision as payload
+    if(nightVision === false){  //then we are switching it to true
+    return ({type: THEME_SWITCH, payload: {primary: 'black', secondary: '#B3FFAB'}})
+    } else {
+    return ({type: THEME_SWITCH, payload: {primary: 'white', secondary: 'black'}})
+    }
 }

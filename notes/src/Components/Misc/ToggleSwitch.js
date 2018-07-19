@@ -1,15 +1,23 @@
 import React from 'react';
 import './toggleswitch.css';
+import {connect} from 'react-redux';
+import { themeSwitch } from '../../Actions';
 
-const ToggleSwitch = () => {
+const ToggleSwitch = (props) => {
     return (
-        <React.Fragment>
+        <div>
         <label className="switch">
   <input type="checkbox"/>
-  <span className="slider round"></span>
+  <span className="slider round" onClick={()=>{props.themeSwitch(props.nightVision)}}></span>
 </label>
- </React.Fragment>
+ </div>
     );
 };
 
-export default ToggleSwitch;
+const mapStateToProps = state => {
+    return {notes: state.notes,
+    nightVision: state.nightVision,
+    }   
+}
+
+export default connect(mapStateToProps, {themeSwitch} )(ToggleSwitch);

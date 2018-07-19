@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FlexDiv, MiniBox, FlexNotes } from '../StyledComponents/StyledComponents';
+import { FlexDiv, MiniBox, FlexNotes, } from '../StyledComponents/StyledComponents';
 import { getNotes } from '../../Actions/';
 import MiniNote  from '../MiniNote/MiniNote';
 import { Scrollbars } from 'react-custom-scrollbars';

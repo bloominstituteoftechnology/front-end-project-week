@@ -11,16 +11,25 @@ overfly-x:hidden;
 overflow-y: auto;
 height:auto;
 `
-
+export const DeleteButton = styled.button`
+border: none;
+background-color: white;
+outline:none;
+color: red;
+position: absolute;
+top: 120px;
+right: 240px;
+font-size: 20px;
+`
 
 export const MiddleSection = styled.div`
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-background-color: #2BC1C4;
 width: 100%;
 height: 100%;
+
 
 `
 export const Main = styled.div`
@@ -28,13 +37,12 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-background-color: #2BC1C4;
 width: 100vw;
 height: 100vh;
-
 `
 
 export const FlexDiv = styled.div`
+box-sizing: border-box;
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
@@ -45,8 +53,9 @@ height: 80vh;
 overfly-x:hidden;
 overflow-y: auto;
 justify-content: space-around;
-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-            0 5px 15px 0 rgba(0,0,0,0.08);
+border-bottom: 1px solid #D8D8D8;
+border-right: 1px solid #D8D8D8;
+
 @media (max-width: 900px) {
     background: none;
     box-shadow: none;
@@ -64,8 +73,7 @@ border-bottom-left-radius: 10px;
 width: 20%;
 height: 80vh;
 background-color: #D8D8D8
-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-            0 5px 15px 0 rgba(0,0,0,0.08);
+
 
 `
 export const TopBar = styled.div`
@@ -75,8 +83,7 @@ display:flex;
 align-items: center;
 justify-content:space-between;
 width: 70%;
-height: 50px;
-position: relative;
+height: 52px;
 top: 60px;
 background-color: #262626;
 background: -webkit-linear-gradient(to right, #242424, #424242); /* Chrome 10-25, Safari 5.1-6 */
@@ -95,8 +102,7 @@ flex-direction: column;
 z-index: 0;
 background-color: white;
 margin-top:20px;
-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-            0 5px 15px 0 rgba(0,0,0,0.08);
+border: 1px solid lightgrey;
 @media (max-width: 900px) {
 
 }
@@ -110,6 +116,11 @@ whitespace: pre-wrap;
 overflow-wrap: break-word;
 overflow: hidden;
 z-index: 5;
+border-top: 1px solid grey;
+padding-top: 30px;
+`
+export const Title = styled.h2`
+text-align: center;
 `
 
 export const MaskText = styled.div`
@@ -140,10 +151,10 @@ background-color: #2BC1C4;
 color: white;
 width: 100%;
 border: none;
+font-size: 16px;
 height: 30px;
 cursor: pointer;
-box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
-            0 5px 15px 0 rgba(0,0,0,0.08);
+
 
 `
 export const Header = styled.span`

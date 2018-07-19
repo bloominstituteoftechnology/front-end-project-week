@@ -38,6 +38,7 @@ width: 80%;
 const SaveButton = PrimaryButton.extend`
 width: 100px;
 height:50px;
+border-left: none;
 `
 
 
@@ -93,12 +94,12 @@ class NewNote extends Component {
                 <React.Fragment>
                 <DashedStyleHeader name='title' onChange={this.onChange} defaultValue='Title...'/>
                 <DashedStyleTextArea name='content' value={this.state.content} onChange={this.onChange}> 
-                </DashedStyleTextArea> <SaveButton onClick={(e)=>{this.props.addNote(e, note, history )}}>save</SaveButton></React.Fragment>
+                </DashedStyleTextArea> <SaveButton onClick={(e)=>{this.props.addNote(e, note, history )}}>Save</SaveButton></React.Fragment>
                : 
                <React.Fragment>
                   <SolidStyleHeader defaultValue='Title...' onDoubleClick={this.editContent}/>
                  <SolidStyleTextArea name='content' value={this.state.content} readOnly html={this.state.html} onDoubleClick={this.editContent} onChange={this.onChange}> 
-                </SolidStyleTextArea> <SaveButton onClick={addNote}>save</SaveButton>
+                </SolidStyleTextArea> <SaveButton onClick={addNote}>Save</SaveButton>
                 </React.Fragment>}
 
            
