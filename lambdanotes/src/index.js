@@ -5,9 +5,12 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import Authenticate from "./authentication/authenticate";
+const WrappedApp = Authenticate(App);
+
 ReactDOM.render(
   <Router>
-    <App />
+    <WrappedApp />
   </Router>,
   document.getElementById("root")
 );
