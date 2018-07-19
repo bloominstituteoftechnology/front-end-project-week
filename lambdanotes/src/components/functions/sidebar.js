@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import { SideBarStyle, Button, HeadingStyle } from "../../ReusableStyles";
+import { Link } from "react-router-dom";
 
 class SideBar extends Component {
   constructor(props) {
@@ -17,10 +18,14 @@ class SideBar extends Component {
             </HeadingStyle>
           </Col>
           <Col md="12">
-            <Button className="Button">View Your Notes</Button>
+            <Link to="/">
+              <Button className="Button">View Your Notes</Button>
+            </Link>
           </Col>
           <Col md="12">
-            <Button>+ Create New Note</Button>
+            <Link to="/create">
+              <Button>+ Create New Note</Button>
+            </Link>
           </Col>
         </SideBarStyle>
       </Row>

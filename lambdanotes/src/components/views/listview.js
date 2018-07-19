@@ -3,6 +3,7 @@ import SideBar from "../functions/sidebar";
 import Note from "./note";
 import { Row, Col } from "reactstrap";
 import { HeadStyle, ViewStyle } from "../../ReusableStyles";
+import { Link } from "react-router-dom";
 
 class ListView extends Component {
   constructor(props) {
@@ -23,12 +24,14 @@ class ListView extends Component {
             <Row>
               {this.props.notes.map(note => (
                 <Col md="4">
-                  <Note
-                    key={this.props.notes.id}
-                    note={note}
-                    selectHandler={this.props.selectHandler}
-                    handleSubmitNote={this.props.handleSubmitNote}
-                  />
+                  <Link to={`/note/${note.id}`}>
+                    <Note
+                      key={this.props.notes.id}
+                      note={note}
+                      selectHandler={this.props.selectHandler}
+                      handleSubmitNote={this.props.handleSubmitNote}
+                    />
+                  </Link>
                 </Col>
               ))}
             </Row>

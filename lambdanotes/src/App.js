@@ -105,6 +105,7 @@ class App extends Component {
             selectedNote={this.state.selected}
           /> */}
           <Route
+            exact
             path="/"
             render={props => (
               <ListView
@@ -120,6 +121,7 @@ class App extends Component {
             handleSubmitNote={this.handleSubmitNote}
           /> */}
           <Route
+            exact
             path="/create"
             render={props => (
               <CreateNote
@@ -134,13 +136,13 @@ class App extends Component {
             path="/note/:id"
             render={props => <NoteView notes={this.filterNote()} />}
           />
-          {/* <EditNote
+          <EditNote
             notes={this.filterNote()}
             selectHandler={this.selectHandler}
             editNoteHandler={this.editNoteHandler}
             editSubmitHandler={this.editSubmitHandler}
-          /> */}
-          <Route
+          />
+          {/* <Route
             path="/note/:id/edit"
             render={props => (
               <EditNote
@@ -150,12 +152,12 @@ class App extends Component {
                 editSubmitHandler={this.editSubmitHandler}
               />
             )}
-          />
-          {/* <DeleteNote
+          /> */}
+          <DeleteNote
             notes={this.filterNote()}
             sumbitDelete={this.submitDelete}
-          /> */}
-          <Route
+          />
+          {/* <Route
             path="/note/:id/delete"
             render={props => (
               <DeleteNote
@@ -163,7 +165,7 @@ class App extends Component {
                 submitDelete={this.submitDelete}
               />
             )}
-          />
+          /> */}
         </Container>
       </MainBack>
     );
