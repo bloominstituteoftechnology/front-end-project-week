@@ -9,6 +9,7 @@ export const EDITED = 'EDITED';
 export const NOTEDITING = 'NOTEDITING';
 export const ADDING = 'ADDING';
 export const ADDED = 'ADDED';
+export const EXPORTING = 'EXPORING';
 export const ERROR = 'ERROR';
 
 const getAllURL = 'https://killer-notes.herokuapp.com/note/get/all';
@@ -69,3 +70,5 @@ export const editNote = (id, note) => {
 
 export const editing = () => ({ type: EDITING });
 export const notEditing = () => ({ type: NOTEDITING });
+
+export const exportNotes = () => ({ type: EXPORTING });

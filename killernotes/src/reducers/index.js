@@ -1,5 +1,6 @@
 /* prettier-ignore */
-import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING, EDITED} from '../actions';
+import {FETCHING, FETCHED, ERROR, DELETING, DELETED, ADDING, ADDED, EDITING, NOTEDITING,
+   EDITED, EXPORTING} from '../actions';
 
 const initialState = {
   fetchingNotes: false,
@@ -10,6 +11,7 @@ const initialState = {
   editedNote: false,
   addingNote: false,
   addedNote: false,
+  exporting: false,
   notes: [],
   error: null,
 };
@@ -78,6 +80,12 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         editingNote: false,
+      };
+
+    case EXPORTING:
+      return {
+        ...state,
+        exporting: false,
       };
 
     case ERROR:
