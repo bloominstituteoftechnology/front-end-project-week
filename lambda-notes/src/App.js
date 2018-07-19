@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import NavBar from './components/app/NavBar' ;
 import './App.css';
 import Content from './components/app/Content' ;
-//import dummyData from './components/app/dummyData' ;
 import NotesList from './components/notes/NotesList';
 
 class App extends Component {
-  constructor() {
-    super() ;
+  constructor(props) {
+    super(props) ;
     this.state = { }
 }  
   render() {
@@ -29,4 +30,11 @@ class App extends Component {
     );
   }
 }
+// const mapStateToProps = state => {
+//   return {
+//     notes: state.notes
+//   };
+// }
+// console.log(this.state);
+// export default connect (mapStateToProps, {NotesList})(App);
 export default App;

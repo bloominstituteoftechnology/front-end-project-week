@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import dummyData from '../app/dummyData';
+import {connect} from 'react-redux';
 import Note from './Note';
 
 
@@ -8,20 +9,28 @@ class NotesList extends Component {
         super(props) ;
     }
     render() {
-        console.log('from notesList',this.props);        
+        console.log('from nl',state)
         return(
-            <div className="notes-list">
-                {this.props.data.map((mapNote, index) => {
+            <div>list</div>
+            
+            // <div className="notes-list">
+            //     {this.props.data.map((mapNote, index) => {
 
-                    return(
-                        <Note
-                            mapNote={mapNote}
-                            key={index * 10000}
-                        />
-                    )
-                })}
-            </div>
+            //         return(
+            //             <Note
+            //                 mapNote={mapNote}
+            //                 key={index * 10000}
+            //             />
+            //         )
+            //     })}
+            // </div>
         )
     }
 }
-export default NotesList ;
+// const mapStateToProps = state {
+//     return{
+//         notes: state.notes
+//     }
+// }
+// export default connect (mapStateToProps)(NotesList) ;
+export default NotesList;

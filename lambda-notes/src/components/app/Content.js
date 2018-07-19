@@ -1,5 +1,7 @@
 import React from 'react' ;
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {connect} from 'react-redux';
+
 import routes from './routes' ;
 import NotesList from '../notes/NotesList';
 import Create from '../edit/Create';
@@ -27,7 +29,8 @@ class Content extends React.Component {
 
                 <div className="page-content">
                     <Route
-                        exact path ="/"                   
+                        exact path ="/" component={NotesList}
+                        props{...this.props}                  
                     />
 
                     <Route
@@ -39,7 +42,15 @@ class Content extends React.Component {
         )
     }
 };
-export default Content;
+const mapStateToProps = state => {
+    return {
+      notes: state.notes
+    };
+  }
+  console.log(this.state);
+  export default connect (mapStateToProps, {NotesList})(Content);
+  
+//export default Content;
 
 {/*                {routes.map((route, index) => {
                     console.log(route);

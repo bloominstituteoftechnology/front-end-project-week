@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+// import rootReducer from './reducers/rootReducer';
 import { BrowserRouter as Router } from 'react-router-dom' ;
+import notesReducer from './reducers/reducers';
 import './index.css';
 import App from './App';
 
-ReactDOM.render(
+const store = createStore(notesReducer);
 
-    <Router>
-        <App />
-    </Router>,
-    
+ReactDOM.render(
+    <Provider store={store}>
+        <Router>
+            <App />
+        </Router>
+    </Provider>,
     document.getElementById('root')
 );
