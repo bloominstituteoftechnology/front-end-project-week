@@ -13,17 +13,17 @@ const StyledNoteGrid = styled.div`
     display: flex;
     margin: ${props => props.theme.dimensions.noteGrid.searchFormMargin};
 
-      label {
+    label {
       font-family: ${props => props.theme.font.body};
       color: ${props => props.theme.color.formText};
       font-size: ${props => props.theme.dimensions.noteForm.labelFontSize};
       padding: ${props => props.theme.dimensions.noteForm.labelPadding};
-  }
+    }
 
     input[type='text'] {
       width: ${props => props.theme.dimensions.noteGrid.inputWidth};
       border-radius: ${props =>
-        props.theme.dimensions.noteGrid.inputBorderRadius};
+    props.theme.dimensions.noteGrid.inputBorderRadius};
       border-width: ${props => props.theme.dimensions.noteGrid.borderWidth};
       border-style: solid;
       border-color: ${props => props.theme.color.border};
@@ -68,13 +68,43 @@ export default class NoteGrid extends Component {
 
   render() {
     let { notes } = this.props;
-    notes = notes.map(note => (
+    const { searchType, searchInput } = this.state;
+    const escapedRegEx = new RegExp(searchInput.replace(
+      /[-[\]{}()*+?.,\\^$|#\s]/g,
+      '\\$&'
+    ), 'i');
+
+    // Reduces notes array to only notes that fit search query
+    const visibleNotes = notes.reduce((accum, note) => {
+      // Performs word search using regex if indicated
+      if (searchType === 'word') {
+        if (escapedRegEx.test(note.textBody)) {
+          return [...accum, note];
+        }
+        if (escapedRegEx.test(note.title)) {
+          return [...accum, note];
+        }
+      } else {
+        // Adds all notes if tag search query is empty
+        if (searchInput === '') return [...accum, note];
+
+        // Performs tag search using regex if indicated
+        for (let i=0; i < note.tags.length; i++) {
+          if (escapedRegEx.test(note.tags[i])) {
+            return [...accum, note];
+          }
+        }
+      }
+      // Otherwise returns existing accumulator for next note
+      return accum;
+    }, []);
+
+    // Converts visible notes into array of elements
+    const noteElems = visibleNotes.map(note => (
       <Link key={note['_id']} to={`/view/${note['_id']}`}>
         <NotePreview note={note} />
       </Link>
     ));
-
-    const { searchType, searchInput } = this.state;
 
     return (
       <StyledNoteGrid>
@@ -119,7 +149,7 @@ export default class NoteGrid extends Component {
           searchType={searchType}
           searchInput={searchInput}
         >
-          {notes}
+          {noteElems}
         </div>
       </StyledNoteGrid>
     );
