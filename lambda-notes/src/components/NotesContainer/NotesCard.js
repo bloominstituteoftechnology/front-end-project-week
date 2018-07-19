@@ -10,6 +10,7 @@ const cardSource = {
             index: props.index,
         }
     },
+
 };
 
 const cardTarget = {

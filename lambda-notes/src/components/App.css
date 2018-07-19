@@ -32,3 +32,7 @@ body {
 .notes-card-wrapper:nth-child(3n+3) {
   margin-right: 0;
 }
+
+.fa-trash-alt {
+  font-size: 2rem;
+}

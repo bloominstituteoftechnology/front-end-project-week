@@ -3,6 +3,7 @@ import NotesCard from './NotesCard';
 import { NotesWrapper, NotesCards, SearchForm, MainNotesHeader, MainNotesHeaderContainer } from '../ReusableComponents/Notes';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
+import NotesTrash from './NotesTrash';
 
 class NotesContainer extends React.Component {
     constructor(props) {
@@ -22,11 +23,14 @@ class NotesContainer extends React.Component {
         this.props.setNotes(dragIndex, hoverIndex, dragCard);
     }
 
+    deleteCard = id => {
+        this.props.deleteNote(id);
+    }
+
     // Maps over all notes and passes them down to the NotesCard component
     render() {
         let notes = this.props.notes;
         let search = this.state.searchString.toString().trim().toLowerCase().replace(/\\/g, "\\\\").replace(/[°*"§%()[\]{}=\\?´`'#<>|,;.:+_-]+/g, '');
-        console.log(search);
 
         if (search.length > 0) {
             notes = notes.filter(note => note.title.toLowerCase().match(search)
@@ -37,12 +41,14 @@ class NotesContainer extends React.Component {
         return (
             <NotesWrapper>
 
-
                 <MainNotesHeaderContainer>
+
                     <MainNotesHeader main>Your Notes:</MainNotesHeader>
                     <SearchForm onSubmit={event => event.preventDefault()}>
                         <input onChange={this.handleInput} value={this.state.searchString} name='searchString' type='text' placeholder='Search...' />
                     </SearchForm>
+                    <NotesTrash deleteCard={this.deleteCard} />
+
                 </MainNotesHeaderContainer>
 
                 <NotesCards>

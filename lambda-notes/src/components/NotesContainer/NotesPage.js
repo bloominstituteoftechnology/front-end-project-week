@@ -7,7 +7,7 @@ import NotesContainer from './NotesContainer';
 import CreateNotesContainer from './CreateNotesContainer';
 import HomeContainer from '../HomeContainer/HomeContainer';
 import { Route } from 'react-router-dom';
-import { getNotes, setNotes } from '../../actions';
+import { getNotes, deleteNote, setNotes } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
@@ -34,7 +34,11 @@ class NotesPage extends Component {
 
                         <Route path='/' render={props => <SideBarContainer {...props} logout={this.logoutButton} />} />
                         <Route exact path='/' component={HomeContainer} />
-                        <Route exact path='/notes' render={props => <NotesContainer {...props} notes={this.props.notes} setNotes={this.props.setNotes} />} />
+                        <Route exact path='/notes' render={props =>
+                            <NotesContainer {...props}
+                                notes={this.props.notes}
+                                setNotes={this.props.setNotes}
+                                deleteNote={this.props.deleteNote} />} />
                         <Route exact path='/notes/:id' component={Note} />
                         <Route path='/notes/:id/edit' component={UpdateNotesContainer} />
                         <Route path='/create' component={CreateNotesContainer} />
@@ -54,4 +58,4 @@ const mapStateToProps = state => {
     }
 }
 // Authenticate used to check if user is logged in / withRouter used so redux knows that it changed routes'
-export default withRouter(connect(mapStateToProps, { getNotes, setNotes })(NotesPage));
+export default withRouter(connect(mapStateToProps, { getNotes, deleteNote, setNotes })(NotesPage));
