@@ -32,13 +32,21 @@ class NotesList extends Component {
                         <div className='notes-container'>
                             {this.props.searchedNotes.length > 0 ? (
                                 <React.Fragment>
-                                    {this.props.searchedNotes.map(note => {
-                                        return (
-                                            <Link className="note-link" to={'/note/' + note._id} key={note._id} >
-                                                <Note title={note.title} body={note.textBody} tags={note.tags} />
-                                            </Link>
-                                        )
-                                    })}
+                                    <React.Fragment>
+                                        {this.props.searchedNotes[0].noMatch ? (
+                                            <h1>{this.props.searchedNotes[0].noMatch}</h1>
+                                        ) : (
+                                            <React.Fragment>
+                                                {this.props.searchedNotes.map(note => {
+                                                    return (
+                                                        <Link className="note-link" to={'/note/' + note._id} key={note._id} >
+                                                            <Note title={note.title} body={note.textBody} tags={note.tags} />
+                                                        </Link>
+                                                    )
+                                                })}
+                                            </React.Fragment>
+                                        )}
+                                    </React.Fragment>
                                 </React.Fragment>
                             ) : (
                                 <React.Fragment>

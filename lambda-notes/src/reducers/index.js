@@ -15,12 +15,21 @@ export default (state = initialState, action) => {
             return { ...state, fetchingNotes: true };
         // places fetched notes on state
         case FETCHED_NOTES:
-            return { ...state, fetchingNotes: false, notes: action.payload };
+            return { ...state, fetchingNotes: false, notes: action.payload, searchedNotes: [] };
         // places the note requested by user to state
         case FETCHED_NOTE:
             return { ...state, fetchingNotes: false, singleNote: action.payload };
         case SET_SEARCHED:
-            return { ...state, searchedNotes: action.payload};
+            console.log(action.payload);
+            let searchNote = []
+            if(action.payload.length === 0) {
+                searchNote = [{
+                    noMatch: 'There are no matches',
+                }];
+            } else {
+                searchNote = action.payload;
+            }
+            return { ...state, searchedNotes: searchNote};
         // places server error message on state
         case ERROR:
             return { ...state, fetchingNotes: false, error: action.payload };

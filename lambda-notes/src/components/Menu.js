@@ -10,7 +10,7 @@ const Menu = props => {
     return (
         <div className='menu'>
             <h1>Lambda <br></br> Notes</h1>
-            <Link className='link' to='/' onClick={() => props.fetchNotes(URL)}>
+            <Link className='link' to='/' onClick={() => props.fetchNotes(URL)} >
                 <p className='link-btn'>View Your Notes</p>
             </Link>
             <Link className='link' to='/create-note'>

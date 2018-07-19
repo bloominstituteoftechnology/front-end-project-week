@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleSearch, fetchNotes } from '../actions';
+import { handleSearch } from '../actions';
 import '../styles/Search.css';
 
 class Search extends Component {
@@ -37,4 +37,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { handleSearch, fetchNotes })(Search);
+export default connect(mapStateToProps, { handleSearch })(Search);

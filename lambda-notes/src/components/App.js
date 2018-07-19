@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchNotes } from '../actions';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Menu from './Menu';
 import NotesList from './NotesList';
@@ -10,13 +8,9 @@ import DeleteNote from './DeleteNote';
 import EditNote from './EditNote';
 import '../styles/App.css';
 
-const URL = 'https://killer-notes.herokuapp.com/note/get/';
-
+// handles component routing
 const App = () => {
-
-
     return (
-      // handles component routing
         <Router>
             <div className='App'>
                 <Route path='/' component ={Menu} />
