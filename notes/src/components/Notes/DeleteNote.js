@@ -3,9 +3,7 @@ import Modal from 'react-modal';
 import { Link } from 'react-router-dom'
 import './DeleteNote.css'
 
-
-
-
+Modal.setAppElement('#main')
 class DeleteNote extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +36,7 @@ class DeleteNote extends Component {
                 >
                     <h4>Are you sure you want to delete this?</h4>
                     <div className="dialog-ctn">
-                        <Link to='/'>
+                        <Link to='/' style={{ textDecoration: 'none' }}>
                             <div className="delete-btn dialog-btn" onClick={this.Delete}>Delete</div>
                         </Link>
                         <div className="edit-btn dialog-btn" onClick={this.props.onClose}>No</div>

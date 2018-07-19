@@ -42,28 +42,28 @@ class ViewCard extends Component {
     onDelete = (note) => {
         this.props.deleteNote(note);
         this.onClose();
-        this.setState({ delete: false })
+        this.setState({ delete: false, note: null })
     }
     render() {
         return (
             <div className='view-ctn'>
-    
-                    <div className='action-ctn'>
-                        <Link to>
-                        <div className='link' onClick={this.deleteClicked}>delete</div>
-                        </Link>
 
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        
-                         <Link  to={{
-                            pathname: '/edit',
-                            state: { note: this.state.note },
-                        }} style={{ textDecoration: 'none' }}>
-                            <div className='link'>edit</div>
-                         </Link>
-                      
-                    </div>
-                
+                <div className='action-ctn'>
+                    <Link to>
+                        <div className='link' onClick={this.deleteClicked}>delete</div>
+                    </Link>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+
+                         <Link to={{
+                        pathname: '/edit',
+                        state: { note: this.state.note },
+                    }} style={{ textDecoration: 'none' }}>
+                        <div className='link'>edit</div>
+                    </Link>
+
+                </div>
+
 
                 {this.state.note ?
                     <div>

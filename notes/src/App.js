@@ -5,6 +5,7 @@ import SidePanel from './components/SidePanel/SidePanel'
 import NoteContainer from './components/Notes/NoteContainer'
 import ViewCard from './components/Notes/ViewCard'
 import EditNote from './components/Notes/EditNote'
+import Authentication from './components/Login/Authentication'
 import './App.css';
 
 class App extends Component {
@@ -12,13 +13,25 @@ class App extends Component {
         super();
         this.state = {
             notes: [],
+            user: ''
         };
+    }
+
+    componentDidMount() {
+        let user = localStorage.getItem('user');
+        if (localStorage.getItem(`myNotes`)) {
+            console.log(`${user} Notes`)
+            let notes = JSON.parse((localStorage.getItem(`myNotes`)))
+            this.setState({ notes, user })
+        }
     }
 
     createNote = (note) => {
         let notes = this.state.notes.slice();
+        note.id = notes.length + 1;
         notes.push(note);
         this.setState({ notes });
+        localStorage.setItem(`myNotes`, JSON.stringify(notes))
     }
 
     editNote = (note) => {
@@ -28,16 +41,20 @@ class App extends Component {
                 notes[i].title = note.title;
                 notes[i].description = note.description;
             }
+        localStorage.setItem(`myNotes`, JSON.stringify(notes))
         this.setState({ notes })
+
     }
     deleteNote = (note) => {
         let notes = this.state.notes.slice();
         let newNotes = notes.filter(found => {
-
             return found.id !== note.id;
         })
+        localStorage.setItem(`myNotes`, JSON.stringify(newNotes))
         this.setState({ notes: newNotes })
     }
+
+
 
     render() {
         return (
@@ -51,4 +68,4 @@ class App extends Component {
         );
     }
 }
-export default App;
+export default Authentication(App);

@@ -20,7 +20,7 @@ class CreateNote extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const note = { id: this.state.id, title: this.state.title, description: this.state.content };
-        let id = this.state.id + 1;
+        // let id = this.state.id + 1;
         this.props.createNote(note);
         this.setState({ title: '', content: '', id: id })
     }
