@@ -27,17 +27,12 @@ class Content extends React.Component {
 
                 <div className="page-content">
                     <Route
-                        exact path ="/"                    
-                        render={props => <NotesList {...props} data={this.props.data} />}
+                        exact path ="/"                   
                     />
+
                     <Route
-                        path ="/create"     //component={Create}         
-                        render={props => 
-                            <Create {...props} 
-                                data={this.props.data}
-                                addNote={this.props.addNote}
-                            />
-                        }
+                        path ="/create"     
+                        component={Create}      
                     />
                 </div>
             </React.Fragment>

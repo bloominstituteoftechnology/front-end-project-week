@@ -21,7 +21,7 @@ class Create extends React.Component {
             textBody: this.state.textBody
         }
         //console.log('from save butt',this.state)
-        this.props.addNote(input);
+        //this.props.addNote(input);
         //alert('save clicked');
   
     }
