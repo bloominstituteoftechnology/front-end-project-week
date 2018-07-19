@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -26,18 +26,21 @@ const StyledTitle = styled.h4`
 const StyledText = styled.p`
     font: Raleway Medium;
 `;
-const NoteCard = props => {
-    return(
-
+class NoteCard extends Component {
+    render(){
+        let { id, title, textBody } = this.props.note
+        return(
             <StyledNoteCard>
-                <Link to={`/notes/${props.note._id}`}
+                <Link to={`/notes/${id}`}
                     style={{ textDecoration: 'none', color: 'black' }}>
-                    <StyledTitle>{props.note.title}</StyledTitle>
-                    <StyledText>{props.note.textBody}</StyledText>
+                    <StyledTitle>{title}</StyledTitle>
+                    <StyledText>{textBody}</StyledText>
                 </Link>
             </StyledNoteCard>
 
-    );
+        );
+    }
+    
 }
 
 export default NoteCard;

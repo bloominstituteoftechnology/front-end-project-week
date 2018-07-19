@@ -13,8 +13,8 @@ const Card = posed.span({
 })
 
 const containerConfig = {
-   mount: { opacity: 1, translateX: 0, transition: { duration: 1000 }, beforeChildren: true},
-   unmount: { opacity: 0, translateX: -100 },
+   mount: { opacity: 1, translateX: 0, transition: { duration: 1000 }},
+   unmount: { opacity: 0, translateX: -200 },
 }
 const StyledNotesContainer = styled(posed.div(containerConfig))`
     padding: 5%;
