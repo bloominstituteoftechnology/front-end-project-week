@@ -33,7 +33,8 @@ class App extends Component {
           textBody: "Note Body 2"
         }
       ],
-      selected: ""
+      selected: [],
+      filter: []
     };
   }
 
@@ -47,7 +48,8 @@ class App extends Component {
   };
 
   handleSubmitNote = () => {
-    const notes = this.state.notes.slice();
+    // const notes = this.state.notes.slice();
+    let notes = this.state.notes;
     notes.push({
       id: Math.random(),
       title: this.state.title,
@@ -61,12 +63,6 @@ class App extends Component {
   };
 
   filterNote = () => {
-    // let filteredNote = this.state.notes.slice();
-    // filteredNote = filteredNote.filter(
-    //   filtered => filtered.id === this.state.selected.id
-    // );
-    // return filteredNote;
-
     // let filteredNote = this.state.notes.slice();
     // filteredNote = filteredNote.filter(
     //   filtered => filtered.notes === this.state.selected
@@ -91,6 +87,16 @@ class App extends Component {
     this.setState({ notes: notes });
   };
 
+  filterSearch = event => {
+    let notes = this.state.notes.slice();
+    notes = this.state.notes.filter(notes => {
+      if (notes.title.includes(event.target.value)) {
+        return notes;
+      }
+    });
+    this.setState({ filter: notes });
+  };
+
   render() {
     return (
       <MainBack>
@@ -109,9 +115,17 @@ class App extends Component {
             render={props => (
               <ListView
                 {...props}
-                notes={this.state.notes}
+                // notes={this.state.notes}
+                notes={
+                  this.state.filter.length > 0
+                    ? this.state.filter
+                    : this.state.notes
+                }
                 selectHandler={this.selectHandler}
                 selectedNote={this.state.selected}
+                //
+                value={this.state.value}
+                filterSearch={this.filterSearch}
               />
             )}
           />

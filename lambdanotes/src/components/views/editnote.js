@@ -3,6 +3,7 @@ import SideBar from "../functions/sidebar";
 import { Row, Col, Form, FormGroup, Input } from "reactstrap";
 import { ViewStyle, HeadStyle, Button } from "../../ReusableStyles";
 import { Link } from "react-router-dom";
+import "./Views.css";
 
 class EditNote extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class EditNote extends Component {
                 <Form>
                   <FormGroup>
                     <Input
+                      className="textinput"
                       type="textarea"
                       name="textBody"
                       onChange={this.props.editNoteHandler}
