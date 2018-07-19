@@ -15,25 +15,8 @@ const StyledNotePreview = styled.div`
   padding: ${props => props.theme.dimensions.notePreview.padding};
   background-color: ${props => props.theme.color.previewNoteBG};
 
-  /* OVERFLOW LOGIC START */
   overflow: hidden;
-  position: relative;
 
-  :after {
-    /* points in the end */
-    content: '';
-    /* absolute position */
-    position: absolute;
-    /* set position to right bottom corner of text */
-    right: 0;
-    /* set width and height */
-    width: 1em;
-    height: 1em;
-    margin-top: 0.2em;
-    /* bg color = bg color under block */
-    background: ${props => props.theme.color.previewNoteBG};
-  }
-  /*OVERFLOW LOGIC END*/
 
   h2 {
     padding: ${props => props.theme.dimensions.notePreview.headingPadding};
@@ -89,7 +72,7 @@ const NotePreview = props => {
   return connectDropTarget(
     connectDragSource(
       <div>
-        <StyledNotePreview style={{ backgroundColor: isOver ? 'blue' : null }}>
+        <StyledNotePreview style={{ opacity: isOver ? .4 : 1 }}>
           <h2>{title}</h2>
           <MarkdownText mdText={textBody} />
         </StyledNotePreview>
